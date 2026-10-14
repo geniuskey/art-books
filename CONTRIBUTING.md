@@ -69,7 +69,7 @@ artbook/
 - 이미지는 웹용으로 줄여(긴 변 1600px 이하, WebP, 품질 70~85) 저장하고 `du -sh shared/img`로 저장소 용량을 확인한다. 픽셀 단위 분석용 부분 확대는 원본 해상도에서 잘라 낸다(크레딧의 `derived`에 좌표를 적는다).
 - 작품 위에는 분석 레이어(명도만 보기, 주요 색 추출, 구도선, 시선 경로)를 SVG/canvas로 얹어 조작할 수 있게 한다. 분석 레이어는 이 서가의 그림(CC BY 4.0)이다.
 - **출처를 확인하지 못한 이미지는 쓰지 않는다.** 대신 같은 원리를 보여 주는 그림을 직접 그린다.
-- 참고: 시카고 미술관의 IIIF 이미지 서버는 자동 다운로드를 막는 경우가 있다(2026-10 확인). The Met은 `collectionapi.metmuseum.org`의 `primaryImage`로 내려받을 수 있다.
+- 참고(2026-10 확인): 시카고 미술관의 IIIF 이미지 서버는 자동 다운로드를 막는다. The Met은 `collectionapi.metmuseum.org/public/collection/v1/objects/<id>`의 `isPublicDomain`을 확인하고 `primaryImage`를 내려받는다. 검색은 `/v1/search`가 없어지고 `/public/collection/v1.1/search?…&limit=N`으로 바뀌었다. The Met의 모네 작품은 모두 `isPublicDomain: false`라 쓸 수 없다.
 
 ## 4. 계산 엔진 (`ART`, `shared/js/art.js`)
 
@@ -177,7 +177,7 @@ artbook/
 ```
 
 ## 8. JS 헬퍼 (`AB`, `shared/js/common.js`)
-- `AB.canvas(el|"#id", draw(ctx, w, h), {aspect, minHeight, maxHeight, height, bg, readback})` → `{redraw(), ctx, w, h, canvas}`. 리사이즈·테마 변경·웹 글꼴 도착 시 자동으로 다시 그린다. 만들자마자 draw를 한 번 부르므로 draw가 읽는 상태와 컨트롤을 먼저 만든다. draw 안에서 자기 반환값을 참조하지 않는다. 폭에 따라 높이가 달라져야 하면 `get height() {…}`를 넘긴다.
+- `AB.canvas(el|"#id", draw(ctx, w, h), {aspect, minHeight, maxHeight, height, bg, readback})` · `get height()`는 부모 폭이 0일 수 있으므로 `Math.max(200, el.parentElement.clientWidth || 600)`처럼 AB와 같은 폭 규칙으로 계산한다(0·음수를 돌려주면 aspect로 대신 정한다) → `{redraw(), ctx, w, h, canvas}`. 리사이즈·테마 변경·웹 글꼴 도착 시 자동으로 다시 그린다. 만들자마자 draw를 한 번 부르므로 draw가 읽는 상태와 컨트롤을 먼저 만든다. draw 안에서 자기 반환값을 참조하지 않는다. 폭에 따라 높이가 달라져야 하면 `get height() {…}`를 넘긴다.
 - `AB.drag(canvas, {start, move, end, hover})`, `AB.handle(ctx, x, y, {r, fill, ring})`.
 - `AB.chart(ctx, box|null, {x, y, xLabel, yLabel, xTicks, yTicks, xFmt, yFmt, series, vlines, hlines, points, bands})` → `{X, Y, box}`.
 - `AB.range(id, fmt, onInput)`, `AB.seg(id, onChange)`, `AB.check(id, onChange)`, `AB.stat(id, html)`, `AB.loop(el, (dt, t) => {})`.
@@ -256,6 +256,8 @@ ColorBook의 콜아웃 구성: 장마다 `.callout.studio` 1~3개, `.callout.try
 | 15 화면과 인쇄 | 포스터 인쇄 색이 화면과 다르다(CMYK 색역 밖의 초록, 종이의 흡수). 교정 인쇄로 조정하고 별색을 검토한다. 정한 것: 인쇄용 초록 값을 따로 지정하고 교정쇄로 확인하는 절차. |
 | 16 색 실험실 | 최종 브랜드 팔레트와 수채화 세 점의 색 계획을 실험실에서 종합 분석한다. 정답이 아니라 서윤의 선택으로 쓰고, 다른 선택지도 함께 남긴다. 도경의 마지막 메모. |
 | 17 용어집 | 케이스 없음(작업 노트 색인만 둔다). |
+
+위 표는 집필 전에 정한 계획이다. 각 장의 케이스가 실제로 정한 값(hex, 대비, 인쇄값)은 그 장의 `<section id="case">`와 17장 "서윤의 작업 노트 색인"에 있다. 케이스를 고칠 때는 앞뒤 장의 값과 어긋나지 않게 그 색인부터 확인한다.
 
 ### ColorBook 바닥글·README 문구
 화면에 보이는 색은 기기마다 다르다. 작품 이미지는 공공 도메인 자료이며 출처는 크레딧 페이지에 있다. 색채 심리 등 연구 결과가 엇갈리는 주제는 그 수준을 밝혀 두었다.

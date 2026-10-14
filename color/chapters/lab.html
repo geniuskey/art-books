@@ -73,12 +73,12 @@
       <svg viewBox="0 0 460 300" role="img" aria-label="색 실험실의 흐름: 이미지를 줄이고, 화소마다 세 숫자로 바꾸고, 패널로 모아 보고, 팔레트를 점검하고 내보낸다">
         <defs><marker id="lb-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
         <rect x="10" y="24" width="96" height="74" rx="8" class="f-surface"/>
-        <rect x="22" y="36" width="72" height="44" rx="3" fill="#c9a77c"/><rect x="22" y="58" width="72" height="22" fill="#2f7d5b"/><circle cx="76" cy="48" r="7" fill="#b95b3d"/>
+        <rect x="22" y="36" width="72" height="44" rx="3" fill="#c9a77c"/><rect x="22" y="58" width="72" height="22" fill="#2f7d5b"/><circle cx="76" cy="48" r="7" fill="#d24f39"/>
         <text x="58" y="94" text-anchor="middle" class="lbl-dim">이미지 한 장</text>
         <path d="M108 61 L138 61" class="s-line" marker-end="url(#lb-ar)"/>
         <rect x="142" y="24" width="96" height="74" rx="8" class="f-surface"/>
         <g transform="translate(166 34)">
-          <rect x="0" y="0" width="12" height="12" fill="#c9a77c"/><rect x="12" y="0" width="12" height="12" fill="#c9a77c"/><rect x="24" y="0" width="12" height="12" fill="#b95b3d"/><rect x="36" y="0" width="12" height="12" fill="#c9a77c"/>
+          <rect x="0" y="0" width="12" height="12" fill="#c9a77c"/><rect x="12" y="0" width="12" height="12" fill="#c9a77c"/><rect x="24" y="0" width="12" height="12" fill="#d24f39"/><rect x="36" y="0" width="12" height="12" fill="#c9a77c"/>
           <rect x="0" y="12" width="12" height="12" fill="#c9a77c"/><rect x="12" y="12" width="12" height="12" fill="#c9a77c"/><rect x="24" y="12" width="12" height="12" fill="#c9a77c"/><rect x="36" y="12" width="12" height="12" fill="#c9a77c"/>
           <rect x="0" y="24" width="12" height="12" fill="#2f7d5b"/><rect x="12" y="24" width="12" height="12" fill="#2f7d5b"/><rect x="24" y="24" width="12" height="12" fill="#2f7d5b"/><rect x="36" y="24" width="12" height="12" fill="#2f7d5b"/>
         </g>
@@ -381,7 +381,7 @@
       <div class="sim-readout">
         <div class="stat"><span class="k">가장 가까운 두 색(보통)</span><span class="v" id="ld-o-n">—</span></div>
         <div class="stat"><span class="k">가장 가까운 두 색(시뮬레이션)</span><span class="v" id="ld-o-s">—</span></div>
-        <div class="stat"><span class="k">책방 초록 ↔ 테라코타</span><span class="v" id="ld-o-g">—</span></div>
+        <div class="stat"><span class="k">포스터 바탕 ↔ 날짜 배지</span><span class="v" id="ld-o-g">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① 포스터에서 제1색각을 본다. 초록 면과 테라코타 제목이 비슷한 갈색빛 올리브로 다가간다. 두 색은 명도도 비슷해서(앞 시뮬레이터) 색과 명도 어느 쪽으로도 잘 갈리지 않는다. ② 전색각으로 바꾼다. 흑백 보기와 같은 결과다. 제목이 바탕에 묻히는 정도가 명도 패널의 노탄에서 본 것과 같다. ③ 심도를 0에서 100까지 천천히 올리며 "가장 가까운 두 색"의 ΔE가 언제 10 아래로 떨어지는지 본다. (Machado, Oliveira, Fernandes(2009)의 심도 1.0 행렬. 중간 심도는 보통 색각과의 선형 보간 근사다. 시뮬레이션은 평균적인 경향일 뿐, 같은 유형이라도 사람마다 보이는 정도가 다르다. 화면 색은 기기마다 다르다.)</div>
     </div>
@@ -564,7 +564,8 @@
   var hex = ART.hex;
   var INK = "#2b2a30", INK_DIM = "#6b6874", PAPER = "#fbfaf7", STAGE = "#e9e7e2";  // 고정 바탕과 그 위의 글자색
   var TAU = Math.PI * 2, D2R = Math.PI / 180;
-  var BR = { green: "#2f7d5b", deep: "#005132", light: "#71be98", acc: "#b95b3d", paper: "#f9f6f1", ink: "#1f2622", stone: "#89867e", kraft: "#c9a77c", ochre: "#d3a24a" };
+  // 앞 장들에서 정한 값: 로고 기준(1·3장), 바탕별 로고 변형(9장), 포스터 색(6~8장)
+  var BR = { green: "#2f7d5b", logoL: "#268662", logoD: "#287554", pbg: "#567666", cream: "#ffe2d7", acc: "#d24f39", dark: "#22342a", mute1: "#3d5446", mute2: "#7d9184", mute3: "#8c9e8f" };
   var NOTAN = ["#262626", "#8c8c8c", "#ececec"];  // 노탄 세 단계 회색(L* 약 15, 58, 93)
   var T1 = 35, T2 = 68, CTH = 0.10, GRAY_C = 0.03;  // 종합 실험실의 고정 기준
 
@@ -624,108 +625,107 @@
     ctx.putImageData(id, 0, 0);
   }
 
-  // 책방 E 가을 행사 포스터 시안(가상, 납작한 인쇄물)
+  // 책방 E 가을 행사 포스터 시안(가상, 납작한 인쇄물). 6~8장에서 정한 색: 바탕 #567666, 제목 크림 #ffe2d7,
+  // 어둠(책 그림) #22342a, 강조는 날짜 배지 #d24f39 하나(넓이 약 2~3%), 잎과 책등은 바탕 계열의 탁한 초록
   function paintPoster(ctx, w, h) {
-    var rnd = AB.rng(5);
-    ctx.fillStyle = BR.paper; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = BR.acc; ctx.font = "800 42px Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif"; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
-    ctx.fillText("가을 책 장터", 24, 74);
-    ctx.fillStyle = BR.ink; ctx.font = "700 16px Pretendard, sans-serif"; ctx.fillText("책방 E 가을 행사", 26, 104);
-    ctx.fillStyle = "#5c5a55"; ctx.font = "500 13px Pretendard, sans-serif"; ctx.fillText("헌책 교환 · 낭독회 · 작은 장터", 26, 126);
-    ctx.fillStyle = BR.acc; ctx.fillRect(24, 142, 168, 36);
-    ctx.fillStyle = BR.paper; ctx.font = "800 18px Pretendard, sans-serif"; ctx.fillText("10.25 – 11.2", 38, 167);
-    ctx.fillStyle = BR.green; ctx.fillRect(0, 196, w, h - 196);
-    // 서가 두 칸
+    var rnd = AB.rng(5), F = "Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+    ctx.fillStyle = BR.pbg; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = BR.cream; ctx.font = "800 44px " + F; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+    ctx.fillText("가을 책 산책", 24, 76);
+    ctx.font = "700 16px " + F; ctx.fillText("책방 E 가을 행사", 26, 106);
+    ctx.font = "500 13px " + F; ctx.fillText("헌책 교환 · 낭독회 · 작은 장터", 26, 128);
+    ctx.fillStyle = BR.acc; ctx.fillRect(24, 142, 132, 32);
+    ctx.fillStyle = BR.cream; ctx.font = "800 17px " + F; ctx.fillText("10.25 – 11.2", 36, 164);
+    // 서가 두 칸(어둠과 탁한 초록으로 묶는다)
     [[214, 300], [318, 410]].forEach(function (sh) {
       var x = 22;
       while (x < w - 30) {
         var bw = 12 + Math.floor(rnd() * 16), bh = 50 + Math.floor(rnd() * 34), r = rnd();
-        var col = r < 0.32 ? BR.deep : r < 0.52 ? BR.light : r < 0.72 ? BR.kraft : r < 0.84 ? BR.acc : r < 0.94 ? BR.paper : BR.ochre;
+        var col = r < 0.45 ? BR.dark : r < 0.7 ? BR.mute1 : r < 0.9 ? BR.mute2 : BR.mute3;
         if (x + bw > w - 22) break;
         if (rnd() < 0.12) { ctx.save(); ctx.translate(x, sh[1]); ctx.rotate(-0.22); ctx.fillStyle = col; ctx.fillRect(0, -bh, bw, bh); ctx.restore(); x += bw + 10; continue; }
         ctx.fillStyle = col; ctx.fillRect(x, sh[1] - bh, bw, bh);
         ctx.fillStyle = "rgba(0,0,0,0.12)"; ctx.fillRect(x, sh[1] - bh + 8, bw, 3);
         x += bw + 2;
       }
-      ctx.fillStyle = BR.deep; ctx.fillRect(16, sh[1], w - 32, 9);
+      ctx.fillStyle = BR.dark; ctx.fillRect(16, sh[1], w - 32, 9);
     });
-    // 떨어지는 잎(강조색)
-    for (var i = 0; i < 22; i++) {
-      var lx = 20 + rnd() * (w - 40), ly = 186 + rnd() * 284, s = 8 + rnd() * 8;
+    // 떨어지는 잎(바탕 계열의 탁한 초록으로 눌렀다)
+    for (var i = 0; i < 18; i++) {
+      var lx = 20 + rnd() * (w - 40), ly = 186 + rnd() * 250, s = 8 + rnd() * 8;
       ctx.save(); ctx.translate(lx, ly); ctx.rotate(rnd() * TAU);
-      ctx.fillStyle = rnd() < 0.62 ? BR.acc : BR.ochre; ctx.beginPath(); ctx.ellipse(0, 0, s, s * 0.48, 0, 0, TAU); ctx.fill(); ctx.restore();
+      ctx.fillStyle = rnd() < 0.6 ? BR.mute3 : BR.mute1; ctx.beginPath(); ctx.ellipse(0, 0, s, s * 0.48, 0, 0, TAU); ctx.fill(); ctx.restore();
     }
-    // 로고 원
-    ctx.fillStyle = BR.paper; ctx.beginPath(); ctx.arc(w - 58, 448, 26, 0, TAU); ctx.fill();
-    ctx.fillStyle = BR.deep; ctx.font = "800 30px Pretendard, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("E", w - 58, 450);
-    ctx.fillStyle = BR.paper; ctx.font = "600 13px Pretendard, sans-serif"; ctx.textAlign = "left"; ctx.fillText("매주 토요일 오후 3시 낭독회", 22, 452);
-    grain(ctx, w, h, 9, 5);
+    ctx.strokeStyle = BR.dark; ctx.lineWidth = 6; ctx.strokeRect(3, 3, w - 6, h - 6);
+    ctx.fillStyle = BR.cream; ctx.beginPath(); ctx.arc(w - 58, 448, 24, 0, TAU); ctx.fill();
+    ctx.fillStyle = BR.logoL; ctx.font = "800 28px " + F; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("E", w - 58, 450);
+    ctx.fillStyle = BR.cream; ctx.font = "600 13px " + F; ctx.textAlign = "left"; ctx.fillText("매주 토요일 오후 3시 낭독회", 22, 452);
+    grain(ctx, w, h, 9, 4);
   }
 
-  // 「창가의 책」 색 계획 스케치(가상, 수채 흉내)
+  // 「창가의 책」 색 계획 스케치(가상, 수채 흉내). 6장의 역광 구조(창은 종이를 남긴다 L* 약 90, 벽·탁자 약 58, 책·그림자 약 26),
+  // 11장의 원리(선명한 색은 한 군데: 빨간 책 한 권), 그림자는 검정 대신 파랑+번트 시에나
   function paintWindow(ctx, w, h) {
-    var rnd = AB.rng(11);
-    ctx.fillStyle = "#f4efe4"; ctx.fillRect(0, 0, w, h);
-    wash(ctx, rnd, R(0, 0, w, 236), "#ddcdb1", { base: 0.9, j: 2 });
-    wash(ctx, rnd, R(270, 36, 166, 160), "#e9f0ee", { base: 0.95, edge: 0.15 });
+    var rnd = AB.rng(11), PAPERW = "#f6f2e9";
+    ctx.fillStyle = PAPERW; ctx.fillRect(0, 0, w, h);
+    wash(ctx, rnd, R(0, 0, w, 236), "#a8957c", { base: 0.92, j: 2 });
+    ctx.fillStyle = PAPERW; ctx.fillRect(270, 36, 166, 160);  // 창: 칠하지 않은 종이
     ctx.save(); ctx.beginPath(); ctx.rect(272, 38, 162, 156); ctx.clip();
-    for (var i = 0; i < 9; i++) blob(ctx, rnd, 300 + rnd() * 120, 150 + rnd() * 50, 18 + rnd() * 22, 12 + rnd() * 14, vary("#a9c09c", rnd, 0.08, 0.4), 0.45);
-    ctx.restore();
-    var F = "#5b4534";
+    for (var i = 0; i < 7; i++) blob(ctx, rnd, 300 + rnd() * 120, 170 + rnd() * 30, 18 + rnd() * 22, 10 + rnd() * 12, vary("#cfdccc", rnd, 0.05, 0.3), 0.4);
+    ctx.restore(); ctx.globalAlpha = 1;
+    var F = "#40384a";  // 창틀: 짙은 보랏빛 회색(검정을 섞지 않은 어둠)
     [R(262, 28, 182, 9), R(262, 194, 182, 10), R(262, 28, 9, 176), R(435, 28, 9, 176), R(348, 28, 6, 170), R(262, 110, 182, 6)].forEach(function (r) { wash(ctx, rnd, r, F, { base: 0.92, j: 1.5, n: 3, edge: 0.2 }); });
-    wash(ctx, rnd, [[190, 236], [480, 236], [480, 300], [150, 300]], "#e8dcc4", { base: 0.5, edge: 0 });
-    wash(ctx, rnd, R(0, 230, w, h - 230), "#a8743f", { base: 0.88 });
-    wash(ctx, rnd, [[262, 232], [470, 232], [480, 262], [240, 262]], "#d6b07a", { base: 0.55, edge: 0 });
-    // 그림자(보랏빛 파랑)
-    wash(ctx, rnd, [[112, 236], [256, 236], [190, 286], [30, 286]], "#6b6690", { base: 0.5, edge: 0.12 });
-    // 책 더미
-    wash(ctx, rnd, R(116, 206, 152, 30), BR.green, { base: 0.92, j: 1.5 });
-    wash(ctx, rnd, R(122, 211, 140, 5), "#efe6cf", { base: 0.9, j: 1, n: 2, edge: 0 });
-    wash(ctx, rnd, R(126, 178, 134, 28), BR.acc, { base: 0.92, j: 1.5 });
-    wash(ctx, rnd, R(120, 152, 142, 26), "#cf9f48", { base: 0.92, j: 1.5 });
-    wash(ctx, rnd, R(124, 157, 134, 4), "#f1e8d2", { base: 0.9, j: 1, n: 2, edge: 0 });
-    // 찻잔
-    ctx.globalAlpha = 0.5; ctx.fillStyle = "#7a7090"; ctx.beginPath(); ctx.ellipse(304, 238, 26, 6, 0, 0, TAU); ctx.fill();
-    wash(ctx, rnd, [[288, 202], [318, 202], [314, 234], [292, 234]], "#f3efe7", { base: 0.95, j: 1.2, n: 3 });
-    // 화분
-    wash(ctx, rnd, [[384, 160], [424, 160], [418, 196], [390, 196]], "#b8613e", { base: 0.92, j: 1.5 });
-    for (var k = 0; k < 14; k++) blob(ctx, rnd, 404 + (rnd() - 0.5) * 50, 140 + (rnd() - 0.5) * 34, 6 + rnd() * 9, 4 + rnd() * 6, vary("#5d8a3c", rnd, 0.12, 0.4), 0.75);
+    wash(ctx, rnd, R(0, 230, w, h - 230), "#97795c", { base: 0.9 });
+    wash(ctx, rnd, [[262, 232], [470, 232], [480, 258], [240, 258]], "#c9b391", { base: 0.6, edge: 0 });
+    // 그림자(파랑+번트 시에나의 차가운 어둠)
+    wash(ctx, rnd, [[110, 236], [256, 236], [190, 290], [24, 290]], "#3f4258", { base: 0.75, edge: 0.12 });
+    // 책 더미: 역광이라 어둡고, 한 권만 선명한 빨강(퀴나크리돈 마젠타+레몬 옐로)
+    wash(ctx, rnd, R(116, 206, 152, 30), "#3c3a46", { base: 0.94, j: 1.5 });
+    wash(ctx, rnd, R(126, 178, 134, 28), "#c73a43", { base: 0.95, j: 1.5 });
+    wash(ctx, rnd, R(120, 152, 142, 26), "#4a4038", { base: 0.94, j: 1.5 });
+    wash(ctx, rnd, R(124, 157, 134, 4), "#8a7d6c", { base: 0.9, j: 1, n: 2, edge: 0 });
+    // 찻잔(역광 실루엣)
+    wash(ctx, rnd, [[288, 202], [318, 202], [314, 234], [292, 234]], "#5d5868", { base: 0.92, j: 1.2, n: 3 });
+    // 화분과 잎(탁한 초록: 레몬 옐로+프탈로 블루+번트 시에나)
+    wash(ctx, rnd, [[384, 160], [424, 160], [418, 196], [390, 196]], "#5c4639", { base: 0.92, j: 1.5 });
+    for (var k = 0; k < 14; k++) blob(ctx, rnd, 404 + (rnd() - 0.5) * 50, 140 + (rnd() - 0.5) * 34, 6 + rnd() * 9, 4 + rnd() * 6, vary("#3f5440", rnd, 0.08, 0.3), 0.85);
     ctx.globalAlpha = 1;
-    grain(ctx, w, h, 12, 9);
+    grain(ctx, w, h, 12, 8);
   }
 
-  // 「비 오는 골목」 색 계획 스케치(가상)
+  // 「비 오는 골목」 색 계획 스케치(가상). 7장: 파랑+번트 시에나 회색(따뜻함·중간·차가움)과 빨간 우산 하나,
+  // 11장: 한 색의 다섯 농담 + 종이 여백
   function paintAlley(ctx, w, h) {
-    var rnd = AB.rng(21);
-    ctx.fillStyle = "#eef0ef"; ctx.fillRect(0, 0, w, h);
-    wash(ctx, rnd, R(0, 0, w, 190), "#c5ccd1", { base: 0.9 });
+    var rnd = AB.rng(21), T = ["#d8d4d3", "#aca3a3", "#857a7d", "#5f5459", "#3f363d"];  // 회색 혼합의 다섯 농담
+    ctx.fillStyle = "#f4f1ec"; ctx.fillRect(0, 0, w, h);
+    wash(ctx, rnd, R(0, 0, w, 190), T[0], { base: 0.6 });
     var LW = function (u, v) { var x = u * 214, t = u * 100, b = 320 - u * 142; return [x, t + (b - t) * v]; };
     var RW = function (u, v) { var x = w - u * 192, t = u * 100, b = 330 - u * 152; return [x, t + (b - t) * v]; };
-    wash(ctx, rnd, [[0, 0], [214, 100], [214, 178], [0, 320]], "#7f878d", { base: 0.9 });
-    wash(ctx, rnd, [[w, 0], [288, 100], [288, 178], [w, 330]], "#8e8f89", { base: 0.9 });
-    wash(ctx, rnd, R(214, 100, 74, 78), "#aab1b4", { base: 0.85, edge: 0.15 });
-    wash(ctx, rnd, [[0, 320], [214, 178], [288, 178], [w, 330], [w, h], [0, h]], "#676f75", { base: 0.92 });
+    wash(ctx, rnd, [[0, 0], [214, 100], [214, 178], [0, 320]], "#6a5a58", { base: 0.9 });   // 따뜻한 회색: 젖은 벽돌
+    wash(ctx, rnd, [[w, 0], [288, 100], [288, 178], [w, 330]], T[2], { base: 0.9 });
+    wash(ctx, rnd, R(214, 100, 74, 78), T[1], { base: 0.85, edge: 0.15 });
+    wash(ctx, rnd, [[0, 320], [214, 178], [288, 178], [w, 330], [w, h], [0, h]], "#5b5763", { base: 0.92 });  // 차가운 회색: 길
     var quad = function (f, u0, u1, v0, v1) { return [f(u0, v0), f(u1, v0), f(u1, v1), f(u0, v1)]; };
-    [[0.08, 0.26, 0.18, 0.42], [0.42, 0.56, 0.22, 0.42], [0.72, 0.82, 0.25, 0.42]].forEach(function (q, i) { wash(ctx, rnd, quad(LW, q[0], q[1], q[2], q[3]), i === 1 ? "#e6b35a" : "#4d5458", { base: 0.9, j: 1.5, n: 3 }); });
-    [[0.1, 0.3, 0.2, 0.44], [0.5, 0.64, 0.24, 0.42]].forEach(function (q, i) { wash(ctx, rnd, quad(RW, q[0], q[1], q[2], q[3]), i === 1 ? "#e8b964" : "#4f5559", { base: 0.9, j: 1.5, n: 3 }); });
-    // 젖은 길의 반사
-    wash(ctx, rnd, R(104, 262, 10, 70), "#c09a5c", { base: 0.32, edge: 0, j: 4 });
-    wash(ctx, rnd, R(368, 268, 10, 64), "#c4a066", { base: 0.3, edge: 0, j: 4 });
-    wash(ctx, rnd, R(314, 296, 14, 50), "#9c4a40", { base: 0.35, edge: 0, j: 4 });
-    ctx.globalAlpha = 0.35; ctx.fillStyle = "#a3abb0"; ctx.beginPath(); ctx.ellipse(196, 318, 60, 9, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
+    [[0.08, 0.26, 0.18, 0.42], [0.42, 0.56, 0.22, 0.42], [0.72, 0.82, 0.25, 0.42]].forEach(function (q, i) { wash(ctx, rnd, quad(LW, q[0], q[1], q[2], q[3]), i === 1 ? T[1] : T[4], { base: 0.9, j: 1.5, n: 3 }); });
+    [[0.1, 0.3, 0.2, 0.44], [0.5, 0.64, 0.24, 0.42]].forEach(function (q, i) { wash(ctx, rnd, quad(RW, q[0], q[1], q[2], q[3]), i === 1 ? T[1] : T[4], { base: 0.9, j: 1.5, n: 3 }); });
+    // 젖은 길에 비친 밝은 창과 우산
+    wash(ctx, rnd, R(104, 262, 10, 70), T[1], { base: 0.45, edge: 0, j: 4 });
+    wash(ctx, rnd, R(368, 268, 10, 64), T[1], { base: 0.45, edge: 0, j: 4 });
+    wash(ctx, rnd, R(314, 296, 14, 50), "#a63a34", { base: 0.45, edge: 0, j: 4 });
+    ctx.globalAlpha = 0.45; ctx.fillStyle = T[0]; ctx.beginPath(); ctx.ellipse(196, 318, 60, 9, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
     // 우산 쓴 사람
-    wash(ctx, rnd, [[313, 236], [331, 236], [334, 284], [310, 284]], "#363a40", { base: 0.95, j: 1.2, n: 3 });
-    wash(ctx, rnd, R(314, 282, 6, 14), "#30343a", { base: 0.95, j: 1, n: 2, edge: 0 });
-    wash(ctx, rnd, R(325, 282, 6, 14), "#30343a", { base: 0.95, j: 1, n: 2, edge: 0 });
+    wash(ctx, rnd, [[313, 236], [331, 236], [334, 284], [310, 284]], T[4], { base: 0.95, j: 1.2, n: 3 });
+    wash(ctx, rnd, R(314, 282, 6, 14), T[4], { base: 0.95, j: 1, n: 2, edge: 0 });
+    wash(ctx, rnd, R(325, 282, 6, 14), T[4], { base: 0.95, j: 1, n: 2, edge: 0 });
     var dome = []; for (var i = 0; i <= 12; i++) { var an = Math.PI + (i / 12) * Math.PI; dome.push([322 + Math.cos(an) * 32, 238 + Math.sin(an) * 20]); }
-    wash(ctx, rnd, dome, "#b8352b", { base: 0.95, j: 1.5, sub: 1 });
-    // 빗줄기
-    ctx.strokeStyle = "rgba(236,241,245,0.38)"; ctx.lineWidth = 0.9;
+    wash(ctx, rnd, dome, "#c0342c", { base: 0.95, j: 1.5, sub: 1 });
+    ctx.strokeStyle = "rgba(244,241,236,0.4)"; ctx.lineWidth = 0.9;
     for (var r = 0; r < 160; r++) { var x = rnd() * w, y = rnd() * h, L = 8 + rnd() * 10; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - L * 0.18, y + L); ctx.stroke(); }
     grain(ctx, w, h, 22, 8);
   }
 
-  // 「해 질 녘 서점 앞」 색 계획 스케치(가상)
+  // 「해 질 녘 서점 앞」 색 계획 스케치(가상). 10장: 빛 받은 벽 #e0c1a0, 그림자 #44566d, 그림자에 검정 없음,
+  // 창 불빛이 가장 따뜻하고 밝은 자리. 11장: 그늘은 따뜻한 색과 차가운 색의 나란한 붓질
   function paintDusk(ctx, w, h) {
     var rnd = AB.rng(31);
     var g = ctx.createLinearGradient(0, 0, 0, 210);
@@ -733,26 +733,28 @@
     ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
     for (var i = 0; i < 6; i++) blob(ctx, rnd, rnd() * w, 30 + rnd() * 90, 40 + rnd() * 50, 8 + rnd() * 8, vary("#c98a92", rnd, 0.06, 0.3), 0.35);
     ctx.globalAlpha = 1;
-    wash(ctx, rnd, [[0, 140], [60, 140], [60, 118], [100, 118], [100, 150], [w, 150], [w, 120], [430, 120], [430, 100], [390, 100], [390, 140], [w, 140], [w, 300], [0, 300]], "#6a5fa8", { base: 0.9, sub: 2 });
-    wash(ctx, rnd, R(108, 86, 264, 210), "#b5694c", { base: 0.92 });
+    // 길 건너 건물(그늘 속, 푸른 회청)
+    wash(ctx, rnd, [[0, 140], [60, 140], [60, 118], [100, 118], [100, 150], [w, 150], [w, 120], [430, 120], [430, 100], [390, 100], [390, 140], [w, 140], [w, 300], [0, 300]], "#44566d", { base: 0.92, sub: 2 });
+    wash(ctx, rnd, R(108, 86, 264, 210), "#e0c1a0", { base: 0.94 });   // 빛 받은 서점 벽
+    // 벽 아래쪽으로 올라오는 그림자: 차가운 회청과 따뜻한 보라 붓질을 나란히
+    wash(ctx, rnd, R(108, 236, 264, 60), "#44566d", { base: 0.85, edge: 0.1 });
+    for (var s2 = 0; s2 < 12; s2++) wash(ctx, rnd, R(112 + s2 * 22, 240 + rnd() * 8, 8, 44), s2 % 2 ? "#6d5a74" : "#3e5a78", { base: 0.55, edge: 0, j: 2, n: 2 });
     wash(ctx, rnd, R(200, 100, 80, 30), "#f2e8d6", { base: 0.95, j: 1.2, n: 2 });
-    ctx.fillStyle = BR.ink; ctx.font = "800 17px Pretendard, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("책방 E", 240, 116);
-    wash(ctx, rnd, [[116, 146], [364, 146], [378, 178], [102, 178]], "#2a6a50", { base: 0.92, j: 1.5 });
-    wash(ctx, rnd, R(126, 188, 176, 82), "#f7bd62", { base: 0.95 });
+    ctx.fillStyle = "#151917"; ctx.font = "800 17px Pretendard, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("책방 E", 240, 116);
+    wash(ctx, rnd, [[116, 146], [364, 146], [378, 178], [102, 178]], "#2f7d5b", { base: 0.92, j: 1.5 });
+    wash(ctx, rnd, R(126, 188, 176, 82), "#ffcf70", { base: 0.97 });   // 창 불빛
     [208, 230, 252].forEach(function (y) { wash(ctx, rnd, R(132, y, 164, 5), "#b5793f", { base: 0.75, j: 1, n: 2, edge: 0 }); });
-    wash(ctx, rnd, R(316, 186, 42, 106), "#55463f", { base: 0.92, j: 1.2 });
-    wash(ctx, rnd, R(0, 292, w, h - 292), "#a08d86", { base: 0.92 });
-    // 길게 누운 그림자(보랏빛)
-    wash(ctx, rnd, [[0, 296], [108, 294], [40, 338], [0, 352]], "#5a4f9a", { base: 0.6, edge: 0.1 });
-    wash(ctx, rnd, [[384, 300], [404, 300], [300, 340], [268, 340]], "#5a4f9a", { base: 0.55, edge: 0.1 });
-    wash(ctx, rnd, [[60, 306], [74, 306], [0, 336], [0, 328]], "#5a4f9a", { base: 0.5, edge: 0 });
-    // 사람 둘
+    wash(ctx, rnd, R(316, 186, 42, 106), "#4b4660", { base: 0.92, j: 1.2 });
+    wash(ctx, rnd, R(0, 292, w, h - 292), "#8a8a96", { base: 0.92 });
+    wash(ctx, rnd, [[0, 296], [108, 294], [40, 338], [0, 352]], "#44566d", { base: 0.7, edge: 0.1 });
+    wash(ctx, rnd, [[384, 300], [404, 300], [300, 340], [268, 340]], "#44566d", { base: 0.65, edge: 0.1 });
+    // 사람 둘(검정 대신 짙은 남보라)
     [[394, 246], [66, 258]].forEach(function (f) {
-      wash(ctx, rnd, [[f[0] - 8, f[1]], [f[0] + 8, f[1]], [f[0] + 10, f[1] + 54], [f[0] - 10, f[1] + 54]], "#3b3346", { base: 0.95, j: 1, n: 2 });
-      ctx.globalAlpha = 0.95; ctx.fillStyle = "#3b3346"; ctx.beginPath(); ctx.arc(f[0], f[1] - 8, 7, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
+      wash(ctx, rnd, [[f[0] - 8, f[1]], [f[0] + 8, f[1]], [f[0] + 10, f[1] + 54], [f[0] - 10, f[1] + 54]], "#36405a", { base: 0.95, j: 1, n: 2 });
+      ctx.globalAlpha = 0.95; ctx.fillStyle = "#36405a"; ctx.beginPath(); ctx.arc(f[0], f[1] - 8, 7, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
     });
     ctx.globalAlpha = 0.5; ctx.fillStyle = "#ffe2a0"; ctx.beginPath(); ctx.arc(436, 176, 12, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
-    wash(ctx, rnd, R(434, 180, 4, 112), "#3d3a48", { base: 0.9, j: 0.8, n: 1, edge: 0 });
+    wash(ctx, rnd, R(434, 180, 4, 112), "#3d4a5e", { base: 0.9, j: 0.8, n: 1, edge: 0 });
     grain(ctx, w, h, 32, 8);
   }
 
@@ -1308,7 +1310,7 @@
       ctx.fillText("테두리: 그 줄에서 가장 비슷한 두 색", 10, 94);
       AB.stat("ld-o-n", "ΔE " + AB.fix(dn.min, 1));
       AB.stat("ld-o-s", "ΔE " + AB.fix(ds.min, 1) + " <small>" + pal[ds.pair[0]].hex + " · " + pal[ds.pair[1]].hex + "</small>");
-      var g = ART.parse(BR.green), a = ART.parse(BR.acc);
+      var g = ART.parse(BR.pbg), a = ART.parse(BR.acc);
       AB.stat("ld-o-g", "ΔE " + AB.fix(ART.diff(ART.simulateCVD(g, t, s), ART.simulateCVD(a, t, s)), 1) + " <small>보통 " + AB.fix(ART.diff(g, a), 1) + "</small>");
     }, { height: 116, bg: PAPER });
     function redraw() { cvA.redraw(); cvB.redraw(); cvP.redraw(); }

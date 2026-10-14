@@ -7,7 +7,7 @@
 
 | 순서 | 경로 | 책 | 다루는 것 | 상태 |
 |---|---|---|---|---|
-| 1 | [/color/](https://artbook.euiyun.com/color/) | ColorBook — 색채 | 빛과 지각, 색 모델, 혼색, 조화, 대비, 접근성, 팔레트 | 집필 중 (1장 공개) |
+| 1 | [/color/](https://artbook.euiyun.com/color/) | ColorBook — 색채 | 빛과 지각, 색 모델, 혼색, 조화, 대비, 접근성, 팔레트 | 출간 (17장, 시뮬레이터 108개) |
 | 2 | /composition/ | CompositionBook — 형태와 구도 | 점·선·면, 게슈탈트, 균형, 리듬, 3분할·황금비의 실제, 시선 흐름, 여백 | 계획 |
 | 3 | /drawing/ | DrawingBook — 드로잉 | 투시(1·2·3점), 빛과 그림자, 비례, 인체 구조, 제스처 | 계획 |
 | 4 | /type/ | TypeBook — 타이포그래피 | 글자의 구조, 한글 타이포, 자간·행간, 위계, 그리드 | 계획 |
@@ -20,10 +20,23 @@
 
 | 장 | 파일 | 부 | 주제 |
 |---|---|---|---|
-| 01 | color/chapters/overview.html | — | 색의 지도: 색이 생기는 네 자리, 빛·물감·지각의 세 갈래, 점묘, 동시대비, 메타메리즘, 화면 색의 한계, HSL의 함정 |
-| 02~15 | color/chapters/*.html | 지각·체계·관계·쓰임 | 빛과 눈, 색을 숫자로, 섞기, 색상환과 조화, 명도, 채도와 톤, 대비, 색의 상대성, 빛과 그림자의 색, 그림 속 색, 색의 의미와 문화, 접근성, 팔레트, 화면과 인쇄 (집필 중) |
-| 16 | color/chapters/lab.html | — | 색 실험실 (집필 중) |
-| 17 | color/chapters/glossary.html | — | 용어집 & 종합 퀴즈 (집필 중) |
+| 01 | color/chapters/overview.html | — | 색의 지도: 색이 생기는 네 자리, 빛·물감·지각의 세 갈래, 점묘, 동시대비, 메타메리즘, 화면 색의 한계 |
+| 02 | color/chapters/light.html | 지각 | 빛과 눈: 스펙트럼, 원뿔세포, 색 맞추기 실험, 광원과 견본, 메타머, 푸르키녜 현상 |
+| 03 | color/chapters/models.html | 체계 | 색을 숫자로: RGB·HSL의 함정, 감마, Lab·OKLCH, 색역과 Display P3 |
+| 04 | color/chapters/mixing.html | 체계 | 섞기: 가산·감산·병치, 쿠벨카–뭉크 물감 혼합, 틴트·셰이드, 글레이즈, 제한 팔레트 |
+| 05 | color/chapters/wheel.html | 체계 | 색상환과 조화: RYB와 지각 색상환, 배색 공식과 그 한계, 잔상, 오방색 |
+| 06 | color/chapters/value.html | 관계 | 명도가 먼저다: 흑백으로 보기, 노탄, 눈 가늘게 뜨기, 먹의 농담 |
+| 07 | color/chapters/chroma.html | 관계 | 채도와 톤: 크로마, 최대 채도 지도, 회색의 힘, 채도 예산 |
+| 08 | color/chapters/contrast.html | 관계 | 대비: 이텐의 일곱 가지 대비, 초점 만들기 |
+| 09 | color/chapters/relativity.html | 관계 | 색은 상대적이다: 알베르스 실험, 동시대비와 동화, 색 항상성, 착시 |
+| 10 | color/chapters/temperature.html | 지각 | 빛의 색과 그림자의 색: 색온도, 화이트밸런스, 시간대별 빛, 푸른 그림자 |
+| 11 | color/chapters/painting.html | 쓰임 | 그림 속 색: 명작의 팔레트 분석, 인상주의, 수묵의 농담과 오방색 |
+| 12 | color/chapters/meaning.html | 쓰임 | 색의 의미와 문화: 문화권별 의미, 색 이름, 색채 심리 주장의 근거 수준 |
+| 13 | color/chapters/access.html | 쓰임 | 모두를 위한 색: 색각이상, WCAG 대비, 색에만 의존하지 않기 |
+| 14 | color/chapters/palette.html | 쓰임 | 팔레트 만들기: UI 팔레트, 데이터 시각화 팔레트, 이미지에서 색 뽑기 |
+| 15 | color/chapters/print.html | 쓰임 | 화면과 인쇄: CMYK, 인쇄 색역, 색 관리, 망점, 별색, 교정쇄 |
+| 16 | color/chapters/lab.html | — | 색 실험실: 이미지 한 장으로 명도·채도·색상·대비·색각·팔레트를 한꺼번에 분석 |
+| 17 | color/chapters/glossary.html | — | 용어집 & 종합 퀴즈, 작업 노트 색인, 이미지 크레딧 |
 
 화면에 보이는 색은 기기마다 다릅니다. 작품 이미지는 공공 도메인 자료이며 출처는 [크레딧 페이지](https://artbook.euiyun.com/credits.html)에 있습니다. 색채 심리 등 연구 결과가 엇갈리는 주제는 그 수준을 밝혀 두었습니다.
 

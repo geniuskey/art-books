@@ -5,7 +5,7 @@
 window.AB_SHELF = {
   footer: "화면에 보이는 색은 기기마다 다르다. 작품 이미지는 공공 도메인 자료이며 출처는 크레딧 페이지에 있다. 색채 심리 등 연구 결과가 엇갈리는 주제는 그 수준을 밝혀 두었다.",
   books: [
-    { order: 1, path: "color", title: "ColorBook", sub: "색채", status: "writing", motif: "wheel",
+    { order: 1, path: "color", title: "ColorBook", sub: "색채", status: "published", motif: "wheel",
       desc: "빛과 지각, 색을 숫자로 적는 법, 혼색, 조화, 대비, 접근성, 팔레트. 색은 이름이 아니라 관계라는 것을 만져 보며 배운다.",
       topics: ["빛과 지각", "색 모델", "혼색", "조화", "대비", "접근성", "팔레트"] },
     { order: 2, path: "composition", title: "CompositionBook", sub: "형태와 구도", status: "planned", motif: "spiral",
