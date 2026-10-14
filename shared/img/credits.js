@@ -174,7 +174,8 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39888",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/value.html"
+   "color/chapters/value.html",
+   "color/chapters/painting.html"
   ]
  },
  {
@@ -241,6 +242,139 @@ window.AB_CREDITS = [
   "checked": "2026-10-14",
   "usedIn": [
    "color/chapters/contrast.html"
+  ]
+ },
+ {
+  "id": "pissarro-rue-epicerie-rouen",
+  "file": "pissarro-rue-epicerie-rouen.webp",
+  "derived": "원본 3009×3719 JPEG에서 가장자리 테두리를 잘라(가로 40~2969, 세로 40~3687 px) 긴 변 1600px WebP(1285×1600, 품질 70)로 줄임",
+  "title": "루앙 에피스리 거리 (햇빛 효과)",
+  "titleEn": "Rue de l'Epicerie, Rouen (Effect of Sunlight)",
+  "artist": "카미유 피사로 (Camille Pissarro, 1830–1903)",
+  "date": "1898",
+  "medium": "캔버스에 유채",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Purchase, Mr. and Mrs. Richard J. Bernhard Gift, 1960",
+  "objectId": 437311,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT1139.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437311",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437311",
+  "checked": "2026-10-14",
+  "usedIn": [
+   "color/chapters/temperature.html",
+   "color/chapters/painting.html"
+  ]
+ },
+ {
+  "id": "pissarro-tuileries-spring-morning",
+  "file": "pissarro-tuileries-spring-morning.webp",
+  "derived": "원본 3811×3049 JPEG에서 가장자리 테두리를 잘라(가로 32~3787, 세로 48~3017 px) 긴 변 1600px WebP(1600×1265, 품질 76)로 줄임",
+  "title": "튈르리 정원, 봄날 아침",
+  "titleEn": "The Garden of the Tuileries on a Spring Morning",
+  "artist": "카미유 피사로 (Camille Pissarro, 1830–1903)",
+  "date": "1899",
+  "medium": "캔버스에 유채",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Mr. and Mrs. Douglas Dillon, 1992",
+  "objectId": 437313,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT1042.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437313",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437313",
+  "checked": "2026-10-14",
+  "usedIn": [
+   "color/chapters/temperature.html"
+  ]
+ },
+ {
+  "id": "pissarro-tuileries-winter-afternoon",
+  "file": "pissarro-tuileries-winter-afternoon.webp",
+  "derived": "원본 4000×3184 JPEG에서 가장자리 테두리를 잘라(가로 96~3912, 세로 80~3104 px) 긴 변 1600px WebP(1600×1268, 품질 76)로 줄임",
+  "title": "튈르리 정원, 겨울 오후",
+  "titleEn": "The Garden of the Tuileries on a Winter Afternoon",
+  "artist": "카미유 피사로 (Camille Pissarro, 1830–1903)",
+  "date": "1899",
+  "medium": "캔버스에 유채",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift from the Collection of Marshall Field III, 1979",
+  "objectId": 437312,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-14936-037.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437312",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437312",
+  "checked": "2026-10-14",
+  "usedIn": [
+   "color/chapters/temperature.html"
+  ]
+ },
+ {
+  "id": "vermeer-young-woman-water-pitcher",
+  "file": "vermeer-young-woman-water-pitcher.webp",
+  "derived": "원본 3437×3866 JPEG에서 가장자리를 잘라(가로 24~3405, 세로 40~3842 px) 긴 변 1600px WebP(1423×1600, 품질 76)로 줄임",
+  "title": "물병을 든 젊은 여인",
+  "titleEn": "Young Woman with a Water Pitcher",
+  "artist": "요하네스 페르메이르 (Johannes Vermeer, 1632–1675)",
+  "date": "1662년경",
+  "medium": "캔버스에 유채",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Marquand Collection, Gift of Henry G. Marquand, 1889",
+  "objectId": 437881,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP353257.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437881",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437881",
+  "checked": "2026-10-14",
+  "usedIn": [
+   "color/chapters/painting.html"
+  ]
+ },
+ {
+  "id": "vangogh-wheat-field-cypresses",
+  "file": "vangogh-wheat-field-cypresses.webp",
+  "derived": "원본 4000×3184 JPEG에서 가장자리 테두리를 잘라(가로 104~3872, 세로 128~3088 px) 긴 변 1600px WebP(1600×1257, 품질 68)로 줄임",
+  "title": "사이프러스가 있는 밀밭",
+  "titleEn": "Wheat Field with Cypresses",
+  "artist": "빈센트 반 고흐 (Vincent van Gogh, 1853–1890)",
+  "date": "1889",
+  "medium": "캔버스에 유채",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Purchase, The Annenberg Foundation Gift, 1993",
+  "objectId": 436535,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-42549-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436535",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436535",
+  "checked": "2026-10-14",
+  "usedIn": [
+   "color/chapters/painting.html"
+  ]
+ },
+ {
+  "id": "joseon-golden-rooster-hen",
+  "file": "joseon-golden-rooster-hen.webp",
+  "derived": "원본 861×2000 JPEG에서 표구를 잘라 내고 그림 부분(가로 100~760, 세로 190~1862 px)만 원본 해상도 그대로 WebP(660×1672, 품질 80)로 저장",
+  "title": "금계도 (금빛 수탉과 암탉)",
+  "titleEn": "Golden Rooster and Hen",
+  "artist": "작가 미상 (Unidentified artist), 조선",
+  "date": "19세기 (19th century)",
+  "medium": "족자, 종이에 먹과 채색",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1919",
+  "objectId": 40073,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP289323.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/40073",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40073",
+  "checked": "2026-10-14",
+  "usedIn": [
+   "color/chapters/painting.html"
   ]
  }
 ];
