@@ -220,5 +220,27 @@ window.AB_CREDITS = [
   "usedIn": [
    "color/chapters/chroma.html"
   ]
+ },
+ {
+  "id": "vangogh-sunflowers",
+  "file": "vangogh-sunflowers.webp",
+  "derived": "원본 4000×2826 JPEG를 긴 변 1600px(1600×1130) WebP(품질 78)로 줄임",
+  "title": "해바라기",
+  "titleEn": "Sunflowers",
+  "artist": "빈센트 반 고흐 (Vincent van Gogh, 1853–1890)",
+  "date": "1887",
+  "medium": "캔버스에 유채",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1949",
+  "objectId": 436524,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-41223-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436524",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+  "checked": "2026-10-14",
+  "usedIn": [
+   "color/chapters/contrast.html"
+  ]
  }
 ];
