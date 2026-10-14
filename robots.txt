@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artbook.euiyun.com/sitemap.xml

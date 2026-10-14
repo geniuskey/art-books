@@ -1,0 +1,154 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see LICENSE.md). -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArtBook · 보고, 만지고, 그려 보며 배우는 미술·시각 디자인 교과서</title>
+<meta name="description" content="색, 형태와 구도, 드로잉, 타이포그래피, 미술사, 사진과 이미지. 조작할 수 있는 그림과 시뮬레이터로 미술과 시각 디자인의 원리를 배우는 한국어 인터랙티브 교과서 서가.">
+<link rel="canonical" href="https://artbook.euiyun.com/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="ArtBook · 보고, 만지고, 그려 보며 배우는 미술·시각 디자인 교과서">
+<meta property="og:description" content="색, 구도, 드로잉, 타이포그래피, 미술사, 이미지. 직접 끌고 섞고 비교하며 배우는 미술·시각 디자인 교과서 서가.">
+<meta property="og:url" content="https://artbook.euiyun.com/">
+<meta property="og:image" content="https://artbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://artbook.euiyun.com/#site","name":"ArtBook","alternateName":"아트북","url":"https://artbook.euiyun.com/","inLanguage":"ko","description":"보고, 만지고, 그려 보며 배우는 미술·시각 디자인 교과서 서가"},{"@type":"BookSeries","@id":"https://artbook.euiyun.com/#series","name":"ArtBook","url":"https://artbook.euiyun.com/","inLanguage":"ko","isAccessibleForFree":true,"about":["색채","구도","드로잉","타이포그래피","미술사","사진"],"hasPart":[{"@type":"Book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}]}]}</script>
+<link rel="stylesheet" href="shared/css/style.css">
+<script src="shared/js/shelf.js"></script>
+<script src="shared/js/art.js"></script>
+<script src="shared/js/common.js"></script>
+<script src="shared/js/covers.js"></script>
+<style>
+  .hero-mix { border-radius: 20px; border: 1px solid var(--border); background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow); }
+  .hero-mix canvas { display: block; width: 100%; }
+  .hero-mix .ctl { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 12px 16px 14px; border-top: 1px solid var(--border); }
+  .hero-mix .cap { font-size: 14px; color: var(--text-dim); line-height: 1.55; flex: 1 1 220px; margin: 0; }
+  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .hero-badges span { font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-dim); background: var(--bg-elev); }
+  .series { display: flex; flex-wrap: wrap; gap: 10px; }
+  .series a { padding: 10px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-elev); color: var(--text); font-weight: 600; font-size: 15px; }
+  .series a small { display: block; font-weight: 400; color: var(--text-dim); font-size: 13px; }
+  .series a:hover { text-decoration: none; border-color: var(--accent); }
+  .rules { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .rules > div { padding: 18px 20px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-elev); }
+  .rules h3 { margin: 0 0 6px; font-size: 17px; }
+  .rules p { margin: 0; color: var(--text-dim); font-size: 14.5px; line-height: 1.6; }
+</style>
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-root="" data-shelf="">
+<section class="home-hero">
+  <div class="inner">
+    <div>
+      <div class="eyebrow">ArtBook · Interactive Art &amp; Design Textbooks</div>
+      <h1>보고, 만지고,<br><span class="grad">그려 보며 배우는 미술</span></h1>
+      <p>색은 왜 옆에 놓인 색에 따라 달라 보일까. 좋은 구도에는 공식이 있을까. 원근은 어떻게 화면 위에 공간을 만들까. 이 서가의 교과서들은 미술과 시각 디자인의 원리를 <strong>직접 끌고, 섞고, 나란히 놓아 비교하며</strong> 배운다. 화면 실습에서 끝나지 않고 장마다 종이와 연필, 물감으로 해 볼 과제를 둔다.</p>
+      <p style="font-size:16px">여기서 "디자인"은 공학 설계가 아니라 미술과 시각 디자인(색, 형태, 구도, 드로잉, 타이포그래피, 미술사)을 말한다.</p>
+      <div class="hero-badges"><span>6권 계획</span><span>첫 권 ColorBook 집필 중</span><span>공공 도메인 작품 이미지</span><span>흑백 보기 · 전/후 비교</span></div>
+    </div>
+    <div class="hero-mix" id="hero">
+      <canvas id="hero-cv" class="art"></canvas>
+      <div class="ctl">
+        <div class="seg" id="hero-mode"><button data-value="light" class="on">빛으로 섞기</button><button data-value="paint">물감으로 섞기</button></div>
+        <p class="cap" id="hero-cap"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <h2>서가</h2>
+  <p class="sub">한 권은 한 가지 눈을 기른다. 순서대로 읽어도, 필요한 책부터 읽어도 된다.</p>
+  <div class="shelf-grid" id="shelf"></div>
+</section>
+
+<section class="home-section" style="padding-top:0">
+  <h2>이 서가의 약속</h2>
+  <p class="sub">모든 책이 같은 원칙과 같은 도구로 만들어진다.</p>
+  <div class="rules">
+    <div><h3>만져 보며 배운다</h3><p>개념 하나에 조작할 수 있는 그림 하나. 색상환 위의 점, 소실점, 광원, 3분할 격자를 손으로 끌어 본다.</p></div>
+    <div><h3>나란히 놓고 비교한다</h3><p>미술은 설명보다 비교가 빠르다. 모든 시뮬레이터에 "흑백" 토글이 있고, 같은 그림을 두 조건으로 놓는 전/후 비교를 기본으로 쓴다.</p></div>
+    <div><h3>규칙이 깨지는 순간을 본다</h3><p>3분할, 황금비, 색 조화 공식은 출발점이다. 값을 끝까지 밀었을 때 어색해지는 모습과, 규칙을 깨고도 좋은 작품을 함께 본다.</p></div>
+    <div><h3>손으로 해 본다</h3><p>장마다 종이와 연필, 물감으로 해 볼 "직접 해 보기" 과제가 있다. 화면 위의 색과 종이 위의 색은 다르게 움직인다.</p></div>
+    <div><h3>통설을 사실로 쓰지 않는다</h3><p>"빨강은 식욕을 돋운다", "황금비는 모든 명작에 숨어 있다" 같은 주장은 근거의 수준을 밝힌다. 연구가 엇갈리면 엇갈린다고 쓴다.</p></div>
+    <div><h3>취향을 정답으로 만들지 않는다</h3><p>"좋은 색", "나쁜 구도" 대신 "무엇을 전하려는가에 맞는가"를 묻는다. 서양 미술과 함께 오방색, 여백, 수묵의 농담을 같은 무게로 다룬다.</p></div>
+  </div>
+</section>
+
+<section class="home-section" style="padding-top:0">
+  <h2>이미지와 저작권</h2>
+  <p class="sub">작품 이미지는 공공 도메인 또는 CC0 자료만 쓴다.</p>
+  <p>The Met Open Access, 시카고 미술관, 레이크스 미술관, 미국 국립미술관, 국립중앙박물관 공공누리 제1유형처럼 출처와 라이선스를 확인할 수 있는 곳의 이미지만 웹용으로 줄여 싣고, 원본 주소·작품명·작가·연도·라이선스를 <a href="credits.html">이미지 크레딧</a> 페이지와 그림 아래에 적는다. 출처를 확인하지 못한 그림은 쓰지 않고, 같은 원리를 보여 주는 그림을 직접 그린다. 현존 작가의 작품, 브랜드 로고, 상업 디자인은 복제하지 않는다.</p>
+  <p class="disclaimer">화면에 보이는 색은 기기마다 다르다. 모니터의 종류, 밝기, 색 설정, 주변 조명에 따라 같은 값도 다르게 보인다. 색 정확도가 중요한 실습에는 그때마다 다시 알린다.</p>
+</section>
+
+<section class="home-section" style="padding-top:0">
+  <h2>함께 읽으면 좋은 교과서</h2>
+  <p class="sub">같은 방식으로 만든 euiyun 인터랙티브 교과서 시리즈입니다.</p>
+  <div class="series">
+    <a href="https://colorbook.euiyun.com/">ColorBook (색채공학)<small>측색학·색공간·색 재현을 공학자의 눈으로</small></a>
+    <a href="https://camerabook.euiyun.com/">CameraBook<small>카메라와 사진 · 빛을 붙잡는 기계</small></a>
+    <a href="https://opticsbook.euiyun.com/">OpticsBook<small>광학 · 렌즈와 빛의 길</small></a>
+    <a href="https://displaybook.euiyun.com/">DisplayBook<small>디스플레이 · 화면이 색을 내는 법</small></a>
+    <a href="https://mathbook.euiyun.com/">MathBook<small>수학 · 손으로 만지는 수학</small></a>
+  </div>
+</section>
+
+<script>
+(function () {
+  "use strict";
+  var LABEL = { published: "출간", writing: "집필 중", planned: "계획" };
+  document.getElementById("shelf").innerHTML = AB.SHELF.books.map(function (b) {
+    var open = b.status !== "planned";
+    var inner = '<span class="cover">' + AB_COVERS[b.motif]() + '</span><span class="meta"><span class="num">BOOK ' + String(b.order).padStart(2, "0") + " · /" + b.path + '/</span><h3>' + b.title + "<small>" + b.sub + "</small></h3><p>" + b.desc +
+      '</p><span class="topics">' + b.topics.map(function (t) { return "<span>" + t + "</span>"; }).join("") + '</span><span class="status ' + b.status + '">' + LABEL[b.status] + "</span></span>";
+    return open ? '<a class="book-card ' + b.status + '" href="' + b.path + '/">' + inner + "</a>" : '<div class="book-card planned" aria-label="' + b.title + ' (계획)">' + inner + "</div>";
+  }).join("");
+
+  // 히어로: 빛의 삼원색(가산)과 물감의 삼원색(감산, 쿠벨카–뭉크 모형)을 겹쳐 본다. 원을 끌어 옮긴다.
+  var mode = AB.seg("hero-mode", function () { cv.redraw(); caption(); });
+  var discs = [{ x: 0.40, y: 0.40 }, { x: 0.60, y: 0.40 }, { x: 0.50, y: 0.62 }];
+  var LIGHT = ["#ff0000", "#00ff00", "#0000ff"], PAINT = ["magenta", "lemon", "phthalo"];
+  var grab = -1, geo = null;
+  var cv = AB.canvas("#hero-cv", function (ctx, w, h) {
+    var R = Math.min(w, h) * 0.24, light = mode() === "light";
+    geo = { w: w, h: h, R: R };
+    ctx.fillStyle = light ? "#000000" : "#f7f4ee"; ctx.fillRect(0, 0, w, h);
+    // 겹친 영역마다 색을 엔진으로 계산해 칠한다. 원 하나 → 둘 → 셋 순서로 덮어 칠하면 교집합이 맞게 칠해진다.
+    var paintRefl = PAINT.map(function (k) { return ART.PAINTS[k]; });
+    [[0], [1], [2], [0, 1], [0, 2], [1, 2], [0, 1, 2]].forEach(function (set) {
+      var col;
+      if (light) col = ART.hex(ART.clip(ART.mixAdd.apply(null, set.map(function (i) { return ART.parse(LIGHT[i]); }))));
+      else col = ART.hex(ART.fit(ART.renderReflectance(ART.mixKM(set.map(function (i) { return { refl: paintRefl[i].refl, S: paintRefl[i].S, amount: 1 }; })))));
+      ctx.save();
+      set.forEach(function (i) { ctx.beginPath(); ctx.arc(discs[i].x * w, discs[i].y * h, R, 0, Math.PI * 2); ctx.clip(); });
+      ctx.fillStyle = col; ctx.fillRect(0, 0, w, h);
+      ctx.restore();
+    });
+    discs.forEach(function (d) { AB.handle(ctx, d.x * w, d.y * h, { r: 6, ring: light ? "#ffffff" : "#222222", fill: light ? "#000000" : "#ffffff" }); });
+  }, { aspect: 0.72, minHeight: 260, maxHeight: 400, bg: "#000000" });
+  AB.drag(cv.canvas, {
+    start: function (x, y) { grab = -1; var best = 1e9; discs.forEach(function (d, i) { var dd = Math.hypot(x - d.x * geo.w, y - d.y * geo.h); if (dd < geo.R && dd < best) { best = dd; grab = i; } }); },
+    move: function (x, y) { if (grab < 0) return; discs[grab].x = AB.clamp(x / geo.w, 0.1, 0.9); discs[grab].y = AB.clamp(y / geo.h, 0.12, 0.88); cv.redraw(); },
+  });
+  function caption() {
+    document.getElementById("hero-cap").innerHTML = mode() === "light"
+      ? "<b>빛</b>은 겹칠수록 밝아진다. 빨강·초록·파랑 빛이 모두 겹친 가운데는 흰색이다. 원을 끌어 옮겨 본다."
+      : "<b>물감</b>은 겹칠수록 어두워진다. 마젠타·레몬 옐로·프탈로 블루를 섞은 가운데는 탁한 갈색에 가깝다(교육용 쿠벨카–뭉크 모형).";
+  }
+  caption();
+})();
+</script>
+</body>
+</html>
