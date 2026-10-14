@@ -19,7 +19,10 @@
       "page": "https://www.metmuseum.org/art/collection/search/437654",
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437654",
       "checked": "2026-10-14",
-      "usedIn": ["color/chapters/overview.html"]
+      "usedIn": [
+        "color/chapters/overview.html",
+        "color/chapters/lab.html"
+      ]
     },
     {
       "id": "seurat-circus-sideshow-detail",
@@ -39,7 +42,185 @@
       "page": "https://www.metmuseum.org/art/collection/search/437654",
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437654",
       "checked": "2026-10-14",
-      "usedIn": ["color/chapters/overview.html"]
+      "usedIn": [
+        "color/chapters/overview.html"
+      ]
+    },
+    {
+      "id": "de-la-tour-penitent-magdalen",
+      "file": "de-la-tour-penitent-magdalen.webp",
+      "derived": "원본 2947×4000 JPEG를 긴 변 1600px(1179×1600) WebP(품질 78)로 줄임",
+      "title": "참회하는 막달라 마리아",
+      "titleEn": "The Penitent Magdalen",
+      "artist": "조르주 드 라 투르 (Georges de La Tour, 1593–1652)",
+      "date": "1640년경",
+      "medium": "캔버스에 유채",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of Mr. and Mrs. Charles Wrightsman, 1978",
+      "objectId": 436839,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-27910-001.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/436839",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436839",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/light.html"
+      ]
+    },
+    {
+      "id": "met-wedding-dress-1837",
+      "file": "met-wedding-dress-1837.webp",
+      "derived": "원본 1383×2358 JPEG에서 세로 98~2259 px를 잘라(가로세로비 0.64) 긴 변 1400px WebP로 줄임",
+      "title": "웨딩드레스",
+      "titleEn": "Wedding dress",
+      "artist": "작가 미상 (프랑스)",
+      "date": "ca. 1837",
+      "medium": "면",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of Mrs. R. T. Auchmuty, 1915",
+      "objectId": 82086,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ci/original/15.149.1a–c_F.JPG",
+      "page": "https://www.metmuseum.org/art/collection/search/82086",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/82086",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/meaning.html"
+      ]
+    },
+    {
+      "id": "met-wedding-dress-1851",
+      "file": "met-wedding-dress-1851.webp",
+      "derived": "원본 2956×4000 JPEG에서 가로 198~2758 px를 잘라(가로세로비 0.64) 긴 변 1400px WebP로 줄임",
+      "title": "웨딩드레스",
+      "titleEn": "Wedding dress",
+      "artist": "작가 미상 (미국)",
+      "date": "1851",
+      "medium": "비단",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Brooklyn Museum Costume Collection at The Metropolitan Museum of Art, Gift of the Brooklyn Museum, 2009; Gift of Dorothy L. Tapscott and Gladys L. Campbell, 1962",
+      "objectId": 159435,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ci/original/62.97.1a-b_front_CP4.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/159435",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/159435",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/meaning.html"
+      ]
+    },
+    {
+      "id": "homer-wall-nassau",
+      "file": "homer-wall-nassau.webp",
+      "derived": "원본 3883×2724 JPEG를 긴 변 1600px(1600×1122) WebP(품질 78)로 줄임. 본문 시뮬레이터의 목표 색 4개는 원본 화면 영역 평균·중앙값에서 뽑음",
+      "title": "나소의 담",
+      "titleEn": "A Wall, Nassau",
+      "artist": "윈슬로 호머 (Winslow Homer, 1836–1910)",
+      "date": "1898",
+      "medium": "미색 종이에 수채와 흑연 (Watercolor and graphite on off-white wove paper)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Amelia B. Lazarus Fund, 1910",
+      "objectId": 11147,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ad/original/DP119114.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/11147",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/11147",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/mixing.html"
+      ]
+    },
+    {
+      "id": "rembrandt-aristotle-homer",
+      "file": "rembrandt-aristotle-homer.webp",
+      "derived": "원본 3792×4000 JPEG를 긴 변 1600px WebP(1517×1600, 품질 78)로 줄임",
+      "title": "호메로스 흉상을 바라보는 아리스토텔레스",
+      "titleEn": "Aristotle with a Bust of Homer",
+      "artist": "렘브란트 판 레인 (Rembrandt van Rijn, 1606–1669)",
+      "date": "1653",
+      "medium": "캔버스에 유채",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Purchase, special contributions and funds given or bequeathed by friends of the Museum, 1961",
+      "objectId": 437394,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-30758-001.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/437394",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437394",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/value.html"
+      ]
+    },
+    {
+      "id": "joseon-wild-geese-sandbar",
+      "file": "joseon-wild-geese-sandbar.webp",
+      "derived": "원본 1675×3722 JPEG에서 표구를 잘라 내고 그림 부분(가로 197~1477, 세로 176~3504 px)만 남긴 뒤 긴 변 1600px WebP(615×1600, 품질 80)로 줄임",
+      "title": "평사낙안 (모래톱에 내려앉는 기러기)",
+      "titleEn": "Wild geese descending to sandbar",
+      "artist": "작가 미상 (Unidentified artist), 조선",
+      "date": "15세기 말~16세기 초 (late 15th–early 16th century)",
+      "medium": "족자, 비단에 먹",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Purchase, Harris Brisbane Dick Fund, John M. Crawford Jr. Bequest, and The Vincent Astor Foundation Gift, 1992",
+      "objectId": 39888,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DT6930.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/39888",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39888",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/value.html"
+      ]
+    },
+    {
+      "id": "whistler-theodore-duret",
+      "file": "whistler-theodore-duret.webp",
+      "derived": "원본 883×1861 JPEG를 긴 변 1600px WebP(759×1600, 품질 80)로 줄임",
+      "title": "살색과 검정의 배열: 테오도르 뒤레의 초상",
+      "titleEn": "Arrangement in Flesh Colour and Black: Portrait of Theodore Duret",
+      "artist": "제임스 맥닐 휘슬러 (James McNeill Whistler, 1834–1903)",
+      "date": "1883",
+      "medium": "캔버스에 유채",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Catharine Lorillard Wolfe Collection, Wolfe Fund, 1913",
+      "objectId": 13211,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ad/original/DT92.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/13211",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/13211",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/chroma.html"
+      ]
+    },
+    {
+      "id": "corot-river-distant-tower",
+      "file": "corot-river-distant-tower.webp",
+      "derived": "원본 4000×2880 JPEG를 긴 변 1600px WebP(1600×1152, 품질 80)로 줄임",
+      "title": "먼 탑이 보이는 강",
+      "titleEn": "River with a Distant Tower",
+      "artist": "카미유 코로 (Camille Corot, 1796–1875)",
+      "date": "1865",
+      "medium": "캔버스에 유채",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Bequest of Robert Graham Dun, 1900",
+      "objectId": 435983,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-14936-055.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/435983",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435983",
+      "checked": "2026-10-14",
+      "usedIn": [
+        "color/chapters/chroma.html"
+      ]
     }
   ]
 }

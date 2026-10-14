@@ -107,7 +107,9 @@
     function resize() {
       const parent = canvas.parentElement;
       const w = Math.max(200, Math.floor(opts.width || parent.clientWidth || 600));
-      let h = opts.height || Math.round(w * (opts.aspect || 0.5));
+      let h = opts.height;
+      // height getter가 부모 폭 0을 읽어 0·음수·NaN을 낼 수 있다(숨은 요소, 아직 배치 전). 그때는 aspect로 정한다.
+      if (!(h > 0)) h = Math.round(w * (opts.aspect || 0.5));
       if (opts.minHeight) h = Math.max(h, opts.minHeight);
       if (opts.maxHeight) h = Math.min(h, opts.maxHeight);
       const dpr = Math.min(window.devicePixelRatio || 1, 2);

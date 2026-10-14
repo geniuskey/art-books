@@ -1,0 +1,1442 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "이미지 한 장을 넣어 명도 분포와 노탄, 채도 지도, 색상 분포, 주요 색 팔레트, 글자 대비와 색각 시뮬레이션, 두 색상환 위의 조화까지 한 화면에서 분석하고 팔레트를 글로 내보내는 색 실험실. 서윤의 최종 브랜드 팔레트와 수채화 세 점의 색 계획을 종합한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>색 실험실 · ColorBook</title>
+<meta name="description" content="이미지 한 장을 넣어 명도 분포와 노탄, 채도 지도, 색상 분포, 주요 색 팔레트, 글자 대비와 색각 시뮬레이션, 두 색상환 위의 조화까지 한 화면에서 분석하고 팔레트를 글로 내보내는 색 실험실. 서윤의 최종 브랜드 팔레트와 수채화 세 점의 색 계획을 종합한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/lab.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="색 실험실 · ColorBook">
+<meta property="og:description" content="이미지 한 장을 넣어 명도 분포와 노탄, 채도 지도, 색상 분포, 주요 색 팔레트, 글자 대비와 색각 시뮬레이션, 두 색상환 위의 조화까지 한 화면에서 분석하고 팔레트를 글로 내보내는 색 실험실. 서윤의 최종 브랜드 팔레트와 수채화 세 점의 색 계획을 종합한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/lab.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/lab.html#chapter","name":"색 실험실","headline":"색 실험실 · ColorBook","description":"이미지 한 장을 넣어 명도 분포와 노탄, 채도 지도, 색상 분포, 주요 색 팔레트, 글자 대비와 색각 시뮬레이션, 두 색상환 위의 조화까지 한 화면에서 분석하고 팔레트를 글로 내보내는 색 실험실. 서윤의 최종 브랜드 팔레트와 수채화 세 점의 색 계획을 종합한다.","url":"https://artbook.euiyun.com/color/chapters/lab.html","position":16,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"16. 색 실험실","item":"https://artbook.euiyun.com/color/chapters/lab.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 16장 전용: 실험실 계기판·파일 입력·내보내기 */
+  .lab-dash { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1px; background: var(--border); border-top: 1px solid var(--border); }
+  .lab-dash > div { background: var(--canvas-bg); min-width: 0; }
+  .lab-dash canvas, figure canvas.lab-fig { display: block; width: 100%; }
+  .lab-file { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; padding: 8px 14px; border: 1px dashed var(--accent); border-radius: 9px; cursor: pointer; color: var(--text); background: var(--surface); }
+  .lab-file input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+  .lab-file:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .lab-small { font-size: 12.5px; color: var(--text-dim); margin: 0; line-height: 1.55; }
+  .lab-export { padding: 14px 18px; border-top: 1px solid var(--border); display: grid; gap: 10px; background: var(--bg-elev); }
+  .lab-export textarea { width: 100%; box-sizing: border-box; min-height: 168px; font-family: var(--mono); font-size: 12.5px; line-height: 1.5; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface); color: var(--text); resize: vertical; }
+  .lab-export .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .lab-export .row span { font-size: 13px; color: var(--text-dim); }
+</style>
+</head>
+<body data-chapter="lab">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 16</div>
+    <h1>색 실험실</h1>
+    <p class="lead">열다섯 장 동안 색을 보는 눈을 하나씩 익혔다. 흑백으로 보기, 채도 덜어 내기, 색상환 위에 놓기, 대비 재기, 다른 색각으로 보기. 이 장은 그 눈들을 한 화면에 모은 도구다. 사진이나 그림 한 장을 넣으면 명도·채도·색상의 분포를 펼치고, 주요 색을 뽑고, 그 색들이 글자와 바탕으로 쓸 만한지, 누구에게나 구분되는지, 두 색상환 위에서 어디에 놓이는지를 보여 준다. 실험실은 답을 주지 않는다. 대신 "이 그림은 무엇으로 일하고 있는가"를 숫자와 그림으로 물어 준다.</p>
+    <ul class="objectives">
+      <li>이미지 한 장을 명도·채도·색상 세 축으로 나눠 읽고, 각 패널이 무엇을 보여 주고 무엇을 못 보여 주는지 안다.</li>
+      <li>명도 분포(히스토그램)와 노탄 세 단계로 그림의 명도 구조를 판단한다.</li>
+      <li>채도 지도와 색상–채도 산점도로 "어디가 선명하고 어떤 색이 많은지"를 본다.</li>
+      <li>k-평균으로 뽑은 팔레트의 비율과 한계를 이해하고, 그 팔레트로 대비·색각·조화를 점검한다.</li>
+      <li>뽑은 팔레트를 HEX 목록이나 CSS 변수로 내보내 실제 작업에 가져간다.</li>
+    </ul>
+  </header>
+
+  <section id="start">
+    <h2>실험실 사용법</h2>
+    <p>실험실이 하는 일은 단순하다. 이미지를 작게 줄이고, 화소 하나하나를 세 가지 숫자로 바꾸고, 그 숫자들을 여러 방식으로 모아 보여 준다. 세 숫자는 이 책에서 계속 써 온 것들이다. 밝기는 CIELAB의 <span class="term">명도 L*</span><span class="en">(Lightness)</span>(0=검정, 100=흰색), 선명함은 OKLCH의 <span class="term">채도 C</span><span class="en">(Chroma)</span>(0이면 회색, 화면의 가장 선명한 색이 0.3 안팎), 색의 종류는 OKLCH의 <span class="term">색상각 h</span><span class="en">(Hue angle)</span>(0~360°)다. <a href="models.html">3장</a>에서 이 공간들이 왜 HSL보다 사람의 감각에 가까운지 다뤘다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="색 실험실의 흐름: 이미지를 줄이고, 화소마다 세 숫자로 바꾸고, 패널로 모아 보고, 팔레트를 점검하고 내보낸다">
+        <defs><marker id="lb-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="10" y="24" width="96" height="74" rx="8" class="f-surface"/>
+        <rect x="22" y="36" width="72" height="44" rx="3" fill="#c9a77c"/><rect x="22" y="58" width="72" height="22" fill="#2f7d5b"/><circle cx="76" cy="48" r="7" fill="#b95b3d"/>
+        <text x="58" y="94" text-anchor="middle" class="lbl-dim">이미지 한 장</text>
+        <path d="M108 61 L138 61" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="142" y="24" width="96" height="74" rx="8" class="f-surface"/>
+        <g transform="translate(166 34)">
+          <rect x="0" y="0" width="12" height="12" fill="#c9a77c"/><rect x="12" y="0" width="12" height="12" fill="#c9a77c"/><rect x="24" y="0" width="12" height="12" fill="#b95b3d"/><rect x="36" y="0" width="12" height="12" fill="#c9a77c"/>
+          <rect x="0" y="12" width="12" height="12" fill="#c9a77c"/><rect x="12" y="12" width="12" height="12" fill="#c9a77c"/><rect x="24" y="12" width="12" height="12" fill="#c9a77c"/><rect x="36" y="12" width="12" height="12" fill="#c9a77c"/>
+          <rect x="0" y="24" width="12" height="12" fill="#2f7d5b"/><rect x="12" y="24" width="12" height="12" fill="#2f7d5b"/><rect x="24" y="24" width="12" height="12" fill="#2f7d5b"/><rect x="36" y="24" width="12" height="12" fill="#2f7d5b"/>
+        </g>
+        <text x="190" y="94" text-anchor="middle" class="lbl-dim">폭 240px 이하로</text>
+        <path d="M240 61 L270 61" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="274" y="24" width="176" height="74" rx="8" class="f-acc-soft"/>
+        <text x="362" y="46" text-anchor="middle" class="lbl-acc">화소마다 숫자 셋</text>
+        <text x="362" y="66" text-anchor="middle" class="t-mono lbl">L*  ·  C  ·  h</text>
+        <text x="362" y="86" text-anchor="middle" class="lbl-dim">명도 · 채도 · 색상</text>
+        <path d="M362 100 L362 124" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="10" y="130" width="140" height="62" rx="8" class="f-surface"/>
+        <rect x="160" y="130" width="140" height="62" rx="8" class="f-surface"/>
+        <rect x="310" y="130" width="140" height="62" rx="8" class="f-surface"/>
+        <text x="80" y="154" text-anchor="middle" class="lbl-b">명도 분포 · 노탄</text>
+        <text x="80" y="174" text-anchor="middle" class="lbl-dim">구조가 읽히는가</text>
+        <text x="230" y="154" text-anchor="middle" class="lbl-b">채도 지도</text>
+        <text x="230" y="174" text-anchor="middle" class="lbl-dim">어디가 선명한가</text>
+        <text x="380" y="154" text-anchor="middle" class="lbl-b">색상 분포</text>
+        <text x="380" y="174" text-anchor="middle" class="lbl-dim">어떤 색이 많은가</text>
+        <path d="M362 124 L80 124 L80 128" class="s-dash"/>
+        <path d="M230 124 L230 128" class="s-dash"/>
+        <path d="M230 194 L230 216" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="120" y="220" width="220" height="34" rx="8" class="f-acc2-soft"/>
+        <text x="230" y="242" text-anchor="middle" class="lbl-acc2">주요 색 팔레트(k-평균)</text>
+        <path d="M120 237 L82 237 L82 262" class="s-line" marker-end="url(#lb-ar)"/>
+        <path d="M230 256 L230 262" class="s-line" marker-end="url(#lb-ar)"/>
+        <path d="M340 237 L378 237 L378 262" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="10" y="266" width="144" height="28" rx="6" class="f-surface"/>
+        <rect x="160" y="266" width="140" height="28" rx="6" class="f-surface"/>
+        <rect x="306" y="266" width="144" height="28" rx="6" class="f-surface"/>
+        <text x="82" y="285" text-anchor="middle" class="lbl">대비 · 색각 점검</text>
+        <text x="230" y="285" text-anchor="middle" class="lbl">두 색상환 위 조화</text>
+        <text x="378" y="285" text-anchor="middle" class="lbl">글로 내보내기</text>
+      </svg>
+      <figcaption><b>그림 1. 실험실의 흐름.</b> 이미지를 줄인 뒤 화소마다 명도·채도·색상 세 숫자를 구한다. 위쪽 세 패널은 그 숫자들을 한 가지씩 모아 보고, 아래쪽은 그 숫자로 뽑은 주요 색 몇 개를 점검한다. 같은 숫자를 여러 번 다르게 모으는 것뿐이라서, 패널끼리는 서로 모순되지 않는다. 다르게 보일 뿐이다.</figcaption>
+    </figure>
+
+    <p>이미지는 다섯 가지 중에서 고르거나 직접 넣는다. 쇠라의 「서커스 사이드쇼」(<a href="overview.html">1장</a>에서 만났다)는 공공 도메인 작품이고, 나머지 넷은 이 책이 직접 그린 가상의 그림이다. 책방 E의 가을 행사 포스터 시안, 그리고 서윤의 수채화 세 점 「창가의 책」, 「비 오는 골목」, 「해 질 녘 서점 앞」을 흉내 낸 색 계획 스케치다. <b>내 이미지 열기</b>로 고른 파일은 이 브라우저 안에서만 읽고 어디에도 올리지 않는다. 페이지를 닫으면 사라진다.</p>
+
+    <div class="callout warn">
+      <strong>숫자는 화면에 도착한 색의 숫자다</strong>
+      실험실이 읽는 값은 브라우저가 화면에 그리려고 준비한 sRGB 값이다. 사진이라면 그 값은 이미 카메라가 화이트밸런스와 보정으로 한 번 해석한 색이고(<a href="temperature.html">10장</a>), 그림을 찍은 사진이라면 조명과 카메라까지 겹친다. 그리고 그 숫자를 보여 주는 화면은 기기마다 다르게 보인다. 그래서 실험실의 숫자는 "이 파일 안에서 색들이 서로 어떤 관계인가"를 읽는 데 쓰고, 원작의 물감 색을 맞히는 데는 쓰지 않는다.
+    </div>
+
+    <p>먼저 "얼마나 줄여도 되는가"를 본다. 실험실은 분석하기 전에 이미지를 폭 240&nbsp;px 이하로 줄인다. 1,600&nbsp;px 그림이면 화소 수가 40분의 1 남짓으로 줄어 계산이 빨라진다. 그래도 될까. 아래 슬라이더로 분석 폭을 바꾸면 오른쪽 그림이 그만큼 거칠어지고, 아래 두 줄의 팔레트(240&nbsp;px에서 뽑은 여섯 색과, 지금 폭에서 뽑은 여섯 색)가 얼마나 달라지는지 보인다.</p>
+
+    <div class="sim" id="sim-in">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>실험실 입구: 이미지와 분석 해상도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="li-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="li-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <label class="lab-file"><input type="file" id="li-file" accept="image/*"><span>내 이미지 열기</span></label>
+          <p class="lab-small" id="li-file-msg">파일은 이 브라우저 안에서만 읽는다. 서버로 보내지 않는다.</p>
+          <label class="ctrl"><span>분석 폭 <output id="li-w-out"></output></span><input type="range" id="li-w" min="8" max="240" step="4" value="240"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">선명한 색 비율 240px→지금</span><span class="v" id="li-o-chr">—</span></div>
+        <div class="stat"><span class="k">분석 크기</span><span class="v" id="li-o-an">—</span></div>
+        <div class="stat"><span class="k">팔레트 차이 ΔE(가중 평균)</span><span class="v" id="li-o-de">—</span></div>
+        <div class="stat"><span class="k">분석 시간</span><span class="v" id="li-o-ms">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 포스터를 고르고 분석 폭을 120, 60으로 줄인다. 그림은 거칠어지지만 팔레트 차이는 ΔE 2 안팎에 머문다(이 정도면 나란히 놓아도 구분하기 어렵다). 넓은 색면이 팔레트를 정하기 때문이다. ② 이때 "선명한 색" 비율을 본다. 60&nbsp;px에서 이미 10%가 7% 남짓으로 줄고, 8&nbsp;px에서는 0%가 된다. 작은 단풍잎과 날짜 띠가 주변의 초록·종이색과 섞여 탁해진 것이다. 작은 면적의 선명한 색부터 무너진다. ③ 「비 오는 골목」으로 바꿔 32&nbsp;px 아래로 줄인다. 빨간 우산이 회색에 섞여 사라진다. 섞여서 평균색이 되는 모습은 <a href="overview.html">1장</a>의 병치 혼합과 같다. (줄이기는 브라우저의 이미지 축소를 쓴다. 팔레트는 OKLab k-평균(시드 고정), 차이는 240&nbsp;px 팔레트의 각 색에서 가장 가까운 색까지의 ΔE2000을 비율로 가중 평균한 값이다.)</div>
+    </div>
+
+    <p>넓은 면은 줄여도 남고, 작은 면은 먼저 사라진다. 그래서 240&nbsp;px은 "그림 전체의 색 구성"을 읽기에는 충분하지만, 작은 글자나 한 점의 강조색을 찾기에는 부족할 수 있다. 실험실의 모든 패널은 이 한계를 안고 있다. 작은 것이 중요하다면 그 부분만 잘라서 따로 넣는다.</p>
+  </section>
+
+  <section id="value">
+    <h2>명도 패널: 히스토그램과 노탄</h2>
+    <p><a href="value.html">6장</a>에서 그림이 읽히는지는 색보다 명도가 먼저 정한다는 것을 봤다. 실험실의 명도 패널은 두 가지를 보여 준다. 하나는 <span class="term">명도 히스토그램</span><span class="en">(Value histogram)</span>, 곧 화면의 화소들이 L* 0~100 중 어디에 얼마나 몰려 있는지 세어 막대로 그린 그래프다. 다른 하나는 <span class="term">노탄</span><span class="en">(Notan, 濃淡)</span>, 명도를 어둠·중간·밝음 세 단계로만 남긴 그림이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 210" role="img" aria-label="명도 히스토그램의 세 가지 전형: 어두운 쪽에 몰림, 밝은 쪽에 몰림, 양 끝으로 갈라짐">
+        <defs><linearGradient id="lb-gray" x1="0" x2="1"><stop offset="0" stop-color="#111"/><stop offset="1" stop-color="#f4f4f4"/></linearGradient></defs>
+        <g id="lb-h1"></g>
+        <text x="80" y="22" text-anchor="middle" class="lbl-b">어두운 쪽에 몰림</text>
+        <text x="230" y="22" text-anchor="middle" class="lbl-b">밝은 쪽에 몰림</text>
+        <text x="380" y="22" text-anchor="middle" class="lbl-b">양 끝으로 갈라짐</text>
+        <rect x="14" y="138" width="132" height="8" fill="url(#lb-gray)"/>
+        <rect x="164" y="138" width="132" height="8" fill="url(#lb-gray)"/>
+        <rect x="314" y="138" width="132" height="8" fill="url(#lb-gray)"/>
+        <text x="14" y="162" class="lbl-dim t-mono">0</text><text x="146" y="162" text-anchor="end" class="lbl-dim t-mono">100</text>
+        <text x="164" y="162" class="lbl-dim t-mono">0</text><text x="296" y="162" text-anchor="end" class="lbl-dim t-mono">100</text>
+        <text x="314" y="162" class="lbl-dim t-mono">0</text><text x="446" y="162" text-anchor="end" class="lbl-dim t-mono">100</text>
+        <text x="80" y="184" text-anchor="middle" class="lbl-dim">밤 장면, 무거운 분위기</text>
+        <text x="80" y="200" text-anchor="middle" class="lbl-dim">밝은 한 점이 초점이 된다</text>
+        <text x="230" y="184" text-anchor="middle" class="lbl-dim">안개, 아침, 맑은 수채</text>
+        <text x="230" y="200" text-anchor="middle" class="lbl-dim">어두운 한 점이 초점이 된다</text>
+        <text x="380" y="184" text-anchor="middle" class="lbl-dim">강한 명도 대비, 포스터</text>
+        <text x="380" y="200" text-anchor="middle" class="lbl-dim">멀리서도 형태가 읽힌다</text>
+      </svg>
+      <figcaption><b>그림 2. 명도 히스토그램의 세 가지 전형.</b> 가로축은 명도 L*(왼쪽 검정, 오른쪽 흰색), 막대 높이는 그 명도를 가진 화소의 비율이다. 어느 모양이 "좋다"는 것은 없다. 어두운 쪽에 몰린 그림은 밝은 한 점이, 밝은 쪽에 몰린 그림은 어두운 한 점이 시선을 끈다. 문제가 되는 것은 의도하지 않았는데 가운데 한 봉우리에 모두 몰려 형태가 흐려진 경우다.</figcaption>
+    </figure>
+
+    <p>아래 시뮬레이터에서 두 경계 슬라이더(또는 히스토그램 위 두 손잡이)로 어둠·중간·밝음을 나누는 명도를 정한다. 보기를 "노탄"으로 바꾸면 그림이 세 가지 회색으로만 남는다. 경계를 움직이며 형태가 가장 또렷하게 읽히는 자리를 찾는다.</p>
+
+    <div class="sim" id="sim-val">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>명도 분포와 노탄 세 단계</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="lv-cv"></canvas><span class="hint">히스토그램 위 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="lv-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <div class="seg" id="lv-view"><button data-value="orig">원본</button><button data-value="mono">흑백</button><button data-value="notan" class="on">노탄</button></div>
+          <label class="ctrl"><span>어둠 | 중간 경계 L* <output id="lv-t1-out"></output></span><input type="range" id="lv-t1" min="2" max="98" step="1" value="35"></label>
+          <label class="ctrl"><span>중간 | 밝음 경계 L* <output id="lv-t2-out"></output></span><input type="range" id="lv-t2" min="2" max="98" step="1" value="68"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">어둠</span><span class="v" id="lv-o-d">—</span></div>
+        <div class="stat"><span class="k">중간</span><span class="v" id="lv-o-m">—</span></div>
+        <div class="stat"><span class="k">밝음</span><span class="v" id="lv-o-l">—</span></div>
+        <div class="stat"><span class="k">명도 폭 (5~95%)</span><span class="v" id="lv-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 포스터의 노탄을 본다. 초록 면은 중간, 종이 바탕은 밝음, 책등의 깊은 초록은 어둠으로 나뉜다. 그런데 테라코타 제목은 초록 면과 같은 "중간"에 들어간다. 두 색의 명도가 거의 같다는 뜻이다. ② 두 경계를 한곳으로 모은다. 세 단계가 두 단계(흑과 백)가 되고, 중간 명도에 기대던 형태(골목의 먼 건물, 창가의 벽)가 사라진다. ③ 쇠라를 고른다. 명도 폭이 L* 15~45로 좁고 "밝음"이 0%다. 그런데 그림을 보면 가스등이 먼저 눈에 들어온다. 등불은 면적이 너무 작아 히스토그램에 거의 나타나지 않지만, 주변이 온통 어두워서 초점이 된다. (L*은 CIELAB 명도, 흑백 보기는 같은 휘도의 회색이다. 노탄 색은 어둠 L* 약 15, 중간 약 58, 밝음 약 93의 회색으로 고정했다.)</div>
+    </div>
+
+    <p>노탄의 경계는 정답이 있는 값이 아니다. 같은 그림도 경계를 어디에 두느냐에 따라 다른 구조로 읽힌다. 경계를 움직이다가 형태가 "탁" 하고 정리되는 자리가 있으면, 그 그림은 명도 구조가 분명한 그림이다. 어디에 두어도 얼룩만 남으면, 색을 바꾸기 전에 명도부터 다시 짜야 한다는 신호다. 화가들이 채색 전에 연필로 작은 명도 스케치를 하는 이유가 이것이다.</p>
+
+    <div class="callout try">
+      <strong>사진 한 장으로 손 노탄</strong>
+      좋아하는 사진이나 그림 엽서 한 장을 고른다. 실험실에 넣기 전에, 먼저 손바닥만 한 종이에 연필 세 단계(종이 흰색, 연한 회색 칠, 진한 칠)로만 따라 그린다. 10분을 넘기지 않는다. 그다음 실험실의 노탄과 나란히 놓는다. 내가 "어둡다"고 본 곳과 숫자가 어둡다고 한 곳이 어디서 다른지 표시한다. 대개 사람은 선명한 색을 실제보다 밝게, 넓은 그늘을 실제보다 어둡게 기억한다.
+    </div>
+  </section>
+
+  <section id="chroma">
+    <h2>채도 패널: 어디가 선명한가</h2>
+    <p>명도 다음은 채도다. 채도 패널은 화소마다 회색에서 얼마나 떨어져 있는지(OKLCH C)를 재서 두 가지로 보여 준다. <b>채도 지도</b>는 회색에 가까운 곳을 검게, 선명한 곳을 밝게 칠한 그림이다. <b>기준 넘는 색만</b>은 정한 채도보다 선명한 화소만 원래 색으로 남기고 나머지를 같은 명도의 회색으로 바꾼다. <a href="chroma.html">7장</a>에서 "선명한 색은 아껴 쓸수록 산다"고 했는데, 이 패널은 그 선명한 색이 지금 화면의 몇 %를 차지하는지 재 준다.</p>
+
+    <div class="sim" id="sim-chr">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>채도 지도와 채도 예산</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="lc-cv"></canvas><span class="hint">히스토그램 위 기준선을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="lc-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <div class="seg" id="lc-view"><button data-value="orig">원본</button><button data-value="map">채도 지도</button><button data-value="budget" class="on">기준 넘는 색만</button></div>
+          <label class="ctrl"><span>선명함 기준 C <output id="lc-t-out"></output></span><input type="range" id="lc-t" min="0.02" max="0.3" step="0.01" value="0.1"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">기준 넘는 화소</span><span class="v" id="lc-o-p">—</span></div>
+        <div class="stat"><span class="k">평균 채도</span><span class="v" id="lc-o-m">—</span></div>
+        <div class="stat"><span class="k">상위 5% 채도</span><span class="v" id="lc-o-q">—</span></div>
+        <div class="stat"><span class="k">거의 회색(C&lt;0.03)</span><span class="v" id="lc-o-g">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 「비 오는 골목」을 고른다. 기준 0.10에서 남는 것은 빨간 우산과 창문 불빛 몇 점뿐이다. 회색 바탕이 넓어서 작은 빨강이 주인공이 된다. ② 「해 질 녘 서점 앞」으로 바꾼다. 하늘의 파랑과 주황, 햇빛 받은 벽, 보랏빛 그림자까지 화면의 30% 가까이가 기준을 넘는다. 선명한 면이 넓으면 그중 어느 것도 홀로 튀지 못한다. ③ 기준을 0.30까지 올린다. 화면 sRGB의 가장 선명한 빨강·자주 근처만 남다가 결국 아무것도 남지 않는다. 기준을 0.02로 내리면 거의 모든 화소가 남아 지도가 의미를 잃는다. (C는 OKLCH 채도. 같은 C라도 색상마다 화면이 낼 수 있는 최대 채도가 달라서, 노랑의 0.15와 파랑의 0.15는 "얼마나 꽉 찼나"가 다르다.)</div>
+    </div>
+
+    <p>"선명한 색은 화면의 10% 안팎"은 7장에서 서윤이 세운 작업 규칙이지 법칙이 아니다. 해 질 녘 하늘처럼 선명한 색이 화면 대부분을 차지하는 그림도 얼마든지 좋다. 그럴 때 그림을 이끄는 것은 채도 차이가 아니라 명도나 색상의 차이다. 채도 패널은 "지금 어떤 대비가 일하고 있는가"를 확인하는 도구다. 한 가지 덧붙이면, 거의 회색인 화소(C가 0.03보다 작다)의 비율이 높은 그림은 다음 절의 색상 분포를 읽을 때 조심해야 한다. 회색에 가까운 색은 색상각이 작은 잡음에도 크게 흔들린다.</p>
+  </section>
+
+  <section id="hue">
+    <h2>색상 분포: 원판 위의 점들</h2>
+    <p>세 번째 패널은 색의 종류를 본다. OKLab은 색을 명도 L과 두 축 a(초록↔빨강), b(파랑↔노랑)로 적는다. 이 a–b 평면을 위에서 내려다보면, 원점은 회색이고 원점에서 멀수록 선명하며, 원점을 도는 각도가 색상이다.</p>
+    <div class="formula">$$C=\sqrt{a^2+b^2},\qquad h=\operatorname{atan2}(b,\ a)$$<div class="where">\(a, b\): OKLab의 두 색 축, \(C\): 채도(원점에서의 거리), \(h\): 색상각(0~360°). 이 책의 모델로 계산하면 책방 초록 <code>#2f7d5b</code>는 \(C\approx0.094\), \(h\approx162^\circ\)에 있다.</div></div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="색상–채도 원판 읽는 법: 가운데는 회색, 바깥은 선명한 색, 각도는 색상">
+        <circle cx="150" cy="145" r="120" class="f-surface"/>
+        <circle cx="150" cy="145" r="40" fill="none" class="s-dash"/>
+        <circle cx="150" cy="145" r="80" fill="none" class="s-dash"/>
+        <circle cx="150" cy="145" r="120" fill="none" class="s-line"/>
+        <path d="M150 145 L270 145" class="s-axis"/>
+        <path d="M150 145 L150 25" class="s-axis"/>
+        <circle cx="150" cy="145" r="7" fill="#8a8a8a"/>
+        <circle cx="232" cy="96" r="7" fill="#d9472f"/>
+        <circle cx="187" cy="125" r="7" fill="#a0786a"/>
+        <circle cx="111" cy="77" r="7" fill="#a89a3a"/>
+        <circle cx="76" cy="121" r="7" fill="#2f7d5b"/>
+        <circle cx="132" cy="236" r="7" fill="#3a5fc8"/>
+        <text x="250" y="80" class="lbl-dim">선명한 빨강</text>
+        <text x="198" y="122" class="lbl-dim">탁한 갈색</text>
+        <text x="123" y="74" class="lbl-dim">올리브</text>
+        <text x="62" y="140" text-anchor="end" class="lbl-dim">책방 초록</text>
+        <text x="144" y="258" class="lbl-dim">파랑</text>
+        <text x="158" y="162" class="lbl-dim">회색</text>
+        <text x="274" y="149" class="lbl-dim t-mono">0°</text>
+        <text x="150" y="18" text-anchor="middle" class="lbl-dim t-mono">90°</text>
+        <text x="318" y="60" class="lbl-b">읽는 법</text>
+        <text x="318" y="84" class="lbl">가운데: 회색</text>
+        <text x="318" y="104" class="lbl">바깥: 선명</text>
+        <text x="318" y="124" class="lbl">각도: 색상</text>
+        <text x="318" y="152" class="lbl-dim">점선 원: C 0.1, 0.2</text>
+        <text x="318" y="172" class="lbl-dim">실선 원: C 0.3</text>
+        <text x="318" y="200" class="lbl-dim">같은 방향의 두 점은</text>
+        <text x="318" y="218" class="lbl-dim">색상이 같고 채도가</text>
+        <text x="318" y="236" class="lbl-dim">다르다(빨강과 갈색)</text>
+      </svg>
+      <figcaption><b>그림 3. 색상–채도 원판 읽는 법.</b> 점 하나가 화소 하나다. 원점에서의 방향이 색상, 거리가 채도다. 같은 방향에 있는 선명한 빨강과 탁한 갈색은 "같은 색상, 다른 채도"이고, 회색 점은 방향이 없다. 명도는 이 그림에 없다. 밝은 초록과 어두운 초록이 같은 자리에 겹친다는 것이 이 원판의 한계다.</figcaption>
+    </figure>
+
+    <p>아래 원판에는 이미지의 화소들이 그 색 그대로 점으로 찍힌다. 원판 둘레의 막대는 색상별로 채도를 더한 양이다. 원판 테두리의 손잡이를 끌어 색상 쐐기를 돌리면, 오른쪽(좁은 화면에서는 아래) 그림에서 그 쐐기 안의 색만 남는다.</p>
+
+    <div class="sim" id="sim-hue">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>색상–채도 산점도와 색상 쐐기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="lh-cv"></canvas><span class="hint">원판 테두리를 끌어 쐐기를 돌린다</span></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="lh-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <label class="ctrl"><span>쐐기 폭 <output id="lh-w-out"></output></span><input type="range" id="lh-w" min="10" max="180" step="5" value="60"></label>
+          <label class="check"><input type="checkbox" id="lh-gray" checked> 거의 회색인 점 숨기기(C&lt;0.03)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">쐐기 안의 화소</span><span class="v" id="lh-o-in">—</span></div>
+        <div class="stat"><span class="k">가장 많은 색상</span><span class="v" id="lh-o-pk">—</span></div>
+        <div class="stat"><span class="k">색상 퍼짐</span><span class="v" id="lh-o-sp">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 「해 질 녘 서점 앞」은 점들이 주황·분홍 쪽과 보라·파랑 쪽, 두 갈래로 모인다. 따뜻한 빛과 차가운 그림자, <a href="temperature.html">10장</a>의 계획이 원판 위에서 두 덩어리로 보인다. 쐐기를 보라 쪽으로 돌리면 그림자만 남는다. ② 「비 오는 골목」은 점들이 원점 근처에 뭉쳐 있고 빨간 우산만 멀리 떨어져 있다. ③ "거의 회색인 점 숨기기"를 끄고 쐐기 폭을 180°로 넓힌다. 회색 점들이 원점에 쌓이고, 반원 쐐기가 화면 절반을 가져간다. 폭이 넓을수록 쐐기는 아무것도 가려내지 못한다. (점은 많아야 3,000개 남짓만 표본으로 찍는다. 색상 퍼짐은 채도로 가중한 원형 표준편차로, 작을수록 한 색상에 모여 있다.)</div>
+    </div>
+
+    <p>원판이 한 덩어리로 모인 그림은 색상으로 통일된 그림이고, 두 덩어리가 마주 보는 그림은 보색 대비로 일하는 그림이다. 점들이 원판 전체에 고르게 흩어져 있는데 채도도 높다면 화면이 시끄럽게 느껴질 가능성이 크다. 다만 이것은 경향일 뿐이다. 쇠라의 그림은 점이 원판 곳곳에 흩어져 있지만, 앞 절에서 봤듯 명도가 조용히 정리되어 있어서 시끄럽지 않다. 세 패널은 늘 함께 읽는다.</p>
+  </section>
+
+  <section id="palette">
+    <h2>주요 색 뽑기</h2>
+    <p>이제 화소 수만 개를 색 몇 개로 줄인다. 실험실은 <span class="term">k-평균 군집</span><span class="en">(k-means clustering)</span>을 쓴다. 색 공간(여기서는 OKLab) 안에 화소들을 점으로 뿌린 뒤, 점들을 k개의 무리로 나누고 각 무리의 평균색을 대표색으로 삼는 방법이다. 무리에 속한 화소의 비율이 그 색의 비율이 된다. <a href="palette.html">14장</a>에서 서점 사진의 색을 뽑을 때 쓴 방법과 같다.</p>
+
+    <div class="callout deep">
+      <strong>k-평균은 무엇을 최소로 하는가</strong>
+      k-평균은 "각 화소에서 자기 대표색까지 거리의 제곱 합"을 줄이도록 대표색을 옮기기를 반복한다. 대표색에 가장 가까운 화소를 모으고, 모은 화소의 평균으로 대표색을 옮기고, 다시 모은다. 이 절차는 Lloyd(1982, 『IEEE Transactions on Information Theory』에 실린 양자화 논문)의 방법으로 널리 알려져 있고, 이 책의 엔진은 시작점을 고르게 흩는 k-means++(Arthur, Vassilvitskii 2007)를 쓰고 시드를 고정해 같은 그림에서 늘 같은 결과를 낸다. 거리 제곱 합을 줄이는 방법이라서 <b>넓은 면적의 색이 대표색을 끌어당긴다</b>. 작은 면적의 색은 다른 색들과 멀리 떨어져 있으면(회색 거리의 빨간 우산) 무리 하나를 차지하지만, 비슷한 색의 큰 무리 가까이에 있거나 k가 너무 작으면 그 무리에 흡수된다. 또 무리의 평균이므로 대표색은 실제 화소들보다 조금 탁해지는 경향이 있다.
+    </div>
+
+    <div class="sim" id="sim-pal">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>주요 색 팔레트와 비율</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="lp-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="lp-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <label class="ctrl"><span>색 개수 k <output id="lp-k-out"></output></span><input type="range" id="lp-k" min="2" max="12" step="1" value="5"></label>
+          <div class="seg" id="lp-sort"><button data-value="weight" class="on">비율순</button><button data-value="light">명도순</button><button data-value="hue">색상순</button></div>
+          <label class="check"><input type="checkbox" id="lp-q"> 뽑은 색으로만 다시 칠하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 넓은 색</span><span class="v" id="lp-o-top">—</span></div>
+        <div class="stat"><span class="k">가장 선명한 색</span><span class="v" id="lp-o-viv">—</span></div>
+        <div class="stat"><span class="k">평균 오차 ΔE<sub>OK</sub>×100</span><span class="v" id="lp-o-err">—</span></div>
+        <div class="stat"><span class="k">가장 비슷한 두 색 ΔE</span><span class="v" id="lp-o-min">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 「비 오는 골목」에서 k를 2부터 하나씩 올린다. k=2, 3에서는 회색만 남고, k=4에서 빨간 우산이 나타나며, 창문 불빛의 노랑은 그 뒤에 나타난다. 둘 다 면적은 2%도 안 되지만 회색 무리에서 멀리 떨어져 있어 무리 하나씩을 차지한다. 작은 색이 살아남을지는 면적보다 "다른 색과 얼마나 떨어져 있나"에 달렸다. ② "뽑은 색으로만 다시 칠하기"를 켠다. k=2에서는 그림이 두 덩어리의 실루엣이 되고, k가 오를수록 평균 오차가 줄어든다. ③ k=12로 올리고 "가장 비슷한 두 색"을 본다. ΔE가 5 아래로 떨어지면 거의 같은 색 두 개가 자리를 나눠 쓰는 것이다. 색을 늘린다고 늘 정보가 늘지는 않는다. (OKLab k-평균, k-means++ 시작, 시드 7, 표본 최대 6,000 화소. 평균 오차는 각 화소에서 자기 대표색까지의 OKLab 거리 평균을 100배 한 값이다.)</div>
+    </div>
+
+    <p>뽑은 팔레트의 비율은 <b>면적</b>이지 <b>중요도</b>가 아니다. 골목의 빨간 우산은 면적으로는 1%도 안 되지만 그림의 주인공이다. 그래서 팔레트를 읽을 때는 비율 막대와 함께 앞의 채도 패널을 본다. 넓고 탁한 색은 바탕이고, 좁고 선명한 색은 강조다. 반대로 포스터처럼 작정하고 만든 그림은 바탕·주색·강조의 비율이 팔레트에 그대로 드러난다.</p>
+
+    <div class="callout studio">
+      <strong>뽑은 팔레트는 재료지 답이 아니다</strong>
+      사진에서 뽑은 색을 그대로 브랜드 색이나 그림의 팔레트로 쓰면 대개 한 단계 탁하고 어둡게 느껴진다. 군집의 평균이라서다. 디자이너들은 뽑은 색을 출발점으로 삼아 명도와 채도를 한 번씩 손본다. 바탕색은 더 밝고 조용하게, 강조색은 원래 화소 중 선명한 쪽으로 옮긴다. 수채화가에게 뽑은 팔레트는 "이 장면을 칠하려면 물감 몇 가지가 필요한가"를 가늠하는 목록이다. 회색 계열이 세 개 나왔다면 회색 물감 세 개가 아니라, 한두 가지 혼색의 농도 차이로 만들 수 있는지부터 따져 본다(<a href="mixing.html">4장</a>).
+    </div>
+  </section>
+
+  <section id="access">
+    <h2>대비와 색각 점검</h2>
+    <p>팔레트가 생기면 바로 묻게 되는 질문이 있다. 이 색들 중 어느 둘을 글자와 바탕으로 쓸 수 있는가. <a href="access.html">13장</a>에서 다룬 WCAG 2의 <span class="term">대비비</span><span class="en">(Contrast ratio)</span>는 두 색의 상대 휘도 \(Y\)만으로 계산한다.</p>
+    <div class="formula">$$\text{대비비}=\frac{Y_{\text{밝은 색}}+0.05}{Y_{\text{어두운 색}}+0.05}$$<div class="where">\(Y\): 상대 휘도(0=검정, 1=흰색). 결과는 1(같은 밝기)~21(검정과 흰색). 본문 글자는 4.5 이상(AA), 큰 글자(약 24px, 굵으면 약 19px 이상)와 아이콘·그래픽 요소는 3 이상이 기준이다.</div></div>
+    <p>식에 색상이 없다는 점이 중요하다. 빨강과 초록처럼 색상이 정반대여도 휘도가 비슷하면 대비비는 1에 가깝다. 아래 격자는 팔레트 여섯 색(명도순)의 모든 짝을 보여 준다. 행이 글자색, 열이 바탕색이다. 칸을 눌러 그 짝을 오른쪽(좁은 화면에서는 아래) 견본으로 크게 본다.</p>
+
+    <div class="sim" id="sim-con">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>팔레트 대비 격자</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="lx-cv"></canvas><span class="hint">칸을 눌러 짝을 고른다</span></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="lx-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <div class="seg" id="lx-std"><button data-value="4.5" class="on">본문 4.5</button><button data-value="3">큰 글자 3</button><button data-value="7">AAA 7</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자 / 바탕</span><span class="v" id="lx-o-pair">—</span></div>
+        <div class="stat"><span class="k">WCAG 대비비</span><span class="v" id="lx-o-w">—</span></div>
+        <div class="stat"><span class="k">APCA Lc (참고)</span><span class="v" id="lx-o-a">—</span></div>
+        <div class="stat"><span class="k">기준 넘는 짝</span><span class="v" id="lx-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 포스터 팔레트에서 테라코타(제목색)와 책방 초록이 만나는 칸을 찾는다. 두 색은 색상이 거의 반대인데 대비비가 1.1 안팎이다. 서로의 위에 글자로 쓰면 안 읽힌다. ② 기준을 "큰 글자 3"으로 바꾼다. 통과하는 짝이 늘어난다. 제목에는 쓸 수 있지만 본문에는 못 쓰는 짝이 이 차이만큼 있다. ③ 쇠라로 바꾼다. 여섯 색이 모두 L* 50 아래의 어두운 색이라 통과하는 짝이 하나도 없다. 이 그림 위에 글자를 얹으려면 그림 밖의 밝은 색(종이 띠)을 가져와야 한다. (대비비는 WCAG 2 공식. 대비비는 두 색의 순서와 상관없지만 APCA는 글자와 바탕의 순서에 따라 값이 달라진다. 양수는 밝은 바탕의 어두운 글자, 음수는 그 반대다.)</div>
+    </div>
+
+    <div class="callout warn">
+      <strong>APCA는 참고값이다</strong>
+      APCA(Accessible Perceptual Contrast Algorithm)는 WCAG 3 초안에서 검토 중인 대비 계산법으로, 글자 굵기와 크기, 밝은 바탕인지 어두운 바탕인지를 함께 고려하려고 만들었다. 2026년 10월 현재 표준이 아니며, 웹 접근성의 법적·실무 기준은 여전히 WCAG 2의 대비비다. 이 책은 APCA 값을 "두 방식이 어디서 다르게 판단하는가"를 보는 참고로만 보여 준다. 특히 어두운 바탕 위의 밝은 글자에서 두 값이 자주 엇갈린다.
+    </div>
+
+    <p>대비는 글자를 읽을 수 있는지를, 색각 점검은 색끼리 구분되는지를 본다. 같은 팔레트와 그림을 <span class="term">색각이상</span><span class="en">(Color vision deficiency)</span> 시뮬레이션으로 바꿔 본다. 경계선을 끌어 보통 색각과 비교하고, 아래 팔레트 줄에서 가장 비슷해지는 두 색을 확인한다.</p>
+
+    <div class="sim" id="sim-cvd">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>색각 미리보기와 팔레트 구분도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <div class="compare" id="ld-cmp">
+            <div class="cmp-a"><canvas id="ld-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="ld-b" class="art"></canvas></div>
+          </div>
+          <canvas id="ld-pal" class="art"></canvas>
+        </div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="ld-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <div class="seg" id="ld-type"><button data-value="protan" class="on">제1색각</button><button data-value="deutan">제2색각</button><button data-value="tritan">제3색각</button><button data-value="achroma">전색각</button></div>
+          <label class="ctrl"><span>심도 <output id="ld-s-out"></output></span><input type="range" id="ld-s" min="0" max="100" step="5" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 가까운 두 색(보통)</span><span class="v" id="ld-o-n">—</span></div>
+        <div class="stat"><span class="k">가장 가까운 두 색(시뮬레이션)</span><span class="v" id="ld-o-s">—</span></div>
+        <div class="stat"><span class="k">책방 초록 ↔ 테라코타</span><span class="v" id="ld-o-g">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 포스터에서 제1색각을 본다. 초록 면과 테라코타 제목이 비슷한 갈색빛 올리브로 다가간다. 두 색은 명도도 비슷해서(앞 시뮬레이터) 색과 명도 어느 쪽으로도 잘 갈리지 않는다. ② 전색각으로 바꾼다. 흑백 보기와 같은 결과다. 제목이 바탕에 묻히는 정도가 명도 패널의 노탄에서 본 것과 같다. ③ 심도를 0에서 100까지 천천히 올리며 "가장 가까운 두 색"의 ΔE가 언제 10 아래로 떨어지는지 본다. (Machado, Oliveira, Fernandes(2009)의 심도 1.0 행렬. 중간 심도는 보통 색각과의 선형 보간 근사다. 시뮬레이션은 평균적인 경향일 뿐, 같은 유형이라도 사람마다 보이는 정도가 다르다. 화면 색은 기기마다 다르다.)</div>
+    </div>
+
+    <p>두 점검을 함께 하면 결론이 분명해진다. 명도가 비슷하고 색상만 다른 두 색은 대비 격자에서도 탈락하고 색각 시뮬레이션에서도 가까워진다. 그런 두 색에 "예약 가능"과 "품절" 같은 서로 다른 뜻을 맡기면 일부 사람에게는 뜻이 사라진다. 13장의 규칙대로 그런 자리에는 글자나 모양을 함께 쓴다.</p>
+  </section>
+
+  <section id="harmony">
+    <h2>조화 점검: 두 색상환 위에서</h2>
+    <p>마지막 점검은 팔레트의 색들이 색상환 위 어디에 놓이는지다. <a href="wheel.html">5장</a>에서 본 것처럼 같은 색도 화가의 전통 색상환(RYB)과 지각 색상환(OKLCH)에서 서로 다른 각도에 놓인다. 그래서 "보색 배색인가"라는 질문의 답이 색상환마다 다를 수 있다. 아래 그림은 책방 초록과, 두 색상환에서 각각 구한 보색 후보를 같은 두 원판 위에 찍은 것이다.</p>
+
+    <figure class="diagram">
+      <div><canvas id="lw-cv" class="lab-fig" role="img" aria-label="책방 초록과 두 보색 후보를 RYB 색상환과 OKLCH 색상환에 찍은 그림"></canvas></div>
+      <figcaption><b>그림 4. 같은 세 색, 두 색상환.</b> 책방 초록 <code>#2f7d5b</code>, RYB 색상환에서 구한 보색 <code>#7d3b2f</code>(적갈색), OKLCH에서 구한 보색 <code>#91557c</code>(자두색). 왼쪽 RYB 원판에서는 적갈색이 초록의 정반대에 있고, 오른쪽 OKLCH 원판에서는 자두색이 정반대에 있다. 어느 원판이 옳은지는 정해져 있지 않다. 물감을 섞는 화가에게는 RYB가, 화면에서 균형을 맞추는 디자이너에게는 OKLCH가 더 쓸모 있을 때가 많다. 원판 둘레의 색은 각도를 보여 주기 위한 안내 색이다.</figcaption>
+    </figure>
+
+    <p>종합 실험실의 조화 패널은 이것을 팔레트 전체로 넓힌다. 팔레트에서 기준색 하나를 고르면(기본은 넓이와 채도를 함께 따져 가장 존재감 있는 색), 고른 배색 공식의 바큇살을 두 원판에 긋고, 바큇살 가까이(±20°)에 있는 팔레트 색에 고리를 두른다. 이 패널은 판정을 내리지 않는다. 고리가 많다고 좋은 그림이 아니고, 고리가 없다고 나쁜 그림도 아니다. 어떤 그림은 공식과 전혀 상관없는 색들로 아름답다. 조화 패널이 쓸모 있는 순간은 "이 색들이 왜 어울려 보이지?" 하는 질문에 하나의 설명 후보를 줄 때, 그리고 일부러 공식에서 벗어난 색이 어디인지 확인할 때다.</p>
+  </section>
+
+  <section id="lab">
+    <h2>종합 실험실</h2>
+    <p>이제 모든 패널을 한 화면에 모은다. 위 큰 그림은 보기를 바꿔 가며 원본·흑백·노탄·채도·팔레트로 다시 칠한 그림·색각 시뮬레이션으로 본다. 그림 위를 누르거나 끌면 그 화소의 색을 집어 값을 보여 준다. 아래 여섯 칸은 명도 분포, 채도 분포, 색상 분포, 팔레트, 대비 격자, 두 색상환 위의 조화다. 팔레트 칸의 색을 누르면 그 색이 조화 패널의 기준색이 된다. 맨 아래에서 팔레트를 글로 내보내 복사한다.</p>
+    <p>순서는 이렇게 권한다. ① 흑백과 노탄으로 명도 구조를 먼저 본다. ② 채도 분포에서 선명한 색이 얼마나, 어디에 있는지 본다. ③ 색상 분포에서 점들이 몇 덩어리인지 본다. ④ 팔레트를 뽑고 비율을 읽는다. ⑤ 대비 격자와 색각으로 쓸 수 있는 짝을 고른다. ⑥ 조화 패널로 설명을 하나 덧붙인다. ⑦ 내보낸다.</p>
+
+    <div class="sim" id="sim-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>색 실험실</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view" style="background:#e9e7e2"><canvas id="lz-img" class="art"></canvas><span class="hint">그림을 눌러 색을 집는다</span></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="lz-src"><button data-value="seurat">쇠라</button><button data-value="poster" class="on">포스터</button><button data-value="window">창가</button><button data-value="alley">골목</button><button data-value="dusk">해 질 녘</button><button data-value="user" disabled>내 이미지</button></div>
+          <label class="lab-file"><input type="file" id="lz-file" accept="image/*"><span>내 이미지 열기</span></label>
+          <p class="lab-small" id="lz-file-msg">파일은 이 브라우저 안에서만 읽는다. 서버로 보내지 않는다.</p>
+          <div class="seg" id="lz-view"><button data-value="orig" class="on">원본</button><button data-value="mono">흑백</button><button data-value="notan">노탄</button><button data-value="chroma">채도</button><button data-value="quant">팔레트</button><button data-value="cvd">색각</button></div>
+          <label class="ctrl"><span>팔레트 색 개수 k <output id="lz-k-out"></output></span><input type="range" id="lz-k" min="3" max="10" step="1" value="6"></label>
+          <div class="seg" id="lz-cvd"><button data-value="protan">제1색각</button><button data-value="deutan" class="on">제2색각</button><button data-value="tritan">제3색각</button></div>
+          <div class="seg" id="lz-sch"><button data-value="complementary" class="on">보색</button><button data-value="split">분할 보색</button><button data-value="triadic">삼각</button><button data-value="analogous">유사</button></div>
+        </div>
+      </div>
+      <div class="lab-dash">
+        <div><canvas id="lz-val"></canvas></div>
+        <div><canvas id="lz-chr"></canvas></div>
+        <div><canvas id="lz-hue"></canvas></div>
+        <div><canvas id="lz-pal"></canvas></div>
+        <div><canvas id="lz-con"></canvas></div>
+        <div><canvas id="lz-har"></canvas></div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">집은 색</span><span class="v" id="lz-o-pick">—</span></div>
+        <div class="stat"><span class="k">노탄 어둠·중간·밝음</span><span class="v" id="lz-o-not">—</span></div>
+        <div class="stat"><span class="k">선명한 색(C≥0.10)</span><span class="v" id="lz-o-chr">—</span></div>
+        <div class="stat"><span class="k">가장 많은 색상</span><span class="v" id="lz-o-hue">—</span></div>
+        <div class="stat"><span class="k">본문 대비 통과 짝</span><span class="v" id="lz-o-con">—</span></div>
+        <div class="stat"><span class="k">색각에서 최소 ΔE</span><span class="v" id="lz-o-cvd">—</span></div>
+      </div>
+      <div class="lab-export">
+        <div class="row"><div class="seg" id="lz-fmt"><button data-value="hex" class="on">HEX 목록</button><button data-value="css">CSS 변수</button><button data-value="json">JSON</button></div></div>
+        <textarea id="lz-out" readonly spellcheck="false" wrap="off" aria-label="내보낸 팔레트"></textarea>
+        <div class="row"><button class="btn primary" id="lz-copy" type="button">복사하기</button><span id="lz-copy-msg" aria-live="polite"></span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 포스터를 고르고 보기를 "노탄", "채도", "색각"으로 차례로 바꾼다. 세 보기 모두에서 테라코타 제목이 초록 면과 붙어 버리는지, 종이 바탕 위에서만 살아나는지 본다. ② 쇠라로 바꾸고 그림 속 등불을 눌러 색을 집는다. 그다음 바로 옆 어두운 배경을 집는다. 명도 L*의 차이가 색상의 차이보다 훨씬 크다. ③ 「해 질 녘 서점 앞」에서 팔레트 칸의 주황(<code>#bb7259</code> 근처)을 눌러 기준색으로 삼고, 배색을 보색·분할 보색·삼각으로 바꿔 본다. 주황과 보라는 흔히 "보색"이라고 부르지만, 보라 점에 고리가 걸리는 것은 두 원판 모두 삼각 배색에서다. ④ 내 이미지를 넣어 같은 순서로 본다. (k는 3~10, 노탄 경계 L* 35·68, 채도 기준 0.10은 고정이다. 대비 칸의 기준은 본문 4.5다. 모든 값은 이 책의 모델로 계산한 것이며 화면 색은 기기마다 다르다.)</div>
+    </div>
+
+    <p>쇠라의 그림을 실험실에 넣어 보면, <a href="overview.html">1장</a>에서 흑백 단추로 확인한 것이 숫자로 다시 나온다. 명도는 L* 15~45(화소의 5~95%)의 어두운 쪽에 몰려 있고, 가스등은 화면의 0.2%도 안 되어 히스토그램 오른쪽에 거의 보이지 않는 꼬리만 남긴다. 그런데도 우리는 등불을 먼저 본다. 초점을 만드는 것은 면적이 아니라 주변과의 대비다. 채도 분포는 생각보다 낮은 쪽에 몰려 있어서 C 0.10을 넘는 화소가 거의 없다. 가까이서는 주황·파랑·초록의 점이 선명해 보이지만, 그 점들이 섞이고 줄어든 화소 단위로는 탁한 보랏빛 갈색이 대부분이다. 팔레트도 보랏빛 회색과 따뜻한 갈색 두 계열로 나뉜다. 쇠라가 밤의 분위기를 검정 대신 서로 다른 색의 섞임으로 만들었다는 해석과 맞는 결과다. 다만 이 숫자들은 박물관이 찍은 사진의 숫자다. 캔버스의 물감이 세월에 따라 변한 정도, 사진의 조명과 보정은 숫자에 함께 들어 있다.</p>
+
+    <div class="callout studio">
+      <strong>분석은 질문을 만든다</strong>
+      실험실을 오래 쓴 사람은 숫자를 결론으로 쓰지 않고 질문으로 쓴다. "선명한 색이 25%다"는 나쁘다는 뜻이 아니라 "이 그림의 주인공은 채도가 아니라 무엇인가"를 묻는 신호다. "대비 통과 짝이 둘뿐이다"는 "글자를 이 그림 위에 얹지 말고 따로 띠를 깔아야 하는가"를 묻는다. 그리고 질문의 답은 화면이 아니라 실제 자리에서 확인한다. 포스터는 인쇄한 교정쇄를 붙일 벽 앞에서, 그림은 걸 전시장 조명 아래에서, 웹사이트는 손님이 들고 다니는 휴대폰에서. 실험실은 그 자리에 가기 전에 무엇을 보러 갈지 정리해 주는 도구다.
+    </div>
+
+    <div class="callout try">
+      <strong>팔레트를 물감 띠로 옮기기</strong>
+      실험실에서 그림 한 장의 팔레트를 k=5로 뽑고 비율을 적는다. 가로 20&nbsp;cm 종이 띠를 비율대로 다섯 칸으로 나눈다(32%면 6.4&nbsp;cm). 각 칸을 물감이나 색연필로 화면의 색에 최대한 가깝게 칠한다. 화면 색은 기기마다 다르니 "똑같이"보다 "서로의 관계가 같게"를 목표로 한다. 다 칠한 띠를 원래 그림 옆에 세워 두고 멀리서 본다. 띠가 그림의 분위기를 얼마나 옮겨 오는지, 무엇이 빠졌는지(대개 작은 강조색과 명도의 배치) 적는다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 16장</span></div>
+      <h4>실험실에 모두 올려 본 밤: 팔레트 v1.0과 세 점의 색 계획</h4>
+      <p>10월 마지막 주, 서윤은 두 달 동안 쌓인 노트를 들고 실험실을 열었다. 후보로만 적어 두었던 로고 초록, 배경별 변형, 웹 팔레트, 포스터 시안, 수채화 세 점의 색 계획 스케치. 이번에는 무엇을 새로 고르기보다, 이미 고른 것들이 한 화면에서 서로 맞는지 보는 날이었다. 도경은 노트북 옆에 손 색 일지를 펼쳐 놓았다.</p>
+      <p><b>브랜드 팔레트.</b> 서윤은 1장의 후보 <code>#2f7d5b</code>를 기준으로 두고, 색상(162°)과 채도(0.094)는 고정한 채 OKLCH 명도만 옮겨 배경별 변형을 다시 계산했다. 이 책의 모델로 계산한 값은 다음과 같다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#2f7d5b"></i><b>책방 초록</b><code>#2f7d5b</code></span>
+        <span class="chip"><i style="background:#005132"></i><b>깊은 초록</b><code>#005132</code></span>
+        <span class="chip"><i style="background:#71be98"></i><b>밝은 초록</b><code>#71be98</code></span>
+        <span class="chip"><i style="background:#b95b3d"></i><b>테라코타</b><code>#b95b3d</code></span>
+        <span class="chip"><i style="background:#f9f6f1"></i><b>종이</b><code>#f9f6f1</code></span>
+        <span class="chip"><i style="background:#1f2622"></i><b>먹</b><code>#1f2622</code></span>
+        <span class="chip"><i style="background:#89867e"></i><b>돌 회색</b><code>#89867e</code></span>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>이름</th><th>OKLCH (L / C / h)</th><th>자리</th><th>대비비 확인</th></tr></thead>
+        <tbody>
+          <tr><td>책방 초록</td><td class="num">0.532 / 0.094 / 162°</td><td>흰 바탕·종이 위 로고, 웹 버튼</td><td class="num">흰색 4.99 · 종이 4.65</td></tr>
+          <tr><td>깊은 초록</td><td class="num">0.384 / 0.088 / 159°</td><td>크라프트지 간판(<code>#c9a77c</code>로 가정)</td><td class="num">크라프트 4.18</td></tr>
+          <tr><td>밝은 초록</td><td class="num">0.740 / 0.094 / 162°</td><td>검은 에코백(<code>#1f1d1b</code>로 가정)</td><td class="num">에코백 7.59</td></tr>
+          <tr><td>테라코타</td><td class="num">0.580 / 0.130 / 38°</td><td>포스터 큰 제목, 강조(약 10%)</td><td class="num">종이 4.21</td></tr>
+          <tr><td>종이</td><td class="num">0.975 / 0.008 / 85°</td><td>웹 바탕, 포스터 바탕</td><td class="num">먹과 14.39</td></tr>
+          <tr><td>먹</td><td class="num">0.260 / 0.012 / 162°</td><td>본문 글자</td><td class="num">종이 14.39</td></tr>
+          <tr><td>돌 회색</td><td class="num">0.620 / 0.012 / 85°</td><td>선·테두리(글자에는 쓰지 않음)</td><td class="num">종이 3.39</td></tr>
+        </tbody>
+      </table></div>
+      <p>실험실은 세 가지를 짚었다. 첫째, 테라코타와 책방 초록은 L* 49.7과 47.0으로 명도가 거의 같아 서로의 대비비가 1.10이다. 그래서 둘은 나란한 색면으로만 쓰고, 한쪽 위에 다른 쪽 글자를 얹지 않는다. 포스터 제목은 종이 바탕 위에 둔다. 둘째, 테라코타는 종이 위에서 4.21이라 본문에는 못 쓰고 큰 제목(3 이상)에만 쓴다. 셋째, 제1색각 시뮬레이션에서 두 색의 차이는 ΔE 7.3까지 줄어든다. 웹에서 이 두 색으로 상태를 나누지 않는다는 13장의 규칙을 다시 확인했다. 깊은 초록은 크라프트지 위 4.18로 본문 기준에는 못 미치지만, 로고와 큰 간판 글자의 기준 3은 넘는다.</p>
+      <p><b>강조색을 두고 남긴 선택지.</b> 조화 패널에 올려 보니 테라코타는 도경의 RYB 색상환에서 초록과 169° 떨어져 거의 보색이지만, OKLCH에서는 124°로 보색보다 삼각 배색 쪽에 가깝다. OKLCH의 정확한 보색은 자두색 <code>#91557c</code>다. 서윤은 테라코타를 골랐다. 서점의 나무 서가, 가을 행사, 크라프트지와 이어지는 색이라서다. 공식 때문이 아니라 서점의 이야기 때문이라는 것을 노트에 그대로 적었다. 자두색은 지우지 않고 "겨울 행사용 대안"으로 남겼고, 크라프트 간판에는 깊은 초록 대신 기준 초록에 종이색 테두리를 두르는 안도 함께 적어 두었다. 인쇄용 초록은 이 화면 값을 출발점으로 <a href="print.html">15장</a>의 절차대로 교정쇄에서 따로 맞추기로 하고, 실험실은 화면 값까지만 확정했다.</p>
+      <p><b>세 점의 색 계획.</b> 서윤은 세 그림의 색 계획 스케치를 차례로 넣고, 노탄 경계 L* 35·68, 채도 기준 0.10에서 읽은 값을 적었다(실험실의 스케치 기준이며, 실제 그림은 종이와 물감에 따라 달라진다). 「창가의 책」은 어둠 2%·중간 44%·밝음 53%의 밝은 조(하이키) 그림이다. 서윤은 어둠을 늘리지 않고, 창틀과 책 더미 그림자의 작은 어둠에 초점을 맡기기로 했다. 「비 오는 골목」은 중간 명도가 79%, 선명한 색이 1.7%뿐이고 그 대부분이 빨간 우산과 창문 불빛이다. 7장의 채도 예산을 가장 엄격하게 지키는 그림이다. 「해 질 녘 서점 앞」은 선명한 색이 29%로 넓고, 색상 분포가 주황 쪽과 보라 쪽 두 덩어리로 갈라진다. 이 그림은 채도 예산 대신 따뜻한 빛과 보랏빛 그림자의 색상 대비로 끌고 가기로 했다. 세 그림의 규칙을 하나로 통일하지 않는 것도 서윤의 선택이다.</p>
+      <p>밤늦게 도경이 일지에 마지막 메모를 적어 서윤에게 내밀었다. "숫자는 네가 본 것을 확인해 줄 뿐 보는 일을 대신하지 않는다. 표를 만들었으니 이제 표를 덮고, 서점 전구 아래와 전시장 벽 앞에 가서 한 번 더 봐라. 거기서 다르게 보이면 그 자리가 이긴다." 그 아래에 작게 덧붙였다. "실험실 쓰는 법은 다음 주에 한 번 더 가르쳐 다오."</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>브랜드 팔레트 v1.0(위 일곱 색, OKLCH로 기록하고 hex는 파생값). 테라코타와 초록은 겹쳐 쓰지 않는다. 강조색은 서윤의 선택으로 테라코타, 자두색은 대안으로 남긴다. 세 점은 그림마다 다른 색 규칙을 쓴다.</div>
+        <div><b>아직 남은 문제</b>주인의 최종 확인, 인쇄 교정쇄에서의 초록, 전시장 조명 아래에서 세 점이 어떻게 보이는지는 실험실이 답할 수 없다.</div>
+        <div><b>다음 단계</b>11월 전시와 서점 가을 행사. <a href="glossary.html">17장</a>에서 두 달의 작업 노트를 색인으로 묶는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>실험실은 이미지를 폭 240&nbsp;px 이하로 줄이고 화소마다 명도 L*, 채도 C, 색상각 h를 구해 여러 방식으로 모아 보여 준다. 넓은 면은 줄여도 남고 작은 면이 먼저 사라진다.</li>
+      <li>명도 히스토그램과 노탄 세 단계로 명도 구조를 먼저 본다. 경계를 옮겨도 형태가 정리되지 않으면 색보다 명도를 먼저 고친다.</li>
+      <li>채도 패널은 선명한 색이 화면의 몇 %인지 잰다. 채도 예산은 작업 규칙이지 법칙이 아니며, 선명한 면이 넓으면 명도나 색상의 대비가 그림을 이끈다.</li>
+      <li>색상–채도 원판에서 점의 방향은 색상, 거리는 채도다. 한 덩어리면 색상 통일, 마주 보는 두 덩어리면 보색 대비로 일하는 그림이다. 명도는 이 원판에 없다.</li>
+      <li>k-평균 팔레트의 비율은 면적이지 중요도가 아니다. 작고 선명한 강조색은 k가 작으면 사라지고, 대표색은 실제보다 조금 탁해진다.</li>
+      <li>대비비는 휘도만 본다. 색상이 반대여도 명도가 비슷한 두 색은 글자·바탕으로 못 쓰고, 색각 시뮬레이션에서도 가까워진다. APCA는 참고값이다.</li>
+      <li>조화 패널은 판정이 아니라 설명 후보다. 실험실의 숫자는 질문을 만들고, 답은 실제로 놓일 자리와 조명 아래에서 확인한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 어떤 수채화의 명도 히스토그램이 L* 60~95에 몰려 있고 어두운 쪽은 거의 비어 있다. 노탄 세 단계로 바꾸니 "어둠"이 2%뿐이다. 가장 알맞은 해석은?</p>
+        <div class="opts">
+          <button class="opt">명도가 한쪽에 몰렸으니 잘못된 그림이다. 어두운 부분을 전체의 3분의 1 이상으로 늘려야 한다.</button>
+          <button class="opt" data-correct>밝은 쪽에 몰린 밝은 조(하이키)의 그림이다. 그 자체는 문제가 아니며, 작은 어둠이 초점이 될 수 있는지, 그 자리가 의도한 곳인지 확인한다.</button>
+          <button class="opt">채도가 낮다는 뜻이므로 선명한 색을 더해야 한다.</button>
+          <button class="opt">화소 수가 부족하다는 뜻이므로 분석 폭을 240&nbsp;px보다 크게 해야 한다.</button>
+        </div>
+        <div class="quiz-exp">히스토그램의 모양에는 좋고 나쁨이 없다. 밝은 쪽에 몰린 그림에서는 적은 어둠이 강한 초점이 된다. 확인할 것은 그 어둠이 의도한 자리에 있는가다. 명도 분포는 채도와 따로 움직이고, 분석 폭은 명도 분포의 모양을 거의 바꾸지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 비 오는 골목 사진에서 k=3으로 팔레트를 뽑았더니 화면의 주인공인 빨간 우산 색이 없다. 이유와 대처로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">k-평균은 빨강을 인식하지 못한다. 다른 색 공간으로 바꿔야 한다.</button>
+          <button class="opt">우산이 너무 선명해서 색역 밖으로 잘려 나갔다. 화면을 보정해야 한다.</button>
+          <button class="opt">팔레트 비율이 작으면 중요도도 낮다는 뜻이므로 우산 색은 빼도 된다.</button>
+          <button class="opt" data-correct>k-평균은 거리 제곱 합을 줄이므로 넓은 면적의 색이 대표색을 끌어당겨 작은 면적의 빨강이 큰 무리에 흡수됐다. k를 올리거나 채도 패널에서 선명한 색을 따로 확인한다.</button>
+        </div>
+        <div class="quiz-exp">팔레트의 비율은 면적이지 중요도가 아니다. 작고 선명한 강조색은 k가 작으면 가까운 큰 무리에 섞인다. k를 올리면 나타나고, 채도 패널의 "기준 넘는 색만"으로도 바로 찾을 수 있다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 팔레트의 테라코타 <code>#b95b3d</code>와 책방 초록 <code>#2f7d5b</code>는 색상이 거의 반대인데 대비비가 1.10으로 나왔다. 옳은 설명은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>WCAG 대비비는 두 색의 휘도만으로 계산하는데 두 색의 명도가 거의 같다. 서로의 위에 글자로 쓰면 안 읽히며, 색각이상 시뮬레이션에서도 가까워지기 쉽다.</button>
+          <button class="opt">보색은 서로를 가장 돋보이게 하므로 계산이 틀렸다. APCA 값을 기준으로 삼아야 한다.</button>
+          <button class="opt">대비비 1.10은 큰 글자 기준(3)은 넘으므로 제목에는 써도 된다.</button>
+          <button class="opt">두 색을 바꿔 초록 글자를 테라코타 바탕에 쓰면 대비비가 높아진다.</button>
+        </div>
+        <div class="quiz-exp">대비비 식에는 색상이 없다. 두 색의 L*가 47.0과 49.7로 비슷하니 1.10이다. 대비비는 순서와 상관이 없어서 바꿔도 같고, 1.10은 큰 글자 기준 3에도 한참 못 미친다. APCA는 참고값이며 이 경우에도 낮게 나온다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 실험실의 조화 패널에서 어떤 그림의 두 주요 색이 RYB 원판에서는 보색 바큇살 위에 있고, OKLCH 원판에서는 바큇살에서 50° 넘게 벗어나 있다. 가장 알맞은 결론은?</p>
+        <div class="opts">
+          <button class="opt">OKLCH가 과학적이므로 이 두 색은 조화롭지 않다. 한 색을 OKLCH 보색으로 바꿔야 한다.</button>
+          <button class="opt">RYB가 전통이므로 이 두 색은 반드시 조화롭다.</button>
+          <button class="opt" data-correct>"보색인가"의 답은 색상환마다 다르다. 조화 패널은 판정이 아니라 설명 후보이므로, 그림이 무엇을 전하려는지에 비추어 실제로 어울려 보이는지를 판단한다.</button>
+          <button class="opt">두 원판의 결과가 다르니 분석이 잘못됐다. 분석 폭을 늘려 다시 계산해야 한다.</button>
+        </div>
+        <div class="quiz-exp">같은 색도 RYB와 OKLCH에서 다른 각도에 놓인다. 어느 원판도 조화의 정답을 정하지 않는다. 조화 공식은 출발점이자 설명의 한 후보일 뿐이고, 판단 기준은 목적과 실제 자리에서의 모습이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex;
+  var INK = "#2b2a30", INK_DIM = "#6b6874", PAPER = "#fbfaf7", STAGE = "#e9e7e2";  // 고정 바탕과 그 위의 글자색
+  var TAU = Math.PI * 2, D2R = Math.PI / 180;
+  var BR = { green: "#2f7d5b", deep: "#005132", light: "#71be98", acc: "#b95b3d", paper: "#f9f6f1", ink: "#1f2622", stone: "#89867e", kraft: "#c9a77c", ochre: "#d3a24a" };
+  var NOTAN = ["#262626", "#8c8c8c", "#ececec"];  // 노탄 세 단계 회색(L* 약 15, 58, 93)
+  var T1 = 35, T2 = 68, CTH = 0.10, GRAY_C = 0.03;  // 종합 실험실의 고정 기준
+
+  /* ================= 공통 그리기 도우미 ================= */
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+  function fitRect(iw, ih, x, y, w, h) { var s = Math.min(w / iw, h / ih); return { x: x + (w - iw * s) / 2, y: y + (h - ih * s) / 2, w: iw * s, h: ih * s, s: s }; }
+  function drawFit(ctx, el, x, y, w, h, smooth) {
+    var iw = el.naturalWidth || el.width, ih = el.naturalHeight || el.height, r = fitRect(iw, ih, x, y, w, h);
+    ctx.imageSmoothingEnabled = smooth !== false; ctx.drawImage(el, r.x, r.y, r.w, r.h); return r;
+  }
+  function waitMsg(ctx, w, h, col) { ctx.fillStyle = col; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("이미지를 불러오는 중…", w / 2, h / 2); }
+  // 캔버스 폭(AB.canvas와 같은 규칙: 아직 배치 전이면 600으로 본다)
+  function pw(id) { var el = document.getElementById(id).parentElement; return Math.max(200, el.clientWidth || 600); }
+  function pct(v, d) { return (v * 100).toFixed(d == null ? 0 : d) + "%"; }
+  // OKLCH 색상각의 대략적인 이름(경계는 이 책의 편의상 정한 것)
+  function hueName(h) {
+    h = ART.mod360(h);
+    return h < 40 ? "빨강" : h < 75 ? "주황" : h < 120 ? "노랑" : h < 170 ? "초록" : h < 220 ? "청록" : h < 285 ? "파랑" : h < 320 ? "보라" : "자주";
+  }
+  function okStr(rgb) { var o = ART.srgbToOklch(rgb); return o[0].toFixed(2) + " " + o[1].toFixed(3) + " " + Math.round(o[2]) + "°"; }
+  function hueDist(a, b) { var d = Math.abs(ART.mod360(a) - ART.mod360(b)) % 360; return d > 180 ? 360 - d : d; }
+
+  /* ================= 가상의 그림 그리기(시드 고정) ================= */
+  function shade(col, dl, cs) { var o = ART.srgbToOklch(ART.parse(col)); return hex(ART.gamutMap([AB.clamp(o[0] + dl, 0, 1), Math.max(0, o[1] * (cs == null ? 1 : cs)), o[2]])); }
+  function vary(col, rnd, dl, dc) { var o = ART.srgbToOklch(ART.parse(col)); return hex(ART.gamutMap([AB.clamp(o[0] + (rnd() - 0.5) * dl, 0, 1), Math.max(0, o[1] * (1 + (rnd() - 0.5) * dc)), o[2] + (rnd() - 0.5) * 10])); }
+  function poly(ctx, pts) { ctx.beginPath(); pts.forEach(function (p, i) { if (i) ctx.lineTo(p[0], p[1]); else ctx.moveTo(p[0], p[1]); }); ctx.closePath(); }
+  // 다각형 가장자리를 잘게 나눠 흔든다(수채 번짐 가장자리)
+  function jit(rnd, pts, j, sub) {
+    var out = [], n = pts.length, s = sub || 5;
+    for (var i = 0; i < n; i++) {
+      var a = pts[i], b = pts[(i + 1) % n];
+      for (var k = 0; k < s; k++) { var t = k / s; out.push([a[0] + (b[0] - a[0]) * t + (rnd() - 0.5) * j, a[1] + (b[1] - a[1]) * t + (rnd() - 0.5) * j]); }
+    }
+    return out;
+  }
+  function R(x, y, w, h) { return [[x, y], [x + w, y], [x + w, y + h], [x, y + h]]; }
+  function blob(ctx, rnd, cx, cy, rx, ry, col, a) {
+    ctx.globalAlpha = a; ctx.fillStyle = col; ctx.beginPath();
+    for (var i = 0; i < 12; i++) { var an = (i / 12) * TAU, q = 1 + (rnd() - 0.5) * 0.4; var x = cx + Math.cos(an) * rx * q, y = cy + Math.sin(an) * ry * q; if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y); }
+    ctx.closePath(); ctx.fill();
+  }
+  // 수채 칠: 바탕 한 겹 + 안쪽 얼룩 여러 겹 + 가장자리 고임
+  function wash(ctx, rnd, pts, col, o) {
+    o = o || {};
+    var p = jit(rnd, pts, o.j == null ? 3 : o.j, o.sub);
+    var xs = p.map(function (q) { return q[0]; }), ys = p.map(function (q) { return q[1]; });
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    ctx.save(); poly(ctx, p); ctx.globalAlpha = o.base == null ? 0.82 : o.base; ctx.fillStyle = col; ctx.fill(); ctx.clip();
+    var n = o.n || Math.max(4, Math.min(40, Math.round(((x1 - x0) * (y1 - y0)) / 1500)));
+    for (var i = 0; i < n; i++) blob(ctx, rnd, x0 + rnd() * (x1 - x0), y0 + rnd() * (y1 - y0), 6 + rnd() * (x1 - x0) * 0.3, 5 + rnd() * (y1 - y0) * 0.3, vary(col, rnd, 0.09, 0.5), o.a == null ? 0.16 : o.a);
+    ctx.restore();
+    if (o.edge !== 0) { ctx.save(); poly(ctx, p); ctx.globalAlpha = o.edge || 0.3; ctx.strokeStyle = shade(col, -0.12, 1.1); ctx.lineWidth = 1.2; ctx.stroke(); ctx.restore(); }
+  }
+  function grain(ctx, w, h, seed, amp) {
+    var rnd = AB.rng(seed), id = ctx.getImageData(0, 0, w, h), d = id.data;
+    for (var i = 0; i < d.length; i += 4) { var n = (rnd() - 0.5) * amp; d[i] += n; d[i + 1] += n; d[i + 2] += n * 0.9; }
+    ctx.putImageData(id, 0, 0);
+  }
+
+  // 책방 E 가을 행사 포스터 시안(가상, 납작한 인쇄물)
+  function paintPoster(ctx, w, h) {
+    var rnd = AB.rng(5);
+    ctx.fillStyle = BR.paper; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = BR.acc; ctx.font = "800 42px Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif"; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+    ctx.fillText("가을 책 장터", 24, 74);
+    ctx.fillStyle = BR.ink; ctx.font = "700 16px Pretendard, sans-serif"; ctx.fillText("책방 E 가을 행사", 26, 104);
+    ctx.fillStyle = "#5c5a55"; ctx.font = "500 13px Pretendard, sans-serif"; ctx.fillText("헌책 교환 · 낭독회 · 작은 장터", 26, 126);
+    ctx.fillStyle = BR.acc; ctx.fillRect(24, 142, 168, 36);
+    ctx.fillStyle = BR.paper; ctx.font = "800 18px Pretendard, sans-serif"; ctx.fillText("10.25 – 11.2", 38, 167);
+    ctx.fillStyle = BR.green; ctx.fillRect(0, 196, w, h - 196);
+    // 서가 두 칸
+    [[214, 300], [318, 410]].forEach(function (sh) {
+      var x = 22;
+      while (x < w - 30) {
+        var bw = 12 + Math.floor(rnd() * 16), bh = 50 + Math.floor(rnd() * 34), r = rnd();
+        var col = r < 0.32 ? BR.deep : r < 0.52 ? BR.light : r < 0.72 ? BR.kraft : r < 0.84 ? BR.acc : r < 0.94 ? BR.paper : BR.ochre;
+        if (x + bw > w - 22) break;
+        if (rnd() < 0.12) { ctx.save(); ctx.translate(x, sh[1]); ctx.rotate(-0.22); ctx.fillStyle = col; ctx.fillRect(0, -bh, bw, bh); ctx.restore(); x += bw + 10; continue; }
+        ctx.fillStyle = col; ctx.fillRect(x, sh[1] - bh, bw, bh);
+        ctx.fillStyle = "rgba(0,0,0,0.12)"; ctx.fillRect(x, sh[1] - bh + 8, bw, 3);
+        x += bw + 2;
+      }
+      ctx.fillStyle = BR.deep; ctx.fillRect(16, sh[1], w - 32, 9);
+    });
+    // 떨어지는 잎(강조색)
+    for (var i = 0; i < 22; i++) {
+      var lx = 20 + rnd() * (w - 40), ly = 186 + rnd() * 284, s = 8 + rnd() * 8;
+      ctx.save(); ctx.translate(lx, ly); ctx.rotate(rnd() * TAU);
+      ctx.fillStyle = rnd() < 0.62 ? BR.acc : BR.ochre; ctx.beginPath(); ctx.ellipse(0, 0, s, s * 0.48, 0, 0, TAU); ctx.fill(); ctx.restore();
+    }
+    // 로고 원
+    ctx.fillStyle = BR.paper; ctx.beginPath(); ctx.arc(w - 58, 448, 26, 0, TAU); ctx.fill();
+    ctx.fillStyle = BR.deep; ctx.font = "800 30px Pretendard, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("E", w - 58, 450);
+    ctx.fillStyle = BR.paper; ctx.font = "600 13px Pretendard, sans-serif"; ctx.textAlign = "left"; ctx.fillText("매주 토요일 오후 3시 낭독회", 22, 452);
+    grain(ctx, w, h, 9, 5);
+  }
+
+  // 「창가의 책」 색 계획 스케치(가상, 수채 흉내)
+  function paintWindow(ctx, w, h) {
+    var rnd = AB.rng(11);
+    ctx.fillStyle = "#f4efe4"; ctx.fillRect(0, 0, w, h);
+    wash(ctx, rnd, R(0, 0, w, 236), "#ddcdb1", { base: 0.9, j: 2 });
+    wash(ctx, rnd, R(270, 36, 166, 160), "#e9f0ee", { base: 0.95, edge: 0.15 });
+    ctx.save(); ctx.beginPath(); ctx.rect(272, 38, 162, 156); ctx.clip();
+    for (var i = 0; i < 9; i++) blob(ctx, rnd, 300 + rnd() * 120, 150 + rnd() * 50, 18 + rnd() * 22, 12 + rnd() * 14, vary("#a9c09c", rnd, 0.08, 0.4), 0.45);
+    ctx.restore();
+    var F = "#5b4534";
+    [R(262, 28, 182, 9), R(262, 194, 182, 10), R(262, 28, 9, 176), R(435, 28, 9, 176), R(348, 28, 6, 170), R(262, 110, 182, 6)].forEach(function (r) { wash(ctx, rnd, r, F, { base: 0.92, j: 1.5, n: 3, edge: 0.2 }); });
+    wash(ctx, rnd, [[190, 236], [480, 236], [480, 300], [150, 300]], "#e8dcc4", { base: 0.5, edge: 0 });
+    wash(ctx, rnd, R(0, 230, w, h - 230), "#a8743f", { base: 0.88 });
+    wash(ctx, rnd, [[262, 232], [470, 232], [480, 262], [240, 262]], "#d6b07a", { base: 0.55, edge: 0 });
+    // 그림자(보랏빛 파랑)
+    wash(ctx, rnd, [[112, 236], [256, 236], [190, 286], [30, 286]], "#6b6690", { base: 0.5, edge: 0.12 });
+    // 책 더미
+    wash(ctx, rnd, R(116, 206, 152, 30), BR.green, { base: 0.92, j: 1.5 });
+    wash(ctx, rnd, R(122, 211, 140, 5), "#efe6cf", { base: 0.9, j: 1, n: 2, edge: 0 });
+    wash(ctx, rnd, R(126, 178, 134, 28), BR.acc, { base: 0.92, j: 1.5 });
+    wash(ctx, rnd, R(120, 152, 142, 26), "#cf9f48", { base: 0.92, j: 1.5 });
+    wash(ctx, rnd, R(124, 157, 134, 4), "#f1e8d2", { base: 0.9, j: 1, n: 2, edge: 0 });
+    // 찻잔
+    ctx.globalAlpha = 0.5; ctx.fillStyle = "#7a7090"; ctx.beginPath(); ctx.ellipse(304, 238, 26, 6, 0, 0, TAU); ctx.fill();
+    wash(ctx, rnd, [[288, 202], [318, 202], [314, 234], [292, 234]], "#f3efe7", { base: 0.95, j: 1.2, n: 3 });
+    // 화분
+    wash(ctx, rnd, [[384, 160], [424, 160], [418, 196], [390, 196]], "#b8613e", { base: 0.92, j: 1.5 });
+    for (var k = 0; k < 14; k++) blob(ctx, rnd, 404 + (rnd() - 0.5) * 50, 140 + (rnd() - 0.5) * 34, 6 + rnd() * 9, 4 + rnd() * 6, vary("#5d8a3c", rnd, 0.12, 0.4), 0.75);
+    ctx.globalAlpha = 1;
+    grain(ctx, w, h, 12, 9);
+  }
+
+  // 「비 오는 골목」 색 계획 스케치(가상)
+  function paintAlley(ctx, w, h) {
+    var rnd = AB.rng(21);
+    ctx.fillStyle = "#eef0ef"; ctx.fillRect(0, 0, w, h);
+    wash(ctx, rnd, R(0, 0, w, 190), "#c5ccd1", { base: 0.9 });
+    var LW = function (u, v) { var x = u * 214, t = u * 100, b = 320 - u * 142; return [x, t + (b - t) * v]; };
+    var RW = function (u, v) { var x = w - u * 192, t = u * 100, b = 330 - u * 152; return [x, t + (b - t) * v]; };
+    wash(ctx, rnd, [[0, 0], [214, 100], [214, 178], [0, 320]], "#7f878d", { base: 0.9 });
+    wash(ctx, rnd, [[w, 0], [288, 100], [288, 178], [w, 330]], "#8e8f89", { base: 0.9 });
+    wash(ctx, rnd, R(214, 100, 74, 78), "#aab1b4", { base: 0.85, edge: 0.15 });
+    wash(ctx, rnd, [[0, 320], [214, 178], [288, 178], [w, 330], [w, h], [0, h]], "#676f75", { base: 0.92 });
+    var quad = function (f, u0, u1, v0, v1) { return [f(u0, v0), f(u1, v0), f(u1, v1), f(u0, v1)]; };
+    [[0.08, 0.26, 0.18, 0.42], [0.42, 0.56, 0.22, 0.42], [0.72, 0.82, 0.25, 0.42]].forEach(function (q, i) { wash(ctx, rnd, quad(LW, q[0], q[1], q[2], q[3]), i === 1 ? "#e6b35a" : "#4d5458", { base: 0.9, j: 1.5, n: 3 }); });
+    [[0.1, 0.3, 0.2, 0.44], [0.5, 0.64, 0.24, 0.42]].forEach(function (q, i) { wash(ctx, rnd, quad(RW, q[0], q[1], q[2], q[3]), i === 1 ? "#e8b964" : "#4f5559", { base: 0.9, j: 1.5, n: 3 }); });
+    // 젖은 길의 반사
+    wash(ctx, rnd, R(104, 262, 10, 70), "#c09a5c", { base: 0.32, edge: 0, j: 4 });
+    wash(ctx, rnd, R(368, 268, 10, 64), "#c4a066", { base: 0.3, edge: 0, j: 4 });
+    wash(ctx, rnd, R(314, 296, 14, 50), "#9c4a40", { base: 0.35, edge: 0, j: 4 });
+    ctx.globalAlpha = 0.35; ctx.fillStyle = "#a3abb0"; ctx.beginPath(); ctx.ellipse(196, 318, 60, 9, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
+    // 우산 쓴 사람
+    wash(ctx, rnd, [[313, 236], [331, 236], [334, 284], [310, 284]], "#363a40", { base: 0.95, j: 1.2, n: 3 });
+    wash(ctx, rnd, R(314, 282, 6, 14), "#30343a", { base: 0.95, j: 1, n: 2, edge: 0 });
+    wash(ctx, rnd, R(325, 282, 6, 14), "#30343a", { base: 0.95, j: 1, n: 2, edge: 0 });
+    var dome = []; for (var i = 0; i <= 12; i++) { var an = Math.PI + (i / 12) * Math.PI; dome.push([322 + Math.cos(an) * 32, 238 + Math.sin(an) * 20]); }
+    wash(ctx, rnd, dome, "#b8352b", { base: 0.95, j: 1.5, sub: 1 });
+    // 빗줄기
+    ctx.strokeStyle = "rgba(236,241,245,0.38)"; ctx.lineWidth = 0.9;
+    for (var r = 0; r < 160; r++) { var x = rnd() * w, y = rnd() * h, L = 8 + rnd() * 10; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - L * 0.18, y + L); ctx.stroke(); }
+    grain(ctx, w, h, 22, 8);
+  }
+
+  // 「해 질 녘 서점 앞」 색 계획 스케치(가상)
+  function paintDusk(ctx, w, h) {
+    var rnd = AB.rng(31);
+    var g = ctx.createLinearGradient(0, 0, 0, 210);
+    g.addColorStop(0, "#4f62b8"); g.addColorStop(0.55, "#ec8456"); g.addColorStop(1, "#f7bd62");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    for (var i = 0; i < 6; i++) blob(ctx, rnd, rnd() * w, 30 + rnd() * 90, 40 + rnd() * 50, 8 + rnd() * 8, vary("#c98a92", rnd, 0.06, 0.3), 0.35);
+    ctx.globalAlpha = 1;
+    wash(ctx, rnd, [[0, 140], [60, 140], [60, 118], [100, 118], [100, 150], [w, 150], [w, 120], [430, 120], [430, 100], [390, 100], [390, 140], [w, 140], [w, 300], [0, 300]], "#6a5fa8", { base: 0.9, sub: 2 });
+    wash(ctx, rnd, R(108, 86, 264, 210), "#b5694c", { base: 0.92 });
+    wash(ctx, rnd, R(200, 100, 80, 30), "#f2e8d6", { base: 0.95, j: 1.2, n: 2 });
+    ctx.fillStyle = BR.ink; ctx.font = "800 17px Pretendard, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("책방 E", 240, 116);
+    wash(ctx, rnd, [[116, 146], [364, 146], [378, 178], [102, 178]], "#2a6a50", { base: 0.92, j: 1.5 });
+    wash(ctx, rnd, R(126, 188, 176, 82), "#f7bd62", { base: 0.95 });
+    [208, 230, 252].forEach(function (y) { wash(ctx, rnd, R(132, y, 164, 5), "#b5793f", { base: 0.75, j: 1, n: 2, edge: 0 }); });
+    wash(ctx, rnd, R(316, 186, 42, 106), "#55463f", { base: 0.92, j: 1.2 });
+    wash(ctx, rnd, R(0, 292, w, h - 292), "#a08d86", { base: 0.92 });
+    // 길게 누운 그림자(보랏빛)
+    wash(ctx, rnd, [[0, 296], [108, 294], [40, 338], [0, 352]], "#5a4f9a", { base: 0.6, edge: 0.1 });
+    wash(ctx, rnd, [[384, 300], [404, 300], [300, 340], [268, 340]], "#5a4f9a", { base: 0.55, edge: 0.1 });
+    wash(ctx, rnd, [[60, 306], [74, 306], [0, 336], [0, 328]], "#5a4f9a", { base: 0.5, edge: 0 });
+    // 사람 둘
+    [[394, 246], [66, 258]].forEach(function (f) {
+      wash(ctx, rnd, [[f[0] - 8, f[1]], [f[0] + 8, f[1]], [f[0] + 10, f[1] + 54], [f[0] - 10, f[1] + 54]], "#3b3346", { base: 0.95, j: 1, n: 2 });
+      ctx.globalAlpha = 0.95; ctx.fillStyle = "#3b3346"; ctx.beginPath(); ctx.arc(f[0], f[1] - 8, 7, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
+    });
+    ctx.globalAlpha = 0.5; ctx.fillStyle = "#ffe2a0"; ctx.beginPath(); ctx.arc(436, 176, 12, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
+    wash(ctx, rnd, R(434, 180, 4, 112), "#3d3a48", { base: 0.9, j: 0.8, n: 1, edge: 0 });
+    grain(ctx, w, h, 32, 8);
+  }
+
+  /* ================= 실험실 저장소: 이미지 불러오기와 분석 ================= */
+  var LUT = new Float32Array(256); for (var li = 0; li < 256; li++) LUT[li] = ART.toLinear(li / 255);
+  function analyze(el, maxW) {
+    var t0 = performance.now();
+    var iw = el.naturalWidth || el.width, ih = el.naturalHeight || el.height;
+    var w = Math.max(1, Math.min(maxW, iw)), h = Math.max(1, Math.round((ih * w) / iw));
+    var c = document.createElement("canvas"); c.width = w; c.height = h;
+    var x = c.getContext("2d", { willReadFrequently: true }); x.imageSmoothingEnabled = true; x.imageSmoothingQuality = "high";
+    x.drawImage(el, 0, 0, w, h);
+    var d = x.getImageData(0, 0, w, h).data, n = w * h;
+    var L = new Float32Array(n), Y = new Float32Array(n), C = new Float32Array(n), H = new Float32Array(n), OK = new Float32Array(n * 3);
+    for (var p = 0; p < n; p++) {
+      var r = LUT[d[p * 4]], g = LUT[d[p * 4 + 1]], b = LUT[d[p * 4 + 2]];
+      var y = 0.2126729 * r + 0.7151522 * g + 0.072175 * b; Y[p] = y;
+      L[p] = y > 216 / 24389 ? 116 * Math.cbrt(y) - 16 : (24389 / 27) * y;  // CIELAB L* (CIE 15:2004)
+      var o = ART.linearToOklab([r, g, b]);
+      OK[p * 3] = o[0]; OK[p * 3 + 1] = o[1]; OK[p * 3 + 2] = o[2];
+      C[p] = Math.hypot(o[1], o[2]); H[p] = ART.mod360(Math.atan2(o[2], o[1]) / D2R);
+    }
+    return { el: el, w: w, h: h, n: n, d: d, L: L, Y: Y, C: C, H: H, OK: OK, canvas: c, srcW: iw, srcH: ih, ms: performance.now() - t0, _pal: {}, _img: {}, _lab: {} };
+  }
+
+  var LAB = (function () {
+    var SRC = {
+      seurat: { name: "쇠라 「서커스 사이드쇼」", url: "../../shared/img/seurat-circus-sideshow.webp" },
+      poster: { name: "책방 E 포스터 시안", paint: paintPoster, w: 360, h: 480 },
+      window: { name: "「창가의 책」 스케치", paint: paintWindow, w: 480, h: 360 },
+      alley: { name: "「비 오는 골목」 스케치", paint: paintAlley, w: 480, h: 360 },
+      dusk: { name: "「해 질 녘 서점 앞」 스케치", paint: paintDusk, w: 480, h: 360 },
+      user: { name: "내 이미지", el: null },
+    };
+    var cache = {}, subs = [], segs = [], cur = "poster", curA = null, gen = 0;
+    function source(key) {
+      var s = SRC[key];
+      if (s.el) return Promise.resolve(s.el);
+      if (s.url) { s.p = s.p || AB.loadImage(s.url).then(function (im) { s.el = im; return im; }); return s.p; }
+      if (s.paint) { var c = document.createElement("canvas"); c.width = s.w; c.height = s.h; s.paint(c.getContext("2d"), s.w, s.h); s.el = c; return Promise.resolve(c); }
+      return Promise.reject(new Error("no image"));
+    }
+    function get(key, w) {
+      var k = key + "@" + (key === "user" ? gen + "@" : "") + w;
+      if (!cache[k]) cache[k] = source(key).then(function (el) { var A = analyze(el, w); A.key = key; A.name = SRC[key].name; return A; });
+      return cache[k];
+    }
+    function syncSegs() {
+      segs.forEach(function (s) { var u = s.el.querySelector('[data-value="user"]'); if (u) u.disabled = !SRC.user.el; s.g.set(cur, false); });
+    }
+    function set(key) {
+      if (key === "user" && !SRC.user.el) return;
+      cur = key; syncSegs();
+      get(key, 240).then(function (A) { if (cur !== key) return; curA = A; subs.forEach(function (cb) { cb(A); }); }, function () {});
+    }
+    function bindSeg(id) { var el = document.getElementById(id); var g = AB.seg(el, function (v) { set(v); }); segs.push({ g: g, el: el }); return g; }
+    function bindFile(id, msgId) {
+      var inp = document.getElementById(id), msg = document.getElementById(msgId);
+      inp.addEventListener("change", function () {
+        var f = inp.files && inp.files[0]; if (!f) return;
+        var url = URL.createObjectURL(f);
+        AB.loadImage(url).then(function (im) {
+          SRC.user.el = im; SRC.user.name = f.name.length > 28 ? f.name.slice(0, 26) + "…" : f.name; gen++;
+          document.querySelectorAll(".lab-small").forEach(function (m) { if (m.id.indexOf("-file-msg") > 0) m.textContent = "열었다: " + SRC.user.name + " (" + im.naturalWidth + "×" + im.naturalHeight + "). 이 브라우저 안에서만 분석한다."; });
+          set("user");
+        }, function () { msg.textContent = "이 파일은 이미지로 열 수 없다. JPG·PNG·WebP를 고른다."; });
+      });
+    }
+    function on(cb) { subs.push(cb); if (curA) cb(curA); }
+    return { get: get, set: set, on: on, bindSeg: bindSeg, bindFile: bindFile, current: function () { return cur; } };
+  })();
+
+  /* ---- 분석에서 파생되는 그림·값(그림마다 캐시) ---- */
+  function makeImg(A, key, fn) {
+    if (A._img[key]) return A._img[key];
+    var c = document.createElement("canvas"); c.width = A.w; c.height = A.h;
+    var x = c.getContext("2d"), id = x.createImageData(A.w, A.h), o = id.data;
+    for (var p = 0; p < A.n; p++) { fn(p, o, p * 4); o[p * 4 + 3] = 255; }
+    x.putImageData(id, 0, 0); A._img[key] = c; return c;
+  }
+  function grayByte(A, p) { return Math.round(ART.toGamma(A.Y[p]) * 255); }
+  function monoImg(A) { return makeImg(A, "mono", function (p, o, i) { var g = grayByte(A, p); o[i] = o[i + 1] = o[i + 2] = g; }); }
+  var NB = NOTAN.map(function (c) { return ART.to255(ART.parse(c)); });
+  function notanImg(A, t1, t2) {
+    var lo = Math.min(t1, t2), hi = Math.max(t1, t2);
+    return makeImg(A, "notan" + lo + "-" + hi, function (p, o, i) { var c = A.L[p] < lo ? NB[0] : A.L[p] < hi ? NB[1] : NB[2]; o[i] = c[0]; o[i + 1] = c[1]; o[i + 2] = c[2]; });
+  }
+  function chromaMapImg(A) { return makeImg(A, "cmap", function (p, o, i) { var v = Math.round(Math.min(1, A.C[p] / 0.25) * 255); o[i] = v; o[i + 1] = v; o[i + 2] = Math.round(v * 0.92); }); }
+  function budgetImg(A, t) {
+    return makeImg(A, "budget" + t.toFixed(2), function (p, o, i) {
+      if (A.C[p] >= t) { o[i] = A.d[i]; o[i + 1] = A.d[i + 1]; o[i + 2] = A.d[i + 2]; } else { var g = grayByte(A, p); o[i] = o[i + 1] = o[i + 2] = g; }
+    });
+  }
+  function hueImg(A, hc, wd, hideGray) {
+    return makeImg(A, "hue" + Math.round(hc) + "-" + wd + (hideGray ? "g" : ""), function (p, o, i) {
+      var inW = A.C[p] >= GRAY_C && hueDist(A.H[p], hc) <= wd / 2;
+      if (inW) { o[i] = A.d[i]; o[i + 1] = A.d[i + 1]; o[i + 2] = A.d[i + 2]; } else { var g = Math.round(grayByte(A, p) * 0.55 + 0.45 * 236); o[i] = o[i + 1] = o[i + 2] = g; }
+    });
+  }
+  function cvdImg(A, type, sev) {
+    return makeImg(A, "cvd" + type + sev, function (p, o, i) {
+      var c = ART.simulateCVD([A.d[i] / 255, A.d[i + 1] / 255, A.d[i + 2] / 255], type, sev);
+      o[i] = Math.round(c[0] * 255); o[i + 1] = Math.round(c[1] * 255); o[i + 2] = Math.round(c[2] * 255);
+    });
+  }
+  function paletteOf(A, k) {
+    if (!A._pal[k]) {
+      var pal = ART.kmeans(A.d, k, { seed: 7, sample: 6000 });
+      pal.forEach(function (c) { c.ok = ART.srgbToOklab(c.rgb); c.lch = ART.srgbToOklch(c.rgb); c.L = ART.lightness(c.rgb); c.hex = hex(c.rgb); });
+      A._pal[k] = pal;
+    }
+    return A._pal[k];
+  }
+  // 화소마다 가장 가까운 대표색 번호와 평균 오차(OKLab 거리)
+  function labelsOf(A, k) {
+    if (A._lab[k]) return A._lab[k];
+    var pal = paletteOf(A, k), lab = new Uint8Array(A.n), err = 0;
+    for (var p = 0; p < A.n; p++) {
+      var best = 0, bd = 1e9;
+      for (var j = 0; j < pal.length; j++) { var q = pal[j].ok, d = Math.pow(A.OK[p * 3] - q[0], 2) + Math.pow(A.OK[p * 3 + 1] - q[1], 2) + Math.pow(A.OK[p * 3 + 2] - q[2], 2); if (d < bd) { bd = d; best = j; } }
+      lab[p] = best; err += Math.sqrt(bd);
+    }
+    A._lab[k] = { lab: lab, err: err / A.n }; return A._lab[k];
+  }
+  function quantImg(A, k) {
+    var L = labelsOf(A, k), pal = paletteOf(A, k).map(function (c) { return ART.to255(c.rgb); });
+    return makeImg(A, "q" + k, function (p, o, i) { var c = pal[L.lab[p]]; o[i] = c[0]; o[i + 1] = c[1]; o[i + 2] = c[2]; });
+  }
+  function histo(arr, n, lo, hi, mask) {
+    var b = new Float32Array(n), tot = 0;
+    for (var p = 0; p < arr.length; p++) { if (mask && !mask(p)) continue; var k = Math.floor(((arr[p] - lo) / (hi - lo)) * n); b[AB.clamp(k, 0, n - 1)]++; tot++; }
+    for (var i = 0; i < n; i++) b[i] /= tot || 1;
+    return b;
+  }
+  function quantile(A, key, q) {
+    var s = A["_s" + key] || (A["_s" + key] = Float32Array.from(A[key]).sort());
+    return s[Math.min(s.length - 1, Math.floor(q * s.length))];
+  }
+  function notanShares(A, t1, t2) {
+    var lo = Math.min(t1, t2), hi = Math.max(t1, t2), a = 0, b = 0;
+    for (var p = 0; p < A.n; p++) { if (A.L[p] < lo) a++; else if (A.L[p] < hi) b++; }
+    return [a / A.n, b / A.n, 1 - (a + b) / A.n];
+  }
+  function chromaShare(A, t) { var c = 0; for (var p = 0; p < A.n; p++) if (A.C[p] >= t) c++; return c / A.n; }
+  // 채도로 가중한 색상 히스토그램(36칸), 가장 많은 색상, 원형 표준편차
+  function hueStats(A) {
+    if (A._hs) return A._hs;
+    var bins = new Float32Array(36), sx = 0, sy = 0, sw = 0, gray = 0;
+    for (var p = 0; p < A.n; p++) {
+      var c = A.C[p]; if (c < GRAY_C) { gray++; continue; }
+      bins[Math.floor(A.H[p] / 10) % 36] += c; sx += c * Math.cos(A.H[p] * D2R); sy += c * Math.sin(A.H[p] * D2R); sw += c;
+    }
+    var pk = 0; for (var i = 1; i < 36; i++) if (bins[i] > bins[pk]) pk = i;
+    var Rb = sw ? Math.hypot(sx, sy) / sw : 0, sd = Rb > 0 ? Math.sqrt(-2 * Math.log(Rb)) / D2R : 180;
+    var mx = 0; for (var j = 0; j < 36; j++) mx = Math.max(mx, bins[j]);
+    A._hs = { bins: bins, max: mx, peak: pk * 10 + 5, spread: Math.min(180, sd), gray: gray / A.n };
+    return A._hs;
+  }
+  function sampleIdx(A, max) {
+    if (A._si) return A._si;
+    var step = Math.max(1, Math.ceil(A.n / max)), idx = [], cols = [];
+    for (var p = 0; p < A.n; p += step) { idx.push(p); cols.push("rgb(" + A.d[p * 4] + "," + A.d[p * 4 + 1] + "," + A.d[p * 4 + 2] + ")"); }
+    A._si = { idx: idx, cols: cols }; return A._si;
+  }
+  // 팔레트 차이: a의 각 색에서 b의 가장 가까운 색까지 ΔE2000, a의 비율로 가중 평균
+  function palDiff(a, b) {
+    var s = 0; a.forEach(function (c) { var m = 1e9; b.forEach(function (d) { m = Math.min(m, ART.diff(c.rgb, d.rgb)); }); s += m * c.weight; }); return s;
+  }
+
+  /* ---- 패널 그리기(작은 시뮬레이터와 종합 실험실이 함께 쓴다) ---- */
+  // 명도 히스토그램: 막대는 그 명도의 회색(예시 색), 축은 UI 색
+  function drawLHist(ctx, box, A, t1, t2, opt) {
+    var p = P(), bins = histo(A.L, 50, 0, 100), mx = 0; for (var i = 0; i < 50; i++) mx = Math.max(mx, bins[i]);
+    var lo = Math.min(t1, t2), hi = Math.max(t1, t2);
+    var X = function (v) { return box.x + (v / 100) * box.w; };
+    ctx.fillStyle = p.surface; ctx.fillRect(box.x, box.y, box.w, box.h);
+    for (var j = 0; j < 50; j++) {
+      var v = (j + 0.5) * 2, bh = (bins[j] / (mx || 1)) * (box.h - 4), g = Math.round(ART.toGamma(ART.labToXyz([v, 0, 0])[1]) * 255);
+      ctx.fillStyle = "rgb(" + g + "," + g + "," + g + ")"; ctx.fillRect(X(j * 2) + 0.5, box.y + box.h - bh, box.w / 50 - 1, bh);
+    }
+    ctx.strokeStyle = p.border; ctx.lineWidth = 1; ctx.strokeRect(box.x + 0.5, box.y + 0.5, box.w - 1, box.h - 1);
+    // 노탄 띠
+    var by = box.y + box.h + 3;
+    ctx.fillStyle = NOTAN[0]; ctx.fillRect(X(0), by, X(lo) - X(0), 7);
+    ctx.fillStyle = NOTAN[1]; ctx.fillRect(X(lo), by, X(hi) - X(lo), 7);
+    ctx.fillStyle = NOTAN[2]; ctx.fillRect(X(hi), by, X(100) - X(hi), 7);
+    ctx.strokeStyle = p.border; ctx.strokeRect(X(0) + 0.5, by + 0.5, box.w - 1, 6);
+    ctx.fillStyle = p.dim; ctx.font = AB.font(10, true); ctx.textBaseline = "top"; ctx.textAlign = "left"; ctx.fillText("L* 0", box.x, by + 10);
+    ctx.textAlign = "right"; ctx.fillText("100", box.x + box.w, by + 10);
+    [lo, hi].forEach(function (t) {
+      var x = X(t); ctx.strokeStyle = p.accent; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+      ctx.beginPath(); ctx.moveTo(x, box.y); ctx.lineTo(x, by + 7); ctx.stroke(); ctx.setLineDash([]);
+      if (opt && opt.handles) AB.handle(ctx, x, box.y + 8, { r: 6, fill: "#ffffff", ring: p.accent });
+      ctx.fillStyle = p.accent; ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.fillText(String(Math.round(t)), x, by + 10);
+    });
+    return X;
+  }
+  function drawCHist(ctx, box, A, t, opt) {
+    var p = P(), CM = 0.32, bins = histo(A.C, 40, 0, CM), mx = 0; for (var i = 0; i < 40; i++) mx = Math.max(mx, bins[i]);
+    var X = function (v) { return box.x + (v / CM) * box.w; };
+    ctx.fillStyle = p.surface; ctx.fillRect(box.x, box.y, box.w, box.h);
+    for (var j = 0; j < 40; j++) {
+      var v = (j + 0.5) * (CM / 40), bh = Math.sqrt(bins[j] / (mx || 1)) * (box.h - 4);
+      ctx.fillStyle = v >= t ? p.accent : p.faint; ctx.fillRect(X(j * CM / 40) + 0.5, box.y + box.h - bh, box.w / 40 - 1, bh);
+    }
+    ctx.strokeStyle = p.border; ctx.lineWidth = 1; ctx.strokeRect(box.x + 0.5, box.y + 0.5, box.w - 1, box.h - 1);
+    var x = X(t); ctx.strokeStyle = p.accent; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(x, box.y); ctx.lineTo(x, box.y + box.h); ctx.stroke(); ctx.setLineDash([]);
+    if (opt && opt.handles) AB.handle(ctx, x, box.y + 8, { r: 6, fill: "#ffffff", ring: p.accent });
+    ctx.fillStyle = p.dim; ctx.font = AB.font(10, true); ctx.textBaseline = "top"; ctx.textAlign = "left"; ctx.fillText("C 0", box.x, box.y + box.h + 4);
+    ctx.textAlign = "right"; ctx.fillText("0.32", box.x + box.w, box.y + box.h + 4);
+    ctx.textAlign = "center"; ctx.fillStyle = p.accent; ctx.fillText(t.toFixed(2), AB.clamp(x, box.x + 14, box.x + box.w - 30), box.y + box.h + 4);
+    ctx.fillStyle = p.dim; ctx.textAlign = "right"; ctx.font = AB.font(10); ctx.fillText("막대 높이: 화소 비율의 제곱근", box.x + box.w - 6, box.y + 5);
+    return X;
+  }
+  // 색상–채도 원판: 점은 화소의 색 그대로
+  var CMAX = 0.3;
+  function drawWheel(ctx, cx, cy, Rr, A, opt) {
+    var p = P(); opt = opt || {};
+    ctx.fillStyle = p.surface; ctx.beginPath(); ctx.arc(cx, cy, Rr, 0, TAU); ctx.fill();
+    ctx.strokeStyle = p.grid; ctx.lineWidth = 1; [0.1, 0.2].forEach(function (c) { ctx.beginPath(); ctx.arc(cx, cy, (c / CMAX) * Rr, 0, TAU); ctx.stroke(); });
+    ctx.strokeStyle = p.border; ctx.beginPath(); ctx.arc(cx, cy, Rr, 0, TAU); ctx.stroke();
+    // 색상 히스토그램 고리
+    var hs = hueStats(A);
+    for (var i = 0; i < 36; i++) {
+      var a0 = (i * 10) * D2R, a1 = (i * 10 + 10) * D2R, len = (hs.bins[i] / (hs.max || 1)) * Rr * 0.22;
+      if (len < 0.5) continue;
+      ctx.fillStyle = hex(ART.gamutMap([0.7, 0.13, i * 10 + 5]));
+      ctx.beginPath(); ctx.arc(cx, cy, Rr + 3, -a0, -a1, true); ctx.arc(cx, cy, Rr + 3 + len, -a1, -a0, false); ctx.closePath(); ctx.fill();
+    }
+    if (opt.wedge) {
+      var w2 = (opt.wedge.w / 2) * D2R, hc = opt.wedge.h * D2R;
+      ctx.fillStyle = p.accent; ctx.globalAlpha = 0.12; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, Rr, -hc - w2, -hc + w2); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+    }
+    var si = sampleIdx(A, opt.max || 3000), ds = opt.dot || 2;
+    for (var k = 0; k < si.idx.length; k++) {
+      var q = si.idx[k], c = A.C[q]; if (opt.hideGray && c < GRAY_C) continue;
+      var r = Math.min(1, c / CMAX) * Rr, an = A.H[q] * D2R;
+      ctx.fillStyle = si.cols[k]; ctx.fillRect(cx + Math.cos(an) * r - ds / 2, cy - Math.sin(an) * r - ds / 2, ds, ds);
+    }
+    if (opt.wedge) {
+      var hx = cx + Math.cos(opt.wedge.h * D2R) * Rr, hy = cy - Math.sin(opt.wedge.h * D2R) * Rr;
+      ctx.strokeStyle = p.accent; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(hx, hy); ctx.stroke();
+      AB.handle(ctx, hx, hy, { r: 8, fill: ART.gamutMap([0.7, 0.13, opt.wedge.h]), ring: "#111111" });
+    }
+    if (opt.labels) {
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      [[29, "빨강"], [100, "노랑"], [145, "초록"], [200, "청록"], [264, "파랑"], [328, "자주"]].forEach(function (t) {
+        var rr2 = Rr + Rr * 0.22 + 14; ctx.fillText(t[1], cx + Math.cos(t[0] * D2R) * rr2, cy - Math.sin(t[0] * D2R) * rr2);
+      });
+    }
+  }
+  function sortPal(pal, mode) {
+    var a = pal.slice();
+    if (mode === "light") a.sort(function (x, y) { return y.L - x.L; });
+    else if (mode === "hue") a.sort(function (x, y) { var gx = x.lch[1] < GRAY_C, gy = y.lch[1] < GRAY_C; if (gx !== gy) return gx ? 1 : -1; return x.lch[2] - y.lch[2]; });
+    return a;
+  }
+  // 비율 막대 + 견본 칸
+  function drawPalette(ctx, x, y, w, h, pal, opt) {
+    opt = opt || {}; var ink = opt.ink || INK, dim = opt.dim || INK_DIM;
+    var bh = Math.min(30, h * 0.24), xx = x;
+    pal.forEach(function (c) { var ww = c.weight * w; ctx.fillStyle = c.hex; ctx.fillRect(xx, y, ww + 0.5, bh); xx += ww; });
+    ctx.strokeStyle = "rgba(0,0,0,0.15)"; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, w - 1, bh - 1);
+    var n = pal.length, cols = Math.min(n, Math.max(3, Math.floor(w / 62))), rows = Math.ceil(n / cols);
+    var gw = (w - (cols - 1) * 6) / cols, top = y + bh + 10, ch = Math.min(64, Math.max(26, (h - bh - 10 - rows * 32) / rows)), cells = [];
+    pal.forEach(function (c, i) {
+      var cx = x + (i % cols) * (gw + 6), cy = top + Math.floor(i / cols) * (ch + 32);
+      ctx.fillStyle = c.hex; rr(ctx, cx, cy, gw, ch, 5); ctx.fill(); ctx.strokeStyle = "rgba(0,0,0,0.15)"; ctx.stroke();
+      if (opt.sel === i) { ctx.strokeStyle = opt.selCol || ink; ctx.lineWidth = 2.5; rr(ctx, cx - 3, cy - 3, gw + 6, ch + 6, 7); ctx.stroke(); ctx.lineWidth = 1; }
+      ctx.fillStyle = AB.textOn(c.rgb); ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(pct(c.weight), cx + gw / 2, cy + ch / 2);
+      ctx.fillStyle = ink; ctx.font = AB.font(gw < 56 ? 9.5 : 11, true); ctx.textBaseline = "top"; ctx.fillText(c.hex, cx + gw / 2, cy + ch + 4);
+      ctx.fillStyle = dim; ctx.font = AB.font(9.5, true); ctx.fillText("L*" + Math.round(c.L), cx + gw / 2, cy + ch + 17);
+      cells.push({ x: cx, y: cy, w: gw, h: ch + 30 });
+    });
+    return cells;
+  }
+  function conGrid(ctx, x, y, size, pal, sel, std, opt) {
+    var p = P(), n = pal.length, lab = opt && opt.small ? 0 : 18, cs = (size - lab) / n;
+    var font = Math.max(9, Math.min(14, cs * 0.3));
+    for (var i = 0; i < n; i++) for (var j = 0; j < n; j++) {
+      var cx = x + lab + j * cs, cy = y + lab + i * cs;
+      if (i === j) { ctx.fillStyle = p.surface; ctx.fillRect(cx, cy, cs - 1, cs - 1); continue; }
+      var r = ART.contrast(pal[i].rgb, pal[j].rgb), ok = r >= std;
+      ctx.fillStyle = pal[j].hex; ctx.fillRect(cx, cy, cs - 1, cs - 1);
+      ctx.fillStyle = pal[i].hex; ctx.font = AB.font(font * 1.25, false, 800); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("가", cx + cs / 2, cy + cs * 0.38);
+      ctx.fillStyle = AB.textOn(pal[j].rgb); ctx.font = AB.font(font * 0.8, true); ctx.fillText(r.toFixed(1), cx + cs / 2, cy + cs * 0.76);
+      if (!ok) { ctx.strokeStyle = AB.textOn(pal[j].rgb); ctx.globalAlpha = 0.45; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx + 3, cy + cs - 4); ctx.lineTo(cx + cs - 4, cy + 3); ctx.stroke(); ctx.globalAlpha = 1; }
+    }
+    if (!(opt && opt.small)) {
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("바탕 →", x + lab + (n * cs) / 2, y + 8);
+      ctx.save(); ctx.translate(x + 8, y + lab + (n * cs) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("글자 →", 0, 0); ctx.restore();
+    }
+    if (sel) { ctx.strokeStyle = p.accent; ctx.lineWidth = 3; ctx.strokeRect(x + lab + sel[1] * cs - 1, y + lab + sel[0] * cs - 1, cs + 1, cs + 1); ctx.lineWidth = 1; }
+    return { x: x + lab, y: y + lab, cs: cs, n: n };
+  }
+  function passCount(pal, std) { var m = 0, t = 0; for (var i = 0; i < pal.length; i++) for (var j = 0; j < pal.length; j++) if (i !== j) { t++; if (ART.contrast(pal[i].rgb, pal[j].rgb) >= std) m++; } return [m, t]; }
+  // 두 색상환(RYB/OKLCH)의 원판과 색 점
+  function hueOn(rgb, wheel) { return wheel === "ryb" ? ART.hueToRyb(ART.srgbToHsl(rgb)[0]) : ART.srgbToOklch(rgb)[2]; }
+  function ringColor(a, wheel) { return wheel === "ryb" ? ART.hslToSrgb([ART.rybToHue(a), 0.72, 0.52]) : ART.gamutMap([0.68, 0.13, a]); }
+  function drawHueRing(ctx, cx, cy, Rr, wheel, title) {
+    var p = P();
+    for (var a = 0; a < 360; a += 5) { ctx.strokeStyle = hex(ringColor(a + 2.5, wheel)); ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(cx, cy, Rr, -(a + 5.5) * D2R, -a * D2R); ctx.stroke(); }
+    ctx.lineWidth = 1; ctx.strokeStyle = p.grid; ctx.beginPath(); ctx.arc(cx, cy, Rr * 0.62, 0, TAU); ctx.stroke();
+    ctx.fillStyle = p.text; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(title, cx, cy + Rr + 8);
+  }
+  function dotOn(ctx, cx, cy, Rr, a, col, r, ring) {
+    var x = cx + Math.cos(a * D2R) * Rr * 0.62, y = cy - Math.sin(a * D2R) * Rr * 0.62;
+    ctx.fillStyle = typeof col === "string" ? col : hex(col); ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+    ctx.strokeStyle = ring || "rgba(0,0,0,0.35)"; ctx.lineWidth = ring ? 2.5 : 1; ctx.stroke(); ctx.lineWidth = 1;
+    return [x, y];
+  }
+
+  /* ================= 그림 2: 히스토그램 전형(SVG 막대) ================= */
+  (function () {
+    var g = document.getElementById("lb-h1"); if (!g) return;
+    var shapes = [function (v) { return Math.exp(-Math.pow((v - 0.22) / 0.13, 2)) + 0.25 * Math.exp(-Math.pow((v - 0.85) / 0.04, 2)); },
+      function (v) { return Math.exp(-Math.pow((v - 0.78) / 0.13, 2)) + 0.25 * Math.exp(-Math.pow((v - 0.12) / 0.04, 2)); },
+      function (v) { return 0.9 * Math.exp(-Math.pow((v - 0.12) / 0.08, 2)) + Math.exp(-Math.pow((v - 0.88) / 0.08, 2)) + 0.12; }];
+    var html = "";
+    shapes.forEach(function (f, s) {
+      var x0 = 14 + s * 150;
+      for (var i = 0; i < 22; i++) { var v = (i + 0.5) / 22, hgt = Math.min(1, f(v)) * 96; html += '<rect x="' + (x0 + i * 6).toFixed(1) + '" y="' + (134 - hgt).toFixed(1) + '" width="5" height="' + hgt.toFixed(1) + '" class="f-acc-soft"/>'; }
+      html += '<path d="M' + x0 + ' 134H' + (x0 + 132) + '" class="s-axis"/>';
+    });
+    g.innerHTML = html;
+  })();
+
+  /* ================= 그림 4: 두 색상환 위의 세 색 ================= */
+  (function () {
+    var cols = [[ART.parse("#2f7d5b"), "책방 초록"], [ART.parse("#7d3b2f"), "RYB 보색"], [ART.parse("#91557c"), "OKLCH 보색"]];
+    AB.canvas("#lw-cv", function (ctx, w, h) {
+      var p = P(), wide = w >= 520, Rr = wide ? Math.min(w / 4 - 22, h / 2 - 34) : Math.min(w / 2 - 56, h / 4 - 34);
+      [["ryb", "RYB 색상환(화가)"], ["oklch", "OKLCH 색상환(지각)"]].forEach(function (wh, k) {
+        var cx = wide ? w / 4 + k * (w / 2) : w / 2, cy = wide ? h / 2 - 10 : h / 4 + k * (h / 2) - 10;
+        drawHueRing(ctx, cx, cy, Rr, wh[0], wh[1]);
+        var a0 = hueOn(cols[0][0], wh[0]);
+        ctx.strokeStyle = p.dim; ctx.setLineDash([4, 4]); ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(a0 * D2R) * Rr * 0.86, cy - Math.sin(a0 * D2R) * Rr * 0.86); ctx.lineTo(cx - Math.cos(a0 * D2R) * Rr * 0.86, cy + Math.sin(a0 * D2R) * Rr * 0.86); ctx.stroke(); ctx.setLineDash([]);
+        cols.forEach(function (c, i) {
+          var a = hueOn(c[0], wh[0]), xy = dotOn(ctx, cx, cy, Rr, a, c[0], 8);
+          var lx = cx + Math.cos(a * D2R) * Rr * 0.3, ly = cy - Math.sin(a * D2R) * Rr * 0.3;
+          ctx.fillStyle = p.text; ctx.font = AB.font(w < 420 ? 9.5 : 11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          ctx.fillText(c[1], lx, ly + (i === 0 ? 0 : i === 1 ? -7 : 7));
+          ctx.fillStyle = p.dim; ctx.font = AB.font(9.5, true); ctx.fillText(Math.round(a) + "°", xy[0] + (xy[0] > cx ? 20 : -20), xy[1]);
+        });
+      });
+    }, { get height() { var w = pw("lw-cv"); return w >= 520 ? Math.round(AB.clamp(w * 0.52, 230, 300)) : Math.round(w * 1.4); } });
+  })();
+
+  /* ================= 시뮬레이터 1: 입구와 분석 해상도 ================= */
+  (function () {
+    var A = null, At = null;
+    var wG = AB.range("li-w", function (v) { return v + " px"; }, function () { req(); });
+    LAB.bindSeg("li-src"); LAB.bindFile("li-file", "li-file-msg");
+    function req() { if (!A) return; var key = A.key, w = wG(); LAB.get(key, w).then(function (B) { if (A && A.key === key && wG() === w) { At = B; cv.redraw(); } }); }
+    var cv = AB.canvas("#li-cv", function (ctx, w, h) {
+      if (!A) { waitMsg(ctx, w, h, INK_DIM); return; }
+      var gap = 12, iw = (w - gap * 3) / 2, ih = h - 150;
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      drawFit(ctx, A.el, gap, 26, iw, ih);
+      ctx.fillText("원본 " + A.srcW + "×" + A.srcH, gap + iw / 2, 6);
+      var B = At || A;
+      drawFit(ctx, B.canvas, gap * 2 + iw, 26, iw, ih, false);
+      ctx.fillStyle = INK; ctx.fillText("분석용 " + B.w + "×" + B.h, gap * 2 + iw * 1.5, 6);
+      var pr = paletteOf(A, 6), pt = paletteOf(B, 6), y0 = 26 + ih + 12;
+      [[pr, "240px로 뽑은 6색"], [pt, B.w + "px로 뽑은 6색"]].forEach(function (row, k) {
+        var y = y0 + k * 54, xx = gap;
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(row[1], gap, y);
+        row[0].forEach(function (c) { var ww = c.weight * (w - gap * 2); ctx.fillStyle = c.hex; ctx.fillRect(xx, y + 16, ww + 0.5, 28); xx += ww; });
+      });
+      AB.stat("li-o-chr", (chromaShare(A, CTH) * 100).toFixed(1) + "→" + (chromaShare(B, CTH) * 100).toFixed(1) + "<small>%</small>");
+      AB.stat("li-o-an", B.w + "×" + B.h + " <small>" + B.n.toLocaleString("ko-KR") + "화소</small>");
+      AB.stat("li-o-de", AB.fix(palDiff(pr, pt), 1));
+      AB.stat("li-o-ms", AB.fix(B.ms, 0) + " ms");
+    }, { get height() { var w = pw("li-cv"); return w < 520 ? Math.round(w * 0.62 + 160) : Math.round(Math.min(480, w * 0.45 + 160)); }, bg: PAPER });
+    LAB.on(function (a) { A = a; At = null; req(); cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 2: 명도 분포와 노탄 ================= */
+  (function () {
+    var A = null, geo = null;
+    var view = AB.seg("lv-view", function () { cv.redraw(); });
+    var t1 = AB.range("lv-t1", function (v) { return v; }, function () { cv.redraw(); });
+    var t2 = AB.range("lv-t2", function (v) { return v; }, function () { cv.redraw(); });
+    LAB.bindSeg("lv-src");
+    var cv = AB.canvas("#lv-cv", function (ctx, w, h) {
+      var p = P();
+      if (!A) { waitMsg(ctx, w, h, p.dim); return; }
+      var hh = Math.min(130, h * 0.3), ih = h - hh - 80;
+      var v = view(), el = v === "orig" ? A.el : v === "mono" ? monoImg(A) : notanImg(A, t1(), t2());
+      drawFit(ctx, el, 12, 10, w - 24, ih, v === "orig");
+      var box = { x: 18, y: ih + 20, w: w - 36, h: hh };
+      geo = { box: box };
+      drawLHist(ctx, box, A, t1(), t2(), { handles: true });
+      var s = notanShares(A, t1(), t2());
+      AB.stat("lv-o-d", pct(s[0])); AB.stat("lv-o-m", pct(s[1])); AB.stat("lv-o-l", pct(s[2]));
+      AB.stat("lv-o-r", Math.round(quantile(A, "L", 0.05)) + " ~ " + Math.round(quantile(A, "L", 0.95)));
+    }, { get height() { var w = pw("lv-cv"); return w < 520 ? Math.round(w * 0.75 + 170) : 470; } });
+    var which = 0;
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!geo) return; var b = geo.box, v = ((x - b.x) / b.w) * 100; which = Math.abs(v - t1()) <= Math.abs(v - t2()) ? 1 : 2; },
+      move: function (x, y) {
+        if (!geo) return; var b = geo.box; if (y < b.y - 30) return;
+        var v = Math.round(AB.clamp(((x - b.x) / b.w) * 100, 2, 98)); (which === 1 ? t1 : t2).set(v);
+      },
+    });
+    LAB.on(function (a) { A = a; cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 3: 채도 지도와 채도 예산 ================= */
+  (function () {
+    var A = null, geo = null;
+    var view = AB.seg("lc-view", function () { cv.redraw(); });
+    var tG = AB.range("lc-t", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    LAB.bindSeg("lc-src");
+    var cv = AB.canvas("#lc-cv", function (ctx, w, h) {
+      var p = P();
+      if (!A) { waitMsg(ctx, w, h, p.dim); return; }
+      var hh = Math.min(110, h * 0.26), ih = h - hh - 66, t = tG(), v = view();
+      var el = v === "orig" ? A.el : v === "map" ? chromaMapImg(A) : budgetImg(A, t);
+      drawFit(ctx, el, 12, 10, w - 24, ih, v === "orig");
+      if (v === "map") { ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("검정: 회색에 가깝다 · 흰색: 선명하다(C 0.25 이상)", 14, ih + 2); }
+      var box = { x: 18, y: ih + 16, w: w - 36, h: hh };
+      geo = { box: box };
+      drawCHist(ctx, box, A, t, { handles: true });
+      var sum = 0; for (var q = 0; q < A.n; q++) sum += A.C[q];
+      AB.stat("lc-o-p", pct(chromaShare(A, t), 1)); AB.stat("lc-o-m", (sum / A.n).toFixed(3));
+      AB.stat("lc-o-q", quantile(A, "C", 0.95).toFixed(3)); AB.stat("lc-o-g", pct(hueStats(A).gray));
+    }, { get height() { var w = pw("lc-cv"); return w < 520 ? Math.round(w * 0.75 + 140) : 450; } });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo) return; var b = geo.box; if (y < b.y - 30) return; tG.set(Math.round(AB.clamp(((x - b.x) / b.w) * 0.32, 0.02, 0.3) * 100) / 100); } });
+    LAB.on(function (a) { A = a; cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 4: 색상–채도 산점도 ================= */
+  (function () {
+    var A = null, geo = null, hc = 50;
+    var wG = AB.range("lh-w", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var hideG = AB.check("lh-gray", function () { cv.redraw(); });
+    LAB.bindSeg("lh-src");
+    var cv = AB.canvas("#lh-cv", function (ctx, w, h) {
+      var p = P();
+      if (!A) { waitMsg(ctx, w, h, p.dim); return; }
+      var wide = w >= 560, Rr, cx, cy;
+      if (wide) { Rr = Math.min(h / 2 - 56, w * 0.22); cx = 30 + Rr * 1.3; cy = h / 2 - 8; }
+      else { Rr = Math.min(w / 2 - 50, 140); cx = w / 2; cy = Rr * 1.3 + 20; }
+      geo = { cx: cx, cy: cy, R: Rr };
+      drawWheel(ctx, cx, cy, Rr, A, { wedge: { h: hc, w: wG() }, hideGray: hideG(), labels: true });
+      var ix = wide ? cx + Rr * 1.3 + 30 : 12, iy = wide ? 14 : cy + Rr * 1.3 + 18;
+      drawFit(ctx, hueImg(A, hc, wG(), hideG()), ix, iy, w - ix - 12, h - iy - 40, false);
+      var inn = 0; for (var q = 0; q < A.n; q++) if (A.C[q] >= GRAY_C && hueDist(A.H[q], hc) <= wG() / 2) inn++;
+      var hs = hueStats(A);
+      AB.stat("lh-o-in", pct(inn / A.n, 1));
+      AB.stat("lh-o-pk", hs.peak + "° <small>" + hueName(hs.peak) + "</small>");
+      AB.stat("lh-o-sp", Math.round(hs.spread) + "°");
+    }, { get height() { var w = pw("lh-cv"); return w >= 560 ? 440 : Math.round(Math.min(w / 2 - 50, 140) * 2.6 + 70 + (w - 24) * 0.75); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var dx = x - geo.cx, dy = geo.cy - y, r = Math.hypot(dx, dy);
+        if (r < geo.R * 0.25 || r > geo.R * 1.5) return;
+        hc = Math.round(ART.mod360(Math.atan2(dy, dx) / D2R)); cv.redraw();
+      },
+    });
+    LAB.on(function (a) { A = a; hc = hueStats(a).peak; cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 5: 주요 색 팔레트 ================= */
+  (function () {
+    var A = null;
+    var kG = AB.range("lp-k", function (v) { return v; }, function () { cv.redraw(); });
+    var sortG = AB.seg("lp-sort", function () { cv.redraw(); });
+    var qG = AB.check("lp-q", function () { cv.redraw(); });
+    LAB.bindSeg("lp-src");
+    var cv = AB.canvas("#lp-cv", function (ctx, w, h) {
+      if (!A) { waitMsg(ctx, w, h, INK_DIM); return; }
+      var k = kG(), pal = paletteOf(A, k), ih = h * 0.5;
+      drawFit(ctx, qG() ? quantImg(A, k) : A.el, 12, 12, w - 24, ih, !qG());
+      drawPalette(ctx, 16, ih + 24, w - 32, h - ih - 34, sortPal(pal, sortG()));
+      var viv = pal.reduce(function (a, c) { return c.lch[1] > a.lch[1] ? c : a; }, pal[0]);
+      var dist = ART.distinguish(pal.map(function (c) { return c.rgb; }));
+      AB.stat("lp-o-top", pal[0].hex + " <small>" + pct(pal[0].weight) + "</small>");
+      AB.stat("lp-o-viv", viv.hex + " <small>C " + viv.lch[1].toFixed(2) + "</small>");
+      AB.stat("lp-o-err", AB.fix(labelsOf(A, k).err * 100, 1));
+      AB.stat("lp-o-min", AB.fix(dist.min, 1));
+    }, { get height() { var w = pw("lp-cv"); return w < 520 ? Math.round(w * 1.25) : 520; }, bg: PAPER });
+    LAB.on(function (a) { A = a; cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 6: 팔레트 대비 격자 ================= */
+  (function () {
+    var A = null, geo = null, sel = null;
+    var stdG = AB.seg("lx-std", function () { cv.redraw(); });
+    LAB.bindSeg("lx-src");
+    function pal6() { return sortPal(paletteOf(A, 6), "light"); }
+    var cv = AB.canvas("#lx-cv", function (ctx, w, h) {
+      var p = P();
+      if (!A) { waitMsg(ctx, w, h, p.dim); return; }
+      var pal = pal6(), n = pal.length, std = +stdG(), wide = w >= 560;
+      if (!sel || sel[0] >= n || sel[1] >= n) sel = [n - 1, 0];
+      var size = wide ? Math.min(h - 46, w * 0.55) : w - 24;
+      geo = conGrid(ctx, 12, 12, size, pal, sel, std);
+      var fg = pal[sel[0]], bg = pal[sel[1]], r = ART.contrast(fg.rgb, bg.rgb), ap = ART.apca(fg.rgb, bg.rgb);
+      var px = wide ? 12 + size + 18 : 12, py = wide ? 12 : 12 + size + 14, pw = w - px - 12, ph = h - py - 40;
+      ctx.fillStyle = bg.hex; rr(ctx, px, py, pw, ph, 10); ctx.fill(); ctx.strokeStyle = p.border; ctx.stroke();
+      ctx.fillStyle = fg.hex; ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.font = AB.font(Math.min(30, pw / 8), false, 800); ctx.fillText("가을 책 장터", px + 16, py + 16);
+      ctx.font = AB.font(15); var line1 = "토요일 오후 세 시, 낭독회가 열린다.", line2 = "작은 글자는 대비가 더 필요하다.";
+      ctx.fillText(line1, px + 16, py + 16 + Math.min(30, pw / 8) + 14);
+      ctx.font = AB.font(12); ctx.fillText(line2, px + 16, py + 16 + Math.min(30, pw / 8) + 40);
+      ctx.font = AB.font(12, true); ctx.fillText(fg.hex + " / " + bg.hex + "  ·  " + r.toFixed(2) + ":1", px + 16, py + ph - 26);
+      AB.stat("lx-o-pair", fg.hex + " <small>/ " + bg.hex + "</small>");
+      AB.stat("lx-o-w", r.toFixed(2) + " <small>" + (r >= std ? "통과" : "미달") + " · 본문 " + ART.wcagLevel(r) + "</small>");
+      AB.stat("lx-o-a", "Lc " + ap.toFixed(0));
+      var pc = passCount(pal, std); AB.stat("lx-o-n", pc[0] + " <small>/ " + pc[1] + "</small>");
+    }, { get height() { var w = pw("lx-cv"); return w >= 560 ? 420 : Math.round(w - 24 + 210); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var j = Math.floor((x - geo.x) / geo.cs), i = Math.floor((y - geo.y) / geo.cs);
+        if (i < 0 || j < 0 || i >= geo.n || j >= geo.n || i === j) return;
+        sel = [i, j]; cv.redraw();
+      },
+    });
+    LAB.on(function (a) { A = a; sel = null; cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 7: 색각 미리보기 ================= */
+  (function () {
+    var A = null;
+    var tG = AB.seg("ld-type", function () { redraw(); });
+    var sG = AB.range("ld-s", function (v) { return v + "%"; }, function () { redraw(); });
+    LAB.bindSeg("ld-src");
+    var hgt = function () { var w = document.getElementById("ld-cmp").clientWidth || 600; return Math.round(Math.min(400, w * 0.7)); };
+    var cvA = AB.canvas("#ld-a", function (ctx, w, h) { if (!A) { waitMsg(ctx, w, h, INK_DIM); return; } drawFit(ctx, A.el, 8, 8, w - 16, h - 16); }, { get height() { return hgt(); }, bg: PAPER });
+    var cvB = AB.canvas("#ld-b", function (ctx, w, h) { if (!A) return; drawFit(ctx, cvdImg(A, tG(), sG() / 100), 8, 8, w - 16, h - 16, false); }, { get height() { return hgt(); }, bg: PAPER });
+    AB.compare("#ld-cmp", { labels: ["보통 색각", "시뮬레이션"], pos: 0.5 });
+    var cvP = AB.canvas("#ld-pal", function (ctx, w, h) {
+      if (!A) return;
+      var pal = sortPal(paletteOf(A, 6), "light"), n = pal.length, t = tG(), s = sG() / 100;
+      var sims = pal.map(function (c) { return ART.simulateCVD(c.rgb, t, s); });
+      var dn = ART.distinguish(pal.map(function (c) { return c.rgb; })), ds = ART.distinguish(pal.map(function (c) { return c.rgb; }), t, s);
+      var cw = (w - 100 - (n - 1) * 6) / n;
+      [["보통", pal.map(function (c) { return c.rgb; }), dn.pair], ["시뮬레이션", sims, ds.pair]].forEach(function (row, k) {
+        var y = 12 + k * 40;
+        ctx.fillStyle = INK; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(row[0], 10, y + 14);
+        row[1].forEach(function (c, i) {
+          var x = 90 + i * (cw + 6); ctx.fillStyle = hex(c); rr(ctx, x, y, cw, 28, 4); ctx.fill();
+          if (row[2].indexOf(i) >= 0) { ctx.strokeStyle = INK; ctx.lineWidth = 2; rr(ctx, x - 2, y - 2, cw + 4, 32, 5); ctx.stroke(); ctx.lineWidth = 1; }
+        });
+      });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("테두리: 그 줄에서 가장 비슷한 두 색", 10, 94);
+      AB.stat("ld-o-n", "ΔE " + AB.fix(dn.min, 1));
+      AB.stat("ld-o-s", "ΔE " + AB.fix(ds.min, 1) + " <small>" + pal[ds.pair[0]].hex + " · " + pal[ds.pair[1]].hex + "</small>");
+      var g = ART.parse(BR.green), a = ART.parse(BR.acc);
+      AB.stat("ld-o-g", "ΔE " + AB.fix(ART.diff(ART.simulateCVD(g, t, s), ART.simulateCVD(a, t, s)), 1) + " <small>보통 " + AB.fix(ART.diff(g, a), 1) + "</small>");
+    }, { height: 116, bg: PAPER });
+    function redraw() { cvA.redraw(); cvB.redraw(); cvP.redraw(); }
+    LAB.on(function (a) { A = a; cvA.resize(); cvB.resize(); redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 8: 종합 실험실 ================= */
+  (function () {
+    var A = null, pick = null, anchor = -1, imgGeo = null, palCells = [];
+    var viewG = AB.seg("lz-view", function () { main.redraw(); });
+    var kG = AB.range("lz-k", function (v) { return v; }, function () { anchor = -1; all(); });
+    var cvdG = AB.seg("lz-cvd", function () { main.redraw(); dash(); });
+    var schG = AB.seg("lz-sch", function () { har.redraw(); });
+    var fmtG = AB.seg("lz-fmt", function () { exportText(); });
+    LAB.bindSeg("lz-src"); LAB.bindFile("lz-file", "lz-file-msg");
+    function pal() { return paletteOf(A, kG()); }
+    function anchorIdx() {
+      if (anchor >= 0 && anchor < pal().length) return anchor;
+      var best = 0, bv = -1; pal().forEach(function (c, i) { var v = c.weight * c.lch[1]; if (v > bv) { bv = v; best = i; } }); return best;
+    }
+    var main = AB.canvas("#lz-img", function (ctx, w, h) {
+      if (!A) { waitMsg(ctx, w, h, INK_DIM); return; }
+      var v = viewG(), el = v === "orig" ? A.el : v === "mono" ? monoImg(A) : v === "notan" ? notanImg(A, T1, T2) : v === "chroma" ? budgetImg(A, CTH) : v === "quant" ? quantImg(A, kG()) : cvdImg(A, cvdG(), 1);
+      imgGeo = drawFit(ctx, el, 10, 10, w - 20, h - 44, v === "orig");
+      var NAMES = { orig: "원본", mono: "흑백(같은 휘도의 회색)", notan: "노탄(L* 35 · 68)", chroma: "C 0.10 이상만 색", quant: "팔레트 " + kG() + "색으로 다시 칠함", cvd: ART.CVD_TYPES[cvdG()] };
+      ctx.fillStyle = "#111111"; ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText(A.name + " · " + NAMES[v], 12, h - 8);
+      if (pick != null) {
+        var px = imgGeo.x + ((pick % A.w) + 0.5) * (imgGeo.w / A.w), py = imgGeo.y + (Math.floor(pick / A.w) + 0.5) * (imgGeo.h / A.h);
+        var rgb = [A.d[pick * 4] / 255, A.d[pick * 4 + 1] / 255, A.d[pick * 4 + 2] / 255];
+        AB.handle(ctx, px, py, { r: 9, fill: rgb });
+      }
+    }, { get height() { var w = pw("lz-img"); return Math.round(Math.min(560, Math.max(300, w < 520 ? w * 0.9 : 520))); }, bg: STAGE });
+    AB.drag(main.canvas, {
+      move: function (x, y) {
+        if (!A || !imgGeo) return;
+        var ix = Math.floor(((x - imgGeo.x) / imgGeo.w) * A.w), iy = Math.floor(((y - imgGeo.y) / imgGeo.h) * A.h);
+        if (ix < 0 || iy < 0 || ix >= A.w || iy >= A.h) return;
+        pick = iy * A.w + ix; main.redraw(); pickStat();
+      },
+    });
+    function pickStat() {
+      if (!A || pick == null) { AB.stat("lz-o-pick", "<small>그림을 누른다</small>"); return; }
+      var rgb = [A.d[pick * 4] / 255, A.d[pick * 4 + 1] / 255, A.d[pick * 4 + 2] / 255];
+      AB.stat("lz-o-pick", hex(rgb) + " <small>L* " + Math.round(A.L[pick]) + " · C " + A.C[pick].toFixed(3) + " · " + Math.round(A.H[pick]) + "°</small>");
+    }
+    var cellOpt = { aspect: 0.8, minHeight: 240, maxHeight: 310 };
+    function title(ctx, t, sub) { var p = P(); ctx.fillStyle = p.text; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(t, 12, 10); if (sub) { ctx.fillStyle = p.dim; ctx.font = AB.font(10.5); ctx.fillText(sub, 12, 27); } }
+    var val = AB.canvas("#lz-val", function (ctx, w, h) {
+      title(ctx, "명도 분포", "L* 히스토그램과 노탄 경계 35 · 68"); if (!A) return;
+      drawLHist(ctx, { x: 14, y: 48, w: w - 28, h: h - 92 }, A, T1, T2);
+    }, cellOpt);
+    var chr = AB.canvas("#lz-chr", function (ctx, w, h) {
+      title(ctx, "채도 분포", "OKLCH C · 기준 0.10 넘는 쪽을 강조"); if (!A) return;
+      drawCHist(ctx, { x: 14, y: 48, w: w - 28, h: h - 76 }, A, CTH);
+    }, cellOpt);
+    var hue = AB.canvas("#lz-hue", function (ctx, w, h) {
+      title(ctx, "색상 분포", "방향 = 색상, 거리 = 채도"); if (!A) return;
+      var Rr = Math.min(w / 2 - 34, (h - 44) / 2 - 26);
+      drawWheel(ctx, w / 2, 44 + (h - 44) / 2, Rr, A, { hideGray: true, max: 2000, dot: 1.8 });
+    }, cellOpt);
+    var palc = AB.canvas("#lz-pal", function (ctx, w, h) {
+      var p = P(); title(ctx, "팔레트 (k=" + kG() + ")", "칸을 누르면 조화 패널의 기준색"); if (!A) return;
+      palCells = drawPalette(ctx, 12, 48, w - 24, h - 56, pal(), { ink: p.text, dim: p.dim, sel: anchorIdx(), selCol: p.accent });
+    }, cellOpt);
+    AB.drag(palc.canvas, { move: function (x, y) { palCells.forEach(function (c, i) { if (x >= c.x && x <= c.x + c.w && y >= c.y && y <= c.y + c.h) anchor = i; }); palc.redraw(); har.redraw(); } });
+    var con = AB.canvas("#lz-con", function (ctx, w, h) {
+      title(ctx, "대비 격자", "행 글자 · 열 바탕 · 사선은 4.5 미달"); if (!A) return;
+      var pl = sortPal(pal(), "light"), size = Math.min(w - 24, h - 56);
+      conGrid(ctx, (w - size) / 2, 48, size, pl, null, 4.5, { small: true });
+    }, cellOpt);
+    var har = AB.canvas("#lz-har", function (ctx, w, h) {
+      var p = P(), sch = schG(); title(ctx, "조화: " + ART.SCHEMES[sch].name, "바큇살 ±20° 안의 색에 고리"); if (!A) return;
+      var pl = pal(), ai = anchorIdx(), Rr = Math.min(w / 4 - 14, (h - 70) / 2 - 8), offs = ART.SCHEMES[sch].offsets, res = {};
+      [["ryb", "RYB"], ["oklch", "OKLCH"]].forEach(function (wh, k) {
+        var cx = w / 4 + k * (w / 2), cy = 50 + Rr + 6;
+        drawHueRing(ctx, cx, cy, Rr, wh[0], wh[1]);
+        var a0 = hueOn(pl[ai].rgb, wh[0]), near = 0;
+        offs.forEach(function (o) { var a = (a0 + o) * D2R; ctx.strokeStyle = p.dim; ctx.lineWidth = 1.2; ctx.setLineDash(o === 0 ? [] : [4, 3]); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * Rr * 0.95, cy - Math.sin(a) * Rr * 0.95); ctx.stroke(); ctx.setLineDash([]); });
+        pl.forEach(function (c, i) {
+          var a = hueOn(c.rgb, wh[0]), gray = c.lch[1] < GRAY_C;
+          var hit = !gray && i !== ai && offs.some(function (o) { return o !== 0 && hueDist(a, a0 + o) <= 20; });
+          if (hit) near++;
+          if (gray) { ctx.fillStyle = c.hex; ctx.beginPath(); ctx.arc(cx, cy, 3 + c.weight * 14, 0, TAU); ctx.fill(); ctx.strokeStyle = "rgba(0,0,0,0.3)"; ctx.stroke(); return; }
+          dotOn(ctx, cx, cy, Rr, a, c.rgb, 4 + Math.sqrt(c.weight) * 10, i === ai ? p.text : hit ? p.accent : null);
+        });
+        res[wh[0]] = near;
+      });
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10.5); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.fillText("고리 RYB " + res.ryb + "개 · OKLCH " + res.oklch + "개 (가운데 점은 무채색)", w / 2, h - 6);
+    }, cellOpt);
+    function dash() {
+      if (!A) return;
+      var s = notanShares(A, T1, T2), hs = hueStats(A), pl = pal(), pc = passCount(pl, 4.5), ds = ART.distinguish(pl.map(function (c) { return c.rgb; }), cvdG());
+      AB.stat("lz-o-not", Math.round(s[0] * 100) + "·" + Math.round(s[1] * 100) + "·" + Math.round(s[2] * 100) + "<small>%</small>");
+      AB.stat("lz-o-chr", pct(chromaShare(A, CTH), 1));
+      AB.stat("lz-o-hue", hs.peak + "° <small>" + hueName(hs.peak) + "</small>");
+      AB.stat("lz-o-con", pc[0] + " <small>/ " + pc[1] + "</small>");
+      AB.stat("lz-o-cvd", "ΔE " + AB.fix(ds.min, 1));
+    }
+    var out = document.getElementById("lz-out"), copyMsg = document.getElementById("lz-copy-msg");
+    function exportText() {
+      if (!A) return;
+      var pl = pal(), f = fmtG(), k = pl.length, src = A.name, lines;
+      if (f === "hex") {
+        lines = ["# 색 실험실 팔레트 · " + src + " · k=" + k + " · 비율순"];
+        pl.forEach(function (c) { lines.push(c.hex + "  " + (c.weight * 100).toFixed(1).padStart(5) + "%  L* " + c.L.toFixed(1) + "  oklch(" + c.lch[0].toFixed(3) + " " + c.lch[1].toFixed(3) + " " + c.lch[2].toFixed(1) + ")"); });
+      } else if (f === "css") {
+        lines = ["/* 색 실험실 팔레트 · " + src + " · k=" + k + " */", ":root {"];
+        pl.forEach(function (c, i) { lines.push("  --lab-" + (i + 1) + ": " + c.hex + "; /* " + (c.weight * 100).toFixed(1) + "% · oklch(" + (c.lch[0] * 100).toFixed(1) + "% " + c.lch[1].toFixed(3) + " " + c.lch[2].toFixed(1) + ") */"); });
+        lines.push("}");
+      } else {
+        lines = [JSON.stringify({ source: src, k: k, colors: pl.map(function (c) { return { hex: c.hex, weight: +c.weight.toFixed(4), lstar: +c.L.toFixed(1), oklch: [+c.lch[0].toFixed(4), +c.lch[1].toFixed(4), +c.lch[2].toFixed(1)] }; }) }, null, 2)];
+      }
+      out.value = lines.join("\n"); copyMsg.textContent = "";
+    }
+    document.getElementById("lz-copy").addEventListener("click", function () {
+      var t = out.value;
+      var fallback = function () { var ok = false; try { out.focus({ preventScroll: true }); out.select(); ok = document.execCommand("copy"); } catch (e) { ok = false; } copyMsg.textContent = ok ? "복사했다." : "글을 선택해 두었다. Ctrl+C(⌘+C)로 복사한다."; };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(function () { copyMsg.textContent = "복사했다."; }, fallback);
+      else fallback();
+    });
+    function all() { main.redraw(); val.redraw(); chr.redraw(); hue.redraw(); palc.redraw(); con.redraw(); har.redraw(); dash(); exportText(); }
+    LAB.on(function (a) { A = a; pick = null; anchor = -1; pickStat(); main.resize(); all(); });
+  })();
+
+  LAB.set("poster");
+})();
+</script>
+</body>
+</html>

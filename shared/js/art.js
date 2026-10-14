@@ -321,11 +321,14 @@
   };
   /** 광원의 백색점 XYZ(Y=1) */
   ART.whitePoint = (illum) => ART.spectrumToXyz(illum, null);
-  /** 단색광 한 파장의 sRGB 근사(스펙트럼 띠 그리기용). 색역 밖은 흰색을 섞어 안으로 넣고 밝기를 맞춘다. */
+  /**
+   * 단색광 한 파장의 sRGB 근사(스펙트럼 띠 그리기용). 색역 밖이라 음수 채널을 자르고 가장 밝은 채널을 1로 맞춘다.
+   * 해석적 등색 함수 근사는 약 650 nm 위와 420 nm 아래에서 색도가 되돌아가므로(꼬리의 오차) 그 바깥은 끝 색도로 고정한다.
+   */
   ART.wavelengthToSrgb = function (l) {
-    const [x, y, z] = ART.cmf(l);
-    let lin = ART.xyzToLinear([x, y, z]);
-    const mn = Math.min(...lin); if (mn < 0) lin = lin.map((v) => v - mn);
+    const [x, y, z] = ART.cmf(clamp(l, 420, 650));
+    // 스펙트럼 색은 모두 sRGB 색역 밖이다. 음수 채널은 잘라 색상을 지킨다(흰색을 섞으면 끝부분이 분홍으로 뜬다).
+    const lin = ART.xyzToLinear([x, y, z]).map((v) => Math.max(0, v));
     const mx = Math.max(...lin, 1e-9);
     return ART.linearToSrgb(lin.map((v) => v / mx));
   };

@@ -112,8 +112,14 @@ with sync_playwright() as pw:
                 changed = [k for k in a1 if a1[k] == a2.get(k) and d1.get(k) != a1[k]]
                 if changed: probs.append(f"다크 모드에서 예시 그림 색이 바뀜: {changed}")
                 art_n = len(a1)
-            if shots:  # 조작하기 전의 처음 모습을 찍는다
-                page.screenshot(path=str(shots / f"{name.replace('/', '-')}-{tag}.png"), full_page=True)
+            if shots:  # 조작하기 전의 처음 모습을 찍는다. 아주 긴 페이지는 크로미움 한계(약 16k px)를 넘지 않게 조각으로 찍는다
+                base = shots / f"{name.replace('/', '-')}-{tag}"
+                total = page.evaluate("() => document.documentElement.scrollHeight")
+                if total <= 14000:
+                    page.screenshot(path=str(base) + ".png", full_page=True)
+                else:
+                    for k, y in enumerate(range(0, total, 8000)):
+                        page.screenshot(path=f"{base}-part{k + 1}.png", full_page=True, clip={"x": 0, "y": y, "width": w, "height": min(8000, total - y)})
             r = page.evaluate(POKE)
             errs = [e for e in errs if "net::ERR" not in e and "Failed to load resource" not in e and "cloudflareinsights" not in e]
             probs += errs[:8]

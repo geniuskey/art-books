@@ -1,0 +1,824 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "빛은 더할수록 밝아지고 물감은 섞을수록 어두워진다. 가산·감산 혼합, 반사율 곡선과 쿠벨카–뭉크 모형, 착색력, 틴트·셰이드·톤, 보색을 섞으면 탁해지는 이유, 겹쳐 칠하기와 섞기의 차이, 세 물감으로 낼 수 있는 색의 범위를 시뮬레이터로 확인한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>섞기 · ColorBook</title>
+<meta name="description" content="빛은 더할수록 밝아지고 물감은 섞을수록 어두워진다. 가산·감산 혼합, 반사율 곡선과 쿠벨카–뭉크 모형, 착색력, 틴트·셰이드·톤, 보색을 섞으면 탁해지는 이유, 겹쳐 칠하기와 섞기의 차이, 세 물감으로 낼 수 있는 색의 범위를 시뮬레이터로 확인한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/mixing.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="섞기 · ColorBook">
+<meta property="og:description" content="빛은 더할수록 밝아지고 물감은 섞을수록 어두워진다. 가산·감산 혼합, 반사율 곡선과 쿠벨카–뭉크 모형, 착색력, 틴트·셰이드·톤, 보색을 섞으면 탁해지는 이유, 겹쳐 칠하기와 섞기의 차이, 세 물감으로 낼 수 있는 색의 범위를 시뮬레이터로 확인한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/mixing.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/mixing.html#chapter","name":"섞기","headline":"섞기 · ColorBook","description":"빛은 더할수록 밝아지고 물감은 섞을수록 어두워진다. 가산·감산 혼합, 반사율 곡선과 쿠벨카–뭉크 모형, 착색력, 틴트·셰이드·톤, 보색을 섞으면 탁해지는 이유, 겹쳐 칠하기와 섞기의 차이, 세 물감으로 낼 수 있는 색의 범위를 시뮬레이터로 확인한다.","url":"https://artbook.euiyun.com/color/chapters/mixing.html","position":4,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"4. 섞기","item":"https://artbook.euiyun.com/color/chapters/mixing.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="mixing">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 04</div>
+    <h1>섞기</h1>
+    <p class="lead">어릴 때 물감 통의 색을 전부 섞어 본 적이 있다면 결과를 기억할 것이다. 검정도 아니고 무지개도 아닌, 진흙 같은 갈색. 반대로 무대 조명 세 개를 한곳에 겹치면 흰빛이 된다. 같은 "섞기"인데 한쪽은 밝아지고 한쪽은 어두워진다. 이 장은 빛과 물감이 섞이는 규칙을 반사율 곡선 하나로 풀고, 물감이 왜 탁해지는지, 어떻게 하면 덜 탁하게 섞을 수 있는지, 그리고 물감 세 개로 어디까지 갈 수 있는지를 직접 섞어 보며 확인한다.</p>
+    <ul class="objectives">
+      <li>빛을 더하는 가산 혼합과 빛을 빼는 감산 혼합을 구별하고, 화면과 물감의 "삼원색"이 다른 이유를 설명한다.</li>
+      <li>물감의 색을 반사율 곡선으로 읽고, 섞인 물감의 곡선이 왜 두 곡선보다 아래로 내려가는지 본다.</li>
+      <li>물감마다 색을 내는 힘(착색력)이 달라 "반반"이 눈으로는 반반이 아니라는 것을 확인한다.</li>
+      <li>흰색·검정·회색을 섞는 틴트·셰이드·톤과, 보색을 섞을 때 색이 탁해지는 길을 따라가 본다.</li>
+      <li>겹쳐 칠하기와 섞어 칠하기의 차이, 그리고 제한 팔레트 세 색이 낼 수 있는 색의 범위를 비교한다.</li>
+    </ul>
+  </header>
+
+  <section id="two-ways">
+    <h2>더하기와 빼기</h2>
+    <p>화면은 빛을 낸다. 아무것도 켜지 않은 화면은 검정이고, 빨강·초록·파랑의 작은 빛을 켤수록 밝아진다. 이렇게 빛을 더해 색을 만드는 방식을 <span class="term">가산 혼합</span><span class="en">(Additive mixing)</span>이라고 한다. 빛 두 개를 겹치면 두 빛의 에너지가 그대로 더해지므로, 섞을수록 밝아지고 셋을 모두 켜면 흰색에 가까워진다.</p>
+    <p>종이 위의 물감은 빛을 내지 않는다. 흰 종이가 돌려보내는 빛 가운데 일부를 물감이 흡수해 없앤다. 그래서 물감을 칠할수록, 섞을수록 돌아오는 빛은 줄어든다. 이렇게 빛을 빼서 색을 만드는 방식을 <span class="term">감산 혼합</span><span class="en">(Subtractive mixing)</span>이라고 한다. 인쇄 잉크의 시안·마젠타·노랑(CMY)은 각각 빨강·초록·파랑 빛을 주로 빼는 잉크이고, 셋을 모두 겹치면 거의 모든 빛이 빠져 어두워진다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 280" role="img" aria-label="가산 혼합과 감산 혼합의 세 원 그림">
+        <rect x="10" y="14" width="214" height="200" rx="10" fill="#111111"/>
+        <rect x="236" y="14" width="214" height="200" rx="10" fill="#ffffff" class="s-line"/>
+        <g style="mix-blend-mode:screen">
+          <circle cx="94" cy="92" r="52" fill="#ff0000"/>
+          <circle cx="140" cy="92" r="52" fill="#00ff00"/>
+          <circle cx="117" cy="134" r="52" fill="#0000ff"/>
+        </g>
+        <g style="mix-blend-mode:multiply">
+          <circle cx="320" cy="92" r="52" fill="#00a0e0"/>
+          <circle cx="366" cy="92" r="52" fill="#e0007a"/>
+          <circle cx="343" cy="134" r="52" fill="#ffe600"/>
+        </g>
+        <text x="117" y="240" text-anchor="middle" class="lbl-b">빛 · 가산 혼합</text>
+        <text x="117" y="258" text-anchor="middle" class="lbl-dim">검정에서 시작, 더할수록 밝아진다</text>
+        <text x="343" y="240" text-anchor="middle" class="lbl-b">물감·잉크 · 감산 혼합</text>
+        <text x="343" y="258" text-anchor="middle" class="lbl-dim">흰 종이에서 시작, 겹칠수록 어두워진다</text>
+      </svg>
+      <figcaption><b>그림 1. 두 가지 섞기.</b> 왼쪽은 검은 바탕에 빨강·초록·파랑 빛을 겹친 모습이다. 빨강+초록은 노랑, 초록+파랑은 청록, 셋이 겹친 가운데는 흰색이 된다. 오른쪽은 흰 종이 위에 시안·마젠타·노랑 잉크를 겹친 모습이다. 시안+노랑은 초록, 마젠타+노랑은 빨강, 셋이 겹친 가운데는 어두운 색이 된다. 두 그림은 서로를 뒤집어 놓은 짝이다. 가산의 이차색(노랑·청록·마젠타)이 감산의 원색이 되고, 감산의 이차색(빨강·초록·파랑)이 가산의 원색이 된다.</figcaption>
+    </figure>
+
+    <p>아래 시뮬레이터에서 원 세 개를 끌어 겹쳐 본다. "빛" 모드는 어두운 방에서 손전등 세 개를 벽에 비추는 경우, "필터" 모드는 흰 종이 위에 색 셀로판 세 장을 겹쳐 올리는 경우다. 슬라이더는 빛의 세기 또는 필터의 진하기다.</p>
+
+    <div class="sim" id="sim-mi-light">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>빛 세 개, 필터 세 장</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mi-lt-cv" class="art"></canvas><span class="hint">원을 끌어 겹친다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mi-lt-mode"><button data-value="add" class="on">빛(가산)</button><button data-value="sub">필터(감산)</button></div>
+          <label class="ctrl"><span>세기·진하기 <output id="mi-lt-k-out"></output></span><input type="range" id="mi-lt-k" min="0.2" max="2" step="0.05" value="1"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">둘이 겹친 곳</span><span class="v" id="mi-lt-o2">—</span></div>
+        <div class="stat"><span class="k">셋이 겹친 곳</span><span class="v" id="mi-lt-o3">—</span></div>
+        <div class="stat"><span class="k">그 명도 L*</span><span class="v" id="mi-lt-ol">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 빛 모드에서 세 원을 가운데로 모은다. 겹칠수록 밝아지고 셋이 겹친 곳은 흰색이다. ② 필터 모드로 바꾼다. 같은 자리에서 셋이 겹친 곳은 거의 검정이다. 시안+노랑이 초록이 되는 것은 "학교 물감 규칙"과 같은 쪽이다. ③ 세기·진하기를 2까지 올린다. 빛은 1을 넘으면 화면이 낼 수 있는 최대 밝기에 걸려 겹친 곳이 모두 하얗게 날아가고, 필터는 진해질수록 겹친 곳이 모두 검정으로 뭉친다. 양쪽 끝에서는 섞기의 차이가 사라진다. (빛은 선형광을 더하고, 필터는 선형 투과율을 곱한다. 필터 색은 이 책이 정한 예시값이다.)</div>
+    </div>
+
+    <p>빛은 0에서 시작해 더해지고, 필터는 1(흰 종이)에서 시작해 곱해진다. 더하면 커지고 1보다 작은 수를 곱하면 작아진다. 섞기의 두 규칙은 결국 이 차이다. 그래서 화면의 삼원색(빨강·초록·파랑)과 인쇄의 삼원색(시안·마젠타·노랑)이 다르다. 미술 시간의 "빨강·노랑·파랑" 삼원색은 그 중간쯤에 있는 오래된 관습이다. 이 이야기는 <a href="wheel.html">5장</a> 색상환에서 다시 만난다.</p>
+  </section>
+
+  <section id="subtract">
+    <h2>물감은 무엇을 빼는가: 반사율 곡선</h2>
+    <p>필터 셀로판은 빛을 거르기만 한다. 물감은 조금 더 복잡하다. 물감의 알갱이(안료)는 빛을 흡수하기도 하고 사방으로 흩뜨리기도 한다. 흩어진 빛 일부가 다시 표면 밖으로 나와 눈에 들어온다. 물감의 색은 파장마다 빛을 몇 할 돌려보내는지, 곧 <span class="term">반사율</span><span class="en">(Reflectance)</span> 곡선으로 적을 수 있다(<a href="overview.html">1장</a>). 노랑 물감의 곡선은 파랑 쪽(짧은 파장)에서 바닥에 붙어 있다가 500&nbsp;nm 근처에서 솟아오르고, 파랑 물감은 450~480&nbsp;nm 근처만 볼록하다.</p>
+    <p>두 물감을 섞으면 곡선은 어떻게 될까. 단순히 두 곡선의 평균이라면 섞은 물감은 두 물감의 중간 밝기가 되어야 한다. 실제로는 그렇지 않다. 물감을 섞는 방식을 잘 설명하는 고전 모형이 <span class="term">쿠벨카–뭉크 모형</span><span class="en">(Kubelka–Munk theory)</span>이다. 1931년 쿠벨카와 뭉크가 칠한 층 안에서 빛이 흡수되고 흩어지는 과정을 두 개의 숫자로 단순화한 것으로, 지금도 물감·잉크·플라스틱의 배합 계산에 기초로 쓰인다. 핵심은 반사율 대신 "흡수와 산란의 비율"을 섞는다는 것이다.</p>
+    <div class="formula">$$\frac{K}{S}=\frac{(1-R)^2}{2R},\qquad \left(\frac{K}{S}\right)_{\text{섞음}}=\frac{\sum_i c_i K_i}{\sum_i c_i S_i}$$<div class="where">\(R\): 그 파장에서 두껍게 칠한 물감의 반사율(0~1), \(K\): 흡수 계수, \(S\): 산란 계수, \(c_i\): 섞는 물감 \(i\)의 양. 파장마다 각 물감의 \(K\)와 \(S\)를 양만큼 더한 뒤 비율을 다시 반사율로 되돌린다. \(K/S\)는 \(R\)이 작아질수록 아주 빠르게 커지므로, 어느 한 물감이라도 그 파장을 많이 흡수하면 섞은 결과도 그 파장을 많이 흡수한다.</div></div>
+    <p>아래 그래프는 두 물감의 반사율(가는 선)과, 둘을 섞은 물감의 반사율(굵은 선)이다. 점선은 두 곡선의 단순 평균으로, 두 색을 아주 작은 점으로 나란히 찍어 멀리서 볼 때(병치 혼합)의 반사율이다. 섞는 비율을 바꿔 가며 굵은 선이 어디에 놓이는지 본다.</p>
+
+    <div class="sim" id="sim-mi-curve">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>반사율 곡선으로 섞기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mi-cu-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mi-cu-pair"><button data-value="lemon,phthalo" class="on">레몬+프탈로</button><button data-value="yellow,ultramarine">카드뮴 옐로+울트라마린</button><button data-value="red,viridian">카드뮴 레드+비리디언</button><button data-value="magenta,lemon">마젠타+레몬</button></div>
+          <label class="ctrl"><span>두 번째 물감의 양 <output id="mi-cu-t-out"></output></span><input type="range" id="mi-cu-t" min="0" max="100" step="1" value="50"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">점으로 둔 평균(병치)</span><span class="v" id="mi-cu-oo">—</span></div>
+        <div class="stat"><span class="k">물감으로 섞음</span><span class="v" id="mi-cu-op">—</span></div>
+        <div class="stat"><span class="k">명도 L* (병치 → 물감)</span><span class="v" id="mi-cu-ol">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 레몬+프탈로를 반반 섞는다. 굵은 선은 두 곡선이 모두 어느 정도 돌려보내는 500&nbsp;nm 근처에만 작은 봉우리를 남긴다. 그래서 초록이고, 점선(병치)보다 훨씬 어둡다. ② 카드뮴 옐로+울트라마린으로 바꾼다. 두 곡선이 겹치는 곳이 거의 없어서 굵은 선이 전체적으로 바닥에 깔린다. 초록이 아니라 탁한 올리브 회색이 된다. ③ 카드뮴 레드+비리디언에서 비율을 0에서 100까지 천천히 민다. 중간 어딘가에서 굵은 선이 거의 평평해진다. 평평한 낮은 곡선은 어두운 회색이다. (반사율은 이 책 엔진의 교육용 물감 스펙트럼이다. 실제 안료를 측정한 값이 아니라 모양을 흉내 낸 곡선이고, 쿠벨카–뭉크 모형도 두껍게 칠한 불투명한 층을 가정한 단순 모형이다.)</div>
+    </div>
+
+    <p>섞은 물감의 곡선은 거의 언제나 두 곡선의 평균보다 아래에 있다. 한 물감이 흡수하는 파장은 다른 물감이 아무리 돌려보내도 대부분 사라지기 때문이다. 물감을 섞으면 어두워지는 이유가 이것이고, 섞을수록 남는 빛의 띠가 좁고 낮아져 색이 탁해지는 이유도 이것이다. "노랑+파랑=초록"이 성립하는 것은 두 물감이 함께 돌려보내는 좁은 초록 띠가 우연히 남기 때문이고, 그 띠가 없는 조합에서는 초록이 나오지 않는다.</p>
+
+    <div class="callout deep">
+      <strong>왜 하필 K/S를 섞는가</strong>
+      반사율을 그냥 평균하면 "점으로 나란히 둔 색"이 된다. 서로 다른 안료 알갱이가 한 층 안에 고루 섞이면 빛은 층 안에서 여러 번 흩어지며 이 알갱이, 저 알갱이를 차례로 지나간다. 지나갈 때마다 각 안료의 흡수가 곱해지듯 쌓이므로, 흡수는 양만큼 더하고(\(\sum c_i K_i\)), 흩어지는 힘도 양만큼 더한 뒤(\(\sum c_i S_i\)) 그 비율로 반사율을 정하는 것이 실제와 잘 맞는다. 이 혼합 규칙은 덩컨<span class="en">(D. R. Duncan, 1940)</span>이 정리했다. 다만 이 모형은 층이 충분히 두꺼워 바탕이 비치지 않고, 빛이 층 안에서 고르게 흩어진다고 가정한다. 표면에서 바로 튕겨 나가는 반사(광택), 바탕 종이가 비치는 얇은 수채 층, 안료 입자의 크기 차이는 따로 보정해야 한다. 더 정밀한 측색학은 시리즈의 <a href="https://colorbook.euiyun.com/">ColorBook(색채공학)</a>이 다룬다.
+    </div>
+  </section>
+
+  <section id="strength">
+    <h2>반반은 반반이 아니다: 착색력</h2>
+    <p>수채화를 처음 배울 때 흔히 겪는 일이 있다. 노랑에 파랑을 "조금" 넣었는데 노랑이 순식간에 진한 초록이 된다. 반대로 파랑에 노랑을 아무리 넣어도 좀처럼 초록이 되지 않는다. 물감마다 색을 내는 힘이 다르기 때문이다. 같은 양을 섞었을 때 결과 색을 얼마나 자기 쪽으로 끌어당기는지를 <span class="term">착색력</span><span class="en">(Tinting strength)</span>이라고 한다. 프탈로 블루처럼 입자가 작고 흡수가 강한 안료는 착색력이 매우 세고, 레몬 옐로처럼 밝은 안료는 약한 편이다.</p>
+    <p>쿠벨카–뭉크 모형에서 착색력은 산란 계수 \(S\)의 크기에 들어 있다. \(S\)가 큰 물감은 같은 양으로도 혼합물의 흡수와 산란에 더 큰 몫을 차지한다. 아래 띠는 두 물감을 0%에서 100%까지 열한 단계로 섞은 것이다. 위 줄은 물감으로 섞은 결과, 가운데 줄은 점으로 둔 결과, 아래 줄은 화면 숫자를 그대로 평균한 결과다. 줄마다 작은 삼각형은 "눈으로 보기에 양쪽 끝에서 같은 거리에 있는 색", 곧 지각적 중간이 놓인 자리다. 슬라이더로 두 번째 물감의 착색력을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-mi-ratio">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>섞는 비율 띠와 착색력</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mi-ra-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mi-ra-pair"><button data-value="lemon,phthalo" class="on">레몬→프탈로</button><button data-value="white,ultramarine">화이트→울트라마린</button><button data-value="yellow,crimson">카드뮴 옐로→크림슨</button><button data-value="white,black">화이트→블랙</button></div>
+          <label class="ctrl"><span>두 번째 물감의 착색력 배율 <output id="mi-ra-s-out"></output></span><input type="range" id="mi-ra-s" min="-2" max="2" step="0.05" value="0"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">물감 줄의 지각적 중간</span><span class="v" id="mi-ra-o1">—</span></div>
+        <div class="stat"><span class="k">점 줄의 지각적 중간</span><span class="v" id="mi-ra-o2">—</span></div>
+        <div class="stat"><span class="k">반반 섞은 물감</span><span class="v" id="mi-ra-o3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 레몬→프탈로에서 위 줄의 삼각형은 프탈로 10~20% 근처에 있다. 프탈로를 열 번에 한 번만 넣어도 눈에는 이미 반쯤 초록이다. ② 화이트→블랙으로 바꾼다. 검정은 아주 조금만 넣어도 회색이 확 어두워진다. 회색 단계를 고르게 만들려면 검정을 고르게 늘리면 안 된다. ③ 착색력 배율을 왼쪽 끝(¼배)과 오른쪽 끝(4배)으로 민다. 위 줄만 움직이고 아래 두 줄은 그대로다. 점으로 두거나 숫자를 평균하는 데는 착색력이라는 개념이 없다. (착색력은 엔진 물감의 상대 산란 계수 S에 배율을 곱해 흉내 냈다. 실제 착색력은 같은 안료라도 제조사와 농도에 따라 다르다.)</div>
+    </div>
+
+    <p>물감 줄과 숫자 줄은 같은 두 끝을 잇는데도 가운데가 전혀 다르다. 디지털 그림 도구의 "혼합" 브러시가 물감처럼 느껴지지 않는 이유 하나가 여기에 있다. 화면의 평균은 착색력을 모르고, 감산 혼합의 어두워짐도 모른다. 반대로 실제 물감을 다룰 때는 이 비대칭을 몸으로 익혀야 한다.</p>
+
+    <div class="callout studio">
+      <strong>센 물감을 약한 물감에 넣는다</strong>
+      화가들이 흔히 쓰는 요령은 "밝고 약한 색에 어둡고 센 색을 조금씩 넣는다"이다. 노랑 웅덩이에 붓끝으로 파랑을 찍어 넣으며 원하는 초록을 찾는 편이, 파랑에 노랑을 퍼부어 초록을 만드는 것보다 물감도 덜 들고 실패도 적다. 흰색에 색을 넣어 연한 색을 만들 때도 마찬가지다. 프탈로 블루, 프탈로 그린, 퀴나크리돈 계열처럼 착색력이 센 물감은 팔레트에서 다른 칸과 떨어진 자리에 짜 두고, 쓰고 난 붓은 꼭 헹군다. 한 방울이 옆 칸 전체를 물들인다.
+    </div>
+  </section>
+
+  <section id="tint">
+    <h2>흰색, 검정, 회색 더하기</h2>
+    <p>한 가지 색을 밝게, 어둡게, 차분하게 바꾸는 가장 쉬운 방법은 흰색, 검정, 회색을 섞는 것이다. 순수한 색에 흰색을 섞은 것을 <span class="term">틴트</span><span class="en">(Tint)</span>, 검정을 섞은 것을 <span class="term">셰이드</span><span class="en">(Shade)</span>, 회색을 섞은 것을 <span class="term">톤</span><span class="en">(Tone)</span>이라고 부른다. 틴트는 밝고 연해지고, 셰이드는 어둡고 깊어지며, 톤은 밝기는 비슷하게 두고 선명함만 줄인다. 디자인 도구의 "밝게·어둡게" 단추와 이름은 같지만, 물감에서는 결과가 생각과 다르게 나오는 경우가 많다.</p>
+    <p>아래에서 기준 물감을 고르고 섞는 양을 늘려 본다. 네 줄은 각각 흰색, 검정, 중간 회색, 그리고 검정 대신 그 색의 반대편 물감을 섞은 결과다.</p>
+
+    <div class="sim" id="sim-mi-tint">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>틴트·셰이드·톤</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mi-ti-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mi-ti-base"><button data-value="yellow" class="on">카드뮴 옐로</button><button data-value="red">카드뮴 레드</button><button data-value="ultramarine">울트라마린</button><button data-value="viridian">비리디언</button></div>
+          <label class="ctrl"><span>섞는 양의 최대 <output id="mi-ti-a-out"></output></span><input type="range" id="mi-ti-a" min="10" max="90" step="1" value="40"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">셰이드 끝의 색상각 변화</span><span class="v" id="mi-ti-o1">—</span></div>
+        <div class="stat"><span class="k">틴트 끝의 색상각 변화</span><span class="v" id="mi-ti-o2">—</span></div>
+        <div class="stat"><span class="k">셰이드 끝 · 반대색 끝</span><span class="v" id="mi-ti-o3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 카드뮴 옐로의 셰이드 줄을 본다. 검정을 섞은 노랑은 "어두운 노랑"이 아니라 올리브·카키가 된다. 색상각이 초록 쪽으로 10° 안팎 움직인다. ② 울트라마린의 틴트 줄을 본다. 흰색을 섞자 분필 같은 하늘색이 되며 선명함(채도)이 확 떨어진다. 흰색은 밝게 할 뿐 아니라 탁하게도 만든다. ③ 맨 아래 "반대색으로 어둡게" 줄과 셰이드 줄을 비교한다. 같은 정도로 어두워져도 색이 남아 있는 쪽이 어디인지 본다. 섞는 양을 90%까지 밀면 모든 줄이 기준색을 잃는다. (흰색·검정도 엔진의 교육용 물감 스펙트럼이다. 반대색은 노랑↔울트라마린, 빨강↔비리디언처럼 이 책이 고른 짝이다.)</div>
+    </div>
+
+    <p>검정이 노랑을 올리브로 만드는 현상은 화가들 사이에 잘 알려져 있다. 이유는 두 가지가 겹친다. 하나는 물리적인 쪽으로, 노랑의 반사율 곡선은 500&nbsp;nm 근처에서 가파르게 솟는데 검정을 섞으면 곡선 전체가 내려앉으면서 남는 빛의 무게중심이 초록 쪽으로 옮겨 간다. 다른 하나는 지각적인 쪽으로, 노랑은 본래 밝은 색이라서 어두운 노랑을 우리는 노랑으로 느끼지 못하고 다른 이름(올리브, 카키, 황토)으로 부른다. 그래서 노랑을 어둡게 할 때 화가들은 검정 대신 황토색이나 갈색, 붉은 기운이 있는 물감을 섞기도 한다.</p>
+
+    <div class="callout warn">
+      <strong>"검정을 쓰지 마라"는 규칙이 아니다</strong>
+      인상주의 이후 "검정은 그림을 죽인다"는 말이 미술 교육에 오래 남아 있다. 하지만 검정은 그 자체로 강력한 색이다. 마네와 벨라스케스는 검정을 화면의 중심에 썼고, 동아시아의 수묵화는 먹 하나로 화면 전체를 만든다. 문제는 검정이 아니라 "어둡게 하려고 무심코 섞는 검정"이다. 셰이드가 원하는 결과라면 검정을 쓰고, 색을 지키면서 어둡게 하고 싶다면 반대편 색이나 어두운 물감을 쓴다. 무엇을 전하려는지에 따라 고른다.
+    </div>
+  </section>
+
+  <section id="mud">
+    <h2>왜 탁해지는가: 보색 사이의 길</h2>
+    <p>색상환에서 마주 보는 두 색, 예를 들어 노랑과 보라, 빨강과 청록을 <span class="term">보색</span><span class="en">(Complementary colors)</span>이라고 한다(정확한 짝은 어느 색상환을 쓰느냐에 따라 달라진다. <a href="wheel.html">5장</a>). 보색끼리 섞으면 서로의 색을 지우며 회색 쪽으로 간다. 반사율 곡선으로 보면 이유가 분명하다. 한쪽이 돌려보내는 파장을 다른 쪽이 흡수하므로, 섞으면 곡선이 거의 평평해진다. 평평한 곡선은 어느 파장도 특별히 많이 돌려보내지 않는다는 뜻, 곧 무채색이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 270" role="img" aria-label="카드뮴 옐로와 울트라마린의 반사율 곡선과 섞은 결과">
+        <path d="M50 30V200H440" class="s-axis" fill="none"/>
+        <path d="M50 115H440M50 30H440" class="s-axis" stroke-opacity=".3" fill="none"/>
+        <text x="44" y="204" text-anchor="end" class="lbl-dim t-mono">0</text>
+        <text x="44" y="119" text-anchor="end" class="lbl-dim t-mono">0.5</text>
+        <text x="44" y="34" text-anchor="end" class="lbl-dim t-mono">1</text>
+        <text x="99" y="218" text-anchor="middle" class="lbl-dim t-mono">430</text>
+        <text x="196" y="218" text-anchor="middle" class="lbl-dim t-mono">530</text>
+        <text x="294" y="218" text-anchor="middle" class="lbl-dim t-mono">630</text>
+        <text x="391" y="218" text-anchor="middle" class="lbl-dim t-mono">730 nm</text>
+        <path d="M50.0 193.2L59.8 193.2L69.5 193.2L79.3 193.2L89.0 193.2L98.8 193.2L108.5 193.2L118.3 193.1L128.0 192.9L137.8 192.4L147.5 191.1L157.3 187.6L167.0 179.0L176.8 160.1L186.5 128.9L196.3 94.7L206.0 70.7L215.8 58.6L225.5 53.5L235.3 51.6L245.0 50.8L254.8 50.6L264.5 50.5L284.0 50.4L440.0 50.4" fill="none" stroke="#d9a800" stroke-width="2.5"/>
+        <path d="M50.0 190.9L59.8 187.3L69.5 179.8L79.3 167.2L89.0 149.5L98.8 130.0L108.5 114.3L118.3 108.2L128.0 114.3L137.8 130.0L147.5 149.5L157.3 167.2L167.0 179.8L176.8 187.3L186.5 190.9L196.3 192.4L206.0 193.0L215.8 193.1L245.0 193.2L264.5 193.1L284.0 192.8L293.8 192.5L303.5 192.0L313.3 191.2L323.0 190.0L332.8 188.1L342.5 185.8L352.3 183.0L362.0 180.2L371.8 177.9L381.5 176.0L391.3 174.8L401.0 174.0L410.8 173.5L420.5 173.2L430.3 173.0L440.0 172.9" fill="none" class="s-line" style="stroke-width:5;stroke-opacity:.55"/>
+        <path d="M50.0 190.9L59.8 187.3L69.5 179.8L79.3 167.2L89.0 149.5L98.8 130.0L108.5 114.3L118.3 108.2L128.0 114.3L137.8 130.0L147.5 149.5L157.3 167.2L167.0 179.8L176.8 187.3L186.5 190.9L196.3 192.4L206.0 193.0L215.8 193.1L245.0 193.2L264.5 193.1L284.0 192.8L293.8 192.5L303.5 192.0L313.3 191.2L323.0 190.0L332.8 188.1L342.5 185.8L352.3 183.0L362.0 180.2L371.8 177.9L381.5 176.0L391.3 174.8L401.0 174.0L410.8 173.5L420.5 173.2L430.3 173.0L440.0 172.9" fill="none" stroke="#3d2db6" stroke-width="2.5"/>
+        <path d="M50.0 192.1L59.8 190.2L69.5 186.5L79.3 180.2L89.0 171.4L98.8 161.6L108.5 153.7L118.3 150.6L128.0 153.6L137.8 161.2L147.5 170.3L157.3 177.4L167.0 179.4L176.8 173.7L186.5 159.9L196.3 143.6L206.0 131.8L215.8 125.9L225.5 123.3L235.3 122.4L245.0 122.0L264.5 121.8L284.0 121.6L303.5 121.2L323.0 120.2L342.5 118.1L362.0 115.3L381.5 113.2L401.0 112.2L420.5 111.8L440.0 111.7" fill="none" class="s-dash" stroke-width="1.6"/>
+        <path d="M50.0 192.4L59.8 191.6L69.5 190.8L79.3 190.1L89.0 189.6L98.8 189.4L108.5 189.3L118.3 189.2L128.0 188.9L137.8 188.3L147.5 186.8L157.3 183.5L167.0 179.3L176.8 178.6L186.5 181.3L196.3 183.4L206.0 184.3L225.5 184.7L245.0 184.6L264.5 184.5L284.0 183.9L303.5 182.3L313.3 180.8L323.0 178.4L332.8 175.1L342.5 170.9L352.3 166.3L362.0 162.0L371.8 158.4L381.5 155.8L391.3 154.0L401.0 152.9L410.8 152.2L420.5 151.8L440.0 151.4" fill="none" class="s-line" style="stroke-width:7"/>
+        <path d="M50.0 192.4L59.8 191.6L69.5 190.8L79.3 190.1L89.0 189.6L98.8 189.4L108.5 189.3L118.3 189.2L128.0 188.9L137.8 188.3L147.5 186.8L157.3 183.5L167.0 179.3L176.8 178.6L186.5 181.3L196.3 183.4L206.0 184.3L225.5 184.7L245.0 184.6L264.5 184.5L284.0 183.9L303.5 182.3L313.3 180.8L323.0 178.4L332.8 175.1L342.5 170.9L352.3 166.3L362.0 162.0L371.8 158.4L381.5 155.8L391.3 154.0L401.0 152.9L410.8 152.2L420.5 151.8L440.0 151.4" fill="none" stroke="#545a48" stroke-width="4"/>
+        <rect x="300" y="60" width="16" height="10" rx="2" fill="#ffd500"/><text x="322" y="69" class="lbl-dim">카드뮴 옐로</text>
+        <rect x="64" y="60" width="16" height="10" rx="2" fill="#3d2db6"/><text x="86" y="69" class="lbl-dim">울트라마린</text>
+        <rect x="300" y="132" width="16" height="10" rx="2" fill="#c49f80"/><text x="322" y="141" class="lbl-dim">점으로 둔 평균</text>
+        <rect x="200" y="160" width="16" height="10" rx="2" fill="#545a48"/><text x="222" y="169" class="lbl-b">물감 반반</text>
+        <text x="245" y="244" text-anchor="middle" class="lbl-dim">서로가 돌려보내는 빛을 서로 흡수한다</text>
+        <text x="245" y="262" text-anchor="middle" class="lbl-dim">섞인 곡선은 낮고 평평하다 → 탁한 올리브 회색</text>
+      </svg>
+      <figcaption><b>그림 2. 보색에 가까운 두 물감을 섞으면.</b> 카드뮴 옐로(노란 선)와 울트라마린(남색 선)의 반사율은 서로 겹치는 곳이 거의 없다. 둘을 반반 섞은 물감(굵은 선)은 모든 파장에서 바닥 근처에 깔린다. 점선은 두 곡선의 평균, 곧 점으로 나란히 두고 멀리서 볼 때의 반사율로, 훨씬 밝은 베이지 회색이다. 곡선은 이 책 엔진의 교육용 물감 스펙트럼으로 계산했다.</figcaption>
+    </figure>
+
+    <p>보색을 섞는 과정을 색의 지도 위에서 따라가 본다. 아래 평면은 OKLab 공간을 위에서 내려다본 것이다. 가운데가 무채색이고 가장자리로 갈수록 선명하며, 둘레를 돌면 색상이 바뀐다. 두 물감을 0%에서 100%까지 섞을 때 색이 지나가는 길을 점으로 찍었다. 손잡이를 길을 따라 끌면 그 비율의 색을 보여 준다.</p>
+
+    <div class="sim" id="sim-mi-path">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>보색 사이의 길</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mi-pa-cv"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">손잡이를 길을 따라 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mi-pa-pair"><button data-value="red,viridian" class="on">카드뮴 레드+비리디언</button><button data-value="yellow,ultramarine">카드뮴 옐로+울트라마린</button><button data-value="orange,phthalo">카드뮴 오렌지+프탈로</button><button data-value="lemon,magenta">레몬+마젠타</button></div>
+          <label class="check"><input type="checkbox" id="mi-pa-opt" checked> 점으로 둘 때의 길도 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">비율(두 번째 물감)</span><span class="v" id="mi-pa-ot">—</span></div>
+        <div class="stat"><span class="k">물감 · 채도 C</span><span class="v" id="mi-pa-op">—</span></div>
+        <div class="stat"><span class="k">점으로 · 채도 C</span><span class="v" id="mi-pa-oo">—</span></div>
+        <div class="stat"><span class="k">가장 탁한 지점</span><span class="v" id="mi-pa-om">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 카드뮴 레드+비리디언에서 손잡이를 처음부터 끝까지 끈다. 물감의 길은 가운데(무채색) 바로 옆을 스치며 지나간다. 그 근처의 색이 바로 "진흙색"이다. ② 레몬+마젠타로 바꾼다. 두 물감은 보색이 아니라서 길이 가운데를 피해 바깥으로 돈다. 주황·빨강 쪽 색이 선명하게 남는다. ③ 점으로 둘 때의 길(점선)과 비교한다. 병치 혼합의 길은 거의 곧은 선이고, 물감의 길은 바깥으로 휘거나 가운데로 빨려 든다. 그리고 물감의 점은 대부분 더 어둡다(점의 크기가 아니라 색을 본다). (OKLab의 a, b 평면이다. 명도는 이 평면에서 보이지 않으므로 읽기 칸의 색을 함께 본다.)</div>
+    </div>
+
+    <p>보색을 섞는 일이 늘 실패는 아니다. 오히려 화가들이 가장 자주 쓰는 기술이다. 선명한 초록 풀밭에 빨강을 아주 조금 넣으면 자연스러운 그늘의 초록이 되고, 주황과 파랑을 적당히 섞으면 검정 물감보다 색 기운이 살아 있는 어두운 회색이 된다. "탁하다"는 것은 실수의 결과일 때 문제이지, 계획한 결과라면 화면을 차분하게 가라앉히는 힘이 된다. 탁한 색이 어떻게 선명한 색을 살리는지는 <a href="chroma.html">7장</a>에서 다룬다.</p>
+
+    <div class="callout try">
+      <strong>보색 회색 띠 만들기</strong>
+      수채 물감에서 보색에 가까운 두 색을 고른다(예: 번트 시에나와 울트라마린, 또는 빨강과 초록). 종이에 칸 아홉 개를 긋고, 왼쪽 끝에는 한 색만, 오른쪽 끝에는 다른 색만, 그 사이는 두 색의 비율을 조금씩 바꿔 칠한다. 가운데 어딘가에서 거의 무채색인 칸이 나온다. 그 칸이 반드시 정중앙에 있지는 않을 것이다(착색력). 마른 뒤 각 칸에 그 색이 쓰일 만한 자리(비 오는 하늘, 그림자, 나무줄기)를 연필로 적어 둔다. 이 띠가 검정 대신 쓰는 "색 있는 회색" 견본이 된다.
+    </div>
+  </section>
+
+  <section id="glaze">
+    <h2>섞지 않고 겹치기</h2>
+    <p>물감을 꼭 팔레트에서 섞어야 하는 것은 아니다. 투명한 물감을 한 층 칠하고 마른 뒤 다른 색을 위에 겹쳐 칠해도 두 색이 합쳐진 색이 보인다. 유화에서는 이 기법을 <span class="term">글레이즈</span><span class="en">(Glaze)</span>라고 부르고, 수채화에서는 흔히 "겹칠", 레이어링이라고 한다. 겹친 층은 셀로판 필터처럼 빛을 차례로 거른다. 빛이 위층을 지나 종이에 닿고, 종이에서 튕겨 나와 다시 위층을 지나 눈에 들어온다. 그래서 겹치기는 곱셈에 가깝다(<a href="#two-ways">그림 1</a>의 필터 모드).</p>
+    <p>아래 종이에는 가로로 첫 번째 물감, 세로로 두 번째 물감을 묽게 칠했다. 가운데 겹친 부분이 글레이즈다. 오른쪽은 같은 두 물감 웅덩이를 반반 섞어 한 번에 칠한 것이다. 두 슬라이더는 각 물감의 진하기(물을 얼마나 탔는지)다.</p>
+
+    <div class="sim" id="sim-mi-glaze">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>겹쳐 칠하기와 섞어 칠하기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mi-gl-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mi-gl-pair"><button data-value="lemon,phthalo" class="on">레몬+프탈로</button><button data-value="crimson,ultramarine">크림슨+울트라마린</button><button data-value="sienna,phthalo">번트 시에나+프탈로</button><button data-value="yellow,magenta">카드뮴 옐로+마젠타</button></div>
+          <label class="ctrl"><span>가로 물감의 진하기 <output id="mi-gl-a-out"></output></span><input type="range" id="mi-gl-a" min="0.1" max="1" step="0.01" value="0.45"></label>
+          <label class="ctrl"><span>세로 물감의 진하기 <output id="mi-gl-b-out"></output></span><input type="range" id="mi-gl-b" min="0.1" max="1" step="0.01" value="0.45"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">겹친 곳</span><span class="v" id="mi-gl-og">—</span></div>
+        <div class="stat"><span class="k">섞어 칠한 곳</span><span class="v" id="mi-gl-om">—</span></div>
+        <div class="stat"><span class="k">명도 L* (겹침 · 섞음)</span><span class="v" id="mi-gl-ol">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 기본값에서 겹친 곳은 섞어 칠한 곳보다 확실히 진하다. 겹치면 두 층의 물감이 모두 그대로 남지만, 두 웅덩이를 섞으면 각 물감이 절반으로 묽어지기 때문이다. ② 레몬+프탈로에서 겹친 곳은 노란 기운의 초록, 섞은 곳은 청록에 가깝다. 같은 두 물감이라도 섞는 방법이 색상까지 바꾼다. ③ 두 진하기를 1까지 올린다. 겹친 곳은 거의 검정에 가까워진다. 수채화에서 "세 번 넘게 겹치면 탁해진다"는 말이 나오는 이유다. (겹치기는 투명한 층이 파장마다 빛을 곱으로 거른다는 단순 모형, 섞기는 쿠벨카–뭉크 모형이다. 종이 반사율은 0.88로 두었다. 실제 수채 물감은 투명도, 입자의 가라앉음, 번짐이 제각각이다.)</div>
+    </div>
+
+    <p>겹치기와 섞기는 결과 색만 다른 것이 아니다. 겹친 그림에서는 아래층의 붓자국과 가장자리가 그대로 비쳐 보이고, 두 색이 각자 남아 있다가 겹친 곳에서만 만난다. 그래서 같은 초록이라도 한 번에 섞어 칠한 초록과 노랑 위에 파랑을 올린 초록은 화면에서 다른 표정을 짓는다. 디지털 도구의 "곱하기" 레이어가 바로 이 겹치기를 흉내 낸 것이다. 엔진의 <code>ART.mixFilter</code>도 같은 곱셈으로 셀로판을 겹친다.</p>
+
+    <div class="callout studio">
+      <strong>수채화의 겹칠: 마른 뒤에, 밝은 것부터</strong>
+      수채화가들이 겹칠을 할 때 지키는 요령이 몇 가지 있다. 첫째, 아래층이 완전히 마른 뒤 올린다. 덜 마른 층에 붓을 대면 아래 물감이 다시 풀려 섞이고 만다. 둘째, 밝고 연한 색부터 칠하고 어두운 색을 나중에 올린다. 수채 물감은 투명해서 어두운 층 위에 밝은 색을 올려도 밝아지지 않는다. 셋째, 위층일수록 붓질을 적게 한다. 넷째, 착색이 센 물감(프탈로 계열, 퀴나크리돈 계열)은 아래층에, 입자가 굵어 가라앉는 물감(울트라마린, 번트 시에나 일부)은 질감을 살리고 싶은 곳에 쓴다. 겹칠수록 진해지므로, 같은 색이라도 "두 번 칠해서 원하는 진하기"를 미리 계획해 두면 덜 탁해진다.
+    </div>
+  </section>
+
+  <section id="paper">
+    <h2>수채화의 흰색은 종이다</h2>
+    <p>유화나 과슈(불투명 수채)에서는 흰 물감을 섞어 밝은 색을 만든다. 투명 수채화에서는 보통 흰 물감을 쓰지 않는다. 밝은 색은 물을 많이 타서 종이가 비치게 만들고, 가장 밝은 흰색은 아예 칠하지 않고 남겨 둔 종이다. 이 차이가 혼색에도 그대로 나타난다. 흰 물감을 섞은 틴트는 분필처럼 탁해지기 쉽지만(<a href="#tint">틴트</a>), 물로 묽힌 수채 색은 종이에서 튕겨 나온 빛이 물감 층을 지나오므로 맑게 보인다.</p>
+
+    <figure class="art-figure" id="fig-mi-homer">
+      <div class="art-frame"><img src="../../shared/img/homer-wall-nassau.webp" width="1600" height="1122" alt="윈슬로 호머의 수채화 나소의 담. 화면 아래쪽 절반을 연한 회보랏빛 돌담이 가로지르고, 왼쪽에 흰 기둥이 있는 문이 있다. 담 위로 파란 하늘과 바다, 짙은 초록 덤불, 붉은 잎이 달린 키 큰 나무가 보이고 오른쪽 바다에 흰 돛단배가 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 윈슬로 호머, 「나소의 담(A Wall, Nassau)」, 1898.</b> 바하마의 나소에서 그린 수채화다. 담의 벽면은 붉은 기운과 푸른 기운이 섞인 연한 회보라로, 여러 물감이 섞이거나 겹쳐 탁하게 가라앉은 색이다. 그 위로 붉은 잎은 거의 섞이지 않은 진한 색으로 하늘의 파랑 위에 또렷하게 놓였다. 벽에 흩어진 하얀 얼룩과 문기둥의 가장 밝은 부분은 흰 물감이 아니라 칠하지 않고 남긴 종이다. 탁한 넓은 면과 맑은 작은 색, 그리고 종이의 흰색이 서로를 살린다. 아래 마지막 시뮬레이터의 "목표 색" 가운데 넷은 이 그림의 화면에서 뽑은 값이다.<span class="credit">메트로폴리탄 미술관 소장(Amelia B. Lazarus Fund, 1910), 미색 종이에 수채와 흑연. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/11147">소장처 작품 페이지</a> · <a href="../../credits.html#homer-wall-nassau">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>호머는 수채화를 많이 그린 미국 화가로, 말년의 카리브해 수채화들은 밝은 빛과 투명한 색으로 잘 알려져 있다. 이 그림에서 볼 것은 "가장 선명한 색을 가장 적게 썼다"는 점이다. 화면 넓이의 대부분은 회색에 가까운 벽과 연한 하늘이고, 붉은 잎은 몇 군데에 흩어져 있을 뿐이다. 만약 벽도 잎처럼 선명했다면 잎은 눈에 띄지 않았을 것이다. 섞어서 탁해진 색이 실패가 아니라 무대가 되는 경우다. 그림 오른쪽 위의 "흑백" 단추를 눌러 보면, 붉은 잎은 하늘보다 조금 어두운 회색일 뿐 색으로 볼 때만큼 튀지 않는다. 잎을 돋보이게 하는 큰 몫은 밝기보다 색의 차이다(<a href="value.html">6장</a>, <a href="contrast.html">8장</a>).</p>
+  </section>
+
+  <section id="limited">
+    <h2>세 물감으로 어디까지 갈 수 있나: 제한 팔레트</h2>
+    <p>화방에는 수십 가지 물감이 있지만, 많은 화가들이 일부러 몇 가지만 골라 쓴다. 이렇게 적은 수의 물감으로 그림 전체를 그리는 것을 <span class="term">제한 팔레트</span><span class="en">(Limited palette)</span>라고 한다. 물감 수가 적으면 모든 색이 같은 물감에서 나오므로 화면의 색이 저절로 서로 이어지고, 물감마다의 성질을 깊이 익힐 수 있다. 스웨덴 화가 안데르스 소른<span class="en">(Anders Zorn, 1860–1920)</span>의 이름을 딴 "소른 팔레트"(옐로 오커, 빨강, 검정, 흰색)는 초상화가들 사이에서 잘 알려진 예다. 다만 소른이 실제로 늘 이 네 색만 썼는지에 대해서는 그의 그림을 보고 의문을 제기하는 사람도 있다. 동아시아의 수묵화는 더 극단적인 제한 팔레트다. 먹 하나의 농담만으로 화면을 짓고, 당나라 장언원의 『역대명화기』(9세기)에는 먹을 잘 운용하면 다섯 가지 색이 갖추어진다는 취지의 말이 있어 흔히 "묵분오채"로 요약된다.</p>
+    <p>세 물감을 고르면 그 세 물감과 물(종이의 흰색)로 낼 수 있는 색의 범위, 곧 그 팔레트의 <span class="term">색역</span><span class="en">(Gamut)</span>이 정해진다. 아래 시뮬레이터는 고른 물감들을 여러 비율로 섞고 네 단계로 묽혀 만든 수백 가지 색을 OKLab 평면에 찍는다. 색이 찍힌 영역을 감싸는 다각형이 그 팔레트의 대략적인 색역이다. 점선은 비교용으로 다른 3색 조합의 색역이다. 목표 색을 고르거나 평면 위의 십자 손잡이를 끌면, 그 팔레트에서 가장 가까운 혼합과 배합을 찾아 준다.</p>
+    <div class="callout warn">
+      <strong>화면 색과 교육용 물감</strong>
+      이 시뮬레이터는 실제 물감의 측정값이 아니라 이 책 엔진의 교육용 스펙트럼으로 계산한다. 같은 이름의 물감도 제조사와 등급에 따라 색과 착색력이 다르고, 화면에 보이는 색은 기기마다 다르다. 여기서 볼 것은 정확한 배합표가 아니라 "어떤 조합이 어느 쪽으로 넓고 어느 쪽에서 막히는가"라는 경향이다. 실제 배합은 종이 위에서 다시 확인한다.
+    </div>
+
+    <div class="sim" id="sim-mi-gamut">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>세 물감의 색 지도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mi-ga-cv"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">십자 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mi-ga-set"><button data-value="A" class="on">A 조합</button><button data-value="B">B 조합</button><button data-value="As">A+시에나</button><button data-value="Bs">B+시에나</button><button data-value="Z">소른식 4색</button></div>
+          <div class="seg" id="mi-ga-target"><button data-value="green" class="on">책방 초록</button><button data-value="sky">하늘(그림 3)</button><button data-value="wall">벽(그림 3)</button><button data-value="leaf">잎(그림 3)</button><button data-value="bush">덤불(그림 3)</button></div>
+          <label class="check"><input type="checkbox" id="mi-ga-slice"> 명도 단면만 보기</label>
+          <label class="ctrl"><span>단면의 명도(OKLab L) <output id="mi-ga-l-out"></output></span><input type="range" id="mi-ga-l" min="0.3" max="0.9" step="0.01" value="0.6"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">색역 넓이(A 조합=100)</span><span class="v" id="mi-ga-oa">—</span></div>
+        <div class="stat"><span class="k">목표 색</span><span class="v" id="mi-ga-ot">—</span></div>
+        <div class="stat"><span class="k">가장 가까운 혼합</span><span class="v" id="mi-ga-on">—</span></div>
+        <div class="stat"><span class="k">배합</span><span class="v" id="mi-ga-or">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① A 조합(레몬 옐로·퀴나크리돈 마젠타·프탈로 블루)과 B 조합(카드뮴 옐로·알리자린 크림슨·울트라마린)을 번갈아 본다. A는 초록과 청록 쪽으로 멀리 뻗고, B는 그쪽이 움푹 들어간 대신 남색·보라 쪽(울트라마린)이 더 멀리 나온다. ② 목표 색을 "책방 초록"으로 두고 두 조합을 비교한다. A는 색차 1 안팎으로 거의 그대로 만들지만, B는 가장 가까운 색도 탁한 올리브다. ③ "명도 단면만 보기"를 켜고 명도를 0.35까지 내린다. 어두운 쪽에서는 어떤 조합이든 색역이 쪼그라든다. 어둡고 선명한 색은 물감으로 가장 만들기 어려운 색이다. ④ "벽"과 "덤불"을 목표로 A와 A+시에나를 비교한다. 시에나는 넓이를 거의 늘리지 않지만, 탁한 중간색에 더 가깝게, 더 적은 단계로 닿게 해 준다. (물감 스펙트럼은 교육용 근사, 섞기는 쿠벨카–뭉크 모형이다. 묽히기는 종이 반사율 0.88 위의 얇은 층으로 R = 0.88·(R물감/0.88)<sup>c</sup>, 진하기 c는 1·0.6·0.35·0.18의 네 단계로 단순화했다. 3색은 6.25% 간격, 4색은 10% 간격으로 배합을 훑는다. 색차는 ΔE2000.)</div>
+    </div>
+
+    <p>두 조합의 차이는 고른 원색의 위치에서 나온다. A 조합의 세 물감은 인쇄의 시안·마젠타·노랑에 가까운 자리에 있다. 프탈로 블루는 초록 쪽으로 기운 파랑이고 레몬 옐로는 초록 쪽으로 기운 노랑이라서, 둘이 섞이면 함께 돌려보내는 초록 띠가 넓게 남는다. B 조합은 따뜻한 쪽으로 기운 노랑(카드뮴)과 보라 쪽으로 기운 파랑(울트라마린)이라서, 섞으면 반사율이 서로 엇갈려 초록이 탁해진다(<a href="#mud">그림 2</a>). 대신 B 조합은 울트라마린 덕분에 남색과 보라 쪽으로 더 멀리 가고, B 조합의 초록은 "자연스럽게 가라앉은" 초록이라 풍경에서는 그대로 쓰기 좋다는 화가도 많다. 어느 쪽이 낫다는 정답은 없다. 무엇을 그릴지에 따라 넓은 색역이 필요할 때도, 좁지만 서로 잘 어울리는 색역이 필요할 때도 있다.</p>
+    <p>이 시뮬레이터가 보여 주는 또 한 가지는 어떤 팔레트도 화면의 색역을 다 채우지 못한다는 것이다. 특히 밝고 선명한 청록, 어둡고 선명한 색은 대부분의 물감 조합 밖에 있다. 반대로 물감은 화면에 없는 질감과 투명함을 갖고 있다. 화면과 인쇄의 색역 차이는 <a href="print.html">15장</a>에서 다시 다룬다.</p>
+
+    <div class="callout try">
+      <strong>내 팔레트의 색 지도 그리기</strong>
+      가진 물감 가운데 노랑·빨강(또는 마젠타)·파랑 하나씩을 고른다. 종이에 큰 삼각형을 그리고 세 꼭짓점에 세 물감을 진하게 칠한다. 각 변을 따라 두 물감을 섞은 색을 다섯 칸쯤 칠하고, 삼각형 안쪽에는 세 물감을 모두 섞은 색을 몇 칸 칠한다. 마지막으로 각 칸 옆에 물을 많이 탄 연한 색을 한 칸씩 붙인다. 다 마르면 이것이 그 세 물감의 "실제" 색 지도다. 가장 만들기 어려웠던 색에 동그라미를 친다. 그 자리가 이 팔레트의 경계이고, 보조 물감 하나를 더한다면 그 쪽이다.
+    </div>
+
+    <div class="callout studio">
+      <strong>보조 물감 하나는 "섞어서 만들기 귀찮은 색"으로</strong>
+      제한 팔레트를 쓰는 화가들은 기본 3색에 물감 한두 개를 보탤 때, 3색으로 만들 수 없는 색보다 "만들 수는 있지만 매번 세 물감을 정확히 섞어야 하는 색"을 고르는 경우가 많다. 번트 시에나, 옐로 오커 같은 흙색이 대표적이다. 3색으로도 비슷한 갈색은 나오지만, 매번 같은 비율로 섞기 어렵고 섞을수록 탁해진다. 흙색 하나를 두면 파랑과 섞어 따뜻하고 차가운 회색을, 노랑과 섞어 황토색을 쉽게 얻는다. 단, 물감이 늘수록 제한 팔레트의 장점(색이 저절로 이어진다)은 조금씩 줄어든다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 4장</span></div>
+      <h4>세 물감을 고르는 일은 그릴 수 있는 세계를 고르는 일</h4>
+      <p>서윤의 수채 물감 상자에는 스물네 가지 색이 있다. 「창가의 책」을 시작하려고 팔레트를 펼치자 도경이 반쯤 웃으며 말했다. "가을 그림 세 점을 한 사람이 그린 것처럼 보이게 하고 싶으면 물감부터 줄여. 세 개, 많아야 네 개." 도경이 오래 써 온 조합은 카드뮴 옐로·알리자린 크림슨·울트라마린(B 조합)이다. 서윤은 인쇄 잉크처럼 레몬 옐로·퀴나크리돈 마젠타·프탈로 블루(A 조합)를 쓰면 더 많은 색이 나오지 않을까 궁금했다.</p>
+      <p>두 사람은 같은 저녁에 두 가지 방법으로 비교했다. 도경은 종이에 두 조합의 삼각형 색 지도를 칠했고, 서윤은 이 장의 시뮬레이터로 두 조합을 섞어 보았다. 이 책의 모델로 계산하면 A 조합의 색역 넓이(OKLab a, b 평면)는 B 조합의 약 1.5배다. A는 초록·청록 쪽으로 훨씬 넓었고, B는 남색·보라 쪽이 조금 더 나왔다. 서윤이 서점 로고 후보 <code>#2f7d5b</code>를 목표로 두자, A 조합은 레몬 옐로 약 81%에 프탈로 블루 약 19%로 색차(ΔE2000) 1 미만의 색을 냈다. B 조합에서 가장 가까운 색은 카드뮴 옐로와 울트라마린을 섞은 탁한 올리브로, 색차가 17을 넘었다. 도경의 종이 색 지도도 같은 이야기를 했다. B 조합의 초록 칸은 모두 올리브빛으로 가라앉았다.</p>
+      <p>도경은 B 조합의 편을 들었다. "B는 무엇을 섞어도 서로 잘 어울려. A는 프탈로가 너무 세서 조심하지 않으면 그림 전체가 파래지지." 서윤은 그림 세 점을 다시 떠올렸다. 「비 오는 골목」에는 차갑고 다양한 회색이, 「해 질 녘 서점 앞」에는 따뜻한 흙색과 노을빛이 필요하다. 그래서 A 조합에 번트 시에나를 하나 더하기로 했다. 이 책의 모델로 프탈로 블루와 번트 시에나를 반반 섞으면 푸른 회색 <code>#364f5d</code>, 시에나를 7할로 늘리면 거의 중립 회색 <code>#494e4d</code>가 된다. 시에나는 색역을 넓히지는 않지만, 그림 3의 벽 같은 탁한 중간색에 더 가깝게, 더 적은 단계로 닿게 해 준다. 도경은 서윤의 손 색 일지 첫 장에 두 조합의 색 지도를 나란히 붙이고 "선명한 색은 나중에 눌러 탁하게 할 수 있어도, 탁한 색을 선명하게 되돌릴 수는 없다"고 적었다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#f2eb00"></i><b>레몬 옐로</b><code>기본 1</code></span>
+        <span class="chip"><i style="background:#cb308d"></i><b>퀴나크리돈 마젠타</b><code>기본 2</code></span>
+        <span class="chip"><i style="background:#0059a1"></i><b>프탈로 블루</b><code>기본 3</code></span>
+        <span class="chip"><i style="background:#a35630"></i><b>번트 시에나</b><code>보조</code></span>
+        <span class="chip"><i style="background:#364f5d"></i><b>프탈로+시에나</b><code>#364f5d</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>수채화 세 점의 기본 3색은 레몬 옐로·퀴나크리돈 마젠타·프탈로 블루, 보조색은 번트 시에나 하나(서윤의 선택). B 조합은 도경의 대안으로 일지에 남긴다.</div>
+        <div><b>아직 남은 문제</b>로고 초록의 "짝"이 될 색은 무엇인가. 화가의 색상환과 화면의 색상환은 보색을 다르게 말한다.</div>
+        <div><b>다음 단계</b><a href="wheel.html">5장</a>: 로고 초록을 기준으로 두 색상환에서 배색 후보를 만든다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>빛은 0(검정)에서 시작해 더해지고(가산), 물감과 필터는 1(흰 종이)에서 시작해 빛을 뺀다(감산). 그래서 화면의 삼원색(RGB)과 인쇄의 삼원색(CMY)이 다르다.</li>
+      <li>물감의 색은 반사율 곡선으로 읽는다. 섞은 물감의 곡선은 대개 두 곡선의 평균보다 아래에 있어, 섞을수록 어둡고 탁해진다. 쿠벨카–뭉크 모형은 반사율 대신 흡수와 산란의 비율(K/S)을 섞는다.</li>
+      <li>물감마다 착색력이 달라 같은 양을 섞어도 결과는 센 물감 쪽으로 기운다. 밝고 약한 색에 어둡고 센 색을 조금씩 넣는다.</li>
+      <li>흰색을 섞으면 밝아지면서 탁해지고(틴트), 검정은 노랑을 올리브로 만드는 것처럼 색상까지 바꾼다(셰이드). 어둡게 할 때 반대편 색이나 어두운 물감을 쓰면 색 기운을 지킬 수 있다.</li>
+      <li>보색끼리 섞으면 반사율이 평평해져 무채색 쪽으로 간다. 실수라면 진흙색, 계획이라면 검정보다 살아 있는 회색이다.</li>
+      <li>투명한 층을 겹치면 곱셈처럼 진해지고, 섞으면 한 층 안에서 평균에 가까워진다. 수채화의 가장 밝은 흰색은 칠하지 않은 종이다.</li>
+      <li>제한 팔레트의 색역은 고른 원색의 위치가 정한다. 시안·마젠타·노랑에 가까운 조합은 넓고, 따뜻한 노랑·보랏빛 파랑 조합은 좁지만 차분하다. 정답이 아니라 그릴 것에 맞춰 고른다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 카드뮴 옐로와 울트라마린을 반반 섞었더니 맑은 초록이 아니라 탁한 올리브 회색이 되었다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">두 물감의 양이 같으면 감산 혼합이 일어나지 않기 때문이다.</button>
+          <button class="opt" data-correct>두 물감의 반사율 곡선이 겹치는 파장이 거의 없어, 섞으면 모든 파장에서 반사율이 낮고 평평해지기 때문이다.</button>
+          <button class="opt">울트라마린은 빛을 내는 물감이라 노랑과 더해지면 회색이 되기 때문이다.</button>
+          <button class="opt">노랑과 파랑은 보색이 아니라서 섞어도 초록이 될 수 없기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">섞은 물감은 두 물감이 모두 어느 정도 돌려보내는 파장만 돌려보낸다. 카드뮴 옐로는 약 520&nbsp;nm 아래를, 울트라마린은 약 480&nbsp;nm 위를 대부분 흡수하므로 함께 남는 초록 띠가 거의 없다. 레몬 옐로와 프탈로 블루처럼 초록 쪽으로 기운 두 물감이면 초록 띠가 남아 맑은 초록이 된다. 노랑+파랑은 물감에서 초록이 될 수 있으므로 네 번째 보기는 틀리다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 레몬 옐로 웅덩이에 프탈로 블루를 10%만 넣었는데 눈에는 이미 반쯤 초록으로 보인다. 이 현상과 관련이 가장 큰 성질은?</p>
+        <div class="opts">
+          <button class="opt">병치 혼합</button>
+          <button class="opt">메타메리즘</button>
+          <button class="opt">가산 혼합</button>
+          <button class="opt" data-correct>착색력</button>
+        </div>
+        <div class="quiz-exp">같은 양을 섞어도 결과를 자기 쪽으로 더 세게 끌어당기는 힘이 착색력이다. 프탈로 블루는 착색력이 매우 센 물감이라 적은 양으로도 혼합색을 크게 바꾼다. 그래서 밝고 약한 색에 센 색을 조금씩 넣는 것이 요령이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 노란 레몬을 그리다 그림자 부분을 어둡게 하려고 노랑에 검정을 섞었더니 올리브색이 되었다. 노랑의 색 기운을 더 지키며 어둡게 하는 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>검정 대신 황토나 갈색처럼 어둡고 따뜻한 물감, 또는 반대편 색을 조금 섞는다.</button>
+          <button class="opt">흰색을 함께 섞어 틴트로 만든다.</button>
+          <button class="opt">검정을 더 많이 섞어 올리브 기운을 덮는다.</button>
+          <button class="opt">노랑을 더 진하게 칠하면 저절로 어두운 노랑이 된다.</button>
+        </div>
+        <div class="quiz-exp">검정을 섞은 노랑은 색상이 초록 쪽으로 기울고 채도가 크게 떨어진다. 흙색이나 반대편 색으로 어둡게 하면 색 기운이 더 남는다. 흰색은 밝게 하는 쪽이고, 검정을 더 섞으면 올리브에서 검정에 가까워질 뿐이다. 노랑을 진하게 칠해도 노랑의 밝기는 크게 내려가지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 수채화에서 연한 노랑 층이 마른 뒤 연한 파랑을 겹쳐 칠했다. 같은 두 물감 웅덩이를 반반 섞어 한 번 칠한 것과 비교하면, 겹친 부분은 대체로 어떤가?</p>
+        <div class="opts">
+          <button class="opt">항상 똑같은 색이다. 섞는 방법은 결과에 영향을 주지 않는다.</button>
+          <button class="opt">더 밝다. 겹치면 두 층의 빛이 더해지기 때문이다.</button>
+          <button class="opt" data-correct>더 진하다. 두 층이 차례로 빛을 걸러 곱셈처럼 작용하고, 섞을 때처럼 각 물감이 절반으로 묽어지지 않기 때문이다.</button>
+          <button class="opt">흰색에 가까워진다. 겹친 층은 종이를 가리지 않기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">겹친 투명 층은 셀로판 필터처럼 빛을 차례로 거른다. 두 층의 물감이 그대로 남으므로, 두 웅덩이를 섞어 각 물감이 절반이 된 경우보다 진하다. 색상도 조금 달라질 수 있다. 겹치기는 빛을 빼는 쪽이므로 밝아지지 않는다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex, fit = ART.fit;
+  var INK = "#2b2a30", INK_DIM = "#6b6874";   // 고정된 종이 바탕 위의 글자색
+  var PAPER = "#fbfaf7";
+  var NAME = function (k) { return ART.PAINTS[k].name; };
+  var mix2 = function (a, b, t, sB) {           // 두 물감을 쿠벨카–뭉크로 섞은 sRGB(t: 두 번째 물감의 몫)
+    return fit(ART.renderReflectance(ART.mixKM([{ paint: a, amount: 1 - t }, { refl: ART.PAINTS[b].refl, S: ART.PAINTS[b].S * (sB || 1), amount: t }])));
+  };
+  // 얇은 투명 층(수채): 종이 반사율 RP 위에서 진하기 c만큼. 베르–람베르트 식의 단순화(빛이 층을 두 번 지난다고 보고 masstone에서 흡수를 거꾸로 구한다)
+  var RP = 0.88;
+  var thin = function (R, c) { return R.map(function (r) { return RP * Math.pow(Math.min(1, r / RP), c); }); };
+  var rgbOf = function (R) { return fit(ART.renderReflectance(R)); };
+  var oklch = function (c) { return ART.srgbToOklch(c); };
+  var hueDiff = function (a, b) { var d = ((b - a + 540) % 360) - 180; return d; };
+  var chip = function (c) { return '<span style="display:inline-block;width:.9em;height:.9em;border-radius:3px;vertical-align:-1px;margin-right:4px;background:' + hex(c) + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)"></span>' + hex(c); };
+
+  /* ---------------- 시뮬레이터 1: 빛 세 개, 필터 세 장 ---------------- */
+  (function () {
+    var mode = AB.seg("mi-lt-mode", function () { cv.redraw(); });
+    var kG = AB.range("mi-lt-k", function (v) { return v.toFixed(2) + "배"; }, function () { cv.redraw(); });
+    var pos = [{ x: 0.4, y: 0.4 }, { x: 0.6, y: 0.4 }, { x: 0.5, y: 0.62 }], geo = null, grab = -1;
+    var G = new Uint8ClampedArray(4096);
+    for (var i = 0; i < 4096; i++) G[i] = Math.round(ART.toGamma(i / 4095) * 255);
+    var g8 = function (v) { return G[Math.max(0, Math.min(4095, Math.round(v * 4095)))]; };
+    var FILT = [[0.03, 0.78, 0.95], [0.92, 0.05, 0.72], [0.96, 0.86, 0.04]];  // 시안·마젠타·노랑 필터의 선형 투과율(예시값)
+    var cols = function () {
+      var k = kG(), add = mode() === "add";
+      return add ? [[k, 0, 0], [0, k, 0], [0, 0, k]] : FILT.map(function (t) { return t.map(function (v) { return Math.pow(v, k); }); });
+    };
+    var cv = AB.canvas("#mi-lt-cv", function (ctx, w, h) {
+      var add = mode() === "add", C = cols();
+      var R = Math.min(w, h) * 0.26, S = 2, bw = Math.ceil(w / S), bh = Math.ceil(h / S);
+      geo = { w: w, h: h, R: R };
+      var buf = document.createElement("canvas"); buf.width = bw; buf.height = bh;
+      var bx = buf.getContext("2d"), id = bx.createImageData(bw, bh), d = id.data;
+      var cx = pos.map(function (p) { return p.x * w; }), cy = pos.map(function (p) { return p.y * h; }), R2 = R * R;
+      for (var y = 0; y < bh; y++) for (var x = 0; x < bw; x++) {
+        var px = x * S + S / 2, py = y * S + S / 2, v = add ? [0, 0, 0] : [1, 1, 1];
+        for (var k = 0; k < 3; k++) {
+          var dx = px - cx[k], dy = py - cy[k];
+          if (dx * dx + dy * dy <= R2) { if (add) { v[0] += C[k][0]; v[1] += C[k][1]; v[2] += C[k][2]; } else { v[0] *= C[k][0]; v[1] *= C[k][1]; v[2] *= C[k][2]; } }
+        }
+        var o = (y * bw + x) * 4;
+        d[o] = g8(Math.min(1, v[0])); d[o + 1] = g8(Math.min(1, v[1])); d[o + 2] = g8(Math.min(1, v[2])); d[o + 3] = 255;
+      }
+      bx.putImageData(id, 0, 0);
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(buf, 0, 0, bw * S, bh * S);
+      var names = add ? ["빨강 빛", "초록 빛", "파랑 빛"] : ["시안 필터", "마젠타 필터", "노랑 필터"];
+      var txt = add ? "#e8e6e0" : INK;
+      ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      for (var j = 0; j < 3; j++) {
+        var ang = Math.atan2(cy[j] - h / 2, cx[j] - w / 2), lx = cx[j] + Math.cos(ang) * R * 0.62, ly = cy[j] + Math.sin(ang) * R * 0.62;
+        AB.handle(ctx, cx[j], cy[j], { r: 6, fill: add ? "#000000" : "#ffffff", ring: add ? "#e8e6e0" : "#2b2a30" });
+        ctx.fillStyle = add ? "#000000" : "#ffffff"; ctx.globalAlpha = 0.55; ctx.fillRect(lx - 34, ly - 10, 68, 20); ctx.globalAlpha = 1;
+        ctx.fillStyle = txt; ctx.fillText(names[j], lx, ly);
+      }
+      ctx.fillStyle = add ? "#bdbab3" : INK_DIM; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText(add ? "어두운 벽에 비춘 빛 · 겹칠수록 밝아진다" : "흰 종이 위의 셀로판 · 겹칠수록 어두워진다", 10, 8);
+      // 읽기 칸: 엔진의 혼합 함수로 같은 값을 계산한다
+      var srgb = C.map(function (c) { return ART.linearToSrgb(c); });
+      var two, three;
+      if (add) { two = ART.mixAdd(srgb[0], srgb[1]); three = ART.mixAdd(srgb[0], srgb[1], srgb[2]); }
+      else { two = ART.mixFilter(srgb[0], srgb[2], 0.5); three = ART.mixFilter(two, srgb[1], 0.5); }
+      var over = !ART.inGamut(three, 1e-4) || !ART.inGamut(two, 1e-4);
+      AB.stat("mi-lt-o2", chip(ART.clip(two)) + (add ? " <small>빨강+초록</small>" : " <small>시안+노랑</small>"));
+      AB.stat("mi-lt-o3", chip(ART.clip(three)) + (over ? " <small>화면 최대 밝기를 넘음</small>" : ""));
+      AB.stat("mi-lt-ol", AB.fix(ART.lightness(ART.clip(three)), 0));
+    }, { aspect: 0.62, minHeight: 260, maxHeight: 420, bg: "#111111" });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!geo) return; grab = -1; var best = 1e9;
+        pos.forEach(function (p, k) { var d = Math.hypot(x - p.x * geo.w, y - p.y * geo.h); if (d < geo.R && d < best) { best = d; grab = k; } });
+      },
+      move: function (x, y) { if (grab < 0 || !geo) return; pos[grab].x = AB.clamp(x / geo.w, 0.05, 0.95); pos[grab].y = AB.clamp(y / geo.h, 0.08, 0.92); cv.redraw(); },
+      end: function () { grab = -1; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 반사율 곡선으로 섞기 ---------------- */
+  (function () {
+    var pair = AB.seg("mi-cu-pair", function () { cv.redraw(); });
+    var tG = AB.range("mi-cu-t", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#mi-cu-cv", function (ctx, w, h) {
+      var p = P(), ks = pair().split(","), t = tG() / 100;
+      var A = ART.PAINTS[ks[0]].refl, B = ART.PAINTS[ks[1]].refl;
+      var M = ART.mixKM([{ paint: ks[0], amount: 1 - t }, { paint: ks[1], amount: t }]);
+      var O = A.map(function (v, i) { return v * (1 - t) + B[i] * t; });
+      var cA = fit(ART.paintColor(ks[0])), cB = fit(ART.paintColor(ks[1])), cM = rgbOf(M), cO = rgbOf(O);
+      var plotH = Math.round(h * 0.6);
+      var c = AB.chart(ctx, { x: 44, y: 26, w: w - 58, h: plotH - 56 }, { x: [380, 780], y: [0, 1], xTicks: [400, 500, 600, 700], yTicks: [0, 0.5, 1], xFmt: function (v) { return v + " nm"; }, yFmt: function (v) { return v; } });
+      var line = function (R, col, wd, dash) { ctx.strokeStyle = col; ctx.lineWidth = wd; ctx.setLineDash(dash || []); ctx.beginPath(); ART.WL.forEach(function (l, i) { var x = c.X(l), y = c.Y(R[i]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); ctx.setLineDash([]); };
+      line(A, hex(cA), 2); line(B, hex(cB), 2); line(O, p.dim, 1.6, [5, 4]);
+      line(M, p.text, 6.5); line(M, hex(cM), 4);
+      ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      var lx = c.box.x + 4, ly = 4;
+      [[cA, NAME(ks[0])], [cB, NAME(ks[1])]].forEach(function (s) { ctx.fillStyle = hex(s[0]); ctx.fillRect(lx, ly + 3, 14, 4); ctx.fillStyle = p.dim; ctx.fillText(s[1], lx + 18, ly); lx += ctx.measureText(s[1]).width + 34; });
+      if (lx > w - 160) { lx = c.box.x + 4; ly += 14; }
+      ctx.fillStyle = p.text; ctx.fillRect(lx, ly + 2, 14, 6); ctx.fillStyle = p.dim; ctx.fillText("섞은 물감", lx + 18, ly); lx += 80;
+      ctx.strokeStyle = p.dim; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(lx, ly + 5); ctx.lineTo(lx + 14, ly + 5); ctx.stroke(); ctx.setLineDash([]); ctx.fillText("평균(병치)", lx + 18, ly);
+      // 견본
+      var top = plotH + 2, sw = Math.min(150, (w - 60) / 2), sh = h - top - 44;
+      var x0 = w / 2 - sw - 10, x1 = w / 2 + 10;
+      AB.swatch(ctx, x0, top, sw, sh, cO, { label: "점으로 둔 평균", sub: hex(cO), radius: 8, stroke: p.border });
+      AB.swatch(ctx, x1, top, sw, sh, cM, { label: "물감으로 섞음", sub: hex(cM), radius: 8, stroke: p.border });
+      AB.stat("mi-cu-oo", chip(cO)); AB.stat("mi-cu-op", chip(cM));
+      AB.stat("mi-cu-ol", AB.fix(ART.lightness(cO), 0) + " → " + AB.fix(ART.lightness(cM), 0));
+    }, { aspect: 0.78, minHeight: 380, maxHeight: 480 });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 섞는 비율 띠와 착색력 ---------------- */
+  (function () {
+    var pair = AB.seg("mi-ra-pair", function () { cv.redraw(); });
+    var sG = AB.range("mi-ra-s", function (v) { var m = Math.pow(2, v); return (m < 1 ? "1/" + (1 / m).toFixed(1) : m.toFixed(2)) + "배"; }, function () { cv.redraw(); });
+    // 지각적 중간: 양 끝에서의 ΔE2000이 같아지는 t
+    var mid = function (f) {
+      var A = f(0), B = f(1), best = 0, bd = 1e9;
+      for (var i = 0; i <= 100; i++) { var c = f(i / 100), d = Math.abs(ART.diff(A, c) - ART.diff(c, B)); if (d < bd) { bd = d; best = i / 100; } }
+      return best;
+    };
+    var cv = AB.canvas("#mi-ra-cv", function (ctx, w, h) {
+      var ks = pair().split(","), sB = Math.pow(2, sG());
+      var A = fit(ART.paintColor(ks[0])), B = fit(ART.paintColor(ks[1]));
+      var rows = [
+        ["물감으로 섞기 (쿠벨카–뭉크)", function (t) { return mix2(ks[0], ks[1], t, sB); }],
+        ["점으로 두기 (빛의 평균)", function (t) { return ART.mixOptical(A, B, t); }],
+        ["화면 숫자 평균 (sRGB)", function (t) { return ART.mixNaive(A, B, t); }],
+      ];
+      ctx.fillStyle = PAPER; ctx.fillRect(0, 0, w, h);
+      var n = 11, left = 12, cw = (w - 24) / n, rh = (h - 26 - rows.length * 44) / rows.length;
+      var mids = [];
+      rows.forEach(function (r, k) {
+        var y = 8 + k * (rh + 44);
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(r[0], left, y);
+        for (var i = 0; i < n; i++) { ctx.fillStyle = hex(r[1](i / (n - 1))); ctx.fillRect(left + i * cw, y + 18, cw + 0.6, rh); }
+        var m = mid(r[1]); mids.push(m);
+        var mx = left + (m * (n - 1) + 0.5) * cw;
+        ctx.fillStyle = INK; ctx.beginPath(); ctx.moveTo(mx, y + 20 + rh); ctx.lineTo(mx - 6, y + 30 + rh); ctx.lineTo(mx + 6, y + 30 + rh); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textAlign = mx > w - 90 ? "right" : mx < 90 ? "left" : "center";
+        ctx.fillText("중간 " + Math.round(m * 100) + "%", mx + (ctx.textAlign === "right" ? 8 : ctx.textAlign === "left" ? -8 : 0), y + 31 + rh);
+      });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11, true); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("0%", left, h - 4); ctx.textAlign = "right"; ctx.fillText("100% " , w - 12, h - 4);
+      ctx.textAlign = "center"; ctx.font = AB.font(11); ctx.fillText(NAME(ks[0]) + " → " + NAME(ks[1]), w / 2, h - 4);
+      AB.stat("mi-ra-o1", "두 번째 물감 " + Math.round(mids[0] * 100) + "%");
+      AB.stat("mi-ra-o2", "두 번째 물감 " + Math.round(mids[1] * 100) + "%");
+      AB.stat("mi-ra-o3", chip(rows[0][1](0.5)));
+    }, { aspect: 0.56, minHeight: 330, maxHeight: 400, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 틴트·셰이드·톤 ---------------- */
+  (function () {
+    var OPP = { yellow: "ultramarine", red: "viridian", ultramarine: "orange", viridian: "red" };
+    var base = AB.seg("mi-ti-base", function () { cv.redraw(); });
+    var aG = AB.range("mi-ti-a", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var mixN = function (parts) { return fit(ART.mixPaints(parts)); };
+    var cv = AB.canvas("#mi-ti-cv", function (ctx, w, h) {
+      var b = base(), amax = aG() / 100, opp = OPP[b];
+      var rows = [
+        ["틴트 (+흰색)", function (t) { return mixN([{ paint: b, amount: 1 - t }, { paint: "white", amount: t }]); }],
+        ["셰이드 (+검정)", function (t) { return mixN([{ paint: b, amount: 1 - t }, { paint: "black", amount: t }]); }],
+        ["톤 (+회색)", function (t) { return mixN([{ paint: b, amount: 1 - t }, { paint: "white", amount: t * 0.82 }, { paint: "black", amount: t * 0.18 }]); }],
+        ["반대색으로 어둡게 (+" + NAME(opp) + ")", function (t) { return mixN([{ paint: b, amount: 1 - t }, { paint: opp, amount: t }]); }],
+      ];
+      ctx.fillStyle = PAPER; ctx.fillRect(0, 0, w, h);
+      var n = 9, cw = (w - 24) / n, rh = (h - 30 - rows.length * 22) / rows.length;
+      rows.forEach(function (r, k) {
+        var y = 8 + k * (rh + 22);
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(r[0], 12, y);
+        for (var i = 0; i < n; i++) { ctx.fillStyle = hex(r[1]((i / (n - 1)) * amax)); ctx.fillRect(12 + i * cw, y + 18, cw - 2, rh); }
+      });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11, true); ctx.textBaseline = "bottom"; ctx.textAlign = "left"; ctx.fillText("0%", 12, h - 4);
+      ctx.textAlign = "right"; ctx.fillText(Math.round(amax * 100) + "%", w - 12, h - 4);
+      if (w > 440) { ctx.textAlign = "center"; ctx.font = AB.font(11); ctx.fillText("기준: " + NAME(b) + " · 오른쪽으로 갈수록 많이 섞는다", w / 2, h - 4); }
+      var c0 = fit(ART.paintColor(b)), sh = rows[1][1](amax), ti = rows[0][1](amax), op = rows[3][1](amax);
+      var h0 = oklch(c0)[2];
+      AB.stat("mi-ti-o1", (hueDiff(h0, oklch(sh)[2]) >= 0 ? "+" : "") + Math.round(hueDiff(h0, oklch(sh)[2])) + "° <small>채도 " + oklch(c0)[1].toFixed(2) + "→" + oklch(sh)[1].toFixed(2) + "</small>");
+      AB.stat("mi-ti-o2", (hueDiff(h0, oklch(ti)[2]) >= 0 ? "+" : "") + Math.round(hueDiff(h0, oklch(ti)[2])) + "° <small>채도 " + oklch(c0)[1].toFixed(2) + "→" + oklch(ti)[1].toFixed(2) + "</small>");
+      AB.stat("mi-ti-o3", chip(sh) + " · " + chip(op));
+    }, { aspect: 0.62, minHeight: 320, maxHeight: 420, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 보색 사이의 길 ---------------- */
+  (function () {
+    var pair = AB.seg("mi-pa-pair", function () { build(); cv.redraw(); });
+    var opt = AB.check("mi-pa-opt", function () { cv.redraw(); });
+    var N = 40, path = [], optP = [], t = 0.5, geo = null;
+    function build() {
+      var ks = pair().split(","), A = fit(ART.paintColor(ks[0])), B = fit(ART.paintColor(ks[1]));
+      path = []; optP = [];
+      for (var i = 0; i <= N; i++) {
+        var u = i / N, m = mix2(ks[0], ks[1], u), o = ART.mixOptical(A, B, u);
+        path.push({ t: u, rgb: m, lab: ART.srgbToOklab(m) }); optP.push({ t: u, rgb: o, lab: ART.srgbToOklab(o) });
+      }
+    }
+    build();
+    var cv = AB.canvas("#mi-pa-cv", function (ctx, w, h) {
+      var p = P(), wide = w >= 520;
+      var S = wide ? Math.min(h - 40, w * 0.62) : Math.min(w - 40, 360);
+      var ox = wide ? 34 : (w - S) / 2 + 8, oy = 14, R = 0.24;
+      var X = function (a) { return ox + ((a + R) / (2 * R)) * S; }, Y = function (b) { return oy + ((R - b) / (2 * R)) * S; };
+      geo = { X: X, Y: Y };
+      ctx.strokeStyle = p.grid; ctx.lineWidth = 1;
+      for (var g = -0.2; g <= 0.201; g += 0.1) { ctx.beginPath(); ctx.moveTo(X(g), Y(R)); ctx.lineTo(X(g), Y(-R)); ctx.stroke(); ctx.beginPath(); ctx.moveTo(X(-R), Y(g)); ctx.lineTo(X(R), Y(g)); ctx.stroke(); }
+      ctx.strokeStyle = p.axis; ctx.beginPath(); ctx.moveTo(X(-R), Y(0)); ctx.lineTo(X(R), Y(0)); ctx.moveTo(X(0), Y(-R)); ctx.lineTo(X(0), Y(R)); ctx.stroke();
+      [0.05, 0.1, 0.15].forEach(function (r) { ctx.strokeStyle = p.grid; ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.arc(X(0), Y(0), (r / (2 * R)) * S, 0, 7); ctx.stroke(); });
+      ctx.setLineDash([]);
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("+a 붉은 쪽", X(R) - 66, Y(0) - 3); ctx.fillText("+b 노란 쪽", X(0) + 4, Y(R) + 14); ctx.textBaseline = "top"; ctx.fillText("무채색", X(0) + 4, Y(0) + 3);
+      if (opt()) {
+        ctx.strokeStyle = p.dim; ctx.setLineDash([5, 4]); ctx.lineWidth = 1.5; ctx.beginPath();
+        optP.forEach(function (q, i) { var x = X(q.lab[1]), y = Y(q.lab[2]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); ctx.setLineDash([]);
+        optP.forEach(function (q, i) { if (i % 4) return; ctx.fillStyle = hex(q.rgb); ctx.strokeStyle = p.dim; ctx.lineWidth = 1; ctx.beginPath(); ctx.rect(X(q.lab[1]) - 3.5, Y(q.lab[2]) - 3.5, 7, 7); ctx.fill(); ctx.stroke(); });
+      }
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.2; ctx.beginPath();
+      path.forEach(function (q, i) { var x = X(q.lab[1]), y = Y(q.lab[2]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke();
+      path.forEach(function (q) { ctx.fillStyle = hex(q.rgb); ctx.strokeStyle = p.border; ctx.beginPath(); ctx.arc(X(q.lab[1]), Y(q.lab[2]), 5, 0, 7); ctx.fill(); ctx.stroke(); });
+      var k = Math.round(t * N), cur = path[k], co = optP[k];
+      AB.handle(ctx, X(cur.lab[1]), Y(cur.lab[2]), { r: 9, fill: cur.rgb });
+      // 견본
+      var sx, sy, sw, sh;
+      if (wide) { sx = ox + S + 24; sw = w - sx - 14; sy = 20; sh = (h - 110) / 2; }
+      else { sx = 12; sy = oy + S + 14; sw = (w - 36) / 2; sh = h - sy - 40; }
+      var swatches = [[cur.rgb, "물감으로 섞음"], [co.rgb, "점으로 둠"]];
+      swatches.forEach(function (s, i) {
+        var x = wide ? sx : sx + i * (sw + 12), y = wide ? sy + i * (sh + 52) : sy;
+        AB.swatch(ctx, x, y, sw, sh - (wide ? 0 : 0), s[0], { label: s[1], sub: hex(s[0]), radius: 8, stroke: p.border });
+      });
+      var minI = 0; path.forEach(function (q, i) { if (Math.hypot(q.lab[1], q.lab[2]) < Math.hypot(path[minI].lab[1], path[minI].lab[2])) minI = i; });
+      var C = function (q) { return Math.hypot(q.lab[1], q.lab[2]).toFixed(3); };
+      AB.stat("mi-pa-ot", Math.round(t * 100) + "%");
+      AB.stat("mi-pa-op", chip(cur.rgb) + " <small>C " + C(cur) + "</small>");
+      AB.stat("mi-pa-oo", chip(co.rgb) + " <small>C " + C(co) + "</small>");
+      AB.stat("mi-pa-om", Math.round(path[minI].t * 100) + "% <small>C " + C(path[minI]) + "</small>");
+    }, { get height() { var el = document.getElementById("mi-pa-cv"), w = el.parentElement.clientWidth || 600; return w >= 520 ? Math.round(Math.min(440, Math.max(340, w * 0.58))) : Math.round(Math.min(w - 40, 360) + 150); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var best = 0, bd = 1e9;
+        path.forEach(function (q, i) { var d = Math.hypot(geo.X(q.lab[1]) - x, geo.Y(q.lab[2]) - y); if (d < bd) { bd = d; best = i; } });
+        if (bd > 60) return; t = best / N; cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 겹쳐 칠하기와 섞어 칠하기 ---------------- */
+  (function () {
+    var pair = AB.seg("mi-gl-pair", function () { cv.redraw(); });
+    var aG = AB.range("mi-gl-a", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var bG = AB.range("mi-gl-b", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var paperRGB = rgbOf(ART.WL.map(function () { return RP; }));
+    // 물자국이 있는 붓 자국(고정 시드)
+    function wash(ctx, x, y, w, h, col, seed) {
+      var r = AB.rng(seed), n = 14;
+      ctx.beginPath();
+      for (var i = 0; i <= n; i++) { var px = x + (w * i) / n, py = y + (r() - 0.5) * 6; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+      for (var j = 0; j <= n; j++) { var qx = x + w + (r() - 0.5) * 6, qy = y + (h * j) / n; ctx.lineTo(qx, qy); }
+      for (var k = n; k >= 0; k--) { var sx = x + (w * k) / n, sy = y + h + (r() - 0.5) * 6; ctx.lineTo(sx, sy); }
+      for (var m = n; m >= 0; m--) { var tx = x + (r() - 0.5) * 6, ty = y + (h * m) / n; ctx.lineTo(tx, ty); }
+      ctx.closePath(); ctx.fillStyle = col; ctx.fill();
+    }
+    var cv = AB.canvas("#mi-gl-cv", function (ctx, w, h) {
+      var ks = pair().split(","), ca = aG(), cb = bG();
+      var Ta = thin(ART.PAINTS[ks[0]].refl, ca), Tb = thin(ART.PAINTS[ks[1]].refl, cb);
+      var Rg = Ta.map(function (r, i) { return RP * (r / RP) * (Tb[i] / RP); });                 // 겹치기: 투과의 곱
+      var Rm = ART.mixKM([{ refl: Ta, amount: 0.5, S: ART.PAINTS[ks[0]].S }, { refl: Tb, amount: 0.5, S: ART.PAINTS[ks[1]].S }]); // 두 웅덩이를 반반 섞기
+      var cA = rgbOf(Ta), cBc = rgbOf(Tb), cG = rgbOf(Rg), cM = rgbOf(Rm);
+      ctx.fillStyle = hex(paperRGB); ctx.fillRect(0, 0, w, h);
+      var wide = w >= 480, L = wide ? w * 0.62 : w, Ht = wide ? h : h * 0.66;
+      // 가로 띠, 세로 띠, 겹친 곳
+      var hb = { x: L * 0.08, y: Ht * 0.3, w: L * 0.84, h: Ht * 0.3 }, vb = { x: L * 0.38, y: Ht * 0.08, w: L * 0.26, h: Ht * 0.78 };
+      wash(ctx, hb.x, hb.y, hb.w, hb.h, hex(cA), 11);
+      wash(ctx, vb.x, vb.y, vb.w, vb.h, hex(cBc), 23);
+      ctx.save(); ctx.beginPath(); ctx.rect(vb.x + 1, hb.y + 1, vb.w - 2, hb.h - 2); ctx.clip(); wash(ctx, vb.x - 4, hb.y - 4, vb.w + 8, hb.h + 8, hex(cG), 23); ctx.restore();
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("겹쳐 칠하기", 12, 8);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11);
+      ctx.fillText(NAME(ks[0]) + " (가로)", hb.x, hb.y + hb.h + 8);
+      ctx.textAlign = "center"; ctx.fillText(NAME(ks[1]) + " (세로)", vb.x + vb.w / 2, Math.min(Ht - 14, vb.y + vb.h + 6));
+      // 섞어 칠한 견본
+      var sx = wide ? L + 6 : 12, sy = wide ? 34 : Ht + 26, sw = wide ? w - L - 18 : w - 24, sh = wide ? h * 0.5 : h - Ht - 54;
+      ctx.textAlign = "left"; ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.fillText("섞어서 한 번에", sx, sy - 24);
+      wash(ctx, sx + 4, sy, sw - 8, sh, hex(cM), 37);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11, true); ctx.fillText(hex(cM), sx + 4, sy + sh + 8);
+      if (wide) { ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.fillText("겹친 곳", sx, sy + sh + 34); ctx.fillStyle = hex(cG); ctx.fillRect(sx + 4, sy + sh + 54, sw - 8, Math.max(24, h - (sy + sh + 54) - 30)); ctx.fillStyle = INK_DIM; ctx.font = AB.font(11, true); ctx.fillText(hex(cG), sx + 4, h - 22); }
+      AB.stat("mi-gl-og", chip(cG)); AB.stat("mi-gl-om", chip(cM));
+      AB.stat("mi-gl-ol", AB.fix(ART.lightness(cG), 0) + " · " + AB.fix(ART.lightness(cM), 0));
+    }, { get height() { var w = document.getElementById("mi-gl-cv").parentElement.clientWidth || 600; return w >= 480 ? Math.round(Math.min(380, Math.max(300, w * 0.52))) : Math.round(w * 1.15); }, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 7: 세 물감의 색 지도 ---------------- */
+  (function () {
+    var SETS = {
+      A: ["lemon", "magenta", "phthalo"], B: ["yellow", "crimson", "ultramarine"],
+      As: ["lemon", "magenta", "phthalo", "sienna"], Bs: ["yellow", "crimson", "ultramarine", "sienna"],
+      Z: ["ochre", "red", "black", "white"],
+    };
+    var TARGETS = { green: ["#2f7d5b", "책방 초록"], sky: ["#7fabb6", "하늘"], wall: ["#cebfb5", "벽"], leaf: ["#d4534c", "붉은 잎"], bush: ["#375857", "덤불"] };
+    var DIL = [1, 0.6, 0.35, 0.18], DILN = ["진하게", "보통", "묽게", "아주 묽게"];
+    var cache = {};
+    function combos(n, N) { var out = []; (function rec(pre, left, k) { if (k === 1) { out.push(pre.concat([left])); return; } for (var i = 0; i <= left; i++) rec(pre.concat([i]), left - i, k - 1); })([], N, n); return out.map(function (c) { return c.map(function (v) { return v / N; }); }); }
+    function hull(pts) {
+      pts = pts.slice().sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+      var cr = function (o, a, b) { return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]); }, lo = [], up = [], i;
+      for (i = 0; i < pts.length; i++) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], pts[i]) <= 0) lo.pop(); lo.push(pts[i]); }
+      for (i = pts.length - 1; i >= 0; i--) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], pts[i]) <= 0) up.pop(); up.push(pts[i]); }
+      return lo.slice(0, -1).concat(up.slice(0, -1));
+    }
+    function area(hl) { var s = 0; for (var i = 0; i < hl.length; i++) { var a = hl[i], b = hl[(i + 1) % hl.length]; s += a[0] * b[1] - a[1] * b[0]; } return Math.abs(s) / 2; }
+    function sample(key) {
+      if (cache[key]) return cache[key];
+      var keys = SETS[key], N = keys.length === 3 ? 16 : 10, pts = [];
+      combos(keys.length, N).forEach(function (wts) {
+        var R = ART.mixKM(keys.map(function (k, i) { return { paint: k, amount: wts[i] }; }));
+        DIL.forEach(function (c, di) { var rgb = rgbOf(thin(R, c)); pts.push({ w: wts, d: di, rgb: rgb, lab: ART.srgbToOklab(rgb), hx: hex(rgb) }); });
+      });
+      var hl = hull(pts.map(function (q) { return [q.lab[1], q.lab[2]]; }));
+      return (cache[key] = { pts: pts, hull: hl, area: area(hl), keys: keys });
+    }
+    var setG = AB.seg("mi-ga-set", function () { cv.redraw(); });
+    var tgtG = AB.seg("mi-ga-target", function (v) { target = ART.srgbToOklab(ART.parse(TARGETS[v][0])); custom = false; cv.redraw(); });
+    var slice = AB.check("mi-ga-slice", function () { cv.redraw(); });
+    var lG = AB.range("mi-ga-l", function (v) { return v.toFixed(2); }, function () { if (slice()) cv.redraw(); });
+    var target = ART.srgbToOklab(ART.parse(TARGETS.green[0])), custom = false, geo = null;
+    var R = 0.25;
+    var cv = AB.canvas("#mi-ga-cv", function (ctx, w, h) {
+      var p = P(), key = setG(), D = sample(key), other = sample(key === "A" || key === "As" ? "B" : "A"), ref = sample("A");
+      var wide = w >= 560;
+      var S = wide ? Math.min(h - 28, w * 0.64) : Math.min(w - 24, 420);
+      var ox = wide ? 14 : (w - S) / 2, oy = 14;
+      var X = function (a) { return ox + ((a + R) / (2 * R)) * S; }, Y = function (b) { return oy + ((R - b) / (2 * R)) * S; };
+      geo = { X: X, Y: Y, S: S, ox: ox, oy: oy };
+      // 바탕 격자
+      ctx.strokeStyle = p.grid; ctx.lineWidth = 1;
+      for (var g = -0.2; g <= 0.201; g += 0.1) { ctx.beginPath(); ctx.moveTo(X(g), Y(R)); ctx.lineTo(X(g), Y(-R)); ctx.stroke(); ctx.beginPath(); ctx.moveTo(X(-R), Y(g)); ctx.lineTo(X(R), Y(g)); ctx.stroke(); }
+      ctx.strokeStyle = p.axis; ctx.beginPath(); ctx.moveTo(X(-R), Y(0)); ctx.lineTo(X(R), Y(0)); ctx.moveTo(X(0), Y(-R)); ctx.lineTo(X(0), Y(R)); ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("빨강", X(R) - 30, Y(0) - 3); ctx.fillText("노랑", X(0) + 4, Y(R) + 14); ctx.fillText("초록", X(-R) + 4, Y(0) - 3); ctx.textBaseline = "top"; ctx.fillText("파랑", X(0) + 4, Y(-R) - 16);
+      // 단면
+      var useSlice = slice(), Ls = lG();
+      var shown = useSlice ? D.pts.filter(function (q) { return Math.abs(q.lab[0] - Ls) < 0.04; }) : D.pts;
+      var hl = useSlice ? (shown.length > 2 ? hull(shown.map(function (q) { return [q.lab[1], q.lab[2]]; })) : []) : D.hull;
+      // 다른 조합의 색역(비교)
+      var poly = function (pl) { ctx.beginPath(); pl.forEach(function (q, i) { i ? ctx.lineTo(X(q[0]), Y(q[1])) : ctx.moveTo(X(q[0]), Y(q[1])); }); ctx.closePath(); };
+      if (!useSlice && key !== "Z") { ctx.setLineDash([5, 4]); ctx.strokeStyle = p.dim; ctx.lineWidth = 1.5; poly(other.hull); ctx.stroke(); ctx.setLineDash([]); }
+      if (hl.length > 2) { ctx.globalAlpha = 0.14; ctx.fillStyle = p.accent; poly(hl); ctx.fill(); ctx.globalAlpha = 1; ctx.strokeStyle = p.accent; ctx.lineWidth = 2; poly(hl); ctx.stroke(); }
+      // 점
+      var sz = S > 360 ? 6 : 5;
+      shown.slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; }).forEach(function (q) { ctx.fillStyle = q.hx; ctx.fillRect(X(q.lab[1]) - sz / 2, Y(q.lab[2]) - sz / 2, sz, sz); });
+      // 목표와 가장 가까운 혼합
+      var tRgb = fit(ART.oklabToSrgb(target)), best = null, bd = 1e9;
+      D.pts.forEach(function (q) { var d = ART.diff(q.rgb, tRgb); if (d < bd) { bd = d; best = q; } });
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.2; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X(target[1]), Y(target[2])); ctx.lineTo(X(best.lab[1]), Y(best.lab[2])); ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(X(best.lab[1]), Y(best.lab[2]), 7, 0, 7); ctx.stroke();
+      var tx = X(target[1]), ty = Y(target[2]);
+      ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(tx - 13, ty); ctx.lineTo(tx + 13, ty); ctx.moveTo(tx, ty - 13); ctx.lineTo(tx, ty + 13); ctx.stroke();
+      AB.handle(ctx, tx, ty, { r: 7, fill: tRgb });
+      // 옆 칸: 물감과 견본
+      var px, py, pw;
+      if (wide) { px = ox + S + 22; py = 16; pw = w - px - 12; } else { px = 12; py = oy + S + 14; pw = w - 24; }
+      ctx.fillStyle = p.text; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("물감", px, py);
+      var cwid = Math.min(54, (pw - (D.keys.length - 1) * 6) / D.keys.length);
+      D.keys.forEach(function (k, i) {
+        var c = fit(ART.paintColor(k)), x = px + i * (cwid + 6);
+        ctx.fillStyle = hex(c); ctx.fillRect(x, py + 18, cwid, 26); ctx.strokeStyle = p.border; ctx.strokeRect(x + 0.5, py + 18.5, cwid - 1, 25);
+        ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.fillText(NAME(k).replace("퀴나크리돈 ", "").replace(" 미디엄", "").replace(" 블루", "").replace("티타늄 ", "").replace("아이보리 ", ""), x + cwid / 2, py + 48);
+      });
+      var sy = py + 72, sw = Math.min(pw / 2 - 6, 130), sh = wide ? Math.min(110, h - sy - 70) : 64;
+      AB.swatch(ctx, px, sy, sw, sh, tRgb, { label: custom ? "목표(직접)" : "목표: " + TARGETS[tgtG()][1], sub: hex(tRgb), radius: 8, stroke: p.border });
+      AB.swatch(ctx, px + sw + 12, sy, sw, sh, best.rgb, { label: "가장 가까운 혼합", sub: best.hx, radius: 8, stroke: p.border });
+      if (wide) {
+        ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+        var yy = sy + sh + 50;
+        ctx.fillText("실선: 이 조합의 색역", px, yy);
+        if (!useSlice && key !== "Z") ctx.fillText("점선: " + (key === "A" || key === "As" ? "B" : "A") + " 조합의 색역", px, yy + 16);
+        ctx.fillText("점 " + shown.length + "개" + (useSlice ? " (명도 " + Ls.toFixed(2) + " ± 0.04)" : ""), px, yy + 32);
+      }
+      // 읽기 칸
+      AB.stat("mi-ga-oa", Math.round((D.area / ref.area) * 100) + (useSlice && hl.length > 2 ? " <small>이 단면 " + Math.round((area(hl) / ref.area) * 100) + "</small>" : ""));
+      AB.stat("mi-ga-ot", chip(tRgb));
+      AB.stat("mi-ga-on", chip(best.rgb) + " <small>ΔE " + AB.fix(bd, 1) + "</small>");
+      var rec = D.keys.map(function (k, i) { return best.w[i] > 0 ? NAME(k).replace("퀴나크리돈 ", "").replace(" 미디엄", "") + " " + Math.round(best.w[i] * 100) + "%" : null; }).filter(Boolean).join(" + ");
+      AB.stat("mi-ga-or", "<small>" + rec + " · " + DILN[best.d] + "</small>");
+    }, { get height() { var w = document.getElementById("mi-ga-cv").parentElement.clientWidth || 600; return w >= 560 ? Math.round(Math.min(480, Math.max(380, w * 0.6))) : Math.round(Math.min(w - 24, 420) + 200); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        var a = ((x - geo.ox) / geo.S) * 2 * R - R, b = R - ((y - geo.oy) / geo.S) * 2 * R;
+        if (Math.abs(a) > R * 1.05 || Math.abs(b) > R * 1.05) return;
+        // 목표의 명도는 지키고 a, b만 옮긴다. 화면 밖이면 명도·색상을 지키며 채도를 줄인다.
+        var lab = [target[0], a, b], rgb = ART.oklabToSrgb(lab);
+        if (!ART.inGamut(rgb, 1e-4)) rgb = ART.gamutMap(ART.oklabToOklch(lab));
+        target = ART.srgbToOklab(rgb); custom = true; cv.redraw();
+      },
+    });
+  })();
+})();
+</script>
+</body>
+</html>
