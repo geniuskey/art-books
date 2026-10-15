@@ -643,7 +643,7 @@
       AB.stat("wb-o-tc", Math.round(st.tc) + " K <small>" + Math.round(1e6 / st.tc) + " 미레드</small>");
       var dm = 1e6 / st.ts - 1e6 / st.tc;
       AB.stat("wb-o-dm", (Math.abs(dm) < 4 ? "0" : Math.round(Math.abs(dm))) + " 미레드 <small>" + (Math.abs(dm) < 4 ? "맞음" : dm > 0 ? "광원이 더 붉다" : "광원이 더 푸르다") + "</small>");
-    }, { bg: PAPER, get height() { var w = cw("wb-cv"); return w >= 620 ? Math.round(Math.min(420, Math.max(300, w * 0.46))) : Math.round((w - 24) * SH / SW + Math.min(w - 70, 280) + 80); } });
+    }, { bg: PAPER, get height() { var w = cw("wb-cv"); return w >= 620 ? Math.round(Math.min(420, Math.max(300, w * 0.46))) : Math.round((w - 24) * SH / SW + Math.min(w - 70, 280) + 104); } });
     AB.drag(cv.canvas, {
       move: function (x, y) {
         if (!geo || x < geo.x - 24 || y < geo.y - 24 || x > geo.x + geo.w + 24 || y > geo.y + geo.h + 24) return;

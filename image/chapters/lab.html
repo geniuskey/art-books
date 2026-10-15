@@ -163,13 +163,13 @@
         <text x="136" y="14" text-anchor="middle" class="lbl-b">① +2 EV (×4) 후 8비트</text>
         <text x="356" y="14" text-anchor="middle" class="lbl-b">② 다시 −2 EV (÷4)</text>
         <text x="100" y="40" class="lbl-acc">1에서 잘림</text>
-        <text x="378" y="148" text-anchor="middle" class="lbl-bad">모두 0.25로 납작</text>
-        <text x="378" y="180" text-anchor="middle" class="lbl-dim">원래 하늘·구름·창의 차이가 사라진 곳</text>
-        <text x="136" y="218" text-anchor="middle" class="lbl-dim">원래 빛의 양 (0 → 1)</text>
-        <text x="356" y="218" text-anchor="middle" class="lbl-dim">원래 빛의 양 (0 → 1)</text>
-        <text x="91" y="234" text-anchor="middle" class="t-mono lbl-dim">0.25</text>
-        <text x="311" y="234" text-anchor="middle" class="t-mono lbl-dim">0.25</text>
-        <path d="M91 200 L91 226" class="s-dash"/><path d="M311 200 L311 226" class="s-dash"/>
+        <text x="378" y="146" text-anchor="middle" class="lbl-bad">모두 0.25로 납작</text>
+        <text x="378" y="176" text-anchor="middle" class="lbl-dim">원래 차이가</text>
+        <text x="378" y="192" text-anchor="middle" class="lbl-dim">사라진 곳</text>
+        <text x="91" y="214" text-anchor="middle" class="t-mono lbl-dim">0.25</text>
+        <text x="311" y="214" text-anchor="middle" class="t-mono lbl-dim">0.25</text>
+        <text x="136" y="240" text-anchor="middle" class="lbl-dim">원래 빛의 양 (0 → 1)</text>
+        <text x="356" y="240" text-anchor="middle" class="lbl-dim">원래 빛의 양 (0 → 1)</text>
         <text x="38" y="24" text-anchor="end" class="t-mono lbl-dim">1</text><text x="38" y="204" text-anchor="end" class="t-mono lbl-dim">0</text>
         <text x="258" y="24" text-anchor="end" class="t-mono lbl-dim">1</text><text x="258" y="159" text-anchor="end" class="t-mono lbl-dim">.25</text>
       </svg>
@@ -251,10 +251,10 @@
   <section id="tone">
     <h2>레벨과 커브: 밝기를 다시 나누기</h2>
     <p>노출이 모든 빛에 같은 비율을 곱한다면, <span class="term">레벨</span><span class="en">(Levels)</span>과 <span class="term">커브</span><span class="en">(Curves)</span>는 밝기마다 다른 양을 더하고 빼서 밝기의 배분을 바꾼다. 레벨은 세 숫자로 정한다. 검정점보다 어두운 값은 모두 0으로, 흰점보다 밝은 값은 모두 255로 보내고, 그 사이를 다시 0~255로 늘린다. 가운데 값(감마)은 늘린 범위 안에서 중간톤을 밝게 또는 어둡게 기울인다.</p>
-    <div class="formula">$$v_{\text{후}} = 255\times\left(\frac{v-b}{w-b}\right)^{1/\gamma}\qquad(0\text{~}1\text{ 밖은 잘라 낸다})$$<div class="where">\(v\): 화면 값 0~255, \(b\): 검정점, \(w\): 흰점, \(\gamma\): 중간톤(1이면 직선). 이 책의 모델로 계산하면 \(b=20,\ w=235\)일 때 원래 20~235의 215단계가 0~255의 256칸에 나뉘어 들어가므로, 41칸쯤은 아무 화소도 받지 못하고 비게 된다.</div></div>
+    <div class="formula">$$v_{\text{후}} = 255\times\left(\frac{v-b}{w-b}\right)^{1/\gamma}\qquad(0\text{~}1\text{ 밖은 잘라 낸다})$$<div class="where">\(v\): 화면 값 0~255, \(b\): 검정점, \(w\): 흰점, \(\gamma\): 중간톤(1이면 직선). 이 책의 모델로 계산하면 \(b=20,\ w=235\)일 때 원래 20~235의 216단계가 0~255의 256칸에 나뉘어 들어가므로, 40칸쯤은 아무 화소도 받지 못하고 비게 된다.</div></div>
     <p>커브는 레벨을 일반화한 것이다. 가로축이 입력 값, 세로축이 출력 값인 곡선을 그리고, 모든 화소를 그 곡선대로 옮긴다. 가운데를 위로 올리면 중간톤이 밝아지고, 그림자 쪽을 내리고 하이라이트 쪽을 올린 S자 곡선은 대비를 키운다. 곡선이 가파른 구간에서는 원래 가까웠던 값들이 멀어지고(대비가 커지고), 완만한 구간에서는 서로 붙는다(대비가 줄어든다). 커브는 대비를 만들어 내지 않는다. 한 구간에 대비를 주면 다른 구간에서 그만큼 빼 온다.</p>
 
-    <p>아래 아래쪽 그래프의 세 점(입력 25%, 50%, 75%)을 위아래로 끌어 커브를 만든다. 그래프 뒤의 회색 막대는 결과의 휘도 히스토그램이다. 레벨의 검정점과 흰점을 좁혀 대비를 크게 늘리면 히스토그램이 어떻게 변하는지 본다.</p>
+    <p>아래 시뮬레이터 아래쪽 그래프의 세 점(입력 25%, 50%, 75%)을 위아래로 끌어 커브를 만든다. 그래프 뒤의 회색 막대는 결과의 휘도 히스토그램이다. 레벨의 검정점과 흰점을 좁혀 대비를 크게 늘리면 히스토그램이 어떻게 변하는지 본다.</p>
 
     <div class="sim" id="sim-tone">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>레벨과 커브, 그리고 빗살 히스토그램</h3></div>
@@ -400,8 +400,8 @@
           <label class="ctrl"><span>노출 <output id="lz-ev-out"></output></span><input type="range" id="lz-ev" min="-3" max="3" step="0.1" value="0"></label>
           <label class="ctrl"><span>색온도 <output id="lz-t-out"></output></span><input type="range" id="lz-t" min="2000" max="12000" step="50" value="6500"></label>
           <label class="ctrl"><span>색조 <output id="lz-g-out"></output></span><input type="range" id="lz-g" min="-60" max="60" step="1" value="0"></label>
-          <label class="ctrl"><span>검정점 <output id="lz-b-out"></output></span><input type="range" id="lz-b" min="0" max="120" step="1" value="0"></label>
-          <label class="ctrl"><span>흰점 <output id="lz-w-out"></output></span><input type="range" id="lz-w" min="135" max="255" step="1" value="255"></label>
+          <label class="ctrl"><span>검정점 <output id="lz-bk-out"></output></span><input type="range" id="lz-bk" min="0" max="120" step="1" value="0"></label>
+          <label class="ctrl"><span>흰점 <output id="lz-wt-out"></output></span><input type="range" id="lz-wt" min="135" max="255" step="1" value="255"></label>
           <label class="ctrl"><span>채도 <output id="lz-s-out"></output></span><input type="range" id="lz-s" min="0" max="200" step="5" value="100"></label>
           <div class="seg" id="lz-r"><button data-value="orig" class="on">원본 비율</button><button data-value="1">1:1</button><button data-value="0.8">4:5</button><button data-value="1.5">3:2</button><button data-value="1.7778">16:9</button><button data-value="0.7071">A5</button></div>
           <label class="ctrl"><span>출력 긴 변 <output id="lz-px-out"></output></span><input type="range" id="lz-px" min="320" max="1600" step="10" value="1600"></label>
@@ -681,9 +681,9 @@
     ctx.fillRect(W * 0.345, H * 0.735, U * 4.6, U * 4.0);
     ctx.beginPath(); ctx.ellipse(W * 0.345 + U * 2.3, H * 0.735, U * 2.3, U * 0.7, 0, 0, Math.PI * 2); ctx.fillStyle = "#4a2f1f"; ctx.fill();
     ctx.strokeStyle = "#f0eeea"; ctx.lineWidth = U * 0.7; ctx.beginPath(); ctx.arc(W * 0.345 + U * 5.0, H * 0.752, U * 1.2, -1.2, 1.2); ctx.stroke();
-    // 전구 빛(약 3,000 K)과 노출 부족 흉내: 장면의 참색에 전구 빛 색을 곱한다
-    var cast = inv3(wbMat(3000));
-    applyLinear(ctx, W, H, cast, function (x, y) { var dx = (x / W - 0.45), dy = (y / H - 0.5); return 0.95 - 0.5 * (dx * dx + dy * dy); }, [0.0006, 0.002], 21);
+    // 전구 빛(약 3,800 K로 남은 치우침)과 노출 흉내: 장면의 참색에 전구 빛 색을 곱한다
+    var cast = inv3(wbMat(3800));
+    applyLinear(ctx, W, H, cast, function (x, y) { var dx = (x / W - 0.45), dy = (y / H - 0.5); return 0.82 - 0.5 * (dx * dx + dy * dy); }, [0.0006, 0.002], 21);
     // 창: 햇빛(약 6,500 K, 보정 없음)으로 밝게 넘친다
     var gx = ctx.createLinearGradient(0, H * 0.08, 0, H * 0.62); gx.addColorStop(0, "#f6f9ff"); gx.addColorStop(1, "#ffffff");
     ctx.fillStyle = gx; ctx.fillRect(W * 0.125, H * 0.08, W * 0.38, H * 0.54);
@@ -861,7 +861,7 @@
     var st = { A: null, img: null, stats: null, pick: null, mode: "rgb", rect: null };
     var cv = AB.canvas("#ri-cv", function (ctx, w, h) {
       if (!st.A) { loading(ctx, w, h); return; }
-      var ih = h - 108, r = fit(st.A.w, st.A.h, 10, 10, w - 20, ih - 10);
+      var ih = h - 130, r = fit(st.A.w, st.A.h, 10, 10, w - 20, ih - 10);
       st.rect = r;
       ctx.fillStyle = STAGE; ctx.fillRect(0, 0, w, ih + 4);
       ctx.drawImage(st.img, r.x, r.y, r.w, r.h);
@@ -873,7 +873,7 @@
         if (st.mode !== "rgb") marks.push({ v: enc(0.2126 * LIN[d[i]] + 0.7152 * LIN[d[i + 1]] + 0.0722 * LIN[d[i + 2]]), c: AB.palette().text });
       }
       drawHist(ctx, { x: 14, y: ih + 12, w: w - 28, h: 72 }, st.stats.h, st.mode, { marks: marks, label: st.mode === "luma" ? "휘도" : st.mode === "both" ? "RGB + 휘도" : "R · G · B" });
-    }, { get height() { var W = Math.max(200, ($("ri-cv").parentElement.clientWidth || 600)); return Math.round(Math.min(560, W * 0.66 + 108)); } });
+    }, { get height() { var W = Math.max(200, ($("ri-cv").parentElement.clientWidth || 600)); return Math.round(Math.min(580, W * 0.62 + 130)); } });
     function setPick(x, y) {
       if (!st.A || !st.rect) return;
       var r = st.rect, ix = Math.floor((x - r.x) / r.s), iy = Math.floor((y - r.y) / r.s);
@@ -1107,14 +1107,14 @@
         end: function () { mode = null; },
       });
     };
-    st.draw = function (ctx, r, thirds) {
+    st.draw = function (ctx, r, thirds, noHandle) {
       var c = st.c, X0 = r.x + c.x * r.w, Y0 = r.y + c.y * r.h, W = c.w * r.w, H = c.h * r.h;
       ctx.save();
       ctx.fillStyle = "rgba(20,20,24,0.55)";
       ctx.beginPath(); ctx.rect(r.x, r.y, r.w, r.h); ctx.rect(X0, Y0, W, H); ctx.fill("evenodd");
       ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.strokeRect(X0, Y0, W, H);
       if (thirds) { ctx.strokeStyle = "rgba(255,255,255,0.55)"; ctx.lineWidth = 1; ctx.beginPath(); for (var k = 1; k < 3; k++) { ctx.moveTo(X0 + W * k / 3, Y0); ctx.lineTo(X0 + W * k / 3, Y0 + H); ctx.moveTo(X0, Y0 + H * k / 3); ctx.lineTo(X0 + W, Y0 + H * k / 3); } ctx.stroke(); }
-      AB.handle(ctx, X0 + W, Y0 + H, { r: 7 });
+      if (!noHandle) AB.handle(ctx, X0 + W, Y0 + H, { r: 7 });
       ctx.restore();
     };
     st.px = function () { return [Math.round(st.c.w * st.fw), Math.round(st.c.h * st.fh)]; };
@@ -1150,7 +1150,7 @@
   function psnr(a, b) { var s = 0, n = 0; for (var i = 0; i < a.length; i += 4) { for (var c = 0; c < 3; c++) { var e = a[i + c] - b[i + c]; s += e * e; } n += 3; } var mse = s / n; return mse < 1e-9 ? Infinity : 10 * Math.log10(255 * 255 / mse); }
   [["jq-fmt", "image/webp"], ["lz-fmt", "image/webp"]].forEach(function (e) { if (!WEBP_OK) { var b = $(e[0]).querySelector('[data-value="' + e[1] + '"]'); if (b) { b.disabled = true; b.title = "이 브라우저는 WebP로 저장하지 못한다"; } } });
   (function () {
-    var st = { A: null, src: null, srcData: null, dec: null, decData: null, bytes: 0, curve: {}, loupe: [0.3, 0.55], rect: null, tok: 0, ps: null };
+    var st = { A: null, src: null, srcData: null, dec: null, decData: null, bytes: 0, curve: {}, loupe: [0.78, 0.42], rect: null, tok: 0, ps: null };
     var cv = AB.canvas("#jq-cv", function (ctx, w, h) {
       var P = AB.palette();
       if (!st.src) { loading(ctx, w, h); return; }
@@ -1174,12 +1174,13 @@
       // 품질–크기 곡선
       var cy = y2 + lw + 26, chh = h - cy - 4, key = st.A.key + st.fmt, pts = st.curve[key] || [];
       if (chh > 80) {
-        var mx = 10; pts.forEach(function (p) { mx = Math.max(mx, p[1]); });
+        var mx = 10, top1 = null; pts.forEach(function (p) { if (p[0] <= 0.95) mx = Math.max(mx, p[1]); else top1 = p; }); mx *= 1.15;
         AB.chart(ctx, { x: 56, y: cy + 6, w: w - 76, h: chh - 52 }, {
-          x: [0, 1], y: [0, Math.ceil(mx / 100) * 100 || 100], xLabel: "품질", yLabel: "KB", xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1],
+          x: [0, 1], y: [0, Math.ceil(mx / 50) * 50 || 100], xLabel: "품질", yLabel: "KB", xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1],
           series: [{ data: pts, color: P.accent, width: 2 }],
           points: st.bytes && st.fmt !== "image/png" ? [{ x: st.q, y: st.bytes / 1024, color: P.accent2, r: 5 }] : [],
         });
+        if (top1) { ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("품질 1.0: " + Math.round(top1[1]) + " KB (위로 넘침)", w - 22, cy + 10); }
       }
     }, { get height() { var W = Math.max(200, ($("jq-cv").parentElement.clientWidth || 600)); var lw = Math.min((W - 36) / 2, Math.min(W / 2 - 16, 220)); return Math.round(W * 0.5 + 18 + lw + 26 + 200); } });
     AB.drag(cv.canvas, { move: function (x, y) { var r = st.rect; if (!r || !st.src) return; st.loupe = [clamp01((x - r.x) / r.w), clamp01((y - r.y) / r.h)]; cv.redraw(); } });
@@ -1225,7 +1226,7 @@
       return function (ctx, w, h) {
         var c = st[which]; if (!c) { loading(ctx, w, h, true); return; }
         var r = fit(c.width, c.height, 0, 0, w, h); ctx.drawImage(c, r.x, r.y, r.w, r.h);
-        if (crop) st.draw(ctx, r, false);
+        if (crop) st.draw(ctx, r, false, true);
       };
     }
     var ca = AB.canvas("#lz-a", drawFrame("before", false), hgt("lz-a"));
@@ -1261,8 +1262,8 @@
       ev: AB.range("lz-ev", function (v) { return sgn(v, 1) + " EV"; }, function (v) { st.p.ev = v; runPreview(); }),
       temp: AB.range("lz-t", function (v) { return Math.round(v).toLocaleString("en-US") + " K"; }, function (v) { st.p.temp = v; runPreview(); }),
       tint: AB.range("lz-g", function (v) { return (v > 0 ? "+" : "") + v; }, function (v) { st.p.tint = v; runPreview(); }),
-      black: AB.range("lz-b", null, function (v) { st.p.black = v; runPreview(); }),
-      white: AB.range("lz-w", null, function (v) { st.p.white = v; runPreview(); }),
+      black: AB.range("lz-bk", null, function (v) { st.p.black = v; runPreview(); }),
+      white: AB.range("lz-wt", null, function (v) { st.p.white = v; runPreview(); }),
       sat: AB.range("lz-s", function (v) { return v + "%"; }, function (v) { st.p.sat = v / 100; runPreview(); }),
       px: AB.range("lz-px", function (v) { return v.toLocaleString("en-US") + " px"; }, function () { scheduleOut(); }),
       q: AB.range("lz-q", function (v) { return v.toFixed(2); }, function () { scheduleOut(); }),
