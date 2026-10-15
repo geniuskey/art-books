@@ -153,7 +153,7 @@
     <figure class="diagram">
       <svg viewBox="0 0 460 236" role="img" aria-label="JPEG 압축의 다섯 단계. RGB를 밝기와 두 색차 신호로 바꾸고, 색차는 가로세로 절반으로 줄이고, 8×8 블록마다 DCT로 무늬 성분을 구하고, 양자화 표로 나눠 반올림하고, 남은 숫자를 지그재그 순서로 엔트로피 부호화한다. 손실은 색차 줄이기와 양자화 두 단계에서 생긴다">
         <defs><marker id="cp-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <g font-size="11">
+        <g font-size="10">
           <rect x="8" y="24" width="80" height="62" rx="6" class="f-surface s-line"/><text x="48" y="50" text-anchor="middle" class="lbl-b">① 색 분리</text><text x="48" y="68" text-anchor="middle" class="lbl-dim" font-size="10">Y·Cb·Cr</text>
           <rect x="98" y="24" width="80" height="62" rx="6" class="f-bad-soft s-line"/><text x="138" y="50" text-anchor="middle" class="lbl-b">② 색차 줄이기</text><text x="138" y="68" text-anchor="middle" class="lbl-dim" font-size="10">4:2:0</text>
           <rect x="188" y="24" width="80" height="62" rx="6" class="f-surface s-line"/><text x="228" y="50" text-anchor="middle" class="lbl-b">③ 8×8 DCT</text><text x="228" y="68" text-anchor="middle" class="lbl-dim" font-size="10">무늬 64개</text>
@@ -597,7 +597,7 @@
     }
     var gray = function (v) { var g = Math.round(AB.clamp(v, 0, 255)); return "rgb(" + g + "," + g + "," + g + ")"; };
     function coefCol(v, k) {
-      if (k === 0) return gray(v / 8 + 128 * 0);  // 평균(DC)은 밝기로
+      if (k === 0) return gray(v / 8 + 128);  // 평균(DC)은 블록의 평균 밝기로
       if (v === 0) return "#f4f1ea";
       var t = Math.min(1, Math.log(1 + Math.abs(v)) / Math.log(1 + 200));
       return v > 0 ? "rgb(" + Math.round(250 - 40 * t) + "," + Math.round(230 - 170 * t) + "," + Math.round(210 - 180 * t) + ")" : "rgb(" + Math.round(220 - 190 * t) + "," + Math.round(232 - 140 * t) + "," + Math.round(250 - 40 * t) + ")";
