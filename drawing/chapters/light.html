@@ -332,7 +332,7 @@
       <div class="sim-note">해볼 것: ① 처음 상태는 왼쪽 앞 위(방위 30°, 고도 35°)의 창빛이다. 세 물체 모두 왼쪽이 빛의 무리, 오른쪽이 그림자의 무리로 갈리고, 투영 그림자는 오른쪽 뒤로 간다. ② 해를 원판 아래쪽(보는 사람 쪽) 가운데로 끈다. 그림자의 무리가 거의 사라지며 단계가 1~3만 남는다. 정물이 납작해진다. ③ 해를 원판 위쪽(창이 정물 뒤에 있는 역광)으로 끈다. 그림자의 무리가 절반을 넘고, 컵의 윗면과 가장자리만 빛난다. ④ "해칭"으로 바꾸고 창의 크기를 0과 16 사이에서 움직인다. 작은 빛은 그림자 가장자리의 해칭을 칼처럼 끊고, 큰 창빛은 단계의 경계를 넓게 흩어 놓는다. (교육용 광선 추적 모형. 단계는 영역으로 정했다: 하이라이트 1, 밝은 면 2, 중간톤 3, 반사광·투영 그림자 4, 명암 경계·접촉 그림자 5. 넓이는 컵·화분·책의 보이는 면만 센 값이다. 해칭 간격은 화면용 예시다.)</div>
     </div>
 
-    <p>빛의 방향을 고르는 일은 정물 전체의 명암 구조를 고르는 일이다. 같은 컵과 화분이라도 빛이 바뀌면 그림자의 무리가 차지하는 넓이가 열 배 가까이 달라진다. 그리고 이 넓이가 그림의 인상을 크게 정한다. 그림자의 무리가 넓으면 무겁고 조용한 그림, 좁으면 밝고 가벼운 그림이 된다. ColorBook <a href="../../color/chapters/value.html">6장</a>에서 본 하이 키와 로 키의 구분이 여기서도 그대로 통한다. 명암의 단계는 형태를 설명하는 도구이면서, 동시에 그림 전체의 명도 구조를 짜는 도구다.</p>
+    <p>빛의 방향을 고르는 일은 정물 전체의 명암 구조를 고르는 일이다. 같은 컵과 화분이라도 빛이 바뀌면 그림자의 무리가 차지하는 넓이가 0%(정면광)에서 70% 넘게(역광)까지 달라진다. 이 장의 모델로 세면 처음의 왼쪽 앞 위 빛에서는 13%, 정왼쪽에서 낮게(고도 30°) 들어오면 40%를 넘는다. 그리고 이 넓이가 그림의 인상을 크게 정한다. 그림자의 무리가 넓으면 무겁고 조용한 그림, 좁으면 밝고 가벼운 그림이 된다. ColorBook <a href="../../color/chapters/value.html">6장</a>에서 본 하이 키와 로 키의 구분이 여기서도 그대로 통한다. 명암의 단계는 형태를 설명하는 도구이면서, 동시에 그림 전체의 명도 구조를 짜는 도구다.</p>
   </section>
 
   <section id="case" data-nonum>
@@ -682,18 +682,24 @@
           }
           placed.push([lx, ly, tw]); return ly;
         };
-        var cc = cam.proj(c), out = function (n, s, k2) {
-          if (!n) return; var q = P(n), dx = q[0] - cc[0], dy = q[1] - cc[1], dl = Math.hypot(dx, dy) || 1, R = Math.abs(cam.proj(LT.add(c, [r, 0, 0]))[0] - cc[0]);
-          var lx = cc[0] + dx / dl * (R + 40 + (k2 || 0)), ly = cc[1] + dy / dl * (R + 26 + (k2 || 0));
+        var cc = cam.proj(c), R = Math.abs(cam.proj(LT.add(c, LT.mul(cam.r, r)))[0] - cc[0]);
+        // 빛과 시선이 이루는 평면 위의 호(구의 보이는 쪽)에서 목표 ndl의 점을 고른다
+        var lv = LT.dot(L, V), Lp = LT.sub(L, LT.mul(V, lv)), lpl = Math.sqrt(LT.dot(Lp, Lp));
+        if (lpl < 1e-3) Lp = [1, 0, 0]; else Lp = LT.mul(Lp, 1 / lpl);
+        var arc = function (target) { var best = null, bd = 9; for (var dg = -84; dg <= 84; dg += 1) { var n3 = LT.add(LT.mul(V, Math.cos(dg * D)), LT.mul(Lp, Math.sin(dg * D))), e = Math.abs(LT.dot(n3, L) - target); if (e < bd) { bd = e; best = n3; } } return bd < 0.08 ? best : null; };
+        var ue = cam.proj(LT.add(c, LT.mul(Lp, r))), ux = ue[0] - cc[0], uy = ue[1] - cc[1], ul = Math.hypot(ux, uy) || 1; ux /= ul; uy /= ul;
+        var out = function (n, s, sgn, dy) {
+          if (!n) return; var q = P(n);
+          var lx = cc[0] + sgn * ux * (R + 52), ly = q[1] + (dy || 0);
           lx = AB.clamp(lx, 50, w - 50); ly = AB.clamp(ly, 14, h - 14); ly = place(s, lx, ly);
           labelBox(ctx, s, lx, ly, q[0], q[1]);
         };
         var hv = LT.norm(LT.add(L, V));
-        if (LT.dot(hv, V) > 0.1 && LT.dot(hv, L) > 0.05) out(hv, "하이라이트", 6);
-        out(pick(0.82, 0.35), "밝은 면");
-        out(pick(0.3, 0.3), "중간톤");
-        out(pick(-0.12, 0.25), "명암 경계");
-        if (L[1] < 0.9) out(pick(-0.75, 0.2), "반사광");
+        if (LT.dot(hv, V) > 0.1 && LT.dot(hv, L) > 0.05) out(hv, "하이라이트", 1, -26);
+        out(arc(0.85), "밝은 면", 1, 0);
+        out(arc(0.3), "중간톤", 1, 22);
+        out(arc(-0.1), "명암 경계", -1, -24);
+        if (L[1] < 0.9) out(arc(-0.65), "반사광", -1, 6);
         var sp = ART.shadowPoint(c, { dir: LT.mul(L, -1) }, 0), sq = cam.proj(sp);
         if (L[1] < 0.93 && sq[2] > 0) { var sx = AB.clamp(sq[0], 50, w - 50), sy = place("투영 그림자", sx, AB.clamp(sq[1] + 20, 14, h - 14)); labelBox(ctx, "투영 그림자", sx, sy, sq[0], sq[1]); }
         var cp = cam.proj([c[0] - L[0] * r * 0.4, 0, c[2] - L[2] * r * 0.4 - r * 0.05]);
@@ -923,7 +929,7 @@
     var leg = AB.check("lp-leg", function () { cv.redraw(); });
     var NAMES = ["", "하이라이트", "밝은 면", "중간톤", "반사광·투영 그림자", "명암 경계·접촉 그림자"];
     var cv = AB.canvas("#lp-cv", function (ctx, w, h) {
-      var bs = bufSize(w, h, fast), cam = LT.camera([0, 0.72, -1.55], [0.0, 0.07, 0.02], Math.min(w * 1.2, h * 1.75), w, h);
+      var bs = bufSize(w, h, fast), cam = LT.camera([0, 0.72, -1.55], [0.0, 0.07, 0.02], Math.min(w * 1.5, h * 1.75), w, h);
       var S = LT.STILL({ az: st.az, el: st.el, soft: sG() });
       var b = LT.render(S, cam, bs[0], bs[1]), s = stepsByFamily(b), m = mode();
       if (m === "cont") blit(ctx, bufToCanvas(b), w, h);
@@ -955,7 +961,9 @@
       AB.stat("lp-o-dir", fmtDir(st.az, st.el));
       AB.stat("lp-o-area", pc.slice(1).join(" · ") + " %");
       AB.stat("lp-o-sh", (pc[4] + pc[5]) + "%");
-      if (leg() && m !== "cont") {
+      if (leg() && m !== "cont" && w < 440) {
+        for (var k3 = 1; k3 <= 5; k3++) { var g3 = STEP_G[k3], x3 = 8 + (k3 - 1) * 22, y3 = h - 26; if (m === "step") { ctx.fillStyle = "rgb(" + g3 + "," + g3 + "," + g3 + ")"; ctx.fillRect(x3, y3, 18, 18); } else { ctx.fillStyle = PAPER; ctx.fillRect(x3, y3, 18, 18); } ctx.strokeStyle = "#9a968c"; ctx.strokeRect(x3 + 0.5, y3 + 0.5, 17, 17); ctx.fillStyle = (m === "step" && k3 >= 3) ? "#ffffff" : INK; ctx.font = AB.font(10, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(k3, x3 + 9, y3 + 9); }
+      } else if (leg() && m !== "cont") {
         var lx = 10, ly = h - 14 - 5 * 19;
         ctx.fillStyle = "rgba(251,250,247,0.88)"; ctx.fillRect(4, ly - 12, Math.min(196, w * 0.5), 5 * 19 + 10);
         for (var k = 1; k <= 5; k++) {

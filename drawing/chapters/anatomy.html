@@ -811,7 +811,7 @@
     cv = AB.canvas("#hd2-cv", function (ctx, w, h) {
       var s = Math.min(w * 0.26, h * 0.3), cx = w / 2, cy = h * 0.42;
       var Y = yaw * DEG, Pt = pitch * DEG;
-      var pr = function (p) { var q = rot(p, Y, Pt); return [cx + q[0] * s, cy - q[1] * s, q[2]]; };
+      var pr = function (p) { var q = rot(p, Y, -Pt); return [cx + q[0] * s, cy - q[1] * s, q[2]]; };
       function path3(pts, col, lw, dashBack) {
         var Q = pts.map(pr);
         for (var i = 1; i < Q.length; i++) {
