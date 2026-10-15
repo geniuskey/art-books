@@ -8,7 +8,7 @@ window.AB_SHELF = {
     { order: 1, path: "color", title: "ColorBook", sub: "색채", status: "published", motif: "wheel",
       desc: "빛과 지각, 색을 숫자로 적는 법, 혼색, 조화, 대비, 접근성, 팔레트. 색은 이름이 아니라 관계라는 것을 만져 보며 배운다.",
       topics: ["빛과 지각", "색 모델", "혼색", "조화", "대비", "접근성", "팔레트"] },
-    { order: 2, path: "composition", title: "CompositionBook", sub: "형태와 구도", status: "writing", motif: "spiral",
+    { order: 2, path: "composition", title: "CompositionBook", sub: "형태와 구도", status: "published", motif: "spiral",
       desc: "점·선·면, 게슈탈트, 균형과 리듬, 3분할과 황금비의 실제, 시선의 흐름, 여백.",
       topics: ["점·선·면", "게슈탈트", "균형", "리듬", "3분할·황금비", "시선 흐름", "여백"] },
     { order: 3, path: "drawing", title: "DrawingBook", sub: "드로잉", status: "writing", motif: "perspective",

@@ -8,7 +8,7 @@
 | 순서 | 경로 | 책 | 다루는 것 | 상태 |
 |---|---|---|---|---|
 | 1 | [/color/](https://artbook.euiyun.com/color/) | ColorBook — 색채 | 빛과 지각, 색 모델, 혼색, 조화, 대비, 접근성, 팔레트 | 출간 (17장, 시뮬레이터 108개) |
-| 2 | /composition/ | CompositionBook — 형태와 구도 | 점·선·면, 게슈탈트, 균형, 리듬, 3분할·황금비의 실제, 시선 흐름, 여백 | 계획 |
+| 2 | [/composition/](https://artbook.euiyun.com/composition/) | CompositionBook — 형태와 구도 | 점·선·면, 게슈탈트, 균형, 리듬, 3분할·황금비의 실제, 시선 흐름, 여백 | 출간 (15장, 시뮬레이터 95개) |
 | 3 | /drawing/ | DrawingBook — 드로잉 | 투시(1·2·3점), 빛과 그림자, 비례, 인체 구조, 제스처 | 계획 |
 | 4 | /type/ | TypeBook — 타이포그래피 | 글자의 구조, 한글 타이포, 자간·행간, 위계, 그리드 | 계획 |
 | 5 | /history/ | ArtHistoryBook — 미술사 | 사조의 흐름을 색·구도·기법의 변화로 읽기 | 계획 |
@@ -39,6 +39,28 @@
 | 17 | color/chapters/glossary.html | — | 용어집 & 종합 퀴즈, 작업 노트 색인, 이미지 크레딧 |
 
 화면에 보이는 색은 기기마다 다릅니다. 작품 이미지는 공공 도메인 자료이며 출처는 [크레딧 페이지](https://artbook.euiyun.com/credits.html)에 있습니다. 색채 심리 등 연구 결과가 엇갈리는 주제는 그 수준을 밝혀 두었습니다.
+
+## CompositionBook — 형태와 구도
+
+같은 것도 어디에 놓느냐에 따라 다른 그림이 된다. 점·선·면에서 시작해 형과 바탕, 묶여 보이는 법칙, 시선의 흐름, 평면 위의 깊이, 균형과 리듬, 3분할과 황금비의 실제와 신화, 여백, 자르기와 지면 구성, 명작의 구도 읽기까지 직접 끌고 옮기고 잘라 보며 배웁니다. 책 전체가 서윤의 겨울 작업 노트(책방 E의 겨울 쇼윈도, 연말 낭독회 포스터, 웹 첫 화면, 겨울 수채화 두 점)를 따라갑니다.
+
+| 장 | 파일 | 부 | 주제 |
+|---|---|---|---|
+| 01 | composition/chapters/overview.html | — | 구도의 지도: 같은 것을 다르게 놓으면 다른 그림이 된다. 화면 안의 요소, 지각, 질서, 쓰임의 네 갈래와 책 전체의 지도, 서윤의 겨울 작업 노트. |
+| 02 | composition/chapters/elements.html | 요소 | 점·선·면: 화면을 이루는 가장 작은 단위. 점의 위치, 선의 방향과 속도, 면의 크기와 무게가 만드는 긴장. |
+| 03 | composition/chapters/shape.html | 요소 | 형과 바탕: 그린 것과 남은 것. 양형과 음형, 형–바탕 반전, 실루엣이 읽히는 조건. |
+| 04 | composition/chapters/gestalt.html | 지각 | 묶여 보이는 법칙: 근접, 유사, 연속, 폐합, 공통 운명. 게슈탈트 원리로 흩어진 요소가 하나로 보이는 순간. |
+| 05 | composition/chapters/eye.html | 지각 | 시선의 흐름: 눈은 어디서 시작해 어디로 가는가. 초점, 방향선, 시선 유도와 시선 추적 연구의 실제. |
+| 06 | composition/chapters/depth.html | 지각 | 평면 위의 깊이: 겹침, 크기, 높이, 대기 원근, 명도로 평평한 화면에 공간을 만드는 법. |
+| 07 | composition/chapters/balance.html | 질서 | 균형: 대칭과 비대칭, 시각적 무게, 지렛대처럼 맞서는 요소들. 일부러 기울인 화면. |
+| 08 | composition/chapters/rhythm.html | 질서 | 리듬과 반복: 반복, 변주, 점진, 패턴. 같은 것을 여러 번 놓을 때 생기는 박자와 그것을 깨는 한 점. |
+| 09 | composition/chapters/proportion.html | 질서 | 비례: 3분할과 황금비: 3분할과 황금비의 실제와 신화. 격자를 끌어 명작에 대 보고, 규칙이 맞지 않는 좋은 그림도 본다. |
+| 10 | composition/chapters/space.html | 질서 | 여백과 밀도: 비운 자리가 일하는 방식. 밀도의 대비, 동아시아 회화의 여백, 디자인의 숨 쉴 공간. |
+| 11 | composition/chapters/frame.html | 쓰임 | 프레임과 자르기: 화면 비율, 크롭, 프레임 안의 프레임, 가장자리의 긴장. 같은 장면을 어디서 자를 것인가. |
+| 12 | composition/chapters/layout.html | 쓰임 | 지면과 화면 구성: 포스터와 웹 첫 화면의 구성. 위계, 정렬, 무리 짓기를 구도의 언어로 다시 본다. |
+| 13 | composition/chapters/reading.html | 쓰임 | 명작의 구도 읽기: 공공 도메인 명작 위에 선을 얹어 구도를 읽는다. 동서양 그림의 다른 화면 짜기. |
+| 14 | composition/chapters/lab.html | — | 구도 실험실: 이미지 한 장이나 내가 놓은 도형으로 무게중심, 시선 경로, 격자, 여백, 자르기를 한꺼번에 분석하는 종합 도구. |
+| 15 | composition/chapters/glossary.html | — | 용어집 & 종합 퀴즈: 구도 용어 검색, 종합 퀴즈, 작업 노트 색인, 이미지 크레딧. |
 
 ## 실행
 빌드 과정이 없는 정적 사이트입니다. 저장소 루트에서:
