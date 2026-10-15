@@ -432,7 +432,7 @@
         <div class="quiz-exp">경계 세기 1.0은 그 선 위에 그림 평균보다 센 경계가 없다는 뜻이다. 그 선은 그림 속 경계가 아니라 보는 사람이 그은 함축선일 수 있고, 그렇다면 무엇(인물의 시선, 물건의 배열)이 그 방향을 만드는지 근거를 대야 한다. 경계가 없다고 구도선이 전혀 없다는 뜻은 아니다. 테두리 모서리끼리 이은 선은 그림보다 기하학에 속하는 경우가 많다.</div>
       </div>
       <div class="quiz-q">
-        <p>2. 아무 뜻 없이 흩뿌린 점 그림에 격자 틀을 자유롭게 옮기고 늘이며 맞췄더니, 명작에 맞춘 것만큼 점들이 힘점에 가까워졌다. 이 실험이 보여 주는 것은?</p>
+        <p>2. 아무 뜻 없이 흩뿌린 점 그림에 격자 틀을 자유롭게 옮기고 늘이며 맞췄더니, 명작에 맞춘 것만큼, 아니 그보다 더 점들이 격자선에 가까워졌다. 이 실험이 보여 주는 것은?</p>
         <div class="opts">
           <button class="opt" data-correct>측정할 틀을 고르는 자유가 크면 어떤 화면에도 격자를 "맞출" 수 있으므로, 맞았다는 것만으로는 그림이 그 비례로 짜였다는 증거가 되지 않는다.</button>
           <button class="opt">무작위 점 그림도 황금비를 따르므로 황금비는 자연의 보편 법칙이다.</button>
@@ -1023,7 +1023,7 @@
     }
     var cv = AB.canvas(el, function (ctx, w, h) {
       if (!W) return waiting(ctx, w, h);
-      var chartH = 92, r = fit(w, h - chartH, W.iw, W.ih, 12); geo = r;
+      var chartH = 112, r = fit(w, h - chartH, W.iw, W.ih, 12); geo = r;
       drawImg(ctx, W.img, r);
       var sp = span(), an = W.an;
       if (mode() === "scroll") {
@@ -1041,7 +1041,7 @@
         label(ctx, "전체 먹의 중심", r.x + cw.cx * r.w + 14, r.y + cw.cy * r.h - 14);
       }
       // 아래 그래프: 펼친 자리마다 구간 무게(오른쪽 = 시작)
-      var pr = profile(), gx = r.x, gw = r.w, gy = r.y + r.h + 22, gh = chartH - 40, mx = 0, mn = 1e9;
+      var pr = profile(), gx = r.x, gw = r.w, gy = r.y + r.h + 26, gh = chartH - 64, mx = 0, mn = 1e9;
       pr.forEach(function (q) { mx = Math.max(mx, q.w); mn = Math.min(mn, q.w); });
       var lo = Math.min(mn, 1) * 0.9, hi = Math.max(mx, 1) * 1.05;
       ctx.strokeStyle = "#d8d2c4"; ctx.lineWidth = 1; ctx.strokeRect(gx, gy, gw, gh);
@@ -1054,8 +1054,8 @@
       ctx.fillStyle = DIM; ctx.font = AB.font(11); ctx.textBaseline = "top";
       ctx.textAlign = "right"; ctx.fillText("시작(오른쪽)", gx + gw, gy + gh + 4);
       ctx.textAlign = "left"; ctx.fillText("끝(왼쪽)", gx, gy + gh + 4);
-      ctx.textAlign = "center"; ctx.fillText("펼친 구간의 먹의 양", gx + gw / 2, gy + gh + 4);
-    }, { get height() { return heightFor(el, "qu", 92, 640); }, bg: PAPER });
+      ctx.textBaseline = "bottom"; ctx.textAlign = "center"; ctx.fillText("펼친 구간의 먹의 양", gx + gw / 2, gy - 3);
+    }, { get height() { return heightFor(el, "qu", 112, 660); }, bg: PAPER });
     AB.drag(cv.canvas, {
       start: function (x) { last = x; },
       move: function (x) { if (!geo || last == null || mode() !== "scroll") return; var d = (last - x) / geo.w / (1 - win()); last = x; pos.set(AB.clamp(pos() + d, 0, 1)); },
