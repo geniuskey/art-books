@@ -254,10 +254,10 @@
       </div>
       <div class="sim-readout">
         <div class="stat"><span class="k">구의 반사광 → 단계</span><span class="v" id="lq-o-r">—</span></div>
-        <div class="stat"><span class="k">구의 중간톤 끝 → 단계</span><span class="v" id="lq-o-h">—</span></div>
+        <div class="stat"><span class="k">구의 중간톤 → 단계</span><span class="v" id="lq-o-h">—</span></div>
         <div class="stat"><span class="k">두 무리</span><span class="v" id="lq-o-ok">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "명도로 나누기"에서 반사광의 세기를 0.5에 둔다. 다섯 단계가 그럭저럭 맞는다. ② 반사광을 1.8 이상으로 올린다. 반사광 자리의 명도가 중간톤 끝과 같은 칸으로 올라가며, 그림자 쪽 가장자리가 빛의 무리와 한 덩어리가 된다. 구가 둥글지 않고 겹겹의 띠처럼 보인다. ③ "무리로 나누기"로 바꾼다. 반사광이 아무리 세도 4단계에 머물고, 명암 경계와 접촉 그림자는 5단계로 묶인다. ④ 반사광을 0으로 내려 본다. 두 방법의 차이가 다시 줄어든다. 단계를 명도만으로 나누면 장면의 조건에 따라 무리가 섞일 수 있다. (명도로 나누기는 물체 면 명도 범위를 같은 간격 다섯 칸으로 나눴다. 무리로 나누기는 직접광의 유무와 영역으로 단계를 정했다. 바닥과 벽은 두 방법 모두 명도로 나눴다.)</div>
+      <div class="sim-note">해볼 것: ① "명도로 나누기"에서 반사광의 세기를 0.5에 둔다. 다섯 단계가 그럭저럭 맞는다. ② 반사광을 1.2 이상으로 올린다. 반사광 자리의 일부가 중간톤과 같은 3단계 칸으로 올라가며(1.8이면 2단계까지), 그림자 쪽 가장자리가 빛의 무리와 한 덩어리가 된다. 구가 둥글지 않고 겹겹의 띠처럼 보인다. ③ "무리로 나누기"로 바꾼다. 반사광이 아무리 세도 4단계에 머물고, 명암 경계와 접촉 그림자는 5단계로 묶인다. ④ 반사광을 0으로 내려 본다. 두 방법의 차이가 다시 줄어든다. 단계를 명도만으로 나누면 장면의 조건에 따라 무리가 섞일 수 있다. (명도로 나누기는 물체 면 명도 범위를 같은 간격 다섯 칸으로 나눴다. 무리로 나누기는 직접광의 유무와 영역으로 단계를 정했다. 바닥과 벽은 두 방법 모두 명도로 나눴다.)</div>
     </div>
 
     <p>"무리로 나누기"가 언제나 옳은 것은 아니다. 실제 장면에서 반사광이 중간톤보다 밝은 경우도 드물게 있다. 아주 밝은 바닥 위의 짙은 색 물체, 강한 반사판을 쓴 사진 촬영이 그렇다. 하지만 그림에서 그 상태를 그대로 옮기면 빛의 방향이 흐려진다. 많은 화가가 실제보다 반사광을 조금 누르고, 두 무리 사이의 간격을 실제보다 조금 벌린다. 관찰한 것을 그대로 옮기는 일과 형태가 읽히게 정리하는 일 사이에서 고르는 것, 그것이 명암을 "그린다"는 말의 뜻이다.</p>
@@ -509,7 +509,9 @@
       }
       ao = Math.max(0.12, ao);
       var sky = S.amb * (0.55 + 0.45 * n[1]);
-      var bounce = id >= 0 ? S.ground * Math.max(0, L[1]) * (1 - n[1]) / 2 * S.bounce : 0;
+      // 바닥 반사광: 빛을 받은 바닥은 주로 물체의 빛 반대편 아래쪽에서 되비친다(방향 src). 고르게 퍼지는 몫 15% + 방향성 85%
+      var src = norm([-L[0] * 0.8, -1, -L[2] * 0.8]);
+      var bounce = id >= 0 ? S.ground * Math.max(0, L[1]) * S.bounce * (0.15 * (1 - n[1]) / 2 + 0.85 * Math.max(0, dot(n, src))) : 0;
       var card = 0;
       if (S.card && id >= 0) { var cn = S.card.n, cl = Math.max(0, dot(cn, L)); card = S.card.alb * cl * Math.max(0, -dot(n, cn)) * 0.5; }
       var spec = 0;
@@ -900,10 +902,11 @@
       var rs = {}, hs = {};
       for (var i = 0; i < s.length; i++) if (b.id[i] === 0) { if (b.z[i] === 4) rs[s[i]] = (rs[s[i]] || 0) + 1; if (b.z[i] === 3) hs[s[i]] = (hs[s[i]] || 0) + 1; }
       var minK = function (o) { var ks = Object.keys(o).map(Number); return ks.length ? Math.min.apply(null, ks) : null; }, maxK = function (o) { var ks = Object.keys(o).map(Number); return ks.length ? Math.max.apply(null, ks) : null; };
-      var rMin = minK(rs), hMax = maxK(hs);
+      var rMin = minK(rs), hMode = null, hc = 0;
+      Object.keys(hs).forEach(function (k2) { if (hs[k2] > hc) { hc = hs[k2]; hMode = +k2; } });
       AB.stat("lq-o-r", rMin != null ? rMin + (maxK(rs) !== rMin ? "~" + maxK(rs) : "") + "단계" : "—");
-      AB.stat("lq-o-h", hMax != null ? hMax + "단계" : "—");
-      AB.stat("lq-o-ok", rMin != null && hMax != null ? (rMin <= hMax ? "<span style=\"color:var(--bad)\">섞임: 반사광이 빛의 무리 단계로</span>" : "나뉨: 반사광이 그림자의 무리에") : "—");
+      AB.stat("lq-o-h", hMode != null ? "주로 " + hMode + "단계" : "—");
+      AB.stat("lq-o-ok", rMin != null ? (rMin <= 3 ? "<span style=\"color:var(--bad)\">섞임: 반사광 일부가 빛의 무리(1~3단계)로</span>" : "나뉨: 반사광이 그림자의 무리(4~5)에") : "—");
       // 범례
       var lx = 10, ly = h - 14;
       for (var k = 1; k <= 5; k++) { var g = STEP_G[k]; ctx.fillStyle = "rgb(" + g + "," + g + "," + g + ")"; ctx.fillRect(lx, ly - 8, 16, 16); ctx.strokeStyle = "#9a968c"; ctx.strokeRect(lx + 0.5, ly - 7.5, 15, 15); ctx.fillStyle = k <= 2 ? INK : "#ffffff"; ctx.font = AB.font(10, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(k, lx + 8, ly); lx += 18; }

@@ -541,7 +541,7 @@
       }
     }
     cv = AB.canvas("#ts-cv", function (ctx, w, h) {
-      var u = Math.min(w * 0.42, h * 0.32), cx = w / 2, pelC = [cx, h * 0.74], ribH = u * 1.05, pelH = u * 0.55;
+      var u = Math.min(w * 0.3, h * 0.21), cx = w / 2, pelC = [cx, h * 0.8], ribH = u * 1.05, pelH = u * 0.55;
       var roll = gR() * DEG, yaw = gT() * DEG, pr = gP() * DEG;
       // 척추 길이 고정: 골반 윗변 가운데에서 흉곽 아랫변 가운데까지
       var pelTop = [pelC[0] - Math.sin(pr) * pelH / 2, pelC[1] - Math.cos(pr) * pelH / 2];
@@ -575,7 +575,7 @@
       AB.stat("ts-o-r", Math.abs(gR() - gP()) + "°" + (gR() * gP() < 0 ? " (서로 반대쪽)" : ""));
       AB.stat("ts-o-t", Math.abs(gT()) + "°");
       AB.stat("ts-o-s", bad ? '<span style="color:var(--bad)">범위를 넘음</span>' : "가능");
-    }, heightOf("ts-cv", 0.8, 320, 460));
+    }, heightOf("ts-cv", 0.85, 340, 470));
     var drag = false, x0 = 0, r0 = 0;
     AB.drag(cv.canvas, {
       start: function (x, y) { if (!geo) return; drag = Math.hypot(x - geo.ribC[0], y - geo.ribC[1]) < geo.u * 0.7; x0 = x; r0 = gR(); },
@@ -795,7 +795,7 @@
   /* ---------------- 시뮬레이터 5: 머리 ---------------- */
   (function () {
     var cv, yaw = 35, pitch = 0;
-    var PRE = { front: [0, 0], tq: [35, 0], side: [88, 0], up: [25, 30], down: [25, -32] };
+    var PRE = { front: [0, 0], tq: [35, -12], side: [88, 0], up: [25, 30], down: [25, -32] };
     var pre = AB.seg("hd2-pre", function (v) { yaw = PRE[v][0]; pitch = PRE[v][1]; cv.redraw(); });
     var wrong = AB.check("hd2-wrong", function () { cv.redraw(); });
     var hid = AB.check("hd2-hid", function () { cv.redraw(); });
@@ -998,7 +998,7 @@
       var sol = armIK([0, shJ + up], A, B, wrT, !nolim(), lift);
       var Sj = sol.S, El = sol.el, Wr = sol.wr;
       var foreDir = Math.atan2(Wr[1] - El[1], Wr[0] - El[0]), handDir = Math.atan2(grasp[1] - Wr[1], grasp[0] - Wr[0]);
-      if (sol.d > 1.5) handDir = foreDir;
+      if (sol.d > 0.5) handDir = foreDir;
       var wristAng = (handDir - foreDir) / DEG; while (wristAng > 180) wristAng -= 360; while (wristAng < -180) wristAng += 360;
       var hand = [Wr[0] + Math.cos(handDir) * HL, Wr[1] + Math.sin(handDir) * HL];
       var lw = 1.4, ribTilt = AB.clamp((sol.phi - 90) / 90, 0, 1) * 8;  // 팔을 들면 흉곽이 조금 젖혀진다
@@ -1032,7 +1032,7 @@
         ctx.restore();
       }
       // 오른팔(앞쪽)
-      var bad = Math.abs(wristAng) > 70 && sol.d <= 1.5, armBad = nolim() && (sol.th < 0 || sol.phi < -60 || sol.phi > 180 || sol.th > 150);
+      var bad = Math.abs(wristAng) > 70 && sol.d <= 0.5, armBad = nolim() && (sol.th < 0 || sol.phi < -60 || sol.phi > 180 || sol.th > 150);
       var armCol = armBad ? "#f3d9cf" : SKIN;
       if (showM) {
         ctx.beginPath(); var dl = P([Sj[0] + 1, Sj[1] - 1]); ctx.ellipse(dl[0], dl[1], 6.5 * s, 7.5 * s, 0, 0, Math.PI * 2); ctx.fillStyle = "#e3c3b5"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = lw; ctx.stroke();
@@ -1051,8 +1051,8 @@
       [100, 150, 190].forEach(function (yy) { var a = P([-40, yy]); ctx.strokeStyle = "#d6d0c4"; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(P([shelfX, yy])[0], a[1]); ctx.stroke(); ctx.setLineDash([]); txt(ctx, yy + " cm", a[0] - 4, a[1], { size: 10, color: DIM, align: "right", mono: true }); });
       AB.handle(ctx, bk[0], bk[1], { r: 7, fill: "#ffffff", ring: RED });
       AB.stat("rc-o-b", book[1].toFixed(0) + " cm · " + book[0].toFixed(0) + " cm 앞");
-      AB.stat("rc-o-j", sol.phi.toFixed(0) + "° · " + sol.th.toFixed(0) + "° · " + (sol.d > 1.5 ? "—" : "손목 " + Math.abs(wristAng).toFixed(0) + "°"));
-      AB.stat("rc-o-s", armBad ? '<span style="color:var(--bad)">관절이 반대로 꺾임</span>' : sol.d > 1.5 ? "닿지 않음(" + sol.d.toFixed(1) + " cm 모자람)" : bad ? '<span style="color:var(--bad)">손목이 너무 꺾임</span>' : "닿음 · 어깨 " + lift(sol.phi).toFixed(1) + " cm 올라감");
+      AB.stat("rc-o-j", sol.phi.toFixed(0) + "° · " + sol.th.toFixed(0) + "° · " + (sol.d > 0.5 ? "—" : "손목 " + Math.abs(wristAng).toFixed(0) + "°"));
+      AB.stat("rc-o-s", armBad ? '<span style="color:var(--bad)">관절이 반대로 꺾임</span>' : sol.d > 0.5 ? "닿지 않음(" + sol.d.toFixed(1) + " cm 모자람)" : bad ? '<span style="color:var(--bad)">손목이 너무 꺾임</span>' : "닿음 · 어깨 " + lift(sol.phi).toFixed(1) + " cm 올라감");
     }, heightOf("rc-cv", 0.9, 360, 520));
     var drag = false;
     AB.drag(cv.canvas, {
