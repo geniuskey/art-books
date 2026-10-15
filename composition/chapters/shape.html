@@ -795,7 +795,7 @@
     }
     var cv = AB.canvas("#sl-cv", function (ctx, w, h) {
       var t = tG() / 90, b = body(t), A = arm(b.shoulder, st.hand); st.hand = A.hand;
-      var obj = objG(), gap = 14, pwid = (w - 3 * gap) / 2, ph = h - 40;
+      var obj = objG(), gap = 14, pwid = (w - 3 * gap) / 2, ph = h - 64;
       var k = Math.min(ph / (U.y1 - U.y0), pwid / 0.72);
       var panels = [];
       [0, 1].forEach(function (i) {
@@ -823,7 +823,7 @@
       AB.stat("sl-o-arm", AB.fix((out / NS) * 100, 0) + "%");
       AB.stat("sl-o-hole", mt.holes ? mt.holes + "곳 · 몸 넓이의 " + AB.fix(mt.hole * 100, 1) + "%" : "없음");
       AB.stat("sl-o-cx", AB.fix(mt.cx, 2) + "<small> (원 = 1)</small>");
-    }, { bg: PAPER, get height() { var w = pw("sl-cv"); return Math.round(Math.min(440, Math.max(300, 40 + 1.36 * ((w - 42) / 2) / 0.72))); } });
+    }, { bg: PAPER, get height() { var w = pw("sl-cv"); return Math.round(Math.min(440, Math.max(320, 64 + 1.36 * ((w - 42) / 2) / 0.72))); } });
     AB.drag(cv.canvas, {
       move: function (x, y) {
         if (!geo) return;

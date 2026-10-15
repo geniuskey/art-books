@@ -1,0 +1,764 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "비운 자리는 비어 있지 않다. 여백이 하는 일(고립, 쉼, 묶음, 방향, 암시), 밀도의 대비, 남송과 조선 수묵화의 여백, 디자인의 여백과 그 대가를 시뮬레이터로 익히고, 숨 막히는 낭독회 포스터에 숨 쉴 자리를 만든다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="space">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 10</div>
+    <h1>여백과 밀도</h1>
+    <p class="lead">전단지 한 장에 할인 품목이 빼곡하게 들어찬 것과, 넓은 흰 종이 한가운데에 문장 하나만 놓인 것을 떠올려 보자. 앞의 것은 정보가 많은데 아무것도 기억나지 않고, 뒤의 것은 정보가 하나인데 오래 남는다. 차이를 만든 것은 그려 넣은 것이 아니라 비워 둔 것이다. 이 장은 그 비운 자리, 곧 여백이 화면에서 어떤 일을 하는지 본다. 여백은 남은 자리가 아니라 설계하는 자리이고, 채운 곳과 비운 곳의 대비, 곧 밀도의 대비가 화면에 숨과 초점을 만든다. 남송과 조선의 수묵화가 비단을 비워 물과 안개와 하늘을 그린 방식도 함께 본다.</p>
+    <ul class="objectives">
+      <li>여백이 하는 일(고립과 강조, 쉼, 묶음, 방향, 암시, 크기)을 구별하고 예를 든다.</li>
+      <li>같은 수의 요소도 몰리고 흩어지는 정도, 곧 밀도의 대비에 따라 다르게 읽힌다는 것을 시뮬레이터로 확인한다.</li>
+      <li>수묵화의 여백을 실제 작품에서 재 보고, 비운 자리가 그림의 일부로 일하는 방식을 설명한다.</li>
+      <li>디자인에서 여백을 늘리면 무엇을 내줘야 하는지(크기, 내용) 알고, 남은 여백과 설계한 여백을 구별한다.</li>
+    </ul>
+  </header>
+
+  <section id="empty">
+    <h2>빈자리는 비어 있지 않다</h2>
+    <p>화면에서 그리거나 놓지 않은 자리를 <span class="term">여백</span><span class="en">(Negative space, White space)</span>이라고 한다. 한자로는 餘白, "남은 흰 자리"라는 뜻이지만 이 장에서 다룰 여백은 남은 것이 아니다. <a href="shape.html">3장</a>에서 형과 바탕을 볼 때, 그린 형태(양형) 사이의 바탕도 모양(음형)을 가진다는 것을 보았다. 여백은 그 생각을 화면 전체로 넓힌 것이다. 디자인에서는 흔히 의도해서 만든 <b>활성 여백</b>과, 요소를 놓고 나서 우연히 남은 <b>수동 여백</b>을 구별해 말한다. 바탕색이 꼭 흰색일 필요는 없다. 짙은 초록 바탕이어도 비어 있으면 여백이다.</p>
+    <p>먼저 같은 내용을 두 가지로 놓은 포스터를 비교한다. 아래 그림의 경계선을 좌우로 끌어 두 시안을 오간다. 두 시안에 들어간 요소(제목, 큰 그림, 작은 점, 정보 여섯 줄, 로고)는 같다. 다른 것은 요소의 크기와 그 사이의 빈자리뿐이다.</p>
+
+    <div class="sim" id="sim-sc">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 내용, 다른 여백</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage">
+          <div class="compare" id="sc-cmp">
+            <div class="cmp-a"><canvas id="sc-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="sc-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="sc-view"><button data-value="poster" class="on">포스터로 보기</button><button data-value="blocks">여백만 칠하기</button></div>
+          <label class="check"><input type="checkbox" id="sc-squint"> 멀리서 보기(흐리게)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">시안 1의 여백률</span><span class="v" id="sc-o-a">—</span></div>
+        <div class="stat"><span class="k">시안 2의 여백률</span><span class="v" id="sc-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 경계선을 천천히 끌며 두 시안에서 눈이 처음 닿는 곳을 비교한다. 시안 1은 모든 요소가 비슷한 크기로 가장자리까지 차 있어 첫눈이 머물 곳이 없다. ② "여백만 칠하기"로 바꾼다. 시안 1의 여백은 요소 사이에 남은 가는 띠뿐이고, 시안 2의 여백은 위쪽과 오른쪽에 큰 덩어리로 모여 있다. ③ "멀리서 보기"를 켠다. 길 건너에서 본 모습처럼 글자가 뭉개지면, 시안 1은 한 장의 무늬가 되고 시안 2는 제목, 그림, 정보 덩어리의 세 단위로 읽힌다. (여백률은 요소를 감싼 상자에 덮이지 않은 넓이의 비율이다. 글자는 줄 모양의 상자로 단순하게 그렸다.)</div>
+    </div>
+
+    <p>시안 2는 정보를 하나도 빼지 않았다. 정보 여섯 줄을 작은 덩어리 하나로 모으고, 제목과 그림을 조금 줄였을 뿐이다. 그런데 화면의 3분의 2가 비자 각 요소가 저마다의 자리를 갖게 되었다. 여백은 정보를 줄이는 기술이 아니라 정보를 <b>읽히는 단위로 나누는</b> 기술이다.</p>
+  </section>
+
+  <section id="roles">
+    <h2>여백이 하는 일</h2>
+    <p>여백은 한 가지 일만 하지 않는다. 아래 그림은 같은 작은 배 한 척, 같은 점 몇 개로 여백의 여섯 가지 쓰임을 보여 준다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 330" class="art" role="img" aria-label="여섯 칸의 작은 그림. 고립: 흩어진 점들 사이에 빈자리로 둘러싸인 붉은 점. 쉼: 빽빽한 줄무늬 사이의 넓은 빈 띠. 묶음: 빈 간격으로 두 무리로 나뉜 점들. 방향: 오른쪽을 향한 배 앞의 넓은 빈 물. 암시: 아래만 그린 산이 위쪽 빈자리로 사라져 안개처럼 보임. 크기: 넓은 빈 물 위의 아주 작은 배.">
+        <rect x="0" y="0" width="460" height="330" rx="10" fill="#fbfaf7"/>
+        <g fill="#f1ece2" stroke="#d6d0c4">
+          <rect x="12" y="12" width="138" height="132"/><rect x="161" y="12" width="138" height="132"/><rect x="310" y="12" width="138" height="132"/>
+          <rect x="12" y="172" width="138" height="132"/><rect x="161" y="172" width="138" height="132"/><rect x="310" y="172" width="138" height="132"/>
+        </g>
+        <g fill="#7d776c">
+          <circle cx="26" cy="26" r="4"/><circle cx="48" cy="30" r="4"/><circle cx="72" cy="24" r="4"/><circle cx="98" cy="30" r="4"/><circle cx="122" cy="25" r="4"/><circle cx="138" cy="34" r="4"/>
+          <circle cx="24" cy="52" r="4"/><circle cx="30" cy="80" r="4"/><circle cx="24" cy="108" r="4"/><circle cx="30" cy="132" r="4"/><circle cx="136" cy="60" r="4"/><circle cx="130" cy="88" r="4"/><circle cx="138" cy="114" r="4"/><circle cx="126" cy="134" r="4"/>
+          <circle cx="54" cy="134" r="4"/><circle cx="80" cy="128" r="4"/><circle cx="104" cy="136" r="4"/>
+        </g>
+        <circle cx="82" cy="80" r="7" fill="#d24f39"/>
+        <g fill="#7d776c">
+          <rect x="172" y="22" width="116" height="5"/><rect x="172" y="32" width="116" height="5"/><rect x="172" y="42" width="116" height="5"/><rect x="172" y="52" width="116" height="5"/>
+          <rect x="172" y="100" width="116" height="5"/><rect x="172" y="110" width="116" height="5"/><rect x="172" y="120" width="116" height="5"/><rect x="172" y="130" width="116" height="5"/>
+        </g>
+        <g fill="#7d776c">
+          <circle cx="328" cy="44" r="5"/><circle cx="344" cy="44" r="5"/><circle cx="360" cy="44" r="5"/><circle cx="328" cy="60" r="5"/><circle cx="344" cy="60" r="5"/><circle cx="360" cy="60" r="5"/><circle cx="328" cy="76" r="5"/><circle cx="344" cy="76" r="5"/><circle cx="360" cy="76" r="5"/>
+          <circle cx="398" cy="88" r="5"/><circle cx="414" cy="88" r="5"/><circle cx="430" cy="88" r="5"/><circle cx="398" cy="104" r="5"/><circle cx="414" cy="104" r="5"/><circle cx="430" cy="104" r="5"/><circle cx="398" cy="120" r="5"/><circle cx="414" cy="120" r="5"/><circle cx="430" cy="120" r="5"/>
+        </g>
+        <path d="M22 262 h18 l-4 7 h-10 z" fill="#3b3530"/><line x1="31" y1="262" x2="31" y2="246" stroke="#3b3530" stroke-width="1.5"/><path d="M32 247 l10 12 h-10 z" fill="#c9bfae"/>
+        <g stroke="#c4cdd3" stroke-width="1"><line x1="50" y1="276" x2="140" y2="276"/><line x1="70" y1="286" x2="138" y2="286"/><line x1="90" y1="296" x2="136" y2="296"/></g>
+        <path d="M171 304 L196 262 L214 278 L236 248 L262 282 L289 270 L289 304 Z" fill="#59544c"/>
+        <path d="M171 304 L189 286 L203 296 L222 280 L243 298 L262 290 L289 300 L289 304 Z" fill="#2f2b27"/>
+        <g fill="#59544c" opacity="0.35"><path d="M196 262 L205 250 L214 260 Z"/></g>
+        <path d="M376 247 h10 l-2 3.5 h-6 z" fill="#3b3530"/><line x1="381" y1="247" x2="381" y2="240" stroke="#3b3530" stroke-width="1"/>
+        <g stroke="#c4cdd3" stroke-width="1"><line x1="330" y1="270" x2="360" y2="270"/><line x1="400" y1="282" x2="436" y2="282"/></g>
+        <g font-size="12" fill="#2b2a30" font-weight="600">
+          <text x="12" y="161">① 고립 · 강조</text><text x="161" y="161">② 쉼</text><text x="310" y="161">③ 묶음</text>
+          <text x="12" y="321">④ 방향(시선 앞 공간)</text><text x="161" y="321">⑤ 암시(안개·물·하늘)</text><text x="310" y="321">⑥ 크기와 고요</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 여백의 여섯 가지 일.</b> ① 둘레를 비우면 작은 점 하나가 주인공이 된다. ② 빽빽한 부분 사이의 빈 띠는 눈이 쉬어 가는 자리이자 단락의 경계다. ③ 같은 점들도 사이의 빈 간격 때문에 두 무리로 묶인다(<a href="gestalt.html">4장</a>의 근접). ④ 배가 향하는 쪽을 비우면 움직임이 생긴다. ⑤ 산의 아랫부분만 그리고 위를 비우면, 빈자리가 안개나 구름이 된다. ⑥ 넓은 빈 물 위의 작은 배는 크기와 고요를 함께 만든다.</figcaption>
+    </figure>
+
+    <p>이 가운데 가장 많이 쓰이는 것은 ①의 <b>고립</b>이다. 주인공을 크게 하거나 밝게 하지 않아도, 둘레를 비우는 것만으로 눈이 그쪽으로 간다. 아래 시뮬레이터에서 붉은 점 하나를 회색 점들 사이에 놓고, 둘레를 얼마나 비울지 바꿔 본다. 붉은 점은 끌어서 옮길 수 있다.</p>
+
+    <div class="sim" id="sim-si">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>둘레를 비우면 주인공이 된다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="si-cv" class="art"></canvas><span class="hint">붉은 점을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>둘레의 요소 <output id="si-n-out"></output></span><input type="range" id="si-n" min="0" max="160" step="1" value="70"></label>
+          <label class="ctrl"><span>비운 반지름 <output id="si-r-out"></output></span><input type="range" id="si-r" min="0" max="40" step="1" value="4"></label>
+          <label class="check"><input type="checkbox" id="si-same"> 주인공도 회색으로</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">주인공 둘레의 밀도 / 화면 평균</span><span class="v" id="si-o-d">—</span></div>
+        <div class="stat"><span class="k">고립 지수(교육용 근사)</span><span class="v" id="si-o-iso">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 비운 반지름을 0에서 15%까지 천천히 올린다. 붉은 점의 크기와 색은 그대로인데 어느 순간부터 화면의 중심이 된다. ② "주인공도 회색으로"를 켠다. 색의 도움 없이도 둘레가 빈 회색 점이 눈에 띄는지 본다. 고립만으로 주인공이 생긴다. ③ 반지름을 40%까지 올린다. 회색 점들이 가장자리로 밀려나 액자처럼 둘러싸고, 이번에는 빈자리 자체가 너무 커서 점이 그 안에서 길을 잃는다. 요소 수를 0으로 내리면 고립의 대상이 사라져 고립도 사라진다. (고립 지수 = 1 − 주인공 둘레 고리 안의 밀도 ÷ 화면 평균 밀도. 고리는 짧은 변의 20% 반지름. 실제 눈에 띄는 정도는 색·명도·크기 차이와 함께 정해진다.)</div>
+    </div>
+
+    <p>여기서 두 가지를 볼 수 있다. 첫째, 고립은 색과 크기만큼 강한 강조 수단이다. 둘째, 여백은 상대적이다. 주변이 빽빽해야 비운 자리가 비어 보이고, 모든 곳이 비면 비운 자리도 의미를 잃는다. 여백은 혼자 존재하지 않고 언제나 채운 자리와 짝을 이룬다.</p>
+
+    <div class="callout deep">
+      <strong>붐빔: 주변 시야는 이웃에 약하다</strong>
+      시선이 닿지 않은 주변 시야에서는 물체 하나는 알아볼 수 있어도, 그 둘레에 다른 것이 가까이 있으면 알아보기가 갑자기 어려워진다. 지각 연구에서는 이를 <span class="term">붐빔</span><span class="en">(Visual crowding)</span>이라고 부른다. 헤르만 부마<span class="en">(Herman Bouma)</span>는 1970년 『네이처』에 실은 짧은 논문에서, 주변 시야의 글자를 알아보려면 이웃 글자와의 간격이 시선 중심에서 떨어진 거리의 대략 절반 이상이어야 한다고 보고했고, 이 관계는 지금 "부마의 법칙"으로 불린다. 데니스 펠리<span class="en">(Denis G. Pelli)</span>와 캐서린 틸먼<span class="en">(Katharine A. Tillman)</span>은 2008년 『네이처 뉴로사이언스』 리뷰에서 붐빔이 물체 인식 전반을 제한한다고 정리했다. 포스터 앞을 지나가는 사람은 대부분의 요소를 주변 시야로 먼저 본다. 둘레를 비운 요소가 먼저 알아보이는 데에는 이런 지각의 이유도 있다. 다만 이 연구들은 실험실의 글자·도형 과제에서 나온 것이므로, 포스터에 그대로 옮긴 수치 규칙으로 쓰지는 않는다.
+    </div>
+  </section>
+
+  <section id="density">
+    <h2>밀도와 밀도의 대비</h2>
+    <p>여백의 반대편에는 <span class="term">밀도</span><span class="en">(Density)</span>가 있다. 밀도는 일정한 넓이 안에 요소가 얼마나 많이, 얼마나 촘촘히 들어 있는가다. 중요한 것은 밀도 그 자체보다 <span class="term">밀도의 대비</span><span class="en">(Density contrast)</span>, 곧 빽빽한 곳과 성긴 곳의 차이다. 화면 전체가 고르게 빽빽하거나 고르게 성기면 그것은 질감이 되고, 어딘가 몰리고 어딘가 비면 그 차이가 초점과 움직임을 만든다.</p>
+    <p>아래는 눈송이 같은 짧은 획 280개를 뿌린 화면이다. 획의 수는 언제나 같다. "몰림" 슬라이더로 획을 한곳에 모으는 정도를 바꾸고, 손잡이를 끌어 몰리는 자리를 옮긴다.</p>
+
+    <div class="sim" id="sim-sd">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 수의 획, 다른 밀도 대비</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sd-cv" class="art"></canvas><span class="hint">손잡이로 몰리는 자리를 옮긴다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>몰림 <output id="sd-p-out"></output></span><input type="range" id="sd-p" min="0" max="100" step="1" value="55"></label>
+          <label class="ctrl"><span>몰린 덩어리의 크기 <output id="sd-r-out"></output></span><input type="range" id="sd-r" min="6" max="40" step="1" value="18"></label>
+          <label class="check"><input type="checkbox" id="sd-grid"> 칸별 밀도 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 빽빽한 칸 / 평균</span><span class="v" id="sd-o-max">—</span></div>
+        <div class="stat"><span class="k">빈 칸(획이 없는 칸)</span><span class="v" id="sd-o-empty">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 몰림을 0으로 둔다. 획 280개가 고르게 흩어져 눈이 머물 곳 없는 무늬가 된다. 가장 빽빽한 칸도 평균의 두 배를 잘 넘지 않는다. ② 몰림을 50~70%로 올린다. 한쪽에 눈보라가 몰리고 반대쪽이 비면서 화면에 바람의 방향이 생긴다. 손잡이를 3분할 근처로 옮겨 본다(<a href="proportion.html">9장</a>). ③ 몰림을 100%, 크기를 가장 작게 한다. 모든 획이 한 점에 뭉쳐 하나의 얼룩이 되고 나머지는 텅 빈다. 대비가 극단에 이르면 밀도는 질감이 아니라 덩어리 하나가 된다. (칸은 가로 8 × 세로 5칸, 몰린 획은 손잡이 둘레에 정규 분포로, 나머지는 고르게 뿌렸다.)</div>
+    </div>
+
+    <p>몰림을 0으로 두었을 때와 중간으로 두었을 때 획의 수는 같았다. 다른 것은 빽빽한 곳과 빈 곳의 차이다. 화가가 눈 오는 풍경에서 눈송이를 화면 전체에 고르게 뿌리지 않고, 어떤 곳은 빽빽하게, 어떤 곳은 거의 비워 두는 이유가 여기에 있다. 디자인에서도 마찬가지다. 정보 여섯 줄을 화면 곳곳에 흩으면 화면 전체가 중간 밀도의 회색이 되지만, 한곳에 모으면 빽빽한 덩어리 하나와 넓은 여백이 생긴다. 이 장 첫 시뮬레이터의 시안 2가 그렇게 만들어졌다.</p>
+  </section>
+
+  <section id="direction">
+    <h2>방향의 여백: 시선 앞의 공간</h2>
+    <p>사람이나 동물, 탈것처럼 방향을 가진 것을 화면에 놓을 때, 그것이 향하는 쪽에 공간을 두면 움직임과 기대가 생긴다. 사진에서는 이것을 <span class="term">리드 룸</span><span class="en">(Lead room, Looking room)</span>이라고 부른다. 반대로 향하는 쪽이 막혀 있고 등 뒤가 비어 있으면, 막 지나온 것 같거나 갇힌 것처럼 보인다. 아래에서 새를 좌우로 끌고, 새가 보는 방향을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-sl">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>새가 보는 쪽을 비울까, 등 뒤를 비울까</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sl-cv" class="art"></canvas><span class="hint">새를 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sl-face"><button data-value="r" class="on">오른쪽을 본다</button><button data-value="l">왼쪽을 본다</button></div>
+          <label class="check"><input type="checkbox" id="sl-wind"> 바람 자국 그리기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">앞쪽 공간</span><span class="v" id="sl-o-f">—</span></div>
+        <div class="stat"><span class="k">등 뒤 공간</span><span class="v" id="sl-o-b">—</span></div>
+        <div class="stat"><span class="k">흔히 읽히는 인상</span><span class="v" id="sl-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 새를 왼쪽 3분의 1 근처에 두고 오른쪽을 보게 한다. 앞쪽에 넓은 하늘이 열려 날아갈 곳이 보인다. ② 새를 오른쪽 가장자리로 끈다. 같은 새가 벽에 부딪힐 듯 갇혀 보이고, 등 뒤의 넓은 빈자리는 "이미 지나온 곳"이 된다. ③ 그 상태에서 "바람 자국"을 켠다. 등 뒤의 여백이 지나온 흔적으로 채워지면, 갇힌 느낌이 "막 지나간 속도"로 바뀐다. 규칙을 깬 배치도 이유가 보이면 읽힌다. (인상은 흔히 쓰는 설명이며 이 책의 해석이다. 읽기 방향이 다른 문화권에서는 좌우의 느낌이 다를 수 있다는 주장이 있지만 근거는 엇갈린다.)</div>
+    </div>
+
+    <p>방향의 여백은 쇼윈도에서도 쓸 수 있다. 펼친 책 표지 속 인물이나 소품의 머리가 향하는 쪽을 비우면, 지나가는 사람의 눈도 그쪽으로 따라간다. <a href="eye.html">5장</a>에서 본 방향선이 빈자리를 만나 시선의 길이 되는 셈이다.</p>
+  </section>
+
+  <section id="east">
+    <h2>동아시아 회화의 여백</h2>
+    <p>여백을 가장 깊이 다룬 전통 가운데 하나가 동아시아의 수묵화다. 비단이나 종이에 먹으로 그린 이 그림들은 하늘, 물, 안개, 눈을 대개 칠하지 않고 바탕 그대로 남긴다. 그 빈자리는 "아직 그리지 않은 곳"이 아니라 그림 속에서 분명한 역할을 맡은 곳이다. 동아시아의 서화론에서는 채운 것(實)과 빈 것(虛)이 서로를 살린다는 "허실상생"(虛實相生)이라는 말이 쓰이고, 서예에서는 "흰 곳을 검은 곳처럼 헤아린다"는 "계백당흑"(計白當黑)이 청나라 서예가 등석여의 말로 전한다. 글자의 획만이 아니라 획 사이의 흰 자리까지 함께 설계하라는 뜻이다.</p>
+    <p>남송(1127~1279)의 궁정 화가 마원<span class="en">(Ma Yuan, 1190~1225년경 활동)</span>은 화면의 한쪽 구석에 경물을 몰고 나머지를 넓게 비우는 구도로 유명해서, 후대에 "마일각"(馬一角, 한 귀퉁이의 마원)이라는 별명이 붙었다. 함께 이름을 날린 하규는 화면의 반쪽에 경물을 모아 "하반변"(夏半邊)이라 불렸다. 아래 그림이 마원의 작은 화첩 그림이다.</p>
+
+    <figure class="art-figure" id="fig-mayuan">
+      <div class="art-frame"><img src="../../shared/img/ma-yuan-scholar-waterfall.webp" width="1400" height="1350" alt="갈색으로 바랜 비단 위에 먹으로 그린 정사각형에 가까운 그림. 왼쪽 위에서 굽은 소나무 가지들이 대각선으로 뻗어 내려오고, 왼쪽 아래에는 난간 옆에 선 흰 옷의 선비와 시동, 검은 바위가 있다. 그 뒤로 가는 폭포가 떨어진다. 오른쪽 위 절반은 거의 아무것도 그리지 않은 안개 낀 빈 비단이다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 마원, 「폭포를 바라보는 선비」, 13세기 초, 남송.</b> 소나무, 바위, 선비와 시동, 폭포가 모두 화면의 왼쪽 아래 절반에 몰려 있고, 오른쪽 위는 옅은 안개뿐이다. 이 빈자리는 폭포 소리가 퍼져 나가는 골짜기의 공기이고, 선비가 바라보는 쪽이다. 소나무 가지가 빈자리 쪽으로 뻗어 채운 곳과 빈 곳을 잇는다. 화면을 대각선으로 나눠 한쪽은 빽빽하게, 한쪽은 비게 만든 밀도의 대비가 이 그림의 구도다.<span class="credit">메트로폴리탄 미술관 소장(Ex coll.: C. C. Wang Family, Gift of The Dillon Fund, 1973), 화첩 한 면, 비단에 먹과 채색. 공공 도메인(The Met Open Access, CC0). 원본 사진의 화첩 바탕을 잘라 내고 그림 면만 보인다. <a href="https://www.metmuseum.org/art/collection/search/40086">소장처 작품 페이지</a> · <a href="../../credits.html#ma-yuan-scholar-waterfall">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>이 대각선 구도를 숫자로 재 본다. 아래 시뮬레이터는 그림의 각 점이 비단 바탕보다 얼마나 어두운지를 보고 "먹이 간 곳"과 "빈 곳"을 가른다. 기준 슬라이더로 얼마나 어두워야 먹으로 칠지를 정하고, 화면 위의 선을 끌어 나누는 대각선을 바꾼다. 조선 초기의 산수화 「평사낙안」으로도 바꿔 본다(<a href="../../color/chapters/value.html">ColorBook 6장</a>에서 명도로 본 그림이다).</p>
+
+    <div class="sim" id="sim-sm">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>수묵화의 여백 지도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="sm-cv" class="art"></canvas><span class="hint">나누는 선의 끝점을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sm-img"><button data-value="mayuan" class="on">마원(남송)</button><button data-value="joseon">평사낙안(조선)</button></div>
+          <label class="ctrl"><span>먹으로 칠 기준(바탕보다 어둡게) <output id="sm-d-out"></output></span><input type="range" id="sm-d" min="3" max="20" step="1" value="10"></label>
+          <div class="seg" id="sm-view"><button data-value="map" class="on">여백 지도</button><button data-value="img">원본</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">먹이 간 넓이(전체)</span><span class="v" id="sm-o-all">—</span></div>
+        <div class="stat"><span class="k">선의 양쪽: 먹 넓이</span><span class="v" id="sm-o-split">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 마원을 기준 10으로 본다. 이 책의 사진에서 계산하면 먹이 간 곳은 화면의 약 31%이고, 대각선 오른쪽 위에는 13% 남짓, 왼쪽 아래에는 49% 남짓이 몰린다. 한쪽이 다른 쪽의 네 배쯤 빽빽하다. ② 선의 끝점을 끌어 화면을 가로나 세로로 나눠 본다. 대각선으로 나눌 때 양쪽 차이가 가장 크다. 이 그림의 밀도 대비는 대각선을 따라 짜여 있다. ③ 평사낙안으로 바꾸고 선을 가로로 놓는다. 먹이 간 곳은 화면의 10%도 안 되고, 그나마 아래쪽에 몰려 있다. 그림의 대부분이 물, 안개, 하늘로 쓰인 빈 비단이다. (비단 바탕의 명도는 그림 L*의 상위 30% 경계값으로 잡았다. 오래된 비단은 고르게 바래지 않고 사진마다 색이 달라 이 값은 대략적이다.)<span class="credit">조선 그림: 작가 미상, 「평사낙안(모래톱에 내려앉는 기러기)」, 15세기 말~16세기 초, 비단에 먹, 족자(표구 부분을 잘라 냄). 메트로폴리탄 미술관 소장, 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/39888">소장처 작품 페이지</a> · <a href="../../credits.html#joseon-wild-geese-sandbar">크레딧</a></span></div>
+    </div>
+
+    <p>두 그림 모두 그려 넣은 곳보다 비워 둔 곳이 훨씬 넓다. 그러나 그 빈자리는 똑같은 빈자리가 아니다. 마원의 빈자리는 선비가 바라보는 골짜기의 공기이고, 평사낙안의 빈자리는 기러기가 내려앉는 넓은 물과 저녁 하늘이다. 화가는 빈자리의 <b>모양</b>과 <b>자리</b>를 정해 그것이 무엇이 될지를 정했다. 같은 비단이라도 산 아래에 있으면 물이 되고, 산허리에 걸리면 안개가 되고, 산 위에 있으면 하늘이 된다.</p>
+    <p>두루마리처럼 펼쳐 가며 보는 긴 화면에서는 여백이 시간의 역할도 한다. 빽빽한 장면과 빈 물길이 번갈아 나오며 보는 사람의 걸음을 늦추고 서두르게 한다. 이 시간적인 화면은 <a href="reading.html">13장</a>에서 명작을 읽을 때 다시 만난다.</p>
+
+    <div class="callout studio">
+      <strong>칠하지 않고 남기기</strong>
+      수채화와 수묵화에서 가장 밝은 자리는 물감이 아니라 종이 자체다. 그래서 여백은 나중에 덧칠해 만들 수 없고 처음부터 "남겨야" 한다. 숙련된 화가들은 붓을 대기 전에 연필로 비울 자리의 모양을 먼저 가볍게 그리거나, 마스킹액으로 막아 둔다. 비울 자리를 정하지 않고 칠하기 시작하면, 칠한 것들 사이에 남은 빈자리가 가는 틈과 조각으로 흩어져 아무 역할도 하지 못한다. 이렇게 우연히 남은 작은 여백은 디자인에서 말하는 "갇힌 여백"과 같다. 비울 곳은 덩어리로, 형태를 가지게 계획한다.
+    </div>
+  </section>
+
+  <section id="design">
+    <h2>서양 회화와 디자인의 여백</h2>
+    <p>서양 회화에도 여백을 크게 쓴 그림이 많다. 19세기 후반 유럽과 미국의 화가들은 일본 판화와 동아시아 미술에서 넓은 빈 바탕과 한쪽으로 치우친 배치를 배워 자기 그림에 들였는데, 이 흐름을 흔히 <span class="term">자포니슴</span><span class="en">(Japonisme)</span>이라고 부른다. 미국 출신 화가 제임스 맥닐 휘슬러는 그 대표적인 화가 가운데 하나다.</p>
+
+    <figure class="art-figure" id="fig-whistler">
+      <div class="art-frame" style="max-width:420px;margin:0 auto"><img src="../../shared/img/whistler-theodore-duret.webp" width="759" height="1600" alt="세로로 긴 화면. 옅은 회갈색의 아무것도 없는 바탕 앞에 검은 야회복을 입은 남자가 서 있다. 왼팔에 분홍빛 망토를 걸치고 오른손에 부채를 들었다. 남자의 몸은 화면 높이의 대부분을 차지하지만, 둘레는 모두 비어 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 제임스 맥닐 휘슬러, 「살색과 검정의 배열: 테오도르 뒤레의 초상」, 1883.</b> 배경에는 방도 가구도 없다. 옅은 바탕이 검은 옷의 실루엣을 둘러싸 형태를 또렷하게 하고, 분홍 망토와 부채가 그 고요한 바탕 위에서 작은 사건이 된다. 바탕의 넓은 빈자리는 인물의 사회적 배경을 설명하는 대신 색과 형태의 "배열"에 눈을 돌리게 한다. 제목부터 그림을 음악처럼 "배열"이라 부른 휘슬러의 태도가 여백에서 드러난다.<span class="credit">메트로폴리탄 미술관 소장(Catharine Lorillard Wolfe Collection, Wolfe Fund, 1913), 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/13211">소장처 작품 페이지</a> · <a href="../../credits.html#whistler-theodore-duret">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>디자인에서는 여백을 더 구체적인 몇 가지로 나눠 다룬다. 지면의 가장자리를 둘러싼 <b>바깥 여백</b>(마진), 무리와 무리 사이의 <b>간격</b>, 글줄 사이의 <b>행간</b>, 글자 사이의 <b>자간</b>이다. 바깥 여백은 화면을 둘러싸는 액자처럼 내용을 가장자리의 긴장에서 떼어 놓고, 간격은 무엇이 함께 묶이는지를 알려 준다(<a href="gestalt.html">4장</a>). 행간과 자간은 TypeBook에서 깊게 다룬다.</p>
+    <p>그런데 여백은 공짜가 아니다. 같은 넓이의 지면에서 여백을 늘리면 내용이 쓸 수 있는 넓이가 줄어든다. 그러면 요소를 작게 하거나, 내용을 줄여야 한다. 아래에서 A2 포스터의 바깥 여백을 늘려 가며 무엇이 줄어드는지 본다.</p>
+
+    <div class="sim" id="sim-sg">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>여백을 늘리면 무엇을 내줘야 하나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="sg-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>바깥 여백(폭 대비) <output id="sg-m-out"></output></span><input type="range" id="sg-m" min="0" max="30" step="0.5" value="4"></label>
+          <label class="ctrl"><span>무리 사이 간격 <output id="sg-g-out"></output></span><input type="range" id="sg-g" min="0" max="12" step="0.5" value="1.5"></label>
+          <label class="check"><input type="checkbox" id="sg-cut"> 정보를 줄인다(6줄 → 4줄)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">여백률</span><span class="v" id="sg-o-ws">—</span></div>
+        <div class="stat"><span class="k">정보 글줄 높이(A2 실제 크기)</span><span class="v" id="sg-o-txt">—</span></div>
+        <div class="stat"><span class="k">상태</span><span class="v" id="sg-o-st">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 바깥 여백을 4%에서 10%로 올린다. 화면이 갑자기 정돈되고 내용이 액자 안에 들어간 것처럼 보인다. 대신 정보 글줄이 조금 작아진다. ② 무리 사이 간격을 1.5%에서 6%로 올린다. 제목, 그림, 정보가 따로따로 읽히기 시작한다. ③ 바깥 여백을 20% 넘게 올린다. 정보 글줄 높이가 이 책이 정한 하한(약 8mm)보다 작아지면 경고가 뜬다. 여기서 "정보를 줄인다"를 켜면 같은 여백에서도 글줄이 다시 커진다. 여백을 늘리는 일은 결국 무엇을 덜어 낼지 고르는 일이다. (내용은 바깥 여백 안쪽에 제목 18%, 그림 52%, 정보 30%의 높이 비율로 채운다. 글줄 높이 하한 8mm는 1~2m 거리에서 읽는 포스터를 위해 이 책이 둔 가정이며 표준이 아니다.)</div>
+    </div>
+
+    <div class="callout warn">
+      <strong>"여백이 많으면 고급스럽다"는 말</strong>
+      디자인 업계에서는 여백이 넓으면 고급스럽고 차분해 보이고, 빽빽하면 싸고 활기차 보인다는 말이 자주 오간다. 그런 연상이 일부 문화와 시장에서 흔히 쓰이는 것은 사실이지만, 여백의 양만으로 인상이 정해진다는 확고한 연구 근거는 이 책이 확인하지 못했다. 시장의 좌판, 축제 포스터, 만화의 한 면처럼 빽빽함 자체가 활기와 풍성함을 전하는 좋은 화면도 많다. 여백을 늘릴지는 "고급"이라는 꼬리표가 아니라, 그 화면이 무엇을 먼저 전해야 하는지, 보는 사람이 얼마나 멀리서 얼마나 오래 보는지로 정한다.
+    </div>
+  </section>
+
+  <section id="plan">
+    <h2>여백을 설계하는 법</h2>
+    <p>여백을 "남기는" 대신 "설계하려면" 몇 가지 습관이 도움이 된다. 첫째, 요소보다 빈자리를 먼저 본다. 썸네일 스케치에서 비울 덩어리의 모양과 자리를 먼저 그린다. 둘째, 여백을 크게 한두 덩어리로 모은다. 같은 넓이의 여백이라도 요소 사이에 고르게 흩어지면 아무 역할도 못 하고, 모이면 쉼과 초점이 된다. 셋째, 간격에 위계를 둔다. 한 무리 안의 간격은 좁게, 무리와 무리 사이는 넓게, 바깥 여백은 가장 넓게. 넷째, 어중간한 간격을 없앤다. 붙일 것은 확실히 붙이고, 뗄 것은 확실히 뗀다.</p>
+
+    <div class="callout studio">
+      <strong>갇힌 여백 찾기</strong>
+      디자이너들이 시안을 점검할 때 자주 보는 것이 <b>갇힌 여백</b><span class="en">(Trapped white space)</span>이다. 요소들 사이에 끼어 어느 쪽에도 속하지 않는 작은 빈 조각, 너무 좁아 쉼도 되지 못하고 너무 넓어 묶음도 되지 못하는 틈이다. 찾는 법은 간단하다. 시안을 흑백으로 바꾸고 여백만 다른 색으로 칠해 본다(이 장 첫 시뮬레이터의 "여백만 칠하기"). 큰 여백 덩어리에 이어지지 않는 작은 조각이 보이면, 그 조각을 옆의 큰 여백에 합치거나 요소를 붙여 없앤다. 쇼윈도라면 길 건너에서 사진을 찍어 같은 방법으로 본다.
+    </div>
+
+    <div class="callout try">
+      <strong>같은 풍경, 세 가지 여백</strong>
+      엽서 크기 종이 세 장에 같은 풍경(나무 한 그루와 먼 산, 또는 창밖의 지붕)을 먹이나 연필로 그린다. 첫째 장은 화면을 거의 다 채운다. 둘째 장은 화면의 절반을 비운다. 셋째 장은 화면의 3분의 2 이상을 비우고, 비운 자리가 무엇이 될지(하늘, 물, 안개, 눈밭) 미리 정한 뒤 그 모양을 연필로 가볍게 둘러 놓고 시작한다. 세 장을 벽에 나란히 붙이고 3m쯤 물러나서 본다. 어느 장이 가장 멀리서 읽히는지, 비운 자리가 정말 하늘이나 물로 보이는지 확인한다. 마지막으로 셋째 장의 빈자리에 아주 작은 것 하나(새 한 마리, 배 한 척)를 그려 넣어 빈자리의 크기가 어떻게 달라 보이는지도 본다.
+    </div>
+
+    <p>마지막 시뮬레이터는 서윤의 낭독회 포스터를 다시 짜는 작업대다. 요소를 끌어 옮기고 바깥 여백 기준을 정하면, 여백률, 가장 큰 빈 덩어리, 어중간한 간격과 가장자리 침범을 바로 알려 준다. 두 시안(빽빽한 시안 1, 여백을 둔 시안 2)에서 출발해 직접 바꿔 본다.</p>
+
+    <div class="sim" id="sim-sw">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>여백 작업대: 낭독회 포스터 다시 짜기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="sw-cv" class="art"></canvas><span class="hint">요소를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sw-pre"><button data-value="a">시안 1(빽빽)</button><button data-value="b" class="on">시안 2(여백)</button></div>
+          <label class="ctrl"><span>바깥 여백 기준 <output id="sw-m-out"></output></span><input type="range" id="sw-m" min="0" max="15" step="0.5" value="10"></label>
+          <label class="check"><input type="checkbox" id="sw-ws" checked> 여백 칠하기와 가장 큰 빈 덩어리</label>
+          <label class="check"><input type="checkbox" id="sw-gap" checked> 어중간한 간격 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">여백률</span><span class="v" id="sw-o-ws">—</span></div>
+        <div class="stat"><span class="k">가장 큰 빈 덩어리(지면 대비)</span><span class="v" id="sw-o-big">—</span></div>
+        <div class="stat"><span class="k">점검</span><span class="v" id="sw-o-chk">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 시안 1과 시안 2를 번갈아 누른다. 여백률이 약 21%에서 약 67%로, 가장 큰 빈 덩어리가 지면의 몇 %에서 4분의 1 가까이로 커진다. ② 시안 2에서 정보 덩어리를 그림 바로 아래, 간격 2~3% 자리로 끈다. "어중간한 간격" 표시가 뜬다. 붙이려면 더 붙이고, 떼려면 더 뗀다. ③ 바깥 여백 기준을 15%로 올려 어느 요소가 기준선을 넘는지 본다. 기준을 0으로 내리면 가장자리 점검이 꺼지고, 시안 1의 문제였던 "끝까지 찬 화면"이 아무 경고 없이 통과된다. 기준은 도구가 아니라 디자이너가 정한다. (여백률은 요소 상자에 덮이지 않은 넓이, 가장 큰 빈 덩어리는 요소와 겹치지 않는 가장 큰 직사각형이다. 어중간한 간격은 두 요소 사이가 폭의 1%보다 넓고 4%보다 좁을 때로 이 책이 정했다.)</div>
+    </div>
+
+    <p>작업대에서 본 것처럼 여백률이라는 숫자 하나로는 충분하지 않다. 시안 2의 여백이 효과적인 것은 넓어서만이 아니라 큰 덩어리로 모여 있고, 요소 사이의 간격에 위계가 있기 때문이다. 같은 67%라도 요소를 화면 곳곳에 흩으면 다시 모든 곳이 어중간해진다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 10장</span></div>
+      <h4>숨이 막히는 포스터, 빈 하늘의 골목</h4>
+      <p><a href="proportion.html">9장</a>에서 제목 띠를 위쪽으로 옮긴 뒤, 서윤은 낭독회 정보(낭독자 이름, 책 제목, 날짜, 시간, 장소, 신청 방법) 여섯 줄을 남은 자리에 채워 넣었다. 처음 시안은 제목, 그림, 정보가 모두 지면의 가장자리 3% 안쪽까지 가득했다. 이 장의 작업대로 재 보니 여백률은 약 21%였고, 남은 여백은 요소 사이의 가는 띠뿐이었다. 주인은 "필요한 건 다 있는데 뭘 봐야 할지 모르겠다"고 했다.</p>
+      <p>도경은 시안을 흑백으로 복사해 여백만 연필로 칠해 보게 했다. 칠한 자리는 가늘고 긴 조각 다섯 개였다. "여백이 없는 게 아니라 쪼개져 있는 거야. 조각들을 모아 봐." 서윤은 정보를 하나도 빼지 않는 대신, 여섯 줄을 지면 왼쪽 아래의 한 덩어리(가로 약 200mm × 세로 약 60mm, 줄 간격 약 10mm)로 모았다. 큰 면(그림)과 작은 점은 9장에서 정한 크기와 자리 그대로 두고, 제목은 위쪽 띠(세로 30~40%)에 놓았다. 양옆 바깥 여백은 폭의 10%, 곧 42mm로 정했다. 그러자 제목 위의 지면 3분의 1이 통째로 비었다. 작업대의 계산으로 여백률은 약 67%, 가장 큰 빈 덩어리는 지면 위쪽을 가로지르는 한 덩어리가 되었다.</p>
+      <p>서윤은 처음에 위쪽이 너무 비어 "덜 만든 것 같다"고 걱정했다. 도경은 책장에서 조선 산수화 도록을 꺼내 「평사낙안」을 펼쳤다. "그림의 반이 비단 그대로야. 그런데 아무도 덜 그렸다고 안 하지. 빈 데가 하늘이 되니까." 서윤은 위쪽 여백이 겨울밤의 하늘처럼 읽히도록 짙은 초록 바탕을 그대로 두고, 아무것도 넣지 않기로 했다. 대신 주인에게 "멀리서 제목과 그림만 먼저 보이고, 다가오면 정보가 보이는" 순서를 길 건너에서 휴대폰 사진으로 확인시켜 주었다.</p>
+      <p>같은 주에 서윤은 「눈 오는 골목」의 썸네일 셋을 그렸다. 골목 양쪽 벽과 지붕을 화면 아래 3분의 2에 몰고, 위쪽 하늘을 화면 높이의 약 40%만큼 종이 그대로 남기는 안을 골랐다. 눈송이는 화면 전체에 고르게 뿌리지 않고, 가로등 불빛 둘레에만 몰아 남긴다(이 장의 밀도 대비). 도경의 조언대로 하늘과 눈송이 자리는 연필로 가볍게 둘러 표시하고 마스킹액으로 막은 뒤 칠하기로 했다. 서윤은 도경에게 작업대의 "여백만 칠하기"를 휴대폰 사진에 대는 법을 알려 주었고, 도경은 자기 스케치를 찍어 빈자리가 몇 덩어리로 나뉘는지 세어 보았다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>포스터 여백 비율과 「눈 오는 골목」의 빈 하늘(서윤의 선택). ① 포스터는 여백률 약 3분의 2(작업대 계산 약 67%)를 목표로, 여백을 제목 위쪽의 큰 한 덩어리로 모은다. ② 양옆 바깥 여백은 폭의 10%(42mm) 이상. ③ 정보 여섯 줄은 빼지 않고 왼쪽 아래 한 덩어리(약 200 × 60mm)로 모아 빽빽한 곳 하나와 넓은 빈 곳의 대비를 만든다. ④ 요소 사이 간격은 붙일 것은 1% 안, 뗄 것은 4% 이상으로 하고 그 사이 어중간한 간격을 두지 않는다. ⑤ 「눈 오는 골목」은 위쪽 약 40%를 종이 그대로 남긴 하늘로, 눈송이는 가로등 둘레에 몰아 남긴다. 다른 선택지, 곧 여백률 50% 안팎으로 그림을 더 크게 쓰는 안도 기록해 둔다.</div>
+        <div><b>아직 남은 문제</b>포스터 큰 면 자리에 쇼윈도 사진을 넣고 싶은데, 4:3 사진을 이 자리의 비율에 맞추려면 어딘가를 잘라야 한다. 같은 사진을 웹과 SNS에도 써야 한다.</div>
+        <div><b>다음 단계</b><a href="frame.html">11장</a>: 같은 사진을 비율별로 자르고, 프레임 속 프레임을 쓴다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>여백은 그리거나 놓지 않은 자리이며, 남은 자리(수동 여백)가 아니라 설계하는 자리(활성 여백)일 때 일한다. 바탕색과 상관없이 비어 있으면 여백이다.</li>
+      <li>여백은 고립과 강조, 쉼, 묶음, 방향, 암시, 크기와 고요를 만든다. 둘레를 비우는 것만으로 색이나 크기 없이 주인공이 생긴다.</li>
+      <li>여백은 상대적이다. 채운 곳이 있어야 비운 곳이 비어 보이며, 중요한 것은 밀도 자체보다 빽빽한 곳과 성긴 곳의 대비다.</li>
+      <li>방향을 가진 대상은 향하는 쪽에 공간을 두면 움직임이 생기고, 반대로 두면 갇히거나 지나간 것으로 읽힌다. 깨더라도 이유가 보이면 읽힌다.</li>
+      <li>수묵화는 비단과 종이를 비워 물, 안개, 하늘을 만든다. 마원은 대각선의 한쪽에 경물을 몰아 강한 밀도 대비를 만들었고, 빈자리의 모양과 자리가 그것이 무엇이 될지를 정한다.</li>
+      <li>여백은 공짜가 아니다. 같은 지면에서 여백을 늘리면 요소를 작게 하거나 내용을 덜어야 한다. "여백 = 고급" 같은 연상은 근거가 확립된 규칙이 아니다.</li>
+      <li>여백은 큰 덩어리로 모으고, 간격에 위계를 두고, 어중간한 간격과 갇힌 여백을 없앤다. 여백률 하나보다 여백의 모양과 모임이 중요하다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 정보를 하나도 빼지 않고 포스터의 여백률을 21%에서 67%로 늘렸다. 가장 가능성 높은 방법은?</p>
+        <div class="opts">
+          <button class="opt">바탕색을 짙은 초록에서 흰색으로 바꿨다.</button>
+          <button class="opt" data-correct>흩어져 있던 정보를 작은 덩어리 하나로 모으고, 요소를 조금 줄여 빈자리를 큰 덩어리로 모았다.</button>
+          <button class="opt">모든 요소 사이의 간격을 똑같이 넓혀 고르게 퍼뜨렸다.</button>
+          <button class="opt">글자를 모두 굵게 바꿔 덜 빽빽해 보이게 했다.</button>
+        </div>
+        <div class="quiz-exp">여백률은 요소에 덮이지 않은 넓이의 비율이라 바탕색과는 상관없다. 정보를 빼지 않고 여백을 늘리려면 요소를 작게 하거나 모아야 하고, 효과적인 여백은 큰 덩어리로 모일 때 생긴다. 간격을 고르게 넓혀 퍼뜨리면 요소가 지면 전체로 흩어져 여백률은 크게 늘지 않고 어중간한 간격만 많아진다. 굵은 글자는 오히려 지면을 더 무겁게 한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 회색 점이 가득한 화면에서 붉은 점 하나를 눈에 띄게 하고 싶은데, 붉은 점의 색과 크기는 바꿀 수 없다. 이 장에서 본 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">회색 점을 더 많이 추가해 화면을 채운다.</button>
+          <button class="opt">붉은 점을 화면 가장자리에 붙인다.</button>
+          <button class="opt">회색 점들도 모두 붉은색으로 바꾼다.</button>
+          <button class="opt" data-correct>붉은 점 둘레의 회색 점을 치워 빈자리로 고립시킨다.</button>
+        </div>
+        <div class="quiz-exp">둘레를 비우는 고립은 색이나 크기 없이도 주인공을 만드는 강한 강조 수단이다. 점을 더 추가하면 붉은 점이 묻히고, 가장자리에 붙이면 밀려나는 긴장이 생길 뿐 강조되지 않으며, 모든 점을 같은 색으로 바꾸면 색의 차이까지 사라진다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 남송의 마원이 「폭포를 바라보는 선비」에서 쓴 구도에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>경물을 대각선의 한쪽(왼쪽 아래)에 몰고 반대쪽을 비워, 빈자리가 선비가 바라보는 골짜기의 공기가 되게 했다.</button>
+          <button class="opt">화면 전체에 경물을 고르게 배치해 빈자리가 생기지 않게 했다.</button>
+          <button class="opt">비단이 부족해 오른쪽 위를 그리지 못하고 남겼다.</button>
+          <button class="opt">황금 나선을 따라 경물을 배치했다는 기록이 남아 있다.</button>
+        </div>
+        <div class="quiz-exp">마원은 한 귀퉁이에 경물을 몰고 나머지를 비우는 구도로 "마일각"이라는 별명을 얻었다. 이 책의 사진에서 재면 먹이 간 넓이가 대각선 왼쪽 아래에 오른쪽 위의 약 네 배로 몰린다. 빈자리는 미완성이 아니라 공기와 안개의 역할을 한다. 황금 나선을 썼다는 기록은 없으며, 9장에서 본 것처럼 나선은 사후에 무엇에나 맞출 수 있다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. A2 포스터의 바깥 여백을 4%에서 25%로 늘렸더니 정보 글줄이 너무 작아졌다. 여백을 지키면서 이 문제를 풀 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">여백은 많을수록 고급스러우므로 작은 글자를 그대로 둔다.</button>
+          <button class="opt">글줄 사이 간격을 0으로 줄여 모든 정보를 넣는다.</button>
+          <button class="opt" data-correct>전할 정보를 덜어 내거나(예: 신청 방법은 웹으로), 바깥 여백을 조금 줄여 글줄 크기와 균형을 맞춘다.</button>
+          <button class="opt">포스터 종이를 A2에서 A3로 줄인다.</button>
+        </div>
+        <div class="quiz-exp">같은 지면에서 여백을 늘리면 요소를 작게 하거나 내용을 덜어야 한다. 여백과 읽힘 사이에서 무엇을 내줄지 고르는 것이 설계다. "여백 = 고급"은 근거가 확립된 규칙이 아니고, 행간을 0으로 줄이면 정보 덩어리가 읽히지 않는다. 종이를 줄이면 글자는 더 작아진다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874", STAGE = "#e9e6df";
+  var BG = "#22342a", CREAM = "#ffe2d7", SAGE = "#567666", GREEN = "#2f7d5b", RED = "#d24f39";
+  var PR = 420 / 594;  // A2 가로세로비(폭/높이)
+
+  function hgt(el, k, lo, hi, bg) { return { bg: bg, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return AB.clamp(Math.round(w * k), lo, hi); } }; }
+  function fitRect(r, W, H, pad, top) {
+    top = top || 0;
+    var aw = W - 2 * pad, ah = H - 2 * pad - top, w = aw, h = w / r;
+    if (h > ah) { h = ah; w = h * r; }
+    return { x: (W - w) / 2, y: pad + top + (ah - h) / 2, w: w, h: h };
+  }
+  function line(ctx, x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }
+  function pct(v, d) { return (v * 100).toFixed(d == null ? 0 : d) + "%"; }
+  function label(ctx, txt, x, y, o) {
+    o = o || {};
+    ctx.save(); ctx.font = AB.font(o.size || 12, false, 600);
+    var w = ctx.measureText(txt).width + 10, h = (o.size || 12) + 8;
+    var lx = AB.clamp(x, 2, (o.maxX || 9999) - w);
+    ctx.fillStyle = o.bg || "rgba(251,250,247,0.92)"; ctx.fillRect(lx, y - h / 2, w, h);
+    ctx.fillStyle = o.color || INK; ctx.textBaseline = "middle"; ctx.fillText(txt, lx + 5, y + 0.5);
+    ctx.restore();
+  }
+
+  /* ---------------- 책방 E 낭독회 포스터(가상의 예시): 요소 상자 [x0, y0, x1, y1] (지면 폭·높이 비율) ---------------- */
+  var PRESET = {
+    a: { title: [0.04, 0.04, 0.96, 0.17], image: [0.04, 0.19, 0.96, 0.55], dot: [0.72, 0.45, 0.80, 0.51], info: [0.04, 0.57, 0.96, 0.88], logo: [0.04, 0.90, 0.96, 0.96] },
+    b: { title: [0.10, 0.30, 0.90, 0.40], image: [0.14, 0.45, 0.70, 0.79], dot: [0.605, 0.615, 0.675, 0.665], info: [0.10, 0.84, 0.58, 0.94], logo: [0.76, 0.875, 0.90, 0.935] },
+  };
+  var KEYS = ["title", "image", "dot", "info", "logo"], NAME = { title: "제목", image: "그림", dot: "작은 점", info: "정보", logo: "로고" };
+  function drawPoster(ctx, R, E, o) {
+    o = o || {};
+    ctx.fillStyle = BG; ctx.fillRect(R.x, R.y, R.w, R.h);
+    var bx = function (b) { return { x: R.x + b[0] * R.w, y: R.y + b[1] * R.h, w: (b[2] - b[0]) * R.w, h: (b[3] - b[1]) * R.h }; };
+    var t = bx(E.title), im = bx(E.image), d = bx(E.dot), inf = bx(E.info), lg = bx(E.logo);
+    if (o.blocks) {
+      ctx.fillStyle = "#7f9a8b"; KEYS.forEach(function (k) { var b = bx(E[k]); ctx.fillRect(b.x, b.y, b.w, b.h); });
+      return;
+    }
+    // 그림(큰 면): 쌓인 책과 창
+    ctx.fillStyle = SAGE; ctx.fillRect(im.x, im.y, im.w, im.h);
+    ctx.fillStyle = GREEN; ctx.fillRect(im.x + im.w * 0.1, im.y + im.h * 0.62, im.w * 0.8, im.h * 0.12);
+    ctx.fillStyle = "#3f5a4c"; ctx.fillRect(im.x + im.w * 0.16, im.y + im.h * 0.5, im.w * 0.66, im.h * 0.1);
+    ctx.fillStyle = "#e9d8b8"; ctx.fillRect(im.x + im.w * 0.2, im.y + im.h * 0.12, im.w * 0.6, im.h * 0.3);
+    // 작은 점
+    ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(d.x + d.w / 2, d.y + d.h / 2, Math.min(d.w, d.h) / 2, 0, Math.PI * 2); ctx.fill();
+    // 제목: 굵은 줄 하나 + 부제 한 줄
+    ctx.fillStyle = CREAM;
+    ctx.fillRect(t.x, t.y, t.w, t.h * 0.58);
+    ctx.fillRect(t.x, t.y + t.h * 0.75, t.w * 0.55, t.h * 0.25);
+    // 정보 n줄
+    var n = o.lines || 6, lh = inf.h / n;
+    for (var i = 0; i < n; i++) ctx.fillRect(inf.x, inf.y + i * lh + lh * 0.25, inf.w * (i % 3 === 2 ? 0.6 : i % 2 ? 0.85 : 1), lh * 0.45);
+    // 로고
+    ctx.fillRect(lg.x, lg.y, Math.min(lg.h, lg.w * 0.3), lg.h);
+    ctx.fillRect(lg.x + lg.h * 1.3, lg.y + lg.h * 0.35, Math.max(0, lg.w - lg.h * 1.3), lg.h * 0.3);
+  }
+  // 여백률: 지면을 N칸으로 나눠 요소 상자에 덮이지 않은 칸의 비율
+  function coverGrid(E, N) {
+    var W = N, H = Math.round(N / PR), g = new Uint8Array(W * H);
+    KEYS.forEach(function (k) {
+      var b = E[k], x0 = Math.max(0, Math.round(b[0] * W)), x1 = Math.min(W, Math.round(b[2] * W)), y0 = Math.max(0, Math.round(b[1] * H)), y1 = Math.min(H, Math.round(b[3] * H));
+      for (var y = y0; y < y1; y++) for (var x = x0; x < x1; x++) g[y * W + x] = 1;
+    });
+    return { g: g, W: W, H: H };
+  }
+  function whiteRatio(E) { var c = coverGrid(E, 210), s = 0; for (var i = 0; i < c.g.length; i++) s += c.g[i]; return 1 - s / c.g.length; }
+  // 가장 큰 빈 직사각형(히스토그램 + 스택, 이진 행렬의 최대 직사각형)
+  function largestEmpty(c) {
+    var W = c.W, H = c.H, hgts = new Int32Array(W), best = { a: 0 };
+    for (var y = 0; y < H; y++) {
+      for (var x = 0; x < W; x++) hgts[x] = c.g[y * W + x] ? 0 : hgts[x] + 1;
+      var st = [];
+      for (var i = 0; i <= W; i++) {
+        var hh = i < W ? hgts[i] : 0;
+        while (st.length && hgts[st[st.length - 1]] >= hh) {
+          var top = st.pop(), ht = hgts[top], left = st.length ? st[st.length - 1] + 1 : 0, a = ht * (i - left);
+          if (a > best.a) best = { a: a, x: left, y: y - ht + 1, w: i - left, h: ht };
+        }
+        st.push(i);
+      }
+    }
+    return best;
+  }
+
+  /* ---------------- 시뮬레이터 1: 같은 내용, 다른 여백 ---------------- */
+  (function () {
+    var cvA = null, cvB = null, both = function () { if (cvA) cvA.redraw(); if (cvB) cvB.redraw(); };
+    var view = AB.seg("sc-view", both), squint = AB.check("sc-squint", both);
+    function make(key) {
+      return function (ctx, w, h) {
+        var R = fitRect(PR, w, h, 14);
+        ctx.save();
+        if (squint()) ctx.filter = "blur(" + Math.max(2, R.w * 0.012).toFixed(1) + "px)";
+        drawPoster(ctx, R, PRESET[key], { blocks: view() === "blocks" });
+        ctx.restore();
+        if (view() === "blocks") {
+          ctx.save(); ctx.globalCompositeOperation = "destination-over"; ctx.restore();
+          // 여백 칸을 밝게 칠한다
+          var c = coverGrid(PRESET[key], 84), cw = R.w / c.W, ch = R.h / c.H;
+          ctx.fillStyle = "rgba(255,226,215,0.55)";
+          for (var y = 0; y < c.H; y++) for (var x = 0; x < c.W; x++) if (!c.g[y * c.W + x]) ctx.fillRect(R.x + x * cw, R.y + y * ch, cw + 0.4, ch + 0.4);
+        }
+      };
+    }
+    var ea = document.getElementById("sc-a");
+    cvA = AB.canvas(ea, make("a"), hgt(ea, 1.0, 300, 520, STAGE));
+    cvB = AB.canvas("#sc-b", make("b"), hgt(document.getElementById("sc-b"), 1.0, 300, 520, STAGE));
+    AB.compare("#sc-cmp", { labels: ["시안 1: 빽빽", "시안 2: 여백"], pos: 0.5 });
+    AB.stat("sc-o-a", pct(whiteRatio(PRESET.a)));
+    AB.stat("sc-o-b", pct(whiteRatio(PRESET.b)));
+  })();
+
+  /* ---------------- 시뮬레이터 2: 둘레를 비우면 ---------------- */
+  (function () {
+    var el = document.getElementById("si-cv"), cv = null, R = null, hero = { x: 0.62, y: 0.42 };
+    var redraw = function () { if (cv) cv.redraw(); };
+    var nG = AB.range("si-n", function (v) { return v + "개"; }, redraw);
+    var rG = AB.range("si-r", function (v) { return v + "%"; }, redraw);
+    var same = AB.check("si-same", redraw);
+    // 고정 시드의 후보 자리 400개(가로 1.5 × 세로 1 단위)
+    var rnd = AB.rng(2026), CAND = [];
+    for (var i = 0; i < 400; i++) CAND.push([0.03 + 0.94 * rnd(), 0.04 + 0.92 * rnd()]);
+    cv = AB.canvas(el, function (ctx, w, h) {
+      R = fitRect(1.5, w, h, 14);
+      ctx.fillStyle = "#f3efe6"; ctx.fillRect(R.x, R.y, R.w, R.h);
+      var s = Math.min(R.w, R.h), rr = rG() / 100 * s, hx = R.x + hero.x * R.w, hy = R.y + hero.y * R.h;
+      var pts = [];
+      for (var i = 0; i < CAND.length && pts.length < nG(); i++) {
+        var px = R.x + CAND[i][0] * R.w, py = R.y + CAND[i][1] * R.h;
+        if (Math.hypot(px - hx, py - hy) < rr + s * 0.03) continue;
+        pts.push([px, py]);
+      }
+      var dotR = Math.max(3.5, s * 0.016);
+      ctx.fillStyle = "#8a847a";
+      pts.forEach(function (p) { ctx.beginPath(); ctx.arc(p[0], p[1], dotR, 0, Math.PI * 2); ctx.fill(); });
+      ctx.fillStyle = same() ? "#8a847a" : RED; ctx.beginPath(); ctx.arc(hx, hy, dotR, 0, Math.PI * 2); ctx.fill();
+      AB.handle(ctx, hx, hy, { r: dotR + 3, fill: same() ? "#8a847a" : RED });
+      // 고리 밀도: 반지름 0.2s 안의 점 수 / 기대값
+      var ring = s * 0.2, inRing = 0;
+      pts.forEach(function (p) { if (Math.hypot(p[0] - hx, p[1] - hy) < ring) inRing++; });
+      // 고리가 화면 밖으로 나간 부분을 빼고 넓이를 센다(격자 표본)
+      var inside = 0, tot = 0;
+      for (var a = -10; a <= 10; a++) for (var b = -10; b <= 10; b++) { var dx = a / 10 * ring, dy = b / 10 * ring; if (dx * dx + dy * dy > ring * ring) continue; tot++; var X = hx + dx, Y = hy + dy; if (X >= R.x && X <= R.x + R.w && Y >= R.y && Y <= R.y + R.h) inside++; }
+      var areaRing = Math.PI * ring * ring * inside / tot, mean = pts.length / (R.w * R.h);
+      var rel = mean > 0 ? (inRing / areaRing) / mean : NaN;
+      ctx.save(); ctx.strokeStyle = "rgba(43,42,48,0.25)"; ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.arc(hx, hy, ring, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+      AB.stat("si-o-d", isFinite(rel) ? rel.toFixed(2) + " 배" : "주변 요소 없음");
+      var iso = isFinite(rel) ? AB.clamp(1 - rel, -1, 1) : NaN;
+      AB.stat("si-o-iso", isFinite(iso) ? iso.toFixed(2) + (iso > 0.8 ? " (둘레가 거의 빔)" : iso < 0.3 ? " (묻힘)" : "") : "—");
+    }, hgt(el, 0.62, 230, 420, PAPER));
+    AB.drag(cv.canvas, { move: function (x, y) { if (!R) return; hero.x = AB.clamp((x - R.x) / R.w, 0.03, 0.97); hero.y = AB.clamp((y - R.y) / R.h, 0.04, 0.96); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 밀도 대비 ---------------- */
+  (function () {
+    var el = document.getElementById("sd-cv"), cv = null, R = null, c = { x: 0.68, y: 0.36 };
+    var redraw = function () { if (cv) cv.redraw(); };
+    var pG = AB.range("sd-p", function (v) { return v + "%"; }, redraw);
+    var rG = AB.range("sd-r", function (v) { return v + "%"; }, redraw);
+    var grid = AB.check("sd-grid", redraw);
+    var N = 280, rnd = AB.rng(77), U = [], GN = [], ANG = [];
+    function gauss() { var u = 1 - rnd(), v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+    for (var i = 0; i < N; i++) { U.push([rnd(), rnd()]); GN.push([gauss(), gauss()]); ANG.push(rnd()); }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      R = fitRect(1.6, w, h, 14);
+      ctx.fillStyle = "#2e3a44"; ctx.fillRect(R.x, R.y, R.w, R.h);
+      var p = pG() / 100, sd = rG() / 100, nC = Math.round(N * p), pts = [];
+      for (var i = 0; i < N; i++) {
+        var x, y;
+        if (i < nC) { x = c.x + GN[i][0] * sd / 1.6; y = c.y + GN[i][1] * sd; }
+        else { x = U[i][0]; y = U[i][1]; }
+        if (x < 0.01 || x > 0.99 || y < 0.01 || y > 0.99) { x = AB.clamp(x, 0.01, 0.99); y = AB.clamp(y, 0.01, 0.99); }
+        pts.push([x, y, ANG[i]]);
+      }
+      var GX = 8, GY = 5, cnt = new Array(GX * GY).fill(0);
+      pts.forEach(function (q) { cnt[Math.min(GY - 1, Math.floor(q[1] * GY)) * GX + Math.min(GX - 1, Math.floor(q[0] * GX))]++; });
+      if (grid()) {
+        var mx = Math.max.apply(null, cnt);
+        for (var gy = 0; gy < GY; gy++) for (var gx = 0; gx < GX; gx++) {
+          var v = cnt[gy * GX + gx] / Math.max(1, mx);
+          ctx.fillStyle = "rgba(255,226,215," + (0.05 + 0.4 * v).toFixed(3) + ")";
+          ctx.fillRect(R.x + gx * R.w / GX + 1, R.y + gy * R.h / GY + 1, R.w / GX - 2, R.h / GY - 2);
+        }
+      }
+      var L = Math.max(4, R.w * 0.012);
+      ctx.strokeStyle = "#f4f1ea"; ctx.lineWidth = Math.max(1.4, R.w * 0.0035); ctx.lineCap = "round";
+      pts.forEach(function (q) { var x = R.x + q[0] * R.w, y = R.y + q[1] * R.h, a = -0.6 + q[2] * 0.5; line(ctx, x, y, x + Math.cos(a) * L, y - Math.sin(a) * L); });
+      AB.handle(ctx, R.x + c.x * R.w, R.y + c.y * R.h, { r: 7, fill: "#d24f39" });
+      var mean = N / (GX * GY), mxc = Math.max.apply(null, cnt), empty = cnt.filter(function (v) { return v === 0; }).length;
+      AB.stat("sd-o-max", (mxc / mean).toFixed(1) + " 배");
+      AB.stat("sd-o-empty", empty + " / " + (GX * GY) + "칸");
+    }, hgt(el, 0.6, 220, 400, PAPER));
+    AB.drag(cv.canvas, { move: function (x, y) { if (!R) return; c.x = AB.clamp((x - R.x) / R.w, 0.05, 0.95); c.y = AB.clamp((y - R.y) / R.h, 0.05, 0.95); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 시선 앞 공간 ---------------- */
+  (function () {
+    var el = document.getElementById("sl-cv"), cv = null, R = null, bx = 0.3;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var face = AB.seg("sl-face", redraw), wind = AB.check("sl-wind", redraw);
+    function bird(ctx, x, y, s, dir) {
+      ctx.save(); ctx.translate(x, y); ctx.scale(dir, 1);
+      ctx.fillStyle = "#2b2a30";
+      ctx.beginPath(); ctx.ellipse(0, 0, s, s * 0.32, -0.08, 0, Math.PI * 2); ctx.fill();          // 몸
+      ctx.beginPath(); ctx.arc(s * 0.95, -s * 0.18, s * 0.24, 0, Math.PI * 2); ctx.fill();         // 머리
+      ctx.beginPath(); ctx.moveTo(s * 1.15, -s * 0.2); ctx.lineTo(s * 1.5, -s * 0.12); ctx.lineTo(s * 1.15, -s * 0.06); ctx.fill(); // 부리
+      ctx.beginPath(); ctx.moveTo(-s * 0.2, -s * 0.1); ctx.quadraticCurveTo(-s * 0.4, -s * 1.3, -s * 1.2, -s * 1.1); ctx.quadraticCurveTo(-s * 0.3, -s * 0.5, s * 0.4, -s * 0.1); ctx.fill(); // 날개
+      ctx.beginPath(); ctx.moveTo(-s * 0.9, 0); ctx.lineTo(-s * 1.55, -s * 0.25); ctx.lineTo(-s * 1.5, s * 0.2); ctx.fill(); // 꼬리
+      ctx.restore();
+    }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      R = fitRect(1.8, w, h, 14);
+      var g = ctx.createLinearGradient(0, R.y, 0, R.y + R.h); g.addColorStop(0, "#e8edf1"); g.addColorStop(1, "#f6f2ea");
+      ctx.fillStyle = g; ctx.fillRect(R.x, R.y, R.w, R.h);
+      ctx.strokeStyle = "#c7cdd2"; ctx.lineWidth = 1; line(ctx, R.x, R.y + R.h * 0.8, R.x + R.w, R.y + R.h * 0.8);
+      var dir = face() === "r" ? 1 : -1, s = R.h * 0.11, x = R.x + bx * R.w, y = R.y + R.h * 0.45;
+      if (wind()) {
+        ctx.strokeStyle = "rgba(43,42,48,0.35)"; ctx.lineWidth = 1.5; ctx.lineCap = "round";
+        for (var k = 0; k < 4; k++) { var yy = y - s * 0.4 + k * s * 0.3, x0 = x - dir * s * 1.8, x1 = dir > 0 ? R.x + 6 : R.x + R.w - 6; line(ctx, x0, yy, x0 + (x1 - x0) * (0.55 + 0.1 * k), yy); }
+      }
+      bird(ctx, x, y, s, dir);
+      AB.handle(ctx, x, y + s * 0.9, { r: 6 });
+      var front = dir > 0 ? 1 - bx : bx, back = 1 - front;
+      AB.stat("sl-o-f", pct(front)); AB.stat("sl-o-b", pct(back));
+      var m = front < 0.12 ? (wind() ? "막 지나간 속도(이유가 보인다)" : "갇힘, 벽에 부딪힐 듯") : front < 0.4 ? (wind() ? "지나온 흔적, 속도" : "지나온 길, 떠나감") : front > 0.85 ? "등 뒤가 막혀 쫓기는 듯" : "날아갈 곳이 열림";
+      AB.stat("sl-o-m", m);
+    }, hgt(el, 0.5, 200, 360, PAPER));
+    AB.drag(cv.canvas, { move: function (x) { if (!R) return; bx = AB.clamp((x - R.x) / R.w, 0.06, 0.94); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 수묵화의 여백 지도 ---------------- */
+  (function () {
+    var el = document.getElementById("sm-cv"), cv = null, R = null;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var SRC = { mayuan: "../../shared/img/ma-yuan-scholar-waterfall.webp", joseon: "../../shared/img/joseon-wild-geese-sandbar.webp" };
+    var data = {}, map = {}, ends = { mayuan: [[0, 0], [1, 1]], joseon: [[0, 0.5], [1, 0.5]] }, drag = -1;
+    var img = AB.seg("sm-img", redraw), dG = AB.range("sm-d", function (v) { return "L* " + v; }, function () { map = {}; redraw(); }), view = AB.seg("sm-view", redraw);
+    var LUT = new Float32Array(256); for (var i = 0; i < 256; i++) LUT[i] = ART.toLinear(i / 255);
+    function lstar(Y) { return Y > 216 / 24389 ? 116 * Math.cbrt(Y) - 16 : (24389 / 27) * Y; }
+    Object.keys(SRC).forEach(function (k) {
+      AB.loadImage(SRC[k]).then(function (im) {
+        var id = AB.imageData(im, 240), n = id.width * id.height, L = new Float32Array(n), d = id.data;
+        for (var i = 0; i < n; i++) L[i] = lstar(0.2126 * LUT[d[i * 4]] + 0.7152 * LUT[d[i * 4 + 1]] + 0.0722 * LUT[d[i * 4 + 2]]);
+        var sorted = Array.prototype.slice.call(L).sort(function (a, b) { return a - b; });
+        data[k] = { im: im, w: id.width, h: id.height, L: L, silk: sorted[Math.floor(n * 0.7)] };
+        redraw();
+      });
+    });
+    function inkMap(k) {
+      var D = data[k]; if (!D) return null;
+      var key = k + dG(); if (map[key]) return map[key];
+      var th = D.silk - dG(), c = document.createElement("canvas"); c.width = D.w; c.height = D.h;
+      var x = c.getContext("2d"), out = x.createImageData(D.w, D.h), ink = new Uint8Array(D.w * D.h);
+      for (var i = 0; i < ink.length; i++) {
+        ink[i] = D.L[i] < th ? 1 : 0;
+        var v = ink[i] ? [43, 42, 48] : [244, 238, 226];
+        out.data[i * 4] = v[0]; out.data[i * 4 + 1] = v[1]; out.data[i * 4 + 2] = v[2]; out.data[i * 4 + 3] = 255;
+      }
+      x.putImageData(out, 0, 0);
+      return (map[key] = { canvas: c, ink: ink, w: D.w, h: D.h });
+    }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      var k = img(), D = data[k];
+      var r = D ? D.w / D.h : 1;
+      R = fitRect(r, w, h, 12);
+      if (!D) { ctx.fillStyle = INK_DIM; ctx.font = AB.font(13); ctx.fillText("그림을 불러오는 중…", R.x + 10, R.y + 20); return; }
+      var M = inkMap(k);
+      ctx.imageSmoothingEnabled = view() === "img";
+      if (view() === "img") ctx.drawImage(D.im, R.x, R.y, R.w, R.h); else ctx.drawImage(M.canvas, R.x, R.y, R.w, R.h);
+      ctx.imageSmoothingEnabled = true;
+      // 나누는 선
+      var E = ends[k], ax = R.x + E[0][0] * R.w, ay = R.y + E[0][1] * R.h, bx = R.x + E[1][0] * R.w, by = R.y + E[1][1] * R.h;
+      ctx.save(); ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 4; line(ctx, ax, ay, bx, by); ctx.strokeStyle = "#c9661f"; ctx.lineWidth = 2; line(ctx, ax, ay, bx, by); ctx.restore();
+      AB.handle(ctx, ax, ay, { r: 7 }); AB.handle(ctx, bx, by, { r: 7 });
+      // 선의 양쪽 먹 넓이(단위 좌표의 외적 부호로 가른다)
+      var s1 = 0, n1 = 0, s2 = 0, n2 = 0, tot = 0;
+      var ex = E[1][0] - E[0][0], ey = E[1][1] - E[0][1];
+      for (var y = 0; y < M.h; y++) for (var x = 0; x < M.w; x++) {
+        var u = (x + 0.5) / M.w, v = (y + 0.5) / M.h, side = ex * (v - E[0][1]) - ey * (u - E[0][0]), ink = M.ink[y * M.w + x];
+        tot += ink; if (side < 0) { s1 += ink; n1++; } else { s2 += ink; n2++; }
+      }
+      AB.stat("sm-o-all", pct(tot / (M.w * M.h)));
+      // 이름 붙이기: 선의 오른쪽(위)·왼쪽(아래)
+      var a = n1 ? s1 / n1 : 0, b = n2 ? s2 / n2 : 0;
+      AB.stat("sm-o-split", "한쪽 " + pct(a) + " · 다른 쪽 " + pct(b) + (Math.min(a, b) > 0.005 ? " (" + (Math.max(a, b) / Math.min(a, b)).toFixed(1) + "배)" : ""));
+    }, hgt(el, 0.9, 260, 520, STAGE));
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        drag = -1; if (!R) return; var E = ends[img()], best = 40;
+        E.forEach(function (p, i) { var d = Math.hypot(x - (R.x + p[0] * R.w), y - (R.y + p[1] * R.h)); if (d < best) { best = d; drag = i; } });
+      },
+      move: function (x, y) {
+        if (drag < 0 || !R) return; var p = ends[img()][drag];
+        p[0] = AB.clamp((x - R.x) / R.w, 0, 1); p[1] = AB.clamp((y - R.y) / R.h, 0, 1); cv.redraw();
+      },
+      end: function () { drag = -1; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 여백을 늘리면 ---------------- */
+  (function () {
+    var el = document.getElementById("sg-cv"), cv = null;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var mG = AB.range("sg-m", function (v) { return v + "%"; }, redraw);
+    var gG = AB.range("sg-g", function (v) { return v + "%"; }, redraw);
+    var cut = AB.check("sg-cut", redraw);
+    var MIN_MM = 8; // 정보 글줄 높이 하한(이 책의 가정)
+    cv = AB.canvas(el, function (ctx, w, h) {
+      var R = fitRect(PR, w, h, 14);
+      var m = mG() / 100, g = gG() / 100, lines = cut() ? 4 : 6;
+      // 여백은 폭 기준 비율로 네 변에 같은 mm
+      var mx = m, my = m * PR, gy = g * PR;
+      var inner = 1 - 2 * my - 2 * gy;          // 내용이 쓸 수 있는 세로 비율
+      var hT = inner * 0.18, hI = inner * 0.52, hN = inner * 0.30;
+      // 정보는 줄 수에 맞춰 줄 높이를 정하되, 줄이면 남는 높이를 그림에 준다
+      var lineH = hN / 6;
+      if (cut()) { hN = lineH * 4 * 1.25; lineH = hN / 4; hI = inner - hT - hN; }
+      var y0 = my, E = {
+        title: [mx, y0, 1 - mx, y0 + hT],
+        image: [mx, y0 + hT + gy, 1 - mx, y0 + hT + gy + hI],
+        dot: [0.5 + (1 - 2 * mx) * 0.22 - 0.03, y0 + hT + gy + hI * 0.55, 0.5 + (1 - 2 * mx) * 0.22 + 0.03, y0 + hT + gy + hI * 0.55 + 0.03 * PR * 2],
+        info: [mx, y0 + hT + 2 * gy + hI, 1 - mx - (1 - 2 * mx) * 0.3, 1 - my],
+        logo: [1 - mx - (1 - 2 * mx) * 0.2, 1 - my - hN * 0.25, 1 - mx, 1 - my],
+      };
+      drawPoster(ctx, R, E, { lines: lines });
+      // 여백 기준선
+      if (m > 0) { ctx.save(); ctx.strokeStyle = "rgba(255,226,215,0.35)"; ctx.setLineDash([4, 4]); ctx.strokeRect(R.x + mx * R.w, R.y + my * R.h, (1 - 2 * mx) * R.w, (1 - 2 * my) * R.h); ctx.restore(); }
+      var mm = lineH * 594, ws = whiteRatio(E);
+      AB.stat("sg-o-ws", pct(ws));
+      AB.stat("sg-o-txt", "줄 높이 약 " + mm.toFixed(0) + "mm (글자는 그 절반 남짓)");
+      var st = mm < MIN_MM ? "정보가 너무 작다: 덜어 내거나 여백을 줄인다" : m < 0.03 ? "가장자리까지 꽉 참" : g < 0.01 ? "무리 사이가 붙어 한 덩어리" : "균형";
+      AB.stat("sg-o-st", st);
+      if (mm < MIN_MM) label(ctx, "글줄 " + mm.toFixed(0) + "mm < " + MIN_MM + "mm", R.x + 6, R.y + R.h - 14, { color: "#9a2f22", maxX: R.x + R.w - 4 });
+    }, hgt(el, 1.0, 320, 520, STAGE));
+  })();
+
+  /* ---------------- 시뮬레이터 7: 여백 작업대 ---------------- */
+  (function () {
+    var el = document.getElementById("sw-cv"), cv = null, R = null, drag = null, off = null;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var E = JSON.parse(JSON.stringify(PRESET.b));
+    var pre = AB.seg("sw-pre", function (v) { E = JSON.parse(JSON.stringify(PRESET[v])); redraw(); });
+    var mG = AB.range("sw-m", function (v) { return v + "%"; }, redraw);
+    var wsC = AB.check("sw-ws", redraw), gapC = AB.check("sw-gap", redraw);
+    function gapBetween(a, b) {  // 두 상자 사이의 빈 간격(폭 비율, 세로는 mm 같게 환산). 겹치면 -1
+      var dx = Math.max(a[0] - b[2], b[0] - a[2]), dy = Math.max(a[1] - b[3], b[1] - a[3]) / PR;
+      if (dx < 0 && dy < 0) return -1;
+      return dx < 0 ? { d: dy, ax: "y" } : dy < 0 ? { d: dx, ax: "x" } : { d: Math.hypot(dx, dy), ax: "xy" };
+    }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      R = fitRect(PR, w, h, 14);
+      drawPoster(ctx, R, E);
+      var c = coverGrid(E, 84), best = largestEmpty(c), cw = R.w / c.W, ch = R.h / c.H;
+      if (wsC()) {
+        ctx.fillStyle = "rgba(255,226,215,0.16)";
+        for (var y = 0; y < c.H; y++) for (var x = 0; x < c.W; x++) if (!c.g[y * c.W + x]) ctx.fillRect(R.x + x * cw, R.y + y * ch, cw + 0.4, ch + 0.4);
+        if (best.a) { ctx.save(); ctx.strokeStyle = "#ffcf3a"; ctx.lineWidth = 2; ctx.setLineDash([6, 4]); ctx.strokeRect(R.x + best.x * cw + 2, R.y + best.y * ch + 2, best.w * cw - 4, best.h * ch - 4); ctx.restore(); }
+      }
+      var m = mG() / 100, issues = [];
+      if (m > 0) {
+        ctx.save(); ctx.strokeStyle = "rgba(143,184,232,0.8)"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.2;
+        ctx.strokeRect(R.x + m * R.w, R.y + m * PR * R.h, (1 - 2 * m) * R.w, (1 - 2 * m * PR) * R.h); ctx.restore();
+        KEYS.forEach(function (k) { var b = E[k]; if (b[0] < m - 0.002 || b[2] > 1 - m + 0.002 || b[1] < m * PR - 0.002 || b[3] > 1 - m * PR + 0.002) issues.push(NAME[k] + " 여백 침범"); });
+      }
+      // 어중간한 간격(1%~4%)
+      var pairs = [];
+      for (var i = 0; i < KEYS.length; i++) for (var j = i + 1; j < KEYS.length; j++) {
+        var a = E[KEYS[i]], b = E[KEYS[j]], gp = gapBetween(a, b);
+        if (gp !== -1 && gp.d > 0.01 && gp.d < 0.04) pairs.push([KEYS[i], KEYS[j], gp]);
+      }
+      if (gapC()) pairs.forEach(function (p) {
+        var a = E[p[0]], b = E[p[1]], ax = (Math.max(a[0], b[0]) + Math.min(a[2], b[2])) / 2, ay = (Math.max(a[1], b[1]) + Math.min(a[3], b[3])) / 2;
+        if (p[2].ax === "y") { var y1 = Math.min(a[3], b[3]), y2 = Math.max(a[1], b[1]); ctx.strokeStyle = "#ff8a5c"; ctx.lineWidth = 3; line(ctx, R.x + ax * R.w - 14, R.y + (y1 + y2) / 2 * R.h, R.x + ax * R.w + 14, R.y + (y1 + y2) / 2 * R.h); }
+        else { var x1 = Math.min(a[2], b[2]), x2 = Math.max(a[0], b[0]); ctx.strokeStyle = "#ff8a5c"; ctx.lineWidth = 3; line(ctx, R.x + (x1 + x2) / 2 * R.w, R.y + ay * R.h - 14, R.x + (x1 + x2) / 2 * R.w, R.y + ay * R.h + 14); }
+      });
+      pairs.forEach(function (p) { issues.push(NAME[p[0]] + "–" + NAME[p[1]] + " 어중간한 간격"); });
+      KEYS.forEach(function (k) { var b = E[k]; AB.handle(ctx, R.x + (b[0] + b[2]) / 2 * R.w, R.y + (b[1] + b[3]) / 2 * R.h, { r: 5, fill: k === "dot" ? RED : "#ffffff" }); });
+      AB.stat("sw-o-ws", pct(whiteRatio(E)));
+      AB.stat("sw-o-big", pct(best.a / (c.W * c.H)));
+      AB.stat("sw-o-chk", issues.length ? issues.slice(0, 3).join(" · ") + (issues.length > 3 ? " 외 " + (issues.length - 3) + "건" : "") : "문제 없음");
+    }, hgt(el, 1.2, 360, 600, STAGE));
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        drag = null; if (!R) return;
+        var u = (x - R.x) / R.w, v = (y - R.y) / R.h;
+        ["dot", "logo", "title", "info", "image"].some(function (k) { var b = E[k]; if (u >= b[0] - 0.015 && u <= b[2] + 0.015 && v >= b[1] - 0.01 && v <= b[3] + 0.01) { drag = k; return true; } return false; });
+        if (drag) off = [u - E[drag][0], v - E[drag][1]];
+      },
+      move: function (x, y) {
+        if (!drag || !R) return; var b = E[drag], bw = b[2] - b[0], bh = b[3] - b[1];
+        var nx = AB.clamp((x - R.x) / R.w - off[0], 0, 1 - bw), ny = AB.clamp((y - R.y) / R.h - off[1], 0, 1 - bh);
+        E[drag] = [nx, ny, nx + bw, ny + bh]; cv.redraw();
+      },
+      end: function () { drag = null; },
+    });
+  })();
+})();
+</script>
+</body>
+</html>
