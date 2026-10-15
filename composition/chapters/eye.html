@@ -1,0 +1,1086 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "눈은 화면을 한 번에 보지 않고 몇 군데를 건너뛰며 읽는다. 초점을 만드는 대비, 방향선과 시선·손짓, 읽기 방향, 직접 만든 현저성 모델, 야르부스 이후 시선 추적 연구가 보여 준 과제와 개인차를 시뮬레이터로 익히고, 날짜를 마지막에 찾게 되는 낭독회 포스터의 시선 경로를 고친다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시선의 흐름 · CompositionBook</title>
+<meta name="description" content="눈은 화면을 한 번에 보지 않고 몇 군데를 건너뛰며 읽는다. 초점을 만드는 대비, 방향선과 시선·손짓, 읽기 방향, 직접 만든 현저성 모델, 야르부스 이후 시선 추적 연구가 보여 준 과제와 개인차를 시뮬레이터로 익히고, 날짜를 마지막에 찾게 되는 낭독회 포스터의 시선 경로를 고친다.">
+<link rel="canonical" href="https://artbook.euiyun.com/composition/chapters/eye.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="시선의 흐름 · CompositionBook">
+<meta property="og:description" content="눈은 화면을 한 번에 보지 않고 몇 군데를 건너뛰며 읽는다. 초점을 만드는 대비, 방향선과 시선·손짓, 읽기 방향, 직접 만든 현저성 모델, 야르부스 이후 시선 추적 연구가 보여 준 과제와 개인차를 시뮬레이터로 익히고, 날짜를 마지막에 찾게 되는 낭독회 포스터의 시선 경로를 고친다.">
+<meta property="og:url" content="https://artbook.euiyun.com/composition/chapters/eye.html">
+<meta property="og:image" content="https://artbook.euiyun.com/composition/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/composition/chapters/eye.html#chapter","name":"시선의 흐름","headline":"시선의 흐름 · CompositionBook","description":"눈은 화면을 한 번에 보지 않고 몇 군데를 건너뛰며 읽는다. 초점을 만드는 대비, 방향선과 시선·손짓, 읽기 방향, 직접 만든 현저성 모델, 야르부스 이후 시선 추적 연구가 보여 준 과제와 개인차를 시뮬레이터로 익히고, 날짜를 마지막에 찾게 되는 낭독회 포스터의 시선 경로를 고친다.","url":"https://artbook.euiyun.com/composition/chapters/eye.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/composition/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/composition/#book","name":"CompositionBook · 형태와 구도","url":"https://artbook.euiyun.com/composition/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"CompositionBook · 형태와 구도","item":"https://artbook.euiyun.com/composition/"},{"@type":"ListItem","position":3,"name":"5. 시선의 흐름","item":"https://artbook.euiyun.com/composition/chapters/eye.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="eye">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 05</div>
+    <h1>시선의 흐름</h1>
+    <p class="lead">지하철 승강장에서 맞은편 벽의 포스터를 2~3초 본다고 하자. 기억에 남는 것은 무엇일까. 큰 얼굴, 커다란 제목, 혹은 혼자 빨간 무언가일 것이다. 날짜와 장소처럼 정작 필요한 정보는 열차가 들어온 뒤에야 "그래서 언제였지?" 하고 떠오른다. 눈은 화면을 한 번에 다 보지 않는다. 몇 군데를 골라 건너뛰며 읽고, 어디서 시작해 어디로 갈지는 화면이 만든 대비와 선과 시선, 그리고 보는 사람이 무엇을 찾는지가 함께 정한다. 이 장은 그 흐름을 직접 움직여 보고, 시선 추적 연구가 실제로 무엇을 밝혔고 무엇은 밝히지 못했는지도 함께 본다.</p>
+    <ul class="objectives">
+      <li>눈이 고정과 도약을 되풀이하며 화면의 일부만 선명하게 본다는 것을 시뮬레이터로 체험한다.</li>
+      <li>초점이 "다른 것 하나"의 대비에서 생기며, 주변이 시끄러우면 같은 대비도 묻힌다는 것을 확인한다.</li>
+      <li>명도·색·윤곽의 국소 대비로 현저성 지도를 만드는 단순 모델을 돌려 보고, 그 한계를 말할 수 있다.</li>
+      <li>방향선, 화면 속 인물의 시선과 손짓, 읽기 방향이 시선을 옮기는 방식을 작품과 예시로 읽는다.</li>
+      <li>야르부스(1967) 이후의 시선 추적 연구가 과제와 개인차에 따라 결과가 크게 달라진다고 보고한다는 것을 알고, 시선 경로를 "설계"할 때 그 근거 수준을 밝힌다.</li>
+    </ul>
+  </header>
+
+  <section id="jumps">
+    <h2>눈은 건너뛰며 읽는다</h2>
+    <p>우리는 그림 앞에서 눈이 부드럽게 미끄러진다고 느끼지만, 실제 눈은 그렇게 움직이지 않는다. 한 점에 잠깐 머물고(<span class="term">고정</span><span class="en">(Fixation)</span>), 아주 빠르게 다음 점으로 뛰고(<span class="term">도약 안구 운동</span><span class="en">(Saccade)</span>), 다시 머문다. 고정은 보통 수백 밀리초, 도약은 수십 밀리초 남짓이라 1초에 세 번 안팎 자리를 옮긴다. 도약하는 동안에는 시각 정보가 거의 들어오지 않는다. 그러니 "그림을 본다"는 것은 몇 개의 정지 화면을 이어 붙이는 일에 가깝다. 고정점을 순서대로 이은 선을 <span class="term">주사 경로</span><span class="en">(Scanpath)</span>라고 부른다.</p>
+    <p>이렇게 건너뛰는 이유는 선명하게 보는 영역이 아주 좁기 때문이다. 망막 한가운데의 <span class="term">중심와</span><span class="en">(Fovea)</span>가 맡는 시야는 지름 2° 정도, 팔을 뻗었을 때 엄지손톱 하나만 하다. 그 바깥으로 갈수록 해상도가 빠르게 떨어진다. 주변 시야는 "저기 뭔가 밝은 것, 움직이는 것, 다른 것이 있다"는 정도만 알려 주고, 눈은 그 신호를 따라 중심와를 옮긴다. 구도를 짠다는 것은 결국 이 주변 시야의 신호를 설계하는 일이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="가상의 포스터 위에 그린 주사 경로. 번호 붙은 원이 고정점이고 원 사이의 선이 도약이다.">
+        <rect x="140" y="12" width="180" height="254" rx="4" class="f-surface s-line" stroke-width="1.2"/>
+        <rect x="160" y="30" width="140" height="26" rx="3" class="f-acc2-soft"/>
+        <circle cx="230" cy="138" r="52" class="f-acc-soft"/>
+        <rect x="200" y="196" width="60" height="10" rx="2" class="f-warn-soft"/>
+        <rect x="168" y="240" width="54" height="8" rx="2" class="f-elev"/>
+        <rect x="246" y="240" width="54" height="8" rx="2" class="f-elev"/>
+        <g class="s-acc" fill="none" stroke-width="1.6">
+          <path d="M214 44 L250 46 L226 128 L250 150 L232 201 L192 244 L272 244" marker-end="url(#eye-ar1)"/>
+        </g>
+        <defs><marker id="eye-ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="context-stroke"/></marker></defs>
+        <g class="f-acc" opacity="0.85">
+          <circle cx="214" cy="44" r="9"/><circle cx="250" cy="46" r="6"/><circle cx="226" cy="128" r="12"/><circle cx="250" cy="150" r="8"/><circle cx="232" cy="201" r="6"/><circle cx="192" cy="244" r="5"/><circle cx="272" cy="244" r="5"/>
+        </g>
+        <g font-size="10" class="lbl-b" text-anchor="middle" font-family="JetBrains Mono, monospace">
+          <text x="214" y="47.5" fill="#ffffff">1</text><text x="226" y="131.5" fill="#ffffff">3</text>
+        </g>
+        <g font-size="11" class="lbl">
+          <text x="330" y="44">① 제목에서 시작</text>
+          <text x="330" y="62" class="lbl-dim">원의 크기 = 머문 시간</text>
+          <text x="330" y="132">③ 가장 오래 머문 곳:</text>
+          <text x="330" y="148">큰 그림</text>
+          <text x="330" y="204">⑤ 날짜</text>
+          <text x="330" y="248">⑥⑦ 작은 정보</text>
+          <text x="12" y="132" class="lbl-dim">고정(점)과</text>
+          <text x="12" y="148" class="lbl-dim">도약(선)이 번갈아</text>
+          <text x="12" y="164" class="lbl-dim">나온다</text>
+        </g>
+        <text x="230" y="290" font-size="11" class="lbl-dim" text-anchor="middle">한 사람이 한 번 본 가상의 기록. 사람과 과제가 바뀌면 경로도 바뀐다.</text>
+      </svg>
+      <figcaption><b>그림 1. 주사 경로를 그리는 법.</b> 시선 추적 연구는 고정점을 원으로, 도약을 선으로 그린다. 원은 머문 시간이 길수록 크게 그린다. 이 그림은 설명을 위해 지어낸 한 사람의 기록이다. 실제 기록은 같은 사람이 같은 그림을 다시 봐도 똑같이 나오지 않는다. 이 장의 뒤쪽에서 그 이야기를 한다.</figcaption>
+    </figure>
+
+    <p>중심와가 얼마나 좁은지 직접 느껴 본다. 아래는 이 책의 케이스에 나오는 가상의 A2 낭독회 포스터(가로 420&nbsp;mm)다. 원이 중심와, 그 둘레의 흐린 띠가 중심와 바로 바깥(약 5°까지)이다. 원을 끌어 포스터를 "읽어" 보고, 보는 거리를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-fovea">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>중심와로 포스터 읽기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="fv-cv" class="art"></canvas><span class="hint">선명한 원을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>보는 거리 <output id="fv-d-out"></output></span><input type="range" id="fv-d" min="0.4" max="8" step="0.1" value="1.5"></label>
+          <label class="check"><input type="checkbox" id="fv-ring" checked> 시야 경계선 보기</label>
+          <label class="check"><input type="checkbox" id="fv-all"> 흐림 없이 전체 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">선명한 원의 지름</span><span class="v" id="fv-o-d">—</span></div>
+        <div class="stat"><span class="k">포스터 중 선명한 넓이</span><span class="v" id="fv-o-a">—</span></div>
+        <div class="stat"><span class="k">날짜 글자의 크기(시각)</span><span class="v" id="fv-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 거리 1.5&nbsp;m에서 원을 제목에서 날짜까지 옮겨 본다. 한 번에 선명한 것은 제목 한두 글자 정도다. ② 거리를 0.5&nbsp;m로 줄인다. 원은 손바닥보다 작아지고, 포스터를 다 읽으려면 눈을 수십 번 옮겨야 한다. ③ 거리를 8&nbsp;m로 늘린다. 이제 포스터 대부분이 중심와 띠 안에 들어오지만 날짜 글자(높이 약 11&nbsp;mm)의 시각이 시력 1.0의 시력표 글자(높이 5분)보다 작아진다. 한눈에 들어온다고 읽히는 것은 아니다. (중심와 반지름 1°, 그 바깥 띠는 5°까지로 둔 단순화다. 실제 시력은 경계 없이 연속으로 떨어지고 사람마다 다르다. 흐림은 가우스 흐림으로 흉내 낸 것이다.)</div>
+    </div>
+
+    <p>가까이 서면 한 번에 보는 것이 너무 적고, 멀리 서면 다 들어오지만 작은 글자가 녹는다. 그래서 포스터는 대개 두 단계로 일한다. 먼 거리에서 주변 시야가 잡아챌 큰 덩어리(그림, 제목)와, 다가온 사람이 몇 번의 고정으로 찾아 읽을 작은 정보(날짜, 장소)다. 둘째 단계의 순서를 운에 맡기지 않는 것이 이 장의 과제다.</p>
+
+    <div class="callout deep">
+      <strong>도약하는 동안 세상이 흔들리지 않는 이유</strong>
+      눈이 1초에 세 번씩 뛰는데도 세상이 흔들려 보이지 않는 것은, 도약하는 동안 뇌가 시각 신호의 감도를 크게 낮추기 때문이다. 이를 <span class="term">도약 억제</span><span class="en">(Saccadic suppression)</span>라고 부른다. 거울 앞에서 왼눈과 오른눈을 번갈아 보면 내 눈이 움직이는 모습을 볼 수 없는 것도 같은 이유다. 그래서 "그림을 훑는 부드러운 시선"이라는 표현은 화가와 비평가의 은유이지, 눈의 실제 움직임을 기록한 말이 아니다. 이 장에서 "시선의 흐름"이라고 할 때도 고정점들이 놓이는 순서를 가리킨다.
+    </div>
+  </section>
+
+  <section id="focal">
+    <h2>초점: 다른 것 하나</h2>
+    <p>화면에서 눈이 가장 먼저, 가장 오래 머무는 곳을 <span class="term">초점</span><span class="en">(Focal point)</span>이라고 한다. 초점은 대개 "주변과 다른 것 하나"에서 생긴다. 회색 사이의 빨강, 작은 것 사이의 큰 것, 가로선 사이의 사선, 흐린 것 사이의 또렷한 것이다. 심리학자 앤 트리스먼과 개리 겔레이드<span class="en">(Anne Treisman &amp; Garry Gelade, 1980)</span>는 색이나 방향처럼 한 가지 특징만 다른 대상은 방해물이 아무리 많아도 거의 즉시 "튀어나오고"(<span class="term">튀어나옴</span><span class="en">(Pop-out)</span>), 두 특징의 조합으로만 구별되는 대상은 하나씩 찾아야 한다는 실험 결과를 보고했다. 존 덩컨과 글린 험프리스<span class="en">(John Duncan &amp; Glyn Humphreys, 1989)</span>는 여기에 중요한 조건을 덧붙였다. 대상이 방해물과 덜 닮을수록, 그리고 <b>방해물끼리 서로 닮을수록</b> 찾기가 쉽다.</p>
+    <p>둘째 조건이 구도에는 더 중요하다. 같은 빨간 점이라도 회색 바탕에서는 초점이 되지만, 온갖 색이 흩어진 바탕에서는 묻힌다. 아래에서 확인한다. 가운데 어딘가에 "다른 것" 하나가 숨어 있다. 다른 정도를 키우고, 방해물들을 서로 다르게 흩어 본다.</p>
+
+    <div class="sim" id="sim-pop">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>튀어나오는 하나, 묻히는 하나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="po-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="po-f"><button data-value="value" class="on">명도</button><button data-value="hue">색상</button><button data-value="size">크기</button><button data-value="angle">방향</button></div>
+          <label class="ctrl"><span>다른 정도 <output id="po-diff-out"></output></span><input type="range" id="po-diff" min="0" max="1" step="0.01" value="0.6"></label>
+          <label class="ctrl"><span>방해물끼리의 차이 <output id="po-var-out"></output></span><input type="range" id="po-var" min="0" max="1" step="0.01" value="0"></label>
+          <label class="ctrl"><span>개수 <output id="po-n-out"></output></span><input type="range" id="po-n" min="6" max="60" step="1" value="30"></label>
+          <label class="check"><input type="checkbox" id="po-show"> 다른 것 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">두드러짐 지수</span><span class="v" id="po-o-z">—</span></div>
+        <div class="stat"><span class="k">이 모델의 판정</span><span class="v" id="po-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "방해물끼리의 차이" 0에서 "다른 정도"를 0.3쯤으로 낮춰도 다른 것이 바로 보인다. 개수를 60으로 늘려도 마찬가지다. ② "방해물끼리의 차이"를 0.6 이상으로 올린다. 다른 정도는 그대로인데 이제 하나하나 훑어야 찾는다. ③ 색상·크기·방향으로 바꿔 같은 일을 해 본다. 어느 특징이든 바탕이 시끄러우면 초점이 사라진다. (두드러짐 지수 = 대상과 방해물 평균의 차이 ÷ 방해물들의 흩어짐(표준편차에 지각의 최소 차이를 더한 값). Duncan &amp; Humphreys의 "닮음" 원리를 숫자 하나로 줄인 이 책의 교육용 근사이며, 실제 탐색 시간을 예측하는 식이 아니다.)</div>
+    </div>
+
+    <p>"다른 정도"보다 "주변이 얼마나 고른가"가 더 큰 몫을 한다는 것을 봤다. 화가들이 초점 하나를 살리려고 나머지를 일부러 고르게, 흐리게, 탁하게 눌러 두는 이유다(<a href="../../color/chapters/chroma.html">ColorBook 7장</a>의 채도 예산과 같은 생각이다). 초점을 만드는 대비의 종류는 많다. 명도, 색상, 채도, 크기, 방향, 윤곽의 날카로움(선명한 것과 흐린 것), 세부의 밀도, 고립(혼자 떨어져 있음), 그리고 뒤에서 볼 얼굴과 글자다. 여러 대비를 한 곳에 겹치면 초점은 강해지고, 여러 곳에 나누면 초점이 흩어진다.</p>
+
+    <div class="callout warn">
+      <strong>"초점은 하나여야 한다"는 규칙이 아니다</strong>
+      많은 구도 책이 "초점은 하나"라고 가르친다. 짧은 시간에 한 가지를 전해야 하는 포스터나 표지에서는 쓸모 있는 출발점이다. 그러나 브뤼헐의 마을 풍경처럼 수십 개의 작은 사건이 고르게 흩어져 눈이 화면을 오래 돌아다니게 만드는 그림도 있고, 그 "돌아다님" 자체가 그림의 내용이다. 초점의 수는 정답이 아니라 선택이다. 보는 사람에게 몇 초를 기대하는가, 한 가지를 전하려는가 여러 이야기를 펼치려는가에 맞춰 고른다.
+    </div>
+  </section>
+
+  <section id="saliency">
+    <h2>현저성 지도: 단순한 모델 하나</h2>
+    <p>"주변과 다른 곳에 눈이 간다"는 생각을 계산으로 옮긴 것이 <span class="term">현저성 지도</span><span class="en">(Saliency map)</span>다. 크리스토프 코흐와 시몬 울만<span class="en">(Christof Koch &amp; Shimon Ullman, 1985)</span>이 개념을 제안했고, 로랑 이티, 코흐, 에른스트 니부르<span class="en">(Laurent Itti, Christof Koch &amp; Ernst Niebur, 1998)</span>가 이미지에 바로 돌릴 수 있는 모델로 만들었다. 이미지를 밝기, 색, 방향의 특징 지도로 나눈 뒤, 각 자리가 그 둘레(주변)와 얼마나 다른지를 여러 크기에서 재어 더한다. 그 값이 가장 높은 곳에 첫 고정이 가고, 한 번 본 곳은 잠시 억제되어 다음으로 높은 곳으로 옮겨 간다고 본다(<span class="term">되돌아감 억제</span><span class="en">(Inhibition of return)</span>).</p>
+    <p>이 책은 그 생각을 훨씬 단순하게 줄인 모델을 직접 만들어 쓴다. 명도(L*), 색(OKLab의 a, b), 윤곽(명도가 급하게 바뀌는 정도)의 세 지도에서, 각 자리를 작은 창으로 흐린 값과 큰 창으로 흐린 값의 차이를 잰다.</p>
+    <div class="formula">$$S(x) = w_L\,N\!\big(|L_c - L_s|\big) + w_C\,N\!\big(\lVert ab_c - ab_s \rVert\big) + w_E\,N\!\big(|E_c - E_s|\big)$$<div class="where">아래 첨자 \(c\)는 작은 창(중심), \(s\)는 큰 창(주변)으로 흐린 값이다. 두 가지 창 크기에서 잰 값을 더했다. \(N(\cdot)\)은 지도를 0~1로 맞춘 뒤, 봉우리가 몇 개만 솟은 지도에 더 큰 몫을 주는 정규화다(이티 외 1998의 정규화 연산을 단순하게 줄였다). \(w\)는 세 지도의 몫이다. 원래 모델에 있는 방향 지도는 뺐다.</div></div>
+    <p>아래 시뮬레이터에서 지도를 작품과 포스터 위에 겹쳐 본다. 번호는 지도의 봉우리를 되돌아감 억제로 차례로 고른 "예측 고정 순서"다. 세 몫을 바꿔 가며, 이 모델이 무엇을 맞히고 무엇을 놓치는지 본다.</p>
+
+    <div class="sim" id="sim-sal">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>명도·색·윤곽으로 만든 현저성 지도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sa-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="sa-img"><button data-value="david" class="on">다비드</button><button data-value="rembrandt">렘브란트</button><button data-value="poster">포스터 시안</button></div>
+          <label class="ctrl"><span>명도 몫 <output id="sa-wl-out"></output></span><input type="range" id="sa-wl" min="0" max="1" step="0.05" value="0.6"></label>
+          <label class="ctrl"><span>색 몫 <output id="sa-wc-out"></output></span><input type="range" id="sa-wc" min="0" max="1" step="0.05" value="0.4"></label>
+          <label class="ctrl"><span>윤곽 몫 <output id="sa-we-out"></output></span><input type="range" id="sa-we" min="0" max="1" step="0.05" value="0.3"></label>
+          <div class="seg" id="sa-view"><button data-value="over" class="on">겹쳐 보기</button><button data-value="map">지도만</button><button data-value="img">그림만</button></div>
+          <label class="check"><input type="checkbox" id="sa-center"> 가운데 쏠림 더하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">1번 예측 지점</span><span class="v" id="sa-o-1">—</span></div>
+        <div class="stat"><span class="k">1번 지점의 몫(명도·색·윤곽)</span><span class="v" id="sa-o-2">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 다비드에서 기본값의 예측 지점들이 어디에 놓이는지 본다. 밝은 맨살과 흰 옷, 붉은 옷 근처에 모이지만, 이야기의 중심인 소크라테스의 손과 잔이 1번이 되지는 않는다. ② 명도 몫을 0으로, 색 몫을 1로 바꾼다. 렘브란트에서는 지도가 금목걸이와 붉은 띠 쪽으로 옮겨 간다. ③ "포스터 시안"에서 날짜가 몇 번째로 예측되는지 본다. 그리고 "가운데 쏠림 더하기"를 켜서 순서가 어떻게 바뀌는지 본다. (이 책의 교육용 근사다. 얼굴·글자·의미를 전혀 모르고, 방향 지도도 없으며, 가로 160칸으로 줄인 이미지에서 계산한다. 실제 사람의 고정을 예측하는 성능은 검증하지 않았다.)</div>
+    </div>
+
+    <p>이 모델은 "밝고 다른 곳"은 꽤 잘 찾는다. 그러나 사람의 눈이 실제로 머무는 곳과는 자주 어긋난다. 사람은 얼굴과 눈, 글자, 손, 그리고 장면의 "의미"가 있는 곳에 훨씬 많이 머문다. 모란 세르프와 동료들<span class="en">(Moran Cerf et al., 2008)</span>은 저수준 현저성 모델에 얼굴 검출을 더하면 사람의 고정을 더 잘 맞힌다고 보고했고, 존 헨더슨과 테일러 헤이스<span class="en">(John Henderson &amp; Taylor Hayes, 2017)</span>는 사람들이 매긴 "의미 지도"가 현저성 지도보다 고정 위치를 더 잘 설명한다고 보고했다. 또 벤저민 태틀러<span class="en">(Benjamin Tatler, 2007)</span>는 사람들이 그림의 내용과 상관없이 화면 가운데를 더 많이 보는 경향(<span class="term">가운데 쏠림</span><span class="en">(Central fixation bias)</span>)을 보고했다. 시뮬레이터의 "가운데 쏠림" 선택지가 그것이다.</p>
+    <p>정리하면, 현저성 모델은 "이 화면에서 어디가 시각적으로 시끄러운가"를 점검하는 도구로는 쓸모가 있지만, "사람들이 어디를 볼 것인가"의 답은 아니다. 디자인 도구가 내놓는 "예측 시선 지도"도 대개 이런 모델이나 그 확장이므로 같은 주의가 필요하다.</p>
+  </section>
+
+  <section id="lines">
+    <h2>방향선: 선이 눈을 데려간다</h2>
+    <p>눈은 선을 따라간다. 길, 강, 고랑, 울타리, 팔, 지팡이, 그림자의 가장자리처럼 화면 안의 긴 선이나 길쭉한 모양은 눈을 그 끝으로 데려가는 경향이 있다. 이런 선을 <span class="term">방향선</span><span class="en">(Leading line)</span>이라고 한다. 실제로 그려진 선만이 아니다. 줄지어 선 나무, 같은 쪽을 보는 사람들, 점점 작아지는 물건처럼 점들이 늘어서도 눈은 그 사이를 이어 선을 만든다(<a href="gestalt.html">4장</a>의 연속성). 이런 선을 <span class="term">암시선</span><span class="en">(Implied line)</span>이라고 부른다.</p>
+    <p>방향선이 가장 강하게 일하는 것은 여러 선이 한 점으로 모일 때다. 밭고랑이나 길이 지평선의 한 점으로 모이면, 그 점은 화면에서 가장 작은 곳이어도 눈을 끌어당긴다. 화가가 거기에 주인공을 두면 선이 초점을 만들어 주고, 엉뚱한 곳에 두면 선과 주인공이 서로 눈을 빼앗는다. 아래 장면에서 선이 모이는 점과 주인공(작은 집)을 끌어 본다.</p>
+
+    <div class="sim" id="sim-lines">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>선이 모이는 곳과 주인공</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-cv" class="art"></canvas><span class="hint">모이는 점(검정)과 집(흰 테)을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ln-type"><button data-value="conv" class="on">모이는 고랑</button><button data-value="curve">굽은 길</button><button data-value="diag">사선 하나</button></div>
+          <label class="ctrl"><span>선의 수 <output id="ln-n-out"></output></span><input type="range" id="ln-n" min="1" max="14" step="1" value="8"></label>
+          <label class="check"><input type="checkbox" id="ln-ext" checked> 선의 연장 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">선이 가리키는 곳–집 거리</span><span class="v" id="ln-o-d">—</span></div>
+        <div class="stat"><span class="k">이 장면의 읽힘</span><span class="v" id="ln-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 모이는 점을 집 위에 겹친다. 집은 작은데도 화면의 중심이 된다. ② 모이는 점을 화면 반대쪽 끝으로 옮긴다. 선은 눈을 빈 지평선으로 데려가고, 집은 혼자 떨어진 점이 된다. ③ 모이는 점을 화면 가장자리 바깥 가까이 끈다. 선이 눈을 화면 밖으로 내보낸다. "사선 하나"로 바꾸면 선 하나로도 같은 일이 일어난다. (거리는 화면 대각선에 대한 비율이다. "읽힘" 판정은 이 책이 정한 거리 기준(8%, 25%)이며 지각 실험값이 아니다.)</div>
+    </div>
+
+    <p>선이 모이는 곳에 주인공이 있으면 두 힘이 한 곳을 가리킨다. 떨어져 있으면 두 힘이 서로 겨룬다. 겨루는 것이 늘 나쁜 것은 아니다. 길이 빈 지평선으로 사라지고 인물이 길가에 비켜 서 있는 그림은 "아직 가지 않은 길"이라는 이야기를 만든다. 다만 그 겨룸이 의도인지 실수인지는 화면을 만든 사람이 알고 있어야 한다.</p>
+
+    <div class="callout studio">
+      <strong>썸네일 위에 화살표를 그린다</strong>
+      화가와 사진가가 흔히 쓰는 점검법이다. 구도 썸네일(엽서 크기 이하)을 그린 뒤, 그 위에 트레이싱지를 대고 화면 속 긴 선과 길쭉한 모양마다 "눈이 미끄러질 방향"으로 화살표를 그린다. 화살표가 한 곳으로 모이는가, 화면 밖으로 새는 화살표가 있는가, 모이는 곳에 그리고 싶은 것이 있는가를 본다. 밖으로 새는 화살표는 가장자리 근처에 그 흐름을 되돌리는 작은 요소(기둥, 나무, 돌아선 인물)를 두어 막기도 한다. 이 화살표는 측정이 아니라 만드는 사람의 가설이라는 점을 잊지 않는다.
+    </div>
+  </section>
+
+  <section id="gaze">
+    <h2>시선과 손짓: 화면 속 사람이 보는 곳</h2>
+    <p>방향선 가운데 가장 힘이 센 것은 화면 속 사람(때로는 동물)의 시선과 손짓이다. 우리는 다른 사람이 보는 쪽을 따라 보는 경향이 있다. 크리스 프리즌과 앨런 킹스톤<span class="en">(Chris Friesen &amp; Alan Kingstone, 1998)</span>은 화면 가운데 그린 얼굴의 눈동자가 한쪽을 향하면, 그 방향이 표적의 위치를 전혀 예측하지 못하는데도 그쪽에 나타난 표적에 사람들이 조금 더 빨리 반응한다는 것을 보였다. 이를 <span class="term">시선 단서 효과</span><span class="en">(Gaze cueing)</span>라고 한다. 그 뒤의 연구들은 화살표 같은 상징도 비슷한 효과를 낸다고 보고해(예: Tipples, 2002), 이 효과가 얼굴에만 특별한지는 지금도 논의된다. 크기는 수십 밀리초 수준의 작은 효과지만, 그림을 보는 몇 초 동안 수없이 되풀이된다.</p>
+    <p>그림에서 이 힘은 두 가지로 쓰인다. 하나는 주인공을 가리키는 것이다. 여러 인물이 한 사람을 보면 그 사람이 초점이 된다. 다른 하나는 화면 안의 공간을 나누는 것이다. 인물이 보는 쪽에 공간이 남아 있으면 편안하고, 인물이 화면 가장자리를 코앞에 두고 보면 답답하거나 긴장된다. 사진가들은 이 공간을 <span class="term">보는 쪽 여백</span><span class="en">(Lead room, Looking room)</span>이라고 부른다.</p>
+
+    <div class="sim" id="sim-gaze">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>인물의 시선이 닿는 곳</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gz-cv" class="art"></canvas><span class="hint">인물의 머리와 시선 끝(점)을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="check"><input type="checkbox" id="gz-line" checked> 시선의 연장선 보기</label>
+          <label class="check"><input type="checkbox" id="gz-point"> 손으로도 가리키기</label>
+          <label class="check"><input type="checkbox" id="gz-crowd"> 다른 두 사람도 같은 곳을 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">시선과 책 사이 각도</span><span class="v" id="gz-o-a">—</span></div>
+        <div class="stat"><span class="k">보는 쪽 여백</span><span class="v" id="gz-o-r">—</span></div>
+        <div class="stat"><span class="k">이 장면의 읽힘</span><span class="v" id="gz-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 시선 끝을 오른쪽 책 위에 놓는다. 작고 어두운 책이 갑자기 중요해 보인다. ② 시선 끝을 왼쪽 위 화면 밖으로 끈다. 책은 다시 소품이 되고, 눈은 인물이 보는 화면 밖을 궁금해한다. ③ 인물을 오른쪽 가장자리로 옮기고 오른쪽을 보게 한다. 보는 쪽 여백이 10% 아래로 줄면 인물이 벽에 코를 박은 듯 답답해진다. 일부러 이런 긴장을 쓰는 그림과 영화 장면도 있다. (보는 쪽 여백은 머리에서 시선 방향으로 화면 가장자리까지의 거리 ÷ 화면 폭이다. 판정 기준(각도 12°, 여백 15%)은 이 책이 정한 예시값이다.)</div>
+    </div>
+
+    <p>이제 실제 작품을 본다. 자크 루이 다비드의 「소크라테스의 죽음」은 시선과 손짓으로 짜인 그림의 교과서처럼 자주 인용된다. 어두운 감옥에서 빛은 소크라테스의 상체와 흰 옷에 모이고, 그의 오른손은 독배를 향해 뻗고 왼손 검지는 위를 가리킨다.</p>
+
+    <figure class="art-figure" id="fig-david">
+      <div class="art-frame"><img src="../../shared/img/david-death-of-socrates.webp" width="1600" height="1065" alt="자크 루이 다비드의 소크라테스의 죽음. 돌로 된 어두운 감옥 안, 침대에 걸터앉은 흰 옷의 노인 소크라테스가 오른손으로 붉은 옷의 청년이 건네는 잔을 받으려 하고 왼손 검지로 위를 가리킨다. 오른쪽에는 슬퍼하는 제자들이 그를 바라보고, 침대 끝에는 등을 돌린 노인이 고개를 숙이고 앉아 있다. 왼쪽 뒤 아치 너머 계단으로 사람들이 떠나간다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 자크 루이 다비드, 「소크라테스의 죽음」, 1787.</b> 오른쪽 제자들의 얼굴과 몸이 거의 모두 소크라테스 쪽으로 기울어 그를 가리킨다. 소크라테스의 두 손은 화면 가운데에서 서로 다른 방향을 가리키고(아래의 잔, 위의 하늘), 잔을 건네는 청년은 얼굴을 손으로 가린 채 고개를 돌려 시선의 사슬을 일부러 끊는다. 침대 끝의 노인(전통적으로 플라톤으로 설명된다)도 등을 돌리고 있다. 시선이 모이는 곳과 일부러 비켜 가는 곳이 함께 이야기를 만든다. 위 현저성 시뮬레이터에서 이 그림의 지도와 이 설명을 비교해 보자. 모델은 밝은 상체를 찾지만 손가락과 잔, 돌린 고개의 의미는 모른다.<span class="credit">메트로폴리탄 미술관 소장(Catharine Lorillard Wolfe Collection, Wolfe Fund, 1931), 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/436105">소장처 작품 페이지</a> · <a href="../../credits.html#david-death-of-socrates">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>이 설명은 미술사에서 흔히 하는 "읽기"이고, 이 그림을 본 사람들의 시선을 실제로 잰 결과가 아니다. 그림 속 화살표는 화가가 의도했을 법한 길이고, 실제 관람자는 그 길을 각자의 순서로, 때로는 거꾸로 걷는다. 그래도 이런 읽기는 쓸모가 있다. 무엇이 시선을 모으고 무엇이 끊는지를 말로 짚어 두면, 내 화면에서 그 장치를 쓸지 말지 고를 수 있다.</p>
+
+    <div class="callout try">
+      <strong>3초 보고 말하기</strong>
+      친구나 가족 세 명에게 잡지 광고나 포스터 한 장을 3초만 보여 주고 덮은 뒤 "본 것을 본 순서대로" 말해 달라고 한다. 그다음 같은 사람에게 다른 그림을 보여 주며 이번에는 "언제, 어디서 하는 행사인지 찾아 봐"라고 과제를 준다. 종이에 각 사람이 말한 순서를 적어 비교한다. 첫째로 말한 것이 사람마다 같았는가, 과제를 주었을 때 순서가 바뀌었는가. 기억한 순서는 실제 고정의 순서와 같지 않다는 점(나중에 본 것을 더 잘 기억하기도 하고, 큰 것은 보지 않고도 기억한다)을 감안하고, 결과는 "참고"로만 적는다.
+    </div>
+  </section>
+
+  <section id="reading">
+    <h2>읽기 방향은 그림을 어느 쪽으로 미는가</h2>
+    <p>왼쪽에서 오른쪽으로 글을 읽는 사람은 그림도 왼쪽에서 오른쪽으로 읽는다는 말을 자주 듣는다. 그래서 "인물은 오른쪽으로 걸어야 앞으로 가는 느낌이 난다", "왼쪽 위에서 시작해 오른쪽 아래로 빠진다" 같은 조언이 따라온다. 근거는 어느 정도일까.</p>
+    <p>연구 결과는 "약하지만 있는 편향"에 가깝다. 실비 쇼크롱과 마리아 드 아고스티니<span class="en">(Sylvie Chokron &amp; Maria De Agostini, 2000)</span>는 같은 그림과 그 좌우 반전 그림 중 하나를 고르게 했을 때, 프랑스어(왼쪽→오른쪽)를 읽는 사람들은 움직임이 오른쪽을 향하는 쪽을, 히브리어(오른쪽→왼쪽)를 읽는 사람들은 왼쪽을 향하는 쪽을 더 자주 고른다고 보고했다. 비슷한 방향의 결과가 여러 연구에서 나왔지만, 그 크기는 작고 그림과 과제에 따라 달라진다. 한편 읽기 습관과 별개로, 사람들은 선분의 가운데를 찍으라고 하면 조금 왼쪽을 찍는 등 왼쪽 공간에 약간 더 주의를 주는 경향(<span class="term">유사 무시</span><span class="en">(Pseudoneglect)</span>)도 보고되었다. 두 편향이 섞여 있어 "모든 사람은 왼쪽 위에서 시작한다"처럼 단정하기는 어렵다. 웹 화면의 F자·Z자 읽기 패턴의 근거 수준은 <a href="layout.html">12장</a>에서 따로 본다.</p>
+    <p>동아시아 그림은 이 질문을 더 흥미롭게 만든다. 전통적으로 세로쓰기를 오른쪽 줄부터 읽었고, <span class="term">두루마리</span><span class="en">(Handscroll)</span>는 오른쪽에서 왼쪽으로 한 뼘씩 펼치며 본다. 두루마리에서 시간과 이야기는 오른쪽에서 왼쪽으로 흐르고, 화면의 오른쪽 끝이 "처음"이다. 같은 모양의 배가 오른쪽을 향하면 서양식으로 읽는 사람에게는 "나아감"으로, 두루마리를 펼치는 사람에게는 "되돌아옴"으로 읽힐 수도 있다. 방향은 그림 안의 성질이 아니라 그림과 보는 습관 사이의 관계다.</p>
+
+    <figure class="diagram" id="fig-mirror">
+      <div class="compare" id="mr-cmp"><div class="cmp-a"><canvas id="mr-a" class="art"></canvas></div><div class="cmp-b"><canvas id="mr-b" class="art"></canvas></div></div>
+      <figcaption><b>그림 3. 같은 그림, 좌우만 뒤집기.</b> 경계선을 좌우로 끌어 원래 그림(왼쪽 층)과 뒤집은 그림(오른쪽 층)을 비교한다. 가상의 장면이다. 언덕의 사선이 왼쪽 아래에서 오른쪽 위로 오르고 배가 오른쪽으로 갈 때와, 그 반대일 때 "오르막·내리막", "떠남·돌아옴"의 느낌이 달라지는지 본다. 차이를 느끼는 사람도 있고 거의 못 느끼는 사람도 있다. 연구 결과가 말하는 편향의 크기도 그 정도다.</figcaption>
+    </figure>
+
+    <div class="callout studio">
+      <strong>거울로 보기</strong>
+      화가들이 오래 써 온 요령이다. 그리던 그림을 거울에 비추거나(디지털이면 좌우 반전) 잠깐 본다. 늘 같은 방향으로만 보던 눈이 새 그림을 보듯 화면을 다시 읽게 되어, 한쪽으로 쏠린 무게나 기울어진 선, 시선이 한쪽으로 빠져나가는 곳이 갑자기 드러난다. 뒤집었을 때 크게 어색해지는 그림은 방향에 많이 기대고 있다는 뜻이다. 그것이 의도인지 확인하고, 아니라면 고친다.
+    </div>
+  </section>
+
+  <section id="yarbus">
+    <h2>시선 추적 연구가 실제로 보여 준 것</h2>
+    <p>그림 앞의 시선을 처음 정밀하게 기록한 사람으로 자주 꼽히는 이가 소련의 심리학자 알프레드 야르부스<span class="en">(Alfred L. Yarbus)</span>다. 그는 눈에 작은 거울을 붙인 장치로 시선을 기록했고, 그 결과를 묶은 책이 1965년 러시아어로, 1967년 영어로 『눈의 움직임과 시각』<span class="en">(Eye Movements and Vision)</span>이라는 이름으로 나왔다.</p>
+    <p>가장 널리 알려진 것은 일리야 레핀의 그림 「뜻밖의 방문객」<span class="en">(Unexpected Visitors)</span>을 쓴 기록이다. 오랜 유배(로 해석되는 부재) 끝에 한 남자가 집에 들어서고, 가족들이 놀라 돌아보는 장면이다. 야르부스는 한 관찰자에게 이 그림을 여러 번, 매번 다른 질문과 함께 보여 주었다. 그냥 자유롭게 보기, 가족의 경제 형편 짐작하기, 인물들의 나이 짐작하기, 방문객이 오기 전 가족이 무엇을 하고 있었는지 짐작하기, 옷 기억하기, 사람과 물건의 위치 기억하기, 방문객이 얼마나 오래 떠나 있었는지 짐작하기 같은 질문이다. 기록된 주사 경로는 질문마다 뚜렷이 달랐다. 나이를 물으면 얼굴에, 형편을 물으면 옷과 가구에 고정이 몰렸다. 같은 그림이라도 "무엇을 찾느냐"가 시선을 크게 바꾼다는 이 결과는, 눈이 화면의 대비만 따라가지 않는다는 가장 유명한 증거가 되었다.</p>
+    <p>이 결과를 읽을 때 기억할 점이 있다. 원래 기록은 사실상 한 사람의 것이었다. 뒤의 연구자들이 여러 사람으로 다시 해 보았는데 결과가 꽤 흥미롭다. 마리앤 드앤젤루스와 제프 펠즈<span class="en">(Marianne DeAngelus &amp; Jeff Pelz, 2009)</span>는 여러 관찰자로 비슷한 실험을 다시 해, 과제에 따라 시선이 달라진다는 큰 결론은 확인했지만 사람마다 차이가 크다고 보고했다. 미셸 그린과 동료들<span class="en">(Michelle Greene et al., 2012)</span>은 시선 기록만으로 그 사람이 어떤 과제를 받았는지 컴퓨터가 맞힐 수 있는지 시험했는데 잘 맞히지 못했다. 반면 알리 보르지와 이티<span class="en">(Ali Borji &amp; Laurent Itti, 2014)</span>는 같은 자료를 다른 방법으로 분석해 우연보다는 잘 맞힐 수 있다고 반박했다. 과제가 시선에 영향을 준다는 것은 분명하지만, 그 영향이 사람마다 얼마나 일정한지, 시선만 보고 마음을 읽을 수 있을 만큼 큰지는 아직 논쟁 중이라는 뜻이다.</p>
+
+    <p>아래 시뮬레이터는 이 상황을 장난감처럼 흉내 낸다. 가상의 책방 앞 장면에서, 가상의 관찰자들이 "화면의 현저성"과 "과제와의 관련성"을 섞어 다음 고정점을 고른다. 과제와 개인차를 바꿔 보며 관찰자 여럿의 고정이 얼마나 겹치는지 본다.</p>
+
+    <div class="sim" id="sim-task">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>과제가 바뀌면 시선이 바뀐다(장난감 모델)</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="tk-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="tk-task"><button data-value="free" class="on">자유 보기</button><button data-value="when">언제 하나</button><button data-value="people">몇 명</button><button data-value="mood">분위기</button></div>
+          <label class="ctrl"><span>개인차 <output id="tk-noise-out"></output></span><input type="range" id="tk-noise" min="0" max="1" step="0.05" value="0.35"></label>
+          <label class="ctrl"><span>관찰자 수 <output id="tk-n-out"></output></span><input type="range" id="tk-n" min="1" max="24" step="1" value="12"></label>
+          <div class="btn-row"><button class="btn" id="tk-re" type="button">관찰자 다시 뽑기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">첫 고정이 같은 곳인 비율</span><span class="v" id="tk-o-1">—</span></div>
+        <div class="stat"><span class="k">날짜 안내문에 닿은 평균 차례</span><span class="v" id="tk-o-2">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "자유 보기"에서 열기(붉은 얼룩)가 얼굴과 간판에 모이는지 본다. ② "언제 하나"로 바꾼다. 작은 날짜 안내문에 열기가 생기고 평균 도달 차례가 앞당겨진다. ③ 개인차를 1로 올리고 관찰자를 1명으로 줄인 뒤 "다시 뽑기"를 여러 번 누른다. 한 사람의 기록은 매번 다르다. 한 사람의 경로로 "사람들은 이렇게 본다"고 말하기 어려운 이유다. (지어낸 장면, 지어낸 관찰자다. 각 요소의 현저성과 과제 관련성은 이 책이 정한 값이고, 다음 고정은 "현저성과 관련성의 가중합 + 거리 감쇠 + 무작위"로 고른다. 실제 시선 자료가 아니다.)</div>
+    </div>
+
+    <div class="callout warn">
+      <strong>열 지도를 볼 때 묻는 네 가지</strong>
+      웹사이트나 광고 분석에서 시선 추적 "열 지도"를 보면 다음을 묻는다. ① 몇 명의 기록인가, 그 사람들은 누구인가. ② 어떤 과제를 주었는가(자유 보기인가, 무언가를 찾게 했는가). ③ 몇 초 동안의 기록인가(첫 1초와 10초 전체는 전혀 다르다). ④ 실제 측정인가, 모델이 만든 예측 지도인가. 이 넷을 모르는 열 지도는 예쁜 그림일 뿐 근거가 되기 어렵다.
+    </div>
+  </section>
+
+  <section id="design">
+    <h2>시선의 순서를 설계하기</h2>
+    <p>지금까지 본 장치들을 한데 모은다. 시선의 흐름을 설계한다는 것은 정확한 경로를 강요하는 일이 아니라, 대부분의 사람이 대부분의 경우에 거칠 법한 <b>순서의 가능성</b>을 높이는 일이다. 쓸 수 있는 손잡이는 넷이다. 크기와 대비로 첫 고정을 정하고, 가까움으로 다음 고정을 이어 주고, 시선·손짓·방향선으로 다음 자리를 가리키고, 나머지를 고르게 눌러 경쟁자를 줄인다.</p>
+    <p>아래 종합 시뮬레이터는 책방 E의 가상 낭독회 포스터다. 제목, 그림(등불과 책 읽는 사람), 날짜, 장소의 네 요소를 끌어 옮기고, 고른 요소의 크기와 명도 대비를 바꾼다. 그림 속 인물의 시선 방향도 바꿀 수 있다. 오른쪽 경로는 요소 단위로 줄인 이 책의 모델이 예측한 순서다.</p>
+
+    <div class="sim" id="sim-poster">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>낭독회 포스터의 시선 경로 실험실</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ps-cv" class="art"></canvas><span class="hint">요소를 눌러 고르고 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ps-pre"><button data-value="v1" class="on">시안 1</button><button data-value="v2">시안 2</button></div>
+          <div class="seg" id="ps-sel"><button data-value="title" class="on">제목</button><button data-value="art">그림</button><button data-value="date">날짜</button><button data-value="place">장소</button></div>
+          <label class="ctrl"><span>크기 <output id="ps-size-out"></output></span><input type="range" id="ps-size" min="0.5" max="3" step="0.05" value="1"></label>
+          <label class="ctrl"><span>명도 대비 <output id="ps-con-out"></output></span><input type="range" id="ps-con" min="0" max="1" step="0.05" value="1"></label>
+          <div class="seg" id="ps-gaze"><button data-value="up" class="on">인물: 위를 봄</button><button data-value="date">날짜 쪽을 봄</button><button data-value="out">화면 밖을 봄</button></div>
+          <label class="check"><input type="checkbox" id="ps-path" checked> 예측 경로 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">예측 순서</span><span class="v" id="ps-o-1">—</span></div>
+        <div class="stat"><span class="k">날짜의 차례</span><span class="v" id="ps-o-2">—</span></div>
+        <div class="stat"><span class="k">요소별 끌림(제목·그림·날짜·장소)</span><span class="v" id="ps-o-3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "시안 1"에서 날짜가 마지막(4번째)으로 예측되는 것을 본다. 작고, 바탕과 명도 차이가 작고, 그림에서 먼 구석에 있다. ② 날짜를 골라 명도 대비를 1로 올리고 그림 바로 아래로 끈 뒤, 인물을 "날짜 쪽을 봄"으로 바꾼다. 그림 다음 차례가 날짜로 바뀐다. 제목을 첫째로 만들려면 제목을 키우거나 그림을 줄여야 한다("시안 2"가 그 답 중 하나다). ③ 날짜의 크기를 3으로, 제목의 크기를 0.5로 만든다. 날짜가 1번이 되고 포스터는 "날짜 안내문"이 된다. 정보를 다 키우면 순서도 사라진다. (요소별 끌림 = 0.40×크기 + 0.40×명도 대비 + 0.10×고립 + 0.10×가운데 가까움, 그림의 얼굴에 0.10을 더한다. 첫 고정은 끌림이 가장 큰 곳, 다음 고정은 "끌림 × 거리 감쇠"가 가장 큰 곳으로 가고, 그림을 본 바로 다음에는 인물이 바라보는 요소의 값을 최대 2배로 올린다. 모든 계수는 이 책이 정한 교육용 값이다.)</div>
+    </div>
+
+    <p>요소를 키우고 밝히면 순서가 앞당겨지고, 가까이 두거나 인물의 시선이 가리키면 다음 차례가 된다. 그러나 모든 것을 앞당길 수는 없다. 한 요소를 키우는 일은 다른 요소를 상대적으로 뒤로 미는 일이다. 순서를 설계한다는 것은 결국 무엇을 뒤에 둘지 정하는 일이다. 그리고 모델의 예측은 출발점일 뿐, 실제 사람 몇 명에게 보여 주고 확인하는 단계가 남는다.</p>
+
+    <div class="callout studio">
+      <strong>순서를 문장으로 먼저 적는다</strong>
+      포스터나 표지를 시작하기 전에 "보는 사람이 첫째로 ○○을, 둘째로 ○○을, 마지막에 ○○을 본다"를 한 문장으로 적어 둔다. 그다음 썸네일을 그리고, 흑백으로 바꾸고, 눈을 가늘게 떠서 문장의 첫째가 정말 첫째로 남는지 본다. 셋째 이하의 작은 정보는 "가장 큰 것 근처, 또는 가장 큰 것이 가리키는 곳"에 두면 찾기 쉽다. 이 문장은 동료에게 시안을 보여 줄 때 "무엇이 먼저 보였어?"라고 물을 기준이 된다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 5장</span></div>
+      <h4>날짜를 마지막에 찾는 포스터</h4>
+      <p>12월 첫 주, 서윤은 연말 낭독회 포스터(A2 세로)의 시안 1을 책방 E 계산대 옆에 붙였다. <a href="elements.html">2장</a>에서 정한 대로 큰 면 하나(주황빛 등불)와 그 아래 책 읽는 사람의 작은 실루엣, 위쪽의 제목 "겨울 밤 낭독회", 아래 양쪽 구석에 작게 장소와 날짜를 두었다. 바탕은 짙은 색 <code>#22342a</code>, 제목은 크림 <code>#ffe2d7</code>, 등불은 강조 <code>#d24f39</code>, 날짜와 장소는 차분한 초록 <code>#567666</code>이었다. 사흘 뒤 주인이 말했다. "손님들이 예쁘다고는 하는데, 꼭 '그래서 언제예요?' 하고 물어보세요."</p>
+      <p>서윤은 이 장의 모델로 시안 1을 돌려 보았다. 예측 순서는 그림 → 제목 → 장소 → 날짜였고, 날짜의 끌림(0.29)은 장소(0.29)와 함께 네 요소 중 가장 낮았다(그림 0.81, 제목 0.67). 날짜 글자는 높이 약 11&nbsp;mm였고, 바탕과의 명도 차이는 ΔL* 약 27로 제목(약 72)의 절반에도 못 미쳤다. 게다가 그림 속 인물은 위쪽 등불을 올려다보고 있어서, 눈이 그림에 닿은 뒤에는 위로, 제목 쪽으로 되돌아갔다.</p>
+      <p>서윤은 시선 추적 장비 대신 회사 동료 다섯 명에게 시안을 3초씩 보여 주고 "본 순서대로 말해 줘", 그리고 "언제 하는지 찾아 줘"를 부탁했다. 다섯 명 중 세 명이 날짜를 말하지 못했고, 날짜를 찾는 데 두 명은 포스터를 위에서부터 다시 훑었다. 시안 2에서 서윤은 날짜를 그림 바로 아래 가운데로 옮기고 크림색으로 키웠다(글자 높이 약 24&nbsp;mm). 제목은 한 단계 키우고 등불은 조금 줄였다. 장소는 날짜 아래에 작게 붙였다. 그리고 책 읽는 사람이 무릎 위의 책을 내려다보게 고쳐, 그 시선이 책을 지나 바로 아래의 날짜로 이어지게 했다. 모델의 예측은 제목 → 그림 → 날짜 → 장소로 바뀌었다(끌림: 제목 0.79, 그림 0.77, 날짜 0.55, 장소 0.30). 제목과 그림의 차이가 작아서, 사람에 따라 그림을 먼저 볼 가능성도 충분하다. 같은 다섯 명에게 시안 2를 보이자 네 명이 "제목, 그림, 날짜" 순서로 말했고, 날짜를 찾는 데 모두 다시 훑지 않았다.</p>
+      <p>도경은 결과를 보고 웃었다. "다섯 명이면 통계가 아니라 대화지." 서윤도 그렇게 적었다. 이 테스트는 동료들이 서윤의 의도를 미리 알았을 수도 있고, 3초 뒤의 "기억"은 실제 고정과 다르다. 그래도 시안 1의 문제(날짜가 마지막이고 찾기 어렵다)는 모델과 사람 모두에서 같은 방향으로 드러났다. 도경은 대신 등불을 조금 위로 올려 "그림 → 날짜" 사이의 거리를 더 줄여 보라고 했다. 서윤은 도경의 휴대폰에서 사진을 좌우 반전하는 법을 알려 주었고, 도경은 그날 저녁 자기 그림을 뒤집어 보며 "이건 왼쪽이 무거웠네" 하고 웃었다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#22342a"></i><b>바탕</b><code>#22342a</code></span>
+        <span class="chip"><i style="background:#ffe2d7"></i><b>제목·날짜(시안 2)</b><code>#ffe2d7</code></span>
+        <span class="chip"><i style="background:#d24f39"></i><b>등불</b><code>#d24f39</code></span>
+        <span class="chip"><i style="background:#567666"></i><b>날짜(시안 1)·장소</b><code>#567666</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>포스터의 시선 경로는 제목 → 그림 → 날짜 → 장소. 날짜는 그림 바로 아래 가운데, 크림색, 글자 높이 약 24&nbsp;mm로 키우고, 제목은 키우고 등불은 줄여 첫 고정을 제목에 준다. 그림 속 인물의 시선이 책을 지나 날짜로 이어지게 한다. 경로는 모델 예측과 동료 다섯 명의 간이 테스트로 확인했으며, 결과는 "참고"로만 기록한다.</div>
+        <div><b>아직 남은 문제</b>쇼윈도는 창 너머 거리에서 보면 납작하다. 책과 소품이 모두 한 줄에 서 있어 무엇이 앞이고 무엇이 뒤인지 읽히지 않는다.</div>
+        <div><b>다음 단계</b><a href="depth.html">6장</a>: 겹침·크기·명도로 평평한 화면(과 얕은 진열장)에 깊이를 만든다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>눈은 고정과 도약을 되풀이하며 화면을 건너뛰어 읽는다. 선명하게 보는 중심와는 지름 2° 정도라, 큰 화면은 여러 번의 고정으로 이어 붙여 본다. "부드러운 시선의 흐름"은 고정점이 놓이는 순서를 가리키는 은유다.</li>
+      <li>초점은 주변과 다른 것 하나에서 생긴다. 대상이 방해물과 다를수록, 그리고 방해물끼리 서로 닮을수록 튀어나온다. 초점을 살리려면 나머지를 고르게 누른다.</li>
+      <li>현저성 지도는 명도·색·윤곽 같은 특징의 국소 대비로 "시각적으로 시끄러운 곳"을 계산한다. 점검 도구로 쓸모 있지만 얼굴·글자·의미를 모르므로 사람의 시선 예측은 아니다.</li>
+      <li>방향선과 암시선, 화면 속 인물의 시선과 손짓은 눈을 그 끝으로 데려간다. 선이 모이는 곳과 시선이 닿는 곳에 무엇을 두는지, 화면 밖으로 새는 흐름이 의도인지 확인한다.</li>
+      <li>읽기 방향은 그림을 보는 방향에 약한 편향을 준다는 연구가 있지만 효과는 작고 그림·과제마다 다르다. 두루마리는 오른쪽에서 왼쪽으로 펼쳐 읽는다. 방향은 그림과 보는 습관의 관계다.</li>
+      <li>야르부스(1967)는 같은 그림도 과제에 따라 주사 경로가 크게 달라짐을 보였다. 이후 연구는 큰 결론을 확인하면서도 개인차가 크고, 시선으로 과제를 읽어 낼 수 있는지는 논쟁 중이라고 보고한다.</li>
+      <li>시선의 순서를 설계한다는 것은 경로를 강요하는 일이 아니라 크기·대비·가까움·가리킴으로 순서의 가능성을 높이고, 무엇을 뒤에 둘지 정하는 일이다. 실제 사람에게 확인하는 단계를 남긴다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 회색 원 서른 개 사이의 빨간 원 하나는 바로 눈에 띄는데, 온갖 색의 원 서른 개 사이에서는 같은 빨간 원을 찾느라 한참 걸렸다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">빨강은 회색 옆에서만 채도가 높아지는 색이기 때문이다.</button>
+          <button class="opt">원이 서른 개를 넘으면 사람은 어떤 대상도 바로 찾지 못하기 때문이다.</button>
+          <button class="opt" data-correct>방해물끼리 서로 다를수록 대상이 덜 튀어나오기 때문이다. 대상과 방해물의 차이뿐 아니라 방해물끼리의 닮음이 찾기 쉬움을 정한다.</button>
+          <button class="opt">색이 여러 가지면 눈이 도약 억제 상태에 머물러 아무것도 보지 못하기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">덩컨과 험프리스(1989)가 정리한 대로, 대상이 방해물과 덜 닮을수록, 방해물끼리 더 닮을수록 탐색이 쉽다. 두 경우 모두 원의 수는 같으므로 개수 때문이 아니다. 도약 억제는 도약하는 그 짧은 순간의 감도 저하일 뿐, 색이 많다고 보지 못하게 되는 현상이 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 디자인 도구가 만든 "예측 시선 열 지도"에서 포스터의 날짜가 차갑게(거의 안 본다고) 나왔다. 이 지도를 가장 알맞게 해석한 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>날짜 자리가 시각적으로 두드러지지 않는다는 점검 신호로는 쓸 수 있지만, 날짜를 찾으려는 사람이 실제로 얼마나 볼지는 과제와 사람에 따라 달라 이 지도만으로 알 수 없다.</button>
+          <button class="opt">예측 지도는 실제 시선 추적과 같은 결과를 내므로, 사람들이 날짜를 전혀 보지 않는다는 뜻이다.</button>
+          <button class="opt">글자는 현저성 모델이 가장 잘 예측하는 요소이므로 날짜를 지워도 된다는 뜻이다.</button>
+          <button class="opt">열 지도가 차가운 곳은 중심와가 닿지 않는 곳이므로, 날짜를 화면 정가운데로 옮기면 반드시 해결된다.</button>
+        </div>
+        <div class="quiz-exp">현저성 모델은 국소 대비로 "시각적으로 시끄러운 곳"을 계산할 뿐 과제(날짜 찾기)와 의미를 모른다. 야르부스 이후의 연구가 보여 주듯 과제가 바뀌면 시선이 크게 바뀐다. 가운데 쏠림이 있기는 하지만 가운데로 옮긴다고 "반드시" 해결되지는 않는다. 저수준 모델은 오히려 글자의 의미를 놓치는 대표적인 경우다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 야르부스가 레핀의 「뜻밖의 방문객」으로 한 기록에 대한 설명으로 가장 정확한 것은?</p>
+        <div class="opts">
+          <button class="opt">수백 명의 관찰자가 모두 같은 주사 경로를 보여, 그림이 시선을 완전히 정한다는 것을 증명했다.</button>
+          <button class="opt">관찰자에게 주는 질문을 바꿔도 주사 경로가 거의 같아서, 시선은 그림의 대비만 따른다는 것을 보였다.</button>
+          <button class="opt">시선을 보고 그 사람이 받은 과제를 언제나 정확히 맞힐 수 있음을 증명해 논쟁을 끝냈다.</button>
+          <button class="opt" data-correct>한 관찰자에게 서로 다른 질문을 주자 주사 경로가 뚜렷이 달라졌다. 뒤의 연구는 큰 결론을 확인했지만 개인차가 크고, 시선으로 과제를 읽어 내는 문제는 논쟁 중이다.</button>
+        </div>
+        <div class="quiz-exp">야르부스의 유명한 기록은 사실상 한 관찰자의 것이며, 질문(나이, 형편, 옷 등)에 따라 고정이 다른 곳에 몰렸다. 드앤젤루스와 펠즈(2009)는 여러 관찰자로 큰 결론을 확인했고, 그린 외(2012)와 보르지·이티(2014)는 시선으로 과제를 맞힐 수 있는지를 두고 엇갈린 결과를 냈다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 화면 오른쪽 끝 가까이에 선 인물이 오른쪽(화면 밖)을 보고 있어 답답해 보인다는 평을 들었다. 이 평이 가리키는 것과 가장 가까운 개념은?</p>
+        <div class="opts">
+          <button class="opt">유사 무시: 사람은 화면 오른쪽 절반을 거의 보지 않는다.</button>
+          <button class="opt" data-correct>보는 쪽 여백: 인물이 보는 방향에 남은 공간이 거의 없어 시선이 곧장 화면 밖으로 빠진다.</button>
+          <button class="opt">튀어나옴: 인물이 방해물과 너무 달라 초점이 둘로 갈라졌다.</button>
+          <button class="opt">도약 억제: 인물의 시선 방향으로 눈이 움직이는 동안 그림이 보이지 않는다.</button>
+        </div>
+        <div class="quiz-exp">인물이 보는 쪽에 남는 공간을 보는 쪽 여백이라고 한다. 거의 없으면 시선이 화면 밖으로 빠지며 답답하거나 긴장된 인상을 준다. 일부러 이 긴장을 쓰는 그림도 있다. 유사 무시는 왼쪽 공간에 주의가 약간 더 가는 작은 편향일 뿐, 오른쪽을 보지 않는다는 뜻이 아니다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var hex = ART.hex, parse = ART.parse;
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874";
+  var C = { bg: "#22342a", cream: "#ffe2d7", lamp: "#d24f39", sage: "#567666", green: "#2f7d5b" };
+
+  /* ---------------- 공통 계산 ---------------- */
+  var LUT = new Float32Array(256);
+  for (var li = 0; li < 256; li++) LUT[li] = ART.toLinear(li / 255);
+  function lstarOfY(Y) { return Y > 216 / 24389 ? 116 * Math.cbrt(Y) - 16 : (24389 / 27) * Y; }  // CIE 15:2004
+  // 상자 흐림(가로·세로 한 번씩, 가장자리는 늘여 씀). ColorBook 6장(value.html)의 것과 같다.
+  function boxBlur(a, w, h, r) {
+    if (r < 1) return a;
+    var tmp = new Float32Array(a.length), out = new Float32Array(a.length);
+    function pass(src, dst, horiz) {
+      var N = horiz ? w : h, M = horiz ? h : w;
+      for (var line = 0; line < M; line++) {
+        var base = horiz ? line * w : line, step = horiz ? 1 : w, acc = 0, j, i;
+        var at = function (k) { k = k < 0 ? 0 : k >= N ? N - 1 : k; return src[base + k * step]; };
+        for (j = -r; j <= r; j++) acc += at(j);
+        for (i = 0; i < N; i++) { dst[base + i * step] = acc / (2 * r + 1); acc += at(i + r + 1) - at(i - r); }
+      }
+    }
+    pass(a, tmp, true); pass(tmp, out, false);
+    return out;
+  }
+  function blur2(a, w, h, r) { return boxBlur(boxBlur(a, w, h, r), w, h, Math.max(1, Math.round(r / 2))); }
+  function drawContain(ctx, im, x, y, w, h) {
+    var iw = im.naturalWidth || im.width, ih = im.naturalHeight || im.height, s = Math.min(w / iw, h / ih);
+    var dw = iw * s, dh = ih * s, r = { x: x + (w - dw) / 2, y: y + (h - dh) / 2, w: dw, h: dh };
+    ctx.drawImage(im, r.x, r.y, r.w, r.h);
+    return r;
+  }
+  function smallData(src, w) {
+    var iw = src.naturalWidth || src.width, ih = src.naturalHeight || src.height;
+    var h = Math.max(1, Math.round((ih / iw) * w)), c = document.createElement("canvas"); c.width = w; c.height = h;
+    var x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(src, 0, 0, w, h);
+    return x.getImageData(0, 0, w, h);
+  }
+  // 고정 색 열 지도(어두운 보라 → 빨강 → 노랑). 다크 모드와 상관없이 같다.
+  var HEAT = [[0, [40, 11, 84]], [0.45, [190, 40, 70]], [0.75, [240, 110, 30]], [1, [252, 230, 80]]];
+  function heat(t) {
+    t = AB.clamp(t, 0, 1);
+    for (var k = 1; k < HEAT.length; k++) if (t <= HEAT[k][0]) {
+      var a = HEAT[k - 1], b = HEAT[k], u = (t - a[0]) / (b[0] - a[0]);
+      return [0, 1, 2].map(function (j) { return Math.round(a[1][j] + (b[1][j] - a[1][j]) * u); });
+    }
+    return HEAT[HEAT.length - 1][1];
+  }
+
+  /* ---------------- 현저성 모델(교육용 근사) ----------------
+     Itti, Koch & Niebur (1998, IEEE TPAMI 20(11))의 중심–주변 차이를 단순화했다.
+     특징: 명도 L*, 색 OKLab (a, b), 윤곽(명도의 소벨 기울기 크기). 방향 지도는 없다.
+     중심–주변: 두 척도 (작은 창, 큰 창) = (1, 5), (2, 10)칸(가로 160칸 기준)의 흐림 차이.
+     정규화 N(): 최댓값으로 나눈 뒤 (1 − 평균)²를 곱해 봉우리가 적은 지도에 큰 몫을 준다. */
+  function salFeatures(id) {
+    var w = id.width, h = id.height, n = w * h, d = id.data;
+    var L = new Float32Array(n), A = new Float32Array(n), B = new Float32Array(n), E = new Float32Array(n);
+    for (var i = 0; i < n; i++) {
+      var lin = [LUT[d[i * 4]], LUT[d[i * 4 + 1]], LUT[d[i * 4 + 2]]];
+      L[i] = lstarOfY(0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]) / 100;
+      var ok = ART.linearToOklab(lin); A[i] = ok[1] * 3; B[i] = ok[2] * 3;
+    }
+    for (var y = 1; y < h - 1; y++) for (var x = 1; x < w - 1; x++) {
+      var p = function (dx, dy) { return L[(y + dy) * w + x + dx]; };
+      var gx = p(1, -1) + 2 * p(1, 0) + p(1, 1) - p(-1, -1) - 2 * p(-1, 0) - p(-1, 1);
+      var gy = p(-1, 1) + 2 * p(0, 1) + p(1, 1) - p(-1, -1) - 2 * p(0, -1) - p(1, -1);
+      E[y * w + x] = Math.min(1, Math.hypot(gx, gy) / 2);
+    }
+    E = boxBlur(E, w, h, 2);
+    function cs(maps) {  // maps: 같은 크기 배열들(벡터 특징이면 2개). 두 척도의 중심–주변 차이 합
+      var out = new Float32Array(n);
+      [[1, 5], [2, 10]].forEach(function (sc) {
+        var cen = maps.map(function (m) { return blur2(m, w, h, sc[0]); }), sur = maps.map(function (m) { return blur2(m, w, h, sc[1]); });
+        for (var i = 0; i < n; i++) { var s = 0; for (var k = 0; k < maps.length; k++) { var df = cen[k][i] - sur[k][i]; s += df * df; } out[i] += Math.sqrt(s); }
+      });
+      return out;
+    }
+    function N(m) {
+      var mx = 0, sum = 0, i;
+      for (i = 0; i < n; i++) if (m[i] > mx) mx = m[i];
+      if (mx <= 0) return m;
+      for (i = 0; i < n; i++) { m[i] /= mx; sum += m[i]; }
+      var f = Math.pow(1 - sum / n, 2);
+      for (i = 0; i < n; i++) m[i] *= f;
+      return m;
+    }
+    return { w: w, h: h, L: N(cs([L])), C: N(cs([A, B])), E: N(cs([E])) };
+  }
+  function salCombine(F, wL, wC, wE, center) {
+    var w = F.w, h = F.h, n = w * h, S = new Float32Array(n), mx = 0, i;
+    for (i = 0; i < n; i++) S[i] = wL * F.L[i] + wC * F.C[i] + wE * F.E[i];
+    S = boxBlur(S, w, h, 1);
+    if (center) for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+      var dx = (x / w - 0.5) / 0.3, dy = (y / h - 0.5) / 0.3;
+      S[y * w + x] *= 0.35 + 0.65 * Math.exp(-(dx * dx + dy * dy) / 2);  // 가운데 쏠림(Tatler 2007)을 가우스 가중으로 흉내
+    }
+    for (i = 0; i < n; i++) if (S[i] > mx) mx = S[i];
+    if (mx > 0) for (i = 0; i < n; i++) S[i] /= mx;
+    // 되돌아감 억제로 봉우리 다섯 개
+    var T = Float32Array.from(S), peaks = [], R = Math.round(w * 0.11);
+    for (var k = 0; k < 5; k++) {
+      var bi = 0; for (i = 1; i < n; i++) if (T[i] > T[bi]) bi = i;
+      if (T[bi] <= 0.02) break;
+      var px = bi % w, py = Math.floor(bi / w);
+      peaks.push({ x: (px + 0.5) / w, y: (py + 0.5) / h, i: bi });
+      for (var yy = Math.max(0, py - R); yy < Math.min(h, py + R + 1); yy++) for (var xx = Math.max(0, px - R); xx < Math.min(w, px + R + 1); xx++)
+        if ((xx - px) * (xx - px) + (yy - py) * (yy - py) <= R * R) T[yy * w + xx] = 0;
+    }
+    return { S: S, peaks: peaks };
+  }
+  function heatCanvas(S, w, h, alphaMax) {
+    var c = document.createElement("canvas"); c.width = w; c.height = h;
+    var x = c.getContext("2d"), id = x.createImageData(w, h);
+    for (var i = 0; i < w * h; i++) {
+      var t = S[i], col = heat(t);
+      id.data[i * 4] = col[0]; id.data[i * 4 + 1] = col[1]; id.data[i * 4 + 2] = col[2];
+      id.data[i * 4 + 3] = Math.round(255 * (alphaMax == null ? 1 : alphaMax * Math.pow(t, 0.8)));
+    }
+    x.putImageData(id, 0, 0);
+    return c;
+  }
+  function drawPeaks(ctx, r, peaks) {
+    peaks.forEach(function (p, k) {
+      var x = r.x + p.x * r.w, y = r.y + p.y * r.h;
+      ctx.beginPath(); ctx.arc(x, y, 11, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = "#111111"; ctx.stroke();
+      ctx.fillStyle = "#111111"; ctx.font = AB.font(12, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(String(k + 1), x, y + 0.5);
+    });
+  }
+
+  /* ---------------- 책방 E 겨울 낭독회 포스터(가상의 예시, A2 세로 420×594 mm) ----------------
+     좌표는 포스터 폭을 1로 둔 값(높이 1.414). 요소: title, art(등불 + 책 읽는 사람), date, place. */
+  var PH = 594 / 420;
+  var PRESET = {
+    v1: { title: { x: 0.5, y: 0.17, s: 1, t: 1 }, art: { x: 0.5, y: 0.66, s: 1, t: 1 }, date: { x: 0.79, y: 1.32, s: 0.9, t: 0.5 }, place: { x: 0.21, y: 1.32, s: 1, t: 0.5 }, gaze: "up" },
+    v2: { title: { x: 0.5, y: 0.17, s: 1.25, t: 1 }, art: { x: 0.5, y: 0.62, s: 0.78, t: 1 }, date: { x: 0.5, y: 1.06, s: 2, t: 1 }, place: { x: 0.5, y: 1.18, s: 1.1, t: 0.6 }, gaze: "date" },
+  };
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  // 명도 대비 t(0~1): 바탕색에서 각 요소의 "가장 밝은 색"까지 OKLab로 섞는다
+  var FULL = { title: C.cream, art: C.lamp, date: C.cream, place: C.cream };
+  // 날짜·장소는 바탕 → 차분한 초록(t = 0.5) → 크림(t = 1)으로 간다
+  function elColor(key, t) {
+    if ((key === "date" || key === "place") && t <= 0.5) return hex(ART.clip(ART.mixOklab(parse(C.bg), parse(C.sage), t * 2)));
+    if (key === "date" || key === "place") return hex(ART.clip(ART.mixOklab(parse(C.sage), parse(C.cream), (t - 0.5) * 2)));
+    return hex(ART.clip(ART.mixOklab(parse(C.bg), parse(FULL[key]), t)));
+  }
+  // 요소 상자(포스터 폭 단위). 날짜·장소 글자 높이 기준: s=1일 때 12 mm.
+  function elBox(key, e) {
+    if (key === "title") return { x: e.x - 0.42 * e.s, y: e.y - 0.075 * e.s, w: 0.84 * e.s, h: 0.15 * e.s };
+    if (key === "art") { var r = 0.3 * e.s; return { x: e.x - r, y: e.y - r, w: 2 * r, h: 2 * r + 0.06 * e.s }; }
+    var th = (12 / 420) * e.s, tw = key === "date" ? th * 8.2 : th * 7.4;
+    return { x: e.x - tw / 2, y: e.y - th * 0.8, w: tw, h: th * 1.6 };
+  }
+  function headPos(e) { return { x: e.x + 0.02 * e.s, y: e.y + 0.08 * e.s }; }
+  function gazeVec(L) {
+    var hp = headPos(L.art);
+    if (L.gaze === "date") { var dx = L.date.x - hp.x, dy = L.date.y - hp.y, m = Math.hypot(dx, dy) || 1; return [dx / m, dy / m]; }
+    if (L.gaze === "out") return [-0.95, 0.31];
+    return [0.35, -0.94];
+  }
+  function drawPoster(ctx, X, Y, W, L, opt) {
+    opt = opt || {};
+    var H = W * PH;
+    ctx.save(); ctx.translate(X, Y);
+    ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
+    ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+    // 그림: 등불(큰 면) + 책 읽는 사람
+    var a = L.art, r = 0.3 * a.s * W, ax = a.x * W, ay = a.y * W;
+    ctx.fillStyle = elColor("art", a.t);
+    ctx.beginPath(); ctx.arc(ax, ay, r, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = hex(ART.clip(ART.mixOklab(parse(C.bg), parse(C.lamp), a.t * 0.55)));
+    ctx.beginPath(); ctx.arc(ax, ay, r * 0.62, 0, Math.PI * 2); ctx.globalAlpha = 0.35; ctx.fill(); ctx.globalAlpha = 1;
+    var hp = headPos(a), hx = hp.x * W, hy = hp.y * W, hr = 0.045 * a.s * W, g = gazeVec(L);
+    ctx.fillStyle = "#16221b";
+    ctx.beginPath();  // 몸(앉은 실루엣)
+    ctx.moveTo(hx - hr * 1.7, hy + hr * 1.1); ctx.quadraticCurveTo(hx - hr * 2.3, hy + hr * 4.2, hx - hr * 2.6, hy + hr * 5.6);
+    ctx.lineTo(hx + hr * 3.2, hy + hr * 5.6); ctx.quadraticCurveTo(hx + hr * 2.0, hy + hr * 3.4, hx + hr * 1.5, hy + hr * 1.1); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.arc(hx, hy, hr, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(hx + g[0] * hr * 0.6 - g[1] * hr * 0.35, hy + g[1] * hr * 0.6 + g[0] * hr * 0.35); ctx.lineTo(hx + g[0] * hr * 1.45, hy + g[1] * hr * 1.45); ctx.lineTo(hx + g[0] * hr * 0.6 + g[1] * hr * 0.35, hy + g[1] * hr * 0.6 - g[0] * hr * 0.35); ctx.fill();  // 코(시선 방향)
+    ctx.fillStyle = elColor("title", Math.max(0.5, a.t));  // 펼친 책
+    ctx.save(); ctx.translate(hx + hr * 1.3, hy + hr * 3.1); ctx.rotate(-0.25);
+    ctx.fillRect(-hr * 1.1, -hr * 0.35, hr * 2.2, hr * 0.7); ctx.restore();
+    // 제목
+    var t = L.title, fs = 0.105 * t.s * W;
+    ctx.fillStyle = elColor("title", t.t); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.font = AB.font(fs, false, 800); ctx.fillText("겨울 밤 낭독회", t.x * W, t.y * W - fs * 0.05);
+    ctx.font = AB.font(fs * 0.3, false, 600); ctx.fillText("책방 E 연말 낭독회", t.x * W, t.y * W + fs * 0.62);
+    // 날짜·장소
+    var d = L.date, ds = (12 / 420) * d.s * W;
+    ctx.fillStyle = elColor("date", d.t); ctx.font = AB.font(Math.max(5, ds * 1.15), false, 700);
+    ctx.fillText("12.20 토 오후 7시", d.x * W, d.y * W);
+    var p = L.place, ps = (12 / 420) * p.s * W;
+    ctx.fillStyle = elColor("place", p.t); ctx.font = AB.font(Math.max(5, ps * 1.1), false, 600);
+    ctx.fillText("책방 E · 안쪽 서가", p.x * W, p.y * W);
+    ctx.restore();
+    return { x: X, y: Y, w: W, h: H };
+  }
+  // 요소 단위 시선 모델(교육용 근사, 계수는 이 책이 정한 값)
+  var KEYS = ["title", "art", "date", "place"], NAMES = { title: "제목", art: "그림", date: "날짜", place: "장소" };
+  function posterModel(L) {
+    var Lbg = ART.lightness(parse(C.bg)), area = {}, maxA = 0, S = {};
+    KEYS.forEach(function (k) { var b = elBox(k, L[k]); area[k] = k === "art" ? Math.PI * Math.pow(0.3 * L[k].s, 2) : b.w * b.h; maxA = Math.max(maxA, area[k]); });
+    var g = gazeVec(L), hp = headPos(L.art);
+    KEYS.forEach(function (k) {
+      var e = L[k], size = Math.sqrt(area[k] / maxA);
+      var con = Math.abs(ART.lightness(parse(elColor(k, e.t))) - Lbg) / 100;
+      var dmin = 9; KEYS.forEach(function (j) { if (j !== k) dmin = Math.min(dmin, Math.hypot(L[j].x - e.x, L[j].y - e.y)); });
+      var iso = Math.min(1, dmin / 0.6);
+      var cen = Math.exp(-(Math.pow(e.x - 0.5, 2) + Math.pow(e.y - PH / 2, 2)) / (2 * 0.35 * 0.35));
+      var s = 0.4 * size + 0.4 * con + 0.1 * iso + 0.1 * cen;
+      if (k === "art") s += 0.1;  // 얼굴(사람 실루엣)
+      S[k] = s;
+    });
+    // 시선 단서: 그림(인물)을 본 다음 고정에서, 인물이 바라보는 요소(약 ±30° 안)의 우선순위를 최대 2배로 올린다
+    var cue = {};
+    KEYS.forEach(function (k) {
+      if (k === "art") { cue[k] = 0; return; }
+      var dx = L[k].x - hp.x, dy = L[k].y - hp.y, m = Math.hypot(dx, dy) || 1, cs = (dx * g[0] + dy * g[1]) / m;
+      cue[k] = Math.max(0, (cs - 0.85) / 0.15);
+    });
+    var order = [], left = KEYS.slice();
+    var first = left.reduce(function (a, b) { return S[b] > S[a] ? b : a; });
+    order.push(first); left.splice(left.indexOf(first), 1);
+    while (left.length) {
+      var cur = L[order[order.length - 1]];
+      var nx = left.reduce(function (a, b) {
+        var fromArt = order[order.length - 1] === "art";
+        var va = S[a] * Math.exp(-Math.hypot(L[a].x - cur.x, L[a].y - cur.y) / 0.7) * (fromArt ? 1 + cue[a] : 1);
+        var vb = S[b] * Math.exp(-Math.hypot(L[b].x - cur.x, L[b].y - cur.y) / 0.7) * (fromArt ? 1 + cue[b] : 1);
+        return vb > va ? b : a;
+      });
+      order.push(nx); left.splice(left.indexOf(nx), 1);
+    }
+    return { S: S, order: order, cue: cue };
+  }
+  window.__eyePosterModel = function (v) { return posterModel(typeof v === "string" ? clone(PRESET[v]) : v); };  // 본문 값 검산용
+
+  /* ---------------- 시뮬레이터 1: 중심와 ---------------- */
+  (function () {
+    var el = document.getElementById("fv-cv");
+    var dG = AB.range("fv-d", function (v) { return AB.fix(v, 1) + " m"; }, function () { cv.redraw(); });
+    var ring = AB.check("fv-ring", function () { cv.redraw(); });
+    var all = AB.check("fv-all", function () { cv.redraw(); });
+    var fov = { x: 0.5, y: 0.2 }, geo = null, cache = { key: "" };
+    function layers(W) {
+      var key = Math.round(W) + "";
+      if (cache.key === key) return cache;
+      var dpr = 2, H = W * PH;
+      var sharp = document.createElement("canvas"); sharp.width = Math.round(W * dpr); sharp.height = Math.round(H * dpr);
+      var sx = sharp.getContext("2d"); sx.scale(dpr, dpr); drawPoster(sx, 0, 0, W, PRESET.v1);
+      // 흐림: ctx.filter가 되면 가우스 흐림, 안 되면 해상도를 줄였다 늘려 흉내 낸다
+      function low(f) {
+        var c = document.createElement("canvas"), x = c.getContext("2d");
+        if ("filter" in x) {
+          c.width = sharp.width; c.height = sharp.height; x.fillStyle = C.bg; x.fillRect(0, 0, c.width, c.height);
+          x.filter = "blur(" + Math.round(f * dpr * 0.55) + "px)"; x.drawImage(sharp, 0, 0); x.filter = "none"; return c;
+        }
+        c.width = Math.max(2, Math.round(W / f)); c.height = Math.max(2, Math.round(H / f));
+        x.imageSmoothingEnabled = true; x.drawImage(sharp, 0, 0, c.width, c.height); return c;
+      }
+      cache = { key: key, sharp: sharp, mid: low(4), far: low(11) };
+      return cache;
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var Wp = Math.min(w - 24, (h - 20) / PH), X = (w - Wp) / 2, Y = 10, Hp = Wp * PH, Lc = layers(Wp);
+      geo = { x: X, y: Y, w: Wp, h: Hp };
+      var d = dG(), mmPx = Wp / 420;
+      var r1 = d * 1000 * Math.tan(Math.PI / 180) * mmPx, r2 = d * 1000 * Math.tan(5 * Math.PI / 180) * mmPx;
+      var cx = X + fov.x * Wp, cy = Y + fov.y * Wp;
+      ctx.save(); ctx.beginPath(); ctx.rect(X, Y, Wp, Hp); ctx.clip();
+      if (all()) ctx.drawImage(Lc.sharp, X, Y, Wp, Hp);
+      else {
+        ctx.drawImage(Lc.far, X, Y, Wp, Hp);
+        ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r2, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(Lc.mid, X, Y, Wp, Hp); ctx.restore();
+        ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r1, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(Lc.sharp, X, Y, Wp, Hp); ctx.restore();
+      }
+      if (ring()) {
+        ctx.setLineDash([5, 4]); ctx.lineWidth = 1.5; ctx.strokeStyle = "rgba(255,255,255,0.85)";
+        ctx.beginPath(); ctx.arc(cx, cy, r2, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+        ctx.lineWidth = 2; ctx.strokeStyle = "#ffffff"; ctx.beginPath(); ctx.arc(cx, cy, r1, 0, Math.PI * 2); ctx.stroke();
+      }
+      ctx.restore();
+      ctx.strokeStyle = "#9a968c"; ctx.lineWidth = 1; ctx.strokeRect(X + 0.5, Y + 0.5, Wp - 1, Hp - 1);
+      AB.handle(ctx, cx, cy, { r: 6 });
+      var dmm = 2 * d * 1000 * Math.tan(Math.PI / 180);
+      var area = 0, N = 40;  // 포스터 안에 든 원의 넓이(격자 적분)
+      for (var j = 0; j < N; j++) for (var i = 0; i < N; i++) { var px = X + ((i + 0.5) / N) * Wp, py = Y + ((j + 0.5) / N) * Hp; if (Math.hypot(px - cx, py - cy) <= r1) area++; }
+      AB.stat("fv-o-d", AB.fix(dmm, 0) + " mm");
+      AB.stat("fv-o-a", AB.fix((area / (N * N)) * 100, 1) + "%");
+      var arcmin = Math.atan(10.8 / (d * 1000)) * 180 / Math.PI * 60;
+      AB.stat("fv-o-t", AB.fix(arcmin, 0) + "분 <small>(시력표 1.0 글자 = 5분)</small>");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 1.15, 380, 600)); } });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo) return; fov.x = AB.clamp((x - geo.x) / geo.w, 0, 1); fov.y = AB.clamp((y - geo.y) / geo.w, 0, PH); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 튀어나옴 ---------------- */
+  (function () {
+    var el = document.getElementById("po-cv");
+    var fS = AB.seg("po-f", function () { cv.redraw(); });
+    var diff = AB.range("po-diff", function (v) { return AB.fix(v, 2); }, function () { cv.redraw(); });
+    var vr = AB.range("po-var", function (v) { return AB.fix(v, 2); }, function () { cv.redraw(); });
+    var nG = AB.range("po-n", function (v) { return v + "개"; }, function () { cv.redraw(); });
+    var show = AB.check("po-show", function () { cv.redraw(); });
+    // 특징별 범위(이 값 1 = 다른 정도 1): 명도 L* 50, 색상 150°, 크기 배율 ×1.9, 방향 80°
+    var RANGE = { value: 50, hue: 150, size: 0.9, angle: 80 }, JND = { value: 3, hue: 6, size: 0.05, angle: 5 };
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var f = fS(), n = nG(), rnd = AB.rng(7), cols = Math.ceil(Math.sqrt(n * w / h)), rows = Math.ceil(n / cols);
+      var cw = (w - 20) / cols, ch = (h - 20) / rows, unit = Math.min(cw, ch);
+      var tIdx = Math.floor(AB.rng(11)() * n), vals = [];
+      var noise = []; for (var i = 0; i < n; i++) noise.push([rnd() * 2 - 1, rnd() * 2 - 1, rnd(), rnd()]);
+      for (i = 0; i < n; i++) {
+        var v = i === tIdx ? diff() : vr() * noise[i][0];
+        vals.push(v);
+      }
+      var base = { L: 62, C: 0.06, h: 250, size: 1, ang: 0 };
+      for (i = 0; i < n; i++) {
+        var col = i % cols, row = Math.floor(i / cols);
+        var x = 10 + (col + 0.5) * cw + (noise[i][2] - 0.5) * cw * 0.35, y = 10 + (row + 0.5) * ch + (noise[i][3] - 0.5) * ch * 0.35;
+        var L = base.L, hh = base.h, C0 = base.C, sz = base.size, ang = base.ang, v = vals[i];
+        if (f === "value") L = base.L - v * RANGE.value * (i === tIdx ? 1 : 0.9);
+        if (f === "hue") { hh = base.h + v * RANGE.hue; C0 = 0.13; }
+        if (f === "size") sz = 1 + v * RANGE.size;
+        if (f === "angle") ang = v * RANGE.angle;
+        var rgb = ART.fit(ART.oklchToSrgb([AB.clamp((L + 8) / 108, 0, 1), C0, hh]));
+        // 명도는 L*로 맞춘다
+        if (f === "value") { var g = ART.toGamma(Math.pow((AB.clamp(L, 5, 95) + 16) / 116, 3)); rgb = ART.fit(ART.lchToSrgb([AB.clamp(L, 5, 95), 18, 250])); }
+        ctx.save(); ctx.translate(x, y); ctx.rotate(ang * Math.PI / 180);
+        var bw = unit * 0.22 * sz, bh = unit * 0.62 * sz;
+        ctx.fillStyle = hex(rgb); ctx.fillRect(-bw / 2, -bh / 2, bw, bh);
+        ctx.restore();
+        if (show() && i === tIdx) { ctx.strokeStyle = "#d24f39"; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, unit * 0.48, 0, Math.PI * 2); ctx.stroke(); }
+      }
+      // 두드러짐 지수
+      var dv = vals.filter(function (_, k) { return k !== tIdx; }), mean = dv.reduce(function (a, b) { return a + b; }, 0) / dv.length;
+      var sd = Math.sqrt(dv.reduce(function (a, b) { return a + (b - mean) * (b - mean); }, 0) / dv.length);
+      var floor = JND[f] / RANGE[f];
+      var z = Math.abs(vals[tIdx] - mean) / (sd + floor);
+      AB.stat("po-o-z", AB.fix(z, 1));
+      AB.stat("po-o-j", z >= 6 ? "바로 튀어나옴" : z >= 2.5 ? "조금 찾아야 함" : "하나씩 훑어야 함");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.75, 260, 400)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 현저성 지도 ---------------- */
+  (function () {
+    var el = document.getElementById("sa-cv");
+    var SRC = { david: "../../shared/img/david-death-of-socrates.webp", rembrandt: "../../shared/img/rembrandt-aristotle-homer.webp" };
+    var imgS = AB.seg("sa-img", function () { cv.redraw(); });
+    var re = function () { cv.redraw(); };
+    var wl = AB.range("sa-wl", function (v) { return AB.fix(v, 2); }, re), wc = AB.range("sa-wc", function (v) { return AB.fix(v, 2); }, re), we = AB.range("sa-we", function (v) { return AB.fix(v, 2); }, re);
+    var view = AB.seg("sa-view", re), center = AB.check("sa-center", re);
+    var data = {};
+    function prep(key, src) { var id = smallData(src, 160); data[key] = { img: src, F: salFeatures(id) }; if (imgS() === key) cv.redraw(); }
+    Object.keys(SRC).forEach(function (k) { AB.loadImage(SRC[k]).then(function (im) { prep(k, im); }); });
+    (function () { var c = document.createElement("canvas"); c.width = 420; c.height = Math.round(420 * PH); drawPoster(c.getContext("2d"), 0, 0, 420, PRESET.v1); prep("poster", c); })();
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var d = data[imgS()];
+      if (!d) { ctx.fillStyle = INK_DIM; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.fillText("그림을 불러오는 중…", w / 2, h / 2); return; }
+      var R = salCombine(d.F, wl(), wc(), we(), center()), v = view();
+      var iw = d.img.naturalWidth || d.img.width, ih = d.img.naturalHeight || d.img.height, s = Math.min((w - 20) / iw, (h - 20) / ih);
+      var r = { w: iw * s, h: ih * s }; r.x = (w - r.w) / 2; r.y = (h - r.h) / 2;
+      if (v !== "map") ctx.drawImage(d.img, r.x, r.y, r.w, r.h);
+      if (v !== "img") {
+        var hc = heatCanvas(R.S, d.F.w, d.F.h, v === "map" ? null : 0.72);
+        ctx.imageSmoothingEnabled = true; ctx.drawImage(hc, r.x, r.y, r.w, r.h);
+      }
+      if (v !== "img") drawPeaks(ctx, r, R.peaks);
+      var p = R.peaks[0];
+      if (p) {
+        var col = p.x < 0.36 ? "왼쪽" : p.x > 0.64 ? "오른쪽" : "가운데", row = p.y < 0.36 ? "위" : p.y > 0.64 ? "아래" : "가운데";
+        AB.stat("sa-o-1", (row === "가운데" && col === "가운데" ? "한가운데" : row + " " + col).replace("가운데 ", "") + " <small>(" + Math.round(p.x * 100) + "%, " + Math.round(p.y * 100) + "%)</small>");
+        var a = wl() * d.F.L[p.i], b = wc() * d.F.C[p.i], c = we() * d.F.E[p.i], t = a + b + c || 1;
+        AB.stat("sa-o-2", Math.round(a / t * 100) + " · " + Math.round(b / t * 100) + " · " + Math.round(c / t * 100) + "%");
+      } else { AB.stat("sa-o-1", "—"); AB.stat("sa-o-2", "모든 몫이 0"); }
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.8, 300, 520)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 방향선 ---------------- */
+  (function () {
+    var el = document.getElementById("ln-cv");
+    var type = AB.seg("ln-type", function () { cv.redraw(); });
+    var nG = AB.range("ln-n", function (v) { return v + "개"; }, function () { cv.redraw(); });
+    var ext = AB.check("ln-ext", function () { cv.redraw(); });
+    var vp = { x: 0.7, y: 0.36 }, house = { x: 0.28, y: 0.4 }, drag = null, W = 1, H = 1;
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      W = w; H = h;
+      var hy = h * 0.38, n = nG(), t = type();
+      var sky = ctx.createLinearGradient(0, 0, 0, hy); sky.addColorStop(0, "#c9d6df"); sky.addColorStop(1, "#eef0e6");
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, w, hy);
+      ctx.fillStyle = "#d9c27a"; ctx.fillRect(0, hy, w, h - hy);
+      ctx.fillStyle = "#9fae8a"; ctx.fillRect(0, hy - 6, w, 8);
+      var V = { x: vp.x * w, y: vp.y * h }, Hs = { x: house.x * w, y: house.y * h }, target = V;
+      ctx.lineCap = "round";
+      if (t === "conv") {
+        for (var i = 0; i < n; i++) {
+          var bx = n === 1 ? w * 0.5 : -w * 0.25 + (w * 1.5 * i) / (n - 1);
+          if (ext()) { ctx.strokeStyle = "rgba(122,85,40,0.28)"; ctx.lineWidth = 1; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(Math.max(-w, Math.min(2 * w, bx)), h); ctx.lineTo(V.x, V.y); ctx.stroke(); ctx.setLineDash([]); }
+          // 실제 고랑은 지평선 아래에서만 보인다
+          var tEnd = V.y > hy ? 0.97 : (h - hy) / (h - V.y);
+          ctx.strokeStyle = "#8a6430"; ctx.lineWidth = 2.2;
+          ctx.beginPath(); ctx.moveTo(bx, h); ctx.lineTo(bx + (V.x - bx) * tEnd, h + (V.y - h) * tEnd); ctx.stroke();
+        }
+      } else if (t === "curve") {
+        var sx = w * 0.15, cx1 = w * 0.95, cy1 = h * 0.82, cx2 = w * 0.05, cy2 = h * 0.55;
+        ctx.strokeStyle = "#b9a37a"; ctx.lineWidth = Math.max(10, w * 0.05);
+        ctx.beginPath(); ctx.moveTo(sx, h + 4); ctx.bezierCurveTo(cx1, cy1, cx2, cy2, V.x, V.y); ctx.stroke();
+        ctx.strokeStyle = "#e6d9b4"; ctx.lineWidth = 2; ctx.setLineDash([8, 8]);
+        ctx.beginPath(); ctx.moveTo(sx, h + 4); ctx.bezierCurveTo(cx1, cy1, cx2, cy2, V.x, V.y); ctx.stroke(); ctx.setLineDash([]);
+        for (i = 1; i < Math.min(n, 8); i++) { var u = i / 8, tx = Math.pow(1 - u, 3) * sx + 3 * Math.pow(1 - u, 2) * u * cx1 + 3 * (1 - u) * u * u * cx2 + u * u * u * V.x, ty = Math.pow(1 - u, 3) * (h + 4) + 3 * Math.pow(1 - u, 2) * u * cy1 + 3 * (1 - u) * u * u * cy2 + u * u * u * V.y; ctx.fillStyle = "#5f7a4f"; ctx.beginPath(); ctx.arc(tx + 18 * (1 - u) + 6, ty - 10 * (1 - u) - 4, 4 + 10 * (1 - u), 0, Math.PI * 2); ctx.fill(); }
+      } else {
+        var ax = w * 0.02, ay = h * 0.98;
+        ctx.strokeStyle = "#5a4a3a"; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax + (V.x - ax) * 0.8, ay + (V.y - ay) * 0.8); ctx.stroke();
+        if (ext()) { ctx.strokeStyle = "rgba(90,74,58,0.35)"; ctx.lineWidth = 1.2; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(ax + (V.x - ax) * 0.8, ay + (V.y - ay) * 0.8); ctx.lineTo(V.x, V.y); ctx.stroke(); ctx.setLineDash([]); }
+      }
+      // 집(주인공)
+      var s = Math.max(14, w * 0.035);
+      ctx.fillStyle = "#f4efe4"; ctx.fillRect(Hs.x - s, Hs.y - s * 0.8, 2 * s, s * 1.2);
+      ctx.fillStyle = "#b5452f"; ctx.beginPath(); ctx.moveTo(Hs.x - s * 1.2, Hs.y - s * 0.75); ctx.lineTo(Hs.x, Hs.y - s * 1.7); ctx.lineTo(Hs.x + s * 1.2, Hs.y - s * 0.75); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#3a3f3b"; ctx.fillRect(Hs.x - s * 0.25, Hs.y - s * 0.1, s * 0.5, s * 0.5);
+      AB.handle(ctx, Hs.x, Hs.y - s * 0.6, { r: 7, fill: "#ffffff", ring: "#b5452f" });
+      AB.handle(ctx, V.x, V.y, { r: 8, fill: "#111111", ring: "#ffffff" });
+      var diag = Math.hypot(w, h), dist = Math.hypot(target.x - Hs.x, target.y - (Hs.y - s * 0.6)) / diag;
+      var outside = V.x < w * 0.04 || V.x > w * 0.96 || V.y < h * 0.04;
+      AB.stat("ln-o-d", AB.fix(dist * 100, 0) + "%");
+      AB.stat("ln-o-j", outside ? "선이 눈을 화면 밖으로 보냄" : dist < 0.08 ? "선이 집을 가리킴" : dist < 0.25 ? "선과 집이 가까이서 겨룸" : "선과 집이 눈을 나눠 가짐");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.68, 240, 400)); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        var dv = Math.hypot(x - vp.x * W, y - vp.y * H), s = Math.max(14, W * 0.035), dh = Math.hypot(x - house.x * W, y - (house.y * H - s * 0.6));
+        drag = dh < dv ? "house" : "vp";
+      },
+      move: function (x, y) {
+        var o = drag === "house" ? house : vp;
+        o.x = AB.clamp(x / W, 0.01, 0.99); o.y = AB.clamp(y / H, 0.03, drag === "house" ? 0.95 : 0.6);
+        cv.redraw();
+      },
+      end: function () { drag = null; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 인물의 시선 ---------------- */
+  (function () {
+    var el = document.getElementById("gz-cv");
+    var lineC = AB.check("gz-line", function () { cv.redraw(); }), point = AB.check("gz-point", function () { cv.redraw(); }), crowd = AB.check("gz-crowd", function () { cv.redraw(); });
+    var head = { x: 0.3, y: 0.42 }, look = { x: 0.08, y: 0.12 }, book = { x: 0.8, y: 0.62 }, drag = null, W = 1, H = 1;
+    function figure(ctx, x, y, s, gx, gy, col) {
+      var m = Math.hypot(gx - x, gy - y) || 1, ux = (gx - x) / m, uy = (gy - y) / m;
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.moveTo(x - s * 1.3, y + s * 1.2); ctx.quadraticCurveTo(x - s * 1.8, y + s * 3.5, x - s * 1.6, y + s * 5.5); ctx.lineTo(x + s * 1.6, y + s * 5.5); ctx.quadraticCurveTo(x + s * 1.8, y + s * 3.5, x + s * 1.3, y + s * 1.2); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, s, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x + ux * s * 0.5 - uy * s * 0.35, y + uy * s * 0.5 + ux * s * 0.35); ctx.lineTo(x + ux * s * 1.45, y + uy * s * 1.45); ctx.lineTo(x + ux * s * 0.5 + uy * s * 0.35, y + uy * s * 0.5 - ux * s * 0.35); ctx.fill();
+      ctx.fillStyle = "#f4efe4"; ctx.beginPath(); ctx.arc(x + ux * s * 0.55 - uy * s * 0.25 * Math.sign(ux || 1), y + uy * s * 0.55 - s * 0.18, s * 0.14, 0, Math.PI * 2); ctx.fill();
+      return [ux, uy];
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      W = w; H = h;
+      ctx.fillStyle = "#e9e2d3"; ctx.fillRect(0, 0, w, h * 0.78);
+      ctx.fillStyle = "#cdbb9c"; ctx.fillRect(0, h * 0.78, w, h * 0.22);
+      var s = Math.max(12, Math.min(w, h) * 0.06);
+      var B = { x: book.x * w, y: book.y * h }, Hd = { x: head.x * w, y: head.y * h }, G = { x: look.x * w, y: look.y * h };
+      // 탁자와 책
+      ctx.fillStyle = "#8b6a4a"; ctx.fillRect(B.x - s * 2.6, B.y + s * 0.5, s * 5.2, s * 0.4); ctx.fillRect(B.x - s * 2.2, B.y + s * 0.9, s * 0.35, h * 0.78 - B.y + s); ctx.fillRect(B.x + s * 1.85, B.y + s * 0.9, s * 0.35, h * 0.78 - B.y + s);
+      ctx.fillStyle = "#3d5a48"; ctx.fillRect(B.x - s * 0.9, B.y - s * 0.2, s * 1.8, s * 0.7);
+      ctx.fillStyle = "#d24f39"; ctx.fillRect(B.x - s * 0.7, B.y - s * 0.45, s * 1.4, s * 0.28);
+      if (crowd()) { figure(ctx, w * 0.62, h * 0.25, s * 0.75, B.x, B.y, "#6b7a74"); figure(ctx, w * 0.95, h * 0.33, s * 0.8, B.x, B.y, "#6b7a74"); }
+      var u = figure(ctx, Hd.x, Hd.y, s, G.x, G.y, "#2b3a33");
+      if (point()) {
+        var sh = { x: Hd.x + u[0] * s * 0.6, y: Hd.y + s * 1.9 };
+        ctx.strokeStyle = "#2b3a33"; ctx.lineWidth = s * 0.45; ctx.lineCap = "round";
+        ctx.beginPath(); ctx.moveTo(sh.x, sh.y); ctx.lineTo(sh.x + u[0] * s * 3.2, sh.y + u[1] * s * 3.2); ctx.stroke();
+      }
+      // 시선 연장선: 머리에서 화면 가장자리까지
+      var tmax = Infinity;
+      if (u[0] > 0) tmax = Math.min(tmax, (w - Hd.x) / u[0]); if (u[0] < 0) tmax = Math.min(tmax, -Hd.x / u[0]);
+      if (u[1] > 0) tmax = Math.min(tmax, (h - Hd.y) / u[1]); if (u[1] < 0) tmax = Math.min(tmax, -Hd.y / u[1]);
+      if (lineC()) {
+        ctx.strokeStyle = "rgba(43,42,48,0.55)"; ctx.lineWidth = 1.5; ctx.setLineDash([6, 5]);
+        ctx.beginPath(); ctx.moveTo(Hd.x + u[0] * s * 1.6, Hd.y + u[1] * s * 1.6); ctx.lineTo(Hd.x + u[0] * tmax, Hd.y + u[1] * tmax); ctx.stroke(); ctx.setLineDash([]);
+      }
+      AB.handle(ctx, G.x, G.y, { r: 7, fill: "#f2c94c" });
+      AB.handle(ctx, Hd.x, Hd.y - s * 1.6, { r: 6, fill: "#ffffff", ring: "#2b3a33" });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("시선 끝", Math.min(w - 50, G.x + 10), Math.min(h - 16, G.y + 6));
+      var bx = B.x - Hd.x, by = B.y - Hd.y, ang = Math.abs(Math.atan2(u[0] * by - u[1] * bx, u[0] * bx + u[1] * by)) * 180 / Math.PI;
+      var room = (Math.abs(u[0]) > 0.2 ? (u[0] > 0 ? (w - Hd.x) : Hd.x) / w : tmax / w);
+      AB.stat("gz-o-a", AB.fix(ang, 0) + "°");
+      AB.stat("gz-o-r", AB.fix(room * 100, 0) + "%");
+      var gin = G.x > 0 && G.x < w && G.y > 0 && G.y < h;
+      AB.stat("gz-o-j", ang < 12 ? "시선이 책을 가리킴" : room < 0.15 ? "보는 쪽 여백이 좁아 답답함" : tmax < Math.hypot(w, h) * 0.3 && !gin ? "시선이 곧 화면 밖으로" : "시선이 화면 밖을 궁금하게 함");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.62, 240, 380)); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { var s = Math.max(12, Math.min(W, H) * 0.06); drag = Math.hypot(x - head.x * W, y - (head.y * H - s * 1.6)) < Math.hypot(x - look.x * W, y - look.y * H) ? "head" : "look"; },
+      move: function (x, y) {
+        if (drag === "head") { head.x = AB.clamp(x / W, 0.05, 0.95); var s = Math.max(12, Math.min(W, H) * 0.06); head.y = AB.clamp((y + s * 1.6) / H, 0.15, 0.6); }
+        else { look.x = AB.clamp(x / W, 0, 1); look.y = AB.clamp(y / H, 0, 1); }
+        cv.redraw();
+      },
+      end: function () { drag = null; },
+    });
+  })();
+
+  /* ---------------- 그림 3: 좌우 뒤집기 ---------------- */
+  (function () {
+    function scene(ctx, w, h, flip) {
+      ctx.save();
+      if (flip) { ctx.translate(w, 0); ctx.scale(-1, 1); }
+      var sky = ctx.createLinearGradient(0, 0, 0, h); sky.addColorStop(0, "#dfe6ea"); sky.addColorStop(1, "#f3efe4");
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "#8fa3ad"; ctx.fillRect(0, h * 0.62, w, h * 0.38);
+      ctx.fillStyle = "#5d6e55"; ctx.beginPath(); ctx.moveTo(w * 0.42, h * 0.64); ctx.lineTo(w * 1.0, h * 0.14); ctx.lineTo(w * 1.0, h * 0.64); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#2f3a34"; ctx.fillRect(w * 0.9, h * 0.13, w * 0.014, h * 0.11); ctx.beginPath(); ctx.moveTo(w * 0.885, h * 0.14); ctx.lineTo(w * 0.907, h * 0.08); ctx.lineTo(w * 0.929, h * 0.14); ctx.closePath(); ctx.fill();
+      // 배(오른쪽으로 감)
+      var bx = w * 0.3, by = h * 0.76;
+      ctx.fillStyle = "#3a2f28"; ctx.beginPath(); ctx.moveTo(bx - w * 0.07, by); ctx.lineTo(bx + w * 0.09, by); ctx.lineTo(bx + w * 0.06, by + h * 0.04); ctx.lineTo(bx - w * 0.05, by + h * 0.04); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#f4efe4"; ctx.beginPath(); ctx.moveTo(bx, by - h * 0.01); ctx.lineTo(bx, by - h * 0.2); ctx.lineTo(bx + w * 0.07, by - h * 0.02); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = "rgba(255,255,255,0.7)"; ctx.lineWidth = 1.5;
+      for (var k = 0; k < 4; k++) { ctx.beginPath(); ctx.moveTo(bx - w * (0.09 + k * 0.05), by + h * (0.05 + k * 0.012)); ctx.lineTo(bx - w * (0.05 + k * 0.05), by + h * (0.05 + k * 0.012)); ctx.stroke(); }
+      ctx.restore();
+    }
+    var o = { bg: PAPER, aspect: 0.5, maxHeight: 320 };
+    AB.canvas("#mr-a", function (ctx, w, h) { scene(ctx, w, h, false); }, o);
+    AB.canvas("#mr-b", function (ctx, w, h) { scene(ctx, w, h, true); }, o);
+    AB.compare("#mr-cmp", { labels: ["원래 방향", "좌우 뒤집기"], pos: 0.62 });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 과제와 개인차(장난감 모델) ---------------- */
+  (function () {
+    var el = document.getElementById("tk-cv");
+    var task = AB.seg("tk-task", function () { cv.redraw(); });
+    var noise = AB.range("tk-noise", function (v) { return AB.fix(v, 2); }, function () { cv.redraw(); });
+    var nG = AB.range("tk-n", function (v) { return v + "명"; }, function () { cv.redraw(); });
+    var seed = 3;
+    document.getElementById("tk-re").addEventListener("click", function () { seed++; cv.redraw(); });
+    // 지어낸 장면 요소: 위치(0~1), 현저성 s, 과제별 관련성
+    var ITEMS = [
+      { k: "face1", name: "주인의 얼굴", x: 0.24, y: 0.36, s: 0.75, rel: { free: 0.6, when: 0.1, people: 1, mood: 0.5 } },
+      { k: "face2", name: "손님의 얼굴", x: 0.66, y: 0.42, s: 0.55, rel: { free: 0.5, when: 0.05, people: 1, mood: 0.4 } },
+      { k: "kid", name: "아이", x: 0.8, y: 0.62, s: 0.35, rel: { free: 0.2, when: 0, people: 0.9, mood: 0.3 } },
+      { k: "sign", name: "간판", x: 0.5, y: 0.1, s: 0.8, rel: { free: 0.5, when: 0.3, people: 0, mood: 0.2 } },
+      { k: "date", name: "날짜 안내문", x: 0.9, y: 0.3, s: 0.2, rel: { free: 0.05, when: 1, people: 0, mood: 0 } },
+      { k: "book", name: "빨간 책", x: 0.45, y: 0.62, s: 0.7, rel: { free: 0.2, when: 0, people: 0, mood: 0.3 } },
+      { k: "lamp", name: "창의 불빛", x: 0.12, y: 0.66, s: 0.6, rel: { free: 0.15, when: 0, people: 0, mood: 1 } },
+      { k: "tree", name: "트리", x: 0.95, y: 0.75, s: 0.4, rel: { free: 0.1, when: 0, people: 0, mood: 0.8 } },
+    ];
+    function run(rnd, t, nz) {  // 한 관찰자의 고정 6회
+      var cur = { x: 0.5, y: 0.5 }, seen = {}, path = [];
+      for (var f = 0; f < 6; f++) {
+        var best = null, bv = -1e9;
+        ITEMS.forEach(function (it) {
+          var pri = 0.45 * it.s + 0.55 * it.rel[t] * (t === "free" ? 0.7 : 1);
+          pri *= Math.exp(-Math.hypot(it.x - cur.x, it.y - cur.y) / 0.9);
+          if (seen[it.k]) pri *= 0.15;  // 되돌아감 억제
+          var u = Math.max(1e-6, rnd()), v = pri - nz * 0.35 * Math.log(-Math.log(u));  // 굼벨 잡음
+          if (v > bv) { bv = v; best = it; }
+        });
+        seen[best.k] = 1; cur = best;
+        path.push({ it: best, x: best.x + (rnd() - 0.5) * 0.05, y: best.y + (rnd() - 0.5) * 0.05 });
+      }
+      return path;
+    }
+    function scene(ctx, w, h) {
+      ctx.fillStyle = "#2a2f36"; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "#4a3a2c"; ctx.fillRect(w * 0.04, h * 0.18, w * 0.92, h * 0.82);
+      ctx.fillStyle = "#e8d7a8"; ctx.fillRect(w * 0.06, h * 0.48, w * 0.2, h * 0.36);  // 창 불빛
+      ctx.fillStyle = "#22342a"; ctx.fillRect(w * 0.3, h * 0.03, w * 0.4, h * 0.13);
+      ctx.fillStyle = "#ffe2d7"; ctx.font = AB.font(Math.max(10, h * 0.075), false, 800); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("책방 E", w * 0.5, h * 0.1);
+      ctx.fillStyle = "#f4efe4"; ctx.fillRect(w * 0.86, h * 0.23, w * 0.08, h * 0.14);
+      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(Math.max(6, h * 0.03), true, 600); ctx.fillText("12.20", w * 0.9, h * 0.3);
+      ctx.fillStyle = "#2e5a40"; ctx.beginPath(); ctx.moveTo(w * 0.95, h * 0.58); ctx.lineTo(w * 1.0, h * 0.92); ctx.lineTo(w * 0.9, h * 0.92); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#d24f39"; ctx.fillRect(w * 0.41, h * 0.6, w * 0.08, h * 0.05);
+      [[0.24, 0.36, 1], [0.66, 0.42, 0.9], [0.8, 0.62, 0.6]].forEach(function (p) {
+        var s = h * 0.06 * p[2];
+        ctx.fillStyle = "#3d4a52"; ctx.fillRect(w * p[0] - s * 1.2, h * p[1] + s, s * 2.4, s * 4);
+        ctx.fillStyle = "#e7c3a4"; ctx.beginPath(); ctx.arc(w * p[0], h * p[1], s, 0, Math.PI * 2); ctx.fill();
+      });
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var t = task(), n = nG(), nz = noise(), rnd = AB.rng(seed * 101 + 7);
+      scene(ctx, w, h);
+      var G = 48, Hm = Math.round(G * h / w), acc = new Float32Array(G * Hm), paths = [];
+      for (var o = 0; o < n; o++) {
+        var p = run(rnd, t, nz); paths.push(p);
+        p.forEach(function (f, k) {
+          var cx = f.x * G, cy = f.y * Hm, wt = 1 / (1 + k * 0.25);
+          for (var y = Math.max(0, Math.floor(cy - 6)); y < Math.min(Hm, cy + 6); y++) for (var x = Math.max(0, Math.floor(cx - 6)); x < Math.min(G, cx + 6); x++)
+            acc[y * G + x] += wt * Math.exp(-((x - cx) * (x - cx) + (y - cy) * (y - cy)) / (2 * 2.2 * 2.2));
+        });
+      }
+      var mx = 0; for (var i = 0; i < acc.length; i++) mx = Math.max(mx, acc[i]);
+      for (i = 0; i < acc.length; i++) acc[i] /= mx || 1;
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(heatCanvas(acc, G, Hm, 0.75), 0, 0, w, h);
+      // 첫 관찰자의 경로
+      var p0 = paths[0];
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 1.6; ctx.beginPath();
+      p0.forEach(function (f, k) { var x = f.x * w, y = f.y * h; k ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke();
+      p0.forEach(function (f, k) {
+        var x = f.x * w, y = f.y * h;
+        ctx.beginPath(); ctx.arc(x, y, 9, 0, Math.PI * 2); ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#111111"; ctx.stroke();
+        ctx.fillStyle = "#111111"; ctx.font = AB.font(11, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(String(k + 1), x, y + 0.5);
+      });
+      ctx.fillStyle = "rgba(0,0,0,0.55)"; ctx.fillRect(6, h - 24, 176, 18);
+      ctx.fillStyle = "#ffffff"; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("번호: 1번 관찰자의 경로", 12, h - 15);
+      var firsts = {}; paths.forEach(function (p) { firsts[p[0].it.k] = (firsts[p[0].it.k] || 0) + 1; });
+      var top = Object.keys(firsts).reduce(function (a, b) { return firsts[b] > firsts[a] ? b : a; });
+      var nm = ITEMS.filter(function (it) { return it.k === top; })[0].name;
+      AB.stat("tk-o-1", Math.round(firsts[top] / n * 100) + "% <small>(" + nm + ")</small>");
+      var ranks = [], miss = 0; paths.forEach(function (p) { var r = -1; p.forEach(function (f, k) { if (r < 0 && f.it.k === "date") r = k + 1; }); if (r > 0) ranks.push(r); else miss++; });
+      AB.stat("tk-o-2", ranks.length ? AB.fix(ranks.reduce(function (a, b) { return a + b; }, 0) / ranks.length, 1) + "번째 <small>(못 닿음 " + miss + "명)</small>" : "모두 못 닿음");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.62, 230, 380)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 7(종합): 포스터 시선 경로 ---------------- */
+  (function () {
+    var el = document.getElementById("ps-cv");
+    var L = clone(PRESET.v1), geo = null, dragK = null, off = [0, 0];
+    var pre = AB.seg("ps-pre", function (v) { L = clone(PRESET[v]); gz.set(L.gaze, false); syncCtl(); cv.redraw(); });
+    var sel = AB.seg("ps-sel", function () { syncCtl(); cv.redraw(); });
+    var size = AB.range("ps-size", function (v) { return "×" + AB.fix(v, 2); }, function (v) { L[sel()].s = v; cv.redraw(); });
+    var con = AB.range("ps-con", function (v) { return AB.fix(v, 2); }, function (v) { L[sel()].t = v; cv.redraw(); });
+    var gz = AB.seg("ps-gaze", function (v) { L.gaze = v; cv.redraw(); });
+    var path = AB.check("ps-path", function () { cv.redraw(); });
+        function syncCtl() { var e = L[sel()]; size.el.value = e.s; size.el.dispatchEvent(new Event("input")); con.el.value = e.t; con.el.dispatchEvent(new Event("input")); }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var Wp = Math.min(w - 24, (h - 20) / PH), X = (w - Wp) / 2, Y = 10;
+      geo = drawPoster(ctx, X, Y, Wp, L);
+      var M = posterModel(L), k0 = sel();
+      // 고른 요소 테두리
+      var b = elBox(k0, L[k0]);
+      ctx.setLineDash([4, 3]); ctx.strokeStyle = "#f2c94c"; ctx.lineWidth = 1.5; ctx.strokeRect(X + b.x * Wp, Y + b.y * Wp, b.w * Wp, b.h * Wp); ctx.setLineDash([]);
+      if (path()) {
+        var pts = M.order.map(function (k) { var e = L[k], bb = elBox(k, e); return { x: X + (bb.x + bb.w / 2) * Wp, y: Y + (bb.y + bb.h / 2) * Wp }; });
+        ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.setLineDash([6, 4]); ctx.beginPath();
+        pts.forEach(function (p, i) { i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y); }); ctx.stroke(); ctx.setLineDash([]);
+        pts.forEach(function (p, i) {
+          ctx.beginPath(); ctx.arc(p.x, p.y, 11, 0, Math.PI * 2); ctx.fillStyle = "#f2c94c"; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#111111"; ctx.stroke();
+          ctx.fillStyle = "#111111"; ctx.font = AB.font(12, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(String(i + 1), p.x, p.y + 0.5);
+        });
+      }
+      ctx.strokeStyle = "#9a968c"; ctx.lineWidth = 1; ctx.strokeRect(X + 0.5, Y + 0.5, Wp - 1, Wp * PH - 1);
+      AB.stat("ps-o-1", M.order.map(function (k) { return NAMES[k]; }).join(" → "));
+      AB.stat("ps-o-2", (M.order.indexOf("date") + 1) + "번째");
+      AB.stat("ps-o-3", KEYS.map(function (k) { return AB.fix(M.S[k], 2); }).join(" · "));
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 1.2, 400, 620)); } });
+    function hit(x, y) {
+      if (!geo) return null;
+      var px = (x - geo.x) / geo.w, py = (y - geo.y) / geo.w, found = null;
+      ["date", "place", "title", "art"].forEach(function (k) { if (found) return; var b = elBox(k, L[k]), pad = 0.03; if (px > b.x - pad && px < b.x + b.w + pad && py > b.y - pad && py < b.y + b.h + pad) found = k; });
+      return found;
+    }
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        dragK = hit(x, y);
+        if (dragK) { if (sel() !== dragK) sel.set(dragK); off = [L[dragK].x - (x - geo.x) / geo.w, L[dragK].y - (y - geo.y) / geo.w]; }
+      },
+      move: function (x, y) {
+        if (!dragK || !geo) return;
+        L[dragK].x = AB.clamp((x - geo.x) / geo.w + off[0], 0.05, 0.95); L[dragK].y = AB.clamp((y - geo.y) / geo.w + off[1], 0.05, PH - 0.04);
+        cv.redraw();
+      },
+      end: function () { dragK = null; },
+    });
+    syncCtl();
+  })();
+})();
+</script>
+</body>
+</html>

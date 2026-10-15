@@ -1,0 +1,941 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "3분할과 황금비는 쓸모 있는 출발점인가, 사후에 끼워 맞춘 신화인가. 황금비의 수학과 황금 직사각형·나선을 만들어 보고, 격자를 끌어 명작에 대 보고, 무작위 점에도 나선이 맞는다는 것을 시뮬레이터로 확인한 뒤, 격자를 점검 도구로 쓰는 법을 익힌다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>비례: 3분할과 황금비 · CompositionBook</title>
+<meta name="description" content="3분할과 황금비는 쓸모 있는 출발점인가, 사후에 끼워 맞춘 신화인가. 황금비의 수학과 황금 직사각형·나선을 만들어 보고, 격자를 끌어 명작에 대 보고, 무작위 점에도 나선이 맞는다는 것을 시뮬레이터로 확인한 뒤, 격자를 점검 도구로 쓰는 법을 익힌다.">
+<link rel="canonical" href="https://artbook.euiyun.com/composition/chapters/proportion.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="비례: 3분할과 황금비 · CompositionBook">
+<meta property="og:description" content="3분할과 황금비는 쓸모 있는 출발점인가, 사후에 끼워 맞춘 신화인가. 황금비의 수학과 황금 직사각형·나선을 만들어 보고, 격자를 끌어 명작에 대 보고, 무작위 점에도 나선이 맞는다는 것을 시뮬레이터로 확인한 뒤, 격자를 점검 도구로 쓰는 법을 익힌다.">
+<meta property="og:url" content="https://artbook.euiyun.com/composition/chapters/proportion.html">
+<meta property="og:image" content="https://artbook.euiyun.com/composition/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/composition/chapters/proportion.html#chapter","name":"비례: 3분할과 황금비","headline":"비례: 3분할과 황금비 · CompositionBook","description":"3분할과 황금비는 쓸모 있는 출발점인가, 사후에 끼워 맞춘 신화인가. 황금비의 수학과 황금 직사각형·나선을 만들어 보고, 격자를 끌어 명작에 대 보고, 무작위 점에도 나선이 맞는다는 것을 시뮬레이터로 확인한 뒤, 격자를 점검 도구로 쓰는 법을 익힌다.","url":"https://artbook.euiyun.com/composition/chapters/proportion.html","position":9,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/composition/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/composition/#book","name":"CompositionBook · 형태와 구도","url":"https://artbook.euiyun.com/composition/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"CompositionBook · 형태와 구도","item":"https://artbook.euiyun.com/composition/"},{"@type":"ListItem","position":3,"name":"9. 비례: 3분할과 황금비","item":"https://artbook.euiyun.com/composition/chapters/proportion.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .pc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
+  .pc-pair > div { position: relative; min-width: 0; }
+  .pc-cap { display: block; margin-top: 4px; font-size: 12.5px; color: #6b6874; text-align: center; }
+</style>
+</head>
+<body data-chapter="proportion">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 09</div>
+    <h1>비례: 3분할과 황금비</h1>
+    <p class="lead">휴대폰 카메라를 켜면 화면에 가는 선 네 개가 우물 정(井) 자로 그어져 있다. 사진 강좌는 "주인공을 선이 만나는 점에 두라"고 하고, 인터넷에는 명작 위에 소용돌이 모양의 황금 나선을 겹친 그림이 넘쳐 난다. "황금비로 하면 예쁘다"는 말은 너무 자주 들어서 이제는 상식처럼 들린다. 이 장은 그 상식을 직접 손으로 시험한다. 3분할과 황금비가 어디서 왔고 수학적으로 무엇인지, 명작에 대 보면 정말 맞는지, 맞는다면 왜 그렇게 쉽게 맞는지를 본다. 결론부터 말하면 격자는 버릴 것이 아니라 <b>쓰는 자리를 바꿔야 하는</b> 도구다.</p>
+    <ul class="objectives">
+      <li>3분할 격자와 황금비 격자가 화면을 어떻게 나누는지, 둘의 차이가 실제로 얼마나 작은지 숫자로 안다.</li>
+      <li>황금비의 정의와 성질(정사각형을 떼어 내도 같은 모양이 남는 직사각형, 피보나치 수열)을 설명한다.</li>
+      <li>공공 도메인 명작 위에 격자와 나선을 직접 끌어 대 보고, 크기와 위치를 바꾸면 거의 무엇이든 "맞출" 수 있음을 확인한다.</li>
+      <li>황금비 선호 연구와 "명작 속 황금비" 주장의 근거 수준을 구별한다.</li>
+      <li>규칙에 맞지 않는 좋은 그림을 보고, 격자를 처방이 아니라 점검 도구로 쓰는 방법을 익힌다.</li>
+    </ul>
+  </header>
+
+  <section id="where">
+    <h2>점 하나를 어디에 둘까</h2>
+    <p>빈 화면에 점을 하나 찍는다고 하자. 한가운데에 두면 점은 움직이지 않는 것처럼 보인다. 가장자리에 바짝 붙이면 화면 밖으로 밀려나는 것 같다. 그 사이 어딘가에 두면 점과 화면의 네 변 사이에 서로 다른 거리가 생기고, 그 차이가 긴장을 만든다(<a href="elements.html">2장</a>에서 본 점의 위치와 긴장). 3분할과 황금비는 이 "그 사이 어딘가"를 숫자로 정해 보려는 오래된 시도다.</p>
+    <p>먼저 손으로 느껴 본다. 아래 화면의 붉은 점을 끌어 여러 자리에 놓아 본다. 오른쪽에서 3분할선, 황금비선, 중심선을 하나씩 켜고 끈다. 화면 비율을 바꾸면 같은 규칙이 다른 자리를 가리킨다.</p>
+
+    <div class="sim" id="sim-pp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>점 하나의 자리: 가운데, 가장자리, 그 사이</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pp-cv" class="art"></canvas><span class="hint">점을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pp-fmt"><button data-value="wide" class="on">가로 3:2</button><button data-value="sq">정사각</button><button data-value="tall">세로 A판</button></div>
+          <label class="check"><input type="checkbox" id="pp-t" checked> 3분할선</label>
+          <label class="check"><input type="checkbox" id="pp-p"> 황금비선</label>
+          <label class="check"><input type="checkbox" id="pp-c"> 중심선</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">점의 자리(가로, 세로)</span><span class="v" id="pp-o-pos">—</span></div>
+        <div class="stat"><span class="k">가장 가까운 3분할선</span><span class="v" id="pp-o-t">—</span></div>
+        <div class="stat"><span class="k">가장 가까운 황금비선</span><span class="v" id="pp-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 점을 정확히 한가운데로 끈다. 고요하고 단단하지만 움직임이 멈춘다. ② 점을 가장자리 4% 안으로 민다. 화면 밖으로 빠져나갈 것 같은 불안이 생긴다(경고가 뜬다). ③ 3분할선과 황금비선을 함께 켠다. 두 선이 화면 폭의 5%도 안 되게 떨어져 있어, 점을 그 사이 어디에 두어도 "둘 중 하나에 맞는" 자리가 된다. (거리는 화면 폭·높이에 대한 비율이다. 점이 주는 인상은 흔히 쓰는 설명이며 그림의 내용에 따라 달라진다.)</div>
+    </div>
+
+    <p>가운데와 가장자리는 분명히 다르게 느껴진다. 그런데 3분할선과 황금비선 사이의 차이는 생각보다 작다. 이 장은 이 두 가지 관찰에서 출발한다. <b>극단(정중앙, 가장자리)을 피하라</b>는 조언은 눈으로 바로 확인되지만, <b>정확히 어느 선이어야 한다</b>는 주장은 눈으로 구별하기도 어렵다.</p>
+  </section>
+
+  <section id="thirds">
+    <h2>3분할: 어디서 왔고 무엇을 말하나</h2>
+    <p><span class="term">3분할 법칙</span><span class="en">(Rule of thirds)</span>은 화면을 가로세로 각각 세 등분하는 선 네 개를 긋고, 중요한 요소를 그 선이나 선이 만나는 네 점(흔히 "힘의 점"이라고 부른다) 근처에 두라는 요령이다. 수평선을 화면 한가운데가 아니라 위나 아래 3분의 1 자리에 두라는 조언도 여기서 나온다.</p>
+    <p>이 이름이 글로 처음 확인되는 것은 영국의 판화가 존 토머스 스미스<span class="en">(John Thomas Smith)</span>의 1797년 책 『전원 풍경에 관한 소견』<span class="en">(Remarks on Rural Scenery)</span>이다. 스미스는 화가 조슈아 레이놀즈가 밝음과 어둠의 넓이 비율에 관해 한 말을 이어받아, 화면을 반반으로 나누기보다 대략 3분의 1과 3분의 2로 나누는 편이 낫다는 생각을 선과 덩어리 전체로 넓혀 "3분할 법칙"이라고 불렀다. 곧 처음부터 정밀한 기하학이 아니라 <b>"반으로 가르지 말라"는 화가의 경험칙</b>이었다. 오늘날 카메라 화면의 격자는 이 경험칙이 장비 안으로 들어온 모습이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="같은 직사각형 위에 3분할선 네 개와 황금비선 네 개를 겹쳐 그렸다. 황금비선이 3분할선보다 조금 더 가운데 쪽에 있고, 두 선 사이 간격이 화면 폭의 약 5퍼센트라고 표시되어 있다.">
+        <rect x="40" y="30" width="300" height="200" class="f-surface s-line" stroke-width="1.5"/>
+        <g class="s-acc" stroke-width="2">
+          <line x1="140" y1="30" x2="140" y2="230"/><line x1="240" y1="30" x2="240" y2="230"/>
+          <line x1="40" y1="96.7" x2="340" y2="96.7"/><line x1="40" y1="163.3" x2="340" y2="163.3"/>
+        </g>
+        <g class="s-acc2" stroke-width="2" stroke-dasharray="6 4">
+          <line x1="154.6" y1="30" x2="154.6" y2="230"/><line x1="225.4" y1="30" x2="225.4" y2="230"/>
+          <line x1="40" y1="106.4" x2="340" y2="106.4"/><line x1="40" y1="153.6" x2="340" y2="153.6"/>
+        </g>
+        <g class="s-line" stroke-width="1">
+          <line x1="40" y1="244" x2="140" y2="244"/><line x1="40" y1="240" x2="40" y2="248"/><line x1="140" y1="240" x2="140" y2="248"/>
+          <line x1="40" y1="262" x2="154.6" y2="262"/><line x1="154.6" y1="258" x2="154.6" y2="266"/><line x1="40" y1="258" x2="40" y2="266"/>
+        </g>
+        <text x="90" y="240" class="lbl-acc" font-size="11" text-anchor="middle">1/3 = 0.333</text>
+        <text x="97" y="280" class="lbl-acc2" font-size="11" text-anchor="middle">1/(1+φ) = 0.382</text>
+        <g font-size="11.5">
+          <text x="352" y="48" class="lbl-b">3분할선</text>
+          <line x1="352" y1="58" x2="392" y2="58" class="s-acc" stroke-width="2"/>
+          <text x="352" y="84" class="lbl-b">황금비선</text>
+          <line x1="352" y1="94" x2="392" y2="94" class="s-acc2" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="352" y="124" class="lbl-dim">두 선의 간격</text>
+          <text x="352" y="140" class="lbl">폭의 4.9%</text>
+          <text x="352" y="170" class="lbl-dim">A2 포스터(420mm)</text>
+          <text x="352" y="186" class="lbl">약 20mm</text>
+          <text x="352" y="216" class="lbl-dim">2.4m 쇼윈도</text>
+          <text x="352" y="232" class="lbl">약 12cm</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 3분할 격자와 황금비 격자.</b> 황금비 격자(점선)는 변을 0.382 : 0.236 : 0.382로 나눈다. 3분할선(실선)보다 조금 더 가운데로 모인 격자다. 두 선의 간격은 변 길이의 약 4.9%다. A2 포스터의 폭 420mm에서는 약 20mm, 폭 2.4m의 쇼윈도에서는 약 12cm다. 화면 위에서 잡지를 한 팔 거리에서 볼 때 이 차이를 의식적으로 알아보는 사람은 드물다.</figcaption>
+    </figure>
+
+    <p>그림 1의 숫자가 이 장의 첫 번째 핵심이다. 사진 강좌에서 "3분할"이라고 부르는 자리와 디자인 책에서 "황금비"라고 부르는 자리는 서로 아주 가깝다. 어떤 그림의 주인공이 그 근처에 있다면 그 그림은 두 규칙 모두에 "맞는다". 그러니 그 그림이 정확히 어느 규칙을 따랐는지는 위치만으로는 말할 수 없다.</p>
+  </section>
+
+  <section id="phi">
+    <h2>황금비의 수학</h2>
+    <p><span class="term">황금비</span><span class="en">(Golden ratio, φ)</span>는 선분을 둘로 나눌 때 "전체 대 긴 부분"이 "긴 부분 대 짧은 부분"과 같아지는 비율이다. 고대 그리스의 수학자 에우클레이데스가 『원론』(기원전 300년경)에서 이 나눔을 "외중비"<span class="en">(extreme and mean ratio)</span>라는 이름으로 다뤘다. 식으로 적으면 다음과 같다.</p>
+    <div class="formula">$$\frac{a+b}{a} = \frac{a}{b} = \varphi \quad\Longrightarrow\quad \varphi^2 = \varphi + 1,\qquad \varphi = \frac{1+\sqrt5}{2} \approx 1.618$$<div class="where">\(a\): 긴 부분, \(b\): 짧은 부분. 둘째 식에서 \(\varphi\)를 풀면 양수 근 하나가 나온다. 같은 성질 때문에 \(1/\varphi = \varphi - 1 \approx 0.618\)이고, 전체를 1로 두면 짧은 부분은 \(1/(1+\varphi) \approx 0.382\)다. 그림 1의 황금비선이 이 0.382와 0.618 자리다.</div></div>
+    <p>"황금"이라는 이름은 훨씬 나중에 붙었다. 독일어 "황금 분할"<span class="en">(goldener Schnitt)</span>이라는 말은 1835년 수학자 마르틴 옴<span class="en">(Martin Ohm)</span>의 교과서에서 처음 확인되고, 이 비율이 자연과 예술 전체를 꿰뚫는 미의 법칙이라는 주장은 1854년 아돌프 차이징<span class="en">(Adolf Zeising)</span>이 크게 퍼뜨렸다. 르네상스에는 수학자 루카 파촐리가 『신성한 비례』<span class="en">(De divina proportione, 1509)</span>를 펴냈고 레오나르도 다빈치가 그 책의 다면체 그림을 그렸다. 다만 그 책은 주로 비율과 정다면체의 수학을 다루며, 화가들에게 황금비로 화면을 나누라고 권하는 책이 아니다.</p>
+    <p>황금비가 수학적으로 특별한 이유는 <span class="term">황금 직사각형</span><span class="en">(Golden rectangle)</span>, 곧 가로세로비가 φ인 직사각형에서 잘 보인다. 이 직사각형에서 짧은 변을 한 변으로 하는 정사각형을 떼어 내면, 남은 직사각형이 다시 가로세로비 φ다. 다시 떼어 내도 또 φ다. 정사각형 안에 사분원을 이어 그리면 <span class="term">황금 나선</span><span class="en">(Golden spiral)</span>이 된다. 아래에서 직사각형의 비율을 바꿔 가며 이 성질이 φ에서만 성립하는지 확인한다.</p>
+
+    <div class="sim" id="sim-pg">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>정사각형을 떼어 내면 무엇이 남나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pg-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>가로세로비 <output id="pg-r-out"></output></span><input type="range" id="pg-r" min="1.05" max="2.4" step="0.001" value="1.5"></label>
+          <div class="seg" id="pg-pre"><button data-value="1.618034">φ</button><button data-value="1.5" class="on">3:2</button><button data-value="1.414214">√2</button><button data-value="1.777778">16:9</button></div>
+          <label class="check"><input type="checkbox" id="pg-arc" checked> 사분원(나선) 그리기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">첫 정사각형을 뗀 뒤 남은 비율</span><span class="v" id="pg-o-rest">—</span></div>
+        <div class="stat"><span class="k">같은 크기 정사각형의 개수(차례대로)</span><span class="v" id="pg-o-cf">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "φ"를 누른다. 정사각형이 하나씩, 매번 0.618배로 작아지며 끝없이 이어지고, 사분원이 끊김 없는 나선이 된다. 개수 줄이 "1, 1, 1, 1…"이다. ② "3:2"를 누른다. 큰 정사각형 하나를 떼면 같은 크기의 정사각형 두 개가 남고 끝난다(1, 2). 나선은 둘째 단계에서 꺾인다. ③ 슬라이더를 φ 근처(1.60~1.64)에서 천천히 움직인다. 처음 몇 단계는 거의 똑같이 보이다가 안쪽 단계에서 갑자기 무너진다. 눈은 바깥 몇 단계만 보므로 1.6이든 1.618이든 구별하지 못한다. (정사각형은 남은 직사각형의 긴 변 쪽에서, 왼쪽→위→오른쪽→아래 차례로 뗀다. 개수 줄은 비율의 연분수 전개다.)</div>
+    </div>
+
+    <p>정사각형을 떼어도 같은 모양이 남는 성질, 곧 <b>자기 닮음</b>은 φ만의 것이다. 3:2는 두 단계 만에 끝나고 √2는 "1, 2, 2, 2…"로 다른 무늬를 만든다. 이 성질은 φ가 "가장 무리수다운 수"라는 수학적 사실과도 이어진다. 개수 줄이 모두 1이라서 어떤 분수로도 가장 느리게 다가가기 때문이다.</p>
+    <p>그 "가장 느리게 다가가는 분수들"이 바로 <span class="term">피보나치 수열</span><span class="en">(Fibonacci sequence)</span> 1, 1, 2, 3, 5, 8, 13, 21, 34…의 이웃한 두 수의 비다. 8/5 = 1.6, 13/8 = 1.625, 21/13 ≈ 1.615, 34/21 ≈ 1.619로 위아래를 번갈아 가며 φ에 다가간다. 그래서 화가가 "5칸 대 3칸", "8칸 대 5칸"으로 화면을 나누면 의도하지 않아도 황금비 근처가 된다. 거꾸로, 그런 비율을 보고 "황금비를 썼다"고 결론 내릴 수도 없다.</p>
+
+    <div class="callout deep">
+      <strong>자연 속의 피보나치, 그리고 그 너머</strong>
+      해바라기 씨앗이나 솔방울 비늘이 만드는 나선의 개수는 21과 34, 34와 55처럼 이웃한 피보나치 수인 경우가 많다. 식물학에서는 새 기관이 앞선 것과 약 137.5°(황금각, 360°를 황금비로 나눈 작은 쪽) 돌아간 자리에 생기는 성장 방식으로 이를 설명하며, 자리를 촘촘히 채우는 데 유리하다는 해석이 있다. 이것은 잘 관찰된 사실이지만 예외도 있고, 무엇보다 "사람이 이 비율을 아름답다고 느낀다"는 것과는 별개의 이야기다. 앵무조개 껍데기가 황금 나선이라는 말도 흔하지만, 껍데기를 실제로 잰 연구들은 대체로 황금 나선과 다른 비율의 로그 나선을 보고한다. 로그 나선은 모두 "같은 모양을 유지하며 자란다"는 성질을 갖는데, 황금 나선은 그중 하나일 뿐이다.
+    </div>
+  </section>
+
+  <section id="overlay">
+    <h2>격자를 명작에 대 보기</h2>
+    <p>이제 실제 그림에 대 본다. 아래 시뮬레이터에는 메트로폴리탄 미술관의 공공 도메인 작품 세 점이 있다. 처음에는 격자가 그림의 틀과 꼭 맞게 놓여 있다. 작은 표시는 이 책이 고른 그림의 중요한 자리(달, 산꼭대기, 얼굴)다. 격자 안을 끌면 격자가 옮겨지고, 오른쪽 아래 손잡이를 끌면 크기와 비율이 바뀐다. 표시 옆 숫자는 가장 가까운 선까지의 거리다.</p>
+
+    <div class="sim" id="sim-pf">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>명작 위에 격자와 나선을 끌어 대 보기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="pf-cv" class="art"></canvas><span class="hint">격자를 끌고, 모서리 손잡이로 늘린다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pf-img"><button data-value="friedrich" class="on">프리드리히</button><button data-value="hokusai">호쿠사이</button><button data-value="duccio">두초</button></div>
+          <div class="seg" id="pf-grid"><button data-value="thirds" class="on">3분할</button><button data-value="phi">황금비</button><button data-value="spiral">황금 나선</button></div>
+          <label class="check"><input type="checkbox" id="pf-fx"> 나선 좌우 뒤집기</label>
+          <label class="check"><input type="checkbox" id="pf-fy"> 나선 상하 뒤집기</label>
+          <div class="btn-row"><button type="button" class="btn sm" id="pf-reset">격자를 그림 틀에 맞추기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">격자 크기(그림 대비)</span><span class="v" id="pf-o-size">—</span></div>
+        <div class="stat"><span class="k">격자의 가로세로비</span><span class="v" id="pf-o-ratio">—</span></div>
+        <div class="stat"><span class="k">표시점 → 가장 가까운 선</span><span class="v" id="pf-o-hit">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 프리드리히를 3분할로 본다. 두 사람은 왼쪽 3분할선 언저리에 서 있지만, 달은 화면 한가운데에 가깝다. 이 그림의 주인공 중 하나는 규칙을 따르지 않는다. ② 호쿠사이를 3분할과 황금비로 번갈아 본다. 후지산 꼭대기는 황금비선과 3분할선 사이에 있어 둘 다 "맞는다"고 말할 수 있다. ③ 황금 나선을 고르고 뒤집기와 손잡이로 나선이 파도 마루를 지나게 맞춰 본다. 격자의 가로세로비가 1.618에서 멀어지면, 그것은 더 이상 황금 나선이 아니라 늘어난 곡선이다. (표시점은 이 책의 사진에서 눈으로 고른 자리이고, 거리는 그림 폭·높이에 대한 비율, 나선은 그림의 짧은 변에 대한 비율이다.)<span class="credit">프리드리히 「달을 바라보는 두 남자」(1825~30년경), 호쿠사이 「가나가와 앞바다의 파도 아래」(1830~32년경), 두초 「성모자」(1290~1300년경). 모두 메트로폴리탄 미술관 소장, 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/45434">호쿠사이 작품 페이지</a> · <a href="../../credits.html#hokusai-great-wave">크레딧</a></span></div>
+    </div>
+
+    <p>틀에 꼭 맞는 격자에서는 맞는 것도 있고 안 맞는 것도 있다. 그런데 격자를 조금 옮기고, 조금 줄이고, 나선을 뒤집기 시작하면 거의 모든 표시점에 어떤 선이 지나가게 만들 수 있다. 바로 이것이 "명작 속 황금비" 그림 대부분이 만들어지는 방식이다. 격자의 크기와 위치와 방향을 그림에 맞춰 고르는 순간, 격자는 그림을 시험하는 도구가 아니라 그림에 맞춰 재단한 옷이 된다.</p>
+
+    <figure class="art-figure" id="fig-friedrich">
+      <div class="art-frame"><img src="../../shared/img/friedrich-two-men-moon.webp" width="1600" height="1277" alt="해 질 녘 숲 언덕에서 외투를 입은 두 남자가 왼쪽에 서서 서로 어깨를 기대고, 화면 가운데 낮게 뜬 초승달을 바라본다. 오른쪽에는 뿌리가 드러난 커다란 고목이 휘어져 화면 위를 가로지르고, 바닥에는 바위와 비탈길이 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 카스파르 다비트 프리드리히, 「달을 바라보는 두 남자」, 1825~30년경.</b> 이 책의 사진에서 재면 초승달은 가로 약 47%, 세로 약 52% 자리, 곧 화면의 거의 정중앙에 있다. 두 사람은 가로 16~34% 사이에 서 있다. 화가는 달을 가운데에 두고, 그 둘레를 고목의 가지와 비탈의 어두운 덩어리로 감싸 시선이 결국 가운데로 돌아오게 했다. 3분할 규칙만으로 이 그림을 "고치면" 오히려 그림이 말하려는 것, 곧 두 사람이 함께 바라보는 하나의 중심이 흐려진다.<span class="credit">메트로폴리탄 미술관 소장(Wrightsman Fund, 2000), 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/438417">소장처 작품 페이지</a> · <a href="../../credits.html#friedrich-two-men-moon">크레딧</a></span></figcaption>
+    </figure>
+  </section>
+
+  <section id="fit">
+    <h2>맞추기는 쉽다: 사후에 끼워 맞추기</h2>
+    <p>격자가 그림에 "맞았다"는 것이 무엇을 증명하려면, 아무렇게나 그린 그림에는 잘 맞지 않아야 한다. 그렇지 않다면 맞았다는 사실은 아무것도 말해 주지 않는다. 아래에서 이것을 시험한다. 화면에 "눈에 띄는 점"을 무작위로 뿌린다. 아무 의도도 없는 배치다. 그다음 두 가지 방식으로 격자를 대 본다. 하나는 그림 틀에 고정한 격자, 다른 하나는 크기·위치·방향을 마음대로 골라 점이 가장 많이 걸리게 한 격자(사후 맞춤)다.</p>
+
+    <div class="sim" id="sim-pr">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>무작위 점에도 나선이 맞는다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pr-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="pr-grid"><button data-value="spiral" class="on">황금 나선</button><button data-value="thirds">3분할</button></div>
+          <div class="seg" id="pr-mode"><button data-value="fixed">틀에 고정</button><button data-value="free" class="on">사후 맞춤</button></div>
+          <label class="ctrl"><span>눈에 띄는 점 <output id="pr-n-out"></output></span><input type="range" id="pr-n" min="3" max="15" step="1" value="7"></label>
+          <label class="ctrl"><span>"맞았다"고 칠 거리 <output id="pr-t-out"></output></span><input type="range" id="pr-t" min="1" max="10" step="0.5" value="3"></label>
+          <div class="btn-row"><button type="button" class="btn sm" id="pr-new">점을 새로 뿌리기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">선에 걸린 점(틀에 고정)</span><span class="v" id="pr-o-fix">—</span></div>
+        <div class="stat"><span class="k">선에 걸린 점(사후 맞춤)</span><span class="v" id="pr-o-free">—</span></div>
+        <div class="stat"><span class="k">고정 격자의 "맞음 띠"가 덮는 넓이</span><span class="v" id="pr-o-area">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "점을 새로 뿌리기"를 여러 번 누르며 두 줄의 숫자를 비교한다. 틀에 고정한 나선은 점 몇 개만 지나지만, 사후에 맞춘 나선은 늘 그보다 많은 점을 지난다. 점은 무작위다. ② "맞았다"고 칠 거리를 3%에서 8%로 올린다. 이 책의 계산으로 나선의 띠는 화면의 10%에서 약 33%로, 3분할의 띠는 21%에서 약 48%로 넓어진다. 허용 오차를 너그럽게 잡을수록 고정 격자로도 많은 점이 "맞고", 끝까지 올리면 무엇이든 맞는다. ③ 3분할로 바꿔 사후 맞춤을 본다. 격자의 크기와 비율까지 고르면 3분할도 무작위 점을 잘 설명한다. (점은 고른 분포의 무작위, 거리는 화면 짧은 변에 대한 비율이다. 사후 맞춤은 격자의 방향 4가지, 크기 6단계, 위치 81곳을 모두 시험해 가장 많은 점이 걸리는 것을 고른다.)</div>
+    </div>
+
+    <p>무작위 점에도 맞춰진 나선이 여러 점을 지난다. 여기서 두 가지를 배운다. 첫째, 어떤 그림 위에 황금 나선이 "잘 맞는" 그림을 보여 주는 것만으로는 화가가 황금비를 썼다는 증거가 되지 않는다. 같은 방법으로 아무 그림에나 나선을 맞출 수 있기 때문이다. 둘째, 공정한 시험이 되려면 <b>격자를 대기 전에</b> 무엇을 잴지(어떤 점, 어떤 틀, 허용 오차 얼마)를 정해야 한다. 이것은 과학에서 가설을 데이터 보기 전에 세워야 한다는 원칙과 같다.</p>
+
+    <div class="callout warn">
+      <strong>"명작 속 황금비" 주장을 읽을 때</strong>
+      파르테논 신전, 「모나리자」, 대피라미드는 황금비의 증거로 자주 불려 나온다. 수학자 조지 마르코프스키<span class="en">(George Markowsky)</span>는 1992년 논문 「황금비에 관한 오해」<span class="en">(Misconceptions about the Golden Ratio, The College Mathematics Journal)</span>에서 이런 주장들이 어느 점에서 어느 점까지 재느냐를 마음대로 골라 얻은 것이고 측정 오차를 무시한다고 비판했다. 천체물리학자 마리오 리비오<span class="en">(Mario Livio)</span>도 『황금비』<span class="en">(The Golden Ratio, 2002)</span>에서 파르테논이나 레오나르도의 그림에 황금비가 의도적으로 쓰였다는 근거를 찾지 못했다고 정리했다. 반대로 20세기에는 르코르뷔지에의 모뒬로르처럼 작가가 <b>스스로 밝히고</b> 황금비를 쓴 경우도 있다. 그러니 읽을 때 물을 것은 셋이다. 작가나 당대 기록이 그렇게 말하는가? 무엇을 어디서부터 쟀는가? 허용 오차는 얼마이고, 3분할이나 다른 비율로는 왜 안 되는가?
+    </div>
+  </section>
+
+  <section id="evidence">
+    <h2>사람들은 황금 직사각형을 더 좋아할까</h2>
+    <p>작가가 황금비를 썼는지와는 별도로, 보는 사람이 황금 직사각형을 더 아름답게 느끼는지도 오래 연구되었다. 이 질문을 실험으로 처음 다룬 사람은 독일의 심리학자 구스타프 페히너<span class="en">(Gustav Fechner)</span>다. 그는 『미학 입문』<span class="en">(Vorschule der Ästhetik, 1876)</span>에서 여러 비율의 직사각형 카드를 늘어놓고 사람들에게 마음에 드는 것을 고르게 한 결과, 황금비 근처가 많이 선택되었다고 보고했다. 실험 미학의 출발점으로 꼽히는 연구다.</p>
+    <p>그 뒤 한 세기 넘게 비슷한 실험이 반복되었지만 결과는 하나로 모이지 않았다. 심리학자 크리스토퍼 그린<span class="en">(Christopher D. Green)</span>은 1995년 『퍼셉션』<span class="en">(Perception)</span>에 실은 리뷰 「반짝이는 것이 다 금은 아니다」<span class="en">(All that glitters)</span>에서, 황금비 선호를 지지하는 결과와 지지하지 않는 결과가 함께 있고, 직사각형을 보여 주는 방법(고르기, 직접 그리기, 점수 매기기), 어떤 비율들을 함께 보여 주는가, 사람마다의 차이에 따라 결과가 크게 달라진다고 정리했다. 특히 보여 주는 비율의 범위가 선택을 그 가운데 쪽으로 끌어당길 수 있다는 방법상의 문제가 지적되어 왔다. 이 책이 내릴 수 있는 결론은 "황금 직사각형이 특별히 선호된다는 근거는 엇갈린다"는 정도다.</p>
+    <p>직접 해 보면 이 문제가 손에 잡힌다. 아래에서 다섯 직사각형 가운데 가장 마음에 드는 것을 하나 누른다. 누를 때마다 순서가 섞인 새 묶음이 나온다. 열 번쯤 고른 뒤 "보여 주는 범위"를 바꿔 다시 열 번 고른다.</p>
+
+    <div class="sim" id="sim-pv">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>가장 마음에 드는 직사각형 고르기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pv-cv" class="art"></canvas><span class="hint">직사각형을 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pv-set"><button data-value="a" class="on">범위 A: 1.0~2.2</button><button data-value="b">범위 B: 1.6~2.8</button></div>
+          <div class="btn-row"><button type="button" class="btn sm" id="pv-clear">기록 지우기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 횟수 A · B</span><span class="v" id="pv-o-n">—</span></div>
+        <div class="stat"><span class="k">고른 비율의 평균 A · B</span><span class="v" id="pv-o-mean">—</span></div>
+        <div class="stat"><span class="k">황금 직사각형(1.618)을 고른 비율 A · B</span><span class="v" id="pv-o-phi">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 범위 A에서 열 번 고른다. A에서 황금 직사각형은 다섯 개 중 한가운데 비율이다. ② 범위 B로 바꿔 열 번 고른다. 같은 1.618이 이번에는 가장 덜 길쭉한 끝 비율이다. 평균이 어떻게 움직였는지 아래 띠에서 본다. ③ 두 범위에서 황금 직사각형을 고른 비율을 비교한다. 범위가 바뀌어도 같은 비율을 골랐다면 그것이 당신의 취향이고, 평균이 범위를 따라 움직였다면 선택이 "보여 준 것들" 안에서의 상대적 판단이었다는 뜻이다. (다섯 직사각형은 넓이가 같고 모두 가로로 놓인다. 결과는 이 브라우저에만 잠시 남고 어디에도 보내지 않는다. 한 사람의 몇십 번 선택은 연구가 아니라 체험이다.)</div>
+    </div>
+
+    <p>자기 선택이 범위를 따라 움직이는 사람이 적지 않을 것이다. 그렇다면 "사람들은 황금 직사각형을 고른다"는 결과도, 실험이 어떤 직사각형들을 보여 주었는지와 떼어서 읽을 수 없다. 그리고 설령 사람들이 단독으로 놓인 직사각형 하나에서 어떤 비율을 조금 더 좋아한다 해도, 그것이 그림 속에서 요소를 어디에 둘지까지 정해 주지는 않는다. 그림의 좋고 나쁨은 직사각형 카드 하나보다 훨씬 많은 것에 달려 있다.</p>
+  </section>
+
+  <section id="center">
+    <h2>규칙이 맞지 않는 좋은 그림</h2>
+    <p>3분할 규칙이 피하라고 하는 자리, 곧 정중앙과 화면을 반으로 가르는 선에도 좋은 그림은 많다. 정중앙은 움직임을 멈추게 한다. 그것이 약점일 때가 있고, 바로 그것이 필요할 때가 있다. 정면을 보는 초상, 대칭인 건물, 소실점으로 빨려 드는 길, 예배를 위한 성화처럼 "흔들림 없음"이나 "마주 봄"이 주제인 그림이 그렇다.</p>
+
+    <figure class="art-figure" id="fig-duccio">
+      <div class="art-frame" style="max-width:460px;margin:0 auto"><img src="../../shared/img/duccio-madonna-child.webp" width="1172" height="1600" alt="금박 바탕 앞에 짙은 청록 망토를 두른 성모가 상반신으로 서서 고개를 살짝 기울이고, 오른쪽 팔에 붉은 옷을 입은 아기 예수를 안고 있다. 아기는 손을 뻗어 성모의 베일을 만진다. 성모의 몸은 화면 가운데를 넓게 차지한다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 두초 디 부오닌세냐, 「성모자」, 1290~1300년경.</b> 성모의 몸은 화면 가운데에 크고 묵직하게 놓여 있고, 얼굴은 세로 중심선 바로 곁에 있다. 금박 바탕은 깊이 대신 빛나는 평면을 만든다. 3분할 규칙으로 보면 "답답한" 배치지만, 이 작은 패널은 가까이에서 마주 보며 기도하기 위한 그림이었다. 가운데에 놓인 성모는 흔들리지 않는 중심이고, 아기 쪽으로 기운 고개와 뻗은 팔이 그 정적인 중심 안에 작은 움직임을 만든다. 규칙을 깬 것이 아니라 다른 목적에 맞는 질서를 고른 것이다.<span class="credit">메트로폴리탄 미술관 소장(Purchase, Rogers Fund, Walter and Leonore Annenberg and The Annenberg Foundation Gift 외, 2004), 나무판에 템페라와 금. 공공 도메인(The Met Open Access, CC0). 원본 사진의 붙은 액자를 잘라 내고 그림 면만 보인다. <a href="https://www.metmuseum.org/art/collection/search/438754">소장처 작품 페이지</a> · <a href="../../credits.html#duccio-madonna-child">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>같은 주제를 3분할로 놓은 것과 가운데에 놓은 것을 나란히 놓고 비교해 본다. 주제를 바꿔 가며 두 화면을 견준다. 어느 쪽이 "맞는지"가 아니라, 각 배치가 무엇을 말하는지를 본다.</p>
+
+    <div class="sim" id="sim-pc">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>3분할에 놓기와 가운데에 놓기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <div class="pc-pair">
+            <div><canvas id="pc-a" class="art"></canvas><span class="pc-cap">3분할에 놓기</span></div>
+            <div><canvas id="pc-b" class="art"></canvas><span class="pc-cap">가운데에 놓기</span></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="pc-sub"><button data-value="tree" class="on">눈밭의 나무</button><button data-value="face">정면 얼굴</button><button data-value="road">멀어지는 길</button></div>
+          <label class="check"><input type="checkbox" id="pc-grid" checked> 3분할선 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">왼쪽(3분할)이 주는 인상</span><span class="v" id="pc-o-a">—</span></div>
+        <div class="stat"><span class="k">오른쪽(가운데)이 주는 인상</span><span class="v" id="pc-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "눈밭의 나무"에서 두 화면을 견준다. 3분할 쪽은 나무 옆의 빈 눈밭이 넓은 공간과 바람을 만들고, 가운데 쪽은 수평선이 화면을 위아래로 반 갈라 고요하지만 다소 딱딱하다. ② "정면 얼굴"로 바꾼다. 정면을 보는 얼굴을 한쪽으로 밀면 빈 쪽이 이유 없이 비어 보이고, 가운데에 두면 보는 사람과 정면으로 마주한다. ③ "멀어지는 길"로 바꾼다. 소실점을 가운데에 두면 대칭이 시선을 깊이로 강하게 빨아들인다. 3분할 쪽은 길이 비스듬히 들어와 덜 단호한 대신 산책하는 느낌이 난다. (인상은 이 책의 해석이다. 같은 배치도 색, 명도, 글자와 함께 놓이면 달라진다.)</div>
+    </div>
+
+    <p>세 주제 모두에서 두 배치는 서로 다른 것을 말한다. 3분할은 흔히 "공간과 움직임", 가운데는 "정지와 마주 봄"을 만든다. 3분할이 초보자에게 유용한 이유는, 아무 생각 없이 찍으면 주인공을 기계적으로 한가운데에 놓기 쉽기 때문이다. 3분할은 그 습관을 깨는 데 좋은 첫 처방이다. 하지만 처방이 목적이 되면 프리드리히의 달이나 두초의 성모 같은 그림은 나올 수 없다.</p>
+  </section>
+
+  <section id="tool">
+    <h2>격자를 점검 도구로 쓰기</h2>
+    <p>그렇다면 격자는 버려야 할까. 그렇지 않다. 격자는 화면을 정하는 <b>처방</b>이 아니라 이미 놓은 화면을 다시 보는 <b>점검 도구</b>일 때 가장 쓸모 있다. 점검할 것은 대략 세 가지다. 주인공이나 수평선이 무심코 정중앙이나 화면을 반 가르는 자리에 놓이지 않았는가. 중요한 것이 가장자리에 닿거나 너무 가깝지 않은가. 큰 덩어리들이 모두 같은 크기로 나뉘어 있지 않은가. 세 가지 모두 "피해야 할 극단"을 찾는 질문이고, 정확한 선을 찾는 질문이 아니다. 그래서 선보다 <b>띠</b>로 보는 편이 낫다.</p>
+
+    <div class="callout studio">
+      <strong>선이 아니라 띠로 보기</strong>
+      사진가와 화가들이 실제로 격자를 쓰는 방식은 대개 이렇다. 카메라의 격자는 수평선이 기울지 않았는지, 주인공이 무심코 정중앙에 박히지 않았는지 보는 데 쓰고, 정확히 선 위에 올리려고 애쓰지 않는다. 그림을 그릴 때는 썸네일 스케치를 먼저 하고, 마음에 드는 배치가 나온 뒤에 격자를 대어 "반으로 갈라진 곳"이나 "가장자리에 닿은 곳"이 없는지 확인한다. 3분할선과 황금비선 사이의 너비, 곧 변 길이의 33~38%와 62~67% 사이를 하나의 넓은 "편한 띠"로 생각하면 충분하다. 그 띠 밖에 놓고 싶다면, 그것은 실수가 아니라 이유가 있는 선택이어야 한다.
+    </div>
+
+    <div class="callout try">
+      <strong>종이 한 장으로 격자와 황금 직사각형 만들기</strong>
+      ① 엽서 크기 종이를 가로세로로 각각 세 번 접었다 펴면 3분할 격자가 생긴다. 가운데에 창을 오려 낸 두꺼운 종이(뷰파인더)를 하나 더 만들고, 창 위에 연필로 3분할선을 긋는다. 창밖 풍경이나 책상 위 물건을 뷰파인더로 보며 주인공을 띠 안, 정중앙, 가장자리에 놓아 보고 세 장의 썸네일로 남긴다. ② 컴퍼스로 황금 직사각형을 그린다. 한 변 6cm 정사각형을 그리고, 아랫변의 가운데 점에 컴퍼스 침을 놓아 맞은편 위 모서리까지를 반지름으로 원호를 그어 아랫변의 연장선과 만나게 한다. 그 점까지 직사각형을 늘리면 가로세로비가 φ다(가로 약 9.7cm). 그 안에 정사각형을 차례로 그려 넣고 사분원을 이어 보면, 손으로 그린 나선이 화면의 나선과 같은 모양임을 알 수 있다. ③ 마지막으로 좋아하는 그림 엽서 한 장에 트레이싱지를 대고, <b>먼저</b> 눈에 띄는 점 세 곳에 표시한 다음 격자를 겹쳐 본다. 순서를 거꾸로 하면 어떻게 되는지도 해 본다.
+    </div>
+
+    <p>마지막 시뮬레이터는 이 장 전체를 모은 작업대다. 서윤의 겨울 과제 세 화면, 곧 A2 세로 포스터, 폭 2.4m 쇼윈도, 웹 16:9 첫 화면 위에서 큰 면, 작은 점, 제목 띠를 끌어 배치하고 격자를 겹친다. 오른쪽 아래 점검 목록은 정확한 선이 아니라 피해야 할 극단(정중앙, 가장자리, 반 가르기)을 알려 준다.</p>
+
+    <div class="sim" id="sim-pl">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>비례 작업대: 배치를 끌고 격자로 점검하기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="pl-cv" class="art"></canvas><span class="hint">큰 면, 점, 제목 띠를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-fmt"><button data-value="poster" class="on">A2 포스터</button><button data-value="window">쇼윈도</button><button data-value="web">웹 16:9</button></div>
+          <div class="seg" id="pl-grid"><button data-value="none">격자 없음</button><button data-value="thirds" class="on">3분할</button><button data-value="phi">황금비</button><button data-value="spiral">나선</button></div>
+          <label class="check"><input type="checkbox" id="pl-band" checked> 편한 띠(33~38%, 62~67%) 보기</label>
+          <label class="check"><input type="checkbox" id="pl-warn" checked> 극단 경고 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">작은 점의 자리(가로, 세로)</span><span class="v" id="pl-o-dot">—</span></div>
+        <div class="stat"><span class="k">3분할 · 황금비에 "맞는" 요소</span><span class="v" id="pl-o-fit">—</span></div>
+        <div class="stat"><span class="k">점검 목록</span><span class="v" id="pl-o-chk">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 배치에서 3분할과 황금비를 번갈아 켠다. 작은 점은 두 격자 모두에 3% 안쪽으로 "맞는다". 어느 격자를 근거로 댈지는 취향의 문제가 된다. ② 처음 배치에서 제목 띠는 세로 50%에 걸려 있다. 점검 목록이 "반 가르기"를 알린다. 의도한 것이면 그대로 두어도 되고, 아니라면 띠를 위쪽 편한 띠(세로 33~38%)로 끌어 올린다. 큰 면을 정확히 가운데로 끌어 정중앙 경고도 확인한다. ③ 쇼윈도와 웹으로 바꾼다. 같은 비율(33%, 62%)도 화면 크기에 따라 실제 거리가 크게 다르다. 2.4m 창에서 두 격자의 차이는 약 12cm, 사람이 길 건너에서 보는 거리에서는 거의 구별되지 않는다. (쇼윈도 높이 1.5m는 이 책이 둔 가정이다. "맞음"은 요소 중심이 선에서 변 길이의 3% 안, 경고는 중심이 중앙선에서 2% 안이거나 요소가 가장자리에서 3% 안에 닿을 때다.)</div>
+    </div>
+
+    <p>작업대에서 본 것처럼, 웬만큼 균형 잡힌 배치는 대개 두 격자 모두에 맞는다. 격자가 정말 일을 하는 순간은 무언가가 극단에 걸렸을 때다. 그때 격자는 "의도한 것인가?"라고 묻는다. 의도했다면 그대로 두고, 아니라면 띠 안으로 옮긴다. 판단은 여전히 그림이 무엇을 전하려는가에 달려 있다.</p>
+
+    <div class="callout studio">
+      <strong>비례는 위치만이 아니다</strong>
+      이 장은 주로 "어디에 둘까"를 다뤘지만, 비례는 크기의 관계이기도 하다. 큰 면과 작은 면이 1 : 1이면 서로 다투고, 너무 차이가 나면 작은 것이 사라진다. 디자이너들은 글자 크기나 여백을 정할 때 1.25배, 1.5배, 1.618배처럼 일정한 배율을 정해 두고 그 계단 안에서 고르는 방식을 자주 쓴다. 이때 중요한 것은 어느 배율이 "정답"인가가 아니라 <b>하나의 배율로 일관되게</b> 고른다는 점이다. 같은 배율이 반복되면 화면에 보이지 않는 리듬이 생긴다(<a href="rhythm.html">8장</a>). 글자의 크기 계단은 TypeBook에서 깊게 다룬다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 9장</span></div>
+      <h4>"황금비로 하면 예쁘다던데요"</h4>
+      <p>12월 첫 주, 서윤이 낭독회 포스터의 썸네일과 쇼윈도 진열 사진을 들고 가자 주인이 휴대폰 화면을 내밀었다. 유명한 그림 위에 소용돌이 나선이 겹쳐진 이미지였다. "이거 보니까 명작은 다 황금비로 그렸다던데요. 우리 포스터도 황금비로 하면 예쁘지 않을까요?" 서윤은 대답 대신 그날 저녁 도경의 작업실에서 직접 대 보기로 했다.</p>
+      <p>먼저 포스터. A2는 420 × 594mm다. 3분할선은 가로 140·280mm, 세로 198·396mm에, 황금비선은 가로 약 160·260mm, 세로 약 227·367mm에 지나간다. 가로로는 20mm, 세로로는 29mm 차이다. 서윤의 썸네일에서 작은 점(<a href="elements.html">2장</a>에서 정한 "큰 면 하나 + 작은 점 하나"의 점)의 중심은 가로 약 64%, 세로 약 64% 자리, 곧 약 269 × 380mm에 있었다. 가장 가까운 3분할선과는 11mm와 16mm, 황금비선과는 9mm와 13mm 떨어져 있었다. 둘 다 변 길이의 3% 안쪽이었다. "어느 쪽으로 봐도 맞는다는 건, 격자가 이 자리를 정해 준 게 아니라는 뜻이네." 서윤의 말에 도경은 고개를 끄덕였다. "자리는 네가 스케치하면서 정했지. 격자는 나중에 확인한 것뿐이고."</p>
+      <p>다음은 쇼윈도. 폭 2.4m 창에서 3분할선은 왼쪽에서 80·160cm, 황금비선은 약 92·148cm다. <a href="rhythm.html">8장</a>에서 정한 빨간 표지 책은 왼쪽에서 155cm 자리였다. 3분할선과 5cm, 황금비선과 7cm 차이다. 길 건너 약 6m에서 보면 그 차이는 손가락 한 마디보다 작게 보인다. 서윤은 책을 1cm도 옮기지 않았다.</p>
+      <p>주인의 다른 제안, 포스터 종이 자체를 황금 직사각형으로 바꾸는 안도 계산해 보았다. 폭 420mm를 지키면 높이는 약 680mm가 된다. A2의 가로세로비는 1 : √2(약 1.414)이고, 이 비율에는 이유가 있다. 반으로 접어도 같은 비율이 남아(A2를 접으면 A3) 인쇄소의 종이, 액자, 게시판이 모두 이 규격에 맞춰져 있다. 황금비가 정사각형을 떼어도 같은 모양이 남는 비율이라면, √2는 반으로 잘라도 같은 모양이 남는 비율이다. 서윤은 A2를 그대로 쓰기로 했고, 주인에게는 그 휴대폰 이미지 위의 나선을 한 번 뒤집고 조금 줄이면 다른 곳에도 똑같이 "맞는다"는 것을 이 장의 시뮬레이터로 보여 주었다. 주인은 웃으며 "그럼 예쁜 건 황금비 덕이 아니라 서윤 씨 덕이네요" 했다.</p>
+      <p>그런데 점검은 다른 곳에서 걸렸다. 썸네일에서 제목 띠의 중심이 세로 50% 자리에 정확히 걸려 포스터를 위아래로 반 가르고 있었다. 서윤이 의도한 것은 아니었다. 도경은 "반 가르기는 일부러 할 때만 하는 거야"라며 제목 띠를 위쪽 편한 띠(세로 33~38%)로 올려 보라고 했다. 그러자 큰 면과 제목이 서로 다른 무게를 갖게 되었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>격자는 처방이 아니라 점검 도구로만 쓴다(서윤의 선택). ① 배치는 썸네일 스케치로 먼저 정하고, 격자는 그 뒤에 띠(변 길이의 33~38%, 62~67%)로 대어 극단만 찾는다: 무심한 정중앙, 반 가르기, 가장자리 3% 안. ② 포스터는 A2(1 : √2)를 그대로 쓴다. 작은 점은 지금 자리(약 64%, 64%)에 둔다. 제목 띠는 세로 50%에서 위쪽 띠로 옮긴다. ③ 쇼윈도의 빨간 표지 책은 155cm 자리에 둔다. ④ "황금비로 맞췄다"는 말은 설명이나 홍보에 쓰지 않는다. 다른 선택지, 곧 제목을 일부러 정중앙에 두어 정적인 포스터로 가는 안도 기록해 둔다.</div>
+        <div><b>아직 남은 문제</b>제목 띠를 옮기고 나니 포스터에 들어갈 정보(낭독자 이름, 책 제목, 날짜, 시간, 장소, 신청 방법)가 남은 자리를 빽빽하게 채운다. 비례는 맞는데 숨이 막힌다.</div>
+        <div><b>다음 단계</b><a href="space.html">10장</a>: 비운 자리와 채운 자리의 대비를 설계한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>3분할은 18세기 말 "반으로 가르지 말라"는 화가의 경험칙에서 나온 요령이다. 정밀한 기하학이 아니라 정중앙과 반 가르기를 피하게 하는 첫 처방이다.</li>
+      <li>황금비 φ ≈ 1.618은 "전체 : 긴 부분 = 긴 부분 : 짧은 부분"인 비율이다. 황금 직사각형은 정사각형을 떼어도 같은 모양이 남는 유일한 직사각형이고, 피보나치 수의 이웃한 비가 φ에 다가간다.</li>
+      <li>황금비선(0.382, 0.618)과 3분할선(0.333, 0.667)의 차이는 변 길이의 약 5%다. 주인공이 그 근처에 있으면 두 규칙 모두에 맞으므로, 위치만으로 어느 규칙을 썼는지 말할 수 없다.</li>
+      <li>격자의 크기·위치·방향을 그림에 맞춰 고르면 무작위 점에도 나선이 맞는다. "명작 속 황금비" 그림 대부분은 이런 사후 맞춤이며, 공정한 시험은 격자를 대기 전에 잴 것을 정해야 한다.</li>
+      <li>황금 직사각형 선호 연구는 페히너(1876) 이후 결과가 엇갈리며, 보여 주는 방법과 비율의 범위에 따라 결과가 달라진다.</li>
+      <li>정중앙과 대칭이 주제에 맞는 좋은 그림도 많다(정면 초상, 성화, 소실점으로 향하는 길). 규칙을 깬 것이 아니라 다른 목적의 질서를 고른 것이다.</li>
+      <li>격자는 처방이 아니라 점검 도구로, 선이 아니라 띠로 쓴다. 극단(무심한 정중앙, 반 가르기, 가장자리)을 찾고, 그 자리를 의도했는지 묻는다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 어떤 그림의 주인공이 화면 왼쪽에서 폭의 36% 자리에 있다. 이 사실만으로 말할 수 있는 것으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">화가가 황금비(0.382)를 써서 구도를 잡았다.</button>
+          <button class="opt">화가가 3분할(0.333)을 써서 구도를 잡았다.</button>
+          <button class="opt" data-correct>3분할선과 황금비선 사이에 있어 두 규칙 모두에 가깝다. 이것만으로는 화가가 어떤 규칙을 썼는지 알 수 없다.</button>
+          <button class="opt">36%는 어느 규칙에도 맞지 않으므로 잘못된 구도다.</button>
+        </div>
+        <div class="quiz-exp">36%는 3분할선(33.3%)과 2.7%, 황금비선(38.2%)과 2.2% 떨어져 있다. 두 선의 간격 자체가 약 5%라서 그 사이의 자리는 어느 쪽으로도 "맞는다"고 말할 수 있다. 위치만으로 의도를 증명할 수 없고, 어느 규칙에도 정확히 맞지 않는다고 잘못된 구도가 되는 것도 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 가로세로비가 φ인 황금 직사각형에서 짧은 변을 한 변으로 하는 정사각형을 떼어 냈다. 남은 직사각형에 대한 설명으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>남은 직사각형의 가로세로비도 φ다. 그래서 같은 일을 끝없이 되풀이할 수 있다.</button>
+          <button class="opt">남은 직사각형은 정사각형이다.</button>
+          <button class="opt">남은 직사각형의 가로세로비는 3:2다.</button>
+          <button class="opt">남은 직사각형의 가로세로비는 √2다.</button>
+        </div>
+        <div class="quiz-exp">긴 변 φ, 짧은 변 1인 직사각형에서 1 × 1 정사각형을 떼면 1 × (φ − 1)이 남고, 그 비는 1/(φ − 1) = φ다(φ² = φ + 1이므로). 이 자기 닮음은 φ에서만 성립한다. 3:2 직사각형은 정사각형 하나를 떼면 같은 크기 정사각형 두 개로 끝나고, √2는 반으로 잘랐을 때 같은 모양이 남는 비율이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 누군가 유명한 그림 위에 황금 나선을 겹친 이미지를 보여 주며 "나선이 주요 인물을 정확히 지나니, 화가는 황금비를 썼다"고 말한다. 이 주장의 가장 큰 약점은?</p>
+        <div class="opts">
+          <button class="opt">황금 나선은 수학적으로 정의할 수 없다.</button>
+          <button class="opt">그 시대에는 황금비가 알려지지 않았으므로 절대 쓸 수 없었다.</button>
+          <button class="opt">나선은 그림의 오른쪽 아래에만 겹쳐야 한다는 규칙을 어겼다.</button>
+          <button class="opt" data-correct>나선의 크기·위치·방향을 그림을 본 뒤에 골랐다면, 같은 방법으로 무작위 점에도 나선을 맞출 수 있어 증거가 되지 못한다.</button>
+        </div>
+        <div class="quiz-exp">사후에 격자를 고르면 거의 무엇이든 맞출 수 있다는 것이 핵심 약점이다(이 장의 무작위 점 시뮬레이터). 황금 나선은 정사각형 분할과 사분원으로 분명히 정의되며, 황금비 자체는 고대 그리스부터 알려져 있었다. 나선을 놓는 위치에 정해진 규칙은 없다. 작가나 당대 기록이 직접 밝힌 경우가 아니면 의도를 단정하기 어렵다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 서윤이 낭독회 포스터를 황금 직사각형 종이로 바꾸지 않고 A2(1 : √2)를 그대로 쓰기로 한 이유로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">√2 비율이 황금비보다 아름답다는 연구 결과가 확립되어 있어서.</button>
+          <button class="opt" data-correct>A판은 반으로 접어도 같은 비율이 남는 규격이라 종이·인쇄·액자·게시판이 모두 맞춰져 있고, 황금비가 주는 이점은 근거가 엇갈리기 때문이다.</button>
+          <button class="opt">황금 직사각형 종이에는 3분할 격자를 그릴 수 없어서.</button>
+          <button class="opt">A2는 황금 직사각형과 가로세로비가 같아서.</button>
+        </div>
+        <div class="quiz-exp">A판의 1 : √2 비율은 반으로 잘라도 같은 모양이 남는 기능적인 이유가 있는 규격이다. A2의 가로세로비는 약 1.414로 φ(1.618)와 다르다. 어떤 비율이든 3분할 격자는 그릴 수 있고, √2가 더 아름답다는 확립된 연구도 없다. 선택은 쓰임과 근거 수준을 따진 서윤의 판단이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874", STAGE = "#e9e6df";
+  var C_T = "#2f6fb3", C_P = "#c9661f", C_S = "#a3218e", C_C = "#8a8794", C_DOT = "#d24f39";
+  var PHI = ART.PHI;
+
+  /* ---------------- 공통 도구 ---------------- */
+  function hgt(el, k, lo, hi) { return { get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return AB.clamp(Math.round(w * k), lo, hi); } }; }
+  function opts(el, k, lo, hi, bg) { var o = hgt(el, k, lo, hi); o.bg = bg; return o; }
+  // (W×H) 상자 안에 가로세로비 r(=폭/높이)인 직사각형을 여백 pad로 맞춰 넣는다
+  function fitRect(r, W, H, pad, top, bottom) {
+    top = top || 0; bottom = bottom || 0;
+    var aw = W - 2 * pad, ah = H - 2 * pad - top - bottom, w = aw, h = w / r;
+    if (h > ah) { h = ah; w = h * r; }
+    return { x: (W - w) / 2, y: pad + top + (ah - h) / 2, w: w, h: h };
+  }
+  function line(ctx, x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }
+  // 격자선(정규화 0~1): 3분할, 황금비(ART.thirds / ART.phiGrid를 단위 사각형으로)
+  var T = ART.thirds(1, 1), G = ART.phiGrid(1, 1);
+  function nearest(v, arr) { var b = 9; arr.forEach(function (a) { if (Math.abs(v - a) < Math.abs(b)) b = v - a; }); return b; }
+  function pct(v, d) { return (v * 100).toFixed(d == null ? 1 : d) + "%"; }
+  function gridLines(ctx, R, lines, col, dash, wdt) {
+    ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = wdt || 1.6; ctx.setLineDash(dash || []);
+    lines.v.forEach(function (v) { line(ctx, R.x + v * R.w, R.y, R.x + v * R.w, R.y + R.h); });
+    lines.h.forEach(function (v) { line(ctx, R.x, R.y + v * R.h, R.x + R.w, R.y + v * R.h); });
+    ctx.restore();
+  }
+  // 단위 황금 직사각형 [0,φ]×[0,1] 안의 황금 나선 점열(ART.goldenSquares의 사분원을 잘게 나눈다)
+  var SPIRAL = (function () {
+    // 엔진은 0.5보다 작은 조각에서 멈추므로(픽셀 단위 가정) 1000배로 계산한 뒤 단위 크기로 되돌린다
+    var K = 1000, sq = ART.goldenSquares(0, 0, PHI * K, K, 12).map(function (s) { return { x: s.x / K, y: s.y / K, s: s.s / K, cx: s.cx / K, cy: s.cy / K, a0: s.a0, a1: s.a1 }; }), pts = [];
+    sq.forEach(function (s) { for (var i = 0; i <= 16; i++) { var a = s.a0 + (s.a1 - s.a0) * i / 16; pts.push([(s.cx + s.s * Math.cos(a)) / PHI, s.cy + s.s * Math.sin(a)]); } });
+    return { pts: pts, sq: sq };
+  })();
+  // 나선을 직사각형 R(x,y,w,h)에 늘여 놓은 화면 좌표. fx, fy: 뒤집기
+  function spiralPts(R, fx, fy) {
+    return SPIRAL.pts.map(function (p) { var u = fx ? 1 - p[0] : p[0], v = fy ? 1 - p[1] : p[1]; return [R.x + u * R.w, R.y + v * R.h]; });
+  }
+  function drawSpiral(ctx, R, fx, fy, col, wdt, squares) {
+    ctx.save();
+    if (squares) {
+      ctx.strokeStyle = col; ctx.globalAlpha = 0.45; ctx.lineWidth = 1;
+      SPIRAL.sq.slice(0, 8).forEach(function (s) {
+        var x0 = s.x / PHI, x1 = (s.x + s.s) / PHI, y0 = s.y, y1 = s.y + s.s;
+        if (fx) { var t = 1 - x1; x1 = 1 - x0; x0 = t; }
+        if (fy) { var t2 = 1 - y1; y1 = 1 - y0; y0 = t2; }
+        ctx.strokeRect(R.x + x0 * R.w, R.y + y0 * R.h, (x1 - x0) * R.w, (y1 - y0) * R.h);
+      });
+      ctx.globalAlpha = 1;
+    }
+    ctx.strokeStyle = col; ctx.lineWidth = wdt || 2.2; ctx.beginPath();
+    spiralPts(R, fx, fy).forEach(function (p, i) { i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); });
+    ctx.stroke(); ctx.restore();
+  }
+  function distToPts(x, y, pts) { var b = 1e9; for (var i = 0; i < pts.length; i++) { var dx = pts[i][0] - x, dy = pts[i][1] - y, d = dx * dx + dy * dy; if (d < b) b = d; } return Math.sqrt(b); }
+  // 점에서 선분까지 거리
+  function segDist(px, py, x1, y1, x2, y2) {
+    var dx = x2 - x1, dy = y2 - y1, L = dx * dx + dy * dy, t = L ? AB.clamp(((px - x1) * dx + (py - y1) * dy) / L, 0, 1) : 0;
+    return Math.hypot(px - (x1 + t * dx), py - (y1 + t * dy));
+  }
+  function gridDist(px, py, R, lines) {
+    var b = 1e9;
+    lines.v.forEach(function (v) { b = Math.min(b, segDist(px, py, R.x + v * R.w, R.y, R.x + v * R.w, R.y + R.h)); });
+    lines.h.forEach(function (v) { b = Math.min(b, segDist(px, py, R.x, R.y + v * R.h, R.x + R.w, R.y + v * R.h)); });
+    return b;
+  }
+  function label(ctx, txt, x, y, o) {
+    o = o || {};
+    ctx.save(); ctx.font = AB.font(o.size || 12, false, o.weight || 600);
+    var w = ctx.measureText(txt).width + 10, h = (o.size || 12) + 8;
+    var lx = AB.clamp(x, (o.minX || 2), (o.maxX || 9999) - w), ly = y;
+    ctx.fillStyle = o.bg || "rgba(251,250,247,0.92)"; ctx.fillRect(lx, ly - h / 2, w, h);
+    ctx.fillStyle = o.color || INK; ctx.textBaseline = "middle"; ctx.textAlign = "left"; ctx.fillText(txt, lx + 5, ly + 0.5);
+    ctx.restore();
+  }
+
+  /* ---------------- 시뮬레이터 1: 점 하나의 자리 ---------------- */
+  (function () {
+    var el = document.getElementById("pp-cv");
+    var R = null, pt = { x: 0.62, y: 0.4 }, cv = null;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var fmt = AB.seg("pp-fmt", redraw);
+    var cT = AB.check("pp-t", redraw), cP = AB.check("pp-p", redraw), cC = AB.check("pp-c", redraw);
+    var RATIO = { wide: 1.5, sq: 1, tall: 1 / Math.SQRT2 };
+    cv = AB.canvas(el, function (ctx, w, h) {
+      R = fitRect(RATIO[fmt()], w, h, 18);
+      ctx.fillStyle = "#f3efe6"; ctx.fillRect(R.x, R.y, R.w, R.h);
+      ctx.strokeStyle = "#c9c5bc"; ctx.lineWidth = 1; ctx.strokeRect(R.x + 0.5, R.y + 0.5, R.w - 1, R.h - 1);
+      if (cC()) gridLines(ctx, R, { v: [0.5], h: [0.5] }, C_C, [2, 4], 1.4);
+      if (cT()) gridLines(ctx, R, T, C_T, [], 1.6);
+      if (cP()) gridLines(ctx, R, G, C_P, [6, 4], 1.6);
+      var px = R.x + pt.x * R.w, py = R.y + pt.y * R.h, rr = Math.max(9, Math.min(R.w, R.h) * 0.045);
+      ctx.fillStyle = C_DOT; ctx.beginPath(); ctx.arc(px, py, rr, 0, Math.PI * 2); ctx.fill();
+      // 상태 글
+      var edge = Math.min(pt.x, 1 - pt.x, pt.y, 1 - pt.y), cen = Math.max(Math.abs(pt.x - 0.5), Math.abs(pt.y - 0.5));
+      var msg = "", col = INK;
+      if (edge < 0.04) { msg = "가장자리: 화면 밖으로 밀려날 듯하다"; col = "#b23a2a"; }
+      else if (cen < 0.03) msg = "정중앙: 고요하고 단단하다, 움직임이 멈춘다";
+      else if (Math.abs(pt.y - 0.5) < 0.015 || Math.abs(pt.x - 0.5) < 0.015) msg = "중심선 위: 화면을 반으로 가른다";
+      else if (Math.abs(nearest(pt.x, T.v)) < 0.03 || Math.abs(nearest(pt.y, T.h)) < 0.03 || Math.abs(nearest(pt.x, G.v)) < 0.03 || Math.abs(nearest(pt.y, G.h)) < 0.03) msg = "3분할·황금비 띠 안: 네 변과의 거리가 서로 다르다";
+      if (edge < 0.04) { ctx.strokeStyle = "#b23a2a"; ctx.lineWidth = 2; ctx.setLineDash([5, 4]); ctx.strokeRect(R.x + 3, R.y + 3, R.w - 6, R.h - 6); ctx.setLineDash([]); }
+      AB.handle(ctx, px, py, { r: 5, fill: "#ffffff" });
+      if (msg) label(ctx, msg, R.x + 8, R.y + R.h - 16, { color: col, size: 12, maxX: R.x + R.w - 4 });
+      AB.stat("pp-o-pos", pct(pt.x, 0) + ", " + pct(pt.y, 0));
+      var dt = [nearest(pt.x, T.v), nearest(pt.y, T.h)], dp = [nearest(pt.x, G.v), nearest(pt.y, G.h)];
+      var bt = Math.abs(dt[0]) < Math.abs(dt[1]) ? ["세로선", dt[0]] : ["가로선", dt[1]];
+      var bp = Math.abs(dp[0]) < Math.abs(dp[1]) ? ["세로선", dp[0]] : ["가로선", dp[1]];
+      AB.stat("pp-o-t", bt[0] + "까지 " + pct(Math.abs(bt[1])));
+      AB.stat("pp-o-p", bp[0] + "까지 " + pct(Math.abs(bp[1])));
+    }, opts(el, 0.68, 260, 440, PAPER));
+    AB.drag(cv.canvas, { move: function (x, y) { if (!R) return; pt.x = AB.clamp((x - R.x) / R.w, 0.01, 0.99); pt.y = AB.clamp((y - R.y) / R.h, 0.01, 0.99); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 정사각형을 떼어 내면 ---------------- */
+  (function () {
+    var el = document.getElementById("pg-cv"), cv = null;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var busy = false;
+    var rG = AB.range("pg-r", function (v) { return v.toFixed(3) + " : 1"; }, function () { if (!busy) pre.set(null, false); redraw(); });
+    var pre = AB.seg("pg-pre", function (v) { if (v) { busy = true; rG.set(Number(v)); busy = false; } });
+    var arc = AB.check("pg-arc", redraw);
+    var TINT = ["#efe3c8", "#e2ead8", "#dde5ee", "#f0dcd4"];
+    // 연분수 전개(같은 크기 정사각형 개수)
+    function cfrac(r, n) { var out = []; for (var i = 0; i < n; i++) { var a = Math.floor(r + 1e-9); out.push(a); var f = r - a; if (f < 1e-4) break; r = 1 / f; } return out; }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      var r = rG(), R = fitRect(r, w, h, 18);
+      var x = R.x, y = R.y, W = R.w, H = R.h, k = 0, sides = ["L", "T", "R", "B"], n = 0;
+      ctx.lineWidth = 1;
+      while (n < 14 && Math.min(W, H) > 1.2) {
+        var wide = W >= H, s = Math.min(W, H), side;
+        for (var g = 0; g < 4; g++) { side = sides[k % 4]; if ((wide && (side === "L" || side === "R")) || (!wide && (side === "T" || side === "B"))) break; k++; }
+        k++;
+        var sx, sy, cx, cy, a0, a1;
+        if (side === "L") { sx = x; sy = y; cx = x + s; cy = y + s; a0 = Math.PI; a1 = 1.5 * Math.PI; x += s; W -= s; }
+        else if (side === "T") { sx = x; sy = y; cx = x; cy = y + s; a0 = 1.5 * Math.PI; a1 = 2 * Math.PI; y += s; H -= s; }
+        else if (side === "R") { sx = x + W - s; sy = y; cx = sx; cy = y; a0 = 0; a1 = 0.5 * Math.PI; W -= s; }
+        else { sx = x; sy = y + H - s; cx = x + s; cy = sy; a0 = 0.5 * Math.PI; a1 = Math.PI; H -= s; }
+        ctx.fillStyle = TINT[n % 4]; ctx.fillRect(sx, sy, s, s);
+        ctx.strokeStyle = "#9a968c"; ctx.strokeRect(sx + 0.5, sy + 0.5, s - 1, s - 1);
+        if (arc()) { ctx.strokeStyle = C_S; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.arc(cx, cy, s, a0, a1); ctx.stroke(); ctx.lineWidth = 1; }
+        n++;
+      }
+      ctx.strokeStyle = INK; ctx.lineWidth = 1.5; ctx.strokeRect(R.x, R.y, R.w, R.h);
+      var near = Math.abs(r - PHI) < 0.004;
+      label(ctx, near ? "황금 직사각형: 남는 사각형이 매번 같은 모양" : "비율 " + r.toFixed(3) + " : 1", R.x + 6, R.y + 14, { color: near ? C_S : INK, maxX: R.x + R.w - 4 });
+      var rest = r - 1, rr = rest >= 1 ? rest : 1 / rest;
+      AB.stat("pg-o-rest", rr.toFixed(3) + " : 1 " + (Math.abs(rr - r) < 0.01 ? "(원래와 같다)" : "(원래 " + r.toFixed(3) + "와 다르다)"));
+      var cf = cfrac(r, 7);
+      AB.stat("pg-o-cf", cf.join(", ") + (cf.length >= 7 ? "…" : ""));
+    }, opts(el, 0.62, 240, 420, PAPER));
+  })();
+
+  /* ---------------- 시뮬레이터 3: 명작 위에 격자 대 보기 ---------------- */
+  (function () {
+    var el = document.getElementById("pf-cv"), cv = null;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var IMG = {
+      friedrich: { src: "../../shared/img/friedrich-two-men-moon.webp", pts: [["달", 0.47, 0.52], ["두 사람의 머리", 0.25, 0.38]] },
+      hokusai: { src: "../../shared/img/hokusai-great-wave.webp", pts: [["후지산 꼭대기", 0.63, 0.65], ["파도 마루", 0.39, 0.11]] },
+      duccio: { src: "../../shared/img/duccio-madonna-child.webp", pts: [["성모의 눈", 0.53, 0.27], ["아기의 얼굴", 0.75, 0.46]] },
+    };
+    var ims = {}, g = { x: 0, y: 0, w: 1, h: 1 }, geo = null, mode = null, off = null;
+    var img = AB.seg("pf-img", function () { reset(); });
+    var grid = AB.seg("pf-grid", redraw);
+    var fx = AB.check("pf-fx", redraw), fy = AB.check("pf-fy", redraw);
+    function reset() { g = { x: 0, y: 0, w: 1, h: 1 }; redraw(); }
+    document.getElementById("pf-reset").addEventListener("click", reset);
+    Object.keys(IMG).forEach(function (k) { AB.loadImage(IMG[k].src).then(function (im) { ims[k] = im; redraw(); }); });
+    cv = AB.canvas(el, function (ctx, w, h) {
+      var key = img(), im = ims[key];
+      var r = im ? im.naturalWidth / im.naturalHeight : 1.4;
+      var R = fitRect(r, w, h, 12); geo = R;
+      if (!im) { ctx.fillStyle = INK_DIM; ctx.font = AB.font(13); ctx.fillText("그림을 불러오는 중…", R.x + 10, R.y + 20); return; }
+      ctx.drawImage(im, R.x, R.y, R.w, R.h);
+      var Gr = { x: R.x + g.x * R.w, y: R.y + g.y * R.h, w: g.w * R.w, h: g.h * R.h };
+      var mdl = grid();
+      // 어두운 바깥 띠로 격자 틀을 보이게
+      ctx.save(); ctx.strokeStyle = "rgba(255,255,255,0.9)"; ctx.lineWidth = 3; ctx.strokeRect(Gr.x, Gr.y, Gr.w, Gr.h); ctx.restore();
+      ctx.save(); ctx.strokeStyle = "#111111"; ctx.lineWidth = 1; ctx.strokeRect(Gr.x, Gr.y, Gr.w, Gr.h); ctx.restore();
+      var sp = null;
+      if (mdl === "thirds") { gridLines(ctx, Gr, T, "rgba(255,255,255,0.85)", [], 3.2); gridLines(ctx, Gr, T, C_T, [], 1.6); }
+      else if (mdl === "phi") { gridLines(ctx, Gr, G, "rgba(255,255,255,0.85)", [], 3.2); gridLines(ctx, Gr, G, C_P, [6, 4], 1.8); }
+      else { drawSpiral(ctx, Gr, fx(), fy(), "rgba(255,255,255,0.85)", 4.2, false); drawSpiral(ctx, Gr, fx(), fy(), C_S, 2.2, true); sp = spiralPts(Gr, fx(), fy()); }
+      // 표시점
+      var short = Math.min(R.w, R.h), out = [];
+      IMG[key].pts.forEach(function (p) {
+        var px = R.x + p[1] * R.w, py = R.y + p[2] * R.h, d;
+        if (sp) d = distToPts(px, py, sp) / short;
+        else {
+          var L = mdl === "thirds" ? T : G, b = 1e9;
+          L.v.forEach(function (v) { b = Math.min(b, Math.abs(px - (Gr.x + v * Gr.w)) / R.w); });
+          L.h.forEach(function (v) { b = Math.min(b, Math.abs(py - (Gr.y + v * Gr.h)) / R.h); });
+          d = b;
+        }
+        out.push(p[0] + " " + pct(d));
+        ctx.save(); ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI * 2); ctx.stroke();
+        ctx.strokeStyle = d < 0.03 ? "#1d8a4e" : "#d24f39"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+        label(ctx, p[0] + " · " + pct(d), px + 11, py - 12, { size: 11.5, maxX: w - 2, color: d < 0.03 ? "#1d6a3e" : "#9a2f22" });
+      });
+      AB.handle(ctx, Gr.x + Gr.w, Gr.y + Gr.h, { r: 7 });
+      AB.stat("pf-o-size", "가로 " + pct(g.w, 0) + " · 세로 " + pct(g.h, 0));
+      var gr = Gr.w / Gr.h;
+      AB.stat("pf-o-ratio", gr.toFixed(3) + " : 1" + (mdl === "spiral" ? (Math.abs(gr - PHI) < 0.03 ? " (황금 직사각형)" : " (나선이 늘어남)") : ""));
+      AB.stat("pf-o-hit", out.join(" · "));
+    }, opts(el, 0.72, 260, 520, STAGE));
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        mode = null; if (!geo) return;
+        var gx = geo.x + g.x * geo.w, gy = geo.y + g.y * geo.h, gw = g.w * geo.w, gh = g.h * geo.h;
+        if (Math.hypot(x - (gx + gw), y - (gy + gh)) < 22) mode = "size";
+        else if (x > gx && x < gx + gw && y > gy && y < gy + gh) { mode = "move"; off = [(x - geo.x) / geo.w - g.x, (y - geo.y) / geo.h - g.y]; }
+      },
+      move: function (x, y) {
+        if (!mode || !geo) return;
+        var u = (x - geo.x) / geo.w, v = (y - geo.y) / geo.h;
+        if (mode === "size") { g.w = AB.clamp(u - g.x, 0.15, 1.6); g.h = AB.clamp(v - g.y, 0.15, 1.6); }
+        else { g.x = AB.clamp(u - off[0], -g.w + 0.1, 0.9); g.y = AB.clamp(v - off[1], -g.h + 0.1, 0.9); }
+        cv.redraw();
+      },
+      end: function () { mode = null; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 무작위 점에도 나선이 맞는다 ---------------- */
+  (function () {
+    var el = document.getElementById("pr-cv"), cv = null, seed = 7, cache = null;
+    var redraw = function () { cache = null; if (cv) cv.redraw(); };
+    var gridSel = AB.seg("pr-grid", redraw), modeSel = AB.seg("pr-mode", function () { if (cv) cv.redraw(); });
+    var nG = AB.range("pr-n", function (v) { return v + "개"; }, redraw);
+    var tG = AB.range("pr-t", function (v) { return v + "%"; }, redraw);
+    document.getElementById("pr-new").addEventListener("click", function () { seed += 1; redraw(); });
+    var FR = 1.5; // 화면(그림) 비율 3:2
+    function points() { var rnd = AB.rng(seed * 7919), p = []; for (var i = 0; i < nG(); i++) p.push([0.04 + 0.92 * rnd(), 0.05 + 0.9 * rnd()]); return p; }
+    // 단위 화면(가로 FR, 세로 1) 좌표에서 계산
+    function hitsFor(P, gtype, Rg, fx, fy, tol) {
+      var c = 0, sp = gtype === "spiral" ? spiralPts(Rg, fx, fy) : null;
+      P.forEach(function (p) { var x = p[0] * FR, y = p[1]; var d = sp ? distToPts(x, y, sp) : gridDist(x, y, Rg, T); if (d <= tol) c++; });
+      return c;
+    }
+    function compute() {
+      var P = points(), tol = tG() / 100, gt = gridSel();
+      var frame = { x: 0, y: 0, w: FR, h: 1 };
+      var fixed = hitsFor(P, gt, frame, false, false, tol);
+      var best = { c: -1 };
+      if (gt === "spiral") {
+        [0.55, 0.65, 0.75, 0.85, 0.95, 1.05].forEach(function (sc) {
+          var w = FR * sc, hh = w / PHI;
+          for (var o = 0; o < 4; o++) for (var i = 0; i < 9; i++) for (var j = 0; j < 9; j++) {
+            var Rg = { x: (FR - w) * i / 8 - (sc > 1 ? 0 : 0), y: (1 - hh) * j / 8, w: w, h: hh };
+            var c = hitsFor(P, gt, Rg, o & 1, o & 2, tol);
+            if (c > best.c) best = { c: c, R: Rg, fx: !!(o & 1), fy: !!(o & 2) };
+          }
+        });
+      } else {
+        [0.5, 0.6, 0.7, 0.8, 0.9, 1].forEach(function (sw) { [0.5, 0.6, 0.7, 0.8, 0.9, 1].forEach(function (sh) {
+          var w = FR * sw, hh = sh;
+          for (var i = 0; i < 9; i++) for (var j = 0; j < 9; j++) {
+            var Rg = { x: (FR - w) * i / 8, y: (1 - hh) * j / 8, w: w, h: hh };
+            var c = hitsFor(P, gt, Rg, false, false, tol);
+            if (c > best.c) best = { c: c, R: Rg, fx: false, fy: false };
+          }
+        }); });
+      }
+      // 고정 격자 띠가 덮는 넓이(격자 표본)
+      var inside = 0, N = 0, sp = gt === "spiral" ? spiralPts(frame, false, false) : null;
+      for (var a = 0; a < 60; a++) for (var b = 0; b < 40; b++) { var x = (a + 0.5) / 60 * FR, y = (b + 0.5) / 40; N++; if ((sp ? distToPts(x, y, sp) : gridDist(x, y, frame, T)) <= tol) inside++; }
+      return { P: P, fixed: fixed, best: best, area: inside / N, tol: tol, gt: gt };
+    }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      if (!cache) cache = compute();
+      var R = fitRect(FR, w, h, 16), s = R.h; // 단위 1 = 화면 높이
+      var free = modeSel() === "free", K = cache;
+      ctx.fillStyle = "#f3efe6"; ctx.fillRect(R.x, R.y, R.w, R.h);
+      ctx.strokeStyle = "#c9c5bc"; ctx.lineWidth = 1; ctx.strokeRect(R.x + 0.5, R.y + 0.5, R.w - 1, R.h - 1);
+      var Rg = free ? K.best.R : { x: 0, y: 0, w: FR, h: 1 }, fxx = free ? K.best.fx : false, fyy = free ? K.best.fy : false;
+      var S = { x: R.x + Rg.x * s, y: R.y + Rg.y * s, w: Rg.w * s, h: Rg.h * s };
+      ctx.save(); ctx.beginPath(); ctx.rect(R.x, R.y, R.w, R.h); ctx.clip();
+      var sp = null;
+      if (K.gt === "spiral") {
+        sp = spiralPts(S, fxx, fyy);
+        // 맞음 띠
+        ctx.strokeStyle = "rgba(163,33,142,0.13)"; ctx.lineWidth = K.tol * 2 * s; ctx.lineJoin = "round"; ctx.lineCap = "round";
+        ctx.beginPath(); sp.forEach(function (p, i) { i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.stroke();
+        drawSpiral(ctx, S, fxx, fyy, C_S, 2, true);
+      } else {
+        ctx.fillStyle = "rgba(47,111,179,0.12)";
+        T.v.forEach(function (v) { ctx.fillRect(S.x + v * S.w - K.tol * s, S.y, 2 * K.tol * s, S.h); });
+        T.h.forEach(function (v) { ctx.fillRect(S.x, S.y + v * S.h - K.tol * s, S.w, 2 * K.tol * s); });
+        gridLines(ctx, S, T, C_T, [], 1.6);
+      }
+      if (free) { ctx.strokeStyle = INK; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; ctx.strokeRect(S.x, S.y, S.w, S.h); ctx.setLineDash([]); }
+      ctx.restore();
+      K.P.forEach(function (p) {
+        var x = R.x + p[0] * R.w, y = R.y + p[1] * R.h;
+        var d = (sp ? distToPts(x, y, sp) : gridDist(x, y, S, T)) / s;
+        ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+        if (d <= K.tol) { ctx.strokeStyle = "#1d8a4e"; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.arc(x, y, 9.5, 0, Math.PI * 2); ctx.stroke(); }
+      });
+      label(ctx, free ? "사후 맞춤: 점을 보고 격자를 골랐다" : "틀에 고정: 격자를 먼저 정했다", R.x + 6, R.y + 14, { maxX: R.x + R.w - 4 });
+      AB.stat("pr-o-fix", K.fixed + " / " + K.P.length);
+      AB.stat("pr-o-free", K.best.c + " / " + K.P.length);
+      AB.stat("pr-o-area", pct(K.area, 0) + " (무작위로 기대되는 맞음 " + (K.area * K.P.length).toFixed(1) + "개)");
+    }, opts(el, 0.62, 240, 420, PAPER));
+  })();
+
+  /* ---------------- 시뮬레이터 5: 마음에 드는 직사각형 ---------------- */
+  (function () {
+    var el = document.getElementById("pv-cv"), cv = null, boxes = [];
+    var SETS = { a: [1.0, 1.3, PHI, 1.9, 2.2], b: [PHI, 1.9, 2.2, 2.5, 2.8] };
+    var hist = { a: [], b: [] }, order = [0, 1, 2, 3, 4], rnd = AB.rng(31);
+    function shuffle() { for (var i = 4; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)), t = order[i]; order[i] = order[j]; order[j] = t; } }
+    shuffle();
+    var setSel = AB.seg("pv-set", function () { shuffle(); if (cv) cv.redraw(); });
+    document.getElementById("pv-clear").addEventListener("click", function () { hist = { a: [], b: [] }; if (cv) cv.redraw(); });
+    function stats() {
+      var f = function (k) { var H = hist[k]; if (!H.length) return null; var m = H.reduce(function (a, b) { return a + b; }, 0) / H.length; var p = H.filter(function (v) { return Math.abs(v - PHI) < 1e-6; }).length / H.length; return { n: H.length, m: m, p: p }; };
+      var A = f("a"), B = f("b");
+      AB.stat("pv-o-n", (A ? A.n : 0) + " · " + (B ? B.n : 0));
+      AB.stat("pv-o-mean", (A ? A.m.toFixed(2) : "—") + " · " + (B ? B.m.toFixed(2) : "—"));
+      AB.stat("pv-o-phi", (A ? pct(A.p, 0) : "—") + " · " + (B ? pct(B.p, 0) : "—"));
+      return { A: A, B: B };
+    }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      var set = SETS[setSel()], narrow = true;
+      var stripH = 74;
+      boxes = [];
+      var cols = 3, rows = 2, cw = (w - 24) / cols, rh = (h - stripH - 16) / rows, area = cw * rh;
+      var maxW = cw - 14, maxH = rh - 14, sc = 1;
+      set.forEach(function (r) { var bw0 = Math.sqrt(area * r); sc = Math.min(sc, maxW / bw0, maxH / (bw0 / r)); });
+      order.forEach(function (idx, k) {
+        var r = set[idx], bw = Math.sqrt(area * r) * sc, bh = bw / r;
+        var c = k % cols, rr = Math.floor(k / cols);
+        if (narrow && rr === 1) c += 0.5;
+        var cx = 12 + cw * (c + 0.5), cy = 10 + rh * (rr + 0.5);
+        var b = { x: cx - bw / 2, y: cy - bh / 2, w: bw, h: bh, r: r };
+        boxes.push(b);
+        ctx.fillStyle = "#e6dcc8"; ctx.fillRect(b.x, b.y, b.w, b.h);
+        ctx.strokeStyle = "#8f8676"; ctx.lineWidth = 1.2; ctx.strokeRect(b.x + 0.5, b.y + 0.5, b.w - 1, b.h - 1);
+      });
+      // 아래 띠: 고른 기록
+      var y0 = h - stripH + 14, x0 = 34, x1 = w - 20, X = function (v) { return x0 + (v - 1) / 1.8 * (x1 - x0); };
+      ctx.strokeStyle = "#9a968c"; ctx.lineWidth = 1; line(ctx, x0, y0 + 22, x1, y0 + 22);
+      ctx.font = AB.font(11, true); ctx.fillStyle = INK_DIM; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [1, 1.4, 1.8, 2.2, 2.6].forEach(function (v) { line(ctx, X(v), y0 + 19, X(v), y0 + 25); ctx.fillText(v.toFixed(1), X(v), y0 + 29); });
+      ctx.strokeStyle = C_S; ctx.setLineDash([3, 3]); line(ctx, X(PHI), y0 - 8, X(PHI), y0 + 26); ctx.setLineDash([]);
+      ctx.fillStyle = C_S; ctx.textBaseline = "bottom"; ctx.fillText("φ", X(PHI) + 8, y0 - 2);
+      ["a", "b"].forEach(function (k, ki) {
+        var col = ki ? "#c9661f" : "#2f6fb3", yy = y0 + 4 + ki * 11, cnt = {};
+        hist[k].forEach(function (v) { var key = v.toFixed(3); cnt[key] = (cnt[key] || 0) + 1; });
+        Object.keys(cnt).forEach(function (key) { ctx.fillStyle = col; ctx.globalAlpha = 0.85; ctx.beginPath(); ctx.arc(X(Number(key)), yy, Math.min(5.5, 2.6 + Math.sqrt(cnt[key])), 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1;
+          if (cnt[key] > 1) { ctx.fillStyle = col; ctx.font = AB.font(10, true); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("×" + cnt[key], X(Number(key)) + 7, yy); } });
+      });
+      var st = stats();
+      [["A", st.A, "#2f6fb3", 0], ["B", st.B, "#c9661f", 1]].forEach(function (q) {
+        if (!q[1]) return; ctx.strokeStyle = q[2]; ctx.lineWidth = 2.4; line(ctx, X(q[1].m), y0 + 14, X(q[1].m), y0 + 30);
+      });
+      ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.font = AB.font(11); ctx.fillStyle = INK_DIM;
+      ctx.fillText("고른 비율 (●A ●B, 세로 막대: 평균)", x0, h - 14);
+    }, opts(el, 0.62, 300, 440, PAPER));
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        var k = setSel();
+        for (var i = 0; i < boxes.length; i++) { var b = boxes[i]; if (x >= b.x - 4 && x <= b.x + b.w + 4 && y >= b.y - 4 && y <= b.y + b.h + 4) { hist[k].push(b.r); if (hist[k].length > 60) hist[k].shift(); shuffle(); cv.redraw(); return; } }
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 3분할에 놓기와 가운데에 놓기 ---------------- */
+  (function () {
+    var cvA = null, cvB = null;
+    var both = function () { if (cvA) cvA.redraw(); if (cvB) cvB.redraw(); };
+    var sub = AB.seg("pc-sub", function () { both(); text(); });
+    var grid = AB.check("pc-grid", both);
+    var TXT = {
+      tree: ["넓은 빈 눈밭과 바람, 나무가 무언가를 기다리는 듯", "수평선이 반을 갈라 고요하지만 딱딱하다"],
+      face: ["빈 쪽이 이유 없이 비어 보이고 시선이 머물 곳이 없다", "보는 사람과 정면으로 마주한다, 흔들림이 없다"],
+      road: ["길이 비스듬히 들어와 산책하듯 부드럽다", "대칭이 시선을 깊이로 강하게 빨아들인다"],
+    };
+    function text() { AB.stat("pc-o-a", TXT[sub()][0]); AB.stat("pc-o-b", TXT[sub()][1]); }
+    function scene(ctx, w, h, centered) {
+      var s = sub();
+      if (s === "tree") {
+        var hz = centered ? 0.5 : 2 / 3;
+        ctx.fillStyle = "#dfe6ee"; ctx.fillRect(0, 0, w, h * hz);
+        ctx.fillStyle = "#f7f6f2"; ctx.fillRect(0, h * hz, w, h * (1 - hz));
+        ctx.strokeStyle = "#b8c0c8"; ctx.lineWidth = 1; line(ctx, 0, h * hz, w, h * hz);
+        var tx = centered ? 0.5 : 1 / 3, base = h * hz + h * 0.04, th = h * 0.36;
+        ctx.strokeStyle = "#3b3530"; ctx.lineWidth = Math.max(3, w * 0.012); ctx.lineCap = "round";
+        line(ctx, w * tx, base, w * tx, base - th);
+        [[-0.6, 0.55], [0.7, 0.45], [-0.9, 0.3], [0.5, 0.75], [-0.3, 0.85]].forEach(function (b, i) {
+          var yb = base - th * b[1], L = th * (0.42 - i * 0.04);
+          ctx.lineWidth = Math.max(1.5, w * 0.006); line(ctx, w * tx, yb, w * tx + Math.sin(b[0]) * L, yb - Math.cos(b[0]) * L * 0.8);
+        });
+        ctx.fillStyle = "#c8ccd2"; ctx.beginPath(); ctx.ellipse(w * tx + w * 0.04, base + 2, w * 0.08, h * 0.012, 0, 0, Math.PI * 2); ctx.fill();
+      } else if (s === "face") {
+        ctx.fillStyle = "#e9e1d3"; ctx.fillRect(0, 0, w, h);
+        var fx = centered ? 0.5 : 1 / 3, cx = w * fx, cy = h * 0.42, r = Math.min(w, h) * 0.17;
+        ctx.fillStyle = "#3d4a5a"; ctx.beginPath(); ctx.moveTo(cx - r * 2.1, h); ctx.quadraticCurveTo(cx - r * 1.9, cy + r * 1.5, cx, cy + r * 1.35); ctx.quadraticCurveTo(cx + r * 1.9, cy + r * 1.5, cx + r * 2.1, h); ctx.fill();
+        ctx.fillStyle = "#e3b48f"; ctx.fillRect(cx - r * 0.32, cy + r * 0.8, r * 0.64, r * 0.6);
+        ctx.beginPath(); ctx.ellipse(cx, cy, r * 0.82, r, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = "#2c2622"; ctx.beginPath(); ctx.ellipse(cx, cy - r * 0.55, r * 0.9, r * 0.55, 0, Math.PI, 2 * Math.PI); ctx.fill();
+        ctx.fillStyle = "#2b2a30"; [-1, 1].forEach(function (d) { ctx.beginPath(); ctx.arc(cx + d * r * 0.33, cy + r * 0.02, r * 0.08, 0, Math.PI * 2); ctx.fill(); });
+        ctx.strokeStyle = "#8a4e3a"; ctx.lineWidth = Math.max(1.5, r * 0.05); ctx.beginPath(); ctx.moveTo(cx - r * 0.25, cy + r * 0.5); ctx.quadraticCurveTo(cx, cy + r * 0.58, cx + r * 0.25, cy + r * 0.5); ctx.stroke();
+      } else {
+        var vx = centered ? 0.5 : 1 / 3, vy = centered ? 0.42 : 1 / 3;
+        ctx.fillStyle = "#e4e8ea"; ctx.fillRect(0, 0, w, h * vy);
+        ctx.fillStyle = "#c9cfa9"; ctx.fillRect(0, h * vy, w, h * (1 - vy));
+        ctx.fillStyle = "#8d8577"; ctx.beginPath();
+        if (centered) { ctx.moveTo(w * vx, h * vy); ctx.lineTo(w * 0.78, h); ctx.lineTo(w * 0.22, h); }
+        else { ctx.moveTo(w * vx, h * vy); ctx.lineTo(w * 0.98, h); ctx.lineTo(w * 0.38, h); }
+        ctx.fill();
+        ctx.strokeStyle = "#f2efe6"; ctx.lineWidth = 2; ctx.setLineDash([10, 9]);
+        line(ctx, w * vx, h * vy, centered ? w * 0.5 : w * 0.68, h); ctx.setLineDash([]);
+        ctx.fillStyle = "#4e6a4a";
+        for (var i = 0; i < 7; i++) {
+          var t = Math.pow((i + 1) / 8, 1.6), side = centered ? [0.86, 0.14] : [1.1, 0.25];
+          [0, 1].forEach(function (k) {
+            var bx = w * vx + (w * side[k] - w * vx) * t, by = h * vy + (h * 1.02 - h * vy) * t, tr = Math.max(2, h * 0.09 * t);
+            ctx.beginPath(); ctx.moveTo(bx, by - tr * 2.6); ctx.lineTo(bx + tr, by); ctx.lineTo(bx - tr, by); ctx.fill();
+          });
+        }
+      }
+      if (grid()) gridLines(ctx, { x: 0, y: 0, w: w, h: h }, T, "rgba(47,111,179,0.75)", [5, 4], 1.2);
+    }
+    var el = document.getElementById("pc-a");
+    var o = hgt(el, 0.75, 150, 320); o.bg = PAPER;
+    cvA = AB.canvas("#pc-a", function (ctx, w, h) { scene(ctx, w, h, false); }, o);
+    var o2 = hgt(document.getElementById("pc-b"), 0.75, 150, 320); o2.bg = PAPER;
+    cvB = AB.canvas("#pc-b", function (ctx, w, h) { scene(ctx, w, h, true); }, o2);
+    text();
+  })();
+
+  /* ---------------- 시뮬레이터 7: 비례 작업대 ---------------- */
+  (function () {
+    var el = document.getElementById("pl-cv"), cv = null, R = null, drag = null, off = null;
+    var redraw = function () { if (cv) cv.redraw(); };
+    var FMT = {
+      poster: { r: 420 / 594, W: 420, H: 594, unit: "mm", name: "A2 420×594mm" },
+      window: { r: 2.4 / 1.5, W: 240, H: 150, unit: "cm", name: "쇼윈도 240×150cm(높이는 가정)" },
+      web: { r: 16 / 9, W: 1600, H: 900, unit: "px", name: "웹 1600×900px" },
+    };
+    // 요소: 중심(cx, cy)과 크기(w, h), 화면에 대한 비율
+    var START = {
+      poster: { big: { cx: 0.42, cy: 0.62, w: 0.56, h: 0.34 }, dot: { cx: 0.64, cy: 0.64, w: 0.07, h: 0.05 }, title: { cx: 0.5, cy: 0.5, w: 0.8, h: 0.07 } },
+      window: { big: { cx: 0.36, cy: 0.6, w: 0.38, h: 0.5 }, dot: { cx: 0.646, cy: 0.62, w: 0.045, h: 0.07 }, title: { cx: 0.5, cy: 0.16, w: 0.5, h: 0.08 } },
+      web: { big: { cx: 0.66, cy: 0.54, w: 0.5, h: 0.62 }, dot: { cx: 0.3, cy: 0.68, w: 0.04, h: 0.07 }, title: { cx: 0.28, cy: 0.38, w: 0.42, h: 0.1 } },
+    };
+    var st = JSON.parse(JSON.stringify(START));
+    var fmt = AB.seg("pl-fmt", redraw), grid = AB.seg("pl-grid", redraw);
+    var band = AB.check("pl-band", redraw), warn = AB.check("pl-warn", redraw);
+    var NAME = { big: "큰 면", dot: "작은 점", title: "제목 띠" };
+    function fitsT(e) { return Math.min(Math.abs(nearest(e.cx, T.v)), Math.abs(nearest(e.cy, T.h))) <= 0.03; }
+    function fitsP(e) { return Math.min(Math.abs(nearest(e.cx, G.v)), Math.abs(nearest(e.cy, G.h))) <= 0.03; }
+    cv = AB.canvas(el, function (ctx, w, h) {
+      var F = FMT[fmt()], E = st[fmt()];
+      R = fitRect(F.r, w, h, 14, 20, 0);
+      // 포스터 바탕(책방 E의 짙은 색)
+      ctx.fillStyle = "#22342a"; ctx.fillRect(R.x, R.y, R.w, R.h);
+      if (band()) {
+        ctx.fillStyle = "rgba(255,226,215,0.10)";
+        [[1 / 3, 0.382], [0.618, 2 / 3]].forEach(function (b) {
+          ctx.fillRect(R.x + b[0] * R.w, R.y, (b[1] - b[0]) * R.w, R.h);
+          ctx.fillRect(R.x, R.y + b[0] * R.h, R.w, (b[1] - b[0]) * R.h);
+        });
+      }
+      // 요소
+      var bg = E.big, bx = R.x + (bg.cx - bg.w / 2) * R.w, by = R.y + (bg.cy - bg.h / 2) * R.h;
+      ctx.fillStyle = "#567666"; ctx.fillRect(bx, by, bg.w * R.w, bg.h * R.h);
+      ctx.fillStyle = "#2f7d5b"; ctx.fillRect(bx + bg.w * R.w * 0.1, by + bg.h * R.h * 0.62, bg.w * R.w * 0.8, bg.h * R.h * 0.12);
+      var tt = E.title, tx = R.x + (tt.cx - tt.w / 2) * R.w, ty = R.y + (tt.cy - tt.h / 2) * R.h;
+      ctx.fillStyle = "#ffe2d7"; ctx.fillRect(tx, ty, tt.w * R.w, tt.h * R.h * 0.55);
+      ctx.fillRect(tx, ty + tt.h * R.h * 0.72, tt.w * R.w * 0.55, tt.h * R.h * 0.28);
+      var dt = E.dot, dr = Math.min(dt.w * R.w, dt.h * R.h) / 2;
+      ctx.fillStyle = "#d24f39"; ctx.beginPath(); ctx.arc(R.x + dt.cx * R.w, R.y + dt.cy * R.h, dr, 0, Math.PI * 2); ctx.fill();
+      // 격자
+      var gm = grid();
+      if (gm === "thirds") gridLines(ctx, R, T, "#8fb8e8", [], 1.4);
+      else if (gm === "phi") gridLines(ctx, R, G, "#f0a35e", [6, 4], 1.5);
+      else if (gm === "spiral") {
+        var land = R.w >= R.h, Sr = land ? { x: R.x, y: R.y + (R.h - R.w / PHI) / 2, w: R.w, h: R.w / PHI } : null;
+        if (land) drawSpiral(ctx, Sr, false, false, "#e58fd5", 1.8, true);
+        else {
+          // 세로 화면: 나선을 90° 돌려 놓는다(세로 황금 직사각형, 화면 높이에 맞춤)
+          var hh = Math.min(R.h, R.w * PHI), ww = hh / PHI, ox = R.x + (R.w - ww) / 2, oy = R.y + (R.h - hh) / 2;
+          ctx.save(); ctx.translate(ox + ww, oy); ctx.rotate(Math.PI / 2);
+          drawSpiral(ctx, { x: 0, y: 0, w: hh, h: ww }, false, false, "#e58fd5", 1.8, true); ctx.restore();
+        }
+      }
+      // 극단 경고
+      var issues = [];
+      ["big", "dot", "title"].forEach(function (k) {
+        var e = E[k], x0 = e.cx - e.w / 2, x1 = e.cx + e.w / 2, y0 = e.cy - e.h / 2, y1 = e.cy + e.h / 2;
+        var edge = x0 < 0.03 || x1 > 0.97 || y0 < 0.03 || y1 > 0.97;
+        if (k !== "title" && Math.abs(e.cx - 0.5) < 0.02 && Math.abs(e.cy - 0.5) < 0.02) issues.push([k, "정중앙"]);
+        else if (Math.abs(e.cy - 0.5) < 0.02 && k !== "dot") issues.push([k, "세로 50%: 반 가르기"]);
+        else if (Math.abs(e.cx - 0.5) < 0.02 && k === "dot") issues.push([k, "가로 50%: 중심선 위"]);
+        if (edge) issues.push([k, "가장자리에 닿음"]);
+      });
+      if (warn()) issues.forEach(function (q) {
+        var e = E[q[0]];
+        ctx.save(); ctx.strokeStyle = "#ffcf3a"; ctx.lineWidth = 2; ctx.setLineDash([5, 4]);
+        ctx.strokeRect(R.x + (e.cx - e.w / 2) * R.w - 4, R.y + (e.cy - e.h / 2) * R.h - 4, e.w * R.w + 8, e.h * R.h + 8); ctx.restore();
+      });
+      // 손잡이
+      ["big", "dot", "title"].forEach(function (k) { var e = E[k]; AB.handle(ctx, R.x + e.cx * R.w, R.y + e.cy * R.h, { r: k === "dot" ? Math.max(5, dr) : 5, fill: k === "dot" ? "#d24f39" : "#ffffff" }); });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11.5); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText(F.name, R.x, R.y - 4);
+      // 읽기
+      var d = E.dot;
+      AB.stat("pl-o-dot", pct(d.cx, 0) + ", " + pct(d.cy, 0) + " · " + Math.round(d.cx * F.W) + "×" + Math.round(d.cy * F.H) + F.unit);
+      var nt = 0, np = 0; ["big", "dot", "title"].forEach(function (k) { if (fitsT(E[k])) nt++; if (fitsP(E[k])) np++; });
+      AB.stat("pl-o-fit", "3분할 " + nt + "/3 · 황금비 " + np + "/3");
+      AB.stat("pl-o-chk", issues.length ? issues.map(function (q) { return NAME[q[0]] + " " + q[1]; }).join(" · ") + " → 의도했는가?" : "극단 없음");
+    }, opts(el, 1.1, 340, 560, STAGE));
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        drag = null; if (!R) return; var E = st[fmt()], best = 1e9;
+        // 먼저 손잡이 근처, 없으면 요소 안(작은 것 우선)
+        ["dot", "title", "big"].forEach(function (k) { var e = E[k], d = Math.hypot(x - (R.x + e.cx * R.w), y - (R.y + e.cy * R.h)); if (d < 22 && d < best) { best = d; drag = k; } });
+        if (!drag) ["dot", "title", "big"].some(function (k) { var e = E[k], u = (x - R.x) / R.w, v = (y - R.y) / R.h; if (Math.abs(u - e.cx) <= e.w / 2 && Math.abs(v - e.cy) <= e.h / 2) { drag = k; return true; } return false; });
+        if (drag) { var e = E[drag]; off = [(x - R.x) / R.w - e.cx, (y - R.y) / R.h - e.cy]; }
+      },
+      move: function (x, y) {
+        if (!drag || !R) return; var e = st[fmt()][drag];
+        e.cx = AB.clamp((x - R.x) / R.w - off[0], 0, 1); e.cy = AB.clamp((y - R.y) / R.h - off[1], 0, 1);
+        if (Math.abs(e.cx - 0.5) < 0.006) e.cx = 0.5; if (Math.abs(e.cy - 0.5) < 0.006) e.cy = 0.5;
+        cv.redraw();
+      },
+      end: function () { drag = null; },
+    });
+  })();
+})();
+</script>
+</body>
+</html>
