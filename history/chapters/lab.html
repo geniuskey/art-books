@@ -1,0 +1,1226 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "연대표 위에 놓인 공공 도메인 명작에서 팔레트, 명도 분포, 무게중심과 선 방향을 뽑아 두 작품이나 두 시대를 나란히 비교하는 미술사 실험실. 사진 속 색이 원작과 다른 이유를 늘 함께 본다. 그림 읽기 모임 열한 회차의 결산."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>미술사 실험실 · ArtHistoryBook</title>
+<meta name="description" content="연대표 위에 놓인 공공 도메인 명작에서 팔레트, 명도 분포, 무게중심과 선 방향을 뽑아 두 작품이나 두 시대를 나란히 비교하는 미술사 실험실. 사진 속 색이 원작과 다른 이유를 늘 함께 본다. 그림 읽기 모임 열한 회차의 결산.">
+<link rel="canonical" href="https://artbook.euiyun.com/history/chapters/lab.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="미술사 실험실 · ArtHistoryBook">
+<meta property="og:description" content="연대표 위에 놓인 공공 도메인 명작에서 팔레트, 명도 분포, 무게중심과 선 방향을 뽑아 두 작품이나 두 시대를 나란히 비교하는 미술사 실험실. 사진 속 색이 원작과 다른 이유를 늘 함께 본다. 그림 읽기 모임 열한 회차의 결산.">
+<meta property="og:url" content="https://artbook.euiyun.com/history/chapters/lab.html">
+<meta property="og:image" content="https://artbook.euiyun.com/history/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/history/chapters/lab.html#chapter","name":"미술사 실험실","headline":"미술사 실험실 · ArtHistoryBook","description":"연대표 위에 놓인 공공 도메인 명작에서 팔레트, 명도 분포, 무게중심과 선 방향을 뽑아 두 작품이나 두 시대를 나란히 비교하는 미술사 실험실. 사진 속 색이 원작과 다른 이유를 늘 함께 본다. 그림 읽기 모임 열한 회차의 결산.","url":"https://artbook.euiyun.com/history/chapters/lab.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/history/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/history/#book","name":"ArtHistoryBook · 미술사","url":"https://artbook.euiyun.com/history/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ArtHistoryBook · 미술사","item":"https://artbook.euiyun.com/history/"},{"@type":"ListItem","position":3,"name":"13. 미술사 실험실","item":"https://artbook.euiyun.com/history/chapters/lab.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 13장 전용: 실험실 배치 */
+  .hl-duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1px; background: var(--border); border-top: 1px solid var(--border); }
+  .hl-duo > div { background: var(--canvas-bg); min-width: 0; position: relative; }
+  .hl-duo canvas, .hl-wide canvas { display: block; width: 100%; }
+  .hl-wide { border-top: 1px solid var(--border); background: var(--canvas-bg); }
+  .hl-cap { font-size: 13px; line-height: 1.55; color: var(--text-dim); padding: 8px 12px 10px; margin: 0; }
+  .hl-cap b { color: var(--text); }
+  .hl-note { font-size: 13px; line-height: 1.6; color: var(--text-dim); padding: 10px 16px; margin: 0; border-top: 1px solid var(--border); background: var(--bg-elev); }
+  .hl-warn { margin: 0; padding: 10px 16px 10px 34px; border-top: 1px solid var(--border); background: var(--bg-elev); font-size: 13px; line-height: 1.6; color: var(--text-dim); }
+  .hl-warn li + li { margin-top: 4px; }
+  .hl-lab-ctrl { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 12px 16px; border-top: 1px solid var(--border); }
+  .hl-lab-ctrl .ctrl { min-width: 180px; flex: 1 1 180px; }
+  .hl-tag { display: inline-block; font: 700 11px var(--mono); padding: 1px 7px; border-radius: 5px; color: #fff; margin-right: 6px; }
+  .hl-tag.a { background: var(--accent); } .hl-tag.b { background: var(--accent-2); }
+</style>
+</head>
+<body data-chapter="lab">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 13</div>
+    <h1>미술사 실험실</h1>
+    <p class="lead">열한 회차 동안 그림을 한 점씩 읽었다. 금빛 바탕의 성모, 어둠 속의 촛불, 두루마리의 먼 산, 판화의 파도. 이 장은 그 그림들을 한 줄의 연대표 위에 다시 세운다. 막대 하나가 작품 하나다. 작품을 고르면 그림에서 팔레트를 뽑고, 명도가 어디에 몰렸는지 세고, 무게중심과 선의 방향을 그림 위에 얹는다. 그리고 두 작품, 또는 두 시대를 나란히 놓는다. 숫자는 비교를 빠르게 해 주지만, 그 숫자가 읽는 것은 원작이 아니라 원작을 찍은 사진이라는 것을 이 장은 한 번도 잊지 않는다.</p>
+    <ul class="objectives">
+      <li>연대표 위 작품에서 팔레트(k-평균), 명도 분포, 무게중심, 선 방향을 뽑고 각각이 무엇을 재고 무엇을 못 재는지 안다.</li>
+      <li>사진 속 색이 원작과 다른 이유(바니시 황변, 바탕의 변색, 조명과 카메라, 안료의 퇴색)를 말하고, 그 크기를 실험으로 가늠한다.</li>
+      <li>명도 히스토그램으로 테네브리즘과 밝은 조의 그림, 먹의 농담이 어떻게 다른 모양을 만드는지 본다.</li>
+      <li>3분할 격자, 무게중심, 선 방향 분포를 그림 위에 얹고, 계산과 내 눈이 어디서 같고 다른지 비교한다.</li>
+      <li>두 작품, 두 시대를 나란히 놓되, 몇 점의 평균을 시대의 성격으로 일반화하지 않는다.</li>
+    </ul>
+  </header>
+
+  <section id="start">
+    <h2>실험실 사용법: 연대표와 분석 영역</h2>
+    <p>실험실에는 공공 도메인 작품 35점이 들어 있다. 모두 앞 장들과 서가의 다른 책에서 이미 쓴 이미지이고, 대부분 메트로폴리탄 미술관의 공개 이미지다. 서양 20점은 1295년 무렵의 두초부터 1899년의 피사로까지, 동아시아 15점은 11세기 북송의 산수 두루마리부터 19세기 조선의 채색화와 에도의 목판화까지다. 작품을 고르는 기준은 하나였다. 이 책의 앞 장에서 이미 읽은 그림일 것. 그러니 이 35점은 미술사의 표본이 아니라 <b>이 책이 읽은 그림의 목록</b>이다. 실험실의 모든 비교는 이 한계 안에서만 말한다.</p>
+
+    <p>연대표의 가로축은 한 가지 축척이 아니다. 1000년부터 1600년까지의 600년을 왼쪽 36%에, 1600년부터 1900년까지의 300년을 나머지 64%에 놓았다. 뒤쪽에 작품이 몰려 있어서다. 축척이 바뀌는 자리에 점선을 그었다. 막대가 겹치면 옆으로 밀고, 막대 아래 짧은 선으로 실제 연도 자리와 잇는다. "13세기경", "18세기"처럼 세기 단위로만 기록된 작품은 이 책이 그 세기의 가운데쯤에 놓았고 막대 위에 물결표(~)를 붙였다. 연대는 소장처 기록을 따른다.</p>
+
+    <p>막대 하나는 그 작품에서 뽑은 다섯 색을 비율만큼 쌓은 것이다. <b>중간 명도</b>로 바꾸면 막대가 그 그림 화소들의 가운데 명도 L*(<a href="../../color/chapters/value.html">ColorBook 6장</a>)를 가진 회색 하나가 된다. 연대표 위를 끌면 가장 가까운 막대가 골라지고, 아래에 그 작품의 사진과 <span class="term">분석 영역</span><span class="en">(Analysis region)</span>이 나타난다. 분석 영역은 사진에서 실제로 계산에 넣는 사각형이다. 미술관 사진에는 그림 둘레의 검은 바탕, 액자 그림자, 책의 바깥 바탕이 함께 찍혀 있는 경우가 많다. 그대로 두면 "어두운 화소"가 엉뚱하게 늘어난다. 그래서 모든 작품의 가장자리 2%를 기본으로 잘라 내고, 검은 바탕이 넓은 다섯 점(드 라 투르, 카날레토, 코로, 세잔, 고린)과 우타마로의 그림책은 이 책이 눈으로 사각형을 따로 정했다.</p>
+
+    <div class="sim" id="sim-hl-tl">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>연대표 위의 35점</h3></div>
+      <div class="sim-view"><canvas id="hl-tl-cv" aria-label="연대표: 서양, 중국, 한국, 일본 네 줄에 작품마다 팔레트 막대가 놓여 있다"></canvas><span class="hint">연대표 위를 끌어 작품을 고른다</span></div>
+      <div class="sim-controls">
+        <div class="seg" id="hl-tl-mode"><button data-value="pal" class="on">팔레트</button><button data-value="val">중간 명도</button></div>
+      </div>
+      <div class="hl-duo">
+        <div><canvas id="hl-tl-img" class="art" aria-label="고른 작품의 사진과 분석 영역"></canvas></div>
+        <div>
+          <canvas id="hl-tl-pal" class="art" aria-label="고른 작품의 다섯 색 팔레트"></canvas>
+          <div class="sim-readout">
+            <div class="stat"><span class="k">작품</span><span class="v" id="hl-tl-o-w">—</span></div>
+            <div class="stat"><span class="k">연대</span><span class="v" id="hl-tl-o-d">—</span></div>
+            <div class="stat"><span class="k">재료</span><span class="v" id="hl-tl-o-m">—</span></div>
+            <div class="stat"><span class="k">중간 명도 L*</span><span class="v" id="hl-tl-o-l">—</span></div>
+          </div>
+          <p class="hl-note" id="hl-tl-note"></p>
+        </div>
+      </div>
+      <div class="sim-note">해볼 것: ① "중간 명도"로 바꾸고 서양 줄을 본다. 1640~1660년대 세 막대(드 라 투르, 렘브란트와 그 옆의 페르메이르)에서 «TL1» ② 중국·한국 줄의 막대는 대부분 갈색 계열이다. 하나를 골라 아래 "사진 주의"를 읽는다. 비단과 종이의 갈색은 그린 사람이 고른 색이 아닐 수 있다. ③ 드 라 투르를 골라 분석 영역(하늘색 사각형)을 본다. 사각형 밖의 검은 띠는 그림이 아니라 촬영 바탕이다. (막대의 다섯 색은 분석 영역을 긴 변 200&nbsp;px로 줄여 OKLab k-평균(k=5, 시드 고정)으로 뽑아 미리 계산한 값이다. 아래 시뮬레이터들은 같은 계산을 그 자리에서 다시 한다.)</div>
+    </div>
+
+    <p>막대를 훑으면 몇 가지가 먼저 보인다. 17세기 서양의 어두운 막대들, 19세기 말의 밝고 다채로운 막대들, 동아시아 줄의 갈색 막대들. 그런데 이 첫인상의 상당 부분은 시대가 아니라 <b>재료와 세월과 사진</b>에서 온다. 그 이야기를 먼저 해야 다음 패널들을 믿을 만큼만 믿을 수 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="원작의 색이 실험실의 숫자가 되기까지 거치는 다섯 단계: 그린 날의 물감, 세월, 촬영 조명과 카메라, 파일과 화면, 실험실">
+        <defs><marker id="hl-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="8" y="20" width="80" height="96" rx="8" class="f-surface"/>
+        <rect x="20" y="32" width="56" height="40" fill="#2f5d8a"/><rect x="20" y="52" width="56" height="20" fill="#d9b44a"/>
+        <text x="48" y="92" text-anchor="middle" class="lbl-b">그린 날</text><text x="48" y="108" text-anchor="middle" class="lbl-dim">물감·바탕</text>
+        <path d="M90 68 L100 68" class="s-line" marker-end="url(#hl-ar)"/>
+        <rect x="102" y="20" width="80" height="96" rx="8" class="f-surface"/>
+        <rect x="114" y="32" width="56" height="40" fill="#3f5a62"/><rect x="114" y="52" width="56" height="20" fill="#b49440"/>
+        <text x="142" y="92" text-anchor="middle" class="lbl-b">세월</text><text x="142" y="108" text-anchor="middle" class="lbl-dim">황변·퇴색</text>
+        <path d="M184 68 L194 68" class="s-line" marker-end="url(#hl-ar)"/>
+        <rect x="196" y="20" width="80" height="96" rx="8" class="f-surface"/>
+        <rect x="208" y="32" width="56" height="40" fill="#4a5c58"/><rect x="208" y="52" width="56" height="20" fill="#c49a3c"/>
+        <text x="236" y="92" text-anchor="middle" class="lbl-b">촬영</text><text x="236" y="108" text-anchor="middle" class="lbl-dim">조명·카메라</text>
+        <path d="M278 68 L288 68" class="s-line" marker-end="url(#hl-ar)"/>
+        <rect x="290" y="20" width="80" height="96" rx="8" class="f-surface"/>
+        <rect x="302" y="32" width="56" height="40" fill="#4d605c"/><rect x="302" y="52" width="56" height="20" fill="#c8a040"/>
+        <text x="330" y="92" text-anchor="middle" class="lbl-b">파일·화면</text><text x="330" y="108" text-anchor="middle" class="lbl-dim">압축·모니터</text>
+        <path d="M372 68 L382 68" class="s-line" marker-end="url(#hl-ar)"/>
+        <rect x="384" y="20" width="68" height="96" rx="8" class="f-acc-soft"/>
+        <text x="418" y="56" text-anchor="middle" class="lbl-acc">실험실</text><text x="418" y="76" text-anchor="middle" class="t-mono lbl">L* · k</text><text x="418" y="96" text-anchor="middle" class="lbl-dim">숫자</text>
+        <path d="M48 128 L48 150 L418 150 L418 128" class="s-dash"/>
+        <text x="233" y="168" text-anchor="middle" class="lbl">실험실이 아는 것은 맨 오른쪽뿐이다</text>
+        <rect x="20" y="186" width="420" height="52" rx="8" class="f-warn-soft"/>
+        <text x="230" y="207" text-anchor="middle" class="lbl">같은 시대·같은 재료끼리, 같은 미술관 사진끼리의 비교가</text>
+        <text x="230" y="226" text-anchor="middle" class="lbl">시대·재료를 건너뛰는 비교보다 믿을 만하다</text>
+      </svg>
+      <figcaption><b>그림 1. 원작의 색이 숫자가 되기까지.</b> 견본 색은 이 책이 지어낸 예시다. 실제 변화의 방향과 크기는 작품마다 다르고, 어느 단계에서 얼마나 바뀌었는지는 사진만으로 알 수 없다. 보존 과학자는 단면 시료, X선 형광 분석, 자외선 사진 같은 다른 증거로 이를 추정한다.</figcaption>
+    </figure>
+
+    <div class="callout warn">
+      <strong>사진 속 색은 원작의 색이 아니다</strong>
+      실험실이 읽는 값은 미술관이 찍어 공개한 사진 파일의 sRGB 값이다. 그 사이에 적어도 네 겹이 끼어 있다. 첫째, 세월: 유화 위의 바니시는 누렇게 변하고, 비단과 종이는 갈색으로 짙어지고, 빛에 약한 안료는 바래거나 어두워진다. 둘째, 보존 처리: 세척과 덧칠 제거로 색이 다시 바뀐다. 셋째, 촬영: 조명, 반사(특히 금박과 광택 있는 화면), 카메라의 색 처리. 넷째, 파일과 화면: 압축, 그리고 보는 사람의 모니터(<a href="../../color/chapters/overview.html">ColorBook 1장</a>). 실험실의 숫자는 "이 사진 안에서 색들이 서로 어떤 관계인가"를 읽는 데 쓰고, 원작의 물감 색을 맞히는 데는 쓰지 않는다.
+    </div>
+  </section>
+
+  <section id="palette">
+    <h2>팔레트 패널: 다섯 색으로 줄이면 무엇이 남나</h2>
+    <p><span class="term">팔레트 추출</span><span class="en">(Palette extraction)</span>은 그림의 수만 화소를 몇 개의 대표색으로 줄이는 일이다. 실험실은 <a href="../../color/chapters/palette.html">ColorBook 14장</a>과 같은 <span class="term">k-평균</span><span class="en">(k-means)</span>을 쓴다. 화소들을 지각적으로 고른 색 공간(OKLab)에 점으로 뿌리고, k개의 무리로 나눈 뒤 무리마다 평균색을 대표로 삼는다. 띠 위의 비율은 그 무리에 든 화소의 몫, 곧 <b>면적</b>이다. 중요도가 아니다.</p>
+
+    <p>아래 비교 화면의 왼쪽은 사진, 오른쪽은 화소마다 가장 가까운 팔레트 색으로만 다시 칠한 그림이다. 경계선을 끌어 둘을 맞대고, 색 수 k를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-hl-pal">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>팔레트와 그 팔레트로만 칠한 그림</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage">
+          <div class="compare" id="hl-pal-cmp"><div class="cmp-a"><canvas id="hl-pal-a" class="art" aria-label="작품 사진"></canvas></div><div class="cmp-b"><canvas id="hl-pal-b" class="art" aria-label="팔레트 색으로만 다시 칠한 그림"></canvas></div></div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="hl-pal-src"><button data-value="duccio-madonna-child" class="on">두초</button><button data-value="bruegel-harvesters">브뤼헐</button><button data-value="vermeer-young-woman-water-pitcher">페르메이르</button><button data-value="vangogh-wheat-field-cypresses">고흐</button><button data-value="korin-irises-yatsuhashi">고린</button><button data-value="hokusai-great-wave">호쿠사이</button></div>
+          <label class="ctrl"><span>색 수 k <output id="hl-pal-k-out"></output></span><input type="range" id="hl-pal-k" min="2" max="10" step="1" value="5"></label>
+        </div>
+      </div>
+      <div class="hl-wide"><canvas id="hl-pal-strip" class="art" aria-label="뽑은 팔레트와 비율"></canvas></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 넓은 색</span><span class="v" id="hl-pal-o-1">—</span></div>
+        <div class="stat"><span class="k">가장 선명한 색</span><span class="v" id="hl-pal-o-2">—</span></div>
+        <div class="stat"><span class="k">재현 오차(평균)</span><span class="v" id="hl-pal-o-3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 두초를 k=5로 본다. «PAL1» ② 고린의 「야쓰하시의 붓꽃」으로 바꾸고 k를 2, 3, 4로 올린다. «PAL2» ③ k를 10까지 올린다. 재현 오차는 줄지만 «PAL3» (팔레트는 OKLab k-평균(k-means++ 시작, 시드 7 고정, 표본 6,000화소). 재현 오차는 화소 넷 중 하나를 골라 원래 색과 배정된 팔레트 색 사이 ΔE2000을 평균한 값이다.)</div>
+    </div>
+
+    <p>k-평균은 넓은 면을 사랑한다. 무리의 평균이 거리 제곱의 합을 가장 작게 하도록 움직이므로, 넓은 면적의 색이 대표색을 끌어당기고 작은 면적의 강조색은 큰 무리에 흡수된다(<a href="../../color/chapters/lab.html">ColorBook 16장</a>). 그래서 팔레트 패널을 볼 때는 늘 두 가지를 같이 본다. 사라진 작은 색이 그림에서 무슨 일을 하는가. 그리고 가장 넓은 색은 정말 그린 사람이 고른 색인가. 동아시아 비단 그림의 팔레트 맨 앞자리를 차지하는 갈색은 대개 둘째 질문에 "아닐 수 있다"는 답을 받는다.</p>
+
+    <figure class="art-figure" id="fig-hl-duccio">
+      <div class="art-frame"><img src="../../shared/img/duccio-madonna-child.webp" width="1172" height="1600" alt="금박 바탕 앞에 짙은 청록 망토를 두른 성모가 붉은 옷의 아기 예수를 안고 있다. 아래쪽에 그림과 한 몸인 원래 액자가 보인다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 두초, 「성모자」, 1290~1300년경.</b> 금박 바탕은 반사하는 표면이라서 사진에서는 비추는 각도에 따라 밝은 노랑에서 어두운 갈색까지 찍힌다. 팔레트의 "금색"은 금의 색이 아니라 그날 조명과 카메라가 기록한 색이다. 성모의 망토는 지금 거의 검은 청록으로 보이지만, 템페라의 청색 안료와 그 위의 층이 세월에 어떻게 바뀌었는지는 사진만으로는 알 수 없다.<span class="credit">메트로폴리탄 미술관, 나무판에 템페라와 금. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/438754">소장처 작품 페이지</a> · <a href="../../credits.html#duccio-madonna-child">크레딧</a></span></figcaption>
+    </figure>
+  </section>
+
+  <section id="shift">
+    <h2>세월과 사진이 바꾸는 팔레트</h2>
+    <p>그럼 사진 속 색은 원작에서 얼마나 멀까. 정답은 작품마다 다르고, 사진만으로는 알 수 없다. 대신 반대 방향의 실험은 할 수 있다. 지금 사진에 <b>누런 바니시 한 겹</b>과 <b>보정하지 않은 따뜻한 조명</b>을 더하면 팔레트가 얼마나 움직이는지를 재는 것이다. 바니시는 빛이 그림까지 들어갔다 나오며 두 번 지나는 노란 필터로, 조명은 카메라가 낮빛(6,500&nbsp;K)에 맞춰져 있는데 실제로는 더 따뜻한 빛으로 찍었다고 보는 색순응 변환(<a href="../../color/chapters/temperature.html">ColorBook 10장</a>)으로 흉내 낸다.</p>
+
+    <div class="sim" id="sim-hl-shift">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>바니시와 조명이 팔레트를 얼마나 옮기나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage">
+          <div class="compare" id="hl-sh-cmp"><div class="cmp-a"><canvas id="hl-sh-a" class="art" aria-label="지금 사진"></canvas></div><div class="cmp-b"><canvas id="hl-sh-b" class="art" aria-label="바니시와 조명을 더한 사진"></canvas></div></div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="hl-sh-src"><button data-value="vermeer-young-woman-water-pitcher" class="on">페르메이르</button><button data-value="david-death-of-socrates">다비드</button><button data-value="vangogh-sunflowers">고흐</button><button data-value="hokusai-great-wave">호쿠사이</button><button data-value="joseon-wild-geese-sandbar">평사낙안</button></div>
+          <label class="ctrl"><span>바니시 황변 <output id="hl-sh-v-out"></output></span><input type="range" id="hl-sh-v" min="0" max="100" step="5" value="40"></label>
+          <label class="ctrl"><span>촬영 조명 색온도 <output id="hl-sh-t-out"></output></span><input type="range" id="hl-sh-t" min="2700" max="6500" step="100" value="6500"></label>
+        </div>
+      </div>
+      <div class="hl-wide"><canvas id="hl-sh-strip" class="art" aria-label="바뀌기 전과 후의 팔레트"></canvas></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">팔레트 차이</span><span class="v" id="hl-sh-o-1">—</span></div>
+        <div class="stat"><span class="k">중간 명도 L*</span><span class="v" id="hl-sh-o-2">—</span></div>
+        <div class="stat"><span class="k">흰 종이가 찍히는 색</span><span class="v" id="hl-sh-o-3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 페르메이르를 바니시 40%로 본다. «SH1» ② 바니시를 0으로 두고 조명만 3,000&nbsp;K로 내린다. «SH2» ③ 평사낙안을 고르고 바니시를 100%까지 올린다. «SH3» (교육용 근사: 바니시는 선형광 R·G·B에 각각 1−0.04a, 1−0.16a, 1−0.5a를 곱하는 노란 필터, 조명은 흑체 색온도의 흰색에서 D65로 가는 브래드퍼드 순응을 거꾸로 적용하고 흰색이 넘치지 않게 노출을 맞춘 것이다. 실제 바니시의 분광 흡수와 카메라 처리는 이보다 복잡하다. 팔레트 차이는 두 팔레트의 각 색에서 다른 팔레트의 가장 가까운 색까지 ΔE2000을 비율로 가중 평균해 양쪽을 평균한 값이다.)</div>
+    </div>
+
+    <p>이 실험의 교훈은 두 갈래다. 하나, 세월과 촬영은 팔레트를 쉽게 ΔE 10 안팎만큼 옮긴다. 나란히 놓으면 누구나 알아보는 차이다. 그러니 서로 다른 미술관, 다른 해에 찍은 두 사진의 팔레트 차이가 그보다 작다면 그 차이로 시대를 말하기는 어렵다. 둘, 그래도 <b>명도의 순서</b>는 잘 남는다. 노란 필터는 모든 색을 비슷한 비율로 어둡게 하므로, 어디가 가장 밝고 어디가 가장 어두운지는 거의 바뀌지 않는다. 다음 절의 명도 패널을 팔레트보다 조금 더 믿을 수 있는 이유다.</p>
+
+    <div class="callout studio">
+      <strong>보존가의 사진 읽기</strong>
+      보존 처리 보고서에는 같은 그림을 세척 전후로 같은 조명과 같은 색 기준표(컬러 차트)와 함께 찍은 사진이 실린다. 컬러 차트가 함께 찍힌 사진이라면 적어도 촬영 단계의 색 틀어짐은 되짚을 수 있다. 미술 수업에서 도판을 쓸 때 현장 작가들이 권하는 요령도 비슷하다. 한 작품의 도판을 두세 가지(미술관 공식 이미지, 다른 해의 도록, 다른 기관의 사진) 나란히 놓고, 그 사이에서 흔들리는 것(색조)과 흔들리지 않는 것(명도 구조, 선, 배치)을 나눠 말한다. 흔들리지 않는 것부터 읽는다.
+    </div>
+  </section>
+
+  <section id="value">
+    <h2>명도 패널: 빛과 어둠의 분포</h2>
+    <p><span class="term">명도 히스토그램</span><span class="en">(Value histogram)</span>은 분석 영역의 화소를 L* 0~100 사이 25칸(칸마다 L* 4)에 세어 막대로 그린 것이다. <a href="baroque.html">4장</a>의 테네브리즘처럼 어둠이 화면 대부분을 덮은 그림은 막대가 왼쪽에 몰리고, 밝은 조의 그림은 오른쪽에 몰린다. 수묵은 바탕(비단, 종이)이 넓은 봉우리 하나를 만들고 먹의 농담이 그 왼쪽으로 꼬리를 끈다.</p>
+
+    <p>히스토그램 위의 손잡이를 끌어 기준 명도를 정한다. "기준보다 어두운 곳" 보기에서는 기준보다 어두운 화소가 하늘색으로 칠해진다. 그림의 어디가 어둠의 몫인지 눈으로 확인한다.</p>
+
+    <div class="sim" id="sim-hl-val">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>명도 히스토그램과 어둠의 자리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="hl-val-img" class="art" aria-label="작품 사진 또는 명도 보기"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="hl-val-src"><button data-value="de-la-tour-penitent-magdalen" class="on">드 라 투르</button><button data-value="rembrandt-aristotle-homer">렘브란트</button><button data-value="vermeer-young-woman-water-pitcher">페르메이르</button><button data-value="pissarro-tuileries-spring-morning">피사로</button><button data-value="homer-wall-nassau">호머</button><button data-value="ma-yuan-moon-pine">마원</button><button data-value="hokusai-great-wave">호쿠사이</button></div>
+          <div class="seg" id="hl-val-view"><button data-value="orig">사진</button><button data-value="mono">흑백</button><button data-value="mask" class="on">기준보다 어두운 곳</button></div>
+        </div>
+      </div>
+      <div class="sim-view"><canvas id="hl-val-hist" aria-label="명도 히스토그램과 끌 수 있는 기준선"></canvas><span class="hint">손잡이를 끌어 기준 명도를 옮긴다</span></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">중간 명도 L*</span><span class="v" id="hl-val-o-1">—</span></div>
+        <div class="stat"><span class="k">명도 폭(5~95%)</span><span class="v" id="hl-val-o-2">—</span></div>
+        <div class="stat"><span class="k">L*&lt;25 · L*&gt;75</span><span class="v" id="hl-val-o-3">—</span></div>
+        <div class="stat"><span class="k">기준 아래</span><span class="v" id="hl-val-o-4">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 드 라 투르에서 «VAL1» ② 피사로의 봄날 아침으로 바꾼다. «VAL2» ③ 마원을 고르고 기준을 바탕 봉우리 바로 왼쪽에 둔다. «VAL3» (L*은 CIELAB 명도, 흑백 보기는 같은 L*의 회색이다. 히스토그램은 면적만 센다. 작은 촛불 하나가 시선을 모으는 힘은 세지 못한다.)</div>
+    </div>
+
+    <p>히스토그램의 모양에는 좋고 나쁨이 없다. 드 라 투르의 막대는 어둠에 몰려 있지만 바로 그래서 촛불과 흰 소매가 화면을 지배한다. 피사로는 반대로 밝은 쪽에 몰려 있고, 작은 어두운 나무줄기와 사람들이 점처럼 리듬을 만든다. 같은 "어두운 그림"이라도 렘브란트는 L* 10~40 사이에 고르게 퍼진 반면 드 라 투르는 아주 어두운 바탕과 밝은 몇 곳으로 갈라진다. 이 차이가 <a href="baroque.html">4장</a>에서 본 키아로스쿠로와 테네브리즘의 차이를 숫자로 다시 보여 준다.</p>
+
+    <div class="callout try">
+      <strong>엽서 두 장의 명도 띠</strong>
+      미술관 엽서나 도록 사진 두 장(시대가 다른 것)을 고른다. 각각 위에 기름종이를 대고, 연필로 다섯 단계 명도(종이색, 아주 연함, 중간, 진함, 가장 진함)만으로 덩어리를 칠한다. 그다음 칠한 면적을 눈대중으로 다섯 칸 막대그래프로 옮긴다. 실험실의 히스토그램과 비교하면, 사람 눈은 대개 넓은 중간 명도를 실제보다 어둡게, 작은 밝은 곳을 실제보다 넓게 기억한다. 그 어긋남이 그림이 시선을 어디로 끄는지에 대한 힌트다.
+    </div>
+  </section>
+
+  <section id="composition">
+    <h2>구도 패널: 격자, 무게중심, 선의 방향</h2>
+    <p>구도 패널은 세 가지 선을 그림 위에 얹는다. 첫째, <b>3분할 격자</b>(<a href="../../composition/chapters/proportion.html">CompositionBook 9장</a>). 화면을 가로세로 셋으로 나눈 선이다. 이 책이 그은 선이고, 그림이 이 선을 따랐다는 증거가 아니다. 둘째, <span class="term">시각적 무게중심</span><span class="en">(Center of visual weight)</span>. <a href="../../composition/chapters/balance.html">CompositionBook 7장</a>의 픽셀 모형을 그대로 쓴다. 화소마다 그림 전체의 중간 명도에서 얼마나 떨어졌는지, 얼마나 선명한지로 무게를 매기고 그 평균 자리를 찍는다. 셋째, <span class="term">선 방향 분포</span><span class="en">(Edge orientation distribution)</span>. 명도가 급하게 바뀌는 곳(윤곽, 수평선, 기둥, 옷 주름)에서 그 경계가 어느 방향으로 뻗는지 모은 것이다.</p>
+
+    <div class="formula">$$ w_i = \frac{\max(0,\;|L^*_i - L^*_{\text{중간}}| - t)}{100}\left(1 + 2\,\frac{C_i}{0.2}\right) \qquad \theta_i = \operatorname{atan2}(g_{x,i},\, g_{y,i}) $$<div class="where">\(w_i\): 화소 \(i\)의 무게, \(L^*_{\text{중간}}\): 분석 영역의 중간 명도, \(t\): 문턱(기본 10), \(C_i\): OKLCH 채도. 무게중심은 \(w_i\)로 가중한 화소 위치의 평균이다. \(g_x, g_y\): 명도의 소벨 기울기(화면 좌표, 아래가 +), \(\theta_i\): 그 기울기에 수직인 선의 방향(0°는 수평, 90°는 수직, 45°는 오른쪽 위로 오르는 사선). 기울기 크기 상위 20% 화소만 크기로 가중해 15° 칸에 모은다.</div></div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="선 방향 장미 읽는 법: 수평선이 많은 그림은 장미가 좌우로, 수직선이 많은 그림은 위아래로, 사선이 많은 그림은 비스듬히 뻗는다">
+        <g transform="translate(18 18)">
+          <rect width="120" height="80" class="f-surface"/>
+          <path d="M8 22 H112 M8 44 H112 M8 62 H112 M30 70 H90" class="s-line"/>
+          <text x="60" y="100" text-anchor="middle" class="lbl-dim">수평이 많은 화면</text>
+        </g>
+        <g transform="translate(170 18)">
+          <rect width="120" height="80" class="f-surface"/>
+          <path d="M20 8 V72 M44 8 V72 M70 14 V72 M96 8 V72" class="s-line"/>
+          <text x="60" y="100" text-anchor="middle" class="lbl-dim">수직이 많은 화면</text>
+        </g>
+        <g transform="translate(322 18)">
+          <rect width="120" height="80" class="f-surface"/>
+          <path d="M8 72 L60 10 M30 74 L92 6 M60 72 L112 20" class="s-line"/>
+          <text x="60" y="100" text-anchor="middle" class="lbl-dim">사선(/)이 많은 화면</text>
+        </g>
+        <g transform="translate(78 172)">
+          <circle r="40" class="s-dash" fill="none"/><path d="M-48 0 H48 M0 -48 V48" class="s-axis"/>
+          <path d="M0 0 L46 -6 A46 46 0 0 1 46 6 Z M0 0 L-46 6 A46 46 0 0 1 -46 -6 Z" class="f-acc"/>
+          <path d="M0 0 L22 -6 A23 23 0 0 1 22 6 Z M0 0 L-22 6 A23 23 0 0 1 -22 -6 Z" class="f-acc-soft"/>
+        </g>
+        <g transform="translate(230 172)">
+          <circle r="40" class="s-dash" fill="none"/><path d="M-48 0 H48 M0 -48 V48" class="s-axis"/>
+          <path d="M0 0 L-6 -46 A46 46 0 0 1 6 -46 Z M0 0 L6 46 A46 46 0 0 1 -6 46 Z" class="f-acc"/>
+        </g>
+        <g transform="translate(382 172)">
+          <circle r="40" class="s-dash" fill="none"/><path d="M-48 0 H48 M0 -48 V48" class="s-axis"/>
+          <path d="M0 0 L28 -36 A46 46 0 0 1 36 -28 Z M0 0 L-28 36 A46 46 0 0 1 -36 28 Z" class="f-acc"/>
+        </g>
+      </svg>
+      <figcaption><b>그림 3. 선 방향 장미 읽기.</b> 위의 세 화면에서 뽑은 선 방향을 아래 원에 모은 모습이다. 선의 방향은 0°와 180°가 같으므로 반원 12칸을 반대쪽에도 똑같이 그려 원을 만든다. 꽃잎의 넓이가 그 방향의 몫이다. 점선 원은 모든 방향이 똑같이 섞였을 때의 크기다. 실험실은 0° 둘레 ±22.5°를 "수평", 90° 둘레를 "수직", 나머지를 "사선"으로 묶는다. 방향이 고르게 섞여 있으면 수평 25%, 수직 25%, 사선 50%가 된다.</figcaption>
+    </figure>
+
+    <p>아래 시뮬레이터에서는 먼저 계산을 끄고 <b>내 짐작</b>을 정한다. 노란 손잡이를 끌어 "이 그림의 무게가 모인 곳"이라고 느끼는 자리에 둔다. 그다음 무게중심을 켜서 계산과 비교한다. 노란 바늘은 화면을 12칸 폭의 격자로 나눠 칸마다 주된 선 방향을 그린 것이고, 바늘이 길수록 그 칸의 선이 한 방향으로 뚜렷하다.</p>
+
+    <div class="sim" id="sim-hl-comp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>3분할, 무게중심, 선 방향</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="hl-cp-cv" class="art" aria-label="작품 위에 3분할 격자, 무게중심, 선 방향 바늘을 얹은 그림"></canvas><span class="hint">노란 손잡이(내 짐작)를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="hl-cp-src"><button data-value="david-death-of-socrates" class="on">다비드</button><button data-value="bruegel-harvesters">브뤼헐</button><button data-value="hokusai-great-wave">호쿠사이</button><button data-value="hiroshige-sudden-shower-ohashi">히로시게</button><button data-value="ma-yuan-moon-pine">마원</button><button data-value="whistler-theodore-duret">휘슬러</button><button data-value="goryeo-amitabha-triad">아미타삼존</button></div>
+          <label class="check"><input type="checkbox" id="hl-cp-th"> 3분할 격자</label>
+          <label class="check"><input type="checkbox" id="hl-cp-w"> 무게중심 계산 보이기</label>
+          <label class="check"><input type="checkbox" id="hl-cp-n" checked> 선 방향 바늘</label>
+          <label class="ctrl"><span>무게 문턱 t <output id="hl-cp-t-out"></output></span><input type="range" id="hl-cp-t" min="0" max="40" step="1" value="10"></label>
+        </div>
+      </div>
+      <div class="sim-view"><canvas id="hl-cp-rose" aria-label="선 방향 장미"></canvas></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">무게중심(가로, 세로)</span><span class="v" id="hl-cp-o-1">—</span></div>
+        <div class="stat"><span class="k">가운데에서 어긋남</span><span class="v" id="hl-cp-o-2">—</span></div>
+        <div class="stat"><span class="k">수평 · 수직 · 사선</span><span class="v" id="hl-cp-o-3">—</span></div>
+        <div class="stat"><span class="k">내 짐작과의 거리</span><span class="v" id="hl-cp-o-4">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 다비드의 「소크라테스의 죽음」에서 «CP1» ② 호쿠사이로 바꾼다. «CP2» ③ 아미타삼존을 고르고 무게중심을 켠다. «CP3» (무게 모형과 선 방향의 정의는 위 수식. 어긋남은 무게중심과 화면 가운데 사이의 거리를 화면 폭·높이 비율로 잰 값이다. 시선의 방향, 인물의 몸짓, 이야기의 중심은 계산에 들어가지 않는다.)</div>
+    </div>
+
+    <p>계산과 짐작이 어긋나는 자리가 가장 흥미롭다. 사람은 얼굴, 손, 손가락이 가리키는 곳, 이야기의 주인공에 무게를 더 둔다. 픽셀 모형은 그것을 모른다. 반대로 사람이 놓치는 것을 계산이 잡아 주기도 한다. 다비드의 그림에서 짐작은 대개 가운데의 소크라테스에 놓이지만, 계산은 «CP4». 어느 쪽이 "맞다"가 아니라, 둘이 다른 것을 재고 있다는 것을 아는 것이 이 패널의 쓸모다.</p>
+
+    <div class="callout deep">
+      <strong>선 방향은 어떻게 재나</strong>
+      소벨 필터는 화소 둘레 3×3의 명도 차이로 가로 기울기 \(g_x\)와 세로 기울기 \(g_y\)를 구한다. 기울기는 명도가 가장 빨리 바뀌는 쪽을 가리키므로, 경계선 자체의 방향은 그에 수직이다. 칸마다 그리는 바늘은 <span class="term">구조 텐서</span><span class="en">(Structure tensor)</span>로 구한다. 칸 안 기울기들의 \(g_x^2\), \(g_y^2\), \(g_x g_y\) 합으로 만든 2×2 행렬의 주축이 그 칸의 주된 방향이고, 두 고윳값의 차이가 클수록 방향이 뚜렷하다(Bigün·Granlund 1987의 방향 추정과 같은 원리). 이 방법은 붓질의 방향과 그려진 대상의 윤곽을 구별하지 못한다. 고흐의 소용돌이 붓질도, 브뤼헐의 지평선도 똑같이 "선"으로 센다.
+    </div>
+  </section>
+
+  <section id="era">
+    <h2>두 시대 나란히: 평균의 쓸모와 함정</h2>
+    <p>이제 작품을 무리로 묶는다. 실험실은 35점을 일곱 무리로 나눴다. 서양 네 무리(1290~1570, 17세기, 1730~1830, 1860~1900), 중국, 한국, 일본. 무리마다 <b>시대 팔레트</b>(작품마다 같은 몫으로 다섯 색을 모아 다시 k-평균), <b>평균 명도 분포</b>, <b>평균 선 방향 분포</b>를 그린다. 작품 수가 많은 무리가 평균을 독차지하지 않도록 작품 하나에 같은 무게를 준다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 190" role="img" aria-label="같은 평균, 다른 무리: 두 무리 모두 평균 명도가 45이지만 하나는 작품들이 평균 가까이 모여 있고 다른 하나는 아주 어두운 작품과 아주 밝은 작품으로 갈라져 있다">
+        <rect x="40" y="40" width="380" height="8" fill="url(#hl-gray)"/>
+        <defs><linearGradient id="hl-gray" x1="0" x2="1"><stop offset="0" stop-color="#161616"/><stop offset="1" stop-color="#f2f2f2"/></linearGradient></defs>
+        <text x="40" y="66" class="lbl-dim t-mono">L* 0</text><text x="420" y="66" text-anchor="end" class="lbl-dim t-mono">100</text>
+        <text x="16" y="104" class="lbl-b">가</text>
+        <g class="f-acc"><circle cx="196" cy="100" r="7"/><circle cx="212" cy="100" r="7"/><circle cx="218" cy="88" r="7"/><circle cx="226" cy="100" r="7"/><circle cx="240" cy="100" r="7"/></g>
+        <text x="16" y="154" class="lbl-b">나</text>
+        <g class="f-acc2"><circle cx="78" cy="150" r="7"/><circle cx="94" cy="150" r="7"/><circle cx="86" cy="138" r="7"/><circle cx="356" cy="150" r="7"/><circle cx="372" cy="150" r="7"/></g>
+        <path d="M211 80 V164" class="s-dash"/>
+        <text x="211" y="180" text-anchor="middle" class="lbl">두 무리 모두 평균 L* 약 45</text>
+      </svg>
+      <figcaption><b>그림 4. 같은 평균, 다른 무리.</b> 점 하나가 작품 하나의 중간 명도다. 가와 나는 평균이 같지만 전혀 다른 무리다. 나를 "중간 밝기의 시대"라고 부르면 그 무리의 어떤 작품도 설명하지 못한다. 그래서 실험실은 평균과 함께 범위(가장 어두운 작품과 가장 밝은 작품)를 늘 같이 보여 준다. 예시 점은 이 책이 지어낸 값이다.</figcaption>
+    </figure>
+
+    <div class="sim" id="sim-hl-era">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>두 무리의 팔레트, 명도, 선 방향</h3></div>
+      <div class="sim-controls">
+        <div><div class="lab-small" style="font-size:12.5px;color:var(--text-dim);margin-bottom:4px"><span class="hl-tag a">A</span>무리</div>
+          <div class="seg" id="hl-era-a"><button data-value="w1">서양 ~1570</button><button data-value="w2" class="on">서양 17세기</button><button data-value="w3">서양 18세기</button><button data-value="w4">서양 19세기 말</button><button data-value="cn">중국</button><button data-value="kr">한국</button><button data-value="jp">일본</button></div></div>
+        <div><div class="lab-small" style="font-size:12.5px;color:var(--text-dim);margin-bottom:4px"><span class="hl-tag b">B</span>무리</div>
+          <div class="seg" id="hl-era-b"><button data-value="w1">서양 ~1570</button><button data-value="w2">서양 17세기</button><button data-value="w3">서양 18세기</button><button data-value="w4" class="on">서양 19세기 말</button><button data-value="cn">중국</button><button data-value="kr">한국</button><button data-value="jp">일본</button></div></div>
+      </div>
+      <div class="sim-view"><canvas id="hl-era-cards" aria-label="두 무리의 시대 팔레트와 작품별 팔레트, 중간 명도"></canvas></div>
+      <div class="sim-view" style="border-top:1px solid var(--border)"><canvas id="hl-era-chart" aria-label="두 무리의 평균 명도 분포와 선 방향 장미"></canvas></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">평균 중간 명도 A · B</span><span class="v" id="hl-era-o-1">—</span></div>
+        <div class="stat"><span class="k">작품별 범위 A · B</span><span class="v" id="hl-era-o-2">—</span></div>
+        <div class="stat"><span class="k">L*&lt;25 비율 A · B</span><span class="v" id="hl-era-o-3">—</span></div>
+        <div class="stat"><span class="k">수평/수직 A · B</span><span class="v" id="hl-era-o-4">—</span></div>
+        <div class="stat"><span class="k">시대 팔레트 차이</span><span class="v" id="hl-era-o-5">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 설정(서양 17세기 대 19세기 말)을 본다. «ERA1» ② B를 한국으로 바꾼다. «ERA2» ③ A를 중국, B를 일본으로 둔다. «ERA3» (시대 팔레트는 미리 계산한 작품별 5색을 비율만큼 작품마다 200개씩 늘어놓아 다시 k=5로 뽑았다. 명도 분포와 선 방향은 작품별 값의 단순 평균이다. 무리 하나가 3~11점이므로 시대 전체를 대표하지 않는다.)</div>
+    </div>
+
+    <p>평균은 눈에 띄는 차이를 빠르게 짚어 준다. 그러나 차이가 나왔을 때 물어야 할 것은 "이 시대가 그랬다"가 아니라 "이 무리에 어떤 그림이 들어 있나"다. 서양 17세기 무리는 세 점 가운데 둘이 어둠 속 한 줄기 빛을 다룬 그림이고, 동아시아 무리의 갈색 팔레트는 바탕 재료의 세월을 함께 센다. 무리의 구성을 바꾸면 결론이 바뀐다. 그래서 실험실은 시대 비교 밑에 작품별 막대를 늘 함께 펼쳐 둔다.</p>
+
+    <div class="callout studio">
+      <strong>도경의 수업 메모: "평균 그림"은 없다</strong>
+      한도경은 모임을 준비하며 말했다. 미술사 교과서의 "시대 양식"은 수많은 그림을 본 사람이 나중에 붙인 요약이고, 그 요약에 딱 맞는 그림은 오히려 드물다. 그래서 그는 시대를 소개할 때 반드시 "그 시대답지 않은" 그림 한 점을 함께 띄운다. 17세기에도 밝은 그림이 있었고(페르메이르의 창가), 19세기 말에도 어두운 그림이 있었다(휘슬러의 검은 옷). 실험실에서 평균을 볼 때도 같은 버릇을 들인다. 평균 막대를 본 다음, 그 평균에서 가장 먼 작품을 찾아 왜 그런지 묻는다.
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>종합 실험실</h2>
+    <p>이제 모든 패널을 한 화면에 모은다. 연대표에 <span class="hl-tag a">A</span>와 <span class="hl-tag b">B</span> 두 표시가 있다. 표시 가까이를 눌러 끌면 그 표시가 다른 작품으로 옮겨 간다. "작품" 단위에서는 두 작품의 사진, 팔레트, 구도선, 명도 분포, 선 방향을 나란히 보고, "시대" 단위로 바꾸면 두 표시가 속한 무리 전체를 비교한다(무리에 들지 않은 막대는 흐려진다). 아래의 주의 목록은 고른 두 작품의 재료와 사진에 따라 저절로 바뀐다.</p>
+
+    <div class="sim" id="sim-hl-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>미술사 실험실</h3></div>
+      <div class="sim-view"><canvas id="hl-lab-tl" aria-label="A와 B 표시가 있는 연대표"></canvas><span class="hint">A·B 표시를 끈다</span></div>
+      <div class="hl-lab-ctrl">
+        <div class="seg" id="hl-lab-unit"><button data-value="work" class="on">작품 둘</button><button data-value="group">시대 둘</button></div>
+        <label class="check"><input type="checkbox" id="hl-lab-th"> 3분할</label>
+        <label class="check"><input type="checkbox" id="hl-lab-w" checked> 무게중심</label>
+        <label class="check"><input type="checkbox" id="hl-lab-n"> 선 방향 바늘</label>
+        <label class="ctrl"><span>팔레트 색 수 k <output id="hl-lab-k-out"></output></span><input type="range" id="hl-lab-k" min="3" max="8" step="1" value="5"></label>
+      </div>
+      <div class="hl-duo">
+        <div><canvas id="hl-lab-a" class="art" aria-label="A 작품과 팔레트"></canvas><p class="hl-cap"><span class="hl-tag a">A</span><span id="hl-lab-cap-a"></span></p></div>
+        <div><canvas id="hl-lab-b" class="art" aria-label="B 작품과 팔레트"></canvas><p class="hl-cap"><span class="hl-tag b">B</span><span id="hl-lab-cap-b"></span></p></div>
+      </div>
+      <div class="hl-wide"><canvas id="hl-lab-chart" aria-label="A와 B의 명도 분포와 선 방향 장미"></canvas></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">팔레트 차이</span><span class="v" id="hl-lab-o-1">—</span></div>
+        <div class="stat"><span class="k">중간 명도 A · B</span><span class="v" id="hl-lab-o-2">—</span></div>
+        <div class="stat"><span class="k">L*&lt;25 A · B</span><span class="v" id="hl-lab-o-3">—</span></div>
+        <div class="stat"><span class="k">주된 선 방향 A · B</span><span class="v" id="hl-lab-o-4">—</span></div>
+        <div class="stat"><span class="k">무게중심 A · B</span><span class="v" id="hl-lab-o-5">—</span></div>
+      </div>
+      <ul class="hl-warn" id="hl-lab-warn"></ul>
+      <div class="sim-note">해볼 것: ① 처음 설정은 렘브란트(A)와 마원(B)이다. «LAB1» ② B를 피사로의 봄날 아침으로, A를 같은 피사로의 겨울 오후로 옮긴다. «LAB2» ③ "시대 둘"로 바꾸고 A를 서양 1290~1570 무리의 아무 막대로, B를 한국 무리로 옮긴다. «LAB3» (모든 값은 이 장의 교육용 모형이 사진에서 잰 것이다. 팔레트·명도·무게·선 방향의 정의는 앞 절들과 같다.)</div>
+    </div>
+
+    <p>종합 실험실은 결론을 내 주지 않는다. 할 수 있는 일은 질문을 날카롭게 하는 것이다. "17세기 그림은 어둡다" 대신 "이 세 점은 L*&lt;25 화소가 절반을 넘는데, 그중 어느 만큼이 바니시와 촬영의 몫이고 어느 만큼이 화가가 고른 어둠인가"라고 묻게 만든다. 그 질문의 답은 실험실 밖에, 미술관의 보존 기록과 연구 문헌, 그리고 원작 앞에 있다.</p>
+
+    <div class="callout try">
+      <strong>휴대폰으로 같은 엽서를 세 번 찍기</strong>
+      그림 엽서 한 장을 백열등(또는 따뜻한 전구색 조명) 아래, 창가의 낮빛 아래, 형광등 아래에서 각각 찍는다. 카메라의 자동 화이트밸런스를 끌 수 있다면 낮빛 고정으로 둔다. 세 장을 컴퓨터로 옮겨 나란히 놓고, 엽서의 흰 여백이 각각 무슨 색으로 찍혔는지 본다. 같은 물건의 사진이 이만큼 다르다면, 수백 년 된 그림의 사진은 어떨지 생각해 본다. 그리고 세 장에서 명도 순서(가장 밝은 곳과 가장 어두운 곳)는 바뀌었는지 확인한다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>그림 읽기 모임</h2>
+    «CASE»
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>실험실의 35점은 이 책이 앞 장에서 읽은 공공 도메인 작품이다. 미술사의 표본이 아니므로, 모든 비교는 "이 목록 안에서"라는 단서를 단다.</li>
+      <li>실험실이 읽는 것은 원작이 아니라 사진이다. 바니시 황변, 비단·종이의 변색, 안료의 퇴색, 촬영 조명과 카메라가 색을 옮긴다. 이 장의 모형으로는 누런 바니시 한 겹이나 보정하지 않은 따뜻한 조명만으로도 팔레트가 ΔE 10 안팎 움직인다.</li>
+      <li>k-평균 팔레트의 비율은 면적이지 중요도가 아니다. 작고 선명한 강조색은 k가 작으면 사라지고, 가장 넓은 색(금박, 비단의 갈색)은 그린 사람이 고른 색이 아닐 수 있다.</li>
+      <li>명도 히스토그램은 세월과 조명에 비교적 덜 흔들린다. 어둠에 몰린 그림, 밝은 쪽에 몰린 그림, 바탕 봉우리에 먹의 꼬리가 붙은 수묵은 서로 다른 모양을 만들지만 모양에 좋고 나쁨은 없다.</li>
+      <li>무게중심과 선 방향은 화소의 명도·채도 차이만 센다. 얼굴, 손짓, 이야기의 중심은 모른다. 계산과 내 짐작이 어긋나는 자리가 그림을 다시 보게 만드는 자리다.</li>
+      <li>시대 평균은 작품 몇 점의 평균이다. 평균과 함께 범위를 보고, 평균에서 가장 먼 작품을 찾아 왜 그런지 묻는다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 실험실에서 조선의 비단 족자 두 점과 19세기 프랑스 유화 두 점의 팔레트를 비교했더니 족자 쪽의 가장 넓은 색이 모두 갈색이었다. 가장 알맞은 해석은?</p>
+        <div class="opts">
+          <button class="opt">조선 화가들은 갈색을 가장 좋아했다는 증거다.</button>
+          <button class="opt">k-평균이 동아시아 그림을 잘못 계산했다. 다른 알고리즘을 써야 한다.</button>
+          <button class="opt" data-correct>넓은 갈색은 대개 비단 바탕이 세월에 짙어진 색이 찍힌 것일 수 있다. 바탕의 색을 화가의 선택으로 읽기 전에 재료와 세월, 촬영을 먼저 의심한다.</button>
+          <button class="opt">갈색은 면적이 넓으니 그림에서 가장 중요한 색이다.</button>
+        </div>
+        <div class="quiz-exp">팔레트의 비율은 면적이고, 넓은 바탕색은 재료와 세월의 몫이 클 수 있다. k-평균은 사진 속 색을 정확히 묶었을 뿐이다. 문제는 그 사진 속 색이 무엇의 결과인지다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 같은 그림을 다른 해에 찍은 두 사진에서 팔레트를 뽑으니 ΔE 8만큼 달랐다. 이 그림과 다른 시대 그림의 팔레트 차이는 ΔE 6이었다. 무엇을 말할 수 있나?</p>
+        <div class="opts">
+          <button class="opt" data-correct>두 시대 그림의 차이(ΔE 6)가 같은 그림의 사진끼리 차이(ΔE 8)보다 작으므로, 이 팔레트 차이만으로 시대의 색을 말하기는 어렵다.</button>
+          <button class="opt">ΔE 6은 나란히 놓으면 보이는 차이이므로 두 시대의 색은 분명히 다르다.</button>
+          <button class="opt">사진이 두 장이므로 평균을 내면 원작의 색을 알 수 있다.</button>
+          <button class="opt">ΔE 8은 계산 오류이므로 무시하고 ΔE 6만 본다.</button>
+        </div>
+        <div class="quiz-exp">측정의 흔들림(같은 대상의 사진끼리 차이)보다 작은 차이는 그 측정으로 가려낼 수 없다. 사진 두 장의 평균도 원작의 색이 아니다. 둘 다 같은 세월을 지난 그림을 찍은 것이기 때문이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 어떤 그림의 무게중심 계산이 화면 오른쪽 아래를 가리켰는데, 감상자 대부분은 왼쪽 위의 인물 얼굴을 "중심"으로 꼽았다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">감상자들이 틀렸다. 계산은 객관적이므로 계산을 따라야 한다.</button>
+          <button class="opt">계산이 틀렸다. 무게중심은 언제나 얼굴에 있어야 한다.</button>
+          <button class="opt">문턱 t를 바꾸면 반드시 얼굴로 옮겨 가므로 t를 다시 정하면 된다.</button>
+          <button class="opt" data-correct>픽셀 모형은 명도·채도 차이만 세고 얼굴이나 이야기의 의미는 모른다. 둘이 다른 것을 재고 있으며, 그 어긋남이 그림이 무엇으로 시선을 끄는지 다시 보게 한다.</button>
+        </div>
+        <div class="quiz-exp">무게 모형은 교육용 근사이고, 사람의 시선은 얼굴·손·의미에 크게 끌린다. 어느 쪽이 정답인 문제가 아니며, 문턱을 바꿔도 의미를 세게 되지는 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. "서양 17세기 무리는 평균 중간 명도가 낮다"는 결과를 모임 자료에 쓰려 한다. 가장 책임 있는 문장은?</p>
+        <div class="opts">
+          <button class="opt">17세기 유럽 사람들은 어두운 그림을 좋아했다.</button>
+          <button class="opt" data-correct>이 책이 고른 17세기 그림 세 점의 사진은 평균적으로 어둡게 나왔다. 그중 둘은 어둠 속 한 줄기 빛을 다룬 그림이고, 바니시와 촬영의 영향도 있을 수 있다.</button>
+          <button class="opt">17세기 그림은 모두 L* 30 아래로 그려졌다.</button>
+          <button class="opt">17세기에는 밝은 물감이 없었기 때문에 그림이 어둡다.</button>
+        </div>
+        <div class="quiz-exp">몇 점의 평균은 시대 전체의 성격이 아니다. 표본의 구성(어떤 주제의 그림인가)과 사진의 한계를 함께 밝히는 문장이 책임 있는 문장이다. 같은 무리의 페르메이르는 밝은 쪽에 있고, 17세기에도 밝은 안료는 있었다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var IMG = "../../shared/img/", INK = "#2b2a30", DIM = "#6b6874", STAGE = "#e9e7e2";
+  var AN = 200;            // 분석 크기: 분석 영역의 긴 변을 200 px로 줄인다
+  var K0 = 5;              // 연대표·시대 비교에 쓰는 팔레트 색 수
+  var T0 = 10;             // 무게 문턱(CompositionBook 7장의 픽셀 모형)
+  var Q0 = 0.8;            // 선 방향: 기울기 크기 상위 20%만 "선"으로 센다
+  var C_GRID = "#22d3ee", C_W = "#e0245e", C_GUESS = "#ffc21a", C_NEEDLE = "#ffe066";
+  var M2 = [0.02, 0.02, 0.98, 0.98];  // 기본 분석 영역: 가장자리 2%를 잘라 낸다(액자 그림자, 표구, 종이 끝)
+
+  /* ================= 작품 목록(모두 shared/img의 공공 도메인 이미지, 연대·매체는 소장처 기록) =================
+     y: 연대표 위치(연도). est: 세기 단위 기록이라 이 책이 세기 가운데쯤에 놓은 것.
+     crop: 분석 영역(가로·세로 비율). 사진의 검은 바탕과 액자, 책의 바깥 바탕을 잘라 낸 사각형으로 이 책이 정했다.
+     k: 사진 주의 종류(아래 NOTE) */
+  var WORKS = [
+    { id: "duccio-madonna-child", t: "성모자", a: "두초", d: "1290~1300년경", y: 1295, r: "W", g: "w1", m: "나무판에 템페라와 금", k: "gold", iw: 1172, ih: 1600 },
+    { id: "durer-saint-jerome-study", t: "서재의 성 히에로니무스", a: "뒤러", d: "1514", y: 1514, r: "W", g: "w1", m: "동판화", k: "paper", iw: 1162, ih: 1500 },
+    { id: "bruegel-harvesters", t: "추수하는 사람들", a: "브뤼헐", d: "1565", y: 1565, r: "W", g: "w1", m: "참나무 판에 유채", k: "oil", iw: 1600, ih: 1179 },
+    { id: "de-la-tour-penitent-magdalen", t: "참회하는 막달라 마리아", a: "드 라 투르", d: "1640년경", y: 1640, r: "W", g: "w2", m: "캔버스에 유채", k: "oil", iw: 1179, ih: 1600, crop: [0.065, 0.05, 0.92, 0.945] },
+    { id: "rembrandt-aristotle-homer", t: "호메로스 흉상을 바라보는 아리스토텔레스", a: "렘브란트", d: "1653", y: 1653, r: "W", g: "w2", m: "캔버스에 유채", k: "oil", iw: 1517, ih: 1600 },
+    { id: "vermeer-young-woman-water-pitcher", t: "물병을 든 젊은 여인", a: "페르메이르", d: "1662년경", y: 1662, r: "W", g: "w2", m: "캔버스에 유채", k: "oil", iw: 1423, ih: 1600 },
+    { id: "canaletto-campo-sant-angelo", t: "베네치아 산탄젤로 광장", a: "카날레토", d: "1730년대", y: 1735, r: "W", g: "w3", m: "캔버스에 유채", k: "oil", iw: 1600, ih: 972, crop: [0.025, 0.035, 0.975, 0.96] },
+    { id: "david-death-of-socrates", t: "소크라테스의 죽음", a: "다비드", d: "1787", y: 1787, r: "W", g: "w3", m: "캔버스에 유채", k: "oil", iw: 1600, ih: 1065 },
+    { id: "friedrich-two-men-moon", t: "달을 바라보는 두 남자", a: "프리드리히", d: "1825~30년경", y: 1827, r: "W", g: "w3", m: "캔버스에 유채", k: "oil", iw: 1600, ih: 1277 },
+    { id: "corot-river-distant-tower", t: "먼 탑이 보이는 강", a: "코로", d: "1865", y: 1865, r: "W", g: "w4", m: "캔버스에 유채", k: "oil", iw: 1600, ih: 1152, crop: [0.03, 0.04, 0.97, 0.95] },
+    { id: "degas-dance-class", t: "무용 수업", a: "드가", d: "1874", y: 1874, r: "W", g: "w4", m: "캔버스에 유채", k: "oil19", iw: 1479, ih: 1600 },
+    { id: "whistler-theodore-duret", t: "테오도르 뒤레의 초상", a: "휘슬러", d: "1883", y: 1883, r: "W", g: "w4", m: "캔버스에 유채", k: "oil19", iw: 759, ih: 1600 },
+    { id: "vangogh-sunflowers", t: "해바라기", a: "고흐", d: "1887", y: 1887, r: "W", g: "w4", m: "캔버스에 유채", k: "vg", iw: 1600, ih: 1130 },
+    { id: "seurat-circus-sideshow", t: "서커스 사이드쇼", a: "쇠라", d: "1887~88", y: 1888, r: "W", g: "w4", m: "캔버스에 유채", k: "oil19", iw: 1600, ih: 1070 },
+    { id: "vangogh-wheat-field-cypresses", t: "사이프러스가 있는 밀밭", a: "고흐", d: "1889", y: 1889, r: "W", g: "w4", m: "캔버스에 유채", k: "vg", iw: 1600, ih: 1257 },
+    { id: "cezanne-apples-pears", t: "사과와 배가 있는 정물", a: "세잔", d: "1891~92년경", y: 1891, r: "W", g: "w4", m: "캔버스에 유채", k: "oil19", iw: 1600, ih: 1234, crop: [0.04, 0.045, 0.96, 0.955] },
+    { id: "toulouse-lautrec-divan-japonais", t: "디방 자포네", a: "툴루즈로트레크", d: "1892~93", y: 1893, r: "W", g: "w4", m: "4색 석판화", k: "poster", iw: 1211, ih: 1600 },
+    { id: "homer-wall-nassau", t: "나소의 담", a: "호머", d: "1898", y: 1898, r: "W", g: "w4", m: "종이에 수채와 흑연", k: "wc", iw: 1600, ih: 1122 },
+    { id: "pissarro-tuileries-spring-morning", t: "튈르리 정원, 봄날 아침", a: "피사로", d: "1899", y: 1899, r: "W", g: "w4", m: "캔버스에 유채", k: "oil19", iw: 1600, ih: 1265 },
+    { id: "pissarro-tuileries-winter-afternoon", t: "튈르리 정원, 겨울 오후", a: "피사로", d: "1899", y: 1899.4, r: "W", g: "w4", m: "캔버스에 유채", k: "oil19", iw: 1600, ih: 1268 },
+    { id: "qu-ding-summer-mountains", t: "하산도(여름 산)", a: "전 굴정", d: "1050년경", y: 1050, r: "CN", g: "cn", m: "두루마리, 비단에 먹과 옅은 채색", k: "silk", iw: 1600, ih: 631 },
+    { id: "guo-xi-old-trees-level-distance", t: "고목평원도", a: "곽희", d: "1080년경", y: 1080, r: "CN", g: "cn", m: "두루마리, 비단에 먹과 색", k: "silk", iw: 1600, ih: 854 },
+    { id: "ma-yuan-moon-pine", t: "송음완월(소나무 아래 달 보기)", a: "마원", d: "13세기 초", y: 1210, est: 1, r: "CN", g: "cn", m: "화첩 그림, 비단에 먹과 채색", k: "silk", iw: 1600, ih: 1440 },
+    { id: "tang-di-pavilion-prince-teng", t: "등왕각도", a: "당체", d: "1352", y: 1352, r: "CN", g: "cn", m: "두루마리, 종이에 먹", k: "ink", iw: 1600, ih: 1262 },
+    { id: "wang-shimin-huang-gongwang-style", t: "황공망 필의 산수", a: "왕시민", d: "1666", y: 1666, r: "CN", g: "cn", m: "족자, 종이에 먹", k: "ink", iw: 1176, ih: 1600 },
+    { id: "goryeo-amitabha-triad", t: "아미타삼존도", a: "작가 미상(고려)", d: "13세기경", y: 1250, est: 1, r: "KR", g: "kr", m: "족자, 비단에 먹·채색·금", k: "silkgold", iw: 808, ih: 1600 },
+    { id: "joseon-wild-geese-sandbar", t: "평사낙안", a: "작가 미상(조선)", d: "15세기 말~16세기 초", y: 1500, est: 1, r: "KR", g: "kr", m: "족자, 비단에 먹", k: "silk", iw: 615, ih: 1600 },
+    { id: "yi-jeong-bamboo-wind", t: "풍죽", a: "이정", d: "17세기 초", y: 1615, est: 1, r: "KR", g: "kr", m: "족자, 비단에 먹", k: "silk", iw: 719, ih: 1600 },
+    { id: "jeong-seon-inwangsan", t: "인왕산", a: "정선", d: "18세기", y: 1745, est: 1, r: "KR", g: "kr", m: "족자, 종이에 먹과 색", k: "ink", iw: 853, ih: 1600 },
+    { id: "joseon-golden-rooster-hen", t: "금계도", a: "작가 미상(조선)", d: "19세기", y: 1850, est: 1, r: "KR", g: "kr", m: "족자, 종이에 먹과 채색", k: "ink", iw: 660, ih: 1672 },
+    { id: "korin-irises-yatsuhashi", t: "야쓰하시의 붓꽃", a: "오가타 고린", d: "1709년 이후", y: 1712, r: "JP", g: "jp", m: "6폭 병풍, 금박 종이에 먹과 채색", k: "gold", iw: 1600, ih: 776, crop: [0.015, 0.03, 0.985, 0.97] },
+    { id: "utamaro-shell-book-spread", t: "조개 그림책의 한 펼침면", a: "우타마로", d: "1789", y: 1789, r: "JP", g: "jp", m: "다색 목판 인쇄 책", k: "ukiyoe", iw: 1600, ih: 1144, crop: [0.045, 0.05, 0.955, 0.935] },
+    { id: "hokusai-great-wave", t: "가나가와 앞바다의 파도 아래", a: "호쿠사이", d: "1830~32년경", y: 1831, r: "JP", g: "jp", m: "다색 목판화", k: "ukiyoe", iw: 1600, ih: 1076 },
+    { id: "hiroshige-descending-geese-katada", t: "가타다의 내려앉는 기러기", a: "히로시게", d: "1834~35년경", y: 1835, r: "JP", g: "jp", m: "다색 목판화", k: "ukiyoe", iw: 1600, ih: 1232 },
+    { id: "hiroshige-sudden-shower-ohashi", t: "오하시 다리와 아타케의 소나기", a: "히로시게", d: "1857", y: 1857, r: "JP", g: "jp", m: "다색 목판화", k: "ukiyoe", iw: 1098, ih: 1600 }
+  ];
+  var BY = {}; WORKS.forEach(function (w) { BY[w.id] = w; if (!w.crop) w.crop = M2; });
+  var NOTE = {
+    gold: "금박은 비추는 각도에 따라 밝은 노랑으로도 어두운 갈색으로도 찍힌다. 팔레트의 금색은 그날 조명이 정한 색이다.",
+    silkgold: "비단 바탕은 세월에 갈색으로 짙어지고, 금은 조명 각도에 따라 다르게 찍힌다. 바탕의 갈색은 그린 사람이 고른 색이 아닐 수 있다.",
+    paper: "종이는 세월에 누레질 수 있고, 그 종이색이 팔레트의 큰 몫을 차지한다. 판화의 '색'은 대부분 종이와 잉크의 비율이다.",
+    oil: "유화 위의 바니시는 세월에 누렇게 변하고, 세척하면 색이 달라진다. 사진은 촬영한 날의 상태를 기록한 것이다.",
+    oil19: "바니시와 조명의 영향은 그대로 있고, 19세기 합성 안료 가운데 일부는 빛에 바래거나 어두워진다는 보존 연구가 있다.",
+    vg: "고흐가 쓴 노랑(크롬 옐로) 일부가 어두워지고 붉은 레이크가 바랬다는 보존 연구가 있다. 지금 사진의 색은 그린 날의 색과 다를 수 있다.",
+    poster: "포스터용 종이와 잉크는 빛에 약하다. 종이 여백의 색도 팔레트에 들어간다.",
+    wc: "수채 물감 일부는 빛에 바래고 종이는 누레질 수 있다.",
+    silk: "비단 바탕은 세월에 갈색으로 짙어지고 먹과 채색이 함께 어두워 보인다. 바탕의 갈색은 그린 사람이 고른 색이 아닐 수 있다.",
+    ink: "종이는 세월에 누레지고, 표구를 고칠 때 바탕이 손질되기도 한다. 먹의 농담은 비교적 잘 남는다.",
+    ukiyoe: "식물성 청색·적색은 빛에 약해 쉽게 바랜다. 같은 판에서 찍은 인쇄본끼리도 색이 다르다."
+  };
+  var GROUPS = [
+    { k: "w1", n: "서양 1290~1570", s: "서양 ~1570" },
+    { k: "w2", n: "서양 17세기", s: "서양 17세기" },
+    { k: "w3", n: "서양 1730~1830", s: "서양 18세기" },
+    { k: "w4", n: "서양 1860~1900", s: "서양 19세기 말" },
+    { k: "cn", n: "중국 11~17세기", s: "중국" },
+    { k: "kr", n: "한국 13~19세기", s: "한국" },
+    { k: "jp", n: "일본 18~19세기", s: "일본" }
+  ];
+  var GBY = {}; GROUPS.forEach(function (g) { GBY[g.k] = g; });
+  var ROWS = [{ r: "W", n: "서양" }, { r: "CN", n: "중국" }, { r: "KR", n: "한국" }, { r: "JP", n: "일본" }];
+  function members(gk) { return WORKS.filter(function (w) { return w.g === gk; }); }
+
+  /* 미리 계산한 값: 이 장의 분석 함수(아래 analyze, palette, hstat, wcen, edir)를 같은 이미지에 돌린 결과.
+     p: 팔레트 5색 [hex, 비율], h: 명도 L* 25칸 분포(‰), med/lo/hi: 중간·5%·95% L*, dk/lt: L*<25, L*>75 비율,
+     ro: 선 방향 12칸(‰, 0°=수평, 15° 간격), cx/cy: 무게중심 */
+  var PRE = /*PRE*/{"duccio-madonna-child":{"p":[["#845e36",0.32],["#0d170d",0.203],["#202a1e",0.2],["#997347",0.164],["#5f452b",0.113]],"h":[40,88,88,102,60,30,23,26,38,70,141,152,88,40,11,2,0,0,0,0,0,0,0,0,0],"med":36.4,"lo":4.5,"hi":52.2,"dk":0.415,"lt":0,"ro":[47,51,71,74,118,140,135,124,72,57,48,63],"cx":0.482,"cy":0.646},"durer-saint-jerome-study":{"p":[["#73695f",0.305],["#8f8376",0.25],["#5a524a",0.237],["#b9ab99",0.152],["#fbf0d6",0.057]],"h":[0,0,0,0,0,0,7,30,70,107,125,113,109,93,69,53,46,44,37,25,13,4,6,34,14],"med":49.8,"lo":32.9,"hi":91.1,"dk":0.001,"lt":0.105,"ro":[281,87,50,28,23,40,325,39,26,31,31,39],"cx":0.502,"cy":0.508},"bruegel-harvesters":{"p":[["#b38b57",0.254],["#8d673a",0.24],["#604628",0.191],["#ccbca8",0.167],["#2f2211",0.147]],"h":[5,19,26,31,36,38,41,46,52,59,61,66,67,74,78,70,59,28,34,69,40,0,0,0,0],"med":49.2,"lo":12,"hi":79.4,"dk":0.165,"lt":0.122,"ro":[178,142,93,68,65,60,63,48,51,52,79,99],"cx":0.472,"cy":0.401},"de-la-tour-penitent-magdalen":{"p":[["#110a0a",0.548],["#24120d",0.174],["#452311",0.158],["#764c2a",0.078],["#b19164",0.042]],"h":[388,270,57,64,60,25,24,20,14,14,11,10,7,6,5,6,10,6,2,1,0,0,0,0,0],"med":4.8,"lo":2,"hi":45.5,"dk":0.869,"lt":0.001,"ro":[96,48,52,32,44,90,291,109,98,53,38,48],"cx":0.461,"cy":0.35},"rembrandt-aristotle-homer":{"p":[["#0a0504",0.538],["#180e08",0.224],["#2c1d10",0.162],["#48341e",0.054],["#725c3e",0.022]],"h":[615,140,88,63,31,18,12,9,7,6,4,3,2,1,0,0,0,0,0,0,0,0,0,0,0],"med":2.7,"lo":1,"hi":22.4,"dk":0.959,"lt":0,"ro":[65,67,66,45,52,93,141,117,110,91,84,70],"cx":0.523,"cy":0.549},"vermeer-young-woman-water-pitcher":{"p":[["#1c1d24",0.224],["#3a372d",0.217],["#6c6d62",0.213],["#514a3b",0.178],["#8b8575",0.168]],"h":[0,45,98,58,62,81,121,83,52,32,59,84,95,71,25,20,12,2,0,0,0,0,0,0,0],"med":29.4,"lo":8.1,"hi":57.1,"dk":0.369,"lt":0,"ro":[129,72,56,42,72,127,194,86,70,52,42,56],"cx":0.437,"cy":0.458},"canaletto-campo-sant-angelo":{"p":[["#6b7966",0.264],["#372b19",0.259],["#63502e",0.214],["#8a9882",0.156],["#b4b593",0.107]],"h":[0,1,17,67,78,60,50,49,51,62,48,81,130,53,44,73,38,35,45,16,2,0,0,0,0],"med":45.4,"lo":14.4,"hi":73.1,"dk":0.236,"lt":0.028,"ro":[125,45,44,36,53,87,288,105,55,46,69,46],"cx":0.35,"cy":0.551},"david-death-of-socrates":{"p":[["#1b1610",0.425],["#2b231a",0.305],["#483120",0.143],["#60482e",0.091],["#87704c",0.036]],"h":[3,245,216,215,82,60,54,42,27,15,11,11,9,6,2,1,0,0,0,0,0,0,0,0,0],"med":12.8,"lo":5.8,"hi":37.2,"dk":0.836,"lt":0,"ro":[99,98,80,81,103,130,127,80,57,43,44,57],"cx":0.567,"cy":0.639},"friedrich-two-men-moon":{"p":[["#342518",0.292],["#251a11",0.282],["#453525",0.178],["#5c493f",0.125],["#816351",0.123]],"h":[0,41,177,211,150,98,71,55,45,38,51,37,22,2,0,0,0,0,0,0,0,0,0,0,0],"med":17.7,"lo":8.4,"hi":44.9,"dk":0.698,"lt":0,"ro":[119,95,73,79,104,63,54,45,58,80,109,121],"cx":0.521,"cy":0.463},"corot-river-distant-tower":{"p":[["#373227",0.262],["#979b8c",0.235],["#514e3d",0.189],["#b3b6a1",0.158],["#706e5b",0.157]],"h":[0,0,1,18,89,104,65,65,58,56,49,48,34,25,30,85,108,75,45,42,3,0,0,0,0],"med":43.6,"lo":18,"hi":75.5,"dk":0.229,"lt":0.055,"ro":[170,90,62,54,51,58,70,91,84,62,82,124],"cx":0.541,"cy":0.504},"degas-dance-class":{"p":[["#5b553f",0.338],["#666850",0.329],["#433a29",0.131],["#918c73",0.103],["#231c13",0.099]],"h":[2,27,28,27,31,37,48,52,123,208,205,81,41,31,30,16,6,3,2,1,1,0,0,0,0],"med":38.4,"lo":10.8,"hi":57.1,"dk":0.164,"lt":0.002,"ro":[67,49,58,65,81,98,195,83,70,65,75,95],"cx":0.37,"cy":0.516},"whistler-theodore-duret":{"p":[["#b2a58a",0.279],["#52462b",0.247],["#22221b",0.193],["#98896b",0.181],["#74664c",0.101]],"h":[0,7,71,88,19,28,38,105,70,40,29,23,34,46,65,76,142,97,9,6,1,1,2,3,0],"med":45,"lo":10.9,"hi":69.3,"dk":0.219,"lt":0.016,"ro":[60,51,46,28,47,163,240,165,55,59,52,32],"cx":0.458,"cy":0.449},"vangogh-sunflowers":{"p":[["#96824a",0.251],["#6e5831",0.249],["#316479",0.235],["#598998",0.148],["#273542",0.118]],"h":[0,0,13,12,15,24,37,54,80,130,140,126,109,106,85,53,12,1,0,0,0,0,0,0,0],"med":43.9,"lo":21.7,"hi":60.9,"dk":0.073,"lt":0,"ro":[118,110,78,66,61,65,59,57,70,76,112,128],"cx":0.382,"cy":0.524},"seurat-circus-sideshow":{"p":[["#584d48",0.302],["#463c41",0.292],["#2e2c37",0.215],["#725e55",0.162],["#967862",0.029]],"h":[0,0,1,37,115,110,153,165,177,106,75,36,9,8,6,1,0,0,0,0,0,0,0,0,0],"med":30.2,"lo":16.4,"hi":44.6,"dk":0.3,"lt":0,"ro":[118,59,45,44,57,131,219,114,57,50,47,61],"cx":0.491,"cy":0.488},"vangogh-wheat-field-cypresses":{"p":[["#768f93",0.299],["#a4a99d",0.239],["#8d7a3c",0.187],["#576447",0.169],["#283b30",0.107]],"h":[0,0,4,13,18,21,25,26,30,40,64,81,94,109,136,128,95,72,35,7,1,0,0,0,0],"med":55.1,"lo":22.9,"hi":71.6,"dk":0.062,"lt":0.014,"ro":[121,108,90,66,79,97,101,70,53,54,71,90],"cx":0.679,"cy":0.523},"cezanne-apples-pears":{"p":[["#484944",0.247],["#8d714a",0.224],["#ad8b54",0.212],["#745739",0.192],["#2c2c2b",0.126]],"h":[0,4,14,20,38,50,60,96,103,90,85,86,88,95,86,53,22,10,1,0,0,0,0,0,0],"med":41.2,"lo":17.7,"hi":62.5,"dk":0.138,"lt":0,"ro":[364,98,45,38,51,52,81,55,43,38,47,88],"cx":0.555,"cy":0.487},"toulouse-lautrec-divan-japonais":{"p":[["#272928",0.334],["#a28c5f",0.221],["#caa85e",0.176],["#83734c",0.134],["#57533a",0.134]],"h":[0,4,11,169,101,38,24,25,30,49,33,36,50,70,102,70,59,73,42,9,3,0,0,0,0],"med":46,"lo":13.7,"hi":72.3,"dk":0.329,"lt":0.021,"ro":[78,118,84,69,96,85,121,74,70,69,78,56],"cx":0.496,"cy":0.493},"homer-wall-nassau":{"p":[["#b6bdb7",0.408],["#93a5a6",0.249],["#967971",0.133],["#e2d8cd",0.109],["#4c5f5d",0.101]],"h":[0,0,0,0,0,0,6,8,15,24,35,32,32,34,51,56,94,131,178,162,66,32,20,26,0],"med":71.6,"lo":39.5,"hi":87.4,"dk":0.001,"lt":0.355,"ro":[206,102,61,52,45,61,162,53,36,45,61,117],"cx":0.436,"cy":0.542},"pissarro-tuileries-spring-morning":{"p":[["#d6cbc6",0.378],["#c4b3a2",0.251],["#9c9564",0.229],["#797349",0.101],["#4b4b33",0.041]],"h":[0,0,0,2,2,3,4,6,10,16,20,24,34,46,71,82,60,52,123,157,178,93,18,0,0],"med":74.5,"lo":41.6,"hi":85.7,"dk":0.008,"lt":0.483,"ro":[169,122,84,54,49,57,68,74,64,71,73,114],"cx":0.463,"cy":0.726},"pissarro-tuileries-winter-afternoon":{"p":[["#b9b4a5",0.277],["#84836b",0.214],["#a4a299",0.21],["#686b62",0.177],["#545452",0.122]],"h":[0,0,0,0,0,0,3,12,36,67,78,77,87,95,55,44,87,174,143,36,4,0,0,0,0],"med":59,"lo":35.8,"hi":75.6,"dk":0,"lt":0.063,"ro":[187,118,70,58,56,64,85,79,59,56,65,103],"cx":0.618,"cy":0.532},"qu-ding-summer-mountains":{"p":[["#716147",0.287],["#574d3e",0.218],["#635643",0.205],["#7c6a4c",0.152],["#4d453a",0.138]],"h":[0,0,0,0,0,0,17,147,223,189,273,128,21,0,0,0,0,0,0,0,0,0,0,0,0],"med":38.3,"lo":29.4,"hi":46.4,"dk":0.001,"lt":0,"ro":[182,96,68,59,48,58,72,57,62,68,83,148],"cx":0.647,"cy":0.544},"guo-xi-old-trees-level-distance":{"p":[["#907256",0.332],["#826a51",0.283],["#d3ae76",0.166],["#72614c",0.151],["#615546",0.067]],"h":[0,0,0,0,0,0,0,1,20,55,118,279,332,27,2,2,4,19,138,4,0,0,0,0,0],"med":48.4,"lo":38.6,"hi":74.3,"dk":0,"lt":0.02,"ro":[162,104,55,35,31,52,277,54,34,39,56,101],"cx":0.1,"cy":0.5},"ma-yuan-moon-pine":{"p":[["#8b7358",0.531],["#76634f",0.204],["#584e43",0.179],["#e9d7c5",0.07],["#c4a885",0.017]],"h":[0,0,0,0,0,0,2,48,77,77,84,169,413,42,1,1,2,13,2,1,4,39,25,0,0],"med":48.8,"lo":32,"hi":86.4,"dk":0,"lt":0.069,"ro":[80,70,68,48,45,50,337,57,50,59,63,74],"cx":0.777,"cy":0.586},"tang-di-pavilion-prince-teng":{"p":[["#a28f7b",0.341],["#8f7e6d",0.273],["#7d6d5f",0.207],["#675a4e",0.134],["#494038",0.045]],"h":[0,0,0,1,2,6,10,18,31,52,77,107,145,167,184,181,18,1,0,0,0,0,0,0,0],"med":53.2,"lo":34,"hi":62.4,"dk":0.011,"lt":0,"ro":[150,115,98,76,54,60,69,60,62,64,84,108],"cx":0.583,"cy":0.616},"wang-shimin-huang-gongwang-style":{"p":[["#decdaf",0.315],["#c4b499",0.246],["#ac9d84",0.222],["#948670",0.164],["#756958",0.054]],"h":[0,0,0,0,0,0,0,1,2,5,10,20,33,53,72,97,106,113,113,94,150,133,0,0,0],"med":71.6,"lo":49.9,"hi":84.6,"dk":0,"lt":0.404,"ro":[111,125,123,122,93,52,48,52,53,63,76,83],"cx":0.533,"cy":0.504},"goryeo-amitabha-triad":{"p":[["#50433a",0.263],["#5d4d40",0.243],["#6f5847",0.173],["#9b7358",0.162],["#87654f",0.159]],"h":[0,0,0,0,0,0,58,222,201,138,102,103,111,56,10,1,0,0,0,0,0,0,0,0,0],"med":36.5,"lo":27.7,"hi":52.8,"dk":0,"lt":0,"ro":[288,39,23,26,43,90,253,89,51,31,30,37],"cx":0.533,"cy":0.521},"joseon-wild-geese-sandbar":{"p":[["#6d5e39",0.319],["#76653f",0.275],["#625534",0.175],["#816f47",0.154],["#50472d",0.078]],"h":[0,0,0,0,0,1,11,39,80,239,371,206,52,1,0,0,0,0,0,0,0,0,0,0,0],"med":41.3,"lo":32,"hi":48.1,"dk":0.002,"lt":0,"ro":[150,118,97,83,64,57,50,53,59,65,77,127],"cx":0.354,"cy":0.816},"yi-jeong-bamboo-wind":{"p":[["#ac8453",0.405],["#9e7b4f",0.365],["#8e6f4a",0.091],["#574a3c",0.075],["#6f5a42",0.064]],"h":[0,0,0,0,0,0,1,31,43,31,28,30,91,338,382,26,0,0,0,0,0,0,0,0,0],"med":54.9,"lo":33.6,"hi":59.5,"dk":0,"lt":0,"ro":[75,120,95,78,80,81,90,88,80,76,73,65],"cx":0.578,"cy":0.547},"jeong-seon-inwangsan":{"p":[["#c7b89d",0.285],["#a89d86",0.247],["#8c8572",0.214],["#706a5c",0.157],["#534d44",0.098]],"h":[0,0,0,0,0,3,13,23,31,39,50,62,67,80,93,100,102,87,109,138,3,0,0,0,0],"med":61.6,"lo":33.7,"hi":77.7,"dk":0.004,"lt":0.176,"ro":[101,131,120,94,62,57,61,57,73,78,82,83],"cx":0.508,"cy":0.424},"joseon-golden-rooster-hen":{"p":[["#a28e74",0.284],["#866f58",0.234],["#948064",0.232],["#6d6152",0.145],["#8b5341",0.106]],"h":[0,0,0,0,0,0,0,0,5,63,131,145,153,154,208,131,9,1,0,0,0,0,0,0,0],"med":52.1,"lo":39.3,"hi":62,"dk":0,"lt":0,"ro":[90,87,60,73,83,101,93,97,86,78,63,91],"cx":0.4,"cy":0.679},"korin-irises-yatsuhashi":{"p":[["#3f5d42",0.287],["#bf985e",0.231],["#83764f",0.196],["#e3b87a",0.184],["#2d3e43",0.103]],"h":[0,0,0,4,12,20,33,72,93,94,73,59,54,51,56,53,70,90,72,44,27,17,4,1,0],"med":50.9,"lo":25.9,"hi":79.9,"dk":0.044,"lt":0.109,"ro":[210,72,85,143,69,73,109,52,34,41,48,65],"cx":0.439,"cy":0.445},"utamaro-shell-book-spread":{"p":[["#f9c9a3",0.297],["#e5b48d",0.292],["#cfa683",0.27],["#a4846b",0.083],["#4a443d",0.058]],"h":[0,0,0,0,14,21,6,3,3,5,5,4,10,17,24,35,43,122,220,160,126,183,0,0,0],"med":75.4,"lo":38.2,"hi":86,"dk":0.037,"lt":0.518,"ro":[525,30,29,22,16,29,225,28,22,18,24,32],"cx":0.512,"cy":0.555},"hokusai-great-wave":{"p":[["#f5edd4",0.481],["#d8d6c1",0.185],["#2d4d6c",0.144],["#abaea7",0.103],["#6f8089",0.087]],"h":[0,0,0,0,0,5,44,33,20,22,25,17,16,22,21,19,20,25,30,35,42,69,170,280,85],"med":89.1,"lo":28.1,"hi":96.9,"dk":0.012,"lt":0.69,"ro":[144,141,94,68,43,31,38,44,60,105,109,123],"cx":0.429,"cy":0.681},"hiroshige-descending-geese-katada":{"p":[["#e1c8a6",0.348],["#f7e6cd",0.211],["#a49e91",0.176],["#5a5a59",0.138],["#777c79",0.126]],"h":[0,0,0,0,0,0,1,6,34,48,39,39,45,35,47,56,53,35,30,70,161,119,121,34,29],"med":78.7,"lo":36.7,"hi":92.4,"dk":0,"lt":0.542,"ro":[434,80,41,30,20,22,156,30,26,35,40,85],"cx":0.524,"cy":0.597},"hiroshige-sudden-shower-ohashi":{"p":[["#97a295",0.352],["#867c75",0.197],["#555355",0.192],["#f3d7b3",0.179],["#dbb287",0.08]],"h":[0,0,0,0,0,0,17,37,23,81,34,24,62,56,75,130,96,100,48,27,33,73,78,6,0],"med":62.7,"lo":30.9,"hi":89.4,"dk":0,"lt":0.224,"ro":[340,70,60,22,26,43,284,40,23,21,27,44],"cx":0.504,"cy":0.566}}/*/PRE*/;
+
+  /* ================= 분석 ================= */
+  var LUT = new Float32Array(256);
+  for (var li = 0; li < 256; li++) LUT[li] = ART.toLinear(li / 255);
+  function lstar(Y) { return Y > 216 / 24389 ? 116 * Math.cbrt(Y) - 16 : (24389 / 27) * Y; }   // CIE 15:2004
+  function cnv(w, h) { var c = document.createElement("canvas"); c.width = w; c.height = h; return c; }
+  function memo(an, k, f) { if (!(k in an.memo)) an.memo[k] = f(); return an.memo[k]; }
+  // 상자 흐림(가로·세로 누적합). CompositionBook 14장 실험실과 같은 방식
+  function blur(a, w, h, r) {
+    var out = new Float32Array(a.length);
+    if (r < 1) { out.set(a); return out; }
+    var t = new Float32Array(a.length), n = 2 * r + 1, x, y, k, s;
+    for (y = 0; y < h; y++) {
+      var row = y * w;
+      s = 0; for (k = -r; k <= r; k++) s += a[row + Math.min(w - 1, Math.max(0, k))];
+      for (x = 0; x < w; x++) { t[row + x] = s / n; s += a[row + Math.min(w - 1, x + r + 1)] - a[row + Math.max(0, x - r)]; }
+    }
+    for (x = 0; x < w; x++) {
+      s = 0; for (k = -r; k <= r; k++) s += t[Math.min(h - 1, Math.max(0, k)) * w + x];
+      for (y = 0; y < h; y++) { out[y * w + x] = s / n; s += t[Math.min(h - 1, y + r + 1) * w + x] - t[Math.max(0, y - r) * w + x]; }
+    }
+    return out;
+  }
+  function sortedOf(a) { return Float32Array.from(a).sort(); }
+  function qs(s, q) { return s[Math.min(s.length - 1, Math.max(0, Math.floor(q * (s.length - 1))))]; }
+  // 분석 영역을 잘라 긴 변 AN px로 줄이고 화소마다 L*, OKLab, 채도를 구한다
+  function analyze(img, crop, size) {
+    var iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+    var sx = crop[0] * iw, sy = crop[1] * ih, sw = (crop[2] - crop[0]) * iw, sh = (crop[3] - crop[1]) * ih;
+    var s = (size || AN) / Math.max(sw, sh), w = Math.max(8, Math.round(sw * s)), h = Math.max(8, Math.round(sh * s));
+    var c = cnv(w, h), x = c.getContext("2d", { willReadFrequently: true });
+    x.imageSmoothingEnabled = true; x.imageSmoothingQuality = "high";
+    x.drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
+    var id = x.getImageData(0, 0, w, h);
+    return fromData(id, w, h, c);
+  }
+  function fromData(id, w, h, c) {
+    var d = id.data, n = w * h, L = new Float32Array(n), C = new Float32Array(n), lab = new Float32Array(n * 3);
+    for (var i = 0; i < n; i++) {
+      var r = LUT[d[i * 4]], g = LUT[d[i * 4 + 1]], b = LUT[d[i * 4 + 2]];
+      L[i] = lstar(0.2126 * r + 0.7152 * g + 0.0722 * b);
+      var ok = ART.linearToOklab([r, g, b]); lab[i * 3] = ok[0]; lab[i * 3 + 1] = ok[1]; lab[i * 3 + 2] = ok[2];
+      C[i] = Math.hypot(ok[1], ok[2]);
+    }
+    return { w: w, h: h, id: id, L: L, C: C, lab: lab, canvas: c, memo: {} };
+  }
+  function palette(an, k) { return memo(an, "p" + k, function () { return ART.kmeans(an.id.data, k, { seed: 7, sample: 6000 }); }); }
+  // 명도 분포: 25칸(칸마다 L* 4), 중간값, 5%·95% 값, 어두운(L*<25)·밝은(L*>75) 화소 비율
+  function hstat(an) {
+    return memo(an, "hs", function () {
+      var b = new Array(25).fill(0), n = an.L.length, dk = 0, lt = 0;
+      for (var i = 0; i < n; i++) { var v = an.L[i]; b[Math.min(24, Math.max(0, Math.floor(v / 4)))]++; if (v < 25) dk++; else if (v > 75) lt++; }
+      var s = sortedOf(an.L);
+      return { bins: b.map(function (v) { return v / n; }), med: qs(s, 0.5), lo: qs(s, 0.05), hi: qs(s, 0.95), dk: dk / n, lt: lt / n, sorted: s };
+    });
+  }
+  // 시각적 무게중심. CompositionBook 7장의 픽셀 모형을 그대로 쓴다:
+  // 무게 = max(0, |L* − 그림의 중간 L*| − 문턱)/100 × (1 + 2 × 채도/0.2)
+  function wcen(an, t) {
+    return memo(an, "w" + t, function () {
+      var med = hstat(an).med, w = an.w, h = an.h, sw = 0, sx = 0, sy = 0, left = 0;
+      for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+        var i = y * w + x, v = Math.max(0, Math.abs(an.L[i] - med) - t) / 100 * (1 + 2 * an.C[i] / 0.2);
+        sw += v; sx += v * (x + 0.5); sy += v * (y + 0.5); if (x + 0.5 < w / 2) left += v;
+      }
+      if (!(sw > 0)) return { cx: 0.5, cy: 0.5, left: 0.5 };
+      return { cx: sx / sw / w, cy: sy / sw / h, left: left / sw };
+    });
+  }
+  // 선 방향: 소벨 기울기(명도 L*). 기울기 크기 상위 (1−q)만 "선"으로 세고, 선의 방향(기울기에 수직)을 15° 칸에 크기로 가중해 모은다.
+  // 칸 i의 가운데 = 15i°(0° 수평, 90° 수직, 45°는 오른쪽 위로 오르는 사선). 칸마다 구조 텐서(Bigün·Granlund 1987)로 주된 방향도 구한다.
+  function edir(an, q) {
+    return memo(an, "e" + q, function () {
+      var w = an.w, h = an.h, b = blur(an.L, w, h, 1), n = w * h, gx = new Float32Array(n), gy = new Float32Array(n), mag = new Float32Array(n);
+      var P = function (x, y) { return b[Math.min(h - 1, Math.max(0, y)) * w + Math.min(w - 1, Math.max(0, x))]; };
+      for (var y = 1; y < h - 1; y++) for (var x = 1; x < w - 1; x++) {
+        var X = P(x + 1, y - 1) + 2 * P(x + 1, y) + P(x + 1, y + 1) - P(x - 1, y - 1) - 2 * P(x - 1, y) - P(x - 1, y + 1);
+        var Y = P(x - 1, y + 1) + 2 * P(x, y + 1) + P(x + 1, y + 1) - P(x - 1, y - 1) - 2 * P(x, y - 1) - P(x + 1, y - 1);
+        var i = y * w + x; gx[i] = X; gy[i] = Y; mag[i] = Math.hypot(X, Y);
+      }
+      var thr = Math.max(1e-6, qs(sortedOf(mag), q)), ro = new Array(12).fill(0), tot = 0;
+      for (var j = 0; j < n; j++) {
+        if (mag[j] < thr) continue;
+        var a = Math.atan2(gx[j], gy[j]) * 180 / Math.PI;   // 화면 좌표의 기울기 (gx, gy)에 수직인 선의 방향(위로 + 각)
+        a = ((a % 180) + 180) % 180;
+        ro[Math.round(a / 15) % 12] += mag[j]; tot += mag[j];
+      }
+      ro = ro.map(function (v) { return tot ? v / tot : 0; });
+      // 칸별 주된 방향(바늘)
+      var N = 12, cw = w / N, rows = Math.max(3, Math.round(h / cw)), ch = h / rows, cells = [], mx = 0;
+      for (var cy = 0; cy < rows; cy++) for (var cx = 0; cx < N; cx++) {
+        var jxx = 0, jyy = 0, jxy = 0, cnt = 0;
+        for (var yy = Math.floor(cy * ch); yy < Math.floor((cy + 1) * ch); yy++) for (var xx = Math.floor(cx * cw); xx < Math.floor((cx + 1) * cw); xx++) {
+          var k = yy * w + xx; if (mag[k] < thr) continue; jxx += gx[k] * gx[k]; jyy += gy[k] * gy[k]; jxy += gx[k] * gy[k]; cnt++;
+        }
+        var tr = jxx + jyy, coh = tr > 0 ? Math.sqrt((jxx - jyy) * (jxx - jyy) + 4 * jxy * jxy) / tr : 0;
+        var phi = 0.5 * Math.atan2(2 * jxy, jxx - jyy) + Math.PI / 2;   // 화면 좌표에서 선의 방향
+        var st = cnt / (cw * ch) * coh;
+        cells.push({ x: (cx + 0.5) / N, y: (cy + 0.5) / rows, phi: phi, s: st }); if (st > mx) mx = st;
+      }
+      cells.forEach(function (c) { c.s = mx ? c.s / mx : 0; });
+      return { ro: ro, cells: cells, N: N, rows: rows };
+    });
+  }
+  function hvd(ro) { return { h: ro[11] + ro[0] + ro[1], v: ro[5] + ro[6] + ro[7], up: ro[2] + ro[3] + ro[4], dn: ro[8] + ro[9] + ro[10] }; }
+  function rgbOf(hx) { return ART.parse(hx); }
+  // 두 팔레트의 거리: 각 색에서 다른 팔레트의 가장 가까운 색까지 ΔE2000을 비율로 가중 평균하고 양쪽을 평균한다
+  function palDist(A, B) {
+    function one(P, Q) { var s = 0, ws = 0; P.forEach(function (p) { var m = 1e9; Q.forEach(function (q) { m = Math.min(m, ART.deltaE2000(p.rgb, q.rgb)); }); s += p.weight * m; ws += p.weight; }); return ws ? s / ws : 0; }
+    return 0.5 * (one(A, B) + one(B, A));
+  }
+  function preToPal(p) { return p.map(function (e) { return { rgb: rgbOf(e[0]), weight: e[1] }; }); }
+  // 시대 팔레트: 각 작품의 미리 계산한 5색을 비율만큼(작품마다 같은 몫 200개) 늘어놓고 다시 k-평균
+  function groupPal(gk) {
+    var pts = [];
+    members(gk).forEach(function (w) { var P = PRE[w.id]; if (!P) return; P.p.forEach(function (e) { var n = Math.round(e[1] * 200), c = rgbOf(e[0]); for (var i = 0; i < n; i++) pts.push(c); }); });
+    return pts.length ? ART.kmeans(pts, K0, { seed: 7, sample: 6000 }) : [];
+  }
+  function groupStat(gk) {
+    var ms = members(gk).filter(function (w) { return PRE[w.id]; }), n = ms.length, h = new Array(25).fill(0), ro = new Array(12).fill(0), med = 0, dk = 0, lt = 0;
+    ms.forEach(function (w) { var P = PRE[w.id]; P.h.forEach(function (v, i) { h[i] += v / 1000 / n; }); P.ro.forEach(function (v, i) { ro[i] += v / 1000 / n; }); med += P.med / n; dk += P.dk / n; lt += P.lt / n; });
+    var meds = ms.map(function (w) { return PRE[w.id].med; });
+    return { n: n, h: h, ro: ro, med: med, dk: dk, lt: lt, meds: meds, min: Math.min.apply(null, meds), max: Math.max.apply(null, meds) };
+  }
+
+  /* ================= 이미지 불러오기(작품마다 한 번) ================= */
+  var cache = {};
+  function load(id) {
+    if (!cache[id]) {
+      var w = BY[id];
+      cache[id] = AB.loadImage(IMG + id + ".webp").then(function (img) { return { w: w, img: img, an: analyze(img, w.crop) }; });
+    }
+    return cache[id];
+  }
+
+  /* ================= 그리기 도우미 ================= */
+  function P() { return AB.palette(); }
+  function pw(el) { return Math.max(200, el.parentElement.clientWidth || 600); }
+  function fit(W, H, iw, ih, pad) { pad = pad == null ? 10 : pad; var s = Math.min((W - 2 * pad) / iw, (H - 2 * pad) / ih), w = iw * s, h = ih * s; return { x: (W - w) / 2, y: (H - h) / 2, w: w, h: h }; }
+  function cropSize(w) { return { w: (w.crop[2] - w.crop[0]) * w.iw, h: (w.crop[3] - w.crop[1]) * w.ih }; }
+  function drawCrop(ctx, S, r, smooth) {
+    var w = S.w, iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+    ctx.save(); ctx.imageSmoothingEnabled = smooth !== false; ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(S.img, w.crop[0] * iw, w.crop[1] * ih, (w.crop[2] - w.crop[0]) * iw, (w.crop[3] - w.crop[1]) * ih, r.x, r.y, r.w, r.h);
+    ctx.restore();
+  }
+  function waiting(ctx, w, h, msg) { ctx.fillStyle = DIM; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(msg || "이미지를 불러오는 중…", w / 2, h / 2); }
+  function duo(ctx, color, width, fn) { ctx.save(); ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "rgba(20,20,24,0.6)"; ctx.lineWidth = width + 2.5; ctx.beginPath(); fn(); ctx.stroke(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath(); fn(); ctx.stroke(); ctx.restore(); }
+  function tag(ctx, txt, x, y, align) {
+    ctx.save(); ctx.font = AB.font(12, false, 600); ctx.textBaseline = "middle"; var tw = ctx.measureText(txt).width;
+    var x0 = align === "right" ? x - tw - 6 : x - 6; ctx.fillStyle = "rgba(251,250,247,0.92)"; ctx.fillRect(x0, y - 10, tw + 12, 20);
+    ctx.fillStyle = INK; ctx.textAlign = "left"; ctx.fillText(txt, x0 + 6, y); ctx.restore();
+  }
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+  // 팔레트 띠: 비율만큼 폭을 나눈 가로 띠(고정색 글자)
+  function palStrip(ctx, x, y, w, h, pal, labels) {
+    var cx = x;
+    pal.forEach(function (c, i) {
+      var cw = i === pal.length - 1 ? x + w - cx : Math.round(w * c.weight);
+      ctx.fillStyle = ART.hex(c.rgb); ctx.fillRect(cx, y, cw, h);
+      if (labels && cw > 46) { ctx.fillStyle = AB.textOn(c.rgb); ctx.font = AB.font(11, true, 600); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(Math.round(c.weight * 100) + "%", cx + cw / 2, y + h / 2 - (h > 34 ? 7 : 0)); if (h > 34) { ctx.font = AB.font(10, true); ctx.fillText(ART.hex(c.rgb), cx + cw / 2, y + h / 2 + 8); } }
+      cx += cw;
+    });
+  }
+  // 명도 분포 막대(UI 캔버스). A는 막대, B는 선.
+  function histChart(ctx, box, A, B, o) {
+    o = o || {}; var p = P(), mx = 0;
+    A.forEach(function (v) { mx = Math.max(mx, v); }); if (B) B.forEach(function (v) { mx = Math.max(mx, v); });
+    mx = Math.max(mx, 0.02) * 1.08;
+    var X = function (L) { return box.x + (L / 100) * box.w; }, Y = function (v) { return box.y + box.h - (v / mx) * box.h; };
+    // 아래 명도 띠
+    for (var i = 0; i < 25; i++) { var g = ART.hex(ART.grayOf(ART.labToSrgb([i * 4 + 2, 0, 0]))); ctx.fillStyle = g; ctx.fillRect(X(i * 4), box.y + box.h + 3, box.w / 25 + 0.5, 7); }
+    ctx.strokeStyle = p.grid || p.border; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, box.y + box.h + 0.5); ctx.lineTo(box.x + box.w, box.y + box.h + 0.5); ctx.stroke();
+    if (o.bands) o.bands.forEach(function (b) { ctx.fillStyle = b.c; ctx.fillRect(X(b.a), box.y, X(b.b) - X(b.a), box.h); });
+    ctx.fillStyle = o.colA || p.accent; ctx.globalAlpha = B ? 0.55 : 0.85;
+    A.forEach(function (v, i) { var x0 = X(i * 4) + 0.5, x1 = X(i * 4 + 4) - 0.5; ctx.fillRect(x0, Y(v), x1 - x0, box.y + box.h - Y(v)); });
+    ctx.globalAlpha = 1;
+    if (B) { ctx.strokeStyle = o.colB || p.accent2 || p.text; ctx.lineWidth = 2.2; ctx.beginPath(); B.forEach(function (v, i) { var x0 = X(i * 4), x1 = X(i * 4 + 4); if (i) ctx.lineTo(x0, Y(v)); else ctx.moveTo(x0, Y(v)); ctx.lineTo(x1, Y(v)); }); ctx.stroke(); }
+    ctx.fillStyle = p.dim; ctx.font = AB.font(11, true); ctx.textBaseline = "top";
+    [0, 25, 50, 75, 100].forEach(function (L) { ctx.textAlign = L === 0 ? "left" : L === 100 ? "right" : "center"; ctx.fillText(String(L), X(L), box.y + box.h + 13); });
+    if (o.marks) o.marks.forEach(function (m) { ctx.strokeStyle = m.c; ctx.lineWidth = m.w || 1.5; ctx.setLineDash(m.dash || []); ctx.beginPath(); ctx.moveTo(X(m.L) + 0.5, box.y); ctx.lineTo(X(m.L) + 0.5, box.y + box.h); ctx.stroke(); ctx.setLineDash([]); });
+    return { X: X, Y: Y };
+  }
+  // 선 방향 장미(반원 12칸을 대칭으로 펼친 원). 0°는 가로, 90°는 세로.
+  function rose(ctx, cx, cy, R, ro, col, o) {
+    o = o || {}; var p = P(), mx = o.max || Math.max.apply(null, ro.concat([1 / 12]));
+    ctx.strokeStyle = p.grid || p.border; ctx.lineWidth = 1;
+    [0.5, 1].forEach(function (f) { ctx.beginPath(); ctx.arc(cx, cy, R * f, 0, Math.PI * 2); ctx.stroke(); });
+    ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.arc(cx, cy, R * Math.sqrt((1 / 12) / mx), 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(cx - R, cy); ctx.lineTo(cx + R, cy); ctx.moveTo(cx, cy - R); ctx.lineTo(cx, cy + R); ctx.stroke();
+    ctx.fillStyle = col; ctx.globalAlpha = o.alpha == null ? 0.75 : o.alpha;
+    for (var s = 0; s < 2; s++) ro.forEach(function (v, i) {
+      var a0 = (i * 15 - 7.5 + s * 180) * Math.PI / 180, a1 = (i * 15 + 7.5 + s * 180) * Math.PI / 180, r = R * Math.sqrt(v / mx);
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, r, -a1, -a0); ctx.closePath(); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    if (o.label) { ctx.fillStyle = p.text; ctx.font = AB.font(12, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(o.label, cx, cy + R + 6); }
+  }
+  // 면적 비례 장미: 칸 반지름 ∝ √비율. 점선 원은 모든 방향이 같을 때(1/12).
+  function xScale(y, x0, w) { return y < 1600 ? x0 + (y - 1000) / 600 * 0.36 * w : x0 + (0.36 + (y - 1600) / 310 * 0.64) * w; }
+  function pctS(v, d) { return (v * 100).toFixed(d == null ? 0 : d) + "%"; }
+  function where(x, y) { var hx = x < 0.4 ? "왼쪽" : x > 0.6 ? "오른쪽" : "가운데", vy = y < 0.4 ? "위" : y > 0.6 ? "아래" : "가운데"; return hx === "가운데" && vy === "가운데" ? "한가운데 부근" : (vy === "가운데" ? "" : vy + " ") + (hx === "가운데" ? (vy === "가운데" ? "" : "가운데") : hx); }
+  function dirWord(o) { var m = Math.max(o.h, o.v, o.up + o.dn); return m === o.h ? "수평" : m === o.v ? "수직" : "사선"; }
+  function byName(w) { return w.a + " 「" + w.t + "」"; }
+
+  /* ================= 연대표 배치(작품 막대를 겹치지 않게 민다) ================= */
+  function layoutTimeline(W, x0, bw) {
+    var out = {}, gap = bw + 2;
+    ROWS.forEach(function (row) {
+      var ws = WORKS.filter(function (w) { return w.r === row.r; }).slice().sort(function (a, b) { return a.y - b.y; }), last = -1e9;
+      ws.forEach(function (w) { var tx = xScale(w.y, x0, W - x0 - 8), x = Math.max(tx, last + gap); out[w.id] = { x: x, tx: tx }; last = x; });
+      // 오른쪽 끝을 넘으면 뒤에서부터 왼쪽으로 당긴다
+      var lim = W - 6 - bw / 2;
+      for (var i = ws.length - 1; i >= 0; i--) { var o = out[ws[i].id]; if (o.x > lim) o.x = lim; lim = o.x - gap; }
+    });
+    return out;
+  }
+  function drawTimeline(ctx, w, h, opt) {
+    var p = P(), x0 = 46, top = 8, axisH = 26, rowH = (h - top - axisH) / ROWS.length, bw = AB.clamp(Math.floor(w / 62), 6, 11);
+    var L = layoutTimeline(w, x0, bw), pos = {};
+    // 축
+    ctx.font = AB.font(11, true); ctx.fillStyle = p.dim; ctx.textBaseline = "top"; ctx.textAlign = "center";
+    var ay = h - axisH + 4;
+    ctx.strokeStyle = p.border; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x0, ay); ctx.lineTo(w - 6, ay); ctx.stroke();
+    [1000, 1200, 1400, 1600, 1700, 1800, 1900].forEach(function (y) { var x = xScale(y, x0, w - x0 - 8); ctx.beginPath(); ctx.moveTo(x, ay); ctx.lineTo(x, ay + 4); ctx.stroke(); if (w > 420 || y % 200 === 0 || y === 1900) ctx.fillText(String(y), x, ay + 6); });
+    var xb = xScale(1600, x0, w - x0 - 8);
+    ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(xb, top); ctx.lineTo(xb, ay); ctx.stroke(); ctx.setLineDash([]);
+    ctx.textAlign = "left"; ctx.font = AB.font(10); ctx.fillText("← 600년", x0 + 2, top); ctx.textAlign = "right"; ctx.fillText("300년 →", w - 8, top);
+    ROWS.forEach(function (row, ri) {
+      var y0 = top + 12 + ri * rowH, bh = rowH - 18;
+      ctx.fillStyle = p.text; ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(row.n, 4, y0 + bh / 2);
+      ctx.strokeStyle = p.grid || p.border; ctx.beginPath(); ctx.moveTo(x0, y0 + bh + 3); ctx.lineTo(w - 6, y0 + bh + 3); ctx.stroke();
+      WORKS.forEach(function (wk) {
+        if (wk.r !== row.r) return;
+        var o = L[wk.id], x = o.x - bw / 2, Pq = PRE[wk.id];
+        pos[wk.id] = { x: o.x, y: y0, h: bh, bw: bw };
+        if (opt.group && wk.g !== opt.group && wk.g !== opt.group2) ctx.globalAlpha = 0.25;
+        if (!Pq) { ctx.fillStyle = p.border; ctx.fillRect(x, y0, bw, bh); }
+        else if (opt.mode === "val") { var g = ART.grayOf(ART.labToSrgb([Pq.med, 0, 0])); ctx.fillStyle = ART.hex(g); ctx.fillRect(x, y0, bw, bh); }
+        else { var yy = y0; Pq.p.forEach(function (e, i) { var hh = i === Pq.p.length - 1 ? y0 + bh - yy : Math.round(bh * e[1]); ctx.fillStyle = e[0]; ctx.fillRect(x, yy, bw, hh); yy += hh; }); }
+        ctx.strokeStyle = "rgba(0,0,0,0.25)"; ctx.lineWidth = 0.6; ctx.strokeRect(x + 0.3, y0 + 0.3, bw - 0.6, bh - 0.6);
+        // 실제 연도 눈금과 이어 주는 선
+        ctx.strokeStyle = p.border; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(o.x, y0 + bh + 1); ctx.lineTo(o.tx, y0 + bh + 5); ctx.stroke();
+        if (wk.est) { ctx.fillStyle = p.dim; ctx.font = AB.font(9); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("~", o.x, y0 - 1); }
+        ctx.globalAlpha = 1;
+      });
+    });
+    (opt.marks || []).forEach(function (m) {
+      var q = pos[m.id]; if (!q) return;
+      ctx.strokeStyle = m.c; ctx.lineWidth = 2.5; ctx.strokeRect(q.x - q.bw / 2 - 2.5, q.y - 2.5, q.bw + 5, q.h + 5);
+      AB.handle(ctx, q.x, q.y + q.h + 9, { r: 7, fill: m.c });
+      ctx.fillStyle = "#ffffff"; ctx.font = AB.font(10, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(m.t, q.x, q.y + q.h + 9.5);
+    });
+    return pos;
+  }
+  function nearestWork(pos, x, y, filter) {
+    var best = null, bd = 1e9;
+    Object.keys(pos).forEach(function (id) { if (filter && !filter(BY[id])) return; var q = pos[id], dx = x - q.x, dy = Math.max(0, Math.abs(y - (q.y + q.h / 2)) - q.h / 2), d = dx * dx + dy * dy * 4; if (d < bd) { bd = d; best = id; } });
+    return best;
+  }
+  function tlHeight(el) { var w = pw(el); return Math.round(AB.clamp(w * 0.42, 230, 300)); }
+
+  /* ================= 1. 연대표 입구 ================= */
+  (function () {
+    var st = { id: "vermeer-young-woman-water-pitcher", S: null, pos: {} };
+    var mode = AB.seg("hl-tl-mode", function () { tl.redraw(); });
+    var tl = AB.canvas("#hl-tl-cv", function (ctx, w, h) { st.pos = drawTimeline(ctx, w, h, { mode: mode(), marks: [{ id: st.id, c: P().accent, t: "" }] }); }, { get height() { return tlHeight(document.getElementById("hl-tl-cv")); } });
+    var im = AB.canvas("#hl-tl-img", function (ctx, w, h) {
+      if (!st.S || st.S.w.id !== st.id) return waiting(ctx, w, h);
+      var S = st.S, iw = S.img.naturalWidth, ih = S.img.naturalHeight, r = fit(w, h, iw, ih, 10);
+      ctx.save(); ctx.imageSmoothingQuality = "high"; ctx.drawImage(S.img, r.x, r.y, r.w, r.h); ctx.restore();
+      var c = S.w.crop;
+      duo(ctx, C_GRID, 1.6, function () { ctx.rect(r.x + c[0] * r.w, r.y + c[1] * r.h, (c[2] - c[0]) * r.w, (c[3] - c[1]) * r.h); });
+      tag(ctx, "분석 영역", r.x + c[0] * r.w + 8, r.y + c[1] * r.h + 14);
+    }, { bg: STAGE, get height() { var el = document.getElementById("hl-tl-img"); return Math.round(AB.clamp(pw(el) * 0.75, 220, 380)); } });
+    var pal = AB.canvas("#hl-tl-pal", function (ctx, w, h) {
+      var Pq = PRE[st.id]; if (!Pq) return;
+      palStrip(ctx, 0, 0, w, h, preToPal(Pq.p), true);
+    }, { bg: STAGE, height: 46 });
+    function show() {
+      var w = BY[st.id], Pq = PRE[st.id];
+      AB.stat("hl-tl-o-w", byName(w));
+      AB.stat("hl-tl-o-d", w.d + (w.est ? " <small>(세기 단위 기록, 위치는 추정)</small>" : ""));
+      AB.stat("hl-tl-o-m", w.m);
+      AB.stat("hl-tl-o-l", Pq ? Pq.med.toFixed(0) + " <small>(5~95%: " + Pq.lo.toFixed(0) + "~" + Pq.hi.toFixed(0) + ")</small>" : "—");
+      document.getElementById("hl-tl-note").textContent = "사진 주의: " + NOTE[w.k];
+      tl.redraw(); pal.redraw(); im.redraw();
+      load(st.id).then(function (S) { if (S.w.id === st.id) { st.S = S; im.redraw(); } });
+    }
+    AB.drag(tl.canvas, { move: function (x, y) { var id = nearestWork(st.pos, x, y); if (id && id !== st.id) { st.id = id; show(); } } });
+    show();
+  })();
+
+  /* ================= 2. 팔레트 ================= */
+  (function () {
+    var st = { S: null };
+    var src = AB.seg("hl-pal-src", function () { go(); });
+    var kk = AB.range("hl-pal-k", function (v) { return String(v); }, function () { draw(); });
+    function H(el) { var S = st.S, w = pw(el), c = S ? cropSize(S.w) : { w: 4, h: 3 }; return Math.round(AB.clamp((w - 20) * c.h / c.w + 20, 200, 460)); }
+    var A = AB.canvas("#hl-pal-a", function (ctx, w, h) { if (!st.S) return waiting(ctx, w, h); var c = cropSize(st.S.w); drawCrop(ctx, st.S, fit(w, h, c.w, c.h, 10)); }, { bg: STAGE, get height() { return H(document.getElementById("hl-pal-a")); } });
+    var B = AB.canvas("#hl-pal-b", function (ctx, w, h) {
+      if (!st.S) return waiting(ctx, w, h);
+      var c = cropSize(st.S.w), r = fit(w, h, c.w, c.h, 10), q = poster(st.S.an, kk());
+      ctx.save(); ctx.imageSmoothingEnabled = false; ctx.drawImage(q.canvas, r.x, r.y, r.w, r.h); ctx.restore();
+    }, { bg: STAGE, get height() { return H(document.getElementById("hl-pal-b")); } });
+    var strip = AB.canvas("#hl-pal-strip", function (ctx, w, h) { if (!st.S) return; palStrip(ctx, 0, 0, w, h, palette(st.S.an, kk()), true); }, { bg: STAGE, height: 52 });
+    AB.compare("#hl-pal-cmp", { labels: ["사진", "팔레트 색으로만"], pos: 0.5 });
+    // 화소마다 가장 가까운 팔레트 색(OKLab)으로 칠한 그림과 재현 오차
+    function poster(an, k) {
+      return memo(an, "post" + k, function () {
+        var pal = palette(an, k), cs = pal.map(function (c) { return ART.srgbToOklab(c.rgb); }), c255 = pal.map(function (c) { return ART.to255(c.rgb); });
+        var cv = cnv(an.w, an.h), x = cv.getContext("2d"), id = x.createImageData(an.w, an.h), n = an.w * an.h, err = 0, ne = 0;
+        for (var i = 0; i < n; i++) {
+          var l = an.lab[i * 3], a = an.lab[i * 3 + 1], b = an.lab[i * 3 + 2], bi = 0, bd = 1e9;
+          for (var j = 0; j < cs.length; j++) { var d = (l - cs[j][0]) * (l - cs[j][0]) + (a - cs[j][1]) * (a - cs[j][1]) + (b - cs[j][2]) * (b - cs[j][2]); if (d < bd) { bd = d; bi = j; } }
+          var q = c255[bi]; id.data[i * 4] = q[0]; id.data[i * 4 + 1] = q[1]; id.data[i * 4 + 2] = q[2]; id.data[i * 4 + 3] = 255;
+          if (i % 4 === 0) { var D = an.id.data; err += ART.deltaE2000([D[i * 4] / 255, D[i * 4 + 1] / 255, D[i * 4 + 2] / 255], pal[bi].rgb); ne++; }
+        }
+        x.putImageData(id, 0, 0);
+        return { canvas: cv, err: err / ne };
+      });
+    }
+    function draw() {
+      A.redraw(); B.redraw(); strip.redraw();
+      if (!st.S) return;
+      var pal = palette(st.S.an, kk()), q = poster(st.S.an, kk()), top = pal[0];
+      var sat = pal.slice().sort(function (a, b) { return ART.srgbToOklch(b.rgb)[1] - ART.srgbToOklch(a.rgb)[1]; })[0];
+      AB.stat("hl-pal-o-1", '<span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;background:' + ART.hex(top.rgb) + '"></span> ' + ART.hex(top.rgb) + " <small>" + pctS(top.weight) + "</small>");
+      AB.stat("hl-pal-o-2", '<span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;background:' + ART.hex(sat.rgb) + '"></span> ' + ART.hex(sat.rgb) + " <small>" + pctS(sat.weight) + "</small>");
+      AB.stat("hl-pal-o-3", "ΔE " + q.err.toFixed(1));
+    }
+    function go() {
+      st.S = null; draw();
+      var id = src();
+      load(id).then(function (S) { if (src() !== id) return; st.S = S; A.resize(); B.resize(); draw(); });
+    }
+    go();
+  })();
+
+  /* ================= 3. 사진과 세월이 바꾸는 팔레트 ================= */
+  (function () {
+    var st = { S: null, disp: null, dispId: null };
+    var src = AB.seg("hl-sh-src", function () { go(); });
+    var vy = AB.range("hl-sh-v", function (v) { return v + "%"; }, function () { upd(); });
+    var ct = AB.range("hl-sh-t", function (v) { return v + " K"; }, function () { upd(); });
+    // 선형광 3×3 행렬: 바니시(노란 필터를 빛이 두 번 지난다고 본 대각 행렬) × 보정하지 않은 조명색(브래드퍼드 순응, ART.whiteBalance)
+    function matrix() {
+      var a = vy() / 100, f = [1 - 0.04 * a, 1 - 0.16 * a, 1 - 0.5 * a], T = ct(), M = [];
+      for (var j = 0; j < 3; j++) {
+        var e = [0, 0, 0]; e[j] = f[j];
+        var out = T >= 6500 ? e.slice() : ART.srgbToLinear(ART.whiteBalance(ART.linearToSrgb(e), 6504, T));
+        M.push(out);
+      }
+      // 흰 종이(1,1,1)가 조명에서도 넘치지 않도록 정규화(카메라 노출을 흰색에 맞췄다고 본다)
+      var wv = [0, 1, 2].map(function (i) { return M[0][i] + M[1][i] + M[2][i]; }), mx = Math.max(wv[0], wv[1], wv[2], 1e-6);
+      return [0, 1, 2].map(function (i) { return [M[0][i] / mx, M[1][i] / mx, M[2][i] / mx]; });
+    }
+    var GLUT = new Uint8ClampedArray(4096); for (var gi = 0; gi < 4096; gi++) GLUT[gi] = Math.round(ART.toGamma(gi / 4095) * 255);
+    function applyM(src, M) {
+      var out = new ImageData(src.width, src.height), s = src.data, d = out.data;
+      for (var i = 0; i < s.length; i += 4) {
+        var r = LUT[s[i]], g = LUT[s[i + 1]], b = LUT[s[i + 2]];
+        var R = M[0][0] * r + M[0][1] * g + M[0][2] * b, G = M[1][0] * r + M[1][1] * g + M[1][2] * b, B = M[2][0] * r + M[2][1] * g + M[2][2] * b;
+        d[i] = GLUT[Math.max(0, Math.min(4095, Math.round(R * 4095)))]; d[i + 1] = GLUT[Math.max(0, Math.min(4095, Math.round(G * 4095)))]; d[i + 2] = GLUT[Math.max(0, Math.min(4095, Math.round(B * 4095)))]; d[i + 3] = 255;
+      }
+      return out;
+    }
+    var cur = { M: null, an2: null, dispB: null };
+    function H(el) { var S = st.S, w = pw(el), c = S ? cropSize(S.w) : { w: 4, h: 3 }; return Math.round(AB.clamp((w - 20) * c.h / c.w + 20, 200, 440)); }
+    function dispCanvas(W) {
+      var S = st.S, c = cropSize(S.w), s = Math.min(1, 560 / Math.max(c.w, c.h)), w = Math.round(c.w * s), h = Math.round(c.h * s);
+      if (st.dispId !== S.w.id) { var cv = cnv(w, h), x = cv.getContext("2d", { willReadFrequently: true }); drawCrop(x, S, { x: 0, y: 0, w: w, h: h }); st.disp = x.getImageData(0, 0, w, h); st.dispId = S.w.id; }
+      void W; return st.disp;
+    }
+    var A = AB.canvas("#hl-sh-a", function (ctx, w, h) { if (!st.S) return waiting(ctx, w, h); var c = cropSize(st.S.w); drawCrop(ctx, st.S, fit(w, h, c.w, c.h, 10)); }, { bg: STAGE, get height() { return H(document.getElementById("hl-sh-a")); } });
+    var B = AB.canvas("#hl-sh-b", function (ctx, w, h) {
+      if (!st.S || !cur.dispB) return waiting(ctx, w, h);
+      var c = cropSize(st.S.w), r = fit(w, h, c.w, c.h, 10);
+      ctx.drawImage(cur.dispB, r.x, r.y, r.w, r.h);
+    }, { bg: STAGE, get height() { return H(document.getElementById("hl-sh-b")); } });
+    AB.compare("#hl-sh-cmp", { labels: ["지금 사진", "바뀐 사진"], pos: 0.5 });
+    var strips = AB.canvas("#hl-sh-strip", function (ctx, w, h) {
+      if (!st.S || !cur.an2) return;
+      var p0 = palette(st.S.an, K0), p1 = palette(cur.an2, K0), lw = 64;
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("지금", 4, 18); ctx.fillText("바뀐 뒤", 4, 58);
+      palStrip(ctx, lw, 2, w - lw - 2, 32, p0, true); palStrip(ctx, lw, 42, w - lw - 2, 32, p1, true);
+    }, { bg: STAGE, height: 76 });
+    function upd() {
+      if (!st.S) { A.redraw(); B.redraw(); strips.redraw(); return; }
+      var M = matrix(), d0 = dispCanvas(), d1 = applyM(d0, M), cv = cnv(d1.width, d1.height); cv.getContext("2d").putImageData(d1, 0, 0); cur.dispB = cv;
+      var a0 = st.S.an, id2 = applyM(a0.id, M); cur.an2 = fromData(id2, a0.w, a0.h, null);
+      A.redraw(); B.redraw(); strips.redraw();
+      var p0 = palette(a0, K0), p1 = palette(cur.an2, K0), dE = palDist(p0, p1), m0 = hstat(a0).med, m1 = hstat(cur.an2).med;
+      AB.stat("hl-sh-o-1", "ΔE " + dE.toFixed(1));
+      AB.stat("hl-sh-o-2", m0.toFixed(0) + " → " + m1.toFixed(0));
+      var wl = [0, 1, 2].map(function (i) { return M[i][0] + M[i][1] + M[i][2]; }), wh = ART.hex(ART.clip(ART.linearToSrgb(wl)));
+      AB.stat("hl-sh-o-3", '<span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;border:1px solid var(--border);background:' + wh + '"></span> ' + wh);
+    }
+    function go() {
+      st.S = null; cur.an2 = null; cur.dispB = null; upd();
+      var id = src();
+      load(id).then(function (S) { if (src() !== id) return; st.S = S; A.resize(); B.resize(); upd(); });
+    }
+    go();
+  })();
+
+  /* ================= 4. 명도 분포 ================= */
+  (function () {
+    var st = { S: null, cur: 25 };
+    var src = AB.seg("hl-val-src", function () { go(); });
+    var view = AB.seg("hl-val-view", function () { img.redraw(); });
+    function H(el) { var S = st.S, w = pw(el), c = S ? cropSize(S.w) : { w: 4, h: 3 }; return Math.round(AB.clamp((w - 20) * c.h / c.w + 20, 200, 420)); }
+    var img = AB.canvas("#hl-val-img", function (ctx, w, h) {
+      if (!st.S) return waiting(ctx, w, h);
+      var c = cropSize(st.S.w), r = fit(w, h, c.w, c.h, 10), v = view();
+      if (v === "orig") return drawCrop(ctx, st.S, r);
+      var q = mask(st.S.an, v === "mask" ? st.cur : -1);
+      ctx.save(); ctx.imageSmoothingEnabled = true; ctx.drawImage(q, r.x, r.y, r.w, r.h); ctx.restore();
+    }, { bg: STAGE, get height() { return H(document.getElementById("hl-val-img")); } });
+    function mask(an, t) {
+      var cv = cnv(an.w, an.h), x = cv.getContext("2d"), id = x.createImageData(an.w, an.h);
+      for (var i = 0; i < an.L.length; i++) {
+        var L = an.L[i], g = Math.round(ART.toGamma(Math.pow((L + 16) / 116, 3) > 0.008856 ? Math.pow((L + 16) / 116, 3) : L / 903.3) * 255);
+        if (t >= 0 && L < t) { id.data[i * 4] = 34; id.data[i * 4 + 1] = 211; id.data[i * 4 + 2] = 238; }
+        else { id.data[i * 4] = g; id.data[i * 4 + 1] = g; id.data[i * 4 + 2] = g; }
+        id.data[i * 4 + 3] = 255;
+      }
+      x.putImageData(id, 0, 0); return cv;
+    }
+    var box = null;
+    var hc = AB.canvas("#hl-val-hist", function (ctx, w, h) {
+      if (!st.S) return waiting(ctx, w, h);
+      var hs = hstat(st.S.an), p = P(); box = { x: 14, y: 22, w: w - 28, h: h - 58 };
+      var ch = histChart(ctx, box, hs.bins, null, { bands: [{ a: 0, b: st.cur, c: "rgba(34,211,238,0.18)" }], marks: [{ L: hs.med, c: p.text, dash: [4, 3] }] });
+      var x = ch.X(st.cur); ctx.strokeStyle = "#0e9fb5"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, box.y - 6); ctx.lineTo(x, box.y + box.h); ctx.stroke();
+      AB.handle(ctx, x, box.y - 8, { r: 7, fill: "#0e9fb5" });
+      ctx.fillStyle = p.text; ctx.font = AB.font(11); ctx.textAlign = ch.X(hs.med) > w - 90 ? "right" : "left"; ctx.textBaseline = "top"; ctx.fillText("중간 " + hs.med.toFixed(0), ch.X(hs.med) + (ctx.textAlign === "right" ? -4 : 4), box.y + 2);
+    }, { height: 200 });
+    AB.drag(hc.canvas, { move: function (x) { if (!box) return; st.cur = Math.round(AB.clamp((x - box.x) / box.w * 100, 0, 100)); if (view() !== "mask") view.set("mask", false); upd(); } });
+    function upd() {
+      img.redraw(); hc.redraw();
+      if (!st.S) return;
+      var hs = hstat(st.S.an), s = hs.sorted, lo = 0, hi = s.length;
+      while (lo < hi) { var m = (lo + hi) >> 1; if (s[m] < st.cur) lo = m + 1; else hi = m; }
+      AB.stat("hl-val-o-1", hs.med.toFixed(0));
+      AB.stat("hl-val-o-2", hs.lo.toFixed(0) + " ~ " + hs.hi.toFixed(0));
+      AB.stat("hl-val-o-3", pctS(hs.dk) + " · " + pctS(hs.lt));
+      AB.stat("hl-val-o-4", "L* " + st.cur + " 아래 " + pctS(lo / s.length));
+    }
+    function go() { st.S = null; upd(); var id = src(); load(id).then(function (S) { if (src() !== id) return; st.S = S; img.resize(); upd(); }); }
+    go();
+  })();
+
+  /* ================= 5. 구도선 ================= */
+  (function () {
+    var st = { S: null, g: { x: 0.5, y: 0.5 }, r: null };
+    var src = AB.seg("hl-cp-src", function () { st.g = { x: 0.5, y: 0.5 }; go(); });
+    var cT = AB.check("hl-cp-th", function () { cv.redraw(); }), cW = AB.check("hl-cp-w", function () { upd(); }), cN = AB.check("hl-cp-n", function () { cv.redraw(); });
+    var tt = AB.range("hl-cp-t", function (v) { return String(v); }, function () { upd(); });
+    function H(el) { var S = st.S, w = pw(el), c = S ? cropSize(S.w) : { w: 4, h: 3 }; return Math.round(AB.clamp((w - 20) * c.h / c.w + 20, 220, 460)); }
+    var cv = AB.canvas("#hl-cp-cv", function (ctx, w, h) {
+      if (!st.S) return waiting(ctx, w, h);
+      var c = cropSize(st.S.w), r = fit(w, h, c.w, c.h, 10); st.r = r;
+      drawCrop(ctx, st.S, r);
+      overlays(ctx, r, st.S.an, { th: cT(), w: cW(), n: cN(), t: tt(), guess: st.g });
+    }, { bg: STAGE, get height() { return H(document.getElementById("hl-cp-cv")); } });
+    var rc = AB.canvas("#hl-cp-rose", function (ctx, w, h) {
+      if (!st.S) return;
+      var e = edir(st.S.an, Q0), R = Math.min(w / 2 - 16, h / 2 - 26);
+      rose(ctx, w / 2, h / 2 - 8, R, e.ro, P().accent, { label: "선 방향 분포" });
+    }, { height: 210 });
+    AB.drag(cv.canvas, { move: function (x, y) { var r = st.r; if (!r) return; st.g = { x: AB.clamp((x - r.x) / r.w, 0, 1), y: AB.clamp((y - r.y) / r.h, 0, 1) }; upd(); } });
+    function upd() {
+      cv.redraw(); rc.redraw();
+      if (!st.S) return;
+      var wc = wcen(st.S.an, tt()), o = hvd(edir(st.S.an, Q0).ro), off = Math.hypot(wc.cx - 0.5, wc.cy - 0.5), d = Math.hypot(wc.cx - st.g.x, wc.cy - st.g.y);
+      AB.stat("hl-cp-o-1", pctS(wc.cx) + ", " + pctS(wc.cy) + " <small>" + where(wc.cx, wc.cy) + "</small>");
+      AB.stat("hl-cp-o-2", pctS(off, 1));
+      AB.stat("hl-cp-o-3", pctS(o.h) + " · " + pctS(o.v) + " · " + pctS(o.up + o.dn));
+      AB.stat("hl-cp-o-4", cW() ? pctS(d, 1) : "계산을 켜면 보인다");
+    }
+    function go() { st.S = null; upd(); var id = src(); load(id).then(function (S) { if (src() !== id) return; st.S = S; cv.resize(); upd(); }); }
+    go();
+  })();
+  function overlays(ctx, r, an, o) {
+    if (o.n) {
+      var e = edir(an, Q0), cw = r.w / e.N, ch = r.h / e.rows, L = Math.min(cw, ch) * 0.48;
+      e.cells.forEach(function (c) {
+        if (c.s < 0.12) return;
+        var x = r.x + c.x * r.w, y = r.y + c.y * r.h, l = L * (0.35 + 0.65 * c.s), dx = Math.cos(c.phi) * l, dy = Math.sin(c.phi) * l;
+        duo(ctx, C_NEEDLE, 1.8, function () { ctx.moveTo(x - dx, y - dy); ctx.lineTo(x + dx, y + dy); });
+      });
+    }
+    if (o.th) {
+      var g = ART.thirds(r.w, r.h);
+      duo(ctx, C_GRID, 1.3, function () { g.v.forEach(function (u) { ctx.moveTo(r.x + u, r.y); ctx.lineTo(r.x + u, r.y + r.h); }); g.h.forEach(function (u) { ctx.moveTo(r.x, r.y + u); ctx.lineTo(r.x + r.w, r.y + u); }); });
+    }
+    if (o.guess) {
+      var gx = r.x + o.guess.x * r.w, gy = r.y + o.guess.y * r.h;
+      AB.handle(ctx, gx, gy, { r: 8, fill: C_GUESS });
+    }
+    if (o.w) {
+      var wc = wcen(an, o.t == null ? T0 : o.t), x = r.x + wc.cx * r.w, y = r.y + wc.cy * r.h, mx = r.x + r.w / 2, my = r.y + r.h / 2;
+      duo(ctx, "#ffffff", 1.3, function () { ctx.moveTo(mx - 7, my); ctx.lineTo(mx + 7, my); ctx.moveTo(mx, my - 7); ctx.lineTo(mx, my + 7); });
+      duo(ctx, C_W, 2, function () { ctx.moveTo(mx, my); ctx.lineTo(x, y); });
+      ctx.beginPath(); ctx.arc(x, y, 7.5, 0, 7); ctx.fillStyle = C_W; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#ffffff"; ctx.stroke();
+    }
+  }
+
+  /* ================= 6. 두 시대 나란히 ================= */
+  function groupCard(ctx, x, y, w, h, gk, col) {
+    var ms = members(gk), p = P(), rowH = Math.min(22, (h - 58) / ms.length), gp = groupPal(gk);
+    ctx.fillStyle = col; ctx.fillRect(x, y, 4, h);
+    ctx.fillStyle = p.text; ctx.font = AB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(GBY[gk].n + " · " + ms.length + "점", x + 12, y);
+    ctx.fillStyle = STAGE; ctx.fillRect(x + 12, y + 20, w - 12, 30);
+    palStrip(ctx, x + 12, y + 20, w - 12, 30, gp, w > 300);
+    var yy = y + 58, bw = Math.min(110, (w - 12) * 0.4);
+    ms.forEach(function (m) {
+      var Pq = PRE[m.id]; if (!Pq) return;
+      palStrip(ctx, x + 12, yy, bw, rowH - 4, preToPal(Pq.p), false);
+      var gx = x + 12 + bw + 6; ctx.fillStyle = ART.hex(ART.grayOf(ART.labToSrgb([Pq.med, 0, 0]))); ctx.fillRect(gx, yy, rowH - 4, rowH - 4); ctx.strokeStyle = p.border; ctx.strokeRect(gx + 0.5, yy + 0.5, rowH - 5, rowH - 5);
+      ctx.fillStyle = p.dim; ctx.font = AB.font(Math.min(12, rowH - 7)); ctx.textBaseline = "middle";
+      var label = m.a + " · " + m.t, maxW = w - (gx - x) - rowH - 2;
+      while (ctx.measureText(label).width > maxW && label.length > 4) label = label.slice(0, -2) + "…";
+      ctx.fillText(label, gx + rowH, yy + (rowH - 4) / 2);
+      yy += rowH;
+    });
+  }
+  (function () {
+    var ga = AB.seg("hl-era-a", function () { upd(); }), gb = AB.seg("hl-era-b", function () { upd(); });
+    function cardH(el) { var w = pw(el), two = w >= 640, n = Math.max(members(ga()).length, members(gb()).length) * 22 + 70; return two ? n : n * 2 + 16; }
+    var cards = AB.canvas("#hl-era-cards", function (ctx, w, h) {
+      var two = w >= 640, cw = two ? (w - 36) / 2 : w - 24, p = P();
+      var hA = members(ga()).length * 22 + 66, hB = members(gb()).length * 22 + 66;
+      groupCard(ctx, 12, 12, cw, hA, ga(), p.accent);
+      if (two) groupCard(ctx, 24 + cw, 12, cw, hB, gb(), p.accent2 || p.text); else groupCard(ctx, 12, 24 + hA, cw, hB, gb(), p.accent2 || p.text);
+    }, { get height() { return cardH(document.getElementById("hl-era-cards")); } });
+    var chart = AB.canvas("#hl-era-chart", function (ctx, w, h) {
+      var A = groupStat(ga()), B = groupStat(gb()), p = P(), two = w >= 560, hw = two ? w * 0.58 : w;
+      var box = { x: 14, y: 26, w: hw - 28, h: (two ? h : h * 0.5) - 64 };
+      ctx.fillStyle = p.text; ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("명도 분포(작품 평균)", 14, 4);
+      histChart(ctx, box, A.h, B.h, { colA: p.accent, colB: p.accent2 || p.text, marks: [{ L: A.med, c: p.accent, dash: [4, 3] }, { L: B.med, c: p.accent2 || p.text, dash: [2, 3] }] });
+      var R, cx1, cx2, cy;
+      if (two) { R = Math.min((w - hw) / 4 - 12, h / 2 - 34); cy = h / 2 - 6; cx1 = hw + (w - hw) / 4; cx2 = hw + 3 * (w - hw) / 4; }
+      else { R = Math.min(w / 4 - 16, h * 0.25 - 30); cy = h * 0.5 + h * 0.25 - 4; cx1 = w / 4; cx2 = 3 * w / 4; }
+      var mx = Math.max.apply(null, A.ro.concat(B.ro));
+      rose(ctx, cx1, cy, R, A.ro, p.accent, { label: GBY[ga()].s, max: mx });
+      rose(ctx, cx2, cy, R, B.ro, p.accent2 || p.text, { label: GBY[gb()].s, max: mx });
+    }, { get height() { var w = pw(document.getElementById("hl-era-chart")); return w >= 560 ? 240 : 420; } });
+    function upd() {
+      cards.resize(); chart.redraw();
+      var A = groupStat(ga()), B = groupStat(gb()), oa = hvd(A.ro), ob = hvd(B.ro);
+      AB.stat("hl-era-o-1", A.med.toFixed(0) + " · " + B.med.toFixed(0));
+      AB.stat("hl-era-o-2", A.min.toFixed(0) + "~" + A.max.toFixed(0) + " · " + B.min.toFixed(0) + "~" + B.max.toFixed(0));
+      AB.stat("hl-era-o-3", pctS(A.dk) + " · " + pctS(B.dk));
+      AB.stat("hl-era-o-4", pctS(oa.h) + "/" + pctS(oa.v) + " · " + pctS(ob.h) + "/" + pctS(ob.v));
+      AB.stat("hl-era-o-5", "ΔE " + palDist(groupPal(ga()), groupPal(gb())).toFixed(1));
+    }
+    upd();
+  })();
+
+  /* ================= 7. 종합 실험실 ================= */
+  (function () {
+    var st = { a: "rembrandt-aristotle-homer", b: "ma-yuan-moon-pine", pos: {}, drag: null, SA: null, SB: null };
+    var unit = AB.seg("hl-lab-unit", function () { all(); });
+    var cT = AB.check("hl-lab-th", function () { pics(); }), cW = AB.check("hl-lab-w", function () { pics(); }), cN = AB.check("hl-lab-n", function () { pics(); });
+    var kk = AB.range("hl-lab-k", function (v) { return String(v); }, function () { all(); });
+    var tl = AB.canvas("#hl-lab-tl", function (ctx, w, h) {
+      var p = P(), isG = unit() === "group";
+      st.pos = drawTimeline(ctx, w, h, { mode: "pal", group: isG ? BY[st.a].g : null, group2: isG ? BY[st.b].g : null, marks: [{ id: st.a, c: p.accent, t: "A" }, { id: st.b, c: p.accent2 || p.text, t: "B" }] });
+    }, { get height() { return tlHeight(document.getElementById("hl-lab-tl")); } });
+    AB.drag(tl.canvas, {
+      start: function (x, y) { var qa = st.pos[st.a], qb = st.pos[st.b]; var da = qa ? Math.hypot(x - qa.x, y - (qa.y + qa.h / 2)) : 1e9, db = qb ? Math.hypot(x - qb.x, y - (qb.y + qb.h / 2)) : 1e9; st.drag = da <= db ? "a" : "b"; },
+      move: function (x, y) { var id = nearestWork(st.pos, x, y); if (!id || id === st[st.drag]) return; if (unit() === "group" && BY[id].g === BY[st[st.drag]].g) return; st[st.drag] = id; all(); },
+      end: function () { st.drag = null; }
+    });
+    function picH(el) { var w = pw(el); return Math.round(AB.clamp(w * 0.82, 220, 400)); }
+    function pic(which) {
+      return AB.canvas("#hl-lab-" + which, function (ctx, w, h) {
+        var id = st[which], S = st["S" + which.toUpperCase()];
+        if (unit() === "group") { ctx.fillStyle = STAGE; groupMini(ctx, w, h, BY[id].g); return; }
+        if (!S || S.w.id !== id) return waiting(ctx, w, h);
+        var c = cropSize(S.w), r = fit(w, h - 50, c.w, c.h, 8);
+        drawCrop(ctx, S, r);
+        overlays(ctx, r, S.an, { th: cT(), w: cW(), n: cN(), t: T0 });
+        palStrip(ctx, 8, h - 44, w - 16, 36, palette(S.an, kk()), true);
+      }, { bg: STAGE, get height() { return picH(document.getElementById("hl-lab-" + which)); } });
+    }
+    // 시대 모드: 그 시대 작품들의 팔레트 띠와 시대 팔레트(고정 바탕, 고정 글자색)
+    function groupMini(ctx, w, h, gk) {
+      var ms = members(gk), gp = groupPal(gk), rowH = Math.min(24, (h - 70) / ms.length), y = 10;
+      ctx.fillStyle = INK; ctx.font = AB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(GBY[gk].n + " · " + ms.length + "점", 10, y);
+      y += 22;
+      ms.forEach(function (m) {
+        var Pq = PRE[m.id]; if (!Pq) return;
+        palStrip(ctx, 10, y, Math.min(120, w * 0.4), rowH - 4, preToPal(Pq.p), false);
+        ctx.fillStyle = DIM; ctx.font = AB.font(Math.min(12, rowH - 8)); ctx.textBaseline = "middle";
+        var label = m.a + " · " + m.d, mw = w - Math.min(120, w * 0.4) - 26; while (ctx.measureText(label).width > mw && label.length > 4) label = label.slice(0, -2) + "…";
+        ctx.fillText(label, 18 + Math.min(120, w * 0.4), y + (rowH - 4) / 2); y += rowH;
+      });
+      palStrip(ctx, 8, h - 44, w - 16, 36, gp, true);
+    }
+    var pa = pic("a"), pb = pic("b");
+    var chart = AB.canvas("#hl-lab-chart", function (ctx, w, h) {
+      var D = data(), p = P(), two = w >= 560, hw = two ? w * 0.58 : w;
+      if (!D) return waiting(ctx, w, h);
+      var box = { x: 14, y: 26, w: hw - 28, h: (two ? h : h * 0.5) - 64 };
+      ctx.fillStyle = p.text; ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("명도 분포  A 막대 · B 선", 14, 4);
+      histChart(ctx, box, D.A.h, D.B.h, { colA: p.accent, colB: p.accent2 || p.text, marks: [{ L: D.A.med, c: p.accent, dash: [4, 3] }, { L: D.B.med, c: p.accent2 || p.text, dash: [2, 3] }] });
+      var R, cx1, cx2, cy;
+      if (two) { R = Math.min((w - hw) / 4 - 12, h / 2 - 34); cy = h / 2 - 6; cx1 = hw + (w - hw) / 4; cx2 = hw + 3 * (w - hw) / 4; }
+      else { R = Math.min(w / 4 - 16, h * 0.25 - 30); cy = h * 0.75 - 4; cx1 = w / 4; cx2 = 3 * w / 4; }
+      var mx = Math.max.apply(null, D.A.ro.concat(D.B.ro));
+      rose(ctx, cx1, cy, R, D.A.ro, p.accent, { label: "A 선 방향", max: mx });
+      rose(ctx, cx2, cy, R, D.B.ro, p.accent2 || p.text, { label: "B 선 방향", max: mx });
+    }, { get height() { var w = pw(document.getElementById("hl-lab-chart")); return w >= 560 ? 240 : 420; } });
+    function workData(S) { var hs = hstat(S.an), e = edir(S.an, Q0), wc = wcen(S.an, T0); return { h: hs.bins, med: hs.med, dk: hs.dk, lt: hs.lt, lo: hs.lo, hi: hs.hi, ro: e.ro, cx: wc.cx, cy: wc.cy, pal: palette(S.an, kk()) }; }
+    function data() {
+      if (unit() === "group") {
+        var ga = BY[st.a].g, gb = BY[st.b].g, A = groupStat(ga), B = groupStat(gb);
+        A.pal = groupPal(ga); B.pal = groupPal(gb); return { A: A, B: B, g: true };
+      }
+      if (!st.SA || !st.SB || st.SA.w.id !== st.a || st.SB.w.id !== st.b) return null;
+      return { A: workData(st.SA), B: workData(st.SB), g: false };
+    }
+    function pics() { pa.redraw(); pb.redraw(); }
+    function caption(id, el) {
+      var w = BY[id];
+      document.getElementById(el).innerHTML = unit() === "group" ? "<b>" + GBY[w.g].n + "</b> · " + members(w.g).length + "점(연대표에서 흐리지 않은 막대)" : "<b>" + w.a + "</b>, 「" + w.t + "」, " + w.d + ". " + w.m + ".";
+    }
+    function report() {
+      var D = data(), out = document.getElementById("hl-lab-warn");
+      if (!D) { ["1", "2", "3", "4", "5"].forEach(function (k) { AB.stat("hl-lab-o-" + k, "—"); }); return; }
+      var oa = hvd(D.A.ro), ob = hvd(D.B.ro);
+      AB.stat("hl-lab-o-1", "ΔE " + palDist(D.A.pal, D.B.pal).toFixed(1));
+      AB.stat("hl-lab-o-2", D.A.med.toFixed(0) + " · " + D.B.med.toFixed(0));
+      AB.stat("hl-lab-o-3", pctS(D.A.dk) + " · " + pctS(D.B.dk));
+      AB.stat("hl-lab-o-4", dirWord(oa) + " " + pctS(Math.max(oa.h, oa.v, oa.up + oa.dn)) + " · " + dirWord(ob) + " " + pctS(Math.max(ob.h, ob.v, ob.up + ob.dn)));
+      AB.stat("hl-lab-o-5", D.g ? "작품마다 다름" : where(D.A.cx, D.A.cy) + " · " + where(D.B.cx, D.B.cy));
+      // 사진 주의와 비교 주의
+      var wa = BY[st.a], wb = BY[st.b], msg = [];
+      if (D.g) {
+        msg.push("시대 비교는 이 책이 고른 " + D.A.n + "점과 " + D.B.n + "점의 평균이다. 그 시대의 표본이 아니다. A 안의 중간 명도만 해도 L* " + D.A.min.toFixed(0) + "~" + D.A.max.toFixed(0) + ", B는 " + D.B.min.toFixed(0) + "~" + D.B.max.toFixed(0) + "로 퍼져 있다.");
+      } else {
+        msg.push("A: " + NOTE[wa.k]);
+        if (wb.k !== wa.k) msg.push("B: " + NOTE[wb.k]); else msg.push("B도 같은 주의가 붙는다.");
+        if (wa.m !== wb.m) msg.push("매체가 다르다(" + wa.m + " / " + wb.m + "). 차이의 상당 부분은 시대보다 재료와 바탕에서 온다.");
+        if (wa.a === wb.a) msg.push("같은 작가의 두 점이다. 이 차이는 시대가 아니라 주제와 시간(빛), 또는 그림의 목적에서 온다.");
+      }
+      out.innerHTML = msg.map(function (m) { return "<li>" + m + "</li>"; }).join("");
+    }
+    function all() {
+      tl.redraw(); caption(st.a, "hl-lab-cap-a"); caption(st.b, "hl-lab-cap-b");
+      pics(); chart.redraw(); report();
+      if (unit() === "work") {
+        var a = st.a, b = st.b;
+        load(a).then(function (S) { if (st.a === a) { st.SA = S; pa.redraw(); chart.redraw(); report(); } });
+        load(b).then(function (S) { if (st.b === b) { st.SB = S; pb.redraw(); chart.redraw(); report(); } });
+      }
+    }
+    all();
+  })();
+
+  /* 미리 계산 값을 다시 만들 때 쓰는 도구(본문에는 쓰이지 않는다). 콘솔에서 HLAB.measure().then(JSON.stringify) */
+  window.HLAB = {
+    works: WORKS,
+    api: { load: load, palette: palette, hstat: hstat, wcen: wcen, edir: edir, hvd: hvd, palDist: palDist, groupPal: groupPal, groupStat: groupStat, preToPal: preToPal },
+    measure: function (ids) {
+      ids = ids || WORKS.map(function (w) { return w.id; });
+      return Promise.all(ids.map(function (id) { return load(id); })).then(function (list) {
+        var out = {};
+        list.forEach(function (S) {
+          var an = S.an, hs = hstat(an), e = edir(an, Q0), wc = wcen(an, T0), pal = palette(an, K0), r3 = function (v) { return Math.round(v * 1000) / 1000; };
+          out[S.w.id] = { p: pal.map(function (c) { return [ART.hex(c.rgb), r3(c.weight)]; }), h: hs.bins.map(function (v) { return Math.round(v * 1000); }), med: Math.round(hs.med * 10) / 10, lo: Math.round(hs.lo * 10) / 10, hi: Math.round(hs.hi * 10) / 10, dk: r3(hs.dk), lt: r3(hs.lt), ro: e.ro.map(function (v) { return Math.round(v * 1000); }), cx: r3(wc.cx), cy: r3(wc.cy) };
+        });
+        return out;
+      });
+    }
+  };
+})();
+</script>
+
+</body>
+</html>

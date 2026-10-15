@@ -1,0 +1,11 @@
+{
+  "id": "artbook-type",
+  "title": "ArtBook 타이포그래피",
+  "description": "좋은 글자는 읽는 동안 보이지 않는다. 글자의 해부, 한글의 구조, 글꼴의 갈래, 자간과 커닝, 행간과 글줄 길이, 가독성, 위계, 그리드, 정렬, 화면의 글자, 제목과 레터링까지. 서윤의 여름 조판 노트를 따라 슬라이더로 직접 조판하며 배우는 한글·라틴 타이포그래피 교과서(TypeBook).",
+  "url": "https://artbook.euiyun.com/type/",
+  "repo": "https://github.com/geniuskey/artbook",
+  "path": "type/",
+  "field": "art",
+  "status": "published",
+  "domain": "artbook.euiyun.com"
+}

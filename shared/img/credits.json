@@ -581,7 +581,8 @@
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/334197",
       "checked": "2026-10-15",
       "usedIn": [
-        "composition/chapters/layout.html"
+        "composition/chapters/layout.html",
+        "type/chapters/hierarchy.html"
       ]
     },
     {
@@ -1357,6 +1358,336 @@
       "checked": "2026-10-15",
       "usedIn": [
         "drawing/chapters/shadow.html"
+      ]
+    },
+    {
+      "id": "colonna-hypnerotomachia-tapered-page",
+      "file": "colonna-hypnerotomachia-tapered-page.webp",
+      "derived": "원본 DP102569.jpg(2698×4000)을 긴 변 1600px로 줄여 WebP 품질 78로 저장",
+      "title": "폴리필로의 꿈(본문 한 쪽, 역삼각형으로 끝나는 단락)",
+      "titleEn": "Hypnerotomachia Poliphili (text page with tapered paragraph)",
+      "artist": "Francesco Colonna(저자), Aldus Manutius(인쇄)",
+      "date": "December 1499",
+      "medium": "Printed book with woodcut illustrations",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Gift of J. Pierpont Morgan, 1923",
+      "objectId": 365313,
+      "license": "Public Domain (CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP102569.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/365313",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/365313",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/alignment.html"
+      ]
+    },
+    {
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checked": "2026-10-15",
+      "id": "roman-funerary-inscription-porcius",
+      "file": "roman-funerary-inscription-porcius.webp",
+      "derived": "미술관 대표 이미지 LC-X_248_1-20200226-06(4000×2667 JPEG)을 긴 변 1600px WebP(1600×1067, 품질 80)로 줄임",
+      "title": "묘비 명문이 새겨진 대리석 판(가이우스 포르키우스 디오니시우스)",
+      "titleEn": "Marble plaque with funerary inscription",
+      "artist": "작가 미상 (로마 제정기)",
+      "date": "1–2세기",
+      "medium": "대리석",
+      "creditLine": "Museum Accession",
+      "objectId": 256771,
+      "source": "https://images.metmuseum.org/CRDImages/gr/original/LC-X_248_1-20200226-06.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/256771",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/256771",
+      "usedIn": [
+        "type/chapters/anatomy.html"
+      ]
+    },
+    {
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checked": "2026-10-15",
+      "id": "calligraphic-exercise-alphabet",
+      "file": "calligraphic-exercise-alphabet.webp",
+      "derived": "미술관 대표 이미지 DP-12235-029(4000×2822 JPEG)를 긴 변 1600px WebP(1600×1129, 품질 80)로 줄임",
+      "title": "서법 연습: 여러 서체로 쓴 알파벳",
+      "titleEn": "Calligraphic Exercise: Letters of the Alphabet in different scripts",
+      "artist": "작가 미상",
+      "date": "17세기 초",
+      "medium": "종이에 펜, 검은색·갈색 잉크",
+      "creditLine": "Purchase, Daniel Ergmann Gift, 2014",
+      "objectId": 735672,
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP-12235-029.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/735672",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/735672",
+      "usedIn": [
+        "type/chapters/anatomy.html"
+      ]
+    },
+    {
+      "id": "griffo-hypnerotomachia-text-detail",
+      "file": "griffo-hypnerotomachia-text-detail.webp",
+      "derived": "본문 부분 확대: 원본 DP102816.jpg(4000×2827)에서 왼쪽 면 본문 x 740–2100, y 250–1010을 잘라 WebP 품질 80으로 저장",
+      "title": "힙네로토마키아 폴리필리(본문 부분)",
+      "titleEn": "Hypnerotomachia Poliphili (detail of text)",
+      "artist": "Francesco Colonna(저자), Aldus Manutius(인쇄), 활자 Francesco Griffo",
+      "date": "1499",
+      "medium": "Printed book with woodcut illustrations",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Gift of J. Pierpont Morgan, 1923",
+      "objectId": 365313,
+      "license": "Public Domain (CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP102816.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/365313",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/365313",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/classification.html"
+      ]
+    },
+    {
+      "id": "didot-horace-epistles-detail",
+      "file": "didot-horace-epistles-detail.webp",
+      "derived": "본문 부분 확대: 원본 DP254718.jpg(2713×3881)에서 x 300–2450, y 1560–2990을 잘라 긴 변 1600px, WebP 품질 80으로 저장",
+      "title": "호라티우스 작품집(서간집 제2권 첫 면 부분)",
+      "titleEn": "Opera (Horace), detail of Epistolarum Liber Secundus",
+      "artist": "Horace(저자), Pierre Didot l'aîné(출판), Charles Percier(삽화)",
+      "date": "1799",
+      "medium": "Printed book with engraved headpiece illustrations",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Anonymous Gift, 1932",
+      "objectId": 351789,
+      "license": "Public Domain (CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP254718.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/351789",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/351789",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/classification.html"
+      ]
+    },
+    {
+      "id": "joseon-calligraphy-clerical-script",
+      "file": "joseon-calligraphy-clerical-script.webp",
+      "derived": "원본 DP-44212-002.jpg(3000×4000)에서 양옆 검은 배경을 잘라(x 527–2473) 779×1600, WebP 품질 78로 저장",
+      "title": "서예(예서)",
+      "titleEn": "Calligraphy",
+      "artist": "작가 미상(조선)",
+      "date": "early 19th century",
+      "medium": "Hanging scroll; ink on paper, 121.8 × 52.2 cm",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Mary and Cheney Cowles Collection, Gift of Mary and Cheney Cowles, 2025",
+      "objectId": 929089,
+      "license": "Public Domain (CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP-44212-002.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/929089",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/929089",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/display.html"
+      ]
+    },
+    {
+      "id": "toulouse-lautrec-ambassadeurs-bruant",
+      "file": "toulouse-lautrec-ambassadeurs-bruant.webp",
+      "derived": "원본 MM89762.jpg(2845×4000, 흑백 촬영)을 1138×1600, WebP 품질 78로 줄임",
+      "title": "앙바사되르: 아리스티드 브뤼앙",
+      "titleEn": "Ambassadeurs: Aristide Bruant",
+      "artist": "Henri de Toulouse-Lautrec",
+      "date": "1892",
+      "medium": "Lithograph printed in five colors, wove paper, 145.1 × 99 cm",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Harris Brisbane Dick Fund, 1932",
+      "objectId": 333989,
+      "license": "Public Domain (CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/MM89762.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/333989",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/333989",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/display.html"
+      ]
+    },
+    {
+      "id": "goryeo-lotus-sutra-vol2",
+      "file": "goryeo-lotus-sutra-vol2.webp",
+      "derived": "원본 DP270191.jpg(2000×1027)을 긴 변 1600px로 줄여 WebP 품질 80으로 저장",
+      "title": "묘법연화경 제2권(사경, 본문 펼친 면)",
+      "titleEn": "Illustrated manuscript of the Lotus Sutra, Volume 2",
+      "artist": "고려 사경(작자 미상)",
+      "date": "ca. 1340",
+      "medium": "Accordion-fold book; gold and silver on indigo-dyed mulberry paper",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Purchase, Lila Acheson Wallace Gift, 1994",
+      "objectId": 36451,
+      "license": "Public Domain (CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP270191.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/36451",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/36451",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/grid.html"
+      ]
+    },
+    {
+      "id": "toulouse-lautrec-moulin-rouge-la-goulue",
+      "file": "toulouse-lautrec-moulin-rouge-la-goulue.webp",
+      "derived": "The Met 대표 이미지(DP-42747-001.jpg, 2527×4000)를 긴 변 1600px WebP(1011×1600, 품질 80)로 줄임",
+      "title": "물랭 루주: 라 굴뤼",
+      "titleEn": "Moulin Rouge: La Goulue",
+      "artist": "앙리 드 툴루즈로트레크 (Henri de Toulouse-Lautrec, 1864–1901)",
+      "date": "1891",
+      "medium": "4색 석판화, 우브지 세 장 (Lithograph printed in four colors; three sheets of wove paper), 190 × 116.5 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+      "creditLine": "Harris Brisbane Dick Fund, 1932",
+      "objectId": 333990,
+      "license": "공공 도메인 (CC0, The Met Open Access)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP-42747-001.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/333990",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/333990",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/hierarchy.html"
+      ]
+    },
+    {
+      "id": "colonna-hypnerotomachia-triumphus-detail",
+      "file": "colonna-hypnerotomachia-triumphus-detail.webp",
+      "derived": "원본 4000×2714 JPEG(펼친 면)에서 오른쪽 면의 목판화 아랫부분과 역삼각형 본문(가로 1980~3560, 세로 560~2480 px)만 잘라 긴 변 1600px WebP(1317×1600, 품질 78)로 줄임",
+      "title": "폴리필로의 꿈 속 사랑의 싸움 (첫 번째 개선 행렬 다음 면)",
+      "titleEn": "Hypnerotomachia Poliphili",
+      "artist": "프란체스코 콜론나 (Francesco Colonna, 약 1453–1517) 지음, 알두스 마누티우스 (Aldus Manutius) 인쇄",
+      "date": "1499년 12월",
+      "medium": "목판화 삽화가 든 인쇄본 (Printed book with woodcut illustrations), 29.5 × 22 × 4 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of J. Pierpont Morgan, 1923",
+      "objectId": 365313,
+      "license": "공공 도메인 (CC0, The Met Open Access)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP102817.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/365313",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/365313",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/leading.html"
+      ]
+    },
+    {
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checked": "2026-10-15",
+      "id": "goryeo-lotus-sutra-frontispiece",
+      "file": "goryeo-lotus-sutra-frontispiece.webp",
+      "derived": "미술관 대표 이미지 DP270185(1870×1024 JPEG)를 긴 변 1600px WebP(1600×876, 품질 80)로 줄임",
+      "title": "묘법연화경 권2 사경(표지와 변상도, 첫머리)",
+      "titleEn": "Illustrated manuscript of the Lotus Sutra, Volume 2",
+      "artist": "작가 미상 (고려)",
+      "date": "1340년경",
+      "medium": "절첩본, 쪽물 들인 닥종이에 금니·은니",
+      "creditLine": "Purchase, Lila Acheson Wallace Gift, 1994",
+      "objectId": 36451,
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP270185.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/36451",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/36451",
+      "usedIn": [
+        "type/chapters/overview.html"
+      ]
+    },
+    {
+      "id": "wolgemut-nuremberg-chronicle-leaf",
+      "file": "wolgemut-nuremberg-chronicle-leaf.webp",
+      "derived": "The Met 대표 이미지(DP880247.jpg, 2576×3678)를 긴 변 1600px WebP(1121×1600, 품질 80)로 줄임",
+      "title": "죽음의 춤, 『뉘른베르크 연대기』의 한 장",
+      "titleEn": "Dance of Death, leaf from \"The Nuremberg Chronicle\"",
+      "artist": "미하엘 볼게무트 (Michael Wolgemut, 1434–1519)",
+      "date": "1493",
+      "medium": "목판화와 활판 인쇄 (Woodcut and letterpress text), 46 × 31.7 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+      "creditLine": "Bequest of Herbert Mitchell, 2008",
+      "objectId": 390220,
+      "license": "공공 도메인 (CC0, The Met Open Access)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP880247.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/390220",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/390220",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/readability.html"
+      ]
+    },
+    {
+      "id": "colonna-hypnerotomachia-poliphili",
+      "file": "colonna-hypnerotomachia-poliphili.webp",
+      "derived": "The Met 대표 이미지(DP102816.jpg, 4000×2827)를 긴 변 1600px WebP(1600×1131, 품질 80)로 줄임",
+      "title": "폴리필로의 꿈",
+      "titleEn": "Hypnerotomachia Poliphili",
+      "artist": "프란체스코 콜론나 (Francesco Colonna, ca. 1453–1517, 전해지는 저자), 알두스 마누티우스 인쇄",
+      "date": "1499년 12월",
+      "medium": "목판 삽화가 든 인쇄본 (Printed book with woodcut illustrations), 29.5 × 22 × 4 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+      "creditLine": "Gift of J. Pierpont Morgan, 1923",
+      "objectId": 365313,
+      "license": "공공 도메인 (CC0, The Met Open Access)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP102816.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/365313",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/365313",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/readability.html"
+      ]
+    },
+    {
+      "id": "sampler-british-foreign-school-1825",
+      "file": "sampler-british-foreign-school-1825.webp",
+      "derived": "원본 DP363113.jpg(3438×3854)에서 바깥 배경을 잘라(x 289–3223, y 288–3545) 991×1100, WebP 품질 70으로 저장",
+      "title": "영국·해외 학교 협회에서 만든 자수 견본",
+      "titleEn": "Sampler made at the British and Foreign School Society",
+      "artist": "작자 미상",
+      "date": "1825",
+      "medium": "Wool embroidery on cotton, 9.8 × 8.9 cm",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "From the Collection of Mrs. Lathrop Colgate Harper, Bequest of Mabel Herbert Harper, 1957",
+      "objectId": 228489,
+      "license": "Public Domain (CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/es/original/DP363113.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/228489",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/228489",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/screen.html"
+      ]
+    },
+    {
+      "id": "morris-well-worlds-end-detail",
+      "file": "morris-well-worlds-end-detail.webp",
+      "derived": "원본 4000×2733 JPEG(펼친 면)에서 오른쪽 면의 첫머리와 본문 부분(가로 2060~3480, 세로 240~1640 px)만 잘라 1420×1400 WebP(품질 76)로 저장",
+      "title": "세상 끝의 우물",
+      "titleEn": "The Well at the World's End",
+      "artist": "윌리엄 모리스 (William Morris, 1834–1896), 켈름스콧 출판사 (Kelmscott Press)",
+      "date": "1896",
+      "medium": "인쇄본, 목판화 삽화, 양피지 장정 8부 중 하나 (Illustrations: woodcuts; one of eight vellum bound copies), 28.9 × 21 × 5.1 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Harris Brisbane Dick Fund, 1917",
+      "objectId": 354288,
+      "license": "공공 도메인 (CC0, The Met Open Access)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP322254.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/354288",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/354288",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "type/chapters/spacing.html"
       ]
     }
   ]
