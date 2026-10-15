@@ -582,17 +582,18 @@
         var x = X(front + o), v = vals[i], gl = Math.round(ART.toGamma(AB.clamp(v * 0.8, 0, 1)) * 255);
         ctx.fillStyle = "rgb(" + gl + "," + Math.round(gl * 0.8) + "," + Math.round(gl * 0.65) + ")";
         ctx.beginPath(); ctx.arc(x, top - 30, 14, 0, Math.PI * 2); ctx.fill(); ctx.strokeStyle = P.border; ctx.lineWidth = 1; ctx.stroke();
-        ctx.fillStyle = P.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(names[i], x, top + 6);
-        ctx.fillStyle = P.dim; ctx.font = AB.font(10, true); ctx.fillText((d + o) + " cm", x, top + 20);
+        if (X(30) - X(0) > 44) { ctx.fillStyle = P.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(names[i], x, top + 6); }
       });
       // 아래: 막대
-      var by = top + 46, bh = h - by - 14, bw = Math.min(70, (w - 2 * m) / 5);
+      var by = top + 26, bh = h - by - 40, bw = Math.min(70, (w - 2 * m) / 5);
       OFF.forEach(function (o, i) {
         var x = w / 2 + (i - 1) * (bw + 26) - bw / 2, v = vals[i];
         ctx.fillStyle = P.grid; ctx.fillRect(x, by, bw, bh);
         ctx.fillStyle = P.accent; ctx.fillRect(x, by + bh * (1 - v), bw, bh * v);
         ctx.fillStyle = P.text; ctx.font = AB.font(11, true, 600); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
         ctx.fillText(Math.round(v * 100) + "%", x + bw / 2, by + bh * (1 - v) - 3 < by + 12 ? by + 12 : by + bh * (1 - v) - 3);
+        ctx.fillStyle = P.text; ctx.font = AB.font(11, false, 600); ctx.textBaseline = "top"; ctx.fillText(names[i], x + bw / 2, by + bh + 4);
+        ctx.fillStyle = P.dim; ctx.font = AB.font(10, true); ctx.fillText((d + o) + " cm", x + bw / 2, by + bh + 19);
       });
       AB.stat("bq-fall-o-r", vals.map(function (v) { return Math.round(v * 100); }).join(" : "));
       AB.stat("bq-fall-o-st", AB.fix(-log2(vals[2]), 2) + " 스톱 <small>(30 cm 뒤 " + AB.fix(-log2(vals[1]), 2) + ")</small>");
