@@ -418,22 +418,22 @@
   var KEYS = ["title", "image", "dot", "info", "logo"], NAME = { title: "제목", image: "그림", dot: "작은 점", info: "정보", logo: "로고" };
   function drawPoster(ctx, R, E, o) {
     o = o || {};
-    ctx.fillStyle = BG; ctx.fillRect(R.x, R.y, R.w, R.h);
+    ctx.fillStyle = CREAM; ctx.fillRect(R.x, R.y, R.w, R.h);   // 7장에서 정한 크림 종이
     var bx = function (b) { return { x: R.x + b[0] * R.w, y: R.y + b[1] * R.h, w: (b[2] - b[0]) * R.w, h: (b[3] - b[1]) * R.h }; };
     var t = bx(E.title), im = bx(E.image), d = bx(E.dot), inf = bx(E.info), lg = bx(E.logo);
     if (o.blocks) {
-      ctx.fillStyle = "#7f9a8b"; KEYS.forEach(function (k) { var b = bx(E[k]); ctx.fillRect(b.x, b.y, b.w, b.h); });
+      ctx.fillStyle = "#4b5d53"; KEYS.forEach(function (k) { var b = bx(E[k]); ctx.fillRect(b.x, b.y, b.w, b.h); });
       return;
     }
-    // 그림(큰 면): 쌓인 책과 창
-    ctx.fillStyle = SAGE; ctx.fillRect(im.x, im.y, im.w, im.h);
-    ctx.fillStyle = GREEN; ctx.fillRect(im.x + im.w * 0.1, im.y + im.h * 0.62, im.w * 0.8, im.h * 0.12);
+    // 그림(큰 면): 짙은 색 덩어리 안에 쌓인 책과 창
+    ctx.fillStyle = BG; ctx.fillRect(im.x, im.y, im.w, im.h);
+    ctx.fillStyle = SAGE; ctx.fillRect(im.x + im.w * 0.1, im.y + im.h * 0.62, im.w * 0.8, im.h * 0.12);
     ctx.fillStyle = "#3f5a4c"; ctx.fillRect(im.x + im.w * 0.16, im.y + im.h * 0.5, im.w * 0.66, im.h * 0.1);
     ctx.fillStyle = "#e9d8b8"; ctx.fillRect(im.x + im.w * 0.2, im.y + im.h * 0.12, im.w * 0.6, im.h * 0.3);
     // 작은 점
     ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(d.x + d.w / 2, d.y + d.h / 2, Math.min(d.w, d.h) / 2, 0, Math.PI * 2); ctx.fill();
-    // 제목: 굵은 줄 하나 + 부제 한 줄
-    ctx.fillStyle = CREAM;
+    // 제목: 굵은 줄 하나 + 부제 한 줄(짙은 색 글자)
+    ctx.fillStyle = BG;
     ctx.fillRect(t.x, t.y, t.w, t.h * 0.58);
     ctx.fillRect(t.x, t.y + t.h * 0.75, t.w * 0.55, t.h * 0.25);
     // 정보 n줄
@@ -483,9 +483,9 @@
         drawPoster(ctx, R, PRESET[key], { blocks: view() === "blocks" });
         ctx.restore();
         if (view() === "blocks") {
-          // 여백 칸을 밝게 칠한다
+          // 여백 칸을 옅은 초록으로 칠한다
           var c = coverGrid(PRESET[key], 84), cw = R.w / c.W, ch = R.h / c.H;
-          ctx.fillStyle = "rgba(255,226,215,0.55)"; ctx.beginPath();
+          ctx.fillStyle = "rgba(47,125,91,0.18)"; ctx.beginPath();
           for (var y = 0; y < c.H; y++) for (var x = 0; x < c.W; x++) if (!c.g[y * c.W + x]) ctx.rect(R.x + x * cw, R.y + y * ch, cw + 0.4, ch + 0.4);
           ctx.fill();
         }
@@ -713,7 +713,7 @@
       };
       drawPoster(ctx, R, E, { lines: lines });
       // 여백 기준선
-      if (m > 0) { ctx.save(); ctx.strokeStyle = "rgba(255,226,215,0.35)"; ctx.setLineDash([4, 4]); ctx.strokeRect(R.x + mx * R.w, R.y + my * R.h, (1 - 2 * mx) * R.w, (1 - 2 * my) * R.h); ctx.restore(); }
+      if (m > 0) { ctx.save(); ctx.strokeStyle = "rgba(34,52,42,0.55)"; ctx.setLineDash([4, 4]); ctx.strokeRect(R.x + mx * R.w, R.y + my * R.h, (1 - 2 * mx) * R.w, (1 - 2 * my) * R.h); ctx.restore(); }
       // 글자 높이: 폭 제한(한 줄 글자 수 × 글자 폭 0.55em)과 높이 제한(줄 높이 ÷ 1.5) 중 작은 쪽, mm
       var chars = cut() ? 28 : 40, wMM = (1 - 2 * mx) * 0.7 * 420, hMM = lineH * 594;
       var mm = Math.min(wMM / (chars * 0.55), hMM / 1.5), ws = whiteRatio(E);
@@ -743,14 +743,14 @@
       drawPoster(ctx, R, E);
       var c = coverGrid(E, 84), best = largestEmpty(c), cw = R.w / c.W, ch = R.h / c.H;
       if (wsC()) {
-        ctx.fillStyle = "rgba(255,226,215,0.16)"; ctx.beginPath();
+        ctx.fillStyle = "rgba(47,125,91,0.16)"; ctx.beginPath();
         for (var y = 0; y < c.H; y++) for (var x = 0; x < c.W; x++) if (!c.g[y * c.W + x]) ctx.rect(R.x + x * cw, R.y + y * ch, cw + 0.4, ch + 0.4);
         ctx.fill();
-        if (best.a) { ctx.save(); ctx.strokeStyle = "#ffcf3a"; ctx.lineWidth = 2; ctx.setLineDash([6, 4]); ctx.strokeRect(R.x + best.x * cw + 2, R.y + best.y * ch + 2, best.w * cw - 4, best.h * ch - 4); ctx.restore(); }
+        if (best.a) { ctx.save(); ctx.strokeStyle = "#b8860b"; ctx.lineWidth = 2; ctx.setLineDash([6, 4]); ctx.strokeRect(R.x + best.x * cw + 2, R.y + best.y * ch + 2, best.w * cw - 4, best.h * ch - 4); ctx.restore(); }
       }
       var m = mG() / 100, issues = [];
       if (m > 0) {
-        ctx.save(); ctx.strokeStyle = "rgba(143,184,232,0.8)"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.2;
+        ctx.save(); ctx.strokeStyle = "rgba(43,98,170,0.85)"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.2;
         ctx.strokeRect(R.x + m * R.w, R.y + m * PR * R.h, (1 - 2 * m) * R.w, (1 - 2 * m * PR) * R.h); ctx.restore();
         KEYS.forEach(function (k) { var b = E[k]; if (b[0] < m - 0.002 || b[2] > 1 - m + 0.002 || b[1] < m * PR - 0.002 || b[3] > 1 - m * PR + 0.002) issues.push(NAME[k] + " 여백 침범"); });
       }
@@ -762,8 +762,8 @@
       }
       if (gapC()) pairs.forEach(function (p) {
         var a = E[p[0]], b = E[p[1]], ax = (Math.max(a[0], b[0]) + Math.min(a[2], b[2])) / 2, ay = (Math.max(a[1], b[1]) + Math.min(a[3], b[3])) / 2;
-        if (p[2].ax === "y") { var y1 = Math.min(a[3], b[3]), y2 = Math.max(a[1], b[1]); ctx.strokeStyle = "#ff8a5c"; ctx.lineWidth = 3; line(ctx, R.x + ax * R.w - 14, R.y + (y1 + y2) / 2 * R.h, R.x + ax * R.w + 14, R.y + (y1 + y2) / 2 * R.h); }
-        else { var x1 = Math.min(a[2], b[2]), x2 = Math.max(a[0], b[0]); ctx.strokeStyle = "#ff8a5c"; ctx.lineWidth = 3; line(ctx, R.x + (x1 + x2) / 2 * R.w, R.y + ay * R.h - 14, R.x + (x1 + x2) / 2 * R.w, R.y + ay * R.h + 14); }
+        if (p[2].ax === "y") { var y1 = Math.min(a[3], b[3]), y2 = Math.max(a[1], b[1]); ctx.strokeStyle = "#c2410c"; ctx.lineWidth = 3; line(ctx, R.x + ax * R.w - 14, R.y + (y1 + y2) / 2 * R.h, R.x + ax * R.w + 14, R.y + (y1 + y2) / 2 * R.h); }
+        else { var x1 = Math.min(a[2], b[2]), x2 = Math.max(a[0], b[0]); ctx.strokeStyle = "#c2410c"; ctx.lineWidth = 3; line(ctx, R.x + (x1 + x2) / 2 * R.w, R.y + ay * R.h - 14, R.x + (x1 + x2) / 2 * R.w, R.y + ay * R.h + 14); }
       });
       pairs.forEach(function (p) { issues.push(NAME[p[0]] + "–" + NAME[p[1]] + " 어중간한 간격"); });
       KEYS.forEach(function (k) { var b = E[k]; AB.handle(ctx, R.x + (b[0] + b[2]) / 2 * R.w, R.y + (b[1] + b[3]) / 2 * R.h, { r: 5, fill: k === "dot" ? RED : "#ffffff" }); });
