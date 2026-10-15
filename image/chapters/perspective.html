@@ -678,14 +678,14 @@
       if (outlineOnly) { fillPoly(ctx, head, null, ACC, 1.5); return; }
       // 귀(머리 뒤에 먼저 그려 뺨에 가려지게)
       [-1, 1].forEach(function (s) {
-        var pts = []; for (var k = 0; k < 20; k++) { var t = 2 * Math.PI * k / 20; pts.push(P([s * (RA + 0.006), 0.005 + 0.03 * Math.sin(t), -0.01 + 0.018 * Math.cos(t)])); }
+        var pts = []; for (var k = 0; k < 20; k++) { var t = 2 * Math.PI * k / 20; pts.push(P([s * (RA - 0.004 + 0.02 * (1 - Math.cos(t)) / 2), 0.005 + 0.03 * Math.sin(t), -0.008 + 0.016 * Math.cos(t)])); } // 귀: 뒤쪽 가장자리가 바깥으로 벌어진 원판
         fillPoly(ctx, hull(pts), "#d39e7a", "#b07c5c", 1);
       });
       // 목
       fillPoly(ctx, [P([-0.045, -0.08, 0.0]), P([0.045, -0.08, 0.0]), P([0.05, -0.2, 0.01]), P([-0.05, -0.2, 0.01])], "#d6a681");
       fillPoly(ctx, head, SKIN, "#b88a66", 1);
       // 머리카락: 위쪽 덮개
-      var hair = hull(ELL.filter(function (p) { return p[1] > 0.06 || (p[2] > 0.02 && p[1] > -0.02); }).map(function (p) { return P([p[0] * 1.04, p[1] * 1.03 + 0.004, p[2] * 1.04]); }));
+      var hair = hull(ELL.filter(function (p) { return p[1] > 0.058; }).map(function (p) { return P([p[0] * 1.04, p[1] * 1.03 + 0.004, p[2] * 1.04]); }));
       fillPoly(ctx, hair, HAIR);
       // 앞면 특징(눈, 눈썹, 코, 입)
       function F(x, y, dz) { return P([x, y, surfZ(x, y) - (dz || 0)]); }
