@@ -1041,12 +1041,15 @@
         label(ctx, "전체 먹의 중심", r.x + cw.cx * r.w + 14, r.y + cw.cy * r.h - 14);
       }
       // 아래 그래프: 펼친 자리마다 구간 무게(오른쪽 = 시작)
-      var pr = profile(), gx = r.x, gw = r.w, gy = r.y + r.h + 22, gh = chartH - 40, mx = 0;
-      pr.forEach(function (q) { mx = Math.max(mx, q.w); });
+      var pr = profile(), gx = r.x, gw = r.w, gy = r.y + r.h + 22, gh = chartH - 40, mx = 0, mn = 1e9;
+      pr.forEach(function (q) { mx = Math.max(mx, q.w); mn = Math.min(mn, q.w); });
+      var lo = Math.min(mn, 1) * 0.9, hi = Math.max(mx, 1) * 1.05;
       ctx.strokeStyle = "#d8d2c4"; ctx.lineWidth = 1; ctx.strokeRect(gx, gy, gw, gh);
       var PX = function (q) { var ww = win(), mid = 1 - q.p * (1 - ww) - ww / 2; return gx + mid * gw; };
-      ctx.beginPath(); pr.forEach(function (q, i) { var x = PX(q), y = gy + gh - (q.w / (mx * 1.1)) * gh; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+      ctx.beginPath(); pr.forEach(function (q, i) { var x = PX(q), y = gy + gh - ((q.w - lo) / (hi - lo)) * gh; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
       ctx.strokeStyle = C_W; ctx.lineWidth = 2; ctx.stroke();
+      var y1 = gy + gh - ((1 - lo) / (hi - lo)) * gh; ctx.strokeStyle = "#b9b2a2"; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(gx, y1); ctx.lineTo(gx + gw, y1); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = DIM; ctx.font = AB.font(10, true); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("평균 1", gx + 3, y1 - 1);
       if (mode() === "scroll") { var mid = (sp[0] + sp[1]) / 2; ctx.strokeStyle = INK; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(gx + mid * gw, gy); ctx.lineTo(gx + mid * gw, gy + gh); ctx.stroke(); ctx.setLineDash([]); }
       ctx.fillStyle = DIM; ctx.font = AB.font(11); ctx.textBaseline = "top";
       ctx.textAlign = "right"; ctx.fillText("시작(오른쪽)", gx + gw, gy + gh + 4);
@@ -1080,7 +1083,7 @@
   /* ---------------- 7. 종합: 명작 읽기 판 ---------------- */
   (function () {
     var NOTES = {
-      bruegel: "<b>브뤼헐 · 대각선 덩어리와 깊이</b><p>덩어리로 보면 밝은 밀밭이 왼쪽 아래에서 오른쪽 위로 비스듬히 솟아 화면을 둘로 가른다. 무게는 나무 그늘의 사람들이 모인 오른쪽 아래에 몰리고, 왼쪽 위의 먼 풍경은 옅고 가볍다. 나무 줄기는 그 둘을 가르는 세로 기둥이다.</p><p>그림 속 길과 밀밭 사이 통로는 앞에서 뒤로, 사람들에서 마을과 바다로 이어지는 함축선이다. 경계선 레이어는 밀밭 가장자리 같은 긴 경계를 잡지만, 사람들의 얼굴과 손짓은 잡지 못한다. 이야기의 무게는 레이어 밖에 있다.</p>",
+      bruegel: "<b>브뤼헐 · 대각선 덩어리와 깊이</b><p>덩어리로 보면 밝은 밀밭이 화면을 비스듬히 가로지르고, 어둠은 나무 그늘의 사람들이 모인 오른쪽 아래에 몰린다. 그런데 무게중심은 거의 가운데다. 왼쪽의 촘촘한 먼 풍경과 밝은 하늘이 그 반대편에서 맞서기 때문이다. 나무 줄기는 그 둘을 가르는 세로 기둥이다.</p><p>그림 속 길과 밀밭 사이 통로는 앞에서 뒤로, 사람들에서 마을과 바다로 이어지는 함축선이다. 경계선 레이어는 밀밭 가장자리 같은 긴 경계를 잡지만, 사람들의 얼굴과 손짓은 잡지 못한다. 이야기의 무게는 레이어 밖에 있다.</p>",
       vermeer: "<b>페르메이르 · 직사각형의 그물과 한쪽 빛</b><p>창틀, 벽의 지도와 막대, 탁자와 상자. 경계 방향 레이어에서 수평·수직이 대부분인 이유다. 이 직사각형들이 사방에서 여인을 붙드는 틀이 된다(<a href=\"frame.html\">11장</a>의 프레임 속 프레임).</p><p>빛은 왼쪽 창에서 오고, 흰 두건과 짙은 치마, 붉은 탁자보가 무게를 나눠 진다. 넓고 밝은 벽은 거의 무게가 없는 여백이다. 모형은 얼굴을 모르지만, 작은 얼굴이 두건의 밝은 삼각형 안에 놓여 있어 덩어리 레이어로도 초점이 보인다.</p>",
       qu: "<b>굴정 · 펼치며 쌓이는 산</b><p>이 그림은 원래 한눈에 보는 그림이 아니다(위의 두루마리 시뮬레이터). 전체에 무게중심이나 격자를 대면 왼쪽 가운데 높은 산 아래로 무게가 모인다는 것 정도만 말할 수 있다.</p><p>덩어리 레이어로 보면 짙은 숲과 바위가 아래와 가운데에 몰리고, 오른쪽의 물과 먼 산은 비단 바탕과 거의 같은 명도로 녹는다. 오른쪽 위의 글씨와 도장도 경계선과 시선 모형에 잡힌다. 동아시아 그림에서는 그것도 화면의 일부다.</p>",
       geese: "<b>평사낙안 · 아래의 무게, 위의 빈 곳</b><p>족자는 아래에서 위로 읽는다. 가까운 물가의 나무와 바위가 아래쪽에 짙게 놓이고, 모래톱과 물가가 좌우로 꺾이며 위로 물러난다. 무게중심이 아래쪽에 있고, 위쪽 넓은 부분은 물과 안개와 먼 산이 비단의 바탕에 녹아든다(<a href=\"space.html\">10장</a>의 여백).</p><p>맨 위의 글씨는 그림의 끝이 아니라 마지막 층이다. 3분할 격자는 이 세로 위계를 잘 설명하지 못한다. 층과 지그재그로 읽는 편이 그림의 약속에 맞다.</p>",

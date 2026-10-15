@@ -144,6 +144,7 @@ near("project", ART.project([1, 1, 0], cam).slice(0, 2), [10, -10], 1e-9);
 near("point light shadow", ART.shadowPoint([1, 1, 0], { pos: [0, 2, 0] }), [2, 0, 0], 1e-9);
 near("sun shadow", ART.shadowPoint([0, 2, 0], { dir: [1, -1, 0] }), [2, 0, 0], 1e-9);
 truthy("golden squares", ART.goldenSquares(0, 0, 1618, 1000, 6).length === 6);
+truthy("golden squares unit size", ART.goldenSquares(0, 0, 1.618, 1, 8).length === 8);
 
 console.log(`${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

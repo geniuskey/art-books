@@ -633,14 +633,14 @@
    * 반환: [{x, y, s, corner}] 정사각형과 사분원 호의 중심 모서리
    */
   ART.goldenSquares = function (x, y, w, h, n = 8) {
-    const out = [];
+    const out = [], eps = Math.min(w, h) * 1e-4; // 단위에 무관하게, 처음 짧은 변의 1만분의 1보다 작아지면 멈춘다
     for (let i = 0; i < n; i++) {
       const dir = i % 4;
       if (dir === 0) { const s = h; out.push({ x, y, s, cx: x + s, cy: y + s, a0: Math.PI, a1: 1.5 * Math.PI }); x += s; w -= s; }
       else if (dir === 1) { const s = w; out.push({ x, y, s, cx: x, cy: y + s, a0: 1.5 * Math.PI, a1: 2 * Math.PI }); y += s; h -= s; }
       else if (dir === 2) { const s = h; out.push({ x: x + w - s, y, s, cx: x + w - s, cy: y, a0: 0, a1: 0.5 * Math.PI }); w -= s; }
       else { const s = w; out.push({ x, y: y + h - s, s, cx: x + s, cy: y + h - s, a0: 0.5 * Math.PI, a1: Math.PI }); h -= s; }
-      if (w <= 0.5 || h <= 0.5) break;
+      if (w <= eps || h <= eps) break;
     }
     return out;
   };
