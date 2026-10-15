@@ -1,0 +1,1076 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "사진의 밝기 분포를 그린 막대그래프, 히스토그램을 읽는 법. 날아간 하이라이트와 뭉개진 그림자, 노출계가 장면을 모르는 이유와 노출 보정, 장면과 센서의 다이내믹 레인지, 브래키팅과 HDR 합성을 시뮬레이터로 익히고, 밝은 창과 어두운 실내가 함께 있는 창가 사진의 노출 기준을 정한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>히스토그램과 다이내믹 레인지 · ImageBook</title>
+<meta name="description" content="사진의 밝기 분포를 그린 막대그래프, 히스토그램을 읽는 법. 날아간 하이라이트와 뭉개진 그림자, 노출계가 장면을 모르는 이유와 노출 보정, 장면과 센서의 다이내믹 레인지, 브래키팅과 HDR 합성을 시뮬레이터로 익히고, 밝은 창과 어두운 실내가 함께 있는 창가 사진의 노출 기준을 정한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/image/chapters/histogram.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="히스토그램과 다이내믹 레인지 · ImageBook">
+<meta property="og:description" content="사진의 밝기 분포를 그린 막대그래프, 히스토그램을 읽는 법. 날아간 하이라이트와 뭉개진 그림자, 노출계가 장면을 모르는 이유와 노출 보정, 장면과 센서의 다이내믹 레인지, 브래키팅과 HDR 합성을 시뮬레이터로 익히고, 밝은 창과 어두운 실내가 함께 있는 창가 사진의 노출 기준을 정한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/image/chapters/histogram.html">
+<meta property="og:image" content="https://artbook.euiyun.com/image/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/image/chapters/histogram.html#chapter","name":"히스토그램과 다이내믹 레인지","headline":"히스토그램과 다이내믹 레인지 · ImageBook","description":"사진의 밝기 분포를 그린 막대그래프, 히스토그램을 읽는 법. 날아간 하이라이트와 뭉개진 그림자, 노출계가 장면을 모르는 이유와 노출 보정, 장면과 센서의 다이내믹 레인지, 브래키팅과 HDR 합성을 시뮬레이터로 익히고, 밝은 창과 어두운 실내가 함께 있는 창가 사진의 노출 기준을 정한다.","url":"https://artbook.euiyun.com/image/chapters/histogram.html","position":3,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/image/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/image/#book","name":"ImageBook · 사진과 이미지","url":"https://artbook.euiyun.com/image/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ImageBook · 사진과 이미지","item":"https://artbook.euiyun.com/image/"},{"@type":"ListItem","position":3,"name":"3. 히스토그램과 다이내믹 레인지","item":"https://artbook.euiyun.com/image/chapters/histogram.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="histogram">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 03</div>
+    <h1>히스토그램과 다이내믹 레인지</h1>
+    <p class="lead">겨울 오후, 창가 자리를 휴대폰으로 찍으면 둘 중 하나가 된다. 실내의 책과 탁자가 보이게 찍으면 창이 하얀 사각형으로 날아가고, 창밖 풍경을 살리면 실내가 시커멓게 가라앉는다. 눈으로 볼 때는 둘 다 보였는데 사진은 왜 하나만 고르라고 할까. 이 장은 사진의 밝기를 막대그래프로 펼친 히스토그램을 읽는 법부터 시작해, 사진이 담을 수 있는 밝기의 폭과 장면이 가진 밝기의 폭이 어떻게 다른지, 그 차이를 메우는 노출 보정과 브래키팅이 무엇을 하는지 직접 확인한다.</p>
+    <ul class="objectives">
+      <li>히스토그램의 가로축과 세로축이 무엇인지 알고, 막대의 어느 부분이 사진의 어느 곳인지 짚는다.</li>
+      <li>히스토그램에는 정답 모양이 없으며, 산의 위치는 장면의 성격을 따른다는 것을 여러 장면으로 확인한다.</li>
+      <li>날아간 하이라이트와 뭉개진 그림자가 무엇이고, 왜 보정으로 되돌릴 수 없는지 설명한다.</li>
+      <li>노출계가 장면을 중간 회색으로 맞추려 한다는 점을 이해하고, 노출 보정으로 바로잡는다.</li>
+      <li>다이내믹 레인지를 스톱으로 세고, 장면의 범위가 센서보다 넓을 때 브래키팅과 HDR 합성이 하는 일을 안다.</li>
+    </ul>
+  </header>
+
+  <section id="read">
+    <h2>밝기의 분포: 히스토그램</h2>
+    <p>사진을 찍고 나서 카메라나 편집 앱에서 작은 산 모양 그래프를 본 적이 있을 것이다. 이것이 <span class="term">히스토그램</span><span class="en">(Histogram)</span>이다. 사진 속 모든 화소를 밝기 순서대로 줄 세운 뒤, 같은 밝기의 화소가 몇 개인지를 막대 높이로 그린 그래프다. 사진의 내용은 사라지고 "어두운 화소가 얼마나, 밝은 화소가 얼마나 있는가"만 남는다.</p>
+    <p>가로축은 밝기다. 디지털 사진은 화소의 밝기를 보통 0부터 255까지의 숫자로 저장하므로(8비트, <a href="pixel.html">8장</a>), 맨 왼쪽 0이 완전한 검정, 맨 오른쪽 255가 완전한 흰색이다. 세로축은 그 밝기를 가진 화소의 수, 곧 사진에서 그 밝기가 차지하는 넓이다. 막대가 왼쪽에 몰리면 어두운 사진, 오른쪽에 몰리면 밝은 사진이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 270" role="img" aria-label="히스토그램의 구조. 가로축은 0(검정)부터 255(흰색)까지의 밝기, 세로축은 화소 수. 왼쪽부터 그림자, 중간 톤, 하이라이트 구간이 있고, 양 끝에 붙은 막대는 클리핑을 뜻한다">
+        <defs>
+          <linearGradient id="hg-f1-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#000"/><stop offset="0.5" stop-color="#777"/><stop offset="1" stop-color="#fff"/></linearGradient>
+          <marker id="hg-f1-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker>
+        </defs>
+        <rect x="40" y="40" width="128" height="150" class="f-acc2-soft"/>
+        <rect x="168" y="40" width="128" height="150" class="f-ok-soft"/>
+        <rect x="296" y="40" width="128" height="150" class="f-warn-soft"/>
+        <path d="M40,190 L40,176 C60,170 74,120 92,112 C110,104 120,150 140,158 C160,166 180,150 200,128 C220,104 236,92 252,104 C270,118 284,150 304,160 C330,170 360,172 390,174 C404,175 414,170 420,166 L420,190 Z" class="f-acc-soft s-acc" stroke-width="1.5"/>
+        <rect x="420" y="70" width="4" height="120" class="f-bad"/>
+        <line x1="40" y1="190" x2="426" y2="190" class="s-axis"/>
+        <line x1="40" y1="190" x2="40" y2="34" class="s-axis"/>
+        <rect x="40" y="196" width="384" height="12" fill="url(#hg-f1-grad)" stroke="#9a968c" stroke-width="0.6"/>
+        <text x="40" y="224" class="lbl-dim t-mono" font-size="11" text-anchor="middle">0</text>
+        <text x="232" y="224" class="lbl-dim t-mono" font-size="11" text-anchor="middle">128</text>
+        <text x="424" y="224" class="lbl-dim t-mono" font-size="11" text-anchor="middle">255</text>
+        <text x="104" y="58" class="lbl" font-size="12" text-anchor="middle">그림자</text>
+        <text x="232" y="58" class="lbl" font-size="12" text-anchor="middle">중간 톤</text>
+        <text x="352" y="58" class="lbl" font-size="12" text-anchor="middle">하이라이트</text>
+        <text x="232" y="246" class="lbl-dim" font-size="11.5" text-anchor="middle">밝기(0 검정 → 255 흰색)</text>
+        <text x="20" y="114" class="lbl-dim" font-size="11.5" text-anchor="middle" transform="rotate(-90 20 114)">화소 수(넓이)</text>
+        <line x1="400" y1="26" x2="419" y2="66" class="s-bad" stroke-width="1.4" marker-end="url(#hg-f1-ar)"/>
+        <text x="396" y="22" class="lbl-bad" font-size="11.5" text-anchor="end">끝에 붙은 막대 = 날아간 곳</text>
+        <text x="92" y="104" class="lbl-dim" font-size="10.5" text-anchor="middle">어두운 서가</text>
+        <text x="252" y="86" class="lbl-dim" font-size="10.5" text-anchor="middle">벽</text>
+      </svg>
+      <figcaption><b>그림 1. 히스토그램의 구조.</b> 가로축은 밝기, 세로축은 그 밝기의 넓이다. 흔히 왼쪽 4분의 1쯤을 그림자, 가운데를 중간 톤, 오른쪽 4분의 1쯤을 하이라이트라고 부르지만 경계가 정해져 있지는 않다. 산이 오른쪽 끝(255)에 붙어 막대가 솟아 있으면, 사진의 그만큼이 완전한 흰색으로 날아갔다는 뜻이다. 왼쪽 끝(0)에 붙은 막대는 완전한 검정으로 뭉개진 곳이다.</figcaption>
+    </figure>
+
+    <p>히스토그램은 사진의 내용을 모르는 그래프라서, 처음에는 막대와 사진이 잘 연결되지 않는다. 아래에서 둘을 이어 본다. 장면은 가상의 동네 서점 "책방 E"의 창가다. 히스토그램 위에 놓인 띠를 좌우로 끌면, 그 밝기 구간에 속한 화소만 사진에서 밝게 남고 나머지는 흐려진다. 반대로 사진 위를 누르면 그 점의 밝기가 히스토그램의 어디에 떨어지는지 표시된다.</p>
+
+    <div class="sim" id="sim-hg-map">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>막대의 어디가 사진의 어디인가</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="hg-map-cv"></canvas><span class="hint">띠를 끌거나 사진을 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="hg-map-scene"><button data-value="window" class="on">창가</button><button data-value="cup">흰 찻잔</button><button data-value="dark">어두운 서가</button></div>
+          <label class="ctrl"><span>띠의 폭 <output id="hg-map-w-out"></output></span><input type="range" id="hg-map-w" min="4" max="96" step="4" value="32"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">띠의 밝기 구간</span><span class="v" id="hg-map-o-band">—</span></div>
+        <div class="stat"><span class="k">사진에서 차지하는 넓이</span><span class="v" id="hg-map-o-area">—</span></div>
+        <div class="stat"><span class="k">누른 점의 밝기</span><span class="v" id="hg-map-o-pt">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "창가"에서 띠를 맨 왼쪽(0~31)에 둔다. 서가의 책 틈과 탁자 밑이 남는다. 히스토그램 왼쪽의 높은 산이 바로 이곳들이다. ② 띠를 맨 오른쪽 끝으로 옮긴다. 창 안의 하늘과 눈 쌓인 처마가 남는다. 이 장면은 가운데가 비고 양쪽에 산이 있는 "쌍봉"이다. ③ 사진의 벽, 책등, 창밖 건물을 차례로 눌러 표시가 어디로 가는지 본다. 띠의 폭을 4까지 줄이면 같은 밝기를 가진 화소가 사진 곳곳에 흩어져 있다는 것을 알 수 있다. 히스토그램은 "어디에"를 버리고 "얼마나"만 남긴 그래프다. (화면의 장면은 이 책이 그린 가상의 장면이고, 히스토그램은 각 화소의 휘도를 sRGB 감마로 인코딩한 0~255 값으로 셌다. 카메라마다 밝기 값을 계산하는 방식은 조금씩 다르다.)</div>
+    </div>
+
+    <p>히스토그램의 한 막대에는 사진 곳곳의 화소가 섞여 있다. 같은 밝기라면 하늘의 한 점이든 흰 찻잔의 한 점이든 같은 막대에 들어간다. 그래서 히스토그램만 보고 사진을 다시 그릴 수는 없다. 대신 히스토그램은 눈이 쉽게 놓치는 두 가지를 정확히 보여 준다. 사진의 밝기가 어느 쪽에 얼마나 쏠려 있는가, 그리고 양 끝에 부딪혀 잘려 나간 곳이 있는가.</p>
+  </section>
+
+  <section id="shape">
+    <h2>좋은 히스토그램은 없다</h2>
+    <p>사진 강좌에서 "히스토그램이 가운데 종 모양이면 노출이 맞은 것"이라는 말을 듣곤 한다. 절반만 맞는 말이다. 히스토그램의 모양은 노출보다 먼저 <b>장면</b>이 정한다. 흰 탁자보 위의 흰 찻잔은 제대로 찍으면 산이 오른쪽에 몰리고, 밤의 서가 구석은 제대로 찍어도 왼쪽에 몰린다. 그것을 가운데로 끌어오면 흰 찻잔은 회색이 되고 밤은 낮처럼 된다.</p>
+    <p>ColorBook <a href="../../color/chapters/value.html">6장</a>에서 본 말로 하면, 밝은 쪽에 몰린 화면은 <span class="term">하이 키</span><span class="en">(High key)</span>, 어두운 쪽에 몰린 화면은 <span class="term">로 키</span><span class="en">(Low key)</span>다. 아래에서 다섯 장면의 히스토그램을 비교한다. 세 장면은 이 책이 그린 것이고, 둘은 실제 작품의 사진이다. 렘브란트의 유화는 어둠으로 짠 그림이고, 귀스타브 르 그레의 1857년 사진은 밝은 하늘과 어두운 바위를 한 장에 담은 바다 풍경이다.</p>
+
+    <div class="sim" id="sim-hg-shape">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>산의 모양은 장면의 성격이다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="hg-shape-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="hg-shape-src"><button data-value="cup" class="on">흰 찻잔</button><button data-value="dark">어두운 서가</button><button data-value="window">창가</button><button data-value="rembrandt">렘브란트</button><button data-value="legray">르 그레</button></div>
+          <label class="ctrl"><span>그림자 구간의 경계 <output id="hg-shape-t-out"></output></span><input type="range" id="hg-shape-t" min="16" max="128" step="4" value="64"></label>
+          <label class="check"><input type="checkbox" id="hg-shape-log"> 세로축을 로그로(작은 막대 보기)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">평균 밝기</span><span class="v" id="hg-shape-o-mean">—</span></div>
+        <div class="stat"><span class="k">그림자 · 중간 · 하이라이트 넓이</span><span class="v" id="hg-shape-o-zone">—</span></div>
+        <div class="stat"><span class="k">양 끝(0 또는 255)</span><span class="v" id="hg-shape-o-end">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "흰 찻잔"은 하얀 장면인데도 산이 가운데에 있다. 카메라의 자동 노출이 흰색을 회색으로 찍은 결과다(4절에서 고친다). ② "어두운 서가"는 반대로 어두운 장면이 밝게 들떠 있다. 스탠드가 비춘 책 몇 권이 오른쪽 끝에 부딪혔다. ③ "렘브란트"는 산이 왼쪽에 몰렸고 오른쪽 절반이 거의 비어 있다. 로 키로 그린 그림을 제대로 찍은 사진이다. 비어 있는 오른쪽은 실패가 아니라 그림의 성격이다. ④ "르 그레"는 그림자부터 하이라이트까지 넓게 퍼져 있다. 경계 슬라이더로 그림자 구간을 넓히고 좁혀 보면, 같은 히스토그램도 어디를 "그림자"라고 부르느냐에 따라 숫자가 달라진다는 것을 알 수 있다. (작품 두 점은 소장처가 공개한 사진 파일에서 잰 값이다. 사진은 원작을 촬영하고 처리한 결과이므로 원작의 밝기 그 자체는 아니다.)</div>
+    </div>
+
+    <p>두 작품의 히스토그램을 비교하면 더 분명해진다. 렘브란트 그림의 사진은 밝은 쪽 절반이 거의 비어 있지만, 그것을 오른쪽으로 끌어 펴면 그림이 아니라 다른 무엇이 된다. 히스토그램을 볼 때 물어야 할 것은 "모양이 예쁜가"가 아니라 두 가지다. <b>이 장면에 맞는 쪽에 산이 있는가</b>, 그리고 <b>지키고 싶은 곳이 양 끝에 부딪혀 잘리지 않았는가</b>. 두 번째 질문이 다음 절의 주제다.</p>
+  </section>
+
+  <section id="clip">
+    <h2>날아간 하이라이트, 뭉개진 그림자</h2>
+    <p>센서의 한 화소는 빛을 받아 담는 작은 그릇과 같다(<a href="pixel.html">8장</a>). 그릇이 가득 차면 빛이 더 들어와도 숫자는 더 커지지 않는다. 이렇게 최댓값에 부딪혀 그 이상의 차이가 지워지는 것을 <span class="term">클리핑</span><span class="en">(Clipping)</span>이라고 한다. 밝은 쪽 클리핑은 흔히 "하이라이트가 날아갔다"<span class="en">(Blown highlights)</span>고 말한다. 하늘의 구름, 흰 셔츠의 주름, 흰 종이의 결이 모두 같은 255가 되어 평평한 흰 면만 남는다.</p>
+    <p>어두운 쪽에서는 사정이 조금 다르다. 빛이 아주 적으면 화소의 숫자는 0 근처에서 떨리는 잡음<span class="en">(Noise)</span>에 묻힌다. 신호가 잡음보다 작아지면 그 부분의 결은 더 이상 사진에 남지 않는다. 이것을 "그림자가 뭉개졌다"<span class="en">(Crushed shadows)</span>고 부른다. 이 장의 모형은 신호와 잡음의 크기가 같아지는 곳(신호 대 잡음비 1)을 뭉개짐의 경계로 삼는다.</p>
+    <p>노출을 한 스톱 올린다는 것은 센서에 닿는 빛을 두 배로 한다는 뜻이다(<a href="exposure.html">2장</a>). 그러면 모든 화소의 빛이 두 배가 되고, 그릇이 이미 반 이상 찬 화소는 넘친다.</p>
+    <div class="formula">$$v_{\text{기록}} = \min\!\left(1,\; 2^{\,\Delta EV}\, v_{\text{장면}}\right)$$<div class="where">\(v_{\text{장면}}\): 센서에 닿는 빛의 양(선형광, 그릇이 가득 차는 양을 1로 둔다), \(\Delta EV\): 노출을 바꾼 스톱 수. 기록된 값은 그다음 감마를 거쳐 0~255로 저장된다. \(\min(1, \cdot)\)이 클리핑이다. 1에 부딪힌 화소는 원래 1.2였는지 12였는지 알 수 없게 된다.</div></div>
+
+    <div class="callout studio">
+      <strong>하이라이트 경고를 켜 둔다</strong>
+      대부분의 카메라와 일부 휴대폰 촬영 앱에는 날아간 곳을 깜박이거나 줄무늬로 표시하는 기능이 있다. 깜박이는 표시를 사진가들은 흔히 "블링키"<span class="en">(Blinkies)</span>, 촬영 중에 화면에 띄우는 사선 줄무늬를 "지브라"<span class="en">(Zebra)</span>라고 부른다. 히스토그램은 날아간 곳이 "얼마나" 되는지만 알려 주지만, 경고 표시는 "어디가" 날아갔는지 알려 준다. 창 귀퉁이 하늘처럼 버려도 되는 곳인지, 흰 찻잔의 몸통처럼 지켜야 할 곳인지는 사진을 보고 사람이 판단한다. 작품을 찍을 때는 종이의 흰 바탕이 깜박이면 안 된다.
+    </div>
+
+    <p>날아간 곳과 뭉개진 곳이 왜 문제인지는, 나중에 보정으로 되살려 보면 안다. 아래 시뮬레이터의 왼쪽은 알맞게 찍은 사진이고, 오른쪽은 노출을 일부러 틀리게 찍은 뒤 편집에서 밝기를 되돌린 사진이다. 경계선을 끌어 둘을 비교하고, 틀린 정도를 키워 본다.</p>
+
+    <div class="sim" id="sim-hg-fix">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>잘못 찍고 나중에 고치면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <div class="compare" id="hg-fix-cmp">
+            <div class="cmp-a"><canvas id="hg-fix-a"></canvas></div>
+            <div class="cmp-b"><canvas id="hg-fix-b"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="hg-fix-dir"><button data-value="over" class="on">밝게 찍고 어둡게</button><button data-value="under">어둡게 찍고 밝게</button></div>
+          <div class="seg" id="hg-fix-scene"><button data-value="cup" class="on">흰 찻잔</button><button data-value="window">창가</button></div>
+          <label class="ctrl"><span>틀린 정도 <output id="hg-fix-k-out"></output></span><input type="range" id="hg-fix-k" min="0" max="4" step="0.5" value="2"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">되살릴 수 없는 화소</span><span class="v" id="hg-fix-o-lost">—</span></div>
+        <div class="stat"><span class="k">그림자 구간에 남은 단계 수</span><span class="v" id="hg-fix-o-lev">—</span></div>
+        <div class="stat"><span class="k">알맞은 사진과의 평균 차이</span><span class="v" id="hg-fix-o-diff">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "흰 찻잔", "밝게 찍고 어둡게", 2스톱에서 경계선을 끈다. 찻잔 몸통의 둥근 명암과 종이의 물감 자국 가장자리가 오른쪽에서는 평평한 회색 면이 되었다. 255에 부딪혔던 화소는 어둡게 해도 똑같은 회색이 될 뿐이다. ② "어둡게 찍고 밝게"로 바꾼다. 이번에는 결이 남아 있지만, "창가"로 바꾸고 3~4스톱까지 올리면 서가와 탁자 밑에 잡음이 끓고, 그림자 구간에 남은 단계 수가 크게 줄어 계단처럼 보인다. ③ 두 방향을 비교한다. 밝은 쪽 잘못은 정보가 아예 없어지고, 어두운 쪽 잘못은 정보가 거칠어진다. (8비트 JPEG로 저장한 뒤 편집했다고 가정했다. 센서의 원래 값을 더 많이 담는 RAW 파일은 되살릴 여유가 더 있지만, 센서 그릇이 넘친 곳은 RAW로도 되살릴 수 없다. RAW는 8장에서 다룬다.)</div>
+    </div>
+
+    <p>밝은 쪽 실수는 되돌릴 수 없고, 어두운 쪽 실수는 거칠게나마 되돌릴 수 있다. 이 비대칭이 디지털 사진의 노출에서 가장 중요한 사실 중 하나다. 그래서 많은 사진가가 "하이라이트를 지켜라"를 첫 원칙으로 삼는다. 단, 어두운 쪽도 너무 깊이 내려가면 잡음과 계단이 생긴다. 지킬 하이라이트가 장면의 아주 작은 일부라면(전구 알, 물결의 반짝임), 그것은 날려 보내고 나머지를 살리는 편이 낫다. 정반사로 생긴 반짝임은 원래 종이 흰색보다 밝은 것이 자연스럽기 때문이다.</p>
+  </section>
+
+  <section id="meter">
+    <h2>노출계는 장면을 모른다: 노출 보정</h2>
+    <p>카메라의 자동 노출은 <span class="term">노출계</span><span class="en">(Light meter)</span>가 잰 밝기로 노출을 정한다. 노출계가 아는 것은 들어온 빛의 양뿐이다. 그 빛이 흰 찻잔에서 왔는지 회색 벽에서 왔는지 모른다. 그래서 노출계는 하나의 관습을 따른다. 측정한 영역의 평균이 중간 회색, 흔히 반사율 18%의 회색으로 찍히도록 노출을 맞춘다(<a href="exposure.html">2장</a>). 대부분의 장면은 밝은 곳과 어두운 곳이 섞여 평균이 중간쯤에 오므로 이 관습이 잘 맞는다.</p>
+    <p>문제는 평균이 중간이 아닌 장면이다. 흰 찻잔이나 눈밭은 회색으로, 어두운 서가나 검은 옷은 회색으로 들뜬다. 이것을 바로잡는 손잡이가 <span class="term">노출 보정</span><span class="en">(Exposure compensation)</span>이다. +1은 노출계가 고른 값보다 한 스톱 밝게, −1은 한 스톱 어둡게 찍으라는 뜻이다. 아래에서 장면과 측광 방식을 바꾸며 자동 노출이 고른 결과를 보고, 보정 슬라이더로 바로잡는다. "스폿"에서는 사진 위의 측광 원을 끌어 어디를 잴지 고른다.</p>
+
+    <div class="sim" id="sim-hg-meter">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>노출계가 고른 노출과 노출 보정</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="hg-meter-cv"></canvas><span class="hint">스폿 원을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="hg-meter-scene"><button data-value="cup" class="on">흰 찻잔</button><button data-value="dark">어두운 서가</button><button data-value="window">창가</button></div>
+          <div class="seg" id="hg-meter-mode"><button data-value="avg" class="on">평균</button><button data-value="center">중앙 중점</button><button data-value="spot">스폿</button></div>
+          <label class="ctrl"><span>노출 보정 <output id="hg-meter-c-out"></output></span><input type="range" id="hg-meter-c" min="-3" max="3" step="0.3333333" value="0"></label>
+          <label class="check"><input type="checkbox" id="hg-meter-z" checked> 하이라이트 경고(줄무늬)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">평균 밝기 값</span><span class="v" id="hg-meter-o-mean">—</span></div>
+        <div class="stat"><span class="k">날아간 화소</span><span class="v" id="hg-meter-o-hi">—</span></div>
+        <div class="stat"><span class="k">뭉개진 화소</span><span class="v" id="hg-meter-o-lo">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "흰 찻잔", 평균 측광, 보정 0에서 평균 밝기 값이 120 안팎이다. 흰 장면이 회색으로 찍혔다. 보정을 +1⅔까지 올리면 찻잔과 종이가 하얘지고, +2 이상에서 줄무늬가 나타나기 시작한다. ② "어두운 서가"는 반대다. 평균 측광은 어둠을 회색으로 들어 올리고 스탠드 빛은 날려 버린다. 보정을 −2 안팎으로 내린다. ③ "창가"에서 "스폿"을 고르고 측광 원을 서가에, 다음에 창밖 하늘에 끈다. 서가에 맞추면 창 전체가 날아가고, 하늘에 맞추면 실내가 검게 가라앉는다. 어느 한 점에 맞춰도 장면 전체를 담지는 못한다. (측광은 선형광의 평균이 0.18이 되게 하는 단순 모형이다. 실제 카메라의 측광, 특히 "평가 측광"이나 "패턴 측광"은 장면을 나눠 분석하는 독자적인 방식을 쓴다. 센서의 다이내믹 레인지는 11스톱으로 가정했다.)</div>
+    </div>
+
+    <p>흰 찻잔은 +1⅔ 안팎, 어두운 서가는 −2 안팎에서 장면다운 모습이 돌아온다. 보정량에 정해진 공식은 없지만 방향은 늘 같다. <b>장면이 중간보다 밝으면 플러스, 어두우면 마이너스.</b> 그리고 창가 장면처럼 아주 밝은 곳과 아주 어두운 곳이 함께 있으면, 어디에 맞추든 무언가를 잃는다. 노출 보정은 "어디를 지킬지" 고르는 손잡이일 뿐, 장면의 밝기 범위 자체를 줄여 주지는 않는다.</p>
+
+    <div class="callout try">
+      <strong>휴대폰으로 창가 세 장 찍기</strong>
+      맑거나 흐린 낮에 창이 보이는 실내 자리를 고른다. 휴대폰 카메라 앱에서 ① 아무것도 누르지 않고 한 장, ② 화면에서 실내의 어두운 물건을 눌러 한 장, ③ 창밖 하늘을 눌러 한 장을 찍는다(많은 휴대폰은 화면을 누른 곳에 초점과 노출을 맞추고, 누른 뒤 위아래로 끌면 밝기를 조절할 수 있다). 사진 편집 앱이나 컴퓨터의 사진 프로그램에서 세 장의 히스토그램을 나란히 띄운다. 어느 사진이 오른쪽 끝에, 어느 사진이 왼쪽 끝에 막대가 붙어 있는지 적고, 눈으로 볼 때 창밖과 실내가 둘 다 보였다는 기억과 비교한다. 휴대폰이 여러 장을 찍어 합치는 기능(HDR)을 자동으로 쓰고 있다면 ①의 결과가 의외로 좋을 수 있다. 그 이유는 6절에서 본다.
+    </div>
+  </section>
+
+  <section id="range">
+    <h2>다이내믹 레인지: 장면의 폭과 센서의 폭</h2>
+    <p>장면에서 가장 밝은 곳과 가장 어두운 곳의 밝기 비를 <span class="term">다이내믹 레인지</span><span class="en">(Dynamic range)</span>라고 한다. 사진에서는 이 비를 스톱으로 센다. 한 스톱이 두 배이므로, 밝기가 1,000배 차이 나면 약 10스톱이다.</p>
+    <div class="formula">$$DR_{\text{스톱}} = \log_2 \frac{Y_{\max}}{Y_{\min}}$$<div class="where">\(Y_{\max}, Y_{\min}\): 장면(또는 센서가 기록할 수 있는)의 가장 밝은 밝기와 가장 어두운 밝기. 센서의 경우 \(Y_{\max}\)는 화소가 가득 차는 양, \(Y_{\min}\)은 신호가 잡음과 같아지는 양으로 정의하는 경우가 많다. 이 장의 장면 범위는 극단적인 몇 화소에 끌려가지 않도록 가장 어두운 1%와 가장 밝은 0.1% 지점 사이로 쟀다.</div></div>
+    <p>이 책의 모델로 계산하면, 앞의 창가 장면은 창밖 하늘과 탁자 밑 그늘 사이가 약 11.6스톱이다. 밝기 비로는 3,000배가 넘는다. 실제 겨울 낮의 창가도 이 정도이거나 그 이상인 경우가 흔하다. 한편 센서가 한 장에 담을 수 있는 범위는 기종, 감도(ISO), 측정 기준에 따라 다르게 보고되며, 흔히 10~14스톱 정도로 소개된다. 그리고 그 사진을 보여 줄 화면과 종이의 범위는 그보다 더 좁다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="밝기의 사다리. 창가 장면의 범위, 센서가 한 장에 담는 범위, 브래키팅 세 장을 합친 범위, 인쇄물의 범위를 스톱 눈금 위에 막대로 비교한다">
+        <g class="s-line" stroke-width="0.6" opacity="0.5">
+          <line x1="70" y1="34" x2="70" y2="246"/><line x1="130" y1="34" x2="130" y2="246"/><line x1="190" y1="34" x2="190" y2="246"/><line x1="250" y1="34" x2="250" y2="246"/><line x1="310" y1="34" x2="310" y2="246"/><line x1="370" y1="34" x2="370" y2="246"/><line x1="430" y1="34" x2="430" y2="246"/>
+        </g>
+        <g font-size="10.5" class="lbl-dim t-mono" text-anchor="middle">
+          <text x="70" y="262">−8</text><text x="130" y="262">−6</text><text x="190" y="262">−4</text><text x="250" y="262">−2</text><text x="310" y="262">0</text><text x="370" y="262">+2</text><text x="430" y="262">+4</text>
+        </g>
+        <text x="250" y="284" font-size="11" class="lbl-dim" text-anchor="middle">밝기(스톱, 창가 장면의 벽을 0으로)</text>
+        <text x="8" y="56" font-size="11.5" class="lbl">장면</text>
+        <rect x="88" y="44" width="349" height="20" rx="4" class="f-warn-soft s-line" stroke-width="0.8"/>
+        <text x="94" y="80" font-size="10" class="lbl-dim">탁자 밑</text><text x="200" y="80" font-size="10" class="lbl-dim">서가 책등</text><text x="300" y="80" font-size="10" class="lbl-dim">벽</text><text x="372" y="80" font-size="10" class="lbl-dim">탁자 위</text><text x="437" y="80" font-size="10" class="lbl-dim" text-anchor="end">하늘</text>
+        <text x="8" y="116" font-size="11.5" class="lbl">센서 한 장</text>
+        <rect x="100" y="104" width="330" height="20" rx="4" class="f-acc-soft s-acc" stroke-width="1"/>
+        <text x="265" y="118" font-size="10.5" class="lbl-acc" text-anchor="middle">11스톱(이 장의 가정)</text>
+        <text x="8" y="166" font-size="11.5" class="lbl">세 장 합성</text>
+        <rect x="40" y="154" width="410" height="20" rx="4" class="f-ok-soft s-ok" stroke-width="1"/>
+        <text x="245" y="168" font-size="10.5" class="lbl" text-anchor="middle">±2 EV 브래키팅: 11 + 4 = 15스톱</text>
+        <text x="8" y="216" font-size="11.5" class="lbl">인쇄물</text>
+        <rect x="235" y="204" width="180" height="20" rx="4" class="f-acc2-soft s-acc2" stroke-width="1"/>
+        <text x="325" y="218" font-size="10.5" class="lbl" text-anchor="middle">대략 5~7스톱</text>
+        <line x1="100" y1="96" x2="100" y2="130" class="s-bad" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="96" y="140" font-size="10" class="lbl-bad" text-anchor="end">이보다 어두우면 뭉개짐</text>
+      </svg>
+      <figcaption><b>그림 2. 밝기의 사다리.</b> 이 책의 모델에서 창가 장면의 범위(약 11.6스톱)는 센서 한 장의 범위(이 장에서는 11스톱으로 가정)보다 조금 넓다. 노출을 정한다는 것은 센서의 막대를 장면의 막대 위 어디에 놓을지 정하는 일이다. 그림은 하늘을 지키는 자리에 놓았고, 그 대가로 탁자 밑이 막대 밖으로 밀려났다. 노출을 달리한 여러 장을 합치면 막대가 길어진다. 마지막 줄의 인쇄물은 종이의 흰색과 가장 짙은 잉크 사이의 대략적인 범위로, 종이와 잉크에 따라 다르다. 넓은 장면을 결국 좁은 종이에 옮기려면 어딘가를 눌러 담아야 한다(6절).</figcaption>
+    </figure>
+
+    <p>그림 2를 직접 움직여 본다. 아래 그래프의 가로축은 밝기를 스톱으로 잰 것이고, 회색 산은 창가 장면의 밝기 분포다. 산 위의 테두리 상자가 센서의 범위다. 상자를 좌우로 끄는 것이 곧 노출을 바꾸는 일이다. 상자의 오른쪽 밖으로 나간 밝기는 날아가고, 왼쪽 밖으로 나간 밝기는 뭉개진다. 아래 사진에 그 결과가 바로 나타난다.</p>
+
+    <div class="sim" id="sim-hg-dr">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>센서의 창을 장면 위에 놓기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="hg-dr-cv"></canvas><span class="hint">센서 상자를 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>센서의 다이내믹 레인지 <output id="hg-dr-d-out"></output></span><input type="range" id="hg-dr-d" min="6" max="15" step="0.5" value="11"></label>
+          <div class="seg" id="hg-dr-scene"><button data-value="window" class="on">창가</button><button data-value="lamp">창가 + 실내등</button></div>
+          <label class="check"><input type="checkbox" id="hg-dr-mark" checked> 잘리는 곳 표시(빨강 날아감, 파랑 뭉개짐)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">장면의 범위</span><span class="v" id="hg-dr-o-scene">—</span></div>
+        <div class="stat"><span class="k">날아간 화소</span><span class="v" id="hg-dr-o-hi">—</span></div>
+        <div class="stat"><span class="k">뭉개진 화소</span><span class="v" id="hg-dr-o-lo">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 상자를 끌어 오른쪽 끝을 하늘 봉우리의 오른쪽에 맞춘다. 창밖은 살지만 탁자 밑과 서가의 어두운 책등이 파랗게 표시된다. ② 다이내믹 레인지를 13스톱으로 올린다. 상자가 장면 전체를 덮어 두 가지를 다 지킬 수 있다. 반대로 8스톱까지 내리면 어디에 두어도 한쪽이 크게 잘린다. 값을 6까지 밀면 사진은 창 아니면 실내, 둘 중 하나만 남는다. ③ "창가 + 실내등"으로 바꾼다. 실내가 밝아져 장면의 범위가 약 1스톱 줄어든다. 범위가 센서보다 넓을 때 가장 정직한 해결은 장면 자체의 범위를 줄이는 것, 곧 어두운 곳에 빛을 더하는 것이다. (장면은 이 책의 가상 모형이다. 센서는 [0, 1]에서 잘리고, 잡음의 표준편차를 2<sup>−DR</sup>로 두어 신호 대 잡음비 1인 곳을 아래 끝으로 삼았다. 실제 센서의 잡음은 밝기에 따라 달라지는 광자 잡음이 더해져 더 복잡하다.)</div>
+    </div>
+
+    <p>센서의 범위가 장면보다 좁을 때 할 수 있는 일은 셋이다. 하나, 상자를 어디에 둘지 고른다(노출 보정). 둘, 장면의 범위를 줄인다. 실내등을 켜거나 반사판으로 어두운 곳을 밝히거나(<a href="light.html">4장</a>), 해가 낮아져 창밖이 덜 밝은 시간을 고른다. 셋, 상자를 여러 번 옮겨 가며 찍고 나중에 합친다. 이것이 다음 절의 브래키팅이다.</p>
+
+    <div class="callout deep">
+      <strong>눈의 다이내믹 레인지와 존 시스템</strong>
+      우리 눈이 창밖과 실내를 둘 다 본다고 느끼는 것은 눈이 한꺼번에 넓은 범위를 담아서라기보다, 시선이 옮겨 갈 때마다 동공과 망막이 빠르게 적응하고 뇌가 그 결과를 하나의 장면으로 이어 붙이기 때문이다(ColorBook <a href="../../color/chapters/light.html">2장</a>의 순응). 그래서 "눈의 다이내믹 레인지는 몇 스톱"이라는 숫자는 측정 조건에 따라 크게 달라진다. 사진가들은 이 간극을 오래전부터 의식했다. 미국의 사진가 앤설 애덤스<span class="en">(Ansel Adams)</span>는 1940년 무렵 프레드 아처<span class="en">(Fred Archer)</span>와 함께 <span class="term">존 시스템</span><span class="en">(Zone System)</span>을 정리했다. 장면의 밝기를 한 스톱 간격의 열한 구역(0~X)으로 나누고, 어떤 물체를 어느 구역에 놓을지 미리 정한 뒤 노출과 필름 현상을 맞추는 방법이다. 이 장의 센서 상자를 장면 위에 놓는 생각과 같다. 다만 존 시스템이 다듬어진 흑백 네거티브 필름은 밝은 쪽이 디지털 센서처럼 뚝 잘리지 않고 완만하게 눌려 담기는 성질이 있었다. 필름 시절의 격언 "그림자에 맞춰 노출하고, 하이라이트에 맞춰 현상하라"가 디지털에서 "하이라이트를 지켜라"로 뒤집힌 이유다.
+    </div>
+  </section>
+
+  <section id="hdr">
+    <h2>브래키팅과 HDR 합성</h2>
+    <p><span class="term">브래키팅</span><span class="en">(Bracketing)</span>은 같은 장면을 노출만 달리해 여러 장 찍는 것이다. 예를 들어 −2, 0, +2 EV로 세 장을 찍으면, 어두운 장은 하늘을, 밝은 장은 서가를, 가운데 장은 그 사이를 맡는다. 이 장들을 하나로 합치는 것을 <span class="term">HDR 합성</span><span class="en">(High dynamic range imaging)</span>이라고 한다. 원리는 간단하다. 화소마다 각 장의 값을 선형광으로 되돌리고 노출 차이만큼 나눠 같은 눈금에 놓은 다음, 날아가지도 잡음에 묻히지도 않은 장의 값을 더 믿어 평균한다. 1997년 폴 데베벡<span class="en">(Paul Debevec)</span>과 지텐드라 말릭<span class="en">(Jitendra Malik)</span>이 발표한 방법이 이 생각의 고전적인 예다.</p>
+    <p>합치면 장면 전체를 담은 밝기 지도가 생기지만, 화면과 종이는 그 범위를 다 보여 주지 못한다. 그래서 넓은 범위를 좁은 범위에 눌러 담는 단계가 하나 더 필요하다. 이것이 <span class="term">톤 매핑</span><span class="en">(Tone mapping)</span>이다. 하이라이트를 부드럽게 접어 넣는 정도는 자연스럽지만, 너무 세게 누르면 밝은 창과 어두운 서가가 같은 밝기가 되어 평평하고 이상한 그림, 흔히 "HDR 느낌"이라 부르는 결과가 나온다. 아래에서 브래키팅 간격과 톤 매핑 강도를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-hg-hdr">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>세 장을 한 장으로</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="hg-hdr-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>브래키팅 간격 <output id="hg-hdr-s-out"></output></span><input type="range" id="hg-hdr-s" min="0.5" max="3" step="0.5" value="2"></label>
+          <label class="ctrl"><span>톤 매핑 강도 <output id="hg-hdr-t-out"></output></span><input type="range" id="hg-hdr-t" min="0" max="100" step="5" value="40"></label>
+          <label class="check"><input type="checkbox" id="hg-hdr-p"> 손님이 지나간다(세 장 사이에 움직임)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">세 장이 덮는 범위</span><span class="v" id="hg-hdr-o-cov">—</span></div>
+        <div class="stat"><span class="k">합친 뒤 날아간 · 뭉개진</span><span class="v" id="hg-hdr-o-clip">—</span></div>
+        <div class="stat"><span class="k">창과 벽의 밝기 차이</span><span class="v" id="hg-hdr-o-gap">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 간격 2, 강도 40%에서 위의 세 장과 아래 합친 사진을 비교한다. 하늘의 밝기 변화와 서가의 책등이 한 장에 함께 있다. 창은 여전히 벽보다 밝다. ② 간격을 0.5로 줄인다. 세 장이 거의 같아 덮는 범위가 12스톱에 그치고, 하늘 일부가 날아간 채로 남는다. ③ 강도를 100%까지 올린다. 창과 벽의 밝기 차이가 줄어들고, 창틀 둘레에 뿌연 테두리(헤일로)가 생기며 실내가 바깥만큼 밝아진다. 정보는 다 있는데 장면은 거짓말을 한다. ④ "손님이 지나간다"를 켠다. 세 장에서 사람의 위치가 달라 반투명한 유령 셋이 생긴다. 이것을 고스트<span class="en">(Ghost)</span>라고 한다. (합성 가중치는 데베벡–말릭의 삼각형 함수, 0~50%는 라인하르트 외(2002)의 전역 톤 매핑, 50%를 넘으면 넓은 흐림으로 큰 밝기 차이를 깎는 단순한 국소 톤 매핑을 더했다. 실제 앱의 합성은 정렬, 고스트 제거, 장면 분석을 함께 한다.)</div>
+    </div>
+
+    <p>휴대폰 카메라가 셔터를 한 번 누를 때 실제로는 여러 장을 연달아 찍어 합치는 경우가 많다. 앞의 "직접 해 보기"에서 아무것도 누르지 않은 사진이 의외로 괜찮았다면 이런 자동 합성 덕분일 수 있다. 어떤 장을 몇 장 찍어 어떻게 합치는지는 기종과 소프트웨어마다 다르고 공개되지 않은 경우가 많으므로, 이 책은 원리만 다룬다. 원리로 보면 장점과 약점이 같다. 움직이지 않는 장면에서는 센서 한 장보다 넓은 범위를 담고, 움직이는 사람과 흔들리는 나뭇잎 앞에서는 고스트와 번짐이 생기기 쉽다.</p>
+
+    <figure class="art-figure" id="fig-hg-legray">
+      <div class="art-frame"><img src="../../shared/img/le-gray-great-wave-sete.webp" width="1600" height="1296" alt="귀스타브 르 그레의 1857년 바다 사진. 화면 위쪽 절반은 짙은 구름 사이로 밝은 빛이 퍼지는 하늘이고, 수평선 왼쪽에 길고 낮은 방파제가 검은 띠처럼 놓여 있다. 아래쪽에는 하얗게 부서지는 파도와 검은 바위들이 있다. 전체가 갈색 톤의 알부민 인화다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 귀스타브 르 그레, 「큰 파도, 세트」, 1857.</b> 프랑스 남부 항구 세트의 바다를 찍은 사진이다. 이 무렵의 유리 원판(콜로디온 습판)은 푸른빛에 특히 민감해서, 바다에 노출을 맞추면 하늘이 하얗게 날아가기 쉬웠다. 그래서 19세기 풍경 사진에는 구름 없이 하얀 하늘이 흔하다. 르 그레의 바다 사진들은 밝은 하늘의 구름과 어두운 바다를 한 장에 담아 당시 큰 주목을 받았고, 그의 바다 사진 가운데 일부는 하늘과 바다를 따로 찍은 두 원판으로 인화한 것(조합 인화)으로 알려져 있다. 이 한 장이 어느 방식인지는 이 책에서 확인하지 못했다. 어느 쪽이든 그가 마주한 문제는 이 장의 문제, 곧 장면의 범위가 매체의 범위보다 넓다는 것이었다. 앞의 "산의 모양" 시뮬레이터에서 이 사진의 히스토그램을 볼 수 있다.<span class="credit">메트로폴리탄 미술관 소장(Gift of John Goldsmith Phillips, 1976), 유리 원판에서 뜬 알부민 은 인화, 33.7 × 41.4 cm. 공공 도메인(The Met Open Access, CC0). 대지 가장자리를 잘라 냈다. <a href="https://www.metmuseum.org/art/collection/search/261941">소장처 작품 페이지</a> · <a href="../../credits.html#le-gray-great-wave-sete">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="callout warn">
+      <strong>"실물과 같게"와 "모두 보이게"는 다르다</strong>
+      HDR 합성은 창밖과 실내를 모두 보이게 해 주지만, 모두 보이는 사진이 실물과 같은 사진은 아니다. 실제 장면에서 창은 벽보다 수십 배 밝고, 사람은 그 차이를 "창가에 앉아 있다"는 느낌으로 받아들인다. 톤 매핑으로 창과 벽의 밝기를 거의 같게 만들면 정보는 늘지만 그 느낌은 사라진다. 서점이나 숙소, 음식 사진에서 지나친 HDR이 "실제로 가 보니 다르다"는 실망으로 이어지는 이유다. 합성을 쓰더라도 밝은 곳은 밝게, 어두운 곳은 어둡게 두는 순서는 지킨다. 히스토그램으로 말하면 합친 뒤에도 창의 산이 벽의 산보다 오른쪽에 있어야 한다.
+    </div>
+  </section>
+
+  <section id="break">
+    <h2>일부러 날리고, 일부러 잠그기</h2>
+    <p>지금까지는 클리핑을 피할 대상으로 다뤘다. 하지만 사진의 역사에는 일부러 하이라이트를 날리거나 그림자를 잠근 좋은 사진이 많다. 밝은 창을 등진 사람을 실루엣으로 찍으면 얼굴의 세부는 없지만 자세와 윤곽이 또렷해진다. 흰 배경을 완전히 날린 하이 키 사진은 물건만 떠 있는 듯한 가벼움을 준다. 어둠 속에서 빛 하나만 남기는 로 키 사진은 렘브란트의 그림처럼 시선을 한 곳에 모은다.</p>
+    <p>동아시아 그림에도 비슷한 생각이 있다. ColorBook <a href="../../color/chapters/value.html">6장</a>에서 본 수묵 산수화는 물과 하늘을 칠하지 않고 바탕으로 남겨 두었다. 그 여백에는 세부가 없지만 비어 있다고 느껴지지 않는다. 사진의 날아간 하늘도 그렇게 쓰일 수 있다. 차이는 하나다. <b>그것이 선택이었는가, 사고였는가.</b> 같은 하얀 창이라도 "이 사진의 주인공은 창가에 앉은 사람이고, 창밖은 빛으로만 남긴다"고 정했다면 선택이고, 실내를 찍으려다 창이 날아갔다면 사고다. 히스토그램과 하이라이트 경고는 그 차이를 셔터를 누르는 순간에 알게 해 준다.</p>
+
+    <div class="callout studio">
+      <strong>노출을 정하는 순서</strong>
+      현장의 사진가들은 노출을 대략 이 순서로 정한다. 첫째, 이 사진에서 반드시 결이 남아야 하는 가장 밝은 곳과 가장 어두운 곳을 하나씩 고른다(창가 사진이라면 창밖 하늘의 구름과 서가의 책 제목). 둘째, 가장 밝은 곳이 경고에 걸리지 않을 때까지 노출을 내린다. 셋째, 그때 가장 어두운 곳이 잡음에 묻히는지 확인한다. 묻히면 빛을 더하거나, 시간을 바꾸거나, 브래키팅을 한다. 넷째, 버려도 되는 곳(전구 알, 탁자 밑)은 처음부터 목록에서 뺀다. 이 순서는 카메라 화면의 히스토그램이 보통 JPEG 미리보기로 그려진다는 점도 감안한 것이다. RAW로 찍으면 실제로는 조금 더 여유가 있지만, 그 여유를 믿고 경고를 무시하는 습관은 들이지 않는 편이 낫다.
+    </div>
+  </section>
+
+  <section id="plan">
+    <h2>창가 사진의 노출 설계</h2>
+    <p>마지막 시뮬레이터는 이 장의 도구를 모아 책방 E 창가 사진의 노출을 직접 정한다. 네 가지 출발점을 고른 뒤, 노출 보정(평균 측광 기준), 센서의 범위, 실내등, 브래키팅을 바꿔 본다. 아래 숫자는 장면을 세 곳으로 나눠 센다. 창(지켜야 할 하이라이트), 서가(지켜야 할 그림자), 탁자 밑(버려도 되는 그림자)이다.</p>
+
+    <div class="sim" id="sim-hg-plan">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>책방 E 창가 사진 노출 설계기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="hg-plan-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="hg-plan-pre"><button data-value="shelf" class="on">서가에 맞춤</button><button data-value="hi">하이라이트 지키기</button><button data-value="lo">그림자 지키기</button><button data-value="brk">브래키팅 3장</button></div>
+          <label class="ctrl"><span>노출 보정 <output id="hg-plan-c-out"></output></span><input type="range" id="hg-plan-c" min="-4" max="4" step="0.3333333" value="3.3333333"></label>
+          <label class="ctrl"><span>센서의 범위 <output id="hg-plan-d-out"></output></span><input type="range" id="hg-plan-d" min="8" max="14" step="0.5" value="11"></label>
+          <label class="check"><input type="checkbox" id="hg-plan-lamp"> 실내등 켜기</label>
+          <label class="check"><input type="checkbox" id="hg-plan-brk"> ±2 EV 브래키팅 합성</label>
+          <label class="check"><input type="checkbox" id="hg-plan-warn" checked> 경고 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">창 날아감</span><span class="v" id="hg-plan-o-win">—</span></div>
+        <div class="stat"><span class="k">서가 뭉개짐</span><span class="v" id="hg-plan-o-shelf">—</span></div>
+        <div class="stat"><span class="k">탁자 밑 뭉개짐</span><span class="v" id="hg-plan-o-floor">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="hg-plan-o-verdict">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "서가에 맞춤"은 화면에서 서가를 눌러 노출을 맞춘 결과다. 실내는 밝고 고르지만 창이 거의 통째로 날아간다. 1장에서 서윤이 처음 찍은 사진과 같은 상태다. ② "하이라이트 지키기"는 창의 경고가 모두 사라지는 지점(−1⅔)이다. 창밖이 살아나는 대신 서가의 어두운 책등 일부와 탁자 밑이 잡음 아래로 내려간다. 보정을 1/3씩 올려 창에 경고가 처음 나타나는 곳을 찾는다. ③ "그림자 지키기"는 반대로 서가와 탁자 밑을 지키고 하늘을 내준다. ④ "브래키팅 3장"을 고르면 세 칸이 모두 0%에 가깝다. 여기서 "실내등 켜기"를 켜고 브래키팅을 끄면, 한 장으로도 서가의 손실이 크게 준다. 센서 범위를 8까지 내려 어떤 출발점이 끝까지 버티는지 본다. (장면은 이 책의 가상 모형이고 센서 범위 11스톱은 가정이다. 실제 카메라에서는 이 숫자 대신 화면의 히스토그램과 하이라이트 경고로 같은 판단을 한다. 실내등의 빛 색은 여기서 다루지 않는다.)</div>
+    </div>
+
+    <p>네 출발점 중 정답은 없다. 무엇을 지킬지는 사진의 쓰임이 정한다. 서점 웹사이트의 첫 화면에 걸 창가 사진이라면 창밖의 겨울 풍경도 서가의 책도 보여야 하니 브래키팅이 맞고, 손님이 오가는 모임 장면처럼 여러 장을 합칠 수 없는 사진이라면 하이라이트를 지킨 한 장에 그림자를 조금 끌어올리는 편이 낫다. 창을 일부러 빛으로만 남기는 사진이라면 "서가에 맞춤"도 선택이 될 수 있다. 판단의 근거가 "그냥 자동으로 찍었더니"가 아니라 히스토그램 위의 숫자라는 점이 다를 뿐이다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 촬영 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>촬영 노트 · 3장</span></div>
+      <h4>창을 지킬 것인가, 서가를 지킬 것인가</h4>
+      <p>2027년 12월 둘째 주 오후, 서윤은 책방 E의 창가 자리를 다시 찍었다. 1장에서 휴대폰 자동 모드로 찍은 첫 사진은 창이 하얀 사각형이었다. 이번에는 미러리스 카메라의 히스토그램과 하이라이트 경고를 켰다. 서가를 기준으로 노출을 맞추자 화면 속 창 전체에 줄무늬가 깜박였고, 히스토그램 오른쪽 끝에 막대가 솟았다.</p>
+      <p>이 책의 모델로 계산하면 창가 장면의 범위는 약 11.6스톱(가장 어두운 1%부터 가장 밝은 0.1%까지)이다. 센서가 한 장에 11스톱을 담는다고 가정하면, 서가에 맞춘 노출(평균 측광보다 +3⅓ EV)에서는 창 영역의 대부분이 날아간다. 평균 측광 그대로(보정 0)여도 창의 약 40%가 날아간다. 창의 경고가 처음으로 모두 사라지는 지점은 −1⅔ EV다. 그 대신 서가 화소의 약 4분의 1과 탁자 밑의 4분의 3이 잡음 아래로 내려간다. −2, 0, +2 EV 세 장을 합치면 덮는 범위가 15스톱이 되어 세 영역의 손실이 모두 0%가 된다.</p>
+      <p>한도경은 필름 시절 이야기를 꺼냈다. "네거티브 필름으로 찍을 때는 그림자에 맞추라고 배웠어. 밝은 쪽은 필름이 알아서 눌러 담아 줬거든." 서윤이 카메라 화면을 보여 주자 도경은 고개를 끄덕였다. "이건 반대네. 넘친 건 아예 없어지는구나. 그럼 창부터 지켜야지." 책방 E 주인은 합성 시험본을 보고 한마디 했다. "창밖이 다 보이는 건 좋은데, 실내가 창만큼 밝으면 우리 가게 같지 않아요. 우리 가게는 창가가 밝고 안쪽이 아늑한 곳이니까." 서윤은 톤 매핑을 약하게 두어, 합친 사진에서도 창이 벽보다 확실히 밝게 남도록 했다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#f4f6fa"></i><b>지킬 하이라이트</b><code>창밖 하늘·처마</code></span>
+        <span class="chip"><i style="background:#5a4a6e"></i><b>지킬 그림자</b><code>서가 책등</code></span>
+        <span class="chip"><i style="background:#1e1813"></i><b>버려도 되는 그림자</b><code>탁자 밑</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>창가 사진의 노출 기준은 <b>하이라이트를 지키는 쪽</b>이다. 창 영역에 하이라이트 경고가 하나도 남지 않는 노출(이 장면에서는 평균 측광보다 −1⅔ EV)을 기준으로 삼고, 탁자 밑처럼 버려도 되는 그림자는 검게 둔다. 웹사이트 첫 화면용 창가 사진은 −2, 0, +2 EV <b>세 장 브래키팅</b>으로 찍어 합치되, 카메라를 움직이지 않고 손님이 없는 개점 전에 찍는다. 합친 뒤에도 창이 벽보다 밝게 남도록 톤 매핑은 약하게 한다. 사람이 움직이는 장면은 합성하지 않고 하이라이트를 지킨 한 장으로 찍는다.</div>
+        <div><b>아직 남은 문제</b>실내등을 켜면 한 장으로도 서가가 살아나지만, 창의 낮빛과 실내등의 빛은 밝기만이 아니라 색도 다르다. 그리고 다음 과제인 도록 작품 촬영에서는 창빛에 기댈지, 조명을 따로 쓸지부터 정해야 한다.</div>
+        <div><b>다음 단계</b><a href="light.html">4장</a>: 빛의 크기, 방향, 거리, 색. 작품을 고르게 비추는 조명 배치를 찾는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>히스토그램은 사진의 화소를 밝기(0 검정 ~ 255 흰색)별로 센 막대그래프다. "어디에"는 버리고 "얼마나"만 남긴다.</li>
+      <li>히스토그램에 정답 모양은 없다. 흰 장면은 오른쪽, 어두운 장면은 왼쪽에 산이 있는 것이 맞다. 볼 것은 산이 장면에 맞는 쪽에 있는가, 지킬 곳이 양 끝에서 잘리지 않았는가다.</li>
+      <li>하이라이트가 날아가면(클리핑) 그 차이는 영영 사라지고, 그림자는 잡음에 묻히며 거칠어진다. 밝은 쪽 실수가 더 되돌리기 어렵기 때문에 디지털에서는 하이라이트를 먼저 지킨다.</li>
+      <li>노출계는 측정한 곳의 평균을 중간 회색으로 맞춘다. 중간보다 밝은 장면은 플러스, 어두운 장면은 마이너스로 노출을 보정한다.</li>
+      <li>다이내믹 레인지는 가장 밝은 곳과 가장 어두운 곳의 밝기 비를 스톱(log₂)으로 센 것이다. 장면의 범위가 센서보다 넓으면 어딘가는 잘린다.</li>
+      <li>범위를 다루는 방법은 셋이다. 어디를 지킬지 고르기(노출 보정), 장면의 범위를 줄이기(빛 더하기, 시간 바꾸기), 여러 장을 합치기(브래키팅, HDR). 합친 뒤의 톤 매핑은 밝은 곳이 밝게 남을 만큼만 한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 창가 사진의 히스토그램을 보니 맨 오른쪽 끝(255)에 높은 막대가 솟아 있다. 가장 알맞은 해석은?</p>
+        <div class="opts">
+          <button class="opt">사진에 흰색 물건이 많아 노출이 정확히 맞았다는 뜻이다.</button>
+          <button class="opt">사진이 전체적으로 너무 어둡다는 뜻이다.</button>
+          <button class="opt" data-correct>사진의 일부(아마 창밖)가 완전한 흰색으로 날아가 그 안의 밝기 차이가 사라졌다는 뜻이다.</button>
+          <button class="opt">센서에 먼지가 묻어 같은 값이 반복해서 찍혔다는 뜻이다.</button>
+        </div>
+        <div class="quiz-exp">끝에 붙어 솟은 막대는 최댓값에 부딪힌 화소, 곧 클리핑된 하이라이트다. 하얀 물건이 많아도 제대로 찍으면 산이 오른쪽에 "가까이" 오지, 255 한 값에 몰려 솟지는 않는다. 어떤 곳이 날아갔는지는 하이라이트 경고로 확인한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 흰 탁자보 위의 흰 찻잔을 평균 측광 자동 노출로 찍었더니 전체가 칙칙한 회색이 되었다. 원인과 대처로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>노출계가 장면의 평균을 중간 회색으로 맞추려 했기 때문이다. 노출 보정을 플러스(+1~+2 정도)로 준다.</button>
+          <button class="opt">흰색이 빛을 너무 많이 반사해 센서가 과열되었기 때문이다. 노출 보정을 마이너스로 준다.</button>
+          <button class="opt">화이트 밸런스가 틀렸기 때문이다. 노출은 그대로 두고 색온도만 바꾼다.</button>
+          <button class="opt">렌즈의 화각이 넓어서다. 더 가까이 다가가 찍으면 저절로 하얘진다.</button>
+        </div>
+        <div class="quiz-exp">노출계는 무엇을 찍는지 모르고 측정 영역의 평균이 중간 회색(18% 관습)이 되게 노출을 고른다. 평균이 중간보다 밝은 장면은 회색으로 어둡게 찍히므로 플러스 보정이 필요하다. 이 장의 모델에서는 +1⅔ 안팎에서 흰색이 돌아왔다. 화이트 밸런스는 색의 치우침을 고치는 것이지 밝기를 고치지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 하늘이 날아갈 만큼 2스톱 밝게 찍은 JPEG 사진을, 편집 앱에서 노출 −2로 되돌렸다. 하늘은 어떻게 되는가?</p>
+        <div class="opts">
+          <button class="opt">원래 하늘의 구름이 그대로 돌아온다. 노출은 언제든 되돌릴 수 있다.</button>
+          <button class="opt">하늘이 더 하얘진다.</button>
+          <button class="opt">하늘에 잡음이 생기지만 구름의 형태는 돌아온다.</button>
+          <button class="opt" data-correct>날아갔던 부분은 모두 같은 값이었으므로, 구름 없이 평평한 회색 면이 된다.</button>
+        </div>
+        <div class="quiz-exp">255에 부딪힌 화소는 원래 얼마나 밝았는지에 대한 정보가 남아 있지 않다. 모두 같은 값을 똑같이 어둡게 하면 같은 회색이 될 뿐이다. 잡음과 계단이 생기는 것은 어둡게 찍고 밝게 끌어올린 반대 경우다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 장면의 범위가 12스톱이고 센서가 한 장에 11스톱을 담는다. −2, 0, +2 EV로 세 장을 찍어 합치면 덮을 수 있는 범위와 주의할 점으로 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">33스톱. 세 장의 범위를 모두 더하기 때문이다. 주의할 점은 없다.</button>
+          <button class="opt" data-correct>약 15스톱(11 + 양쪽 2스톱씩). 장면 전체를 덮지만, 세 장 사이에 움직인 사람이나 물체는 고스트로 남을 수 있다.</button>
+          <button class="opt">11스톱. 센서의 범위는 몇 장을 찍어도 늘지 않는다.</button>
+          <button class="opt">13스톱. 가운데 장만 쓰고 나머지는 버리기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">어두운 장은 밝은 쪽 끝을 2스톱 더 올려 주고, 밝은 장은 어두운 쪽 끝을 2스톱 더 내려 준다. 세 장의 범위가 겹치므로 단순히 더하지 않는다. 합성은 같은 장면을 찍었다고 가정하므로, 장 사이에 위치가 바뀐 것은 반투명한 고스트가 된다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  /* ---------------- 장면과 카메라 모형 ----------------
+     장면: 이 책이 그린 가상의 창가(선형광, 벽 약 0.09). 카메라: 노출 2^ev배 → 읽기 잡음 → [0,1] 클리핑 → sRGB 감마 → 8비트.
+     같은 코드를 node에서 돌려 본문 숫자를 확인했다. */
+function makeModel(ART) {
+  var SW = 300, SH = 200, N = SW * SH;
+  var lin = function (h) { var c = ART.parse(h); return [ART.toLinear(c[0]), ART.toLinear(c[1]), ART.toLinear(c[2])]; };
+  // 창 위치(0~1 좌표)
+  var WIN = { u0: 0.08, u1: 0.46, v0: 0.08, v1: 0.6 };
+  var rnd = ART.rng(11);
+  var SPINE = ["#8c2f2f", "#2f5d8c", "#d9c9a3", "#3f6b4a", "#b5833a", "#5a4a6e", "#e8e2d4", "#3d3a40", "#a8553a", "#6f8fa8", "#c9b27a", "#7a2e45"].map(lin);
+  // 서가: 5칸, 칸마다 책
+  var SHELF = { u0: 0.6, u1: 0.97, v0: 0.04, v1: 0.96, rows: 5 };
+  var books = [];
+  for (var r = 0; r < SHELF.rows; r++) {
+    var u = SHELF.u0 + 0.018, row = [];
+    while (u < SHELF.u1 - 0.03) {
+      var w = 0.01 + rnd() * 0.02, gap = rnd() < 0.15 ? 0.012 : 0.002;
+      row.push({ u0: u, u1: u + w, h: 0.62 + rnd() * 0.3, c: SPINE[Math.floor(rnd() * SPINE.length)] });
+      u += w + gap;
+    }
+    books.push(row);
+  }
+  function AB_smooth(a, b, x) { var t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+  var TABLE = { u0: 0.02, u1: 0.58, v0: 0.6, v1: 0.68 };
+  // 창가 장면: o.lamp(실내등), o.person(사람의 u 위치, 없으면 -1)
+  function windowPx(u, v, o) {
+    var dx = (u - 0.27) * 1.5, dy = v - 0.33, d2 = dx * dx + dy * dy;
+    var E = 0.05 + 0.9 / (1 + 10 * d2);
+    var lx = (u - 0.78) * 1.5, ly = v - 0.1, El = o.lamp ? 0.7 / (1 + 3 * (lx * lx + ly * ly)) : 0;
+    var lab = 0, c;
+    if (o.person >= 0 && Math.abs(u - o.person) < 0.045 && v > 0.2 && v < 0.98) {
+      var hd = Math.hypot((u - o.person) * 1.5, v - 0.26);
+      if (hd < 0.05 || (v > 0.3 && Math.abs(u - o.person) < 0.04 - (v - 0.3) * 0.0)) return { c: [0.03, 0.028, 0.03], lab: 2 };
+    }
+    if (u > WIN.u0 && u < WIN.u1 && v > WIN.v0 && v < WIN.v1) {
+      var fu = (u - WIN.u0) / (WIN.u1 - WIN.u0), fv = (v - WIN.v0) / (WIN.v1 - WIN.v0);
+      var bar = Math.abs(fu - 0.5) < 0.018 || Math.abs(fv - 0.45) < 0.022 || fu < 0.03 || fu > 0.97 || fv < 0.035 || fv > 0.965;
+      if (bar) return { c: [0.06, 0.055, 0.05].map(function (x) { return x * (1 + El * 2); }), lab: 0 };
+      lab = 1;
+      // 바깥: 하늘, 맞은편 건물, 눈 쌓인 처마
+      var roof = 0.42 - 0.08 * Math.sin(fu * 3.1) * (fu > 0.55 ? 1 : 0.4);
+      if (fv < roof - 0.025) { var s = 1 - fv * 0.5; return { c: [6.2 * s, 6.9 * s, 7.9 * s], lab: 1 }; }
+      if (fv < roof) return { c: [8.2, 8.5, 8.9], lab: 1 };
+      var win2 = (Math.floor(fu * 7) % 2 === 1) && (Math.floor((fv - roof) * 9) % 2 === 1);
+      if (win2) return { c: [0.35, 0.38, 0.42], lab: 1 };
+      var br = 1 - (fv - roof) * 0.6;
+      return { c: [2.2 * br, 1.9 * br, 1.6 * br], lab: 1 };
+    }
+    // 탁자 위 물건
+    if (v > 0.47 && v < TABLE.v0 && u > 0.12 && u < 0.25) {
+      var k = Math.floor((v - 0.47) / 0.026), cc = SPINE[(k * 5 + 2) % SPINE.length];
+      var top = ((v - 0.47) % 0.026) < 0.004;
+      return { c: cc.map(function (x) { return x * (top ? 2.8 : 0.35) + 0.002; }), lab: 0 };
+    }
+    var cup = Math.hypot((u - 0.355) * 1.5, (v - 0.56) * 1.4);
+    if (u > 0.33 && u < 0.38 && v > 0.535 && v < TABLE.v0) {
+      var sh = (u - 0.33) / 0.05; return { c: [0.85, 0.83, 0.8].map(function (x) { return x * (2.6 * (1 - sh) + 0.15); }), lab: 0 };
+    }
+    if (u > TABLE.u0 && u < TABLE.u1 && v >= TABLE.v0 && v < TABLE.v1) {
+      var tw = lin("#c9a77a"), Et = 3.0 * (1 - Math.abs(u - 0.27) * 1.2) + El;
+      // 책과 컵의 그림자(창 반대쪽, 앞으로)
+      if ((u > 0.12 && u < 0.25 && v < 0.64) || (u > 0.33 && u < 0.39 && v < 0.635)) Et *= 0.25;
+      return { c: tw.map(function (x) { return x * Et; }), lab: 0 };
+    }
+    if (u > TABLE.u0 && u < TABLE.u1 && v >= TABLE.v1 && v < TABLE.v1 + 0.025) {
+      return { c: lin("#6b4a2e").map(function (x) { return x * (0.12 + El * 0.4); }), lab: 0 };
+    }
+    // 서가
+    if (u > SHELF.u0 && u < SHELF.u1 && v > SHELF.v0 && v < SHELF.v1) {
+      var Es = (0.05 + 0.9 / (1 + 10 * d2)) * 2.6 + El;
+      var rh = (SHELF.v1 - SHELF.v0) / SHELF.rows, rr = Math.floor((v - SHELF.v0) / rh), fy = ((v - SHELF.v0) - rr * rh) / rh;
+      var wood = lin("#5a3d28");
+      if (u < SHELF.u0 + 0.015 || u > SHELF.u1 - 0.012 || fy > 0.92) return { c: wood.map(function (x) { return x * Es * 1.2; }), lab: 4 };
+      var occ = 0.4 + 0.6 * fy; // 위 칸 판자 밑은 어둡다
+      var row = books[Math.min(rr, SHELF.rows - 1)];
+      for (var i = 0; i < row.length; i++) {
+        var b = row[i];
+        if (u >= b.u0 && u < b.u1) {
+          if (fy < 1 - b.h * 0.92) break;
+          var edge = (u - b.u0) / (b.u1 - b.u0), rnds = 0.75 + 0.25 * Math.sin(edge * Math.PI);
+          return { c: b.c.map(function (x) { return x * Es * occ * rnds + 0.0006; }), lab: 4 };
+        }
+      }
+      return { c: [0.04, 0.032, 0.026].map(function (x) { return x * Es * occ * 0.5; }), lab: 4 };
+    }
+    // 바닥과 탁자 밑
+    if (v > 0.705) {
+      var fl = lin("#7a6650"), under = (u > TABLE.u0 && u < TABLE.u1) ? 0.1 + 0.05 * (v - 0.705) : 0.4;
+      var Ef = (0.05 + 0.9 / (1 + 10 * d2)) * under + El * (under * 0.5);
+      return { c: fl.map(function (x) { return x * Ef; }), lab: 3 };
+    }
+    // 벽
+    var wall = lin("#d8cdb8");
+    return { c: wall.map(function (x) { return x * (E + El) * 0.5; }), lab: 0 };
+  }
+  // 하이 키: 창가 흰 탁자보 위 흰 찻잔과 수채화 종이
+  function cupPx(u, v) {
+    var E = 1.0 + 0.7 * (1 - u);
+    if (v < 0.4) return { c: lin("#efebe2").map(function (x) { return x * E * 0.8 * (0.9 + v * 0.3); }), lab: 0 };
+    var c = lin("#f5f3ee"), f = 1;
+    // 찻잔 그림자(오른쪽 뒤로 부드럽게)
+    var sd = Math.hypot((u - 0.8) / 0.13, (v - 0.62) / 0.06); if (sd < 1.4) f *= 0.5 + 0.5 * AB_smooth(1, 1.4, sd);
+    // 수채화 종이와 물감 자국
+    if (u > 0.08 && u < 0.44 && v > 0.56 && v < 0.94 + (u - 0.08) * 0.04) {
+      c = lin("#fbfaf6");
+      var w1 = Math.hypot((u - 0.22) / 0.09, (v - 0.72) / 0.09), w2 = Math.hypot((u - 0.33) / 0.07, (v - 0.82) / 0.06);
+      if (w1 < 1) c = lin(w1 > 0.85 ? "#9fb3c6" : "#b7c8d6");
+      else if (w2 < 1) c = lin(w2 > 0.82 ? "#d9bb7e" : "#e6cf9c");
+    }
+    // 받침 접시
+    var sa = Math.hypot((u - 0.65) / 0.15, (v - 0.68) / 0.05);
+    if (sa < 1) { c = lin("#f4f2ee"); f *= sa > 0.85 ? 0.8 : 1.05; }
+    // 찻잔 몸통(빛은 왼쪽에서)
+    if (u > 0.55 && u < 0.75 && v > 0.42 && v < 0.67) {
+      var t = (u - 0.55) / 0.2, rimd = Math.hypot((u - 0.65) / 0.1, (v - 0.43) / 0.025);
+      if (rimd < 1) return { c: lin("#e9e5dc").map(function (x) { return x * E * (0.55 + 0.25 * (1 - t)); }), lab: 0 };
+      var bodyEdge = Math.abs(t - 0.5) < 0.5 - Math.max(0, v - 0.6) * 1.2;
+      if (bodyEdge) { var sh = 0.32 + 0.9 * Math.pow(Math.max(0, Math.cos((t - 0.25) * 2.4)), 1.5); return { c: lin("#f6f4f0").map(function (x) { return x * E * sh; }), lab: 0 }; }
+    }
+    var hd = Math.hypot((u - 0.77) / 0.035, (v - 0.53) / 0.05); if (hd > 0.6 && hd < 1) return { c: lin("#f6f4f0").map(function (x) { return x * E * 0.5; }), lab: 0 };
+    return { c: c.map(function (x) { return x * E * f; }), lab: 0 };
+  }
+  // 로 키: 어두운 서가 구석, 스탠드 하나가 책 몇 권만 비춘다
+  function darkPx(u, v) {
+    var lx = (u - 0.35) * 1.5, ly = v - 0.45, El = 0.004 + 0.6 / (1 + 40 * (lx * lx + ly * ly));
+    var rh = 0.2, rr = Math.floor(v / rh), fy = (v - rr * rh) / rh;
+    var row = books[rr % SHELF.rows], uu = SHELF.u0 + (u * 0.36);
+    if (fy > 0.9) return { c: lin("#3a2a1c").map(function (x) { return x * El; }), lab: 0 };
+    for (var i = 0; i < row.length; i++) {
+      var b = row[i];
+      if (uu >= b.u0 && uu < b.u1 && fy > 1 - b.h * 0.9) return { c: b.c.map(function (x) { return x * El * (0.3 + 0.7 * fy); }), lab: 0 };
+    }
+    return { c: [0.01, 0.008, 0.007].map(function (x) { return x * El; }), lab: 0 };
+  }
+  function build(fn, o) {
+    var R = new Float32Array(N * 3), L = new Uint8Array(N);
+    for (var y = 0; y < SH; y++) for (var x = 0; x < SW; x++) {
+      // 2×2 표본으로 가장자리를 부드럽게
+      var acc = [0, 0, 0], lab = 0;
+      for (var sy = 0; sy < 2; sy++) for (var sx = 0; sx < 2; sx++) {
+        var p = fn((x + 0.25 + sx * 0.5) / SW, (y + 0.25 + sy * 0.5) / SH, o || {});
+        acc[0] += p.c[0]; acc[1] += p.c[1]; acc[2] += p.c[2]; if (p.lab) lab = p.lab;
+      }
+      var i = y * SW + x;
+      R[i * 3] = acc[0] / 4; R[i * 3 + 1] = acc[1] / 4; R[i * 3 + 2] = acc[2] / 4; L[i] = lab;
+    }
+    return { R: R, lab: L, w: SW, h: SH };
+  }
+  // 가우스 잡음 장(시드 고정)
+  function noiseField(seed) {
+    var g = ART.rng(seed), a = new Float32Array(N * 3);
+    for (var i = 0; i < a.length; i += 2) {
+      var u1 = Math.max(1e-9, g()), u2 = g(), m = Math.sqrt(-2 * Math.log(u1));
+      a[i] = m * Math.cos(2 * Math.PI * u2); if (i + 1 < a.length) a[i + 1] = m * Math.sin(2 * Math.PI * u2);
+    }
+    return a;
+  }
+  var NOISE = [noiseField(101), noiseField(202), noiseField(303)];
+  var Ylin = function (r, g, b) { return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+  /* 카메라: 선형 장면 × 2^ev → 읽기 잡음(σ = 2^-dr, 신호 대 잡음 1인 곳이 다이내믹 레인지의 아래 끝) → [0,1] 클리핑 → sRGB 감마 → 8비트 */
+  function develop(sc, ev, dr, nf) {
+    var k = Math.pow(2, ev), floor = Math.pow(2, -dr), nz = NOISE[nf || 0];
+    var out = new Uint8ClampedArray(N * 4), hist = new Float32Array(256), hi = new Uint8Array(N), lo = new Uint8Array(N), val = new Uint8Array(N);
+    for (var i = 0; i < N; i++) {
+      var r = sc.R[i * 3] * k, g = sc.R[i * 3 + 1] * k, b = sc.R[i * 3 + 2] * k;
+      if (r >= 1 || g >= 1 || b >= 1) hi[i] = 1;
+      if (Ylin(r, g, b) < floor) lo[i] = 1;
+      r += nz[i * 3] * floor; g += nz[i * 3 + 1] * floor; b += nz[i * 3 + 2] * floor;
+      r = r < 0 ? 0 : r > 1 ? 1 : r; g = g < 0 ? 0 : g > 1 ? 1 : g; b = b < 0 ? 0 : b > 1 ? 1 : b;
+      out[i * 4] = Math.round(ART.toGamma(r) * 255); out[i * 4 + 1] = Math.round(ART.toGamma(g) * 255); out[i * 4 + 2] = Math.round(ART.toGamma(b) * 255); out[i * 4 + 3] = 255;
+      var yv = Math.round(ART.toGamma(Ylin(r, g, b)) * 255); val[i] = yv; hist[yv]++;
+    }
+    return { px: out, hist: hist, hi: hi, lo: lo, val: val, ev: ev };
+  }
+  // 측광: 평균(선형광) 또는 가중치 → 그 평균이 18% 회색이 되게 하는 노출 ev
+  function meter(sc, mode, sx, sy) {
+    var s = 0, ws = 0;
+    for (var y = 0; y < SH; y++) for (var x = 0; x < SW; x++) {
+      var i = y * SW + x, w = 1;
+      if (mode === "center") { var dx = (x / SW - 0.5) * 1.5, dy = y / SH - 0.5; w = Math.exp(-(dx * dx + dy * dy) / 0.06); }
+      else if (mode === "spot") { var ddx = (x / SW - sx) * 1.5, ddy = y / SH - sy; w = (ddx * ddx + ddy * ddy) < 0.0016 ? 1 : 0; }
+      s += w * Ylin(sc.R[i * 3], sc.R[i * 3 + 1], sc.R[i * 3 + 2]); ws += w;
+    }
+    return Math.log2(0.18 / Math.max(1e-6, s / ws));
+  }
+  // 장면의 밝기 범위(스톱): 어두운 쪽 p0, 밝은 쪽 p1 백분위
+  function sceneRange(sc, p0, p1) {
+    var a = new Float32Array(N);
+    for (var i = 0; i < N; i++) a[i] = Ylin(sc.R[i * 3], sc.R[i * 3 + 1], sc.R[i * 3 + 2]);
+    a.sort();
+    var lo = a[Math.floor(p0 * (N - 1))], hi = a[Math.floor(p1 * (N - 1))];
+    return { lo: lo, hi: hi, stops: Math.log2(hi / lo), sorted: a };
+  }
+  function frac(mask, lab, which) { var n = 0, d = 0; for (var i = 0; i < N; i++) { if (which == null || lab[i] === which) { d++; if (mask[i]) n++; } } return d ? n / d : 0; }
+
+  /* 브래키팅 합성: 각 장의 8비트 값을 선형광으로 되돌려 2^ev로 나누고, 가운데 값일수록 큰 가중치(삼각형, Debevec & Malik 1997)로 평균한다. 날아간 값(254 이상)은 버린다. */
+  var LUT = new Float32Array(256); for (var q = 0; q < 256; q++) LUT[q] = ART.toLinear(q / 255);
+  function merge(devs) {
+    var R = new Float32Array(N * 3);
+    for (var i = 0; i < N * 3; i++) {
+      var s = 0, ws = 0, j = (i / 3 | 0) * 4 + (i % 3);
+      for (var f = 0; f < devs.length; f++) {
+        var z = devs[f].px[j], w = z >= 254 ? 0 : (z <= 127 ? z + 1 : 256 - z);
+        s += w * LUT[z] / Math.pow(2, devs[f].ev); ws += w;
+      }
+      if (ws > 0) R[i] = s / ws;
+      else { var d0 = devs[0]; for (var f2 = 1; f2 < devs.length; f2++) if (devs[f2].ev < d0.ev) d0 = devs[f2]; R[i] = 1 / Math.pow(2, d0.ev); }
+    }
+    return R;
+  }
+  /* 톤 매핑: 0~50%는 전역 라인하르트(Reinhard 외 2002, 식 4)로 하이라이트를 접어 넣고, 50% 넘게 올리면 넓은 흐림으로 큰 밝기 차이를 깎는 국소 방식(로그 휘도 − p × 흐린 로그 휘도)을 더한다. */
+  function tonemap(R, ev, s) {
+    var k = Math.pow(2, ev), out = new Uint8ClampedArray(N * 4), Lg = new Float32Array(N);
+    for (var i = 0; i < N; i++) Lg[i] = Math.log2(Math.max(1e-6, Ylin(R[i * 3], R[i * 3 + 1], R[i * 3 + 2]) * k));
+    var p = s > 0.5 ? (s - 0.5) * 2 * 0.8 : 0, B = null, mean = 0;
+    if (p > 0) { B = blurSmall(Lg, 18); for (var m = 0; m < N; m++) mean += B[m]; mean /= N; }
+    var g = Math.min(1, s * 2), Lw = 4;
+    for (var i2 = 0; i2 < N; i2++) {
+      var L = Math.pow(2, Lg[i2]);
+      if (p > 0) L = Math.pow(2, Lg[i2] - p * (B[i2] - mean));
+      var Lr = L * (1 + L / (Lw * Lw)) / (1 + L), Ld = (1 - g) * Math.min(1, L) + g * Math.min(1, Lr);
+      var sc = Ld / Math.max(1e-6, Math.pow(2, Lg[i2]));
+      for (var c = 0; c < 3; c++) { var x = R[i2 * 3 + c] * k * sc; out[i2 * 4 + c] = Math.round(ART.toGamma(x < 0 ? 0 : x > 1 ? 1 : x) * 255); }
+      out[i2 * 4 + 3] = 255;
+    }
+    return out;
+  }
+  // 상자 흐림 두 번(가로·세로), 반경 r
+  function blurSmall(a, r) {
+    var t = new Float32Array(N), o = new Float32Array(N), pass = function (src, dst, hz) {
+      var n = hz ? SW : SH, M = hz ? SH : SW;
+      for (var l = 0; l < M; l++) { var acc = 0, at = function (i) { i = i < 0 ? 0 : i >= n ? n - 1 : i; return hz ? l * SW + i : i * SW + l; };
+        for (var j = -r; j <= r; j++) acc += src[at(j)];
+        for (var i = 0; i < n; i++) { dst[at(i)] = acc / (2 * r + 1); acc += src[at(i + r + 1)] - src[at(i - r)]; } }
+    };
+    pass(a, t, true); pass(t, o, false); pass(o, t, true); pass(t, o, false);
+    return o;
+  }
+  return { merge: merge, tonemap: tonemap, LUT: LUT, SW: SW, SH: SH, N: N, build: build, windowPx: windowPx, cupPx: cupPx, darkPx: darkPx, develop: develop, meter: meter, sceneRange: sceneRange, frac: frac, Ylin: Ylin, NOISE: NOISE };
+}
+
+  var M = makeModel(ART);
+  var SW = M.SW, SH = M.SH, N = M.N;
+
+  /* ---------------- 장면(필요할 때 한 번 만든다) ---------------- */
+  var SC = {};
+  function scene(key) {
+    if (SC[key]) return SC[key];
+    if (key === "window") SC[key] = M.build(M.windowPx, {});
+    else if (key === "lamp") SC[key] = M.build(M.windowPx, { lamp: 1 });
+    else if (key === "cup") SC[key] = M.build(M.cupPx);
+    else if (key === "dark") SC[key] = M.build(M.darkPx);
+    else if (key.indexOf("person") === 0) SC[key] = M.build(M.windowPx, { person: [0.2, 0.27, 0.34][+key.slice(6)] });
+    SC[key].avg = M.meter(SC[key], "avg");
+    return SC[key];
+  }
+  var EV0 = function (key) { return scene(key).avg; };
+
+  /* ---------------- 그리기 도구 ---------------- */
+  var off = document.createElement("canvas"), offx = off.getContext("2d");
+  // px(RGBA 바이트)를 box 안에 맞춰 그린다. w, h: px의 크기
+  function drawPx(ctx, px, w, h, box) {
+    off.width = w; off.height = h;
+    var id = offx.createImageData(w, h); id.data.set(px); offx.putImageData(id, 0, 0);
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(off, box.x, box.y, box.w, box.h);
+  }
+  function fitBox(w, h, bx) {
+    var s = Math.min(bx.w / w, bx.h / h), dw = w * s, dh = h * s;
+    return { x: bx.x + (bx.w - dw) / 2, y: bx.y + (bx.h - dh) / 2, w: dw, h: dh, s: s };
+  }
+  function histOf(val) { var h = new Float32Array(256); for (var i = 0; i < val.length; i++) h[val[i]]++; return h; }
+  // 히스토그램(UI 색). o: { log, band:[a,b], marker, zones:t, total }
+  function drawHist(ctx, box, hist, o) {
+    o = o || {};
+    var P = AB.palette(), total = 0, mx = 1;
+    for (var i = 0; i < 256; i++) total += hist[i];
+    for (var j = 1; j < 255; j++) mx = Math.max(mx, hist[j]);
+    var f = o.log ? function (v) { return v > 0 ? Math.log(1 + v) / Math.log(1 + mx) : 0; } : function (v) { return v / mx; };
+    var gh = box.h - 18, X = function (v) { return box.x + (v / 255) * box.w; };
+    ctx.save();
+    ctx.fillStyle = P.surface; ctx.fillRect(box.x, box.y, box.w, gh);
+    if (o.zones) {
+      ctx.fillStyle = P.grid; ctx.fillRect(X(o.zones), box.y, 1, gh); ctx.fillRect(X(255 - o.zones), box.y, 1, gh);
+    }
+    if (o.band) { ctx.fillStyle = P.accent; ctx.globalAlpha = 0.16; ctx.fillRect(X(o.band[0]), box.y, X(o.band[1] + 1) - X(o.band[0]), gh); ctx.globalAlpha = 1; }
+    var bw = box.w / 256;
+    for (var k = 0; k < 256; k++) {
+      var hv = Math.min(1, f(hist[k])), inB = o.band && k >= o.band[0] && k <= o.band[1];
+      ctx.fillStyle = (k === 0 || k === 255) && hist[k] / total > 0.002 ? P.bad : inB ? P.accent : P.dim;
+      ctx.globalAlpha = inB || !o.band ? 0.9 : 0.55;
+      ctx.fillRect(box.x + k * bw, box.y + gh - hv * gh, Math.max(1, bw + 0.3), hv * gh);
+    }
+    ctx.globalAlpha = 1;
+    // 양 끝 막대가 그래프를 넘으면 화살표
+    [0, 255].forEach(function (e) {
+      var fr = hist[e] / total;
+      if (fr > 0.002) {
+        ctx.fillStyle = P.bad; ctx.font = AB.font(10, true, 700); ctx.textBaseline = "top";
+        ctx.textAlign = e ? "right" : "left";
+        ctx.fillText((fr * 100).toFixed(1) + "%", e ? box.x + box.w - 3 : box.x + 3, box.y + 3);
+      }
+    });
+    ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, box.y + gh + 0.5); ctx.lineTo(box.x + box.w, box.y + gh + 0.5); ctx.stroke();
+    // 밝기 띠(고정된 회색 단계)
+    var g = ctx.createLinearGradient(box.x, 0, box.x + box.w, 0); g.addColorStop(0, "#000"); g.addColorStop(0.5, "#777"); g.addColorStop(1, "#fff");
+    ctx.fillStyle = g; ctx.fillRect(box.x, box.y + gh + 3, box.w, 6);
+    ctx.fillStyle = P.dim; ctx.font = AB.font(10, true); ctx.textBaseline = "top";
+    ctx.textAlign = "left"; ctx.fillText("0", box.x, box.y + gh + 10);
+    ctx.textAlign = "right"; ctx.fillText("255", box.x + box.w, box.y + gh + 10);
+    if (o.marker != null) {
+      var mx2 = X(o.marker);
+      ctx.strokeStyle = P.accent2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx2, box.y); ctx.lineTo(mx2, box.y + gh); ctx.stroke();
+      ctx.fillStyle = P.accent2; ctx.beginPath(); ctx.moveTo(mx2 - 5, box.y); ctx.lineTo(mx2 + 5, box.y); ctx.lineTo(mx2, box.y + 7); ctx.fill();
+    }
+    ctx.restore();
+    return { X: X, gh: gh };
+  }
+  // 날아간 곳(빨강·흰 사선), 뭉개진 곳(파랑) 표시를 얹은 사본
+  function warnPx(d, hiOn, loOn, mask) {
+    var px = new Uint8ClampedArray(d.px);
+    for (var y = 0; y < SH; y++) for (var x = 0; x < SW; x++) {
+      var i = y * SW + x;
+      if (mask && !mask[i]) continue;
+      if (hiOn && d.hi[i]) { var s = ((x + y) % 6) < 3; px[i * 4] = s ? 230 : 255; px[i * 4 + 1] = s ? 40 : 255; px[i * 4 + 2] = s ? 60 : 255; }
+      else if (loOn && d.lo[i]) { px[i * 4] = 40; px[i * 4 + 1] = 90; px[i * 4 + 2] = 230; }
+    }
+    return px;
+  }
+  var fmtEV = function (v) {
+    var r = Math.round(v * 3), s = r < 0 ? "−" : r > 0 ? "+" : "±", a = Math.abs(r), w = Math.floor(a / 3), fr = a % 3;
+    return s + (w || !fr ? w : "") + (fr === 1 ? "⅓" : fr === 2 ? "⅔" : "") + " EV";
+  };
+  var pct = function (x) { return x < 0.0005 ? "0%" : x < 0.01 ? (x * 100).toFixed(1) + "%" : Math.round(x * 100) + "%"; };
+  // 사진 + 히스토그램 배치(넓으면 좌우, 좁으면 위아래)
+  function split(w, h, imgAspect) {
+    if (w >= 600) { var iw = Math.round(w * 0.58); return { img: { x: 10, y: 10, w: iw - 20, h: h - 20 }, hist: { x: iw + 6, y: 24, w: w - iw - 18, h: Math.min(170, h - 48) } }; }
+    var ih = Math.round((w - 20) / imgAspect);
+    return { img: { x: 10, y: 10, w: w - 20, h: ih }, hist: { x: 14, y: ih + 22, w: w - 28, h: h - ih - 30 } };
+  }
+  var hSplit = function (id, aspect, histH) { return function () { var w = Math.max(200, document.getElementById(id).parentElement.clientWidth || 600); return w >= 600 ? Math.round(w * 0.58 / aspect) + 4 : Math.round((w - 20) / aspect) + (histH || 130); }; };
+
+  /* ---------------- 시뮬레이터 1: 막대와 사진 잇기 ---------------- */
+  (function () {
+    var band = [0, 31], pt = null, L = null, d = null, cur = null;
+    var sc = AB.seg("hg-map-scene", function () { d = null; pt = null; cv.redraw(); });
+    var bw = AB.range("hg-map-w", function (v) { return v + "단계"; }, function (v) { var c = (band[0] + band[1]) / 2; setBand(c, v); cv.redraw(); });
+    function setBand(c, w) { var a = Math.round(AB.clamp(c - w / 2, 0, 256 - w)); band = [a, a + w - 1]; }
+    var cv = AB.canvas("#hg-map-cv", function (ctx, w, h) {
+      if (!d || cur !== sc()) { cur = sc(); d = M.develop(scene(cur), EV0(cur), 11); }
+      L = split(w, h, SW / SH);
+      var ib = fitBox(SW, SH, L.img); L.ib = ib;
+      var px = new Uint8ClampedArray(d.px), n = 0;
+      for (var i = 0; i < N; i++) {
+        var v = d.val[i];
+        if (v >= band[0] && v <= band[1]) n++;
+        else { var g = (px[i * 4] + px[i * 4 + 1] + px[i * 4 + 2]) / 3; px[i * 4] = px[i * 4 + 1] = px[i * 4 + 2] = 40 + g * 0.18; }
+      }
+      drawPx(ctx, px, SW, SH, ib);
+      var hv = pt ? d.val[pt[1] * SW + pt[0]] : null;
+      L.H = drawHist(ctx, L.hist, histOf(d.val), { band: band, marker: hv });
+      var P = AB.palette();
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      if (w >= 600) ctx.fillText("히스토그램", L.hist.x, L.hist.y - 4);
+      // 띠 손잡이
+      AB.handle(ctx, L.H.X((band[0] + band[1] + 1) / 2), L.hist.y + L.H.gh / 2, { r: 8, fill: P.accent });
+      if (pt) {
+        var px2 = ib.x + (pt[0] + 0.5) * ib.s, py2 = ib.y + (pt[1] + 0.5) * ib.s;
+        ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(px2, py2, 7, 0, 7); ctx.stroke();
+        ctx.strokeStyle = P.accent2; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(px2, py2, 7, 0, 7); ctx.stroke();
+      }
+      AB.stat("hg-map-o-band", band[0] + "–" + band[1]);
+      AB.stat("hg-map-o-area", pct(n / N));
+      AB.stat("hg-map-o-pt", hv == null ? "—" : hv + (hv >= 255 ? " <small>날아감</small>" : hv <= 2 ? " <small>거의 검정</small>" : ""));
+    }, { get height() { return hSplit("hg-map-cv", SW / SH, 130)(); } });
+    var mode = null;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { mode = L && y >= L.hist.y - 6 && x >= L.hist.x - 10 && y <= L.hist.y + L.hist.h ? "hist" : "img"; },
+      move: function (x, y) {
+        if (!L) return;
+        if (mode === "hist") { setBand(((x - L.hist.x) / L.hist.w) * 255, bw()); }
+        else { var ib = L.ib, u = Math.floor((x - ib.x) / ib.s), v = Math.floor((y - ib.y) / ib.s); if (u >= 0 && v >= 0 && u < SW && v < SH) pt = [u, v]; }
+        cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 장면별 히스토그램 ---------------- */
+  (function () {
+    var IMG = { rembrandt: "../../shared/img/rembrandt-aristotle-homer.webp", legray: "../../shared/img/le-gray-great-wave-sete.webp" };
+    var data = {}, loading = {};
+    var src = AB.seg("hg-shape-src", function () { cv.redraw(); });
+    var th = AB.range("hg-shape-t", function (v) { return "0–" + (v - 1) + " / " + (256 - v) + "–255"; }, function () { cv.redraw(); });
+    var lg = AB.check("hg-shape-log", function () { cv.redraw(); });
+    function get(key) {
+      if (data[key]) return data[key];
+      if (IMG[key]) {
+        if (!loading[key]) {
+          loading[key] = true;
+          AB.loadImage(IMG[key]).then(function (im) {
+            var id = AB.imageData(im, 300), n = id.width * id.height, val = new Uint8Array(n);
+            for (var i = 0; i < n; i++) val[i] = Math.round(ART.toGamma(M.Ylin(M.LUT[id.data[i * 4]], M.LUT[id.data[i * 4 + 1]], M.LUT[id.data[i * 4 + 2]])) * 255);
+            data[key] = { px: id.data, w: id.width, h: id.height, val: val };
+            cv.redraw();
+          }).catch(function () {});
+        }
+        return null;
+      }
+      var dd = M.develop(scene(key), EV0(key), 11);
+      data[key] = { px: dd.px, w: SW, h: SH, val: dd.val };
+      return data[key];
+    }
+    var cv = AB.canvas("#hg-shape-cv", function (ctx, w, h) {
+      var D = get(src()), P = AB.palette();
+      var L = split(w, h, SW / SH);
+      if (!D) { ctx.fillStyle = P.dim; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.fillText("작품 사진을 불러오는 중…", w / 2, h / 2); return; }
+      drawPx(ctx, D.px, D.w, D.h, fitBox(D.w, D.h, L.img));
+      var t = th(), hist = histOf(D.val);
+      drawHist(ctx, L.hist, hist, { log: lg(), zones: t });
+      var n = D.val.length, s = 0, z = [0, 0, 0], e = 0;
+      for (var i = 0; i < n; i++) { var v = D.val[i]; s += v; z[v < t ? 0 : v > 255 - t ? 2 : 1]++; if (v === 0 || v === 255) e++; }
+      AB.stat("hg-shape-o-mean", Math.round(s / n) + " <small>/ 255</small>");
+      AB.stat("hg-shape-o-zone", z.map(function (c) { return Math.round(c / n * 100) + "%"; }).join(" · "));
+      AB.stat("hg-shape-o-end", pct(e / n));
+    }, { get height() { return hSplit("hg-shape-cv", SW / SH, 130)(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 잘못 찍고 고치기 ---------------- */
+  (function () {
+    var dir = AB.seg("hg-fix-dir", function () { upd(); });
+    var sc = AB.seg("hg-fix-scene", function () { upd(); });
+    var kk = AB.range("hg-fix-k", function (v) { return v + "스톱"; }, function () { upd(); });
+    var A = null, B = null;
+    // 알맞은 노출: 가장 밝은 0.1% 지점이 0.92에 오도록
+    function goodEV(key) { var s = scene(key); if (s.good == null) s.good = Math.log2(0.92 / M.sceneRange(s, 0.01, 0.999).hi); return s.good; }
+    function upd() {
+      var key = sc(), s = scene(key), e = goodEV(key), k = kk(), sign = dir() === "over" ? 1 : -1;
+      var a = M.develop(s, e, 11, 0), b = M.develop(s, e + sign * k, 11, 1);
+      // 8비트로 저장된 b를 선형광으로 되돌려 2^(∓k)배 하고 다시 저장한다
+      var px = new Uint8ClampedArray(N * 4), f = Math.pow(2, -sign * k), lost = 0, diff = 0, la = {}, lb = {};
+      for (var i = 0; i < N; i++) {
+        for (var c = 0; c < 3; c++) { var x = M.LUT[b.px[i * 4 + c]] * f; px[i * 4 + c] = Math.round(ART.toGamma(Math.min(1, x)) * 255); diff += Math.abs(px[i * 4 + c] - a.px[i * 4 + c]); }
+        px[i * 4 + 3] = 255;
+        if (sign > 0 ? b.hi[i] && !a.hi[i] : b.lo[i] && !a.lo[i]) lost++;
+        if (a.val[i] < 64) { la[a.val[i]] = 1; var yv = Math.round(ART.toGamma(M.Ylin(M.LUT[px[i * 4]], M.LUT[px[i * 4 + 1]], M.LUT[px[i * 4 + 2]])) * 255); lb[yv] = 1; }
+      }
+      A = a.px; B = px;
+      AB.stat("hg-fix-o-lost", pct(lost / N) + " <small>" + (sign > 0 ? "날아감" : "잡음 아래") + "</small>");
+      AB.stat("hg-fix-o-lev", Object.keys(lb).length + " <small>(알맞은 사진 " + Object.keys(la).length + ")</small>");
+      AB.stat("hg-fix-o-diff", (diff / N / 3).toFixed(1) + " <small>/ 255</small>");
+      ca.redraw(); cb.redraw();
+    }
+    var opt = { bg: "#202024", get height() { var w = Math.max(200, document.getElementById("hg-fix-a").parentElement.clientWidth || 600); return Math.round(w * SH / SW); } };
+    var ca = AB.canvas("#hg-fix-a", function (ctx, w, h) { if (A) drawPx(ctx, A, SW, SH, { x: 0, y: 0, w: w, h: h }); }, opt);
+    var cb = AB.canvas("#hg-fix-b", function (ctx, w, h) { if (B) drawPx(ctx, B, SW, SH, { x: 0, y: 0, w: w, h: h }); }, opt);
+    var cmp = AB.compare("#hg-fix-cmp", { labels: ["알맞게 찍음", "잘못 찍고 고침"] });
+    upd();
+  })();
+
+  /* ---------------- 시뮬레이터 4: 측광과 노출 보정 ---------------- */
+  (function () {
+    var spot = { window: [0.78, 0.5], cup: [0.62, 0.55], dark: [0.35, 0.45] }, L = null;
+    var sc = AB.seg("hg-meter-scene", function () { cv.redraw(); });
+    var md = AB.seg("hg-meter-mode", function () { cv.redraw(); });
+    var cc = AB.range("hg-meter-c", function (v) { return fmtEV(v); }, function () { cv.redraw(); });
+    var zz = AB.check("hg-meter-z", function () { cv.redraw(); });
+    var cv = AB.canvas("#hg-meter-cv", function (ctx, w, h) {
+      var key = sc(), s = scene(key), m = md(), sp = spot[key];
+      var ev = (m === "avg" ? s.avg : M.meter(s, m, sp[0], sp[1])) + cc();
+      var d = M.develop(s, ev, 11);
+      L = split(w, h, SW / SH); var ib = fitBox(SW, SH, L.img); L.ib = ib;
+      drawPx(ctx, zz() ? warnPx(d, true, false) : d.px, SW, SH, ib);
+      var P = AB.palette();
+      if (m === "spot") {
+        var x = ib.x + sp[0] * ib.w, y = ib.y + sp[1] * ib.h, r = 0.04 / 1.5 * ib.w;
+        ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke();
+        ctx.strokeStyle = "#111111"; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke();
+        AB.handle(ctx, x, y, { r: 4 });
+      } else if (m === "center") {
+        ctx.strokeStyle = "rgba(255,255,255,0.8)"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.ellipse(ib.x + ib.w / 2, ib.y + ib.h / 2, ib.w * 0.16, ib.h * 0.24, 0, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+      }
+      drawHist(ctx, L.hist, histOf(d.val), {});
+      var sum = 0; for (var i = 0; i < N; i++) sum += d.val[i];
+      AB.stat("hg-meter-o-mean", Math.round(sum / N) + " <small>/ 255</small>");
+      AB.stat("hg-meter-o-hi", pct(M.frac(d.hi)));
+      AB.stat("hg-meter-o-lo", pct(M.frac(d.lo)));
+    }, { get height() { return hSplit("hg-meter-cv", SW / SH, 130)(); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!L || md() !== "spot") return;
+        var ib = L.ib, u = (x - ib.x) / ib.w, v = (y - ib.y) / ib.h;
+        if (u < 0 || v < 0 || u > 1 || v > 1) return;
+        spot[sc()] = [AB.clamp(u, 0.03, 0.97), AB.clamp(v, 0.04, 0.96)]; cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 센서의 창 ---------------- */
+  (function () {
+    var clipStop = null, L = null, logH = {};
+    var dr = AB.range("hg-dr-d", function (v) { return v + "스톱"; }, function () { cv.redraw(); });
+    var sc = AB.seg("hg-dr-scene", function () { cv.redraw(); });
+    var mk = AB.check("hg-dr-mark", function () { cv.redraw(); });
+    var REF = 0.09, S0 = -10, S1 = 8; // 가로축: 벽(0.09)을 0스톱으로
+    function logHist(key) {
+      if (logH[key]) return logH[key];
+      var s = scene(key), nb = 144, h = new Float32Array(nb);
+      for (var i = 0; i < N; i++) { var st = Math.log2(Math.max(1e-7, M.Ylin(s.R[i * 3], s.R[i * 3 + 1], s.R[i * 3 + 2])) / REF), b = Math.floor((st - S0) / (S1 - S0) * nb); if (b >= 0 && b < nb) h[b]++; }
+      var r = M.sceneRange(s, 0.01, 0.999);
+      logH[key] = { h: h, nb: nb, range: r.stops, top: Math.log2(r.hi / REF) };
+      return logH[key];
+    }
+    var cv = AB.canvas("#hg-dr-cv", function (ctx, w, h) {
+      var key = sc(), s = scene(key), LH = logHist(key), P = AB.palette(), D = dr();
+      if (clipStop == null) clipStop = LH.top + 0.05;
+      var gb = { x: 34, y: 14, w: w - 48, h: 92 };
+      var X = function (st) { return gb.x + (st - S0) / (S1 - S0) * gb.w; };
+      // 분포
+      var mx = 0; for (var b = 0; b < LH.nb; b++) mx = Math.max(mx, LH.h[b]);
+      ctx.fillStyle = P.dim; ctx.globalAlpha = 0.5;
+      for (var b2 = 0; b2 < LH.nb; b2++) { var hv = Math.sqrt(LH.h[b2] / mx) * gb.h; ctx.fillRect(gb.x + b2 / LH.nb * gb.w, gb.y + gb.h - hv, gb.w / LH.nb + 0.5, hv); }
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = P.axis; ctx.beginPath(); ctx.moveTo(gb.x, gb.y + gb.h + 0.5); ctx.lineTo(gb.x + gb.w, gb.y + gb.h + 0.5); ctx.stroke();
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      for (var t = S0; t <= S1; t += 2) ctx.fillText((t > 0 ? "+" : t < 0 ? "−" : "") + Math.abs(t), X(t), gb.y + gb.h + 4);
+      ctx.font = AB.font(10.5); ctx.fillText("밝기(스톱, 벽 = 0)", gb.x + gb.w / 2, gb.y + gb.h + 17);
+      // 센서 상자
+      var x0 = X(clipStop - D), x1 = X(clipStop);
+      ctx.fillStyle = P.accent; ctx.globalAlpha = 0.12; ctx.fillRect(x0, gb.y - 6, x1 - x0, gb.h + 6); ctx.globalAlpha = 1;
+      ctx.strokeStyle = P.accent; ctx.lineWidth = 2; ctx.strokeRect(x0, gb.y - 6, x1 - x0, gb.h + 6);
+      ctx.fillStyle = P.bad; ctx.globalAlpha = 0.1; ctx.fillRect(x1, gb.y - 6, gb.x + gb.w - x1, gb.h + 6); ctx.fillStyle = "#3a6ff0"; ctx.fillRect(gb.x, gb.y - 6, Math.max(0, x0 - gb.x), gb.h + 6); ctx.globalAlpha = 1;
+      AB.handle(ctx, (x0 + x1) / 2, gb.y + gb.h / 2, { r: 8, fill: P.accent });
+      ctx.fillStyle = P.accent; ctx.font = AB.font(10.5, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.fillText("센서 " + D + "스톱", AB.clamp((x0 + x1) / 2, gb.x + 40, gb.x + gb.w - 40), gb.y + 12);
+      L = { gb: gb, X: X };
+      // 사진
+      var ev = Math.log2(1 / REF) - clipStop, d = M.develop(s, ev, D);
+      var ib = fitBox(SW, SH, { x: 10, y: gb.y + gb.h + 34, w: w - 20, h: h - (gb.y + gb.h + 34) - 8 });
+      drawPx(ctx, mk() ? warnPx(d, true, true) : d.px, SW, SH, ib);
+      AB.stat("hg-dr-o-scene", LH.range.toFixed(1) + "스톱");
+      AB.stat("hg-dr-o-hi", pct(M.frac(d.hi)));
+      AB.stat("hg-dr-o-lo", pct(M.frac(d.lo)));
+    }, { get height() { var w = Math.max(200, document.getElementById("hg-dr-cv").parentElement.clientWidth || 600); return 140 + Math.round(Math.min(w - 20, 560) * SH / SW) + 8; } });
+    var grab = 0;
+    AB.drag(cv.canvas, {
+      start: function (x) { if (L) grab = x; },
+      move: function (x, y) {
+        if (!L) return;
+        var ds = (x - grab) / L.gb.w * (S1 - S0); grab = x;
+        clipStop = AB.clamp(clipStop + ds, S0 + 2, S1 + 2); cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 브래키팅과 HDR ---------------- */
+  (function () {
+    var st = AB.range("hg-hdr-s", function (v) { return "±" + v + " EV"; }, function () { upd(); });
+    var tm = AB.range("hg-hdr-t", function (v) { return v + "%"; }, function () { upd(); });
+    var pp = AB.check("hg-hdr-p", function () { upd(); });
+    var frames = null, merged = null, R = null;
+    var DRs = 11;
+    function upd() {
+      var s = st(), e0 = scene("window").avg, keyOf = function (k) { return pp() ? "person" + k : "window"; };
+      var evs = [e0 - s, e0, e0 + s];
+      var devs = evs.map(function (e, k) { return M.develop(scene(keyOf(k)), e, DRs, k); });
+      frames = devs.map(function (d) { return d.px; });
+      R = M.merge(devs);
+      merged = M.tonemap(R, e0 - 0.3, tm() / 100);
+      var hi = 0, lo = 0, win = 0, wl = 0, nw = 0, nl = 0, lab = scene("window").lab;
+      for (var i = 0; i < N; i++) {
+        if (devs[0].hi[i] && devs[1].hi[i] && devs[2].hi[i]) hi++;
+        if (devs[0].lo[i] && devs[1].lo[i] && devs[2].lo[i]) lo++;
+        var y = M.LUT[merged[i * 4]] * 0.2126 + M.LUT[merged[i * 4 + 1]] * 0.7152 + M.LUT[merged[i * 4 + 2]] * 0.0722;
+        if (lab[i] === 1) { win += y; nw++; } else if (lab[i] === 0) { wl += y; nl++; }
+      }
+      AB.stat("hg-hdr-o-cov", (DRs + 2 * s) + "스톱 <small>(한 장 " + DRs + ")</small>");
+      AB.stat("hg-hdr-o-clip", pct(hi / N) + " · " + pct(lo / N));
+      AB.stat("hg-hdr-o-gap", (Math.log2((win / nw) / (wl / nl))).toFixed(1) + "스톱 <small>(실제 장면 " + gapTrue().toFixed(1) + ")</small>");
+      cv.redraw();
+    }
+    var gt = null;
+    function gapTrue() {
+      if (gt != null) return gt;
+      var s = scene("window"), a = 0, b = 0, na = 0, nb = 0;
+      for (var i = 0; i < N; i++) { var y = M.Ylin(s.R[i * 3], s.R[i * 3 + 1], s.R[i * 3 + 2]); if (s.lab[i] === 1) { a += y; na++; } else if (s.lab[i] === 0) { b += y; nb++; } }
+      return (gt = Math.log2((a / na) / (b / nb)));
+    }
+    var cv = AB.canvas("#hg-hdr-cv", function (ctx, w, h) {
+      if (!frames) return;
+      var P = AB.palette(), gap = 8, tw = (w - 20 - gap * 2) / 3, th = tw * SH / SW, s = st();
+      ["−" + s, "0", "+" + s].forEach(function (lb, k) {
+        var bx = { x: 10 + k * (tw + gap), y: 22, w: tw, h: th };
+        drawPx(ctx, frames[k], SW, SH, bx);
+        ctx.fillStyle = P.dim; ctx.font = AB.font(11, true, 600); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+        ctx.fillText(lb + " EV", bx.x + tw / 2, 18);
+      });
+      var my = 22 + th + 26;
+      ctx.fillStyle = P.text; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("합친 사진(톤 매핑 " + tm() + "%)", 10, my - 5);
+      var mb = fitBox(SW, SH, { x: 10, y: my, w: w - 20, h: h - my - 8 });
+      drawPx(ctx, merged, SW, SH, mb);
+    }, { get height() { var w = Math.max(200, document.getElementById("hg-hdr-cv").parentElement.clientWidth || 600), tw = (w - 36) / 3; return Math.round(22 + tw * SH / SW + 26 + Math.min(w - 20, 600) * SH / SW + 10); } });
+    upd();
+  })();
+
+  /* ---------------- 시뮬레이터 7: 창가 사진 노출 설계기 ---------------- */
+  (function () {
+    var PRE = null;
+    var pre = AB.seg("hg-plan-pre", function (v) { apply(v); });
+    var cc = AB.range("hg-plan-c", function (v) { return fmtEV(v); }, function () { cv.redraw(); });
+    var dd = AB.range("hg-plan-d", function (v) { return v + "스톱"; }, function () { cv.redraw(); });
+    var lamp = AB.check("hg-plan-lamp", function () { cv.redraw(); });
+    var brk = AB.check("hg-plan-brk", function () { cv.redraw(); });
+    var warn = AB.check("hg-plan-warn", function () { cv.redraw(); });
+    function third(v) { return Math.round(v * 3) / 3; }
+    function apply(v) {
+      var s = scene("window");
+      var c = { shelf: third(M.meter(s, "spot", 0.78, 0.5) - s.avg), hi: -5 / 3, lo: 1, brk: 0 }[v];
+      cc.el.value = c; dd.el.value = 11; document.getElementById("hg-plan-lamp").checked = false; document.getElementById("hg-plan-brk").checked = v === "brk";
+      cc.set(c);
+    }
+    var cv = AB.canvas("#hg-plan-cv", function (ctx, w, h) {
+      var s = scene(lamp() ? "lamp" : "window"), D = dd(), ev = scene("window").avg + cc(), lab = scene("window").lab;
+      var d, hiM = new Uint8Array(N), loM = new Uint8Array(N), px;
+      if (brk()) {
+        var devs = [-2, 0, 2].map(function (e, k) { return M.develop(s, ev + e, D, k); });
+        px = M.tonemap(M.merge(devs), ev, 0.35);
+        for (var i = 0; i < N; i++) { hiM[i] = devs[0].hi[i] && devs[1].hi[i] && devs[2].hi[i] ? 1 : 0; loM[i] = devs[0].lo[i] && devs[1].lo[i] && devs[2].lo[i] ? 1 : 0; }
+        d = { px: px, hi: hiM, lo: loM, val: new Uint8Array(N) };
+        for (var j = 0; j < N; j++) d.val[j] = Math.round(ART.toGamma(M.Ylin(M.LUT[px[j * 4]], M.LUT[px[j * 4 + 1]], M.LUT[px[j * 4 + 2]])) * 255);
+      } else d = M.develop(s, ev, D);
+      var L = split(w, h, SW / SH), ib = fitBox(SW, SH, L.img);
+      drawPx(ctx, warn() ? warnPx(d, true, true) : d.px, SW, SH, ib);
+      drawHist(ctx, L.hist, histOf(d.val), {});
+      var fw = M.frac(d.hi, lab, 1), fs = M.frac(d.lo, lab, 4), ff = M.frac(d.lo, lab, 3);
+      AB.stat("hg-plan-o-win", pct(fw));
+      AB.stat("hg-plan-o-shelf", pct(fs));
+      AB.stat("hg-plan-o-floor", pct(ff));
+      var verdict = fw < 0.001 && fs < 0.01 ? "창과 서가를 모두 지킴" : fw < 0.001 ? "창은 지킴, 서가 일부 손실" : fs < 0.01 ? "서가는 지킴, 창 손실" : "둘 다 손실";
+      AB.stat("hg-plan-o-verdict", verdict);
+    }, { get height() { return hSplit("hg-plan-cv", SW / SH, 130)(); } });
+    apply("shelf");
+  })();
+})();
+</script>
+</body>
+</html>

@@ -6,6 +6,31 @@
 <html lang="ko">
 <head>
 <!--head:start {"desc": "사진 한 장의 노출(EV), 화이트 밸런스, 레벨과 커브, 채도, 크롭과 리사이즈, JPEG 품질을 한 화면에서 조정하며 RGB·휘도 히스토그램, 클리핑 경고, 파일 크기, 전/후 비교로 확인하는 종합 이미지 실험실. 서윤의 서점 창가 사진과 도록 작품 사진 보정을 마무리한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이미지 실험실 · ImageBook</title>
+<meta name="description" content="사진 한 장의 노출(EV), 화이트 밸런스, 레벨과 커브, 채도, 크롭과 리사이즈, JPEG 품질을 한 화면에서 조정하며 RGB·휘도 히스토그램, 클리핑 경고, 파일 크기, 전/후 비교로 확인하는 종합 이미지 실험실. 서윤의 서점 창가 사진과 도록 작품 사진 보정을 마무리한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/image/chapters/lab.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="이미지 실험실 · ImageBook">
+<meta property="og:description" content="사진 한 장의 노출(EV), 화이트 밸런스, 레벨과 커브, 채도, 크롭과 리사이즈, JPEG 품질을 한 화면에서 조정하며 RGB·휘도 히스토그램, 클리핑 경고, 파일 크기, 전/후 비교로 확인하는 종합 이미지 실험실. 서윤의 서점 창가 사진과 도록 작품 사진 보정을 마무리한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/image/chapters/lab.html">
+<meta property="og:image" content="https://artbook.euiyun.com/image/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/image/chapters/lab.html#chapter","name":"이미지 실험실","headline":"이미지 실험실 · ImageBook","description":"사진 한 장의 노출(EV), 화이트 밸런스, 레벨과 커브, 채도, 크롭과 리사이즈, JPEG 품질을 한 화면에서 조정하며 RGB·휘도 히스토그램, 클리핑 경고, 파일 크기, 전/후 비교로 확인하는 종합 이미지 실험실. 서윤의 서점 창가 사진과 도록 작품 사진 보정을 마무리한다.","url":"https://artbook.euiyun.com/image/chapters/lab.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/image/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/image/#book","name":"ImageBook · 사진과 이미지","url":"https://artbook.euiyun.com/image/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ImageBook · 사진과 이미지","item":"https://artbook.euiyun.com/image/"},{"@type":"ListItem","position":3,"name":"13. 이미지 실험실","item":"https://artbook.euiyun.com/image/chapters/lab.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
 <!--head:end-->
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
@@ -485,7 +510,854 @@
   </section>
 </main>
 <script>
-/* SCRIPT_PLACEHOLDER */
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var STAGE = "#e9e7e2", INK = "#2b2a30", INK2 = "#6b6874";
+  var clamp01 = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+
+  /* ---------------- 감마 표: sRGB 바이트 ↔ 선형광 (IEC 61966-2-1, ART.toLinear/toGamma) ---------------- */
+  var LIN = new Float32Array(256);
+  for (var i = 0; i < 256; i++) LIN[i] = ART.toLinear(i / 255);
+  var ENC_N = 16384, ENC = new Uint8Array(ENC_N + 1);
+  for (i = 0; i <= ENC_N; i++) ENC[i] = Math.round(ART.toGamma(i / ENC_N) * 255);
+  function enc(v) { return v <= 0 ? 0 : v >= 1 ? 255 : ENC[(v * ENC_N + 0.5) | 0]; }
+
+  /* ---------------- 3×3 행렬 ---------------- */
+  function mul3(A, B) { var C = []; for (var r = 0; r < 3; r++) { C[r] = []; for (var c = 0; c < 3; c++) C[r][c] = A[r][0] * B[0][c] + A[r][1] * B[1][c] + A[r][2] * B[2][c]; } return C; }
+  function inv3(m) {
+    var a = m[0][0], b = m[0][1], c = m[0][2], d = m[1][0], e = m[1][1], f = m[1][2], g = m[2][0], h = m[2][1], k = m[2][2];
+    var A = e * k - f * h, B = -(d * k - f * g), C = d * h - e * g, det = a * A + b * B + c * C;
+    return [[A / det, -(b * k - c * h) / det, (b * f - c * e) / det], [B / det, (a * k - c * g) / det, -(a * f - c * d) / det], [C / det, -(a * h - b * g) / det, (a * e - b * d) / det]];
+  }
+  function diag(a, b, c) { return [[a, 0, 0], [0, b, 0], [0, 0, c]]; }
+  // 화이트 밸런스: 엔진의 ART.whiteBalance(브래드퍼드 색순응)를 선형광 3×3 행렬로 옮긴다. 6500 K = 보정 없음.
+  function wbRaw(T) {
+    var c = [[1, 0, 0], [0, 1, 0], [0, 0, 1]].map(function (e) { return ART.srgbToLinear(ART.whiteBalance(e, T)); });
+    return [[c[0][0], c[1][0], c[2][0]], [c[0][1], c[1][1], c[2][1]], [c[0][2], c[1][2], c[2][2]]];
+  }
+  var A65I = inv3(wbRaw(6500)), WBC = {};
+  function wbMat(T) { T = Math.round(T / 50) * 50; return WBC[T] || (WBC[T] = mul3(wbRaw(T), A65I)); }
+  // 색조(이 책의 단순 모형): 초록 채널 비율을 2^(−tint/200)로, 휘도 합이 1이 되게 정규화
+  function tintMat(t) { var g = Math.pow(2, -t / 200), n = 1 / (0.2126 + 0.7152 * g + 0.0722); return diag(n, n * g, n); }
+
+  /* ---------------- 단조 3차 보간 (Fritsch & Carlson 1980, SIAM J. Numer. Anal. 17(2)) ---------------- */
+  function monotone(xs, ys) {
+    var n = xs.length, d = [], m = [], k;
+    for (k = 0; k < n - 1; k++) d[k] = (ys[k + 1] - ys[k]) / (xs[k + 1] - xs[k]);
+    m[0] = d[0]; m[n - 1] = d[n - 2];
+    for (k = 1; k < n - 1; k++) m[k] = d[k - 1] * d[k] <= 0 ? 0 : (d[k - 1] + d[k]) / 2;
+    for (k = 0; k < n - 1; k++) {
+      if (d[k] === 0) { m[k] = m[k + 1] = 0; continue; }
+      var a = m[k] / d[k], b = m[k + 1] / d[k], s = a * a + b * b;
+      if (s > 9) { var t = 3 / Math.sqrt(s); m[k] = t * a * d[k]; m[k + 1] = t * b * d[k]; }
+    }
+    return function (x) {
+      var j = 0; while (j < n - 2 && x > xs[j + 1]) j++;
+      var h = xs[j + 1] - xs[j], t = (x - xs[j]) / h, t2 = t * t, t3 = t2 * t;
+      return (2 * t3 - 3 * t2 + 1) * ys[j] + (t3 - 2 * t2 + t) * h * m[j] + (-2 * t3 + 3 * t2) * ys[j + 1] + (t3 - t2) * h * m[j + 1];
+    };
+  }
+  var CX = [0, 0.25, 0.5, 0.75, 1];
+
+  /* ---------------- 처리: 파라미터 → 준비된 표 ---------------- */
+  function defaults() { return { ev: 0, temp: 6500, tint: 0, black: 0, white: 255, gamma: 1, curve: [0.25, 0.5, 0.75], sat: 1 }; }
+  function prep(p) {
+    var M = mul3(tintMat(p.tint), wbMat(p.temp)), k = Math.pow(2, p.ev);
+    var F = [M[0][0] * k, M[0][1] * k, M[0][2] * k, M[1][0] * k, M[1][1] * k, M[1][2] * k, M[2][0] * k, M[2][1] * k, M[2][2] * k];
+    var f = monotone(CX, [0, p.curve[0], p.curve[1], p.curve[2], 1]), T = new Uint8Array(256), b = p.black, w = Math.max(p.white, b + 1);
+    for (var v = 0; v < 256; v++) { var t = clamp01((v - b) / (w - b)); if (p.gamma !== 1) t = Math.pow(t, 1 / p.gamma); T[v] = Math.round(clamp01(f(t)) * 255); }
+    var ident = F[0] === 1 && F[4] === 1 && F[8] === 1 && F[1] === 0 && F[2] === 0 && F[3] === 0 && F[5] === 0 && F[6] === 0 && F[7] === 0;
+    return { F: F, T: T, sat: p.sat, ident: ident };
+  }
+  /**
+   * src {w,h,d} → out ImageData. opt: {clip:표시, gam:줄무늬, rect:[x0,y0,x1,y1] 통계 범위}
+   * 반환: 히스토그램 R,G,B,휘도와 클리핑 비율
+   */
+  function processData(src, P, out, opt) {
+    opt = opt || {};
+    var d = src.d, o = out.data, W = src.w, n = src.w * src.h, F = P.F, T = P.T, s = P.sat;
+    var hr = new Uint32Array(256), hg = new Uint32Array(256), hb = new Uint32Array(256), hy = new Uint32Array(256);
+    var hi = 0, lo = 0, gam = 0, cnt = 0, rc = opt.rect || [0, 0, W, src.h];
+    for (var p = 0; p < n; p++) {
+      var i = p * 4, r = LIN[d[i]], g = LIN[d[i + 1]], b = LIN[d[i + 2]], R, G, B;
+      if (P.ident) { R = r; G = g; B = b; } else {
+        R = F[0] * r + F[1] * g + F[2] * b; G = F[3] * r + F[4] * g + F[5] * b; B = F[6] * r + F[7] * g + F[8] * b;
+      }
+      var er = T[enc(R)], eg = T[enc(G)], eb = T[enc(B)], over = false;
+      if (s !== 1) {
+        r = LIN[er]; g = LIN[eg]; b = LIN[eb];
+        var y = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        R = y + s * (r - y); G = y + s * (g - y); B = y + s * (b - y);
+        if (R < -0.002 || R > 1.002 || G < -0.002 || G > 1.002 || B < -0.002 || B > 1.002) over = true;
+        er = enc(R); eg = enc(G); eb = enc(B);
+      }
+      var x = p % W, yy = (p / W) | 0, inR = x >= rc[0] && x < rc[2] && yy >= rc[1] && yy < rc[3];
+      var isHi = er === 255 || eg === 255 || eb === 255, isLo = er <= 2 && eg <= 2 && eb <= 2;
+      if (inR) {
+        cnt++; hr[er]++; hg[eg]++; hb[eb]++;
+        hy[enc(0.2126 * LIN[er] + 0.7152 * LIN[eg] + 0.0722 * LIN[eb])]++;
+        if (isHi) hi++; else if (isLo) lo++;
+        if (over) gam++;
+      }
+      if (opt.gam && over && ((x + yy) % 8) < 4) { er = eg = eb = ((x + yy) % 8) < 2 ? 0 : 255; }
+      else if (opt.clip && isHi) { er = 255; eg = 36; eb = 72; }
+      else if (opt.clip && isLo) { er = 40; eg = 110; eb = 255; }
+      o[i] = er; o[i + 1] = eg; o[i + 2] = eb; o[i + 3] = 255;
+    }
+    cnt = Math.max(1, cnt);
+    return { h: [hr, hg, hb, hy], hi: hi / cnt, lo: lo / cnt, gam: gam / cnt, n: cnt };
+  }
+  function pctile(h, q) { var tot = 0, k; for (k = 0; k < 256; k++) tot += h[k]; var acc = 0; for (k = 0; k < 256; k++) { acc += h[k]; if (acc >= q * tot) return k; } return 255; }
+  function fmtPct(x) { return x <= 0 ? "0%" : x < 0.001 ? "&lt;0.1%" : (x * 100).toFixed(x < 0.1 ? 1 : 0) + "%"; }
+  function fmtKB(bytes) { return bytes >= 1048576 ? (bytes / 1048576).toFixed(2) + "<small>MB</small>" : Math.round(bytes / 1024) + "<small>KB</small>"; }
+  function hex3(r, g, b) { return ART.hex([r / 255, g / 255, b / 255]); }
+
+  /* ---------------- 장면 그리기 (이 책이 직접 그린 가상의 장면) ---------------- */
+  function gauss(rnd) { var u = 0, v = 0; while (u === 0) u = rnd(); v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+  // 선형광 행렬을 화소마다 적용(장면의 빛 색·노출 흉내). fn(x,y) → 추가 배율
+  function applyLinear(ctx, W, H, Mx, fn, noise, seed) {
+    var id = ctx.getImageData(0, 0, W, H), d = id.data, rnd = AB.rng(seed || 1);
+    var F = [Mx[0][0], Mx[0][1], Mx[0][2], Mx[1][0], Mx[1][1], Mx[1][2], Mx[2][0], Mx[2][1], Mx[2][2]];
+    for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
+      var i = (y * W + x) * 4, r = LIN[d[i]], g = LIN[d[i + 1]], b = LIN[d[i + 2]], k = fn ? fn(x, y) : 1;
+      var R = (F[0] * r + F[1] * g + F[2] * b) * k, G = (F[3] * r + F[4] * g + F[5] * b) * k, B = (F[6] * r + F[7] * g + F[8] * b) * k;
+      if (noise) {
+        // 광자 산탄 잡음 흉내: 밝기에 비례하는 성분 + 일정한 읽기 잡음(교육용 근사)
+        var lum = 0.2126 * R + 0.7152 * G + 0.0722 * B, sd = Math.sqrt(noise[0] * Math.max(lum, 0)) + noise[1], c = gauss(rnd) * sd * 0.6;
+        R += c + gauss(rnd) * sd * 0.5; G += c + gauss(rnd) * sd * 0.4; B += c + gauss(rnd) * sd * 0.6;
+      }
+      d[i] = enc(R); d[i + 1] = enc(G); d[i + 2] = enc(B);
+    }
+    ctx.putImageData(id, 0, 0);
+  }
+  var BOOKC = ["#7a2f2a", "#2f4f6e", "#c7a24e", "#3f6a4b", "#d8cfbd", "#8b5a8c", "#b4562f", "#264036", "#e0d6c2", "#5d6f86", "#9c3b3b", "#6d7b3a", "#1f2a3a", "#c98b5b"];
+  function shelfBooks(ctx, x0, y0, x1, y1, rows, rnd, U) {
+    var gap = (y1 - y0) / rows;
+    for (var r = 0; r < rows; r++) {
+      var by = y0 + gap * (r + 1), x = x0 + U * 0.4;
+      ctx.fillStyle = "#3a281c"; ctx.fillRect(x0, by - gap, x1 - x0, gap);
+      while (x < x1 - U * 1.2) {
+        var bw = U * (0.7 + rnd() * 1.0), bh = gap * (0.62 + rnd() * 0.3), col = BOOKC[(rnd() * BOOKC.length) | 0];
+        if (rnd() < 0.08) { x += U * (1.5 + rnd() * 2); continue; }
+        ctx.fillStyle = col; ctx.fillRect(x, by - bh - U * 0.5, bw, bh);
+        ctx.fillStyle = "rgba(0,0,0,0.18)"; ctx.fillRect(x + bw - U * 0.18, by - bh - U * 0.5, U * 0.18, bh);
+        if (rnd() < 0.5) { ctx.fillStyle = "rgba(240,220,170,0.55)"; ctx.fillRect(x + bw * 0.2, by - bh * 0.7, bw * 0.6, U * 0.25); ctx.fillRect(x + bw * 0.2, by - bh * 0.4, bw * 0.6, U * 0.18); }
+        x += bw + U * 0.05;
+      }
+      ctx.fillStyle = "#5e4330"; ctx.fillRect(x0 - U * 0.5, by - U * 0.6, x1 - x0 + U, U * 0.9);
+    }
+  }
+  function paintWindow(ctx, W, H) {
+    var U = W / 160, rnd = AB.rng(11);
+    var g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, "#cfc9bf"); g.addColorStop(1, "#b9b2a6");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    // 오른쪽 서가
+    ctx.fillStyle = "#4e3626"; ctx.fillRect(W * 0.6, H * 0.03, W * 0.38, H * 0.84);
+    shelfBooks(ctx, W * 0.615, H * 0.06, W * 0.965, H * 0.84, 5, rnd, U);
+    // 바닥
+    g = ctx.createLinearGradient(0, H * 0.86, 0, H); g.addColorStop(0, "#7a5a3e"); g.addColorStop(1, "#5e432c");
+    ctx.fillStyle = g; ctx.fillRect(0, H * 0.86, W, H * 0.14);
+    ctx.strokeStyle = "rgba(40,25,15,0.35)"; ctx.lineWidth = U * 0.2;
+    for (var k = 0; k < 9; k++) { ctx.beginPath(); ctx.moveTo(W * (k / 8) - U * 4, H); ctx.lineTo(W * (0.3 + k / 16), H * 0.86); ctx.stroke(); }
+    // 창 둘레 틀과 창턱(창 안은 나중에 햇빛으로 칠한다)
+    ctx.fillStyle = "#5b4330"; ctx.fillRect(W * 0.11, H * 0.06, W * 0.41, H * 0.58);
+    ctx.fillStyle = "#8a6a48"; ctx.fillRect(W * 0.09, H * 0.62, W * 0.45, H * 0.035);
+    ctx.fillStyle = "#6e5236"; ctx.fillRect(W * 0.09, H * 0.655, W * 0.45, H * 0.02);
+    // 창턱의 화분과 책 더미
+    ctx.fillStyle = "#b5643c"; ctx.beginPath(); ctx.moveTo(W * 0.15, H * 0.55); ctx.lineTo(W * 0.21, H * 0.55); ctx.lineTo(W * 0.2, H * 0.62); ctx.lineTo(W * 0.16, H * 0.62); ctx.fill();
+    for (k = 0; k < 14; k++) { ctx.fillStyle = k % 2 ? "#4f7d3c" : "#3e6a30"; ctx.beginPath(); ctx.ellipse(W * 0.18 + Math.cos(k * 1.7) * U * 3.5, H * 0.5 - Math.abs(Math.sin(k * 2.3)) * U * 5, U * 2.6, U * 1.1, k * 0.9, 0, Math.PI * 2); ctx.fill(); }
+    var stack = ["#7d2e2a", "#2f5d7c", "#c9a24a", "#3d6b4a", "#d9d2c3"];
+    for (k = 0; k < 5; k++) { ctx.fillStyle = stack[k]; ctx.fillRect(W * (0.37 + (k % 2) * 0.006), H * 0.62 - (k + 1) * U * 1.6, W * 0.1, U * 1.5); }
+    // 앞쪽 탁자: 펼친 책과 흰 찻잔
+    ctx.fillStyle = "#8a6440"; ctx.beginPath(); ctx.moveTo(W * 0.02, H * 0.8); ctx.lineTo(W * 0.46, H * 0.8); ctx.lineTo(W * 0.42, H * 0.74); ctx.lineTo(W * 0.06, H * 0.74); ctx.fill();
+    ctx.fillStyle = "#6b4c30"; ctx.fillRect(W * 0.02, H * 0.8, W * 0.44, H * 0.025);
+    ctx.fillStyle = "#4e3826"; ctx.fillRect(W * 0.05, H * 0.825, U * 1.4, H * 0.15); ctx.fillRect(W * 0.42, H * 0.825, U * 1.4, H * 0.15);
+    ctx.fillStyle = "#ece8de"; ctx.beginPath(); ctx.moveTo(W * 0.12, H * 0.785); ctx.lineTo(W * 0.21, H * 0.79); ctx.lineTo(W * 0.215, H * 0.75); ctx.lineTo(W * 0.135, H * 0.745); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(W * 0.21, H * 0.79); ctx.lineTo(W * 0.3, H * 0.785); ctx.lineTo(W * 0.29, H * 0.745); ctx.lineTo(W * 0.215, H * 0.75); ctx.fill();
+    ctx.strokeStyle = "#9d978b"; ctx.lineWidth = U * 0.15;
+    for (k = 0; k < 6; k++) { ctx.beginPath(); ctx.moveTo(W * 0.14, H * (0.752 + k * 0.0055)); ctx.lineTo(W * 0.205, H * (0.756 + k * 0.0055)); ctx.moveTo(W * 0.222, H * (0.756 + k * 0.0055)); ctx.lineTo(W * 0.285, H * (0.752 + k * 0.0055)); ctx.stroke(); }
+    ctx.fillStyle = "#f0eeea"; ctx.beginPath(); ctx.ellipse(W * 0.36, H * 0.775, U * 4.2, U * 1.2, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillRect(W * 0.345, H * 0.735, U * 4.6, U * 4.0);
+    ctx.beginPath(); ctx.ellipse(W * 0.345 + U * 2.3, H * 0.735, U * 2.3, U * 0.7, 0, 0, Math.PI * 2); ctx.fillStyle = "#4a2f1f"; ctx.fill();
+    ctx.strokeStyle = "#f0eeea"; ctx.lineWidth = U * 0.7; ctx.beginPath(); ctx.arc(W * 0.345 + U * 5.0, H * 0.752, U * 1.2, -1.2, 1.2); ctx.stroke();
+    // 전구 빛(약 3,000 K)과 노출 부족 흉내: 장면의 참색에 전구 빛 색을 곱한다
+    var cast = inv3(wbMat(3000));
+    applyLinear(ctx, W, H, cast, function (x, y) { var dx = (x / W - 0.45), dy = (y / H - 0.5); return 0.95 - 0.5 * (dx * dx + dy * dy); }, [0.0006, 0.002], 21);
+    // 창: 햇빛(약 6,500 K, 보정 없음)으로 밝게 넘친다
+    var gx = ctx.createLinearGradient(0, H * 0.08, 0, H * 0.62); gx.addColorStop(0, "#f6f9ff"); gx.addColorStop(1, "#ffffff");
+    ctx.fillStyle = gx; ctx.fillRect(W * 0.125, H * 0.08, W * 0.38, H * 0.54);
+    ctx.fillStyle = "#eef1ee"; ctx.fillRect(W * 0.32, H * 0.2, W * 0.18, H * 0.42);
+    ctx.fillStyle = "#e3ebe6"; for (k = 0; k < 7; k++) { ctx.beginPath(); ctx.arc(W * (0.14 + k * 0.022), H * (0.42 - Math.sin(k) * 0.05), U * 4.5, 0, Math.PI * 2); ctx.fill(); }
+    // 창 가장자리 쪽은 아직 255가 아닌 하늘이 조금 남아 있다
+    var ge = ctx.createLinearGradient(W * 0.125, 0, W * 0.2, 0); ge.addColorStop(0, "rgba(196,214,236,1)"); ge.addColorStop(1, "rgba(246,250,255,0)");
+    ctx.fillStyle = ge; ctx.fillRect(W * 0.125, H * 0.08, W * 0.08, H * 0.54);
+    ge = ctx.createLinearGradient(0, H * 0.08, 0, H * 0.16); ge.addColorStop(0, "rgba(200,216,236,1)"); ge.addColorStop(1, "rgba(246,250,255,0)");
+    ctx.fillStyle = ge; ctx.fillRect(W * 0.125, H * 0.08, W * 0.38, H * 0.08);
+    ctx.fillStyle = "#4a3626"; ctx.fillRect(W * 0.31, H * 0.08, U * 1.0, H * 0.54); ctx.fillRect(W * 0.125, H * 0.36, W * 0.38, U * 1.0);
+    // 창빛이 탁자와 바닥에 떨어진다
+    ctx.globalCompositeOperation = "lighter";
+    var rg = ctx.createRadialGradient(W * 0.3, H * 0.8, 0, W * 0.3, H * 0.8, W * 0.3); rg.addColorStop(0, "rgba(70,74,80,0.9)"); rg.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = rg; ctx.fillRect(0, H * 0.6, W * 0.7, H * 0.4);
+    ctx.globalCompositeOperation = "source-over";
+  }
+  function paintNight(ctx, W, H) {
+    var U = W / 160, rnd = AB.rng(5);
+    ctx.fillStyle = "#4e3626"; ctx.fillRect(0, 0, W, H);
+    shelfBooks(ctx, W * 0.36, H * 0.04, W * 0.99, H * 0.8, 5, rnd, U);
+    ctx.fillStyle = "#5e4330"; ctx.fillRect(W * 0.34, 0, W * 0.02, H * 0.8);
+    // 왼쪽 밤 창과 비친 전구
+    ctx.fillStyle = "#3a2a1e"; ctx.fillRect(W * 0.03, H * 0.06, W * 0.28, H * 0.6);
+    ctx.fillStyle = "#16202e"; ctx.fillRect(W * 0.045, H * 0.08, W * 0.25, H * 0.56);
+    ctx.fillStyle = "#2a3446"; ctx.fillRect(W * 0.06, H * 0.42, W * 0.08, H * 0.22); ctx.fillRect(W * 0.17, H * 0.35, W * 0.1, H * 0.29);
+    ctx.fillStyle = "#3a2a1e"; ctx.fillRect(W * 0.165, H * 0.08, U * 0.9, H * 0.56);
+    // 바닥과 의자, 작은 탁자
+    ctx.fillStyle = "#4a3324"; ctx.fillRect(0, H * 0.8, W, H * 0.2);
+    ctx.fillStyle = "#7a3a2e"; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(W * 0.08, H * 0.6, W * 0.2, H * 0.3, U * 2) : ctx.rect(W * 0.08, H * 0.6, W * 0.2, H * 0.3); ctx.fill();
+    ctx.fillStyle = "#8e4637"; ctx.fillRect(W * 0.1, H * 0.7, W * 0.16, H * 0.08);
+    ctx.fillStyle = "#6a4a30"; ctx.beginPath(); ctx.ellipse(W * 0.38, H * 0.78, W * 0.06, H * 0.02, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillRect(W * 0.375, H * 0.78, U * 1.2, H * 0.17);
+    ctx.fillStyle = "#e8e2d4"; ctx.fillRect(W * 0.35, H * 0.755, W * 0.05, U * 1.2);
+    // 장면 참색 → 2,700 K 전구 빛 + 약 −2 EV + 잡음
+    var cast = inv3(wbMat(2700));
+    applyLinear(ctx, W, H, cast, function (x, y) {
+      var a = Math.hypot((x - W * 0.55) / W, (y - H * 0.1) / H), b = Math.hypot((x - W * 0.85) / W, (y - H * 0.12) / H);
+      return 0.07 + 0.32 * Math.exp(-a * a * 9) + 0.22 * Math.exp(-b * b * 12);
+    }, [0.0012, 0.0035], 31);
+    // 펜던트 전구(넘친다)와 창에 비친 전구
+    function bulb(x, y, r) {
+      ctx.strokeStyle = "#1a120c"; ctx.lineWidth = U * 0.3; ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, y - r); ctx.stroke();
+      var rg = ctx.createRadialGradient(x, y, 0, x, y, r * 5); rg.addColorStop(0, "rgba(255,236,190,1)"); rg.addColorStop(0.18, "rgba(255,200,120,0.85)"); rg.addColorStop(0.5, "rgba(170,100,40,0.25)"); rg.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(x, y, r * 5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = "#fffaf0"; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    }
+    bulb(W * 0.55, H * 0.12, U * 2.2); bulb(W * 0.85, H * 0.14, U * 1.8);
+    var rf = ctx.createRadialGradient(W * 0.22, H * 0.25, 0, W * 0.22, H * 0.25, U * 5); rf.addColorStop(0, "rgba(200,150,80,0.7)"); rf.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = rf; ctx.fillRect(W * 0.17, H * 0.15, U * 10, U * 10);
+  }
+  // 작품 촬영 모형: 호머 수채화 + 회색 카드, 3,200 K 전구 + 초록 기(색조 −12에 해당) + −0.7 EV + 고르지 않은 조명
+  var HOMER_URL = "../../shared/img/homer-wall-nassau.webp", VERMEER_URL = "../../shared/img/vermeer-young-woman-water-pitcher.webp";
+  function buildHomer(img) {
+    var W = 1600, H = 1250, c = document.createElement("canvas"); c.width = W; c.height = H;
+    var x = c.getContext("2d", { willReadFrequently: true });
+    var g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, "#4a4a4c"); g.addColorStop(1, "#38383a");
+    x.fillStyle = g; x.fillRect(0, 0, W, H);
+    var aw = 1360, ah = Math.round(aw * img.naturalHeight / img.naturalWidth), ax = (W - aw) / 2, ay = 56;
+    x.fillStyle = "rgba(0,0,0,0.35)"; x.fillRect(ax + 8, ay + 10, aw, ah);
+    x.drawImage(img, ax, ay, aw, ah);
+    var cy = ay + ah + 60, cw = 150, cx = W / 2 - cw * 1.5;
+    x.fillStyle = "#202022"; x.fillRect(cx - 14, cy - 14, cw * 3 + 28, 150 + 28);
+    ["#f2f2f2", "#767676", "#1c1c1c"].forEach(function (col, k) { x.fillStyle = col; x.fillRect(cx + k * cw, cy, cw, 150); });
+    var cast = mul3(inv3(mul3(tintMat(12), wbMat(3200))), diag(1, 1, 1));
+    applyLinear(x, W, H, cast, function (px, py) { return Math.pow(2, -0.7) * (1.04 - 0.12 * px / W - 0.04 * py / H); }, [0.0002, 0.0012], 41);
+    return c;
+  }
+
+  /* ---------------- 원본 관리: 전체 해상도 캔버스와 줄인 화소 ---------------- */
+  var SRC = {
+    window: { name: "책방 창가(그림)", paint: paintWindow, w: 1600, h: 1067 },
+    night: { name: "밤의 서가(그림)", paint: paintNight, w: 1600, h: 1067 },
+    homer: { name: "작품 촬영 모형(호머)", url: HOMER_URL, build: buildHomer },
+    vermeer: { name: "페르메이르(박물관 사진)", url: VERMEER_URL },
+    user: { name: "내 사진" },
+  };
+  var userGen = 0;
+  function full(key) {
+    var s = SRC[key];
+    if (s.full) return Promise.resolve(s.full);
+    if (s.p) return s.p;
+    if (s.paint) { var c = document.createElement("canvas"); c.width = s.w; c.height = s.h; s.paint(c.getContext("2d", { willReadFrequently: true }), s.w, s.h); s.full = c; return Promise.resolve(c); }
+    if (s.url) {
+      s.p = AB.loadImage(s.url).then(function (im) {
+        if (s.build) { s.full = s.build(im); return s.full; }
+        var c = document.createElement("canvas"); c.width = im.naturalWidth; c.height = im.naturalHeight; c.getContext("2d").drawImage(im, 0, 0); s.full = c; return c;
+      });
+      return s.p;
+    }
+    return Promise.reject(new Error("no image"));
+  }
+  var smallCache = {};
+  function small(key, maxW) {
+    var k = key + "@" + (key === "user" ? userGen : 0) + "@" + maxW;
+    if (!smallCache[k]) smallCache[k] = full(key).then(function (c) {
+      var sc = Math.min(1, maxW / Math.max(c.width, c.height)), w = Math.max(1, Math.round(c.width * sc)), h = Math.max(1, Math.round(c.height * sc));
+      var t = document.createElement("canvas"); t.width = w; t.height = h; var x = t.getContext("2d", { willReadFrequently: true });
+      x.imageSmoothingQuality = "high"; x.drawImage(c, 0, 0, w, h);
+      return { key: key, w: w, h: h, d: x.getImageData(0, 0, w, h).data, fw: c.width, fh: c.height };
+    });
+    return smallCache[k];
+  }
+  var SEGS = [];
+  function bindSource(segId, onData, maxW) {
+    var el = $(segId), cur = null, tok = 0;
+    function load(v) { cur = v; var my = ++tok; small(v, maxW).then(function (A) { if (my === tok) onData(A); }, function () {}); }
+    var g = AB.seg(el, function (v) { if (v === "user" && !SRC.user.full) return; load(v); });
+    var api = { el: el, get: function () { return cur; }, set: function (v) { g.set(v, false); load(v); }, reload: function () { if (cur) load(cur); } };
+    SEGS.push(api); load(g());
+    return api;
+  }
+  function bindFile(inputId, msgId, api) {
+    var inp = $(inputId), msg = $(msgId);
+    inp.addEventListener("change", function () {
+      var f = inp.files && inp.files[0]; if (!f) return;
+      var url = URL.createObjectURL(f);
+      AB.loadImage(url).then(function (im) {
+        var sc = Math.min(1, 1600 / Math.max(im.naturalWidth, im.naturalHeight));
+        var c = document.createElement("canvas"); c.width = Math.max(1, Math.round(im.naturalWidth * sc)); c.height = Math.max(1, Math.round(im.naturalHeight * sc));
+        c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        SRC.user.full = c; SRC.user.name = f.name.length > 28 ? f.name.slice(0, 26) + "…" : f.name; userGen++;
+        SEGS.forEach(function (s) { var b = s.el.querySelector('[data-value="user"]'); if (b) b.disabled = false; if (s.get() === "user") s.reload(); });
+        document.querySelectorAll(".lab-small").forEach(function (m) { if (m.id.indexOf("-file-msg") > 0) m.textContent = "열었다: " + SRC.user.name + " (" + im.naturalWidth + "×" + im.naturalHeight + (sc < 1 ? ", 긴 변 1,600px로 줄여 씀" : "") + "). 이 브라우저 안에서만 다룬다."; });
+        api.set("user");
+      }, function () { URL.revokeObjectURL(url); msg.textContent = "이 파일은 이미지로 열 수 없다. JPG·PNG·WebP를 고른다."; });
+    });
+  }
+
+  /* ---------------- 그리기 도우미 ---------------- */
+  function fit(iw, ih, x, y, w, h) { var s = Math.min(w / iw, h / ih), dw = iw * s, dh = ih * s; return { x: x + (w - dw) / 2, y: y + (h - dh) / 2, w: dw, h: dh, s: s }; }
+  function toCanvas(A, imgData) { var c = document.createElement("canvas"); c.width = A.w; c.height = A.h; c.getContext("2d").putImageData(imgData, 0, 0); return c; }
+  function loading(ctx, w, h, fixed) { ctx.fillStyle = fixed ? INK2 : AB.palette().dim; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("불러오는 중…", w / 2, h / 2); }
+  var HCOL = ["#e5484d", "#30a46c", "#3e63dd"];
+  // 히스토그램(UI 색). mode: rgb | luma | both
+  function drawHist(ctx, box, H, mode, opts) {
+    opts = opts || {};
+    var P = AB.palette(), dark = AB.isDark();
+    ctx.save();
+    ctx.fillStyle = P.surface; ctx.fillRect(box.x, box.y, box.w, box.h);
+    ctx.strokeStyle = P.grid; ctx.lineWidth = 1;
+    for (var q = 1; q < 4; q++) { var gx = box.x + box.w * q / 4; ctx.beginPath(); ctx.moveTo(gx, box.y); ctx.lineTo(gx, box.y + box.h); ctx.stroke(); }
+    var chans = mode === "luma" ? [3] : mode === "both" ? [0, 1, 2, 3] : [0, 1, 2], mx = 1;
+    chans.forEach(function (c) { for (var k = 1; k < 255; k++) mx = Math.max(mx, H[c][k]); });
+    var top = Math.sqrt(mx) * 1.08;
+    function path(c) {
+      ctx.beginPath(); ctx.moveTo(box.x, box.y + box.h);
+      for (var k = 0; k < 256; k++) { var v = Math.min(top, Math.sqrt(H[c][k])); ctx.lineTo(box.x + (k + 0.5) / 256 * box.w, box.y + box.h - v / top * box.h); }
+      ctx.lineTo(box.x + box.w, box.y + box.h); ctx.closePath();
+    }
+    if (mode !== "rgb") { path(3); ctx.fillStyle = dark ? "rgba(220,220,225,0.35)" : "rgba(60,60,70,0.28)"; ctx.fill(); }
+    if (mode !== "luma") {
+      ctx.globalCompositeOperation = dark ? "lighter" : "multiply";
+      [0, 1, 2].forEach(function (c) { path(c); ctx.fillStyle = dark ? ["rgba(229,72,77,0.55)", "rgba(48,164,108,0.55)", "rgba(62,99,221,0.6)"][c] : ["rgba(229,72,77,0.45)", "rgba(48,164,108,0.45)", "rgba(62,99,221,0.45)"][c]; ctx.fill(); });
+      ctx.globalCompositeOperation = "source-over";
+    }
+    // 양 끝 클리핑 막대(축 넘는 값도 표시)
+    [[0, "lo"], [255, "hi"]].forEach(function (e) {
+      var tot = 0; chans.forEach(function (c) { tot = Math.max(tot, H[c][e[0]]); });
+      if (tot > 0 && Math.sqrt(tot) > top * 0.02) { ctx.fillStyle = e[1] === "hi" ? P.bad : P.accent2; var bx = e[0] === 0 ? box.x : box.x + box.w - 3; ctx.fillRect(bx, box.y + box.h - Math.min(1, Math.sqrt(tot) / top) * box.h, 3, Math.min(1, Math.sqrt(tot) / top) * box.h); }
+    });
+    if (opts.marks) opts.marks.forEach(function (m) { ctx.strokeStyle = m.c; ctx.lineWidth = 1.5; ctx.setLineDash([3, 3]); var mx2 = box.x + (m.v + 0.5) / 256 * box.w; ctx.beginPath(); ctx.moveTo(mx2, box.y); ctx.lineTo(mx2, box.y + box.h); ctx.stroke(); ctx.setLineDash([]); });
+    ctx.strokeStyle = P.axis; ctx.strokeRect(box.x + 0.5, box.y + 0.5, box.w - 1, box.h - 1);
+    ctx.fillStyle = P.dim; ctx.font = AB.font(11, true); ctx.textBaseline = "top";
+    ctx.textAlign = "left"; ctx.fillText("0", box.x, box.y + box.h + 4);
+    ctx.textAlign = "center"; ctx.fillText("128", box.x + box.w / 2, box.y + box.h + 4);
+    ctx.textAlign = "right"; ctx.fillText("255", box.x + box.w, box.y + box.h + 4);
+    if (opts.label) { ctx.textAlign = "left"; ctx.font = AB.font(11.5); ctx.fillStyle = P.dim; ctx.fillText(opts.label, box.x + 6, box.y + 5); }
+    ctx.restore();
+  }
+  function lStar(r, g, b) { return ART.lightness([r / 255, g / 255, b / 255]); }
+
+  /* =============== 1. 원본 읽기 =============== */
+  (function () {
+    var st = { A: null, img: null, stats: null, pick: null, mode: "rgb", rect: null };
+    var cv = AB.canvas("#ri-cv", function (ctx, w, h) {
+      if (!st.A) { loading(ctx, w, h); return; }
+      var ih = h - 108, r = fit(st.A.w, st.A.h, 10, 10, w - 20, ih - 10);
+      st.rect = r;
+      ctx.fillStyle = STAGE; ctx.fillRect(0, 0, w, ih + 4);
+      ctx.drawImage(st.img, r.x, r.y, r.w, r.h);
+      var marks = [];
+      if (st.pick) {
+        var px = r.x + (st.pick[0] + 0.5) * r.s, py = r.y + (st.pick[1] + 0.5) * r.s, i = (st.pick[1] * st.A.w + st.pick[0]) * 4, d = st.A.d;
+        AB.handle(ctx, px, py, { r: 7, fill: [d[i] / 255, d[i + 1] / 255, d[i + 2] / 255] });
+        marks = [{ v: d[i], c: HCOL[0] }, { v: d[i + 1], c: HCOL[1] }, { v: d[i + 2], c: HCOL[2] }];
+        if (st.mode !== "rgb") marks.push({ v: enc(0.2126 * LIN[d[i]] + 0.7152 * LIN[d[i + 1]] + 0.0722 * LIN[d[i + 2]]), c: AB.palette().text });
+      }
+      drawHist(ctx, { x: 14, y: ih + 12, w: w - 28, h: 72 }, st.stats.h, st.mode, { marks: marks, label: st.mode === "luma" ? "휘도" : st.mode === "both" ? "RGB + 휘도" : "R · G · B" });
+    }, { get height() { var W = Math.max(200, ($("ri-cv").parentElement.clientWidth || 600)); return Math.round(Math.min(560, W * 0.66 + 108)); } });
+    function setPick(x, y) {
+      if (!st.A || !st.rect) return;
+      var r = st.rect, ix = Math.floor((x - r.x) / r.s), iy = Math.floor((y - r.y) / r.s);
+      if (ix < 0 || iy < 0 || ix >= st.A.w || iy >= st.A.h) return;
+      st.pick = [ix, iy]; out(); cv.redraw();
+    }
+    AB.drag(cv.canvas, { move: setPick });
+    function out() {
+      AB.stat("ri-o-hi", fmtPct(st.stats.hi)); AB.stat("ri-o-lo", fmtPct(st.stats.lo));
+      if (!st.pick) { AB.stat("ri-o-pick", "—"); AB.stat("ri-o-lum", "—"); return; }
+      var d = st.A.d, i = (st.pick[1] * st.A.w + st.pick[0]) * 4, Y = 0.2126 * LIN[d[i]] + 0.7152 * LIN[d[i + 1]] + 0.0722 * LIN[d[i + 2]];
+      AB.stat("ri-o-pick", d[i] + "·" + d[i + 1] + "·" + d[i + 2]);
+      AB.stat("ri-o-lum", enc(Y) + " · " + lStar(d[i], d[i + 1], d[i + 2]).toFixed(0));
+    }
+    var DEF = { window: [0.36, 0.755], night: [0.55, 0.3], homer: [0.5, 0.9], vermeer: [0.3, 0.3], user: [0.5, 0.5] };
+    var api = bindSource("ri-src", function (A) {
+      st.A = A; var id = new ImageData(A.w, A.h); st.stats = processData(A, prep(defaults()), id); st.img = toCanvas(A, id);
+      var dp = DEF[A.key] || [0.5, 0.5]; st.pick = [Math.floor(dp[0] * A.w), Math.floor(dp[1] * A.h)];
+      if (A.key === "homer") st.pick = [Math.floor(A.w * 0.5), Math.floor(A.h * 0.915)];
+      out(); cv.redraw();
+    }, 520);
+    bindFile("ri-file", "ri-file-msg", api);
+    AB.seg("ri-hm", function (v) { st.mode = v; cv.redraw(); });
+  })();
+
+  /* =============== 2. 노출 =============== */
+  (function () {
+    var st = { A: null, a: null, b: null, stats: null, st0: null };
+    var opts = { bg: STAGE, get height() { var W = Math.max(200, ($("ev-a").parentElement.clientWidth || 600)); return Math.round(W * 0.6667); } };
+    function drawImg(which) { return function (ctx, w, h) { var c = st[which]; if (!c) { loading(ctx, w, h, true); return; } var r = fit(c.width, c.height, 0, 0, w, h); ctx.drawImage(c, r.x, r.y, r.w, r.h); }; }
+    var ca = AB.canvas("#ev-a", drawImg("a"), opts);
+    var cb = AB.canvas("#ev-b", drawImg("b"), { bg: STAGE, get height() { return opts.height; } });
+    var ch = AB.canvas("#ev-h", function (ctx, w, h) { if (!st.stats) return; drawHist(ctx, { x: 14, y: 8, w: w - 28, h: h - 30 }, st.stats.h, "rgb", { label: "보정 후 R · G · B" }); }, { height: 104 });
+    AB.compare("#ev-cmp", { labels: ["원본", "보정"], pos: 0.4 });
+    var ev = AB.range("ev-ev", function (v) { return (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toFixed(1) + " EV"; }, run);
+    var rt = AB.check("ev-rt", run), clip = AB.check("ev-clip", run);
+    function run() {
+      if (!st.A) return;
+      var A = st.A, p = defaults(); p.ev = ev();
+      var id = new ImageData(A.w, A.h), s;
+      if (rt()) {
+        var tmp = new ImageData(A.w, A.h); processData(A, prep(p), tmp);
+        var p2 = defaults(); p2.ev = -ev();
+        s = processData({ w: A.w, h: A.h, d: tmp.data }, prep(p2), id, { clip: clip() });
+        var diff = 0, d0 = A.d, d1 = id.data;
+        var plain = new ImageData(A.w, A.h); processData({ w: A.w, h: A.h, d: tmp.data }, prep(p2), plain);
+        d1 = plain.data;
+        for (var i = 0; i < d0.length; i += 4) if (Math.abs(d0[i] - d1[i]) > 3 || Math.abs(d0[i + 1] - d1[i + 1]) > 3 || Math.abs(d0[i + 2] - d1[i + 2]) > 3) diff++;
+        AB.stat("ev-o-rt", fmtPct(diff / (A.w * A.h)));
+      } else { s = processData(A, prep(p), id, { clip: clip() }); AB.stat("ev-o-rt", "—"); }
+      st.stats = s; st.b = toCanvas(A, id);
+      AB.stat("ev-o-hi", fmtPct(s.hi)); AB.stat("ev-o-lo", fmtPct(s.lo));
+      AB.stat("ev-o-med", pctile(st.st0.h[3], 0.5) + "→" + pctile(s.h[3], 0.5));
+      cb.redraw(); ch.redraw();
+    }
+    bindSource("ev-src", function (A) {
+      st.A = A; var id = new ImageData(A.w, A.h); st.st0 = processData(A, prep(defaults()), id); st.a = toCanvas(A, id);
+      ca.redraw(); run();
+    }, 640);
+  })();
+
+  /* =============== 3. 화이트 밸런스 =============== */
+  // 회색 스포이트: 집은 화소(선형광)가 회색이 되는 색온도·색조를 찾는다(미레드 눈금에서 거친 탐색 → 세밀 탐색)
+  function solveWB(rgb) {
+    var best = 6500, bestE = 1e9;
+    function err(T) { var M = wbMat(T), r = rgb[0], g = rgb[1], b = rgb[2]; var R = M[0][0] * r + M[0][1] * g + M[0][2] * b, B = M[2][0] * r + M[2][1] * g + M[2][2] * b; return Math.abs(Math.log(Math.max(R, 1e-5) / Math.max(B, 1e-5))); }
+    for (var mi = 1e6 / 12000; mi <= 1e6 / 2000; mi += 4) { var T = 1e6 / mi, e = err(T); if (e < bestE) { bestE = e; best = T; } }
+    for (var T2 = best - 200; T2 <= best + 200; T2 += 50) { if (T2 < 2000 || T2 > 12000) continue; var e2 = err(T2); if (e2 < bestE) { bestE = e2; best = T2; } }
+    best = Math.round(best / 50) * 50;
+    var M = wbMat(best), R = M[0][0] * rgb[0] + M[0][1] * rgb[1] + M[0][2] * rgb[2], G = M[1][0] * rgb[0] + M[1][1] * rgb[1] + M[1][2] * rgb[2], B = M[2][0] * rgb[0] + M[2][1] * rgb[1] + M[2][2] * rgb[2];
+    var need = ((R + B) / 2) / Math.max(G, 1e-5), tint = Math.round(-200 * Math.log2(need));
+    return { temp: Math.max(2000, Math.min(12000, best)), tint: Math.max(-60, Math.min(60, tint)) };
+  }
+  function avgPatch(A, ix, iy, rad) {
+    var r = 0, g = 0, b = 0, n = 0;
+    for (var y = Math.max(0, iy - rad); y <= Math.min(A.h - 1, iy + rad); y++) for (var x = Math.max(0, ix - rad); x <= Math.min(A.w - 1, ix + rad); x++) { var i = (y * A.w + x) * 4; r += LIN[A.d[i]]; g += LIN[A.d[i + 1]]; b += LIN[A.d[i + 2]]; n++; }
+    return [r / n, g / n, b / n];
+  }
+  (function () {
+    var st = { A: null, img: null, pick: null, rect: null };
+    var cv = AB.canvas("#wb-cv", function (ctx, w, h) {
+      if (!st.img) { loading(ctx, w, h, true); return; }
+      var r = fit(st.A.w, st.A.h, 6, 6, w - 12, h - 12); st.rect = r;
+      ctx.drawImage(st.img, r.x, r.y, r.w, r.h);
+      if (st.pick) { ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.strokeRect(r.x + (st.pick[0] - 3) * r.s, r.y + (st.pick[1] - 3) * r.s, 7 * r.s, 7 * r.s); AB.handle(ctx, r.x + (st.pick[0] + 0.5) * r.s, r.y + (st.pick[1] + 0.5) * r.s, { r: 5 }); }
+    }, { bg: STAGE, get height() { var W = Math.max(200, ($("wb-cv").parentElement.clientWidth || 600)); return Math.round(W * 0.75); } });
+    var tR = AB.range("wb-t", function (v) { return Math.round(v).toLocaleString("en-US") + " K"; }, run);
+    var gR = AB.range("wb-g", function (v) { return (v > 0 ? "+" : "") + v; }, run);
+    function run() {
+      if (!st.A) return;
+      var A = st.A, p = defaults(); p.temp = tR(); p.tint = gR();
+      var P = prep(p), id = new ImageData(A.w, A.h), s = processData(A, P, id);
+      st.img = toCanvas(A, id); AB.stat("wb-o-hi", fmtPct(s.hi));
+      if (st.pick) {
+        var c = avgPatch(A, st.pick[0], st.pick[1], 3), F = P.F;
+        var R = F[0] * c[0] + F[1] * c[1] + F[2] * c[2], G = F[3] * c[0] + F[4] * c[1] + F[5] * c[2], B = F[6] * c[0] + F[7] * c[1] + F[8] * c[2];
+        var a = [enc(c[0]), enc(c[1]), enc(c[2])], b = [enc(R), enc(G), enc(B)];
+        AB.stat("wb-o-a", a.join("·")); AB.stat("wb-o-b", b.join("·"));
+        var lch = ART.srgbToOklch([b[0] / 255, b[1] / 255, b[2] / 255]);
+        AB.stat("wb-o-c", (lch[1] * 100).toFixed(1) + (lch[1] > 0.01 ? " <small>" + Math.round(lch[2]) + "°</small>" : ""));
+      }
+      cv.redraw();
+    }
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!st.A || !st.rect) return;
+        var r = st.rect, ix = Math.floor((x - r.x) / r.s), iy = Math.floor((y - r.y) / r.s);
+        if (ix < 0 || iy < 0 || ix >= st.A.w || iy >= st.A.h) return;
+        st.pick = [ix, iy];
+        var sol = solveWB(avgPatch(st.A, ix, iy, 3));
+        tR.set(sol.temp); gR.set(sol.tint);
+      },
+    });
+    $("wb-reset").addEventListener("click", function () { tR.set(6500); gR.set(0); });
+    var DEF = { window: [0.36, 0.765], night: [0.37, 0.76], homer: [0.5, 0.915], vermeer: [0.5, 0.2], user: [0.5, 0.5] };
+    bindSource("wb-src", function (A) { st.A = A; var dp = DEF[A.key] || [0.5, 0.5]; st.pick = [Math.floor(dp[0] * A.w), Math.floor(dp[1] * A.h)]; run(); }, 600);
+  })();
+
+  /* =============== 4. 레벨과 커브 =============== */
+  var PRESET = { flat: [0.25, 0.5, 0.75], s: [0.17, 0.5, 0.83], lift: [0.36, 0.62, 0.84], inv: [0.75, 0.5, 0.25] };
+  // 곡선 그리기(UI). 반환: 상자
+  function drawCurve(ctx, box, curve, hist, black, white) {
+    var P = AB.palette();
+    drawHist(ctx, box, hist, "luma", {});
+    ctx.save();
+    ctx.strokeStyle = P.faint; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(box.x, box.y + box.h); ctx.lineTo(box.x + box.w, box.y); ctx.stroke(); ctx.setLineDash([]);
+    var f = monotone(CX, [0, curve[0], curve[1], curve[2], 1]), b = black / 255, w = Math.max(white, black + 1) / 255;
+    ctx.strokeStyle = P.accent; ctx.lineWidth = 2.2; ctx.beginPath();
+    for (var k = 0; k <= 128; k++) { var xin = k / 128, t = clamp01((xin - b) / (w - b)), y = clamp01(f(t)); var X = box.x + xin * box.w, Y = box.y + box.h - y * box.h; k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }
+    ctx.stroke();
+    for (k = 0; k < 3; k++) { var xx = b + CX[k + 1] * (w - b); AB.handle(ctx, box.x + xx * box.w, box.y + box.h - clamp01(curve[k]) * box.h, { r: 7, fill: AB.isDark() ? "#2b2a30" : "#ffffff", ring: P.accent }); }
+    ctx.restore();
+  }
+  function curveDrag(canvas, getBox, getState, onChange) {
+    var which = -1;
+    AB.drag(canvas, {
+      start: function (x, y) {
+        var box = getBox(), s = getState(); which = -1; if (!box) return;
+        var b = s.black / 255, w = Math.max(s.white, s.black + 1) / 255, best = 30;
+        for (var k = 0; k < 3; k++) { var hx = box.x + (b + CX[k + 1] * (w - b)) * box.w, hy = box.y + box.h - s.curve[k] * box.h, dd = Math.hypot(hx - x, hy - y); if (dd < best) { best = dd; which = k; } }
+        if (which < 0 && x >= box.x && x <= box.x + box.w) { var rel = ((x - box.x) / box.w - b) / (w - b); which = rel < 0.375 ? 0 : rel < 0.625 ? 1 : 2; }
+      },
+      move: function (x, y) { if (which < 0) return; var box = getBox(); if (!box) return; var s = getState(); s.curve[which] = Math.round(clamp01((box.y + box.h - y) / box.h) * 100) / 100; onChange(); },
+      end: function () { which = -1; },
+    });
+  }
+  (function () {
+    var st = { A: null, img: null, stats: null, curve: PRESET.flat.slice(), black: 0, white: 255, box: null };
+    var ci = AB.canvas("#tc-img", function (ctx, w, h) { if (!st.img) { loading(ctx, w, h, true); return; } var r = fit(st.A.w, st.A.h, 6, 6, w - 12, h - 12); ctx.drawImage(st.img, r.x, r.y, r.w, r.h); }, { bg: STAGE, get height() { var W = Math.max(200, ($("tc-img").parentElement.clientWidth || 600)); return Math.round(Math.min(420, W * 0.62)); } });
+    var cc = AB.canvas("#tc-cv", function (ctx, w, h) {
+      if (!st.stats) return;
+      var side = Math.min(w - 40, h - 34), box = { x: (w - side) / 2, y: 10, w: side, h: side }; st.box = box;
+      drawCurve(ctx, box, st.curve, st.stats.h, st.black, st.white);
+    }, { get height() { var W = Math.max(200, ($("tc-cv").parentElement.clientWidth || 600)); return Math.round(Math.min(300, W * 0.7)); } });
+    var bR = AB.range("tc-b", null, function (v) { st.black = v; run(); });
+    var wR = AB.range("tc-w", null, function (v) { st.white = v; run(); });
+    var pre = AB.seg("tc-pre", function (v) { st.curve = PRESET[v].slice(); run(); });
+    curveDrag(cc.canvas, function () { return st.box; }, function () { return st; }, run);
+    function run() {
+      if (!st.A) return;
+      var A = st.A, p = defaults(); p.black = st.black; p.white = st.white; p.curve = st.curve;
+      var id = new ImageData(A.w, A.h), s = processData(A, prep(p), id); st.stats = s; st.img = toCanvas(A, id);
+      var hy = s.h[3], first = -1, last = -1, used = 0, gap = 0, k;
+      for (k = 0; k < 256; k++) if (hy[k]) { used++; if (first < 0) first = k; last = k; }
+      for (k = first; k <= last; k++) if (!hy[k]) gap++;
+      AB.stat("tc-o-used", used + "<small>/256</small>"); AB.stat("tc-o-gap", gap + "<small>칸</small>");
+      AB.stat("tc-o-rng", pctile(hy, 0.05) + "–" + pctile(hy, 0.95));
+      AB.stat("tc-o-clip", fmtPct(s.hi) + " · " + fmtPct(s.lo));
+      ci.redraw(); cc.redraw();
+    }
+    bindSource("tc-src", function (A) { st.A = A; run(); }, 560);
+  })();
+
+  /* =============== 5. 채도 =============== */
+  function meanChroma(d, step) { var s = 0, n = 0, arr = []; for (var i = 0; i < d.length; i += 4 * step) { var c = ART.srgbToOklch([d[i] / 255, d[i + 1] / 255, d[i + 2] / 255])[1]; s += c; n++; arr.push(c); } arr.sort(function (a, b) { return a - b; }); return { mean: s / n, q95: arr[Math.floor(arr.length * 0.95)] || 0 }; }
+  (function () {
+    var st = { A: null, a: null, b: null, c0: null };
+    var hgt = { get height() { var W = Math.max(200, ($("sa-a").parentElement.clientWidth || 600)); return Math.round(W * 0.7); } };
+    function drawImg(which) { return function (ctx, w, h) { var c = st[which]; if (!c) { loading(ctx, w, h, true); return; } var r = fit(c.width, c.height, 0, 0, w, h); ctx.drawImage(c, r.x, r.y, r.w, r.h); }; }
+    var ca = AB.canvas("#sa-a", drawImg("a"), { bg: STAGE, get height() { return hgt.height; } });
+    var cb = AB.canvas("#sa-b", drawImg("b"), { bg: STAGE, get height() { return hgt.height; } });
+    AB.compare("#sa-cmp", { labels: ["원본", "채도 조정"], pos: 0.35 });
+    var sR = AB.range("sa-s", function (v) { return v + "%"; }, run), mark = AB.check("sa-mark", run);
+    function run() {
+      if (!st.A) return;
+      var A = st.A, p = defaults(); p.sat = sR() / 100;
+      var id = new ImageData(A.w, A.h), s = processData(A, prep(p), id, { gam: mark() });
+      var plain = id; if (mark()) { plain = new ImageData(A.w, A.h); processData(A, prep(p), plain); }
+      st.b = toCanvas(A, id);
+      var c1 = meanChroma(plain.data, 7);
+      AB.stat("sa-o-g", fmtPct(s.gam)); AB.stat("sa-o-c", (st.c0.mean * 100).toFixed(1) + "→" + (c1.mean * 100).toFixed(1)); AB.stat("sa-o-q", (c1.q95 * 100).toFixed(1));
+      cb.redraw();
+    }
+    bindSource("sa-src", function (A) { st.A = A; var id = new ImageData(A.w, A.h); processData(A, prep(defaults()), id); st.a = toCanvas(A, id); st.c0 = meanChroma(A.d, 7); ca.redraw(); run(); }, 600);
+  })();
+
+  /* =============== 6. 크롭 =============== */
+  // 크롭 틀 상태(정규화 좌표 0~1)와 끌기. ratio = 폭/높이(화소 기준), null이면 원본 비율
+  function cropTool(st) {
+    st.fixRatio = function () {
+      var fw = st.fw, fh = st.fh, R = st.ratio == null ? fw / fh : st.ratio, c = st.c;
+      if (st.flip && st.ratio != null) R = 1 / R;
+      var cw = c.w * fw, ch = c.h * fh, cx = (c.x + c.w / 2) * fw, cy = (c.y + c.h / 2) * fh;
+      if (cw / ch > R) cw = ch * R; else ch = cw / R;
+      var sc = Math.min(1, fw / cw, fh / ch); cw *= sc; ch *= sc;
+      c.w = cw / fw; c.h = ch / fh; c.x = Math.min(Math.max(0, cx / fw - c.w / 2), 1 - c.w); c.y = Math.min(Math.max(0, cy / fh - c.h / 2), 1 - c.h);
+    };
+    st.maximize = function () { st.c = { x: 0, y: 0, w: 1, h: 1 }; st.fixRatio(); };
+    st.drag = function (canvas, getRect, onChange) {
+      var mode = null, ox = 0, oy = 0, c0 = null;
+      AB.drag(canvas, {
+        start: function (x, y) {
+          var r = getRect(); if (!r) { mode = null; return; }
+          var c = st.c, X0 = r.x + c.x * r.w, Y0 = r.y + c.y * r.h, X1 = X0 + c.w * r.w, Y1 = Y0 + c.h * r.h;
+          c0 = { x: c.x, y: c.y, w: c.w, h: c.h }; ox = x; oy = y;
+          if (Math.hypot(x - X1, y - Y1) < 26) mode = "size"; else if (x > X0 && x < X1 && y > Y0 && y < Y1) mode = "move"; else mode = "size";
+        },
+        move: function (x, y) {
+          var r = getRect(); if (!mode || !r) return;
+          var c = st.c;
+          if (mode === "move") { c.x = Math.min(Math.max(0, c0.x + (x - ox) / r.w), 1 - c.w); c.y = Math.min(Math.max(0, c0.y + (y - oy) / r.h), 1 - c.h); }
+          else {
+            var fw = st.fw, fh = st.fh, R = st.ratio == null ? fw / fh : st.ratio; if (st.flip && st.ratio != null) R = 1 / R;
+            var wpx = Math.max(0.06 * fw, ((x - r.x) / r.w - c0.x) * fw), hpx = Math.max(0.06 * fh, ((y - r.y) / r.h - c0.y) * fh);
+            if (wpx / hpx > R) hpx = wpx / R; else wpx = hpx * R;
+            var mxw = (1 - c0.x) * fw, mxh = (1 - c0.y) * fh, s = Math.min(1, mxw / wpx, mxh / hpx); wpx *= s; hpx *= s;
+            c.x = c0.x; c.y = c0.y; c.w = wpx / fw; c.h = hpx / fh;
+          }
+          onChange();
+        },
+        end: function () { mode = null; },
+      });
+    };
+    st.draw = function (ctx, r, thirds) {
+      var c = st.c, X0 = r.x + c.x * r.w, Y0 = r.y + c.y * r.h, W = c.w * r.w, H = c.h * r.h;
+      ctx.save();
+      ctx.fillStyle = "rgba(20,20,24,0.55)";
+      ctx.beginPath(); ctx.rect(r.x, r.y, r.w, r.h); ctx.rect(X0, Y0, W, H); ctx.fill("evenodd");
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.strokeRect(X0, Y0, W, H);
+      if (thirds) { ctx.strokeStyle = "rgba(255,255,255,0.55)"; ctx.lineWidth = 1; ctx.beginPath(); for (var k = 1; k < 3; k++) { ctx.moveTo(X0 + W * k / 3, Y0); ctx.lineTo(X0 + W * k / 3, Y0 + H); ctx.moveTo(X0, Y0 + H * k / 3); ctx.lineTo(X0 + W, Y0 + H * k / 3); } ctx.stroke(); }
+      AB.handle(ctx, X0 + W, Y0 + H, { r: 7 });
+      ctx.restore();
+    };
+    st.px = function () { return [Math.round(st.c.w * st.fw), Math.round(st.c.h * st.fh)]; };
+    return st;
+  }
+  function cmOf(px) { return (px / 300 * 2.54).toFixed(1); }
+  function a5ppi(w, h) { var L = Math.max(w, h), S = Math.min(w, h); return Math.min(L / (210 / 25.4), S / (148 / 25.4)); }
+  (function () {
+    var st = cropTool({ A: null, img: null, c: { x: 0, y: 0, w: 1, h: 1 }, ratio: 0.8, flip: false, fw: 1600, fh: 1067, rect: null });
+    var cv = AB.canvas("#cr-cv", function (ctx, w, h) {
+      if (!st.img) { loading(ctx, w, h, true); return; }
+      var r = fit(st.A.w, st.A.h, 10, 10, w - 20, h - 20); st.rect = r;
+      ctx.drawImage(st.img, r.x, r.y, r.w, r.h); st.draw(ctx, r, true);
+    }, { bg: STAGE, get height() { var W = Math.max(200, ($("cr-cv").parentElement.clientWidth || 600)); return Math.round(Math.min(520, W * 0.72)); } });
+    function out() {
+      var px = st.px();
+      AB.stat("cr-o-px", px[0] + "×" + px[1]);
+      AB.stat("cr-o-cm", cmOf(px[0]) + "×" + cmOf(px[1]) + "<small>cm</small>");
+      AB.stat("cr-o-a5", Math.round(a5ppi(px[0], px[1])) + "<small>ppi</small>");
+      AB.stat("cr-o-area", Math.round(st.c.w * st.c.h * 100) + "%");
+      cv.redraw();
+    }
+    st.drag(cv.canvas, function () { return st.rect; }, out);
+    AB.seg("cr-r", function (v) { st.ratio = v === "orig" ? null : Number(v); st.maximize(); out(); });
+    AB.check("cr-flip", function (on) { st.flip = on; st.maximize(); out(); });
+    bindSource("cr-src", function (A) { st.A = A; st.fw = A.fw; st.fh = A.fh; var id = new ImageData(A.w, A.h); processData(A, prep(defaults()), id); st.img = toCanvas(A, id); st.maximize(); out(); }, 640);
+  })();
+
+  /* =============== 7. JPEG =============== */
+  function dataBytes(url) { var k = url.indexOf(","); var b64 = url.length - k - 1, pad = url.endsWith("==") ? 2 : url.endsWith("=") ? 1 : 0; return Math.round(b64 * 3 / 4) - pad; }
+  var WEBP_OK = (function () { try { var c = document.createElement("canvas"); c.width = c.height = 2; return c.toDataURL("image/webp", 0.5).indexOf("data:image/webp") === 0; } catch (e) { return false; } })();
+  function encodeAsync(canvas, fmt, q) { return new Promise(function (res) { setTimeout(function () { var url = canvas.toDataURL(fmt, q); res(url); }, 0); }); }
+  function psnr(a, b) { var s = 0, n = 0; for (var i = 0; i < a.length; i += 4) { for (var c = 0; c < 3; c++) { var e = a[i + c] - b[i + c]; s += e * e; } n += 3; } var mse = s / n; return mse < 1e-9 ? Infinity : 10 * Math.log10(255 * 255 / mse); }
+  [["jq-fmt", "image/webp"], ["lz-fmt", "image/webp"]].forEach(function (e) { if (!WEBP_OK) { var b = $(e[0]).querySelector('[data-value="' + e[1] + '"]'); if (b) { b.disabled = true; b.title = "이 브라우저는 WebP로 저장하지 못한다"; } } });
+  (function () {
+    var st = { A: null, src: null, srcData: null, dec: null, decData: null, bytes: 0, curve: {}, loupe: [0.3, 0.55], rect: null, tok: 0, ps: null };
+    var cv = AB.canvas("#jq-cv", function (ctx, w, h) {
+      var P = AB.palette();
+      if (!st.src) { loading(ctx, w, h); return; }
+      var ih = Math.round(w * 0.5), lh = Math.round(Math.min(w / 2 - 16, 220));
+      ctx.fillStyle = STAGE; ctx.fillRect(0, 0, w, ih + 8);
+      var shown = st.dec || st.src, r = fit(shown.width, shown.height, 8, 8, w - 16, ih - 8); st.rect = r;
+      ctx.drawImage(shown, r.x, r.y, r.w, r.h);
+      var L = 48, lx = st.loupe[0] * st.src.width, ly = st.loupe[1] * st.src.height;
+      lx = Math.round(Math.min(Math.max(0, lx - L / 2), st.src.width - L) / 8) * 8; ly = Math.round(Math.min(Math.max(0, ly - L / 2), st.src.height - L) / 8) * 8;
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.strokeRect(r.x + lx * r.s, r.y + ly * r.s, L * r.s, L * r.s);
+      ctx.strokeStyle = "#111111"; ctx.lineWidth = 1; ctx.strokeRect(r.x + lx * r.s - 2, r.y + ly * r.s - 2, L * r.s + 4, L * r.s + 4);
+      var y2 = ih + 18, lw = Math.min((w - 36) / 2, lh);
+      ctx.imageSmoothingEnabled = false;
+      [[st.src, "원본 ×" + (lw / L).toFixed(1)], [st.dec || st.src, (st.dec ? "압축 결과" : "압축 중…")]].forEach(function (e, k) {
+        var x0 = w / 2 - lw - 6 + k * (lw + 12);
+        ctx.drawImage(e[0], lx, ly, L, L, x0, y2, lw, lw);
+        ctx.strokeStyle = P.border; ctx.strokeRect(x0 + 0.5, y2 + 0.5, lw - 1, lw - 1);
+        ctx.fillStyle = P.dim; ctx.font = AB.font(11.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(e[1], x0, y2 + lw + 4);
+      });
+      ctx.imageSmoothingEnabled = true;
+      // 품질–크기 곡선
+      var cy = y2 + lw + 26, chh = h - cy - 4, key = st.A.key + st.fmt, pts = st.curve[key] || [];
+      if (chh > 80) {
+        var mx = 10; pts.forEach(function (p) { mx = Math.max(mx, p[1]); });
+        AB.chart(ctx, { x: 56, y: cy + 6, w: w - 76, h: chh - 52 }, {
+          x: [0, 1], y: [0, Math.ceil(mx / 100) * 100 || 100], xLabel: "품질", yLabel: "KB", xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1],
+          series: [{ data: pts, color: P.accent, width: 2 }],
+          points: st.bytes && st.fmt !== "image/png" ? [{ x: st.q, y: st.bytes / 1024, color: P.accent2, r: 5 }] : [],
+        });
+      }
+    }, { get height() { var W = Math.max(200, ($("jq-cv").parentElement.clientWidth || 600)); var lw = Math.min((W - 36) / 2, Math.min(W / 2 - 16, 220)); return Math.round(W * 0.5 + 18 + lw + 26 + 200); } });
+    AB.drag(cv.canvas, { move: function (x, y) { var r = st.rect; if (!r || !st.src) return; st.loupe = [clamp01((x - r.x) / r.w), clamp01((y - r.y) / r.h)]; cv.redraw(); } });
+    var qR = AB.range("jq-q", function (v) { return v.toFixed(2); }, AB.debounce(run, 90));
+    st.fmt = "image/jpeg"; st.q = 0.8;
+    AB.seg("jq-fmt", function (v) { st.fmt = v; $("jq-q").disabled = v === "image/png"; run(); buildCurve(); });
+    function run() {
+      if (!st.src) return;
+      var my = ++st.tok; st.q = qR();
+      encodeAsync(st.src, st.fmt, st.q).then(function (url) {
+        if (my !== st.tok) return;
+        st.bytes = dataBytes(url);
+        var W = st.src.width, H = st.src.height;
+        AB.stat("jq-o-kb", fmtKB(st.bytes)); AB.stat("jq-o-bpp", (st.bytes * 8 / (W * H)).toFixed(2));
+        AB.stat("jq-o-ratio", (100 * st.bytes / (W * H * 3)).toFixed(1) + "%");
+        return AB.loadImage(url).then(function (im) {
+          if (my !== st.tok) return;
+          var c = document.createElement("canvas"); c.width = W; c.height = H; var x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
+          st.dec = c; var p = psnr(st.srcData, x.getImageData(0, 0, W, H).data);
+          AB.stat("jq-o-psnr", isFinite(p) ? p.toFixed(1) + "<small>dB</small>" : "무손실");
+          cv.redraw();
+        });
+      }).catch(function () {});
+    }
+    function buildCurve() {
+      if (!st.src) return; var key = st.A.key + st.fmt; if (st.curve[key]) { cv.redraw(); return; }
+      var pts = []; st.curve[key] = pts; var qs = st.fmt === "image/png" ? [] : [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1], k = 0, src = st.src, fmt = st.fmt;
+      (function next() { if (k >= qs.length) return; var q = qs[k++]; setTimeout(function () { if (st.src !== src) return; pts.push([q, dataBytes(src.toDataURL(fmt, q)) / 1024]); cv.redraw(); next(); }, 30); })();
+    }
+    bindSource("jq-src", function (A) {
+      full(A.key).then(function (c) {
+        st.A = A; st.src = c; st.dec = null; st.srcData = c.getContext("2d", { willReadFrequently: true }).getImageData(0, 0, c.width, c.height).data;
+        cv.redraw(); run(); buildCurve();
+      });
+    }, 64);
+  })();
+
+  /* =============== 8. 종합 실험실 =============== */
+  (function () {
+    var st = cropTool({ A: null, p: defaults(), c: { x: 0, y: 0, w: 1, h: 1 }, ratio: null, flip: false, fw: 1600, fh: 1067, before: null, after: null, stats: null, view: "cmp", hm: "rgb", pick: false, rect: null, zoom: null, zc: [0.5, 0.5], bytes: 0, outW: 0, outH: 0, tok: 0, url: null, box: null });
+    var hgt = function (id) { return { bg: STAGE, get height() { var W = Math.max(200, ($(id).parentElement.clientWidth || 600)); return Math.round(Math.min(620, W * 0.68)); } }; };
+    function drawFrame(which, crop) {
+      return function (ctx, w, h) {
+        var c = st[which]; if (!c) { loading(ctx, w, h, true); return; }
+        var r = fit(c.width, c.height, 0, 0, w, h); ctx.drawImage(c, r.x, r.y, r.w, r.h);
+        if (crop) st.draw(ctx, r, false);
+      };
+    }
+    var ca = AB.canvas("#lz-a", drawFrame("before", false), hgt("lz-a"));
+    var cb = AB.canvas("#lz-b", drawFrame("after", true), hgt("lz-a"));
+    AB.compare("#lz-cmp", { labels: ["원본", "보정"], pos: 0.5 });
+    var cc = AB.canvas("#lz-crop", function (ctx, w, h) {
+      var c = st.after; if (!c) { loading(ctx, w, h, true); return; }
+      var r = fit(c.width, c.height, 10, 10, w - 20, h - 20); st.rect = r; ctx.drawImage(c, r.x, r.y, r.w, r.h); st.draw(ctx, r, true);
+      if (st.pick) { ctx.fillStyle = "rgba(20,20,24,0.75)"; ctx.fillRect(10, 10, 230, 26); ctx.fillStyle = "#ffffff"; ctx.font = AB.font(13); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("회색이어야 할 곳을 누른다", 20, 23); }
+    }, hgt("lz-crop"));
+    var cz = AB.canvas("#lz-zoom", function (ctx, w, h) {
+      var z = st.zoom; if (!z) { loading(ctx, w, h, true); return; }
+      var sc = 2, sw = Math.min(z.width, w / sc), sh = Math.min(z.height, h / sc);
+      var sx = Math.max(0, Math.min(z.width - sw, st.zc[0] * z.width - sw / 2)), sy = Math.max(0, Math.min(z.height - sh, st.zc[1] * z.height - sh / 2));
+      ctx.imageSmoothingEnabled = false; ctx.drawImage(z, sx, sy, sw, sh, (w - sw * sc) / 2, (h - sh * sc) / 2, sw * sc, sh * sc); ctx.imageSmoothingEnabled = true;
+      ctx.fillStyle = "rgba(20,20,24,0.7)"; ctx.fillRect(8, 8, 250, 24); ctx.fillStyle = "#ffffff"; ctx.font = AB.font(12); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("결과 파일 ×2 · 끌어서 옮긴다 · " + z.width + "×" + z.height, 16, 20);
+    }, hgt("lz-zoom"));
+    var zd = null;
+    AB.drag(cz.canvas, { start: function (x, y) { zd = [x, y, st.zc[0], st.zc[1]]; }, move: function (x, y) { if (!zd || !st.zoom) return; st.zc = [clamp01(zd[2] - (x - zd[0]) / (st.zoom.width * 2)), clamp01(zd[3] - (y - zd[1]) / (st.zoom.height * 2))]; cz.redraw(); }, end: function () { zd = null; } });
+    var ch = AB.canvas("#lz-h", function (ctx, w, h) {
+      if (!st.stats) return;
+      var cw = Math.min(220, Math.max(150, w * 0.3)), gap = 18, hw = w - cw - gap - 28;
+      if (w < 520) { drawHist(ctx, { x: 14, y: 10, w: w - 28, h: 92 }, st.stats.h, st.hm, { label: st.hm === "rgb" ? "크롭 안 R · G · B" : "크롭 안 휘도" }); var box = { x: (w - Math.min(w - 40, 200)) / 2, y: 132, w: Math.min(w - 40, 200), h: Math.min(w - 40, 200) }; st.box = box; drawCurve(ctx, box, st.p.curve, st.stats.h, st.p.black, st.p.white); return; }
+      drawHist(ctx, { x: 14, y: 12, w: hw, h: h - 40 }, st.stats.h, st.hm, { label: st.hm === "rgb" ? "크롭 안 R · G · B" : "크롭 안 휘도" });
+      var bx = { x: 14 + hw + gap, y: 12, w: Math.min(cw, h - 40), h: Math.min(cw, h - 40) }; st.box = bx;
+      drawCurve(ctx, bx, st.p.curve, st.stats.h, st.p.black, st.p.white);
+    }, { get height() { var W = Math.max(200, ($("lz-h").parentElement.clientWidth || 600)); return W < 520 ? 132 + Math.min(W - 40, 200) + 28 : 230; } });
+    curveDrag(ch.canvas, function () { return st.box; }, function () { return { curve: st.p.curve, black: st.p.black, white: st.p.white }; }, function () { runPreview(); });
+    // 컨트롤
+    var sgn = function (v, d) { return (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toFixed(d); };
+    var R = {
+      ev: AB.range("lz-ev", function (v) { return sgn(v, 1) + " EV"; }, function (v) { st.p.ev = v; runPreview(); }),
+      temp: AB.range("lz-t", function (v) { return Math.round(v).toLocaleString("en-US") + " K"; }, function (v) { st.p.temp = v; runPreview(); }),
+      tint: AB.range("lz-g", function (v) { return (v > 0 ? "+" : "") + v; }, function (v) { st.p.tint = v; runPreview(); }),
+      black: AB.range("lz-b", null, function (v) { st.p.black = v; runPreview(); }),
+      white: AB.range("lz-w", null, function (v) { st.p.white = v; runPreview(); }),
+      sat: AB.range("lz-s", function (v) { return v + "%"; }, function (v) { st.p.sat = v / 100; runPreview(); }),
+      px: AB.range("lz-px", function (v) { return v.toLocaleString("en-US") + " px"; }, function () { scheduleOut(); }),
+      q: AB.range("lz-q", function (v) { return v.toFixed(2); }, function () { scheduleOut(); }),
+    };
+    var fmt = AB.seg("lz-fmt", function () { scheduleOut(); });
+    var clip = AB.check("lz-clip", function () { runPreview(); });
+    AB.seg("lz-hm", function (v) { st.hm = v; ch.redraw(); });
+    var ratioSeg = AB.seg("lz-r", function (v) { st.ratio = v === "orig" ? null : Number(v); st.maximize(); cropChanged(); });
+    AB.check("lz-flip", function (on) { st.flip = on; st.maximize(); cropChanged(); });
+    function showView(v) {
+      st.view = v;
+      $("lz-v-cmp").classList.toggle("il-hidden", v !== "cmp"); $("lz-v-crop").classList.toggle("il-hidden", v !== "crop"); $("lz-v-zoom").classList.toggle("il-hidden", v !== "zoom");
+      ca.resize(); cb.resize(); cc.resize(); cz.resize();
+    }
+    var viewSeg = AB.seg("lz-view", showView);
+    $("lz-pick").addEventListener("click", function () { st.pick = !st.pick; $("lz-pick").classList.toggle("primary", st.pick); if (st.pick && st.view !== "crop") { viewSeg.set("crop", false); showView("crop"); } cc.redraw(); });
+    st.drag(cc.canvas, function () { return st.rect; }, cropChanged);
+    // 회색 찍기: 크롭 편집 화면을 누르면 그 자리로 화이트 밸런스를 맞춘다(끌기보다 먼저 가로챈다)
+    cc.canvas.addEventListener("pointerdown", function (e) {
+      if (!st.pick || !st.A || !st.rect) return;
+      var b = cc.canvas.getBoundingClientRect(), r = st.rect, ix = Math.floor((e.clientX - b.left - r.x) / r.w * st.A.w), iy = Math.floor((e.clientY - b.top - r.y) / r.h * st.A.h);
+      if (ix < 0 || iy < 0 || ix >= st.A.w || iy >= st.A.h) return;
+      var sol = solveWB(avgPatch(st.A, ix, iy, 2));
+      st.pick = false; $("lz-pick").classList.remove("primary");
+      R.temp.set(sol.temp); R.tint.set(sol.tint);
+      e.stopImmediatePropagation();
+    }, true);
+    $("lz-reset").addEventListener("click", function () {
+      st.p = defaults(); R.ev.set(0); R.temp.set(6500); R.tint.set(0); R.black.set(0); R.white.set(255); R.sat.set(100);
+      ratioSeg.set("orig", false); st.ratio = null; st.flip = false; $("lz-flip").checked = false; st.maximize(); cropChanged();
+    });
+    function cropChanged() {
+      var px = st.px(), mx = Math.max(px[0], px[1]);
+      R.px.el.max = Math.max(320, Math.round(mx / 10) * 10 || 320); if (R.px() > mx) R.px.set(Math.max(320, Math.floor(mx / 10) * 10)); else R.px.set(R.px());
+      runPreview();
+    }
+    function runPreview() {
+      if (!st.A) return;
+      var A = st.A, id = new ImageData(A.w, A.h), c = st.c;
+      var rect = [Math.floor(c.x * A.w), Math.floor(c.y * A.h), Math.ceil((c.x + c.w) * A.w), Math.ceil((c.y + c.h) * A.h)];
+      st.stats = processData(A, prep(st.p), id, { clip: clip(), rect: rect });
+      st.after = toCanvas(A, id);
+      AB.stat("lz-o-hi", fmtPct(st.stats.hi)); AB.stat("lz-o-lo", fmtPct(st.stats.lo)); AB.stat("lz-o-gam", st.p.sat > 1 ? fmtPct(st.stats.gam) : "0%");
+      cb.redraw(); cc.redraw(); ch.redraw(); scheduleOut();
+    }
+    var outTimer = 0;
+    function scheduleOut() { clearTimeout(outTimer); outTimer = setTimeout(runOut, 260); recipe(); }
+    function runOut() {
+      if (!st.A) return;
+      var my = ++st.tok, key = st.A.key, P = prep(st.p), p = st.px(), long = Math.min(R.px(), Math.max(p[0], p[1])), sc = long / Math.max(p[0], p[1]);
+      var ow = Math.max(1, Math.round(p[0] * sc)), oh = Math.max(1, Math.round(p[1] * sc));
+      full(key).then(function (F) {
+        if (my !== st.tok) return;
+        var t = document.createElement("canvas"); t.width = ow; t.height = oh; var x = t.getContext("2d", { willReadFrequently: true });
+        x.imageSmoothingQuality = "high"; x.drawImage(F, st.c.x * F.width, st.c.y * F.height, st.c.w * F.width, st.c.h * F.height, 0, 0, ow, oh);
+        var src = x.getImageData(0, 0, ow, oh), out = x.createImageData(ow, oh);
+        processData({ w: ow, h: oh, d: src.data }, P, out); x.putImageData(out, 0, 0);
+        var f = fmt(), url = t.toDataURL(f, R.q());
+        st.bytes = dataBytes(url); st.outW = ow; st.outH = oh; st.url = url;
+        var save = $("lz-save"); save.href = url; save.download = "lab-result." + (url.indexOf("image/webp") > 0 ? "webp" : "jpg");
+        AB.stat("lz-o-px", ow + "×" + oh); AB.stat("lz-o-kb", fmtKB(st.bytes)); AB.stat("lz-o-cm", cmOf(ow) + "×" + cmOf(oh) + "<small>cm</small>");
+        recipe();
+        return AB.loadImage(url).then(function (im) { if (my !== st.tok) return; var z = document.createElement("canvas"); z.width = im.naturalWidth; z.height = im.naturalHeight; z.getContext("2d").drawImage(im, 0, 0); st.zoom = z; cz.redraw(); });
+      }).catch(function () {});
+    }
+    function recipe() {
+      if (!st.A) return;
+      var p = st.p, px = st.px(), rl = st.ratio == null ? "원본 비율" : ({ 1: "1:1", 0.8: "4:5", 1.5: "3:2", 1.7778: "16:9", 0.7071: "A5(1:√2)" })[st.ratio] + (st.flip ? " 가로세로 바꿈" : "");
+      var lines = [
+        "원본: " + SRC[st.A.key].name + " " + st.A.fw + "×" + st.A.fh + " px",
+        "노출 " + sgn(p.ev, 1) + " EV · 색온도 " + Math.round(p.temp) + " K · 색조 " + (p.tint > 0 ? "+" : "") + p.tint,
+        "레벨 검정 " + p.black + " / 흰색 " + p.white + " · 커브 25%→" + Math.round(p.curve[0] * 100) + "%, 50%→" + Math.round(p.curve[1] * 100) + "%, 75%→" + Math.round(p.curve[2] * 100) + "%",
+        "채도 " + Math.round(p.sat * 100) + "%",
+        "크롭 " + rl + " · " + px[0] + "×" + px[1] + " px (" + Math.round(st.c.x * st.A.fw) + ", " + Math.round(st.c.y * st.A.fh) + "에서)",
+        "출력 " + (st.outW ? st.outW + "×" + st.outH + " px · 300 ppi로 " + cmOf(st.outW) + "×" + cmOf(st.outH) + " cm" : "계산 중"),
+        (fmt() === "image/webp" ? "WebP" : "JPEG") + " 품질 " + R.q().toFixed(2) + (st.bytes ? " · 약 " + Math.round(st.bytes / 1024) + " KB" : ""),
+        "클리핑(크롭 안): 하이라이트 " + (st.stats ? (st.stats.hi * 100).toFixed(1) : "—") + "% · 그림자 " + (st.stats ? (st.stats.lo * 100).toFixed(1) : "—") + "%",
+      ];
+      $("lz-out").value = lines.join("\n");
+    }
+    $("lz-copy").addEventListener("click", function () {
+      var t = $("lz-out").value, msg = $("lz-copy-msg");
+      var done = function () { msg.textContent = "복사했다."; setTimeout(function () { msg.textContent = ""; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, function () { $("lz-out").select(); msg.textContent = "선택했다. 직접 복사한다."; });
+      else { $("lz-out").select(); msg.textContent = "선택했다. 직접 복사한다."; }
+    });
+    var api = bindSource("lz-src", function (A) {
+      st.A = A; st.fw = A.fw; st.fh = A.fh;
+      var id = new ImageData(A.w, A.h); processData(A, prep(defaults()), id); st.before = toCanvas(A, id);
+      st.maximize(); ca.redraw(); cropChanged();
+    }, 760);
+    bindFile("lz-file", "lz-file-msg", api);
+  })();
+})();
+
 </script>
 </body>
 </html>
