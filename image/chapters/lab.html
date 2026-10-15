@@ -254,7 +254,7 @@
     <div class="formula">$$v_{\text{후}} = 255\times\left(\frac{v-b}{w-b}\right)^{1/\gamma}\qquad(0\text{~}1\text{ 밖은 잘라 낸다})$$<div class="where">\(v\): 화면 값 0~255, \(b\): 검정점, \(w\): 흰점, \(\gamma\): 중간톤(1이면 직선). 이 책의 모델로 계산하면 \(b=20,\ w=235\)일 때 원래 20~235의 216단계가 0~255의 256칸에 나뉘어 들어가므로, 40칸쯤은 아무 화소도 받지 못하고 비게 된다.</div></div>
     <p>커브는 레벨을 일반화한 것이다. 가로축이 입력 값, 세로축이 출력 값인 곡선을 그리고, 모든 화소를 그 곡선대로 옮긴다. 가운데를 위로 올리면 중간톤이 밝아지고, 그림자 쪽을 내리고 하이라이트 쪽을 올린 S자 곡선은 대비를 키운다. 곡선이 가파른 구간에서는 원래 가까웠던 값들이 멀어지고(대비가 커지고), 완만한 구간에서는 서로 붙는다(대비가 줄어든다). 커브는 대비를 만들어 내지 않는다. 한 구간에 대비를 주면 다른 구간에서 그만큼 빼 온다.</p>
 
-    <p>아래 시뮬레이터 아래쪽 그래프의 세 점(입력 25%, 50%, 75%)을 위아래로 끌어 커브를 만든다. 그래프 뒤의 회색 막대는 결과의 휘도 히스토그램이다. 레벨의 검정점과 흰점을 좁혀 대비를 크게 늘리면 히스토그램이 어떻게 변하는지 본다.</p>
+    <p>아래 시뮬레이터 아래쪽 그래프의 세 점(입력 25%, 50%, 75%)을 위아래로 끌어 커브를 만든다. 그래프 뒤의 회색 막대는 결과의 R·G·B 세 채널 히스토그램을 더한 것이다. 레벨의 검정점과 흰점을 좁혀 대비를 크게 늘리면 히스토그램이 어떻게 변하는지 본다.</p>
 
     <div class="sim" id="sim-tone">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>레벨과 커브, 그리고 빗살 히스토그램</h3></div>
@@ -268,7 +268,7 @@
         </div>
       </div>
       <div class="sim-readout">
-        <div class="stat"><span class="k">결과에 쓰인 휘도 단계</span><span class="v" id="tc-o-used">—</span></div>
+        <div class="stat"><span class="k">결과에 쓰인 값(RGB 합)</span><span class="v" id="tc-o-used">—</span></div>
         <div class="stat"><span class="k">사이의 빈 칸(빗살)</span><span class="v" id="tc-o-gap">—</span></div>
         <div class="stat"><span class="k">휘도 범위 5~95%</span><span class="v" id="tc-o-rng">—</span></div>
         <div class="stat"><span class="k">클리핑 하이·그림자</span><span class="v" id="tc-o-clip">—</span></div>
@@ -297,7 +297,7 @@
           <div class="compare" id="sa-cmp"><div class="cmp-a"><canvas id="sa-a" class="art"></canvas></div><div class="cmp-b"><canvas id="sa-b" class="art"></canvas></div></div>
         </div>
         <div class="sim-controls">
-          <div class="seg lab-src" id="sa-src"><button data-value="window" class="on">창가</button><button data-value="night">밤 서가</button><button data-value="homer">작품 촬영</button><button data-value="vermeer">페르메이르</button><button data-value="user" disabled>내 사진</button></div>
+          <div class="seg lab-src" id="sa-src"><button data-value="window">창가</button><button data-value="night">밤 서가</button><button data-value="homer">작품 촬영</button><button data-value="vermeer" class="on">페르메이르</button><button data-value="user" disabled>내 사진</button></div>
           <label class="ctrl"><span>채도 <output id="sa-s-out"></output></span><input type="range" id="sa-s" min="0" max="300" step="5" value="160"></label>
           <label class="check"><input type="checkbox" id="sa-mark" checked> 넘친 화소에 줄무늬 표시</label>
         </div>
@@ -606,7 +606,8 @@
       o[i] = er; o[i + 1] = eg; o[i + 2] = eb; o[i + 3] = 255;
     }
     cnt = Math.max(1, cnt);
-    return { h: [hr, hg, hb, hy], hi: hi / cnt, lo: lo / cnt, gam: gam / cnt, n: cnt };
+    var hc = new Uint32Array(256); for (var q = 0; q < 256; q++) hc[q] = hr[q] + hg[q] + hb[q];
+    return { h: [hr, hg, hb, hy, hc], hi: hi / cnt, lo: lo / cnt, gam: gam / cnt, n: cnt };
   }
   function pctile(h, q) { var tot = 0, k; for (k = 0; k < 256; k++) tot += h[k]; var acc = 0; for (k = 0; k < 256; k++) { acc += h[k]; if (acc >= q * tot) return k; } return 255; }
   function fmtPct(x) { return x <= 0 ? "0%" : x < 0.001 ? "&lt;0.1%" : (x * 100).toFixed(x < 0.1 ? 1 : 0) + "%"; }
@@ -673,22 +674,21 @@
     ctx.fillStyle = "#8a6440"; ctx.beginPath(); ctx.moveTo(W * 0.02, H * 0.8); ctx.lineTo(W * 0.46, H * 0.8); ctx.lineTo(W * 0.42, H * 0.74); ctx.lineTo(W * 0.06, H * 0.74); ctx.fill();
     ctx.fillStyle = "#6b4c30"; ctx.fillRect(W * 0.02, H * 0.8, W * 0.44, H * 0.025);
     ctx.fillStyle = "#4e3826"; ctx.fillRect(W * 0.05, H * 0.825, U * 1.4, H * 0.15); ctx.fillRect(W * 0.42, H * 0.825, U * 1.4, H * 0.15);
-    ctx.fillStyle = "#ece8de"; ctx.beginPath(); ctx.moveTo(W * 0.12, H * 0.785); ctx.lineTo(W * 0.21, H * 0.79); ctx.lineTo(W * 0.215, H * 0.75); ctx.lineTo(W * 0.135, H * 0.745); ctx.fill();
+    ctx.fillStyle = "#d6d1c6"; ctx.beginPath(); ctx.moveTo(W * 0.12, H * 0.785); ctx.lineTo(W * 0.21, H * 0.79); ctx.lineTo(W * 0.215, H * 0.75); ctx.lineTo(W * 0.135, H * 0.745); ctx.fill();
     ctx.beginPath(); ctx.moveTo(W * 0.21, H * 0.79); ctx.lineTo(W * 0.3, H * 0.785); ctx.lineTo(W * 0.29, H * 0.745); ctx.lineTo(W * 0.215, H * 0.75); ctx.fill();
     ctx.strokeStyle = "#9d978b"; ctx.lineWidth = U * 0.15;
     for (k = 0; k < 6; k++) { ctx.beginPath(); ctx.moveTo(W * 0.14, H * (0.752 + k * 0.0055)); ctx.lineTo(W * 0.205, H * (0.756 + k * 0.0055)); ctx.moveTo(W * 0.222, H * (0.756 + k * 0.0055)); ctx.lineTo(W * 0.285, H * (0.752 + k * 0.0055)); ctx.stroke(); }
-    ctx.fillStyle = "#f0eeea"; ctx.beginPath(); ctx.ellipse(W * 0.36, H * 0.775, U * 4.2, U * 1.2, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#d2cfc9"; ctx.beginPath(); ctx.ellipse(W * 0.36, H * 0.775, U * 4.2, U * 1.2, 0, 0, Math.PI * 2); ctx.fill();
     ctx.fillRect(W * 0.345, H * 0.735, U * 4.6, U * 4.0);
     ctx.beginPath(); ctx.ellipse(W * 0.345 + U * 2.3, H * 0.735, U * 2.3, U * 0.7, 0, 0, Math.PI * 2); ctx.fillStyle = "#4a2f1f"; ctx.fill();
-    ctx.strokeStyle = "#f0eeea"; ctx.lineWidth = U * 0.7; ctx.beginPath(); ctx.arc(W * 0.345 + U * 5.0, H * 0.752, U * 1.2, -1.2, 1.2); ctx.stroke();
+    ctx.strokeStyle = "#d2cfc9"; ctx.lineWidth = U * 0.7; ctx.beginPath(); ctx.arc(W * 0.345 + U * 5.0, H * 0.752, U * 1.2, -1.2, 1.2); ctx.stroke();
     // 전구 빛(약 3,800 K로 남은 치우침)과 노출 흉내: 장면의 참색에 전구 빛 색을 곱한다
     var cast = inv3(wbMat(3800));
     applyLinear(ctx, W, H, cast, function (x, y) { var dx = (x / W - 0.45), dy = (y / H - 0.5); return 0.82 - 0.5 * (dx * dx + dy * dy); }, [0.0006, 0.002], 21);
     // 창: 햇빛(약 6,500 K, 보정 없음)으로 밝게 넘친다
-    var gx = ctx.createLinearGradient(0, H * 0.08, 0, H * 0.62); gx.addColorStop(0, "#f6f9ff"); gx.addColorStop(1, "#ffffff");
-    ctx.fillStyle = gx; ctx.fillRect(W * 0.125, H * 0.08, W * 0.38, H * 0.54);
-    ctx.fillStyle = "#eef1ee"; ctx.fillRect(W * 0.32, H * 0.2, W * 0.18, H * 0.42);
-    ctx.fillStyle = "#e3ebe6"; for (k = 0; k < 7; k++) { ctx.beginPath(); ctx.arc(W * (0.14 + k * 0.022), H * (0.42 - Math.sin(k) * 0.05), U * 4.5, 0, Math.PI * 2); ctx.fill(); }
+    ctx.fillStyle = "#ffffff"; ctx.fillRect(W * 0.125, H * 0.08, W * 0.38, H * 0.54);
+    ctx.fillStyle = "#f8f9f7"; ctx.fillRect(W * 0.32, H * 0.2, W * 0.18, H * 0.42);
+    ctx.fillStyle = "#f1f5f2"; for (k = 0; k < 7; k++) { ctx.beginPath(); ctx.arc(W * (0.14 + k * 0.022), H * (0.42 - Math.sin(k) * 0.05), U * 4.5, 0, Math.PI * 2); ctx.fill(); }
     // 창 가장자리 쪽은 아직 255가 아닌 하늘이 조금 남아 있다
     var ge = ctx.createLinearGradient(W * 0.125, 0, W * 0.2, 0); ge.addColorStop(0, "rgba(196,214,236,1)"); ge.addColorStop(1, "rgba(246,250,255,0)");
     ctx.fillStyle = ge; ctx.fillRect(W * 0.125, H * 0.08, W * 0.08, H * 0.54);
@@ -697,7 +697,7 @@
     ctx.fillStyle = "#4a3626"; ctx.fillRect(W * 0.31, H * 0.08, U * 1.0, H * 0.54); ctx.fillRect(W * 0.125, H * 0.36, W * 0.38, U * 1.0);
     // 창빛이 탁자와 바닥에 떨어진다
     ctx.globalCompositeOperation = "lighter";
-    var rg = ctx.createRadialGradient(W * 0.3, H * 0.8, 0, W * 0.3, H * 0.8, W * 0.3); rg.addColorStop(0, "rgba(70,74,80,0.9)"); rg.addColorStop(1, "rgba(0,0,0,0)");
+    var rg = ctx.createRadialGradient(W * 0.3, H * 0.8, 0, W * 0.3, H * 0.8, W * 0.3); rg.addColorStop(0, "rgba(34,36,40,0.8)"); rg.addColorStop(1, "rgba(0,0,0,0)");
     ctx.fillStyle = rg; ctx.fillRect(0, H * 0.6, W * 0.7, H * 0.4);
     ctx.globalCompositeOperation = "source-over";
   }
@@ -826,7 +826,7 @@
     ctx.fillStyle = P.surface; ctx.fillRect(box.x, box.y, box.w, box.h);
     ctx.strokeStyle = P.grid; ctx.lineWidth = 1;
     for (var q = 1; q < 4; q++) { var gx = box.x + box.w * q / 4; ctx.beginPath(); ctx.moveTo(gx, box.y); ctx.lineTo(gx, box.y + box.h); ctx.stroke(); }
-    var chans = mode === "luma" ? [3] : mode === "both" ? [0, 1, 2, 3] : [0, 1, 2], mx = 1;
+    var chans = mode === "luma" ? [3] : mode === "comp" ? [4] : mode === "both" ? [0, 1, 2, 3] : [0, 1, 2], mx = 1;
     chans.forEach(function (c) { for (var k = 1; k < 255; k++) mx = Math.max(mx, H[c][k]); });
     var top = Math.sqrt(mx) * 1.08;
     function path(c) {
@@ -834,8 +834,9 @@
       for (var k = 0; k < 256; k++) { var v = Math.min(top, Math.sqrt(H[c][k])); ctx.lineTo(box.x + (k + 0.5) / 256 * box.w, box.y + box.h - v / top * box.h); }
       ctx.lineTo(box.x + box.w, box.y + box.h); ctx.closePath();
     }
-    if (mode !== "rgb") { path(3); ctx.fillStyle = dark ? "rgba(220,220,225,0.35)" : "rgba(60,60,70,0.28)"; ctx.fill(); }
-    if (mode !== "luma") {
+    if (mode === "comp") { path(4); ctx.fillStyle = dark ? "rgba(220,220,225,0.35)" : "rgba(60,60,70,0.28)"; ctx.fill(); }
+    if (mode === "luma" || mode === "both") { path(3); ctx.fillStyle = dark ? "rgba(220,220,225,0.35)" : "rgba(60,60,70,0.28)"; ctx.fill(); }
+    if (mode === "rgb" || mode === "both") {
       ctx.globalCompositeOperation = dark ? "lighter" : "multiply";
       [0, 1, 2].forEach(function (c) { path(c); ctx.fillStyle = dark ? ["rgba(229,72,77,0.55)", "rgba(48,164,108,0.55)", "rgba(62,99,221,0.6)"][c] : ["rgba(229,72,77,0.45)", "rgba(48,164,108,0.45)", "rgba(62,99,221,0.45)"][c]; ctx.fill(); });
       ctx.globalCompositeOperation = "source-over";
@@ -997,7 +998,7 @@
   // 곡선 그리기(UI). 반환: 상자
   function drawCurve(ctx, box, curve, hist, black, white) {
     var P = AB.palette();
-    drawHist(ctx, box, hist, "luma", {});
+    drawHist(ctx, box, hist, "comp", {});
     ctx.save();
     ctx.strokeStyle = P.faint; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(box.x, box.y + box.h); ctx.lineTo(box.x + box.w, box.y); ctx.stroke(); ctx.setLineDash([]);
     var f = monotone(CX, [0, curve[0], curve[1], curve[2], 1]), b = black / 255, w = Math.max(white, black + 1) / 255;
@@ -1036,11 +1037,11 @@
       if (!st.A) return;
       var A = st.A, p = defaults(); p.black = st.black; p.white = st.white; p.curve = st.curve;
       var id = new ImageData(A.w, A.h), s = processData(A, prep(p), id); st.stats = s; st.img = toCanvas(A, id);
-      var hy = s.h[3], first = -1, last = -1, used = 0, gap = 0, k;
+      var hy = s.h[4], first = -1, last = -1, used = 0, gap = 0, k;
       for (k = 0; k < 256; k++) if (hy[k]) { used++; if (first < 0) first = k; last = k; }
       for (k = first; k <= last; k++) if (!hy[k]) gap++;
       AB.stat("tc-o-used", used + "<small>/256</small>"); AB.stat("tc-o-gap", gap + "<small>칸</small>");
-      AB.stat("tc-o-rng", pctile(hy, 0.05) + "–" + pctile(hy, 0.95));
+      AB.stat("tc-o-rng", pctile(s.h[3], 0.05) + "–" + pctile(s.h[3], 0.95));
       AB.stat("tc-o-clip", fmtPct(s.hi) + " · " + fmtPct(s.lo));
       ci.redraw(); cc.redraw();
     }

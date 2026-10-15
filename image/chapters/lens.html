@@ -1,0 +1,1013 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "초점거리는 장면을 얼마나 크게 옮길지, 화각은 얼마나 넓게 담을지를 정한다. 바늘구멍에서 화각 공식까지, 센서 크기와 환산 초점거리, 휴대폰의 0.5×·1×·2×가 실제로 무엇인지, 좁은 서점에서 서가 전체를 담는 초점거리를 직접 찾는다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>초점거리와 화각 · ImageBook</title>
+<meta name="description" content="초점거리는 장면을 얼마나 크게 옮길지, 화각은 얼마나 넓게 담을지를 정한다. 바늘구멍에서 화각 공식까지, 센서 크기와 환산 초점거리, 휴대폰의 0.5×·1×·2×가 실제로 무엇인지, 좁은 서점에서 서가 전체를 담는 초점거리를 직접 찾는다.">
+<link rel="canonical" href="https://artbook.euiyun.com/image/chapters/lens.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="초점거리와 화각 · ImageBook">
+<meta property="og:description" content="초점거리는 장면을 얼마나 크게 옮길지, 화각은 얼마나 넓게 담을지를 정한다. 바늘구멍에서 화각 공식까지, 센서 크기와 환산 초점거리, 휴대폰의 0.5×·1×·2×가 실제로 무엇인지, 좁은 서점에서 서가 전체를 담는 초점거리를 직접 찾는다.">
+<meta property="og:url" content="https://artbook.euiyun.com/image/chapters/lens.html">
+<meta property="og:image" content="https://artbook.euiyun.com/image/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/image/chapters/lens.html#chapter","name":"초점거리와 화각","headline":"초점거리와 화각 · ImageBook","description":"초점거리는 장면을 얼마나 크게 옮길지, 화각은 얼마나 넓게 담을지를 정한다. 바늘구멍에서 화각 공식까지, 센서 크기와 환산 초점거리, 휴대폰의 0.5×·1×·2×가 실제로 무엇인지, 좁은 서점에서 서가 전체를 담는 초점거리를 직접 찾는다.","url":"https://artbook.euiyun.com/image/chapters/lens.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/image/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/image/#book","name":"ImageBook · 사진과 이미지","url":"https://artbook.euiyun.com/image/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ImageBook · 사진과 이미지","item":"https://artbook.euiyun.com/image/"},{"@type":"ListItem","position":3,"name":"5. 초점거리와 화각","item":"https://artbook.euiyun.com/image/chapters/lens.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="lens">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 05</div>
+    <h1>초점거리와 화각</h1>
+    <p class="lead">좁은 가게 안에서 사진을 찍어 본 사람은 안다. 서가 앞에 서서 카메라를 들면 책 몇 권만 보이고, 한 걸음 물러서려 하면 등 뒤에 이미 반대편 서가가 있다. 그때 휴대폰의 "0.5×"를 누르면 갑자기 서가 전체가 들어온다. 무엇이 바뀐 것일까. 이 장은 렌즈에 적힌 숫자 하나, 초점거리가 장면을 얼마나 크게, 얼마나 넓게 옮기는지 따라간다. 같은 "18 mm"가 카메라마다 다른 넓이를 담는 까닭(센서 크기)과, 휴대폰의 줌 단추가 실제로 하는 일도 함께 본다.</p>
+    <ul class="objectives">
+      <li>초점거리가 상의 크기를 정한다는 것을 바늘구멍 카메라의 닮은 삼각형으로 설명한다.</li>
+      <li>센서 크기와 초점거리로 화각을 계산하고, 주어진 자리에서 담기는 폭을 구한다.</li>
+      <li>센서 크기가 다른 카메라를 환산 초점거리로 비교하고, 환산이 같게 하는 것과 같게 하지 않는 것을 구별한다.</li>
+      <li>휴대폰의 0.5×·1×·2×가 서로 다른 렌즈인지, 잘라 낸 것인지 구별하고 디지털 줌의 대가를 안다.</li>
+      <li>좁은 실내에서 담고 싶은 범위와 물러설 수 있는 거리로 초점거리를 고른다.</li>
+    </ul>
+  </header>
+
+  <section id="narrow">
+    <h2>물러설 자리가 없는 서점</h2>
+    <p>책방 E 1층 안쪽에는 폭 1.1 m 남짓한 통로가 있고, 양쪽으로 높이 2.1 m의 서가가 90 cm 칸 여섯 개씩 이어진다(<a href="../../drawing/chapters/perspective1.html">DrawingBook 4장</a>에서 서윤이 그린 바로 그 통로다). 이 통로에서 한쪽 서가를 정면으로 찍으려면 카메라는 반대편 서가에 등을 붙인 자리, 서가 면에서 0.9 m쯤 떨어진 곳에 있을 수밖에 없다. 거기서 담기는 폭과 높이는 무엇이 정할까.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="책방 E 안쪽 통로를 위에서 본 평면도. 통로 안에서 서가를 정면으로 겨눈 카메라의 넓은 부채꼴과 좁은 부채꼴, 통로 입구 밖 2 m에서 통로를 길게 겨눈 카메라의 부채꼴이 그려져 있다.">
+        <defs><marker id="ln-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="150" y="82.5" width="270" height="15" class="f-elev s-line"/>
+        <rect x="150" y="152.5" width="270" height="15" class="f-elev s-line"/>
+        <line x1="150" y1="82.5" x2="150" y2="25" class="s-line"/><line x1="150" y1="167.5" x2="150" y2="225" class="s-line"/>
+        <line x1="420" y1="97.5" x2="420" y2="152.5" class="s-line"/>
+        <g class="s-dash"><line x1="195" y1="152.5" x2="195" y2="167.5"/><line x1="240" y1="152.5" x2="240" y2="167.5"/><line x1="285" y1="152.5" x2="285" y2="167.5"/><line x1="330" y1="152.5" x2="330" y2="167.5"/><line x1="375" y1="152.5" x2="375" y2="167.5"/></g>
+        <path d="M285 107.5 L240 152.5 L330 152.5 Z" class="f-acc-soft s-acc"/>
+        <path d="M285 107.5 L265 152.5 L305 152.5 Z" class="f-acc2-soft s-acc2"/>
+        <circle cx="285" cy="107.5" r="4" class="f-acc"/>
+        <path d="M50 125 L150 80.6 L150 169.4 Z" class="f-acc2-soft s-acc2"/>
+        <circle cx="50" cy="125" r="4" class="f-acc2"/>
+        <text x="420" y="76" text-anchor="end" class="lbl-dim">서가 2.1 m 높이, 90 cm 칸 × 6</text>
+        <text x="300" y="186" text-anchor="middle" class="lbl-acc">휴대폰 0.5×(세로): 폭 1.8 m</text>
+        <text x="300" y="202" text-anchor="middle" class="lbl-acc2">미러리스 18 mm(세로): 폭 0.8 m</text>
+        <text x="310" y="121" class="lbl-dim">서가 면까지 0.9 m</text>
+        <text x="20" y="150" class="lbl-acc2">입구 밖 2 m</text>
+        <text x="20" y="166" class="lbl-dim">18 mm 세로</text>
+        <text x="158" y="44" class="lbl-dim">통로 입구</text>
+        <text x="420" y="240" text-anchor="end" class="lbl-dim">통로 폭 1.1 m · 길이 5.4 m</text>
+        <line x1="440" y1="97.5" x2="440" y2="152.5" class="s-line" marker-start="url(#ln-ar)" marker-end="url(#ln-ar)"/>
+      </svg>
+      <figcaption><b>그림 1. 통로를 위에서 본 모습.</b> 통로 안에서 서가를 정면으로 겨누면 카메라는 서가 면에서 0.9 m를 넘게 물러설 수 없다. 그 거리에서 미러리스의 가장 넓은 18 mm(카메라를 세로로 든 경우)는 폭 0.8 m, 높이 1.2 m만 담는다. 서가 한 칸의 폭에도 못 미친다. 휴대폰의 초광각(0.5×)은 같은 자리에서 폭 1.8 m, 높이 2.4 m를 담는다. 통로 밖으로 나가 입구에서 2 m 떨어지면 18 mm로도 통로 전체가 들어온다. 이 장의 계산은 모두 이 그림의 숫자를 다시 얻는 과정이다.</figcaption>
+    </figure>
+
+    <p>그림 속 숫자들은 세 가지에서 나온다. 렌즈의 <b>초점거리</b>, 상이 맺히는 <b>센서의 크기</b>, 그리고 피사체까지의 <b>거리</b>다. 앞의 둘이 화각이라는 부채꼴의 벌어진 각도를 정하고, 거리는 그 부채꼴이 피사체에 닿았을 때의 폭을 정한다. 거리는 다음 장의 주제이기도 하다. 이 장에서는 카메라를 한 자리에 두었을 때 렌즈와 센서가 정하는 것에 집중한다.</p>
+  </section>
+
+  <section id="focal">
+    <h2>초점거리: 바늘구멍에서 렌즈까지</h2>
+    <p>렌즈 없이도 사진기를 만들 수 있다. 상자 한쪽에 바늘구멍을 뚫으면, 반대쪽 면에 바깥 장면이 거꾸로 맺힌다. 이것이 <span class="term">바늘구멍 카메라</span><span class="en">(Pinhole camera)</span>, 곧 아주 작은 구멍 하나로 빛줄기를 골라 상을 만드는 상자다. 물체의 꼭대기에서 온 빛은 구멍을 지나 아래쪽에, 바닥에서 온 빛은 위쪽에 닿는다. 구멍을 꼭짓점으로 하는 두 삼각형, 바깥의 큰 삼각형(물체)과 상자 안의 작은 삼각형(상)은 닮은꼴이다.</p>
+    <div class="formula">$$h = f\,\frac{H}{D}$$<div class="where">\(h\): 센서 위 상의 높이, \(f\): 구멍(렌즈의 중심)에서 센서까지의 거리, 곧 초점거리, \(H\): 물체의 높이, \(D\): 물체까지의 거리. 멀리 있는 물체를 찍는 얇은 렌즈 근사다.</div></div>
+    <p>렌즈는 바늘구멍보다 훨씬 많은 빛을 모아 같은 자리에 상을 맺게 하는 장치다. 멀리 있는 물체에 초점을 맞춘 렌즈는 바늘구멍을 렌즈의 중심에 두고 센서를 그 뒤 <span class="term">초점거리</span><span class="en">(Focal length)</span>만큼에 둔 것과 같은 기하를 만든다. 초점거리는 평행하게 들어온 빛이 한 점으로 모이는 거리이고, 렌즈 경통에 적힌 "18–55 mm", "50 mm"가 이 값이다. 식을 읽으면 초점거리가 두 배가 되면 상도 두 배로 커진다. 망원 렌즈가 멀리 있는 것을 크게 보여 주는 까닭은 이것뿐이다.</p>
+
+    <p>아래에서 직접 해 본다. 오른쪽의 서가(높이 2.1 m)를 끌어 거리를 바꾸고, 슬라이더로 초점거리를 바꾼다. 왼쪽의 회색 막대는 센서다. 빛줄기의 각도는 실제와 같게 그렸고, 렌즈 앞과 뒤의 길이 축척만 다르다.</p>
+
+    <div class="sim" id="sim-pin">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>초점거리와 상의 크기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pn-cv" class="art"></canvas><span class="hint">서가를 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>초점거리 <output id="pn-f-out"></output></span><input type="range" id="pn-f" min="2" max="120" step="1" value="18"></label>
+          <div class="seg" id="pn-s"><button data-value="aps" class="on">APS-C 센서</button><button data-value="main">휴대폰 센서</button></div>
+          <label class="check"><input type="checkbox" id="pn-pin"> 렌즈 대신 바늘구멍</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">서가까지 거리 D</span><span class="v" id="pn-o-d">—</span></div>
+        <div class="stat"><span class="k">상의 높이 h</span><span class="v" id="pn-o-h">—</span></div>
+        <div class="stat"><span class="k">센서 높이에 대한 비</span><span class="v" id="pn-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① APS-C 센서(가로로 든 높이 16 mm)에 18 mm를 두고 서가를 0.9 m까지 끌어온다. 상이 센서보다 커서 서가의 위아래가 잘린다. ② 서가를 그대로 두고 초점거리를 줄인다. 약 7 mm 아래로 내려가야 2.1 m가 다 들어온다. 이 카메라의 줌은 18 mm에서 멈춘다. ③ "휴대폰 센서"를 고른다. 센서 높이가 6 mm라 같은 6 mm 초점거리도 APS-C의 16 mm 초점거리와 비슷하게 담는다. ④ 초점거리를 120 mm까지 올리고 서가를 멀리 보낸다. 상이 다시 센서에 들어오는 거리를 찾는다. (멀리 초점을 맞춘 얇은 렌즈 근사다. 가까운 물체에 초점을 맞추면 렌즈와 센서 사이가 조금 늘어나는데 7장에서 다룬다. 바늘구멍은 상이 아주 어둡다는 것만 옅은 색으로 흉내 낸다.)</div>
+    </div>
+
+    <p>센서는 상을 받는 창문이다. 상이 창문보다 크면 넘친 부분은 사진에 들어오지 않는다. 그래서 같은 거리에서 "얼마나 많이 담기느냐"는 초점거리 하나로 정해지지 않고, 초점거리와 센서 크기의 <b>비</b>로 정해진다. 휴대폰의 렌즈는 초점거리가 몇 mm에 불과하지만 센서도 그만큼 작아서, 결과는 미러리스의 18 mm와 비슷한 넓이가 된다.</p>
+
+    <figure class="art-figure" id="fig-durer">
+      <div class="art-frame"><img src="../../shared/img/durer-draughtsman-lute.webp" width="1600" height="1102" alt="뒤러의 목판화. 탁자 위에 놓인 류트를 두 사람이 그리고 있다. 오른쪽 벽에 박힌 고리에서 실 한 가닥이 류트의 한 점까지 팽팽하게 뻗고, 그 사이에 세운 나무틀을 지난다. 한 사람은 실을 류트 위의 점에 대고, 다른 사람은 틀 안에서 실이 지나는 자리를 종이에 표시한다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 알브레히트 뒤러, 「류트를 그리는 제도사」, 1525년 새김.</b> 뒤러의 『측정 지침』에 실린 도판이다. 벽의 고리는 눈(사진기에서는 렌즈의 중심), 실은 빛줄기, 나무틀은 상이 맺히는 면이다. 이 장치에서 고리와 틀 사이의 거리가 초점거리에 해당한다. 틀을 고리에서 멀리 세우면 같은 류트가 틀 안에서 더 크게 표시되고, 틀 밖으로 넘친다. 사진기는 이 실 수천만 가닥을 한꺼번에 당기는 기계다.<span class="credit">메트로폴리탄 미술관 소장(Gift of Henry Walters, 1917), 목판화. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/387741">소장처 작품 페이지</a> · <a href="../../credits.html#durer-draughtsman-lute">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="callout deep">
+      <strong>렌즈 하나가 아닌 렌즈의 초점거리</strong>
+      실제 카메라 렌즈는 유리알 여러 장을 묶은 덩어리라서, "렌즈 중심에서 센서까지 f"라는 말은 그대로는 맞지 않는다. 광학에서는 렌즈 덩어리를 같은 일을 하는 얇은 렌즈 하나로 바꿔 놓았을 때의 거리를 초점거리로 부르고, 그 기준점을 주점(主點)이라고 한다. 망원 렌즈가 초점거리보다 짧은 경통에 들어가거나, 광각 렌즈의 뒷면이 센서에서 초점거리보다 멀리 떨어져 있을 수 있는 것도 이 때문이다. 이 책의 계산은 모두 얇은 렌즈 하나로 단순화한 근사이고, 화각을 따질 때는 이것으로 충분하다. 줌 렌즈는 유리알 묶음 사이의 간격을 바꿔 이 등가 초점거리를 바꾼다. 또 많은 렌즈는 가까운 곳에 초점을 맞출 때 화각이 조금 달라진다(포커스 브리딩).
+    </div>
+  </section>
+
+  <section id="aov">
+    <h2>화각: 초점거리가 정하는 부채꼴</h2>
+    <p>센서의 한 변을 \(d\)라고 하면, 그 변의 양 끝에 닿는 빛줄기 두 개가 렌즈 중심에서 이루는 각이 그 방향의 <span class="term">화각</span><span class="en">(Angle of view)</span>이다. 사진에 담기는 장면의 각도 범위라는 뜻이다. 앞 식에서 \(h = d\)로 놓고 각도로 풀면 된다.</p>
+    <div class="formula">$$\theta = 2\arctan\frac{d}{2f}$$<div class="where">\(\theta\): 화각, \(d\): 센서의 가로·세로·대각선 중 재려는 방향의 길이, \(f\): 초점거리. 거리 \(D\)에서 담기는 폭은 \(W = 2D\tan(\theta/2) = D\,d/f\)다.</div></div>
+    <p>뒤의 꼴 \(W = D\,d/f\)가 현장에서 더 쓸모 있다. 서윤의 미러리스는 이 책의 계산에서 APS-C 센서를 24 × 16 mm로 둔다(실제 기종은 23.5 × 15.6 mm 안팎이다). 카메라를 세로로 들면 가로 방향이 16 mm다. 18 mm 렌즈로 0.9 m 앞의 서가를 겨누면 폭 \(0.9 \times 16 / 18 = 0.8\) m, 높이 \(0.9 \times 24 / 18 = 1.2\) m가 담긴다. 그림 1의 숫자다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>카메라 · 렌즈</th><th class="num">초점거리</th><th class="num">가로 화각</th><th class="num">세로 화각</th><th class="num">대각 화각</th></tr></thead>
+        <tbody>
+          <tr><td>미러리스(24 × 16 mm) · 줌 가장 넓게</td><td class="num">18 mm</td><td class="num">67.4°</td><td class="num">47.9°</td><td class="num">77.4°</td></tr>
+          <tr><td>미러리스 · 줌 가장 길게</td><td class="num">55 mm</td><td class="num">24.6°</td><td class="num">16.6°</td><td class="num">29.4°</td></tr>
+          <tr><td>미러리스 · 단렌즈</td><td class="num">50 mm</td><td class="num">27.0°</td><td class="num">18.2°</td><td class="num">32.2°</td></tr>
+          <tr><td>휴대폰 기본 카메라(8 × 6 mm, 이 책의 모형)</td><td class="num">6.0 mm</td><td class="num">67.4°</td><td class="num">53.1°</td><td class="num">79.6°</td></tr>
+          <tr><td>휴대폰 초광각(5.6 × 4.2 mm, 이 책의 모형)</td><td class="num">2.1 mm</td><td class="num">106.3°</td><td class="num">90.0°</td><td class="num">118.1°</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>표의 휴대폰 값은 흔한 기종을 닮게 이 책이 정한 모형이다. 기종마다 센서와 렌즈가 다르지만 비율은 비슷하다. 흥미로운 줄은 첫째와 넷째다. 미러리스의 18 mm와 휴대폰 기본 카메라의 6 mm는 가로 화각이 똑같이 67.4°다(\(24/18 = 8/6\)). 서윤이 "미러리스로 찍으면 더 넓게 나오겠지" 하고 18 mm를 들고 왔지만, 담기는 넓이는 휴대폰의 1×와 거의 같았던 것이다.</p>
+
+    <p>아래 평면도에서 화각의 부채꼴을 통로에 직접 대 본다. 흰 손잡이로 카메라를 옮기고, 작은 손잡이로 겨누는 방향을 돌린다. 부채꼴 안에서 카메라가 볼 수 있는 서가 면은 굵게 칠해진다.</p>
+
+    <div class="sim" id="sim-fov">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>평면도 위의 화각</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="fv-cv" class="art"></canvas><span class="hint">카메라와 방향 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>초점거리(APS-C) <output id="fv-f-out"></output></span><input type="range" id="fv-f" min="6" max="100" step="1" value="18"></label>
+          <div class="seg" id="fv-o"><button data-value="land" class="on">가로로 들기</button><button data-value="port">세로로 들기</button></div>
+          <label class="check"><input type="checkbox" id="fv-u" checked> 휴대폰 0.5× 부채꼴 겹쳐 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">수평 방향 화각</span><span class="v" id="fv-o-a">—</span></div>
+        <div class="stat"><span class="k">겨눈 면까지 · 담기는 폭</span><span class="v" id="fv-o-w">—</span></div>
+        <div class="stat"><span class="k">보이는 서가 면(왼쪽 · 오른쪽)</span><span class="v" id="fv-o-v">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 카메라를 통로 안에 두고 오른쪽 서가를 정면으로 겨눈다(처음 상태). 18 mm로는 담기는 폭이 1 m 안팎이다. 초점거리를 6 mm까지 내리면 폭이 2 m를 넘지만 이 카메라에는 그런 렌즈가 없다. ② 카메라를 통로 입구 밖으로 끌고 나가 통로를 길게 겨눈다. 같은 18 mm로 양쪽 서가 면이 수 m씩 들어온다. ③ 초점거리를 100 mm까지 올려 본다. 부채꼴이 바늘처럼 좁아지고, 통로 끝 창만 남는다. 좁은 실내에서 망원은 쓸 곳이 거의 없다. (평면도는 수평 방향만 본다. 카메라는 수평으로 들었다고 가정하며, 높이 방향은 마지막 종합 시뮬레이터에서 함께 본다. 서가 깊이 30 cm, 통로 앞 공간 2.5 m는 이 책의 모형 값이다.)</div>
+    </div>
+
+    <p>평면도에서 분명해지는 것이 하나 있다. 화각은 각도라서, 담기는 폭은 거리에 비례해 커진다. 통로 안에서는 거리가 0.9 m로 묶여 있으니 화각을 넓히는 수밖에 없지만, 통로를 <b>길이 방향으로</b> 겨누면 같은 화각으로도 몇 m의 서가가 들어온다. 서가 면이 비스듬히 누우니 책등은 정면에서보다 좁게 보이는 대가가 있다. 좁은 공간에서 사진가들이 흔히 공간의 긴 축을 따라 찍는 까닭이다.</p>
+  </section>
+
+  <section id="sensor">
+    <h2>센서 크기와 환산 초점거리</h2>
+    <p>같은 렌즈를 크기가 다른 센서 앞에 두면 어떻게 될까. 렌즈는 둥근 상(이미지 서클)을 맺고, 센서는 그 가운데를 사각형으로 잘라 받는다. 센서가 작으면 가운데만 받으니 장면이 좁게, 곧 더 망원처럼 찍힌다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 240" role="img" aria-label="센서 크기 비교. 가로 36 mm 풀프레임, 24 mm APS-C, 8 mm 휴대폰 기본 센서, 5.6 mm 휴대폰 초광각 센서가 가운데를 맞춰 겹쳐 그려져 있다.">
+        <circle cx="160" cy="118" r="108" class="f-acc-soft"/>
+        <rect x="34" y="34" width="252" height="168" class="f-surface s-line"/>
+        <rect x="76" y="62" width="168" height="112" class="f-acc2-soft s-acc2"/>
+        <rect x="132" y="97" width="56" height="42" class="f-ok-soft s-ok"/>
+        <rect x="140.4" y="103.3" width="39.2" height="29.4" class="s-dash" fill="none"/>
+        <text x="40" y="52" class="lbl-dim">풀프레임 36 × 24</text>
+        <text x="82" y="80" class="lbl-acc2">APS-C 24 × 16</text>
+        <text x="160" y="160" text-anchor="middle" class="lbl-b">휴대폰 8 × 6</text>
+        <text x="300" y="56" class="lbl-b">센서의 대각선과 환산 배율</text>
+        <text x="300" y="80" class="lbl">풀프레임 43.3 mm · 1배</text>
+        <text x="300" y="100" class="lbl-acc2">APS-C 28.8 mm · 1.5배</text>
+        <text x="300" y="120" class="lbl">휴대폰 기본 10.0 mm · 4.33배</text>
+        <text x="300" y="140" class="lbl-dim">휴대폰 초광각 7.0 mm · 6.18배</text>
+        <text x="300" y="172" class="lbl-dim">(점선: 초광각 5.6 × 4.2)</text>
+        <text x="160" y="232" text-anchor="middle" class="lbl-dim">연한 원: 렌즈가 맺는 이미지 서클</text>
+      </svg>
+      <figcaption><b>그림 3. 센서 크기 비교(실제 비율, 단위 mm).</b> 휴대폰 센서의 크기는 이 책의 모형 값이다. 환산 배율은 풀프레임의 대각선 43.3 mm를 그 센서의 대각선으로 나눈 값이다.</figcaption>
+    </figure>
+
+    <p>센서마다 초점거리의 뜻이 달라지니, 사진가들은 화각을 하나의 잣대로 말하려고 필름 시대의 표준이던 35 mm 필름 한 칸(36 × 24 mm, 오늘날 "풀프레임")을 기준으로 삼는다. <span class="term">환산 초점거리</span><span class="en">(35 mm equivalent focal length)</span>는 그 센서와 같은 화각을 풀프레임에서 얻으려면 필요한 초점거리다. 계산은 대각선의 비, 곧 <span class="term">크롭 배율</span><span class="en">(Crop factor)</span>을 곱하면 된다. 서윤의 APS-C 미러리스는 1.5배라서 18–55 mm 줌은 환산 27–82.5 mm, 50 mm 단렌즈는 환산 75 mm다. 휴대폰 기본 카메라의 6 mm는 4.33배로 환산 26 mm, 초광각 2.1 mm는 6.18배로 환산 13 mm가 된다.</p>
+
+    <p>아래 그림은 한 렌즈가 맺는 상 위에 세 센서를 겹쳐 놓았다. 통로 입구에서 2 m 떨어져 통로를 겨눈 장면이다. 슬라이더로 초점거리를 바꾸고, "센서 크기로 잘라 보기"를 켜면 고른 센서가 받는 부분만 화면 가득 키워 보여 준다.</p>
+
+    <div class="sim" id="sim-crop">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 렌즈, 다른 센서</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cr-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>렌즈의 초점거리 <output id="cr-f-out"></output></span><input type="range" id="cr-f" min="8" max="100" step="1" value="18"></label>
+          <div class="seg" id="cr-s"><button data-value="ff">풀프레임</button><button data-value="aps" class="on">APS-C</button><button data-value="main">휴대폰</button></div>
+          <label class="check"><input type="checkbox" id="cr-z"> 센서 크기로 잘라 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 센서 · 크롭 배율</span><span class="v" id="cr-o-s">—</span></div>
+        <div class="stat"><span class="k">환산 초점거리</span><span class="v" id="cr-o-e">—</span></div>
+        <div class="stat"><span class="k">가로 화각</span><span class="v" id="cr-o-a">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 18 mm에서 APS-C 사각형을 본다. 풀프레임이 받는 상의 가운데 3분의 2(가로·세로 모두)만 받는다. "잘라 보기"를 켜면 풀프레임에 27 mm를 단 것과 같은 그림이 된다. ② 휴대폰을 고르고 초점거리를 8 mm까지 내린다. 같은 렌즈를 휴대폰 센서 앞에 두면 환산 35 mm 남짓, 거의 표준 렌즈처럼 좁다. 휴대폰이 넓게 찍으려면 실제 초점거리가 6 mm, 2 mm처럼 아주 짧아야 하는 이유다. ③ 초점거리를 100 mm까지 올린다. 환산 값은 같은 배율로 따라 오르고, APS-C 사각형 안에는 통로 끝 창 근처만 남는다. (장면은 이 책의 모형 서점이다. 화면 바깥의 어두운 부분은 풀프레임 바깥이다. 실제 휴대폰에는 이 렌즈를 달 수 없다. 센서 크기만 바꿔 보는 생각 실험이다.)</div>
+    </div>
+
+    <div class="callout warn">
+      <strong>환산은 화각만 같게 한다</strong>
+      "APS-C의 50 mm는 풀프레임의 75 mm와 같다"는 말은 화각과 원근이 같다는 뜻이다. 렌즈의 초점거리 자체가 바뀌는 것은 아니며, 같은 조리개 값에서의 심도(배경 흐림)와 같은 노출에서의 노이즈는 센서 크기에 따라 따로 달라진다. 심도는 <a href="focus.html">7장</a>, 노이즈는 <a href="pixel.html">8장</a>에서 다룬다. 휴대폰 사진 정보에 적힌 "26 mm"는 대개 환산 값이고, 렌즈의 실제 초점거리는 6 mm 안팎이다. 두 숫자가 함께 적혀 있으면 어느 쪽인지부터 확인한다.
+    </div>
+  </section>
+
+  <section id="phone">
+    <h2>휴대폰의 0.5×, 1×, 2×</h2>
+    <p>휴대폰 카메라 앱의 줌 단추는 대개 기본 카메라의 환산 초점거리를 1×로 놓은 배율이다. 서윤의 휴대폰(이 책의 모형)이라면 1×가 환산 26 mm다. 그런데 이 단추들은 같은 종류의 일을 하지 않는다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>단추</th><th class="num">환산</th><th>실제로 하는 일</th><th>대가</th></tr></thead>
+        <tbody>
+          <tr><td>0.5×</td><td class="num">13 mm</td><td>다른 카메라(초광각 렌즈 + 더 작은 센서)로 바꾼다</td><td>센서가 작아 어두운 곳에서 거칠다. 가장자리 물체가 늘어나 보인다(<a href="perspective.html">6장</a>)</td></tr>
+          <tr><td>1×</td><td class="num">26 mm</td><td>기본 카메라</td><td>가장 큰 센서, 가장 밝은 렌즈인 경우가 많다</td></tr>
+          <tr><td>2×</td><td class="num">52 mm</td><td>망원 렌즈가 없는 기종에서는 기본 카메라 화면의 가운데를 잘라 키운다</td><td>가로·세로 각각 절반, 화소는 4분의 1만 남는다</td></tr>
+          <tr><td>망원 카메라가 있으면</td><td class="num">기종마다</td><td>또 다른 카메라(긴 렌즈)로 바꾼다</td><td>센서가 작은 경우가 많고, 빛이 적으면 기본 카메라 크롭으로 대신하기도 한다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>잘라서 키우는 줌을 <span class="term">디지털 줌</span><span class="en">(Digital zoom)</span>, 렌즈가 상 자체를 크게 맺는 줌을 <span class="term">광학 줌</span><span class="en">(Optical zoom)</span>이라 한다. 둘은 같은 자리에서 찍는 한 <b>담기는 범위와 원근이 똑같다</b>. 다른 것은 그 범위를 몇 개의 화소로 받느냐다. 아래에서 비교한다. 왼쪽은 1× 화면의 가운데를 잘라 키운 것, 오른쪽은 처음부터 긴 렌즈로 받은 것이다. 화소 수의 차이가 눈에 보이도록 센서의 화소를 실제보다 훨씬 적게 흉내 냈다.</p>
+
+    <div class="sim" id="sim-zoom">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>잘라 키우기와 광학 줌</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <div class="compare" id="zm-cmp"><div class="cmp-a"><canvas id="zm-a" class="art"></canvas></div><div class="cmp-b"><canvas id="zm-b" class="art"></canvas></div></div>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>줌 배율 <output id="zm-z-out"></output></span><input type="range" id="zm-z" min="1" max="6" step="0.1" value="2"></label>
+          <div class="seg" id="zm-r"><button data-value="96">화소 아주 적게</button><button data-value="160" class="on">적게</button><button data-value="320">많게</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">환산 초점거리</span><span class="v" id="zm-o-e">—</span></div>
+        <div class="stat"><span class="k">잘라 키우기에 남는 화소</span><span class="v" id="zm-o-p">—</span></div>
+        <div class="stat"><span class="k">1200만 화소 센서라면</span><span class="v" id="zm-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 2×에서 경계선을 좌우로 끈다. 책의 배치와 크기는 양쪽이 완전히 같고, 책등 글자의 또렷함만 다르다. ② 배율을 6×까지 올린다. 잘라 키운 쪽은 화소가 36분의 1만 남아 책등이 색 덩어리가 된다. ③ "많게"를 고르면 2× 정도의 차이는 거의 보이지 않는다. 화소가 넉넉하면 조금 자르는 것은 큰 손해가 아니다. (센서 화소를 흉내 낸 단순 모형이다. 실제 휴대폰은 여러 장을 합치거나 선명화 처리로 디지털 줌의 손실을 일부 가린다. 화소 수와 해상도는 8장과 10장에서 다룬다.)</div>
+    </div>
+
+    <p>디지털 줌은 나쁜 것이 아니라 <b>나중에 해도 되는 일</b>이다. 찍을 때 자르든 보정할 때 자르든 결과는 같고, 원본을 남겨 두면 나중에 다른 범위를 고를 수도 있다. 반대로 0.5×처럼 처음부터 더 넓게 담는 일은 나중에 할 수 없다. 사진에 들어오지 않은 것은 어떤 보정으로도 되살릴 수 없다.</p>
+  </section>
+
+  <section id="wide-tele">
+    <h2>광각과 망원의 실제 차이</h2>
+    <p>초점거리를 이름으로 나누는 관습이 있다. 풀프레임 환산으로 대략 35 mm보다 짧으면 <span class="term">광각</span><span class="en">(Wide-angle)</span>, 40~60 mm 안팎이면 <span class="term">표준</span><span class="en">(Normal)</span>, 70 mm보다 길면 <span class="term">망원</span><span class="en">(Telephoto)</span>이라고 부른다. 경계는 책마다 조금씩 다르다. 표준 렌즈는 흔히 센서 대각선 길이(풀프레임 43 mm)와 비슷한 초점거리로 설명하는데, 이것은 관습이지 사람 눈의 시야와 같다는 뜻은 아니다. 사람의 두 눈은 좌우 180° 가까이를 보지만, 또렷하게 보는 범위는 그보다 훨씬 좁고 시선을 따라 계속 옮겨 다닌다.</p>
+    <p>같은 자리에서 광각에서 망원으로 줌을 돌리면 무슨 일이 일어날까. 앞의 두 시뮬레이터가 이미 답을 보여 주었다. 센서를 작게 하는 것, 화면 가운데를 잘라 키우는 것, 줌을 당기는 것은 같은 자리에서는 모두 같은 일, 곧 <b>담는 범위를 좁히는 일</b>이다. 가까운 것과 먼 것의 크기 비, 선이 모이는 각도, 서가가 비스듬히 누운 정도는 그대로다. 사람들이 "광각은 과장하고 망원은 납작하게 누른다"고 느끼는 차이는 렌즈가 아니라 그 렌즈를 쓸 때 우리가 서는 <b>거리</b>에서 온다. 이것이 다음 장의 주제다.</p>
+
+    <div class="callout studio">
+      <strong>초광각으로 평평한 벽을 찍으면</strong>
+      초광각이 모든 것을 일그러뜨린다는 말은 반만 맞다. 휴대폰과 대부분의 카메라 렌즈는 직선을 직선으로 옮기는 방식(직선 투영)으로 상을 맺는다. 이 방식에서 <b>센서와 나란한 평면</b>, 예를 들어 정면으로 겨눈 서가 면이나 벽에 걸린 그림은 가장자리까지 비례가 그대로다. 늘어나 보이는 것은 화면 가장자리에 놓인 입체(사람 얼굴, 둥근 화분, 화면 쪽으로 튀어나온 의자)와, 카메라를 기울여 평면이 비스듬해졌을 때다. 그래서 초광각으로 벽면을 찍을 때는 카메라를 벽과 정확히 나란하게 세우는 데 신경을 쓴다. 다만 렌즈 자체의 왜곡(직선이 휘는 술통형 왜곡)은 따로 있어서, 휴대폰은 대부분 소프트웨어로 펴서 저장한다.
+    </div>
+
+    <p>규칙이 깨지는 경우도 있다. 망원은 멀리 있는 것을 당기는 렌즈라고만 생각하면, 좁은 실내에서 망원을 쓸 일은 없어 보인다. 하지만 서가 한 칸의 책등이나 손님의 손에 들린 책 한 권처럼 작은 부분을 화면 가득 담을 때, 다가가기 어렵거나 다가가면 그림자가 지는 경우에는 50 mm(환산 75 mm) 같은 렌즈가 오히려 편하다. 화각의 선택은 "넓을수록 좋다"가 아니라 "무엇을 화면에 남기고 무엇을 밖으로 내보낼 것인가"의 문제다.</p>
+  </section>
+
+  <section id="works">
+    <h2>회랑을 한 장에 담은 사진가</h2>
+    <p>좁고 긴 공간을 한 장에 담는 문제는 사진만큼 오래되었다. 19세기 프랑스의 사진가 에두아르 발뒤스는 정부의 의뢰로 프랑스 곳곳의 옛 건축물을 커다란 유리판과 종이 음화에 기록했다. 아래 사진은 아를의 생트로핀 성당 회랑이다.</p>
+
+    <figure class="art-figure" id="fig-baldus-arles">
+      <div class="art-frame"><img src="../../shared/img/baldus-arles-cloister.webp" width="1600" height="1330" alt="흑백에 가까운 갈색조 사진. 아치가 줄지어 선 석조 회랑을 한쪽 끝에서 길이 방향으로 찍었다. 왼쪽에는 기둥과 아치가 이어지고, 위쪽은 둥근 천장, 바닥의 돌길이 화면 가운데의 어두운 끝으로 모인다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 4. 에두아르 발뒤스, 「아를, 생트로핀 회랑」, 1861년경.</b> 회랑의 폭은 몇 m에 불과하다. 발뒤스는 아치를 정면으로 찍는 대신 회랑의 한쪽 끝에 서서 길이 방향으로 겨누었다. 그러자 한 장 안에 아치 열 개 남짓과 천장, 바닥이 모두 들어왔다. 통로를 길게 겨눈 서윤의 두 번째 자리와 같은 해법이다. 이 사진에 쓰인 렌즈의 초점거리는 기록으로 확인하지 못했다. 다만 이런 대형 음화 카메라는 판이 크기 때문에 수백 mm의 렌즈가 "표준"이었다.<span class="credit">메트로폴리탄 미술관 소장(Gilman Collection, Gift of The Howard Gilman Foundation, 2005), 유리 음화에서 뜬 알부민 인화. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/283136">소장처 작품 페이지</a> · <a href="../../credits.html#baldus-arles-cloister">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>이 사진에서 두 가지를 본다. 첫째, 공간의 긴 축을 따라 찍으면 화각이 아주 넓지 않아도 공간 전체가 담긴다. 둘째, 그 대가로 벽면의 장식은 비스듬히 누워 하나하나 자세히 보이지 않는다. 회랑의 기둥머리 조각을 기록하려면 다시 다가가 다른 사진을 찍어야 한다. 한 장으로 공간을, 여러 장으로 세부를 남기는 것이다. 이 사진처럼 프레임을 정할 때 무엇을 들이고 무엇을 내보낼지는 <a href="../../composition/chapters/frame.html">CompositionBook의 프레임 장</a>에서 더 다룬다.</p>
+
+    <p>그림 2의 뒤러 장치와 그림 4의 회랑 사진은 400년 가까이 떨어져 있지만 같은 기하 위에 있다. 한 점(눈, 렌즈의 중심)에서 뻗은 빛줄기를 평면으로 끊는다는 것이다. 투시 원근법을 손으로 그리는 법은 <a href="../../drawing/chapters/perspective1.html">DrawingBook 4장</a>에, 그 원리를 사진기에서 다시 만나는 이야기는 <a href="perspective.html">6장</a>에 이어진다.</p>
+  </section>
+
+  <section id="studio">
+    <h2>작업실: 좁은 실내에서</h2>
+    <div class="callout studio">
+      <strong>좁은 실내를 찍는 사진가의 순서</strong>
+      실내 사진을 찍는 사람들은 렌즈를 고르기 전에 먼저 "가장 멀리 물러설 수 있는 자리"를 찾는다. 문간, 방의 구석, 계단참 같은 곳이다. 구석에 서면 대각선 방향으로 방의 가장 긴 거리를 얻는다. 거기서 담아야 할 범위가 들어오는 가장 긴 초점거리를 고른다. 화각이 필요 이상으로 넓으면 화면 가장자리의 가구가 늘어나고, 공간이 실제보다 넓어 보인다. 그다음 카메라를 수평으로 세운다. 위아래로 기울이면 수직선이 기운다(<a href="perspective.html">6장</a>). 그래도 모자라면 초광각을 꺼내거나, 몇 장을 나눠 찍어 이어 붙인다. 이어 붙일 때는 렌즈의 중심을 축으로 카메라를 돌려야 가까운 물체와 먼 물체의 겹침이 어긋나지 않는다.
+    </div>
+
+    <div class="callout try">
+      <strong>종이 뷰파인더로 초점거리 재기</strong>
+      두꺼운 종이 가운데를 가로 72 mm, 세로 48 mm로 잘라 창을 낸다. 풀프레임 센서(36 × 24 mm)를 두 배로 키운 크기다. 한쪽 눈을 감고 창을 눈에서 54 mm 떨어뜨려 들면, 창 안에 보이는 범위가 풀프레임 환산 27 mm, 곧 서윤의 18 mm 줌이나 휴대폰 1×와 거의 같은 범위다. 150 mm 떨어뜨리면 환산 75 mm(50 mm 단렌즈)다. 실이나 자로 거리를 재 보고, 집 안의 가장 좁은 방에서 "벽 하나 전체"가 들어오려면 창을 얼마나 눈에 붙여야 하는지 확인한다. 26 mm(환산 13 mm)까지 붙여야 할 때도 있다. 창을 눈에서 떨어뜨린 거리 ÷ 2가 환산 초점거리다.
+    </div>
+
+    <p>종이 뷰파인더는 한 번 만들어 두면 렌즈 없이 화각을 연습하는 도구가 된다. 사진가들이 "줌은 발로 하라"고 말하는 것도 같은 뜻이다. 줌 링을 돌리기 전에 몇 걸음 움직여 보면, 같은 화각으로도 전혀 다른 사진이 나온다. 그 "다른 사진"이 무엇인지는 다음 장에서 본다.</p>
+  </section>
+
+  <section id="planner">
+    <h2>종합: 서점 촬영 계획기</h2>
+    <p>이제 모든 것을 한 화면에 모은다. 왼쪽(좁은 화면에서는 위쪽)은 통로의 평면도, 오른쪽은 그 자리에서 고른 카메라로 찍힌 장면이다. 평면도의 흰 손잡이로 카메라를 옮기고 작은 손잡이로 방향을 돌린다. 목표를 고르면 그 목표가 프레임에 들어오는지 판정한다.</p>
+
+    <div class="sim" id="sim-plan">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>서점 촬영 계획기</h3></div>
+      <div class="sim-body">
+        <div class="sim-view paper"><canvas id="pl-cv" class="art"></canvas><span class="hint">평면도의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-c"><button data-value="ultra">휴대폰 0.5×</button><button data-value="main">휴대폰 1×</button><button data-value="tele2">휴대폰 2×</button><button data-value="zoom" class="on">미러리스 줌</button><button data-value="prime">50 mm</button></div>
+          <label class="ctrl"><span>줌 초점거리 <output id="pl-f-out"></output></span><input type="range" id="pl-f" min="18" max="55" step="1" value="18"></label>
+          <div class="seg" id="pl-o"><button data-value="land">가로</button><button data-value="port" class="on">세로</button></div>
+          <div class="seg" id="pl-t"><button data-value="aisle" class="on">목표: 통로 전체</button><button data-value="face">서가 두 칸 정면</button><button data-value="detail">책등 몇 권</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">카메라 · 환산</span><span class="v" id="pl-o-c">—</span></div>
+        <div class="stat"><span class="k">가로 × 세로 화각</span><span class="v" id="pl-o-a">—</span></div>
+        <div class="stat"><span class="k">카메라 자리</span><span class="v" id="pl-o-p">—</span></div>
+        <div class="stat"><span class="k">목표 판정</span><span class="v" id="pl-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태(미러리스 18 mm, 세로, 입구 밖 2 m)에서 "통로 전체"가 들어온다. 카메라를 입구 쪽으로 조금만 당겨도 서가 끝이 잘린다. "가로"로 바꾸면 2.4 m까지 물러서야 한다. ② 목표를 "서가 두 칸 정면"으로 바꾸고 카메라를 통로 안으로 옮겨 오른쪽 서가를 겨눈다. 미러리스 줌과 휴대폰 1×로는 어디에 서도 통과하지 못한다. 휴대폰 0.5×, 세로로 들었을 때만 통과한다. ③ "책등 몇 권"(폭 25 cm, 높이 30 cm)을 고른다. 카메라가 통로 안 0.9 m 자리로 간다. 50 mm는 그 자리에서 통과하고, 18 mm와 휴대폰 1×는 책등이 작아 실패한다. 휴대폰 1×로 카메라를 서가 쪽으로 30 cm 남짓까지 다가가면 통과한다. 줌 대신 다가가는 것이다. (카메라 높이 1.05 m(서가 높이의 가운데), 수평으로 든다고 가정한다. 서점은 이 책의 모형이고 서가 높이·칸·통로 폭은 DrawingBook에서 정한 값을 따른다. 휴대폰 2×는 기본 카메라의 가운데를 잘라 낸 디지털 줌이다.)</div>
+    </div>
+
+    <p>계획기를 돌려 보면 정답이 하나가 아니라는 것을 알게 된다. 같은 "통로 전체"도 가로로 2.4 m 물러서서 찍을 수 있고, 세로로 2 m에서 찍을 수도 있다. 서가 정면은 휴대폰 초광각만 담을 수 있지만, 그 대신 서가 면과 카메라를 정확히 나란하게 맞춰야 한다. 무엇을 고를지는 사진이 어디에 쓰일지, 그리고 서점을 실제와 얼마나 같게 보여 줄지에 달려 있다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 촬영 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>촬영 노트 · 5장</span></div>
+      <h4>18 mm는 생각보다 넓지 않았다</h4>
+      <p>12월 둘째 주, 서윤은 오래된 미러리스에 18–55 mm 줌을 끼우고 책방 E의 안쪽 통로에 섰다. 웹사이트의 "서가" 사진으로 주인이 아끼는 오른쪽 서가, 동네 작가 책이 꽂힌 칸을 정면으로 찍을 생각이었다. 반대편 서가에 등을 붙이고 줌을 가장 넓은 18 mm로 돌렸는데도 뷰파인더에는 책 두 단 남짓만 보였다. 세로로 들어도 마찬가지였다. 이 장의 계산으로는 서가 면까지 0.9 m에서 18 mm(세로)가 담는 범위는 폭 0.8 m, 높이 1.2 m다. 높이 2.1 m 서가의 6할이 채 안 되고, 90 cm 칸 하나의 폭도 다 들어오지 않는다.</p>
+      <p>휴대폰을 꺼내 보니 1×도 비슷했다. 이 책의 모형으로 휴대폰 기본 카메라는 환산 26 mm, 미러리스의 18 mm는 환산 27 mm라 화각이 거의 같다. 0.5×(환산 13 mm)를 누르자 비로소 서가가 위아래로 다 들어왔다. 같은 자리에서 세로로 들면 폭 1.8 m, 높이 2.4 m. 90 cm 칸 두 개와 서가 전체 높이가 들어오는 범위다. 도경은 화면을 보며 물었다. "넓게 담는 건 좋은데, 가게가 실제보다 넓어 보이진 않니?" 서윤은 정면으로 나란히 겨눈 평평한 서가 면은 초광각으로도 비례가 그대로라는 것을 확인했다. 대신 화면 가장자리에 걸린 손님용 의자는 길게 늘어났다.</p>
+      <p>통로 전체를 담는 사진은 다른 자리에서 찍었다. 통로 입구 앞으로는 2.5 m 남짓 비어 있다. 18 mm를 세로로 들면 입구에서 1.9 m(모형 값 1.91 m), 가로로 들면 2.4 m(2.36 m) 물러설 때 양쪽 서가 끝과 서가 높이 전체가 들어온다. 둘 다 그 빈 공간 안이다. 서윤은 이 계산을 확인하려고 휴대폰 1×로도 같은 자리를 찍어 보았는데, 1×는 세로 1.7 m, 가로 2.1 m에서 들어왔다. 화각이 거의 같으니 당연한 결과였다. 책등을 크게 담는 사진에는 50 mm 단렌즈(환산 75 mm)를 쓰기로 했다. 2×(디지털 줌)는 화소가 4분의 1로 줄어 쓰지 않는다. 대신 다가간다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>사진</th><th>카메라 · 초점거리(환산)</th><th>자리</th><th class="num">담기는 범위(모형 계산)</th></tr></thead>
+          <tbody>
+            <tr><td>통로 전체</td><td>미러리스 18 mm (27 mm)</td><td>입구 밖 세로 1.9 m · 가로 2.4 m</td><td class="num">서가 끝 폭 1.7 m, 높이 2.1 m 모두</td></tr>
+            <tr><td>서가 정면 두 칸</td><td>휴대폰 0.5× (13 mm), 세로</td><td>통로 안, 서가 면에서 0.9 m</td><td class="num">폭 1.8 m × 높이 2.4 m</td></tr>
+            <tr><td>책등 세부</td><td>미러리스 50 mm (75 mm), 세로</td><td>통로 안, 서가 면에서 0.9 m</td><td class="num">폭 0.29 m × 높이 0.43 m(책 일곱 권 남짓)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>실내 사진의 기본 초점거리는 미러리스 18 mm(환산 27 mm). 통로 전체는 입구 밖에서 세로로 1.9 m 또는 가로로 2.4 m 물러서서 찍는다. 물러설 수 없는 서가 정면 한 장만 휴대폰 0.5×(환산 13 mm)를 세로로, 서가 면과 나란하게. 세부는 50 mm(환산 75 mm). 디지털 줌은 쓰지 않는다. 모든 값은 카메라 높이 1.05 m에서 수평으로 든다는 이 책의 모형 계산이다.</div>
+        <div><b>아직 남은 문제</b>초광각 사진 가장자리의 의자가 늘어났다. 같은 범위를 담아도 가까이서 넓게 찍은 통로는 실제보다 길어 보인다는 도경의 말이 마음에 걸린다. 주인의 인물 사진과 외관 사진은 아직 어디서 찍을지 정하지 않았다.</div>
+        <div><b>다음 단계</b><a href="perspective.html">6장</a>: 주인 인물 사진의 거리와 초점거리, 외관 사진의 기울어진 수직선을 다룬다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>초점거리는 상의 크기를 정한다. 얇은 렌즈 근사에서 상의 높이는 \(h = fH/D\)이고, 초점거리가 두 배면 상도 두 배다.</li>
+      <li>화각은 센서의 크기와 초점거리의 비로 정해진다. \(\theta = 2\arctan(d/2f)\), 거리 \(D\)에서 담기는 폭은 \(D\,d/f\)다.</li>
+      <li>센서가 작으면 같은 렌즈도 가운데만 받아 좁게 찍힌다. 환산 초점거리(풀프레임 기준)는 실제 초점거리에 크롭 배율(대각선의 비)을 곱한 값이다. APS-C는 1.5배다.</li>
+      <li>환산은 화각과 원근만 같게 한다. 심도와 노이즈는 센서 크기에 따라 따로 달라진다.</li>
+      <li>휴대폰의 0.5×와 1×는 보통 서로 다른 카메라이고, 망원 렌즈가 없는 기종의 2×는 가운데를 잘라 키운 디지털 줌이다. 같은 자리에서는 범위와 원근이 같고 화소 수만 줄어든다.</li>
+      <li>좁은 실내에서는 먼저 가장 멀리 물러설 자리와 공간의 긴 축을 찾고, 그다음 담을 범위가 들어오는 가장 긴 초점거리를 고른다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. APS-C 카메라(크롭 1.5배)에 35 mm 렌즈를 달았다. 풀프레임 카메라로 같은 화각을 얻으려면 어떤 렌즈가 필요한가?</p>
+        <div class="opts">
+          <button class="opt">23 mm. 센서가 작으니 초점거리를 1.5로 나눈다.</button>
+          <button class="opt" data-correct>약 52 mm. 실제 초점거리에 크롭 배율 1.5를 곱한다.</button>
+          <button class="opt">35 mm. 렌즈의 초점거리는 카메라가 바뀌어도 같으니 화각도 같다.</button>
+          <button class="opt">70 mm. 센서 넓이가 절반 남짓이니 초점거리를 두 배로 한다.</button>
+        </div>
+        <div class="quiz-exp">작은 센서는 상의 가운데만 받아 더 좁게 찍는다. 같은 화각을 풀프레임에서 얻으려면 초점거리를 크롭 배율만큼 늘려야 하므로 35 × 1.5 = 52.5 mm다. 렌즈의 초점거리 자체는 같지만 화각은 센서 크기에 따라 달라진다. 크롭 배율은 넓이의 비가 아니라 대각선(길이)의 비다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 세로로 든 APS-C 카메라(가로 방향 16 mm)에 18 mm 렌즈를 달고 1.8 m 앞의 벽을 정면으로 찍는다. 담기는 벽의 폭은 대략 얼마인가?</p>
+        <div class="opts">
+          <button class="opt">0.8 m</button>
+          <button class="opt">2.4 m</button>
+          <button class="opt">3.6 m</button>
+          <button class="opt" data-correct>1.6 m</button>
+        </div>
+        <div class="quiz-exp">담기는 폭은 \(W = D\,d/f = 1.8 \times 16/18 = 1.6\) m다. 0.8 m는 0.9 m 거리에서의 값이고, 2.4 m는 긴 변(24 mm)을 가로로 쓴 경우(가로로 든 카메라)의 값이다. 폭은 거리에 비례하므로 거리를 두 배로 하면 폭도 두 배가 된다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 망원 카메라가 없는 휴대폰으로 같은 자리에서 1×로 찍어 가운데를 반으로 자른 사진과, 2×로 찍은 사진을 비교했다. 맞는 설명은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>담긴 범위와 원근은 같다. 2×도 기본 카메라의 가운데를 잘라 키우는 디지털 줌이라 화소 수도 비슷하게 줄어든다.</button>
+          <button class="opt">2× 사진에서 배경이 더 가까이 당겨져 보인다. 줌은 배경을 압축하기 때문이다.</button>
+          <button class="opt">2× 사진은 화각이 두 배 넓다.</button>
+          <button class="opt">자른 사진은 원근이 일그러지지만 2× 사진은 그렇지 않다.</button>
+        </div>
+        <div class="quiz-exp">같은 자리에서는 자르기, 디지털 줌, 광학 줌 모두 담는 범위를 좁힐 뿐 원근을 바꾸지 않는다. 망원 카메라가 없는 기종의 2×는 기본 카메라 화면의 가운데를 잘라 키우므로 화소가 4분의 1로 줄어든다. 배경이 당겨져 보이는 효과는 촬영 거리를 바꿀 때 생긴다(6장).</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 폭이 좁고 긴 회랑 전체를 한 장에 담고 싶은데 초광각 렌즈가 없다. 이 장의 내용으로 가장 알맞은 방법은?</p>
+        <div class="opts">
+          <button class="opt">벽에 바짝 붙어 반대편 벽을 정면으로 찍는다. 가까울수록 많이 담긴다.</button>
+          <button class="opt">망원으로 바꾸고 디지털 줌을 꺼서 화각을 넓힌다.</button>
+          <button class="opt" data-correct>회랑의 한쪽 끝에서 길이 방향으로 겨눈다. 거리가 길어져 같은 화각으로도 넓은 범위가 담긴다. 대신 벽면 세부는 비스듬히 누워 보인다.</button>
+          <button class="opt">센서가 더 작은 카메라로 바꾼다. 센서가 작으면 화각이 넓어진다.</button>
+        </div>
+        <div class="quiz-exp">담기는 폭은 거리에 비례하므로, 가장 긴 축을 따라 겨누면 같은 화각으로도 공간 전체가 들어온다. 발뒤스의 회랑 사진이 그렇다. 벽에 붙으면 거리가 줄어 담기는 폭도 줄고, 같은 렌즈를 작은 센서에 달면 오히려 좁아진다. 디지털 줌은 화각을 좁히기만 한다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#2b2a30", INK_DIM = "#6b6874", PAPER = "#fbfaf7";
+  var ACC = "#b5179e", ACC2 = "#1f6fb2", OKC = "#2f7d5b", BAD = "#c0392b";
+  var DEG = Math.PI / 180;
+
+  /* 센서 모형(mm). APS-C는 계산을 쉽게 하려고 24 × 16 mm(환산 1.5배)로 둔다.
+     휴대폰 두 카메라는 흔한 기종을 닮게 이 책이 정한 값이다(기본: 8 × 6 mm, f 6.0 mm → 환산 26 mm, 초광각: 5.6 × 4.2 mm, f 2.1 mm → 환산 13 mm). */
+  var FF_DIAG = Math.hypot(36, 24);
+  var SENS = {
+    ff: { w: 36, h: 24, name: "풀프레임" },
+    aps: { w: 24, h: 16, name: "APS-C" },
+    main: { w: 8, h: 6, name: "휴대폰" },
+    ultra: { w: 5.6, h: 4.2, name: "휴대폰 초광각" },
+  };
+  function cropOf(s) { return FF_DIAG / Math.hypot(s.w, s.h); }
+  function aov(d, f) { return 2 * Math.atan(d / (2 * f)) / DEG; }
+  function label(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color || INK; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight || 600);
+    ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "top"; ctx.fillText(s, x, y);
+  }
+  function tag(ctx, s, x, y, o) { // 고정 바탕 위 반투명 띠를 깐 글자
+    o = o || {}; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight || 600);
+    var w = ctx.measureText(s).width, al = o.align || "left";
+    var x0 = al === "center" ? x - w / 2 : al === "right" ? x - w : x;
+    ctx.fillStyle = o.bg || "rgba(251,250,247,0.88)"; ctx.fillRect(x0 - 4, y - 2, w + 8, (o.size || 12) + 6);
+    label(ctx, s, x, y, o);
+  }
+
+  /* ---------------- 3D 렌더러: ART.project + 가까운 면 자르기 + 화가 알고리즘 ----------------
+     ART.project의 depth는 세계 좌표에 대해 일차식이므로, 모서리를 세계 좌표에서 보간해 depth = NEAR 평면에서 자른다. */
+  var NEAR = 0.04;
+  function projPoly(pts, cam) {
+    var pr = pts.map(function (p) { return ART.project(p, cam); });
+    var out = [], n = pts.length, dsum = 0, cnt = 0;
+    for (var i = 0; i < n; i++) {
+      var a = pts[i], b = pts[(i + 1) % n], pa = pr[i], pb = pr[(i + 1) % n];
+      if (pa[2] >= NEAR) { out.push(pa); dsum += pa[2]; cnt++; }
+      if ((pa[2] - NEAR) * (pb[2] - NEAR) < 0) {
+        var t = (NEAR - pa[2]) / (pb[2] - pa[2]);
+        var q = ART.project([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t], cam);
+        out.push(q); dsum += q[2]; cnt++;
+      }
+    }
+    if (out.length < 3) return null;
+    return { s: out, d: dsum / cnt };
+  }
+  function render(ctx, scene, cam) {
+    var i, list = [];
+    for (i = 0; i < scene.bg.length; i++) {
+      var r = projPoly(scene.bg[i].p, cam);
+      if (r) fillPoly(ctx, r.s, scene.bg[i].fill, scene.bg[i].stroke);
+    }
+    for (i = 0; i < scene.items.length; i++) {
+      var it = scene.items[i], q = projPoly(it.p, cam);
+      if (q) { q.fill = it.fill; q.stroke = it.stroke; list.push(q); }
+    }
+    list.sort(function (a, b) { return b.d - a.d; });
+    for (i = 0; i < list.length; i++) fillPoly(ctx, list[i].s, list[i].fill, list[i].stroke);
+  }
+  function fillPoly(ctx, s, fill, stroke) {
+    ctx.beginPath(); ctx.moveTo(s[0][0], s[0][1]);
+    for (var k = 1; k < s.length; k++) ctx.lineTo(s[k][0], s[k][1]);
+    ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 0.6; ctx.stroke(); }
+  }
+
+  /* ---------------- 모형 서점: 책방 E 안쪽 통로 ----------------
+     세계 좌표(m): x 오른쪽, y 위, z 통로 안쪽. 통로 입구 z = 0, 끝 z = 5.4, 서가 면 x = ±0.55, 서가 뒤판 x = ±0.85.
+     서가 높이 2.1 m, 선반 0.1·0.5·0.9·1.3·1.7·2.1 m, 칸 90 cm × 6 (DrawingBook 4장의 값). 통로 앞 공간 2.5 m는 이 책의 모형 값. */
+  var AISLE = { half: 0.55, back: 0.85, len: 5.4, H: 2.1, ceil: 2.6, front: -2.5, room: 2.4 };
+  var BOOKS = ["#2f7d5b", "#567666", "#d24f39", "#22342a", "#ffe2d7", "#c8a77c", "#3b5b8c", "#8c3b3b", "#d8c79a", "#6b4e7a", "#e0d6c2", "#1d1d1f", "#a86b32", "#7a8c5a", "#b9a27e", "#41607a"];
+  var WOOD = "#8a5a36", WOOD_L = "#a8744a", WOOD_D = "#5a3b25", BACK = "#3a2a20", WALL = "#efe6d6", WALL_D = "#e2d6c2", CEIL = "#f5efe4", FLOOR = "#b8925f", FLOOR_D = "#a9844f";
+  function Q(a, b, c, d, fill, stroke) { return { p: [a, b, c, d], fill: fill, stroke: stroke }; }
+  function buildAisle() {
+    var A = AISLE, bg = [], items = [], r = ART.rng(5), s, i, row;
+    // 바닥, 천장, 벽
+    bg.push(Q([-A.room, 0, A.front], [A.room, 0, A.front], [A.room, 0, 0], [-A.room, 0, 0], FLOOR_D));
+    bg.push(Q([-A.back, 0, 0], [A.back, 0, 0], [A.back, 0, A.len], [-A.back, 0, A.len], FLOOR));
+    for (i = 1; i < 12; i++) { var zz = A.front + i * 0.7; if (zz < A.len) bg.push({ p: [[-A.room, 0.001, zz], [A.room, 0.001, zz], [A.room, 0.001, zz + 0.01], [-A.room, 0.001, zz + 0.01]], fill: "#9c7a4c" }); }
+    bg.push(Q([-A.room, A.ceil, A.front], [A.room, A.ceil, A.front], [A.room, A.ceil, A.len], [-A.room, A.ceil, A.len], CEIL));
+    bg.push(Q([-A.room, 0, 0], [-A.back, 0, 0], [-A.back, A.ceil, 0], [-A.room, A.ceil, 0], WALL));
+    bg.push(Q([A.back, 0, 0], [A.room, 0, 0], [A.room, A.ceil, 0], [A.back, A.ceil, 0], WALL));
+    bg.push(Q([-A.room, 0, A.front], [-A.room, 0, 0], [-A.room, A.ceil, 0], [-A.room, A.ceil, A.front], WALL_D));
+    bg.push(Q([A.room, 0, A.front], [A.room, 0, 0], [A.room, A.ceil, 0], [A.room, A.ceil, A.front], WALL_D));
+    bg.push(Q([-A.back, A.H, 0], [-A.back, A.H, A.len], [-A.back, A.ceil, A.len], [-A.back, A.ceil, 0], WALL_D));
+    bg.push(Q([A.back, A.H, 0], [A.back, A.H, A.len], [A.back, A.ceil, A.len], [A.back, A.ceil, 0], WALL_D));
+    bg.push(Q([-A.half, 0, A.len], [A.half, 0, A.len], [A.half, A.ceil, A.len], [-A.half, A.ceil, A.len], WALL));
+    // 통로 끝 창(밝은 하늘)과 창틀
+    bg.push(Q([-0.36, 0.95, A.len - 0.001], [0.36, 0.95, A.len - 0.001], [0.36, 1.95, A.len - 0.001], [-0.36, 1.95, A.len - 0.001], "#6b5038"));
+    bg.push(Q([-0.32, 0.99, A.len - 0.002], [0.32, 0.99, A.len - 0.002], [0.32, 1.91, A.len - 0.002], [-0.32, 1.91, A.len - 0.002], "#dce9f2"));
+    bg.push(Q([-0.012, 0.99, A.len - 0.003], [0.012, 0.99, A.len - 0.003], [0.012, 1.91, A.len - 0.003], [-0.012, 1.91, A.len - 0.003], "#6b5038"));
+    // 앞 벽의 수채화 세 점(가상의 작품)
+    [[-1.95, "#c9d8c4"], [-1.45, "#e8cfb6"], [1.3, "#c6d3e3"]].forEach(function (pc) {
+      var x0 = pc[0], w = 0.38, y0 = 1.3, h = 0.5, z = -0.002;
+      bg.push(Q([x0, y0, z], [x0 + w, y0, z], [x0 + w, y0 + h, z], [x0, y0 + h, z], "#5c4430"));
+      bg.push(Q([x0 + 0.04, y0 + 0.04, z - 0.001], [x0 + w - 0.04, y0 + 0.04, z - 0.001], [x0 + w - 0.04, y0 + h - 0.04, z - 0.001], [x0 + 0.04, y0 + h - 0.04, z - 0.001], pc[1]));
+    });
+    // 서가 뒤판(책 뒤 어두운 면)
+    bg.push(Q([-A.back, 0, 0], [-A.back, 0, A.len], [-A.back, A.H, A.len], [-A.back, A.H, 0], BACK));
+    bg.push(Q([A.back, 0, 0], [A.back, 0, A.len], [A.back, A.H, A.len], [A.back, A.H, 0], BACK));
+    for (s = -1; s <= 1; s += 2) {
+      var xf = s * A.half, xb = s * A.back, xs = s * 0.6;
+      // 서가 끝 판(입구 쪽)
+      items.push(Q([xf, 0, -0.001], [xb, 0, -0.001], [xb, A.H, -0.001], [xf, A.H, -0.001], WOOD));
+      for (i = 0; i < 6; i++) {
+        var z0 = i * 0.9, z1 = z0 + 0.9;
+        // 칸막이: 앞쪽 띠(책보다 앞), 뒤쪽 면
+        items.push(Q([xf, 0, z0], [xs, 0, z0], [xs, A.H, z0], [xf, A.H, z0], WOOD_L));
+        items.push(Q([xs, 0, z0 + 0.001], [xb, 0, z0 + 0.001], [xb, A.H, z0 + 0.001], [xs, A.H, z0 + 0.001], WOOD_D));
+        items.push(Q([xf, 0, z0], [xf, 0, z0 + 0.02], [xf, A.H, z0 + 0.02], [xf, A.H, z0], WOOD));
+        for (row = 0; row < 6; row++) {
+          var yb = 0.1 + row * 0.4;
+          // 선반 앞면, 윗면의 앞 띠, 아랫면
+          items.push(Q([xf, yb - 0.025, z0], [xf, yb - 0.025, z1], [xf, yb, z1], [xf, yb, z0], WOOD));
+          items.push(Q([xf, yb, z0], [xf, yb, z1], [xs, yb, z1], [xs, yb, z0], WOOD_L));
+          if (row > 0) items.push(Q([xf, yb - 0.025, z0], [xf, yb - 0.025, z1], [xb, yb - 0.025, z1], [xb, yb - 0.025, z0], WOOD_D));
+          if (row === 5) continue;
+          // 책: 두께 2.5~5 cm, 높이 22~36 cm
+          var z = z0 + 0.03;
+          while (z < z1 - 0.04) {
+            var bw = 0.025 + r() * 0.025, bh = 0.22 + r() * 0.14, col = BOOKS[Math.floor(r() * BOOKS.length)];
+            if (r() < 0.06) { z += bw * 1.4; continue; }
+            items.push(Q([xs, yb, z], [xs, yb, z + bw], [xs, yb + bh, z + bw], [xs, yb + bh, z], col));
+            z += bw + 0.002;
+          }
+        }
+      }
+      // 서가 위 마감판
+      items.push(Q([xf, A.H, 0], [xf, A.H, A.len], [xb, A.H, A.len], [xb, A.H, 0], WOOD_D));
+    }
+    // 통로 끝 나무 의자
+    var cx = 0.1, cz = A.len - 0.45, cw = 0.4, ch = 0.45;
+    items.push(Q([cx - cw / 2, ch, cz - cw / 2], [cx + cw / 2, ch, cz - cw / 2], [cx + cw / 2, ch, cz + cw / 2], [cx - cw / 2, ch, cz + cw / 2], WOOD_L));
+    items.push(Q([cx - cw / 2, ch - 0.04, cz - cw / 2], [cx + cw / 2, ch - 0.04, cz - cw / 2], [cx + cw / 2, ch, cz - cw / 2], [cx - cw / 2, ch, cz - cw / 2], WOOD));
+    [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(function (k) {
+      var lx = cx + k[0] * (cw / 2 - 0.03), lz = cz + k[1] * (cw / 2 - 0.03);
+      items.push(Q([lx - 0.02, 0, lz - 0.02], [lx + 0.02, 0, lz - 0.02], [lx + 0.02, ch - 0.04, lz - 0.02], [lx - 0.02, ch - 0.04, lz - 0.02], WOOD_D));
+    });
+    items.push(Q([cx - cw / 2, ch, cz + cw / 2], [cx + cw / 2, ch, cz + cw / 2], [cx + cw / 2, ch + 0.42, cz + cw / 2], [cx - cw / 2, ch + 0.42, cz + cw / 2], WOOD));
+    return { bg: bg, items: items };
+  }
+  var SCENE = buildAisle();
+
+  /* ---------------- 평면도 공용: 가림 판정 ----------------
+     장애물(위에서 본 직사각형): 양쪽 서가 덩어리, 앞 벽 양옆. 선분이 직사각형을 지나면 가려진다(Liang–Barsky). */
+  var BLOCKS = [
+    [AISLE.half, AISLE.room + 1, 0, AISLE.len + 1], [-AISLE.room - 1, -AISLE.half, 0, AISLE.len + 1],
+  ];
+  function segHitsRect(x0, z0, x1, z1, R) {
+    var t0 = 0, t1 = 1, dx = x1 - x0, dz = z1 - z0;
+    var p = [-dx, dx, -dz, dz], q = [x0 - R[0], R[1] - x0, z0 - R[2], R[3] - z0];
+    for (var i = 0; i < 4; i++) {
+      if (p[i] === 0) { if (q[i] < 0) return false; }
+      else { var t = q[i] / p[i]; if (p[i] < 0) { if (t > t1) return false; if (t > t0) t0 = t; } else { if (t < t0) return false; if (t < t1) t1 = t; } }
+    }
+    return t0 < t1;
+  }
+  function visibleFrom(cx, cz, px, pz) {
+    // 표면 위의 점은 카메라 쪽으로 2 mm 당겨 판정한다
+    var dx = cx - px, dz = cz - pz, L = Math.hypot(dx, dz) || 1;
+    var qx = px + dx / L * 0.002, qz = pz + dz / L * 0.002;
+    for (var i = 0; i < BLOCKS.length; i++) if (segHitsRect(cx, cz, qx, qz, BLOCKS[i])) return false;
+    return true;
+  }
+  function clampFree(x, z) {
+    // 자유 공간: 통로(|x| < 0.55, 0~5.4) ∪ 앞 공간(z −2.5~0, |x| < 2.4)
+    var m = 0.12;
+    if (z > -0.05) { x = AB.clamp(x, -AISLE.half + m, AISLE.half - m); z = AB.clamp(z, -0.05, AISLE.len - m); }
+    else { x = AB.clamp(x, -AISLE.room + m, AISLE.room - m); z = AB.clamp(z, AISLE.front + m, -0.05); }
+    return [x, z];
+  }
+  // 평면도 그리기: 화면 X = z, 화면 Y = x(오른쪽 서가가 아래)
+  function planMap(box) {
+    var z0 = AISLE.front - 0.15, z1 = AISLE.len + 0.25, x0 = -AISLE.room - 0.1, x1 = AISLE.room + 0.1;
+    var sc = Math.min(box.w / (z1 - z0), box.h / (x1 - x0));
+    var ox = box.x + (box.w - sc * (z1 - z0)) / 2, oy = box.y + (box.h - sc * (x1 - x0)) / 2;
+    return {
+      sc: sc,
+      X: function (z) { return ox + (z - z0) * sc; },
+      Y: function (x) { return oy + (x - x0) * sc; },
+      inv: function (X, Y) { return [(Y - oy) / sc + x0, (X - ox) / sc + z0]; },
+    };
+  }
+  function drawPlan(ctx, M) {
+    var A = AISLE;
+    ctx.fillStyle = "#efe7d8"; // 바닥
+    ctx.fillRect(M.X(A.front), M.Y(-A.room), M.X(0) - M.X(A.front), M.Y(A.room) - M.Y(-A.room));
+    ctx.fillRect(M.X(0), M.Y(-A.half), M.X(A.len) - M.X(0), M.Y(A.half) - M.Y(-A.half));
+    ctx.fillStyle = "#d9cbb4"; // 벽 너머
+    ctx.fillRect(M.X(0), M.Y(-A.room), M.X(A.len) - M.X(0), M.Y(-A.back) - M.Y(-A.room));
+    ctx.fillRect(M.X(0), M.Y(A.back), M.X(A.len) - M.X(0), M.Y(A.room) - M.Y(A.back));
+    ctx.fillStyle = "#a8744a"; // 서가
+    ctx.fillRect(M.X(0), M.Y(-A.back), M.X(A.len) - M.X(0), M.Y(-A.half) - M.Y(-A.back));
+    ctx.fillRect(M.X(0), M.Y(A.half), M.X(A.len) - M.X(0), M.Y(A.back) - M.Y(A.half));
+    ctx.strokeStyle = "#5a3b25"; ctx.lineWidth = 1;
+    for (var i = 0; i <= 6; i++) {
+      var X = M.X(i * 0.9);
+      ctx.beginPath(); ctx.moveTo(X, M.Y(-A.back)); ctx.lineTo(X, M.Y(-A.half)); ctx.moveTo(X, M.Y(A.half)); ctx.lineTo(X, M.Y(A.back)); ctx.stroke();
+    }
+    ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1.5;
+    ctx.strokeRect(M.X(A.front), M.Y(-A.room), M.X(0) - M.X(A.front), M.Y(A.room) - M.Y(-A.room));
+    ctx.beginPath(); ctx.moveTo(M.X(A.len), M.Y(-A.half)); ctx.lineTo(M.X(A.len), M.Y(A.half)); ctx.stroke();
+    ctx.strokeStyle = "#7fa6c4"; ctx.lineWidth = 3; // 끝 창
+    ctx.beginPath(); ctx.moveTo(M.X(A.len), M.Y(-0.32)); ctx.lineTo(M.X(A.len), M.Y(0.32)); ctx.stroke();
+    var fs = M.sc > 40 ? 11 : 10;
+    label(ctx, "통로 입구", M.X(0) + 4, M.Y(-A.room) + 4, { size: fs, color: INK_DIM });
+    label(ctx, "창", M.X(A.len) - 4, M.Y(0.36) + 2, { size: fs, color: INK_DIM, align: "right" });
+    label(ctx, "앞 공간 2.5 m", M.X(A.front) + 4, M.Y(A.room) - fs - 6, { size: fs, color: INK_DIM });
+  }
+  // 겨눈 방향으로 처음 닿는 면까지의 거리(광선 진행)
+  function rayHit(cx, cz, yaw) {
+    var dx = Math.sin(yaw * DEG), dz = Math.cos(yaw * DEG), t = 0;
+    for (; t < 12; t += 0.01) {
+      var x = cx + dx * t, z = cz + dz * t;
+      if (z >= 0 && Math.abs(x) >= AISLE.half) break;
+      if (z >= AISLE.len) break;
+      if (z < AISLE.front || Math.abs(x) >= AISLE.room) break;
+      if (z >= 0 && z < 0.01 && Math.abs(x) >= AISLE.half) break;
+      if (cz < 0 && z >= 0 && Math.abs(x) > AISLE.half) break;
+    }
+    return t;
+  }
+  // 서가 면 위 보이는 길이(수평 화각 halfA 안, 가림 없음)
+  function visibleFaces(cx, cz, yaw, halfA) {
+    var out = { L: [], R: [], lenL: 0, lenR: 0 }, step = 0.02;
+    [-1, 1].forEach(function (s) {
+      var x = s * AISLE.half, seg = null;
+      for (var z = step / 2; z < AISLE.len; z += step) {
+        var a = Math.atan2(x - cx, z - cz) / DEG, d = Math.abs(((a - yaw + 540) % 360) - 180);
+        var ok = d <= halfA && (s > 0 ? cx < x : cx > x) && visibleFrom(cx, cz, x, z);
+        if (ok) { if (!seg) seg = [z - step / 2, z + step / 2]; else seg[1] = z + step / 2; if (s < 0) out.lenL += step; else out.lenR += step; }
+        else if (seg) { (s < 0 ? out.L : out.R).push(seg); seg = null; }
+      }
+      if (seg) (s < 0 ? out.L : out.R).push(seg);
+    });
+    return out;
+  }
+  function drawFan(ctx, M, cx, cz, yaw, halfA, fill, stroke, len) {
+    var X = M.X(cz), Y = M.Y(cx), L = (len || 9) * M.sc;
+    var a0 = (yaw - halfA) * DEG, a1 = (yaw + halfA) * DEG;
+    ctx.beginPath(); ctx.moveTo(X, Y);
+    for (var k = 0; k <= 24; k++) { var a = a0 + (a1 - a0) * k / 24; ctx.lineTo(X + Math.cos(a) * L, Y + Math.sin(a) * L); }
+    ctx.closePath(); ctx.fillStyle = fill; ctx.fill();
+    ctx.strokeStyle = stroke; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(X + Math.cos(a0) * L, Y + Math.sin(a0) * L); ctx.lineTo(X, Y); ctx.lineTo(X + Math.cos(a1) * L, Y + Math.sin(a1) * L); ctx.stroke();
+  }
+  function clipPlan(ctx, M) {
+    ctx.beginPath();
+    ctx.rect(M.X(AISLE.front), M.Y(-AISLE.room), M.X(0) - M.X(AISLE.front), M.Y(AISLE.room) - M.Y(-AISLE.room));
+    ctx.rect(M.X(0), M.Y(-AISLE.half), M.X(AISLE.len) - M.X(0), M.Y(AISLE.half) - M.Y(-AISLE.half));
+    ctx.clip();
+  }
+
+  /* ================= 시뮬레이터 1: 초점거리와 상의 크기 ================= */
+  (function () {
+    var D = 3.0, H = 2.1;
+    var st = { f: 18, s: "aps", pin: false };
+    var lay = {};
+    function dToX(d, w) { return lay.lx + 40 + (w - lay.lx - 70) * Math.log(d / 0.4) / Math.log(40 / 0.4); }
+    function xToD(x, w) { return 0.4 * Math.pow(40 / 0.4, (x - lay.lx - 40) / (w - lay.lx - 70)); }
+    var cv = AB.canvas("#pn-cv", function (ctx, w, h) {
+      var sen = SENS[st.s], sh = sen.h, cy = h * 0.5;
+      lay.lx = Math.round(w * 0.3);
+      var lx = lay.lx, sPx = h * 0.34;
+      var Ls = sPx * st.f / sh, avail = lx - 34, scaleL = 1;
+      if (Ls > avail) { scaleL = avail / Ls; Ls = avail; sPx *= scaleL; }
+      var sx = lx - Ls;
+      // 광축
+      ctx.strokeStyle = "#c9c2b4"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(10, cy); ctx.lineTo(w - 10, cy); ctx.stroke(); ctx.setLineDash([]);
+      // 물체(서가)
+      var ox = dToX(D, w), Hpx = (ox - lx) * H / D;
+      var top = cy - Hpx / 2, bot = cy + Hpx / 2, bw = Math.max(10, Math.min(40, Hpx * 0.18));
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip();
+      ctx.fillStyle = "#a8744a"; ctx.fillRect(ox, top, bw, Hpx);
+      ctx.fillStyle = "#5a3b25";
+      for (var k = 0; k <= 5; k++) { var yb = bot - Hpx * (0.1 + 0.4 * k) / H; ctx.fillRect(ox, yb - 1, bw, 2); }
+      ctx.restore();
+      // 빛줄기(꼭대기·바닥 → 렌즈 중심 → 센서)
+      var hImg = Ls * H / D; // 센서 쪽 화면 길이(같은 각도)
+      ctx.strokeStyle = "rgba(181,23,158,0.75)"; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.moveTo(ox, top); ctx.lineTo(sx, cy + hImg / 2); ctx.stroke();
+      ctx.strokeStyle = "rgba(31,111,178,0.75)";
+      ctx.beginPath(); ctx.moveTo(ox, bot); ctx.lineTo(sx, cy - hImg / 2); ctx.stroke();
+      // 센서
+      ctx.fillStyle = "#4a4650"; ctx.fillRect(sx - 6, cy - sPx / 2, 6, sPx);
+      // 상(센서 밖으로 넘친 부분은 흐리게)
+      var iTop = cy - hImg / 2, iBot = cy + hImg / 2;
+      ctx.fillStyle = "rgba(168,116,74,0.35)"; ctx.fillRect(sx - 3, iTop, 6, hImg);
+      var inTop = Math.max(iTop, cy - sPx / 2), inBot = Math.min(iBot, cy + sPx / 2);
+      ctx.fillStyle = st.pin ? "rgba(168,116,74,0.45)" : "#a8744a"; ctx.fillRect(sx - 3, inTop, 6, inBot - inTop);
+      // 렌즈(또는 바늘구멍)
+      if (st.pin) {
+        ctx.fillStyle = "#2b2a30"; ctx.fillRect(lx - 2, cy - h * 0.38, 4, h * 0.38 - 2); ctx.fillRect(lx - 2, cy + 2, 4, h * 0.38 - 2);
+      } else {
+        ctx.fillStyle = "rgba(127,166,196,0.45)"; ctx.strokeStyle = "#41607a"; ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.ellipse(lx, cy, 7, h * 0.3, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      }
+      // 초점거리 표시
+      var yb2 = cy + Math.max(sPx / 2, h * 0.3) + 14;
+      if (yb2 > h - 34) yb2 = h - 34;
+      ctx.strokeStyle = INK_DIM; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(sx, yb2); ctx.lineTo(lx, yb2); ctx.moveTo(sx, yb2 - 4); ctx.lineTo(sx, yb2 + 4); ctx.moveTo(lx, yb2 - 4); ctx.lineTo(lx, yb2 + 4); ctx.stroke();
+      label(ctx, "f = " + st.f + " mm" + (scaleL < 1 ? " (축소)" : ""), (sx + lx) / 2, yb2 + 6, { align: "center", size: 11, color: INK_DIM });
+      label(ctx, "센서 " + sen.h + " mm", 8, 8, { size: 11, color: INK_DIM });
+      label(ctx, "서가 2.1 m · " + AB.fix(D, 1) + " m", Math.min(ox + bw + 6, w - 8), Math.max(8, Math.min(top - 18, h - 20)), { size: 11, color: INK, align: ox + bw + 120 > w ? "right" : "left" });
+      AB.handle(ctx, ox + bw / 2, AB.clamp(top, 12, h - 12), { r: 7, ring: ACC });
+      // 거리 눈금
+      [0.5, 1, 2, 5, 10, 20].forEach(function (d) {
+        var X = dToX(d, w); ctx.fillStyle = "#b5ad9e"; ctx.fillRect(X, h - 14, 1, 6);
+        label(ctx, d + "m", X, h - 26, { size: 10, color: INK_DIM, align: "center" });
+      });
+      var hmm = st.f * H / D, ratio = hmm / sh;
+      AB.stat("pn-o-d", AB.fix(D, 2) + "<small>m</small>");
+      AB.stat("pn-o-h", AB.fix(hmm, 1) + "<small>mm</small>");
+      AB.stat("pn-o-r", (ratio * 100).toFixed(0) + "<small>%</small>" + (ratio > 1 ? " <small>넘침</small>" : ""));
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("pn-cv").parentElement.clientWidth || 600)); return Math.round(Math.max(240, Math.min(340, w * 0.55))); } });
+    AB.range("pn-f", function (v) { return v + " mm"; }, function (v) { st.f = v; cv.redraw(); });
+    AB.seg("pn-s", function (v) { st.s = v; cv.redraw(); });
+    AB.check("pn-pin", function (v) { st.pin = v; cv.redraw(); });
+    var dragging = false;
+    AB.drag(cv.canvas, {
+      start: function () { dragging = true; },
+      move: function (x) { if (!dragging) return; D = AB.clamp(xToD(x, cv.w), 0.5, 30); cv.redraw(); },
+      end: function () { dragging = false; },
+    });
+  })();
+
+  /* ================= 시뮬레이터 2: 평면도 위의 화각 ================= */
+  (function () {
+    var st = { f: 18, o: "land", u: true, cx: -0.35, cz: 2.7, yaw: 90 };
+    var M, grab = null;
+    var cv = AB.canvas("#fv-cv", function (ctx, w, h) {
+      M = planMap({ x: 8, y: 8, w: w - 16, h: h - 16 });
+      drawPlan(ctx, M);
+      var sen = SENS.aps, horiz = st.o === "land" ? sen.w : sen.h;
+      var half = aov(horiz, st.f) / 2;
+      var uh = st.o === "land" ? SENS.ultra.w : SENS.ultra.h, uHalf = aov(uh, 2.1) / 2;
+      ctx.save(); clipPlan(ctx, M);
+      if (st.u) drawFan(ctx, M, st.cx, st.cz, st.yaw, uHalf, "rgba(181,23,158,0.10)", "rgba(181,23,158,0.6)");
+      drawFan(ctx, M, st.cx, st.cz, st.yaw, half, "rgba(31,111,178,0.18)", "#1f6fb2");
+      ctx.restore();
+      var vis = visibleFaces(st.cx, st.cz, st.yaw, half);
+      ctx.lineWidth = 5; ctx.strokeStyle = "#1f6fb2"; ctx.lineCap = "butt";
+      vis.L.forEach(function (sg) { ctx.beginPath(); ctx.moveTo(M.X(sg[0]), M.Y(-AISLE.half) - 2); ctx.lineTo(M.X(sg[1]), M.Y(-AISLE.half) - 2); ctx.stroke(); });
+      vis.R.forEach(function (sg) { ctx.beginPath(); ctx.moveTo(M.X(sg[0]), M.Y(AISLE.half) + 2); ctx.lineTo(M.X(sg[1]), M.Y(AISLE.half) + 2); ctx.stroke(); });
+      var X = M.X(st.cz), Y = M.Y(st.cx), hx = X + Math.cos(st.yaw * DEG) * 34, hy = Y + Math.sin(st.yaw * DEG) * 34;
+      ctx.strokeStyle = INK; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(X, Y); ctx.lineTo(hx, hy); ctx.stroke();
+      AB.handle(ctx, X, Y, { r: 8, ring: INK });
+      AB.handle(ctx, hx, hy, { r: 5, ring: ACC2, fill: "#dce9f2" });
+      var dist = rayHit(st.cx, st.cz, st.yaw), Wd = 2 * dist * Math.tan(half * DEG);
+      AB.stat("fv-o-a", AB.fix(2 * half, 1) + "°" + " <small>환산 " + AB.fix(st.f * 1.5, 0) + " mm</small>");
+      AB.stat("fv-o-w", AB.fix(dist, 2) + "<small>m</small> · " + AB.fix(Wd, 2) + "<small>m</small>");
+      AB.stat("fv-o-v", AB.fix(vis.lenL, 1) + " · " + AB.fix(vis.lenR, 1) + "<small>m</small>");
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("fv-cv").parentElement.clientWidth || 600)); return Math.round(Math.max(220, w * 0.56)); } });
+    AB.range("fv-f", function (v) { return v + " mm"; }, function (v) { st.f = v; cv.redraw(); });
+    AB.seg("fv-o", function (v) { st.o = v; cv.redraw(); });
+    AB.check("fv-u", function (v) { st.u = v; cv.redraw(); });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        var X = M.X(st.cz), Y = M.Y(st.cx), hx = X + Math.cos(st.yaw * DEG) * 34, hy = Y + Math.sin(st.yaw * DEG) * 34;
+        grab = Math.hypot(x - hx, y - hy) < 16 ? "dir" : "cam";
+      },
+      move: function (x, y) {
+        if (!grab) return;
+        if (grab === "cam") { var p = M.inv(x, y), c = clampFree(p[0], p[1]); st.cx = c[0]; st.cz = c[1]; }
+        else { var X = M.X(st.cz), Y = M.Y(st.cx); st.yaw = Math.atan2(y - Y, x - X) / DEG; }
+        cv.redraw();
+      },
+      end: function () { grab = null; },
+    });
+  })();
+
+  /* ================= 시뮬레이터 3: 같은 렌즈, 다른 센서 ================= */
+  (function () {
+    var st = { f: 18, s: "aps", z: false };
+    var cv = AB.canvas("#cr-cv", function (ctx, w, h) {
+      var cx = w / 2, cy = h / 2;
+      var showS = st.z ? SENS[st.s] : SENS.ff;
+      var fw = st.z ? w : w * 0.92; // 화면에서 보여 줄 센서 폭(px)
+      var fpx = st.f * fw / showS.w;
+      var cam = { pos: [0, 1.05, -2.0], yaw: 0, pitch: 0, f: fpx, cx: cx, cy: cy };
+      render(ctx, SCENE, cam);
+      if (!st.z) {
+        var ffh = fw * 24 / 36;
+        ctx.fillStyle = "rgba(30,28,34,0.62)";
+        ctx.fillRect(0, 0, w, cy - ffh / 2); ctx.fillRect(0, cy + ffh / 2, w, h - cy - ffh / 2);
+        ctx.fillRect(0, cy - ffh / 2, cx - fw / 2, ffh); ctx.fillRect(cx + fw / 2, cy - ffh / 2, w - cx - fw / 2, ffh);
+        [["ff", "#ffffff"], ["aps", "#7fd3ff"], ["main", "#ffd166"]].forEach(function (k) {
+          var s = SENS[k[0]], rw = fw * s.w / 36, rh = fw * s.h / 36, on = st.s === k[0];
+          ctx.strokeStyle = k[1]; ctx.lineWidth = on ? 3 : 1.4; ctx.setLineDash(on ? [] : [5, 4]);
+          ctx.strokeRect(cx - rw / 2, cy - rh / 2, rw, rh); ctx.setLineDash([]);
+          tag(ctx, s.name, cx - rw / 2 + 4, cy - rh / 2 + 4, { size: 11, bg: "rgba(30,28,34,0.7)", color: k[1] });
+        });
+      } else {
+        tag(ctx, SENS[st.s].name + "가 받는 부분을 화면 가득", 8, 8, { size: 11 });
+      }
+      var s = SENS[st.s], cf = cropOf(s);
+      AB.stat("cr-o-s", s.name + " · " + AB.fix(cf, 2) + "<small>배</small>");
+      AB.stat("cr-o-e", AB.fix(st.f * cf, 0) + "<small>mm</small>");
+      AB.stat("cr-o-a", AB.fix(aov(s.w, st.f), 1) + "°");
+    }, { aspect: 2 / 3, maxHeight: 420, bg: PAPER });
+    AB.range("cr-f", function (v) { return v + " mm"; }, function (v) { st.f = v; cv.redraw(); });
+    AB.seg("cr-s", function (v) { st.s = v; cv.redraw(); });
+    AB.check("cr-z", function (v) { st.z = v; cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 4: 잘라 키우기와 광학 줌 ================= */
+  (function () {
+    // 서가 두 칸(1.8 m × 1.2 m)의 정면. 장면 단위 m. 책등에 짧은 제목(가상의 글자)을 쓴다.
+    var r = ART.rng(11), books = [], z;
+    var TITLES = ["골목", "겨울", "산책", "빛", "창", "눈", "시", "숲", "귤", "책", "길", "밤", "달", "물"];
+    for (var row = 0; row < 3; row++) {
+      var yb = 0.05 + row * 0.4; z = 0.03;
+      while (z < 1.77) {
+        var bw = 0.03 + r() * 0.025, bh = 0.24 + r() * 0.12;
+        if (Math.abs(z - 0.9) < 0.03) { z += 0.04; continue; }
+        books.push({ x: z, y: yb, w: bw, h: bh, c: BOOKS[Math.floor(r() * BOOKS.length)], t: TITLES[Math.floor(r() * TITLES.length)] });
+        z += bw + 0.003;
+      }
+    }
+    function drawShelf(c, W, Hh, vx, vy, vw) { // 장면의 (vx, vy)~(vx+vw) 영역을 캔버스 W×Hh에 그린다
+      var s = W / vw, vh = Hh / s;
+      c.fillStyle = "#3a2a20"; c.fillRect(0, 0, W, Hh);
+      function X(x) { return (x - vx) * s; } function Y(y) { return (vy + vh - y) * s; }
+      books.forEach(function (b) {
+        c.fillStyle = b.c; c.fillRect(X(b.x), Y(b.y + b.h), b.w * s, b.h * s);
+        c.fillStyle = AB.textOn(b.c) === "#000000" ? "rgba(0,0,0,0.75)" : "rgba(255,255,255,0.85)";
+        var fs = b.w * s * 0.62;
+        if (fs > 1.2) {
+          c.font = "600 " + fs + "px sans-serif"; c.textAlign = "center"; c.textBaseline = "middle";
+          for (var k = 0; k < b.t.length; k++) c.fillText(b.t[k], X(b.x + b.w / 2), Y(b.y + b.h * 0.72) + k * fs * 1.1);
+          c.fillRect(X(b.x + b.w * 0.2), Y(b.y + b.h * 0.18), b.w * s * 0.6, Math.max(0.5, 0.006 * s));
+        }
+      });
+      c.fillStyle = "#a8744a";
+      for (var k = 0; k < 4; k++) c.fillRect(X(0), Y(0.05 + k * 0.4), 1.8 * s, 0.025 * s);
+      c.fillRect(X(0), Y(1.25), 0.025 * s, 1.25 * s); c.fillRect(X(0.89), Y(1.25), 0.025 * s, 1.25 * s); c.fillRect(X(1.775), Y(1.25), 0.025 * s, 1.25 * s);
+    }
+    var st = { z: 2, res: 160 };
+    var off = document.createElement("canvas");
+    function draw(ctx, w, h, optical) {
+      var R = st.res, Rh = Math.round(R * h / w);
+      off.width = R; off.height = Rh;
+      var oc = off.getContext("2d");
+      var full = 1.8, vw = full / st.z, cx = 0.9, cyy = 0.65, vh = vw * h / w;
+      if (optical) drawShelf(oc, R, Rh, cx - vw / 2, cyy - vh / 2, vw);
+      else drawShelf(oc, R, Rh, 0, cyy - full * h / w / 2, full);
+      ctx.imageSmoothingEnabled = true;
+      if (optical) ctx.drawImage(off, 0, 0, R, Rh, 0, 0, w, h);
+      else { var sw = R / st.z, sh = Rh / st.z; ctx.drawImage(off, (R - sw) / 2, (Rh - sh) / 2, sw, sh, 0, 0, w, h); }
+    }
+    var a = AB.canvas("#zm-a", function (ctx, w, h) { draw(ctx, w, h, false); }, { aspect: 2 / 3, bg: "#3a2a20", maxHeight: 400 });
+    var b = AB.canvas("#zm-b", function (ctx, w, h) { draw(ctx, w, h, true); }, { aspect: 2 / 3, bg: "#3a2a20", maxHeight: 400 });
+    AB.compare("#zm-cmp", { labels: ["잘라 키우기", "광학 줌"] });
+    function upd() {
+      a.redraw(); b.redraw();
+      AB.stat("zm-o-e", AB.fix(26 * st.z, 0) + "<small>mm</small>");
+      AB.stat("zm-o-p", "1/" + AB.fix(st.z * st.z, 1).replace(/\.0$/, "") + " <small>(" + AB.fix(100 / (st.z * st.z), 0) + "%)</small>");
+      AB.stat("zm-o-m", AB.fix(12 / (st.z * st.z), 1) + "<small>백만 화소</small>");
+    }
+    AB.range("zm-z", function (v) { return v.toFixed(1) + "×"; }, function (v) { st.z = v; upd(); });
+    AB.seg("zm-r", function (v) { st.res = +v; upd(); });
+    upd();
+  })();
+
+  /* ================= 시뮬레이터 5: 서점 촬영 계획기 ================= */
+  (function () {
+    var CAMS = {
+      ultra: { s: SENS.ultra, f: 2.1, name: "휴대폰 0.5×" },
+      main: { s: SENS.main, f: 6.0, name: "휴대폰 1×" },
+      tele2: { s: SENS.main, f: 12.0, name: "휴대폰 2×" }, // 기본 카메라의 가운데 절반을 잘라 낸 것과 같은 화각
+      zoom: { s: SENS.aps, f: 18, name: "미러리스" },
+      prime: { s: SENS.aps, f: 50, name: "미러리스 50 mm" },
+    };
+    var st = { c: "zoom", f: 18, o: "port", t: "aisle", cx: 0, cz: -1.95, yaw: 0 };
+    var EYE = 1.05, M, PV, grab = null;
+    function camSpec() { var c = CAMS[st.c]; return { s: c.s, f: st.c === "zoom" ? st.f : c.f, name: c.name }; }
+    function frameDims() { var c = camSpec(); return st.o === "land" ? [c.s.w, c.s.h] : [c.s.h, c.s.w]; }
+    function makeCam(fr) {
+      var c = camSpec(), d = frameDims();
+      return { pos: [st.cx, EYE, st.cz], yaw: st.yaw, pitch: 0, f: c.f * fr.w / d[0], cx: fr.x + fr.w / 2, cy: fr.y + fr.h / 2 };
+    }
+    function inFrame(p, cam, fr) {
+      var q = ART.project(p, cam);
+      return q[2] > 0.05 && q[0] >= fr.x - 0.5 && q[0] <= fr.x + fr.w + 0.5 && q[1] >= fr.y - 0.5 && q[1] <= fr.y + fr.h + 0.5;
+    }
+    function judge(cam, fr) {
+      var A = AISLE;
+      if (st.t === "aisle") {
+        var pts = [[-A.back, 0, 0], [A.back, 0, 0], [-A.back, A.H, 0], [A.back, A.H, 0]];
+        var ok = st.cz < 0 && pts.every(function (p) { return inFrame(p, cam, fr); });
+        return { ok: ok, msg: ok ? "통과: 서가 끝과 높이 전체" : (st.cz >= 0 ? "통로 밖에서 겨눈다" : "서가 끝이나 위아래가 잘림") };
+      }
+      if (st.t === "face") {
+        var best = 0;
+        [-1, 1].forEach(function (s) {
+          var run = 0, x = s * A.half;
+          // 정면: 통로 안에서 서가 면의 법선과 15° 안으로 겨눈 경우만
+          var dev = Math.abs(((st.yaw - s * 90 + 540) % 360) - 180);
+          if (st.cz < 0 || dev > 15) return;
+          for (var i = 0; i < 6; i++) {
+            var z0 = i * 0.9, z1 = z0 + 0.9;
+            var vis = visibleFrom(st.cx, st.cz, x, z0 + 0.45);
+            var ok = vis && [[x, 0, z0], [x, 0, z1], [x, A.H, z0], [x, A.H, z1]].every(function (p) { return inFrame(p, cam, fr); });
+            run = ok ? run + 1 : 0; best = Math.max(best, run);
+          }
+        });
+        return { ok: best >= 2, msg: best >= 2 ? "통과: 높이 전체 " + best + "칸" : (best === 1 ? "한 칸만 들어옴" : "정면에서 높이 전체가 든 칸 없음") };
+      }
+      // 책등 몇 권: 폭 25 cm × 높이 30 cm(선반 위 책등 부분)가 다 들어오고 프레임 넓이의 40% 이상
+      var bestFill = 0, any = false;
+      [-1, 1].forEach(function (s) {
+        var x = s * A.half;
+        for (var z0 = 0.05; z0 < A.len - 0.3; z0 += 0.05) for (var row = 0; row < 5; row++) {
+          var z1 = z0 + 0.25, y0 = 0.1 + row * 0.4, y1 = y0 + 0.3;
+          if (Math.floor(z0 / 0.9) !== Math.floor((z1 - 0.001) / 0.9)) continue;
+          if (!visibleFrom(st.cx, st.cz, x, (z0 + z1) / 2)) continue;
+          var P = [[x, y0, z0], [x, y0, z1], [x, y1, z1], [x, y1, z0]];
+          if (!P.every(function (p) { return inFrame(p, cam, fr); })) continue;
+          any = true;
+          var q = P.map(function (p) { return ART.project(p, cam); }), ar = 0;
+          for (var k = 0; k < 4; k++) { var a = q[k], b = q[(k + 1) % 4]; ar += a[0] * b[1] - b[0] * a[1]; }
+          bestFill = Math.max(bestFill, Math.abs(ar) / 2 / (fr.w * fr.h));
+        }
+      });
+      var ok3 = bestFill >= 0.4;
+      return { ok: ok3, msg: ok3 ? "통과: 책등이 화면의 " + Math.round(bestFill * 100) + "%" : (any ? "책등이 너무 작다(" + Math.round(bestFill * 100) + "%)" : "책등 부분이 다 들어오지 않음") };
+    }
+    var cv = AB.canvas("#pl-cv", function (ctx, w, h) {
+      var side = w >= 640, gap = 12;
+      var pb = side ? { x: 8, y: 8, w: w * 0.46 - 8, h: h - 16 } : { x: 8, y: 8, w: w - 16, h: Math.round((w - 16) * 0.56) };
+      var vb = side ? { x: w * 0.46 + gap, y: 8, w: w * 0.54 - gap - 8, h: h - 16 } : { x: 8, y: pb.y + pb.h + gap, w: w - 16, h: h - pb.h - gap - 16 };
+      M = planMap(pb);
+      drawPlan(ctx, M);
+      var c = camSpec(), d = frameDims(), half = aov(d[0], c.f) / 2;
+      ctx.save(); clipPlan(ctx, M);
+      drawFan(ctx, M, st.cx, st.cz, st.yaw, half, "rgba(31,111,178,0.16)", "#1f6fb2");
+      ctx.restore();
+      var X = M.X(st.cz), Y = M.Y(st.cx), hx = X + Math.cos(st.yaw * DEG) * 30, hy = Y + Math.sin(st.yaw * DEG) * 30;
+      ctx.strokeStyle = INK; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(X, Y); ctx.lineTo(hx, hy); ctx.stroke();
+      AB.handle(ctx, X, Y, { r: 8, ring: INK });
+      AB.handle(ctx, hx, hy, { r: 5, ring: ACC2, fill: "#dce9f2" });
+      // 장면 보기: 프레임 비율에 맞춰 가운데
+      ctx.fillStyle = "#2a2730"; ctx.fillRect(vb.x, vb.y, vb.w, vb.h);
+      var ar = d[1] / d[0], fw = vb.w, fh = fw * ar;
+      if (fh > vb.h) { fh = vb.h; fw = fh / ar; }
+      var fr = { x: vb.x + (vb.w - fw) / 2, y: vb.y + (vb.h - fh) / 2, w: fw, h: fh };
+      PV = fr;
+      var cam = makeCam(fr);
+      ctx.save(); ctx.beginPath(); ctx.rect(fr.x, fr.y, fr.w, fr.h); ctx.clip();
+      ctx.fillStyle = "#f5efe4"; ctx.fillRect(fr.x, fr.y, fr.w, fr.h);
+      render(ctx, SCENE, cam);
+      ctx.restore();
+      var J = judge(cam, fr);
+      ctx.strokeStyle = J.ok ? OKC : BAD; ctx.lineWidth = 3; ctx.strokeRect(fr.x + 1.5, fr.y + 1.5, fr.w - 3, fr.h - 3);
+      tag(ctx, c.name + (st.c === "zoom" ? " " + st.f + " mm" : ""), fr.x + 6, fr.y + 6, { size: 11 });
+      var cf = cropOf(c.s), eq = c.f * cf;
+      var Hd = aov(d[0], c.f), Vd = aov(d[1], c.f);
+      AB.stat("pl-o-c", (st.c === "zoom" ? st.f + " mm" : c.name.replace("미러리스 ", "")) + " <small>환산 " + AB.fix(eq, 0) + " mm</small>");
+      AB.stat("pl-o-a", AB.fix(Hd, 0) + "° × " + AB.fix(Vd, 0) + "°");
+      AB.stat("pl-o-p", st.cz < 0 ? "입구 밖 " + AB.fix(-st.cz, 2) + "<small>m</small>" : "통로 안 " + AB.fix(st.cz, 1) + "<small>m</small>");
+      AB.stat("pl-o-t", '<span style="font-size:14px">' + J.msg + "</span>");
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("pl-cv").parentElement.clientWidth || 600)); return w >= 640 ? Math.round(Math.min(520, w * 0.56)) : Math.round((w - 16) * 0.56 + 36 + (w - 16) * 1.05); } });
+    var fget = AB.range("pl-f", function (v) { return v + " mm"; }, function (v) { st.f = v; if (st.c !== "zoom") segC.set("zoom", false); st.c = "zoom"; cv.redraw(); });
+    var segC = AB.seg("pl-c", function (v) { st.c = v; cv.redraw(); });
+    AB.seg("pl-o", function (v) { st.o = v; cv.redraw(); });
+    AB.seg("pl-t", function (v) {
+      st.t = v;
+      // 목표마다 알맞은 출발 자리로 옮겨 준다
+      if (v === "aisle") { st.cx = 0; st.cz = -1.95; st.yaw = 0; }
+      else if (v === "face") { st.cx = -0.36; st.cz = 2.7; st.yaw = 90; }
+      else { st.cx = -0.35; st.cz = 2.25; st.yaw = 90; }
+      cv.redraw();
+    });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!M) return;
+        var X = M.X(st.cz), Y = M.Y(st.cx), hx = X + Math.cos(st.yaw * DEG) * 30, hy = Y + Math.sin(st.yaw * DEG) * 30;
+        if (Math.hypot(x - hx, y - hy) < 16) grab = "dir";
+        else if (Math.hypot(x - X, y - Y) < 40 || (PV && !(x >= PV.x && x <= PV.x + PV.w && y >= PV.y && y <= PV.y + PV.h))) grab = "cam";
+        else grab = null;
+      },
+      move: function (x, y) {
+        if (!grab) return;
+        if (grab === "cam") { var p = M.inv(x, y), c = clampFree(p[0], p[1]); st.cx = c[0]; st.cz = c[1]; }
+        else { var X = M.X(st.cz), Y = M.Y(st.cx); st.yaw = Math.atan2(y - Y, x - X) / DEG; }
+        cv.redraw();
+      },
+      end: function () { grab = null; },
+    });
+    void fget;
+  })();
+})();
+</script>
+</body>
+</html>

@@ -84,8 +84,8 @@
         <!-- 가까운 점 A (초점보다 앞) -->
         <circle cx="150" cy="120" r="4" class="f-bad"/>
         <text x="150" y="108" text-anchor="middle" class="lbl-bad" font-size="11">A 가까이</text>
-        <path d="M150 120 L250 66 L420 152" class="s-bad" fill="none" stroke-width="1.2"/>
-        <path d="M150 120 L250 174 L420 88" class="s-bad" fill="none" stroke-width="1.2"/>
+        <path d="M150 120 L250 66 L430 126.8" class="s-bad" fill="none" stroke-width="1.2"/>
+        <path d="M150 120 L250 174 L430 113.2" class="s-bad" fill="none" stroke-width="1.2"/>
         <!-- 초점 맞은 점 B -->
         <circle cx="70" cy="120" r="4" class="f-ok"/>
         <text x="70" y="108" text-anchor="middle" class="lbl" font-size="11">B 초점면</text>
@@ -98,8 +98,8 @@
         <path d="M356 120 L386 106" class="s-acc2" fill="none" stroke-width="1.2" stroke-dasharray="5 3"/>
         <text x="20" y="62" class="lbl-acc2" font-size="11">C 아주 먼 곳</text>
         <!-- 센서 위의 흐림 원 -->
-        <line x1="396" y1="108" x2="396" y2="132" class="s-acc2" stroke-width="3"/>
-        <line x1="404" y1="104" x2="404" y2="136" class="s-bad" stroke-width="3"/>
+        <line x1="396" y1="106" x2="396" y2="134" class="s-acc2" stroke-width="3"/>
+        <line x1="404" y1="112" x2="404" y2="128" class="s-bad" stroke-width="3"/>
         <circle cx="386" cy="120" r="3" class="f-ok"/>
         <text x="300" y="222" text-anchor="middle" class="lbl-dim" font-size="11">센서 위: B는 한 점, A와 C는 지름이 있는 원(착란원)</text>
         <text x="300" y="240" text-anchor="middle" class="lbl-dim" font-size="11">원의 지름은 렌즈 구경(f/N)이 클수록 커진다</text>
@@ -173,7 +173,7 @@
         <div class="sim-view"><canvas id="fd-cv"></canvas><span class="hint">초점 막대를 끈다</span></div>
         <div class="sim-controls">
           <label class="ctrl"><span>초점거리 <output id="fd-f-out"></output></span><input type="range" id="fd-f" min="18" max="55" step="1" value="24"></label>
-          <label class="ctrl"><span>조리개 <output id="fd-n-out"></output></span><input type="range" id="fd-n" min="0" max="7" step="1" value="1"></label>
+          <label class="ctrl"><span>조리개 <output id="fd-n-out"></output></span><input type="range" id="fd-n" min="0" max="7" step="1" value="2"></label>
           <label class="check"><input type="checkbox" id="fd-strict"> 엄격한 착란원(0.01 mm)</label>
         </div>
       </div>
@@ -183,7 +183,7 @@
         <div class="stat"><span class="k">선명한 사람</span><span class="v" id="fd-o-p">—</span></div>
         <div class="stat"><span class="k">회절 흐림</span><span class="v" id="fd-o-a">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 24 mm, f/4에서 초점 막대를 가장 앞사람(2.0 m)에 맞춘다. 뒤쪽 세 사람이 흐려진다. ② 막대를 2.7 m 근처로 옮긴다. 앞사람과 뒷사람이 겨우 함께 들어온다. 조리개를 f/5.6으로 한 단 조이면 여유가 생긴다. ③ 초점거리를 55 mm로 늘린다. 같은 f값인데 심도가 확 얕아진다(실제로는 화각도 좁아져 사람들이 화면 밖으로 나간다). 조리개를 f/22까지 조이면 심도는 깊어지지만 회절 흐림이 착란원보다 커져 전체가 조금씩 무르다. (얇은 렌즈 근사, 착란원 0.02 mm. 줌의 최대 개방 f값은 18 mm f/3.5에서 55 mm f/5.6까지 직선으로 바뀐다고 놓았다. 회절은 에어리 원반 지름 2.44λN, λ = 0.55 µm.)</div>
+      <div class="sim-note">해볼 것: ① 24 mm, f/4에서 초점 막대를 가장 앞사람(2.0 m)에 맞춘다. 뒤쪽 네 사람이 흐려진다. ② 막대를 2.7 m 근처로 옮긴다. 앞사람과 뒷사람이 겨우 함께 들어온다. 조리개를 f/5.6으로 한 단 조이면 여유가 생긴다. ③ 초점거리를 55 mm로 늘린다. 같은 f값인데 심도가 확 얕아진다(실제로는 화각도 좁아져 사람들이 화면 밖으로 나간다). 조리개를 f/22까지 조이면 심도는 깊어지지만 회절 흐림이 착란원보다 커져 전체가 조금씩 무르다. (얇은 렌즈 근사, 착란원 0.02 mm. 줌의 최대 개방 f값은 18 mm f/3.5에서 55 mm f/5.6까지 직선으로 바뀐다고 놓았다. 회절은 에어리 원반 지름 2.44λN, λ = 0.55 µm.)</div>
     </div>
 
     <p>초점을 가장 앞사람에 맞추면 그 앞쪽 심도는 아무도 없는 빈 공간에 낭비된다. 여러 사람이 앞뒤로 있을 때는 초점을 무리의 가운데보다 조금 앞에 두어야 앞뒤 한계를 고르게 쓸 수 있다. 위 장면에서 앞사람 2.0 m와 뒷사람 4.0 m를 똑같이 아슬아슬하게 담는 초점 거리는 두 거리의 조화 평균인 2.67 m, 정확히 앞에서 3분의 1 지점이다. 아래 그림은 24 mm로 2.7 m에 초점을 둔 채 조리개만 바꿨을 때의 심도다.</p>
@@ -380,7 +380,7 @@
     <div class="casefile">
       <div class="tag"><b>CASE 서윤</b><span>촬영 노트 · 7장</span></div>
       <h4>모두 선명한 모임, 찻잔만 선명하지 않은 정물</h4>
-      <p>12월 셋째 주 목요일 저녁, 책방 E의 그림 읽기 모임이 열렸다. 서윤은 미러리스의 줌을 24 mm에 두고 긴 탁자 끝에서 셔터를 눌렀다. 탁자 양쪽에 앉은 여섯 사람은 카메라에서 2.0 m부터 4.0 m 사이에 있었다. 개방(f/4)으로 가장 앞사람의 눈에 초점을 맞춘 첫 장은 앞사람만 또렷하고, 맞은편 끝에서 그림을 들고 선 진행자의 얼굴은 무르게 퍼졌다. 이 책의 모델로 계산하면 2.0 m에 초점을 둔 f/4의 심도는 1.57~2.76 m라서 여섯 명 중 세 명이 심도 밖이다.</p>
+      <p>12월 셋째 주 목요일 저녁, 책방 E의 그림 읽기 모임이 열렸다. 서윤은 미러리스의 줌을 24 mm에 두고 긴 탁자 끝에서 셔터를 눌렀다. 탁자 양쪽에 앉은 여섯 사람은 카메라에서 2.0 m부터 4.0 m 사이에 있었다. 개방(f/4)으로 가장 앞사람의 눈에 초점을 맞춘 첫 장은 앞사람만 또렷하고, 맞은편 끝에서 그림을 들고 선 진행자의 얼굴은 무르게 퍼졌다. 이 책의 모델로 계산하면 2.0 m에 초점을 둔 f/4의 심도는 1.57~2.76 m라서 여섯 명 중 네 명이 심도 밖이다.</p>
       <p>서윤은 계산을 다시 했다. 앞사람(2.0 m)과 뒷사람(4.0 m)을 똑같이 담는 초점 거리는 두 거리의 조화 평균인 2.67 m, 탁자 가운데보다 조금 앞에 앉은 사람 자리다. 거기에 초점을 맞추면 f/4에서도 1.97~4.30 m로 여섯 명이 겨우 들어오지만, 앞사람과 진행자의 흐림이 착란원의 0.94배, 0.87배로 아슬아슬했다. 사람들은 이야기하며 몸을 앞뒤로 움직였다. 서윤은 한 단을 더 조인 f/5.6을 골랐다. 심도는 1.78~5.63 m가 되고 가장 흐린 사람도 착란원의 0.67배에 머문다. 배경의 책장(약 6 m)은 착란원과 비슷한 정도로만 흐려 "책방에서 열린 모임"이라는 것이 사진에 남았다. 한 단 조인 대가로 빛이 절반이 된 것은 노출을 다시 맞춰야 할 몫으로 적어 두었다.</p>
       <p>다음 날 아침에는 창가 정물을 찍었다. 찻잔과 책 두 권을 창가 탁자에 놓고 50 mm 단렌즈로 1.0 m 떨어져 찍었다. 휴대폰 사진을 보던 서윤은 "배경을 확 날리고 싶다"며 f/1.8로 열었다. 화면은 예뻤지만 확대하니 찻잔의 손잡이 쪽과 앞 가장자리가 흐렸다. f/1.8의 심도는 98.7~101.4 cm, 2.7 cm뿐이라 지름 8 cm의 찻잔조차 다 담지 못했다. 2 m 뒤 책장은 흐림 원이 착란원의 49배(가로 1600 px 웹 사진에서 66 px)라 책장인지 무늬인지 알 수 없었다. 사진을 본 책방 주인이 말했다. "이건 우리 가게 창가가 아니라 어느 카페 광고 같네요. 사진이 실제 가게보다 예쁘면 손님이 실망해요." 휴대폰 인물 모드로도 찍어 보았는데, 찻잔 손잡이 구멍 속 책장이 선명하게 남아 오려 붙인 것처럼 보였다.</p>
       <p>서윤은 f/5.6을 골랐다. 초점은 찻잔의 앞 가장자리가 아니라 정물 깊이의 가운데인 찻잔 중심(1.0 m)에 두었다. 심도는 95.9~104.5 cm(8.5 cm)로 찻잔 전체가 들어온다. 책장은 착란원의 16배(웹 사진에서 약 21 px)로 흐려 책 제목은 읽히지 않지만 책등이 늘어선 서가라는 것은 알아볼 수 있다. 도경은 사진을 보고 고개를 끄덕였다. "흐림도 받아 적은 거야. 저 거리에 책장이 있었다는 걸."</p>
@@ -642,7 +642,7 @@
         var L = [];
         L.push({ d: 3000, kind: "bg", name: "책장", draw: function (ctx, pr) {
           drawShelfWall(ctx, pr, 3000, { seed: 11, wallL: "#e6dccb", wallR: "#b9a990", board: "#7b5a3c", shadow: "rgba(40,28,18,0.22)", x0: -900, x1: 900, y0: -800, y1: 1100, step: 330 });
-        }, lights: lightsRow(-760, 760, 590, 70, 13, [1.0, 0.82, 0.5]) });
+        }, lights: lightsRow(-760, 760, 400, 60, 13, [1.0, 0.82, 0.5]) });
         // 탁자 뒷모서리 아래 그늘(탁자 아래 공간)
         L.push({ d: 1520, kind: "table", draw: function (ctx, pr) {
           ctx.fillStyle = "#5b4634"; ctx.fillRect(0, pr.y(-110, 1520) - 2, pr.W, pr.s(60, 1520) + 4);
@@ -760,7 +760,7 @@
     x.clearRect(0, 0, W, H);
     lights.forEach(function (lt) {
       var Rd = Math.max(lt.r, R), k = Math.min(1, (lt.r * lt.r) / (Rd * Rd)) * lt.a;
-      var al = Math.min(1, k * 2.4 + (Rd > 2 ? 0.16 : 0));
+      var al = Math.min(1, k * 2.4 + (Rd > 2 ? 0.3 : 0));
       x.fillStyle = "rgba(" + Math.round(lt.col[0] * 255) + "," + Math.round(lt.col[1] * 255) + "," + Math.round(lt.col[2] * 255) + "," + al.toFixed(3) + ")";
       apertureShape(x, lt.x, lt.y, Rd, opt.blades || 7, Rd > 2 ? opt.round : 1, 0.3);
       x.fill();
@@ -768,7 +768,7 @@
     var d = x.getImageData(0, 0, W, H).data;
     for (var i = 0, n = W * H; i < n; i++) {
       var a = d[i * 4 + 3]; if (!a) continue;
-      var s = (a / 255) * 0.9;
+      var s = (a / 255) * 1.6;
       out[i * 4] += LUT[d[i * 4]] * s; out[i * 4 + 1] += LUT[d[i * 4 + 1]] * s; out[i * 4 + 2] += LUT[d[i * 4 + 2]] * s;
     }
   }
@@ -920,13 +920,16 @@
     var bI = AB.range("cc-b", function (v) { return v.toFixed(3) + " mm"; }, function () { cv.redraw(); });
     var dI = AB.range("cc-d", function (v) { return v + " cm"; }, function () { cv.redraw(); });
     var patch = null;
-    function makeText(W, H, blurPx) {
+    // 인쇄물 위 글자(큰 글자 높이 TXT mm)를 sc px/mm로 그리고, 흐림 원 반지름 blurPx로 흐린다
+    var TXT = 1.6;
+    function makeText(W, H, sc, blurPx) {
       var c = document.createElement("canvas"); c.width = W; c.height = H;
       var x = c.getContext("2d", { willReadFrequently: true });
       x.fillStyle = "#fbfaf7"; x.fillRect(0, 0, W, H);
-      x.fillStyle = "#2b2a30"; x.font = "700 " + Math.round(H * 0.34) + "px Pretendard, sans-serif"; x.textBaseline = "middle"; x.textAlign = "center";
-      x.fillText("책방 E", W / 2, H * 0.36);
-      x.font = "500 " + Math.round(H * 0.17) + "px Pretendard, sans-serif"; x.fillText("그림 읽기 모임 1.12", W / 2, H * 0.74);
+      x.fillStyle = "#2b2a30"; x.textBaseline = "middle"; x.textAlign = "center";
+      x.font = "700 " + Math.max(4, Math.round(TXT * sc)) + "px Pretendard, sans-serif";
+      x.fillText("책방 E", W / 2, H * 0.38);
+      x.font = "500 " + Math.max(3, Math.round(TXT * 0.5 * sc)) + "px Pretendard, sans-serif"; x.fillText("그림 읽기 모임 · 12월", W / 2, H * 0.78);
       if (blurPx < 0.3) return c;
       var id = x.getImageData(0, 0, W, H), n = W * H, a = new Float32Array(n);
       for (var i = 0; i < n; i++) a[i] = id.data[i * 4];
@@ -960,16 +963,16 @@
       ctx.fillStyle = p.dim; ctx.textAlign = "left"; ctx.fillText((D / 10) + " cm에서 봄", ex + 18, eyY);
       // 오른쪽: 돋보기(인쇄물 6 mm 폭을 확대)
       var bx = wide ? w * 0.52 : 14, by = wide ? 14 : gy + gh + 8, bw = wide ? w * 0.48 - 14 : w - 28, bh = wide ? h - 28 : h - by - 12;
-      var view = Math.max(4, eye * 6, onPrint * 4), sc = bw / view;   // 인쇄물 mm → 화면 px
+      var view = Math.max(6, onPrint * 5), sc = bw / view;   // 인쇄물 mm → 화면 px
       var th = Math.min(bh * 0.62, bw * 0.4);
       var tH = Math.round(th), tW = Math.round(bw);
       var blurPx = (onPrint / 2) * sc;   // 흐림 원 반지름(px)
-      var key = [tW, tH, blurPx.toFixed(1)].join(":");
-      if (!patch || patch.key !== key) patch = { key: key, cv: makeText(tW, tH, blurPx) };
+      var key = [tW, tH, sc.toFixed(2), blurPx.toFixed(1)].join(":");
+      if (!patch || patch.key !== key) patch = { key: key, cv: makeText(tW, tH, sc, blurPx) };
       ctx.drawImage(patch.cv, bx, by + 18);
       ctx.strokeStyle = p.border; ctx.lineWidth = 1; ctx.strokeRect(bx + 0.5, by + 18.5, tW - 1, tH - 1);
       ctx.fillStyle = p.dim; ctx.font = AB.font(10, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top";
-      ctx.fillText("돋보기: 인쇄물 위 " + view.toFixed(1) + " mm 폭", bx, by);
+      ctx.fillText("돋보기: 인쇄물 위 " + view.toFixed(1) + " mm 폭, 글자 높이 " + TXT + " mm", bx, by);
       // 원 비교
       var cy = by + 18 + tH + Math.max(26, (bh - tH - 18) / 2);
       var rB = Math.max(1.5, (onPrint / 2) * sc), rE = Math.max(1.5, (eye / 2) * sc);
@@ -993,8 +996,8 @@
       { d: 2000, x: -0.7, n: "앞사람" }, { d: 2400, x: 0.66, n: "" }, { d: 2900, x: -0.64, n: "" },
       { d: 3400, x: 0.6, n: "" }, { d: 3700, x: -0.56, n: "" }, { d: 4000, x: 0, n: "진행자" },
     ];
-    var fI = AB.range("fd-f", function (v) { return v + " mm"; }, function () { cv.redraw(); });
-    var nI = AB.range("fd-n", function (v) { return fstr(FSTOPS[v]); }, function () { cv.redraw(); });
+    var fI = AB.range("fd-f", function (v) { return v + " mm"; }, function () { if (nI) nI.set(+nI.el.value); else cv.redraw(); });
+    var nI = AB.range("fd-n", function (v) { return fstr(Math.round(Math.max(FSTOPS[v], nmin(fI ? fI() : 24)) * 10) / 10); }, function () { cv.redraw(); });
     var strict = AB.check("fd-strict", function () { cv.redraw(); });
     var s = 2000, geo = null;
     function nmin(f) { return 3.5 + ((f - 18) / (55 - 18)) * 2.1; }
