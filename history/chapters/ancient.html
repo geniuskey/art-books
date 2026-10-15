@@ -6,6 +6,31 @@
 <html lang="ko">
 <head>
 <!--head:start {"desc": "이집트의 정면성과 격자, 위계적 크기, 그리스 쿠로스와 도기의 비례, 파이윰 초상, 비잔틴의 금빛 바탕, 중세 필사본과 북위의 불상. 보이는 대로가 아니라 아는 대로, 믿는 대로 그린 그림을 시뮬레이터로 읽는다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고대와 중세 · ArtHistoryBook</title>
+<meta name="description" content="이집트의 정면성과 격자, 위계적 크기, 그리스 쿠로스와 도기의 비례, 파이윰 초상, 비잔틴의 금빛 바탕, 중세 필사본과 북위의 불상. 보이는 대로가 아니라 아는 대로, 믿는 대로 그린 그림을 시뮬레이터로 읽는다.">
+<link rel="canonical" href="https://artbook.euiyun.com/history/chapters/ancient.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="고대와 중세 · ArtHistoryBook">
+<meta property="og:description" content="이집트의 정면성과 격자, 위계적 크기, 그리스 쿠로스와 도기의 비례, 파이윰 초상, 비잔틴의 금빛 바탕, 중세 필사본과 북위의 불상. 보이는 대로가 아니라 아는 대로, 믿는 대로 그린 그림을 시뮬레이터로 읽는다.">
+<meta property="og:url" content="https://artbook.euiyun.com/history/chapters/ancient.html">
+<meta property="og:image" content="https://artbook.euiyun.com/history/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/history/chapters/ancient.html#chapter","name":"고대와 중세","headline":"고대와 중세 · ArtHistoryBook","description":"이집트의 정면성과 격자, 위계적 크기, 그리스 쿠로스와 도기의 비례, 파이윰 초상, 비잔틴의 금빛 바탕, 중세 필사본과 북위의 불상. 보이는 대로가 아니라 아는 대로, 믿는 대로 그린 그림을 시뮬레이터로 읽는다.","url":"https://artbook.euiyun.com/history/chapters/ancient.html","position":2,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/history/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/history/#book","name":"ArtHistoryBook · 미술사","url":"https://artbook.euiyun.com/history/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ArtHistoryBook · 미술사","item":"https://artbook.euiyun.com/history/"},{"@type":"ListItem","position":3,"name":"2. 고대와 중세","item":"https://artbook.euiyun.com/history/chapters/ancient.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
 <!--head:end-->
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
@@ -714,8 +739,8 @@
     [-2.5, -1.25, 0, 1.25, 2.5].forEach(function (x) { TREES.push([x, 3.4, 0]); TREES.push([x, -3.4, 180]); });
     [-1.6, 0, 1.6].forEach(function (z) { TREES.push([-3.4, z, -90]); TREES.push([3.4, z, 90]); });
     var FISH = [[-1.1, 0.9, 1], [0.8, 1.2, -1], [-0.6, -0.8, 1], [1.1, -0.5, -1], [0.1, 0.2, 1]];
-    var cam = { pos: [0, 7.5, -12], yaw: 0, pitch: -0.5, f: 1 };
-    function proj(X, Z, Y, w, h) { var p = ART.project([X, Y || 0, Z], cam); return p ? [w / 2 + p[0] * w * 0.95, h * 0.42 - p[1] * w * 0.95, p[2] || 1] : [w / 2, h / 2, 1]; }
+    var cam = { pos: [0, 7.5, -12], yaw: 0, pitch: -30, f: 1 };
+    function proj(X, Z, Y, w, h) { var p = ART.project([X, Y || 0, Z], cam); var K = Math.min(w * 1.2, h * 1.5); return [w / 2 + p[0] * K, h * 0.45 + p[1] * K, p[2]]; }
     function plan(X, Z, w, h) { var s = Math.min(w, h) * 0.085; return [w / 2 + X * s, h * 0.45 - Z * s, s]; }
     function tree(ctx, x, y, size, ang) {
       ctx.save(); ctx.translate(x, y); ctx.rotate(ang * Math.PI / 180);
