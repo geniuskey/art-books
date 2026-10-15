@@ -794,7 +794,7 @@
 
   /* ---------------- 시뮬레이터 5: 머리 ---------------- */
   (function () {
-    var cv, yaw = 35, pitch = 0;
+    var cv, yaw = 35, pitch = -12;
     var PRE = { front: [0, 0], tq: [35, -12], side: [88, 0], up: [25, 30], down: [25, -32] };
     var pre = AB.seg("hd2-pre", function (v) { yaw = PRE[v][0]; pitch = PRE[v][1]; cv.redraw(); });
     var wrong = AB.check("hd2-wrong", function () { cv.redraw(); });
