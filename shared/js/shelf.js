@@ -14,7 +14,7 @@ window.AB_SHELF = {
     { order: 3, path: "drawing", title: "DrawingBook", sub: "드로잉", status: "writing", motif: "perspective",
       desc: "1·2·3점 투시, 빛과 그림자, 비례, 인체의 구조, 제스처.",
       topics: ["투시", "빛과 그림자", "비례", "인체 구조", "제스처"] },
-    { order: 4, path: "type", title: "TypeBook", sub: "타이포그래피", status: "planned", motif: "glyph",
+    { order: 4, path: "type", title: "TypeBook", sub: "타이포그래피", status: "writing", motif: "glyph",
       desc: "글자의 구조, 한글 타이포그래피, 자간과 행간, 위계, 그리드.",
       topics: ["글자의 구조", "한글 타이포", "자간·행간", "위계", "그리드"] },
     { order: 5, path: "history", title: "ArtHistoryBook", sub: "미술사", status: "planned", motif: "timeline",
