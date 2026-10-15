@@ -351,7 +351,7 @@
     <div class="casefile">
       <div class="tag"><b>CASE 서윤</b><span>조판 노트 · 2장</span></div>
       <h4>간판의 E는 한글보다 가늘어 보였다</h4>
-      <p>서윤은 간판 "책방 E"의 첫 스케치를 컴퓨터에서 했다. 한글 "책방"은 손으로 그렸고, E는 가지고 있던 산세리프 글꼴의 보통 굵기를 그대로 키워 붙였다. 1.8&nbsp;m 폭으로 출력해 서점 건너편 골목에서 보니, E가 한글 옆에서 유난히 가늘고 작았다. 가을에 정한 대로 간판은 크라프트 바탕에 짙은 초록 글자인데, 후보 색 <code>#005132</code>도 크라프트(<code>#c8a77c</code>) 위에서 대비가 이 책의 모델로 <span id="an-case-ct">4.2</span>:1이라 아주 높지는 않다. 가는 획은 멀리서 바탕에 먹혔다.</p>
+      <p>서윤은 간판 "책방 E"의 첫 스케치를 컴퓨터에서 했다. 한글 "책방"은 손으로 그렸고, E는 가지고 있던 산세리프 글꼴의 보통 굵기를 그대로 키워 붙였다. 1.8&nbsp;m 폭으로 출력해 서점 건너편 골목에서 보니, E가 한글 옆에서 유난히 가늘고 작았다. 간판은 가을에 정한 책방 초록(<code>#2f7d5b</code>) 바탕에 크림(<code>#ffe2d7</code>) 글자로 할 생각인데, 두 색의 대비는 이 책의 모델로 <span id="an-case-ct">4.1</span>:1이라 아주 높지는 않다. 가는 획은 멀리서 바탕에 먹혔다.</p>
       <p>서윤은 이 장의 측정 방법으로 기준이 될 만한 글꼴을 쟀다. Inter 보통 굵기(400)의 E는 세로획이 캡하이트의 <span id="an-case-i4">약 13</span>%, 가로획이 <span id="an-case-i4h">약 11</span>%였고, 굵게(700)는 세로획 <span id="an-case-i7">약 20</span>%, 가로획 <span id="an-case-i7h">약 17</span>%였다. 처음 붙인 E는 보통 굵기였으니 한글의 굵은 획 옆에서 가늘어 보일 수밖에 없었다. 한도경은 출력물을 거꾸로 돌려 보더니 "E의 가운데 팔이 아래로 처져 보인다. 가로획이 세로획보다 무거워 보이는 것도 있고"라고 했다.</p>
       <p>서윤의 선택은 보통과 굵게의 사이, 그리고 멀리서 볼 간판에 맞춘 비례였다. 세로획은 캡하이트의 16%로 Inter 보통 굵기보다 3할쯤 굵게 했다. 가로획은 시각 보정을 넣어 세로획의 7/8(캡하이트의 14%)로 가늘게 했다. 대비는 1.14 : 1로 낮게 두어, 멀리서도 가로획이 바탕에 먹히지 않게 했다. 가운데 팔은 수학적 중앙(50%)보다 조금 위인 52% 높이에 중심을 두고, 길이는 위 팔보다 짧게 해서 아래 칸이 위 칸보다 넉넉해 보이게 했다. 간판 아래쪽의 작은 영업시간 줄 "open 11–20"은 E보다 상대적으로 굵게 정했다. 작은 글자는 멀리서 먼저 가늘어지기 때문이다. 숫자는 대문자 높이에 맞춘 라이닝 숫자로 정해 줄의 윗선이 고르게 했다.</p>
       <div class="clue">
@@ -950,7 +950,7 @@
         if (a.stem > 0 && a.stem < 0.4) { AB.stat("an-case-i4", "약 " + Math.round(a.stem * 100)); AB.stat("an-case-i4h", "약 " + Math.round(a.arm * 100)); }
         if (b.stem > 0 && b.stem < 0.5) { AB.stat("an-case-i7", "약 " + Math.round(b.stem * 100)); AB.stat("an-case-i7h", "약 " + Math.round(b.arm * 100)); }
       } catch (e) {}
-      AB.stat("an-case-ct", AB.fix(ART.contrast(ART.parse("#005132"), ART.parse("#c8a77c")), 1));
+      AB.stat("an-case-ct", AB.fix(ART.contrast(ART.parse("#ffe2d7"), ART.parse("#2f7d5b")), 1));
     }
     run();
     if (document.fonts && document.fonts.load) Promise.all([document.fonts.load("400 40px 'Inter'", "E"), document.fonts.load("700 40px 'Inter'", "E")]).then(run).catch(function () {});
