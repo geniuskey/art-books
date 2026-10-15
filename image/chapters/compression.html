@@ -677,7 +677,7 @@
     }
     var cv = AB.canvas("#jq-cv", function (ctx, w, h) {
       if (!res) { loading(ctx, w, h); return; }
-      var wide = w >= 560, mw = wide ? w * 0.56 : w - 24, mh = mw * H / W, x0 = 12, y0 = 12;
+      var wide = w >= 760, mw = wide ? w * 0.56 : w - 24, mh = mw * H / W, x0 = 12, y0 = 12;
       var show = diff() ? diffCanvas() : res.c;
       ctx.drawImage(show, x0, y0, mw, mh);
       var LW = 60, LH = 44, lx = AB.clamp(Math.round(lp.x * W), 0, W - LW), ly = AB.clamp(Math.round(lp.y * H), 0, H - LH), sc = mw / W;
@@ -692,7 +692,7 @@
       ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(zb.x + zb.w / 2, zb.y); ctx.lineTo(zb.x + zb.w / 2, zb.y + zb.h); ctx.stroke();
       ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(zb.x, zb.y, zb.w, zb.h);
       tag(ctx, "원본", zb.x + 6, zb.y + 6); tag(ctx, diff() ? "차이×10" : "저장 결과", zb.x + zb.w - 6, zb.y + 6, true);
-    }, { bg: PAPER, get height() { var w = cw("jq-cv"); if (w >= 560) return Math.round(Math.max(w * 0.56 * 0.6725, (w * 0.44 - 40) * 44 / 60) + 26); return Math.round((w - 24) * 0.6725 + (w - 24) * 44 / 60 + 42); } });
+    }, { bg: PAPER, get height() { var w = cw("jq-cv"); if (w >= 760) return Math.round(Math.max(w * 0.56 * 0.6725, (w * 0.44 - 40) * 44 / 60) + 26); return Math.round((w - 24) * 0.6725 + (w - 24) * 44 / 60 + 42); } });
     AB.drag(cv.canvas, { move: function (x, y) { if (!geo || x > geo.x + geo.w + 10 || y > geo.y + geo.h + 10) return; lp.x = AB.clamp((x - geo.x) / geo.w - 0.05, 0, 1); lp.y = AB.clamp((y - geo.y) / geo.h - 0.05, 0, 1); cv.redraw(); } });
     need(["hokusai-great-wave"], run);
   })();
@@ -748,7 +748,7 @@
       var r = res[fmt()], s = SRC[srcSel()];
       if (!s || !r) { loading(ctx, w, h); return; }
       var shown = r.unsupported ? s.c : r.c;
-      var wide = w >= 560, mw = wide ? w * 0.54 : w - 24, mh = mw * H / W, x0 = 12, y0 = 12, sc = mw / W;
+      var wide = w >= 760, mw = wide ? w * 0.54 : w - 24, mh = mw * H / W, x0 = 12, y0 = 12, sc = mw / W;
       ctx.drawImage(shown, x0, y0, mw, mh);
       var LW = 64, LH = 48, lx = AB.clamp(Math.round(lp.x * W), 0, W - LW), ly = AB.clamp(Math.round(lp.y * H), 0, H - LH);
       geo = { x: x0, y: y0, w: mw, h: mh };
@@ -758,7 +758,7 @@
       ctx.imageSmoothingEnabled = false; ctx.drawImage(shown, lx, ly, LW, LH, zb.x, zb.y, zb.w, zb.h); ctx.imageSmoothingEnabled = true;
       ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(zb.x, zb.y, zb.w, zb.h);
       tag(ctx, ({ png: "PNG", jpeg: "JPEG", webp: "WebP" })[fmt()] + (r.unsupported ? " (저장 불가, 원본 표시)" : "") + " · 확대", zb.x + 6, zb.y + 6);
-    }, { bg: PAPER, get height() { var w = cw("fm-cv"); if (w >= 560) return Math.round(Math.max(w * 0.54 * 2 / 3, (w * 0.46 - 40) * 0.75) + 26); return Math.round((w - 24) * 2 / 3 + (w - 24) * 0.75 + 42); } });
+    }, { bg: PAPER, get height() { var w = cw("fm-cv"); if (w >= 760) return Math.round(Math.max(w * 0.54 * 2 / 3, (w * 0.46 - 40) * 0.75) + 26); return Math.round((w - 24) * 2 / 3 + (w - 24) * 0.75 + 42); } });
     AB.drag(cv.canvas, { move: function (x, y) { if (!geo || x > geo.x + geo.w + 10 || y > geo.y + geo.h + 10) return; lp.x = AB.clamp((x - geo.x) / geo.w - 0.06, 0, 1); lp.y = AB.clamp((y - geo.y) / geo.h - 0.07, 0, 1); cv.redraw(); } });
     need(["homer-wall-nassau", "durer-saint-jerome-study"], run);
   })();
@@ -820,7 +820,7 @@
     }
     var cv = AB.canvas("#ex-cv", function (ctx, w, h) {
       if (!cur) { loading(ctx, w, h); return; }
-      var wide = w >= 560, mw = wide ? w * 0.5 : w - 24, mh = mw * cur.h / cur.w, x0 = 12, y0 = 12, sc = mw / cur.w;
+      var wide = w >= 760, mw = wide ? w * 0.5 : w - 24, mh = mw * cur.h / cur.w, x0 = 12, y0 = 12, sc = mw / cur.w;
       ctx.drawImage(cur.c, x0, y0, mw, mh);
       var zb = wide ? { x: x0 + mw + 16, y: y0, w: w - mw - 40, h: mh } : { x: 12, y: y0 + mh + 16, w: w - 24, h: Math.min(220, (w - 24) * 0.6) };
       var LW = Math.min(cur.w, Math.round(zb.w)), LH = Math.min(cur.h, Math.round(zb.h));  // 1:1
@@ -830,7 +830,7 @@
       ctx.imageSmoothingEnabled = false; ctx.drawImage(cur.c, lx, ly, LW, LH, zb.x, zb.y, LW, LH); ctx.imageSmoothingEnabled = true;
       ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(zb.x, zb.y, LW, LH);
       tag(ctx, "1:1 (화소 그대로)", zb.x + 6, zb.y + 6);
-    }, { bg: PAPER, get height() { var w = cw("ex-cv"); if (w >= 560) return Math.round(w * 0.5 * 0.70125 + 24); return Math.round((w - 24) * 0.70125 + Math.min(220, (w - 24) * 0.6) + 40); } });
+    }, { bg: PAPER, get height() { var w = cw("ex-cv"); if (w >= 760) return Math.round(w * 0.5 * 0.70125 + 24); return Math.round((w - 24) * 0.70125 + Math.min(220, (w - 24) * 0.6) + 40); } });
     var ch = AB.canvas("#ex-ch", function (ctx, w, h) {
       var p = AB.palette();
       if (!curve.key) { ctx.fillStyle = p.dim; ctx.font = AB.font(12); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("품질–크기 곡선을 재는 중…", w / 2, h / 2); return; }
