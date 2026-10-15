@@ -6,6 +6,31 @@
 <html lang="ko">
 <head>
 <!--head:start {"desc": "원은 기울면 타원이 된다. 보는 각과 타원의 폭, 눈높이에 따라 둥글어지는 타원, 원통과 컵의 위아래 타원, 회전축을 따르는 단축, 정사각형 안의 원과 투시 속 중심, 뾰족한 끝 같은 흔한 실수를 시뮬레이터로 익히고, 창가 정물의 타원 각도를 정한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원과 타원 · DrawingBook</title>
+<meta name="description" content="원은 기울면 타원이 된다. 보는 각과 타원의 폭, 눈높이에 따라 둥글어지는 타원, 원통과 컵의 위아래 타원, 회전축을 따르는 단축, 정사각형 안의 원과 투시 속 중심, 뾰족한 끝 같은 흔한 실수를 시뮬레이터로 익히고, 창가 정물의 타원 각도를 정한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/drawing/chapters/ellipse.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="원과 타원 · DrawingBook">
+<meta property="og:description" content="원은 기울면 타원이 된다. 보는 각과 타원의 폭, 눈높이에 따라 둥글어지는 타원, 원통과 컵의 위아래 타원, 회전축을 따르는 단축, 정사각형 안의 원과 투시 속 중심, 뾰족한 끝 같은 흔한 실수를 시뮬레이터로 익히고, 창가 정물의 타원 각도를 정한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/drawing/chapters/ellipse.html">
+<meta property="og:image" content="https://artbook.euiyun.com/drawing/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/drawing/chapters/ellipse.html#chapter","name":"원과 타원","headline":"원과 타원 · DrawingBook","description":"원은 기울면 타원이 된다. 보는 각과 타원의 폭, 눈높이에 따라 둥글어지는 타원, 원통과 컵의 위아래 타원, 회전축을 따르는 단축, 정사각형 안의 원과 투시 속 중심, 뾰족한 끝 같은 흔한 실수를 시뮬레이터로 익히고, 창가 정물의 타원 각도를 정한다.","url":"https://artbook.euiyun.com/drawing/chapters/ellipse.html","position":6,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/drawing/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/drawing/#book","name":"DrawingBook · 드로잉","url":"https://artbook.euiyun.com/drawing/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"DrawingBook · 드로잉","item":"https://artbook.euiyun.com/drawing/"},{"@type":"ListItem","position":3,"name":"6. 원과 타원","item":"https://artbook.euiyun.com/drawing/chapters/ellipse.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
 <!--head:end-->
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
@@ -96,7 +121,7 @@
         <div class="stat"><span class="k">가운데 고리</span><span class="v" id="ele-o-m">—</span></div>
         <div class="stat"><span class="k">맨 아래 고리</span><span class="v" id="ele-o-b">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 눈높이를 1.6 m(서서 본 높이)에 둔다. 1.5 m 고리가 거의 선이고, 아래로 갈수록 둥글어진다. 맨 아래 고리가 가장 둥글다. ② 눈높이를 0으로 내린다. 이번에는 모든 고리를 올려다보게 되어 위로 갈수록 둥글어진다. 고리의 아래쪽 곡선이 앞으로 나온다. ③ 거리를 8 m로 늘린다. 고리들의 폭 차이가 줄어 모두 비슷한 타원이 된다. 멀리 있는 원통일수록 위아래 타원이 비슷하고, 가까이 있는 원통일수록 차이가 크다. (핀홀 모형. 원통 지름 50 cm, 높이 2.4 m. 그림면은 세워 두었고(세로선은 나란함), 고리마다 그림에서 잰 단축 ÷ 장축을 보는 각으로 바꿔 적었다.)</div>
+      <div class="sim-note">해볼 것: ① 눈높이를 1.6 m(서서 본 높이)에 둔다. 1.5 m 고리가 거의 선이고, 아래로 갈수록 둥글어진다. 맨 아래 고리가 가장 둥글다. ② 눈높이를 0으로 내린다. 이번에는 모든 고리를 올려다보게 되어 위로 갈수록 둥글어진다. 고리의 아래쪽 곡선이 앞으로 나온다. ③ 거리를 8 m로 늘린다. 고리들의 폭 차이가 줄어 모두 비슷한 타원이 된다. 멀리 있는 원통일수록 위아래 타원이 비슷하고, 가까이 있는 원통일수록 차이가 크다. (핀홀 모형. 원통 지름 50 cm, 높이 2.4 m. 그림면은 세워 두었다(세로선은 나란함). 고리 옆의 각도는 타원 자의 번호처럼 단축 ÷ 장축을 sin으로 되돌린 "타원 각도"다. 그림면을 세워 둔 그림에서는 그림면이 시선과 직각이 아니어서, 이 값이 실제 보는 각보다 조금 크게 나온다.)</div>
     </div>
 
     <p>원통 하나에서도 위아래 타원의 폭이 다르다는 것, 이것이 이 장에서 가장 중요한 관찰이다. 눈높이 아래에 놓인 컵이라면 바닥은 입구보다 언제나 조금 더 둥글다. 컵이 작고 멀리 있으면 그 차이가 작고, 크고 가까우면 차이가 크다. 그림을 보는 사람은 이 차이를 의식하지 못해도, 차이가 없거나 거꾸로 되면 물체가 앞으로 기울거나 떠 보인다고 느낀다.</p>
@@ -166,10 +191,10 @@
         <div class="stat"><span class="k">장축의 기울기(수평에서)</span><span class="v" id="ela-o-t">—</span></div>
         <div class="stat"><span class="k">단축 ↔ 축의 방향 차이</span><span class="v" id="ela-o-d">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 바퀴를 0°에서 90°까지 돌린다. 0°에서는 바퀴의 축이 그림면과 나란해 바퀴가 얇은 세로 타원이 되고, 90°에서는 축이 눈을 향해 바퀴가 거의 원이 된다. 어느 각도에서나 붉은 단축이 회색 축선 위에 놓인다. ② 눈높이를 바퀴 중심(0.34 m)보다 높이, 또 낮게 옮긴다. 축선이 기울면 타원 전체가 함께 기운다. 장축은 언제나 축선과 직각이다. ③ "둥근 간판"으로 바꾼다. 간판의 회전축은 정면 벽과 나란하므로 축선이 정면 벽의 소실점(VL)을 향하고, 단축도 그쪽을 가리킨다. 간판은 단축 ÷ 장축 0.55의 세로로 긴 타원이다. (핀홀 모형. 바퀴 지름 68 cm, 바퀴 중심까지 3.2 m. 간판은 모서리에서 정면 벽을 따라 1.2 m, 벽에서 0.55 m 나온 자리, 중심 높이 4.8 m. 방향 차이가 0이 아닌 것은 원근 때문에 생기는 작은 어긋남이다.)</div>
+      <div class="sim-note">해볼 것: ① 바퀴를 0°에서 90°까지 돌린다. 0°에서는 바퀴의 축이 그림면과 나란해 바퀴가 얇은 세로 타원이 되고, 90°에서는 축이 눈을 향해 바퀴가 거의 원이 된다. 어느 각도에서나 붉은 단축이 회색 축선과 거의 나란히, 바로 곁에 놓인다. ② 눈높이를 바퀴 중심(0.34 m)보다 높이, 또 낮게 옮긴다. 축선이 기울면 타원 전체가 함께 기운다. 장축은 언제나 축선과 직각이다. ③ "둥근 간판"으로 바꾼다. 간판의 회전축은 정면 벽과 나란하므로 축선이 정면 벽의 소실점(VL)을 향하고, 단축도 그쪽을 가리킨다. 간판은 단축 ÷ 장축 0.55의 세로로 긴 타원이다. (핀홀 모형. 바퀴 지름 68 cm, 바퀴 중심까지 3.2 m. 간판은 모서리에서 정면 벽을 따라 1.2 m, 벽에서 0.55 m 나온 자리, 중심 높이 4.8 m. 방향 차이가 0이 아닌 것은 원근 때문에 생기는 작은 어긋남이다.)</div>
     </div>
 
-    <p>"단축은 축을 따른다"는 규칙은 엄밀히는 정사영 근사에서 정확하고, 실제 원근에서는 축선과 단축이 아주 조금 어긋난다. 그러나 그 어긋남은 대개 1~2°로 손으로 그리는 선의 오차보다 작다. 그래서 실전에서는 이렇게 한다. 먼저 바퀴의 축 방향을 소실점으로 정해 축선을 긋는다. 그다음 축선과 직각으로 장축을 긋고, 그 위에 타원을 돌린다. 자전거 두 바퀴의 축은 나란하므로 두 바퀴의 단축도 같은 소실점을 향한다. 앞바퀴를 꺾으면 앞바퀴의 축만 다른 소실점으로 돌아간다.</p>
+    <p>"단축은 축을 따른다"는 규칙은 엄밀히는 정사영 근사에서 정확하고, 실제 원근에서는 축선과 단축이 아주 조금 어긋난다. 그러나 그 어긋남은 바퀴가 아주 가깝지 않으면 몇 도 이내로, 손으로 그리는 선의 오차와 비슷하거나 작다. 그래서 실전에서는 이렇게 한다. 먼저 바퀴의 축 방향을 소실점으로 정해 축선을 긋는다. 그다음 축선과 직각으로 장축을 긋고, 그 위에 타원을 돌린다. 자전거 두 바퀴의 축은 나란하므로 두 바퀴의 단축도 같은 소실점을 향한다. 앞바퀴를 꺾으면 앞바퀴의 축만 다른 소실점으로 돌아간다.</p>
 
     <div class="callout warn">
       <strong>세워진 원을 정면 원으로 그리는 실수</strong>
@@ -194,7 +219,7 @@
         <div class="stat"><span class="k">원의 진짜 중심 ↔ 타원의 중심</span><span class="v" id="els-o-c">—</span></div>
         <div class="stat"><span class="k">앞쪽 반 ÷ 뒤쪽 반(깊이)</span><span class="v" id="els-o-fb">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 붉은 8점이 모두 실제 원의 투영(검은 타원) 위에 놓이는지 본다. ② 원의 진짜 중심(대각선의 교점, 점)과 타원의 중심(+)을 비교한다. 진짜 중심이 언제나 조금 뒤(위)에 있다. 그래서 타원에서 가장 넓은 가로선은 정사각형의 가운데 선보다 앞에 있다. ③ 정사각형을 아래로 끌어 눈에 가까이 가져온다. 앞쪽 반이 뒤쪽 반보다 눈에 띄게 커지고 중심의 어긋남도 커진다. 수평선 가까이 멀리 보내면 어긋남이 사라진다. ④ 각도를 돌려도 대각선과 8점의 관계는 그대로다. (핀홀 모형. 정사각형 한 변 1 m, 눈높이 1.2 m.)</div>
+      <div class="sim-note">해볼 것: ① 붉은 8점이 모두 실제 원의 투영(검은 타원) 위에 놓이는지 본다. ② 원의 진짜 중심(대각선의 교점, 점)과 타원의 중심(+)을 비교한다. 진짜 중심이 언제나 조금 뒤(위)에 있다. 그래서 타원에서 가장 넓은 가로선은 정사각형의 가운데 선보다 앞에 있다. ③ 정사각형을 아래로 끌어 눈에 가까이 가져온다. 앞쪽 반이 뒤쪽 반보다 눈에 띄게 커지고 중심의 어긋남도 커진다. 수평선 가까이 멀리 보내면 어긋남이 사라진다. ④ 각도를 돌려도 대각선과 8점의 관계는 그대로다. (핀홀 모형. 정사각형 한 변 1 m, 눈높이 1.0 m.)</div>
     </div>
 
     <p>시뮬레이터에서 본 어긋남은 중요한 교훈을 준다. 정사각형의 중심은 투시에서 정확하지만, 타원을 그 중심에 맞춰 위아래로 똑같이 그리면 틀린다. 투시 속 원은 앞쪽 반이 뒤쪽 반보다 조금 크다. 실전에서는 이렇게 생각하면 된다. 타원을 대칭으로 그리되, 그 타원은 정사각형의 대각선 교점보다 조금 앞으로 내려 와 있다. 가까이 있는 큰 원일수록 이 차이를 신경 쓰고, 멀리 있는 작은 원은 무시해도 된다.</p>
@@ -281,7 +306,7 @@
         <div class="stat"><span class="k">화분 입구 · 바닥</span><span class="v" id="elw-o-p">—</span></div>
         <div class="stat"><span class="k">수평선(눈높이)</span><span class="v" id="elw-o-h">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "앉아서"에서 시작한다. 컵 입구 31°, 바닥 37°, 화분 입구 24°, 바닥 31°다. 더 멀고 높은 화분 입구가 가장 납작하다. ② "흔한 실수"를 켠다. 바닥을 입구와 같은 폭으로 그리면 컵 바닥이 앞으로 들려 컵이 탁자에서 앞으로 기울어 보인다. ③ "턱 괴고"로 바꾼다. 눈이 화분 입구 높이에 가까워 화분 입구가 거의 선이 되고, 위아래 타원의 차이가 커진다. ④ 거리를 1.2 m로 늘린다. 모든 타원이 납작해지고 서로 비슷해진다. (핀홀 모형, 그림면은 세워 두었다. 컵은 지름 8 cm·높이 9 cm, 화분은 입구 지름 12 cm·높이 11 cm로 둔 예시 크기이고, 화분은 컵보다 15 cm 뒤에 있다. 각도는 그림에서 잰 단축 ÷ 장축을 보는 각으로 바꾼 값이다.)</div>
+      <div class="sim-note">해볼 것: ① "앉아서"에서 시작한다. 컵 입구 31°, 바닥 37°, 화분 입구 24°, 바닥 31°다. 더 멀고 높은 화분 입구가 가장 납작하다. ② "흔한 실수"를 켠다. 바닥을 입구와 같은 폭으로 그리면 컵 바닥이 앞으로 들려 컵이 탁자에서 앞으로 기울어 보인다. ③ "턱 괴고"로 바꾼다. 눈이 화분 입구 높이에 가까워 화분 입구가 거의 선이 되고, 위아래 타원의 차이가 커진다. ④ 거리를 1.2 m로 늘린다. 모든 타원이 납작해지고 서로 비슷해진다. (핀홀 모형, 시선은 컵을 향하고 그림면은 시선과 직각이다. 컵은 지름 8 cm·높이 9 cm, 화분은 입구 지름 12 cm·높이 11 cm로 둔 예시 크기이고, 화분은 컵보다 15 cm 뒤에 있다. 각도는 그림에서 잰 단축 ÷ 장축을 보는 각으로 바꾼 값이다.)</div>
     </div>
 
     <p>같은 정물이라도 앉아서 보는지 서서 보는지에 따라 타원 네 개의 각도가 모두 달라진다. 그리고 그 네 각도 사이의 관계(멀고 높은 것이 더 납작하고, 가깝고 낮은 것이 더 둥글다)는 어느 자리에서나 유지된다. 각도를 숫자로 정해 두면 여러 날에 걸쳐 그려도 타원이 흔들리지 않는다.</p>
@@ -362,7 +387,594 @@
   </section>
 </main>
 <script>
-/* SCRIPT */
+(function () {
+  "use strict";
+  /* 고정색: 예시 그림(종이) 위의 선과 글자. 다크 모드에서도 바뀌지 않는다. */
+  var PAPER = "#fbfaf7", INK = "#2b2a30", DIM = "#6b6874", FAINT = "#b3ada2";
+  var RED = "#c8452f", BLUE = "#2f6fb0", GREEN = "#2f7d5b", OCHRE = "#a8781f";
+  var D2R = Math.PI / 180;
+
+  /* ---------------- 벡터와 투영 ---------------- */
+  function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+  function add(a, b) { return [a[0] + b[0], a[1] + b[1], a[2] + b[2]]; }
+  function mul(a, s) { return [a[0] * s, a[1] * s, a[2] * s]; }
+  function cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+  function unit(a) { var l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; }
+  function camera(f, cx, cy, eye, pitch, x) { return { pos: [x || 0, eye, 0], yaw: 0, pitch: pitch || 0, f: f, cx: cx, cy: cy }; }
+  function proj(p, cam) { return ART.project(p, cam); }
+  function VP(d, cam) { return ART.vanishingPoint(d, cam) || ART.vanishingPoint(mul(d, -1), cam); }
+  function meet(p1, p2, p3, p4) {
+    var d = (p1[0] - p2[0]) * (p3[1] - p4[1]) - (p1[1] - p2[1]) * (p3[0] - p4[0]);
+    if (Math.abs(d) < 1e-9) return null;
+    var a = p1[0] * p2[1] - p1[1] * p2[0], b = p3[0] * p4[1] - p3[1] * p4[0];
+    return [(a * (p3[0] - p4[0]) - (p1[0] - p2[0]) * b) / d, (a * (p3[1] - p4[1]) - (p1[1] - p2[1]) * b) / d];
+  }
+  // 중심 c, 회전축(법선) n, 반지름 r인 원 위의 점들(세계 좌표). 첫 점은 e1 방향
+  function circle3(c, n, r, N) {
+    n = unit(n);
+    var e1 = Math.abs(n[1]) > 0.9 ? unit(cross(n, [0, 0, 1])) : unit(cross([0, 1, 0], n));
+    var e2 = cross(n, e1), out = [];
+    for (var i = 0; i < N; i++) { var t = (i / N) * Math.PI * 2; out.push(add(c, add(mul(e1, r * Math.cos(t)), mul(e2, r * Math.sin(t))))); }
+    return out;
+  }
+  function projAll(P, cam) { return P.map(function (p) { return proj(p, cam); }); }
+
+  /* ---------------- 타원 맞추기(원뿔 곡선 최소제곱) ----------------
+     A x² + B xy + C y² + D x + E y + F = 0, 제약 A + C = 1 (타원이면 A + C ≠ 0).
+     정규화한 좌표에서 5원 연립방정식을 풀고, 중심·반축·기울기를 구한다(교과서적 해석기하). */
+  function solve(M, b) {
+    var n = b.length, i, j, k;
+    for (i = 0; i < n; i++) {
+      var piv = i;
+      for (k = i + 1; k < n; k++) if (Math.abs(M[k][i]) > Math.abs(M[piv][i])) piv = k;
+      var t = M[i]; M[i] = M[piv]; M[piv] = t; var tb = b[i]; b[i] = b[piv]; b[piv] = tb;
+      if (Math.abs(M[i][i]) < 1e-14) return null;
+      for (k = i + 1; k < n; k++) { var f = M[k][i] / M[i][i]; for (j = i; j < n; j++) M[k][j] -= f * M[i][j]; b[k] -= f * b[i]; }
+    }
+    var x = new Array(n);
+    for (i = n - 1; i >= 0; i--) { var s = b[i]; for (j = i + 1; j < n; j++) s -= M[i][j] * x[j]; x[i] = s / M[i][i]; }
+    return x;
+  }
+  function fitEllipse(pts) {
+    var n = pts.length; if (n < 5) return null;
+    var mx = 0, my = 0; pts.forEach(function (p) { mx += p[0]; my += p[1]; }); mx /= n; my /= n;
+    var sc = 0; pts.forEach(function (p) { sc += (p[0] - mx) * (p[0] - mx) + (p[1] - my) * (p[1] - my); }); sc = Math.sqrt(sc / n) || 1;
+    var M = [], b = [], i, j;
+    for (i = 0; i < 5; i++) { M.push([0, 0, 0, 0, 0]); b.push(0); }
+    pts.forEach(function (p) {
+      var x = (p[0] - mx) / sc, y = (p[1] - my) / sc, r = [x * x - y * y, x * y, x, y, 1], t = -y * y;
+      for (i = 0; i < 5; i++) { for (j = 0; j < 5; j++) M[i][j] += r[i] * r[j]; b[i] += r[i] * t; }
+    });
+    var q = solve(M, b); if (!q) return null;
+    var A = q[0], B = q[1], C = 1 - q[0], D = q[2], E = q[3], F = q[4];
+    var det = 4 * A * C - B * B; if (det <= 1e-12) return null;
+    var x0 = (B * E - 2 * C * D) / det, y0 = (B * D - 2 * A * E) / det;
+    var F0 = A * x0 * x0 + B * x0 * y0 + C * y0 * y0 + D * x0 + E * y0 + F;
+    var phi = 0.5 * Math.atan2(B, A - C), c = Math.cos(phi), s = Math.sin(phi);
+    var l1 = A * c * c + B * s * c + C * s * s, l2 = A * s * s - B * s * c + C * c * c;
+    var r1 = -F0 / l1, r2 = -F0 / l2; if (!(r1 > 0 && r2 > 0)) return null;
+    var a1 = Math.sqrt(r1), a2 = Math.sqrt(r2), ang = phi, a = a1, bb = a2;
+    if (a2 > a1) { a = a2; bb = a1; ang = phi + Math.PI / 2; }
+    return { cx: mx + x0 * sc, cy: my + y0 * sc, a: a * sc, b: bb * sc, ang: ang };
+  }
+  function ratioDeg(r) { return Math.asin(AB.clamp(r, 0, 1)) / D2R; }
+
+  /* ---------------- 그리기 도구 ---------------- */
+  function seg(ctx, a, b, col, lw, dash) {
+    ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = lw || 1; ctx.setLineDash(dash || []);
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); ctx.restore();
+  }
+  function path(ctx, pts, close, stroke, lw, fill, dash) {
+    if (!pts.length) return;
+    ctx.save(); ctx.beginPath();
+    pts.forEach(function (p, i) { if (i) ctx.lineTo(p[0], p[1]); else ctx.moveTo(p[0], p[1]); });
+    if (close) ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.setLineDash(dash || []); ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.stroke(); }
+    ctx.restore();
+  }
+  function txt(ctx, s, x, y, o) {
+    o = o || {};
+    ctx.save(); ctx.font = AB.font(o.size || 12, o.mono, o.weight || 500);
+    ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "alphabetic";
+    if (o.halo !== false) { ctx.lineWidth = 3.5; ctx.strokeStyle = o.haloColor || PAPER; ctx.lineJoin = "round"; ctx.strokeText(s, x, y); }
+    ctx.fillStyle = o.color || INK; ctx.fillText(s, x, y); ctx.restore();
+  }
+  function dotAt(ctx, p, r, col, ring) {
+    ctx.save(); ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, Math.PI * 2);
+    if (ring) { ctx.strokeStyle = col; ctx.lineWidth = 1.6; ctx.stroke(); } else { ctx.fillStyle = col; ctx.fill(); }
+    ctx.restore();
+  }
+  function plus(ctx, p, r, col) { seg(ctx, [p[0] - r, p[1]], [p[0] + r, p[1]], col, 1.6); seg(ctx, [p[0], p[1] - r], [p[0], p[1] + r], col, 1.6); }
+  function ell(ctx, e, col, lw, dash) {
+    if (!e) return;
+    ctx.save(); ctx.beginPath(); ctx.ellipse(e.cx, e.cy, Math.max(0.1, e.a), Math.max(0.1, e.b), e.ang, 0, Math.PI * 2);
+    ctx.strokeStyle = col; ctx.lineWidth = lw || 1.5; ctx.setLineDash(dash || []); ctx.stroke(); ctx.restore();
+  }
+  function edgeArrow(ctx, w, h, p, col, label, o) {
+    var m = 14; o = o || [w / 2, h / 2];
+    if (p[0] >= m && p[0] <= w - m && p[1] >= m && p[1] <= h - m) {
+      dotAt(ctx, p, 5, col); txt(ctx, label, AB.clamp(p[0], 30, w - 30), p[1] - 10, { color: col, align: "center", weight: 700 }); return;
+    }
+    var dx = p[0] - o[0], dy = p[1] - o[1];
+    var tx = dx > 0 ? (w - m - o[0]) / dx : dx < 0 ? (m - o[0]) / dx : Infinity;
+    var ty = dy > 0 ? (h - m - o[1]) / dy : dy < 0 ? (m - o[1]) / dy : Infinity;
+    var t = Math.min(tx, ty), x = o[0] + dx * t, y = o[1] + dy * t, a = Math.atan2(dy, dx);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.fillStyle = col;
+    ctx.beginPath(); ctx.moveTo(9, 0); ctx.lineTo(-6, -6.5); ctx.lineTo(-6, 6.5); ctx.closePath(); ctx.fill(); ctx.restore();
+    if (Math.abs(Math.cos(a)) > 0.5) txt(ctx, label, dx > 0 ? x - 12 : x + 12, y - 9, { color: col, align: dx > 0 ? "right" : "left", weight: 700, size: 11 });
+    else txt(ctx, label, AB.clamp(x, 70, w - 70), dy > 0 ? y - 12 : y + 22, { color: col, align: "center", weight: 700, size: 11 });
+  }
+  function canvasOpts(el, k, lo, hi) {
+    return { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * k, lo, hi)); } };
+  }
+  function degFmt(r) { return r < 0.02 ? "선(0°)" : Math.round(ratioDeg(r)) + "° (" + r.toFixed(2) + ")"; }
+
+  /* ================= 1. 보는 각과 타원의 폭 ================= */
+  (function () {
+    var el = document.getElementById("elt-cv");
+    var aR = AB.range("elt-a", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var dist = AB.seg("elt-d", function () { cv.redraw(); });
+    var ortho = AB.check("elt-ortho", function () { cv.redraw(); });
+    var cv = AB.canvas(el, draw, canvasOpts(el, 0.56, 260, 420));
+    function draw(ctx, w, h) {
+      var L = Math.min(0.36 * w, 220), al = aR() * D2R;
+      // 왼쪽: 옆에서 본 모습
+      ctx.fillStyle = "#f2eee5"; ctx.fillRect(0, 0, L, h);
+      seg(ctx, [L, 0], [L, h], "#ddd6c8", 1);
+      txt(ctx, "옆에서 본 모습", 10, 20, { color: DIM, size: 11, haloColor: "#f2eee5" });
+      var pc = [L * 0.62, h * 0.66], pr = L * 0.22, er = L * 0.5;
+      seg(ctx, [pc[0] - pr, pc[1]], [pc[0] + pr, pc[1]], INK, 4);
+      var eye = [pc[0] - er * Math.cos(al), pc[1] - er * Math.sin(al)];
+      seg(ctx, eye, pc, OCHRE, 1.5, [5, 4]);
+      ctx.save(); ctx.beginPath(); ctx.arc(pc[0], pc[1], L * 0.16, Math.PI, Math.PI + al); ctx.strokeStyle = OCHRE; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore();
+      txt(ctx, "α", pc[0] - L * 0.2 * Math.cos(al / 2) - 4, pc[1] - L * 0.2 * Math.sin(al / 2) + 4, { color: OCHRE, weight: 700, align: "right" });
+      dotAt(ctx, eye, 5, INK); txt(ctx, "눈", eye[0] + 8, eye[1] - 6, { size: 11, haloColor: "#f2eee5" });
+      txt(ctx, "접시", pc[0], pc[1] + 18, { size: 11, align: "center", color: DIM, haloColor: "#f2eee5" });
+      // 오른쪽: 그림
+      var R = dist() === "near" ? 0.45 : 2.0, RW = w - L, cx = L + RW / 2, cy = h / 2;
+      var f = Math.min(RW * 0.62, h * 0.8) * R / 0.24;
+      var cam = { pos: [0, R * Math.sin(al), -R * Math.cos(al)], yaw: 0, pitch: -aR(), f: f, cx: cx, cy: cy };
+      var outer = projAll(circle3([0, 0, 0], [0, 1, 0], 0.12, 120), cam), inner = projAll(circle3([0, 0, 0], [0, 1, 0], 0.085, 120), cam);
+      var fit = aR() > 0.5 ? fitEllipse(outer) : null;
+      path(ctx, outer, true, INK, 2, "#f1ece2");
+      path(ctx, inner, true, "#9a9488", 1.2);
+      var tc = proj([0, 0, 0], cam);
+      if (fit && ortho()) ell(ctx, { cx: fit.cx, cy: fit.cy, a: fit.a, b: fit.a * Math.sin(al), ang: 0 }, BLUE, 1.4, [6, 4]);
+      if (fit) {
+        seg(ctx, [fit.cx - fit.a, fit.cy], [fit.cx + fit.a, fit.cy], "rgba(43,42,48,0.4)", 1);
+        seg(ctx, [fit.cx, fit.cy - fit.b], [fit.cx, fit.cy + fit.b], RED, 1.6);
+        plus(ctx, [fit.cx, fit.cy], 6, INK);
+      }
+      dotAt(ctx, [tc[0], tc[1]], 3.5, RED);
+      txt(ctx, "장축", fit ? fit.cx + fit.a - 4 : cx, (fit ? fit.cy : cy) - 6, { size: 11, color: DIM, align: "right" });
+      var r = fit ? fit.b / fit.a : 0;
+      AB.stat("elt-o-r", aR() < 0.5 ? "0 (선)" : r.toFixed(3));
+      AB.stat("elt-o-s", Math.sin(al).toFixed(3));
+      AB.stat("elt-o-c", fit ? Math.abs(tc[1] - fit.cy).toFixed(1) + " px (장축의 " + (Math.abs(tc[1] - fit.cy) / fit.a * 100).toFixed(1) + "%)" : "—");
+    }
+    var d0 = null;
+    AB.drag(el, {
+      start: function (x, y) { d0 = { y: y, a: aR() }; },
+      move: function (x, y) { if (d0) aR.set(Math.round(AB.clamp(d0.a - (y - d0.y) * 0.4, 0, 90))); },
+      end: function () { d0 = null; },
+    });
+  })();
+
+  /* ================= 2. 눈높이와 고리 ================= */
+  (function () {
+    var el = document.getElementById("ele-cv");
+    var hR = AB.range("ele-h", function (v) { return v.toFixed(2) + " m"; }, function () { cv.redraw(); });
+    var zR = AB.range("ele-z", function (v) { return v.toFixed(1) + " m"; }, function () { cv.redraw(); });
+    var geo = { h: 400 };
+    var cv = AB.canvas(el, draw, canvasOpts(el, 0.8, 320, 560));
+    function draw(ctx, w, h) {
+      geo.h = h;
+      var e = hR(), z = zR(), f = 0.78 * h * z / 2.4, cx = w * 0.42, cy = h / 2 + f * (1.2 - e) / z;
+      var cam = camera(f, cx, cy, e), R = 0.25;
+      var rings = [], info = {};
+      for (var k = 0; k <= 8; k++) {
+        var y = k * 0.3, P = circle3([0, y, z], [0, 1, 0], R, 96), S = projAll(P, cam);
+        rings.push({ y: y, P: P, S: S, fit: fitEllipse(S) });
+      }
+      // 몸통(옆선 사이를 옅게)
+      var t0 = rings[8].S, b0 = rings[0].S;
+      var minX = function (S) { return S.reduce(function (m, p) { return p[0] < m[0] ? p : m; }); };
+      var maxX = function (S) { return S.reduce(function (m, p) { return p[0] > m[0] ? p : m; }); };
+      var lt = minX(t0), rt = maxX(t0), lb = minX(b0), rb = maxX(b0);
+      path(ctx, [lt, rt, rb, lb], true, null, 1, "rgba(150,186,190,0.18)");
+      seg(ctx, lt, lb, INK, 1.8); seg(ctx, rt, rb, INK, 1.8);
+      // 수평선
+      if (cy > 0 && cy < h) { seg(ctx, [0, cy], [w, cy], GREEN, 1.5); txt(ctx, "눈높이 " + e.toFixed(2) + " m", 8, cy - 7, { color: GREEN, weight: 600, size: 12 }); }
+      else edgeArrow(ctx, w, h, [cx, cy], GREEN, "눈높이 " + e.toFixed(2) + " m", [cx, h / 2]);
+      rings.forEach(function (rg, i) {
+        var front = [], back = [];
+        rg.P.forEach(function (p, j) { (p[2] < z ? front : back).push(j); });
+        // 뒤쪽 반은 점선, 앞쪽 반은 실선(점의 순서를 유지하며 나눈다)
+        var S = rg.S, N = S.length, segs = { f: [], b: [] };
+        for (var j = 0; j < N; j++) {
+          var isF = rg.P[j][2] <= z, nx = (j + 1) % N, isF2 = rg.P[nx][2] <= z;
+          (isF && isF2 ? segs.f : segs.b).push([S[j], S[nx]]);
+        }
+        ctx.save(); ctx.strokeStyle = "rgba(43,42,48,0.4)"; ctx.setLineDash([3, 3]); ctx.lineWidth = 1; ctx.beginPath();
+        segs.b.forEach(function (s) { ctx.moveTo(s[0][0], s[0][1]); ctx.lineTo(s[1][0], s[1][1]); }); ctx.stroke(); ctx.restore();
+        ctx.save(); ctx.strokeStyle = i === 0 || i === 8 ? INK : "#4d6f7a"; ctx.lineWidth = i === 0 || i === 8 ? 2 : 1.5; ctx.beginPath();
+        segs.f.forEach(function (s) { ctx.moveTo(s[0][0], s[0][1]); ctx.lineTo(s[1][0], s[1][1]); }); ctx.stroke(); ctx.restore();
+        var r = rg.fit ? rg.fit.b / rg.fit.a : 0, mxp = maxX(S);
+        if (Math.abs(rg.y - e) < 0.02) r = 0;
+        txt(ctx, rg.y.toFixed(1) + " m · " + (r < 0.02 ? "선" : Math.round(ratioDeg(r)) + "°"), mxp[0] + 10, mxp[1] + 4, { size: 11, color: DIM, mono: true });
+        if (i === 8) info.t = r; if (i === 4) info.m = r; if (i === 0) info.b = r;
+      });
+      AB.stat("ele-o-t", degFmt(info.t)); AB.stat("ele-o-m", degFmt(info.m)); AB.stat("ele-o-b", degFmt(info.b));
+    }
+    var d0 = null;
+    AB.drag(el, {
+      start: function (x, y) { d0 = { y: y, e: hR() }; },
+      move: function (x, y) { if (d0) hR.set(+AB.clamp(d0.e - (y - d0.y) * 2.4 / (0.78 * geo.h), 0, 2.4).toFixed(2)); },
+      end: function () { d0 = null; },
+    });
+  })();
+
+  /* ================= 3. 바퀴의 축과 단축 ================= */
+  (function () {
+    var el = document.getElementById("ela-cv");
+    var mode = AB.seg("ela-mode", function (m) { yR.el.disabled = hR.el.disabled = m === "sign"; cv.redraw(); });
+    var yR = AB.range("ela-y", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var hR = AB.range("ela-h", function (v) { return v.toFixed(2) + " m"; }, function () { cv.redraw(); });
+    var cv = AB.canvas(el, draw, canvasOpts(el, 0.66, 290, 470));
+    function axesOf(fit) { var c = Math.cos(fit.ang), s = Math.sin(fit.ang); return { maj: [c, s], min: [-s, c] }; }
+    function angDiff(u, v) { var a = Math.abs(Math.atan2(u[1], u[0]) - Math.atan2(v[1], v[0])) / D2R % 180; return Math.min(a, 180 - a); }
+    function draw(ctx, w, h) {
+      var sign = mode() === "sign", cam, c, n, R, axisDir, fit, outer;
+      if (!sign) {
+        var e = hR(), psi = yR() * D2R, z = 3.2;
+        c = [0, 0.34, z]; n = [Math.cos(psi), 0, Math.sin(psi)]; R = 0.34;
+        var f = h * 0.62 * z / (2 * R);
+        cam = camera(f, w / 2, h / 2 + f * (0.34 - e) / z, e);
+        var hy = cam.cy;
+        if (hy > 0 && hy < h) { seg(ctx, [0, hy], [w, hy], GREEN, 1.3); txt(ctx, "눈높이", 8, hy - 6, { color: GREEN, size: 11 }); }
+        var gy = proj([0, 0, z], cam)[1];
+        seg(ctx, [0, gy], [w, gy], "#cfc8ba", 1);
+        txt(ctx, "땅", 8, gy + 14, { color: DIM, size: 11 });
+        outer = projAll(circle3(c, n, R, 96), cam);
+        var tire2 = projAll(circle3(add(c, mul(n, 0.035)), n, R, 96), cam), inner = projAll(circle3(c, n, R * 0.88, 96), cam);
+        var hub = projAll(circle3(c, n, 0.045, 32), cam);
+        path(ctx, tire2, true, "#8c8578", 2);
+        // 바퀴살
+        var rimP = circle3(c, n, R * 0.88, 16);
+        rimP.forEach(function (p) { seg(ctx, proj(c, cam), proj(p, cam), "#8c8578", 0.9); });
+        path(ctx, outer, true, INK, 4);
+        path(ctx, inner, true, INK, 1.2);
+        path(ctx, hub, true, INK, 1.4, "#e7e0d2");
+        axisDir = n;
+      } else {
+        // 5장 외관의 시점(모서리 13.2 m, 눈높이 1.6 m, 정면 벽 30°)에서 본 돌출 간판
+        var th = 30 * D2R, fd = [-Math.cos(th), 0, Math.sin(th)], out = [-Math.sin(th), 0, -Math.cos(th)];
+        var C0 = [0, 0, 13.2];
+        c = add(add(C0, mul(fd, 1.2)), mul(out, 0.55)); c[1] = 4.8; n = fd; R = 0.4;
+        var k = h * 0.5 / 1.61, fcm = 25.98, base = { pos: [0, 1.6, 0], yaw: 0, pitch: 0, f: fcm * k, cx: 0, cy: 0 };
+        var pc = proj(c, base);
+        cam = { pos: [0, 1.6, 0], yaw: 0, pitch: 0, f: fcm * k, cx: w * 0.58 - pc[0], cy: h / 2 - pc[1] };
+        // 벽: 모서리 세로선과 정면 벽의 가로선(2층 바닥 3.4 m, 난간 6.6 m)
+        var cTop = proj([C0[0], 7.2, C0[2]], cam), cBot = proj([C0[0], 2.6, C0[2]], cam);
+        seg(ctx, cTop, cBot, INK, 2);
+        [3.4, 6.6, 7.2].forEach(function (yy) { var a = proj([C0[0], yy, C0[2]], cam), b = proj(add([C0[0], yy, C0[2]], mul(fd, 4)), cam); seg(ctx, a, b, "#8c8578", 1.2); });
+        var sd = [Math.sin(th), 0, Math.cos(th)];
+        [3.4, 6.6, 7.2].forEach(function (yy) { var a = proj([C0[0], yy, C0[2]], cam), b = proj(add([C0[0], yy, C0[2]], mul(sd, 3)), cam); seg(ctx, a, b, "#b9b2a4", 1); });
+        txt(ctx, "정면 벽", proj(add([C0[0], 6.0, C0[2]], mul(fd, 2.6)), cam)[0], proj(add([C0[0], 6.0, C0[2]], mul(fd, 2.6)), cam)[1], { color: DIM, size: 11, align: "center" });
+        // 받침대
+        var b1 = proj(add(c, mul(out, -R)), cam), b2 = proj(add(c, mul(out, -0.55)), cam);
+        seg(ctx, b1, b2, INK, 3);
+        outer = projAll(circle3(c, n, R, 96), cam);
+        var inner2 = projAll(circle3(c, n, R * 0.82, 96), cam);
+        path(ctx, outer, true, INK, 2.6, "#f3ede0");
+        path(ctx, inner2, true, GREEN, 1.6);
+        axisDir = n;
+        var vl = VP(fd, cam);
+        if (vl) edgeArrow(ctx, w, h, vl, RED, "VL(정면 벽의 소실점)", proj(c, cam));
+      }
+      fit = fitEllipse(outer);
+      var pc2 = proj(c, cam), pa = proj(add(c, mul(axisDir, 0.5)), cam);
+      var adir = [pa[0] - pc2[0], pa[1] - pc2[1]], al = Math.hypot(adir[0], adir[1]) || 1;
+      adir = [adir[0] / al, adir[1] / al];
+      seg(ctx, [pc2[0] - adir[0] * 3000, pc2[1] - adir[1] * 3000], [pc2[0] + adir[0] * 3000, pc2[1] + adir[1] * 3000], "rgba(43,42,48,0.45)", 1.2, [6, 4]);
+      if (fit) {
+        var ax = axesOf(fit);
+        seg(ctx, [fit.cx - ax.maj[0] * fit.a, fit.cy - ax.maj[1] * fit.a], [fit.cx + ax.maj[0] * fit.a, fit.cy + ax.maj[1] * fit.a], BLUE, 1.4);
+        seg(ctx, [fit.cx - ax.min[0] * fit.b * 1.5, fit.cy - ax.min[1] * fit.b * 1.5], [fit.cx + ax.min[0] * fit.b * 1.5, fit.cy + ax.min[1] * fit.b * 1.5], RED, 2.4);
+        txt(ctx, "단축", fit.cx + ax.min[0] * fit.b * 1.5 + 6, fit.cy + ax.min[1] * fit.b * 1.5 + 4, { color: RED, weight: 700, size: 11 });
+        txt(ctx, "장축", fit.cx + ax.maj[0] * fit.a + 6, fit.cy + ax.maj[1] * fit.a + 4, { color: BLUE, weight: 700, size: 11 });
+        var tilt = (Math.atan2(ax.maj[1], ax.maj[0]) / D2R + 180) % 180; tilt = tilt > 90 ? 180 - tilt : tilt;
+        AB.stat("ela-o-r", (fit.b / fit.a).toFixed(2) + " (" + Math.round(ratioDeg(fit.b / fit.a)) + "°)");
+        AB.stat("ela-o-t", tilt.toFixed(1) + "°");
+        AB.stat("ela-o-d", angDiff(ax.min, adir).toFixed(1) + "°");
+      }
+      txt(ctx, sign ? "축선 = 간판의 회전축(정면 벽과 나란함)" : "축선 = 바퀴의 축", 10, h - 12, { color: DIM, size: 11 });
+    }
+    var d0 = null;
+    AB.drag(el, {
+      start: function (x) { d0 = { x: x, y: yR() }; },
+      move: function (x) { if (d0 && mode() !== "sign") yR.set(Math.round(AB.clamp(d0.y + (x - d0.x) * 0.4, 0, 90))); },
+      end: function () { d0 = null; },
+    });
+  })();
+
+  /* ================= 4. 정사각형 안의 원 ================= */
+  (function () {
+    var el = document.getElementById("els-cv");
+    var st = { x: -0.25, z: 2.5 };
+    var rR = AB.range("els-r", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var guide = AB.check("els-g", function () { cv.redraw(); });
+    var geo = {};
+    var cv = AB.canvas(el, draw, canvasOpts(el, 0.66, 290, 470));
+    function draw(ctx, w, h) {
+      var f = 0.9 * Math.min(w, h * 1.4), cx = w / 2, hy = h * 0.16, eye = 1.0;
+      var cam = camera(f, cx, hy, eye);
+      geo = { f: f, cx: cx, hy: hy, eye: eye, w: w, h: h };
+      var rho = rR() * D2R, u = [Math.cos(rho), 0, Math.sin(rho)], v = [-Math.sin(rho), 0, Math.cos(rho)];
+      var Cq = [st.x, 0, st.z];
+      var corner = function (a, b) { return proj(add(Cq, add(mul(u, a * 0.5), mul(v, b * 0.5))), cam); };
+      var Q = [corner(-1, -1), corner(1, -1), corner(1, 1), corner(-1, 1)];
+      seg(ctx, [0, hy], [w, hy], GREEN, 1.3); txt(ctx, "눈높이", 8, hy - 6, { color: GREEN, size: 11 });
+      path(ctx, Q, true, INK, 1.6, "#efe8da");
+      var tc = proj(Cq, cam);
+      if (guide()) {
+        seg(ctx, Q[0], Q[2], DIM, 1); seg(ctx, Q[1], Q[3], DIM, 1);
+        var m = function (a, b) { return proj(add(Cq, add(mul(u, a), mul(v, b))), cam); };
+        seg(ctx, m(-0.5, 0), m(0.5, 0), DIM, 1, [4, 3]); seg(ctx, m(0, -0.5), m(0, 0.5), DIM, 1, [4, 3]);
+        var k = 0.5 / Math.SQRT2;
+        [-k, k].forEach(function (a) { seg(ctx, m(a, -0.5), m(a, 0.5), OCHRE, 1, [3, 3]); seg(ctx, m(-0.5, a), m(0.5, a), OCHRE, 1, [3, 3]); });
+      }
+      var circ = projAll(circle3(Cq, [0, 1, 0], 0.5, 120), cam);
+      path(ctx, circ, true, INK, 2.2);
+      if (guide()) {
+        var pts8 = [], k2 = 0.5 / Math.SQRT2;
+        [[0.5, 0], [-0.5, 0], [0, 0.5], [0, -0.5], [k2, k2], [-k2, k2], [k2, -k2], [-k2, -k2]].forEach(function (q) { pts8.push(proj(add(Cq, add(mul(u, q[0]), mul(v, q[1]))), cam)); });
+        pts8.forEach(function (p) { dotAt(ctx, p, 4, RED); });
+      }
+      var fit = fitEllipse(circ);
+      if (fit) { plus(ctx, [fit.cx, fit.cy], 7, BLUE); seg(ctx, [fit.cx - fit.a * Math.cos(fit.ang), fit.cy - fit.a * Math.sin(fit.ang)], [fit.cx + fit.a * Math.cos(fit.ang), fit.cy + fit.a * Math.sin(fit.ang)], BLUE, 1.2, [5, 3]); }
+      dotAt(ctx, tc, 4.5, RED); dotAt(ctx, tc, 7.5, RED, true);
+      txt(ctx, "진짜 중심", tc[0] + 10, tc[1] - 8, { color: RED, size: 11, weight: 700 });
+      if (fit) txt(ctx, "타원의 중심", fit.cx + 10, fit.cy + 16, { color: BLUE, size: 11, weight: 700 });
+      var near = proj(add(Cq, mul(v, -0.5)), cam), far = proj(add(Cq, mul(v, 0.5)), cam);
+      var dn = Math.hypot(near[0] - tc[0], near[1] - tc[1]), df = Math.hypot(far[0] - tc[0], far[1] - tc[1]);
+      AB.stat("els-o-c", fit ? "진짜 중심이 " + Math.hypot(fit.cx - tc[0], fit.cy - tc[1]).toFixed(1) + " px 뒤" : "—");
+      AB.stat("els-o-fb", (dn / df).toFixed(2));
+    }
+    var on = false;
+    AB.drag(el, {
+      start: function () { on = true; },
+      move: function (x, y) {
+        if (!on) return; var g = geo;
+        var z = g.f * g.eye / Math.max(8, y - g.hy);
+        st.z = AB.clamp(z, 1.5, 14); st.x = AB.clamp((x - g.cx) * st.z / g.f, -4, 4); cv.redraw();
+      },
+      end: function () { on = false; },
+    });
+  })();
+
+  /* ================= 5. 손으로 그린 타원 진단 ================= */
+  (function () {
+    var el = document.getElementById("elf-cv");
+    var pts = [], drawing = false; // 캔버스 비율 좌표 [fx, fy]
+    var ex = AB.seg("elf-ex", function (k) { pts = example(k); cv.redraw(); });
+    var showFit = AB.check("elf-fit", function () { cv.redraw(); });
+    var geo = { w: 600, h: 360 };
+    document.getElementById("elf-clear").addEventListener("click", function () { pts = []; cv.redraw(); });
+    function example(kind) {
+      var out = [], rnd = AB.rng(kind === "lemon" ? 7 : kind === "box" ? 11 : 3), a = 0.32, b = 0.13, rot = -5 * D2R;
+      for (var i = 0; i <= 130; i++) {
+        var t = (i / 120) * Math.PI * 2, c = Math.cos(t), s = Math.sin(t), x, y;
+        if (kind === "lemon") { x = a * c; y = b * 1.25 * s * Math.abs(s); } // 위아래 포물선 두 개: 끝이 꺾인다
+        else if (kind === "box") { x = a * Math.sign(c) * Math.pow(Math.abs(c), 0.55); y = b * Math.sign(s) * Math.pow(Math.abs(s), 0.55); }
+        else { x = a * c; y = b * s; }
+        x += (rnd() - 0.5) * 0.004; y += (rnd() - 0.5) * 0.004;
+        out.push([0.5 + x * Math.cos(rot) - y * Math.sin(rot) * 1.6, 0.5 + (x * Math.sin(rot) + y * Math.cos(rot) * 1.6)]);
+      }
+      return out;
+    }
+    pts = example("lemon");
+    var cv = AB.canvas(el, draw, canvasOpts(el, 0.6, 260, 420));
+    function analyse(P) {
+      var fit = fitEllipse(P);
+      if (!fit || fit.a < 12) return null;
+      var c = Math.cos(fit.ang), s = Math.sin(fit.ang), sh = [], mid = [], left = [], right = [], marks = [];
+      P.forEach(function (p) {
+        var dx = p[0] - fit.cx, dy = p[1] - fit.cy, u = (dx * c + dy * s) / fit.a, v = (-dx * s + dy * c) / fit.b;
+        var rho = Math.hypot(u, v), ph = Math.abs(Math.atan2(v, u)) / D2R, psi = Math.min(ph, 180 - ph);
+        if (psi >= 20 && psi <= 45) { sh.push(rho); marks.push([p, rho]); }
+        if (psi >= 60) mid.push(rho);
+        (u >= 0 ? right : left).push(rho);
+      });
+      var mean = function (a) { return a.length ? a.reduce(function (x, y) { return x + y; }, 0) / a.length : 1; };
+      return { fit: fit, idx: mean(sh) / mean(mid), sym: Math.abs(mean(left) - mean(right)) / ((mean(left) + mean(right)) / 2), marks: marks };
+    }
+    function draw(ctx, w, h) {
+      geo = { w: w, h: h };
+      // 종이의 연한 격자
+      ctx.save(); ctx.strokeStyle = "#ece6da"; ctx.lineWidth = 1;
+      for (var gx = 20; gx < w; gx += 20) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, h); ctx.stroke(); }
+      for (var gy = 20; gy < h; gy += 20) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke(); }
+      ctx.restore();
+      var P = pts.map(function (p) { return [p[0] * w, p[1] * h]; });
+      path(ctx, P, false, INK, 2.4);
+      var A = !drawing && P.length > 20 ? analyse(P) : null;
+      if (A) {
+        if (showFit()) {
+          ell(ctx, A.fit, BLUE, 1.5, [6, 4]);
+          var c = Math.cos(A.fit.ang), s = Math.sin(A.fit.ang);
+          seg(ctx, [A.fit.cx - c * A.fit.a, A.fit.cy - s * A.fit.a], [A.fit.cx + c * A.fit.a, A.fit.cy + s * A.fit.a], "rgba(47,111,176,0.5)", 1);
+        }
+        A.marks.forEach(function (m) { if (m[1] < 0.97) dotAt(ctx, m[0], 2.6, RED); else if (m[1] > 1.03) dotAt(ctx, m[0], 2.6, OCHRE); });
+        var r = A.fit.b / A.fit.a;
+        AB.stat("elf-o-r", Math.round(ratioDeg(r)) + "° (" + r.toFixed(2) + ")");
+        AB.stat("elf-o-e", A.idx < 0.965 ? "뾰족함 (" + A.idx.toFixed(2) + ")" : A.idx > 1.03 ? "뭉툭함 (" + A.idx.toFixed(2) + ")" : "둥긂 (" + A.idx.toFixed(2) + ")");
+        var last = P[P.length - 1], gap = Infinity;
+        for (var gi = 0; gi < Math.min(P.length - 10, 25); gi++) gap = Math.min(gap, Math.hypot(P[gi][0] - last[0], P[gi][1] - last[1]) / A.fit.a);
+        AB.stat("elf-o-s", (A.sym * 100).toFixed(1) + "% · " + (gap < 0.15 ? "닫힘" : "열림"));
+        txt(ctx, "붉은 점: 맞춘 타원보다 안쪽 · 노란 점: 바깥쪽 (어깨 구간)", 10, 18, { color: DIM, size: 11 });
+      } else if (!drawing) {
+        AB.stat("elf-o-r", "—"); AB.stat("elf-o-e", "—"); AB.stat("elf-o-s", "—");
+        txt(ctx, P.length ? "조금 더 크게, 한 바퀴 이상 돌려 그린다" : "여기에 타원을 한 번에 돌려 그린다", w / 2, h / 2, { color: DIM, align: "center", size: 13 });
+      }
+    }
+    AB.drag(el, {
+      start: function () { drawing = true; pts = []; },
+      move: function (x, y) { if (!drawing) return; var p = [x / geo.w, y / geo.h], q = pts[pts.length - 1]; if (!q || Math.hypot((p[0] - q[0]) * geo.w, (p[1] - q[1]) * geo.h) > 2.5) { pts.push(p); cv.redraw(); } },
+      end: function () { drawing = false; cv.redraw(); },
+    });
+    void ex;
+  })();
+
+  /* ================= 6. 세잔의 입구 타원 ================= */
+  (function () {
+    var el = document.getElementById("elc-cv");
+    var IW = 1600, IH = 1315;
+    // 원본(3867 × 3178) 사진에서 맞춘 값을 1600 px 폭 좌표로 옮겼다: [왼쪽 끝, 오른쪽 끝, 앞쪽 끝]
+    var DEF = [[[273.9, 257], [463.0, 257], [368.5, 284.3]], [[636.8, 455], [906.1, 455], [771.5, 502.3]]];
+    var E = JSON.parse(JSON.stringify(DEF)), img = null, failed = false;
+    var zoom = AB.seg("elc-z", function () { cv.resize(); });
+    document.getElementById("elc-reset").addEventListener("click", function () { E = JSON.parse(JSON.stringify(DEF)); cv.redraw(); });
+    var geo = { s: 1, ox: 0, oy: 0 };
+    function frame(w) {
+      if (zoom() === "zoom") { var x0 = 220, x1 = 960, y0 = 170; var s = w / (x1 - x0); return { s: s, ox: -x0 * s, oy: -y0 * s, hh: 400 * s }; }
+      var s2 = w / IW; return { s: s2, ox: 0, oy: 0, hh: IH * s2 };
+    }
+    var cv = AB.canvas(el, draw, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(frame(w).hh, 620)); } });
+    AB.loadImage("../../shared/img/cezanne-jar-cup-apples.webp").then(function (im) { img = im; cv.redraw(); }, function () { failed = true; cv.redraw(); });
+    function S(p) { return [geo.ox + p[0] * geo.s, geo.oy + p[1] * geo.s]; }
+    function ellOf(q) {
+      var L = q[0], R = q[1], F = q[2], cx = (L[0] + R[0]) / 2, cy = (L[1] + R[1]) / 2;
+      var a = Math.hypot(R[0] - L[0], R[1] - L[1]) / 2, ang = Math.atan2(R[1] - L[1], R[0] - L[0]);
+      var b = Math.abs(-(F[0] - cx) * Math.sin(ang) + (F[1] - cy) * Math.cos(ang));
+      return { cx: cx, cy: cy, a: a, b: b, ang: ang };
+    }
+    function draw(ctx, w, h) {
+      geo = frame(w);
+      if (img) ctx.drawImage(img, geo.ox, geo.oy, IW * geo.s, IH * geo.s);
+      else txt(ctx, failed ? "그림을 불러오지 못했다" : "그림을 불러오는 중…", w / 2, h / 2, { align: "center", color: DIM });
+      var res = [];
+      E.forEach(function (q, i) {
+        var e = ellOf(q), col = i ? "#3b82d6" : "#e2553a";
+        var se = { cx: S([e.cx, e.cy])[0], cy: S([e.cx, e.cy])[1], a: e.a * geo.s, b: e.b * geo.s, ang: e.ang };
+        ctx.save(); ctx.shadowColor = "rgba(255,255,255,0.9)"; ctx.shadowBlur = 3; ell(ctx, se, col, 2.2); ctx.restore();
+        q.forEach(function (p) { var sp = S(p); AB.handle(ctx, sp[0], sp[1], { r: 5.5, fill: col, ring: "#1b1a1f", width: 2 }); });
+        res.push(e.b / e.a);
+      });
+      var f = function (r) { return r.toFixed(2) + " (" + ratioDeg(r).toFixed(1) + "°)"; };
+      AB.stat("elc-o-j", f(res[0])); AB.stat("elc-o-c", f(res[1]));
+      AB.stat("elc-o-d", (ratioDeg(res[1]) - ratioDeg(res[0])).toFixed(1) + "° (컵이 " + (res[1] > res[0] ? "더 둥글다" : "더 납작하다") + ")");
+    }
+    var pick = null;
+    AB.drag(el, {
+      start: function (x, y) {
+        var best = 24, sel = null;
+        E.forEach(function (q, i) { q.forEach(function (p, j) { var sp = S(p), d = Math.hypot(sp[0] - x, sp[1] - y); if (d < best) { best = d; sel = [i, j]; } }); });
+        pick = sel;
+      },
+      move: function (x, y) { if (!pick) return; E[pick[0]][pick[1]] = [AB.clamp((x - geo.ox) / geo.s, 0, IW), AB.clamp((y - geo.oy) / geo.s, 0, IH)]; cv.redraw(); },
+      end: function () { pick = null; },
+    });
+  })();
+
+  /* ================= 7. 창가 정물 ================= */
+  (function () {
+    var el = document.getElementById("elw-cv");
+    var PRE = { sit: [0.42, 0.55], stand: [0.85, 0.6], low: [0.15, 0.5] };
+    var hR = AB.range("elw-h", function (v) { return Math.round(v * 100) + " cm"; }, function () { cv.redraw(); });
+    var dR = AB.range("elw-d", function (v) { return Math.round(v * 100) + " cm"; }, function () { cv.redraw(); });
+    var bad = AB.check("elw-bad", function () { cv.redraw(); });
+    AB.seg("elw-pre", function (k) { hR.set(PRE[k][0]); dR.set(PRE[k][1]); });
+    var geo = { h: 400 };
+    var minX = function (S) { var k = 0; S.forEach(function (p, i) { if (p[0] < S[k][0]) k = i; }); return k; };
+    var maxX = function (S) { var k = 0; S.forEach(function (p, i) { if (p[0] > S[k][0]) k = i; }); return k; };
+    var cv = AB.canvas(el, draw, canvasOpts(el, 0.72, 300, 500));
+    // 원 위의 점들 중 i에서 j까지(앞쪽 = 깊이가 작은 쪽)를 고른다
+    function arc(S, P, i, j, front, zc) {
+      var N = S.length, a = [], b = [], k;
+      for (k = i; ; k = (k + 1) % N) { a.push(k); if (k === j) break; }
+      for (k = i; ; k = (k - 1 + N) % N) { b.push(k); if (k === j) break; }
+      var za = a.reduce(function (s, q) { return s + P[q][2]; }, 0) / a.length, zb = b.reduce(function (s, q) { return s + P[q][2]; }, 0) / b.length;
+      var pick = (za < zb) === front ? a : b;
+      return pick.map(function (q) { return S[q]; });
+    }
+    // 위아래 원으로 된 몸통(원뿔대). 위 원은 전체를, 아래 원은 앞쪽 반만 그린다
+    function solid(ctx, cam, c, y0, r0, y1, r1, fill, strokeW) {
+      var P0 = circle3([c[0], y0, c[2]], [0, 1, 0], r0, 96), P1 = circle3([c[0], y1, c[2]], [0, 1, 0], r1, 96);
+      var S0 = projAll(P0, cam), S1 = projAll(P1, cam);
+      var l0 = minX(S0), r0i = maxX(S0), l1 = minX(S1), r1i = maxX(S1);
+      var bot = arc(S0, P0, l0, r0i, true), topF = arc(S1, P1, l1, r1i, true);
+      var body = topF.concat([S0[r0i]]).concat(bot.slice().reverse());
+      path(ctx, body, true, null, 1, fill);
+      path(ctx, bot, false, INK, strokeW || 1.8);
+      seg(ctx, S1[l1], S0[l0], INK, strokeW || 1.8); seg(ctx, S1[r1i], S0[r1i === r1i ? r0i : r0i], INK, strokeW || 1.8);
+      return { S0: S0, S1: S1, f0: fitEllipse(S0), f1: fitEllipse(S1) };
+    }
+    function draw(ctx, w, h) {
+      geo.h = h;
+      // 시선은 컵(높이 5 cm)을 향한다: 그림면이 시선과 직각
+      var e = hR(), d = dR(), dist = Math.hypot(d, e - 0.05), f = 1.5 * h * dist / 0.69;
+      var pitch = -Math.atan2(e - 0.05, d) / D2R;
+      var cam = camera(f, w / 2, 0.58 * h, e, pitch, 0.03);
+      var hzp = VP([0, 0, 1], cam), cy = hzp ? hzp[1] : -1e4;
+      var cupC = [-0.05, 0, d], potC = [0.11, 0, d + 0.15];
+      // 벽과 탁자
+      var backZ = d + 0.45, yb = proj([0, 0, backZ], cam)[1];
+      ctx.fillStyle = "#efe9de"; ctx.fillRect(0, 0, w, Math.max(0, yb));
+      ctx.fillStyle = "#e4d6bd"; ctx.fillRect(0, yb, w, h - yb);
+      seg(ctx, [0, yb], [w, yb], "#b9a98c", 1.2);
+      // 창틀(벽 위의 창)
+      var wl = proj([-0.45, 0.12, backZ], cam), wr = proj([0.45, 0.6, backZ], cam);
+      if (wr[1] < yb) { ctx.fillStyle = "#dce6e6"; ctx.fillRect(wl[0], wr[1], wr[0] - wl[0], wl[1] - wr[1]); ctx.strokeStyle = "#a99c84"; ctx.lineWidth = 2; ctx.strokeRect(wl[0], wr[1], wr[0] - wl[0], wl[1] - wr[1]); }
+      // 화분(뒤)
+      var pot = solid(ctx, cam, potC, 0, 0.045, 0.095, 0.058, "#c9805b");
+      var lip = solid(ctx, cam, potC, 0.095, 0.062, 0.11, 0.062, "#d18d68");
+      path(ctx, lip.S1, true, INK, 1.8, "#d9a083");
+      var soil = projAll(circle3([potC[0], 0.1, potC[2]], [0, 1, 0], 0.054, 64), cam);
+      if (e > 0.105) path(ctx, soil, true, null, 1, "#5b4636");
+      // 화초: 줄기와 잎 몇 장(평면 그림)
+      var base = proj([potC[0], 0.1, potC[2]], cam), sc = f / (d + 0.15);
+      [[-0.05, 0.16, -0.5], [0.0, 0.2, 0.1], [0.05, 0.15, 0.6], [-0.02, 0.12, -0.9]].forEach(function (l) {
+        var tip = [base[0] + l[0] * sc, base[1] - l[1] * sc];
+        seg(ctx, base, tip, "#3f5a4c", 1.6);
+        ctx.save(); ctx.translate(tip[0], tip[1]); ctx.rotate(l[2]); ctx.beginPath(); ctx.ellipse(0, 0, 0.03 * sc, 0.012 * sc, 0, 0, Math.PI * 2); ctx.fillStyle = "#567666"; ctx.fill(); ctx.strokeStyle = "#2f4a3c"; ctx.lineWidth = 1; ctx.stroke(); ctx.restore();
+      });
+      // 컵(앞)
+      var cup = solid(ctx, cam, cupC, 0, 0.04, 0.09, 0.04, "#f6f3ec");
+      var cupIn = projAll(circle3([cupC[0], 0.09, cupC[2]], [0, 1, 0], 0.036, 96), cam);
+      path(ctx, cup.S1, true, INK, 1.8, "#efe9df");
+      path(ctx, cupIn, true, "#9a9488", 1, "#6b4f3a");
+      // 손잡이
+      var hd = [];
+      for (var t = -90; t <= 90; t += 6) hd.push(proj([cupC[0] + 0.046 + 0.022 * Math.cos(t * D2R), 0.045 - 0.026 * Math.sin(t * D2R), cupC[2]], cam));
+      path(ctx, hd, false, INK, 5); path(ctx, hd, false, "#f6f3ec", 2.2);
+      // 흔한 실수: 바닥을 입구와 같은 폭으로
+      if (bad()) {
+        [[cup.f0, cup.f1], [pot.f0, lip.f1]].forEach(function (q) {
+          var b = q[0], t2 = q[1]; if (!b || !t2) return;
+          var r = t2.b / t2.a;
+          ctx.save(); ctx.beginPath(); ctx.ellipse(b.cx, b.cy, b.a, b.a * r, b.ang, 0, Math.PI); ctx.strokeStyle = RED; ctx.lineWidth = 2.2; ctx.setLineDash([5, 3]); ctx.stroke(); ctx.restore();
+        });
+        txt(ctx, "붉은 점선: 바닥을 입구와 같은 폭으로 그린 실수", 10, h - 12, { color: RED, size: 11 });
+      }
+      // 수평선(눈높이)
+      if (cy > 8 && cy < h - 8) { seg(ctx, [0, cy], [w, cy], GREEN, 1.3); txt(ctx, "눈높이", 8, cy - 6, { color: GREEN, size: 11, haloColor: "#efe9de" }); }
+      else edgeArrow(ctx, w, h, [w * 0.85, cy], GREEN, "눈높이", [w * 0.85, h / 2]);
+      var r = function (ft) { return ft ? ft.b / ft.a : 0; };
+      var deg = function (ft) { return Math.round(ratioDeg(r(ft))) + "°"; };
+      AB.stat("elw-o-c", deg(cup.f1) + " · " + deg(cup.f0));
+      AB.stat("elw-o-p", (e - 0.11 < 0.005 ? "선" : deg(lip.f1)) + " · " + deg(pot.f0));
+      AB.stat("elw-o-h", cy < 0 ? "화면 위 " + Math.round(-cy) + " px" : cy > h ? "화면 아래" : "화면 안");
+    }
+    var d0 = null;
+    AB.drag(el, {
+      start: function (x, y) { d0 = { y: y, e: hR() }; },
+      move: function (x, y) { if (d0) hR.set(+AB.clamp(d0.e - (y - d0.y) * 0.0025, 0.15, 0.9).toFixed(2)); },
+      end: function () { d0 = null; },
+    });
+  })();
+})();
 </script>
 </body>
 </html>

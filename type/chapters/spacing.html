@@ -1,0 +1,836 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html.
+     Fonts: Noto Sans KR, Noto Serif KR, Inter (SIL Open Font License 1.1, via Google Fonts). -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "글자 사이의 빈 공간을 고르게 보이게 하는 법. 글줄의 회색값, 트래킹과 커닝, 메트릭·옵티컬 커닝, 한글 자간과 크기별 간격을 직접 끌어 맞추고, 간판 「책방 E」의 커닝과 본문 자간을 정한다."}-->
+<!--head:end-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400;700&display=swap">
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="spacing">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 05</div>
+    <h1>자간과 커닝</h1>
+    <p class="lead">가게 간판을 멀리서 보면 어떤 글자 둘은 붙어 있고 어떤 글자는 혼자 떨어져 있는 것처럼 보일 때가 있다. 자로 재면 글자 사이가 똑같은데도 그렇다. 눈은 글자와 글자 사이의 <b>거리</b>가 아니라 그 사이에 고인 <b>빈 면적</b>을 본다. 이 장은 글줄 전체의 간격을 한꺼번에 조절하는 트래킹과, 짝마다 간격을 따로 고치는 커닝을 손으로 끌어 보며 익힌다. 그리고 한글의 자간이 라틴 글자와 어떻게 다른지, 글자가 커지고 작아질 때 간격이 왜 달라져야 하는지를 본다.</p>
+    <ul class="objectives">
+      <li>같은 거리의 글자 사이가 고르지 않아 보이는 이유를 빈 면적으로 설명한다.</li>
+      <li>글줄의 회색값과 리듬을 흐리게 보기로 판단하고, 낱말 사이와 글자 사이의 비율을 읽는다.</li>
+      <li>트래킹과 커닝, 사이드베어링을 구별하고, 1/1000 em 단위로 간격을 적는다.</li>
+      <li>메트릭 커닝과 옵티컬 커닝의 차이와 한계를 안다.</li>
+      <li>한글의 자간이 성겨 보이는 이유를 글자 몸과 받침으로 설명하고, 크기에 따라 자간을 바꾼다.</li>
+    </ul>
+  </header>
+
+  <section id="uneven">
+    <h2>고르게 보이는 사이</h2>
+    <p>아래 그림의 위 줄은 글자의 바깥 테두리끼리 거리를 모두 똑같이 맞췄다. 그런데 둥근 O 둘 사이와 비스듬한 A와 V 사이는 곧은 H 둘 사이보다 훨씬 넓어 보인다. 아래 줄은 거리를 일부러 다르게 했다. 이번에는 사이가 대체로 고르게 보인다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" class="art" role="img" aria-label="위 줄은 H H O O A V 여섯 도형의 바깥 테두리 사이 거리를 똑같이 맞춘 것이고, 아래 줄은 둥근 글자와 비스듬한 글자를 더 가깝게 붙여 빈 면적을 맞춘 것이다.">
+        <rect x="0" y="0" width="460" height="300" rx="8" fill="#fbfaf7"/>
+        <text x="20" y="28" fill="#2b2a30" font-size="13" font-weight="700">① 거리를 같게(사이 14)</text>
+        <g id="sp-f1-a"></g>
+        <text x="20" y="168" fill="#2b2a30" font-size="13" font-weight="700">② 빈 면적을 같게(둥근·비스듬한 짝은 더 가깝게)</text>
+        <g id="sp-f1-b"></g>
+        <text x="230" y="290" text-anchor="middle" fill="#6b6874" font-size="11.5">연한 초록은 글자 사이에 고인 빈 면적(일정한 깊이까지만 센다)</text>
+      </svg>
+      <figcaption><b>그림 1. 거리와 면적.</b> 위 줄은 자로 잰 거리가 같지만 O O와 A V 사이에 빈 면적이 크게 고여 구멍처럼 보인다. 아래 줄은 그 면적을 H H 사이와 비슷하게 맞추느라 둥근 짝과 비스듬한 짝을 더 붙였다. 글자 사이를 고르게 한다는 것은 거리를 같게 하는 일이 아니라 <b>보이는 빈 면적을 같게</b> 하는 일이다.</figcaption>
+    </figure>
+
+    <p>글자 사이의 간격을 다루는 일을 우리말로는 흔히 통틀어 <span class="term">자간</span><span class="en">(Letter spacing)</span>이라고 부른다. 글자와 글자 사이의 거리라는 뜻이다. 디자이너들은 이것을 두 가지 손질로 나눈다. 글줄 전체의 간격을 한꺼번에 넓히거나 좁히는 <b>트래킹</b>, 그리고 특정한 두 글자 짝의 간격만 고치는 <b>커닝</b>이다. 둘 다 목표는 하나다. 읽는 사람이 글자 사이를 의식하지 않도록, 사이가 <b>고르게 보이게</b> 만드는 것이다.</p>
+    <p>이 장에서 "고르게"는 감각의 말이지만, 그 감각에는 꽤 분명한 규칙이 있다. 곧은 획끼리 마주 보면 사이가 좁아 보이고, 둥근 획이나 비스듬한 획이 마주 보면 위아래로 빈 곳이 생겨 넓어 보인다. 그래서 글꼴 디자이너는 H 같은 곧은 글자의 양옆에는 여백을 넉넉히, O 같은 둥근 글자의 양옆에는 조금 덜 둔다. 이 책의 시뮬레이터는 이 감각을 "글자 사이에 고인 빈 면적"이라는 단순한 모형으로 흉내 낸다. 모형은 출발점이고, 마지막 판단은 언제나 눈이 한다.</p>
+  </section>
+
+  <section id="color">
+    <h2>리듬과 회색값</h2>
+    <p>글자 사이를 판단하는 가장 오래된 방법은 <b>흐리게 보기</b>다. 눈을 가늘게 뜨거나 지면을 멀리 두고 보면 낱낱의 글자는 사라지고 글줄이 회색 띠로 보인다. 타이포그래퍼들은 이 띠의 짙기와 고르기를 <span class="term">회색값</span><span class="en">(Typographic color)</span>이라고 부른다. 글자를 짠 면이 얼마나 짙고 얼마나 고르게 보이는지를 가리키는 말이다. 사이가 고르면 회색이 고르고, 어떤 짝이 붙거나 벌어지면 그 자리에 짙은 얼룩이나 흰 구멍이 생긴다.</p>
+    <p>회색값과 함께 보는 것이 <b>리듬</b>이다. 획과 빈 곳이 번갈아 오는 박자가 일정하면 눈은 글줄을 따라 편안히 미끄러진다. 아래 시뮬레이터에서 트래킹을 움직여 같은 문단의 회색과 리듬이 어떻게 변하는지 본다. "흐리게 보기"를 켜면 실눈 뜨고 보는 것과 비슷해진다.</p>
+
+    <div class="sim" id="sim-sp-gray">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글줄의 회색</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gy-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="gy-script"><button data-value="ko" class="on">한글</button><button data-value="la">라틴</button></div>
+          <label class="ctrl"><span>트래킹(1/1000 em) <output id="gy-t-out"></output></span><input type="range" id="gy-t" min="-150" max="400" step="5" value="0"></label>
+          <label class="check"><input type="checkbox" id="gy-blur"> 흐리게 보기(실눈)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">낱말 사이 ÷ 글자 사이</span><span class="v" id="gy-o-r">—</span></div>
+        <div class="stat"><span class="k">회색 얼룩(짙기의 변동)</span><span class="v" id="gy-o-cv">—</span></div>
+        <div class="stat"><span class="k">평균 짙기</span><span class="v" id="gy-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 0에서 흐리게 보기를 켠다. 글줄마다 회색 띠가 비교적 고르다. ② 트래킹을 −150까지 내린다. 글자가 서로 닿으며 짙은 덩어리가 생기고, 얼룩 수치가 커진다. ③ +300 이상으로 올린다. 글줄이 옅어지고 낱말 사이와 글자 사이가 비슷해져(비율이 1.5 아래로) 낱말이 흩어진 글자들로 무너진다. ④ 라틴으로 바꿔 같은 일을 해 본다. (회색 얼룩은 화면에 그린 글자를 글자 크기 폭의 창으로 훑어 잰 잉크 짙기의 변동 계수다. 낱말 사이와 글자 사이는 글자 옆 여백의 평균과 공백 폭으로 계산한 이 책의 근사이고, 화면 글꼴과 렌더링에 따라 값이 조금 달라진다.)</div>
+    </div>
+
+    <p>세 번째 해볼 것이 이 장의 첫 교훈이다. 낱말을 묶어 주는 것은 <b>글자 사이보다 확실히 넓은 낱말 사이</b>다. 트래킹을 키우면 글자 사이는 넓어지지만 낱말 사이는 그만큼 넓어지지 않으니 둘의 비율이 줄어든다. 비율이 어느 선 아래로 떨어지면 눈은 어디서 낱말이 끝나는지 찾느라 애쓴다. 반대로 트래킹을 지나치게 줄이면 글자끼리 닿아 획이 엉기고, 회색이 짙어지면서 얼룩진다. 회색값이 고른 구간은 생각보다 넓지 않다.</p>
+  </section>
+
+  <section id="tracking">
+    <h2>트래킹과 글자 옆 여백</h2>
+    <p>디지털 글꼴의 모든 글자는 보이지 않는 상자 안에 들어 있다. 상자의 폭을 <span class="term">글자 폭</span><span class="en">(Advance width)</span>이라고 하고, 글자를 하나 찍으면 다음 글자는 그 폭만큼 오른쪽에서 시작한다. 상자 안에서 잉크와 상자 테두리 사이에 남긴 여백을 <span class="term">사이드베어링</span><span class="en">(Sidebearing)</span>이라고 한다. 글꼴 디자이너가 글자마다 정해 두는 왼쪽·오른쪽 옆 여백이다. 두 글자 사이에 보이는 빈 거리는 앞 글자의 오른쪽 여백과 뒤 글자의 왼쪽 여백을 더한 것이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="두 글자 A와 V가 각자의 글자 상자 안에 있다. 앞 글자의 오른쪽 여백, 뒤 글자의 왼쪽 여백, 그리고 그 사이에 더해지는 커닝과 트래킹을 화살표로 표시했다.">
+        <defs><marker id="sp-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <line x1="20" y1="170" x2="440" y2="170" class="s-axis"/>
+        <text x="440" y="186" text-anchor="end" class="lbl-dim">기준선</text>
+        <rect x="40" y="50" width="150" height="150" class="f-surface s-dash"/>
+        <rect x="236" y="50" width="150" height="150" class="f-surface s-dash"/>
+        <path d="M55 170 L115 62 L175 170 M78 130 L152 130" fill="none" class="s-line" stroke-width="14" stroke-linejoin="round"/>
+        <path d="M251 62 L311 170 L371 62" fill="none" class="s-line" stroke-width="14" stroke-linejoin="round"/>
+        <text x="115" y="40" text-anchor="middle" class="lbl-b">A의 글자 폭</text>
+        <text x="311" y="40" text-anchor="middle" class="lbl-b">V의 글자 폭</text>
+        <path d="M176 216 L190 216" class="s-acc" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
+        <path d="M236 216 L250 216" class="s-acc" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
+        <text x="183" y="236" text-anchor="middle" class="lbl-acc">오른쪽 여백</text>
+        <text x="243" y="250" text-anchor="middle" class="lbl-acc">왼쪽 여백</text>
+        <path d="M190 104 L236 104" class="s-acc2" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
+        <text x="213" y="96" text-anchor="middle" class="lbl-acc2">커닝 + 트래킹</text>
+        <text x="213" y="122" text-anchor="middle" class="lbl-dim">(빈칸만큼 더하거나 뺀다)</text>
+      </svg>
+      <figcaption><b>그림 2. 글자 상자와 옆 여백.</b> 점선 상자가 글자 폭이다. 두 글자 사이의 빈 거리는 앞 글자의 오른쪽 여백과 뒤 글자의 왼쪽 여백의 합에, 그 짝에만 주는 커닝과 글줄 전체에 주는 트래킹을 더한 값이다. A와 V는 서로 비스듬히 기대어 있어서, 기본 여백 그대로 두면 위쪽(A)과 아래쪽(V)에 큰 빈 곳이 생긴다.</figcaption>
+    </figure>
+
+    <p>그러므로 두 글자 사이의 빈 거리는 다음과 같이 쓸 수 있다.</p>
+    <div class="formula">$$d_{AB} = r_A + k_{AB} + t + l_B$$<div class="where">\(d_{AB}\): A와 B 사이의 빈 거리, \(r_A\): A의 오른쪽 여백, \(l_B\): B의 왼쪽 여백(둘 다 글꼴 디자이너가 정한다), \(k_{AB}\): A–B 짝에만 주는 커닝, \(t\): 글줄 전체에 주는 트래킹. 모두 글자 크기(em)에 대한 비율로 적는다.</div></div>
+    <p><span class="term">트래킹</span><span class="en">(Tracking)</span>은 위 식의 \(t\)다. 고른 글줄 전체에 같은 양을 더하거나 빼서 간격을 한꺼번에 넓히거나 좁힌다. 웹의 CSS에서는 <code>letter-spacing</code>이 이 일을 한다. 단위는 보통 글자 크기에 대한 비율로 적는다. 1 <span class="term">em</span><span class="en">(Em)</span>은 그 글자의 크기 하나(16px 글자라면 16px)이고, 조판 프로그램들은 트래킹을 1/1000 em 단위로 적는다. 그래서 "트래킹 −20"은 글자 크기의 2%만큼 좁힌다는 뜻이고, CSS로는 <code>letter-spacing: -0.02em</code>이다. 픽셀이 아니라 em으로 적어 두면 글자 크기를 바꿔도 비율이 그대로 따라간다.</p>
+    <p>트래킹은 짝을 가리지 않으므로 글자 사이를 <b>고르게</b> 만들지는 못한다. 이미 고르지 않은 짝은 함께 넓어지거나 좁아질 뿐이다. 트래킹이 하는 일은 글줄 전체의 밀도, 곧 회색값을 정하는 것이다. 짝마다 다른 불균형을 고치는 일은 커닝의 몫이다.</p>
+
+    <div class="callout warn">
+      <strong>독자가 간격을 넓힐 수도 있다</strong>
+      웹 접근성 지침 WCAG 2.1의 성공 기준 1.4.12(글자 간격, AA 등급)는 사용자가 글자 사이를 글자 크기의 0.12배, 낱말 사이를 0.16배, 행간을 1.5배, 단락 뒤 간격을 2배까지 넓혀도 내용이 잘리거나 겹치지 않아야 한다고 정한다. 디자이너가 정한 자간은 기본값일 뿐이고, 저시력이나 난독증이 있는 독자는 스스로 간격을 넓혀 읽을 수 있어야 한다는 뜻이다. 그러니 웹에서 자간을 좁게 잡았다면 넓혔을 때도 칸 밖으로 넘치지 않는지 함께 확인한다.
+    </div>
+  </section>
+
+  <section id="kerning">
+    <h2>커닝: 짝마다 다른 사이</h2>
+    <p><span class="term">커닝</span><span class="en">(Kerning)</span>은 위 식의 \(k_{AB}\)다. 특정한 두 글자의 짝에만 간격을 더하거나 빼서, 사이드베어링만으로는 고르게 되지 않는 짝을 고친다. 대표적인 것이 A와 V, T와 o, L과 T처럼 한쪽이 비스듬하거나 팔을 뻗은 짝이다. 금속 활자 시절에는 글자의 일부가 몸 밖으로 튀어나오게 깎아 옆 글자 위로 걸치게 했는데, 그 튀어나온 부분을 영어로 kern이라 불렀다. 지금의 커닝이라는 말이 여기서 왔다.</p>
+    <p>아래에서 직접 커닝을 해 본다. 낱말의 둘째 글자부터 아래에 손잡이가 있다. 손잡이를 좌우로 끌면 그 글자와 뒤의 글자들이 함께 움직인다. 연한 초록은 글자 사이에 고인 빈 면적이다(대문자 높이 안에서, 일정한 깊이까지만 센다). 목표는 초록 면적이 모든 짝에서 비슷해 보이게 하는 것이다.</p>
+
+    <div class="sim" id="sim-sp-kern">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손으로 하는 커닝</h3></div>
+      <div class="sim-body">
+        <div class="sim-view paper"><canvas id="kn-cv" class="art"></canvas><span class="hint">글자 아래 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="kn-word"><button data-value="AVATAR" class="on">AVATAR</button><button data-value="Type">Type</button><button data-value="WALTZ">WALTZ</button><button data-value="LOTTO">LOTTO</button></div>
+          <label class="check"><input type="checkbox" id="kn-area" checked> 빈 면적 보기</label>
+          <div class="btn-row"><button type="button" class="btn" id="kn-auto">면적 맞춤(모델)</button><button type="button" class="btn" id="kn-reset">커닝 없음</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">짝마다 커닝(1/1000 em)</span><span class="v" id="kn-o-k">—</span></div>
+        <div class="stat"><span class="k">짝마다 빈 면적(기준 H H = 100)</span><span class="v" id="kn-o-a">—</span></div>
+        <div class="stat"><span class="k">고르지 않음(면적의 변동)</span><span class="v" id="kn-o-cv">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① AVATAR를 커닝 없이 본다. A V, V A, T A, A T 사이에 큰 초록이 고인다. 손잡이를 끌어 직접 맞춰 본다. ② "면적 맞춤"을 누른다. 모델은 짝마다 빈 면적을 H H 사이와 같게 하는 커닝을 찾는다. 대개 −60~−120 근처의 큰 음수가 나온다. ③ LOTTO에서 맞춘 뒤 T T 사이를 본다. 위의 팔끼리 거의 닿을 만큼 붙는다. 면적만 보는 모델은 팔이 부딪치는 것을 신경 쓰지 않는다. 이럴 때는 눈으로 조금 되돌린다. ④ 빈 면적 보기를 끄고 맞춘 결과를 흐릿하게 본다. (빈 면적은 대문자 높이 안의 각 줄에서 두 글자 잉크 사이 거리를 0.2 em까지만 세어 평균한 이 책의 모델이다. 실제 커닝 도구와 디자이너는 더 많은 것을 본다. 글꼴은 Inter Bold, 원래 글꼴에 들어 있는 커닝은 끄고 시작한다.)</div>
+    </div>
+
+    <p>모델로 맞춘 결과와 눈으로 맞춘 결과를 견주어 보면, 대부분의 짝에서 방향은 같지만 양은 조금씩 다르다. 눈은 면적뿐 아니라 획끼리 가장 가까운 거리, 글자의 무게중심, 위아래 빈 곳의 모양까지 함께 본다. 특히 T T, L T처럼 팔이 맞닿는 짝은 면적을 같게 하면 오히려 너무 붙는다. 모델이 무너지는 자리가 바로 눈이 필요한 자리다.</p>
+  </section>
+
+  <section id="optical">
+    <h2>메트릭 커닝과 옵티컬 커닝</h2>
+    <p>글꼴 파일에는 보통 디자이너가 미리 정해 둔 커닝 짝의 목록이 들어 있다. 이 목록대로 간격을 고치는 것을 <span class="term">메트릭 커닝</span><span class="en">(Metric kerning)</span>이라고 한다. 잘 만든 라틴 글꼴에는 수백에서 수천 개의 짝이 들어 있고, 웹 브라우저도 대개 이 커닝을 켠 채로 글자를 그린다(CSS <code>font-kerning</code>). 반면 <span class="term">옵티컬 커닝</span><span class="en">(Optical kerning)</span>은 조판 프로그램이 글자 모양을 직접 보고 짝마다 간격을 계산하는 방식이다. 목록에 없는 짝이나, 서로 다른 글꼴을 섞어 쓴 자리, 커닝 정보가 부족한 글꼴에서 쓸모가 있다.</p>
+    <p>아래 비교에서 경계선을 끌어 왼쪽(커닝 없음)과 오른쪽을 견준다. 오른쪽은 글꼴에 든 메트릭 커닝과 이 책의 면적 모델로 계산한 옵티컬 커닝 중에서 고른다.</p>
+
+    <div class="sim" id="sim-sp-cmp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>커닝 없음과 커닝 있음</h3></div>
+      <div class="sim-body">
+        <div class="sim-view paper">
+          <div class="compare" id="cm-cmp"><div class="cmp-a"><canvas id="cm-a" class="art"></canvas></div><div class="cmp-b"><canvas id="cm-b" class="art"></canvas></div></div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="cm-mode"><button data-value="metric" class="on">오른쪽: 메트릭(글꼴)</button><button data-value="optical">오른쪽: 옵티컬(모델)</button></div>
+          <div class="seg" id="cm-font"><button data-value="sans" class="on">산세리프(Inter)</button><button data-value="serif">세리프(Noto Serif)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고르지 않음: 왼쪽(커닝 없음)</span><span class="v" id="cm-o-a">—</span></div>
+        <div class="stat"><span class="k">고르지 않음: 오른쪽</span><span class="v" id="cm-o-b">—</span></div>
+        <div class="stat"><span class="k">가장 크게 고친 짝</span><span class="v" id="cm-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 경계선을 왼쪽 끝과 오른쪽 끝으로 오가며 "AVATAR", "Type", "To" 같은 짝이 어떻게 변하는지 본다. ② 옵티컬(모델)로 바꾼다. 메트릭보다 고르지 않음 수치는 더 작아지지만 "Type"의 T y처럼 지나치게 붙는 짝이 생긴다. 수치가 작다고 더 좋아 보이는 것은 아니다. ③ 세리프로 바꾼다. 세리프가 글자 사이를 이어 주어 커닝 전후의 차이가 산세리프보다 작게 느껴지기도 한다. (고르지 않음은 각 짝의 빈 면적의 변동 계수다. 메트릭 값은 브라우저가 글꼴에서 읽은 커닝을 측정해 쓴다. 글꼴이 아직 오지 않았으면 대체 글꼴로 그려진다.)</div>
+    </div>
+
+    <p>메트릭 커닝은 디자이너의 판단이 담긴 값이라 대체로 믿을 만하지만, 목록이 모든 짝을 담지는 못한다. 옵티컬 커닝은 어떤 짝이든 계산하지만, 모양만 보고 판단하므로 디자이너가 일부러 남긴 여유까지 없애 버리기도 한다. 그래서 실무에서는 본문에는 대개 글꼴의 메트릭 커닝을 그대로 쓰고, 제목이나 로고처럼 크게 쓰는 몇 글자는 옵티컬로 출발해 눈으로 한 짝씩 다시 고친다.</p>
+
+    <div class="callout studio">
+      <strong>뒤집어 보고, 흐리게 보고, 멀리서 본다</strong>
+      글자 사이를 맞추는 사람들이 오래 써 온 요령이 몇 가지 있다. 첫째, 낱말을 <b>거꾸로 뒤집어</b> 본다. 읽을 수 없게 되면 뜻에 끌리지 않고 빈 면적만 보인다. 둘째, <b>실눈</b>을 뜨거나 화면을 흐리게 해서 얼룩과 구멍을 찾는다. 셋째, 실제 크기로 출력해 <b>실제 거리</b>에서 본다. 화면에서 크게 확대해 맞춘 커닝은 실제 크기에서는 지나치게 붙어 보이는 일이 흔하다. 글꼴 디자이너 월터 트레이시는 『신용장』<span class="en">(Letters of Credit, 1986)</span>에서 대문자는 H와 O, 소문자는 n과 o를 기준으로 삼아 다른 글자의 여백을 그 사이에 끼워 맞추는 방법을 설명했다. 기준 짝을 정해 두고 나머지를 그 짝과 비교하는 습관은 손 레터링에서도 그대로 쓸 수 있다.
+    </div>
+  </section>
+
+  <section id="hangul">
+    <h2>한글의 자간</h2>
+    <p>한글 글꼴의 글자는 대부분 같은 폭의 정사각형 상자 안에 그려진다. 금속 활자 시절 한 자 한 자가 같은 크기의 네모난 몸에 새겨졌던 전통이 디지털 글꼴로 이어진 것이다. 이렇게 모든 글자가 같은 폭을 갖는 방식을 <span class="term">전각</span><span class="en">(Full-width)</span> 조판이라고 부른다. 같은 폭의 몸에 그리니 원고지처럼 글자가 격자에 가지런히 놓이는 장점이 있다. 대신 글자마다 잉크가 차지하는 폭은 다르다. "가"는 오른쪽이 비고, "니"는 가운데가 비고, "꽃"과 "책"은 상자를 거의 꽉 채운다. 그래서 같은 폭으로 놓으면 글자 사이의 빈 면적이 들쭉날쭉하다.</p>
+    <p>한글 본문이 라틴 본문보다 성겨 보인다는 말도 여기서 나온다. 받침 없는 글자는 아래가, 세로 모음 글자는 옆이 비어 상자 안에 빈 곳이 많다. 특히 화면용 고딕 계열 글꼴은 작은 크기에서 글자끼리 붙지 않도록 여백을 넉넉히 두는 경우가 많아서, 크기가 커질수록 글자가 서로 떨어져 보인다. 한국의 편집 디자인과 웹 실무에서 본문에 약간의 음수 자간(−1~−5% 안팎)을 주는 관습이 퍼진 이유다. 다만 이것은 글꼴마다, 크기마다 다르게 판단할 관습이지 연구로 정해진 값이 아니다.</p>
+    <p>아래에서 한글 한 줄의 자간을 바꿔 본다. "글자 몸 보기"를 켜면 각 글자의 상자(점선)와 실제 잉크가 차지한 범위(초록 띠)가 함께 보인다. 아래쪽에는 같은 자간으로 짠 본문을 실제 크기(17px)로 보여 준다.</p>
+
+    <div class="sim" id="sim-sp-hangul">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>한글 한 줄의 자간</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="hg-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="hg-font"><button data-value="sans" class="on">고딕(Noto Sans KR)</button><button data-value="serif">명조(Noto Serif KR)</button></div>
+          <label class="ctrl"><span>자간(1/1000 em) <output id="hg-t-out"></output></span><input type="range" id="hg-t" min="-120" max="150" step="5" value="0"></label>
+          <label class="check"><input type="checkbox" id="hg-box" checked> 글자 몸 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자 사이 평균 빈 거리</span><span class="v" id="hg-o-g">—</span></div>
+        <div class="stat"><span class="k">가장 넓은 짝 · 가장 좁은 짝</span><span class="v" id="hg-o-x">—</span></div>
+        <div class="stat"><span class="k">낱말 사이 ÷ 글자 사이</span><span class="v" id="hg-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 0에서 글자 몸을 본다. 상자는 모두 같은 폭인데 초록 띠(잉크 폭)는 글자마다 다르다. "가", "의"처럼 오른쪽이 빈 글자 뒤가 넓다. ② 자간을 −40 안팎으로 줄이고 아래 본문을 본다. 성긴 느낌이 줄고 낱말이 덩어리로 묶인다. ③ −120까지 내린다. 받침과 옆 글자의 획이 부딪치고 본문의 회색이 얼룩진다. ④ 명조로 바꾼다. 명조는 획 끝의 부리와 붓의 흐름이 글자 사이를 이어 주어, 같은 자간에서도 고딕과 다르게 느껴진다. (빈 거리는 각 글자 짝의 잉크 사이 거리를 글자 높이 안에서 0.25 em까지만 세어 평균한 이 책의 모델이다. 한글 글꼴은 대부분 짝마다의 커닝 정보가 적거나 없어서, 이 시뮬레이터는 커닝 없이 자간만 바꾼다.)</div>
+    </div>
+
+    <p>두 번째와 세 번째 해볼 것 사이에 적당한 구간이 있다. 고딕 본문에서는 대체로 약간 줄였을 때 낱말이 묶이고, 지나치게 줄이면 받침과 이웃 글자가 엉긴다. 명조는 같은 값에서도 덜 성겨 보이는 경우가 많다. 무엇보다 한글은 <b>글자 짝마다의 불균형</b>이 라틴보다 크지만, 수천 자의 짝을 모두 커닝하기는 어려워서 대부분의 글꼴이 짝 커닝을 거의 담지 않는다. 대신 글자 상자의 폭 자체를 글자마다 다르게 쓰게 하는 기능(OpenType의 비례 폭 기능 등)을 갖춘 글꼴이 있고, 제목이나 로고에서는 디자이너가 손으로 짝을 고친다.</p>
+
+    <div class="callout deep">
+      <strong>원고지, 활자의 몸, 그리고 한글의 가로쓰기</strong>
+      한글은 오랫동안 세로로 쓰였고, 한 자 한 자를 같은 크기의 칸에 넣는 원고지와 활자 조판은 세로쓰기에서 특히 자연스러웠다. 세로로 내려 쓰면 글자의 위아래 빈 곳이 글줄 방향의 리듬이 되고, 칸이 같다는 것이 오히려 고른 박자를 만든다. 가로쓰기가 일반화하면서 같은 칸에 넣은 글자의 좌우 빈 곳이 글줄 방향의 리듬이 되었고, 받침 유무와 모음 모양에 따라 들쭉날쭉한 사이가 더 잘 보이게 되었다. 한글 자간을 둘러싼 고민의 상당 부분은 네모 칸이라는 오래된 틀과 가로쓰기라는 새로운 방향 사이에서 생긴 셈이다(틀 자체의 이야기는 <a href="hangul.html">3장</a>).
+    </div>
+  </section>
+
+  <section id="size">
+    <h2>크기에 따라 달라지는 간격</h2>
+    <p>같은 글꼴, 같은 자간이라도 글자 크기가 바뀌면 사이가 다르게 보인다. 작은 글자는 획과 빈 곳이 모두 작아져 사이가 좁아 보이고, 글자가 서로 엉겨 알아보기 어려워진다. 반대로 큰 글자는 빈 곳이 시원하게 커져서 같은 비율의 여백이 휑하게 보인다. 금속 활자 시절에는 크기마다 활자를 따로 깎았기 때문에, 작은 활자는 글자를 조금 넓게, 사이를 넉넉하게, 큰 활자는 사이를 좁게 만드는 보정이 자연스럽게 들어갔다. 이것을 <span class="term">크기별 보정</span><span class="en">(Optical sizing)</span>이라고 한다.</p>
+    <p>디지털 글꼴은 하나의 윤곽을 모든 크기에 늘려 쓰기 때문에 이 보정이 사라졌다. 그래서 디자이너가 트래킹으로 그 일을 대신한다. 작은 글자에는 조금 더하고, 큰 제목에는 뺀다. 요즘은 글자 크기에 따라 모양까지 바꾸는 가변 글꼴의 크기 축도 있다(<a href="screen.html">11장</a>). 아래 시뮬레이터에서 크기별 트래킹 곡선을 직접 만든다. 그래프의 두 손잡이는 12px과 72px에서의 트래킹이다. 둘 사이는 크기의 로그에 대해 직선으로 잇는다.</p>
+
+    <div class="sim" id="sim-sp-size">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>크기별 트래킹 곡선</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sz-cv"></canvas><span class="hint">그래프의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 크기 <output id="sz-s-out"></output></span><input type="range" id="sz-s" min="8" max="128" step="1" value="16"></label>
+          <label class="check"><input type="checkbox" id="sz-off"> 곡선 끄기(어느 크기나 0)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이 크기의 트래킹</span><span class="v" id="sz-o-t">—</span></div>
+        <div class="stat"><span class="k">픽셀로</span><span class="v" id="sz-o-px">—</span></div>
+        <div class="stat"><span class="k">CSS</span><span class="v" id="sz-o-css">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 크기를 9px까지 내리고 "곡선 끄기"를 켰다 끈다. 작은 글자는 조금 띄웠을 때 낱낱의 글자가 덜 엉긴다. ② 크기를 100px 이상으로 올리고 같은 비교를 한다. 큰 글자는 조금 좁혀야 낱말이 하나로 묶인다. ③ 72px 손잡이를 위(+)로 끝까지 올린다. 큰 제목이 흩어진 글자들로 무너진다. 12px 손잡이를 아래로 끝까지 내리면 작은 글자가 엉긴다. (처음 곡선 12px에서 +10, 72px에서 −25는 이 책이 정한 출발점이며 표준이 아니다. 실제 값은 글꼴의 여백 설계에 따라 크게 다르다. 글자는 화면 크기 그대로 그린다.)</div>
+    </div>
+
+    <p>곡선의 모양은 글꼴마다 다르다. 처음부터 작은 크기용으로 설계해 여백을 넉넉히 둔 글꼴은 작은 크기에서 더할 필요가 없고, 제목용으로 설계한 글꼴은 큰 크기에서 뺄 필요가 적다. 중요한 것은 <b>크기마다 같은 비율을 고집하지 않는다</b>는 생각이다. 같은 글꼴로 본문과 제목을 함께 짤 때 트래킹을 하나로 두면, 둘 중 하나는 반드시 어색해진다.</p>
+  </section>
+
+  <section id="practice">
+    <h2>작품과 디자인에서: 규칙이 깨질 때</h2>
+    <p>19세기 말 영국의 디자이너 윌리엄 모리스<span class="en">(William Morris, 1834–1896)</span>는 켈름스콧 출판사를 세워 중세 필사본과 초기 인쇄본에서 영감을 얻은 책을 만들었다. 그는 당시 상업 인쇄의 성기고 희멀건 지면을 싫어해서 낱말 사이를 좁게 하고 글자를 짙게 짜, 지면 전체가 고르게 짙은 회색으로 보이기를 바랐다. 아래 그림의 글줄들을 흐리게 보면 그 의도가 보인다. 동시에 대가도 보인다. 양끝을 맞추느라 "so he did", "the trees" 같은 자리에서는 낱말 사이가 거의 사라져 낱말끼리 붙어 읽힌다.</p>
+
+    <figure class="art-figure" id="fig-sp-morris">
+      <div class="art-frame"><img src="../../shared/img/morris-well-worlds-end-detail.webp" width="1340" height="1400" alt="덩굴무늬 목판 테두리 안에 고딕풍 글자로 짠 두 단의 본문이 있다. 왼쪽 단 위에는 붉은 장 제목과 장식 머리글자 W가, 오른쪽 단에는 낱말 사이가 아주 좁은 글줄들이 빽빽하게 이어진다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 윌리엄 모리스, 『세상 끝의 우물』, 켈름스콧 출판사, 1896.</b> 장식 테두리와 짙은 본문이 하나의 회색 면을 이루도록 짰다. 오른쪽 단의 "so he did, &amp; there", "stepped amidst the trees" 같은 줄에서는 낱말 사이가 글자 사이와 거의 같아져, 회색값은 고르지만 낱말의 경계가 흐려진다. 고른 회색과 낱말 구분은 이렇게 서로 부딪칠 수 있다.<span class="credit">메트로폴리탄 미술관, 인쇄본(목판화 삽화, 양피지 장정본). 공공 도메인(The Met Open Access, CC0). 펼친 면 사진에서 오른쪽 면 일부를 잘랐다. <a href="https://www.metmuseum.org/art/collection/search/354288">소장처 작품 페이지</a> · <a href="../../credits.html#morris-well-worlds-end-detail">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>규칙은 반대 방향으로도 깨진다. 대문자만으로 짠 짧은 줄(표지판, 목차의 머리, 작은 표제)은 대문자끼리 각진 획이 서로 가까워 답답해 보이기 쉬워서, 일부러 자간을 넉넉히 띄우는 경우가 많다. 로버트 브링허스트는 『타이포그래피 스타일의 요소』<span class="en">(The Elements of Typographic Style, 1992)</span>에서 대문자와 작은 대문자의 줄은 조금(대략 글자 크기의 5~10%) 띄워 짜라고 권한다. 반대로 소문자 본문을 띄우는 것에는 오래된 반감이 있다. "소문자를 띄우는 사람은 양도 훔칠 사람"이라는 농담이 미국의 활자 디자이너 프레더릭 고디<span class="en">(Frederic Goudy)</span>의 말로 흔히 전해지는데, 실제로 그가 어떤 말을 했는지는 기록이 엇갈린다. 농담이 전하려는 뜻은 소문자는 글자끼리 이어져 낱말의 모양을 이루도록 설계되었으니 띄우면 그 모양이 깨진다는 것이다.</p>
+    <p>그런데도 소문자를 크게 띄운 좋은 디자인은 많다. 넓게 띄운 소문자는 낱말을 "읽히는 글"이 아니라 "보이는 무늬"로 바꾼다. 짧은 표어, 전시 제목, 앨범 표지처럼 한두 낱말을 오래 바라보게 하려는 자리에서는 그것이 의도다. 반대로 큰 제목을 글자가 닿을 만큼 좁혀 하나의 덩어리로 만드는 것도 흔한 방법이다. 기준은 늘 같다. <b>이 글이 읽혀야 하는가, 보여야 하는가.</b> 읽혀야 하는 본문에서 회색값을 해치는 자간은 실수이고, 보여야 하는 제목에서는 표현이 된다.</p>
+
+    <div class="callout studio">
+      <strong>한글 제목은 짝을 보고, 본문은 회색을 본다</strong>
+      한글 제목이나 로고를 다듬는 사람들은 대개 자간을 한 번에 정하지 않는다. 먼저 트래킹으로 전체 밀도를 정하고, 다음으로 받침 없는 글자 뒤, 세로 모음 글자 옆, "ㅣ"나 "ㅏ"처럼 한쪽이 트인 자리를 하나씩 좁힌다. 본문에서는 반대로 짝을 보지 않는다. 몇 줄을 실제 크기로 출력해 흐리게 보고 회색이 고른지만 본다. 한도경은 이것을 활판 인쇄소 시절의 말로 설명한다. "제목은 한 자씩 깎고, 본문은 판으로 본다."
+    </div>
+
+    <div class="callout try">
+      <strong>종이 글자로 커닝하기</strong>
+      두꺼운 종이에 굵은 펜으로 "책방" 두 글자와 영문 "AVATAR"를 크게(한 글자 5 cm 안팎) 그린 뒤 글자마다 상자 모양으로 오린다. 책상 위에 상자끼리 맞닿게 늘어놓으면 이것이 "커닝 없음"이다. 이제 글자를 한 자씩 밀어 사이를 고르게 보이게 만든다. 상자가 겹쳐도 괜찮다. 다 했으면 휴대폰으로 사진을 찍어 거꾸로 돌려 보고, 2~3 m 떨어져서도 본다. 마지막으로 처음 상태와 나란히 놓고, 어느 짝을 얼마나 움직였는지 자로 재어 글자 높이에 대한 비율로 적는다. 그 비율이 커닝 값이다.
+    </div>
+  </section>
+
+  <section id="sign">
+    <h2>간판 「책방 E」의 사이</h2>
+    <p>이 장의 도구를 모아 간판 하나를 맞춘다. 가로 1.8 m 간판에 "책방 E"를 앉힌다. 글자는 손 레터링 전에 쓸 견본으로 Noto Sans KR Bold를 빌려 쓴다. 맞출 것은 두 가지다. "책"과 "방" 사이(글자 사이), 그리고 "방"과 "E" 사이(낱말 사이). 아래에서 글자 사이의 목표 빈 거리와 낱말 사이의 비율을 정하면, 모델이 그에 맞는 커닝과 간격을 찾는다. 글자 아래 손잡이를 끌어 직접 고칠 수도 있다. "보는 거리"는 간판을 멀리서 볼 때처럼 흐리게 한다.</p>
+
+    <div class="sim" id="sim-sp-sign">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>간판 커닝 작업대</h3></div>
+      <div class="sim-body">
+        <div class="sim-view paper"><canvas id="sg-cv" class="art"></canvas><span class="hint">"방"과 "E" 아래 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 사이 목표 빈 거리 <output id="sg-g-out"></output></span><input type="range" id="sg-g" min="0.02" max="0.24" step="0.005" value="0.09"></label>
+          <label class="ctrl"><span>낱말 사이 ÷ 글자 사이 <output id="sg-r-out"></output></span><input type="range" id="sg-r" min="1" max="5" step="0.1" value="2.5"></label>
+          <div class="seg" id="sg-dist"><button data-value="0" class="on">가까이</button><button data-value="10">10 m</button><button data-value="30">30 m</button></div>
+          <div class="btn-row"><button type="button" class="btn" id="sg-fit">목표대로 맞추기</button><button type="button" class="btn" id="sg-metric">글꼴 기본값</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">책–방 커닝</span><span class="v" id="sg-o-k">—</span></div>
+        <div class="stat"><span class="k">방–E 사이(공백 포함)</span><span class="v" id="sg-o-w">—</span></div>
+        <div class="stat"><span class="k">빈 거리: 책|방 · 방|E</span><span class="v" id="sg-o-g">—</span></div>
+        <div class="stat"><span class="k">글자 높이(간판 위)</span><span class="v" id="sg-o-h">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "글꼴 기본값"을 누른다. 본문용 여백 그대로라 크게 키운 간판에서 "책"과 "방"이 떨어져 보이고, 공백 하나의 "방 E"는 오히려 가깝게 보인다. ② "목표대로 맞추기"를 누르고 10 m, 30 m로 본다. 멀어질수록 글자 사이와 낱말 사이의 차이가 흐려진다. ③ 비율을 1.2까지 내리면 "책방E"가 한 낱말처럼 붙고, 5까지 올리면 E가 간판 밖으로 밀려날 듯 따로 논다. ④ 목표 빈 거리를 0.02까지 줄이면 획이 거의 닿는다. 간판은 멀리서 보므로 본문보다는 촘촘하게, 그러나 닿지 않게. (빈 거리는 글자 높이 안에서 두 글자 잉크 사이 거리를 0.25 em까지만 세어 평균한 이 책의 모델이다. 간판 폭 1.8 m에 대해 글자 줄이 약 78%를 차지하도록 글자 크기를 정했다. 흐림은 거리에 비례하게 준 근사이며, 실제 보이는 정도는 글자 크기와 시력, 조명에 따라 다르다.)</div>
+    </div>
+
+    <p>모델이 내놓는 값은 "이 목표라면 이만큼"이라는 계산일 뿐이다. 목표 빈 거리와 낱말 비율을 정하는 것은 디자이너의 판단이다. 멀리서 보는 간판이라면 낱말 사이를 본문보다 넉넉히 두어야 흐려져도 "책방"과 "E"가 둘로 읽힌다. 손 레터링으로 넘어가면 획의 모양이 바뀌니 커닝도 다시 보아야 한다. 이 장의 숫자는 그때 기준으로 쓸 출발점이다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 5장</span></div>
+      <h4>자로는 같았는데 눈으로는 달랐다</h4>
+      <p>간판 시안을 실제 크기로 출력해 책방 앞 골목에 세워 보았다. 서윤은 글꼴의 기본 간격 그대로 "책방 E"를 앉혔는데, 열 걸음쯤 물러서자 "책"과 "방"이 서로 떨어져 보였다. 반대로 공백 하나를 둔 "방 E"는 생각보다 가까워서, E가 "방"의 받침처럼 따라붙어 보였다. 주인은 "책방이 두 글자로 갈라져 보인다"고 했다.</p>
+      <p>도경은 출력물을 거꾸로 돌려 세웠다. "글자도 그림처럼 사이를 봐. 거리 말고 면적." 그러고는 연필로 "책"의 오른쪽 세로획과 "방"의 ㅂ 사이, "방"의 ㅇ 받침과 E 사이에 고인 빈 곳을 칠했다. 앞의 것은 넓고 뒤의 것은 좁았다. 서윤은 이 장의 작업대 모델로 두 사이를 쟀다. 글꼴 기본값에서 책|방의 빈 거리는 <b data-sp="g1m">0.17</b> em, 방|E는 <b data-sp="g2m">0.22</b> em으로 비율이 1.3 안팎이었다. 낱말 사이가 글자 사이와 거의 같으니 한 낱말처럼 읽히는 것이 당연했다.</p>
+      <p>서윤은 간판을 멀리서 본다는 점을 생각해, 글자 사이의 목표를 본문보다 촘촘한 0.09 em, 낱말 사이는 그 2.5배로 정했다. 모델로 계산하니 책–방 커닝은 <b>−80</b>(1/1000 em), 방–E 사이는 공백을 포함해 <b>0.36 em</b>이 되었다. 이 시안의 글자 크기(간판 위 글자 높이 약 37 cm)로 옮기면 "방"을 약 3 cm 당기고, "방"과 E 사이를 약 3 cm 넓히는 셈이다. 도경은 숫자를 보고 E를 한 번 더 손으로 밀어 보더니 그대로 두자고 했다.</p>
+      <p>웹 본문의 자간은 따로 정했다. 4장에서 고른 고딕 계열의 본문을 휴대폰에서 17px 안팎으로 놓고 0, −0.02em, −0.04em을 나란히 출력해 흐리게 보았다. 0은 글자가 한 자씩 떨어져 보였고, −0.04em은 "책방", "골목" 같은 받침 많은 낱말에서 획이 엉겼다. 서윤은 −0.02em을 골랐다. 대신 13px 이하의 작은 글자에는 음수 자간을 주지 않기로 했다. 그리고 WCAG 1.4.12대로 독자가 글자 사이를 0.12em까지 넓혀도 줄이 넘치지 않는지 시험 페이지로 확인했다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>자리</th><th>무엇</th><th class="num">값</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td>간판 「책방 E」</td><td>책–방 커닝</td><td class="num">−80 / 1000 em</td><td>견본 글꼴 기준, 레터링 때 다시 확인</td></tr>
+            <tr><td>간판 「책방 E」</td><td>방–E 사이(공백 포함)</td><td class="num">0.36 em</td><td>글자 사이 목표 0.09 em의 2.5배</td></tr>
+            <tr><td>웹 본문(고딕)</td><td>자간</td><td class="num">−0.02em</td><td>−20 / 1000 em</td></tr>
+            <tr><td>웹의 작은 글자(13px 이하)</td><td>자간</td><td class="num">0</td><td>음수 자간을 주지 않는다</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>간판 커닝: 책–방 −80/1000 em, 방–E 사이 0.36 em(글자 사이 빈 거리 목표 0.09 em, 낱말 사이는 그 2.5배). 웹 본문 자간 −0.02em, 13px 이하 작은 글자는 0. 커닝 값은 이 책의 면적 모델과 견본 글꼴(Noto Sans KR Bold)로 계산한 출발점이며, 손 레터링에서 획이 바뀌면 같은 목표로 다시 맞춘다.</div>
+        <div><b>아직 남은 문제</b>본문 자간을 정했지만 글자 크기와 줄 사이, 한 줄의 길이가 정해지지 않아 휴대폰과 넓은 화면에서 문단 전체가 어떻게 보일지는 아직 모른다. 서점 소식 글은 넓은 화면에서 여전히 화면 끝까지 이어진다.</div>
+        <div><b>다음 단계</b><a href="leading.html">6장</a>: 휴대폰과 넓은 화면에서 본문의 글자 크기, 행간, 최대 글줄 폭을 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>눈은 글자 사이의 거리가 아니라 빈 면적을 본다. 둥근 글자와 비스듬한 글자는 곧은 글자보다 가깝게 놓아야 사이가 고르게 보인다.</li>
+      <li>흐리게 보면 글줄은 회색 띠가 된다. 사이가 고르면 회색이 고르고, 짝이 붙거나 벌어지면 얼룩과 구멍이 생긴다. 낱말 사이는 글자 사이보다 분명히 넓어야 낱말이 묶인다.</li>
+      <li>두 글자 사이의 빈 거리는 옆 여백(사이드베어링) 둘에 커닝과 트래킹을 더한 값이다. 트래킹은 글줄 전체의 밀도를, 커닝은 짝마다의 불균형을 고친다. 값은 1/1000 em이나 em으로 적는다.</li>
+      <li>메트릭 커닝은 글꼴에 든 디자이너의 짝 목록이고, 옵티컬 커닝은 모양을 보고 계산한다. 계산이 고르다고 해서 더 좋아 보이는 것은 아니며, 큰 글자는 눈으로 다시 고친다.</li>
+      <li>한글 글꼴은 같은 폭의 네모 상자에 글자를 그려서 받침과 모음 모양에 따라 사이가 들쭉날쭉하고, 고딕 본문은 성겨 보이기 쉽다. 약간의 음수 자간은 관습이지 정해진 값이 아니다.</li>
+      <li>작은 글자는 조금 띄우고 큰 글자는 조금 좁힌다. 같은 글꼴이라도 크기마다 같은 자간을 고집하지 않는다.</li>
+      <li>읽혀야 하는 글과 보여야 하는 글은 자간의 기준이 다르다. 넓게 띄운 소문자, 붙여 짠 제목은 규칙을 깨지만 목적에 맞으면 좋은 디자인이다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 대문자로 "HOOD"를 짰더니 두 O 사이가 H와 O 사이보다 넓어 보인다. 글자 테두리 사이의 거리는 모두 같다. 가장 알맞은 설명과 고치는 방향은?</p>
+        <div class="opts">
+          <button class="opt">O는 H보다 글자 폭이 좁아서 그렇다. 트래킹을 줄여 전체를 좁힌다.</button>
+          <button class="opt" data-correct>둥근 획끼리 마주 보면 위아래로 빈 면적이 크게 고인다. O O 짝을 다른 짝보다 조금 더 붙인다.</button>
+          <button class="opt">화면의 안티에일리어싱 때문이다. 인쇄하면 사라지므로 고칠 필요가 없다.</button>
+          <button class="opt">O에는 세리프가 없어서 그렇다. 세리프 글꼴로 바꾸면 거리가 같아진다.</button>
+        </div>
+        <div class="quiz-exp">눈은 거리보다 빈 면적을 본다. 둥근 획 사이에는 위아래로 넓은 빈 곳이 생기므로 같은 거리라도 더 넓어 보인다. 트래킹은 모든 짝을 함께 움직여 불균형을 그대로 남긴다. 세리프나 화면 렌더링과는 관계가 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 18px 본문에 CSS로 <code>letter-spacing: -0.03em</code>을 주었다. 이에 대한 설명으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt">특정 짝(A V 등)의 간격만 0.03 em 좁히는 커닝이다.</button>
+          <button class="opt">글자 크기와 상관없이 언제나 0.03px만큼 좁힌다.</button>
+          <button class="opt">글꼴의 사이드베어링 값 자체를 바꾸어 다른 글꼴로 만든다.</button>
+          <button class="opt" data-correct>모든 글자 사이를 글자 크기의 3%(18px에서 약 0.54px) 좁히는 트래킹이며, 1/1000 em 단위로는 −30이다.</button>
+        </div>
+        <div class="quiz-exp">letter-spacing은 짝을 가리지 않고 모든 글자 사이에 같은 양을 더하는 트래킹이다. em으로 적으면 글자 크기에 비례하므로 18px × 0.03 = 0.54px. 1/1000 em으로는 −30이다. 글꼴 파일의 사이드베어링은 바뀌지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 한글 고딕 본문이 라틴 본문보다 성겨 보인다는 말이 나오는 주된 이유로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>한글 글자는 대부분 같은 폭의 네모 상자에 그려져, 받침 없는 글자나 세로 모음 글자 주변에 빈 곳이 많이 남기 때문이다.</button>
+          <button class="opt">한글은 낱말 사이에 공백을 두지 않기 때문이다.</button>
+          <button class="opt">한글 글꼴에는 사이드베어링이라는 개념이 없기 때문이다.</button>
+          <button class="opt">연구에 따르면 한글은 자간을 5% 줄여야 정확히 20% 빨리 읽히기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">한글 글꼴은 대개 전각, 곧 같은 폭의 상자를 쓰고 글자마다 잉크가 차지하는 폭이 달라 빈 면적이 들쭉날쭉하다. 한글도 낱말(어절) 사이에 공백을 두며, 글자 상자 안의 여백도 있다. 마지막 보기의 수치는 지어낸 것이다. 음수 자간은 관습이지 연구로 정해진 값이 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 같은 글꼴로 10px 각주와 96px 제목을 짠다. 이 장의 생각에 가장 맞는 자간 처리는?</p>
+        <div class="opts">
+          <button class="opt">비율을 맞춰야 하므로 둘 다 같은 트래킹 값을 쓴다.</button>
+          <button class="opt">각주는 좁히고 제목은 넓힌다. 작은 글자는 공간을 아껴야 하기 때문이다.</button>
+          <button class="opt" data-correct>각주는 조금 띄우고 제목은 조금 좁힌 뒤, 제목은 눈에 띄는 짝을 따로 커닝한다.</button>
+          <button class="opt">자간은 글꼴 디자이너가 정한 것이므로 어떤 크기에서도 손대지 않는다.</button>
+        </div>
+        <div class="quiz-exp">작은 글자는 빈 곳이 작아져 엉기기 쉬우므로 조금 띄우고, 큰 글자는 같은 비율의 여백이 휑해 보이므로 조금 좁힌다. 크기가 클수록 짝마다의 불균형도 눈에 잘 띄어 짝 커닝이 필요하다. 하나의 값으로 두 크기를 모두 맞출 수는 없다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" data-nonum>
+    <h2>출처와 글꼴</h2>
+    <ul>
+      <li>W3C, <i>Web Content Accessibility Guidelines (WCAG) 2.1</i>, 성공 기준 1.4.12 Text Spacing(2018).</li>
+      <li>Walter Tracy, <i>Letters of Credit: A View of Type Design</i>, Gordon Fraser, 1986. 대문자 H·O, 소문자 n·o를 기준으로 한 여백 맞추기(요약).</li>
+      <li>Robert Bringhurst, <i>The Elements of Typographic Style</i>, Hartley &amp; Marks, 1992. 대문자 줄의 자간에 관한 권고(요약).</li>
+      <li>"소문자를 띄우는 사람은…"이라는 말은 프레더릭 고디의 말로 널리 전해지지만 출처와 원래 문구가 확인되지 않아 요약으로만 적었다.</li>
+      <li>이 장의 "빈 면적" 모델(각 줄의 잉크 사이 거리를 정해진 깊이까지 세어 평균)은 이 책이 교육용으로 만든 단순화이며, 실제 옵티컬 커닝 알고리즘을 재현한 것이 아니다.</li>
+      <li>그림 3: 메트로폴리탄 미술관 소장 『세상 끝의 우물』(1896), 공공 도메인(CC0).</li>
+      <li>글꼴: Noto Sans KR, Noto Serif KR(Google, Adobe 공동 개발 계열의 한국어 Noto 글꼴), Inter(Rasmus Andersson). 모두 SIL Open Font License 1.1, Google Fonts로 불러온다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#2b2a30", DIM = "#6b6874", PAPER = "#fbfaf7";
+  var GREEN = "#2f7d5b", CREAM = "#ffe2d7", SAGE = "#567666", RED = "#d24f39", DEEP = "#22342a";
+  var AREA = "rgba(47,125,91,0.28)";
+  var FAM = {
+    sans: '"Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif',
+    serif: '"Noto Serif KR", "AppleMyungjo", "Batang", serif',
+    lat: 'Inter, "Helvetica Neue", Arial, sans-serif',
+    latSerif: '"Noto Serif KR", Georgia, serif'
+  };
+  var fnt = function (w, px, fam) { return w + " " + px + "px " + fam; };
+  function label(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color || INK; ctx.font = fnt(o.weight || 600, o.size || 12, o.fam || FAM.sans);
+    ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "top"; ctx.fillText(s, x, y);
+  }
+  // 글꼴을 미리 불러 둔다(캔버스는 글꼴이 오면 다시 그린다)
+  if (document.fonts && document.fonts.load) {
+    ["700 40px Inter", "400 40px Inter", '400 40px "Noto Sans KR"', '700 40px "Noto Sans KR"', '400 40px "Noto Serif KR"', '700 40px "Noto Serif KR"'].forEach(function (f) {
+      document.fonts.load(f, "책방 E 골목의 여름 소식 가나다 AVATAR Type WALTZ LOTTO HHnn").catch(function () {});
+    });
+  }
+
+  /* ---------------- 글자 윤곽 측정(이 장의 "빈 면적" 모델) ----------------
+     글자 하나를 화면 밖 캔버스에 그려 줄마다 잉크의 왼쪽·오른쪽 끝을 읽는다.
+     두 글자 사이의 빈 거리 = 띠(band) 안의 각 줄에서 (뒤 글자 왼쪽 끝 − 앞 글자 오른쪽 끝)을
+     cap까지만 세어 평균한 값. 교육용 단순화이며 실제 옵티컬 커닝 알고리즘이 아니다. */
+  var PROF = {}, CANS = [];
+  var off = document.createElement("canvas"), octx = off.getContext("2d", { willReadFrequently: true });
+  function prof(ch, font, px) {
+    var key = ch + "|" + font + "|" + px;
+    if (PROF[key]) return PROF[key];
+    var W = Math.ceil(px * 2.6), H = Math.ceil(px * 2), ox = Math.round(px * 0.6), by = Math.round(px * 1.4);
+    off.width = W; off.height = H;
+    octx.clearRect(0, 0, W, H); octx.font = font; octx.fillStyle = "#000"; octx.textBaseline = "alphabetic"; octx.textAlign = "left";
+    octx.fillText(ch, ox, by);
+    var d = octx.getImageData(0, 0, W, H).data, L = [], R = [], top = H, bot = -1;
+    for (var y = 0; y < H; y++) {
+      var l = null, r = null, row = y * W * 4;
+      for (var x = 0; x < W; x++) if (d[row + x * 4 + 3] > 110) { l = x; break; }
+      if (l !== null) { for (var x2 = W - 1; x2 >= 0; x2--) if (d[row + x2 * 4 + 3] > 110) { r = x2 + 1; break; } top = Math.min(top, y); bot = Math.max(bot, y); }
+      L.push(l === null ? null : l - ox); R.push(r === null ? null : r - ox);
+    }
+    var p = { L: L, R: R, by: by, H: H, adv: octx.measureText(ch).width, top: top - by, bot: bot - by + 1 };
+    PROF[key] = p; return p;
+  }
+  // 앞 글자 A(펜 위치 xa), 뒤 글자 B(펜 위치 xb) 사이의 평균 빈 거리(px)
+  function gapOf(A, B, xa, xb, band, cap) {
+    var s = 0, n = 0, minD = Infinity;
+    for (var r = band[0]; r < band[1]; r++) {
+      var ia = r + A.by, ib = r + B.by;
+      var ra = ia >= 0 && ia < A.H ? A.R[ia] : null, lb = ib >= 0 && ib < B.H ? B.L[ib] : null;
+      if (ra === null && lb === null) continue;
+      var dd = (ra === null || lb === null) ? cap : (xb + lb) - (xa + ra);
+      if (ra !== null && lb !== null) minD = Math.min(minD, dd);
+      s += Math.max(0, Math.min(cap, dd)); n++;
+    }
+    return { g: n ? s / n : cap, min: minD };
+  }
+  // 빈 거리가 target이 되도록 B의 펜 위치를 이분 탐색으로 찾는다(앞 글자 끝 = xa + A.adv 기준 추가량 e를 돌려준다)
+  function solve(A, B, band, cap, target, px) {
+    var lo = -0.6 * px, hi = 0.6 * px;
+    for (var i = 0; i < 30; i++) {
+      var mid = (lo + hi) / 2, g = gapOf(A, B, 0, A.adv + mid, band, cap).g;
+      if (g < target) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+  var cv2 = function (arr) { var m = arr.reduce(function (a, b) { return a + b; }, 0) / arr.length; var v = arr.reduce(function (a, b) { return a + (b - m) * (b - m); }, 0) / arr.length; return m ? Math.sqrt(v) / m : 0; };
+  function reg(c) { CANS.push(c); return c; }
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { PROF = {}; CANS.forEach(function (c) { c.redraw(); }); });
+
+  /* ---------------- 그림 1: 거리와 면적 ---------------- */
+  (function () {
+    // 단순한 도형 글자: H(두 기둥+가로대), O(고리), A·V(비스듬한 획). 폭 w, 높이 h.
+    var h = 90, sw = 13;
+    var G = {
+      H: { w: 62, svg: function (x, y) { return '<rect x="' + x + '" y="' + y + '" width="' + sw + '" height="' + h + '" fill="#2b2a30"/><rect x="' + (x + 62 - sw) + '" y="' + y + '" width="' + sw + '" height="' + h + '" fill="#2b2a30"/><rect x="' + x + '" y="' + (y + h / 2 - sw / 2) + '" width="62" height="' + sw + '" fill="#2b2a30"/>'; } },
+      O: { w: 80, svg: function (x, y) { return '<ellipse cx="' + (x + 40) + '" cy="' + (y + h / 2) + '" rx="' + (40 - sw / 2) + '" ry="' + (h / 2 - sw / 2) + '" fill="none" stroke="#2b2a30" stroke-width="' + sw + '"/>'; } },
+      A: { w: 76, svg: function (x, y) { return '<path d="M' + (x + sw / 2) + ' ' + (y + h) + ' L' + (x + 38) + ' ' + (y + sw / 2) + ' L' + (x + 76 - sw / 2) + ' ' + (y + h) + ' M' + (x + 20) + ' ' + (y + 62) + ' L' + (x + 56) + ' ' + (y + 62) + '" fill="none" stroke="#2b2a30" stroke-width="' + sw + '" stroke-linejoin="round"/>'; } },
+      V: { w: 76, svg: function (x, y) { return '<path d="M' + (x + sw / 2) + ' ' + y + ' L' + (x + 38) + ' ' + (y + h - sw / 2) + ' L' + (x + 76 - sw / 2) + ' ' + y + '" fill="none" stroke="#2b2a30" stroke-width="' + sw + '" stroke-linejoin="round"/>'; } }
+    };
+    // 빈 면적 띠: 각 짝 사이를 대략적인 다각형으로 칠한다
+    function fillBetween(k1, k2, x1, x2, y) {
+      var a = x1, b = x2, pts;
+      if (k1 === "H" && k2 === "H") pts = [[a, y], [b, y], [b, y + h], [a, y + h]];
+      else if (k1 === "O" && k2 === "O") pts = [[a - 24, y], [b + 24, y], [b, y + h / 2], [b + 24, y + h], [a - 24, y + h], [a, y + h / 2]];
+      else if (k1 === "H" && k2 === "O") pts = [[a, y], [b + 24, y], [b, y + h / 2], [b + 24, y + h], [a, y + h]];
+      else if (k1 === "O" && k2 === "A") pts = [[a - 24, y], [b + 38, y], [b, y + h], [a - 24, y + h], [a, y + h / 2]];
+      else pts = [[a - 30, y], [b + 30, y + h], [b, y + h], [a, y + h]]; // A V
+      // 깊이 제한(24px)으로 자른 모양을 칠한다
+      return '<polygon points="' + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ") + '" fill="rgba(47,125,91,0.25)"/>';
+    }
+    function row(id, y, gaps) {
+      var seq = ["H", "H", "O", "O", "A", "V"], x = 22, html = "", prev = null, xs = [];
+      seq.forEach(function (k, i) { if (i) x += gaps[i - 1]; xs.push(x); x += G[k].w; });
+      // 면적 먼저(글자가 위에 오도록)
+      html += '<clipPath id="' + id + '-clip"><rect x="0" y="' + y + '" width="460" height="' + h + '"/></clipPath><g clip-path="url(#' + id + '-clip)">';
+      seq.forEach(function (k, i) { if (i) html += fillBetween(seq[i - 1], k, xs[i - 1] + G[seq[i - 1]].w, xs[i], y); });
+      html += "</g>";
+      seq.forEach(function (k, i) { html += G[k].svg(xs[i], y); });
+      document.getElementById(id).innerHTML = html;
+      return x;
+    }
+    row("sp-f1-a", 42, [14, 14, 14, 14, 14]);
+    row("sp-f1-b", 182, [14, 8, 2, 4, -22]);
+  })();
+
+  /* ---------------- 시뮬레이터 1: 글줄의 회색 ---------------- */
+  (function () {
+    var TXT = {
+      ko: "골목 끝 책방 E에 여름이 왔다. 창가 자리에는 오래된 시집과 새로 들어온 산문집이 나란히 놓였고, 저녁마다 낭독 모임을 연다는 작은 안내문이 문에 붙었다. 손님들은 책을 고르다 말고 창밖의 능소화를 한참 바라본다.",
+      la: "At the end of the alley, the summer issue arrived at the small bookshop. Old poems and new essays share the window seat, and a note on the door invites everyone to the evening readings."
+    };
+    var script = AB.seg("gy-script", function () { cv.redraw(); });
+    var trk = AB.range("gy-t", function (v) { return (v > 0 ? "+" : "") + v; }, function () { cv.redraw(); });
+    var blur = AB.check("gy-blur", function () { cv.redraw(); });
+    var cv = reg(AB.canvas("#gy-cv", function (ctx, w, h) {
+      var ko = script() === "ko", fam = ko ? FAM.sans : FAM.lat, px = w < 420 ? 15 : 18;
+      var t = trk() / 1000 * px, font = fnt(400, px, fam);
+      ctx.font = font;
+      var words = TXT[script()].split(" "), sp = ctx.measureText(" ").width + t, lh = px * 1.75, x0 = 18, maxW = w - 36;
+      var lines = [], cur = [], cw = 0;
+      var wordW = function (s) { var a = 0; for (var i = 0; i < s.length; i++) a += ctx.measureText(s[i]).width + t; return a; };
+      words.forEach(function (wd) { var ww = wordW(wd); if (cur.length && cw + sp + ww > maxW) { lines.push(cur); cur = []; cw = 0; } cw += (cur.length ? sp : 0) + ww; cur.push(wd); });
+      if (cur.length) lines.push(cur);
+      ctx.save();
+      if (blur()) ctx.filter = "blur(" + (px * 0.17).toFixed(1) + "px)";
+      ctx.fillStyle = INK; ctx.textBaseline = "alphabetic";
+      var y = 20 + px, rowsY = [];
+      lines.forEach(function (ln) {
+        var x = x0;
+        ln.forEach(function (wd, i) { if (i) x += sp; for (var k = 0; k < wd.length; k++) { ctx.fillText(wd[k], x, y); x += ctx.measureText(wd[k]).width + t; } });
+        rowsY.push([y, x]); y += lh;
+      });
+      ctx.restore();
+      // 짙기 측정: 글자 크기 폭의 창으로 글줄을 훑는다
+      var dens = [], sum = 0;
+      try {
+        var dpr = cv ? cv.dpr || 1 : 1; var img = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height), D = img.data, CW = ctx.canvas.width, sc = ctx.canvas.width / w;
+        rowsY.slice(0, -1).forEach(function (r) {
+          var yT = Math.round((r[0] - px * 0.8) * sc), yB = Math.round((r[0] + px * 0.15) * sc);
+          for (var xx = x0; xx + px <= r[1] - 1; xx += px / 2) {
+            var a = 0, n = 0, xa = Math.round(xx * sc), xb = Math.round((xx + px) * sc);
+            for (var yy = yT; yy < yB; yy += 2) for (var q = xa; q < xb; q += 2) { a += 1 - D[(yy * CW + q) * 4] / 251; n++; }
+            dens.push(a / n); sum += a / n;
+          }
+        });
+      } catch (e) { }
+      // 낱말 사이 ÷ 글자 사이: 글자 옆 여백 평균 + 트래킹
+      var s = TXT[script()].replace(/[ ,.]/g, ""), sbs = 0, cnt = 0;
+      for (var i = 0; i < Math.min(s.length, 60); i++) { var m = ctx.measureText(s[i]); var lsb = m.actualBoundingBoxLeft != null ? -m.actualBoundingBoxLeft : 0, rsb = m.width - (m.actualBoundingBoxRight != null ? m.actualBoundingBoxRight : m.width); sbs += Math.max(0, lsb) + Math.max(0, rsb); cnt++; }
+      var letterGap = sbs / cnt + t, wordGap = letterGap + ctx.measureText(" ").width + t;
+      var ratio = letterGap > 0.2 ? wordGap / letterGap : Infinity;
+      AB.stat("gy-o-r", (isFinite(ratio) ? ratio.toFixed(1) : "∞(글자가 닿음)") + (ratio < 1.5 ? " · 낱말이 흩어짐" : ""));
+      AB.stat("gy-o-cv", dens.length ? (cv2(dens) * 100).toFixed(0) + "%" : "—");
+      AB.stat("gy-o-d", dens.length ? (sum / dens.length * 100).toFixed(1) + "%" : "—");
+    }, { bg: PAPER, readback: true, get height() { var w = Math.max(200, (document.getElementById("gy-cv").parentElement.clientWidth || 600)); return w < 420 ? 330 : 280; } }));
+  })();
+
+  /* ---------------- 시뮬레이터 2: 손으로 하는 커닝 ---------------- */
+  (function () {
+    var word = "AVATAR", kern = [], showArea = true;
+    var CAP = 0.2; // em
+    function reset() { kern = []; for (var i = 0; i < word.length - 1; i++) kern.push(0); }
+    reset();
+    var layout = null, dragI = -1;
+    function geom(w) {
+      var px = Math.min(120, Math.max(48, (w - 40) / (word.length * 0.78)));
+      var font = fnt(700, Math.round(px), FAM.lat); px = Math.round(px);
+      var P = []; for (var i = 0; i < word.length; i++) P.push(prof(word[i], font, px));
+      var H = prof("H", font, px), n = prof("n", font, px);
+      var band = [H.top, 0], cap = CAP * px;
+      var lower = /[a-z]/.test(word);
+      var ref = lower ? gapOf(n, n, 0, n.adv, band, cap).g : gapOf(H, H, 0, H.adv, band, cap).g;
+      var xs = [0];
+      for (var j = 1; j < word.length; j++) xs.push(xs[j - 1] + P[j - 1].adv + kern[j - 1] / 1000 * px);
+      var total = xs[word.length - 1] + P[word.length - 1].adv, x0 = (w - total) / 2;
+      return { px: px, font: font, P: P, band: band, cap: cap, ref: ref, xs: xs.map(function (x) { return x + x0; }), base: 0 };
+    }
+    var cv = reg(AB.canvas("#kn-cv", function (ctx, w, h) {
+      var g = geom(w); layout = g; g.base = Math.round(h * 0.62);
+      var gaps = [];
+      for (var i = 1; i < word.length; i++) {
+        var A = g.P[i - 1], B = g.P[i], xa = g.xs[i - 1], xb = g.xs[i];
+        var r = gapOf(A, B, xa, xb, g.band, g.cap); gaps.push(r.g);
+        if (showArea) {
+          ctx.fillStyle = AREA;
+          for (var rr = g.band[0]; rr < g.band[1]; rr++) {
+            var ia = rr + A.by, ib = rr + B.by, ra = A.R[ia], lb = B.L[ib];
+            var x1 = ra == null ? null : xa + ra, x2 = lb == null ? null : xb + lb;
+            if (x1 == null && x2 == null) continue;
+            if (x1 == null) x1 = x2 - g.cap; if (x2 == null) x2 = x1 + g.cap;
+            var e = Math.min(x2, x1 + g.cap); if (e > x1) ctx.fillRect(x1, g.base + rr, e - x1, 1);
+          }
+        }
+      }
+      ctx.fillStyle = INK; ctx.font = g.font; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
+      for (var k = 0; k < word.length; k++) ctx.fillText(word[k], g.xs[k], g.base);
+      ctx.strokeStyle = "rgba(43,42,48,0.25)"; ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.moveTo(10, g.base + 0.5); ctx.lineTo(w - 10, g.base + 0.5); ctx.moveTo(10, g.base + g.band[0] + 0.5); ctx.lineTo(w - 10, g.base + g.band[0] + 0.5); ctx.stroke(); ctx.setLineDash([]);
+      for (var m = 1; m < word.length; m++) {
+        var hx = g.xs[m] + g.P[m].adv / 2;
+        AB.handle(ctx, hx, g.base + 30, { r: 8, fill: m === dragI ? "#2f7d5b" : "#ffffff", ring: INK });
+        label(ctx, (kern[m - 1] > 0 ? "+" : "") + Math.round(kern[m - 1]), (g.xs[m] + g.xs[m - 1] + g.P[m - 1].adv) / 2, g.base + 46, { align: "center", size: 11, color: DIM, fam: FAM.lat, weight: 500 });
+      }
+      label(ctx, "대문자 높이", 12, g.base + g.band[0] - 16, { size: 10.5, color: DIM, weight: 500 });
+      label(ctx, "기준선", 12, g.base + 4, { size: 10.5, color: DIM, weight: 500 });
+      var pairs = []; for (var q = 1; q < word.length; q++) pairs.push(word[q - 1] + word[q]);
+      AB.stat("kn-o-k", pairs.map(function (p, i) { return p + " " + Math.round(kern[i]); }).join(" · "));
+      AB.stat("kn-o-a", pairs.map(function (p, i) { return p + " " + Math.round(gaps[i] / g.ref * 100); }).join(" · "));
+      AB.stat("kn-o-cv", (cv2(gaps) * 100).toFixed(0) + "%");
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("kn-cv").parentElement.clientWidth || 600)); return w < 420 ? 210 : 250; } }));
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!layout) return; var best = -1, bd = 1e9; for (var m = 1; m < word.length; m++) { var d = Math.abs(layout.xs[m] + layout.P[m].adv / 2 - x); if (d < bd) { bd = d; best = m; } } dragI = best; this.x0 = x; this.k0 = kern[best - 1]; },
+      move: function (x) { if (dragI < 1 || !layout) return; kern[dragI - 1] = AB.clamp(this.k0 + (x - this.x0) / layout.px * 1000, -300, 300); cv.redraw(); },
+      end: function () { dragI = -1; cv.redraw(); }
+    });
+    AB.seg("kn-word", function (v) { word = v; reset(); cv.redraw(); });
+    AB.check("kn-area", function (on) { showArea = on; cv.redraw(); });
+    document.getElementById("kn-reset").addEventListener("click", function () { reset(); cv.redraw(); });
+    document.getElementById("kn-auto").addEventListener("click", function () {
+      var g = geom(cv.w);
+      for (var i = 1; i < word.length; i++) { var e = solve(g.P[i - 1], g.P[i], g.band, g.cap, g.ref, g.px); kern[i - 1] = Math.round(e / g.px * 1000); }
+      cv.redraw();
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 커닝 없음과 커닝 있음 ---------------- */
+  (function () {
+    var LINES = ["AVATAR WAVE", "Type To Yo", "LT VA Wo P."];
+    var mode = AB.seg("cm-mode", function () { redraw(); });
+    var face = AB.seg("cm-font", function () { redraw(); });
+    var stats = {};
+    function kernOf(ctx, a, b, on) {
+      ctx.fontKerning = on ? "normal" : "none";
+      var k = ctx.measureText(a + b).width - ctx.measureText(a).width - ctx.measureText(b).width;
+      ctx.fontKerning = "none"; return k;
+    }
+    function draw(ctx, w, h, which) {
+      var serif = face() === "serif", fam = serif ? FAM.latSerif : FAM.lat;
+      var px = Math.round(Math.min(64, Math.max(30, w / 9))), font = fnt(700, px, fam);
+      var m = which === "a" ? "none" : mode();
+      ctx.font = font; ctx.fillStyle = INK; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
+      if ("fontKerning" in ctx) ctx.fontKerning = "none";
+      var H = prof("H", font, px), band = [H.top, 0], cap = 0.2 * px, ref = gapOf(H, H, 0, H.adv, band, cap).g;
+      var gaps = [], maxK = { v: 0, p: "" };
+      LINES.forEach(function (s, li) {
+        var y = Math.round(h * 0.08 + px * 1.05 + li * px * 1.3), x = 24, prev = null;
+        for (var i = 0; i < s.length; i++) {
+          var c = s[i], P = prof(c, font, px);
+          if (prev && prev.c !== " " && c !== " ") {
+            var k = 0;
+            if (m === "metric") k = kernOf(ctx, prev.c, c, true);
+            else if (m === "optical") k = solve(prev.P, P, band, cap, ref, px);
+            x += k;
+            gaps.push(gapOf(prev.P, P, prev.x, x, band, cap).g);
+            if (Math.abs(k) > Math.abs(maxK.v)) maxK = { v: k, p: prev.c + c };
+          }
+          ctx.fillText(c, x, y);
+          prev = { c: c, P: P, x: x }; x += P.adv;
+        }
+      });
+      label(ctx, which === "a" ? "커닝 없음" : (m === "metric" ? "메트릭(글꼴)" : "옵티컬(모델)"), which === "a" ? 14 : w - 14, h - 24, { size: 11, color: DIM, weight: 600, align: which === "a" ? "left" : "right" });
+      stats[which] = { cv: cv2(gaps), max: maxK, px: px };
+      if (stats.a && stats.b) {
+        AB.stat("cm-o-a", (stats.a.cv * 100).toFixed(0) + "%");
+        AB.stat("cm-o-b", (stats.b.cv * 100).toFixed(0) + "%");
+        AB.stat("cm-o-m", stats.b.max.p ? stats.b.max.p + " " + Math.round(stats.b.max.v / stats.b.px * 1000) + " / 1000 em" : "—");
+      }
+    }
+    var hgt = { get height() { var w = Math.max(200, (document.getElementById("cm-cmp").clientWidth || 600)); return Math.round(Math.min(64, Math.max(30, w / 9)) * 4.6 + 20); } };
+    var A = reg(AB.canvas("#cm-a", function (ctx, w, h) { draw(ctx, w, h, "a"); }, { bg: PAPER, get height() { return hgt.height; } }));
+    var B = reg(AB.canvas("#cm-b", function (ctx, w, h) { draw(ctx, w, h, "b"); }, { bg: PAPER, get height() { return hgt.height; } }));
+    function redraw() { A.redraw(); B.redraw(); }
+    AB.compare("#cm-cmp", { labels: ["커닝 없음", "커닝 있음"], pos: 0.5 });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 한글 한 줄의 자간 ---------------- */
+  (function () {
+    var LINE = "책방 골목의 여름 낭독회", BODY = "골목 끝 책방 E에 여름이 왔다. 창가 자리에는 오래된 시집과 새로 들어온 산문집이 나란히 놓였고, 저녁마다 낭독 모임을 연다는 안내문이 문에 붙었다.";
+    var face = AB.seg("hg-font", function () { cv.redraw(); });
+    var trk = AB.range("hg-t", function (v) { return (v > 0 ? "+" : "") + v; }, function () { cv.redraw(); });
+    var box = AB.check("hg-box", function () { cv.redraw(); });
+    var cv = reg(AB.canvas("#hg-cv", function (ctx, w, h) {
+      var fam = face() === "serif" ? FAM.serif : FAM.sans;
+      var px = Math.round(Math.min(54, Math.max(24, (w - 30) / (LINE.length * 0.98 + 0.5)))), font = fnt(700, px, fam), t = trk() / 1000 * px;
+      ctx.font = font;
+      var P = [], x = 16, xs = [];
+      for (var i = 0; i < LINE.length; i++) { var c = LINE[i]; P.push(prof(c, font, px)); xs.push(x); x += P[i].adv + t; }
+      var base = Math.round(18 + px * 0.95);
+      var ref = prof("한", font, px), band = [Math.min(ref.top, prof("책", font, px).top), Math.max(ref.bot, prof("방", font, px).bot)], cap = 0.25 * px;
+      if (box()) {
+        for (var j = 0; j < LINE.length; j++) {
+          if (LINE[j] === " ") continue;
+          ctx.strokeStyle = "rgba(107,104,116,0.55)"; ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
+          ctx.strokeRect(xs[j] + 0.5, base - px * 0.88 + 0.5, P[j].adv - 1, px * 1.0);
+          ctx.setLineDash([]);
+          var l = Infinity, r = -Infinity; P[j].L.forEach(function (v) { if (v != null) l = Math.min(l, v); }); P[j].R.forEach(function (v) { if (v != null) r = Math.max(r, v); });
+          ctx.fillStyle = "rgba(47,125,91,0.35)"; ctx.fillRect(xs[j] + l, base + px * 0.16, r - l, 5);
+        }
+      }
+      ctx.fillStyle = INK; ctx.textBaseline = "alphabetic";
+      for (var k = 0; k < LINE.length; k++) ctx.fillText(LINE[k], xs[k], base);
+      // 짝마다 빈 거리
+      var gaps = [], names = [];
+      for (var q = 1; q < LINE.length; q++) { if (LINE[q] === " " || LINE[q - 1] === " ") continue; gaps.push(gapOf(P[q - 1], P[q], xs[q - 1], xs[q], band, cap).g / px); names.push(LINE[q - 1] + LINE[q]); }
+      var mean = gaps.reduce(function (a, b) { return a + b; }, 0) / gaps.length;
+      var iMax = gaps.indexOf(Math.max.apply(null, gaps)), iMin = gaps.indexOf(Math.min.apply(null, gaps));
+      var sp = prof("책", font, px); ctx.font = font; var spW = ctx.measureText(" ").width / px + 2 * trk() / 1000;
+      AB.stat("hg-o-g", mean.toFixed(3) + " em");
+      AB.stat("hg-o-x", names[iMax] + " " + gaps[iMax].toFixed(2) + " · " + names[iMin] + " " + gaps[iMin].toFixed(2));
+      AB.stat("hg-o-r", mean > 0.005 ? ((mean + spW) / mean).toFixed(1) : "∞(글자가 닿음)");
+      // 실제 크기 본문 17px
+      var bpx = 17, bfont = fnt(400, bpx, fam), bt = trk() / 1000 * bpx; ctx.font = bfont;
+      var y = base + px * 0.5 + 30; label(ctx, "실제 크기 17px", 16, y - 20, { size: 11, color: DIM, weight: 500 });
+      var words = BODY.split(" "), xx = 16, maxW = w - 16, spc = ctx.measureText(" ").width + bt;
+      ctx.font = bfont; ctx.fillStyle = INK; ctx.textBaseline = "alphabetic";
+      var ln = 0;
+      words.forEach(function (wd) {
+        var ww = 0; for (var a = 0; a < wd.length; a++) ww += ctx.measureText(wd[a]).width + bt;
+        if (xx > 16 && xx + ww > maxW) { xx = 16; y += bpx * 1.7; ln++; }
+        if (ln > 3) return;
+        for (var b = 0; b < wd.length; b++) { ctx.fillText(wd[b], xx, y + bpx); xx += ctx.measureText(wd[b]).width + bt; }
+        xx += spc;
+      });
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("hg-cv").parentElement.clientWidth || 600)); return w < 420 ? 300 : 270; } }));
+  })();
+
+  /* ---------------- 시뮬레이터 5: 크기별 트래킹 곡선 ---------------- */
+  (function () {
+    var pts = [{ s: 12, t: 10 }, { s: 72, t: -25 }], dragK = -1, box = null;
+    var size = AB.range("sz-s", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var off2 = AB.check("sz-off", function () { cv.redraw(); });
+    var L2 = function (s) { return Math.log(s) / Math.LN2; };
+    function trackAt(s) {
+      if (off2()) return 0;
+      var u = (L2(s) - L2(pts[0].s)) / (L2(pts[1].s) - L2(pts[0].s));
+      return AB.clamp(pts[0].t + (pts[1].t - pts[0].t) * u, -150, 150);
+    }
+    var cv = AB.canvas("#sz-cv", function (ctx, w, h) {
+      var P = AB.palette(), s = size(), t = trackAt(s);
+      // 위: 글자 견본
+      var sampleH = Math.min(h * 0.42, 150);
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, sampleH); ctx.clip();
+      var font = fnt(700, s, FAM.sans), tp = t / 1000 * s; ctx.font = font; ctx.fillStyle = P.text; ctx.textBaseline = "alphabetic";
+      var str = "책방 E 여름 소식 Summer", x = 14, y = Math.min(sampleH - 12, 14 + s * 0.9);
+      for (var i = 0; i < str.length; i++) { ctx.fillText(str[i], x, y); x += ctx.measureText(str[i]).width + tp; }
+      ctx.restore();
+      ctx.strokeStyle = P.border; ctx.beginPath(); ctx.moveTo(0, sampleH + 0.5); ctx.lineTo(w, sampleH + 0.5); ctx.stroke();
+      // 아래: 곡선
+      var b = { x: 52, y: sampleH + 18, w: w - 52 - 16, h: h - sampleH - 18 - 44 };
+      var data = []; for (var q = 0; q <= 60; q++) { var ss = Math.pow(2, 3 + q / 60 * 4); data.push([L2(ss), trackAt(ss)]); }
+      var ch = AB.chart(ctx, b, { x: [3, 7], y: [-150, 150], xTicks: [3, 4, 5, 6, 7], xFmt: function (v) { return Math.round(Math.pow(2, v)) + "px"; }, yTicks: [-150, -100, -50, 0, 50, 100, 150], xLabel: "글자 크기(로그 눈금)", yLabel: "트래킹 /1000 em",
+        series: [{ data: data, color: P.accent, width: 2.5 }], hlines: [{ y: 0, color: P.faint }], vlines: [{ x: L2(s), color: P.accent2, label: s + "px" }] });
+      box = ch;
+      if (!off2()) pts.forEach(function (p, k) { AB.handle(ctx, ch.X(L2(p.s)), ch.Y(p.t), { r: 8, fill: k === dragK ? P.accent : "#ffffff" }); });
+      AB.stat("sz-o-t", (t > 0 ? "+" : "") + Math.round(t) + " / 1000 em");
+      AB.stat("sz-o-px", (tp >= 0 ? "+" : "") + tp.toFixed(2) + " px");
+      AB.stat("sz-o-css", "letter-spacing: " + (t / 1000).toFixed(3) + "em");
+    }, { get height() { var w = Math.max(200, (document.getElementById("sz-cv").parentElement.clientWidth || 600)); return w < 420 ? 400 : 380; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!box || off2()) return; var bd = 1e9; dragK = -1; pts.forEach(function (p, k) { var d = Math.hypot(box.X(L2(p.s)) - x, box.Y(p.t) - y); if (d < bd && d < 40) { bd = d; dragK = k; } }); },
+      move: function (x, y) { if (dragK < 0 || !box) return; var v = 150 - (y - box.box.y) / box.box.h * 300; pts[dragK].t = Math.round(AB.clamp(v, -150, 150)); cv.redraw(); },
+      end: function () { dragK = -1; cv.redraw(); }
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 간판 커닝 작업대 ---------------- */
+  (function () {
+    var G = ["책", "방", "E"];
+    var gTarget = AB.range("sg-g", function (v) { return v.toFixed(3) + " em"; }, function () { fit(); });
+    var ratio = AB.range("sg-r", function (v) { return v.toFixed(1) + "배"; }, function () { fit(); });
+    var dist = AB.seg("sg-dist", function () { cv.redraw(); });
+    var k1 = 0, k2 = 0; // 1/1000 em: 책–방 커닝, 방–E 추가 간격(공백 뒤)
+    var L = null, dragI = -1, ox = 0, ok0 = 0;
+    var BOARD_MM = 1800, FILL = 0.78;
+    var EMREF = 100; // 측정용 기준 크기(px)
+    function metrics(px) {
+      var font = fnt(700, px, FAM.sans), P = G.map(function (c) { return prof(c, font, px); });
+      octx.font = font; var space = octx.measureText(" ").width;
+      var band = [Math.min(P[0].top, P[1].top), Math.max(P[0].bot, P[1].bot)], cap = 0.25 * px;
+      return { font: font, P: P, space: space, band: band, cap: cap, px: px };
+    }
+    function positions(M) {
+      var x1 = 0, x2 = x1 + M.P[0].adv + k1 / 1000 * M.px, x3 = x2 + M.P[1].adv + M.space + k2 / 1000 * M.px;
+      return [x1, x2, x3];
+    }
+    function gaps(M, xs) {
+      return [gapOf(M.P[0], M.P[1], xs[0], xs[1], M.band, M.cap).g / M.px, gapOf(M.P[1], M.P[2], xs[1], xs[2], [M.band[0], 0], M.cap * 10).g / M.px];
+    }
+    function fit() {
+      var M = metrics(EMREF);
+      var e1 = solve(M.P[0], M.P[1], M.band, M.cap, gTarget() * M.px, M.px); k1 = Math.round(e1 / M.px * 1000 / 5) * 5;
+      // 방–E: 낱말 사이 빈 거리 = 목표 × 비율. 깊이 제한 없이(공백은 넉넉히) 평균 거리로 맞춘다
+      var want = gTarget() * ratio() * M.px, lo = -0.5 * M.px, hi = 1.5 * M.px;
+      for (var i = 0; i < 30; i++) { var mid = (lo + hi) / 2; var xs = [0, 0, M.P[1].adv + M.space + mid]; var g = gapOf(M.P[1], M.P[2], 0, xs[2], [M.band[0], 0], M.cap * 10).g; if (g < want) lo = mid; else hi = mid; }
+      k2 = Math.round((lo + hi) / 2 / M.px * 1000 / 5) * 5;
+      cv.redraw();
+    }
+    var cv = reg(AB.canvas("#sg-cv", function (ctx, w, h) {
+      // 간판 판
+      var bw = w - 32, bh = Math.round(bw / 3.2), bx = 16, by = 16;
+      ctx.fillStyle = "#22342a"; ctx.fillRect(bx - 4, by - 4, bw + 8, bh + 8);
+      ctx.fillStyle = GREEN; ctx.fillRect(bx, by, bw, bh);
+      // 글자 크기: 기본값(커닝 0, 공백 하나)에서 줄이 판 폭의 78%가 되게
+      var M0 = metrics(EMREF), base0 = M0.P[0].adv + M0.P[1].adv + M0.space + M0.P[2].adv;
+      var px = Math.round(bw * FILL / base0 * EMREF);
+      var M = metrics(px), xs = positions(M), tot = xs[2] + M.P[2].adv, x0 = bx + (bw - tot) / 2;
+      var inkTop = M.band[0], inkBot = M.band[1], base = Math.round(by + bh / 2 - (inkTop + inkBot) / 2);
+      L = { x0: x0, xs: xs, M: M, base: base };
+      var blurPx = Number(dist()) * px / 220;
+      ctx.save();
+      if (blurPx > 0) ctx.filter = "blur(" + blurPx.toFixed(1) + "px)";
+      ctx.fillStyle = CREAM; ctx.font = M.font; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
+      G.forEach(function (c, i) { ctx.fillText(c, x0 + xs[i], base); });
+      ctx.restore();
+      // 손잡이와 눈금
+      var hy = by + bh + 26;
+      [1, 2].forEach(function (i) { AB.handle(ctx, x0 + xs[i] + M.P[i].adv / 2, hy, { r: 9, fill: dragI === i ? GREEN : "#ffffff", ring: INK }); });
+      var mmPerPx = BOARD_MM / bw;
+      ctx.strokeStyle = "rgba(43,42,48,0.4)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(bx, hy + 22.5); ctx.lineTo(bx + bw, hy + 22.5);
+      for (var mm = 0; mm <= BOARD_MM; mm += 100) { var tx = bx + mm / mmPerPx; ctx.moveTo(tx + 0.5, hy + 18); ctx.lineTo(tx + 0.5, hy + (mm % 500 ? 22 : 27)); }
+      ctx.stroke();
+      label(ctx, "0", bx, hy + 30, { size: 10, color: DIM, weight: 500, fam: FAM.lat });
+      label(ctx, "0.9 m", bx + bw / 2, hy + 30, { size: 10, color: DIM, weight: 500, fam: FAM.lat, align: "center" });
+      label(ctx, "1.8 m", bx + bw, hy + 30, { size: 10, color: DIM, weight: 500, fam: FAM.lat, align: "right" });
+      var gp = gaps(M, xs), emMM = px * mmPerPx, capH = (inkBot - inkTop) * mmPerPx;
+      var wordEm = (M.space + k2 / 1000 * px) / px;
+      AB.stat("sg-o-k", (k1 > 0 ? "+" : "") + k1 + " / 1000 em (" + (k1 / 1000 * emMM / 10).toFixed(1) + " cm)");
+      AB.stat("sg-o-w", wordEm.toFixed(2) + " em (" + (wordEm * emMM / 10).toFixed(1) + " cm)");
+      AB.stat("sg-o-g", gp[0].toFixed(3) + " · " + gp[1].toFixed(3) + " em (비 " + (gp[0] > 0.002 ? (gp[1] / gp[0]).toFixed(1) : "∞") + ")");
+      AB.stat("sg-o-h", "약 " + Math.round(capH / 10) + " cm");
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("sg-cv").parentElement.clientWidth || 600)); return Math.round((w - 32) / 3.2) + 90; } }));
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!L) return; var best = 1, bd = 1e9; [1, 2].forEach(function (i) { var d = Math.abs(L.x0 + L.xs[i] + L.M.P[i].adv / 2 - x); if (d < bd) { bd = d; best = i; } }); dragI = best; ox = x; ok0 = best === 1 ? k1 : k2; },
+      move: function (x) { if (dragI < 1 || !L) return; var v = Math.round(AB.clamp(ok0 + (x - ox) / L.M.px * 1000, -400, 600)); if (dragI === 1) k1 = v; else k2 = v; cv.redraw(); },
+      end: function () { dragI = -1; cv.redraw(); }
+    });
+    document.getElementById("sg-fit").addEventListener("click", fit);
+    document.getElementById("sg-metric").addEventListener("click", function () { k1 = 0; k2 = 0; cv.redraw(); });
+    // 사례 본문의 "글꼴 기본값" 수치를 이 모델로 채운다
+    function caseNums() {
+      var M = metrics(EMREF), sk1 = k1, sk2 = k2; k1 = 0; k2 = 0; var g = gaps(M, positions(M)); k1 = sk1; k2 = sk2;
+      var a = document.querySelector('[data-sp="g1m"]'), b = document.querySelector('[data-sp="g2m"]');
+      if (a) a.textContent = g[0].toFixed(2); if (b) b.textContent = g[1].toFixed(2);
+    }
+    caseNums();
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { setTimeout(function () { caseNums(); }, 0); });
+    window.__spSign = { fit: fit, get k1() { return k1; }, get k2() { return k2; } };
+  })();
+})();
+</script>
+</body>
+</html>
