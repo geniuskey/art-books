@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- OG 이미지 템플릿(1200×630). python3 tools/og.py 가 #shelf, #color 로 열어 찍는다. MIT / 그림 CC BY 4.0 -->
+<!-- OG 이미지 템플릿(1200×630). python3 tools/og.py 가 #shelf, #<책> 으로 열어 찍는다. MIT / 그림 CC BY 4.0 -->
 <html lang="ko"><head><meta charset="utf-8">
 <link rel="stylesheet" href="../shared/css/style.css">
 <script src="../shared/js/art.js"></script>
@@ -21,8 +21,17 @@
 <body><div class="og" id="og"></div>
 <script>
   var page = location.hash.slice(1) || "shelf", el = document.getElementById("og");
-  if (page === "color") {
-    el.innerHTML = '<div class="txt"><div class="ey">ARTBOOK 01 · COLORBOOK</div><h1>색은 이름이 아니라<br><span>관계다</span></h1><p>빛과 지각, 혼색, 조화, 대비, 접근성, 팔레트. 직접 끌고 섞고 비교하며 배우는 색채 교과서.</p></div><div class="art">' + AB_COVERS.wheel() + '</div><div class="url">artbook.euiyun.com/color</div>';
+  var BOOKS = {
+    color: ["01", "COLORBOOK", "색은 이름이 아니라<br><span>관계다</span>", "빛과 지각, 혼색, 조화, 대비, 접근성, 팔레트. 직접 끌고 섞고 비교하며 배우는 색채 교과서.", "wheel"],
+    composition: ["02", "COMPOSITIONBOOK", "그림은 놓는 자리에서<br><span>시작된다</span>", "점·선·면, 게슈탈트, 균형과 리듬, 3분할과 황금비의 실제, 여백. 끌고 옮기고 잘라 보며 배우는 구도 교과서.", "spiral"],
+    drawing: ["03", "DRAWINGBOOK", "그리기는<br><span>보기의 기술이다</span>", "윤곽과 측정, 1·2·3점 투시, 타원, 명암과 그림자, 비례, 인체, 제스처. 소실점을 끌며 배우는 드로잉 교과서.", "perspective"],
+    type: ["04", "TYPEBOOK", "글자는 읽히기 위해<br><span>보이지 않는다</span>", "글자의 구조, 한글 타이포그래피, 자간과 행간, 위계, 그리드. 슬라이더로 조판하며 배우는 타이포그래피 교과서.", "glyph"],
+    history: ["05", "ARTHISTORYBOOK", "사조는 색·구도·기법의<br><span>변화로 읽힌다</span>", "고대에서 20세기 초까지, 동서양의 그림을 같은 눈높이로. 명작 위에 선을 얹어 읽는 미술사.", "timeline"],
+    image: ["06", "IMAGEBOOK", "사진은 빛을<br><span>숫자로 받는 일이다</span>", "노출, 렌즈와 원근, 심도, 히스토그램, 화이트밸런스, 화소와 압축. 셔터를 눌러 보며 배우는 사진과 이미지.", "aperture"],
+  };
+  var bk = BOOKS[page];
+  if (bk) {
+    el.innerHTML = '<div class="txt"><div class="ey">ARTBOOK ' + bk[0] + ' · ' + bk[1] + '</div><h1>' + bk[2] + '</h1><p>' + bk[3] + '</p></div><div class="art">' + AB_COVERS[bk[4]]() + '</div><div class="url">artbook.euiyun.com/' + page + '</div>';
   } else {
     el.innerHTML = '<div class="txt"><div class="ey">ARTBOOK</div><h1>보고, 만지고,<br><span>그려 보며 배우는 미술</span></h1><p>색채, 구도, 드로잉, 타이포그래피, 미술사, 이미지. 미술·시각 디자인 인터랙티브 교과서 서가.</p></div><div class="art"><div class="grid">' + ["wheel", "spiral", "perspective", "glyph"].map(function (m) { return AB_COVERS[m](); }).join("") + '</div></div><div class="url">artbook.euiyun.com</div>';
   }
