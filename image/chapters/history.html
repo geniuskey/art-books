@@ -38,7 +38,7 @@
 <style>
   .hs-tl-photo { margin: 0; }
   .hs-tl-photo img { display: block; width: 100%; height: 220px; object-fit: contain; background: var(--stage); border-radius: 8px; }
-  .hs-tl-photo figcaption { font-size: 12.5px; line-height: 1.55; color: var(--text-dim); margin-top: 8px; }
+  .hs-tl-photo .hs-cap { font-size: 12.5px; line-height: 1.55; color: var(--text-dim); margin-top: 8px; }
   .hs-credits { font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
   .hs-two canvas { display: block; width: 100%; }
 </style>
@@ -240,7 +240,7 @@
       <div class="sim-body side">
         <div class="sim-view"><canvas id="hs-tl-cv"></canvas><span class="hint">연대표를 좌우로 끈다</span></div>
         <div class="sim-controls">
-          <figure class="hs-tl-photo" data-mono="off"><img id="hs-tl-img" src="../../shared/img/southworth-hawes-miss-hodges.webp" alt="" width="1218" height="1600" decoding="async"><figcaption id="hs-tl-cap">—</figcaption></figure>
+          <div class="hs-tl-photo"><img id="hs-tl-img" src="../../shared/img/southworth-hawes-miss-hodges.webp" alt="" width="1218" height="1600" decoding="async"><p id="hs-tl-cap" class="hs-cap">—</p></div>
         </div>
       </div>
       <div class="sim-readout">
@@ -575,8 +575,11 @@
         vlines: [{ x: Math.log10(dopt), color: P.ok, label: "최적" }],
         points: [{ x: dlog, y: Math.min(ymax, B.tot), color: P.accent, r: 5 }],
       });
-      c.font = AB.font(11, false, 600); c.textAlign = "right"; c.textBaseline = "top";
-      c.fillStyle = P.accent2; c.fillText("기하학적 흐림", w - 22, 16); c.fillStyle = P.warn; c.fillText("회절 흐림", w - 22, 32); c.fillStyle = P.accent; c.fillText("합", w - 22, 48);
+      c.font = AB.font(11, false, 600); c.textAlign = "left"; c.textBaseline = "top";
+      var LG = [["기하학적 흐림", P.accent2], ["회절 흐림", P.warn], ["합", P.accent]], lw = 0;
+      LG.forEach(function (L) { lw += c.measureText(L[0]).width + 14; });
+      var lx = 52 + (w - 70) / 2 - lw / 2, ly = 12 + (h - 56) * 0.42;
+      LG.forEach(function (L) { c.fillStyle = L[1]; c.fillText(L[0], lx, ly); lx += c.measureText(L[0]).width + 14; });
       AB.stat("hs-ph-o-b", B.tot.toFixed(2) + " mm");
       AB.stat("hs-ph-o-o", dopt.toFixed(2) + " mm");
       var N = f / d; AB.stat("hs-ph-o-n", "f/" + Math.round(N) + " · " + (2 * Math.log2(N / 8)).toFixed(1) + "스톱 어두움");
@@ -624,7 +627,7 @@
       if (!FIB || FIB.w !== W) FIB = { w: W, a: fiber(W, H, 21) };
       // 음화의 밀도(투과율): 밝은 곳일수록 많이 검어진다 → 투과율 = 1 − 0.92·g^(0.6)
       var neg = new Float32Array(g.length);
-      for (var i = 0; i < g.length; i++) { var tr = 1 - 0.92 * Math.pow(clamp01(g[i]), 0.6); if (mode === "paper") tr *= 0.72 * (1 + 0.55 * FIB.a[i]); neg[i] = clamp01(tr); }
+      for (var i = 0; i < g.length; i++) { var tr = 1 - 0.92 * Math.pow(clamp01(g[i]), 0.6); if (mode === "paper") tr *= 1 + 0.35 * FIB.a[i]; neg[i] = clamp01(tr); }
       if (mode === "paper") neg = boxBlur(neg, W, H, 1.6);
       return { W: W, H: H, neg: neg };
     }
@@ -633,7 +636,7 @@
       for (var i = 0; i < data.neg.length; i++) {
         var t;
         if (isNeg) t = toneTo(data.neg[i] * 0.9, ND, NL);
-        else { var expo = data.neg[i] * k * 1.4, pos = Math.exp(-2.3 * expo); t = toneTo(clamp01(pos * pos), PD, PL); }
+        else { var pos = Math.exp(-3.5 * k * Math.max(0, data.neg[i] - 0.07)); t = toneTo(clamp01(pos), PD, PL); }
         d[i * 4] = t[0]; d[i * 4 + 1] = t[1]; d[i * 4 + 2] = t[2]; d[i * 4 + 3] = 255;
       }
       oc.putImageData(id, 0, 0);
@@ -785,7 +788,7 @@
           d[i * 4] = gam(r) * 255; d[i * 4 + 1] = gam(g) * 255; d[i * 4 + 2] = gam(b) * 255;
         }
       } else {
-        var wts = WTS[m.w], norm = 1 / (wts[0] + wts[1] + wts[2]), gain = (m.w === "blue" ? 2.6 : m.w === "ortho" ? 1.5 : 1) * bright;
+        var wts = WTS[m.w], norm = 1 / (wts[0] + wts[1] + wts[2]), gain = (m.w === "blue" ? 3.2 : m.w === "ortho" ? 1.6 : 1) * bright;
         var gl = new Float32Array(n);
         for (var j = 0; j < n; j++) gl[j] = (wts[0] * LUT[d[j * 4]] + wts[1] * LUT[d[j * 4 + 1]] + wts[2] * LUT[d[j * 4 + 2]]) * norm * gain;
         if (m.blur) gl = boxBlur(gl, W, H, m.blur);

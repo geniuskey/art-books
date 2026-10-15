@@ -1,0 +1,922 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "센서는 광자를 세는 격자다. 광자 산탄 잡음과 화소 크기, 감도의 정체, 베이어 필터와 디모자이크, 비트 깊이와 감마 인코딩, RAW와 JPEG의 차이를 시뮬레이터로 익히고, 휴대폰 JPEG과 미러리스 RAW의 어두운 부분을 비교해 저장 형식을 정한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>화소와 센서 · ImageBook</title>
+<meta name="description" content="센서는 광자를 세는 격자다. 광자 산탄 잡음과 화소 크기, 감도의 정체, 베이어 필터와 디모자이크, 비트 깊이와 감마 인코딩, RAW와 JPEG의 차이를 시뮬레이터로 익히고, 휴대폰 JPEG과 미러리스 RAW의 어두운 부분을 비교해 저장 형식을 정한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/image/chapters/pixel.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="화소와 센서 · ImageBook">
+<meta property="og:description" content="센서는 광자를 세는 격자다. 광자 산탄 잡음과 화소 크기, 감도의 정체, 베이어 필터와 디모자이크, 비트 깊이와 감마 인코딩, RAW와 JPEG의 차이를 시뮬레이터로 익히고, 휴대폰 JPEG과 미러리스 RAW의 어두운 부분을 비교해 저장 형식을 정한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/image/chapters/pixel.html">
+<meta property="og:image" content="https://artbook.euiyun.com/image/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/image/chapters/pixel.html#chapter","name":"화소와 센서","headline":"화소와 센서 · ImageBook","description":"센서는 광자를 세는 격자다. 광자 산탄 잡음과 화소 크기, 감도의 정체, 베이어 필터와 디모자이크, 비트 깊이와 감마 인코딩, RAW와 JPEG의 차이를 시뮬레이터로 익히고, 휴대폰 JPEG과 미러리스 RAW의 어두운 부분을 비교해 저장 형식을 정한다.","url":"https://artbook.euiyun.com/image/chapters/pixel.html","position":8,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/image/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/image/#book","name":"ImageBook · 사진과 이미지","url":"https://artbook.euiyun.com/image/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ImageBook · 사진과 이미지","item":"https://artbook.euiyun.com/image/"},{"@type":"ListItem","position":3,"name":"8. 화소와 센서","item":"https://artbook.euiyun.com/image/chapters/pixel.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="pixel">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 08</div>
+    <h1>화소와 센서</h1>
+    <p class="lead">저녁 무렵 실내에서 찍은 사진을 휴대폰 화면에서 크게 벌려 보면, 어두운 구석에 모래알 같은 얼룩이 끓고 있다. 밝게 보정하면 얼룩은 더 커지고, 어느 순간 매끈하던 벽에 계단 같은 띠가 생긴다. 이 얼룩과 띠는 고장이 아니라 빛이 숫자가 되는 과정이 남긴 흔적이다. 이 장은 센서가 광자를 세는 방식에서 출발해, 색을 얻는 방법, 숫자의 눈금을 나누는 방법, 그리고 카메라가 그 숫자를 JPEG으로 굽기 전과 후에 무엇이 남고 사라지는지 따라간다.</p>
+    <ul class="objectives">
+      <li>센서의 화소가 광자를 세는 양동이라는 것과, 광자 산탄 잡음이 왜 피할 수 없는지 설명한다.</li>
+      <li>화소 크기, 센서 크기, 감도(ISO)가 노이즈와 어떻게 관계하는지 구별한다.</li>
+      <li>베이어 필터와 디모자이크가 색을 "추측"하는 방식과, 가는 무늬에서 생기는 가짜 색을 안다.</li>
+      <li>비트 깊이와 감마 인코딩이 어두운 쪽의 계조를 어떻게 나누는지 계산한다.</li>
+      <li>RAW와 JPEG의 차이를 알고, 장면과 용도에 맞게 저장 형식을 고른다.</li>
+    </ul>
+  </header>
+
+  <section id="dark">
+    <h2>같은 구석, 다른 얼룩</h2>
+    <p>같은 장면을 휴대폰과 카메라로 찍으면 밝은 곳은 둘 다 그럴듯한데, 어두운 곳에서 차이가 크게 난다. 아래 그림은 이 책이 직접 그린 가상의 서가 구석이다. 스탠드 불빛이 왼쪽 위만 비추고 오른쪽 아래 구석은 어둡다. 같은 조리개 값과 같은 셔터 속도로 휴대폰과 APS-C 미러리스가 찍었다고 놓고, 둘 다 어두운 부분을 2스톱 끌어올렸다. 경계선을 끌어 구석의 책등을 비교해 보자.</p>
+
+    <figure class="diagram" id="px-fig-intro">
+      <div class="compare" id="pi-cmp">
+        <div class="cmp-a"><canvas id="pi-a" class="art"></canvas></div>
+        <div class="cmp-b"><canvas id="pi-b" class="art"></canvas></div>
+      </div>
+      <figcaption><b>그림 1. 휴대폰 JPEG과 미러리스 RAW, 그림자를 2스톱 끌어올린 뒤.</b> 왼쪽은 휴대폰이 구운 JPEG을, 오른쪽은 미러리스의 RAW를 같은 양만큼 밝힌 것이다. 왼쪽 구석의 책등은 뭉개진 얼룩과 계단 띠로 바뀌었고, 오른쪽은 고운 입자가 있지만 책등의 경계가 남아 있다. 이 책의 단순한 센서 모형(광자 산탄 잡음, 읽기 잡음, 비트 깊이, 휴대폰의 노이즈 감소와 톤 커브)으로 계산해 그린 그림이며, 실제 기종의 결과는 다르다.</figcaption>
+    </figure>
+
+    <p>차이를 만든 것은 크게 두 가지다. 하나는 화소 하나가 받은 빛의 양, 다른 하나는 그 빛을 숫자로 적어 둔 방식이다. 이 장은 이 두 가지를 차례로 연다. 먼저 빛이 숫자가 되는 길을 한 장의 그림으로 보자.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 470 270" role="img" aria-label="광자가 포토다이오드에서 전하가 되고, 증폭과 아날로그-디지털 변환을 거쳐 RAW 숫자가 된 뒤, 카메라 안 처리를 거쳐 JPEG이 되는 흐름">
+        <defs><marker id="px-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g font-size="11">
+          <rect x="8" y="26" width="78" height="56" rx="8" class="f-warn-soft s-line" stroke-width="1"/>
+          <text x="47" y="50" text-anchor="middle" class="lbl-b">광자</text><text x="47" y="68" text-anchor="middle" class="lbl-dim">빛 알갱이</text>
+          <rect x="104" y="26" width="78" height="56" rx="8" class="f-acc-soft s-line" stroke-width="1"/>
+          <text x="143" y="50" text-anchor="middle" class="lbl-b">전하</text><text x="143" y="68" text-anchor="middle" class="lbl-dim">포토다이오드</text>
+          <rect x="200" y="26" width="78" height="56" rx="8" class="f-acc-soft s-line" stroke-width="1"/>
+          <text x="239" y="50" text-anchor="middle" class="lbl-b">증폭</text><text x="239" y="68" text-anchor="middle" class="lbl-dim">감도(ISO)</text>
+          <rect x="296" y="26" width="78" height="56" rx="8" class="f-acc-soft s-line" stroke-width="1"/>
+          <text x="335" y="50" text-anchor="middle" class="lbl-b">숫자</text><text x="335" y="68" text-anchor="middle" class="lbl-dim">ADC 12비트</text>
+          <rect x="392" y="26" width="70" height="56" rx="8" class="f-ok-soft s-ok" stroke-width="1.5"/>
+          <text x="427" y="50" text-anchor="middle" class="lbl-b">RAW</text><text x="427" y="68" text-anchor="middle" class="lbl-dim">날것의 숫자</text>
+          <line x1="86" y1="54" x2="102" y2="54" class="s-line" stroke-width="1.5" marker-end="url(#px-ar)"/>
+          <line x1="182" y1="54" x2="198" y2="54" class="s-line" stroke-width="1.5" marker-end="url(#px-ar)"/>
+          <line x1="278" y1="54" x2="294" y2="54" class="s-line" stroke-width="1.5" marker-end="url(#px-ar)"/>
+          <line x1="374" y1="54" x2="390" y2="54" class="s-line" stroke-width="1.5" marker-end="url(#px-ar)"/>
+          <path d="M335 82 L335 112" class="s-line" stroke-width="1.5" fill="none" marker-end="url(#px-ar)"/>
+          <rect x="40" y="116" width="390" height="92" rx="10" class="f-surface s-line" stroke-width="1"/>
+          <text x="235" y="136" text-anchor="middle" class="lbl-b">카메라 안 처리(현상)</text>
+          <text x="58" y="160" class="lbl">① 디모자이크(색 채우기)  ② 화이트 밸런스  ③ 톤 커브·감마</text>
+          <text x="58" y="182" class="lbl">④ 노이즈 감소·선명하게  ⑤ 8비트로 줄이기  ⑥ JPEG 압축</text>
+          <text x="58" y="200" class="lbl-dim" font-size="10">RAW로 저장하면 이 과정을 나중에 컴퓨터에서 고쳐 가며 한다</text>
+          <path d="M235 208 L235 230" class="s-line" stroke-width="1.5" fill="none" marker-end="url(#px-ar)"/>
+          <rect x="180" y="232" width="110" height="32" rx="8" class="f-warn-soft s-line" stroke-width="1"/>
+          <text x="235" y="253" text-anchor="middle" class="lbl-b">JPEG(구운 사진)</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 2. 빛이 숫자가 되는 길.</b> 센서의 각 화소는 들어온 광자를 전하로 바꿔 모은다. 노출이 끝나면 전하를 증폭하고 숫자로 바꾼다. 여기까지가 RAW다. JPEG은 카메라가 이 숫자에 색을 채우고, 밝기를 휘고, 노이즈를 지우고, 8비트로 줄이고, 압축까지 마친 결과다. 실제 순서와 내용은 기종마다 다르다.</figcaption>
+    </figure>
+  </section>
+
+  <section id="photon">
+    <h2>화소: 광자를 세는 양동이</h2>
+    <p>디지털 센서는 수백만 개의 작은 칸이 격자로 놓인 실리콘 판이다. 칸 하나가 <span class="term">화소</span><span class="en">(Pixel, 센서에서는 Photosite)</span>다. 각 칸의 포토다이오드는 빛 알갱이인 <span class="term">광자</span><span class="en">(Photon)</span>가 부딪히면 일정한 확률로 전자를 하나 내놓고, 노출하는 동안 이 전자를 모아 둔다. 비 오는 날 마당에 양동이를 줄지어 세워 두고 빗물을 받는 모습을 떠올리면 된다. 밝은 곳의 양동이에는 물이 많이, 어두운 곳에는 조금 고인다. 양동이에 담을 수 있는 최대량을 <span class="term">포화 용량</span><span class="en">(Full well capacity)</span>이라고 하고, 그보다 많은 빛은 모두 같은 "꽉 참"으로 적힌다. 하이라이트가 날아가는 이유다(<a href="histogram.html">3장</a>).</p>
+
+    <figure class="art-figure" id="fig-sampler">
+      <div class="art-frame" style="max-width:420px;margin:0 auto"><img src="../../shared/img/sampler-british-foreign-school-1825.webp" width="991" height="1100" alt="엄지손가락만 한 작은 무명천 자수 견본. 붉은 실의 십자수로 위쪽에 알파벳 대문자 두 줄과 숫자, 가운데에 소문자 몇 자, 아래에 British &amp; Foreign School Society와 1825가 수놓여 있고, 둘레를 붉은 십자 무늬 테두리가 감싼다. 성긴 천의 올이 격자처럼 보인다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 작자 미상, 「영국·해외 학교 협회에서 만든 자수 견본」, 1825.</b> 천의 올이 만든 격자 위에 한 칸에 한 땀씩 놓아 글자를 지었다. 칸마다 "실을 놓는다"와 "놓지 않는다" 두 값뿐이니, 이 견본은 색이 둘인 화소 그림이다. 센서도 장면을 격자로 나누고 칸마다 하나의 숫자를 적는다. 다만 자수의 칸은 둘 중 하나를 고르고, 센서의 칸은 들어온 빛을 센다는 점이 다르다.<span class="credit">메트로폴리탄 미술관 소장(From the Collection of Mrs. Lathrop Colgate Harper, Bequest of Mabel Herbert Harper, 1957), 면에 모사 자수. 공공 도메인(The Met Open Access, CC0). 바깥 배경을 잘라 냈다. <a href="https://www.metmuseum.org/art/collection/search/228489">소장처 작품 페이지</a> · <a href="../../credits.html#sampler-british-foreign-school-1825">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>광자는 고르게 내리지 않는다. 같은 밝기의 벽을 비추더라도 어떤 칸에는 광자가 조금 많이, 옆 칸에는 조금 적게 떨어진다. 빗방울이 양동이마다 똑같이 떨어지지 않는 것과 같다. 이렇게 빛 자체가 알갱이라서 생기는 들쭉날쭉함을 <span class="term">광자 산탄 잡음</span><span class="en">(Photon shot noise)</span>이라고 한다. 센서를 아무리 잘 만들어도 없앨 수 없는, 빛에 원래 들어 있는 잡음이다. 평균 \(N\)개의 광자가 오는 칸에서 그 수는 대략 \(\sqrt{N}\)만큼 흔들린다.</p>
+    <div class="formula">$$\text{신호 대 잡음비}\;\; \mathrm{SNR} = \frac{N}{\sqrt{N}} = \sqrt{N}$$<div class="where">\(N\): 한 화소가 모은 평균 광자(전자) 수. 광자 100개면 흔들림이 ±10개라 SNR 10, 10,000개면 ±100개라 SNR 100이다. 빛을 4배 모으면 잡음은 2배만 늘어 SNR이 2배가 된다. 그래서 어두운 곳일수록 잡음이 눈에 띈다. 실제 센서에는 읽어 내는 회로의 잡음(읽기 잡음)이 더해진다.</div></div>
+    <p>아래 시뮬레이터의 각 칸은 화소 하나다. 칸마다 평균만큼 광자를 무작위로 떨어뜨려 센 결과를 밝기로 칠했다. 빛의 양을 바꾸고, 네모난 탐침을 끌어 그 안의 칸들이 얼마나 들쭉날쭉한지 본다.</p>
+
+    <div class="sim" id="sim-px-photon">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>광자를 세는 격자</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ph-cv" class="art"></canvas><span class="hint">탐침 네모를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>흰 벽 한 칸의 광자 수 <output id="ph-n-out"></output></span><input type="range" id="ph-n" min="0" max="8" step="1" value="4"></label>
+          <div class="seg" id="ph-size"><button data-value="big" class="on">큰 화소 4.8 µm</button><button data-value="small">작은 화소 1.9 µm</button></div>
+          <button class="btn" id="ph-again" type="button">다시 찍기</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">탐침 안 평균</span><span class="v" id="ph-o-m">—</span></div>
+        <div class="stat"><span class="k">흔들림(표준편차)</span><span class="v" id="ph-o-s">—</span></div>
+        <div class="stat"><span class="k">SNR(측정 / √N)</span><span class="v" id="ph-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 광자 수를 1~3개로 내린다. 무엇을 찍었는지 겨우 보인다. 이것이 아주 어두운 장면의 화소들이다. ② 10,000개로 올리면 거의 매끈해진다. 탐침을 회색 벽에 놓고 SNR이 √N을 따라가는지 본다. ③ "작은 화소"로 바꾼다. 같은 빛에서 화소 넓이가 6.6분의 1이라 광자도 그만큼 적게 받고, SNR이 약 2.6분의 1이 된다. (광자 수는 푸아송 분포로 뽑았다. 읽기 잡음, 색 필터, 포화는 넣지 않은 단순 모형이다.)</div>
+    </div>
+
+    <p>빛을 열 배 받아야 잡음이 세 배 남짓 줄어드는 셈이니, 깨끗한 사진은 결국 빛을 많이 모으는 데서 나온다. 셔터를 오래 열거나, 조리개를 열거나, 장면을 밝히는 것 말고는 광자 수를 늘릴 방법이 없다(<a href="exposure.html">2장</a>).</p>
+  </section>
+
+  <section id="size">
+    <h2>화소 크기, 센서 크기, 그리고 감도</h2>
+    <p>같은 조리개 값과 같은 셔터 속도라면 센서의 같은 넓이에는 같은 양의 빛이 떨어진다. 그러면 화소 하나가 받는 광자는 화소의 넓이에 비례한다. 이 책의 케이스에 나오는 두 카메라를 숫자로 비교해 보자. 휴대폰은 <a href="focus.html">7장</a>에서 예로 든 가상의 기종이다.</p>
+
+    <div class="table-wrap"><table>
+      <thead><tr><th></th><th>오래된 APS-C 미러리스</th><th>예로 든 휴대폰 주 카메라</th></tr></thead>
+      <tbody>
+        <tr><td>센서 크기</td><td class="num">23.5 × 15.6 mm (366.6 mm²)</td><td class="num">약 7.5 × 5.7 mm (42.5 mm²)</td></tr>
+        <tr><td>화소 수</td><td class="num">1600만(4912 × 3264)</td><td class="num">1200만(4032 × 3024)</td></tr>
+        <tr><td>화소 간격</td><td class="num">4.8 µm (넓이 22.9 µm²)</td><td class="num">1.9 µm (넓이 3.5 µm²)</td></tr>
+        <tr><td>같은 노출에서 화소당 빛</td><td class="num">6.6</td><td class="num">1</td></tr>
+        <tr><td>같은 노출에서 사진 전체의 빛</td><td class="num">8.6</td><td class="num">1</td></tr>
+        <tr><td>RAW 비트 깊이</td><td class="num">12비트</td><td class="num">(기종마다 다름) JPEG은 8비트</td></tr>
+      </tbody>
+    </table></div>
+    <p>같은 노출이라면 미러리스의 화소 하나가 휴대폰보다 약 6.6배 많은 광자를 받으므로, 화소 하나의 SNR은 \(\sqrt{6.6}\) ≈ 2.6배 좋다. 두 사진을 같은 크기로 볼 때는 사진 전체가 모은 빛이 중요하니 센서 넓이의 비(8.6배)가 더 정확한 비교이고, SNR로는 약 2.9배다. 화소를 잘게 쪼갠다고 사진 전체의 잡음이 늘지는 않는다. 작은 화소 넷을 평균하면 큰 화소 하나와 비슷해진다. 결국 사진의 잡음을 정하는 것은 화소 크기보다 센서 전체가 모은 빛이다.</p>
+
+    <div class="callout deep">
+      <strong>같은 심도라면 빛도 같다</strong>
+      위 비교는 "같은 f값"일 때의 이야기다. <a href="focus.html">7장</a>에서 본 것처럼 휴대폰의 f/1.8은 심도로 치면 풀프레임 f/8쯤이고, APS-C의 f/5.6도 풀프레임 f/8.4쯤이다. 두 카메라를 같은 화각, 같은 심도, 같은 셔터 속도로 맞추면 휴대폰은 f/1.8, 미러리스는 f/5.6이 되는데, 이때 넓이당 빛은 휴대폰이 (5.6/1.8)² ≈ 9.7배 많아서 사진 전체의 빛은 거의 같아진다(휴대폰이 약 1.1배). 같은 심도로 찍는 한 큰 센서의 잡음 이점은 사라진다는 뜻이다. 큰 센서가 유리한 것은 조리개를 더 열어(심도를 얕게 하는 대가로) 빛을 더 모을 수 있을 때다. 이 관계를 흔히 <span class="term">등가성</span><span class="en">(Equivalence)</span>이라고 부른다.
+    </div>
+
+    <p>그러면 감도(ISO)는 무엇일까. 이름과 달리 ISO를 올린다고 센서가 빛에 더 민감해지지는 않는다. 센서가 모은 전하의 양은 그대로이고, ISO는 그것을 숫자로 바꾸기 전에 얼마나 크게 증폭할지 정한다. 어두운 장면에서 ISO를 올리면 사진이 밝아지지만, 늘어난 것은 숫자일 뿐 광자는 그대로다. 잡음이 늘어 보이는 것은 ISO 탓이라기보다, ISO를 올려야 할 만큼 빛이 적었기 때문이다. 증폭에는 장점도 있다. 회로가 읽어 낼 때 더해지는 <span class="term">읽기 잡음</span><span class="en">(Read noise)</span>보다 신호를 먼저 키워 두면, 아주 어두운 부분이 읽기 잡음에 묻히는 것을 조금 막는다. 대신 증폭한 만큼 포화가 빨리 와서 하이라이트의 여유가 준다.</p>
+
+    <div class="callout warn">
+      <strong>노이즈는 "높은 ISO"가 아니라 "적은 빛"의 흔적이다</strong>
+      "ISO 3200이라 노이즈가 많다"는 말은 반만 맞다. 같은 장면, 같은 조리개, 같은 셔터라면 ISO 400으로 어둡게 찍어 나중에 3스톱 밝힌 사진과 ISO 3200으로 찍은 사진은 광자 수가 같다. 차이는 읽기 잡음과 비트 깊이의 사용 방식에서 나는 작은 차이뿐이고, 그 크기는 센서마다 다르다. 노이즈를 줄이려면 ISO 숫자를 낮추는 것이 아니라 빛을 더 받아야 한다. 셔터를 느리게 하고 삼각대를 쓰거나, 조리개를 열거나, 조명을 더하는 것이다.
+    </div>
+  </section>
+
+  <section id="bayer">
+    <h2>색은 추측한다: 베이어 필터와 디모자이크</h2>
+    <p>포토다이오드는 광자의 수만 셀 뿐 색은 모른다. 색을 얻기 위해 대부분의 센서는 화소마다 빨강, 초록, 파랑 중 하나의 색 필터를 씌운다. 가장 흔한 배열이 1976년 코닥의 브라이스 베이어가 특허를 낸 <span class="term">베이어 필터</span><span class="en">(Bayer filter)</span>다. 2×2 칸 안에 초록 둘, 빨강 하나, 파랑 하나를 놓는다. 초록이 두 배인 것은 사람의 눈이 밝기와 세부를 주로 초록 부근의 빛으로 느끼기 때문이다(<a href="../../color/chapters/value.html">ColorBook 6장</a>).</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="빨강, 초록, 파랑 필터가 2 곱하기 2 칸마다 초록 둘, 빨강 하나, 파랑 하나로 놓인 베이어 배열과, 이웃 칸의 값을 평균해 한 칸의 빠진 두 색을 채우는 디모자이크">
+        <defs><marker id="px-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g stroke="#ffffff" stroke-width="2">
+          <rect x="20" y="20" width="40" height="40" fill="#d84a3a"/><rect x="60" y="20" width="40" height="40" fill="#3fa44a"/><rect x="100" y="20" width="40" height="40" fill="#d84a3a"/><rect x="140" y="20" width="40" height="40" fill="#3fa44a"/>
+          <rect x="20" y="60" width="40" height="40" fill="#3fa44a"/><rect x="60" y="60" width="40" height="40" fill="#3b63c4"/><rect x="100" y="60" width="40" height="40" fill="#3fa44a"/><rect x="140" y="60" width="40" height="40" fill="#3b63c4"/>
+          <rect x="20" y="100" width="40" height="40" fill="#d84a3a"/><rect x="60" y="100" width="40" height="40" fill="#3fa44a"/><rect x="100" y="100" width="40" height="40" fill="#d84a3a"/><rect x="140" y="100" width="40" height="40" fill="#3fa44a"/>
+          <rect x="20" y="140" width="40" height="40" fill="#3fa44a"/><rect x="60" y="140" width="40" height="40" fill="#3b63c4"/><rect x="100" y="140" width="40" height="40" fill="#3fa44a"/><rect x="140" y="140" width="40" height="40" fill="#3b63c4"/>
+        </g>
+        <rect x="58" y="58" width="84" height="84" fill="none" class="s-acc" stroke-width="2.5" stroke-dasharray="5 3"/>
+        <text x="100" y="204" text-anchor="middle" class="lbl" font-size="11">초록 50% · 빨강 25% · 파랑 25%</text>
+        <line x1="196" y1="100" x2="250" y2="100" class="s-line" stroke-width="1.5" marker-end="url(#px-ar2)"/>
+        <text x="223" y="90" text-anchor="middle" class="lbl-dim" font-size="10">이웃 평균</text>
+        <g>
+          <rect x="262" y="40" width="54" height="54" rx="4" fill="#3b63c4"/>
+          <text x="289" y="72" text-anchor="middle" font-size="11" fill="#ffffff">파랑: 잰 값</text>
+          <rect x="324" y="40" width="54" height="54" rx="4" fill="#3fa44a" opacity="0.55"/>
+          <text x="351" y="64" text-anchor="middle" font-size="10" fill="#1d2a1f">초록: 위아래</text><text x="351" y="78" text-anchor="middle" font-size="10" fill="#1d2a1f">좌우 넷 평균</text>
+          <rect x="386" y="40" width="54" height="54" rx="4" fill="#d84a3a" opacity="0.55"/>
+          <text x="413" y="64" text-anchor="middle" font-size="10" fill="#2a1512">빨강: 대각선</text><text x="413" y="78" text-anchor="middle" font-size="10" fill="#2a1512">넷 평균</text>
+        </g>
+        <text x="351" y="118" text-anchor="middle" class="lbl-b" font-size="11">한 칸의 색 = 잰 값 하나 + 추측 둘</text>
+        <text x="351" y="150" text-anchor="middle" class="lbl-dim" font-size="11">세 값의 3분의 2는 이웃에서 빌려 온다</text>
+        <text x="351" y="170" text-anchor="middle" class="lbl-dim" font-size="11">무늬가 칸보다 가늘면 추측이 틀린다</text>
+      </svg>
+      <figcaption><b>그림 4. 베이어 배열과 디모자이크.</b> 화소마다 세 색 중 하나만 잰다. 파랑 칸(점선 가운데)의 초록은 위아래 좌우 네 초록 칸의 평균으로, 빨강은 대각선 네 빨강 칸의 평균으로 채운다. 이것이 가장 단순한 쌍선형 디모자이크다. 실제 카메라는 경계 방향을 살펴 평균하는 더 영리한 방법을 쓴다.</figcaption>
+    </figure>
+
+    <p>센서가 실제로 적는 것은 그림 4 왼쪽 같은 모자이크다. 화소마다 빠진 두 색을 이웃에서 빌려 채우는 과정이 <span class="term">디모자이크</span><span class="en">(Demosaicing)</span>다. 평평한 벽이나 하늘처럼 이웃이 서로 비슷하면 추측이 잘 맞는다. 하지만 무늬가 화소 두세 칸보다 가늘면 이웃의 값이 엉뚱한 무늬에서 오고, 흑백 줄무늬에 무지개 같은 <span class="term">가짜 색</span><span class="en">(False color)</span>이나 물결무늬(모아레)가 생긴다. 아래에서 줄무늬의 간격을 좁혀 본다.</p>
+
+    <div class="sim" id="sim-px-bayer">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>모자이크에서 색을 복원하기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="by-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="by-view"><button data-value="orig">장면</button><button data-value="mosaic">센서가 잰 것</button><button data-value="demo" class="on">복원한 것</button><button data-value="err">틀린 정도</button></div>
+          <label class="ctrl"><span>줄무늬 간격 <output id="by-p-out"></output></span><input type="range" id="by-p" min="1.6" max="8" step="0.1" value="3"></label>
+          <label class="check"><input type="checkbox" id="by-aa"> 로우패스 필터(살짝 흐리게 찍기)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">줄무늬 칸의 가짜 색</span><span class="v" id="by-o-f">—</span></div>
+        <div class="stat"><span class="k">책등 칸의 오차</span><span class="v" id="by-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "센서가 잰 것"을 본다. 한 칸에 색이 하나뿐이고 초록 칸이 절반이다. ② "복원한 것"에서 줄무늬 간격을 2 화소 가까이로 좁힌다. 흑백 줄무늬인데 빨강·파랑 얼룩이 끼고, 2 화소에 딱 맞으면 무늬가 아예 다른 색면이 된다. ③ "로우패스 필터"를 켠다. 가짜 색이 크게 줄지만 책등 글자도 함께 흐려진다. 예전 카메라들이 센서 앞에 이 필터를 둔 이유이자, 요즘 많은 카메라가 그것을 뺀 이유다. (쌍선형 디모자이크, RGGB 배열. 장면은 이 책이 그린 가상의 시험 그림이다.)</div>
+    </div>
+
+    <p>점 하나에 색 하나라는 점에서 베이어 모자이크는 쇠라의 점묘화(<a href="../../color/chapters/overview.html">ColorBook 1장</a>)를 닮았다. 다른 점은 점묘화의 점은 감상자의 눈이 멀리서 섞지만, 센서의 모자이크는 디모자이크가 이웃을 보고 빠진 색을 "채워 넣는다"는 것이다. 채우는 순간 새 정보가 생기는 것이 아니라 추측이 들어간다.</p>
+
+
+    <div class="callout studio">
+      <strong>천과 화면은 한 걸음 물러서 찍는다</strong>
+      작품 사진가들이 가장 먼저 경계하는 것이 고운 무늬의 모아레다. 캔버스 천의 올, 판화의 망점, 촘촘한 직물, 모니터 화면은 화소 간격과 비슷한 무늬를 만들기 쉽다. 찍은 뒤 화면을 100%로 키워 물결무늬나 무지개 얼룩이 있는지 확인하고, 있으면 촬영 거리를 조금 바꾸거나(무늬와 화소의 간격이 어긋나게) 조리개를 한두 단 조인다. 수채화 종이의 결도 비스듬한 빛 아래에서는 무늬가 되니, 작은 도록용 촬영이라도 첫 장은 꼭 확대해서 본다.
+    </div>
+  </section>
+
+  <section id="bits">
+    <h2>비트 깊이: 숫자의 눈금</h2>
+    <p>전하를 숫자로 바꿀 때는 정해진 개수의 눈금 중 하나를 고른다. 눈금의 개수를 정하는 것이 <span class="term">비트 깊이</span><span class="en">(Bit depth)</span>다. 8비트는 2⁸ = 256단계, 12비트는 4,096단계, 14비트는 16,384단계다. 대부분의 JPEG과 화면은 색마다 8비트, 많은 카메라의 RAW는 12~14비트를 쓴다. 그림 3의 자수 견본은 말하자면 1비트(두 단계) 그림이다.</p>
+    <p>눈금이 거칠면 부드럽게 이어져야 할 밝기가 계단이 된다. 이 계단을 <span class="term">밴딩</span><span class="en">(Banding)</span> 또는 포스터화라고 한다. 8비트는 그대로 볼 때는 대개 충분하다. 문제는 보정이다. 어두운 부분을 밝게 끌어올리면 원래 몇 개 안 되던 눈금 사이의 간격도 함께 벌어진다. 아래는 창빛이 비치는 벽의 밝기 변화다. 비트 수를 줄여 보고, 보정으로 그림자를 3스톱 끌어올려 본다.</p>
+
+    <div class="sim" id="sim-px-bits">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>비트 깊이와 밴딩</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bt-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>비트 깊이 <output id="bt-b-out"></output></span><input type="range" id="bt-b" min="2" max="12" step="1" value="8"></label>
+          <label class="check"><input type="checkbox" id="bt-push"> 보정: 그림자 3스톱 끌어올리기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">전체 단계</span><span class="v" id="bt-o-n">—</span></div>
+        <div class="stat"><span class="k">어두운 절반에 남은 단계</span><span class="v" id="bt-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 비트 깊이를 4로 줄인다. 16단계 계단이 또렷하다. 6비트(64단계)부터는 그대로 볼 때 계단이 거의 사라진다. ② 8비트에서 "그림자 3스톱 끌어올리기"를 켠다. 왼쪽 어두운 쪽에 계단이 다시 나타나고, 아래 막대(쓰인 단계)가 빗살처럼 듬성해진다. ③ 12비트로 올린 뒤 같은 보정을 한다. 계단이 사라진다. (화면은 8비트로 보이므로 8비트를 넘는 차이는 보정한 뒤에만 드러난다. 값은 sRGB 감마로 저장했다고 놓았다.)</div>
+    </div>
+
+    <p>보정하지 않을 사진이라면 8비트로 충분하고, 많이 보정할 사진일수록 비트가 넉넉해야 한다. 이것이 RAW와 JPEG의 첫 번째 차이다. 그런데 같은 8비트라도 눈금을 어떻게 나누느냐에 따라 어두운 쪽의 운명이 크게 달라진다.</p>
+  </section>
+
+  <section id="gamma">
+    <h2>감마 인코딩: 눈금을 어두운 쪽에 몰아 주기</h2>
+    <p>센서가 세는 광자 수는 빛의 양에 정비례한다. 이 숫자를 그대로 눈금에 담는 것을 <span class="term">선형 인코딩</span><span class="en">(Linear encoding)</span>이라고 한다. 그런데 빛은 1스톱 어두워질 때마다 절반이 되므로, 선형 눈금에서는 가장 밝은 1스톱이 전체 눈금의 절반을 차지한다. 8비트라면 가장 밝은 스톱에 128단계, 그 아래 스톱에 64단계, 다시 32, 16, 8, 4, 2, 1단계다. 7스톱 아래는 눈금이 하나뿐이다. 반면 사람의 눈은 밝기를 비율로 느껴서, 어두운 쪽의 작은 차이를 밝은 쪽보다 훨씬 잘 알아본다(<a href="../../color/chapters/value.html">ColorBook 6장</a>의 L*).</p>
+    <p>그래서 JPEG이나 화면용 이미지는 숫자로 바꾸기 전에 밝기를 휘어 어두운 쪽에 눈금을 더 나눠 준다. 이것이 <span class="term">감마 인코딩</span><span class="en">(Gamma encoding)</span>이다. sRGB 표준(IEC 61966-2-1)은 대략 1/2.2제곱에 가까운 곡선을 쓴다.</p>
+    <div class="formula">$$V \approx L^{1/2.2}$$<div class="where">\(L\): 선형 빛의 양(0~1), \(V\): 저장하는 값(0~1). 정확한 sRGB 식은 아주 어두운 부분을 직선으로 잇고 1/2.4제곱을 쓰지만 전체 모양은 1/2.2제곱과 비슷하다. 빛이 18%인 중간 회색이 저장 값 약 46%(8비트 118)에 놓인다. 화면은 이 값을 다시 거꾸로 휘어 원래 빛의 양으로 되돌려 보여 준다.</div></div>
+    <p>아래 시뮬레이터는 10스톱의 밝기를 선형과 감마로 각각 저장할 때 스톱마다 눈금이 몇 개 돌아가는지 세고, 가장 어두운 다섯 스톱을 크게 밝혀 비교한다.</p>
+
+    <div class="sim" id="sim-px-gamma">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>선형 눈금과 감마 눈금</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="gm-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>비트 깊이 <output id="gm-b-out"></output></span><input type="range" id="gm-b" min="6" max="14" step="1" value="8"></label>
+          <label class="ctrl"><span>밝혀 보는 양 <output id="gm-p-out"></output></span><input type="range" id="gm-p" min="0" max="6" step="1" value="5"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 밝은 스톱의 눈금(선형 / 감마)</span><span class="v" id="gm-o-t">—</span></div>
+        <div class="stat"><span class="k">가장 어두운 5스톱의 눈금(선형 / 감마)</span><span class="v" id="gm-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 8비트에서 막대를 비교한다. 선형은 밝은 스톱에 눈금을 몰아 쓰고 7스톱 아래는 1개 이하인데, 감마는 스톱마다 고르게 나눈다. ② 아래 두 띠는 가장 어두운 5스톱을 밝혀 본 모습이다. 선형 8비트는 몇 칸짜리 계단, 감마 8비트는 훨씬 촘촘하다. ③ 비트 깊이를 12로 올린다. 선형 12비트의 어두운 쪽 눈금이 감마 8비트와 비슷해진다. 카메라의 RAW가 선형인데도 12~14비트를 쓰는 이유다. (감마는 sRGB 식, 스톱은 흰색에서 반씩 줄어드는 밝기 구간이다.)</div>
+    </div>
+
+    <p>정리하면 RAW는 "선형이지만 눈금이 많은" 기록이고, JPEG은 "눈금은 적지만 감마로 어두운 쪽에 몰아 준" 기록이다. 그대로 볼 때는 JPEG도 충분하다. 하지만 JPEG은 카메라가 이미 톤 커브를 걸어 그림자를 눌러 두었기 때문에, 그림자 쪽에 남은 눈금이 감마만으로 기대하는 것보다 더 적다. 많이 고쳐야 할 사진일수록 이 차이가 커진다.</p>
+  </section>
+
+  <section id="raw">
+    <h2>RAW와 JPEG: 날것의 숫자와 구운 사진</h2>
+    <p><span class="term">RAW</span><span class="en">(Raw image file)</span>는 센서가 적은 숫자를 거의 그대로 담은 파일이다. 모자이크 상태이고, 선형이며, 12~14비트다. 화이트 밸런스와 밝기는 "이렇게 보여 주면 좋겠다"는 메모로만 붙어 있어서, 나중에 컴퓨터에서 얼마든지 다시 정할 수 있다. 그 대신 파일이 크다. 1600만 화소 12비트라면 압축 전 숫자만 약 24 MB다. <span class="term">JPEG</span><span class="en">(Joint Photographic Experts Group)</span>은 카메라가 그림 2의 처리를 모두 마친 결과다. 색이 채워지고, 화이트 밸런스와 톤 커브가 정해지고, 노이즈가 지워지고, 8비트로 줄고, 압축되었다(압축은 <a href="compression.html">10장</a>). 바로 보고 보낼 수 있고 파일이 작다. 대신 카메라가 내린 결정을 되돌리기 어렵다.</p>
+    <p>휴대폰은 특히 많은 결정을 미리 내린다. 여러 장을 빠르게 찍어 합치고, 어두운 곳의 노이즈를 강하게 지우고, 그림자와 하이라이트를 눌러 화면에서 보기 좋은 사진을 만든다. 그대로 볼 때는 훌륭하다. 하지만 지워진 노이즈와 함께 사라진 세부, 눌린 그림자 속 몇 안 남은 눈금은 다시 살아나지 않는다. 아래에서 같은 장면을 JPEG에서 밝힌 것과 RAW에서 밝힌 것을 비교한다.</p>
+
+    <div class="sim" id="sim-px-raw">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>그림자 끌어올리기: JPEG과 RAW</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage">
+          <div class="compare" id="rw-cmp">
+            <div class="cmp-a"><canvas id="rw-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="rw-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>그림자 끌어올리기 <output id="rw-e-out"></output></span><input type="range" id="rw-e" min="0" max="4" step="0.5" value="2"></label>
+          <div class="seg" id="rw-cam"><button data-value="m" class="on">미러리스</button><button data-value="p">휴대폰</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">구석에 남은 단계 수(JPEG / RAW)</span><span class="v" id="rw-o-l">—</span></div>
+        <div class="stat"><span class="k">구석의 SNR</span><span class="v" id="rw-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 끌어올리기 0에서 두 쪽이 거의 같은 것을 본다. 그대로 볼 사진이라면 JPEG으로 충분하다. ② 2스톱, 4스톱으로 올린다. JPEG 쪽 구석은 계단 띠와 뭉개진 얼룩이 되고, RAW 쪽은 입자가 거칠어지지만 책등의 경계가 남는다. ③ "휴대폰"으로 바꾼다. 같은 노출에서 화소당 빛이 6.6분의 1이라 RAW도 입자가 훨씬 거칠다. 형식만으로 빛의 부족을 메울 수는 없다. (같은 f값·셔터로 찍었다고 놓은 단순 모형. JPEG은 카메라의 노이즈 감소, 그림자를 누르는 톤 커브, 8비트 감마를 흉내 냈다. 디모자이크와 압축은 생략했다.)</div>
+    </div>
+
+    <div class="callout try">
+      <strong>RAW와 JPEG을 한 번에 찍어 밝혀 보기</strong>
+      카메라가 있다면 저장 형식을 "RAW + JPEG"으로 바꾸고, 해 질 녘 창가에서 방 안쪽이 어둡게 나오도록 한 장 찍는다. 휴대폰에 RAW(DNG) 저장 기능이 있다면 그것도 켠다. 컴퓨터의 사진 편집 프로그램에서 두 파일을 나란히 열고 그림자(또는 노출)를 똑같이 +2스톱 올린다. 가장 어두운 구석을 200%로 키워 계단 띠, 얼룩, 색 번짐이 어느 쪽에 먼저 생기는지 공책에 적는다. 이어서 하이라이트를 -1스톱 내려 창밖이 어느 쪽에서 살아나는지도 본다. 직접 해 보면 "나중에 고칠 여지"가 무엇인지 손으로 알게 된다.
+    </div>
+
+    <div class="callout studio">
+      <strong>작품을 찍을 때의 기본값</strong>
+      미술관과 출판사의 작품 촬영은 대개 RAW로 하고, 기본 감도에서 삼각대에 올려 셔터를 길게 한다. 광자를 많이 모아 잡음을 줄이고, 하이라이트(종이의 흰색)가 포화되지 않게 노출을 조금 아껴 둔 뒤, 색과 밝기는 회색 카드를 기준으로 나중에 맞춘다(<a href="color.html">9장</a>). JPEG 한 장으로 끝내도 되는 것은 결과물을 크게 고칠 일이 없고 빛이 넉넉할 때뿐이다. RAW는 원본으로 보관하고, 고친 결과를 용도에 맞는 크기와 형식으로 따로 내보내는 것이 순서다.
+    </div>
+  </section>
+
+  <section id="pipeline">
+    <h2>센서에서 파일까지</h2>
+    <p>마지막으로 이 장의 요소를 하나의 흐름 위에 놓는다. 카메라와 저장 형식을 고르고, 장면의 밝기와 보정의 양을 바꿔 가며 결과를 본다. 그림 위의 탐침을 끌어 어느 부분의 SNR이 얼마인지 확인한다. 밝은 창가에서는 무엇을 써도 비슷하고, 어두운 실내에서 그림자를 끌어올릴 때 비로소 카메라와 형식의 차이가 드러난다는 것을 확인하는 것이 목표다.</p>
+
+    <div class="sim" id="sim-px-pipe">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>종합: 장면에 맞는 카메라와 저장 형식</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="pp-cv" class="art"></canvas><span class="hint">탐침을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pp-cam"><button data-value="p">휴대폰</button><button data-value="m" class="on">미러리스</button></div>
+          <div class="seg" id="pp-fmt"><button data-value="jpg">JPEG</button><button data-value="raw" class="on">RAW</button></div>
+          <label class="ctrl"><span>장면의 빛 <output id="pp-l-out"></output></span><input type="range" id="pp-l" min="0" max="6" step="1" value="2"></label>
+          <label class="ctrl"><span>보정: 그림자 끌어올리기 <output id="pp-e-out"></output></span><input type="range" id="pp-e" min="0" max="3" step="0.5" value="1.5"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">탐침의 SNR</span><span class="v" id="pp-o-s">—</span></div>
+        <div class="stat"><span class="k">탐침의 광자(화소당)</span><span class="v" id="pp-o-e">—</span></div>
+        <div class="stat"><span class="k">탐침의 단계 수</span><span class="v" id="pp-o-l">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="pp-o-v">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 장면의 빛을 "밝은 창가"로 올린다. 휴대폰 JPEG과 미러리스 RAW가 거의 구별되지 않는다. ② "저녁 서가"로 내리고 그림자를 1.5스톱 이상 끌어올린다. 휴대폰 JPEG의 구석은 단계가 몇 개 남지 않아 얼룩이 되고, 미러리스 RAW는 탐침 SNR이 2.5배쯤 높다. ③ 미러리스로 두고 형식만 JPEG으로 바꾼다. 빛은 같은데도 구석의 단계 수가 크게 준다. 노이즈는 빛이, 고칠 여지는 형식이 정한다. (같은 f값과 셔터로 찍었다고 놓았다. 광자 산탄 잡음, 읽기 잡음(미러리스 4 e⁻, 휴대폰 2 e⁻), 포화, 12비트 RAW, 휴대폰·카메라 JPEG의 노이즈 감소와 톤 커브를 넣은 교육용 모형이다.)</div>
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 겨울 촬영 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>촬영 노트 · 8장</span></div>
+      <h4>밝힐 사진은 RAW로, 볼 사진은 그대로</h4>
+      <p>그림 읽기 모임 사진을 고르던 밤, 서윤은 같은 날 휴대폰으로 찍어 둔 서가 구석 사진을 다시 열었다. 화면에서는 멀쩡했는데 편집 앱에서 그림자를 올리자 책등이 사라지고 갈색 얼룩과 계단 띠만 남았다. 같은 구석을 미러리스로 찍은 RAW는 입자는 거칠어도 책 제목의 윤곽이 살아 있었다. 서윤은 무엇이 달랐는지 알고 싶어 다음 날 저녁 시험을 했다. 서가 구석을 휴대폰과 미러리스(50 mm 단렌즈)로 같은 f/1.8, 같은 셔터 속도로 한 장씩 찍고, 미러리스는 RAW와 JPEG을 함께 저장했다.</p>
+      <p>이 책의 모델로 계산하면 같은 노출에서 미러리스 화소(4.8 µm)는 휴대폰 화소(1.9 µm)보다 빛을 6.6배 받는다. 구석의 중간 밝기에서 미러리스 화소가 광자 400개를 모을 때 휴대폰은 61개를 모으고, SNR은 19.6 대 7.6이다. 그보다 2스톱 어두운 책등 그늘에서는 100개 대 15개, SNR 9.3 대 3.5다. 둘째 차이는 형식이었다. 같은 미러리스라도 JPEG에서 그림자를 2스톱 올리면 구석에 남은 단계가 몇 개 되지 않아 계단이 생겼다. 카메라가 이미 그림자를 눌러 8비트에 담았기 때문이다. 12비트 RAW에서는 같은 보정에도 계단이 보이지 않았다.</p>
+      <p>서윤은 그림 읽기 모임 사진도 다시 계산했다. 모임은 <a href="focus.html">7장</a>에서 정한 대로 24 mm, f/5.6으로 찍는다. 같은 셔터라면 이때 미러리스 센서 전체가 받는 빛은 f/1.8의 휴대폰과 거의 같다(휴대폰 쪽이 약 1.1배). 심도를 맞춘 만큼 큰 센서의 빛 이점이 사라진 것이다. 그래도 저녁 실내라 그림자를 올릴 일이 많으니 RAW의 여유는 그대로 남는다. 도경은 시험 사진을 보더니 필름 시절 이야기를 했다. "우리는 현상소에 맡기면 끝이었어. 너는 원판을 집에 들고 있는 거야. 대신 원판은 원판답게 받아 적어야지. 나중에 고친다고 대충 찍으면 안 돼."</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>도록 작품은 미러리스로 RAW + JPEG을 함께 저장하고 기본 감도로 찍는다(RAW가 원본, JPEG은 확인용). 웹·SNS 사진은 장면에 따라: 저녁 실내, 창가 역광처럼 그림자를 1스톱 넘게 끌어올릴 장면은 미러리스 RAW + JPEG, 밝고 고른 빛에서 그대로 쓸 장면은 휴대폰 JPEG도 된다. 근거(이 책의 모델): 같은 노출에서 화소당 빛 6.6배, 구석 SNR 19.6 대 7.6.</div>
+        <div><b>아직 남은 문제</b>RAW를 그대로 열었더니 도록용 수채화가 누렇고 밋밋하다. 카메라가 붙인 화이트 밸런스 메모는 스탠드 불빛에 속았다. 종이의 흰색을 어떻게 흰색으로 맞출까.</div>
+        <div><b>다음 단계</b><a href="color.html">9장</a>: 회색 카드로 화이트 밸런스를 맞추고, 커브와 레벨로 종이의 흰색을 찾는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>센서의 화소는 광자를 전자로 바꿔 모으는 양동이다. 포화 용량을 넘는 빛은 모두 같은 값이 되어 하이라이트가 날아간다.</li>
+      <li>광자는 무작위로 도착해 √N만큼 흔들린다(광자 산탄 잡음). SNR은 √N이라 빛을 4배 모아야 잡음 대비가 2배 좋아진다. 노이즈를 줄이는 근본 방법은 빛을 더 받는 것이다.</li>
+      <li>같은 노출이면 화소당 빛은 화소 넓이에, 사진 전체의 빛은 센서 넓이에 비례한다. 같은 심도로 맞추면 센서 크기의 빛 이점은 사라진다(등가성).</li>
+      <li>ISO는 빛을 더 받는 것이 아니라 전하를 증폭하는 것이다. 노이즈는 높은 ISO가 아니라 적은 빛의 흔적이다.</li>
+      <li>베이어 센서는 화소마다 한 색만 재고 나머지 두 색은 이웃에서 추측한다(디모자이크). 화소보다 가는 무늬에서는 가짜 색과 모아레가 생긴다.</li>
+      <li>비트 깊이는 눈금의 개수, 감마는 눈금의 배분이다. 선형 8비트는 어두운 쪽 눈금이 거의 없어서, 화면용 이미지는 감마로 어두운 쪽에 눈금을 몰아 준다.</li>
+      <li>RAW는 선형 12~14비트의 날것의 숫자라 많이 고칠 수 있고, JPEG은 카메라가 처리를 마친 8비트 결과라 작고 바로 쓸 수 있지만 되돌리기 어렵다. 그대로 볼 사진은 JPEG, 크게 고칠 사진은 RAW.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 어두운 방에서 화소 하나가 평균 광자 25개를 받는다. 셔터를 4배 길게 열어 100개를 받게 하면 신호 대 잡음비(SNR)는 어떻게 되는가? (광자 산탄 잡음만 생각한다)</p>
+        <div class="opts">
+          <button class="opt">4배 좋아진다. 신호가 4배가 되었기 때문이다.</button>
+          <button class="opt">변하지 않는다. 신호와 잡음이 함께 4배가 되기 때문이다.</button>
+          <button class="opt" data-correct>2배 좋아진다. 잡음은 √N이라 신호가 4배일 때 2배만 늘기 때문이다.</button>
+          <button class="opt">나빠진다. 오래 열수록 잡음이 쌓이기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">SNR = N/√N = √N이다. 25개면 √25 = 5, 100개면 √100 = 10이므로 2배가 된다. 잡음 자체(±5개 → ±10개)는 늘지만 신호가 더 빨리 늘어 상대적인 얼룩은 줄어든다. 아주 긴 노출에서는 센서의 열 잡음이 문제가 될 수 있지만, 일상적인 셔터 범위에서는 빛을 더 받는 쪽이 늘 깨끗하다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 같은 장면, 같은 조리개, 같은 셔터 속도로 ISO 400으로 어둡게 찍은 뒤 나중에 3스톱 밝힌 사진과, ISO 3200으로 찍은 사진을 비교한다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>두 사진이 받은 광자 수는 같다. 차이는 읽기 잡음과 숫자로 바꾸는 방식에서 오는 작은 차이뿐이다.</button>
+          <button class="opt">ISO 3200 사진은 센서가 8배 민감해져 광자를 8배 받았으므로 훨씬 깨끗하다.</button>
+          <button class="opt">ISO 400 사진은 광자를 8배 더 받았으므로 훨씬 깨끗하다.</button>
+          <button class="opt">ISO 3200은 셔터 속도를 자동으로 8배 빠르게 하므로 비교할 수 없다.</button>
+        </div>
+        <div class="quiz-exp">광자 수는 장면의 밝기, 조리개, 셔터가 정한다. ISO는 모은 전하를 숫자로 바꾸기 전에 얼마나 증폭할지 정할 뿐 광자를 늘리지 않는다. 그래서 두 사진의 광자 산탄 잡음은 같고, 남는 차이는 읽기 잡음이 더해지는 순서와 비트를 쓰는 방식에서 오는 작은 차이로 센서마다 다르다. 문제에서 셔터는 같다고 정했다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 가는 흑백 줄무늬 셔츠를 찍었더니 사진에 빨강·파랑 무지개 얼룩이 생겼다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">렌즈의 색수차 때문에 흰 빛이 무지개로 갈라졌다.</button>
+          <button class="opt">JPEG 압축이 흑백을 색으로 잘못 저장했다.</button>
+          <button class="opt">셔츠의 실에 원래 미세한 색이 섞여 있었다.</button>
+          <button class="opt" data-correct>베이어 센서는 화소마다 한 색만 재고 나머지를 이웃에서 추측하는데, 무늬가 화소 두세 칸만큼 가늘어 추측이 엉뚱한 줄에서 왔다.</button>
+        </div>
+        <div class="quiz-exp">디모자이크는 이웃 화소가 비슷하다는 가정으로 빠진 색을 채운다. 줄무늬 간격이 화소 간격과 비슷하면 빨강 칸은 흰 줄만, 파랑 칸은 검은 줄만 보는 식으로 어긋나 가짜 색이 생긴다(모아레). 색수차는 주로 밝기 경계 가장자리에 보라·초록 테두리로 나타나고, 압축은 블록 모양의 흔적을 남긴다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 8비트로 저장할 때 선형 인코딩 대신 감마 인코딩을 쓰는 가장 큰 이유는?</p>
+        <div class="opts">
+          <button class="opt">감마 인코딩이 파일 크기를 절반으로 줄이기 때문이다.</button>
+          <button class="opt" data-correct>선형 눈금은 밝은 스톱에 눈금을 몰아 써서 어두운 쪽이 몇 단계뿐인데, 눈은 어두운 쪽 차이에 더 민감하므로 감마로 눈금을 어두운 쪽에 더 나눠 주기 위해서다.</button>
+          <button class="opt">감마 인코딩을 하면 사진이 실제보다 밝아져 보기 좋기 때문이다.</button>
+          <button class="opt">센서가 원래 감마 곡선으로 빛을 세기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">8비트 선형이면 가장 밝은 스톱에 128단계, 7스톱 아래에는 1단계만 남는다. sRGB 감마로 저장하면 같은 256단계가 스톱마다 고르게 나뉘어 어두운 쪽 계단이 줄어든다. 파일 크기는 같고, 화면이 다시 거꾸로 휘어 보여 주므로 밝기가 바뀌지도 않는다. 센서는 빛에 정비례하게(선형으로) 센다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874", STAGE = "#e9e6df";
+
+  /* ---------------- 선형광 표(IEC 61966-2-1) ---------------- */
+  var LUT = new Float32Array(256);
+  for (var li = 0; li < 256; li++) LUT[li] = ART.toLinear(li / 255);
+  var GAM = new Float32Array(4097);
+  for (var gi = 0; gi <= 4096; gi++) GAM[gi] = ART.toGamma(gi / 4096);
+  function enc(v) { return GAM[v <= 0 ? 0 : v >= 1 ? 4096 : Math.round(v * 4096)]; }   // 선형 → sRGB 값(0~1)
+  function dec8(c) { return LUT[c < 0 ? 0 : c > 255 ? 255 : c]; }
+
+  /* ---------------- 난수(시드 고정) ---------------- */
+  function gauss(r) { var u = 1 - r(), v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+  function poisson(lam, r) {
+    if (lam <= 0) return 0;
+    if (lam > 40) return Math.max(0, Math.round(lam + Math.sqrt(lam) * gauss(r)));
+    var L = Math.exp(-lam), k = 0, p = 1;
+    do { k++; p *= r(); } while (p > L);
+    return k - 1;
+  }
+
+  /* ---------------- 상자 흐림(분리형, 소수 반지름) ---------------- */
+  function boxPass(src, dst, w, h, ch, r, horiz) {
+    var m = Math.floor(r), fr = r - m, norm = 1 / (2 * r + 1);
+    var N = horiz ? w : h, M = horiz ? h : w, stride = (horiz ? 1 : w) * ch;
+    for (var line = 0; line < M; line++) {
+      var base = (horiz ? line * w : line) * ch;
+      for (var k = 0; k < ch; k++) {
+        var o = base + k, acc = 0, j, i, a, b, lo;
+        for (j = -m; j <= m; j++) acc += src[o + (j < 0 ? 0 : j >= N ? N - 1 : j) * stride];
+        for (i = 0; i < N; i++) {
+          a = i - m - 1; b = i + m + 1;
+          var ea = src[o + (a < 0 ? 0 : a >= N ? N - 1 : a) * stride], eb = src[o + (b >= N ? N - 1 : b < 0 ? 0 : b) * stride];
+          dst[o + i * stride] = (acc + fr * (ea + eb)) * norm;
+          lo = i - m; lo = lo < 0 ? 0 : lo >= N ? N - 1 : lo;
+          acc += eb - src[o + lo * stride];
+        }
+      }
+    }
+  }
+  function blurArr(a, w, h, ch, r) {
+    if (r < 0.2) return a;
+    var t1 = new Float32Array(a.length), t2 = new Float32Array(a.length);
+    boxPass(a, t1, w, h, ch, r, true); boxPass(t1, t2, w, h, ch, r, false);
+    return t2;
+  }
+
+  /* =====================================================================
+     장면: 저녁의 서가 구석(가상의 예시). 반사율 그림 × 스탠드 조명.
+     ===================================================================== */
+  function drawCorner(x, W, H) {
+    var rnd = AB.rng(31);
+    x.fillStyle = "#c9b99c"; x.fillRect(0, 0, W, H);                         // 벽
+    var cols = ["#8c3b2e", "#2f5d7c", "#c9a55a", "#4b6b48", "#e2d6bc", "#6a4a6e", "#b5653f", "#2d3a4a", "#a8b39a", "#e1b86a", "#7a2f3b", "#3f7f86", "#f0e8d6"];
+    var sx0 = W * 0.08, sx1 = W * 0.98, rows = 3, top = H * 0.06, rowH = (H * 0.84) / rows;
+    x.fillStyle = "#5b4130"; x.fillRect(sx0 - W * 0.02, top - H * 0.02, sx1 - sx0 + W * 0.04, H * 0.9);   // 책장 틀
+    for (var rI = 0; rI < rows; rI++) {
+      var y0 = top + rI * rowH, base = y0 + rowH - H * 0.025;
+      x.fillStyle = "#3d2b20"; x.fillRect(sx0, y0, sx1 - sx0, rowH - H * 0.025);
+      var X = sx0 + 2;
+      while (X < sx1 - 4) {
+        var bw = W * (0.018 + rnd() * 0.022), bh = rowH * (0.62 + rnd() * 0.3), c = cols[Math.floor(rnd() * cols.length)];
+        if (X + bw > sx1) bw = sx1 - X - 1;
+        x.fillStyle = c; x.fillRect(X, base - bh, bw - 1, bh);
+        x.fillStyle = "rgba(255,255,255,0.4)"; x.fillRect(X + bw * 0.22, base - bh * 0.8, Math.max(1, bw * 0.5), Math.max(1, bh * 0.1));
+        x.fillStyle = "rgba(0,0,0,0.25)"; x.fillRect(X + bw * 0.25, base - bh * 0.5, Math.max(1, bw * 0.45), Math.max(1, bh * 0.22));
+        X += bw;
+      }
+      x.fillStyle = "#7b5a3c"; x.fillRect(sx0 - W * 0.02, base, sx1 - sx0 + W * 0.04, H * 0.025);
+    }
+    // 스탠드 갓(빛나는 부분은 조명에서 따로 더한다)
+    x.fillStyle = "#e8dcc0"; x.beginPath(); x.moveTo(W * 0.02, H * 0.2); x.lineTo(W * 0.14, H * 0.2); x.lineTo(W * 0.11, H * 0.06); x.lineTo(W * 0.05, H * 0.06); x.closePath(); x.fill();
+  }
+  var SCN = {};
+  function corner(W, H) {
+    var id = W + "x" + H;
+    if (SCN[id]) return SCN[id];
+    var c = document.createElement("canvas"); c.width = W; c.height = H;
+    var x = c.getContext("2d", { willReadFrequently: true });
+    drawCorner(x, W, H);
+    var d = x.getImageData(0, 0, W, H).data, n = W * H, L = new Float32Array(n * 3), refl = new Float32Array(n * 3);
+    for (var j = 0; j < H; j++) for (var i = 0; i < W; i++) {
+      var k = j * W + i, dx = (i - W * 0.08) / W, dy = (j - H * 0.16) / H;
+      var ill = 0.035 + 0.965 * Math.exp(-(dx * dx * 2.2 + dy * dy * 2.6) * 2.6);   // 스탠드 빛 고임(왼쪽 위), 구석은 약 4%
+      var lamp = (i > W * 0.05 && i < W * 0.11 && j > H * 0.07 && j < H * 0.2) ? 3.2 : 0;   // 갓의 빛나는 면
+      for (var ch = 0; ch < 3; ch++) {
+        var rf = LUT[d[k * 4 + ch]] * (ch === 2 ? 0.82 : ch === 1 ? 0.95 : 1);     // 텅스텐 빛의 따뜻함(간단히)
+        refl[k * 3 + ch] = LUT[d[k * 4 + ch]];
+        L[k * 3 + ch] = rf * ill + lamp * (ch === 2 ? 0.7 : ch === 1 ? 0.9 : 1);
+      }
+    }
+    return (SCN[id] = { W: W, H: H, L: L, refl: refl });
+  }
+
+  /* ---------------- 센서 모형(교육용) ----------------
+     ePerWhite: 미러리스 화소가 조명 최대인 흰 면(L=1)에서 모으는 전자 수. 휴대폰은 화소 넓이 비 6.56으로 나눈다.
+     읽기 잡음 미러리스 4 e⁻, 휴대폰 2 e⁻. 포화 1500 e⁻/µm² × 화소 넓이. RAW 12비트(포화 = 4095). */
+  var CAMS = {
+    m: { area: 22.9, rn: 4, fw: 1500 * 22.9, name: "미러리스" },
+    p: { area: 3.49, rn: 2, fw: 1500 * 3.49, name: "휴대폰" },
+  };
+  var AREA_RATIO = 22.9 / 3.49;
+  // 결과: 장면 단위(L)로 되돌린 RAW 값(12비트로 양자화), 포화 시 상한
+  function capture(S, cam, ePerWhite, seed) {
+    var C = CAMS[cam], e1 = cam === "m" ? ePerWhite : ePerWhite / AREA_RATIO, r = AB.rng(seed);
+    var n = S.W * S.H * 3, out = new Float32Array(n), q = C.fw / 4095;
+    for (var i = 0; i < n; i++) {
+      var mean = S.L[i] * e1, e = poisson(mean, r) + C.rn * gauss(r);
+      if (e > C.fw) e = C.fw; if (e < 0) e = 0;
+      out[i] = (Math.round(e / q) * q) / e1;
+    }
+    return { v: out, e1: e1, cam: cam };
+  }
+  // 카메라 JPEG: 노이즈 감소(휴대폰 강하게) → 노출 → 그림자를 누르는 톤 커브 → sRGB 감마 → 8비트
+  // 그림자를 누르고(x²/(x+k)) 밝은 쪽을 살짝 감싸는 곡선. 선형 0~1 → 선형 0~1
+  function toneCurve(v) { var t = v < 0 ? 0 : v > 1 ? 1 : v, y = (t * t) / (t + 0.035); return y / (1 + 0.3 * y); }
+  var TC = new Float32Array(1025);
+  (function () { var a = toneCurve(0), b = toneCurve(1); for (var i = 0; i <= 1024; i++) TC[i] = (toneCurve(i / 1024) - a) / (b - a); })();
+  function tc(v) { return TC[v <= 0 ? 0 : v >= 1 ? 1024 : Math.round(v * 1024)]; }
+  var EXPO = 2.2;   // 장면 L을 화면에 놓을 때의 기본 밝기(스탠드 둘레가 거의 흰색)
+  function makeJpeg(raw, W, H) {
+    var n = W * H, v = raw.v, nr = raw.cam === "p" ? 1.6 : 0.6, chroma = raw.cam === "p" ? 3 : 1.5;
+    // 밝기(Y)와 색차로 나눠 각각 흐린다
+    var Y = new Float32Array(n), Cb = new Float32Array(n * 2);
+    for (var i = 0; i < n; i++) {
+      var r = v[i * 3], g = v[i * 3 + 1], b = v[i * 3 + 2], y = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      Y[i] = y; Cb[i * 2] = r - y; Cb[i * 2 + 1] = b - y;
+    }
+    var Yb = blurArr(Y, W, H, 1, nr), Cbb = blurArr(Cb, W, H, 2, chroma);
+    var out = new Uint8ClampedArray(n * 3);
+    for (var k = 0; k < n; k++) {
+      var y2 = Y[k] * 0.25 + Yb[k] * 0.75;
+      var R = y2 + Cbb[k * 2], B = y2 + Cbb[k * 2 + 1], G = (y2 - 0.2126 * R - 0.0722 * B) / 0.7152;
+      out[k * 3] = Math.round(enc(tc(R * EXPO)) * 255); out[k * 3 + 1] = Math.round(enc(tc(G * EXPO)) * 255); out[k * 3 + 2] = Math.round(enc(tc(B * EXPO)) * 255);
+    }
+    return out;
+  }
+  // 톤 커브의 역(JPEG 값 → 장면 L)을 표로
+  var ITC = new Float32Array(256);
+  (function () { for (var c = 0; c < 256; c++) { var t = dec8(c), lo = 0, hi = 1; for (var it = 0; it < 30; it++) { var m = (lo + hi) / 2; if (tc(m) < t) lo = m; else hi = m; } ITC[c] = (lo + hi) / 2; } })();
+  // 보정: 그림자 끌어올리기(EV). 밝은 쪽은 덜 올라가게 하이라이트를 감싼다.
+  function liftCurve(x, ev) { var g = Math.pow(2, ev); return (x * g) / (1 + x * (g - 1) * 0.9); }
+  // JPEG에서 끌어올림: JPEG 값 → 장면 L로 되돌림 → 끌어올림 → 다시 톤·감마
+  function developJpeg(jp, W, H, ev, outImg) {
+    var n = W * H, d = outImg.data;
+    for (var i = 0; i < n; i++) for (var ch = 0; ch < 3; ch++) {
+      var L = ITC[jp[i * 3 + ch]];
+      d[i * 4 + ch] = Math.round(enc(tc(liftCurve(L, ev))) * 255);
+    }
+    for (var k = 0; k < n; k++) d[k * 4 + 3] = 255;
+  }
+  function developRaw(raw, W, H, ev, outImg) {
+    var n = W * H, d = outImg.data, v = raw.v;
+    for (var i = 0; i < n; i++) {
+      for (var ch = 0; ch < 3; ch++) d[i * 4 + ch] = Math.round(enc(tc(liftCurve(v[i * 3 + ch] * EXPO, ev))) * 255);
+      d[i * 4 + 3] = 255;
+    }
+  }
+  // 영역 통계: 장면 단위 SNR(초록 채널), 단계 수(초록 채널의 서로 다른 출력값)
+  function regionStats(S, raw, img, W, x0, y0, x1, y1) {
+    var s = 0, s2 = 0, n = 0, set = {}, tL = 0;
+    for (var y = y0; y < y1; y++) for (var x = x0; x < x1; x++) {
+      var k = y * W + x, v = raw.v[k * 3 + 1], t = S.L[k * 3 + 1];
+      s += v - t; s2 += (v - t) * (v - t); tL += t; n++;
+      set[img.data[k * 4 + 1]] = 1;
+    }
+    var mean = tL / n, sd = Math.sqrt(Math.max(1e-12, s2 / n - (s / n) * (s / n)));
+    return { snr: mean / sd, levels: Object.keys(set).length, e: mean * raw.e1 };
+  }
+
+  /* ---------------- 그림 1: 휴대폰 JPEG 대 미러리스 RAW ---------------- */
+  (function () {
+    var cache = {};
+    function build(W, H) {
+      var S = corner(W, H), id = W + "x" + H;
+      if (cache[id]) return cache[id];
+      var e = 900;   // 미러리스 화소가 스탠드 아래 흰 면에서 받는 광자(같은 노출)
+      var rp = capture(S, "p", e, 11), rm = capture(S, "m", e, 12);
+      var jp = makeJpeg(rp, W, H);
+      var cA = document.createElement("canvas"); cA.width = W; cA.height = H;
+      var cB = document.createElement("canvas"); cB.width = W; cB.height = H;
+      var ia = cA.getContext("2d").createImageData(W, H), ib = cB.getContext("2d").createImageData(W, H);
+      developJpeg(jp, W, H, 2, ia); developRaw(rm, W, H, 2, ib);
+      cA.getContext("2d").putImageData(ia, 0, 0); cB.getContext("2d").putImageData(ib, 0, 0);
+      return (cache[id] = { a: cA, b: cB });
+    }
+    function draw(which) {
+      return function (ctx, w, h) {
+        var W = Math.min(480, Math.round(w)), H = Math.round(W * 2 / 3), b = build(W, H);
+        ctx.imageSmoothingEnabled = W < w * 0.7; ctx.drawImage(b[which], 0, 0, w, h);
+      };
+    }
+    AB.canvas("#pi-a", draw("a"), { aspect: 2 / 3, bg: STAGE });
+    AB.canvas("#pi-b", draw("b"), { aspect: 2 / 3, bg: STAGE });
+    AB.compare("#pi-cmp", { labels: ["휴대폰 JPEG +2스톱", "미러리스 RAW +2스톱"], pos: 0.5 });
+  })();
+
+  /* ---------------- 시뮬레이터 1: 광자를 세는 격자 ---------------- */
+  (function () {
+    var LEVELS = [1, 3, 10, 30, 100, 300, 1000, 3000, 10000];
+    var nI = AB.range("ph-n", function (v) { return LEVELS[v].toLocaleString("ko-KR") + "개"; }, function () { shoot(); });
+    var size = AB.seg("ph-size", function () { shoot(); });
+    var seed = 5, GW = 72, GH = 48, base = null, counts = null, probe = { x: 50, y: 10 }, geo = null;
+    document.getElementById("ph-again").addEventListener("click", function () { seed++; shoot(); });
+    function makeBase() {
+      // 서가 구석의 반사율을 고르게 비춘 그림(휘도)
+      var S = corner(GW, GH), a = new Float32Array(GW * GH);
+      for (var i = 0; i < GW * GH; i++) a[i] = 0.2126 * S.refl[i * 3] + 0.7152 * S.refl[i * 3 + 1] + 0.0722 * S.refl[i * 3 + 2];
+      return a;
+    }
+    function shoot() {
+      if (!base) base = makeBase();
+      var N = LEVELS[nI()] / (size() === "small" ? AREA_RATIO : 1), r = AB.rng(seed * 977 + nI() * 13 + (size() === "small" ? 7 : 0));
+      counts = new Float32Array(GW * GH);
+      for (var i = 0; i < counts.length; i++) counts[i] = poisson(base[i] * N, r);
+      counts.N = N;
+      if (cv) cv.redraw();
+    }
+    var cv = null;
+    shoot();
+    cv = AB.canvas("#ph-cv", function (ctx, w, h) {
+      var N = counts.N, cw = w / GW, chh = h / GH;
+      geo = { cw: cw, ch: chh };
+      for (var j = 0; j < GH; j++) for (var i = 0; i < GW; i++) {
+        var v = counts[j * GW + i] / N, g = Math.round(enc(Math.min(1, v)) * 255);
+        ctx.fillStyle = "rgb(" + g + "," + g + "," + g + ")";
+        ctx.fillRect(Math.floor(i * cw), Math.floor(j * chh), Math.ceil(cw), Math.ceil(chh));
+      }
+      // 탐침(5×5칸)
+      var px = probe.x, py = probe.y, s = 0, s2 = 0, sb = 0, n = 0;
+      for (var y = py; y < py + 5; y++) for (var x = px; x < px + 5; x++) { var c = counts[y * GW + x]; s += c; s2 += c * c; sb += base[y * GW + x]; n++; }
+      var mean = s / n, sd = Math.sqrt(Math.max(0, s2 / n - mean * mean)), exp = (sb / n) * N;
+      ctx.strokeStyle = "#ffcc33"; ctx.lineWidth = 2.5; ctx.strokeRect(px * cw, py * chh, 5 * cw, 5 * chh);
+      ctx.strokeStyle = "#1b1a1f"; ctx.lineWidth = 1; ctx.strokeRect(px * cw - 2, py * chh - 2, 5 * cw + 4, 5 * chh + 4);
+      ctx.fillStyle = "rgba(20,18,16,0.7)"; ctx.fillRect(0, h - 22, w, 22);
+      ctx.fillStyle = "#ffffff"; ctx.font = AB.font(11, true, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("흰 벽 한 칸 평균 " + (N < 10 ? N.toFixed(1) : Math.round(N)) + "개 · " + GW + "×" + GH + "칸", 8, h - 11);
+      AB.stat("ph-o-m", (mean < 10 ? mean.toFixed(1) : Math.round(mean)) + " <small>개</small>");
+      AB.stat("ph-o-s", "±" + (sd < 10 ? sd.toFixed(1) : Math.round(sd)));
+      AB.stat("ph-o-r", (sd > 0 ? (mean / sd).toFixed(1) : "∞") + " <small>/ " + Math.sqrt(Math.max(0, exp)).toFixed(1) + "</small>");
+    }, { bg: PAPER, aspect: GH / GW });
+    AB.drag(cv.canvas, {
+      move: function (x, y) { if (!geo) return; probe.x = AB.clamp(Math.round(x / geo.cw - 2.5), 0, GW - 5); probe.y = AB.clamp(Math.round(y / geo.ch - 2.5), 0, GH - 5); cv.redraw(); },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 베이어와 디모자이크 ---------------- */
+  (function () {
+    var view = AB.seg("by-view", function () { cv.redraw(); });
+    var pI = AB.range("by-p", function (v) { return v.toFixed(1) + " 화소"; }, function () { scene = null; cv.redraw(); });
+    var aa = AB.check("by-aa", function () { scene = null; cv.redraw(); });
+    var GW = 96, GH = 60, scene = null;
+    function build() {
+      var c = document.createElement("canvas"); c.width = GW * 4; c.height = GH * 4;
+      var x = c.getContext("2d", { willReadFrequently: true });
+      // 4배로 그린 뒤 화소 하나 = 4×4 평균(센서의 면적 적분)
+      x.fillStyle = "#d9cdb8"; x.fillRect(0, 0, c.width, c.height);
+      var cols = ["#8c3b2e", "#2f5d7c", "#c9a55a", "#4b6b48", "#6a4a6e", "#b5653f", "#3f7f86", "#e1b86a"], X = 8;
+      for (var i = 0; i < 8; i++) {
+        var bw = 20 + (i % 3) * 6; x.fillStyle = cols[i]; x.fillRect(X, 24, bw, 190);
+        x.fillStyle = "#f4efe2"; x.font = "700 13px sans-serif"; x.save(); x.translate(X + bw / 2 + 4, 40); x.rotate(Math.PI / 2); x.fillText("책방E", 0, 0); x.restore();
+        X += bw + 2;
+      }
+      x.fillStyle = "#2b2a30"; x.font = "800 30px sans-serif"; x.fillText("ABC 가나", 10, 225);
+      // 흑백 줄무늬 칸(간격 p 화소 = 4p 그림 단위)
+      var p = pI() * 4, sx = 200, sy = 16, sw = 168, sh = 200;
+      x.save(); x.beginPath(); x.rect(sx, sy, sw, sh); x.clip();
+      x.fillStyle = "#f6f3ec"; x.fillRect(sx, sy, sw, sh);
+      x.fillStyle = "#1b1a1f";
+      for (var t = sx - sh; t < sx + sw + sh; t += p) {   // 살짝 기운 줄무늬
+        x.beginPath(); x.moveTo(t, sy); x.lineTo(t + p / 2, sy); x.lineTo(t + p / 2 + sh * 0.08, sy + sh); x.lineTo(t + sh * 0.08, sy + sh); x.closePath(); x.fill();
+      }
+      x.restore();
+      var big = x.getImageData(0, 0, c.width, c.height).data, lin = new Float32Array(GW * GH * 3);
+      for (var j = 0; j < GH; j++) for (var i2 = 0; i2 < GW; i2++) for (var ch = 0; ch < 3; ch++) {
+        var s = 0; for (var yy = 0; yy < 4; yy++) for (var xx = 0; xx < 4; xx++) s += LUT[big[((j * 4 + yy) * c.width + i2 * 4 + xx) * 4 + ch]];
+        lin[(j * GW + i2) * 3 + ch] = s / 16;
+      }
+      if (aa()) lin = blurArr(blurArr(lin, GW, GH, 3, 0.5), GW, GH, 3, 0.5);
+      // RGGB 모자이크
+      var mos = new Float32Array(GW * GH), chOf = function (i, j) { return (j % 2 === 0) ? (i % 2 === 0 ? 0 : 1) : (i % 2 === 0 ? 1 : 2); };
+      for (var j2 = 0; j2 < GH; j2++) for (var i3 = 0; i3 < GW; i3++) mos[j2 * GW + i3] = lin[(j2 * GW + i3) * 3 + chOf(i3, j2)];
+      // 쌍선형 디모자이크
+      var M = function (i, j) { i = i < 0 ? -i : i >= GW ? 2 * GW - 2 - i : i; j = j < 0 ? -j : j >= GH ? 2 * GH - 2 - j : j; return mos[j * GW + i]; };
+      var dem = new Float32Array(GW * GH * 3);
+      for (var j3 = 0; j3 < GH; j3++) for (var i4 = 0; i4 < GW; i4++) {
+        var k = (j3 * GW + i4) * 3, c0 = chOf(i4, j3), cross = (M(i4 - 1, j3) + M(i4 + 1, j3) + M(i4, j3 - 1) + M(i4, j3 + 1)) / 4;
+        var diag = (M(i4 - 1, j3 - 1) + M(i4 + 1, j3 - 1) + M(i4 - 1, j3 + 1) + M(i4 + 1, j3 + 1)) / 4;
+        var hor = (M(i4 - 1, j3) + M(i4 + 1, j3)) / 2, ver = (M(i4, j3 - 1) + M(i4, j3 + 1)) / 2, me = M(i4, j3);
+        if (c0 === 0) { dem[k] = me; dem[k + 1] = cross; dem[k + 2] = diag; }
+        else if (c0 === 2) { dem[k] = diag; dem[k + 1] = cross; dem[k + 2] = me; }
+        else if (j3 % 2 === 0) { dem[k] = hor; dem[k + 1] = me; dem[k + 2] = ver; }
+        else { dem[k] = ver; dem[k + 1] = me; dem[k + 2] = hor; }
+      }
+      // 오차: 줄무늬 칸의 가짜 색(채도), 책등 칸의 RGB 오차
+      var fc = 0, fn = 0, be = 0, bn = 0;
+      for (var j4 = 1; j4 < GH - 1; j4++) for (var i5 = 1; i5 < GW - 1; i5++) {
+        var kk = (j4 * GW + i5) * 3, r = enc(dem[kk]), g = enc(dem[kk + 1]), b = enc(dem[kk + 2]);
+        if (i5 >= 51 && i5 < 91 && j4 >= 5 && j4 < 53) { fc += Math.max(r, g, b) - Math.min(r, g, b); fn++; }
+        if (i5 < 46) { be += Math.abs(r - enc(lin[kk])) + Math.abs(g - enc(lin[kk + 1])) + Math.abs(b - enc(lin[kk + 2])); bn++; }
+      }
+      return { lin: lin, mos: mos, dem: dem, chOf: chOf, fc: fc / fn, be: be / bn / 3 };
+    }
+    var cv = AB.canvas("#by-cv", function (ctx, w, h) {
+      if (!scene) scene = build();
+      var v = view(), cw = w / GW, chh = h / GH, img = ctx.createImageData(GW, GH), d = img.data;
+      for (var j = 0; j < GH; j++) for (var i = 0; i < GW; i++) {
+        var k = j * GW + i, o = k * 4, rgb;
+        if (v === "orig") rgb = [scene.lin[k * 3], scene.lin[k * 3 + 1], scene.lin[k * 3 + 2]];
+        else if (v === "demo") rgb = [scene.dem[k * 3], scene.dem[k * 3 + 1], scene.dem[k * 3 + 2]];
+        else if (v === "mosaic") { var c0 = scene.chOf(i, j), m = scene.mos[k]; rgb = [c0 === 0 ? m : 0, c0 === 1 ? m : 0, c0 === 2 ? m : 0]; }
+        else { var e = Math.abs(scene.dem[k * 3] - scene.lin[k * 3]) + Math.abs(scene.dem[k * 3 + 1] - scene.lin[k * 3 + 1]) + Math.abs(scene.dem[k * 3 + 2] - scene.lin[k * 3 + 2]); var t = Math.min(1, e * 2.2); rgb = [0.02 + t, 0.02 + t * 0.35, 0.03]; }
+        d[o] = Math.round(enc(rgb[0]) * 255); d[o + 1] = Math.round(enc(rgb[1]) * 255); d[o + 2] = Math.round(enc(rgb[2]) * 255); d[o + 3] = 255;
+      }
+      var oc = document.createElement("canvas"); oc.width = GW; oc.height = GH; oc.getContext("2d").putImageData(img, 0, 0);
+      ctx.imageSmoothingEnabled = false; ctx.drawImage(oc, 0, 0, w, h); ctx.imageSmoothingEnabled = true;
+      if (cw >= 5 && v !== "err") {   // 화소 격자
+        ctx.strokeStyle = "rgba(0,0,0,0.12)"; ctx.lineWidth = 1; ctx.beginPath();
+        for (var gx = 1; gx < GW; gx++) { ctx.moveTo(Math.round(gx * cw) + 0.5, 0); ctx.lineTo(Math.round(gx * cw) + 0.5, h); }
+        for (var gy = 1; gy < GH; gy++) { ctx.moveTo(0, Math.round(gy * chh) + 0.5); ctx.lineTo(w, Math.round(gy * chh) + 0.5); }
+        ctx.stroke();
+      }
+      AB.stat("by-o-f", AB.fix(scene.fc * 100, 1) + "<small>% 채도</small>");
+      AB.stat("by-o-b", AB.fix(scene.be * 100, 1) + "<small>%</small>");
+    }, { bg: PAPER, aspect: GH / GW });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 비트 깊이와 밴딩 ---------------- */
+  (function () {
+    var bI = AB.range("bt-b", function (v) { return v + "비트"; }, function () { cv.redraw(); });
+    var push = AB.check("bt-push", function () { cv.redraw(); });
+    var cv = AB.canvas("#bt-cv", function (ctx, w, h) {
+      var bits = bI(), M = Math.pow(2, bits) - 1, ph = Math.round(h - 46), used = {}, usedDark = {};
+      var img = ctx.createImageData(Math.round(w), 1), row = img.data, W = Math.round(w);
+      var cols = [];
+      for (var i = 0; i < W; i++) {
+        var t = i / (W - 1), L = 0.004 + 0.6 * Math.pow(t, 2.4);           // 창빛이 비치는 벽: 왼쪽은 어둡고 오른쪽으로 밝아진다
+        var v = Math.round(enc(L) * M) / M;                              // n비트 sRGB로 저장
+        var Lr = ART.toLinear(v);
+        if (push()) Lr = Math.min(1, Lr * 8);                            // 보정: 3스톱
+        var c8 = Math.round(ART.toGamma(Lr) * 255);                      // 화면(8비트)
+        cols.push(c8); used[c8] = 1; if (t < 0.5) usedDark[Math.round(v * M)] = 1;
+        row[i * 4] = Math.min(255, c8 + 4); row[i * 4 + 1] = c8; row[i * 4 + 2] = Math.max(0, c8 - 6); row[i * 4 + 3] = 255;
+      }
+      var oc = document.createElement("canvas"); oc.width = W; oc.height = 1; oc.getContext("2d").putImageData(img, 0, 0);
+      ctx.imageSmoothingEnabled = false; ctx.drawImage(oc, 0, 0, w, ph); ctx.imageSmoothingEnabled = true;
+      // 창틀 그림자(장면 느낌)
+      ctx.fillStyle = "rgba(20,14,10,0.18)"; ctx.fillRect(w * 0.62, 0, w * 0.02, ph); ctx.fillRect(w * 0.62, ph * 0.46, w * 0.38, ph * 0.02);
+      // 쓰인 값 막대(0~255)
+      var by = ph + 10, bh = 26;
+      ctx.fillStyle = "#e9e6df"; ctx.fillRect(0, by, w, bh);
+      ctx.fillStyle = "#2b2a30";
+      Object.keys(used).forEach(function (c) { ctx.fillRect((c / 255) * (w - 2), by, Math.max(1, w / 256), bh); });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10, true); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("화면 값 0", 2, by + bh + 2); ctx.textAlign = "right"; ctx.fillText("255  ·  막대 = 쓰인 값", w - 2, by + bh + 2);
+      AB.stat("bt-o-n", (M + 1).toLocaleString("ko-KR") + " <small>단계</small>");
+      AB.stat("bt-o-d", Object.keys(usedDark).length + " <small>단계</small>");
+    }, { bg: PAPER, get height() { var w = document.getElementById("bt-cv").parentElement.clientWidth || 600; return Math.round(AB.clamp(Math.max(200, w) * 0.42, 200, 300)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 선형 눈금과 감마 눈금 ---------------- */
+  (function () {
+    var bI = AB.range("gm-b", function (v) { return v + "비트"; }, function () { cv.redraw(); });
+    var pI = AB.range("gm-p", function (v) { return "+" + v + "스톱"; }, function () { cv.redraw(); });
+    function perStop(bits, gamma) {
+      var M = Math.pow(2, bits) - 1, out = [];
+      for (var s = 0; s < 10; s++) {
+        var hi = 1 / Math.pow(2, s), lo = hi / 2;
+        var a = gamma ? Math.round(ART.toGamma(hi) * M) : Math.floor(hi * M), b = gamma ? Math.round(ART.toGamma(lo) * M) : Math.floor(lo * M);
+        out.push(a - b);
+      }
+      return out;
+    }
+    var cv = AB.canvas("#gm-cv", function (ctx, w, h) {
+      var p = P(), bits = bI(), lin = perStop(bits, false), gam = perStop(bits, true), M = Math.pow(2, bits) - 1;
+      var top = 10, chartH = Math.round(h * 0.5), x0 = 44, x1 = w - 10, bw = (x1 - x0) / 10;
+      var maxV = Math.max.apply(null, lin.concat(gam)), Y = function (v) { return top + chartH - (Math.log2(v + 1) / Math.log2(maxV + 1)) * chartH; };
+      // 축
+      ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x0, top + chartH); ctx.lineTo(x1, top + chartH); ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10, true); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      [0, 1, 4, 16, 64, 256, 1024, 4096].forEach(function (v) { if (v > maxV * 1.05) return; ctx.fillText(v, x0 - 4, Y(v)); ctx.strokeStyle = p.grid; ctx.beginPath(); ctx.moveTo(x0, Y(v)); ctx.lineTo(x1, Y(v)); ctx.stroke(); });
+      for (var s = 0; s < 10; s++) {
+        var bx = x0 + s * bw;
+        ctx.fillStyle = p.accent2; ctx.fillRect(bx + bw * 0.12, Y(lin[s]), bw * 0.36, top + chartH - Y(lin[s]));
+        ctx.fillStyle = p.accent; ctx.fillRect(bx + bw * 0.52, Y(gam[s]), bw * 0.36, top + chartH - Y(gam[s]));
+        ctx.fillStyle = p.dim; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(s === 0 ? "흰" : "−" + s, bx + bw / 2, top + chartH + 3);
+      }
+      ctx.textAlign = "left"; ctx.fillStyle = p.accent2; ctx.font = AB.font(11, false, 600); ctx.fillText("■ 선형", x0 + 6, top);
+      ctx.fillStyle = p.accent; ctx.fillText("■ 감마(sRGB)", x0 + 64, top);
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "right"; ctx.fillText("스톱마다 쓰이는 눈금 수(로그 눈금)", x1, top);
+      // 가장 어두운 5스톱을 밝혀 보기: 두 띠
+      var push = Math.pow(2, pI()), y1 = top + chartH + 24, sh = Math.max(26, (h - y1 - 30) / 2);
+      [["선형 " + bits + "비트", false], ["감마 " + bits + "비트", true]].forEach(function (row, ri) {
+        var yy = y1 + ri * (sh + 12), W = Math.max(1, Math.round(x1 - x0));
+        var img = ctx.createImageData(W, 1), d = img.data;
+        for (var i = 0; i < W; i++) {
+          var L = Math.pow(2, -10 + 5 * (i / (W - 1)));                  // 흰색에서 10스톱 ~ 5스톱 아래
+          var q = row[1] ? ART.toLinear(Math.round(ART.toGamma(L) * M) / M) : Math.round(L * M) / M;
+          var c = Math.round(ART.toGamma(Math.min(1, q * push)) * 255);
+          d[i * 4] = c; d[i * 4 + 1] = c; d[i * 4 + 2] = c; d[i * 4 + 3] = 255;
+        }
+        var oc = document.createElement("canvas"); oc.width = W; oc.height = 1; oc.getContext("2d").putImageData(img, 0, 0);
+        ctx.imageSmoothingEnabled = false; ctx.drawImage(oc, x0, yy, x1 - x0, sh); ctx.imageSmoothingEnabled = true;
+        ctx.strokeStyle = p.border; ctx.strokeRect(x0 + 0.5, yy + 0.5, x1 - x0 - 1, sh - 1);
+        ctx.fillStyle = p.text; ctx.font = AB.font(10, false, 600); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+        ctx.save(); ctx.translate(x0 - 6, yy + sh / 2); ctx.fillText(row[1] ? "감마" : "선형", 0, 0); ctx.restore();
+      });
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("흰색에서 10스톱 아래 → 5스톱 아래를 +" + pI() + "스톱 밝혀 봄", x0, y1 + 2 * sh + 16);
+      var dl = lin.slice(5).reduce(function (a, b) { return a + b; }, 0), dg = gam.slice(5).reduce(function (a, b) { return a + b; }, 0);
+      AB.stat("gm-o-t", lin[0].toLocaleString("ko-KR") + " / " + gam[0].toLocaleString("ko-KR"));
+      AB.stat("gm-o-d", dl.toLocaleString("ko-KR") + " / " + dg.toLocaleString("ko-KR"));
+    }, { get height() { var w = document.getElementById("gm-cv").parentElement.clientWidth || 600; return Math.round(AB.clamp(Math.max(200, w) * 0.62, 300, 380)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 그림자 끌어올리기 JPEG 대 RAW ---------------- */
+  (function () {
+    var eI = AB.range("rw-e", function (v) { return "+" + v + "스톱"; }, function () { dirty = true; redraw(); });
+    var cam = AB.seg("rw-cam", function () { cache = null; dirty = true; redraw(); });
+    var cache = null, dirty = true, imgs = null, size = null;
+    var E = 900;
+    function prep(W, H) {
+      if (!cache || cache.W !== W) {
+        var S = corner(W, H), raw = capture(S, cam(), E, cam() === "m" ? 21 : 22);
+        cache = { W: W, H: H, S: S, raw: raw, jpg: makeJpeg(raw, W, H) };
+        dirty = true;
+      }
+      if (dirty) {
+        var ca = document.createElement("canvas"); ca.width = W; ca.height = H;
+        var cb = document.createElement("canvas"); cb.width = W; cb.height = H;
+        var ia = ca.getContext("2d").createImageData(W, H), ib = cb.getContext("2d").createImageData(W, H);
+        developJpeg(cache.jpg, W, H, eI(), ia); developRaw(cache.raw, W, H, eI(), ib);
+        ca.getContext("2d").putImageData(ia, 0, 0); cb.getContext("2d").putImageData(ib, 0, 0);
+        var x0 = Math.round(W * 0.7), y0 = Math.round(H * 0.68), x1 = Math.round(W * 0.95), y1 = Math.round(H * 0.86);
+        var sa = regionStats(cache.S, cache.raw, ia, W, x0, y0, x1, y1), sb = regionStats(cache.S, cache.raw, ib, W, x0, y0, x1, y1);
+        imgs = { a: ca, b: cb, box: [x0, y0, x1, y1] };
+        AB.stat("rw-o-l", sa.levels + " / " + sb.levels);
+        AB.stat("rw-o-s", AB.fix(sb.snr, 1) + " <small>· 화소당 광자 약 " + Math.round(sb.e) + "</small>");
+        dirty = false;
+      }
+    }
+    function draw(which) {
+      return function (ctx, w, h) {
+        var W = Math.min(440, Math.round(w)), H = Math.round(W * 2 / 3);
+        prep(W, H);
+        ctx.imageSmoothingEnabled = W < w * 0.7; ctx.drawImage(imgs[which], 0, 0, w, h);
+        var b = imgs.box, s = w / W;
+        ctx.strokeStyle = "rgba(255,210,80,0.9)"; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+        ctx.strokeRect(b[0] * s, b[1] * s, (b[2] - b[0]) * s, (b[3] - b[1]) * s); ctx.setLineDash([]);
+      };
+    }
+    var cA = AB.canvas("#rw-a", draw("a"), { aspect: 2 / 3, bg: STAGE });
+    var cB = AB.canvas("#rw-b", draw("b"), { aspect: 2 / 3, bg: STAGE });
+    function redraw() { cA.redraw(); cB.redraw(); }
+    AB.compare("#rw-cmp", { labels: ["JPEG에서 끌어올림", "RAW에서 끌어올림"], pos: 0.5 });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 종합 ---------------- */
+  (function () {
+    var LIGHT = [
+      { e: 120, name: "저녁 서가(어두움)" }, { e: 300, name: "저녁 서가" }, { e: 900, name: "스탠드 켠 서가" },
+      { e: 2500, name: "흐린 날 실내" }, { e: 7000, name: "창가 실내" }, { e: 16000, name: "밝은 창가" }, { e: 30000, name: "햇빛 드는 창가" },
+    ];
+    var camS = AB.seg("pp-cam", function () { cache = {}; cv.redraw(); });
+    var fmt = AB.seg("pp-fmt", function () { cv.redraw(); });
+    var lI = AB.range("pp-l", function (v) { return LIGHT[v].name; }, function () { cv.redraw(); });
+    var eI = AB.range("pp-e", function (v) { return "+" + v + "스톱"; }, function () { cv.redraw(); });
+    var cache = {}, probe = { u: 0.82, v: 0.77 }, geo = null;
+    function get(W, H) {
+      var key = [camS(), lI(), W].join(":");
+      if (!cache[key]) {
+        var S = corner(W, H), raw = capture(S, camS(), LIGHT[lI()].e, 40 + lI() * 3 + (camS() === "m" ? 0 : 100));
+        cache = {}; cache[key] = { S: S, raw: raw, jpg: makeJpeg(raw, W, H) };
+      }
+      return cache[key];
+    }
+    var cv = AB.canvas("#pp-cv", function (ctx, w, h) {
+      var W = Math.min(440, Math.round(w)), H = Math.round(W * 2 / 3), c = get(W, H), ev = eI();
+      var oc = document.createElement("canvas"); oc.width = W; oc.height = H;
+      var img = oc.getContext("2d").createImageData(W, H);
+      // 장면이 밝을수록 노출을 줄여 같은 밝기로 보이게 한다(같은 화면 밝기, 다른 광자 수)
+      if (fmt() === "jpg") developJpeg(c.jpg, W, H, ev, img); else developRaw(c.raw, W, H, ev, img);
+      oc.getContext("2d").putImageData(img, 0, 0);
+      ctx.imageSmoothingEnabled = W < w * 0.7; ctx.drawImage(oc, 0, 0, w, h);
+      geo = { w: w, h: h };
+      var bw = Math.round(W * 0.08), bh = Math.round(H * 0.08);
+      var x0 = AB.clamp(Math.round(probe.u * W - bw / 2), 0, W - bw), y0 = AB.clamp(Math.round(probe.v * H - bh / 2), 0, H - bh);
+      var st = regionStats(c.S, c.raw, img, W, x0, y0, x0 + bw, y0 + bh), s = w / W;
+      ctx.strokeStyle = "#ffcc33"; ctx.lineWidth = 2.5; ctx.strokeRect(x0 * s, y0 * s, bw * s, bh * s);
+      ctx.strokeStyle = "#1b1a1f"; ctx.lineWidth = 1; ctx.strokeRect(x0 * s - 2, y0 * s - 2, bw * s + 4, bh * s + 4);
+      ctx.fillStyle = "rgba(20,18,16,0.66)"; ctx.fillRect(0, 0, w, 22);
+      ctx.fillStyle = "#ffffff"; ctx.font = AB.font(11, true, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText(CAMS[camS()].name + " · " + (fmt() === "raw" ? "RAW 12비트" : "JPEG 8비트") + " · 그림자 +" + ev, 8, 11);
+      AB.stat("pp-o-s", AB.fix(st.snr, 1));
+      AB.stat("pp-o-e", Math.round(st.e).toLocaleString("ko-KR") + " <small>개</small>");
+      AB.stat("pp-o-l", st.levels + " <small>단계</small>");
+      var verdict = st.snr >= 15 && st.levels >= 12 ? "깨끗함" : st.snr >= 7 && st.levels >= 8 ? "입자가 보임" : "얼룩·계단";
+      AB.stat("pp-o-v", verdict);
+    }, { bg: STAGE, aspect: 2 / 3 });
+    AB.drag(cv.canvas, {
+      move: function (x, y) { if (!geo) return; probe.u = AB.clamp(x / geo.w, 0.04, 0.96); probe.v = AB.clamp(y / geo.h, 0.04, 0.96); cv.redraw(); },
+    });
+  })();
+})();
+</script>
+</body>
+</html>
