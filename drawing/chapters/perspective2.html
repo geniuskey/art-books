@@ -85,7 +85,7 @@
       <svg viewBox="0 0 460 370" role="img" aria-label="평면도로 본 2점 투시. 눈(정거점)에서 건물의 두 모서리 방향과 나란한 직각의 두 시선을 그리면, 그 시선이 그림면과 만나는 두 점이 왼쪽과 오른쪽 소실점이 된다.">
         <defs><marker id="p2-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
         <polygon points="230,140 169.4,105 204.4,44.4 265,79.4" class="f-acc-soft"/>
-        <text x="236" y="70" class="lbl-dim">건물(위에서 본 모습)</text>
+        <text x="275" y="112" class="lbl-dim">건물(위에서 본 모습)</text>
         <line x1="12" y1="170" x2="448" y2="170" class="s-line"/>
         <text x="448" y="162" class="lbl-dim" text-anchor="end">그림면</text>
         <line x1="230" y1="290" x2="22.2" y2="170" class="s-acc" stroke-dasharray="6 4"/>
@@ -100,7 +100,7 @@
         <circle cx="22.2" cy="170" r="5" class="f-acc"/><circle cx="299.3" cy="170" r="5" class="f-acc"/>
         <text x="24" y="192" class="lbl-acc">왼쪽 소실점</text>
         <text x="300" y="192" class="lbl-acc">오른쪽 소실점</text>
-        <text x="236" y="186" class="t-mono">시선의 중심</text>
+        <text x="224" y="206" class="t-mono" text-anchor="end">시선의 중심</text>
         <path d="M 196,140 A 34 34 0 0 1 200.6,122.5" class="s-line"/>
         <line x1="160" y1="140" x2="230" y2="140" class="s-dash"/>
         <text x="150" y="134" class="t-mono" text-anchor="end">θ</text>
@@ -112,7 +112,7 @@
     </figure>
 
     <p>그림 1에서 두 시선과 그림면은 직각삼각형을 이룬다. 그래서 두 소실점의 간격 D와 보는 거리 f 사이에 간단한 관계가 생긴다.</p>
-    <div class="formula">$$D = f\left(\tan\theta + \frac{1}{\tan\theta}\right) = \frac{2f}{\sin 2\theta} \;\ge\; 2f$$<div class="where">\(D\): 두 소실점 사이의 거리, \(f\): 눈에서 그림면까지의 거리(그림 위의 길이로 잰다), \(\theta\): 건물 한쪽 벽이 그림면과 이루는 각. \(\theta = 45°\)일 때 \(D\)가 가장 짧아 \(2f\)가 되고, \(\theta\)가 0° 또는 90°에 가까울수록 \(D\)는 한없이 커진다.</div></div>
+    <div class="formula">$$D = f\left(\tan\theta + \frac{1}{\tan\theta}\right) = \frac{2f}{\sin 2\theta}$$<div class="where">\(D\): 두 소실점 사이의 거리, \(f\): 눈에서 그림면까지의 거리(그림 위의 길이로 잰다), \(\theta\): 건물 한쪽 벽이 그림면과 이루는 각. sin 2θ는 1을 넘지 않으므로 D는 언제나 2f 이상이다. \(\theta = 45°\)일 때 \(D\)가 가장 짧아 \(2f\)가 되고, \(\theta\)가 0° 또는 90°에 가까울수록 \(D\)는 한없이 커진다.</div></div>
     <p>이 식을 거꾸로 읽는 것이 더 중요하다. 종이 위에 두 소실점을 찍는 순간, 화가는 자기도 모르게 보는 거리를 정한다. 두 소실점을 10 cm 간격으로 찍었다면 보는 거리는 아무리 길어도 5 cm다. 그 그림은 종이에 코를 대다시피 해서 볼 때만 맞는 그림이 된다. 이것이 다음 절의 찌그러짐이 생기는 이유다.</p>
 
     <div class="callout deep">
@@ -130,7 +130,7 @@
       <svg viewBox="0 0 460 300" role="img" aria-label="두 소실점을 지름으로 하는 90도 원. 원 안의 모서리는 둔각, 원 위의 모서리는 직각, 원 밖의 모서리는 예각으로 그려진다.">
         <path d="M 40,60 A 190 190 0 0 0 420,60" class="f-ok-soft" style="fill-opacity:.35"/>
         <line x1="10" y1="60" x2="450" y2="60" class="s-line"/>
-        <text x="450" y="52" class="lbl-dim" text-anchor="end">수평선</text>
+        <text x="452" y="80" class="lbl-dim" text-anchor="end">수평선</text>
         <circle cx="40" cy="60" r="5" class="f-acc"/><circle cx="420" cy="60" r="5" class="f-acc"/>
         <text x="40" y="44" class="lbl-acc" text-anchor="middle">VL</text><text x="420" y="44" class="lbl-acc" text-anchor="middle">VR</text>
         <circle cx="230" cy="60" r="109.7" class="s-dash"/>
@@ -145,7 +145,7 @@
       <figcaption><b>그림 2. 90° 원과 60° 시야 원.</b> 두 소실점(VL, VR)을 지름으로 하는 반원 안쪽에서는 바닥의 직각 모서리가 둔각(134°)으로, 반원 위에서는 정확히 90°로 그려진다. 반원 밖으로 나간 모서리는 85°처럼 예각이 되어 찌그러져 보인다. 점선 원은 60° 시야 원이다. 여기서는 θ = 45°라 시선의 중심이 두 소실점의 한가운데에 있다.</figcaption>
     </figure>
 
-    <p>두 기준은 같은 이야기를 다르게 한다. 소실점 간격 D가 짧으면 보는 거리 f도 짧고, 90° 원도 시야 원도 작아진다. 그 작은 원 밖에 그림의 대부분이 놓이게 된다. 아래에서 두 소실점을 직접 끌어 간격을 바꿔 본다. 가운데 사각형이 종이의 그림 칸이고, 바닥에 놓인 정육면체(한 변 1 m)들은 모두 같은 크기다. 바닥 모서리가 90°보다 뾰족하게 그려진 상자는 붉게 칠해진다.</p>
+    <p>두 기준은 같은 이야기를 다르게 한다. 소실점 간격 D가 짧으면 보는 거리 f도 짧고, 90° 원도 시야 원도 작아진다. 그 작은 원 밖에 그림의 대부분이 놓이게 된다. 아래에서 두 소실점을 직접 끌어 간격을 바꿔 본다. 가운데 사각형이 종이의 그림 칸이고, 바닥에 놓인 정육면체(한 변 0.6 m)들은 모두 같은 크기다. 바닥 모서리가 90°보다 뾰족하게 그려진 상자는 붉게 칠해진다.</p>
 
     <div class="sim" id="sim-p2-dist">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>소실점 간격과 찌그러짐</h3></div>
@@ -292,7 +292,7 @@
 
   <section id="works">
     <h2>작품 속의 두 소실점, 소실점 없는 공간</h2>
-    <p>18세기 이탈리아의 판화가이자 건축가 조반니 바티스타 피라네시<span class="en">(Giovanni Battista Piranesi)</span>는 로마의 건물과 광장을 135점이 넘는 큰 에칭으로 새긴 연작 『로마의 풍경』<span class="en">(Vedute di Roma)</span>을 남겼다. 아래는 그중 퀴리날레 궁전이 선 몬테 카발로 광장이다. 궁전 모퉁이를 비스듬히 바라본 전형적인 2점 투시다.</p>
+    <p>18세기 이탈리아의 판화가이자 건축가 조반니 바티스타 피라네시<span class="en">(Giovanni Battista Piranesi)</span>는 로마의 건물과 광장을 130점 남짓의 큰 에칭으로 새긴 연작 『로마의 풍경』<span class="en">(Vedute di Roma)</span>을 남겼다. 아래는 그중 퀴리날레 궁전이 선 몬테 카발로 광장이다. 궁전 모퉁이를 비스듬히 바라본 전형적인 2점 투시다.</p>
 
     <figure class="art-figure" id="fig-p2-piranesi">
       <div class="art-frame"><img src="../../shared/img/piranesi-piazza-monte-cavallo.webp" width="1600" height="1083" alt="피라네시의 몬테 카발로 광장 에칭. 가운데에 긴 2층 궁전이 비스듬히 서 있고, 오른쪽 모서리에 탑 같은 높은 부분이 있다. 오른쪽으로 물러나는 궁전의 옆면 너머로 긴 거리가 뻗어 있고, 앞쪽 광장에는 말과 사람 조각상 두 쌍과 마차, 사람들이 있다." loading="lazy" decoding="async"></div>
@@ -306,7 +306,7 @@
       <div class="sim-body side">
         <div class="sim-view paper"><canvas id="p2p-cv" class="art"></canvas><span class="hint">선 끝의 손잡이를 끈다</span></div>
         <div class="sim-controls">
-          <div class="seg" id="p2p-view"><button data-value="wide" class="on">종이 밖까지</button><button data-value="fit">그림만</button></div>
+          <div class="seg" id="p2p-view"><button data-value="fit" class="on">그림만</button><button data-value="wide">종이 밖까지</button></div>
           <div class="btn-row"><button type="button" class="btn sm" id="p2p-reset">선을 처음 자리로</button></div>
         </div>
       </div>
@@ -316,7 +316,7 @@
         <div class="stat"><span class="k">소실점 간격 ÷ 그림 폭</span><span class="v" id="p2p-o-d">—</span></div>
         <div class="stat"><span class="k">두 소실점의 높이 차</span><span class="v" id="p2p-o-tilt">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 처음 자리에서 수치를 본다. 오른쪽 소실점은 그림 폭의 78% 지점, 거리 끝에 있다. 왼쪽 소실점은 그림 왼쪽 가장자리에서 그림 폭의 약 0.86배 밖에 있고, 소실점 간격은 그림 폭의 1.6배쯤이다. 두 소실점의 높이가 거의 같다는 것은 피라네시가 하나의 수평선을 지켰다는 뜻이다. 그 수평선은 아래층 창 높이를 지나니, 광장보다 높은 자리에서 본 그림이다. ② 붉은 선 하나의 왼쪽 끝을 몇 픽셀만 위아래로 옮긴다. 왼쪽 소실점이 크게 출렁인다. 거의 수평인 선의 교점은 작은 오차에도 크게 움직인다. 먼 소실점을 그림에서 되찾기 어려운 이유이자, 현장에서 비례 사다리를 쓰는 이유다. ③ "그림만"으로 바꿔 선을 더 정밀하게 맞춘다. (작품 사진의 픽셀 좌표로 계산했다. 판화는 손으로 새긴 것이라 모든 선이 한 점에서 정확히 만나지는 않는다.)</div>
+      <div class="sim-note">해볼 것: ① 처음 자리에서 수치를 본다. 오른쪽 소실점은 그림 폭의 78% 지점, 거리 끝에 있다. 왼쪽 소실점은 그림 왼쪽 가장자리에서 그림 폭의 약 0.86배 밖에 있고, 소실점 간격은 그림 폭의 1.6배쯤이다. 두 소실점의 높이가 거의 같다는 것은 피라네시가 하나의 수평선을 지켰다는 뜻이다. 그 수평선은 아래층 창 높이를 지나니, 광장보다 높은 자리에서 본 그림이다. ② 붉은 선 하나의 왼쪽 끝을 몇 픽셀만 위아래로 옮긴다. 왼쪽 소실점이 크게 출렁인다. 거의 수평인 선의 교점은 작은 오차에도 크게 움직인다. 먼 소실점을 그림에서 되찾기 어려운 이유이자, 현장에서 비례 사다리를 쓰는 이유다. ③ "종이 밖까지"로 바꿔 왼쪽 소실점이 그림 밖 어디쯤 있는지 본다. (작품 사진의 픽셀 좌표로 계산했다. 판화는 손으로 새긴 것이라 모든 선이 한 점에서 정확히 만나지는 않는다.)</div>
     </div>
 
     <p>피라네시의 시대보다 400년쯤 앞서, 중국에서는 건물을 자로 그리는 <span class="term">계화</span><span class="en">(界畫, Ruled-line painting)</span>가 하나의 갈래로 자리 잡았다. 원나라 화가 당체<span class="en">(唐棣)</span>의 「등왕각도」를 보면 누각의 기둥과 난간, 겹겹의 지붕이 놀랄 만큼 정밀한데, 물러나는 모서리들은 한 점으로 모이지 않고 거의 나란히 비스듬하게 올라간다. 이런 그림법을 <span class="term">평행 투영</span><span class="en">(Parallel projection)</span>이라고 한다. 소실점이 없으니 먼 쪽의 기둥도 가까운 쪽과 같은 크기로 그려진다.</p>
@@ -373,7 +373,7 @@
       <p>서윤은 그 자리에서 다시 구조선을 세웠다. 출입문과 간판이 있는 정면을 넓게 보이도록 정면 벽이 그림면과 30°를 이루는 쪽에서 보고, 소실점 간격은 60 cm(그림 칸 폭의 2.5배)로 잡았다. 보는 거리는 약 26 cm가 되고, 옥상 모서리는 130°, 바닥 모서리는 164°로 펴졌다. 그림 칸의 좌우 끝은 시선에서 24.8°, 옥상 모서리의 위쪽 끝은 23°로 모두 60° 시야 원 안이다. 그래서 세로선은 셋째 소실점 없이 곧게 세우기로 했다. 수평선은 그림 칸 아래에서 4.5 cm 높이에 두었다. 모서리 높이는 수평선 위 11 cm, 아래 3.15 cm다. 오른쪽(옆면) 소실점은 그림 칸 오른쪽 가장자리에서 3 cm 밖이라 스케치북 옆에 10 cm 폭의 종이 띠를 붙여 찍었다. 왼쪽(정면) 소실점은 왼쪽 가장자리에서 33 cm 밖이라 찍지 않고, 모서리와 왼쪽 가장자리를 여섯 칸씩 나눈 비례 사다리로 창 줄을 그었다. 가장자리 : 모서리 비율은 33 ÷ 45 ≈ 0.73이다. 도경은 사다리를 보고 웃었다. "나는 연필을 뻗어서 눈으로 각도를 재는데, 너는 자로 재는구나. 어느 쪽이든 소실점이 멀리 있다는 걸 알면 된 거야."</p>
       <div class="clue">
         <div><b>이 장에서 정한 것</b>서점 외관은 서서 본 눈높이(1.6 m)로, 모서리에서 약 13 m(모형 값 13.2 m) 떨어진 삼거리 건너편에서 그린다. 정면 벽은 그림면과 30°, 옆면은 60°. 소실점 간격 60 cm = 그림 칸 폭의 2.5배(보는 거리 약 26 cm). 오른쪽 소실점은 그림 칸 밖 3 cm(종이 띠에 찍기), 왼쪽 소실점은 밖 33 cm(비례 사다리, 비율 0.73, 여섯 칸). 수평선은 그림 칸 아래에서 4.5 cm. 세로선은 곧게(3점 투시 쓰지 않음).</div>
-        <div><b>아직 남은 문제</b>2층 정면에 달린 둥근 돌출 간판이 동그라미로 그려져 벽에 붙은 스티커처럼 보인다. 창가의 컵과 화분 입구도 2장의 스케치에서처럼 너무 둥글거나 끝이 뾰족하다.</div>
+        <div><b>아직 남은 문제</b>2층 정면에 달린 둥근 돌출 간판이 동그라미로 그려져 벽에 붙은 스티커처럼 보인다. 창가 정물의 컵과 화분 입구를 어떤 폭의 타원으로 그릴지도 아직 정하지 않았다.</div>
         <div><b>다음 단계</b><a href="ellipse.html">6장</a>: 기운 원, 곧 타원을 정확히 그린다.</div>
       </div>
     </div>
@@ -568,14 +568,13 @@
       var vu = VP(u, cam), vv = VP(v, cam);
       // 바닥(눈높이 아래)에 옅은 바닥 띠
       seg(ctx, [0, hy], [w, hy], GREEN, 1.5);
-      txt(ctx, "수평선 = 눈높이 " + eye().toFixed(1) + " m", 10, hy - 8, { color: GREEN, weight: 600 });
+      txt(ctx, "수평선 = 눈높이 " + eye().toFixed(1) + " m", 10, hy + 18, { color: GREEN, weight: 600 });
       if (S && ext()) {
         [[0, 1], [3, 2], [4, 5], [7, 6]].forEach(function (e) { if (vu) { seg(ctx, S[e[0]], vu, RED, 1, [5, 4]); seg(ctx, S[e[1]], vu, RED, 1, [5, 4]); } });
         [[0, 3], [1, 2], [4, 7], [5, 6]].forEach(function (e) { if (vv) { seg(ctx, S[e[0]], vv, BLUE, 1, [5, 4]); seg(ctx, S[e[1]], vv, BLUE, 1, [5, 4]); } });
       }
       drawBox(ctx, B, cam, [F_TOP, F_A, F_B]);
       dotAt(ctx, [w / 2, hy], 3, DIM);
-      txt(ctx, "시선의 중심", w / 2, hy + 16, { color: DIM, align: "center", size: 11 });
       var wFmt = function (p) { return (Math.abs(p[0] - w / 2) / w).toFixed(2) + "W"; };
       vpMark(ctx, w, h, vu, RED, "소실점", vu && (vu[0] < 0 || vu[0] > w) ? wFmt(vu) : "", [w / 2, hy]);
       vpMark(ctx, w, h, vv, BLUE, "소실점", vv && (vv[0] < 0 || vv[0] > w) ? wFmt(vv) : "", [w / 2, hy]);
@@ -606,7 +605,7 @@
     var geo = {};
     var cv = AB.canvas(el, draw, canvasOpts(el, 0.64, 300, 480));
     function draw(ctx, w, h) {
-      var W = 0.46 * w, Hf = 0.62 * W, cx = w / 2, hy = h * 0.3;
+      var W = (w < 520 ? 0.64 : 0.46) * w, Hf = 0.62 * W, cx = w / 2, hy = h * 0.3;
       var x0 = cx - W / 2, top = hy - 0.28 * Hf, bot = top + Hf;
       geo = { W: W, cx: cx, hy: hy };
       var xL = cx + st.l * W, xR = cx + st.r * W, f = Math.sqrt(-st.l * st.r) * W;
@@ -672,7 +671,7 @@
   /* ================= 3. 측정점 ================= */
   (function () {
     var el = document.getElementById("p2m-cv");
-    var A = { fx: 0.34, fy: 0.62 }; // A의 화면 위치(캔버스 비율)
+    var A = { fx: 0.2, fy: 0.5 }; // A의 화면 위치(캔버스 비율)
     var nU = AB.range("p2m-n", function (v) { return v + "칸"; }, function () { cv.redraw(); });
     var th = AB.range("p2m-th", function (v) { return v + "°"; }, function () { cv.redraw(); });
     var naive = AB.check("p2m-naive", function () { cv.redraw(); });
@@ -823,11 +822,11 @@
     var dir = AB.seg("p2s-dir", function () { cv.redraw(); });
     var cv = AB.canvas(el, draw, canvasOpts(el, 0.66, 300, 480));
     function draw(ctx, w, h) {
-      var f = 0.34 * w, cx = w * 0.4, up = dir() === "up", hy = up ? h * 0.56 : h * 0.3;
+      var f = 0.42 * w, cx = w * 0.4, up = dir() === "up", hy = up ? h * 0.56 : h * 0.3;
       var cam = camera(f, cx, hy, 1.6), y = yaw() * D2R, phi = ang() * D2R;
       var d = [Math.sin(y), 0, Math.cos(y)], uL = [-Math.cos(y), 0, Math.sin(y)];
       var N = 9, t = 0.3, r = t * Math.tan(phi), wd = 1.6;
-      var o = add([0.9, 0, 4.2], mul(uL, -0.2));
+      var o = add([0.7, 0, 3.4], mul(uL, -0.2));
       var vF = VP(d, cam), dS = unit([d[0], (up ? 1 : -1) * Math.tan(phi), d[2]]), vS = phi > 0.001 ? VP(dS, cam) : vF;
       // 바닥(디딤판 아래 땅) 표시
       seg(ctx, [0, hy], [w, hy], GREEN, 1.4);
@@ -1009,7 +1008,7 @@
     var cv = AB.canvas(el, draw, canvasOpts(el, 0.74, 300, 520));
     function face(C, dir, s, y) { return [C[0] + dir[0] * s, y, C[2] + dir[2] * s]; }
     function draw(ctx, w, h) {
-      var W = 0.5 * w, Hf = 0.75 * W, x0 = (w - W) / 2, top = Math.max(20, (h - Hf) / 2 - 0.05 * h), bot = top + Hf;
+      var W = (w < 520 ? 0.62 : 0.5) * w, Hf = 0.75 * W, x0 = (w - W) / 2, top = Math.max(20, (h - Hf) / 2 - 0.05 * h), bot = top + Hf;
       var pxcm = W / 24, cvx = x0 + W / 2, hy = bot - st.hz * Hf;
       var th = thR() * D2R, D = dR() * W, f = D * Math.sin(2 * th) / 2, z = zR();
       geo = { W: W, Hf: Hf, x0: x0, top: top, bot: bot, hy: hy, f: f, z: z, cvx: cvx };
