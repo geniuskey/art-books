@@ -647,7 +647,7 @@
   function rgbOf(hx) { return ART.parse(hx); }
   // 두 팔레트의 거리: 각 색에서 다른 팔레트의 가장 가까운 색까지 ΔE2000을 비율로 가중 평균하고 양쪽을 평균한다
   function palDist(A, B) {
-    function one(P, Q) { var s = 0, ws = 0; P.forEach(function (p) { var m = 1e9; Q.forEach(function (q) { m = Math.min(m, ART.deltaE2000(p.rgb, q.rgb)); }); s += p.weight * m; ws += p.weight; }); return ws ? s / ws : 0; }
+    function one(P, Q) { var s = 0, ws = 0; P.forEach(function (p) { var m = 1e9; Q.forEach(function (q) { m = Math.min(m, ART.diff(p.rgb, q.rgb)); }); s += p.weight * m; ws += p.weight; }); return ws ? s / ws : 0; }
     return 0.5 * (one(A, B) + one(B, A));
   }
   function preToPal(p) { return p.map(function (e) { return { rgb: rgbOf(e[0]), weight: e[1] }; }); }
@@ -855,7 +855,7 @@
           var l = an.lab[i * 3], a = an.lab[i * 3 + 1], b = an.lab[i * 3 + 2], bi = 0, bd = 1e9;
           for (var j = 0; j < cs.length; j++) { var d = (l - cs[j][0]) * (l - cs[j][0]) + (a - cs[j][1]) * (a - cs[j][1]) + (b - cs[j][2]) * (b - cs[j][2]); if (d < bd) { bd = d; bi = j; } }
           var q = c255[bi]; id.data[i * 4] = q[0]; id.data[i * 4 + 1] = q[1]; id.data[i * 4 + 2] = q[2]; id.data[i * 4 + 3] = 255;
-          if (i % 4 === 0) { var D = an.id.data; err += ART.deltaE2000([D[i * 4] / 255, D[i * 4 + 1] / 255, D[i * 4 + 2] / 255], pal[bi].rgb); ne++; }
+          if (i % 4 === 0) { var D = an.id.data; err += ART.diff([D[i * 4] / 255, D[i * 4 + 1] / 255, D[i * 4 + 2] / 255], pal[bi].rgb); ne++; }
         }
         x.putImageData(id, 0, 0);
         return { canvas: cv, err: err / ne };
@@ -886,7 +886,7 @@
     var ct = AB.range("hl-sh-t", function (v) { return v + " K"; }, function () { upd(); });
     // 선형광 3×3 행렬: 바니시(노란 필터를 빛이 두 번 지난다고 본 대각 행렬) × 보정하지 않은 조명색(브래드퍼드 순응, ART.whiteBalance)
     function matrix() {
-      var a = vy() / 100, f = [1 - 0.04 * a, 1 - 0.16 * a, 1 - 0.5 * a], T = ct(), M = [];
+      var a = vy() / 100, f = [1 - 0.06 * a, 1 - 0.25 * a, 1 - 0.7 * a], T = ct(), M = [];
       for (var j = 0; j < 3; j++) {
         var e = [0, 0, 0]; e[j] = f[j];
         var out = T >= 6500 ? e.slice() : ART.srgbToLinear(ART.whiteBalance(ART.linearToSrgb(e), 6504, T));
