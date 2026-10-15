@@ -1,0 +1,1231 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "이미지 한 장을 넣어 명도 덩어리, 시각적 무게중심과 균형, 시선 경로, 3분할·황금비 격자, 여백과 밀도, 비율별 자르기 제안을 한꺼번에 분석하고 짧은 글 보고서로 내보내는 구도 실험실. 서윤의 진열 사진, 포스터, 겨울 수채화 두 점을 종합 점검한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구도 실험실 · CompositionBook</title>
+<meta name="description" content="이미지 한 장을 넣어 명도 덩어리, 시각적 무게중심과 균형, 시선 경로, 3분할·황금비 격자, 여백과 밀도, 비율별 자르기 제안을 한꺼번에 분석하고 짧은 글 보고서로 내보내는 구도 실험실. 서윤의 진열 사진, 포스터, 겨울 수채화 두 점을 종합 점검한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/composition/chapters/lab.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="구도 실험실 · CompositionBook">
+<meta property="og:description" content="이미지 한 장을 넣어 명도 덩어리, 시각적 무게중심과 균형, 시선 경로, 3분할·황금비 격자, 여백과 밀도, 비율별 자르기 제안을 한꺼번에 분석하고 짧은 글 보고서로 내보내는 구도 실험실. 서윤의 진열 사진, 포스터, 겨울 수채화 두 점을 종합 점검한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/composition/chapters/lab.html">
+<meta property="og:image" content="https://artbook.euiyun.com/composition/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/composition/chapters/lab.html#chapter","name":"구도 실험실","headline":"구도 실험실 · CompositionBook","description":"이미지 한 장을 넣어 명도 덩어리, 시각적 무게중심과 균형, 시선 경로, 3분할·황금비 격자, 여백과 밀도, 비율별 자르기 제안을 한꺼번에 분석하고 짧은 글 보고서로 내보내는 구도 실험실. 서윤의 진열 사진, 포스터, 겨울 수채화 두 점을 종합 점검한다.","url":"https://artbook.euiyun.com/composition/chapters/lab.html","position":14,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/composition/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/composition/#book","name":"CompositionBook · 형태와 구도","url":"https://artbook.euiyun.com/composition/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"CompositionBook · 형태와 구도","item":"https://artbook.euiyun.com/composition/"},{"@type":"ListItem","position":3,"name":"14. 구도 실험실","item":"https://artbook.euiyun.com/composition/chapters/lab.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 14장 전용: 실험실 계기판·파일 입력·경고 목록·내보내기 */
+  .lab-dash { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 1px; background: var(--border); border-top: 1px solid var(--border); }
+  .lab-dash > div { background: var(--paper); min-width: 0; position: relative; }
+  .lab-dash canvas { display: block; width: 100%; }
+  .lab-file { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; padding: 8px 14px; border: 1px dashed var(--accent); border-radius: 9px; cursor: pointer; color: var(--text); background: var(--surface); }
+  .lab-file input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+  .lab-file:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .lab-small { font-size: 12.5px; color: var(--text-dim); margin: 0; line-height: 1.55; }
+  .lab-warn { margin: 0; padding: 12px 18px 12px 34px; border-top: 1px solid var(--border); font-size: 14.5px; line-height: 1.6; background: var(--bg-elev); }
+  .lab-warn li { margin: 2px 0; }
+  .lab-export { padding: 14px 18px; border-top: 1px solid var(--border); display: grid; gap: 10px; background: var(--bg-elev); }
+  .lab-export textarea { width: 100%; box-sizing: border-box; min-height: 220px; font-family: var(--mono); font-size: 12.5px; line-height: 1.5; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface); color: var(--text); resize: vertical; }
+  .lab-export .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .lab-export .row span { font-size: 13px; color: var(--text-dim); }
+</style>
+</head>
+<body data-chapter="lab">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 14</div>
+    <h1>구도 실험실</h1>
+    <p class="lead">열세 장 동안 화면을 보는 눈을 하나씩 익혔다. 흑백으로 덩어리 보기, 무게 달기, 시선 따라가기, 격자 대 보기, 비운 자리 세기, 잘라 보기. 이 장은 그 눈들을 한 작업대에 모은 도구다. 그림이나 사진, 포스터 시안 한 장을 넣으면 여섯 가지 패널이 같은 화면을 여섯 번 다르게 읽는다. 실험실은 "좋은 구도"를 판정하지 않는다. 대신 이 화면은 무엇으로 일하고 있는지, 의도와 어긋나는 곳은 어디인지를 숫자와 그림으로 물어 준다. 답은 여전히 만드는 사람이 정한다.</p>
+    <ul class="objectives">
+      <li>이미지 한 장을 명도 덩어리, 무게, 시선, 격자, 여백, 자르기의 여섯 패널로 나눠 읽는다.</li>
+      <li>각 패널의 모형이 무엇을 재고 무엇을 모르는지(얼굴, 글자, 의미, 문화) 말할 수 있다.</li>
+      <li>격자와 자르기 패널을 처방이 아니라 점검 도구로 쓰고, 극단(정중앙, 반 가르기, 가장자리 걸림)을 찾는 데 쓴다.</li>
+      <li>내 이미지를 브라우저 안에서만 분석하고, 결과를 짧은 글 보고서로 내보내 작업 노트에 붙인다.</li>
+      <li>같은 숫자로도 다른 선택을 할 수 있다는 것을 서윤의 겨울 작업으로 확인한다.</li>
+    </ul>
+  </header>
+
+  <section id="start">
+    <h2>실험실 사용법</h2>
+    <p>실험실이 하는 일은 단순하다. 이미지를 작게 줄이고, 화소마다 명도(CIELAB L*)와 채도(OKLCH C)를 구한 뒤, 그 두 숫자를 여섯 가지 방식으로 모은다. 모으는 방식은 모두 앞 장에서 만난 것이다. 덩어리는 <a href="shape.html">3장</a>과 ColorBook의 노탄, 무게는 <a href="balance.html">7장</a>, 시선은 <a href="eye.html">5장</a>, 격자는 <a href="proportion.html">9장</a>, 여백은 <a href="space.html">10장</a>, 자르기는 <a href="frame.html">11장</a>이다. <a href="reading.html">13장</a>에서 명작 위에 얹었던 레이어를 이제 아무 이미지에나 얹는다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="구도 실험실의 흐름: 이미지 한 장을 줄여 명도와 채도를 구하고, 여섯 패널로 모아 본 뒤, 짧은 보고서로 내보낸다">
+        <defs><marker id="lb-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="12" y="20" width="100" height="78" rx="8" class="f-surface"/>
+        <rect x="24" y="32" width="76" height="48" fill="#ffe2d7"/><rect x="30" y="44" width="40" height="30" fill="#22342a"/><circle cx="86" cy="64" r="6" fill="#d24f39"/>
+        <text x="62" y="93" text-anchor="middle" class="lbl-dim">이미지 한 장</text>
+        <path d="M114 59 L144 59" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="148" y="20" width="130" height="78" rx="8" class="f-acc-soft"/>
+        <text x="213" y="46" text-anchor="middle" class="lbl-acc">화소마다 숫자 둘</text>
+        <text x="213" y="68" text-anchor="middle" class="t-mono lbl">L*  ·  C</text>
+        <text x="213" y="88" text-anchor="middle" class="lbl-dim">긴 변 200 px로 줄여서</text>
+        <path d="M280 59 L310 59" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="314" y="20" width="134" height="78" rx="8" class="f-acc2-soft"/>
+        <text x="381" y="46" text-anchor="middle" class="lbl-acc2">중간 지도</text>
+        <text x="381" y="68" text-anchor="middle" class="lbl-dim">흐림 · 경계 · 현저성</text>
+        <text x="381" y="88" text-anchor="middle" class="lbl-dim">둘레와의 차이</text>
+        <path d="M381 100 L381 118 L60 118 L60 128" class="s-dash"/>
+        <path d="M150 118 L150 128 M240 118 L240 128 M330 118 L330 128 M420 118 L420 128" class="s-dash"/>
+        <g text-anchor="middle">
+          <rect x="14" y="132" width="88" height="52" rx="7" class="f-surface"/><text x="58" y="154" class="lbl-b">덩어리</text><text x="58" y="173" class="lbl-dim">3장 · 노탄</text>
+          <rect x="106" y="132" width="88" height="52" rx="7" class="f-surface"/><text x="150" y="154" class="lbl-b">무게</text><text x="150" y="173" class="lbl-dim">7장</text>
+          <rect x="198" y="132" width="88" height="52" rx="7" class="f-surface"/><text x="242" y="154" class="lbl-b">시선</text><text x="242" y="173" class="lbl-dim">5장</text>
+          <rect x="290" y="132" width="76" height="52" rx="7" class="f-surface"/><text x="328" y="154" class="lbl-b">격자</text><text x="328" y="173" class="lbl-dim">9장</text>
+          <rect x="370" y="132" width="76" height="52" rx="7" class="f-surface"/><text x="408" y="154" class="lbl-b">여백</text><text x="408" y="173" class="lbl-dim">10장</text>
+        </g>
+        <rect x="120" y="204" width="220" height="34" rx="8" class="f-surface"/>
+        <text x="230" y="226" text-anchor="middle" class="lbl-b">자르기 제안 · 11장</text>
+        <path d="M230 186 L230 200" class="s-line" marker-end="url(#lb-ar)"/>
+        <path d="M230 240 L230 254" class="s-line" marker-end="url(#lb-ar)"/>
+        <rect x="140" y="258" width="180" height="26" rx="6" class="f-acc-soft"/>
+        <text x="230" y="276" text-anchor="middle" class="lbl-acc">글 보고서로 내보내기</text>
+      </svg>
+      <figcaption><b>그림 1. 구도 실험실의 흐름.</b> 화소마다 두 숫자(명도와 채도)를 구한 뒤, 흐리게 하고, 경계를 찾고, 둘레와 비교한 중간 지도를 만든다. 여섯 패널은 모두 이 지도들을 다르게 모은 것이다. 그래서 패널끼리 결과가 어긋나 보일 때도 서로 모순되는 것이 아니라 다른 질문에 답하고 있는 것이다.</figcaption>
+    </figure>
+
+    <p>이미지는 여덟 가지 가운데 고르거나 직접 넣는다. 넷은 <a href="reading.html">13장</a>에서 읽은 공공 도메인 작품(브뤼헐, 페르메이르, 호쿠사이, 평사낙안)이고, 넷은 이 책이 직접 그린 가상의 그림이다. 책방 E의 겨울 쇼윈도 사진을 흉내 낸 그림, <a href="layout.html">12장</a>에서 정한 낭독회 포스터 A안의 스케치, 서윤의 겨울 수채화 「눈 오는 골목」과 「창가의 귤」의 밑그림 스케치다. 아래 시뮬레이터 하나에서 고르면 이 장의 모든 시뮬레이터가 같은 이미지로 바뀐다.</p>
+    <p class="lab-small">작품 이미지: 피터르 브뤼헐, 「추수하는 사람들」, 1565(<a href="https://www.metmuseum.org/art/collection/search/435809">The Met</a> · <a href="../../credits.html#bruegel-harvesters">크레딧</a>) · 요하네스 페르메이르, 「물병을 든 젊은 여인」, 1662년경(<a href="https://www.metmuseum.org/art/collection/search/437881">The Met</a> · <a href="../../credits.html#vermeer-young-woman-water-pitcher">크레딧</a>) · 가쓰시카 호쿠사이, 「가나가와 앞바다의 파도 아래」, 1830–32년경(<a href="https://www.metmuseum.org/art/collection/search/45434">The Met</a> · <a href="../../credits.html#hokusai-great-wave">크레딧</a>) · 작가 미상, 「평사낙안」, 조선 15세기 말~16세기 초(<a href="https://www.metmuseum.org/art/collection/search/39888">The Met</a> · <a href="../../credits.html#joseon-wild-geese-sandbar">크레딧</a>). 모두 공공 도메인(The Met Open Access, CC0). 쇼윈도·포스터·수채화 스케치와 모든 분석 레이어는 이 책이 그린 것이다.</p>
+
+    <div class="callout warn">
+      <strong>내 이미지는 이 브라우저 안에서만 읽는다</strong>
+      "내 이미지 열기"로 고른 파일은 서버로 보내지 않는다. 브라우저가 파일을 읽어 이 페이지 안의 캔버스에 그리고, 그 화소를 이 페이지의 스크립트가 센다. 페이지를 닫거나 새로 고치면 사라진다. 보고서도 내 컴퓨터에 글 파일로 저장될 뿐이다. 다만 숫자는 화면에 도착한 색의 숫자다. 사진이라면 카메라의 보정이, 그림을 찍은 사진이라면 조명과 각도가 숫자에 함께 들어 있다.
+    </div>
+
+    <p>먼저 "얼마나 줄여도 되는가"를 본다. 실험실은 분석 전에 이미지를 긴 변 200&nbsp;px로 줄인다. 아래 슬라이더로 분석 해상도를 바꾸면 그림이 그만큼 거칠어지고, 무게중심과 첫 시선이 얼마나 흔들리는지 보인다.</p>
+
+    <div class="sim" id="sim-in">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>실험실 입구: 이미지와 분석 해상도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="in-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="in-src"></div>
+          <label class="lab-file"><input type="file" id="in-file" accept="image/*"><span>내 이미지 열기</span></label>
+          <p class="lab-small" id="in-file-msg">파일은 이 브라우저 안에서만 읽는다. 서버로 보내지 않는다.</p>
+          <label class="ctrl"><span>분석 해상도(긴 변) <output id="in-res-out"></output></span><input type="range" id="in-res" min="24" max="320" step="4" value="200"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이미지 크기 · 비율</span><span class="v" id="in-o-size">—</span></div>
+        <div class="stat"><span class="k">무게중심 200 px → 지금</span><span class="v" id="in-o-wc">—</span></div>
+        <div class="stat"><span class="k">첫 시선 200 px → 지금</span><span class="v" id="in-o-fx">—</span></div>
+        <div class="stat"><span class="k">분석 시간</span><span class="v" id="in-o-ms">—</span></div>
+      </div>
+      <div class="sim-note" id="in-note">해볼 것: ① 쇼윈도를 고르고 분석 해상도를 120, 60으로 줄인다. 그림은 거칠어지지만 무게중심은 대각선의 0.3%, 0.5%만 움직인다. 무게는 넓은 덩어리가 정하기 때문이다. 그런데 첫 시선은 120에서 벌써 왼쪽 트리에서 오른쪽 아래 그림책으로 옮겨 간다. 두 곳의 현저성이 거의 같아서(시선 패널에서 ×1.05) 작은 차이에도 순서가 뒤집힌다. ② 24까지 줄인다. 무게중심도 2% 움직이고, 빨간 책과 전구 같은 작은 것은 이웃과 섞여 사라진다. 작은 강조점부터 무너진다. ③ 320으로 올린다. 숫자는 200과 거의 같은데 계산 시간은 몇 배로 는다. (줄이기는 브라우저의 이미지 축소를 쓴다. 무게와 시선은 13장과 같은 모형이다. 분석 시간은 기기마다 다르다.)</div>
+    </div>
+
+    <p>넓은 덩어리에서 나오는 숫자(무게중심, 여백률)는 아주 거칠게 줄여도 버틴다. 작은 점에서 나오는 숫자(첫 시선, 강조점의 위치)는 해상도에 민감하다. 그래서 200&nbsp;px은 화면 전체의 구도를 읽기에는 충분하지만, 포스터의 작은 글자나 날짜 한 줄을 점검하기에는 부족하다. 작은 것이 중요하다면 그 부분만 잘라 따로 넣는다.</p>
+  </section>
+
+  <section id="notan">
+    <h2>덩어리 패널: 명도로 짠 뼈대</h2>
+    <p>첫 패널은 화면을 어둠·중간·밝음 세 덩어리로만 남긴다. 아래 띠는 명도 분포(히스토그램)이고, 띠 위의 두 손잡이가 세 덩어리를 가르는 경계다. 손잡이를 끌거나 슬라이더를 움직여 형태가 가장 또렷하게 읽히는 자리를 찾는다. 흐림을 올리면 눈을 가늘게 뜬 것처럼 세부가 사라진다.</p>
+
+    <div class="sim" id="sim-nt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>덩어리 패널: 노탄 세 단계</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="nt-cv" class="art"></canvas><span class="hint">히스토그램 위 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="nt-src"></div>
+          <div class="seg" id="nt-view"><button data-value="orig">원본</button><button data-value="notan" class="on">노탄</button></div>
+          <label class="ctrl"><span>어둠 | 중간 경계 L* <output id="nt-t1-out"></output></span><input type="range" id="nt-t1" min="2" max="98" step="1" value="35"></label>
+          <label class="ctrl"><span>중간 | 밝음 경계 L* <output id="nt-t2-out"></output></span><input type="range" id="nt-t2" min="2" max="98" step="1" value="68"></label>
+          <label class="ctrl"><span>흐림 <output id="nt-b-out"></output></span><input type="range" id="nt-b" min="0" max="8" step="1" value="2"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">어둠</span><span class="v" id="nt-o-d">—</span></div>
+        <div class="stat"><span class="k">중간</span><span class="v" id="nt-o-m">—</span></div>
+        <div class="stat"><span class="k">밝음</span><span class="v" id="nt-o-l">—</span></div>
+        <div class="stat"><span class="k">명도 폭(5~95%)</span><span class="v" id="nt-o-r">—</span></div>
+      </div>
+      <div class="sim-note" id="nt-note">해볼 것: ① 포스터를 본다. 크림 바탕이 밝음, 짙은 색 글자와 큰 면의 테두리가 어둠이다. 큰 면 안의 쇼윈도 사진이 중간과 어둠으로 갈린다. ② 쇼윈도로 바꾼다. 6장에서 정한 세 켜가 그대로 보인다. 앞 켜의 바구니와 큰 그림책은 어둠, 가운데 초록 받침은 중간, 크림 뒷벽은 밝음이다. 뒤 켜의 옅은 문고판은 뒷벽과 같은 밝음에 녹는다. 6장에서 의도한 그대로다. ③ 「눈 오는 골목」으로 바꾸고 두 경계를 한곳으로 모아 두 단계로 만든다. 중간 거리의 집들처럼 중간 명도에 기대던 형태가 하늘이나 가까운 벽에 붙어 사라진다. 대기 원근은 중간 명도에서 일한다. (L*은 CIELAB 명도. 노탄 회색은 어둠 L* 약 20, 중간 약 58, 밝음 약 93으로 고정했다. 흐림은 분석 해상도 기준 상자 흐림 반경이다.)</div>
+    </div>
+
+    <p>덩어리 패널은 실험실에서 가장 믿을 만한 패널이다. 측정에 가장 가깝기 때문이다. 경계를 어디에 두든 덩어리가 얼룩으로만 남는다면, 색이나 세부를 고치기 전에 명도부터 다시 짜야 한다는 신호다. 반대로 경계를 조금만 옮겨도 형태가 "탁" 정리되는 자리가 있다면 그 화면은 뼈대가 서 있다.</p>
+  </section>
+
+  <section id="weight">
+    <h2>무게 패널: 무게중심과 균형</h2>
+    <p>두 번째 패널은 <a href="reading.html">13장</a>의 무게 모형을 쓴다. 화소마다 둘레와 명도·채도가 얼마나 다른지를 제곱해 더한 값이 무게이고, 무게로 가중한 평균 위치가 무게중심이다. 이 패널은 무게중심과 함께 화면을 왼쪽·오른쪽, 위·아래로 나눈 무게의 비율을 보여 준다. 아래쪽과 오른쪽의 막대가 <a href="balance.html">7장</a>의 지렛대다.</p>
+
+    <div class="sim" id="sim-wt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>무게 패널: 무게중심과 지렛대</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="wt-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="wt-src"></div>
+          <div class="seg" id="wt-view"><button data-value="img" class="on">원본</button><button data-value="map">무게 지도</button></div>
+          <label class="ctrl"><span>채도의 비중 k <output id="wt-k-out"></output></span><input type="range" id="wt-k" min="0" max="3" step="0.1" value="1"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">무게중심 (가로, 세로)</span><span class="v" id="wt-o-c">—</span></div>
+        <div class="stat"><span class="k">가운데에서 벗어남</span><span class="v" id="wt-o-off">—</span></div>
+        <div class="stat"><span class="k">왼쪽 : 오른쪽</span><span class="v" id="wt-o-lr">—</span></div>
+        <div class="stat"><span class="k">위 : 아래</span><span class="v" id="wt-o-tb">—</span></div>
+      </div>
+      <div class="sim-note" id="wt-note">해볼 것: ① 포스터를 본다. 왼쪽 : 오른쪽이 57 : 43으로 조금 왼쪽에 실린다. 큰 면을 가운데에서 왼쪽에 둔 만큼 기울지만, 오른쪽 아래의 붉은 점과 글자 덩어리가 맞서 그 이상 넘어가지 않는다. 위 : 아래는 21 : 79다. 제목 위를 비운 포스터라 무게가 아래에 있다. ② 채도의 비중 k를 0으로 내렸다가 3으로 올린다. 위 : 아래가 39 : 61에서 13 : 87로 바뀐다. 붉은 점과 쇼윈도 사진의 색이 무게를 아래로 끈다. ③ 「창가의 귤」로 바꾸고 같은 일을 한다. k = 0에서 세로 43%였던 무게중심이 k = 1에서 66%로 내려간다. 귤 세 알의 채도가 화면의 무게를 거의 혼자 진다. (판정은 이 장의 대략적인 기준이다. 벗어남이 대각선의 3% 미만이면 "가운데", 3~7%면 "기울기 있음", 7%를 넘으면 "뚜렷이 기욺". 좋고 나쁨이 아니라 의도와 맞는지를 묻는 표시다.)</div>
+    </div>
+
+    <p>무게 패널의 숫자는 "기울었다/안 기울었다"보다 "어느 쪽으로, 무엇 때문에"를 묻는 데 쓴다. 무게 지도로 바꾸면 무게를 만드는 화소가 밝게 보인다. 의도한 주인공이 밝게 떠 있는지, 의도하지 않은 소품이나 가장자리의 잡동사니가 무게를 가져가고 있지는 않은지 본다. 모형은 얼굴과 글자의 의미를 모르므로, 사람이 들어간 사진에서는 얼굴 쪽으로 무게를 조금 더 얹어 읽는다.</p>
+  </section>
+
+  <section id="path">
+    <h2>시선 패널: 현저성과 경로</h2>
+    <p>세 번째 패널은 둘레와 다른 곳(밝기·채도의 중심–주변 대비)을 현저성 지도로 만들고, 가장 현저한 곳부터 차례로 들르되 들른 곳은 잠시 억제하는 경로를 그린다(이티·코흐·니부어 1998의 생각을 줄인 교육용 판). <a href="eye.html">5장</a>에서 본 것처럼 실제 시선은 과제와 사람에 따라 크게 달라지므로, 이 경로는 "대비만 보면 이렇다"는 가설이다.</p>
+
+    <div class="sim" id="sim-pt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>시선 패널: 현저성 지도와 고정 순서</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pt-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="pt-src"></div>
+          <div class="seg" id="pt-view"><button data-value="img" class="on">원본</button><button data-value="sal">현저성 지도</button></div>
+          <label class="ctrl"><span>고정 횟수 <output id="pt-n-out"></output></span><input type="range" id="pt-n" min="2" max="10" step="1" value="5"></label>
+          <label class="ctrl"><span>본 곳 억제 반경 <output id="pt-r-out"></output></span><input type="range" id="pt-r" min="0.04" max="0.3" step="0.01" value="0.12"></label>
+          <label class="check"><input type="checkbox" id="pt-bias"> 가운데 쏠림 더하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고정 순서(위치)</span><span class="v" id="pt-o-seq">—</span></div>
+        <div class="stat"><span class="k">첫 고정의 현저성 / 둘째</span><span class="v" id="pt-o-gap">—</span></div>
+        <div class="stat"><span class="k">경로 길이(대각선 = 1)</span><span class="v" id="pt-o-len">—</span></div>
+      </div>
+      <div class="sim-note" id="pt-note">해볼 것: ① 포스터를 본다. 첫 고정은 오른쪽의 붉은 점이고 둘째의 1.33배로 앞선다. 그다음은 큰 면의 짙은 테두리 모서리들이다. 12장의 모형이 붉은 점을 마지막으로 본 것과 다르다. 모형마다 재는 방식이 달라 생기는 차이이고, 어느 쪽이 사람과 맞는지는 사람에게 보여 줘야 안다. "첫 고정의 현저성 / 둘째"가 1에 가까우면 첫머리가 사람에 따라 바뀌기 쉽다. ② 쇼윈도로 바꾼다. 왼쪽 트리 실루엣, 앞 켜의 큰 그림책, 창틀 모서리가 앞 순서를 차지하고 빨간 책은 네 번째다. 둘째와 첫째의 차이가 ×1.05로 아주 작다. ③ 억제 반경을 0.04로 줄이면 한 곳 둘레를 맴돌고, 0.3으로 올리면 화면을 고르게 쓴다. 경로가 반경에 따라 크게 바뀌는 화면은 초점이 하나로 모이지 않은 화면이다. (현저성은 13장과 같은 모형이며 글자를 읽지 못한다. 포스터의 제목은 글자로서가 아니라 짙은 모양으로 잡힌다.)</div>
+    </div>
+
+    <p>현저성 모형이 가장 잘하는 일은 "의도하지 않은 강조"를 찾는 것이다. 주인공보다 먼저 잡히는 반짝이는 소품, 가장자리에 걸린 밝은 조각, 배경의 선명한 간판 같은 것들이다. 그런 것이 첫 번째나 두 번째로 잡히면 지우거나, 누르거나, 주인공 쪽으로 옮길지 정한다. 반대로 모형이 주인공을 늦게 잡는다고 해서 실패라고 단정하지는 않는다. 사람은 얼굴과 글자를 따로 찾아 읽는다.</p>
+  </section>
+
+  <section id="grid">
+    <h2>격자 패널: 극단 찾기</h2>
+    <p>네 번째 패널은 3분할·황금비 격자를 대 보되, <a href="proportion.html">9장</a>의 결론대로 처방이 아니라 점검 도구로 쓴다. 이 패널이 찾는 것은 "격자에 맞는가"보다 세 가지 극단이다. 주요 점이 <b>무심하게 정중앙</b>에 있는가, 강한 수평·수직선이 화면을 <b>반으로 가르는가</b>, 강한 경계가 <b>가장자리에 닿을락 말락</b> 걸려 있는가. 셋 다 일부러 하면 표현이 되고, 모르고 하면 어색함이 된다.</p>
+
+    <div class="sim" id="sim-gd">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>격자 패널: 격자선 거리와 세 가지 극단</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gd-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="gd-src"></div>
+          <div class="seg" id="gd-type"><button data-value="thirds" class="on">3분할</button><button data-value="phi">황금비</button></div>
+          <label class="check"><input type="checkbox" id="gd-band" checked> 띠로 보기(33~38%, 62~67%)</label>
+          <label class="check"><input type="checkbox" id="gd-lines" checked> 강한 직선 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">주요 점 → 격자선(평균)</span><span class="v" id="gd-o-d">—</span></div>
+        <div class="stat"><span class="k">무작위 점이라면</span><span class="v" id="gd-o-b">—</span></div>
+        <div class="stat"><span class="k">걸린 극단</span><span class="v" id="gd-o-x">—</span></div>
+      </div>
+      <ul class="lab-warn" id="gd-warn" aria-live="polite"></ul>
+      <div class="sim-note" id="gd-note">해볼 것: ① 포스터를 본다. 9장에서 제목 띠를 세로 50%에서 옮긴 결과, "반 가르기" 경고가 없는지 확인한다. ② 쇼윈도를 본다. 선반과 받침은 긴 수평선이라 반 가르기 검사에 걸리기 쉽다. 걸린다면 그 선이 화면 높이의 몇 %에 있는지 보고, 일부러 한 것인지 묻는다. ③ "띠로 보기"를 켜고 끄며 3분할과 황금비를 바꾼다. 두 격자의 차이는 띠 하나 안에 거의 들어간다. 9장에서 서윤이 격자를 정확한 선이 아니라 띠로 대기로 한 이유다. ④ 브뤼헐이나 페르메이르를 고른다. "가장자리 걸림"이 뜬다. 박물관이 찍은 그림 사진에는 그림의 가장자리, 액자 자국, 바랜 테두리가 함께 찍혀 있어 거의 언제나 걸린다. 경고는 판정이 아니라 "여기를 보라"는 표시다. (주요 점은 시선 패널의 첫 네 고정과 무게중심. 정중앙은 가로·세로 모두 가운데에서 3% 안, 반 가르기는 길이가 화면의 절반을 넘는 강한 수평·수직선이 가운데 3% 안을 지날 때, 가장자리 걸림은 테두리에서 1.5% 띠 안의 강한 경계가 그 띠 넓이의 4%를 넘을 때다.)</div>
+    </div>
+
+    <p>"무작위 점이라면"은 <a href="reading.html">13장</a>의 교훈을 매번 상기시키는 칸이다. 주요 점들의 평균 거리가 무작위 기댓값과 비슷하다면 그 화면은 격자와 상관없이 짜여 있다는 뜻일 뿐, 나쁘다는 뜻이 아니다. 반대로 기댓값보다 훨씬 가깝다고 해서 좋은 화면이라는 증거도 아니다. 이 칸이 정말 쓸모 있는 순간은 극단 경고가 떴을 때다.</p>
+  </section>
+
+  <section id="space">
+    <h2>여백 패널: 빈 곳과 빽빽한 곳</h2>
+    <p>다섯 번째 패널은 화면을 작은 칸으로 나누고, 칸마다 명도와 채도가 얼마나 변하는지(표준편차)로 "빈 칸"과 "빽빽한 칸"을 가른다. 빈 칸의 비율이 <span class="term">여백률</span><span class="en">(Whitespace ratio)</span>이고, 이웃한 빈 칸이 이어진 가장 큰 덩어리가 <a href="space.html">10장</a>에서 말한 "모인 여백"이다. 여백이 많아도 잘게 쪼개져 있으면 숨이 트이지 않는다.</p>
+
+    <div class="sim" id="sim-sp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>여백 패널: 여백률과 가장 큰 빈 덩어리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sp-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="sp-src"></div>
+          <label class="ctrl"><span>가로 칸 수 <output id="sp-n-out"></output></span><input type="range" id="sp-n" min="6" max="30" step="1" value="16"></label>
+          <label class="ctrl"><span>빈 칸 기준(변화량) <output id="sp-t-out"></output></span><input type="range" id="sp-t" min="1" max="16" step="0.5" value="5"></label>
+          <label class="check"><input type="checkbox" id="sp-dense" checked> 빽빽한 칸 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">여백률</span><span class="v" id="sp-o-w">—</span></div>
+        <div class="stat"><span class="k">가장 큰 빈 덩어리</span><span class="v" id="sp-o-big">—</span></div>
+        <div class="stat"><span class="k">빈 덩어리 수</span><span class="v" id="sp-o-n">—</span></div>
+        <div class="stat"><span class="k">밀도 대비(상위 10% / 중앙값)</span><span class="v" id="sp-o-c">—</span></div>
+      </div>
+      <div class="sim-note" id="sp-note">해볼 것: ① 포스터를 본다. 10장에서 서윤이 모은 제목 위의 빈 하늘이 굵은 테두리의 한 덩어리(화면의 54%)로 잡힌다. 여백률은 61%다. ② 평사낙안을 본다. 97%가 빈 칸으로 잡힌다. 먹의 농담이 기준 5보다 옅기 때문이다. 기준을 2로 내리면 여백률 60%, 빈 덩어리 22개로 산과 물가가 드러난다. 브뤼헐은 기준 5에서 여백률 13%로, 빈 곳이 하늘에만 조금 있다. ③ 포스터에서 가로 칸 수를 6으로 줄였다가 30으로 늘린다. 여백률이 29%에서 75%로 바뀐다. 칸이 클수록 한 칸 안에 무언가가 걸릴 확률이 커서 여백률이 줄어든다. 여백률은 칸 크기에 따라 달라지는 숫자이므로, 같은 칸 수로 잰 값끼리만 비교한다. (변화량 = 칸 안 명도 L*의 표준편차 + 채도 C의 표준편차 × 100. 기준보다 작으면 빈 칸, 기준의 3배보다 크면 빽빽한 칸이다. 10장의 작업대와는 재는 방식이 달라 값이 다를 수 있다.)</div>
+    </div>
+
+    <p>여백 패널은 고른 바탕을 "비었다"고 본다. 그래서 짙은 초록 바탕이든 크림 바탕이든, 아무것도 없는 하늘이든 똑같이 여백이다. 반대로 고운 무늬가 깔린 천이나 거친 종이 결은 빽빽하다고 잡을 수 있다. 수채화를 찍은 사진에서는 종이 결과 번짐이 변화량을 높이니 기준을 조금 올려 읽는다. 동아시아 그림의 바랜 비단 얼룩도 마찬가지다.</p>
+  </section>
+
+  <section id="crop">
+    <h2>자르기 패널: 비율별 제안</h2>
+    <p>마지막 패널은 <a href="frame.html">11장</a>의 일을 거든다. 원하는 비율(16:9, 1:1, 4:5, A2 세로 등)을 고르면, 그 비율의 틀을 여러 크기와 자리로 옮겨 보며 두 가지를 잰다. 현저성이 틀 안에 얼마나 담기는가, 그리고 틀의 가장자리 띠에 현저한 것이 얼마나 걸리는가. 담긴 것은 많고 걸린 것은 적은 틀 셋을 제안한다. 틀을 직접 끌어 옮길 수도 있다.</p>
+
+    <div class="sim" id="sim-cr">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>자르기 패널: 담긴 것과 걸린 것</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cr-cv" class="art"></canvas><span class="hint">틀을 끌어 옮긴다</span></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="cr-src"></div>
+          <div class="seg" id="cr-ar"><button data-value="1.7778" class="on">16:9</button><button data-value="1">1:1</button><button data-value="0.8">4:5</button><button data-value="0.7071">A2 세로</button><button data-value="0.5625">9:16</button></div>
+          <div class="seg" id="cr-pick"><button data-value="0" class="on">제안 1</button><button data-value="1">제안 2</button><button data-value="2">제안 3</button></div>
+          <label class="ctrl"><span>가장자리 걸림의 벌점 <output id="cr-p-out"></output></span><input type="range" id="cr-p" min="0" max="0.5" step="0.01" value="0.15"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">남는 넓이</span><span class="v" id="cr-o-a">—</span></div>
+        <div class="stat"><span class="k">담긴 현저성</span><span class="v" id="cr-o-in">—</span></div>
+        <div class="stat"><span class="k">가장자리 걸림(평균 = 1)</span><span class="v" id="cr-o-e">—</span></div>
+        <div class="stat"><span class="k">자른 범위(가로, 세로)</span><span class="v" id="cr-o-r">—</span></div>
+      </div>
+      <div class="sim-note" id="cr-note">해볼 것: ① 쇼윈도를 16:9로 본다. 제안 1은 가로 전체, 세로 0.14~0.89로, 11장에서 서윤이 손으로 고른 범위(세로 약 0.135~0.885)와 거의 같다. ② 1:1로 바꾼다. 제안 1은 높이 전체를 쓰며 간판까지 담는다(가로 0.03~0.78). 11장에서 서윤은 창틀 안으로 들어가 빨간 책만 남겼다. 모형은 간판 글자를 "현저한 모양"으로만 볼 뿐 남길지 말지는 모른다. 틀을 직접 끌어 빨간 책 쪽으로 옮기며 가장자리 걸림이 어떻게 바뀌는지 본다. ③ 1:1에서 벌점을 0과 0.5 사이로 움직인다. 틀 자리가 가로 0.07~0.82에서 0.01~0.77로 옮겨 가고 가장자리 걸림이 ×0.62에서 ×0.38로 준다. 벌점을 얼마로 둘지는 "무엇을 꼭 온전히 남길 것인가"에 대한 선택이다. (현저성은 시선 패널과 같다. 가장자리 띠는 틀 짧은 변의 3%. 점수 = 담긴 현저성 − 벌점 × 가장자리 걸림. 틀 크기는 가능한 가장 큰 틀의 60~100%, 제안끼리는 겹침이 60%를 넘지 않게 골랐다.)</div>
+    </div>
+
+    <p>자르기 패널의 제안은 "무엇이 중요한가"를 현저성에 맡긴다. 그래서 의미가 중요한 사진, 예컨대 간판의 글자를 꼭 남겨야 하는 가게 사진에서는 제안이 틀릴 수 있다. 11장에서 서윤이 한 것처럼 먼저 "남길 것"과 "버릴 것"을 말로 정하고, 제안은 그다음에 가장자리 걸림을 점검하는 데 쓴다.</p>
+
+    <div class="callout studio">
+      <strong>실험실은 마지막이 아니라 중간에 쓴다</strong>
+      서윤은 회사에서 화면 시안을 만들 때도 실험실 같은 점검을 "완성 직전"이 아니라 "썸네일 다음, 세부 전"에 한다. 완성된 시안에서 무게중심이 기운 것을 찾으면 고치기 아깝고, 이미 공들인 세부가 결정을 붙든다. 흑백 썸네일을 찍어 넣고, 덩어리와 무게, 첫 시선만 본 다음, 세부는 그 뒤에 얹는다. 도경의 방식은 조금 다르다. 그는 완성한 그림을 휴대폰으로 찍어 거꾸로 돌려 보고, 실험실은 "내 눈이 익숙해져서 못 보는 것"을 확인할 때만 연다. 두 사람 모두 숫자가 고치라고 할 때보다 숫자와 자기 눈이 어긋날 때를 더 오래 들여다본다.
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>종합 실험실</h2>
+    <p>이제 여섯 패널을 한 화면에 모은다. 맨 위에서 이미지를 고르거나 넣으면 아래 여섯 칸이 함께 바뀐다. 각 칸은 앞 시뮬레이터의 기본 설정을 쓴다. 맨 아래 "보고서 쓰기"를 누르면 여섯 패널의 숫자를 짧은 글로 정리한다. 복사해 작업 노트에 붙이거나 글 파일로 저장한다.</p>
+    <p>순서는 이렇게 권한다. ① 덩어리로 뼈대가 서는지 본다. ② 무게가 의도한 쪽으로 기우는지 본다. ③ 첫 시선이 주인공에 닿는지, 의도하지 않은 강조가 없는지 본다. ④ 극단 경고를 확인한다. ⑤ 여백이 모여 있는지 본다. ⑥ 쓸 비율로 잘라 본다. ⑦ 보고서에 내 판단을 한 줄 덧붙인다.</p>
+
+    <div class="sim" id="sim-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>구도 실험실</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="lz-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg lab-src" id="lz-src"></div>
+          <label class="lab-file"><input type="file" id="lz-file" accept="image/*"><span>내 이미지 열기</span></label>
+          <p class="lab-small" id="lz-file-msg">파일은 이 브라우저 안에서만 읽는다. 서버로 보내지 않는다.</p>
+          <div class="seg" id="lz-ar"><button data-value="1.7778" class="on">16:9</button><button data-value="1">1:1</button><button data-value="0.8">4:5</button><button data-value="0.7071">A2 세로</button></div>
+          <label class="check"><input type="checkbox" id="lz-flip"> 좌우 뒤집어 보기</label>
+        </div>
+      </div>
+      <div class="lab-dash">
+        <div><canvas id="lz-d1" class="art"></canvas></div>
+        <div><canvas id="lz-d2" class="art"></canvas></div>
+        <div><canvas id="lz-d3" class="art"></canvas></div>
+        <div><canvas id="lz-d4" class="art"></canvas></div>
+        <div><canvas id="lz-d5" class="art"></canvas></div>
+        <div><canvas id="lz-d6" class="art"></canvas></div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">어둠 · 중간 · 밝음</span><span class="v" id="lz-o-m">—</span></div>
+        <div class="stat"><span class="k">무게중심 · 판정</span><span class="v" id="lz-o-w">—</span></div>
+        <div class="stat"><span class="k">첫 시선</span><span class="v" id="lz-o-f">—</span></div>
+        <div class="stat"><span class="k">극단 경고</span><span class="v" id="lz-o-x">—</span></div>
+        <div class="stat"><span class="k">여백률 · 가장 큰 빈 덩어리</span><span class="v" id="lz-o-s">—</span></div>
+        <div class="stat"><span class="k">자르기 제안 1</span><span class="v" id="lz-o-c">—</span></div>
+      </div>
+      <div class="lab-export">
+        <div class="row"><button class="btn primary" id="lz-write" type="button">보고서 쓰기</button><button class="btn" id="lz-copy" type="button">복사하기</button><button class="btn" id="lz-save" type="button">글 파일로 저장</button><span id="lz-msg" aria-live="polite"></span></div>
+        <textarea id="lz-out" spellcheck="false" aria-label="구도 실험실 보고서"></textarea>
+      </div>
+      <div class="sim-note">해볼 것: ① 쇼윈도, 포스터, 「눈 오는 골목」, 「창가의 귤」을 차례로 넣고 여섯 칸을 훑는다. 한 칸만 유난히 다른 말을 하는 이미지가 있는지 본다. ② 「눈 오는 골목」에서 "좌우 뒤집어 보기"를 켠다. 숫자는 좌우만 바뀐다. 모형은 읽는 방향을 모른다. 그래도 뒤집힌 화면에서 내 눈이 어디로 먼저 가는지 적어 본다. ③ 내 이미지를 넣고 보고서를 쓴 뒤, 맨 끝 "내 판단" 줄을 직접 채운다. 보고서의 숫자는 그 판단을 위한 재료다. (여섯 칸: 원본과 덩어리 · 무게 · 시선 · 격자 · 여백 · 자르기. 설정은 앞 시뮬레이터의 기본값: 노탄 경계 L* 35·68, 흐림 2, 채도 비중 1, 고정 5회와 억제 반경 0.12, 3분할, 가로 16칸·기준 5, 벌점 0.15.)</div>
+    </div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 260" role="img" aria-label="실험실 모형이 아는 것과 모르는 것. 명도, 채도, 크기, 위치, 둘레와의 대비는 안다. 얼굴, 글자의 뜻, 이야기, 읽는 방향, 실제 크기와 보는 거리는 모른다">
+        <rect x="14" y="16" width="208" height="228" rx="10" class="f-ok-soft"/>
+        <rect x="238" y="16" width="208" height="228" rx="10" class="f-bad-soft"/>
+        <text x="118" y="44" text-anchor="middle" class="lbl-b">모형이 아는 것</text>
+        <text x="342" y="44" text-anchor="middle" class="lbl-b">모형이 모르는 것</text>
+        <g class="lbl">
+          <text x="34" y="80">명도와 채도</text><text x="34" y="108">덩어리의 크기와 위치</text><text x="34" y="136">둘레와의 대비</text><text x="34" y="164">곧은 경계의 방향</text><text x="34" y="192">고른 바탕(여백)</text><text x="34" y="220">틀 가장자리의 걸림</text>
+          <text x="258" y="80">얼굴과 사람의 행동</text><text x="258" y="108">글자의 뜻과 순서</text><text x="258" y="136">이야기와 상징</text><text x="258" y="164">읽는 방향과 문화</text><text x="258" y="192">실제 크기와 보는 거리</text><text x="258" y="220">조명, 종이, 물감의 질감</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 2. 실험실이 아는 것과 모르는 것.</b> 왼쪽은 화소의 숫자에서 바로 계산되는 것들이다. 오른쪽은 사람이 화면에 가져오는 것들이다. 포스터의 날짜를 사람들이 찾는지는 글자를 읽는 사람에게, 쇼윈도가 사람을 멈춰 세우는지는 실제 길 위의 거리와 조명에 달려 있다(<a href="shape.html">3장</a>의 7 m 실험처럼). 실험실의 숫자는 왼쪽 칸에 대해서만 말한다.</figcaption>
+    </figure>
+
+    <div class="callout deep">
+      <strong>현저성 모형은 얼마나 맞는가</strong>
+      이티·코흐·니부어(1998) 이후 현저성 모형은 시선 추적 자료와 비교하며 크게 발전했다. 최근의 모형은 얼굴, 글자, 사람 같은 대상을 따로 배워 넣고, 앞서 말한 가운데 쏠림(태틀러 2007)도 보정한다. 그래도 사람이 무엇을 하려고 보는지(정보를 찾는지, 감상하는지)에 따라 시선이 크게 달라진다는 점은 그대로다. 이 실험실의 모형은 밝기와 채도의 대비만 쓰는 가장 단순한 판이라서, 사진이나 그림의 "대비 구조"를 보여 주는 데는 쓸 만하지만 실제 시선을 예측하는 도구로 쓰지 않는다. 시선이 정말 중요하다면 <a href="eye.html">5장</a>의 서윤처럼 사람에게 직접 보여 주고 묻는 간이 테스트를 함께 한다.
+    </div>
+
+    <div class="callout try">
+      <strong>실험실과 내 눈을 겨루기</strong>
+      내가 찍은 사진이나 그린 그림 세 장을 고른다. 실험실에 넣기 전에 종이에 장마다 세 가지를 먼저 적는다. 무게가 쏠린 쪽, 눈이 처음 가는 곳, 가장 큰 빈 곳. 그다음 실험실에 넣어 보고서를 쓰고, 내 답과 다른 칸에 동그라미를 친다. 다른 칸마다 "모형이 모르는 것 때문인가(그림 2 오른쪽), 내가 놓친 것인가"를 한 줄씩 적는다. 마지막으로 그중 한 장을 연필 썸네일로 다시 그리며, 동그라미 친 칸 하나를 의도대로 고쳐 본다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 14장</span></div>
+      <h4>네 장을 한 작업대에</h4>
+      <p>12월 셋째 주, 낭독회를 나흘 앞둔 밤이었다. 서윤은 책방 E 계산대에 노트북을 펴고 겨울 작업 네 장을 실험실에 차례로 넣었다. 쇼윈도 사진, 낭독회 포스터 A안, 「눈 오는 골목」과 「창가의 귤」의 밑그림. 도경은 옆에서 연필을 깎으며 "숫자가 네 편을 드는지 내 편을 드는지 보자"고 했다. 아래 값은 이 장의 실험실에 넣은 스케치(이 책이 그린 가상의 그림)를 기본 설정으로 잰 것이다.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>작업</th><th>덩어리 어둠·중간·밝음</th><th>무게중심(가로, 세로) · 판정</th><th>첫 시선</th><th>극단 경고</th><th>여백률 · 가장 큰 빈 덩어리</th></tr></thead>
+        <tbody id="case-rows">
+          <tr><td>쇼윈도 사진</td><td>46% · 15% · 40%</td><td>48%, 45% · 기울기 있음(3.3%)</td><td>왼쪽 트리 실루엣(빨간 책은 4번째)</td><td>없음</td><td>51% · 48%(창 밖 벽)</td></tr>
+          <tr><td>포스터 A안</td><td>2% · 11% · 87%</td><td>50%, 58% · 기울기 있음(6.5%, 아래로)</td><td>붉은 점(둘째의 1.33배)</td><td>없음</td><td>61% · 54%(제목 위 하늘)</td></tr>
+          <tr><td>「눈 오는 골목」</td><td>10% · 13% · 76%</td><td>60%, 52% · 기울기 있음(6.5%, 오른쪽으로)</td><td>가로등</td><td>가장자리 걸림(오른쪽)</td><td>80% · 37%(위쪽 하늘)</td></tr>
+          <tr><td>「창가의 귤」</td><td>0% · 39% · 61%</td><td>52%, 66% · 뚜렷이 기욺(10.0%, 아래로)</td><td>한가운데(문살 아래 귤 잎)</td><td>반 가르기(문살, 폭의 51%)</td><td>69% · 23%</td></tr>
+        </tbody>
+      </table></div>
+      <p>쇼윈도에서 먼저 눈에 띈 것은 자르기 패널이었다. 16:9 제안 1은 가로 전체, 세로 0.14~0.89로, 11장에서 서윤이 손으로 고른 범위(세로 0.135~0.885)와 거의 같았다. "간판을 버린 건 내 고집이 아니었네." 그런데 시선 패널은 서윤 편이 아니었다. 첫 고정은 왼쪽 트리의 짙은 실루엣, 둘째는 앞 켜의 큰 그림책, 셋째는 창틀 모서리였고, 8장에서 박자를 깨려고 둔 빨간 책은 네 번째였다. 6장에서 깊이를 위해 앞 켜를 L* 약 20의 실루엣으로 짙게 둔 것이 대비를 먼저 가져간 것이다. 서윤은 세 켜를 허물지 않기로 하고, 대신 빨간 책 바로 위에 작은 전구 하나를 내려 그 둘레만 밝히기로 했다. 다른 선택지, 곧 트리를 차분한 초록(<code>#567666</code>)으로 바꿔 앞 켜의 대비를 낮추는 안도 적어 두었다. 포스터에서는 두 모형이 다른 말을 했다. 12장의 모형은 붉은 점을 마지막으로 보았는데, 이 실험실의 시선 패널은 붉은 점을 첫 고정으로 골랐다. 7장에서 도경이 "혼자 떨어진 점은 계산보다 무거워 보여"라고 한 쪽에 가까운 결과다. 서윤은 어느 모형도 결론으로 쓰지 않고, 12장에서 정한 대로 교정쇄를 동료들에게 보여 정하기로 했다. 붉은 점이 날짜보다 먼저 보인다는 사람이 다섯 중 셋을 넘으면 지름을 폭의 6%에서 4%로 줄인다. 위쪽 빈 하늘은 가장 큰 빈 덩어리(54%)로 잡혔다. 10장 작업대의 67%와는 재는 방식이 달라 숫자는 다르지만, 여백이 한 덩어리로 모였다는 결론은 같았다.</p>
+      <p>「눈 오는 골목」은 무게가 오른쪽(왼쪽 : 오른쪽 = 34 : 66)으로 쏠렸고 첫 시선은 가로등이었다. 서윤이 의도한 그대로다. 가로등과 오른쪽 벽이 무게를 지고, 골목은 13장에서 평사낙안에게 얻은 대로 두 번 꺾이며 왼쪽 안쪽의 빈 하늘로 물러난다. 위쪽 하늘은 37%의 빈 덩어리로, 10장의 목표(약 40%)와 맞았다. 대신 격자 패널이 "가장자리 걸림"을 띄웠다. 오른쪽 담의 눈 덮인 윗선이 테두리에 닿을락 말락 걸려 있었다. 서윤은 담 윗선을 테두리 앞에서 끊지 않고 확실히 테두리 밖으로 내보내기로 했다. 11장의 규칙 그대로, 닿을 거면 확실히 자르고 아니면 확실히 띄운다.</p>
+      <p>「창가의 귤」은 경고가 둘이었다. 창 가운데 문살이 화면 폭의 51%를 지나 그림을 반으로 가르고(반 가르기), 무게는 아래로 10% 내려가 "뚜렷이 기욺"이었다. 아래로 기운 것은 의도였다. 귤 세 알이 창턱에 놓인 그림이니까. 반 가르기는 의도가 아니었다. 서윤은 그리는 자리를 오른쪽으로 옮겨 문살이 화면 폭의 약 38% 띠에 오게 하고, 넓어진 오른쪽 창 안에 떨어진 귤 한 알을 두기로 했다. 다른 선택지, 곧 문살을 정중앙에 그대로 두고 좌우 대칭의 고요함으로 가는 안도 남겼다. 마지막으로 13장에서 남긴 질문, 두 점을 나란히 걸 때의 순서를 "좌우 뒤집어 보기"로 시험했다. 숫자는 좌우만 바뀌었다. 모형은 읽는 방향을 모른다. 그래서 두 사람은 7장의 지렛대로 정했다. 무게가 오른쪽에 쏠린 「눈 오는 골목」을 왼쪽에, 「창가의 귤」을 오른쪽에 걸어 두 그림의 무게가 가운데로 모이게 한다.</p>
+      <p>도경은 마지막 장 대신 수첩 한 장을 찢어 서윤에게 건넸다. 메모에는 이렇게 적혀 있었다. "숫자가 네 편을 들 때보다 반대할 때 더 오래 봐라. 그리고 반대해도 네가 맞을 수 있다. 그때는 왜 맞는지 한 줄 적어 둬. 그림은 놓는 자리에서 시작되지만, 끝은 보는 사람 앞에서 난다." 서윤은 도경에게 보고서를 글 파일로 저장해 휴대폰 메모장에 옮기는 법을 알려 주었다. 도경은 자기 그림 한 장을 찍어 넣어 보더니 "왼쪽이 무겁다는 건 나도 알았어" 하고 웃었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>실험실 점검 뒤의 최종 선택(서윤의 선택). ① 쇼윈도: 세 켜는 그대로 두고 빨간 책 위에 작은 전구 하나를 더한다. 웹 16:9 사진은 11장의 범위(세로 약 0.135~0.885)를 그대로 쓴다. ② 포스터: A안 그대로 인쇄하되, 교정쇄 테스트에서 붉은 점이 날짜보다 먼저 보인다는 사람이 다섯 중 셋을 넘으면 점 지름을 폭의 6%에서 4%로 줄인다. ③ 「눈 오는 골목」: 가로등과 무게는 오른쪽, 골목은 두 번 꺾여 왼쪽 위의 빈 하늘(약 40%)로, 오른쪽 담 윗선은 테두리 밖으로 확실히 내보낸다. ④ 「창가의 귤」: 문살을 화면 폭의 약 38% 띠로 옮기고 떨어진 귤 한 알을 오른쪽 창 안에 둔다. ⑤ 두 점은 「눈 오는 골목」을 왼쪽, 「창가의 귤」을 오른쪽에 건다. 모든 값은 이 책의 교육용 모형과 가상의 스케치로 잰 것이며, 실물과 실제 자리에서 다시 본다.</div>
+        <div><b>남겨 둔 다른 선택지</b>트리를 차분한 초록으로 바꿔 앞 켜의 대비를 낮추는 진열, 붉은 점을 처음부터 줄인 포스터, 가로등을 화면 가운데로 옮긴 골목, 문살을 정중앙에 둔 대칭의 「창가의 귤」, 두 그림의 순서를 바꿔 거는 안. 모두 보고서와 함께 작업 노트에 남겼다.</div>
+        <div><b>다음 단계</b>낭독회 당일 포스터와 쇼윈도를 길 건너에서 다시 보고, 손님 몇 명에게 "무엇이 먼저 보였는지" 묻는다. 겨울 작업 노트 전체는 <a href="glossary.html">15장</a>의 작업 노트 색인에 모은다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>구도 실험실은 화소의 명도와 채도를 여섯 가지 방식(덩어리, 무게, 시선, 격자, 여백, 자르기)으로 모은다. 패널끼리 다른 말을 하는 것은 다른 질문에 답하기 때문이다.</li>
+      <li>넓은 덩어리에서 나오는 숫자(무게중심, 여백률)는 거칠게 줄여도 버티고, 작은 점에서 나오는 숫자(첫 시선)는 해상도에 민감하다.</li>
+      <li>덩어리 패널이 가장 측정에 가깝다. 경계를 어디에 두어도 얼룩만 남으면 명도부터 다시 짠다.</li>
+      <li>무게와 시선 패널은 "어느 쪽으로, 무엇 때문에"를 묻는 데 쓴다. 의도하지 않은 강조를 찾는 데 특히 쓸모 있다. 모형은 얼굴과 글자의 뜻을 모른다.</li>
+      <li>격자 패널은 맞춤이 아니라 극단(무심한 정중앙, 반 가르기, 가장자리 걸림)을 찾는 점검 도구다.</li>
+      <li>여백률은 칸 크기에 따라 달라지므로 같은 설정끼리만 비교하고, 여백의 양보다 모여 있는지를 본다. 자르기 제안은 남길 것을 말로 정한 뒤 가장자리 걸림을 점검하는 데 쓴다.</li>
+      <li>내 이미지는 브라우저 안에서만 분석한다. 보고서의 숫자는 판단의 재료이며, 결론은 "만드는 사람의 선택"으로 적는다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 분석 해상도를 200&nbsp;px에서 24&nbsp;px로 줄였더니 무게중심은 거의 그대로인데 첫 시선의 자리가 바뀌었다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">해상도를 줄이면 모형이 고장 나므로 두 숫자 모두 믿을 수 없다.</button>
+          <button class="opt">무게중심 계산에 오류가 있어 해상도의 영향을 받지 않는 것이다.</button>
+          <button class="opt" data-correct>무게중심은 넓은 덩어리가 정해서 줄여도 버티지만, 첫 시선은 작은 강조점에 기대므로 이웃과 섞이면 사라진다.</button>
+          <button class="opt">해상도를 줄이면 그림의 구도 자체가 바뀌므로 24 px의 결과가 더 정확하다.</button>
+        </div>
+        <div class="quiz-exp">무게중심은 화면 전체의 무게를 평균한 값이라 넓은 덩어리가 대부분을 정한다. 반면 첫 시선은 둘레와 가장 다른 작은 점(빨간 책, 전구)에 기대는데, 해상도를 줄이면 그 점이 이웃 화소와 섞여 대비를 잃는다. 작은 것을 점검하려면 해상도를 낮추지 말고 그 부분을 잘라 따로 넣는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 포스터 시안을 격자 패널에 넣었더니 "반 가르기" 경고가 떴다. 가장 알맞은 대응은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>화면 가운데를 지나는 강한 수평·수직선이 무엇인지 확인하고, 일부러 한 것이 아니라면 옮기거나 끊는다.</button>
+          <button class="opt">경고가 없어질 때까지 모든 요소를 3분할선 위로 옮긴다.</button>
+          <button class="opt">경고는 황금비 격자에서만 의미가 있으므로 3분할로 바꿔 다시 잰다.</button>
+          <button class="opt">반 가르기는 언제나 잘못이므로 포스터 크기를 바꾼다.</button>
+        </div>
+        <div class="quiz-exp">격자 패널은 극단을 찾는 점검 도구다. 반 가르기는 화면을 둘로 나눠 정적이게 만들기 쉽지만, 일부러 하면 대칭과 고요함을 표현하는 선택이 된다. 그래서 먼저 그 선이 무엇이고 의도한 것인지 묻는다. 모든 요소를 격자선에 맞추는 것은 9장에서 본 "처방으로서의 격자"이고, 반 가르기 경고는 격자의 종류와 상관없이 가운데 3% 띠로 판정한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 낭독회 포스터 스케치의 여백률이 가로 6칸에서는 29%, 가로 30칸에서는 75%로 나왔다. 가장 알맞은 해석은?</p>
+        <div class="opts">
+          <button class="opt">30칸의 값이 진짜 여백률이고 6칸의 값은 계산 오류다.</button>
+          <button class="opt">그림을 분석하는 동안 그림의 여백이 늘었다.</button>
+          <button class="opt">30칸에서 50%를 넘었으므로 이 포스터는 동아시아 회화의 여백 원리로 그린 것이다.</button>
+          <button class="opt" data-correct>칸이 클수록 한 칸 안에 무언가 걸릴 가능성이 커서 여백률이 낮게 나온다. 여백률은 같은 칸 수로 잰 값끼리만 비교한다.</button>
+        </div>
+        <div class="quiz-exp">여백률은 칸의 크기에 따라 달라지는 숫자다. 큰 칸은 작은 물건 하나만 걸려도 빈 칸이 아니게 된다. 어느 칸 수가 "진짜"라는 것은 없고, 비교할 때 설정을 같게 맞추는 것이 중요하다. 여백률 하나로 그림의 전통이나 좋고 나쁨을 판정할 수도 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 가게 사진을 1:1로 자르는 제안을 받았는데, 제안 1이 간판 글자를 반쯤 잘라 냈다. 현저성 점수로는 제안 1이 가장 높았다. 가장 알맞은 판단은?</p>
+        <div class="opts">
+          <button class="opt">점수가 가장 높으므로 제안 1을 그대로 쓴다.</button>
+          <button class="opt" data-correct>모형은 글자의 뜻을 모르므로, 간판을 남길지 먼저 정하고 그에 맞는 틀을 고르거나 직접 옮긴 뒤 가장자리 걸림을 점검한다.</button>
+          <button class="opt">가장자리 걸림의 벌점을 0으로 내리면 간판이 온전히 남는다.</button>
+          <button class="opt">1:1 비율은 간판이 있는 사진에 쓸 수 없다.</button>
+        </div>
+        <div class="quiz-exp">자르기 제안은 "무엇이 중요한가"를 밝기·채도 대비에 맡긴다. 글자의 뜻이나 가게 이름처럼 의미가 중요한 것은 모형이 모르므로, 11장의 서윤처럼 남길 것과 버릴 것을 먼저 말로 정한다. 벌점을 0으로 내리면 오히려 가장자리에서 무언가를 반쯤 자르는 틀이 더 쉽게 나온다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+/* 14장 구도 실험실. 모든 분석은 교육용 근사다(13장과 같은 모형).
+   - 명도 L*: CIE 15:2004, 채도: OKLCH(Ottosson 2020, ART.linearToOklab)
+   - 시각적 무게: 둘레와의 명도·채도 차이의 제곱(이 책의 단순 모형, Arnheim 1954의 직관)
+   - 현저성: 중심–주변 대비(Itti, Koch & Niebur 1998을 밝기·채도로 줄임), 가운데 쏠림 보정(Tatler 2007)
+   - 경계: 소벨 필터, 직선: 허프 변환(Duda & Hart 1972)
+   - 내 이미지는 URL.createObjectURL로 이 페이지 안에서만 읽는다(업로드 없음).
+*/
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#2b2a30", DIM = "#6b6874", IMG = "../../shared/img/";
+  var C_W = "#e0245e", C_LINE = "#ffc21a", C_PATH = "#ff4f7b", C_GRID = "#22d3ee", C_EMPTY = "rgba(34,211,238,0.30)", C_DENSE = "rgba(224,36,94,0.30)";
+  var AN = 200;
+  var B = { green: "#2f7d5b", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", dark: "#22342a" }; // 책방 E의 색(ColorBook)
+
+  /* ---------------- 가상의 그림(이 책이 직접 그린 스케치) ---------------- */
+  function cnv(w, h) { var c = document.createElement("canvas"); c.width = w; c.height = h; return c; }
+  function rr(x, cx, cy, w, h, r) { x.beginPath(); if (x.roundRect) x.roundRect(cx, cy, w, h, r); else x.rect(cx, cy, w, h); }
+  // 쇼윈도 안쪽 장면(창틀 안). 포스터의 큰 면에도 다시 쓴다.
+  function windowScene(x, X, Y, W, H) {
+    var g = x.createLinearGradient(X, Y, X, Y + H); g.addColorStop(0, "#ffe9de"); g.addColorStop(1, "#f3d2c2");
+    x.fillStyle = g; x.fillRect(X, Y, W, H);
+    var r = AB.rng(41), sx = W / 960, sy = H / 570, P = function (u, v) { return [X + u * sx, Y + v * sy]; };
+    // 전구 줄
+    x.strokeStyle = "#8a7a62"; x.lineWidth = 1.2 * sx; x.beginPath();
+    for (var i = 0; i <= 24; i++) { var p = P(i * 40, 34 + 16 * Math.sin(i * 0.8)); i ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); } x.stroke();
+    for (i = 1; i < 24; i += 2) { var q = P(i * 40, 40 + 16 * Math.sin(i * 0.8)); x.fillStyle = "#ffcf73"; x.beginPath(); x.arc(q[0], q[1], 5 * sx, 0, 7); x.fill(); }
+    // 뒤 켜: 높은 받침 위 옅은 문고판
+    x.fillStyle = "#ead7c7"; var b = P(0, 300); x.fillRect(b[0], b[1], W, 22 * sy);
+    for (i = 0; i < 16; i++) { var bx = 30 + i * 58 + r() * 8, bh = 64 + r() * 14, c = ["#efe1d3", "#e3d3c2", "#f2e6da", "#dccbb9"][i % 4]; var bp = P(bx, 300 - bh); x.fillStyle = c; x.fillRect(bp[0], bp[1], 40 * sx, bh * sy); }
+    // 가운데 켜: 초록 받침 + 책 5·11·5, 빨간 책 한 권
+    var mp = P(0, 420); x.fillStyle = B.calm; x.fillRect(mp[0], mp[1], W, 30 * sy);
+    var covers = ["#8e9c8f", "#b9a88f", "#6f7f75", "#a39a8a", "#7d8a7f", "#c2b49c"], pos = 40, k = 0;
+    [5, 11, 5].forEach(function (n, gi) {
+      for (var j = 0; j < n; j++) {
+        var hgt = gi === 1 ? 92 + 40 * Math.sin((j / (n - 1)) * Math.PI) : (j % 2 ? 100 : 104), wdt = gi === 1 ? 30 : (j % 2 ? 14 : 30);
+        var bp2 = P(pos, 420 - hgt); k++;
+        x.fillStyle = k === 13 ? B.red : covers[(k * 7) % covers.length];
+        x.fillRect(bp2[0], bp2[1], wdt * sx, hgt * sy);
+        x.fillStyle = "rgba(0,0,0,0.08)"; x.fillRect(bp2[0] + (wdt - 3) * sx, bp2[1], 3 * sx, hgt * sy);
+        pos += wdt + 6;
+      }
+      pos += 64;
+    });
+    // 앞 켜: 짙은 바구니와 귤, 큰 그림책(어둠의 실루엣), 왼쪽 트리
+    x.fillStyle = "#2c3a30"; var t = P(70, 170), t2 = P(10, 470), t3 = P(130, 470); x.beginPath(); x.moveTo(t[0], t[1]); x.lineTo(t2[0], t2[1]); x.lineTo(t3[0], t3[1]); x.closePath(); x.fill();
+    var bk = P(140, 470); x.fillStyle = "#2a2620"; rr(x, bk[0], bk[1], 190 * sx, 80 * sy, 8 * sx); x.fill();
+    for (i = 0; i < 6; i++) { var o = P(170 + i * 26, 470 - 10 + (i % 2) * 8); x.fillStyle = "#e8892f"; x.beginPath(); x.arc(o[0], o[1], 15 * sx, 0, 7); x.fill(); }
+    var pb = P(700, 400); x.fillStyle = B.dark; x.fillRect(pb[0], pb[1], 170 * sx, 150 * sy);
+    x.fillStyle = "#3e5446"; var pb2 = P(718, 418); x.fillRect(pb2[0], pb2[1], 134 * sx, 60 * sy);
+    // 바닥판
+    var fl = P(0, 550); x.fillStyle = "#6b5440"; x.fillRect(fl[0], fl[1], W, 20 * sy);
+  }
+  function drawWindowPhoto() {
+    var c = cnv(1200, 900), x = c.getContext("2d");
+    x.fillStyle = "#3b3a36"; x.fillRect(0, 0, 1200, 900);
+    x.fillStyle = "#4a4843"; for (var i = 0; i < 18; i++) x.fillRect(0, i * 50, 1200, 2);
+    x.fillStyle = "#c9a77c"; x.fillRect(250, 40, 700, 110);
+    x.fillStyle = B.dark; x.font = "700 68px sans-serif"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("책방 E", 600, 97);
+    x.fillStyle = B.dark; x.fillRect(90, 190, 1020, 640);
+    windowScene(x, 120, 220, 960, 570);
+    var g = x.createLinearGradient(120, 220, 600, 790); g.addColorStop(0, "rgba(255,255,255,0.10)"); g.addColorStop(0.5, "rgba(255,255,255,0)"); x.fillStyle = g; x.fillRect(120, 220, 960, 570);
+    x.fillStyle = "#5a554c"; x.fillRect(60, 830, 1080, 30);
+    x.fillStyle = "#2b2a28"; x.fillRect(0, 860, 1200, 40);
+    return c;
+  }
+  function drawPoster() {
+    var W = 849, H = 1200, c = cnv(W, H), x = c.getContext("2d");
+    x.fillStyle = B.cream; x.fillRect(0, 0, W, H);
+    x.fillStyle = B.dark; x.textAlign = "left"; x.textBaseline = "alphabetic";
+    x.font = "800 86px sans-serif"; x.fillText("겨울 밤 낭독회", 85, 355);
+    x.font = "500 26px sans-serif"; x.fillStyle = B.calm; x.fillText("책방 E가 고른 겨울 책 세 권을 함께 읽습니다", 88, 400);
+    x.fillStyle = B.dark; x.fillRect(85, 440, 560, 400);
+    windowScene(x, 101, 456, 528, 368);
+    x.fillStyle = B.red; x.beginPath(); x.arc(724, 790, 25, 0, 7); x.fill();
+    x.fillStyle = B.dark; x.textAlign = "center"; x.font = "800 48px sans-serif"; x.fillText("12월 19일 토 · 저녁 7시", W / 2 - 40, 925);
+    x.textAlign = "left"; x.font = "500 22px sans-serif";
+    ["장소 책방 E 안쪽 서가", "참가비 5,000원 · 20명", "예약 계산대 또는 웹사이트"].forEach(function (t, i) { x.fillText(t, 500, 1010 + i * 34); });
+    x.font = "700 26px sans-serif"; x.fillText("책방 E", 85, 1120);
+    return c;
+  }
+  function drawAlley() {
+    var W = 900, H = 1200, c = cnv(W, H), x = c.getContext("2d"), r = AB.rng(77);
+    x.fillStyle = "#f3f1ec"; x.fillRect(0, 0, W, H);
+    var g = x.createLinearGradient(0, 0, 0, 480); g.addColorStop(0, "#e6e9ec"); g.addColorStop(1, "#f1f0ec"); x.fillStyle = g; x.fillRect(0, 0, W, 480);
+    function poly(pts, col) { x.fillStyle = col; x.beginPath(); pts.forEach(function (p, i) { i ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.closePath(); x.fill(); }
+    // 먼 담(옅게), 중간 집들, 가까운 벽(짙게): 대기 원근
+    poly([[380, 560], [520, 560], [520, 640], [380, 640]], "#c8cbcf");
+    poly([[350, 520], [450, 500], [470, 520], [470, 560], [350, 560]], "#d3d5d8");
+    poly([[520, 470], [640, 440], [700, 470], [700, 700], [520, 640]], "#9a9fa6");
+    poly([[230, 500], [330, 470], [380, 500], [380, 650], [230, 700]], "#a3a8ae");
+    poly([[0, 430], [180, 400], [230, 470], [230, 900], [0, 1050]], "#4c525a");
+    poly([[700, 420], [900, 380], [900, 1100], [700, 860]], "#555b63");
+    // 담 윗선의 눈(실제 경계)
+    x.strokeStyle = "#fbfbf8"; x.lineWidth = 9; x.lineCap = "round";
+    [[[0, 430], [180, 400], [230, 470]], [[700, 420], [900, 380]], [[230, 500], [330, 470], [380, 500]], [[520, 470], [640, 440], [700, 470]]].forEach(function (s) { x.beginPath(); s.forEach(function (p, i) { i ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.stroke(); });
+    // 지그재그로 꺾이는 눈길
+    poly([[230, 1200], [700, 1200], [640, 900], [700, 860], [520, 700], [470, 640], [380, 650], [420, 700], [300, 820], [230, 900]], "#e9ecef");
+    x.strokeStyle = "#cfd4d9"; x.lineWidth = 3; x.beginPath(); x.moveTo(330, 1200); x.lineTo(420, 900); x.lineTo(360, 760); x.lineTo(450, 660); x.stroke();
+    // 가로등과 둘레의 눈송이
+    x.fillStyle = "#3c4148"; x.fillRect(742, 560, 8, 330);
+    var lg = x.createRadialGradient(746, 560, 4, 746, 560, 120); lg.addColorStop(0, "rgba(255,214,150,0.95)"); lg.addColorStop(1, "rgba(255,214,150,0)"); x.fillStyle = lg; x.beginPath(); x.arc(746, 560, 120, 0, 7); x.fill();
+    x.fillStyle = "#fff6e6"; x.beginPath(); x.arc(746, 560, 12, 0, 7); x.fill();
+    for (var i = 0; i < 70; i++) { var a = r() * 6.28, d = 20 + r() * 150; x.fillStyle = "#ffffff"; x.beginPath(); x.arc(746 + Math.cos(a) * d, 560 + Math.sin(a) * d * 0.9, 2 + r() * 2.5, 0, 7); x.fill(); }
+    return c;
+  }
+  function drawTangerine() {
+    var W = 1000, H = 750, c = cnv(W, H), x = c.getContext("2d");
+    x.fillStyle = "#b9b0a3"; x.fillRect(0, 0, W, H);
+    x.fillStyle = "#6b6560"; x.fillRect(150, 60, 700, 470);
+    x.fillStyle = "#f4f0e7"; x.fillRect(172, 82, 318, 426); x.fillRect(510, 82, 318, 426);
+    x.fillStyle = "#e9e4da"; x.fillRect(172, 82, 318, 60); x.fillRect(510, 82, 318, 60);
+    x.fillStyle = "#8f8a83"; x.fillRect(0, 530, W, 220);
+    x.fillStyle = "#7e7972"; x.fillRect(0, 530, W, 14);
+    function tang(cx, cy, rad) {
+      x.fillStyle = "rgba(60,50,40,0.25)"; x.beginPath(); x.ellipse(cx + 10, cy + rad * 0.85, rad * 1.05, rad * 0.25, 0, 0, 7); x.fill();
+      var g = x.createRadialGradient(cx - rad * 0.35, cy - rad * 0.35, rad * 0.1, cx, cy, rad); g.addColorStop(0, "#f6a648"); g.addColorStop(1, "#d9731f");
+      x.fillStyle = g; x.beginPath(); x.ellipse(cx, cy, rad, rad * 0.88, 0, 0, 7); x.fill();
+    }
+    tang(420, 520, 62); tang(500, 535, 58); tang(680, 528, 56);
+    x.fillStyle = "#4f6b3a"; x.beginPath(); x.ellipse(458, 452, 34, 13, -0.5, 0, 7); x.fill();
+    x.strokeStyle = "#3d5a2c"; x.lineWidth = 3; x.beginPath(); x.moveTo(430, 462); x.lineTo(486, 438); x.stroke();
+    return c;
+  }
+
+  var SOURCES = {
+    window: { label: "쇼윈도", name: "쇼윈도 사진(가상, 이 책이 그린 그림)", draw: drawWindowPhoto },
+    poster: { label: "포스터", name: "낭독회 포스터 A안(가상 스케치, A2 세로)", draw: drawPoster },
+    alley: { label: "눈 오는 골목", name: "「눈 오는 골목」 밑그림(가상 스케치)", draw: drawAlley },
+    tangerine: { label: "창가의 귤", name: "「창가의 귤」 밑그림(가상 스케치)", draw: drawTangerine },
+    bruegel: { label: "브뤼헐", name: "피터르 브뤼헐, 「추수하는 사람들」(1565), The Met, 공공 도메인", src: "bruegel-harvesters.webp" },
+    vermeer: { label: "페르메이르", name: "요하네스 페르메이르, 「물병을 든 젊은 여인」(1662년경), The Met, 공공 도메인", src: "vermeer-young-woman-water-pitcher.webp" },
+    wave: { label: "호쿠사이", name: "가쓰시카 호쿠사이, 「가나가와 앞바다의 파도 아래」(1830–32년경), The Met, 공공 도메인", src: "hokusai-great-wave.webp" },
+    geese: { label: "평사낙안", name: "작가 미상, 「평사낙안」(조선, 15세기 말~16세기 초), The Met, 공공 도메인", src: "joseon-wild-geese-sandbar.webp" },
+    user: { label: "내 이미지", name: "내 이미지" }
+  };
+  var ORDER = ["window", "poster", "alley", "tangerine", "bruegel", "vermeer", "wave", "geese", "user"];
+
+  /* ---------------- 계산 ---------------- */
+  var LUT = new Float32Array(256);
+  for (var li = 0; li < 256; li++) LUT[li] = ART.toLinear(li / 255);
+  function lstar(Y) { return Y > 216 / 24389 ? 116 * Math.cbrt(Y) - 16 : (24389 / 27) * Y; }
+  function pct(v, d) { return (v * 100).toFixed(d == null ? 0 : d) + "%"; }
+  function blur(a, w, h, r) {
+    var out = new Float32Array(a.length);
+    if (r < 1) { out.set(a); return out; }
+    var t = new Float32Array(a.length), n = 2 * r + 1, x, y, k, s;
+    for (y = 0; y < h; y++) {
+      var row = y * w;
+      s = 0; for (k = -r; k <= r; k++) s += a[row + Math.min(w - 1, Math.max(0, k))];
+      for (x = 0; x < w; x++) { t[row + x] = s / n; s += a[row + Math.min(w - 1, x + r + 1)] - a[row + Math.max(0, x - r)]; }
+    }
+    for (x = 0; x < w; x++) {
+      s = 0; for (k = -r; k <= r; k++) s += t[Math.min(h - 1, Math.max(0, k)) * w + x];
+      for (y = 0; y < h; y++) { out[y * w + x] = s / n; s += t[Math.min(h - 1, y + r + 1) * w + x] - t[Math.max(0, y - r) * w + x]; }
+    }
+    return out;
+  }
+  function quantile(a, q) { var s = Array.prototype.slice.call(a).sort(function (p, r) { return p - r; }); return s[Math.min(s.length - 1, Math.max(0, Math.floor(q * (s.length - 1))))]; }
+  function analyze(img, res) {
+    var iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+    var s = res / Math.max(iw, ih), w = Math.max(6, Math.round(iw * s)), h = Math.max(6, Math.round(ih * s));
+    var c = cnv(w, h), x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(img, 0, 0, w, h);
+    var d = x.getImageData(0, 0, w, h).data, n = w * h, L = new Float32Array(n), C = new Float32Array(n), i;
+    for (i = 0; i < n; i++) {
+      var r = LUT[d[i * 4]], g = LUT[d[i * 4 + 1]], b = LUT[d[i * 4 + 2]];
+      L[i] = lstar(0.2126 * r + 0.7152 * g + 0.0722 * b);
+      var ok = ART.linearToOklab([r, g, b]); C[i] = Math.hypot(ok[1], ok[2]);
+    }
+    var R = Math.max(2, Math.round(Math.max(w, h) / 4)), bL = blur(L, w, h, R), bC = blur(C, w, h, R), dL = new Float32Array(n), dC = new Float32Array(n);
+    for (i = 0; i < n; i++) { dL[i] = Math.abs(L[i] - bL[i]); dC[i] = Math.abs(C[i] - bC[i]); }
+    var sL = Math.max(3, quantile(dL, 0.9)), sC = Math.max(0.01, quantile(dC, 0.9));
+    for (i = 0; i < n; i++) { dL[i] = Math.pow(dL[i] / sL, 2); dC[i] = Math.pow(dC[i] / sC, 2); }
+    return { w: w, h: h, L: L, C: C, wL: dL, wC: dC, memo: {} };
+  }
+  function memo(an, k, f) { if (!(k in an.memo)) an.memo[k] = f(); return an.memo[k]; }
+  var GR = ["#333333", "#8f8f8f", "#ececec"].map(function (hx) { return ART.to255(ART.parse(hx)); });
+  function notan(an, t1, t2, br) {
+    return memo(an, "n" + t1 + "_" + t2 + "_" + br, function () {
+      var b = blur(an.L, an.w, an.h, br), area = [0, 0, 0], c = cnv(an.w, an.h), x = c.getContext("2d"), id = x.createImageData(an.w, an.h), lo = Math.min(t1, t2), hi = Math.max(t1, t2);
+      for (var i = 0; i < b.length; i++) { var q = b[i] < lo ? 0 : b[i] < hi ? 1 : 2; area[q]++; var g = GR[q]; id.data[i * 4] = g[0]; id.data[i * 4 + 1] = g[1]; id.data[i * 4 + 2] = g[2]; id.data[i * 4 + 3] = 255; }
+      x.putImageData(id, 0, 0);
+      return { area: area.map(function (v) { return v / b.length; }), canvas: c };
+    });
+  }
+  function hist(an) {
+    return memo(an, "hist", function () { var hb = new Array(50).fill(0); for (var i = 0; i < an.L.length; i++) hb[Math.min(49, Math.max(0, Math.floor(an.L[i] / 2)))]++; return { bins: hb, lo: quantile(an.L, 0.05), hi: quantile(an.L, 0.95) }; });
+  }
+  function weight(an, kc) {
+    return memo(an, "w" + kc.toFixed(2), function () {
+      var w = an.w, h = an.h, sw = 0, sx = 0, sy = 0, L = 0, T = 0;
+      for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+        var i = y * w + x, v = an.wL[i] + kc * an.wC[i];
+        sw += v; sx += v * (x + 0.5); sy += v * (y + 0.5);
+        if (x + 0.5 < w / 2) L += v; if (y + 0.5 < h / 2) T += v;
+      }
+      return { cx: sx / sw / w, cy: sy / sw / h, left: L / sw, top: T / sw };
+    });
+  }
+  function heat(an, v, mx, hiC, loC) {
+    var c = cnv(an.w, an.h), x = c.getContext("2d"), id = x.createImageData(an.w, an.h);
+    for (var i = 0; i < v.length; i++) { var t = Math.pow(Math.min(1, v[i] / (mx || 1)), 0.7); for (var k = 0; k < 3; k++) id.data[i * 4 + k] = loC[k] + (hiC[k] - loC[k]) * t; id.data[i * 4 + 3] = 255; }
+    x.putImageData(id, 0, 0); return c;
+  }
+  function weightMap(an, kc) { return memo(an, "wm" + kc.toFixed(2), function () { var v = new Float32Array(an.L.length); for (var i = 0; i < v.length; i++) v[i] = an.wL[i] + kc * an.wC[i]; return heat(an, v, quantile(v, 0.99), [255, 255, 255], [20, 20, 24]); }); }
+  function saliency(an, bias) {
+    return memo(an, "s" + (bias ? 1 : 0), function () {
+      var w = an.w, h = an.h, n = w * h, r2 = Math.max(2, Math.round(Math.max(w, h) / 14));
+      var Ls = blur(an.L, w, h, 1), Ll = blur(an.L, w, h, r2), Cs = blur(an.C, w, h, 1), Cl = blur(an.C, w, h, r2), s = new Float32Array(n), i;
+      for (i = 0; i < n; i++) s[i] = Math.abs(Ls[i] - Ll[i]) + 250 * Math.abs(Cs[i] - Cl[i]);
+      s = blur(s, w, h, Math.max(1, Math.round(Math.max(w, h) / 100)));
+      var mx = 0, mg = Math.max(1, Math.round(Math.max(w, h) * 0.02));
+      for (i = 0; i < n; i++) {
+        var ix = i % w, iy = Math.floor(i / w);
+        if (ix < mg || iy < mg || ix >= w - mg || iy >= h - mg) s[i] *= 0.25; // 테두리는 약하게(흐림의 가장자리 효과)
+        if (bias) { var dx = (ix + 0.5) / w - 0.5, dy = (iy + 0.5) / h - 0.5; s[i] *= 0.35 + 0.65 * Math.exp(-(dx * dx + dy * dy) / (2 * 0.09)); }
+        if (s[i] > mx) mx = s[i];
+      }
+      for (i = 0; i < n; i++) s[i] /= mx || 1;
+      return s;
+    });
+  }
+  function fixations(an, bias, num, R) {
+    return memo(an, "f" + (bias ? 1 : 0) + "_" + num + "_" + R.toFixed(3), function () {
+      var s = Float32Array.from(saliency(an, bias)), w = an.w, h = an.h, out = [], sg = R * Math.max(w, h);
+      for (var k = 0; k < num; k++) {
+        var bi = 0, bv = -1;
+        for (var i = 0; i < s.length; i++) if (s[i] > bv) { bv = s[i]; bi = i; }
+        var fx = bi % w, fy = Math.floor(bi / w);
+        out.push({ x: (fx + 0.5) / w, y: (fy + 0.5) / h, v: bv });
+        for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) { var d2 = (x - fx) * (x - fx) + (y - fy) * (y - fy); s[y * w + x] *= 1 - Math.exp(-d2 / (2 * sg * sg)); }
+      }
+      return out;
+    });
+  }
+  function edges(an) {
+    return memo(an, "e", function () {
+      var w = an.w, h = an.h, b = blur(an.L, w, h, 1), mag = new Float32Array(w * h), gx = new Float32Array(w * h), gy = new Float32Array(w * h);
+      var P = function (x, y) { return b[Math.min(h - 1, Math.max(0, y)) * w + Math.min(w - 1, Math.max(0, x))]; };
+      for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+        var X = P(x + 1, y - 1) + 2 * P(x + 1, y) + P(x + 1, y + 1) - P(x - 1, y - 1) - 2 * P(x - 1, y) - P(x - 1, y + 1);
+        var Y = P(x - 1, y + 1) + 2 * P(x, y + 1) + P(x + 1, y + 1) - P(x - 1, y - 1) - 2 * P(x, y - 1) - P(x + 1, y - 1);
+        if (x === 0 || y === 0 || x === w - 1 || y === h - 1) { X = 0; Y = 0; }
+        var i = y * w + x; gx[i] = X; gy[i] = Y; mag[i] = Math.hypot(X, Y);
+      }
+      return { mag: mag, gx: gx, gy: gy, strong: Math.max(8, quantile(mag, 0.9)) };
+    });
+  }
+  // 허프 변환: 강한 직선 6개(선분). 그림에는 앞의 3개만 그리고, 극단 검사에는 6개를 다 쓴다.
+  function hough(an) {
+    return memo(an, "h", function () {
+      var e = edges(an), w = an.w, h = an.h, D = Math.ceil(Math.hypot(w, h)), NT = 90, acc = new Float32Array(NT * (2 * D + 1)), cs = [], sn = [], pts = [];
+      for (var t = 0; t < NT; t++) { cs.push(Math.cos((t * Math.PI) / NT)); sn.push(Math.sin((t * Math.PI) / NT)); }
+      var thr = quantile(e.mag, 0.88);
+      for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) { var m = e.mag[y * w + x]; if (m >= thr && m > 0) pts.push([x, y, m]); }
+      pts.forEach(function (p) { for (var t = 0; t < NT; t++) { var r = Math.round(p[0] * cs[t] + p[1] * sn[t]); acc[t * (2 * D + 1) + r + D] += p[2]; } });
+      var lines = [];
+      for (var k = 0; k < 6; k++) {
+        var bi = -1, bv = 0;
+        for (var i = 0; i < acc.length; i++) if (acc[i] > bv) { bv = acc[i]; bi = i; }
+        if (bi < 0) break;
+        var ti = Math.floor(bi / (2 * D + 1)), ri = (bi % (2 * D + 1)) - D;
+        for (var dt = -6; dt <= 6; dt++) for (var dr = -8; dr <= 8; dr++) { var tt = (ti + dt + NT) % NT, rr2 = ri + dr + D; if (rr2 >= 0 && rr2 <= 2 * D) acc[tt * (2 * D + 1) + rr2] = 0; }
+        var c = cs[ti], s = sn[ti], ts = [];
+        pts.forEach(function (p) { if (Math.abs(p[0] * c + p[1] * s - ri) < 1.3) ts.push(-p[0] * s + p[1] * c); });
+        if (ts.length < 6) continue;
+        ts.sort(function (a, b2) { return a - b2; });
+        var t0 = ts[Math.floor(ts.length * 0.05)], t1 = ts[Math.floor(ts.length * 0.95)];
+        lines.push({ x0: (ri * c - t0 * s + 0.5) / w, y0: (ri * s + t0 * c + 0.5) / h, x1: (ri * c - t1 * s + 0.5) / w, y1: (ri * s + t1 * c + 0.5) / h, theta: (ti * 180) / NT });
+      }
+      return lines;
+    });
+  }
+  function gridPos(type) { return (type === "phi" ? ART.phiGrid(1, 1) : ART.thirds(1, 1)).v; }
+  function gridDist(pts, type, an) {
+    var g = gridPos(type), w = an.w, h = an.h, diag = Math.hypot(w, h), s = 0;
+    pts.forEach(function (p) { var best = 1e9; g.forEach(function (u) { best = Math.min(best, Math.abs(p.x - u) * w, Math.abs(p.y - u) * h); }); s += best; });
+    return s / pts.length / diag;
+  }
+  function gridBase(type, an) { return memo(an, "gb" + type, function () { var r = AB.rng(7), pts = []; for (var i = 0; i < 4000; i++) pts.push({ x: r(), y: r() }); return gridDist(pts, type, an); }); }
+  function keyPoints(an) { var f = fixations(an, false, 4, 0.12).slice(), c = weight(an, 1); f.push({ x: c.cx, y: c.cy }); return f; }
+  // 9장의 세 가지 극단
+  function extremes(an) {
+    return memo(an, "x", function () {
+      var out = [], f = fixations(an, false, 5, 0.12), e = edges(an), w = an.w, h = an.h;
+      var cen = f.slice(0, 3).filter(function (p) { return Math.abs(p.x - 0.5) < 0.03 && Math.abs(p.y - 0.5) < 0.03; });
+      if (cen.length) out.push({ k: "정중앙", t: "주요 점이 화면 정중앙(가로·세로 모두 가운데에서 3% 안)에 있다. 고요함·대칭을 노린 것이 아니라면 조금 비켜 놓는 안도 본다." });
+      hough(an).forEach(function (l) {
+        var len = Math.hypot((l.x1 - l.x0), (l.y1 - l.y0)), my = (l.y0 + l.y1) / 2, mx = (l.x0 + l.x1) / 2;
+        var horiz = Math.abs(l.theta - 90) < 6, vert = l.theta < 6 || l.theta > 174;
+        if (horiz && Math.abs(l.x1 - l.x0) > 0.5 && Math.abs(my - 0.5) < 0.03) out.push({ k: "반 가르기", t: "긴 수평선이 화면 높이의 " + pct(my) + "를 지나 위아래를 반으로 가른다." });
+        if (vert && Math.abs(l.y1 - l.y0) > 0.5 && Math.abs(mx - 0.5) < 0.03) out.push({ k: "반 가르기", t: "긴 수직선이 화면 폭의 " + pct(mx) + "를 지나 좌우를 반으로 가른다." });
+        void len;
+      });
+      var b = Math.max(1, Math.round(Math.min(w, h) * 0.015)), cnt = 0, tot = 0, sides = { 위: 0, 아래: 0, 왼쪽: 0, 오른쪽: 0 }, sideN = { 위: 0, 아래: 0, 왼쪽: 0, 오른쪽: 0 };
+      for (var y = 1; y < h - 1; y++) for (var x = 1; x < w - 1; x++) {
+        var side = y <= b ? "위" : y >= h - 1 - b ? "아래" : x <= b ? "왼쪽" : x >= w - 1 - b ? "오른쪽" : null;
+        if (!side) continue;
+        tot++; sideN[side]++;
+        if (e.mag[y * w + x] >= e.strong) { cnt++; sides[side]++; }
+      }
+      var worst = Object.keys(sides).sort(function (p, q) { return sides[q] / (sideN[q] || 1) - sides[p] / (sideN[p] || 1); })[0];
+      if (sideN[worst] && sides[worst] / sideN[worst] > 0.04) out.push({ k: "가장자리 걸림", t: worst + " 가장자리 1.5% 띠의 " + pct(sides[worst] / sideN[worst]) + "에 강한 경계가 닿아 있다. 테두리와 닿을락 말락 한 물건이나 선이 없는지 본다(11장)." });
+      var seen = {}; out = out.filter(function (e) { if (seen[e.t]) return false; seen[e.t] = 1; return true; });
+      return out;
+    });
+  }
+  // 여백: 칸별 변화량
+  function cells(an, N, thr) {
+    return memo(an, "c" + N + "_" + thr, function () {
+      var w = an.w, h = an.h, rows = Math.max(2, Math.round((N * h) / w)), cw = w / N, ch = h / rows, d = [], i, j;
+      for (j = 0; j < rows; j++) for (i = 0; i < N; i++) {
+        var x0 = Math.floor(i * cw), x1 = Math.max(x0 + 1, Math.floor((i + 1) * cw)), y0 = Math.floor(j * ch), y1 = Math.max(y0 + 1, Math.floor((j + 1) * ch)), n = 0, sL = 0, sL2 = 0, sC = 0, sC2 = 0;
+        for (var y = y0; y < y1; y++) for (var x = x0; x < x1; x++) { var k = y * w + x, l = an.L[k], c = an.C[k]; n++; sL += l; sL2 += l * l; sC += c; sC2 += c * c; }
+        var v = Math.sqrt(Math.max(0, sL2 / n - (sL / n) * (sL / n))) + 100 * Math.sqrt(Math.max(0, sC2 / n - (sC / n) * (sC / n)));
+        d.push(v);
+      }
+      var empty = d.map(function (v) { return v < thr; }), dense = d.map(function (v) { return v > thr * 3; }), lab = new Int32Array(d.length).fill(-1), sizes = [];
+      for (var s = 0; s < d.length; s++) {
+        if (!empty[s] || lab[s] >= 0) continue;
+        var id = sizes.length, q = [s], sz = 0; lab[s] = id;
+        while (q.length) { var t = q.pop(), tx = t % N, ty = Math.floor(t / N); sz++; [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(function (o) { var nx = tx + o[0], ny = ty + o[1]; if (nx < 0 || ny < 0 || nx >= N || ny >= rows) return; var u = ny * N + nx; if (empty[u] && lab[u] < 0) { lab[u] = id; q.push(u); } }); }
+        sizes.push(sz);
+      }
+      var big = sizes.length ? sizes.indexOf(Math.max.apply(null, sizes)) : -1, sorted = d.slice().sort(function (a, b) { return a - b; });
+      var med = sorted[Math.floor(sorted.length / 2)], top = sorted[Math.floor(sorted.length * 0.9)];
+      return { N: N, rows: rows, d: d, empty: empty, dense: dense, lab: lab, big: big, ratio: empty.filter(Boolean).length / d.length, bigRatio: big < 0 ? 0 : sizes[big] / d.length, count: sizes.length, contrast: top / Math.max(0.5, med) };
+    });
+  }
+  // 자르기 제안: 담긴 현저성 − 벌점 × 가장자리 걸림
+  function crops(an, ratio, pen) {
+    return memo(an, "cr" + ratio + "_" + pen.toFixed(2), function () {
+      var w = an.w, h = an.h, s = saliency(an, false), S = new Float64Array((w + 1) * (h + 1)), x, y;
+      for (y = 0; y < h; y++) { var rs = 0; for (x = 0; x < w; x++) { rs += s[y * w + x]; S[(y + 1) * (w + 1) + x + 1] = S[y * (w + 1) + x + 1] + rs; } }
+      var sum = function (x0, y0, x1, y1) { return S[y1 * (w + 1) + x1] - S[y0 * (w + 1) + x1] - S[y1 * (w + 1) + x0] + S[y0 * (w + 1) + x0]; };
+      var total = sum(0, 0, w, h) || 1, mean = total / (w * h), cands = [];
+      var fullW = ratio > w / h ? w : h * ratio, fullH = ratio > w / h ? w / ratio : h;
+      [1, 0.9, 0.8, 0.7, 0.6].forEach(function (sc) {
+        var cw = Math.max(4, Math.round(fullW * sc)), ch = Math.max(4, Math.round(fullH * sc)), st = Math.max(1, Math.round(Math.min(w, h) / 50)), b = Math.max(1, Math.round(Math.min(cw, ch) * 0.03));
+        for (var y0 = 0; y0 + ch <= h; y0 += st) for (var x0 = 0; x0 + cw <= w; x0 += st) {
+          var inn = sum(x0, y0, x0 + cw, y0 + ch), core = sum(x0 + b, y0 + b, x0 + cw - b, y0 + ch - b), bandA = cw * ch - (cw - 2 * b) * (ch - 2 * b);
+          var edge = ((inn - core) / bandA) / mean;
+          cands.push({ x: x0 / w, y: y0 / h, w: cw / w, h: ch / h, inside: inn / total, edge: edge, score: inn / total - pen * edge, area: (cw * ch) / (w * h) });
+        }
+      });
+      cands.sort(function (a, b2) { return b2.score - a.score; });
+      var pick = [];
+      var iou = function (a, c) { var ix = Math.max(0, Math.min(a.x + a.w, c.x + c.w) - Math.max(a.x, c.x)), iy = Math.max(0, Math.min(a.y + a.h, c.y + c.h) - Math.max(a.y, c.y)), I = ix * iy; return I / (a.w * a.h + c.w * c.h - I); };
+      for (var i = 0; i < cands.length && pick.length < 3; i++) if (pick.every(function (p) { return iou(p, cands[i]) < 0.6; })) pick.push(cands[i]);
+      return pick;
+    });
+  }
+  function cropStats(an, cr) {
+    var w = an.w, h = an.h, s = saliency(an, false), tot = 0, inn = 0, band = 0, bn = 0;
+    var x0 = cr.x * w, y0 = cr.y * h, x1 = (cr.x + cr.w) * w, y1 = (cr.y + cr.h) * h, b = Math.max(1, Math.min(x1 - x0, y1 - y0) * 0.03);
+    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+      var v = s[y * w + x]; tot += v;
+      if (x + 0.5 >= x0 && x + 0.5 < x1 && y + 0.5 >= y0 && y + 0.5 < y1) { inn += v; if (x + 0.5 < x0 + b || x + 0.5 >= x1 - b || y + 0.5 < y0 + b || y + 0.5 >= y1 - b) { band += v; bn++; } }
+    }
+    return { area: cr.w * cr.h, inside: inn / (tot || 1), edge: bn ? (band / bn) / (tot / (w * h)) : 0 };
+  }
+  function verdict(off) { return off < 0.03 ? "가운데" : off < 0.07 ? "기울기 있음" : "뚜렷이 기욺"; }
+  function where(p) { var hx = p.x < 1 / 3 ? "왼쪽" : p.x < 2 / 3 ? "가운데" : "오른쪽", vy = p.y < 1 / 3 ? "위" : p.y < 2 / 3 ? "가운데" : "아래"; return hx === "가운데" && vy === "가운데" ? "한가운데" : vy + " " + hx; }
+
+  /* ---------------- 공통 이미지 상태(모든 시뮬레이터가 함께 쓴다) ---------------- */
+  var cur = { key: "window", S: null }, subs = [], segs = [], cache = {};
+  function loadSource(key) {
+    var S = SOURCES[key];
+    if (key === "user") return Promise.resolve(S.img ? S : null);
+    if (!cache[key]) {
+      cache[key] = (S.draw ? Promise.resolve(S.draw()) : AB.loadImage(IMG + S.src)).then(function (img) {
+        S.img = img; S.iw = img.naturalWidth || img.width; S.ih = img.naturalHeight || img.height; S.an = analyze(img, AN); return S;
+      });
+    }
+    return cache[key];
+  }
+  function setSource(key) {
+    cur.key = key; cur.S = null;
+    segs.forEach(function (sg) { sg.set(key, false); });
+    subs.forEach(function (f) { f(true); });
+    loadSource(key).then(function (S) { if (cur.key !== key || !S) return; cur.S = S; subs.forEach(function (f) { f(false); }); });
+  }
+  function addSourceSeg(id) {
+    var el = document.getElementById(id);
+    el.innerHTML = ORDER.map(function (k) { return '<button data-value="' + k + '"' + (k === cur.key ? ' class="on"' : "") + (k === "user" && !SOURCES.user.img ? " disabled" : "") + ">" + SOURCES[k].label + "</button>"; }).join("");
+    segs.push(AB.seg(el, function (v) { setSource(v); }));
+  }
+  function enableUser() { document.querySelectorAll('.lab-src button[data-value="user"]').forEach(function (b) { b.disabled = false; }); }
+  function bindFile(inputId, msgId) {
+    var inp = document.getElementById(inputId), msg = document.getElementById(msgId);
+    inp.addEventListener("change", function () {
+      var f = inp.files && inp.files[0]; if (!f) return;
+      var url = URL.createObjectURL(f);
+      AB.loadImage(url).then(function (img) {
+        // 화면용 사본은 긴 변 1200 px로 줄여 둔다(메모리 절약). 원본 파일은 어디에도 보내지 않는다.
+        var s = Math.min(1, 1200 / Math.max(img.naturalWidth, img.naturalHeight)), c = cnv(Math.max(1, Math.round(img.naturalWidth * s)), Math.max(1, Math.round(img.naturalHeight * s)));
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        var U = SOURCES.user; U.img = c; U.iw = img.naturalWidth; U.ih = img.naturalHeight; U.an = analyze(c, AN); U.name = "내 이미지(" + f.name.replace(/[<>&"]/g, "") + ")";
+        enableUser();
+        document.querySelectorAll(".lab-small[id$='-file-msg']").forEach(function (m) { m.textContent = "읽었다: " + img.naturalWidth + " × " + img.naturalHeight + " px. 이 브라우저 안에서만 쓴다."; });
+        setSource("user");
+      }, function () { msg.textContent = "이 파일은 이미지로 읽을 수 없다."; URL.revokeObjectURL(url); });
+    });
+  }
+
+  /* ---------------- 그리기 도구 ---------------- */
+  function fit(W, H, iw, ih, pad) { pad = pad == null ? 10 : pad; var s = Math.min((W - 2 * pad) / iw, (H - 2 * pad) / ih), w = iw * s, h = ih * s; return { x: (W - w) / 2, y: (H - h) / 2, w: w, h: h }; }
+  function heightFor(el, extra, maxH) {
+    var W = Math.max(200, el.parentElement.clientWidth || 600), S = cur.S || { iw: 4, ih: 3 };
+    return Math.round(Math.max(220, Math.min(maxH || 540, (W - 20) * (S.ih / S.iw) + 20 + (extra || 0))));
+  }
+  function waiting(ctx, w, h) { ctx.fillStyle = DIM; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(cur.key === "user" ? "내 이미지를 먼저 연다" : "이미지를 준비하는 중…", w / 2, h / 2); }
+  function drawImg(ctx, src, r, flip, smooth) { ctx.save(); ctx.imageSmoothingEnabled = smooth !== false; if (flip) { ctx.translate(r.x + r.w, r.y); ctx.scale(-1, 1); ctx.drawImage(src, 0, 0, r.w, r.h); } else ctx.drawImage(src, r.x, r.y, r.w, r.h); ctx.restore(); }
+  function duo(ctx, color, width, fn) { ctx.save(); ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "rgba(20,20,24,0.6)"; ctx.lineWidth = width + 2.5; ctx.beginPath(); fn(); ctx.stroke(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath(); fn(); ctx.stroke(); ctx.restore(); }
+  function dot(ctx, x, y, r, fill) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = fill; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#ffffff"; ctx.stroke(); }
+  function cross(ctx, x, y) { duo(ctx, "#ffffff", 1.5, function () { ctx.moveTo(x - 9, y); ctx.lineTo(x + 9, y); ctx.moveTo(x, y - 9); ctx.lineTo(x, y + 9); }); }
+  function tag(ctx, txt, x, y) { ctx.save(); ctx.font = AB.font(12, false, 600); ctx.textBaseline = "middle"; var tw = ctx.measureText(txt).width; ctx.fillStyle = "rgba(251,250,247,0.92)"; ctx.fillRect(x - 6, y - 10, tw + 12, 20); ctx.fillStyle = INK; ctx.textAlign = "left"; ctx.fillText(txt, x, y); ctx.restore(); }
+  function drawPath(ctx, r, fx, flip) {
+    var P = function (p) { return [r.x + (flip ? 1 - p.x : p.x) * r.w, r.y + p.y * r.h]; };
+    duo(ctx, C_PATH, 2, function () { fx.forEach(function (p, i) { var q = P(p); i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); });
+    fx.forEach(function (p, i) { var q = P(p); ctx.beginPath(); ctx.arc(q[0], q[1], 9, 0, 7); ctx.fillStyle = C_PATH; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#fff"; ctx.stroke(); ctx.fillStyle = "#fff"; ctx.font = AB.font(11, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(String(i + 1), q[0], q[1] + 0.5); });
+  }
+  function drawGrid(ctx, r, type, band, flip) {
+    var g = gridPos(type);
+    if (band) { ctx.save(); ctx.fillStyle = "rgba(34,211,238,0.16)"; [[0.33, 0.38], [0.62, 0.67]].forEach(function (b) { ctx.fillRect(r.x + b[0] * r.w, r.y, (b[1] - b[0]) * r.w, r.h); ctx.fillRect(r.x, r.y + b[0] * r.h, r.w, (b[1] - b[0]) * r.h); }); ctx.restore(); }
+    duo(ctx, C_GRID, 1.3, function () { g.forEach(function (u) { ctx.moveTo(r.x + u * r.w, r.y); ctx.lineTo(r.x + u * r.w, r.y + r.h); ctx.moveTo(r.x, r.y + u * r.h); ctx.lineTo(r.x + r.w, r.y + u * r.h); }); });
+    void flip;
+  }
+  function drawCells(ctx, r, cl, showDense) {
+    var cw = r.w / cl.N, ch = r.h / cl.rows;
+    for (var j = 0; j < cl.rows; j++) for (var i = 0; i < cl.N; i++) {
+      var k = j * cl.N + i;
+      if (cl.empty[k]) { ctx.fillStyle = C_EMPTY; ctx.fillRect(r.x + i * cw, r.y + j * ch, cw, ch); }
+      else if (showDense && cl.dense[k]) { ctx.fillStyle = C_DENSE; ctx.fillRect(r.x + i * cw, r.y + j * ch, cw, ch); }
+    }
+    if (cl.big >= 0) {
+      ctx.save(); ctx.strokeStyle = "#0b7285"; ctx.lineWidth = 3;
+      for (j = 0; j < cl.rows; j++) for (i = 0; i < cl.N; i++) {
+        k = j * cl.N + i; if (cl.lab[k] !== cl.big) continue;
+        var X = r.x + i * cw, Y = r.y + j * ch, nb = function (a, b) { return a >= 0 && b >= 0 && a < cl.N && b < cl.rows && cl.lab[b * cl.N + a] === cl.big; };
+        ctx.beginPath();
+        if (!nb(i, j - 1)) { ctx.moveTo(X, Y); ctx.lineTo(X + cw, Y); }
+        if (!nb(i, j + 1)) { ctx.moveTo(X, Y + ch); ctx.lineTo(X + cw, Y + ch); }
+        if (!nb(i - 1, j)) { ctx.moveTo(X, Y); ctx.lineTo(X, Y + ch); }
+        if (!nb(i + 1, j)) { ctx.moveTo(X + cw, Y); ctx.lineTo(X + cw, Y + ch); }
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+  }
+  function drawCrop(ctx, r, cr, main, n) {
+    var X = r.x + cr.x * r.w, Y = r.y + cr.y * r.h, W = cr.w * r.w, H = cr.h * r.h;
+    if (main) { ctx.save(); ctx.fillStyle = "rgba(20,20,24,0.55)"; ctx.beginPath(); ctx.rect(r.x, r.y, r.w, r.h); ctx.rect(X, Y, W, H); ctx.fill("evenodd"); ctx.restore(); }
+    ctx.save(); if (!main) ctx.setLineDash([6, 5]);
+    duo(ctx, main ? "#ffffff" : "#ffd36b", main ? 2.5 : 1.6, function () { ctx.rect(X, Y, W, H); });
+    ctx.restore();
+    if (n != null) { ctx.fillStyle = main ? "#ffffff" : "#ffd36b"; ctx.font = AB.font(12, true, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(String(n), X + 6, Y + 5); }
+  }
+  // 모든 시뮬레이터의 공통 틀: 이미지가 준비되면 draw, 아니면 안내 문구
+  function labCanvas(id, draw, extra, maxH) {
+    var el = document.getElementById(id);
+    var cv = AB.canvas(el, function (ctx, w, h) { if (!cur.S) return waiting(ctx, w, h); draw(ctx, w, h, cur.S); }, { get height() { return heightFor(el, extra, maxH); }, bg: PAPER });
+    return cv;
+  }
+
+  /* ---------------- 1. 입구 ---------------- */
+  (function () {
+    addSourceSeg("in-src");
+    bindFile("in-file", "in-file-msg");
+    var res = AB.range("in-res", function (v) { return v + " px"; }, function () { local = null; upd(); });
+    var local = null;
+    function getLocal(S) {
+      if (local && local.key === cur.key && local.res === res()) return local;
+      var t0 = performance.now(), an = analyze(S.img, res()), c = cnv(an.w, an.h);
+      c.getContext("2d").drawImage(S.img, 0, 0, an.w, an.h);
+      local = { key: cur.key, res: res(), an: an, small: c, ms: performance.now() - t0 };
+      return local;
+    }
+    var cv = labCanvas("in-cv", function (ctx, w, h, S) {
+      var lc = getLocal(S), r = fit(w, h, S.iw, S.ih);
+      drawImg(ctx, lc.small, r, false, res() >= 160);
+      var c0 = weight(S.an, 1), c1 = weight(lc.an, 1), f0 = fixations(S.an, false, 1, 0.12)[0], f1 = fixations(lc.an, false, 1, 0.12)[0];
+      cross(ctx, r.x + r.w / 2, r.y + r.h / 2);
+      ctx.save(); ctx.globalAlpha = 0.65; dot(ctx, r.x + c0.cx * r.w, r.y + c0.cy * r.h, 6, C_W); ctx.restore();
+      dot(ctx, r.x + c1.cx * r.w, r.y + c1.cy * r.h, 8, C_W);
+      ctx.save(); ctx.globalAlpha = 0.65; dot(ctx, r.x + f0.x * r.w, r.y + f0.y * r.h, 6, C_PATH); ctx.restore();
+      dot(ctx, r.x + f1.x * r.w, r.y + f1.y * r.h, 8, "#7c3aed");
+      tag(ctx, "무게중심", r.x + c1.cx * r.w + 12, r.y + c1.cy * r.h - 12);
+      tag(ctx, "첫 시선", r.x + f1.x * r.w + 12, r.y + f1.y * r.h + 14);
+    });
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var S = cur.S, lc = getLocal(S), c0 = weight(S.an, 1), c1 = weight(lc.an, 1), f0 = fixations(S.an, false, 1, 0.12)[0], f1 = fixations(lc.an, false, 1, 0.12)[0], dg = Math.hypot(S.iw, S.ih);
+        AB.stat("in-o-size", S.iw + " × " + S.ih + " · " + (S.iw / S.ih).toFixed(2));
+        AB.stat("in-o-wc", "차이 " + pct(Math.hypot((c0.cx - c1.cx) * S.iw, (c0.cy - c1.cy) * S.ih) / dg, 1));
+        AB.stat("in-o-fx", where(f0) + " → " + where(f1));
+        AB.stat("in-o-ms", lc.ms.toFixed(0) + " ms");
+      }
+      cv.resize();
+    }
+    subs.push(upd);
+  })();
+
+  /* ---------------- 2. 덩어리 ---------------- */
+  (function () {
+    addSourceSeg("nt-src");
+    var view = AB.seg("nt-view", function () { upd(); });
+    var t1 = AB.range("nt-t1", null, function () { upd(); }), t2 = AB.range("nt-t2", null, function () { upd(); }), br = AB.range("nt-b", function (v) { return v + " px"; }, function () { upd(); });
+    var geo = null, grab = 0, HB = 92;
+    var cv = labCanvas("nt-cv", function (ctx, w, h, S) {
+      var r = fit(w, h - HB, S.iw, S.ih);
+      drawImg(ctx, view() === "notan" ? notan(S.an, t1(), t2(), br()).canvas : S.img, r);
+      var hs = hist(S.an), gx = 24, gw = w - 48, gy = h - HB + 12, gh = 34, mx = Math.max.apply(null, hs.bins);
+      geo = { gx: gx, gw: gw };
+      var gr = ctx.createLinearGradient(gx, 0, gx + gw, 0); gr.addColorStop(0, "#111111"); gr.addColorStop(1, "#f4f4f4");
+      ctx.fillStyle = gr; ctx.fillRect(gx, gy + gh + 2, gw, 6);
+      ctx.fillStyle = "#8d8a84"; hs.bins.forEach(function (v, i) { var bh = (v / mx) * gh; ctx.fillRect(gx + (i / 50) * gw, gy + gh - bh, gw / 50 - 1, bh); });
+      [t1(), t2()].forEach(function (t) { var X = gx + (t / 100) * gw; ctx.strokeStyle = INK; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X, gy - 2); ctx.lineTo(X, gy + gh + 8); ctx.stroke(); AB.handle(ctx, X, gy - 2, { r: 6 }); });
+      ctx.fillStyle = DIM; ctx.font = AB.font(10, true); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("L* 0", gx, gy + gh + 11); ctx.textAlign = "right"; ctx.fillText("100", gx + gw, gy + gh + 11);
+    }, HB, 600);
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!geo) return; var v = ((x - geo.gx) / geo.gw) * 100; grab = Math.abs(v - t1()) < Math.abs(v - t2()) ? 1 : 2; },
+      move: function (x, y) { if (!geo || !grab) return; var r = cv.canvas.getBoundingClientRect(); if (y < r.height - HB - 10) return; var v = Math.round(AB.clamp(((x - geo.gx) / geo.gw) * 100, 2, 98)); (grab === 1 ? t1 : t2).set(v); },
+      end: function () { grab = 0; }
+    });
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var a = notan(cur.S.an, t1(), t2(), br()).area, hs = hist(cur.S.an);
+        AB.stat("nt-o-d", pct(a[0])); AB.stat("nt-o-m", pct(a[1])); AB.stat("nt-o-l", pct(a[2]));
+        AB.stat("nt-o-r", "L* " + hs.lo.toFixed(0) + "–" + hs.hi.toFixed(0));
+      }
+      loading == null ? cv.redraw() : cv.resize();
+    }
+    subs.push(upd);
+  })();
+
+  /* ---------------- 3. 무게 ---------------- */
+  (function () {
+    addSourceSeg("wt-src");
+    var view = AB.seg("wt-view", function () { upd(); });
+    var kc = AB.range("wt-k", function (v) { return v.toFixed(1); }, function () { upd(); });
+    var BAR = 28;
+    var cv = labCanvas("wt-cv", function (ctx, w, h, S) {
+      var r = fit(w - BAR, h - BAR, S.iw, S.ih), c = weight(S.an, kc());
+      drawImg(ctx, view() === "map" ? weightMap(S.an, kc()) : S.img, r);
+      cross(ctx, r.x + r.w / 2, r.y + r.h / 2);
+      duo(ctx, C_W, 1.5, function () { ctx.moveTo(r.x + r.w / 2, r.y + r.h / 2); ctx.lineTo(r.x + c.cx * r.w, r.y + c.cy * r.h); });
+      dot(ctx, r.x + c.cx * r.w, r.y + c.cy * r.h, 8, C_W);
+      // 지렛대 막대: 아래(좌우), 오른쪽(위아래)
+      var by = r.y + r.h + 10, bx = r.x + r.w + 10;
+      ctx.fillStyle = "#e4dfd5"; ctx.fillRect(r.x, by, r.w, 8); ctx.fillRect(bx, r.y, 8, r.h);
+      ctx.fillStyle = "#8d8a84"; ctx.fillRect(r.x, by, r.w * c.left, 8); ctx.fillRect(bx, r.y, 8, r.h * c.top);
+      ctx.fillStyle = INK; ctx.fillRect(r.x + r.w / 2 - 1, by - 3, 2, 14); ctx.fillRect(bx - 3, r.y + r.h / 2 - 1, 14, 2);
+      ctx.fillStyle = C_W; ctx.beginPath(); ctx.arc(r.x + c.cx * r.w, by + 4, 5, 0, 7); ctx.fill(); ctx.beginPath(); ctx.arc(bx + 4, r.y + c.cy * r.h, 5, 0, 7); ctx.fill();
+    }, 28, 560);
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var S = cur.S, c = weight(S.an, kc()), off = Math.hypot((c.cx - 0.5) * S.iw, (c.cy - 0.5) * S.ih) / Math.hypot(S.iw, S.ih);
+        AB.stat("wt-o-c", pct(c.cx) + ", " + pct(c.cy));
+        AB.stat("wt-o-off", pct(off, 1) + " · " + verdict(off));
+        AB.stat("wt-o-lr", pct(c.left) + " : " + pct(1 - c.left));
+        AB.stat("wt-o-tb", pct(c.top) + " : " + pct(1 - c.top));
+      }
+      loading == null ? cv.redraw() : cv.resize();
+    }
+    subs.push(upd);
+  })();
+
+  /* ---------------- 4. 시선 ---------------- */
+  (function () {
+    addSourceSeg("pt-src");
+    var view = AB.seg("pt-view", function () { upd(); });
+    var num = AB.range("pt-n", function (v) { return v + "회"; }, function () { upd(); });
+    var rad = AB.range("pt-r", function (v) { return v.toFixed(2); }, function () { upd(); });
+    var bias = AB.check("pt-bias", function () { upd(); });
+    var cv = labCanvas("pt-cv", function (ctx, w, h, S) {
+      var r = fit(w, h, S.iw, S.ih);
+      if (view() === "sal") drawImg(ctx, memo(S.an, "sc" + (bias() ? 1 : 0), function () { return heat(S.an, saliency(S.an, bias()), 1, [255, 236, 120], [20, 20, 30]); }), r);
+      else drawImg(ctx, S.img, r);
+      drawPath(ctx, r, fixations(S.an, bias(), num(), rad()));
+    });
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var S = cur.S, f = fixations(S.an, bias(), num(), rad()), len = 0;
+        for (var i = 1; i < f.length; i++) len += Math.hypot((f[i].x - f[i - 1].x) * S.iw, (f[i].y - f[i - 1].y) * S.ih);
+        AB.stat("pt-o-seq", f.slice(0, 3).map(where).join(" → ") + (f.length > 3 ? " …" : ""));
+        AB.stat("pt-o-gap", f.length > 1 ? "×" + (f[0].v / Math.max(1e-6, f[1].v)).toFixed(2) : "—");
+        AB.stat("pt-o-len", (len / Math.hypot(S.iw, S.ih)).toFixed(2));
+      }
+      loading == null ? cv.redraw() : cv.resize();
+    }
+    subs.push(upd);
+  })();
+
+  /* ---------------- 5. 격자 ---------------- */
+  (function () {
+    addSourceSeg("gd-src");
+    var type = AB.seg("gd-type", function () { upd(); });
+    var band = AB.check("gd-band", function () { upd(); }), lines = AB.check("gd-lines", function () { upd(); });
+    var cv = labCanvas("gd-cv", function (ctx, w, h, S) {
+      var r = fit(w, h, S.iw, S.ih, 14);
+      drawImg(ctx, S.img, r);
+      drawGrid(ctx, r, type(), band());
+      if (lines()) hough(S.an).slice(0, 3).forEach(function (l) { duo(ctx, C_LINE, 2.2, function () { ctx.moveTo(r.x + l.x0 * r.w, r.y + l.y0 * r.h); ctx.lineTo(r.x + l.x1 * r.w, r.y + l.y1 * r.h); }); });
+      keyPoints(S.an).forEach(function (p, i) { dot(ctx, r.x + p.x * r.w, r.y + p.y * r.h, i === 4 ? 7 : 6, i === 4 ? C_W : C_PATH); });
+    });
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var an = cur.S.an, x = extremes(an);
+        AB.stat("gd-o-d", pct(gridDist(keyPoints(an), type(), an), 1));
+        AB.stat("gd-o-b", pct(gridBase(type(), an), 1));
+        AB.stat("gd-o-x", x.length ? x.map(function (e) { return e.k; }).join(", ") : "없음");
+        document.getElementById("gd-warn").innerHTML = x.length ? x.map(function (e) { return "<li><b>" + e.k + "</b> · " + e.t + "</li>"; }).join("") : "<li>세 가지 극단(정중앙, 반 가르기, 가장자리 걸림)이 보이지 않는다. 격자에 맞는지와는 별개다.</li>";
+      }
+      loading == null ? cv.redraw() : cv.resize();
+    }
+    subs.push(upd);
+  })();
+
+  /* ---------------- 6. 여백 ---------------- */
+  (function () {
+    addSourceSeg("sp-src");
+    var N = AB.range("sp-n", function (v) { return v + "칸"; }, function () { upd(); });
+    var T = AB.range("sp-t", function (v) { return v.toFixed(1); }, function () { upd(); });
+    var dense = AB.check("sp-dense", function () { upd(); });
+    var cv = labCanvas("sp-cv", function (ctx, w, h, S) {
+      var r = fit(w, h, S.iw, S.ih);
+      drawImg(ctx, S.img, r);
+      drawCells(ctx, r, cells(S.an, N(), T()), dense());
+    });
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var cl = cells(cur.S.an, N(), T());
+        AB.stat("sp-o-w", pct(cl.ratio)); AB.stat("sp-o-big", pct(cl.bigRatio)); AB.stat("sp-o-n", String(cl.count)); AB.stat("sp-o-c", "×" + cl.contrast.toFixed(1));
+      }
+      loading == null ? cv.redraw() : cv.resize();
+    }
+    subs.push(upd);
+  })();
+
+  /* ---------------- 7. 자르기 ---------------- */
+  (function () {
+    addSourceSeg("cr-src");
+    var ar = AB.seg("cr-ar", function () { manual = null; upd(); });
+    var pick = AB.seg("cr-pick", function () { manual = null; upd(); });
+    var pen = AB.range("cr-p", function (v) { return v.toFixed(2); }, function () { manual = null; upd(); });
+    var manual = null, geo = null, last = null;
+    function list(S) { return crops(S.an, Number(ar()), pen()); }
+    function current(S) { var l = list(S); return manual || l[Math.min(l.length - 1, Number(pick()))]; }
+    var cv = labCanvas("cr-cv", function (ctx, w, h, S) {
+      var r = fit(w, h, S.iw, S.ih, 14); geo = r;
+      drawImg(ctx, S.img, r);
+      var l = list(S), c = current(S);
+      l.forEach(function (cr, i) { if (cr !== c) drawCrop(ctx, r, cr, false, i + 1); });
+      if (c) drawCrop(ctx, r, c, true, manual ? "직접" : Number(pick()) + 1);
+    });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!cur.S || !geo) return; manual = Object.assign({}, current(cur.S)); last = [x, y]; },
+      move: function (x, y) { if (!manual || !last) return; manual.x = AB.clamp(manual.x + (x - last[0]) / geo.w, 0, 1 - manual.w); manual.y = AB.clamp(manual.y + (y - last[1]) / geo.h, 0, 1 - manual.h); last = [x, y]; upd(); },
+      end: function () { last = null; }
+    });
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var c = current(cur.S);
+        if (c) {
+          var st = cropStats(cur.S.an, c);
+          AB.stat("cr-o-a", pct(st.area)); AB.stat("cr-o-in", pct(st.inside)); AB.stat("cr-o-e", "×" + st.edge.toFixed(2));
+          AB.stat("cr-o-r", c.x.toFixed(2) + "~" + (c.x + c.w).toFixed(2) + ", " + c.y.toFixed(2) + "~" + (c.y + c.h).toFixed(2));
+        }
+      }
+      if (loading != null) manual = null;
+      loading == null ? cv.redraw() : cv.resize();
+    }
+    subs.push(upd);
+  })();
+
+  /* ---------------- 8. 종합 실험실 ---------------- */
+  (function () {
+    addSourceSeg("lz-src");
+    bindFile("lz-file", "lz-file-msg");
+    var ar = AB.seg("lz-ar", function () { upd(); });
+    var flip = AB.check("lz-flip", function () { upd(); });
+    var main = labCanvas("lz-cv", function (ctx, w, h, S) {
+      var r = fit(w, h, S.iw, S.ih);
+      drawImg(ctx, S.img, r, flip());
+      var c = weight(S.an, 1);
+      drawPath(ctx, r, fixations(S.an, false, 5, 0.12), flip());
+      cross(ctx, r.x + r.w / 2, r.y + r.h / 2);
+      dot(ctx, r.x + (flip() ? 1 - c.cx : c.cx) * r.w, r.y + c.cy * r.h, 8, C_W);
+    }, 0, 520);
+    var TITLES = ["덩어리(노탄)", "무게 지도 · 무게중심", "현저성 · 시선", "격자 · 강한 직선", "여백(빈 칸 · 빽빽한 칸)", "자르기 제안"];
+    var dash = [1, 2, 3, 4, 5, 6].map(function (n) {
+      var el = document.getElementById("lz-d" + n);
+      return AB.canvas(el, function (ctx, w, h) {
+        if (!cur.S) return waiting(ctx, w, h);
+        var S = cur.S, an = S.an, r = fit(w, h - 22, S.iw, S.ih, 8), fl = flip();
+        r.y += 20;
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(TITLES[n - 1], 10, 7);
+        if (n === 1) drawImg(ctx, notan(an, 35, 68, 2).canvas, r, fl);
+        if (n === 2) { var c = weight(an, 1); drawImg(ctx, weightMap(an, 1), r, fl); cross(ctx, r.x + r.w / 2, r.y + r.h / 2); dot(ctx, r.x + (fl ? 1 - c.cx : c.cx) * r.w, r.y + c.cy * r.h, 6, C_W); }
+        if (n === 3) { drawImg(ctx, memo(an, "sc0", function () { return heat(an, saliency(an, false), 1, [255, 236, 120], [20, 20, 30]); }), r, fl); drawPath(ctx, r, fixations(an, false, 5, 0.12), fl); }
+        if (n === 4) { drawImg(ctx, S.img, r, fl); drawGrid(ctx, r, "thirds", false); hough(an).slice(0, 3).forEach(function (l) { var X0 = fl ? 1 - l.x0 : l.x0, X1 = fl ? 1 - l.x1 : l.x1; duo(ctx, C_LINE, 2, function () { ctx.moveTo(r.x + X0 * r.w, r.y + l.y0 * r.h); ctx.lineTo(r.x + X1 * r.w, r.y + l.y1 * r.h); }); }); }
+        if (n === 5) { drawImg(ctx, S.img, r, fl); var cl = cells(an, 16, 5); if (fl) { ctx.save(); ctx.translate(r.x * 2 + r.w, 0); ctx.scale(-1, 1); drawCells(ctx, r, cl, true); ctx.restore(); } else drawCells(ctx, r, cl, true); }
+        if (n === 6) { drawImg(ctx, S.img, r, fl); var l = crops(an, Number(ar()), 0.15); if (l[0]) { var cr = Object.assign({}, l[0]); if (fl) cr.x = 1 - cr.x - cr.w; drawCrop(ctx, r, cr, true, 1); } }
+      }, { aspect: 0.82, bg: PAPER });
+    });
+    function summary(S) {
+      var an = S.an, m = notan(an, 35, 68, 2).area, c = weight(an, 1), off = Math.hypot((c.cx - 0.5) * S.iw, (c.cy - 0.5) * S.ih) / Math.hypot(S.iw, S.ih), f = fixations(an, false, 5, 0.12), x = extremes(an), cl = cells(an, 16, 5), hs = hist(an);
+      return { m: m, c: c, off: off, f: f, x: x, cl: cl, hs: hs };
+    }
+    function upd(loading) {
+      if (!loading && cur.S) {
+        var s = summary(cur.S), S = cur.S, l = crops(S.an, Number(ar()), 0.15)[0], fl = flip();
+        AB.stat("lz-o-m", pct(s.m[0]) + " · " + pct(s.m[1]) + " · " + pct(s.m[2]));
+        AB.stat("lz-o-w", pct(fl ? 1 - s.c.cx : s.c.cx) + ", " + pct(s.c.cy) + " · " + verdict(s.off));
+        AB.stat("lz-o-f", where({ x: fl ? 1 - s.f[0].x : s.f[0].x, y: s.f[0].y }));
+        AB.stat("lz-o-x", s.x.length ? s.x.map(function (e) { return e.k; }).join(", ") : "없음");
+        AB.stat("lz-o-s", pct(s.cl.ratio) + " · " + pct(s.cl.bigRatio));
+        AB.stat("lz-o-c", l ? "넓이 " + pct(l.w * l.h) + ", 현저성 " + pct(l.inside) : "—");
+      }
+      if (loading == null) { main.redraw(); dash.forEach(function (d) { d.redraw(); }); } else { main.resize(); dash.forEach(function (d) { d.redraw(); }); }
+    }
+    subs.push(function (loading) { upd(loading); if (loading === false) { out.value = report(); msg.textContent = ""; } });
+    function report() {
+      var S = cur.S; if (!S) return "이미지를 먼저 고르거나 연다.";
+      var s = summary(S), an = S.an, L = [];
+      L.push("구도 실험실 보고서 · CompositionBook 14장");
+      L.push("이미지: " + S.name + " (" + S.iw + " × " + S.ih + " px, 비율 " + (S.iw / S.ih).toFixed(2) + ")");
+      L.push("분석: 긴 변 " + AN + " px로 줄여서. 모든 값은 이 책의 교육용 모형이다.");
+      L.push("");
+      L.push("1. 덩어리: 어둠 " + pct(s.m[0]) + " · 중간 " + pct(s.m[1]) + " · 밝음 " + pct(s.m[2]) + " (경계 L* 35·68), 명도 폭 L* " + s.hs.lo.toFixed(0) + "–" + s.hs.hi.toFixed(0));
+      L.push("2. 무게중심: 가로 " + pct(s.c.cx) + ", 세로 " + pct(s.c.cy) + " · 가운데에서 " + pct(s.off, 1) + " (" + verdict(s.off) + ") · 왼쪽:오른쪽 " + pct(s.c.left) + ":" + pct(1 - s.c.left) + " · 위:아래 " + pct(s.c.top) + ":" + pct(1 - s.c.top));
+      L.push("3. 시선(대비만 본 가설): " + s.f.map(where).join(" → "));
+      L.push("4. 격자: 주요 점 → 3분할선 평균 " + pct(gridDist(keyPoints(an), "thirds", an), 1) + " (무작위 " + pct(gridBase("thirds", an), 1) + ")");
+      L.push("   극단: " + (s.x.length ? s.x.map(function (e) { return e.t; }).join(" / ") : "없음"));
+      L.push("5. 여백(가로 16칸, 기준 5): 여백률 " + pct(s.cl.ratio) + " · 가장 큰 빈 덩어리 " + pct(s.cl.bigRatio) + " · 빈 덩어리 " + s.cl.count + "개 · 밀도 대비 ×" + s.cl.contrast.toFixed(1));
+      L.push("6. 자르기 제안 1(벌점 0.15):");
+      [["16:9", 1.7778], ["1:1", 1], ["4:5", 0.8], ["A2 세로", 0.7071]].forEach(function (a) {
+        var c = crops(an, a[1], 0.15)[0]; if (!c) return;
+        L.push("   " + a[0] + " → 가로 " + c.x.toFixed(2) + "~" + (c.x + c.w).toFixed(2) + ", 세로 " + c.y.toFixed(2) + "~" + (c.y + c.h).toFixed(2) + " · 넓이 " + pct(c.w * c.h) + " · 현저성 " + pct(c.inside) + " · 가장자리 ×" + c.edge.toFixed(2));
+      });
+      L.push("");
+      L.push("모형이 모르는 것: 얼굴, 글자의 뜻, 이야기, 읽는 방향, 실제 크기와 보는 거리.");
+      L.push("내 판단: ");
+      return L.join("\n");
+    }
+    var out = document.getElementById("lz-out"), msg = document.getElementById("lz-msg");
+    document.getElementById("lz-write").addEventListener("click", function () { out.value = report(); msg.textContent = "보고서를 새로 썼다."; });
+    document.getElementById("lz-copy").addEventListener("click", function () {
+      if (!out.value) out.value = report();
+      out.select();
+      var done = function () { msg.textContent = "복사했다."; }, fail = function () { msg.textContent = "복사하지 못했다. 글을 직접 선택해 복사한다."; };
+      try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(out.value).then(done, function () { try { document.execCommand("copy") ? done() : fail(); } catch (e) { fail(); } }); else { document.execCommand("copy") ? done() : fail(); } } catch (e) { fail(); }
+    });
+    document.getElementById("lz-save").addEventListener("click", function () {
+      if (!out.value) out.value = report();
+      try {
+        var blob = new Blob([out.value + "\n"], { type: "text/plain;charset=utf-8" }), a = document.createElement("a");
+        a.href = URL.createObjectURL(blob); a.download = "구도-실험실-보고서.txt"; document.body.appendChild(a); a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+        msg.textContent = "글 파일로 저장했다(내 컴퓨터에만).";
+      } catch (e) { msg.textContent = "저장하지 못했다. 글을 복사해 쓴다."; }
+    });
+  })();
+
+  setSource(cur.key);
+})();
+</script>
+</body>
+</html>
