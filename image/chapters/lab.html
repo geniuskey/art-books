@@ -421,6 +421,7 @@
         <div class="stat"><span class="k">출력 화소</span><span class="v" id="lz-o-px">—</span></div>
         <div class="stat"><span class="k">파일 크기</span><span class="v" id="lz-o-kb">—</span></div>
         <div class="stat"><span class="k">300 ppi 인쇄 크기</span><span class="v" id="lz-o-cm">—</span></div>
+        <div class="stat"><span class="k">회색 찍은 곳 결과</span><span class="v" id="lz-o-pk">—</span></div>
       </div>
       <div class="lab-export">
         <textarea id="lz-out" readonly spellcheck="false" wrap="off" aria-label="지금 설정의 기록"></textarea>
@@ -1266,7 +1267,7 @@
       black: AB.range("lz-bk", null, function (v) { st.p.black = v; runPreview(); }),
       white: AB.range("lz-wt", null, function (v) { st.p.white = v; runPreview(); }),
       sat: AB.range("lz-s", function (v) { return v + "%"; }, function (v) { st.p.sat = v / 100; runPreview(); }),
-      px: AB.range("lz-px", function (v) { return v.toLocaleString("en-US") + " px"; }, function () { scheduleOut(); }),
+      px: AB.range("lz-px", function (v) { return (st.A && v >= Number($("lz-px").max) ? "최대 " : "") + v.toLocaleString("en-US") + " px"; }, function () { scheduleOut(); }),
       q: AB.range("lz-q", function (v) { return v.toFixed(2); }, function () { scheduleOut(); }),
     };
     var fmt = AB.seg("lz-fmt", function () { scheduleOut(); });
@@ -1288,17 +1289,17 @@
       var b = cc.canvas.getBoundingClientRect(), r = st.rect, ix = Math.floor((e.clientX - b.left - r.x) / r.w * st.A.w), iy = Math.floor((e.clientY - b.top - r.y) / r.h * st.A.h);
       if (ix < 0 || iy < 0 || ix >= st.A.w || iy >= st.A.h) return;
       var sol = solveWB(avgPatch(st.A, ix, iy, 2));
-      st.pick = false; $("lz-pick").classList.remove("primary");
+      st.pk = [ix, iy]; st.pick = false; $("lz-pick").classList.remove("primary");
       R.temp.set(sol.temp); R.tint.set(sol.tint);
       e.stopImmediatePropagation();
     }, true);
     $("lz-reset").addEventListener("click", function () {
-      st.p = defaults(); R.ev.set(0); R.temp.set(6500); R.tint.set(0); R.black.set(0); R.white.set(255); R.sat.set(100);
+      st.p = defaults(); st.pk = null; R.ev.set(0); R.temp.set(6500); R.tint.set(0); R.black.set(0); R.white.set(255); R.sat.set(100);
       ratioSeg.set("orig", false); st.ratio = null; st.flip = false; $("lz-flip").checked = false; st.maximize(); cropChanged();
     });
     function cropChanged() {
       var px = st.px(), mx = Math.max(px[0], px[1]);
-      R.px.el.max = Math.max(320, Math.round(mx / 10) * 10 || 320); if (R.px() > mx) R.px.set(Math.max(320, Math.floor(mx / 10) * 10)); else R.px.set(R.px());
+      var top = Math.max(320, Math.ceil(mx / 10) * 10 || 320); R.px.el.max = top; R.px.set(Math.min(R.px(), top));
       runPreview();
     }
     function runPreview() {
@@ -1308,13 +1309,15 @@
       st.stats = processData(A, prep(st.p), id, { clip: clip(), rect: rect });
       st.after = toCanvas(A, id);
       AB.stat("lz-o-hi", fmtPct(st.stats.hi)); AB.stat("lz-o-lo", fmtPct(st.stats.lo)); AB.stat("lz-o-gam", st.p.sat > 1 ? fmtPct(st.stats.gam) : "0%");
+      if (st.pk) { var od = id.data, sr = 0, sg = 0, sb = 0, nn = 0; for (var yy = Math.max(0, st.pk[1] - 2); yy <= Math.min(A.h - 1, st.pk[1] + 2); yy++) for (var xx = Math.max(0, st.pk[0] - 2); xx <= Math.min(A.w - 1, st.pk[0] + 2); xx++) { var q = (yy * A.w + xx) * 4; sr += od[q]; sg += od[q + 1]; sb += od[q + 2]; nn++; } AB.stat("lz-o-pk", Math.round(sr / nn) + "·" + Math.round(sg / nn) + "·" + Math.round(sb / nn)); }
+      else AB.stat("lz-o-pk", "—");
       cb.redraw(); cc.redraw(); ch.redraw(); scheduleOut();
     }
     var outTimer = 0;
     function scheduleOut() { clearTimeout(outTimer); outTimer = setTimeout(runOut, 260); recipe(); }
     function runOut() {
       if (!st.A) return;
-      var my = ++st.tok, key = st.A.key, P = prep(st.p), p = st.px(), long = Math.min(R.px(), Math.max(p[0], p[1])), sc = long / Math.max(p[0], p[1]);
+      var my = ++st.tok, key = st.A.key, P = prep(st.p), p = st.px(), mxd = Math.max(p[0], p[1]), long = R.px() >= Number(R.px.el.max) ? mxd : Math.min(R.px(), mxd), sc = long / Math.max(p[0], p[1]);
       var ow = Math.max(1, Math.round(p[0] * sc)), oh = Math.max(1, Math.round(p[1] * sc));
       full(key).then(function (F) {
         if (my !== st.tok) return;
@@ -1341,6 +1344,7 @@
         "크롭 " + rl + " · " + px[0] + "×" + px[1] + " px (" + Math.round(st.c.x * st.A.fw) + ", " + Math.round(st.c.y * st.A.fh) + "에서)",
         "출력 " + (st.outW ? st.outW + "×" + st.outH + " px · 300 ppi로 " + cmOf(st.outW) + "×" + cmOf(st.outH) + " cm" : "계산 중"),
         (fmt() === "image/webp" ? "WebP" : "JPEG") + " 품질 " + R.q().toFixed(2) + (st.bytes ? " · 약 " + Math.round(st.bytes / 1024) + " KB" : ""),
+        "회색 찍은 곳: " + $("lz-o-pk").textContent,
         "클리핑(크롭 안): 하이라이트 " + (st.stats ? (st.stats.hi * 100).toFixed(1) : "—") + "% · 그림자 " + (st.stats ? (st.stats.lo * 100).toFixed(1) : "—") + "%",
       ];
       $("lz-out").value = lines.join("\n");
@@ -1352,7 +1356,7 @@
       else { $("lz-out").select(); msg.textContent = "선택했다. 직접 복사한다."; }
     });
     var api = bindSource("lz-src", function (A) {
-      st.A = A; st.fw = A.fw; st.fh = A.fh;
+      st.A = A; st.fw = A.fw; st.fh = A.fh; st.pk = null;
       var id = new ImageData(A.w, A.h); processData(A, prep(defaults()), id); st.before = toCanvas(A, id);
       st.maximize(); ca.redraw(); cropChanged();
     }, 760);
