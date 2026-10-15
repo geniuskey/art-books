@@ -1,0 +1,899 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "판독성과 가독성은 다르다. 글자 크기를 거리와 함께 재는 시각, 글자와 바탕의 대비, 나이 든 눈과 눈부심, 세리프 통설과 난독증 글꼴 주장의 근거를 시뮬레이터로 확인하고, 서점 소식의 최소 글자 크기와 대비 기준을 정한다."}-->
+<!--head:end-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400;700&display=swap">
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .rd-sample { font-family: 'Noto Sans KR', sans-serif; }
+  .rd-serif { font-family: 'Noto Serif KR', serif; }
+</style>
+</head>
+<body data-chapter="readability">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 07</div>
+    <h1>읽히는 글자</h1>
+    <p class="lead">책방 E 주인이 휴대폰을 내밀며 말했다. "할머니 손님도 휴대폰으로 소식을 읽으신다." 그 손님은 휴대폰을 팔 길이만큼 멀리 들고, 날짜가 적힌 연회색 줄에서 한참 눈을 찌푸리다가 결국 돋보기를 꺼냈다고 한다. 서윤이 보기에는 문제없이 읽히는 화면이었다. 같은 화면이 누구에게는 읽히고 누구에게는 읽히지 않는다. 이 장은 "읽힌다"는 말을 몇 가지 잴 수 있는 조건으로 나눈다. 글자의 크기는 거리와 함께 재야 하고, 글자와 바탕의 밝기 차이는 숫자로 확인할 수 있다. 반대로 "세리프가 더 잘 읽힌다", "난독증에는 이 글꼴" 같은 말은 연구로 다시 보면 생각보다 근거가 약하다. 무엇이 확인되었고 무엇이 아직 모르는 일인지를 나눠 보는 것이 이 장의 목표다.</p>
+    <ul class="objectives">
+      <li>판독성과 가독성을 구별하고, 헷갈리기 쉬운 글자 짝이 어떤 조건에서 무너지는지 시뮬레이터로 확인한다.</li>
+      <li>글자 크기를 시각(視角)으로 바꿔 계산하고, 시력과 거리에 따라 같은 글자가 다르게 읽히는 이유를 설명한다.</li>
+      <li>WCAG 대비 기준(4.5:1, 3:1, 7:1)이 무엇을 재고 무엇을 재지 않는지 안다.</li>
+      <li>나이 든 눈과 눈부심이 대비를 어떻게 깎는지 계산해 본다.</li>
+      <li>세리프 통설과 난독증 글꼴 주장을 연구의 수준에 맞게 평가한다.</li>
+    </ul>
+  </header>
+
+  <section id="legible">
+    <h2>보이는 것, 알아보는 것, 읽히는 것</h2>
+    <p>"잘 읽힌다"는 말에는 세 층이 겹쳐 있다. 맨 아래는 거기 글자가 있다는 것을 알아채는가다. 간판이나 표지판에서 주로 따지는 이 성질을 흔히 <span class="term">시인성</span><span class="en">(Visibility)</span>이라고 부른다. 그 위에 있는 것이 <span class="term">판독성</span><span class="en">(Legibility)</span>이다. 글자 하나하나를 서로 헷갈리지 않고 알아볼 수 있는 정도를 말한다. 맨 위가 <span class="term">가독성</span><span class="en">(Readability)</span>이다. 글 전체를 편하게, 오래, 내용에 집중하며 읽을 수 있는 정도다. 판독성은 주로 글꼴과 크기와 대비가 정하고, 가독성은 거기에 자간·행간·글줄 길이(<a href="spacing.html">5장</a>, <a href="leading.html">6장</a>)와 글의 내용, 읽는 사람의 익숙함까지 함께 작용한다.</p>
+    <p>한국어 용어는 아직 통일되어 있지 않다. 책과 업계에 따라 legibility를 "가독성"으로 옮기기도 하고, "판독성", "식별성"이라고 쓰기도 한다. 이 책은 위의 세 층을 시인성·판독성·가독성으로 부른다. 이름보다 중요한 것은 지금 따지는 것이 글자 한 자의 문제인지, 글 한 편의 문제인지를 나누는 일이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="시인성, 판독성, 가독성의 세 층을 계단처럼 쌓은 그림과 각 층에서 묻는 질문">
+        <rect x="20" y="168" width="420" height="58" rx="8" class="f-surface s-line"/>
+        <rect x="60" y="102" width="340" height="58" rx="8" class="f-acc2-soft s-line"/>
+        <rect x="100" y="36" width="260" height="58" rx="8" class="f-acc-soft s-line"/>
+        <text x="230" y="60" text-anchor="middle" class="lbl-b">가독성 Readability</text>
+        <text x="230" y="80" text-anchor="middle" class="lbl-dim" font-size="11.5">글 한 편을 편하게 오래 읽을 수 있는가</text>
+        <text x="230" y="126" text-anchor="middle" class="lbl-b">판독성 Legibility</text>
+        <text x="230" y="146" text-anchor="middle" class="lbl-dim" font-size="11.5">글자 하나하나를 헷갈리지 않고 알아보는가</text>
+        <text x="230" y="192" text-anchor="middle" class="lbl-b">시인성 Visibility</text>
+        <text x="230" y="212" text-anchor="middle" class="lbl-dim" font-size="11.5">거기 글자가 있다는 것을 알아채는가</text>
+        <text x="230" y="22" text-anchor="middle" class="lbl-dim" font-size="11">자간 · 행간 · 글줄 길이 · 내용 · 익숙함</text>
+        <text x="448" y="140" text-anchor="end" class="lbl-dim" font-size="10.5" transform="rotate(-90 448 140)">글꼴 · 크기 · 대비 · 거리</text>
+      </svg>
+      <figcaption><b>그림 1. 잘 읽힌다는 말의 세 층.</b> 아래층이 무너지면 위층도 무너진다. 날짜가 적힌 연회색 줄을 할머니 손님이 읽지 못한 것은 가독성 이전에 판독성, 어쩌면 시인성의 문제였다. 반대로 글자는 다 알아보는데 줄이 너무 길어 자꾸 다음 줄을 놓친다면 판독성은 충분하고 가독성이 부족한 것이다.</figcaption>
+    </figure>
+
+    <p>판독성이 가장 먼저 무너지는 곳은 서로 비슷하게 생긴 글자들이다. 라틴 글자의 대문자 I와 소문자 l, 숫자 1, 붙여 쓴 rn과 m, 대문자 O와 숫자 0이 대표적이다. 한글은 자모가 모여 한 자를 이루므로, 글자 전체가 아니라 한 획, 한 점의 차이로 갈리는 짝이 많다. "웃"과 "옷"은 모음의 짧은 획 하나가 위냐 아래냐로, "갈"과 "걀"은 짧은 가로획 하나로 갈린다. 받침이 겹쳐 획이 빽빽한 "흙", "뷁" 같은 글자는 작아지면 속공간이 먼저 메워진다(<a href="hangul.html">3장</a>).</p>
+    <p>아래 시뮬레이터는 이런 짝을 같은 크기로 그린 뒤 점점 흐리게 만든다. 흐림은 글자에서 멀어지거나, 시력이 낮거나, 화면이 거칠 때를 대신한다. 막대는 두 글자의 모양이 얼마나 다르게 남아 있는지를 보여 준다. 글꼴을 바꿔 가며 어떤 짝이 먼저 무너지는지 본다.</p>
+
+    <div class="sim" id="sim-confuse">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>헷갈리는 글자 짝은 언제 무너지나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cf-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="cf-font"><button data-value="sans" class="on">고딕(Noto Sans KR)</button><button data-value="serif">명조(Noto Serif KR)</button><button data-value="atk">Atkinson Hyperlegible</button><button data-value="mono">고정폭</button></div>
+          <label class="ctrl"><span>흐림(멀어짐·시력) <output id="cf-b-out"></output></span><input type="range" id="cf-b" min="0" max="10" step="1" value="3"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 헷갈리는 짝</span><span class="v" id="cf-o-min">—</span></div>
+        <div class="stat"><span class="k">라틴 짝 평균 차이</span><span class="v" id="cf-o-lat">—</span></div>
+        <div class="stat"><span class="k">한글 짝 평균 차이</span><span class="v" id="cf-o-han">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 고딕에서 흐림을 0으로 두고 I와 l을 본다. 흐리지 않아도 두 글자는 거의 같은 막대 하나다. 차이가 가장 작은 짝으로 표시된다. ② "Atkinson Hyperlegible"로 바꾼다. 대문자 I에 가로 세리프를, 소문자 l에 꼬리를 달아 일부러 다르게 그린 글꼴이라 I–l 차이가 커진다. ③ 흐림을 끝까지(10) 올린다. 글꼴과 상관없이 모든 짝의 차이가 줄고, 한글에서는 "흙–흘", "뷁–뷀"처럼 획이 빽빽한 짝이 먼저 회색 덩어리가 된다. 어떤 글꼴도 충분히 멀어지면 무너진다. (차이는 두 글자를 같은 자리에 겹쳤을 때 겹치지 않는 잉크의 비율을 이 책이 정한 간단한 지표다. 흐림은 상자 흐림 두 번이다. 실제 눈의 흐림과 글자 인식 과정은 이보다 복잡하다.)</div>
+    </div>
+
+    <p>흐림을 올리면 막대가 짧아지는 순서가 글꼴마다 조금씩 다르다. 판독성을 높이려고 설계한 글꼴은 대체로 비슷한 글자의 차이를 일부러 키운다. 그래서 숫자와 글자가 섞이는 비밀번호·계좌번호·약 이름에는 이런 글꼴이나 0에 점이나 빗금을 넣은 고정폭 글꼴을 쓴다. 다만 이 지표는 모양의 차이일 뿐, 사람이 실제로 덜 틀리는지를 잰 실험이 아니다. 판독성의 실제 효과는 사람을 놓고 재야 하고, 그 결과는 뒤에서 보듯 생각보다 조건을 많이 탄다.</p>
+  </section>
+
+  <section id="angle">
+    <h2>크기는 거리와 함께 잰다: 시각</h2>
+    <p>글자 크기를 "16픽셀", "10포인트"라고 말하지만, 눈에게 중요한 것은 그 글자가 망막에 얼마나 크게 맺히느냐다. 1&nbsp;m 떨어진 2&nbsp;cm 글자와 2&nbsp;m 떨어진 4&nbsp;cm 글자는 눈에 같은 크기로 보인다. 그래서 시각 과학은 글자 크기를 눈에서 글자의 위아래 끝을 잇는 두 선이 이루는 각도, 곧 <span class="term">시각</span><span class="en">(視角, Visual angle)</span>으로 잰다. 단위는 도(°)와 그 60분의 1인 분(′)이다.</p>
+    <div class="formula">$$\theta = 2\arctan\frac{h}{2d}$$<div class="where">\(h\): 글자의 실제 높이, \(d\): 눈에서 글자까지의 거리(같은 단위). 각이 작을 때는 \(\theta \approx h/d\)(라디안)로 거의 비례한다. 거리를 두 배로 하면 시각은 반이 된다.</div></div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 210" role="img" aria-label="눈에서 가까운 작은 글자와 먼 큰 글자가 같은 시각을 이루는 그림">
+        <defs><marker id="rd-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="context-stroke"/></marker></defs>
+        <ellipse cx="40" cy="110" rx="16" ry="12" class="f-surface s-line"/>
+        <circle cx="48" cy="110" r="5" class="f-acc"/>
+        <line x1="52" y1="110" x2="420" y2="40" class="s-acc" stroke-width="1.3"/>
+        <line x1="52" y1="110" x2="420" y2="180" class="s-acc" stroke-width="1.3"/>
+        <line x1="200" y1="82" x2="200" y2="138" class="s-line" stroke-width="5"/>
+        <line x1="420" y1="40" x2="420" y2="180" class="s-line" stroke-width="5"/>
+        <path d="M 92 102 A 42 42 0 0 1 92 118" class="s-acc" fill="none" stroke-width="1.5"/>
+        <text x="100" y="114" class="lbl-acc" font-size="13">θ</text>
+        <text x="208" y="114" class="lbl" font-size="12">h</text>
+        <text x="428" y="114" class="lbl" font-size="12">2h</text>
+        <line x1="52" y1="160" x2="198" y2="160" class="s-dash" marker-end="url(#rd-arr)"/>
+        <text x="125" y="176" text-anchor="middle" class="lbl-dim" font-size="11.5">거리 d</text>
+        <line x1="52" y1="198" x2="418" y2="198" class="s-dash" marker-end="url(#rd-arr)"/>
+        <text x="300" y="192" text-anchor="middle" class="lbl-dim" font-size="11.5">거리 2d</text>
+        <text x="230" y="24" text-anchor="middle" class="lbl-dim" font-size="11.5">두 배 큰 글자를 두 배 멀리 두면 같은 각 θ를 이룬다</text>
+      </svg>
+      <figcaption><b>그림 2. 시각.</b> 글자의 "크기"는 실제 높이와 거리의 비다. 휴대폰 화면의 글자, 벽에 붙은 안내문, 길 건너 간판을 같은 저울에 올리려면 모두 시각으로 바꿔야 한다. CSS의 기준 픽셀도 이 생각으로 정의되어 있다. 팔 길이(약 71&nbsp;cm)에서 96&nbsp;ppi 화면의 한 점이 이루는 각, 곧 약 0.0213°가 "1&nbsp;px"이다(W3C, CSS Values and Units).</figcaption>
+    </figure>
+
+    <p>시각으로 바꾸면 두 개의 기준과 비교할 수 있다. 하나는 <span class="term">시력</span><span class="en">(Visual acuity)</span>의 한계다. 시력표에서 시력 1.0(영미식 20/20)은 높이가 5′인 글자를 알아보는 능력으로 정의된다. 시력 0.5면 그 두 배인 10′ 글자가 한계다. 그러나 한계 크기의 글자는 "겨우 알아보는" 크기이지 읽을 만한 크기가 아니다.</p>
+    <p>다른 하나는 읽기 속도의 기준이다. 시각 과학자 고든 레그<span class="en">(Gordon E. Legge)</span>와 글꼴 디자이너 찰스 비글로<span class="en">(Charles Bigelow)</span>는 2011년의 검토 논문에서, 정상 시력의 성인은 글자 크기가 일정한 크기보다 크기만 하면 넓은 범위에서 읽기 속도가 거의 같고, 그보다 작아지면 속도가 급히 떨어진다는 연구들을 정리했다. 속도가 떨어지기 시작하는 이 경계를 <span class="term">임계 글자 크기</span><span class="en">(Critical print size)</span>라고 하며, 정상 시력에서 라틴 소문자 x높이로 약 0.2°였다. 이 값은 시력에 따라 달라서, 시력이 낮은 사람은 임계 크기도 커진다. 그리고 한 가지 주의할 점이 있다. 이 연구들은 대부분 라틴 글자로 이루어졌다. 한글에는 x높이가 없고, 한 글자 안에 획이 훨씬 촘촘하다. 한글의 임계 글자 크기를 같은 방식으로 정리한 연구는 이 책이 확인한 범위에서는 찾지 못했다. 아래에서는 라틴 x높이와 함께 한글 글자의 실제 높이를 나란히 보여 준다.</p>
+    <p>아래에서 눈 그림의 손잡이를 좌우로 끌어 거리를 바꾸고, 글자 크기와 매체를 바꿔 본다. 아래 막대는 지금 글자의 시각을 시력 한계와 임계 글자 크기에 대어 본 것이다.</p>
+
+    <div class="sim" id="sim-angle">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글자 크기를 시각으로 바꾸기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="an-cv"></canvas><span class="hint">눈을 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="an-med"><button data-value="phone" class="on">휴대폰</button><button data-value="monitor">모니터</button><button data-value="print">인쇄물</button></div>
+          <label class="ctrl"><span>글자 크기 <output id="an-s-out"></output></span><input type="range" id="an-s" min="8" max="40" step="0.5" value="16"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자 크기(1em) 실제 길이</span><span class="v" id="an-o-mm">—</span></div>
+        <div class="stat"><span class="k">한글 "한" 높이의 시각</span><span class="v" id="an-o-han">—</span></div>
+        <div class="stat"><span class="k">라틴 x높이의 시각</span><span class="v" id="an-o-x">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 휴대폰, 16px, 35&nbsp;cm에서 시작한다. 라틴 x높이가 약 0.23°로 임계 글자 크기(0.2°)를 조금 넘는다. 거리를 40&nbsp;cm로 늘리면 0.2° 아래로 내려간다. 여유가 생각보다 작다. ② 글자 크기를 13px로 내린다. 날짜·글쓴이 줄에 흔히 쓰는 크기인데, 35&nbsp;cm에서 x높이가 0.18°로 임계 크기 아래다. ③ "인쇄물"로 바꾸고 10pt를 2&nbsp;m 밖에서 본다. 게시판에 붙은 안내문의 본문을 지나가며 읽을 수 없는 이유다. 시력 0.5 한계선(10′)과 가까워진다. (휴대폰의 1&nbsp;CSS px은 약 0.159&nbsp;mm(160&nbsp;dpi 기준), 모니터는 96&nbsp;ppi로 0.265&nbsp;mm, 인쇄의 1pt는 0.353&nbsp;mm로 가정했다. 실제 기기는 화면 밀도와 배율 설정에 따라 다르다. 글자 높이 비율은 Noto Sans KR을 화면에서 잰 값이다. 임계 글자 크기는 정상 시력 성인, 라틴 글자 연구의 대략값이다.)</div>
+    </div>
+
+    <p>계산해 보면 휴대폰 본문에 흔히 쓰는 크기는 정상 시력 성인에게도 임계 글자 크기 바로 위에 있다. 레그와 비글로는 같은 논문에서, 책과 신문의 본문 크기가 오랜 관습을 거치며 보통의 독서 거리에서 이 임계 크기보다 조금 큰 쪽에 자리 잡았다는 해석도 내놓았다. 여유가 크지 않다는 뜻이다. 그러니 시력이 조금 낮은 사람, 휴대폰을 더 멀리 드는 사람에게는 같은 글자가 쉽게 경계 아래로 떨어진다. 휴대폰을 멀리 드는 것도 이유가 있다. 나이가 들면 수정체가 굳어 가까운 곳에 초점을 맞추기 어려워지는 <span class="term">노안</span><span class="en">(Presbyopia)</span>이 거의 모든 사람에게 찾아오고, 그러면 초점이 맞는 거리까지 화면을 밀어내게 된다. 멀어진 만큼 시각은 작아진다.</p>
+
+    <div class="callout deep">
+      <strong>포인트, 픽셀, 그리고 같은 "16"의 다른 크기</strong>
+      인쇄의 포인트(pt)는 1/72인치, 약 0.353&nbsp;mm로 정해진 실제 길이다. 화면의 CSS 픽셀은 실제 길이가 아니라 앞의 그림 2에서 본 "기준 각도"에 가깝게 맞춘 단위다. 그래서 휴대폰은 눈에 가까이 드는 만큼 1&nbsp;px을 더 작게(약 0.16&nbsp;mm), 모니터는 더 크게(약 0.26&nbsp;mm) 그린다. 이론상으로는 휴대폰 16px과 모니터 16px이 각각의 보통 거리에서 비슷한 시각이 되도록 한 셈이다. 실제로는 기기의 배율 설정, 사용자가 고른 글자 크기, 들고 보는 거리가 모두 달라서 이 균형은 대략에 그친다. 글자 크기를 정할 때 실제 기기를 실제 거리에서 보는 일을 건너뛸 수 없는 이유다.
+    </div>
+  </section>
+
+  <section id="contrast">
+    <h2>대비: 글자와 바탕의 밝기 차이</h2>
+    <p>크기 다음은 <span class="term">대비</span><span class="en">(Contrast)</span>다. ColorBook <a href="../../color/chapters/value.html">6장</a>에서 본 것처럼, 글자가 읽히는 데는 색상 차이보다 밝기(명도) 차이가 먼저 일한다. 웹 접근성 지침 <span class="term">WCAG</span><span class="en">(Web Content Accessibility Guidelines)</span> 2.x는 글자색과 바탕색의 상대 휘도로 1:1부터 21:1까지의 대비비를 계산하고, 기준을 이렇게 정한다(ColorBook <a href="../../color/chapters/access.html">13장</a>에서 자세히 다룬다).</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>WCAG 2.2 성공 기준</th><th>일반 글자</th><th>큰 글자</th></tr></thead>
+      <tbody>
+        <tr><td>1.4.3 최소 대비(AA)</td><td class="num">4.5:1</td><td class="num">3:1</td></tr>
+        <tr><td>1.4.6 향상된 대비(AAA)</td><td class="num">7:1</td><td class="num">4.5:1</td></tr>
+      </tbody>
+    </table></div>
+    <p>여기서 "큰 글자"는 18pt(CSS로 24px) 이상, 또는 굵게 쓴 14pt(약 18.66px) 이상이다. 기준은 글자색과 바탕색의 휘도만 본다. 글꼴이 얼마나 가는지, 한글인지 라틴인지는 보지 않는다. 그래서 가는 명조로 쓴 작은 한글은 같은 대비비라도 굵은 고딕보다 흐리게 읽힐 수 있다. 이 빈틈을 메우려는 새 계산법으로 <span class="term">APCA</span><span class="en">(Accessible Perceptual Contrast Algorithm)</span>가 WCAG 3 초안의 후보로 논의되고 있다. APCA는 글자 크기와 굵기, 밝은 글자인지 어두운 글자인지를 함께 고려한다. 다만 아직 표준이 아니므로 이 책은 참고값으로만 쓴다.</p>
+    <p>아래 시뮬레이터에서 오른쪽 두 명도 막대의 손잡이를 끌어 글자와 바탕의 밝기를 바꾼다. 견본에는 날짜 줄(12px), 사진 설명(14px), 본문(16px), 굵은 소제목(19px), 제목(24px)이 같은 색으로 들어 있다. 각 줄 오른쪽 표시는 그 크기에 해당하는 WCAG 기준을 넘는지 보여 준다.</p>
+
+    <div class="sim" id="sim-contrast">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>대비비는 크기마다 다른 문턱을 넘는다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ct-cv" class="art"></canvas><span class="hint">명도 막대의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ct-hue"><button data-value="gray" class="on">회색 글자</button><button data-value="green">초록 글자</button><button data-value="red">붉은 글자</button></div>
+          <label class="ctrl"><span>글자 명도 L* <output id="ct-t-out"></output></span><input type="range" id="ct-t" min="0" max="100" step="1" value="63"></label>
+          <label class="ctrl"><span>바탕 명도 L* <output id="ct-b-out"></output></span><input type="range" id="ct-b" min="0" max="100" step="1" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자 · 바탕</span><span class="v" id="ct-o-c">—</span></div>
+        <div class="stat"><span class="k">WCAG 대비비</span><span class="v" id="ct-o-cr">—</span></div>
+        <div class="stat"><span class="k">APCA Lc (참고)</span><span class="v" id="ct-o-ap">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 시작값은 흰 바탕에 연회색 글자(<code>#999999</code>, L* 63)다. 대비비 2.85로 모든 줄이 기준 아래다. 세련돼 보여서 날짜·글쓴이 줄에 자주 쓰이는 색이다. ② 글자 명도를 내려 4.5:1을 넘기는 지점(L* 약 50, <code>#767676</code> 근처)을 찾는다. 작은 글자의 AA 문턱이다. 7:1(AAA)을 넘기려면 L* 약 40 아래까지 내려가야 한다. ③ "붉은 글자"로 바꾼다. 같은 명도면 대비비도 거의 같다. 붉은색이라서 더 잘 보이는 것이 아니다. ④ 바탕을 L* 20 아래로 내리고 글자를 밝게 올려 어두운 바탕을 만든다. 대비비 공식은 밝은 글자–어두운 바탕에도 같은 값을 주지만, APCA 값은 달라진다. (대비비는 WCAG 2.x 공식, APCA는 APCA-W3 0.0.98G-4g로 이 책 엔진이 계산했다. 글자색은 OKLCH 채도를 고정하고 CIELAB L*로 명도를 맞췄다.)</div>
+    </div>
+
+    <p>대비비는 단순한 숫자지만 꽤 쓸모 있다. 두 색의 휘도만으로 정해지므로 디자이너가 "느낌상 잘 보이는" 색을 고르는 실수를 걸러 준다. 연회색 글자가 세련돼 보이는 이유는 바로 대비가 낮아 화면이 차분해지기 때문인데, 그 차분함의 비용을 치르는 사람은 시력이 낮은 독자다. 반대로 기준을 넘었다고 끝이 아니다. 기준은 최소한의 문턱이고, 뒤에서 보듯 햇빛이나 화면 반사가 끼면 실제 대비는 그보다 훨씬 낮아진다.</p>
+    <p>그러면 밝은 바탕에 어두운 글자와 어두운 바탕에 밝은 글자 중 어느 쪽이 나을까. 화면 극성을 비교한 실험들에서는 밝은 바탕에 어두운 글자가 작은 글자를 알아보는 데 대체로 유리했다는 보고가 있고, 피펜브로크<span class="en">(Cosima Piepenbrock)</span> 등은 2013년 논문에서 이 경향이 젊은 성인과 나이 든 성인 모두에게서 나타났다고 보고했다. 이유로는 밝은 화면에서 동공이 작아져 초점 심도가 깊어지는 효과가 거론된다. 다만 차이는 조건에 따라 크지 않을 수 있고, 눈부심에 예민한 사람이나 어두운 곳에서는 어두운 바탕을 더 편하게 느끼기도 한다. 그래서 웹에서는 한쪽을 강요하기보다 사용자가 고른 화면 모드를 따르는 방식이 흔하다.</p>
+  </section>
+
+  <section id="aging">
+    <h2>나이 든 눈, 흐린 초점, 눈부신 햇빛</h2>
+    <p>시력표의 숫자만으로는 설명되지 않는 것이 있다. 나이가 들면 눈에 들어오는 빛이 줄고(동공이 작아지고 수정체가 누렇게 변한다), 수정체 안에서 빛이 흩어지는 양이 늘어난다. 흩어진 빛은 망막 전체에 옅은 빛의 막을 씌운다. 밝은 햇빛 아래에서 휴대폰을 볼 때도 비슷한 일이 생긴다. 화면 유리에 반사된 빛이 글자와 바탕 위에 똑같이 더해진다. 이 막을 <span class="term">베일 휘도</span><span class="en">(Veiling luminance)</span>라고 한다.</p>
+    <p>베일은 글자와 바탕에 같은 양의 빛을 더하므로, 대비비 공식에 그대로 넣어 계산할 수 있다. 흰 바탕 휘도를 1이라 할 때 0.25만큼의 빛이 더해지면 짙은 초록 글자(<code>#22342a</code>)의 대비비는 13.2에서 3.9로, 연회색(<code>#999999</code>)은 2.85에서 2.1로 떨어진다. 대비가 높은 글자는 베일이 끼어도 문턱 근처에 남지만, 처음부터 낮았던 글자는 바로 사라진다.</p>
+    <p>아래 비교 그림의 왼쪽은 서점 소식 화면 그대로, 오른쪽은 초점이 흐리고 빛의 막이 낀 눈으로 본 모습을 흉내 낸 것이다. 가운데 경계선을 끌어 비교하고, 두 슬라이더를 올려 본다.</p>
+
+    <div class="sim" id="sim-eye">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>흐린 초점과 빛의 막이 끼면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <div class="compare" id="ey-cmp">
+            <div class="cmp-a"><canvas id="ey-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="ey-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="ey-pre"><button data-value="draft" class="on">서윤의 첫 시안</button><button data-value="fixed">고친 안</button></div>
+          <label class="ctrl"><span>초점 흐림 <output id="ey-r-out"></output></span><input type="range" id="ey-r" min="0" max="6" step="0.5" value="1.5"></label>
+          <label class="ctrl"><span>빛의 막(베일) <output id="ey-v-out"></output></span><input type="range" id="ey-v" min="0" max="60" step="5" value="25"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">날짜 줄 대비비 (원래 → 베일)</span><span class="v" id="ey-o-meta">—</span></div>
+        <div class="stat"><span class="k">본문 대비비 (원래 → 베일)</span><span class="v" id="ey-o-body">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 첫 시안에서 베일을 25%로 두고 경계선을 왼쪽으로 끈다. 연회색 날짜 줄과 사진 설명이 거의 사라지고, 본문은 흐려도 남는다. ② "고친 안"으로 바꾼다. 날짜와 설명을 차분한 초록(<code>#567666</code>)과 14px로 바꿨을 뿐인데 같은 조건에서 훨씬 오래 남는다. ③ 베일을 60%까지 올린다. 고친 안의 날짜 줄도 결국 2:1 아래로 떨어진다. 한낮의 야외에서는 어떤 화면도 읽기 어렵다. 디자인으로 할 수 있는 일에는 끝이 있다. (흐림은 선형광에서의 상자 흐림 두 번, 베일은 흰 바탕 휘도에 대한 비율로 모든 점에 같은 빛을 더한 뒤 전체 밝기를 다시 맞춘 모형이다. 나이에 따른 실제 변화는 사람마다 크게 다르며, 이 그림은 원리를 보이기 위한 흉내다.)</div>
+    </div>
+
+    <p>이 시뮬레이터가 보여 주는 것은 "기준을 넘겼다"와 "읽힌다" 사이의 거리다. 4.5:1을 겨우 넘긴 글자는 실내의 좋은 조명과 깨끗한 화면에서만 4.5:1이다. 그래서 오래 읽어야 하는 본문에는 최소 기준보다 넉넉한 대비를 주고, 작은 보조 글자는 적어도 최소 기준을 지키는 식으로 층을 두는 편이 안전하다. 다만 시력이 크게 낮은 사람에게는 어떤 고정된 디자인도 충분하지 않다. 그 사람들은 화면 확대, 큰 글자 설정, 고대비 모드, 화면 읽기 프로그램을 쓴다. 디자이너가 할 일은 그 도구들이 제대로 작동하게 길을 막지 않는 것이다. WCAG의 성공 기준 1.4.4(글자 크기 조정)는 보조 기술 없이 글자를 200%까지 키워도 내용과 기능이 사라지지 않아야 한다고 정한다.</p>
+
+    <div class="callout warn">
+      <strong>확대를 막지 않는다</strong>
+      휴대폰 웹 페이지에서 손가락으로 벌려 확대하는 기능을 끄는 설정(<code>user-scalable=no</code>, <code>maximum-scale=1</code>)이나, 운영체제의 글자 크기 설정을 무시하도록 글자 크기를 고정하는 방식은 화면을 "깔끔하게" 유지하려는 이유로 종종 쓰인다. 그러나 그 깔끔함을 위해 시력이 낮은 독자가 쓸 수 있는 거의 유일한 도구를 빼앗는다. 할머니 손님이 돋보기를 꺼내야 했던 이유 중 하나가 이것일 수 있다. 확대와 글자 크기 설정은 막지 않는다.
+    </div>
+  </section>
+
+  <section id="serif">
+    <h2>세리프가 더 잘 읽힌다는 통설</h2>
+    <p>"인쇄물 본문은 세리프 글꼴이 더 잘 읽히고, 화면은 산세리프가 더 잘 읽힌다." 타이포그래피에서 가장 자주 듣는 말 중 하나다. 세리프가 글줄을 따라 눈을 이끈다는 설명도 흔히 덧붙는다. 이 말은 얼마나 확인된 것일까.</p>
+    <p>가독성을 실험으로 재려는 시도는 100년이 넘었다. 미국의 심리학자 마일스 팅커<span class="en">(Miles A. Tinker)</span>와 도널드 패터슨<span class="en">(Donald G. Paterson)</span>은 20세기 중반까지 글꼴·크기·행간·글줄 길이를 바꿔 가며 읽기 속도를 잰 연구를 많이 남겼고, 팅커는 이를 『인쇄물의 판독성』<span class="en">(Legibility of Print, 1963)</span>으로 정리했다. 이 연구들에서 흔히 쓰이는 본문용 글꼴들 사이의 속도 차이는 대체로 작았다. 노르웨이 출신의 타이포그래피 연구자 올레 룬<span class="en">(Ole Lund)</span>은 1999년 영국 레딩 대학교의 박사 논문에서 세리프와 산세리프의 가독성을 비교한 수십 년 치 연구를 검토하고, 실험 방법이 제각각이고 결과도 엇갈려서 어느 한쪽이 더 잘 읽힌다는 일관된 증거는 없다고 결론지었다.</p>
+    <p>더 통제된 실험도 비슷한 방향을 가리킨다. 아리스 아르디티<span class="en">(Aries Arditi)</span>와 조지연<span class="en">(Jianna Cho)</span>은 2005년 논문에서 세리프만 다르고 나머지는 같은 글꼴을 만들어 비교했는데, 세리프의 유무가 판독성에 미치는 효과는 작았고, 아주 작은 크기에서 보인 약간의 이점은 세리프가 글자 사이 간격을 넓히는 효과로 설명할 수 있다고 보았다. 모리스<span class="en">(Robert A. Morris)</span>와 비글로 등의 2002년 연구는 제목 그대로, 세리프가 아주 작은 크기에서는 읽기를 느리게 했지만 큰 크기에서는 차이가 없었다고 보고했다. 요컨대 현재까지의 근거로는 <b>세리프 자체가 가독성을 정한다고 말하기 어렵다</b>. 실험마다 크게 작용한 것은 세리프보다 x높이(같은 글자 크기에서 실제로 보이는 글자의 크기), 획의 굵기, 글자 사이 간격, 그리고 읽는 사람의 익숙함이었다.</p>
+    <p>"화면에는 산세리프"라는 말에는 역사적인 이유가 있었다. 해상도가 낮던 시절의 화면에서는 가는 세리프와 가는 가로획이 픽셀 격자에 걸려 끊기거나 들쭉날쭉해졌다. 한글 명조의 가는 가로획도 마찬가지였다. 화면 밀도가 높아진 지금은 이 이유가 크게 줄었지만, 작은 크기와 낮은 해상도에서는 여전히 유효하다(<a href="screen.html">11장</a>). 아래 시뮬레이터로 확인한다. 같은 문장을 명조와 고딕으로 짜고, 비교 기준과 화면의 거칠기를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-serif">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>명조와 고딕: 같은 크기, 같은 x높이, 거친 화면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sf-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="sf-match"><button data-value="size" class="on">같은 글자 크기</button><button data-value="x">같은 x높이</button><button data-value="han">같은 한글 높이</button></div>
+          <label class="ctrl"><span>글자 크기 <output id="sf-s-out"></output></span><input type="range" id="sf-s" min="8" max="24" step="1" value="14"></label>
+          <label class="ctrl"><span>화면의 거칠기 <output id="sf-k-out"></output></span><input type="range" id="sf-k" min="1" max="4" step="0.5" value="1"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">x높이 (명조 · 고딕)</span><span class="v" id="sf-o-x">—</span></div>
+        <div class="stat"><span class="k">"한" 높이 (명조 · 고딕)</span><span class="v" id="sf-o-h">—</span></div>
+        <div class="stat"><span class="k">같은 문장의 폭 (명조 ÷ 고딕)</span><span class="v" id="sf-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "같은 글자 크기"에서 두 글꼴의 x높이를 본다. 같은 14px이라도 고딕의 x높이와 한글 높이가 명조보다 커서 더 크게 보인다. "명조가 덜 읽힌다"는 인상의 일부는 이 크기 차이다. ② "같은 한글 높이"로 바꾼다. 명조를 키워 눈에 보이는 크기를 맞추면 두 줄의 인상이 훨씬 비슷해진다. ③ 거칠기를 3 이상으로 올리고 크기를 10px로 내린다. 명조의 가는 가로획과 세리프가 먼저 끊기고 뭉개진다. 해상도가 낮은 화면에서 고딕이 유리했던 이유다. 거칠기를 1로 되돌리면 그 차이는 대부분 사라진다. (거칠기는 글자를 그만큼 낮은 해상도로 그린 뒤 픽셀을 그대로 키운 모형이다. 실제 화면의 힌팅과 안티에일리어싱은 11장에서 다룬다. 높이는 이 화면에 그려진 글꼴에서 잰 값이다.)</div>
+    </div>
+
+    <p>세리프 통설이 끈질긴 데는 이유가 있다. 오랫동안 책 본문은 대부분 세리프로, 화면 글자는 대부분 산세리프로 짜였다. 사람은 많이 읽은 글자를 잘 읽는다. 1990년 무렵 디지털 글꼴 디자이너 주자나 리츠코<span class="en">(Zuzana Licko)</span>는 한 인터뷰에서, 글꼴이 본질적으로 읽기 쉬운 것이 아니라 독자가 그 글꼴에 익숙해서 읽기 쉬운 것이라는 취지의 말을 남겼다. 역사가 그 예를 보여 준다.</p>
+
+    <figure class="art-figure" id="fig-nuremberg">
+      <div class="art-frame" style="max-width:420px;margin:0 auto"><img src="../../shared/img/wolgemut-nuremberg-chronicle-leaf.webp" width="1121" height="1600" alt="15세기 독일 책의 한 장. 위쪽에 각진 고딕체(블랙레터) 활자로 짠 독일어 글이 열댓 줄 있고, 그 아래 큰 목판화에 해골들이 춤추는 모습과 무덤에서 일어나는 해골이 그려져 있다. 오른쪽 위에 쪽 번호 CCLXI이 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 미하엘 볼게무트 공방, 「죽음의 춤」, 『뉘른베르크 연대기』의 한 장, 1493.</b> 위쪽의 글은 각지고 획이 꺾인 고딕체(블랙레터) 계열 활자로 짰다. 지금의 한국 독자에게는 글자를 하나하나 해독해야 하는 글꼴이지만, 이 책을 산 15세기 독일 독자에게는 가장 익숙한 본문 글자였다. 독일에서는 블랙레터 계열의 프락투어가 20세기 전반까지도 신문과 책의 본문에 널리 쓰였다.<span class="credit">메트로폴리탄 미술관 소장(Bequest of Herbert Mitchell, 2008), 목판화와 활판 인쇄. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/390220">소장처 작품 페이지</a> · <a href="../../credits.html#wolgemut-nuremberg-chronicle-leaf">크레딧</a></span></figcaption>
+    </figure>
+
+    <figure class="art-figure" id="fig-poliphili">
+      <div class="art-frame"><img src="../../shared/img/colonna-hypnerotomachia-poliphili.webp" width="1600" height="1131" alt="펼친 옛 책. 왼쪽 쪽에는 로마자 활자로 짠 이탈리아어 본문이 있고 끝부분이 역삼각형으로 좁아진다. 오른쪽 쪽에는 신전 모양 틀 안에 나무 아래 잠든 님프와 사티로스를 새긴 목판화가 있고, 그 아래로 본문이 이어진다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 4. 프란체스코 콜론나(전해지는 저자), 『폴리필로의 꿈』, 베네치아, 알두스 마누티우스 인쇄, 1499.</b> 같은 시대 이탈리아에서는 오늘날 "로만"이라 부르는 둥글고 고른 활자가 퍼지고 있었다. 이 책의 활자는 프란체스코 그리포가 깎았다. 두 그림 중 어느 쪽이 "더 잘 읽히는 글꼴"인지는 독자가 어느 쪽을 더 많이 읽어 왔는지와 떼어 놓고 말하기 어렵다. 왼쪽 쪽 끝을 잔 모양으로 좁혀 짠 것도 눈여겨볼 만하다. 가독성보다 지면의 모양을 앞세운 선택이다.<span class="credit">메트로폴리탄 미술관 소장(Gift of J. Pierpont Morgan, 1923), 목판 삽화가 든 인쇄본. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/365313">소장처 작품 페이지</a> · <a href="../../credits.html#colonna-hypnerotomachia-poliphili">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="callout deep">
+      <strong>프락투어가 하루아침에 사라진 일</strong>
+      익숙함이 가독성을 얼마나 좌우하는지는 독일의 경우가 잘 보여 준다. 나치 정권은 처음에 프락투어를 "독일다운 글자"로 내세웠지만, 1941년 1월에 갑자기 방침을 뒤집어 공문서와 학교에서 로만체를 쓰도록 하는 지시를 내렸다. 점령지에서 쓰기 편하다는 실용적 이유가 함께 거론된다. 그 뒤 세대가 바뀌며 프락투어는 본문 글자에서 밀려났고, 지금의 독일 독자 대부분에게는 낯선 장식 글자가 되었다. 글꼴의 모양은 그대로인데 가독성이 바뀐 셈이다. 가독성은 글꼴만의 성질이 아니라 글꼴과 독자 사이의 관계다.
+    </div>
+
+    <p>그렇다면 본문 글꼴은 아무것이나 써도 될까. 그렇지는 않다. 위의 연구들이 말하는 것은 "흔히 쓰이는, 잘 만든 본문용 글꼴들 사이에서는" 세리프 유무가 큰 차이를 만들지 않는다는 것이다. x높이가 너무 작거나, 획이 너무 가늘거나, 글자 사이가 너무 좁은 글꼴은 분명히 덜 읽힌다. 장식이 많은 제목용 글꼴로 본문을 짜면 당연히 느려진다. 명조와 고딕 중 무엇을 고를지는 이런 조건을 갖춘 후보들 사이에서, 매체와 크기와 글의 성격에 맞춰 정할 일이다(<a href="classification.html">4장</a>). "세리프라서 잘 읽힌다"는 이유는 그 판단에서 빼도 된다.</p>
+  </section>
+
+  <section id="dyslexia">
+    <h2>난독증 글꼴 주장의 근거</h2>
+    <p><span class="term">난독증</span><span class="en">(Dyslexia)</span>은 지능이나 시력과 상관없이 글을 정확하고 유창하게 읽는 데 어려움을 겪는 학습 장애다. 연구자들 사이에서는 말소리를 쪼개고 다루는 음운 처리의 어려움이 주된 원인으로 널리 받아들여진다. 2000년대 이후 "난독증이 있는 사람을 위해 만든" 글꼴이 여럿 나왔다. 글자 아래쪽을 굵게 해 글자가 뒤집혀 보이지 않게 했다거나, 비슷한 글자의 모양을 서로 다르게 했다는 설명이 붙는다.</p>
+    <p>이 글꼴들을 실제로 시험한 연구들의 결과는 대체로 기대에 못 미쳤다. 레슬리 웨리<span class="en">(Jessica Wery)</span>와 딜리베르토<span class="en">(Jennifer Diliberto)</span>는 2017년 연구에서 그런 글꼴 중 하나(OpenDyslexic)가 난독증 학생들의 읽기 속도나 정확도를 높이지 않았다고 보고했다. 쿠스터<span class="en">(Sanne M. Kuster)</span> 등은 2018년 연구에서 또 다른 글꼴(Dyslexie)이 난독증이 있는 아이와 없는 아이 모두에게 이점이 없었다고 보고했다. 렐로<span class="en">(Luz Rello)</span>와 바에자예이츠<span class="en">(Ricardo Baeza-Yates)</span>의 2013년 연구에서는 기울인 글꼴이 읽기를 방해했고, 흔한 산세리프·고정폭·로만 글꼴이 상대적으로 나았으며, 전용 글꼴의 이점은 보이지 않았다.</p>
+    <p>흥미로운 것은 이점이 있어 보일 때 그 원인을 따져 본 연구다. 마리누스<span class="en">(Eva Marinus)</span> 등은 2016년 연구에서 전용 글꼴이 보인 약간의 이점이 글꼴 모양이 아니라 그 글꼴의 넓은 글자 간격 때문이었고, 흔한 글꼴의 간격을 같은 만큼 넓히자 차이가 사라졌다고 보고했다. 그보다 앞서 조르치<span class="en">(Marco Zorzi)</span> 등은 2012년 연구에서 글자 사이를 크게 넓히면 난독증 아이들의 읽기 속도와 정확도가 나아졌다고 보고했다. 이후의 연구들에서 간격 효과의 크기와 재현은 엇갈리지만, "특별한 모양"보다 "넉넉한 간격"이 더 그럴듯한 후보라는 데는 근거가 쌓이고 있다.</p>
+    <p>간격이 왜 중요한지는 <span class="term">밀집 효과</span><span class="en">(Crowding)</span>로 설명할 수 있다. 시선의 중심에서 조금 벗어난 글자는 혼자 있으면 알아볼 수 있어도, 양옆에 다른 글자가 가까이 붙으면 알아보기 어려워진다. 네덜란드의 시각 연구자 헤르만 바우마<span class="en">(Herman Bouma)</span>는 1970년에, 이렇게 방해가 생기는 거리가 시선 중심에서 떨어진 각도의 대략 절반이라는 관계를 보고했다. 이를 흔히 바우마의 법칙이라 부른다. 아래에서 직접 겪어 본다.</p>
+
+    <div class="sim" id="sim-crowd">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>밀집 효과: 옆 글자가 가까우면 가운데 글자가 지워진다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cr-cv" class="art"></canvas><span class="hint">가운데 글자를 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 사이 간격 <output id="cr-s-out"></output></span><input type="range" id="cr-s" min="0.8" max="4" step="0.1" value="1.1"></label>
+          <div class="seg" id="cr-script"><button data-value="han" class="on">한글</button><button data-value="lat">라틴</button></div>
+          <button class="btn" id="cr-new" type="button">글자 바꾸기</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">시선에서 떨어진 각도</span><span class="v" id="cr-o-e">—</span></div>
+        <div class="stat"><span class="k">방해가 생기는 거리(≈ 절반)</span><span class="v" id="cr-o-c">—</span></div>
+        <div class="stat"><span class="k">지금 간격</span><span class="v" id="cr-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 화면에서 30&nbsp;cm쯤 떨어져 왼쪽 + 표시만 똑바로 본다. 시선을 옮기지 않은 채 오른쪽 위의 홀로 있는 글자와 아래 줄 가운데(진한) 글자를 알아보려 한다. 홀로 있는 글자는 알아봐도, 아래 줄 가운데 글자는 이웃에 섞여 잘 안 보인다. ② 간격을 넓혀 점선 원(방해 거리) 밖으로 이웃 글자를 밀어낸다. 같은 자리에서도 가운데 글자가 갑자기 또렷해진다. ③ 가운데 글자를 + 쪽으로 끌어 가까이 가져온다. 시선에 가까울수록 방해 거리가 줄어 좁은 간격에서도 읽힌다. 우리가 글줄을 읽을 수 있는 것은 시선 바로 근처의 몇 글자만 또렷하기 때문이다. (CSS 기준 픽셀 1&nbsp;px = 0.0213°로 각도를 셈했으므로 팔 길이 정도의 거리에 맞춘 값이다. 방해 거리는 바우마의 대략적 관계(이심률의 0.5배)이고, 실제로는 사람과 방향에 따라 다르다.)</div>
+    </div>
+
+    <p>밀집 효과가 난독증의 원인이라는 뜻은 아니다. 다만 일부 연구는 난독증이 있는 사람들이 이 효과를 더 강하게 겪는다고 보고했고, 그렇다면 넓은 간격이 도움이 되는 이유가 설명된다. 실무에서 끌어낼 수 있는 결론은 조심스럽다. 특정 "난독증 글꼴"을 쓴다고 해서 접근성이 해결되지는 않는다. 오히려 사용자가 글자 간격, 낱말 간격, 행간을 스스로 넓힐 수 있게 두는 편이 근거와 더 잘 맞는다. WCAG 성공 기준 1.4.12(글자 간격)는 사용자가 행간을 글자 크기의 1.5배, 단락 뒤 간격을 2배, 자간을 0.12배, 낱말 간격을 0.16배로 늘려도 내용이 잘리거나 겹치지 않아야 한다고 정한다. 그리고 어떤 글꼴이 자기에게 편하다고 느끼는 독자가 그 글꼴을 쓰는 것은 막을 이유가 없다. 편안함도 읽기의 일부다.</p>
+
+    <div class="callout studio">
+      <strong>실제 독자로, 실제 거리에서</strong>
+      판독성은 디자이너의 화면에서 확인할 수 없다. 디자이너의 모니터는 대개 크고 밝고, 디자이너는 그 글을 이미 다 안다. 경험 많은 편집 디자이너들은 시안을 실제 매체로 옮겨 실제 거리에서 본다. 휴대폰용이면 휴대폰에 띄워 팔 길이로 들고, 실내와 창가와 바깥에서 한 번씩 본다. 운영체제의 글자 크기 설정을 가장 크게 바꿔 화면이 깨지지 않는지도 본다. 인쇄물이면 실제 종이에 실제 크기로 뽑는다. 그리고 가능하면 그 글을 처음 보는 사람, 특히 나이가 다른 사람에게 소리 내어 읽어 달라고 한다. 멈칫하는 곳, 손가락으로 짚는 곳, 화면을 얼굴에 가까이 가져가는 순간이 수정할 곳이다. 한도경의 말로는 "글자는 쓴 사람 눈이 아니라 읽는 사람 눈으로 본다".
+    </div>
+
+    <div class="callout try">
+      <strong>세 사람, 세 거리 판독 시험지</strong>
+      A4 종이에 같은 문장 한 줄("골목 끝 책방에서 여름 낭독 모임이 열립니다 2026. 8. 8")을 8, 9, 10, 11, 12, 14pt로 차례로 인쇄한다. 한 번은 짙은 검정으로, 한 번은 연회색(인쇄 설정의 회색 40% 정도)으로 뽑는다. 명조와 고딕이 모두 있으면 둘 다 뽑는다. 이 시험지를 나이가 다른 세 사람에게 40&nbsp;cm, 1&nbsp;m, 2&nbsp;m에서 보여 주고, 막힘없이 소리 내어 읽은 가장 작은 줄을 표에 적는다. 안경을 쓰는 사람은 평소처럼 쓰게 한다. 마지막으로 이 장의 "시각" 시뮬레이터에서 그 크기와 거리를 넣어 각도로 바꿔 본다. 사람마다 문턱이 얼마나 다른지, 회색이 문턱을 얼마나 끌어올리는지, 명조와 고딕의 차이가 그보다 큰지 작은지 확인한다. 몇 사람의 결과로 일반 결론을 내리지 않는 것도 연습의 일부다.
+    </div>
+  </section>
+
+  <section id="check">
+    <h2>서점 소식 판독 점검기</h2>
+    <p>이제 이 장의 기준을 서점 소식 화면 하나에 모아 적용한다. 왼쪽은 휴대폰에 뜬 소식 글이고, 오른쪽은 고른 독자의 눈으로 본 같은 화면이다. 왼쪽 카드에서 요소(제목, 날짜·글쓴이, 본문, 사진 설명, 링크)를 눌러 고르고, 크기와 색을 바꾼다. 점검 결과는 아래 수치와 카드 옆 표시로 나온다. 기준은 이 장에서 서윤이 정한 것을 그대로 썼다. 본문은 16px 이상·대비 7:1 이상, 보조 글자는 14px 이상·4.5:1 이상, 큰 제목(24px 이상 또는 굵게 18.66px 이상)은 3:1 이상이다.</p>
+
+    <div class="sim" id="sim-check">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>「책방 E 소식」 판독 점검기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ck-cv" class="art"></canvas><span class="hint">왼쪽 카드의 요소를 눌러 고른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ck-pre"><button data-value="draft" class="on">첫 시안</button><button data-value="fixed">서윤의 선택</button></div>
+          <label class="ctrl"><span>고른 요소의 크기 <output id="ck-s-out"></output></span><input type="range" id="ck-s" min="10" max="28" step="1" value="13"></label>
+          <div class="seg" id="ck-col"><button data-value="dark">짙은 색</button><button data-value="calm">차분한 초록</button><button data-value="green">책방 초록</button><button data-value="acc">강조</button><button data-value="gray" class="on">연회색</button></div>
+          <div class="seg" id="ck-bg"><button data-value="white" class="on">흰 바탕</button><button data-value="cream">크림 바탕</button></div>
+          <div class="seg" id="ck-who"><button data-value="me" class="on">서윤</button><button data-value="elder">할머니 손님</button><button data-value="sun">햇빛 아래</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 요소</span><span class="v" id="ck-o-el">—</span></div>
+        <div class="stat"><span class="k">대비비 · 기준</span><span class="v" id="ck-o-cr">—</span></div>
+        <div class="stat"><span class="k">"한" 높이 시각(35&nbsp;cm)</span><span class="v" id="ck-o-ang">—</span></div>
+        <div class="stat"><span class="k">기준을 넘은 요소</span><span class="v" id="ck-o-pass">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 첫 시안에서 "할머니 손님"을 고른다. 오른쪽 화면에서 날짜와 사진 설명이 먼저 사라지고, 강조색 링크가 흐려진다. 통과한 요소는 다섯 중 둘이다. ② 날짜 줄을 눌러 고르고 크기를 14로, 색을 "차분한 초록"으로 바꾼다(대비비 5.03). 사진 설명도 같게 바꾼다. 링크는 "책방 초록"(4.99)으로 바꾼다. 다섯이 모두 통과한다. ③ "크림 바탕"으로 바꾼다. 차분한 초록 날짜 줄이 4.09로 떨어져 기준 아래가 된다. 크림 바탕에는 짙은 색 글자만 남는다. ④ "햇빛 아래"를 고른다. 모두 통과한 화면도 흐려진다. 기준은 출발점이지 보장이 아니다. (할머니 손님은 초점 흐림 1.5px과 베일 10%, 햇빛 아래는 베일 30%를 더한 흉내다. 휴대폰 1&nbsp;CSS px = 0.159&nbsp;mm, 거리 35&nbsp;cm로 셈했다. 크기 기준과 대비 기준은 이 장의 케이스에서 정한 작업 기준이며, 본문 대비 7:1은 WCAG AAA, 보조 4.5:1은 AA를 따른 것이다.)</div>
+    </div>
+
+    <p>점검기에서 본 것을 정리하면 이렇다. 글자 크기와 대비는 따로 노는 두 손잡이가 아니다. 작은 글자일수록 높은 대비가 필요하고, 대비가 낮을수록 글자가 커야 한다. 시각과 대비, 그리고 독자의 눈과 환경을 함께 놓고 보면, "읽힌다"는 말은 조건이 붙은 약속이 된다. 어떤 화면에서, 얼마나 떨어져서, 누가, 어떤 빛 아래에서. 그 조건을 정하고 기록하는 일이 판독성을 설계하는 일이다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 7장</span></div>
+      <h4>"할머니 손님도 휴대폰으로 소식을 읽으신다"</h4>
+      <p>7월 첫 주, 서윤은 6장에서 정한 본문 크기와 행간으로 새로 짠 서점 소식 페이지를 주인에게 보여 주었다. 본문은 한결 편해졌다는 말을 들었다. 그런데 주인이 가게 단골인 할머니 손님의 이야기를 꺼냈다. 날짜가 적힌 윗줄과 사진 아래 작은 설명은 돋보기를 꺼내고서야 읽으셨다는 것이다. 서윤은 그 두 줄을 "부가 정보"라고 생각해 13px과 12px, 연회색 <code>#999999</code>로 낮춰 두었다. 신청 링크는 눈에 띄라고 강조색 <code>#d24f39</code>로 14px이었다.</p>
+      <p>이 책의 모델로 계산하면 흰 바탕 위 연회색의 대비비는 2.85로 작은 글자 기준(4.5:1)에 한참 못 미친다. 강조색 링크도 4.27로 기준 아래였다. 크기도 문제였다. 할머니 손님처럼 휴대폰을 35&nbsp;cm쯤 들고 본다고 하면 13px 글자의 라틴 x높이는 약 0.18°로, 정상 시력의 임계 글자 크기(0.2°)에도 못 미친다. 같은 거리에서 16px 본문은 0.23°였다. 서윤은 회사에서는 대비 검사 도구를 늘 돌리면서, 서점 일에서는 "작은 정보는 연하게"라는 습관대로 했다는 것을 알았다.</p>
+      <p>한도경은 세리프 이야기부터 꺼냈다. "책 본문은 명조라야 잘 읽힌다고 배웠는데, 화면에도 명조를 쓰면 안 되나?" 서윤은 이 장에서 읽은 연구들을 말했다. 세리프 자체가 가독성을 정한다는 증거는 약하고, 실제로 차이를 만드는 것은 x높이와 획 굵기와 간격, 그리고 익숙함이라는 것. 그래서 4장에서 화면 본문을 고딕 계열로 정한 이유는 그대로 두되, "세리프가 덜 읽혀서"라는 이유는 노트에서 지웠다. 도경은 고개를 끄덕이며 "활판 시절에도 9포인트 아래는 나이 든 손님이 안 읽었어. 글자보다 손님 눈을 먼저 봐야지" 했다.</p>
+      <p>서윤의 선택은 이렇다. 날짜·글쓴이 줄과 사진 설명은 14px, 색은 차분한 초록 <code>#567666</code>(흰 바탕 대비 5.03)으로 바꿨다. 본문 글자는 짙은 색 <code>#22342a</code>(13.19)로 두었다. 신청 링크는 책방 초록 <code>#2f7d5b</code>(4.99)에 밑줄을 그어, 색이 아니라 밑줄로도 링크임을 알 수 있게 했다. 강조색 <code>#d24f39</code>는 24px 이상의 큰 글자나 굵은 18.66px 이상의 글자, 그리고 글자가 아닌 장식에만 쓰기로 했다. 크림 <code>#ffe2d7</code>을 본문 바탕으로 쓰고 싶었지만, 그 위에서는 차분한 초록의 대비가 4.09로 떨어진다. 그래서 크림은 짙은 색 글자(10.74)만 올리는 띠와 상자에 쓰기로 했다. 그리고 페이지의 확대 금지 설정을 지웠다. 주인에게는 할머니 손님의 휴대폰 글자 크기 설정을 한 단계 키워 드려도 페이지가 깨지지 않는다고 전했다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#22342a"></i><b>본문 글자</b><code>#22342a 13.19:1</code></span>
+        <span class="chip"><i style="background:#567666"></i><b>보조 글자</b><code>#567666 5.03:1</code></span>
+        <span class="chip"><i style="background:#2f7d5b"></i><b>링크(밑줄)</b><code>#2f7d5b 4.99:1</code></span>
+        <span class="chip"><i style="background:#d24f39"></i><b>강조(큰 글자만)</b><code>#d24f39 4.27:1</code></span>
+        <span class="chip"><i style="background:#999999"></i><b>연회색(버림)</b><code>#999999 2.85:1</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>최소 글자 크기: 화면 본문 16px 이상(6장에서 정한 값이 더 크면 그 값), 날짜·설명·버튼 같은 보조 글자 14px 이상, 인쇄물 본문 10pt 이상·보조 글자 9pt 이상. 글자–바탕 대비 기준(흰 바탕 기준): 본문 7:1 이상(WCAG AAA), 보조 글자 4.5:1 이상(AA), 큰 글자(24px 이상 또는 굵게 18.66px 이상)만 3:1 이상 허용. 이에 따라 본문 <code>#22342a</code>, 보조 <code>#567666</code>, 링크 <code>#2f7d5b</code>+밑줄, 강조 <code>#d24f39</code>는 큰 글자와 장식에만, 크림 <code>#ffe2d7</code> 위에는 <code>#22342a</code>만. 확대와 글자 크기 설정을 막지 않는다. 세리프 유무는 글꼴 선택의 이유로 쓰지 않는다.</div>
+        <div><b>아직 남은 문제</b>여름 낭독 모임 안내문은 제목·날짜·장소·본문이 모두 비슷한 크기와 굵기라 무엇부터 읽어야 할지 모르겠다. 크기를 키우면 되는데, 얼마나, 몇 단계로 키워야 하나.</div>
+        <div><b>다음 단계</b><a href="hierarchy.html">8장</a>: 안내문에 위계를 세운다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>잘 읽힌다는 말은 시인성(글자가 있음을 알아챔), 판독성(글자를 헷갈리지 않고 알아봄), 가독성(글을 편히 오래 읽음)의 세 층으로 나눠 따진다.</li>
+      <li>글자 크기는 거리와 함께 시각으로 잰다. 정상 시력 성인의 임계 글자 크기는 라틴 x높이로 약 0.2°이며(Legge &amp; Bigelow 2011), 흔한 휴대폰 본문 크기는 그 바로 위에 있다. 한글에 대한 같은 기준은 확인되지 않았다.</li>
+      <li>WCAG 2.x 대비 기준은 일반 글자 4.5:1(AA)·7:1(AAA), 큰 글자 3:1·4.5:1이다. 휘도만 보므로 획 굵기와 문자 체계는 따로 살펴야 한다. APCA는 아직 참고값이다.</li>
+      <li>노안, 흐린 초점, 눈부심과 화면 반사는 대비를 크게 깎는다. 최소 기준을 겨우 넘긴 글자는 실제 환경에서 쉽게 무너지므로 본문에는 넉넉한 대비를 주고, 확대와 글자 크기 설정을 막지 않는다.</li>
+      <li>세리프가 더 잘 읽힌다는 일관된 증거는 없다. 차이를 만드는 것은 주로 x높이, 획 굵기, 간격, 해상도, 그리고 독자의 익숙함이다.</li>
+      <li>난독증 전용 글꼴의 효과는 대부분의 연구에서 확인되지 않았다. 넓은 글자 간격의 효과가 더 그럴듯한 후보이며, 밀집 효과가 그 이유를 설명해 준다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 휴대폰 화면에서 16px 글자를 35&nbsp;cm 거리에서 보다가, 같은 화면을 70&nbsp;cm로 멀리 들었다. 글자의 시각은 어떻게 되는가?</p>
+        <div class="opts">
+          <button class="opt">화면의 글자 크기가 그대로 16px이므로 변하지 않는다.</button>
+          <button class="opt">거리가 두 배가 되면 시각은 4분의 1이 된다.</button>
+          <button class="opt" data-correct>거의 절반이 된다. 작은 각에서 시각은 글자 높이를 거리로 나눈 값에 비례한다.</button>
+          <button class="opt">멀리 들면 초점이 맞아 시각이 커진다.</button>
+        </div>
+        <div class="quiz-exp">시각 \(\theta = 2\arctan(h/2d)\)는 작은 각에서 \(h/d\)에 비례하므로 거리가 두 배면 거의 절반이 된다. 넓이(망막에 맺히는 면적)가 4분의 1이 되는 것과 헷갈리면 안 된다. 노안이 있는 사람이 화면을 멀리 들면 초점은 맞을 수 있지만 시각은 오히려 작아진다. 그래서 노안이 있는 독자에게는 큰 글자가 더 필요하다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 흰 바탕에 연회색 글자(대비비 2.85)를 쓴 13px 날짜 줄을 고치려 한다. WCAG 2.x 기준에 비추어 가장 알맞은 판단은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>작은 글자는 최소 4.5:1이 필요하므로 글자색을 더 어둡게 바꾼다. 크기도 키우면 더 안전하다.</button>
+          <button class="opt">글자색을 같은 밝기의 선명한 붉은색으로 바꾸면 눈에 띄므로 기준을 넘는다.</button>
+          <button class="opt">날짜는 부가 정보이므로 대비 기준이 적용되지 않는다.</button>
+          <button class="opt">글자를 굵게 하면 큰 글자로 분류되어 3:1 기준만 넘기면 된다.</button>
+        </div>
+        <div class="quiz-exp">13px은 굵게 해도 큰 글자(굵게 18.66px 이상) 조건에 들지 않으므로 4.5:1이 필요하다. 대비비는 휘도만 보므로 같은 밝기의 붉은색으로 바꿔도 대비비는 거의 그대로다. 대비 기준은 장식이 아닌 모든 글자에 적용되며, 날짜도 독자가 읽어야 하는 정보다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. "인쇄물 본문은 세리프가 산세리프보다 더 잘 읽힌다"는 주장에 대한 연구의 현재 상태로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">세리프가 시선을 글줄 방향으로 이끌어 읽기 속도를 크게 높인다는 것이 일관되게 확인되었다.</button>
+          <button class="opt">산세리프가 모든 조건에서 더 빨리 읽힌다는 것이 확인되어 통설이 뒤집혔다.</button>
+          <button class="opt">한글 명조에 대해서만 세리프 효과가 측정되어 확정되었다.</button>
+          <button class="opt" data-correct>흔한 본문용 글꼴들 사이에서 세리프 유무의 일관된 효과는 확인되지 않았고, x높이·획 굵기·간격·익숙함 같은 요인이 더 크게 작용했다.</button>
+        </div>
+        <div class="quiz-exp">룬(1999)의 검토, 아르디티와 조(2005)의 통제 실험 등은 세리프 자체의 효과가 작거나 일관되지 않다고 보았다. 반대로 산세리프가 언제나 낫다는 결론도 없다. 한글 명조·고딕에 대해서도 세리프 효과를 확정한 연구는 이 책이 확인한 범위에 없다. 통설을 반대 통설로 바꾸지 않는 것이 핵심이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 난독증이 있는 독자를 위해 서점 웹사이트에 무엇을 하는 것이 현재 근거에 가장 잘 맞는가?</p>
+        <div class="opts">
+          <button class="opt">모든 본문을 난독증 전용 글꼴로 바꾼다. 연구로 효과가 확인되었다.</button>
+          <button class="opt" data-correct>사용자가 글자 간격·낱말 간격·행간을 넓혀도 내용이 깨지지 않게 하고, 독자가 원하는 글꼴을 쓰는 것을 막지 않는다.</button>
+          <button class="opt">본문을 모두 기울인 글꼴로 바꿔 글자가 뒤집혀 보이지 않게 한다.</button>
+          <button class="opt">글자 사이를 최대한 좁혀 한눈에 더 많은 글자가 들어오게 한다.</button>
+        </div>
+        <div class="quiz-exp">전용 글꼴의 효과는 웨리와 딜리베르토(2017), 쿠스터 등(2018)의 연구에서 확인되지 않았고, 마리누스 등(2016)은 보인 이점이 간격 때문이었다고 보고했다. 넓은 간격은 밀집 효과를 줄인다는 설명과도 맞는다. 렐로와 바에자예이츠(2013)의 연구에서 기울인 글꼴은 오히려 읽기를 방해했고, 간격을 좁히면 밀집 효과가 커진다. WCAG 1.4.12가 간격 조정을 견디도록 요구하는 이유다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs" data-nonum>
+    <h2>출처와 글꼴</h2>
+    <ul>
+      <li>Legge, G. E., &amp; Bigelow, C. A. (2011). Does print size matter for reading? A review of findings from vision science and typography. <i>Journal of Vision</i>, 11(5):8.</li>
+      <li>Tinker, M. A. (1963). <i>Legibility of Print</i>. Iowa State University Press.</li>
+      <li>Lund, O. (1999). <i>Knowledge construction in typography: the case of legibility research and the legibility of sans serif typefaces</i>. 박사 논문, University of Reading.</li>
+      <li>Arditi, A., &amp; Cho, J. (2005). Serifs and font legibility. <i>Vision Research</i>, 45(23).</li>
+      <li>Morris, R. A., Aquilante, K., Yager, D., &amp; Bigelow, C. (2002). Serifs slow RSVP reading at very small sizes, but don't matter at larger sizes. <i>SID Symposium Digest</i>.</li>
+      <li>Piepenbrock, C., Mayr, S., Mund, I., &amp; Buchner, A. (2013). Positive display polarity is advantageous for both younger and older adults. <i>Ergonomics</i>, 56(7).</li>
+      <li>Bouma, H. (1970). Interaction effects in parafoveal letter recognition. <i>Nature</i>, 226.</li>
+      <li>Zorzi, M. 외 (2012). Extra-large letter spacing improves reading in dyslexia. <i>PNAS</i>, 109(28).</li>
+      <li>Rello, L., &amp; Baeza-Yates, R. (2013). Good fonts for dyslexia. <i>ASSETS 2013</i>.</li>
+      <li>Marinus, E. 외 (2016). A special font for people with dyslexia: Does it work and, if so, why? <i>Dyslexia</i>, 22(3).</li>
+      <li>Wery, J. J., &amp; Diliberto, J. A. (2017). The effect of a specialized dyslexia font, OpenDyslexic, on reading rate and accuracy. <i>Annals of Dyslexia</i>, 67.</li>
+      <li>Kuster, S. M. 외 (2018). Dyslexie font does not benefit reading in children with or without dyslexia. <i>Annals of Dyslexia</i>, 68.</li>
+      <li>W3C (2023). <i>Web Content Accessibility Guidelines (WCAG) 2.2</i>: 성공 기준 1.4.3, 1.4.4, 1.4.6, 1.4.12. · W3C <i>CSS Values and Units</i>(기준 픽셀의 정의).</li>
+      <li>주자나 리츠코의 말은 1990년 무렵 『Emigre』에 실린 인터뷰로 널리 전해지나, 이 책은 원문을 확인하지 못해 취지만 요약했다. 연구 결과는 각 논문의 요지를 요약한 것이며, 효과 크기는 옮기지 않았다.</li>
+      <li>글꼴: Noto Sans KR, Noto Serif KR(Google, Adobe의 본고딕·본명조와 같은 설계), Atkinson Hyperlegible(Braille Institute, Applied Design Works). 모두 SIL Open Font License 1.1, Google Fonts로 불러왔다. 고정폭 글꼴은 이 서가의 JetBrains Mono(OFL)다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex, parse = ART.parse;
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874";
+
+  /* ---------------- 글꼴 ---------------- */
+  var FAM = { sans: "'Noto Sans KR', sans-serif", serif: "'Noto Serif KR', serif", atk: "'Atkinson Hyperlegible', 'Noto Sans KR', sans-serif" };
+  function fam(k) { return k === "mono" ? getComputedStyle(document.body).getPropertyValue("--mono") : FAM[k]; }
+  function F(px, k, w) { return (w || 400) + " " + px + "px " + fam(k); }
+  // 캔버스에 쓸 글자들을 미리 불러온다(Google Fonts의 한글은 유니코드 범위별로 나뉘어 있다). 도착하면 AB.canvas가 다시 그린다.
+  function preload(text) {
+    if (!document.fonts || !document.fonts.load) return;
+    ["400 20px 'Noto Sans KR'", "700 20px 'Noto Sans KR'", "400 20px 'Noto Serif KR'", "700 20px 'Noto Serif KR'", "400 20px 'Atkinson Hyperlegible'"].forEach(function (f) {
+      document.fonts.load(f, text).catch(function () {});
+    });
+  }
+  // 글꼴 비율 측정: x높이, "한"의 높이(글자 크기에 대한 비)
+  var MC = document.createElement("canvas").getContext("2d");
+  function metric(k, w) {
+    MC.font = F(100, k, w);
+    var x = MC.measureText("x"), h = MC.measureText("한");
+    return { xh: (x.actualBoundingBoxAscent || 52) / 100, han: ((h.actualBoundingBoxAscent || 82) + (h.actualBoundingBoxDescent || 4)) / 100 };
+  }
+
+  /* ---------------- 공통 계산 ---------------- */
+  var LUT = new Float32Array(256);
+  for (var li = 0; li < 256; li++) LUT[li] = ART.toLinear(li / 255);
+  function yOfLstar(L) { return L > 8 ? Math.pow((L + 16) / 116, 3) : L / (24389 / 27); }
+  function grayL(L) { var g = ART.toGamma(yOfLstar(AB.clamp(L, 0, 100))); return [g, g, g]; }
+  // OKLCH 채도·색상을 지키고 CIELAB 명도를 L0에 맞춘 색(화면 밖이면 채도를 줄인다)
+  function withL(L0, C, h) {
+    var lo = 0, hi = 1, m, c;
+    for (var i = 0; i < 22; i++) { m = (lo + hi) / 2; c = ART.gamutMap([m, C, h]); if (ART.lightness(c) < L0) lo = m; else hi = m; }
+    return ART.gamutMap([(lo + hi) / 2, C, h]);
+  }
+  // 시각(도): 높이 mm, 거리 mm
+  function angDeg(h, d) { return 2 * Math.atan(h / (2 * d)) * 180 / Math.PI; }
+  // 상자 흐림(가로·세로 한 번씩). a: Float32Array, ch: 채널 수
+  function boxBlur(a, w, h, ch, r) {
+    if (r < 1) return a;
+    var tmp = new Float32Array(a.length), out = new Float32Array(a.length);
+    function pass(src, dst, horiz) {
+      var N = horiz ? w : h, M = horiz ? h : w;
+      for (var line = 0; line < M; line++) for (var k = 0; k < ch; k++) {
+        var base = horiz ? line * w : line, step = horiz ? 1 : w;
+        var at = function (i) { i = i < 0 ? 0 : i >= N ? N - 1 : i; return (base + i * step) * ch + k; };
+        var acc = 0;
+        for (var j = -r; j <= r; j++) acc += src[at(j)];
+        for (var i = 0; i < N; i++) { dst[at(i)] = acc / (2 * r + 1); acc += src[at(i + r + 1)] - src[at(i - r)]; }
+      }
+    }
+    pass(a, tmp, true); pass(tmp, out, false);
+    return out;
+  }
+
+  /* ---------------- 서점 소식 카드(가상의 예시, 폭 360 기준) ---------------- */
+  var COL = { dark: "#22342a", calm: "#567666", green: "#2f7d5b", acc: "#d24f39", gray: "#999999" };
+  var BG = { white: "#ffffff", cream: "#ffe2d7" };
+  var EL_NAME = { title: "제목", meta: "날짜·글쓴이", body: "본문", caption: "사진 설명", link: "링크" };
+  var NEWS_TEXT = {
+    title: "여름 낭독 모임에 함께해요",
+    meta: "2026. 7. 3 · 책방 E",
+    body: "올여름 책방 2층에서 낭독 모임을 엽니다. 한 사람이 한 쪽씩 소리 내어 읽고, 다 읽은 뒤에는 차를 마시며 이야기를 나눕니다. 책은 책방에서 빌려 드립니다.",
+    caption: "지난해 가을 낭독 모임",
+    link: "신청하기",
+  };
+  preload(Object.keys(NEWS_TEXT).map(function (k) { return NEWS_TEXT[k]; }).join("") + "→·");
+  function newsPreset(k) {
+    var draft = k === "draft";
+    return {
+      bg: "white",
+      els: {
+        title: { size: 22, w: 700, col: "dark" },
+        meta: { size: draft ? 13 : 14, w: 400, col: draft ? "gray" : "calm" },
+        body: { size: 16, w: 400, col: "dark" },
+        caption: { size: draft ? 12 : 14, w: 400, col: draft ? "gray" : "calm" },
+        link: { size: draft ? 14 : 15, w: 700, col: draft ? "acc" : "green", underline: !draft },
+      },
+    };
+  }
+  function wrap(ctx, text, maxW) {
+    var words = text.split(" "), lines = [], cur = "";
+    words.forEach(function (wd) { var t = cur ? cur + " " + wd : wd; if (ctx.measureText(t).width > maxW && cur) { lines.push(cur); cur = wd; } else cur = t; });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  // 카드 그리기: 360×560 단위를 s배로. 요소 상자(카드 단위)를 돌려준다.
+  function drawNews(ctx, ox, oy, s, st) {
+    var boxes = {}, E = st.els, M = 22, W = 360;
+    ctx.save(); ctx.translate(ox, oy); ctx.scale(s, s);
+    ctx.fillStyle = BG[st.bg]; ctx.fillRect(0, 0, W, 560);
+    ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+    var y = 30;
+    function line(key, txt, extraTop) {
+      var e = E[key]; y += extraTop || 0;
+      ctx.font = F(e.size, "sans", e.w); ctx.fillStyle = COL[e.col];
+      var lines = wrap(ctx, txt, W - 2 * M), lh = e.size * (key === "body" ? 1.7 : 1.4), top = y;
+      lines.forEach(function (l, i) {
+        var by = y + e.size * 0.95 + i * lh;
+        ctx.fillText(l, M, by);
+        if (e.underline) { var tw = ctx.measureText(l).width; ctx.fillRect(M, by + e.size * 0.15, tw, Math.max(1, e.size * 0.07)); }
+      });
+      y += lines.length * lh;
+      boxes[key] = { x: M - 4, y: top - 2, w: W - 2 * M + 8, h: y - top + 4 };
+    }
+    line("meta", NEWS_TEXT.meta, 0);
+    line("title", NEWS_TEXT.title, 6);
+    line("body", NEWS_TEXT.body, 10);
+    // 사진(가상의 낭독 모임 그림)
+    y += 12;
+    var ph = 120;
+    ctx.fillStyle = "#567666"; ctx.fillRect(M, y, W - 2 * M, ph);
+    ctx.fillStyle = "#e9dcc6"; ctx.fillRect(M, y + ph * 0.62, W - 2 * M, ph * 0.38);
+    [[0.22, "#ffe2d7"], [0.42, "#d24f39"], [0.62, "#ffe2d7"], [0.8, "#2f7d5b"]].forEach(function (p) {
+      var cx = M + (W - 2 * M) * p[0];
+      ctx.fillStyle = "#22342a"; ctx.beginPath(); ctx.arc(cx, y + ph * 0.42, 10, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = p[1]; ctx.fillRect(cx - 14, y + ph * 0.52, 28, ph * 0.3);
+    });
+    ctx.fillStyle = "#f6f1e7"; ctx.fillRect(M + (W - 2 * M) * 0.36, y + ph * 0.66, 40, 8);
+    y += ph;
+    line("caption", NEWS_TEXT.caption, 6);
+    line("link", NEWS_TEXT.link + " →", 14);
+    ctx.restore();
+    return boxes;
+  }
+  // 화면(캔버스)을 흐린 초점·베일로 본 모습. r: 흐림(캔버스 px), v: 흰색 휘도에 대한 베일 비율
+  function simulateView(src, r, v) {
+    var w = src.width, h = src.height, x = src.getContext("2d", { willReadFrequently: true }), d = x.getImageData(0, 0, w, h);
+    var lin = new Float32Array(w * h * 3);
+    for (var i = 0; i < w * h; i++) for (var j = 0; j < 3; j++) lin[i * 3 + j] = LUT[d.data[i * 4 + j]];
+    var rr = Math.round(r);
+    if (rr >= 1) lin = boxBlur(boxBlur(lin, w, h, 3, rr), w, h, 3, rr);
+    var out = document.createElement("canvas"); out.width = w; out.height = h;
+    var ox = out.getContext("2d"), od = ox.createImageData(w, h);
+    for (var p = 0; p < w * h; p++) {
+      for (var c = 0; c < 3; c++) od.data[p * 4 + c] = Math.round(AB.clamp(ART.toGamma((lin[p * 3 + c] + v) / (1 + v)), 0, 1) * 255);
+      od.data[p * 4 + 3] = 255;
+    }
+    ox.putImageData(od, 0, 0);
+    return out;
+  }
+  function crVeil(t, b, v) { var Yt = ART.luminance(parse(t)) + v, Yb = ART.luminance(parse(b)) + v; return (Math.max(Yt, Yb) + 0.05) / (Math.min(Yt, Yb) + 0.05); }
+
+  /* ---------------- 시뮬레이터 1: 헷갈리는 글자 짝 ---------------- */
+  (function () {
+    var PAIRS = [["I", "l"], ["l", "1"], ["rn", "m"], ["O", "0"], ["cl", "d"], ["e", "c"], ["웃", "옷"], ["를", "릴"], ["갈", "걀"], ["팥", "팔"], ["흙", "흘"], ["뷁", "뷀"]];
+    preload("웃옷를릴갈걀팥팔흙흘뷁뷀");
+    var fontSel = AB.seg("cf-font", function () { cv.redraw(); });
+    var bG = AB.range("cf-b", function (v) { return v === 0 ? "없음" : v + " / 10"; }, function () { cv.redraw(); });
+    var S = 40, GW = 88, GH = 64;
+    var off = document.createElement("canvas"); off.width = GW; off.height = GH;
+    var ox = off.getContext("2d", { willReadFrequently: true });
+    function glyph(txt) {
+      ox.fillStyle = "#fff"; ox.fillRect(0, 0, GW, GH);
+      ox.fillStyle = "#000"; ox.font = F(S, fontSel(), 400); ox.textAlign = "center"; ox.textBaseline = "alphabetic";
+      ox.fillText(txt, GW / 2, GH * 0.72);
+      var d = ox.getImageData(0, 0, GW, GH).data, a = new Float32Array(GW * GH);
+      for (var i = 0; i < a.length; i++) a[i] = 1 - d[i * 4] / 255;
+      return a;
+    }
+    function toCanvas(a) {
+      var c = document.createElement("canvas"); c.width = GW; c.height = GH;
+      var x = c.getContext("2d"), id = x.createImageData(GW, GH);
+      for (var i = 0; i < a.length; i++) {
+        var ink = AB.clamp(a[i], 0, 1);
+        id.data[i * 4] = Math.round(251 - ink * (251 - 43)); id.data[i * 4 + 1] = Math.round(250 - ink * (250 - 42)); id.data[i * 4 + 2] = Math.round(247 - ink * (247 - 48)); id.data[i * 4 + 3] = 255;
+      }
+      x.putImageData(id, 0, 0); return c;
+    }
+    var cv = AB.canvas("#cf-cv", function (ctx, w, h) {
+      var r = Math.round(bG() * S * 0.03), res = [];
+      var cols = w >= 560 ? 6 : 3, cw = (w - 24) / cols, rows = Math.ceil(PAIRS.length / cols), ch = (h - 34) / rows;
+      PAIRS.forEach(function (p, i) {
+        var a = boxBlur(boxBlur(glyph(p[0]), GW, GH, 1, r), GW, GH, 1, r), b = boxBlur(boxBlur(glyph(p[1]), GW, GH, 1, r), GW, GH, 1, r);
+        var num = 0, den = 0;
+        for (var k = 0; k < a.length; k++) { num += Math.abs(a[k] - b[k]); den += a[k] + b[k]; }
+        var diff = den > 0 ? num / den : 0;
+        res.push(diff);
+        var col = i % cols, row = Math.floor(i / cols), x0 = 12 + col * cw, y0 = 8 + row * ch;
+        var sc = Math.min((cw - 8) / (GW * 2), (ch - 30) / GH);
+        ctx.drawImage(toCanvas(a), x0 + cw / 2 - GW * sc, y0, GW * sc, GH * sc);
+        ctx.drawImage(toCanvas(b), x0 + cw / 2, y0, GW * sc, GH * sc);
+        ctx.fillStyle = INK_DIM; ctx.font = F(11, "sans", 400); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(p[0] + " – " + p[1], x0 + cw / 2, y0 + GH * sc + 1);
+        var bw = cw - 24, by = y0 + GH * sc + 16;
+        ctx.fillStyle = "#e4e0d6"; ctx.fillRect(x0 + 12, by, bw, 6);
+        ctx.fillStyle = diff < 0.25 ? "#c0392b" : diff < 0.45 ? "#c98a1b" : "#2f7d5b"; ctx.fillRect(x0 + 12, by, bw * Math.min(1, diff), 6);
+      });
+      ctx.fillStyle = INK_DIM; ctx.font = F(11, "sans", 400); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("막대: 두 글자 모양의 차이(길수록 구별이 쉽다)", 12, h - 6);
+      var mi = 0; res.forEach(function (d, i) { if (d < res[mi]) mi = i; });
+      var avg = function (a) { return a.reduce(function (s, v) { return s + v; }, 0) / a.length; };
+      AB.stat("cf-o-min", PAIRS[mi][0] + " – " + PAIRS[mi][1] + " <small>" + Math.round(res[mi] * 100) + "%</small>");
+      AB.stat("cf-o-lat", Math.round(avg(res.slice(0, 6)) * 100) + "%");
+      AB.stat("cf-o-han", Math.round(avg(res.slice(6)) * 100) + "%");
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("cf-cv").parentElement.clientWidth || 600); return w >= 560 ? 250 : 400; } });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 시각 계산 ---------------- */
+  (function () {
+    var MED = { phone: { mm: 0.159, unit: "px", d: 350, s: 16 }, monitor: { mm: 0.2646, unit: "px", d: 600, s: 16 }, print: { mm: 0.3528, unit: "pt", d: 400, s: 10 } };
+    var dist = 350, geo = null;
+    var med = AB.seg("an-med", function (v) { dist = MED[v].d; sG.set(MED[v].s); });
+    var sG = AB.range("an-s", function (v) { return v + (MED[med()] ? MED[med()].unit : "px"); }, function () { cv.redraw(); });
+    var DMIN = 100, DMAX = 5000;
+    var cv = AB.canvas("#an-cv", function (ctx, w, h) {
+      var p = P(), m = MED[med()], s = sG(), em = s * m.mm, met = metric("sans", 400);
+      var hanDeg = angDeg(em * met.han, dist), xDeg = angDeg(em * met.xh, dist);
+      // 위: 거리 그림(로그 눈금)
+      var ax = { x0: 70, x1: w - 24, y: 104 };
+      var X = function (d) { return ax.x0 + (Math.log(d / DMIN) / Math.log(DMAX / DMIN)) * (ax.x1 - ax.x0); };
+      geo = { X: X, x0: ax.x0, x1: ax.x1, y: ax.y };
+      var lx = 34, lh = 70;
+      ctx.fillStyle = p.text; ctx.fillRect(lx - 3, ax.y - lh, 6, lh);
+      ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = p.dim; ctx.fillText("글자", lx, ax.y + 6);
+      var ex = X(dist);
+      ctx.strokeStyle = p.accent; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(ex, ax.y - lh / 2); ctx.lineTo(lx + 3, ax.y - lh); ctx.moveTo(ex, ax.y - lh / 2); ctx.lineTo(lx + 3, ax.y); ctx.stroke();
+      ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(ax.x0, ax.y + 1); ctx.lineTo(ax.x1, ax.y + 1); ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10, true); ctx.textBaseline = "top";
+      [100, 200, 350, 600, 1000, 2000, 5000].forEach(function (d) { var x = X(d); ctx.fillRect(x, ax.y - 2, 1, 6); ctx.fillText(d >= 1000 ? d / 1000 + "m" : d / 10 + "cm", x, ax.y + 6); });
+      AB.handle(ctx, ex, ax.y - lh / 2, { r: 10, fill: p.accent });
+      ctx.fillStyle = p.text; ctx.font = AB.font(12, false, 700); ctx.textBaseline = "bottom";
+      ctx.fillText((dist >= 1000 ? AB.fix(dist / 1000, 2) + " m" : Math.round(dist / 10) + " cm"), AB.clamp(ex, 50, w - 40), ax.y - lh / 2 - 14);
+      // 아래: 시각 막대(로그 눈금, 분)
+      var bx = { x0: 120, x1: w - 20, y: 168 }, AMIN = 2, AMAX = 200;
+      var A = function (am) { return bx.x0 + (Math.log(AB.clamp(am, AMIN, AMAX) / AMIN) / Math.log(AMAX / AMIN)) * (bx.x1 - bx.x0); };
+      var refs = [[5, "시력 1.0 한계(5′)"], [10, "시력 0.5 한계(10′)"], [12, "임계 크기 0.2°(x높이)"], [120, "2°"]];
+      refs.forEach(function (r, i) {
+        var x = A(r[0]);
+        ctx.strokeStyle = i === 2 ? p.warn : p.faint; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.moveTo(x, bx.y - 6); ctx.lineTo(x, bx.y + 76); ctx.stroke(); ctx.setLineDash([]);
+        ctx.save(); ctx.translate(x + 3, bx.y + 78); ctx.fillStyle = i === 2 ? p.warn : p.dim; ctx.font = AB.font(9.5); ctx.textAlign = "left"; ctx.textBaseline = "top";
+        if (w < 520 && i < 2) { ctx.restore(); return; }
+        ctx.fillText(r[1], i === 1 ? 0 : 0, i % 2 ? 12 : 0); ctx.restore();
+      });
+      [[hanDeg * 60, "한글 \"한\" 높이", p.accent], [xDeg * 60, "라틴 x높이", p.accent2]].forEach(function (b, i) {
+        var y = bx.y + 6 + i * 32;
+        ctx.fillStyle = p.text; ctx.font = AB.font(11.5, false, 600); ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(b[1], bx.x0 - 8, y + 9);
+        ctx.fillStyle = b[2]; ctx.fillRect(bx.x0, y, Math.max(2, A(b[0]) - bx.x0), 18);
+        ctx.fillStyle = p.text; ctx.font = AB.font(10.5, true, 600); ctx.textAlign = "left";
+        var lab = AB.fix(b[0], 1) + "′";
+        var tx = A(b[0]) + 4; if (tx + 40 > w) { tx = A(b[0]) - 44; ctx.fillStyle = "#ffffff"; }
+        ctx.fillText(lab, tx, y + 9);
+      });
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("시각(분, 로그 눈금)", bx.x0, bx.y - 22);
+      AB.stat("an-o-mm", AB.fix(em, 2) + " mm");
+      AB.stat("an-o-han", AB.fix(hanDeg, 3) + "° <small>" + AB.fix(hanDeg * 60, 1) + "′</small>");
+      AB.stat("an-o-x", AB.fix(xDeg, 3) + "° <small>" + (xDeg >= 0.2 ? "임계 크기의 " + AB.fix(xDeg / 0.2, 2) + "배" : "임계 크기 아래") + "</small>");
+    }, { height: 290 });
+    AB.drag(cv.canvas, {
+      move: function (x) {
+        if (!geo) return;
+        var t = AB.clamp((x - geo.x0) / (geo.x1 - geo.x0), 0, 1);
+        dist = Math.round(DMIN * Math.pow(DMAX / DMIN, t) / 5) * 5; cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 대비 ---------------- */
+  (function () {
+    var HUE = { green: [0.08, 162], red: [0.14, 33] };
+    var hue = AB.seg("ct-hue", function () { cv.redraw(); });
+    var tG = AB.range("ct-t", function (v) { return v; }, function () { cv.redraw(); });
+    var bG = AB.range("ct-b", function (v) { return v; }, function () { cv.redraw(); });
+    var geo = null, drag = null;
+    var LINES = [[12, 400, "2026. 7. 3 · 책방 E (12px)", false], [14, 400, "지난해 가을 낭독 모임 (14px)", false], [16, 400, "올여름 책방 2층에서 낭독 모임을 엽니다 (16px)", false], [19, 700, "함께 읽을 책 (굵게 19px)", true], [24, 700, "여름 낭독 모임 (24px)", true]];
+    preload(LINES.map(function (l) { return l[2]; }).join(""));
+    function colors() {
+      var tL = tG(), bL = bG(), t;
+      if (hue() === "gray") t = tL === 63 ? parse("#999999") : grayL(tL); else t = withL(tL, HUE[hue()][0], HUE[hue()][1]);
+      return { t: t, b: grayL(bL) };
+    }
+    var cv = AB.canvas("#ct-cv", function (ctx, w, h) {
+      var k = colors(), cr = ART.contrast(k.t, k.b), barW = 18, bars = { x1: w - 74, x2: w - 34, y: 30, h: h - 60 };
+      geo = bars;
+      var cw = bars.x1 - 30 - 12;
+      ctx.fillStyle = hex(k.b); ctx.fillRect(12, 12, cw, h - 24);
+      ctx.strokeStyle = "#cfcabf"; ctx.lineWidth = 1; ctx.strokeRect(12.5, 12.5, cw - 1, h - 25);
+      var y = 28;
+      LINES.forEach(function (l) {
+        var size = Math.min(l[0], cw / 14), need = l[3] ? 3 : 4.5, ok = cr >= need, okA = cr >= (l[3] ? 4.5 : 7);
+        ctx.font = F(size, "sans", l[1]); ctx.fillStyle = hex(k.t); ctx.textAlign = "left"; ctx.textBaseline = "top";
+        var txt = l[2]; while (ctx.measureText(txt).width > cw - 70 && txt.length > 4) txt = txt.slice(0, -2);
+        ctx.fillText(txt, 24, y);
+        var mark = okA ? "AAA" : ok ? "AA" : "미달";
+        ctx.font = F(10.5, "sans", 700); var mw = ctx.measureText(mark).width + 10;
+        ctx.fillStyle = okA ? "#2f7d5b" : ok ? "#567666" : "#c0392b"; ctx.fillRect(12 + cw - mw - 8, y + size / 2 - 9, mw, 18);
+        ctx.fillStyle = "#ffffff"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(mark, 12 + cw - 8 - mw / 2, y + size / 2);
+        y += size * 1.6 + 10;
+      });
+      // 명도 막대 두 개
+      [[bars.x1, "글자", tG, k.t], [bars.x2, "바탕", bG, k.b]].forEach(function (b) {
+        var g = ctx.createLinearGradient(0, bars.y, 0, bars.y + bars.h);
+        for (var i = 0; i <= 10; i++) g.addColorStop(i / 10, hex(grayL(100 - i * 10)));
+        ctx.fillStyle = g; ctx.fillRect(b[0], bars.y, barW, bars.h);
+        ctx.strokeStyle = "#9a968c"; ctx.strokeRect(b[0] + 0.5, bars.y + 0.5, barW - 1, bars.h - 1);
+        var yy = bars.y + (1 - b[2]() / 100) * bars.h;
+        AB.handle(ctx, b[0] + barW / 2, yy, { r: 8, fill: hex(b[3]) });
+        ctx.fillStyle = INK; ctx.font = F(11, "sans", 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText(b[1], b[0] + barW / 2, bars.y - 4);
+      });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(9.5, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("L* 0", (bars.x1 + bars.x2 + barW) / 2, bars.y + bars.h + 4);
+      AB.stat("ct-o-c", hex(k.t) + " · " + hex(k.b));
+      AB.stat("ct-o-cr", AB.fix(cr, 2) + ":1");
+      AB.stat("ct-o-ap", AB.fix(ART.apca(k.t, k.b), 1));
+    }, { bg: PAPER, height: 300 });
+    AB.drag(cv.canvas, {
+      start: function (x) { drag = null; if (!geo) return; if (Math.abs(x - geo.x1 - 9) < 22) drag = tG; else if (Math.abs(x - geo.x2 - 9) < 22) drag = bG; },
+      move: function (x, y) { if (!drag) return; drag.set(Math.round(AB.clamp((1 - (y - geo.y) / geo.h) * 100, 0, 100))); },
+      end: function () { drag = null; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 흐린 초점과 베일 ---------------- */
+  (function () {
+    var pre = AB.seg("ey-pre", function () { render(); });
+    var rG = AB.range("ey-r", function (v) { return v === 0 ? "없음" : v + " px"; }, function () { process(); });
+    var vG = AB.range("ey-v", function (v) { return v + "%"; }, function () { process(); });
+    var SC = 2, src = null, out = null;
+    var BACK = "#e9e6df";
+    function fit(im) { return function (ctx, w, h) { ctx.fillStyle = BACK; ctx.fillRect(0, 0, w, h); if (!im()) return; var s = Math.min((w - 16) / 360, (h - 16) / 470); ctx.drawImage(im(), 0, 0, 360 * SC, 470 * SC, (w - 360 * s) / 2, 8, 360 * s, 470 * s); }; }
+    var cvA = AB.canvas("#ey-a", fit(function () { return src; }), { aspect: 1.1, maxHeight: 480, bg: BACK });
+    var cvB = AB.canvas("#ey-b", fit(function () { return out; }), { aspect: 1.1, maxHeight: 480, bg: BACK });
+    AB.compare("#ey-cmp", { labels: ["원래 화면", "흐리고 눈부신 눈"], pos: 0.5 });
+    function render() {
+      var c = document.createElement("canvas"); c.width = 360 * SC; c.height = 470 * SC;
+      var x = c.getContext("2d", { willReadFrequently: true });
+      drawNews(x, 0, 0, SC, newsPreset(pre()));
+      src = c; cvA.redraw(); process();
+    }
+    function process() {
+      if (!src) return;
+      out = simulateView(src, rG() * SC, vG() / 100); cvB.redraw();
+      var st = newsPreset(pre()), v = vG() / 100, b = BG[st.bg];
+      var mc = COL[st.els.meta.col], bc = COL[st.els.body.col];
+      AB.stat("ey-o-meta", AB.fix(crVeil(mc, b, 0), 2) + " → " + AB.fix(crVeil(mc, b, v), 2));
+      AB.stat("ey-o-body", AB.fix(crVeil(bc, b, 0), 2) + " → " + AB.fix(crVeil(bc, b, v), 2));
+    }
+    render();
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { render(); });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 명조와 고딕 ---------------- */
+  (function () {
+    var match = AB.seg("sf-match", function () { cv.redraw(); });
+    var sG = AB.range("sf-s", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var kG = AB.range("sf-k", function (v) { return v === 1 ? "고운 화면" : "×" + v; }, function () { cv.redraw(); });
+    var TXT = ["골목 끝 책방에서 여름 낭독 모임이 열린다.", "한 사람이 한 쪽씩 소리 내어 읽는다.", "Reading aloud in summer · 1 Il 0O rn m"];
+    preload(TXT.join(""));
+    var cv = AB.canvas("#sf-cv", function (ctx, w, h) {
+      var S = sG(), k = kG(), mode = match(), ms = metric("serif", 400), mg = metric("sans", 400);
+      var sizeSerif = mode === "x" ? S * mg.xh / ms.xh : mode === "han" ? S * mg.han / ms.han : S;
+      var wide = w >= 600, pw = wide ? (w - 36) / 2 : w - 24, ph = wide ? h - 24 : (h - 36) / 2;
+      var panels = [{ k: "serif", size: sizeSerif, name: "명조 · Noto Serif KR" }, { k: "sans", size: S, name: "고딕 · Noto Sans KR" }];
+      var widths = [];
+      panels.forEach(function (pn, i) {
+        var px = 12 + (wide ? i * (pw + 12) : 0), py = 12 + (wide ? 0 : i * (ph + 12));
+        ctx.fillStyle = "#ffffff"; ctx.fillRect(px, py, pw, ph); ctx.strokeStyle = "#d9d4c9"; ctx.lineWidth = 1; ctx.strokeRect(px + 0.5, py + 0.5, pw - 1, ph - 1);
+        ctx.fillStyle = INK_DIM; ctx.font = F(11, "sans", 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(pn.name + "  " + AB.fix(pn.size, 1) + "px", px + 10, py + 8);
+        // 낮은 해상도로 그린 뒤 키운다
+        var iw = Math.max(8, Math.floor((pw - 20) / k)), ih = Math.max(8, Math.floor((ph - 34) / k));
+        var c = document.createElement("canvas"); c.width = iw; c.height = ih;
+        var x = c.getContext("2d"); x.fillStyle = "#ffffff"; x.fillRect(0, 0, iw, ih);
+        x.fillStyle = "#22342a"; x.font = F(pn.size / k, pn.k, 400); x.textAlign = "left"; x.textBaseline = "alphabetic";
+        var lh = pn.size * 1.75 / k, yy = pn.size * 1.1 / k;
+        TXT.forEach(function (t) { wrap(x, t, iw - 2).forEach(function (l) { if (yy < ih) x.fillText(l, 1, yy); yy += lh; }); });
+        x.font = F(100, pn.k, 400); widths.push(x.measureText(TXT[0]).width);
+        ctx.imageSmoothingEnabled = k === 1; ctx.drawImage(c, px + 10, py + 28, iw * k, ih * k); ctx.imageSmoothingEnabled = true;
+      });
+      AB.stat("sf-o-x", AB.fix(ms.xh * sizeSerif, 1) + " · " + AB.fix(mg.xh * S, 1) + " px");
+      AB.stat("sf-o-h", AB.fix(ms.han * sizeSerif, 1) + " · " + AB.fix(mg.han * S, 1) + " px");
+      AB.stat("sf-o-w", AB.fix((widths[0] * sizeSerif) / (widths[1] * S), 2));
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("sf-cv").parentElement.clientWidth || 600); return w >= 600 ? 230 : 420; } });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 밀집 효과 ---------------- */
+  (function () {
+    var SET = { han: "가나다라마바사아자차카타파하고누도루모부소우조추".split(""), lat: "ABDEFHKLMNPRSTUVXZ".split("") };
+    preload(SET.han.join(""));
+    var seed = 3, ex = 0.6, geo = null;
+    var sG = AB.range("cr-s", function (v) { return AB.fix(v, 1) + "배"; }, function () { cv.redraw(); });
+    var script = AB.seg("cr-script", function () { cv.redraw(); });
+    document.getElementById("cr-new").addEventListener("click", function () { seed++; cv.redraw(); });
+    var DEG = 0.0213, SIZE = 22;
+    var cv = AB.canvas("#cr-cv", function (ctx, w, h) {
+      var r = AB.rng(seed), set = SET[script()], pick = function () { return set[Math.floor(r() * set.length)]; };
+      var fx = 34, cy = Math.round(h * 0.62), x0 = fx + 60, x1 = w - 30;
+      var tx = x0 + ex * (x1 - x0), ecc = tx - fx, sp = sG() * SIZE, crit = 0.5 * ecc;
+      geo = { x0: x0, x1: x1, cy: cy };
+      // 고정점
+      ctx.strokeStyle = INK; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(fx - 9, cy); ctx.lineTo(fx + 9, cy); ctx.moveTo(fx, cy - 9); ctx.lineTo(fx, cy + 9); ctx.stroke();
+      ctx.fillStyle = INK_DIM; ctx.font = F(11, "sans", 400); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("여기를 본다", fx + 6, cy + 14);
+      // 방해 거리
+      ctx.strokeStyle = "#c2185b"; ctx.setLineDash([5, 4]); ctx.lineWidth = 1.3;
+      ctx.beginPath(); ctx.ellipse(tx, cy, crit, Math.min(crit * 0.55, h * 0.3), 0, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+      // 글자들
+      var target = pick(), lone = pick(), fl = [pick(), pick()];
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = F(SIZE, "sans", 700); ctx.fillStyle = "#22342a"; ctx.fillText(target, tx, cy);
+      ctx.font = F(SIZE, "sans", 400); ctx.fillStyle = "#4a4a50";
+      ctx.fillText(fl[0], tx - sp, cy); ctx.fillText(fl[1], tx + sp, cy);
+      ctx.font = F(SIZE, "sans", 700); ctx.fillStyle = "#22342a"; ctx.fillText(lone, tx, Math.round(h * 0.2));
+      ctx.fillStyle = INK_DIM; ctx.font = F(10.5, "sans", 400); ctx.textBaseline = "top"; ctx.fillText("홀로 있는 글자", tx, Math.round(h * 0.2) + 16);
+      AB.handle(ctx, tx, cy + 24, { r: 7, fill: "#ffffff", ring: "#c2185b" });
+      var inside = sp < crit;
+      AB.stat("cr-o-e", AB.fix(ecc * DEG, 2) + "°");
+      AB.stat("cr-o-c", AB.fix(crit * DEG, 2) + "°");
+      AB.stat("cr-o-s", AB.fix(sp * DEG, 2) + "° <small>" + (inside ? "방해 거리 안" : "방해 거리 밖") + "</small>");
+    }, { bg: PAPER, height: 230 });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; ex = AB.clamp((x - geo.x0) / (geo.x1 - geo.x0), 0, 1); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 7: 판독 점검기 ---------------- */
+  (function () {
+    var WHO = { me: { r: 0, v: 0, name: "서윤" }, elder: { r: 1.5, v: 0.1, name: "할머니 손님" }, sun: { r: 0, v: 0.3, name: "햇빛 아래" } };
+    var st = newsPreset("draft"), sel = "meta", boxes = {}, layout = null, simCache = null, simKey = "";
+    var preG = AB.seg("ck-pre", function (v) { st = newsPreset(v); bgSel.set(st.bg, false); syncControls(); cv.redraw(); });
+    var sG = AB.range("ck-s", function (v) { return v + "px"; }, function (v) { st.els[sel].size = v; cv.redraw(); });
+    var colSel = AB.seg("ck-col", function (v) { st.els[sel].col = v; st.els[sel].underline = sel === "link" && v !== "acc"; cv.redraw(); });
+    var bgSel = AB.seg("ck-bg", function (v) { st.bg = v; cv.redraw(); });
+    var who = AB.seg("ck-who", function () { cv.redraw(); });
+    function syncControls() { var e = st.els[sel]; sG.el.value = e.size; sG.el.dispatchEvent(new Event("change")); document.getElementById("ck-s-out").textContent = e.size + "px"; sG.el.style.setProperty("--fill", ((e.size - 10) / 18 * 100) + "%"); colSel.set(e.col, false); }
+    function judge(key) {
+      var e = st.els[key], cr = ART.contrast(parse(COL[e.col]), parse(BG[st.bg]));
+      var large = e.size >= 24 || (e.w >= 700 && e.size >= 18.66);
+      var needC = key === "body" ? 7 : large ? 3 : 4.5, needS = key === "body" ? 16 : 14;
+      return { cr: cr, needC: needC, needS: needS, ok: cr >= needC && e.size >= needS, large: large };
+    }
+    var cv = AB.canvas("#ck-cv", function (ctx, w, h) {
+      var wide = w >= 620, cw = wide ? Math.min(340, (w - 36) / 2) : Math.min(340, w - 24), s = cw / 360, chH = 560 * s;
+      var A = { x: 12, y: 26 }, B = wide ? { x: 24 + cw, y: 26 } : { x: 12, y: 26 + chH + 30 };
+      layout = { A: A, s: s };
+      ctx.fillStyle = INK; ctx.font = F(12, "sans", 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("휴대폰 화면", A.x, A.y - 19); ctx.fillText(WHO[who()].name + "의 눈으로", B.x, B.y - 19);
+      boxes = drawNews(ctx, A.x, A.y, s, st);
+      ctx.strokeStyle = "#cfcabf"; ctx.lineWidth = 1; ctx.strokeRect(A.x + 0.5, A.y + 0.5, cw - 1, chH - 1);
+      // 점검 표시와 선택 상자
+      var pass = 0, fails = [];
+      Object.keys(boxes).forEach(function (k) {
+        var b = boxes[k], j = judge(k), bx = A.x + b.x * s, by = A.y + b.y * s;
+        if (j.ok) pass++; else fails.push(EL_NAME[k]);
+        ctx.fillStyle = j.ok ? "#2f7d5b" : "#c0392b";
+        ctx.beginPath(); ctx.arc(A.x + cw - 9, by + 9, 5, 0, Math.PI * 2); ctx.fill();
+        if (k === sel) { ctx.strokeStyle = "#c2185b"; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.strokeRect(bx, by, b.w * s, b.h * s); ctx.setLineDash([]); }
+      });
+      // 독자의 눈으로 본 화면
+      var W2 = WHO[who()], key = JSON.stringify(st) + who() + cw;
+      if (key !== simKey || !simCache) {
+        var dpr = 2, c = document.createElement("canvas"); c.width = Math.round(cw * dpr); c.height = Math.round(chH * dpr);
+        var x = c.getContext("2d", { willReadFrequently: true }); drawNews(x, 0, 0, s * dpr, st);
+        simCache = W2.r || W2.v ? simulateView(c, W2.r * s * dpr * (360 / 360), W2.v) : c; simKey = key;
+      }
+      ctx.drawImage(simCache, B.x, B.y, cw, chH);
+      ctx.strokeStyle = "#cfcabf"; ctx.strokeRect(B.x + 0.5, B.y + 0.5, cw - 1, chH - 1);
+      var j = judge(sel), e = st.els[sel], met = metric("sans", e.w);
+      AB.stat("ck-o-el", EL_NAME[sel] + " <small>" + e.size + "px · " + COL[e.col] + "</small>");
+      AB.stat("ck-o-cr", AB.fix(j.cr, 2) + " <small>기준 " + j.needC + ":1 · " + j.needS + "px 이상 " + (j.ok ? "통과" : "미달") + "</small>");
+      AB.stat("ck-o-ang", AB.fix(angDeg(e.size * 0.159 * met.han, 350) * 60, 1) + "′");
+      AB.stat("ck-o-pass", pass + " / 5" + (fails.length ? " <small>미달: " + fails.join(", ") + "</small>" : ""));
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("ck-cv").parentElement.clientWidth || 600), wide = w >= 620, cw = wide ? Math.min(340, (w - 36) / 2) : Math.min(340, w - 24); return Math.round(560 * cw / 360) * (wide ? 1 : 2) + (wide ? 40 : 74); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!layout) return;
+        var ux = (x - layout.A.x) / layout.s, uy = (y - layout.A.y) / layout.s;
+        Object.keys(boxes).forEach(function (k) { var b = boxes[k]; if (ux >= b.x && ux <= b.x + b.w && uy >= b.y && uy <= b.y + b.h) { sel = k; syncControls(); cv.redraw(); } });
+      },
+    });
+    syncControls();
+  })();
+})();
+</script>
+</body>
+</html>

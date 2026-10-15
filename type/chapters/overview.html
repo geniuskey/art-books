@@ -1,0 +1,797 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "같은 문장도 어떤 글자로, 어떤 간격으로, 어떤 지면에 짜느냐에 따라 다르게 읽힌다. 글자·글줄·지면·쓰임의 네 갈래를 시뮬레이터로 둘러보고, 근거가 약한 통설을 가려낸 뒤 TypeBook 전체의 지도를 그린다."}-->
+<!--head:end-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400;700&display=swap">
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="overview">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 01</div>
+    <h1>타이포그래피의 지도</h1>
+    <p class="lead">가게 문에 붙은 쪽지 한 장을 떠올려 본다. "오늘은 일찍 문을 닫습니다." 볼펜으로 휘갈긴 글씨라면 주인의 급한 사정이 느껴지고, 반듯한 명조로 인쇄되어 있다면 공지처럼 읽히고, 굵은 제목용 글꼴로 크게 찍혀 있다면 경고처럼 보인다. 글자는 같은 말을 하는데 목소리가 다르다. 이 장은 그 목소리가 어디서 오는지를 네 갈래로 나누어 둘러보고, 앞으로 열두 장에서 하나씩 풀어 갈 질문을 한 장의 지도 위에 펼친다.</p>
+    <ul class="objectives">
+      <li>타이포그래피가 글자를 고르고, 간격을 정하고, 지면에 놓는 일이라는 것을 설명한다.</li>
+      <li>라틴 글자와 한글이 글자 상자를 쓰는 방식이 어떻게 다른지 본다.</li>
+      <li>글줄의 길이와 행간이 "읽고 싶은" 글을 만든다는 것을 직접 조작해 본다.</li>
+      <li>흐리게 보기로 지면의 위계를 점검하고, 화면의 픽셀이 작은 글자를 어떻게 바꾸는지 본다.</li>
+      <li>타이포그래피의 통설 가운데 근거가 엇갈리는 것을 가려내고, 이 책 전체의 지도를 그린다.</li>
+    </ul>
+  </header>
+
+  <section id="voice">
+    <h2>같은 문장, 다른 목소리</h2>
+    <p>글자에는 두 겹의 뜻이 있다. 하나는 낱말과 문장이 전하는 내용이고, 다른 하나는 그 글자의 모양이 전하는 인상이다. 같은 "닫습니다"라도 붓으로 쓴 듯한 명조는 차분하고, 획 굵기가 고른 고딕은 사무적이고, 손글씨는 사적이며, 획이 아주 굵은 제목용 글꼴은 소리치는 것 같다. 내용은 그대로인데 듣는 사람이 받는 말투가 달라진다.</p>
+    <p>아래 시뮬레이터에서 문장 하나를 네 가지 글꼴로 바꿔 본다. 위 칸은 고른 글꼴을 크게, 아래 네 줄은 같은 문장을 네 글꼴로 나란히 보여 준다. 슬라이더로 크기를 바꾸면서 문장 폭이 어떻게 달라지는지도 본다.</p>
+
+    <div class="sim" id="sim-ov-voice">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 문장, 네 가지 목소리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ov-vo-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-vo-font"><button data-value="serif" class="on">명조</button><button data-value="sans">고딕</button><button data-value="pen">손글씨</button><button data-value="display">제목용</button></div>
+          <div class="seg" id="ov-vo-text"><button data-value="0" class="on">문을 닫습니다</button><button data-value="1">할머니의 레시피</button><button data-value="2">단수 안내</button></div>
+          <label class="ctrl"><span>글자 크기 <output id="ov-vo-size-out"></output></span><input type="range" id="ov-vo-size" min="16" max="72" step="1" value="44"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 글꼴</span><span class="v" id="ov-vo-o-name">—</span></div>
+        <div class="stat"><span class="k">문장 폭(글자 크기의 몇 배)</span><span class="v" id="ov-vo-o-w">—</span></div>
+        <div class="stat"><span class="k">한 글자 평균 폭</span><span class="v" id="ov-vo-o-avg">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "단수 안내"를 고르고 손글씨로 바꾼다. 다급한 공지가 친구의 쪽지처럼 가벼워진다. 반대로 "할머니의 레시피"를 제목용으로 바꾸면 요리책이 아니라 경고문처럼 보인다. ② 아래 네 줄의 길이를 비교한다. 글자 크기가 같아도 손글씨 글꼴의 문장은 눈에 띄게 짧다. 한글 글꼴 대부분은 모든 글자를 같은 폭으로 짜지만, 손글씨와 일부 제목용 글꼴은 글자마다 폭이 다르다. ③ 크기를 16까지 내린다. 작아질수록 명조의 가는 가로획이 먼저 약해지고, 제목용의 굵은 획은 속 공간을 메우기 시작한다. (글꼴은 모두 SIL 오픈 폰트 라이선스 글꼴이다. 폭은 브라우저의 글자 측정값이며, 글꼴이 아직 내려받아지지 않았으면 잠시 대체 글꼴로 보인다.)</div>
+    </div>
+
+    <p>무엇을 봤는지 정리하면, 글꼴은 장식이 아니라 말투다. 그리고 말투는 내용과 맞을 때 보이지 않는다. 타이포그래퍼 비어트리스 워드<span class="en">(Beatrice Warde, 1900–1969)</span>는 1930년대의 강연을 바탕으로 한 글 「크리스털 잔」<span class="en">(The Crystal Goblet)</span>에서, 좋은 인쇄는 포도주를 담은 투명한 유리잔처럼 내용을 가리지 않고 보여 주어야 한다고 주장했다. 이 책 첫 화면의 문장 "좋은 글자는 읽는 동안 보이지 않는다"가 그 생각을 줄인 것이다. 다만 이것은 오래 읽는 글, 곧 <span class="term">본문</span><span class="en">(Body text)</span>에 대한 이야기다. 간판이나 포스터 제목처럼 한눈에 붙잡아야 하는 글자는 일부러 보이도록 짠다. 이 차이는 <a href="display.html">12장</a>에서 다시 만난다.</p>
+  </section>
+
+  <section id="what">
+    <h2>타이포그래피는 무엇을 하는가</h2>
+    <p><span class="term">타이포그래피</span><span class="en">(Typography)</span>는 글을 읽히게 하려고 글자를 고르고, 크기와 간격을 정하고, 지면이나 화면 위에 배치하는 일이다. 말의 뿌리는 활자<span class="en">(type)</span>로 찍는 일이지만, 지금은 화면 위의 글자, 간판의 글자까지 모두 이 말에 들어간다. 비슷한 이웃 말과 구별해 두면 앞으로 편하다.</p>
+    <ul>
+      <li><b>글꼴 디자인</b>은 글자 한 벌(수천 자의 한글, 수백 자의 라틴 문자와 숫자·기호)을 그려 만드는 일이다. 타이포그래피는 대개 이미 만들어진 글꼴을 쓴다.</li>
+      <li><span class="term">레터링</span><span class="en">(Lettering)</span>은 특정한 낱말 하나를 위해 글자를 직접 그리는 일이다. 간판의 가게 이름, 책 표지의 제목이 그렇다. 같은 글자가 다시 쓰일 것을 전제하지 않는다(<a href="display.html">12장</a>).</li>
+      <li><b>서예</b>와 <b>캘리그래피</b>는 붓이나 펜으로 한 번에 써 내려가는 글씨의 예술이다. 획의 굵기 변화와 기울기 같은 글자의 뼈대 상당 부분이 여기서 왔다(<a href="anatomy.html">2장</a>).</li>
+    </ul>
+    <p>타이포그래피가 하는 일은 크게 네 겹으로 나눌 수 있다. 글자 한 자의 모양을 알고 고르는 일(글자), 글자가 모여 줄이 될 때 사이를 조절하는 일(글줄), 줄이 모여 지면이 될 때 질서를 주는 일(지면), 그리고 그 결과가 놓이는 매체에 맞추는 일(쓰임)이다. 이 책의 네 부가 이 네 겹이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="타이포그래피의 네 갈래: 글자, 글줄, 지면, 쓰임">
+        <defs><marker id="ov-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="8" y="20" width="100" height="170" rx="10" class="f-acc-soft"/>
+        <rect x="124" y="20" width="100" height="170" rx="10" class="f-acc2-soft"/>
+        <rect x="240" y="20" width="100" height="170" rx="10" class="f-warn-soft"/>
+        <rect x="356" y="20" width="96" height="170" rx="10" class="f-ok-soft"/>
+        <text x="58" y="44" text-anchor="middle" class="lbl-b">① 글자</text>
+        <text x="174" y="44" text-anchor="middle" class="lbl-b">② 글줄</text>
+        <text x="290" y="44" text-anchor="middle" class="lbl-b">③ 지면</text>
+        <text x="404" y="44" text-anchor="middle" class="lbl-b">④ 쓰임</text>
+        <path d="M22 116 H94" class="s-dash"/><path d="M22 90 H94" class="s-dash"/>
+        <text x="58" y="116" text-anchor="middle" class="lbl" style="font-size:44px">가</text>
+        <text x="58" y="140" text-anchor="middle" class="lbl-dim">뼈대 · 갈래</text>
+        <rect x="136" y="70" width="76" height="5" rx="2" class="f-acc2"/><rect x="136" y="80" width="62" height="5" rx="2" class="f-acc2"/>
+        <rect x="136" y="96" width="76" height="5" rx="2" class="f-acc2"/><rect x="136" y="106" width="70" height="5" rx="2" class="f-acc2"/>
+        <path d="M214 72 v12" class="s-line"/><path d="M130 77 h4M130 93 h4" class="s-line"/>
+        <text x="174" y="140" text-anchor="middle" class="lbl-dim">자간 · 행간</text>
+        <rect x="256" y="62" width="68" height="62" rx="3" class="f-surface"/>
+        <rect x="262" y="68" width="40" height="8" rx="2" class="f-warn"/>
+        <rect x="262" y="82" width="26" height="4" rx="1" class="f-warn"/><rect x="292" y="82" width="26" height="4" rx="1" class="f-warn"/>
+        <rect x="262" y="90" width="26" height="4" rx="1" class="f-warn"/><rect x="292" y="90" width="26" height="4" rx="1" class="f-warn"/>
+        <rect x="262" y="98" width="26" height="4" rx="1" class="f-warn"/><rect x="292" y="98" width="22" height="4" rx="1" class="f-warn"/>
+        <rect x="262" y="106" width="20" height="4" rx="1" class="f-warn"/>
+        <text x="290" y="140" text-anchor="middle" class="lbl-dim">위계 · 그리드</text>
+        <rect x="370" y="64" width="26" height="46" rx="4" class="f-surface s-line"/>
+        <rect x="374" y="72" width="18" height="2.5" class="f-ok"/><rect x="374" y="78" width="18" height="2.5" class="f-ok"/><rect x="374" y="84" width="14" height="2.5" class="f-ok"/>
+        <rect x="402" y="70" width="40" height="22" rx="2" class="f-surface s-line"/>
+        <text x="422" y="86" text-anchor="middle" class="lbl-b">책방</text>
+        <path d="M410 92 v18 M434 92 v18" class="s-line"/>
+        <text x="404" y="140" text-anchor="middle" class="lbl-dim">화면 · 간판</text>
+        <path d="M108 104 L122 104" class="s-line" marker-end="url(#ov-ar)"/>
+        <path d="M224 104 L238 104" class="s-line" marker-end="url(#ov-ar)"/>
+        <path d="M340 104 L354 104" class="s-line" marker-end="url(#ov-ar)"/>
+        <text x="58" y="176" text-anchor="middle" class="lbl-dim">2·3·4장</text>
+        <text x="174" y="176" text-anchor="middle" class="lbl-dim">5·6·7장</text>
+        <text x="290" y="176" text-anchor="middle" class="lbl-dim">8·9·10장</text>
+        <text x="404" y="176" text-anchor="middle" class="lbl-dim">11·12장</text>
+        <path d="M404 204 C404 252 58 252 58 204" class="s-dash" marker-end="url(#ov-ar)"/>
+        <text x="230" y="270" text-anchor="middle" class="lbl-dim">매체가 바뀌면 글자 고르기부터 다시 본다</text>
+        <text x="230" y="290" text-anchor="middle" class="lbl-dim">13장 조판 실험실에서 네 갈래를 한꺼번에 조정한다</text>
+      </svg>
+      <figcaption><b>그림 1. 타이포그래피의 네 갈래.</b> 글자 한 자의 뼈대와 갈래(①)를 알면, 글자가 모여 줄이 될 때 사이를 조절하고(②), 줄이 모인 지면에 순서와 질서를 준다(③). 그 결과가 화면에 뜨는지, 간판에 걸리는지, 종이에 찍히는지에 따라 다시 처음으로 돌아가 고친다(④). 아래 숫자는 각 갈래를 다루는 장이다.</figcaption>
+    </figure>
+
+    <p>한국은 이 일의 오래된 현장이다. 고려의 『백운화상초록불조직지심체요절』(1377)은 현재 남아 있는 금속 활자 인쇄본 가운데 가장 오래된 것으로 알려져 있고, 유럽에서 요하네스 구텐베르크<span class="en">(Johannes Gutenberg)</span>가 금속 활자로 성서를 찍은 것은 1450년대다. 세종이 1443년에 만들고 1446년에 반포한 훈민정음은 처음부터 소리를 모아 네모 안에 한 자를 짓는 구조를 가졌고, 그 구조는 지금 우리가 쓰는 한글 글꼴에도 그대로 이어진다(<a href="hangul.html">3장</a>). 이 책은 라틴 글자와 한글을 같은 무게로 다룬다.</p>
+  </section>
+
+  <section id="letter">
+    <h2>글자: 한 자의 뼈대</h2>
+    <p>라틴 글자와 한글은 출발부터 다르다. 라틴 글자는 보이지 않는 가로줄 몇 개 위에 선다. 모든 글자가 하나의 <span class="term">기준선</span><span class="en">(Baseline)</span>에 발을 딛고, 소문자의 몸통 높이와 대문자의 높이가 정해져 있으며, 글자마다 폭이 다르다. "i"는 좁고 "m"은 넓다. 한글은 초성·중성·종성이 모여 한 자를 이루고, 대부분의 글꼴은 그 한 자를 같은 크기의 네모 칸에 넣는다. 그래서 글자마다 폭이 거의 같다.</p>
+    <p>글자는 화면에서 보이는 모양 말고도, 옆 글자와의 거리를 정하는 보이지 않는 상자를 하나씩 가지고 있다. 이 상자의 폭을 <span class="term">글자 폭</span><span class="en">(Advance width)</span>이라 하고, 글자를 늘어놓을 때 다음 글자는 이 폭만큼 옆에서 시작한다. 아래 시뮬레이터는 그 상자를 보이게 그린다.</p>
+
+    <div class="sim" id="sim-ov-box">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>보이지 않는 글자 상자</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ov-bx-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-bx-text"><button data-value="latin" class="on">라틴 문장</button><button data-value="hangul">한글 문장</button><button data-value="mixed">섞어 쓰기</button></div>
+          <div class="seg" id="ov-bx-font"><button data-value="serif" class="on">명조</button><button data-value="sans">고딕</button><button data-value="pen">손글씨</button></div>
+          <label class="check"><input type="checkbox" id="ov-bx-lines" checked> 기준선과 높이 선 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 좁은 글자</span><span class="v" id="ov-bx-o-min">—</span></div>
+        <div class="stat"><span class="k">가장 넓은 글자</span><span class="v" id="ov-bx-o-max">—</span></div>
+        <div class="stat"><span class="k">넓은 글자 ÷ 좁은 글자</span><span class="v" id="ov-bx-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 라틴 문장에서 "i"와 "W"의 상자를 비교한다. 폭이 세 배 넘게 차이 난다. 이것을 비례폭이라 한다. ② 한글 문장으로 바꾼다. 공백을 빼면 모든 글자의 상자 폭이 같다. 받침이 있든 없든 같은 네모 칸을 쓰기 때문이다. ③ 손글씨로 바꾼다. 이 글꼴은 한글도 글자마다 폭이 달라서, 한 줄의 리듬이 손으로 쓴 글씨처럼 들쭉날쭉해진다. ④ 섞어 쓰기에서 "E"가 한글 사이에 들어갈 때 높이와 폭이 어떻게 어긋나는지 본다. (상자 높이는 글꼴이 정한 위·아래 여유이고, 폭은 브라우저의 측정값이다. 실제 글꼴에는 글자 쌍마다 간격을 고치는 커닝 정보도 있지만 여기서는 넣지 않았다.)</div>
+    </div>
+
+    <p>상자를 보면 두 문자 체계의 성격이 드러난다. 라틴 글자는 폭이 제각각이라 글자 사이의 빈 공간을 고르게 보이게 하는 일(<a href="spacing.html">5장</a>)이 처음부터 중요했다. 한글은 칸이 같아서 줄이 반듯하게 맞는 대신, 받침이 없는 "가"와 받침이 있는 "방"이 같은 칸 안에서 차지하는 넓이가 달라 글자마다 무게와 높이가 들쭉날쭉해 보이는 문제가 생긴다(<a href="hangul.html">3장</a>). 섞어 쓰기에서 본 것처럼, 한글과 라틴 글자를 한 줄에 함께 쓰면 두 체계의 기준이 부딪힌다. 이 부딪힘은 한국어 타이포그래피에서 거의 매일 만나는 문제다.</p>
+    <p>라틴 글자의 보이지 않는 줄들, 곧 기준선과 소문자 몸통 높이(<span class="term">x높이</span><span class="en">(x-height)</span>), 대문자 높이, 위아래로 뻗는 획은 <a href="anatomy.html">2장</a>의 주제다. 명조와 고딕, 세리프와 산세리프처럼 글꼴을 갈래로 나누는 법과 그 한계는 <a href="classification.html">4장</a>에서 다룬다.</p>
+  </section>
+
+  <section id="line">
+    <h2>글줄: 사이를 보는 일</h2>
+    <p>글자를 고른 다음에는 사이를 정한다. 글자와 글자 사이(<span class="term">자간</span><span class="en">(Letter spacing)</span>), 줄과 줄 사이(<span class="term">행간</span><span class="en">(Leading, line spacing)</span>), 그리고 한 줄의 길이(<span class="term">글줄 길이</span><span class="en">(Line length, measure)</span>)다. 이 셋은 따로 움직이지 않는다. 줄이 길어지면 다음 줄의 시작을 찾기 어려워지므로 행간이 더 필요하고, 글자가 커지면 같은 폭에 들어가는 글자 수가 줄어든다.</p>
+    <p>아래는 어떤 동네 서점의 소식 글이다. 처음 모습은 이 장 끝 케이스의 서윤이 처음 올린 글처럼, 줄이 화면 끝까지 이어지고 행간이 빽빽하다. 오른쪽 끝의 손잡이를 끌어 글줄 길이를 바꾸고, 슬라이더로 글자 크기와 행간을 바꿔 본다. 줄 끝에서 다음 줄 처음으로 돌아가는 눈의 길은 점선 화살표로 그렸다.</p>
+
+    <div class="sim" id="sim-ov-measure">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>읽을 수는 있지만 읽고 싶지 않은 글</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ov-ms-cv" class="art"></canvas><span class="hint">오른쪽 끝 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 크기 <output id="ov-ms-size-out"></output></span><input type="range" id="ov-ms-size" min="11" max="24" step="1" value="15"></label>
+          <label class="ctrl"><span>행간(글자 크기의 배수) <output id="ov-ms-lead-out"></output></span><input type="range" id="ov-ms-lead" min="1" max="2.6" step="0.05" value="1.15"></label>
+          <label class="check"><input type="checkbox" id="ov-ms-sweep" checked> 줄 바꿈 화살표 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 줄 평균 글자 수(공백 포함)</span><span class="v" id="ov-ms-o-cpl">—</span></div>
+        <div class="stat"><span class="k">줄 수</span><span class="v" id="ov-ms-o-lines">—</span></div>
+        <div class="stat"><span class="k">줄 사이 빈 공간</span><span class="v" id="ov-ms-o-gap">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습에서 셋째 줄 끝까지 읽은 뒤 넷째 줄의 처음을 찾아본다. 행간이 좁고 줄이 길면 눈이 엉뚱한 줄로 돌아가기 쉽다. ② 행간을 1.0까지 내린다. 위 줄의 받침과 아래 줄의 초성이 거의 닿아 글줄이 한 덩어리의 회색이 된다. ③ 손잡이를 왼쪽 끝까지 끌어 한 줄에 몇 자만 남긴다. 이번에는 줄이 너무 자주 바뀌고 어절이 끊겨 문장이 토막 난다. 너무 긴 줄과 너무 짧은 줄 사이 어딘가가 읽기 편한 범위다. 그 범위가 어디인지, 어떤 근거로 정하는지는 <a href="leading.html">6장</a>에서 다룬다. (줄 바꿈은 어절 단위로 했다. 글꼴은 Noto Sans KR이며, 글자 수는 이 캔버스 폭에서 실제로 나뉜 줄의 평균이다.)</div>
+    </div>
+
+    <p>같은 글이 줄 길이와 행간만으로 "읽고 싶은" 글이 되기도, 피하고 싶은 글이 되기도 한다. 이유의 일부는 눈이 글을 읽는 방식에 있다. 우리는 글줄을 매끄럽게 훑는 것 같지만 실제로 눈은 몇 글자씩 건너뛰며 멈췄다 움직이기를 되풀이하고, 줄 끝에서는 크게 한 번 되돌아가 다음 줄 처음을 찾는다. 줄이 길수록 이 되돌아가기가 멀어지고, 행간이 좁을수록 도착할 줄이 이웃 줄과 헷갈린다.</p>
+
+    <div class="callout deep">
+      <strong>눈은 글줄을 미끄러지지 않고 뛴다</strong>
+      읽는 동안 눈의 움직임을 기록한 연구들은 눈이 한 자리에 잠깐 머무는 <span class="term">고정</span><span class="en">(Fixation)</span>과 다음 자리로 빠르게 건너뛰는 <span class="term">도약</span><span class="en">(Saccade)</span>을 되풀이한다는 것을 보여 준다. 키스 레이너<span class="en">(Keith Rayner)</span>가 20년간의 연구를 정리한 리뷰(<i>Psychological Bulletin</i>, 1998)에 따르면, 영어를 소리 내지 않고 읽을 때 한 번의 고정은 평균 200~250밀리초쯤이고 한 번의 도약은 평균 7~9 글자 칸쯤이며, 읽는 사람은 때때로 뒤로 되돌아가 다시 읽는다. 이 수치는 글의 난이도와 읽는 사람, 언어에 따라 달라지고, 한글 읽기에서는 같은 수치를 그대로 옮길 수 없다. 이 책이 이 연구에서 가져오는 것은 수치가 아니라 원리다. 줄 바꿈은 눈에게 가장 큰 도약이고, 조판은 그 도약이 길을 잃지 않게 도와야 한다.
+    </div>
+
+    <div class="callout studio">
+      <strong>행간이라는 말은 납 띠에서 왔다</strong>
+      영어의 <i>leading</i>은 활판 인쇄 시절 줄과 줄 사이에 끼워 넣던 얇은 납<span class="en">(lead)</span> 띠에서 온 말이다. 한도경이 젊을 때 일한 활판 인쇄소에서도 식자공은 활자 줄을 다 짠 뒤 그 사이에 띠를 넣고 빼며 줄 간격을 맞췄다. 디지털 도구에서는 숫자 하나로 바뀌지만, 오래 일한 디자이너들은 지금도 "본문을 짜면 먼저 출력해서 팔 길이만큼 떨어져 읽어 본다"고 말한다. 화면에서 괜찮던 행간이 종이 위에서는 빽빽해 보이거나, 그 반대인 일이 흔하기 때문이다. 행간은 숫자보다 눈으로 정한다.
+    </div>
+  </section>
+
+  <section id="page">
+    <h2>지면: 순서와 질서를 주는 일</h2>
+    <p>줄이 모이면 지면이 된다. 지면에서 타이포그래피는 순서를 정한다. 무엇을 먼저 읽고 무엇을 나중에 읽을지, 무엇이 제목이고 무엇이 덧붙인 말인지를 크기, 굵기, 색, 간격, 위치로 보여 준다. 이 순서를 <span class="term">위계</span><span class="en">(Hierarchy)</span>라고 한다. 그리고 여러 요소가 같은 선과 같은 간격을 공유하게 만드는 보이지 않는 틀이 <span class="term">그리드</span><span class="en">(Grid)</span>다.</p>
+    <p>위계를 점검하는 가장 간단한 방법은 눈을 가늘게 뜨고 보는 것이다. 글자가 읽히지 않을 만큼 흐려지면 남는 것은 덩어리뿐이고, 덩어리의 크기와 진하기가 곧 위계다. 아래의 두 안내문은 같은 내용이다. 왼쪽은 모든 줄을 같은 크기와 굵기로, 오른쪽은 크기와 굵기, 간격으로 세 단계를 주었다. 경계선을 끌어 비교하고, 흐림 슬라이더를 올린다.</p>
+
+    <div class="sim" id="sim-ov-squint">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>흐리게 보기: 위계가 남는가</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <div class="compare" id="ov-sq-cmp">
+            <div class="cmp-a"><canvas id="ov-sq-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="ov-sq-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>흐림(눈을 가늘게 뜬 정도) <output id="ov-sq-blur-out"></output></span><input type="range" id="ov-sq-blur" min="0" max="10" step="0.5" value="0"></label>
+          <div class="seg" id="ov-sq-font"><button data-value="sans" class="on">고딕</button><button data-value="serif">명조</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">왼쪽: 크기 단계</span><span class="v" id="ov-sq-o-a">—</span></div>
+        <div class="stat"><span class="k">오른쪽: 크기 단계</span><span class="v" id="ov-sq-o-b">—</span></div>
+        <div class="stat"><span class="k">오른쪽 제목 ÷ 본문 크기</span><span class="v" id="ov-sq-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 흐림을 4쯤으로 올린다. 왼쪽은 고른 회색 줄무늬가 되어 어디가 제목인지 알 수 없고, 오른쪽은 진한 제목 덩어리, 중간 덩어리(날짜와 장소), 옅은 본문의 세 층이 남는다. ② 흐림을 10까지 올린다. 오른쪽에서도 본문은 사라지지만 제목 덩어리는 끝까지 남는다. 멀리서 지나가며 보는 사람에게 전해지는 것은 그 덩어리뿐이다. ③ 명조로 바꾼다. 명조는 같은 굵기라도 획이 가늘어 덩어리가 옅어진다. 위계는 글꼴의 성격과도 맞물린다. (가상의 안내문이다. 흐림은 그림을 작게 줄였다가 다시 키우는 방식으로 흉내 냈다.)</div>
+    </div>
+
+    <p>오른쪽 안내문이 크기를 키운 것은 제목 하나뿐이고, 나머지 차이는 굵기와 간격이다. 위계는 크기를 크게 벌릴수록 강해지지만, 단계가 너무 많으면 오히려 순서가 흐려진다. 몇 단계가 적당한지, 크기는 어떤 비율로 정하는지는 <a href="hierarchy.html">8장</a>, 그리드는 <a href="grid.html">9장</a>, 정렬과 단락은 <a href="alignment.html">10장</a>에서 다룬다.</p>
+
+    <figure class="art-figure" id="fig-ov-sutra">
+      <div class="art-frame"><img src="../../shared/img/goryeo-lotus-sutra-frontispiece.webp" width="1600" height="876" alt="고려 시대 묘법연화경 사경의 펼친 모습. 짙은 남색 종이 위에 금빛으로 그린 설법 장면이 가운데에 있고, 오른쪽에는 연꽃 무늬로 둘러싼 표지 제목 칸, 왼쪽에는 금빛 한자가 세로줄로 반듯하게 이어진다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 고려, 「묘법연화경 권2」 사경, 1340년경.</b> 쪽물 들인 종이에 금과 은으로 쓰고 그린 불경이다. 손으로 쓴 글씨지만 지면에는 분명한 질서가 있다. 오른쪽 표지에서는 경전 이름을 연꽃 무늬 틀 안에 넣어 가장 높은 자리에 두었고, 왼쪽 본문 첫머리에서는 글자 크기를 거의 바꾸지 않고도 경전 이름(첫 줄), 번역자(한 칸 내려 쓴 둘째 줄), 품의 이름(셋째 줄)을 줄의 시작 위치로 구별했다. 크기 대신 <b>들여쓰기와 자리</b>로 위계를 만든 셈이다. 둘째 줄에서 황제의 명을 뜻하는 글자 앞을 한 칸 비운 것은 높여야 할 말 앞을 비워 두던 옛 글쓰기 관습으로 보인다. 세로줄의 간격이 고른 것도 지면에 질서를 준다(<a href="grid.html">9장</a>의 원고지와 정사각 격자).<span class="credit">메트로폴리탄 미술관 소장(Purchase, Lila Acheson Wallace Gift, 1994), 쪽물 들인 닥종이에 금니·은니, 절첩본. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/36451">소장처 작품 페이지</a> · <a href="../../credits.html#goryeo-lotus-sutra-frontispiece">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="callout studio">
+      <strong>디자이너의 가는 눈</strong>
+      편집 디자이너들은 시안을 모니터에서 한 걸음 물러나 보거나, 안경을 벗거나, 일부러 눈을 가늘게 떠서 본다. 휴대폰으로 시안 사진을 찍어 아주 작게 줄여 보는 사람도 있다. 글자를 읽지 못하게 만들어야 덩어리의 순서가 보이기 때문이다. 이때 확인하는 질문은 세 가지다. 가장 먼저 눈에 들어오는 덩어리가 가장 중요한 내용인가. 덩어리가 서너 개를 넘지 않는가. 같은 종류의 정보가 같은 진하기로 보이는가. 셋 다 "예"라면 글자를 읽기 전에 이미 절반은 전달된 것이다.
+    </div>
+  </section>
+
+  <section id="media">
+    <h2>쓰임: 매체가 바꾸는 것</h2>
+    <p>같은 글자도 어디에 놓이느냐에 따라 다르게 짜야 한다. 종이 위의 글자는 잉크가 번지고, 간판의 글자는 멀리서 비스듬히 보이고, 화면의 글자는 네모난 <span class="term">픽셀</span><span class="en">(Pixel)</span>의 격자 위에 그려진다. 특히 작은 글자일수록 픽셀 몇 개로 획을 표현해야 해서 글꼴 디자이너가 그린 모양이 그대로 나오지 않는다.</p>
+    <p>아래 시뮬레이터는 글자를 정해진 픽셀 크기로 그린 다음, 그 픽셀 하나하나를 크게 확대해 보여 준다. 슬라이더로 글자 크기를 바꾼다. "흑백 픽셀만"을 켜면 픽셀을 켜거나 끄기만 하는 옛 화면처럼, 회색 중간 단계 없이 그린다.</p>
+
+    <div class="sim" id="sim-ov-pixel">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>픽셀 위의 글자</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ov-px-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 크기(픽셀) <output id="ov-px-size-out"></output></span><input type="range" id="ov-px-size" min="6" max="32" step="1" value="12"></label>
+          <div class="seg" id="ov-px-text"><button data-value="0" class="on">책방 읽기</button><button data-value="1">Reading</button><button data-value="2">뷁 똠 앓</button></div>
+          <div class="seg" id="ov-px-font"><button data-value="sans" class="on">고딕</button><button data-value="serif">명조</button></div>
+          <label class="check"><input type="checkbox" id="ov-px-bw"> 흑백 픽셀만(중간 회색 없음)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 글자에 쓰는 격자</span><span class="v" id="ov-px-o-grid">—</span></div>
+        <div class="stat"><span class="k">회색 단계를 쓴 픽셀</span><span class="v" id="ov-px-o-aa">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 12픽셀에서 "책방 읽기"와 "Reading"을 비교한다. 같은 격자 안에 한글은 자모 두세 개를 쌓아야 해서, 획 하나에 돌아가는 픽셀이 라틴 글자보다 적다. ② "뷁 똠 앓"을 고르고 8픽셀까지 내린다. 획이 겹치고 뭉쳐 글자를 알아보기 어렵다. 받침과 겹자음이 많은 한글은 작은 크기에서 먼저 무너진다. ③ "흑백 픽셀만"을 켠다. 회색 단계가 사라지면 곡선은 계단이 되고 가는 획은 끊긴다. 지금의 화면이 작은 글자를 부드럽게 보이게 하는 비결이 그 회색 픽셀(안티에일리어싱)이다. (브라우저가 이 크기로 그린 결과를 그대로 확대했다. 실제 화면은 운영체제와 기기의 픽셀 밀도에 따라 다르게 그린다. <a href="screen.html">11장</a>.)</div>
+    </div>
+
+    <p>작은 화면 글자에서 한글이 불리한 이유는 픽셀만이 아니다. 현대 한글은 초성 19개, 중성 21개, 종성 27개(받침 없음까지 28가지)를 조합해 이론상 11,172자를 만들 수 있다. 글꼴은 그중 많이 쓰는 2,350자(KS X 1001 완성형)나 11,172자 전부를 한 자씩 그려 넣어야 하므로, 라틴 글꼴보다 파일이 수십 배 무겁기도 하다. 웹사이트에 한글 글꼴을 내려받게 하면 첫 화면이 늦게 뜨는 이유다. 이 문제와 대안은 <a href="screen.html">11장</a>에서, 간판처럼 멀리서 읽는 큰 글자는 <a href="display.html">12장</a>에서 다룬다.</p>
+
+    <div class="callout try">
+      <strong>세 가지 조판을 출력해 거리를 바꿔 읽기</strong>
+      아무 글이나 한 단락(다섯 줄 이상)을 골라 워드프로세서에서 세 벌로 짠다. ① 글자 크기 10pt, 행간 100%, 종이 폭을 가득 채운 줄. ② 10pt, 행간 160%, 줄 길이를 종이 폭의 절반쯤으로. ③ 14pt, 행간 160%, 줄 길이는 ②와 같게. 세 벌을 한 장에 출력해 벽에 붙이고, 50&nbsp;cm, 1&nbsp;m, 2&nbsp;m 떨어져 각각 읽어 본다. 어느 거리에서 어느 조판이 먼저 무너지는지, 어느 것을 "끝까지 읽고 싶은지" 적는다. 숫자는 아직 신경 쓰지 않는다. 이 책을 읽는 동안 같은 출력물로 몇 번 더 실험하게 된다.
+    </div>
+  </section>
+
+  <section id="evidence">
+    <h2>규칙과 근거</h2>
+    <p>타이포그래피에는 규칙처럼 전해지는 말이 많다. "본문은 세리프가 잘 읽힌다", "한 줄은 몇 자가 정답이다", "난독증에는 전용 글꼴이 좋다". 이 가운데 일부는 오래된 인쇄 관행에서 왔고, 일부는 특정한 조건에서 한 실험의 결과가 조건을 잃고 퍼진 것이다. 이 책은 규칙을 버리지 않지만 정답으로 다루지도 않는다. 규칙은 출발점이고, 무엇을 전하려는가에 맞는지로 판단한다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>흔히 듣는 말</th><th>근거의 수준(이 책의 판단)</th><th>다루는 장</th></tr></thead>
+        <tbody>
+          <tr><td>본문은 세리프 글꼴이 더 잘 읽힌다</td><td>연구 결과가 엇갈린다. 매체, 글자 크기, 독자에 따라 다르고 뚜렷한 차이를 찾지 못한 연구도 많다. 통설로 다룬다.</td><td><a href="readability.html">7장</a></td></tr>
+          <tr><td>한 줄에는 정해진 글자 수가 있다</td><td>권장 범위는 오랜 조판 관행과 일부 실험에서 나왔다. 화면 실험에서는 읽는 속도와 편하다는 느낌이 서로 다른 답을 내기도 했다. 범위로 다룬다.</td><td><a href="leading.html">6장</a></td></tr>
+          <tr><td>난독증에는 전용 글꼴이 도움이 된다</td><td>전용 글꼴의 효과를 확인하지 못했다는 연구가 여럿 있다. 글자 크기와 간격이 더 중요하다는 주장도 있다. 근거가 약하다.</td><td><a href="readability.html">7장</a></td></tr>
+          <tr><td>글자는 클수록 잘 읽힌다</td><td>작은 글자가 읽기를 느리게 한다는 것은 분명하지만, 어느 크기를 넘으면 더 커져도 빨라지지 않는다는 읽기 실험 결과가 있다.</td><td><a href="readability.html">7장</a></td></tr>
+          <tr><td>글자와 바탕의 대비는 4.5:1 이상</td><td>웹 접근성 표준(W3C WCAG 2)의 본문 글자 기준이다. 표준이므로 출처와 함께 수치로 쓴다.</td><td><a href="readability.html">7장</a>, <a href="../../color/chapters/access.html">ColorBook 13장</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <strong>"연구에 따르면 몇 퍼센트 빨리 읽힌다"는 문장을 의심한다</strong>
+      가독성 연구는 누가(어린이, 노인, 시력이 낮은 사람), 무엇을(낱말, 문장, 긴 글), 어디서(종이, 모니터, 휴대폰), 어떤 크기로 읽었는지에 따라 결과가 크게 달라진다. 한 실험의 "몇 퍼센트"가 조건 없이 인용되면 그 수치는 거의 아무것도 말해 주지 않는다. 이 책은 출처를 확인한 연구만 이름을 밝혀 소개하고, 수치 대신 원리와 근거의 수준을 전한다. 출처 없는 수치는 쓰지 않는다.
+    </div>
+
+    <p>규칙을 일부러 깨는 타이포그래피도 있다. 20세기 초 유럽의 미래파와 다다 시인들은 글자 크기와 방향을 마구 바꿔 소리와 소음을 지면에 옮기려 했고, 시인 이상<span class="en">(1910–1937)</span>은 「오감도」(1934) 연작에서 숫자와 점으로 이루어진 판을 시 속에 넣어 읽는 사람을 멈춰 세웠다. 이런 작업은 "읽기 편한가"로 재면 실패지만, 읽는 사람을 멈추게 하는 것이 목적이라면 성공이다. 이 책의 판단 기준이 "좋은 글자"가 아니라 "무엇을 전하려는가에 맞는가"인 이유다.</p>
+  </section>
+
+  <section id="map">
+    <h2>이 책의 지도</h2>
+    <p>지금까지 만난 질문들이 각각 한 장씩의 주제가 된다. 책은 네 부로 나뉜다. <b>글자</b>는 한 자의 뼈대와 갈래(라틴 글자의 해부, 한글의 구조, 글꼴의 갈래), <b>글줄</b>은 글자가 모여 줄이 될 때 생기는 간격의 문제(자간과 커닝, 행간과 글줄 길이, 읽히는 글자), <b>지면</b>은 줄이 모여 지면이 될 때의 질서(위계, 그리드, 정렬과 단락), <b>쓰임</b>은 매체가 바꾸는 것(화면의 글자, 제목과 레터링)이다. 13장 조판 실험실에서는 글 한 편으로 모든 손잡이를 한꺼번에 조정한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 470" role="img" aria-label="TypeBook의 지도: 1장을 가운데 두고 네 부의 장들이 둘러싼다">
+        <defs><marker id="ov-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <circle cx="230" cy="205" r="128" class="s-dash"/>
+        <circle cx="230" cy="205" r="44" class="f-acc-soft"/>
+        <text x="230" y="201" text-anchor="middle" class="lbl-acc">01</text>
+        <text x="230" y="220" text-anchor="middle" class="lbl-dim">지도</text>
+        <g id="ov-ring"></g>
+        <path d="M230 384 L230 404" class="s-line" marker-end="url(#ov-ar2)"/>
+        <rect x="118" y="410" width="104" height="40" rx="8" class="f-surface"/>
+        <rect x="238" y="410" width="104" height="40" rx="8" class="f-surface"/>
+        <text x="170" y="435" text-anchor="middle" class="lbl-b">13 실험실</text>
+        <text x="290" y="435" text-anchor="middle" class="lbl-b">14 용어집</text>
+        <rect x="8" y="8" width="12" height="12" rx="3" class="f-acc-soft"/><text x="26" y="19" class="lbl-dim">글자</text>
+        <rect x="70" y="8" width="12" height="12" rx="3" class="f-acc2-soft"/><text x="88" y="19" class="lbl-dim">글줄</text>
+        <rect x="8" y="30" width="12" height="12" rx="3" class="f-warn-soft"/><text x="26" y="41" class="lbl-dim">지면</text>
+        <rect x="70" y="30" width="12" height="12" rx="3" class="f-ok-soft"/><text x="88" y="41" class="lbl-dim">쓰임</text>
+      </svg>
+      <figcaption><b>그림 3. TypeBook의 지도.</b> 1장을 가운데 두고 2~12장이 둘레를 돈다. 칸의 색은 부를 나타낸다. 글자에서 시작해 글줄, 지면, 쓰임으로 갈수록 다루는 범위가 한 자에서 한 화면, 한 거리로 넓어진다. 둘레를 다 돌면 13장 실험실에서 모든 도구를 한꺼번에 쓴다. 칸을 누르면 그 장으로 간다(준비 중인 장은 흐리게).</figcaption>
+    </figure>
+
+    <p>마지막 시뮬레이터는 이 지도를 손에 쥐어 본다. 서점 소식 글 한 단락을 놓고 네 갈래의 손잡이를 한꺼번에 움직인다. 글꼴(글자), 자간·행간·글줄 길이(글줄), 정렬(지면)을 바꾸고, 아래 띠에서 그 단락을 흐리게 본 회색 덩어리를 함께 본다. 오른쪽 끝의 손잡이를 끌어 글줄 길이를 정한다.</p>
+
+    <div class="sim" id="sim-ov-map">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>네 손잡이로 짜는 한 단락</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ov-mp-cv" class="art"></canvas><span class="hint">오른쪽 끝 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-mp-font"><button data-value="serif" class="on">명조</button><button data-value="sans">고딕</button></div>
+          <label class="ctrl"><span>글자 크기 <output id="ov-mp-size-out"></output></span><input type="range" id="ov-mp-size" min="12" max="26" step="1" value="17"></label>
+          <label class="ctrl"><span>자간 <output id="ov-mp-track-out"></output></span><input type="range" id="ov-mp-track" min="-0.12" max="0.3" step="0.01" value="0"></label>
+          <label class="ctrl"><span>행간 <output id="ov-mp-lead-out"></output></span><input type="range" id="ov-mp-lead" min="1" max="2.6" step="0.05" value="1.7"></label>
+          <div class="seg" id="ov-mp-align"><button data-value="left" class="on">왼끝</button><button data-value="justify">양끝</button><button data-value="center">가운데</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자 · 2~4장</span><span class="v" id="ov-mp-o-font">—</span></div>
+        <div class="stat"><span class="k">글줄 · 5~7장</span><span class="v" id="ov-mp-o-line">—</span></div>
+        <div class="stat"><span class="k">지면 · 8~10장</span><span class="v" id="ov-mp-o-page">—</span></div>
+        <div class="stat"><span class="k">회색값(잉크 면적)</span><span class="v" id="ov-mp-o-ink">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 자간을 −0.12까지 줄인다. 한글 글자가 서로 닿을 듯 붙고, 아래 회색 띠가 눈에 띄게 진해진다. 자간과 굵기가 글줄의 "회색"을 정한다(<a href="spacing.html">5장</a>). ② 손잡이를 왼쪽으로 끌어 줄을 짧게 한 뒤 양끝 맞추기를 고른다. 어절 사이가 벌어진 줄이 생기고, 읽기 판에 "가장 넓은 어절 사이"가 커진다. 한글 양끝 맞추기의 고질적인 문제다(<a href="alignment.html">10장</a>). ③ 가운데 맞추기로 바꿔 세 줄 이상 읽어 본다. 줄마다 시작 위치가 달라 눈이 매번 처음을 찾아야 한다. 짧은 제목에는 어울리지만 긴 본문에는 맞지 않는 이유다. ④ 명조와 고딕을 오가며 회색값을 비교한다. (자간은 글자 크기에 대한 비율(em)로, 글자 쌍마다의 커닝은 무시했다. 회색값은 단락이 차지한 넓이에서 잉크가 칠해진 비율이다.)</div>
+    </div>
+
+    <p>네 갈래의 손잡이는 서로 맞물려 있다. 자간을 넓히면 줄이 길어지고, 줄이 길어지면 행간이 더 필요하며, 양끝 맞추기를 고르면 짧은 줄에서 어절 사이가 벌어진다. 그래서 타이포그래피에는 하나만 고쳐서 끝나는 일이 드물다. 이 책은 손잡이를 하나씩 따로 익힌 다음, 마지막 실험실에서 다시 한꺼번에 맞춘다. 그리고 어느 조합이 정답이라고 말하지 않는다. 같은 글도 휴대폰에서 소식을 읽는 손님과, 벽에 붙은 안내문을 지나가며 보는 손님에게는 다른 조판이 필요하다.</p>
+
+    <div class="callout try">
+      <strong>글자 일지 시작하기</strong>
+      작은 공책이나 휴대폰 사진첩 한 칸을 글자 일지로 정한다. 하루에 하나, 눈에 띈 글자를 기록한다. 간판, 버스 노선도, 약 봉투, 영수증, 책 표지 무엇이든 좋다. 사진을 찍었다면 옆에 세 가지를 적는다. 어디서 몇 걸음 떨어져 봤는지, 무엇이 먼저 읽혔는지, 그 글자의 말투가 내용과 맞았는지. 일주일 뒤에 다시 보면 "읽힌 글자"와 "보인 글자"가 갈린다. 이 일지가 장마다 실습 재료가 된다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 여름 조판 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>조판 노트 · 1장</span></div>
+      <h4>읽을 수는 있지만 읽고 싶지 않은 글</h4>
+      <p>가을에 책방 E의 색을 정하고(ColorBook), 겨울에 쇼윈도와 포스터를 짜고(CompositionBook), 봄에 안내 책자의 드로잉 열두 점을 그린(DrawingBook) 윤서윤에게 주인이 여름 일을 맡겼다. 이번에는 글자다. 네 가지 과제가 한꺼번에 왔다. 가로 1.8&nbsp;m 간판에 들어갈 로고타입 "책방 E", 서점 웹사이트의 소식 글 본문, 여름 낭독 모임 안내문(A4 한 장, 인쇄와 PDF), 그리고 봄에 그린 드로잉이 들어갈 「골목 산책」(A5, 16쪽)의 본문 조판이다.</p>
+      <p>서윤은 우선 웹사이트에 첫 소식 글을 올렸다. 글쓰기 도구의 기본 글꼴, 기본 크기 16픽셀, 따로 폭을 정하지 않은 본문 칸 그대로였다. 회사의 넓은 모니터에서 열어 보니 본문 칸이 1,200픽셀 가까이 벌어져, 16픽셀 한글 글자(이 장에서 쓴 고딕 기준으로 한 자 폭이 글자 크기의 0.92배)가 한 줄에 80자 넘게 이어졌다. 행간도 기본값 그대로라 줄이 빽빽했다. 주인은 휴대폰으로 읽고는 "읽을 수는 있는데, 끝까지 읽고 싶지는 않네요"라고 했다. 그리고 덧붙였다. "할머니 손님도 휴대폰으로 소식을 읽으세요."</p>
+      <p>멘토인 화가 한도경은 출력한 글을 책상에 펴 놓고 한참 보더니 연필로 줄 끝마다 작은 표시를 했다. "글자도 그림처럼 사이를 본다. 글자가 아니라 글자 사이, 줄 사이, 단락 사이의 하얀 데부터 봐." 활판 인쇄소 시절에는 줄 사이에 띠를 끼우는 일이 하루의 절반이었다고 했다. 도경은 웹사이트를 고치는 법은 모른다며 서윤에게 휴대폰 글자 크기 설정을 바꾸는 법을 물었고, 서윤은 그 대신 도경이 인쇄소에서 받아 둔 오래된 활자 견본첩을 빌렸다.</p>
+      <p>서윤의 선택은 네 과제의 순서를 정하는 것이었다. 기준은 "누가 얼마나 자주 읽는가"와 "되돌리기 어려운가"였다. 웹 본문은 매주 새 글이 올라가고 가장 많은 손님이 읽는다. 안내문은 모임 날짜에 맞춰 먼저 나가야 한다. 책자는 인쇄하면 고칠 수 없지만 본문 원고가 아직 다 모이지 않았다. 간판은 가장 오래 걸리지만 한번 걸면 가장 오래 남으니, 서두르지 않고 여름 내내 다듬기로 했다. 그리고 네 과제 모두에서 같은 문장으로 글꼴과 간격을 시험하기로 했다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>과제 우선순위: ① 웹사이트 소식 글 본문 ② 여름 낭독 모임 안내문 ③ 「골목 산책」 본문 조판 ④ 간판 로고타입(여름 내내 다듬음). 모든 시험에 쓸 본문 견본 문장: 「골목 끝 책방 E는 여름에도 창문을 활짝 열어 둔다. 오후 3시, 서가 사이로 햇빛이 길게 든다.」 받침이 있는 글자와 없는 글자, 라틴 대문자 E, 숫자 3이 함께 들어 있어 한글과 라틴 글자가 섞일 때의 문제까지 한 문장에서 볼 수 있다. 글꼴, 크기, 행간, 글줄 길이는 아직 정하지 않는다.</div>
+        <div><b>아직 남은 문제</b>왜 같은 16픽셀인데 글꼴마다 글자가 커 보이기도 작아 보이기도 하는가. 간판의 "E"는 한글 옆에서 어떤 비례여야 하는가.</div>
+        <div><b>다음 단계</b><a href="anatomy.html">2장</a>: 간판 로고타입의 영문 "E"를 기준선과 x높이, 획의 굵기로 다시 본다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>타이포그래피는 글을 읽히게 하려고 글자를 고르고, 크기와 간격을 정하고, 지면에 배치하는 일이다. 글꼴은 장식이 아니라 말투이고, 본문의 글자는 내용과 맞을 때 보이지 않는다.</li>
+      <li>라틴 글자는 기준선 위에 서고 글자마다 폭이 다르다(비례폭). 한글은 자모를 모아 네모 칸에 짓고 대부분의 글꼴에서 글자 폭이 같다. 두 체계를 한 줄에 쓰면 기준이 부딪힌다.</li>
+      <li>자간, 행간, 글줄 길이는 함께 움직인다. 줄이 길수록 다음 줄 처음을 찾기 어려워 행간이 더 필요하다.</li>
+      <li>흐리게 보면 위계가 보인다. 남는 덩어리의 크기와 진하기가 읽는 순서다. 위계는 크기만이 아니라 굵기, 간격, 자리로도 만든다.</li>
+      <li>매체가 글자를 바꾼다. 작은 화면 글자는 픽셀 격자에 맞춰 그려지고, 획이 많은 한글은 작은 크기에서 먼저 무너진다. 한글 글꼴은 글자 수가 많아 파일이 무겁다.</li>
+      <li>타이포그래피의 통설 가운데 상당수는 근거가 엇갈린다. 규칙은 출발점으로 쓰고, 판단은 "무엇을 전하려는가에 맞는가"로 한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 서점 소식 글이 "읽을 수는 있지만 끝까지 읽고 싶지 않다"는 말을 들었다. 넓은 모니터에서 기본 설정 그대로 올린 글이다. 가장 먼저 의심할 것은?</p>
+        <div class="opts">
+          <button class="opt">무료 글꼴을 써서 글자가 덜 정교하기 때문이다.</button>
+          <button class="opt" data-correct>줄이 화면 끝까지 이어져 한 줄이 너무 길고, 행간이 빽빽해 다음 줄을 찾기 어렵기 때문이다.</button>
+          <button class="opt">한글은 원래 라틴 글자보다 화면에서 읽기 어렵기 때문이다.</button>
+          <button class="opt">글자색이 검정이라 대비가 너무 높기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">기본 설정에서 본문 칸의 폭을 정하지 않으면 넓은 화면에서 한 줄이 80자를 훌쩍 넘는다. 줄이 길면 줄 끝에서 다음 줄 처음으로 돌아가는 눈의 도약이 멀어지고, 행간이 좁으면 이웃 줄과 헷갈린다. 글꼴의 가격은 정교함과 상관없고, 검정 글자의 높은 대비는 본문에서 문제가 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 웹사이트에 한글 웹 글꼴을 쓰면 라틴 글꼴만 쓸 때보다 첫 화면이 늦게 뜨는 일이 많다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">한글은 획이 많아서 브라우저가 글자 하나를 그리는 데 시간이 오래 걸리기 때문이다.</button>
+          <button class="opt">한글 글꼴은 모두 유료라서 내려받기 전에 인증을 거치기 때문이다.</button>
+          <button class="opt">한글은 세로쓰기 정보를 함께 내려받아야 하기 때문이다.</button>
+          <button class="opt" data-correct>한글은 조합할 수 있는 글자가 11,172자에 이르고, 글꼴은 적어도 2,350자 이상을 한 자씩 그려 넣어야 해서 파일이 훨씬 크기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">라틴 글꼴은 수백 자면 되지만 한글 글꼴은 완성형 2,350자에서 11,172자까지 담아야 해서 파일이 수십 배 무거워지기도 한다. 늦어지는 주된 이유는 그리는 시간이 아니라 내려받는 양이다. 한글 글꼴 가운데에도 이 책이 쓰는 것처럼 무료로 쓸 수 있는 오픈 라이선스 글꼴이 많다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 안내문 시안을 눈을 가늘게 뜨고 보는 "흐리게 보기"로 확인하는 것은 무엇인가?</p>
+        <div class="opts">
+          <button class="opt" data-correct>글자를 읽지 않아도 덩어리의 크기와 진하기로 읽는 순서(위계)가 드러나는지.</button>
+          <button class="opt">글자에 맞춤법 오류가 있는지.</button>
+          <button class="opt">인쇄했을 때 색이 화면과 같게 나오는지.</button>
+          <button class="opt">글꼴의 라이선스가 인쇄에 쓸 수 있는 것인지.</button>
+        </div>
+        <div class="quiz-exp">흐리게 보면 글자는 사라지고 덩어리만 남는다. 가장 먼저 보이는 덩어리가 가장 중요한 내용인지, 덩어리가 너무 많지 않은지를 확인하는 방법이다. 맞춤법이나 색, 라이선스는 흐리게 봐서 알 수 있는 것이 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. "본문에는 세리프 글꼴이 산세리프보다 더 잘 읽힌다"는 말에 대해 이 책이 취하는 태도는?</p>
+        <div class="opts">
+          <button class="opt">과학적으로 증명된 사실이므로 모든 본문에 세리프를 쓴다.</button>
+          <button class="opt">완전히 틀린 말이므로 세리프 글꼴은 본문에 쓰지 않는다.</button>
+          <button class="opt" data-correct>매체·크기·독자에 따라 연구 결과가 엇갈리는 통설로 보고, 근거의 수준을 밝힌 뒤 쓰임에 맞게 고른다.</button>
+          <button class="opt">화면에서는 세리프, 종이에서는 산세리프가 정답이다.</button>
+        </div>
+        <div class="quiz-exp">세리프와 산세리프의 가독성을 비교한 연구는 조건에 따라 결과가 다르고, 뚜렷한 차이를 찾지 못한 연구도 많다. 그래서 이 책은 이 말을 사실도 거짓도 아닌 통설로 다루고, <a href="readability.html">7장</a>에서 근거를 살핀다. 네 번째 보기처럼 매체별 정답을 정하는 것도 근거 없는 단정이다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs" data-nonum>
+    <h2>출처와 글꼴</h2>
+    <ul>
+      <li>Keith Rayner, "Eye movements in reading and information processing: 20 years of research", <i>Psychological Bulletin</i> 124(3), 1998. — 고정과 도약의 평균값은 이 리뷰의 요약을 옮겼다.</li>
+      <li>Beatrice Warde, "The Crystal Goblet, or Printing Should Be Invisible" (1930년대 강연, 1955년 같은 제목의 책에 수록). — 내용을 요약했다.</li>
+      <li>W3C, <i>Web Content Accessibility Guidelines (WCAG) 2.2</i>, 1.4.3 대비(최소). 본문 글자 4.5:1.</li>
+      <li>KS X 1001(정보 교환용 부호계): 완성형 한글 2,350자. 현대 한글 조합 수 11,172 = 19 × 21 × 28.</li>
+      <li>글꼴(모두 SIL Open Font License 1.1, Google Fonts로 불러옴): <b>Noto Serif KR</b>, <b>Noto Sans KR</b>(Google·Adobe의 Noto CJK / 본명조·본고딕 계열), <b>Nanum Pen Script</b>(나눔손글씨 펜, NAVER·Sandoll), <b>Black Han Sans</b>(검은고딕, Zess Type). 본문과 화면 글자는 이 서가의 기본 글꼴 Pretendard(OFL)다.</li>
+      <li>작품 이미지: 메트로폴리탄 미술관 Open Access(CC0). 자세한 내용은 <a href="../../credits.html">크레딧 페이지</a>.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874", GREEN = "#2f7d5b", RED = "#d24f39";
+  var FAM = {
+    serif: "'Noto Serif KR', serif",
+    sans: "'Noto Sans KR', sans-serif",
+    pen: "'Nanum Pen Script', cursive",
+    display: "'Black Han Sans', sans-serif"
+  };
+  var FNAME = { serif: "Noto Serif KR(명조)", sans: "Noto Sans KR(고딕)", pen: "Nanum Pen Script(손글씨)", display: "Black Han Sans(제목용)" };
+  function F(fam, px, wt) { return (wt || 400) + " " + px + "px " + FAM[fam]; }
+
+  var POST = "골목 끝 책방 E는 여름에도 창문을 활짝 열어 둔다. 오후 3시, 서가 사이로 햇빛이 길게 든다. 이번 주에는 동네 작가의 산문집 세 권과 오래된 식물 도감 한 권이 들어왔다. 도감은 표지가 조금 바랬지만 그림은 그대로 선명하다. 시원한 보리차를 준비해 두었으니 더운 길에 잠깐 쉬어 가셔도 좋다. 다음 주에는 여름 낭독 모임 소식을 전한다.";
+  var VOICE = ["오늘은 일찍 문을 닫습니다", "할머니의 여름 레시피", "긴급 공지: 내일 단수 안내"];
+
+  // 필요한 글꼴 조각(유니코드 범위)을 미리 불러 둔다. 도착하면 AB.canvas가 모든 캔버스를 다시 그린다.
+  if (document.fonts && document.fonts.load) {
+    var ALL = POST + VOICE.join("") + "Wild minimum 골목 끝 책방 책방 E의 여름 Reading 뷁 똠 앓 읽기 Hxp 0123456789 골목 벼룩시장 둘째 토요일 오전 시 오후 입구 공영주차장 집에서 잠자는 물건을 가져오세요 자리는 무료이고 먼저 오는 순서로 정합니다 문의 주민센터 날짜 장소";
+    ["serif", "sans"].forEach(function (k) { [400, 700].forEach(function (w) { document.fonts.load(F(k, 20, w), ALL).catch(function () {}); }); });
+    document.fonts.load(F("pen", 20), ALL).catch(function () {});
+    document.fonts.load(F("display", 20), ALL).catch(function () {});
+  }
+
+  /* ------------ 글줄 조판 도우미: 어절 단위 줄 바꿈, 자간(em), 정렬 ------------ */
+  function charW(ctx, ch) { return ctx.measureText(ch).width; }
+  function layout(ctx, text, o) {
+    ctx.font = o.font;
+    var tr = (o.track || 0) * o.size;
+    var space = charW(ctx, " ") + tr;
+    var words = text.split(" ").map(function (w) {
+      var ws = 0, cw = [];
+      for (var i = 0; i < w.length; i++) { var a = charW(ctx, w[i]) + tr; cw.push(a); ws += a; }
+      return { t: w, w: ws, cw: cw };
+    });
+    var lines = [], cur = [], curW = 0;
+    words.forEach(function (wd) {
+      var add = cur.length ? space + wd.w : wd.w;
+      if (cur.length && curW + add > o.width) { lines.push({ words: cur, w: curW }); cur = [wd]; curW = wd.w; }
+      else { cur.push(wd); curW += add; }
+    });
+    if (cur.length) lines.push({ words: cur, w: curW });
+    return { lines: lines, space: space };
+  }
+  function drawLayout(ctx, L, x0, y0, o) {
+    var lh = o.size * o.lead, maxGap = 0;
+    ctx.font = o.font; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left"; ctx.fillStyle = o.color || INK;
+    L.lines.forEach(function (ln, li) {
+      var gap = L.space, x = x0;
+      var last = li === L.lines.length - 1;
+      if (o.align === "justify" && !last && ln.words.length > 1) gap = L.space + (o.width - ln.w) / (ln.words.length - 1);
+      else if (o.align === "center") x = x0 + (o.width - ln.w) / 2;
+      if (ln.words.length > 1) maxGap = Math.max(maxGap, gap);
+      var y = y0 + li * lh + (lh - o.size) / 2 + o.size * 0.86;
+      ln.words.forEach(function (wd, wi) {
+        for (var i = 0; i < wd.t.length; i++) { ctx.fillText(wd.t[i], x, y); x += wd.cw[i]; }
+        if (wi < ln.words.length - 1) x += gap;
+      });
+      ln.x = (o.align === "center") ? x0 + (o.width - ln.w) / 2 : x0;
+      ln.y = y;
+    });
+    return { height: L.lines.length * lh, maxGap: maxGap };
+  }
+
+  /* ---------------- 그림 3: 장 고리 ---------------- */
+  (function () {
+    var g = document.getElementById("ov-ring");
+    var SHORT = { anatomy: "글자의 해부", hangul: "한글의 구조", classification: "글꼴의 갈래", spacing: "자간·커닝", leading: "행간·글줄", readability: "읽히는 글자", hierarchy: "위계", grid: "그리드", alignment: "정렬·단락", screen: "화면의 글자", display: "제목·레터링" };
+    var chs = AB.CHAPTERS.filter(function (c) { return +c.num >= 2 && +c.num <= 12; });
+    var cls = ["f-acc-soft", "f-acc2-soft", "f-warn-soft", "f-ok-soft"];
+    var html = "";
+    chs.forEach(function (c, i) {
+      var a = -Math.PI / 2 + (i / chs.length) * Math.PI * 2, cs = Math.cos(a), sn = Math.sin(a);
+      var x = 230 + 128 * cs, y = 205 + 128 * sn, lx = 230 + 168 * cs, ly = 205 + 168 * sn + 5;
+      var anchor = Math.abs(cs) < 0.3 ? "middle" : cs > 0 ? "start" : "end";
+      var ready = c.ready !== false;
+      var node = '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="21" class="f-elev"/>' +
+        '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="21" class="' + cls[c.part] + '"' + (ready ? "" : ' opacity=".5"') + '/>' +
+        '<text x="' + x.toFixed(1) + '" y="' + (y + 5).toFixed(1) + '" text-anchor="middle" class="lbl-b">' + c.num + "</text>" +
+        '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="' + anchor + '" class="lbl-dim">' + (SHORT[c.slug] || c.title) + "</text>";
+      html += ready ? '<a href="' + c.slug + '.html">' + node + "</a>" : "<g><title>" + c.title + " (준비 중)</title>" + node + "</g>";
+    });
+    g.innerHTML = html;
+  })();
+
+  /* ---------------- 시뮬레이터 1: 같은 문장, 네 가지 목소리 ---------------- */
+  (function () {
+    var fontG = AB.seg("ov-vo-font", function () { cv.redraw(); });
+    var textG = AB.seg("ov-vo-text", function () { cv.redraw(); });
+    var sizeG = AB.range("ov-vo-size", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#ov-vo-cv", function (ctx, w, h) {
+      var fam = fontG(), txt = VOICE[+textG()], size = sizeG();
+      var top = Math.round(h * 0.42);
+      // 위: 고른 글꼴로 크게
+      var wt = fam === "pen" || fam === "display" ? 400 : 700;
+      ctx.font = F(fam, size, wt);
+      var tw = ctx.measureText(txt).width;
+      var s = size;
+      if (tw > w - 32) { s = Math.floor(size * (w - 32) / tw); ctx.font = F(fam, s, wt); tw = ctx.measureText(txt).width; }
+      ctx.fillStyle = fam === "display" ? RED : INK; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      if (fam === "pen") ctx.fillStyle = "#28407a";
+      var bx = Math.max(16, (w - tw) / 2);
+      ctx.fillText(txt, bx, top * 0.62 + s * 0.35);
+      ctx.font = AB.font(11); ctx.fillStyle = INK_DIM; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText(FNAME[fam] + (s < size ? " · 폭에 맞춰 " + s + "px로 줄임" : ""), w / 2, top * 0.62 + s * 0.35 + 12);
+      // 아래: 네 글꼴 비교(같은 크기 20px)
+      ctx.strokeStyle = "#e4e0d8"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(16, top); ctx.lineTo(w - 16, top); ctx.stroke();
+      var keys = ["serif", "sans", "pen", "display"], cs = Math.min(22, Math.max(13, (w - 120) / (txt.length * 1.05)));
+      var rowH = (h - top - 16) / 4, maxW = 0, ws = {};
+      keys.forEach(function (k) { ctx.font = F(k, cs, k === "pen" || k === "display" ? 400 : 700); ws[k] = ctx.measureText(txt).width; maxW = Math.max(maxW, ws[k]); });
+      keys.forEach(function (k, i) {
+        var y = top + 8 + rowH * i + rowH * 0.62;
+        ctx.font = AB.font(11); ctx.fillStyle = k === fam ? RED : INK_DIM; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        ctx.fillText(["명조", "고딕", "손글씨", "제목용"][i], 16, y);
+        ctx.font = F(k, cs, k === "pen" || k === "display" ? 400 : 700); ctx.fillStyle = INK;
+        ctx.fillText(txt, 68, y);
+        ctx.fillStyle = k === fam ? RED : "#c9c4ba";
+        ctx.fillRect(68, y + 5, ws[k], 2);
+      });
+      // 읽기 판
+      ctx.font = F(fam, 100, wt);
+      var w100 = ctx.measureText(txt).width / 100;
+      var nCh = txt.replace(/\s/g, "").length;
+      var sp = ctx.measureText(" ").width / 100 * (txt.split(" ").length - 1);
+      AB.stat("ov-vo-o-name", FNAME[fam]);
+      AB.stat("ov-vo-o-w", AB.fix(w100, 2) + " em");
+      AB.stat("ov-vo-o-avg", AB.fix((w100 - sp) / nCh, 2) + " em");
+    }, { aspect: 0.62, minHeight: 300, maxHeight: 400, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 보이지 않는 글자 상자 ---------------- */
+  (function () {
+    var TX = { latin: "Wild minimum", hangul: "골목 끝 책방", mixed: "책방 E의 여름 3시" };
+    var textG = AB.seg("ov-bx-text", function () { cv.redraw(); });
+    var fontG = AB.seg("ov-bx-font", function () { cv.redraw(); });
+    var linesG = AB.check("ov-bx-lines", function () { cv.redraw(); });
+    var cv = AB.canvas("#ov-bx-cv", function (ctx, w, h) {
+      var txt = TX[textG()], fam = fontG();
+      ctx.font = F(fam, 100);
+      var adv = [], tot = 0;
+      for (var i = 0; i < txt.length; i++) { var a = ctx.measureText(txt[i]).width; adv.push(a); tot += a; }
+      var m = ctx.measureText("Hxg가");
+      var asc = m.fontBoundingBoxAscent || 100, desc = m.fontBoundingBoxDescent || 25;
+      var size = Math.min((w - 40) / (tot / 100), (h - 70) / ((asc + desc) / 100));
+      var k = size / 100, x = (w - tot * k) / 2, base = 26 + asc * k;
+      ctx.font = F(fam, size);
+      var mx = ctx.measureText("x").actualBoundingBoxAscent, mH = ctx.measureText("H").actualBoundingBoxAscent;
+      var tints = ["#f3d9a4", "#cfe3d6"], minI = -1, maxI = -1;
+      for (var j = 0; j < txt.length; j++) {
+        var aw = adv[j] * k;
+        if (txt[j] !== " ") {
+          ctx.fillStyle = tints[j % 2]; ctx.globalAlpha = 0.75;
+          ctx.fillRect(x, base - asc * k, aw, (asc + desc) * k);
+          ctx.globalAlpha = 1; ctx.strokeStyle = "#b9a98a"; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, base - asc * k + 0.5, aw - 1, (asc + desc) * k - 1);
+          if (minI < 0 || adv[j] < adv[minI]) minI = j;
+          if (maxI < 0 || adv[j] > adv[maxI]) maxI = j;
+        }
+        ctx.fillStyle = INK; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        ctx.fillText(txt[j], x, base);
+        x += aw;
+      }
+      if (linesG()) {
+        var x0 = (w - tot * k) / 2 - 10, x1 = (w + tot * k) / 2 + 10;
+        [[base, "기준선", GREEN], [base - mx, "x높이", RED], [base - mH, "대문자 높이", "#28407a"]].forEach(function (L) {
+          ctx.strokeStyle = L[2]; ctx.lineWidth = 1.2; ctx.setLineDash([5, 4]);
+          ctx.beginPath(); ctx.moveTo(x0, L[0]); ctx.lineTo(x1, L[0]); ctx.stroke(); ctx.setLineDash([]);
+        });
+        ctx.font = AB.font(11); ctx.textBaseline = "top"; ctx.textAlign = "left";
+        var ly = base + desc * k + 10;
+        [["기준선", GREEN], ["x높이", RED], ["대문자 높이", "#28407a"]].forEach(function (L, i) {
+          var lx = 20 + i * 96; ctx.strokeStyle = L[1]; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(lx, ly + 6); ctx.lineTo(lx + 22, ly + 6); ctx.stroke(); ctx.setLineDash([]);
+          ctx.fillStyle = INK_DIM; ctx.fillText(L[0], lx + 28, ly);
+        });
+      }
+      var em = function (i) { return "“" + txt[i] + "” " + AB.fix(adv[i] / 100, 2) + " em"; };
+      AB.stat("ov-bx-o-min", em(minI)); AB.stat("ov-bx-o-max", em(maxI));
+      AB.stat("ov-bx-o-r", AB.fix(adv[maxI] / adv[minI], 2) + "배");
+    }, { aspect: 0.42, minHeight: 220, maxHeight: 300, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 읽을 수는 있지만 읽고 싶지 않은 글 ---------------- */
+  (function () {
+    var sizeG = AB.range("ov-ms-size", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var leadG = AB.range("ov-ms-lead", function (v) { return AB.fix(v, 2) + "배"; }, function () { cv.redraw(); });
+    var sweepG = AB.check("ov-ms-sweep", function () { cv.redraw(); });
+    var edge = 1; // 글줄 오른쪽 끝(캔버스 폭에 대한 비율)
+    var cv = AB.canvas("#ov-ms-cv", function (ctx, w, h) {
+      var size = sizeG(), lead = leadG(), pad = 14;
+      var right = pad + Math.max(size * 4, (w - 2 * pad - 14) * edge);
+      var o = { font: F("sans", size), size: size, lead: lead, width: right - pad, align: "left", track: 0 };
+      // 화면 테두리
+      ctx.strokeStyle = "#d9d4ca"; ctx.lineWidth = 1; ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+      var L = layout(ctx, POST, o);
+      var r = drawLayout(ctx, L, pad, pad, o);
+      // 줄 바꿈 화살표(눈의 되돌아가기)
+      if (sweepG()) {
+        ctx.strokeStyle = "rgba(210,79,57,0.55)"; ctx.lineWidth = 1.2; ctx.setLineDash([4, 3]);
+        for (var i = 0; i < Math.min(L.lines.length - 1, 4); i++) {
+          var a = L.lines[i], b = L.lines[i + 1];
+          var ex = a.x + a.w, ey = a.y - size * 0.3, sx = b.x, sy = b.y - size * 0.3;
+          ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(sx + 4, sy); ctx.stroke();
+          ctx.setLineDash([]); ctx.beginPath(); ctx.moveTo(sx + 4, sy); ctx.lineTo(sx + 11, sy - 4); ctx.moveTo(sx + 4, sy); ctx.lineTo(sx + 12, sy + 2); ctx.stroke(); ctx.setLineDash([4, 3]);
+        }
+        ctx.setLineDash([]);
+      }
+      // 글줄 끝 손잡이
+      ctx.strokeStyle = "rgba(47,125,91,0.5)"; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(right, 6); ctx.lineTo(right, h - 6); ctx.stroke(); ctx.setLineDash([]);
+      AB.handle(ctx, right, Math.min(h - 18, pad + r.height / 2), { r: 7, fill: GREEN, ring: "#1d3b2c" });
+      var chars = 0; L.lines.forEach(function (ln) { ln.words.forEach(function (wd) { chars += wd.t.length; }); chars += ln.words.length - 1; });
+      AB.stat("ov-ms-o-cpl", AB.fix(chars / L.lines.length, 1) + "자");
+      AB.stat("ov-ms-o-lines", L.lines.length + "줄");
+      AB.stat("ov-ms-o-gap", AB.fix(size * (lead - 1), 1) + " px");
+      st.right = right;
+    }, { get height() { var pw = Math.max(200, document.getElementById("ov-ms-cv").parentElement.clientWidth || 600); return pw < 420 ? 380 : 300; }, bg: PAPER });
+    var st = { right: 0 };
+    var dragging = false;
+    AB.drag(cv.canvas, {
+      start: function (x) { dragging = Math.abs(x - st.right) < 40; },
+      move: function (x) { if (!dragging) return; edge = AB.clamp((x - 14) / (cv.w - 28 - 14), 0.05, 1); cv.redraw(); },
+      end: function () { dragging = false; }
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 흐리게 보기 ---------------- */
+  (function () {
+    var blurG = AB.range("ov-sq-blur", function (v) { return AB.fix(v, 1); }, function () { a.redraw(); b.redraw(); });
+    var fontG = AB.seg("ov-sq-font", function () { a.redraw(); b.redraw(); });
+    var LINES = [
+      ["골목 벼룩시장", "t"], ["6월 둘째 토요일 오전 10시–오후 2시", "m"], ["골목 입구 공영주차장", "m"],
+      ["집에서 잠자는 물건을 가져오세요.", "b"], ["자리는 무료이고, 먼저 오는 순서로 정합니다.", "b"], ["문의: 동네 주민센터", "s"]
+    ];
+    function render(ctx, w, h, hier) {
+      var off = document.createElement("canvas"), dpr = 1;
+      off.width = w; off.height = h;
+      var c = off.getContext("2d");
+      c.fillStyle = PAPER; c.fillRect(0, 0, w, h);
+      var fam = fontG(), base = Math.max(11, Math.min(15, w / 30));
+      var spec = hier ? { t: [base * 2.4, 700, 1.25], m: [base * 1.1, 700, 1.5], b: [base, 400, 1.6], s: [base * 0.9, 400, 1.6] }
+                      : { t: [base, 400, 1.6], m: [base, 400, 1.6], b: [base, 400, 1.6], s: [base, 400, 1.6] };
+      var y = h * 0.12, x = w * 0.1;
+      LINES.forEach(function (L, i) {
+        var s = spec[L[1]];
+        if (hier && (L[1] === "m" && LINES[i - 1][1] === "t")) y += base * 0.8;
+        if (hier && (L[1] === "b" && LINES[i - 1][1] === "m")) y += base * 1.2;
+        if (hier && L[1] === "s") y += base * 1.2;
+        c.font = F(fam, s[0], s[1]); c.fillStyle = L[1] === "s" && hier ? INK_DIM : INK; c.textBaseline = "alphabetic";
+        var txt = L[0], tw = c.measureText(txt).width;
+        if (tw > w * 0.84) { var fs = s[0] * (w * 0.84) / tw; c.font = F(fam, fs, s[1]); }
+        y += s[0] * s[2];
+        c.fillText(txt, x, y);
+      });
+      var bl = blurG();
+      if (bl > 0) {
+        var f = 1 / (1 + bl * 0.9);
+        var sw = Math.max(4, Math.round(w * f)), sh = Math.max(4, Math.round(h * f));
+        var t = document.createElement("canvas"); t.width = sw; t.height = sh;
+        var tc = t.getContext("2d"); tc.imageSmoothingEnabled = true; tc.imageSmoothingQuality = "high";
+        tc.drawImage(off, 0, 0, sw, sh);
+        var t2 = document.createElement("canvas"); t2.width = Math.max(2, Math.round(sw / 2)); t2.height = Math.max(2, Math.round(sh / 2));
+        var t2c = t2.getContext("2d"); t2c.imageSmoothingEnabled = true; t2c.drawImage(t, 0, 0, t2.width, t2.height);
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(bl > 3 ? t2 : t, 0, 0, w, h);
+      } else ctx.drawImage(off, 0, 0, w, h);
+      return spec;
+    }
+    var opts = { aspect: 0.75, minHeight: 280, maxHeight: 420, bg: PAPER };
+    var a = AB.canvas("#ov-sq-a", function (ctx, w, h) { render(ctx, w, h, false); AB.stat("ov-sq-o-a", "1단계(모두 같은 크기·굵기)"); }, opts);
+    var b = AB.canvas("#ov-sq-b", function (ctx, w, h) {
+      var s = render(ctx, w, h, true);
+      AB.stat("ov-sq-o-b", "3단계(제목 · 날짜와 장소 · 본문)");
+      AB.stat("ov-sq-o-r", AB.fix(s.t[0] / s.b[0], 1) + "배");
+    }, opts);
+    AB.compare("#ov-sq-cmp", { labels: ["모두 같게", "세 단계"], pos: 0.5 });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 픽셀 위의 글자 ---------------- */
+  (function () {
+    var TX = ["책방 읽기", "Reading", "뷁 똠 앓"];
+    var sizeG = AB.range("ov-px-size", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var textG = AB.seg("ov-px-text", function () { cv.redraw(); });
+    var fontG = AB.seg("ov-px-font", function () { cv.redraw(); });
+    var bwG = AB.check("ov-px-bw", function () { cv.redraw(); });
+    var cv = AB.canvas("#ov-px-cv", function (ctx, w, h) {
+      var px = sizeG(), txt = TX[+textG()], fam = fontG();
+      var off = document.createElement("canvas");
+      var oc = off.getContext("2d", { willReadFrequently: true });
+      oc.font = F(fam, px);
+      var tw = Math.ceil(oc.measureText(txt).width) + 4, th = Math.ceil(px * 1.5);
+      off.width = tw; off.height = th;
+      oc.fillStyle = "#ffffff"; oc.fillRect(0, 0, tw, th);
+      oc.font = F(fam, px); oc.fillStyle = "#000000"; oc.textBaseline = "alphabetic";
+      oc.fillText(txt, 2, Math.round(px * 1.12));
+      var id = oc.getImageData(0, 0, tw, th), d = id.data, aa = 0, ink = 0;
+      for (var i = 0; i < d.length; i += 4) {
+        var v = d[i];
+        if (v < 250) { ink++; if (v > 5) aa++; }
+        if (bwG()) { var q = v < 128 ? 0 : 255; d[i] = d[i + 1] = d[i + 2] = q; }
+      }
+      oc.putImageData(id, 0, 0);
+      var sc = Math.max(1, Math.floor(Math.min((w - 24) / tw, (h - 54) / th)));
+      var ox = Math.round((w - tw * sc) / 2), oy = 14;
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(off, ox, oy, tw * sc, th * sc);
+      if (sc >= 5) {
+        ctx.strokeStyle = "rgba(120,120,120,0.25)"; ctx.lineWidth = 1; ctx.beginPath();
+        for (var gx = 0; gx <= tw; gx++) { ctx.moveTo(ox + gx * sc + 0.5, oy); ctx.lineTo(ox + gx * sc + 0.5, oy + th * sc); }
+        for (var gy = 0; gy <= th; gy++) { ctx.moveTo(ox, oy + gy * sc + 0.5); ctx.lineTo(ox + tw * sc, oy + gy * sc + 0.5); }
+        ctx.stroke();
+      }
+      // 실제 크기 미리보기
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
+      var py = Math.min(h - 12, oy + th * sc + 26);
+      ctx.fillText("실제 크기:", 14, py);
+      ctx.font = F(fam, px); ctx.fillStyle = INK; ctx.fillText(txt, 82, py);
+      ctx.font = AB.font(11); ctx.fillStyle = INK_DIM; ctx.textAlign = "right"; ctx.fillText("확대 " + sc + "배", w - 14, py);
+      AB.stat("ov-px-o-grid", px + " × " + px + " px 안팎");
+      AB.stat("ov-px-o-aa", bwG() ? "0% (흑백만)" : Math.round(aa / Math.max(1, ink) * 100) + "% (잉크 픽셀 중)");
+    }, { aspect: 0.5, minHeight: 240, maxHeight: 330, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 네 손잡이로 짜는 한 단락 ---------------- */
+  (function () {
+    var fontG = AB.seg("ov-mp-font", function () { cv.redraw(); });
+    var sizeG = AB.range("ov-mp-size", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var trackG = AB.range("ov-mp-track", function (v) { return (v >= 0 ? "+" : "−") + AB.fix(Math.abs(v), 2) + " em"; }, function () { cv.redraw(); });
+    var leadG = AB.range("ov-mp-lead", function (v) { return AB.fix(v, 2) + "배"; }, function () { cv.redraw(); });
+    var alignG = AB.seg("ov-mp-align", function () { cv.redraw(); });
+    var edge = 0.78, st = { right: 0 };
+    var ALN = { left: "왼끝 맞추기", justify: "양끝 맞추기", center: "가운데 맞추기" };
+    var cv = AB.canvas("#ov-mp-cv", function (ctx, w, h) {
+      var size = sizeG(), pad = 16, fam = fontG();
+      var stripH = 46;
+      var right = pad + Math.max(size * 5, (w - 2 * pad - 12) * edge);
+      var o = { font: F(fam, size), size: size, lead: leadG(), width: right - pad, align: alignG(), track: trackG() };
+      var L = layout(ctx, POST, o);
+      var r = drawLayout(ctx, L, pad, pad, o);
+      var bodyH = Math.min(r.height, h - stripH - pad * 2 - 8);
+      // 글줄 끝 손잡이
+      ctx.strokeStyle = "rgba(47,125,91,0.5)"; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(right + 0.5, 6); ctx.lineTo(right + 0.5, h - stripH - 14); ctx.stroke(); ctx.setLineDash([]);
+      AB.handle(ctx, right, Math.min(h - stripH - 24, pad + bodyH / 2), { r: 7, fill: GREEN, ring: "#1d3b2c" });
+      st.right = right;
+      // 회색값: 단락 영역의 잉크 비율
+      var dpr = cv && cv.dpr ? cv.dpr : Math.min(window.devicePixelRatio || 1, 2);
+      var rx = Math.round(pad * dpr), ry = Math.round(pad * dpr), rw = Math.max(1, Math.round((right - pad) * dpr)), rh = Math.max(1, Math.round(Math.min(r.height, h - stripH - pad * 2) * dpr));
+      var ink = 0;
+      try {
+        var id = ctx.getImageData(rx, ry, rw, rh).data, sum = 0, n = 0;
+        for (var i = 0; i < id.length; i += 16) { sum += 1 - id[i] / 251; n++; }
+        ink = Math.max(0, sum / n);
+      } catch (e) { ink = 0; }
+      // 아래 띠: 흐리게 본 회색
+      var sy = h - stripH - 4;
+      ctx.fillStyle = "#efece5"; ctx.fillRect(0, sy - 6, w, stripH + 10);
+      var g = Math.round(251 - ink * 251 * 1.0);
+      ctx.fillStyle = "rgb(" + g + "," + g + "," + (g - 2) + ")";
+      ctx.fillRect(pad, sy + 6, right - pad, stripH - 18);
+      ctx.strokeStyle = "#cfc9be"; ctx.strokeRect(pad + 0.5, sy + 6.5, right - pad - 1, stripH - 19);
+      ctx.font = AB.font(11); ctx.fillStyle = INK_DIM; ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("흐리게 본 단락의 회색", pad, sy - 4 + 0);
+      var chars = 0; L.lines.forEach(function (ln) { ln.words.forEach(function (wd) { chars += wd.t.length; }); chars += ln.words.length - 1; });
+      var cpl = chars / L.lines.length;
+      AB.stat("ov-mp-o-font", FNAME[fam].replace(/\(.*\)/, "") + " " + size + "px");
+      AB.stat("ov-mp-o-line", "한 줄 " + AB.fix(cpl, 0) + "자 · 행간 " + AB.fix(leadG(), 2));
+      var pg = ALN[alignG()];
+      if (alignG() === "justify") pg += " · 가장 넓은 어절 사이 " + AB.fix(r.maxGap / size, 2) + " em";
+      AB.stat("ov-mp-o-page", pg);
+      AB.stat("ov-mp-o-ink", AB.fix(ink * 100, 1) + "%");
+    }, { get height() { var pw = Math.max(200, document.getElementById("ov-mp-cv").parentElement.clientWidth || 600); return pw < 420 ? 470 : 380; }, bg: PAPER, readback: true });
+    var dragging = false;
+    AB.drag(cv.canvas, {
+      start: function (x) { dragging = Math.abs(x - st.right) < 40; },
+      move: function (x) { if (!dragging) return; edge = AB.clamp((x - 16) / (cv.w - 32 - 12), 0.05, 1); cv.redraw(); },
+      end: function () { dragging = false; }
+    });
+  })();
+})();
+</script>
+</body>
+</html>

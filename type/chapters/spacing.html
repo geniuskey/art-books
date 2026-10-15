@@ -285,8 +285,8 @@
       <div class="sim-body">
         <div class="sim-view paper"><canvas id="sg-cv" class="art"></canvas><span class="hint">"방"과 "E" 아래 손잡이를 끈다</span></div>
         <div class="sim-controls">
-          <label class="ctrl"><span>글자 사이 목표 빈 거리 <output id="sg-g-out"></output></span><input type="range" id="sg-g" min="0.02" max="0.24" step="0.005" value="0.09"></label>
-          <label class="ctrl"><span>낱말 사이 ÷ 글자 사이 <output id="sg-r-out"></output></span><input type="range" id="sg-r" min="1" max="5" step="0.1" value="2.5"></label>
+          <label class="ctrl"><span>글자 사이 목표 빈 거리 <output id="sg-g-out"></output></span><input type="range" id="sg-g" min="0.02" max="0.30" step="0.005" value="0.12"></label>
+          <label class="ctrl"><span>낱말 사이 ÷ 글자 사이 <output id="sg-r-out"></output></span><input type="range" id="sg-r" min="1" max="5" step="0.1" value="3"></label>
           <div class="seg" id="sg-dist"><button data-value="0" class="on">가까이</button><button data-value="10">10 m</button><button data-value="30">30 m</button></div>
           <div class="btn-row"><button type="button" class="btn" id="sg-fit">목표대로 맞추기</button><button type="button" class="btn" id="sg-metric">글꼴 기본값</button></div>
         </div>
@@ -473,6 +473,16 @@
     }
     return (lo + hi) / 2;
   }
+  // 두 글자에 모두 잉크가 있는 줄만 세는 평균 거리(낱말 사이처럼 넓은 간격용)
+  function gapBoth(A, B, xa, xb) {
+    var s = 0, n = 0;
+    for (var r = Math.max(A.top, B.top); r < Math.min(A.bot, B.bot); r++) {
+      var ra = A.R[r + A.by], lb = B.L[r + B.by];
+      if (ra == null || lb == null) continue;
+      s += (xb + lb) - (xa + ra); n++;
+    }
+    return n ? s / n : 0;
+  }
   var cv2 = function (arr) { var m = arr.reduce(function (a, b) { return a + b; }, 0) / arr.length; var v = arr.reduce(function (a, b) { return a + (b - m) * (b - m); }, 0) / arr.length; return m ? Math.sqrt(v) / m : 0; };
   function reg(c) { CANS.push(c); return c; }
   if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { PROF = {}; CANS.forEach(function (c) { c.redraw(); }); });
@@ -568,7 +578,7 @@
   /* ---------------- 시뮬레이터 2: 손으로 하는 커닝 ---------------- */
   (function () {
     var word = "AVATAR", kern = [], showArea = true;
-    var CAP = 0.2; // em
+    var CAP = 0.35; // em
     function reset() { kern = []; for (var i = 0; i < word.length - 1; i++) kern.push(0); }
     reset();
     var layout = null, dragI = -1;
@@ -649,7 +659,7 @@
       var m = which === "a" ? "none" : mode();
       ctx.font = font; ctx.fillStyle = INK; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
       if ("fontKerning" in ctx) ctx.fontKerning = "none";
-      var H = prof("H", font, px), band = [H.top, 0], cap = 0.2 * px, ref = gapOf(H, H, 0, H.adv, band, cap).g;
+      var H = prof("H", font, px), band = [H.top, 0], cap = 0.35 * px, ref = gapOf(H, H, 0, H.adv, band, cap).g;
       var gaps = [], maxK = { v: 0, p: "" };
       LINES.forEach(function (s, li) {
         var y = Math.round(h * 0.08 + px * 1.05 + li * px * 1.3), x = 24, prev = null;
@@ -668,7 +678,7 @@
         }
       });
       label(ctx, which === "a" ? "커닝 없음" : (m === "metric" ? "메트릭(글꼴)" : "옵티컬(모델)"), which === "a" ? 14 : w - 14, h - 24, { size: 11, color: DIM, weight: 600, align: which === "a" ? "left" : "right" });
-      stats[which] = { cv: cv2(gaps), max: maxK, px: px };
+      stats[which] = { cv: cv2(gaps), max: maxK, px: px, gaps: gaps }; window.__cmStats = stats;
       if (stats.a && stats.b) {
         AB.stat("cm-o-a", (stats.a.cv * 100).toFixed(0) + "%");
         AB.stat("cm-o-b", (stats.b.cv * 100).toFixed(0) + "%");
@@ -793,14 +803,16 @@
       return [x1, x2, x3];
     }
     function gaps(M, xs) {
-      return [gapOf(M.P[0], M.P[1], xs[0], xs[1], M.band, M.cap).g / M.px, gapOf(M.P[1], M.P[2], xs[1], xs[2], [M.band[0], 0], M.cap * 10).g / M.px];
+      return [gapBoth(M.P[0], M.P[1], xs[0], xs[1]) / M.px, gapBoth(M.P[1], M.P[2], xs[1], xs[2]) / M.px];
     }
     function fit() {
       var M = metrics(EMREF);
-      var e1 = solve(M.P[0], M.P[1], M.band, M.cap, gTarget() * M.px, M.px); k1 = Math.round(e1 / M.px * 1000 / 5) * 5;
+      var lo1 = -0.6 * M.px, hi1 = 0.6 * M.px;
+      for (var j = 0; j < 30; j++) { var m1 = (lo1 + hi1) / 2; if (gapBoth(M.P[0], M.P[1], 0, M.P[0].adv + m1) < gTarget() * M.px) lo1 = m1; else hi1 = m1; }
+      k1 = Math.round((lo1 + hi1) / 2 / M.px * 1000 / 5) * 5;
       // 방–E: 낱말 사이 빈 거리 = 목표 × 비율. 깊이 제한 없이(공백은 넉넉히) 평균 거리로 맞춘다
       var want = gTarget() * ratio() * M.px, lo = -0.5 * M.px, hi = 1.5 * M.px;
-      for (var i = 0; i < 30; i++) { var mid = (lo + hi) / 2; var xs = [0, 0, M.P[1].adv + M.space + mid]; var g = gapOf(M.P[1], M.P[2], 0, xs[2], [M.band[0], 0], M.cap * 10).g; if (g < want) lo = mid; else hi = mid; }
+      for (var i = 0; i < 30; i++) { var mid = (lo + hi) / 2; var xs = [0, 0, M.P[1].adv + M.space + mid]; var g = gapBoth(M.P[1], M.P[2], 0, xs[2]); if (g < want) lo = mid; else hi = mid; }
       k2 = Math.round((lo + hi) / 2 / M.px * 1000 / 5) * 5;
       cv.redraw();
     }
