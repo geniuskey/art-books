@@ -11,7 +11,7 @@ window.AB_SHELF = {
     { order: 2, path: "composition", title: "CompositionBook", sub: "형태와 구도", status: "writing", motif: "spiral",
       desc: "점·선·면, 게슈탈트, 균형과 리듬, 3분할과 황금비의 실제, 시선의 흐름, 여백.",
       topics: ["점·선·면", "게슈탈트", "균형", "리듬", "3분할·황금비", "시선 흐름", "여백"] },
-    { order: 3, path: "drawing", title: "DrawingBook", sub: "드로잉", status: "planned", motif: "perspective",
+    { order: 3, path: "drawing", title: "DrawingBook", sub: "드로잉", status: "writing", motif: "perspective",
       desc: "1·2·3점 투시, 빛과 그림자, 비례, 인체의 구조, 제스처.",
       topics: ["투시", "빛과 그림자", "비례", "인체 구조", "제스처"] },
     { order: 4, path: "type", title: "TypeBook", sub: "타이포그래피", status: "planned", motif: "glyph",
