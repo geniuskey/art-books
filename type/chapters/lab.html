@@ -677,7 +677,8 @@
       if (opt.maxH) dev.style.height = opt.maxH + "px";
       let blocks = DOCS[docKey].blocks;
       if (limit) blocks = blocks.slice(0, limit);
-      const center = s.align === "center" ? "margin:0 auto;" : "";
+      // 넓은 화면에서는 글줄 폭을 묶은 본문 단을 화면 가운데에 둔다(웹사이트에서 흔한 배치)
+      const center = (s.align === "center" || (devKey === "wide" && s.measure < 200 && !s.noCenter)) ? "margin:0 auto;" : "";
       const page = D.page ? "display:flex;flex-direction:column;height:100%;" : "";
       const push = (lv) => (D.page && (lv === "note" || lv === "folio")) ? "margin-top:auto;" : "";
       dev.innerHTML = `<div class="tl-doc" style="font-family:${FONTS[s.font].css.replace(/"/g, "'")};font-size:${s.size}px;max-width:${s.measure}em;${center}${page}">` +
@@ -852,7 +853,7 @@
     }, { height: 40 });
     AB.drag(ruler.canvas, { move(x) { const g = rulerGeom; if (!g) return; const v = Math.round(AB.clamp((x - g.x0) / g.em, 10, 80)); meas.set(v); } });
     function upd() {
-      s = S({ size: size(), lead: lead(), measure: meas() });
+      s = S({ size: size(), lead: lead(), measure: meas(), track: -0.02, noCenter: true });
       P.render("news", s, st.dev);
       const m = measurePreview(P);
       const realW = Math.min(s.measure * s.size, DEVICES[st.dev].w - 2 * DEVICES[st.dev].pad);
