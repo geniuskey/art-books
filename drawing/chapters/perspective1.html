@@ -1,0 +1,881 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "눈높이가 곧 수평선이고, 앞으로 뻗은 평행선은 눈앞의 한 점으로 모인다. 소실점과 눈높이를 끌고, 바닥 타일을 거리점으로 깔고, 대각선으로 깊이를 나누고, 시야각이 넓어질 때의 왜곡을 보며 1점 투시를 익힌다. 뒤러의 판화에서 소실점을 찾고, 동아시아 회화의 평행 투영과도 비교한다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="perspective1">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 04</div>
+    <h1>1점 투시</h1>
+    <p class="lead">곧게 뻗은 철길 가운데 서서 멀리 보면 두 줄의 레일이 점점 가까워지다가 끝에서 한 점으로 만난다. 레일은 실제로 언제나 같은 간격인데도 그렇다. 긴 복도, 가로수 길, 서점의 서가 통로도 마찬가지다. 이 장은 그 "만나는 점"의 정체를 밝힌다. 그 점은 언제나 눈높이에 있고, 내가 정면으로 바라보는 방향에 있다. 소실점과 눈높이를 직접 끌어 보고, 바닥 타일을 깔고, 대각선 하나로 깊이를 고르게 나누는 법을 익힌 다음, 시야를 너무 넓히면 무엇이 무너지는지 본다. 그리고 뒤러의 판화에서 소실점을 찾고, 소실점 없이도 깊은 공간을 그린 동아시아 회화와 나란히 놓아 본다.</p>
+    <ul class="objectives">
+      <li>눈높이와 수평선이 같은 것이며, 눈높이보다 높은 면은 아랫면이, 낮은 면은 윗면이 보인다는 것을 설명한다.</li>
+      <li>화면에 수직으로 뻗은 평행선이 정면의 소실점 하나로 모이고, 화면과 나란한 선은 평행하게 남는 이유를 핀홀 투영으로 안다.</li>
+      <li>거리점과 대각선으로 바닥 타일을 깔고, 같은 간격의 기둥이나 서가 칸을 깊이 방향으로 나눈다.</li>
+      <li>보는 거리(시야각)가 그림의 왜곡을 정한다는 것을 알고, 60도 원을 점검 도구로 쓴다.</li>
+      <li>명작에서 소실점을 찾고, 1점 투시가 규칙대로 지켜지지 않거나 아예 다른 공간 체계를 쓰는 그림도 함께 읽는다.</li>
+    </ul>
+  </header>
+
+  <section id="window">
+    <h2>철길은 왜 한 점에서 만나는가</h2>
+    <p>르네상스의 건축가 레온 바티스타 알베르티<span class="en">(Leon Battista Alberti)</span>는 1435년의 『회화론』<span class="en">(De pictura)</span>에서 그림을 "열린 창"에 빗댔다. 화가와 장면 사이에 유리창을 하나 세우고, 한쪽 눈을 고정한 채 유리 너머에 보이는 것을 유리 위에 그대로 따라 그리면 그림이 된다는 생각이다. 이 유리창을 <span class="term">화면</span><span class="en">(Picture plane)</span>이라고 부른다. 장면의 모든 점에서 눈으로 빛이 들어오는데, 그 빛줄기가 화면을 뚫고 지나가는 자리가 그 점이 그림에 찍히는 자리다. 이렇게 한 점(눈)에 모이는 빛줄기로 그림을 만드는 방법이 <span class="term">선 원근법</span><span class="en">(Linear perspective)</span>, 흔히 말하는 투시도법이다.</p>
+
+    <figure class="diagram" id="fig-p1-side">
+      <svg viewBox="0 0 460 270" class="art" role="img" aria-label="옆에서 본 투시의 원리. 왼쪽의 눈에서 오른쪽의 서가 윗끝과 아랫끝으로 빛줄기가 이어지고, 그 빛줄기가 눈 앞의 세로 화면을 지나는 자리에 서가의 상이 맺힌다. 멀리 있는 두 번째 서가의 상은 더 작고 눈높이 쪽으로 모인다.">
+        <rect x="0" y="0" width="460" height="270" rx="10" fill="#fbfaf7"/>
+        <line x1="14" y1="214" x2="446" y2="214" stroke="#8d8879" stroke-width="1.2"/>
+        <g fill="#e6dfd1" stroke="#3a3833" stroke-width="1.2">
+          <rect x="250" y="82" width="22" height="132"/>
+          <rect x="382" y="82" width="22" height="132"/>
+        </g>
+        <line x1="40" y1="120" x2="446" y2="120" stroke="#2b6cb0" stroke-width="1.3" stroke-dasharray="6 4"/>
+        <g stroke="#c0392b" stroke-width="1" fill="none">
+          <path d="M44 120 L250 82"/><path d="M44 120 L250 214"/>
+          <path d="M44 120 L382 82"/><path d="M44 120 L382 214"/>
+        </g>
+        <line x1="130" y1="56" x2="130" y2="226" stroke="#3a3833" stroke-width="2.2"/>
+        <g fill="#c0392b">
+          <circle cx="130" cy="104.1" r="3"/><circle cx="130" cy="159.9" r="3"/>
+          <circle cx="130" cy="110.4" r="3"/><circle cx="130" cy="137.6" r="3"/>
+        </g>
+        <path d="M134 104.1 L134 159.9" stroke="#c0392b" stroke-width="3"/>
+        <path d="M138 110.4 L138 137.6" stroke="#b5179e" stroke-width="3"/>
+        <circle cx="40" cy="120" r="9" fill="#ffffff" stroke="#3a3833" stroke-width="1.5"/><circle cx="43" cy="120" r="3.5" fill="#3a3833"/>
+        <g font-size="11.5" fill="#2b2a30">
+          <text x="18" y="146">눈</text>
+          <text x="122" y="48" text-anchor="middle">화면(유리창)</text>
+          <text x="440" y="113" text-anchor="end" fill="#2b6cb0">눈높이 = 수평선</text>
+          <text x="261" y="74" text-anchor="middle">가까운 서가</text>
+          <text x="393" y="74" text-anchor="middle">먼 서가</text>
+        </g>
+        <g font-size="10.5" fill="#6b6874">
+          <text x="18" y="236">눈높이 1.6 m</text>
+          <path d="M28 214 L28 129" stroke="#8d8879" stroke-width="1"/>
+          <text x="146" y="164">가까운 서가의 상</text>
+          <text x="146" y="100">먼 서가의 상(작고, 눈높이 쪽으로 모임)</text>
+          <text x="130" y="246" text-anchor="middle">보는 거리 f</text>
+          <path d="M44 236 L126 236" stroke="#8d8879" stroke-width="1"/>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 옆에서 본 투시.</b> 눈에서 서가의 위아래 끝으로 가는 빛줄기가 화면을 지나는 자리가 그림 속 서가의 위아래 끝이다. 같은 높이의 서가라도 두 배 멀리 있으면 상의 높이는 절반이 되고, 위아래 끝이 모두 눈높이 선 쪽으로 다가온다. 무한히 멀어지면 상은 눈높이 선 위의 한 점이 된다. 직접 그린 도식이다.</figcaption>
+    </figure>
+
+    <p>그림 1에서 바로 두 가지가 보인다. 첫째, 멀리 있을수록 작게 찍힌다. 둘째, 멀어질수록 모든 것이 눈높이 선으로 다가간다. 땅 위의 것은 아래에서 위로, 천장의 것은 위에서 아래로. 철길의 두 레일은 멀어지며 작아지는 간격을 가진 채 눈높이 선 쪽으로 올라가다가, 무한히 먼 곳에서 간격이 0이 되어 한 점에 닿는다. 그 점이 이 장의 주인공이다.</p>
+    <p>이런 원근의 원리를 처음 실험으로 보인 사람으로는 흔히 15세기 초 피렌체의 건축가 필리포 브루넬레스키<span class="en">(Filippo Brunelleschi)</span>가 꼽힌다. 그는 피렌체 세례당을 투시로 그린 판에 작은 구멍을 뚫고, 그림 뒤에서 구멍으로 거울에 비친 그림과 실제 건물을 번갈아 보게 했다고 전한다. 다만 그 판은 남아 있지 않고, 이야기는 그의 사후에 쓰인 전기에 기대고 있다.</p>
+  </section>
+
+  <section id="eye">
+    <h2>눈높이가 곧 수평선이다</h2>
+    <p>드로잉에서 <span class="term">수평선</span><span class="en">(Horizon line)</span>은 바다와 하늘이 만나는 선만 뜻하지 않는다. 그림을 그리는 사람의 <span class="term">눈높이</span><span class="en">(Eye level)</span>를 지나는 수평한 선, 곧 "내 눈과 같은 높이에 있는 모든 것이 놓이는 선"이다. 방 안이라 실제 지평선이 벽에 가려 보이지 않아도 수평선은 있다. 탁 트인 평지에서는 실제 지평선이 바로 이 선 위에 놓인다.</p>
+    <p>눈높이를 바꾸면 무엇이 달라질까. 아래 왼쪽 옆 그림에서 눈을 위아래로 끌어 본다. 오른쪽은 그 눈으로 본 장면이다. 바닥 위의 상자, 기둥 위의 상자, 천장에 매단 상자가 있다.</p>
+
+    <div class="sim" id="sim-p1-eye">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>눈을 올리고 내리면 수평선이 물체를 자르는 높이가 바뀐다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="p1-e-cv" class="art"></canvas><span class="hint">옆 그림의 눈을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>눈높이 <output id="p1-e-h-out"></output></span><input type="range" id="p1-e-h" min="0.05" max="4" step="0.05" value="1.6"></label>
+          <label class="check"><input type="checkbox" id="p1-e-mark" checked> 눈높이가 물체를 지나는 자리 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">윗면이 보이는 상자</span><span class="v" id="p1-e-o-t">—</span></div>
+        <div class="stat"><span class="k">아랫면이 보이는 상자</span><span class="v" id="p1-e-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 눈높이 1.6 m에서 시작한다. 바닥의 상자 A는 윗면이, 높이 2.5 m에 매단 상자 C는 아랫면이 보인다. 기둥 위의 상자 B(1.2~1.9 m)는 수평선이 몸통을 가로질러 윗면도 아랫면도 보이지 않는다. ② 눈을 1 m로 내린다. B의 아랫면이 보이기 시작한다. 눈높이보다 위에 있는 면은 아랫면, 아래에 있는 면은 윗면이 보인다. 빨간 표시는 언제나 수평선 위에 줄을 선다. ③ 눈을 바닥(0.05 m)까지 내린다. 바닥이 거의 한 줄로 납작해지고 모든 것을 올려다본다. 반대로 4 m까지 올리면 바닥이 넓게 펼쳐지고 모든 상자의 윗면이 보이는 내려다보는 장면이 된다. (핀홀 투시, 카메라는 수평을 본다. 계산은 이 책 엔진의 ART.project를 쓴다.)</div>
+    </div>
+
+    <p>빨간 표시가 보여 주듯, 수평선은 장면 속 모든 물체를 바닥에서 정확히 눈높이만큼 올라간 자리에서 자른다. 그래서 수평선은 그림 속에서 "그린 사람의 키"를 알려 준다. 수평선이 낮은 그림은 아이나 앉은 사람의 눈으로 본 장면이고, 수평선이 높은 그림은 계단 위나 언덕에서 내려다본 장면이다. 같은 방도 눈높이에 따라 전혀 다른 이야기가 된다.</p>
+    <p>여기서 하나 구별해 두자. <b>눈높이</b>는 장면 속에서 눈이 바닥으로부터 얼마나 높은가이고, <b>수평선이 종이 위 어디에 놓이는가</b>는 화면을 어떻게 자르느냐의 문제다. 서서 본 장면이라도 종이 아래쪽만 잘라 쓰면 수평선이 종이 위쪽 끝에 놓이고, 앉아서 본 장면이라도 위쪽을 넓게 잡으면 수평선이 종이 아래쪽에 놓인다. 둘은 따로 정한다.</p>
+  </section>
+
+  <section id="vp">
+    <h2>소실점: 앞으로 뻗은 선들이 모이는 곳</h2>
+    <p>그림 1을 식으로 쓰면 간단하다. 눈을 원점에 두고 정면을 \(Z\) 방향이라 하면, 장면의 점 \((X, Y, Z)\)는 화면 위 다음 자리에 찍힌다.</p>
+    <div class="formula">$$x = f\,\frac{X}{Z},\qquad y = f\,\frac{Y}{Z}$$<div class="where">\(X\): 눈에서 옆으로 떨어진 거리, \(Y\): 눈높이에서 위아래로 떨어진 거리, \(Z\): 정면으로 떨어진 거리, \(f\): 눈에서 화면까지의 거리(보는 거리). 화면의 원점 \((0, 0)\)은 눈 바로 앞, 곧 수평선 위에서 정면을 바라보는 자리다. 이 책의 엔진 함수 ART.project가 이 계산을 한다.</div></div>
+    <p>이제 정면으로 곧게 뻗은 선, 예를 들어 바닥에 놓인 레일 위의 점들을 생각하자. \(X\)와 \(Y\)는 그대로이고 \(Z\)만 커진다. 그러면 \(x\)와 \(y\)는 모두 0을 향해 줄어든다. 레일이 몇 개든, 바닥에 있든 천장에 있든, 정면으로 뻗은 평행선은 모두 화면의 같은 점 \((0, 0)\)으로 다가간다. 이 점이 <span class="term">소실점</span><span class="en">(Vanishing point)</span>이다. 반대로 화면과 나란한 선, 곧 \(Z\)가 변하지 않는 가로선과 세로선은 그림에서도 가로선과 세로선으로 남는다. 장면의 상자·방·서가가 화면과 나란히 놓여 있어 정면으로 뻗은 선만 한 점으로 모이는 그림을 <span class="term">1점 투시</span><span class="en">(One-point perspective)</span>라고 한다. 정면으로 뻗은 선들을 화면에 수직이라는 뜻에서 "직교선"이라고도 부른다.</p>
+    <p>소실점이 "눈 바로 앞"이라는 사실에서 중요한 결론이 하나 나온다. 그림에서 소실점이 어디에 있느냐는 그린 사람이 장면의 어디에 서 있었느냐와 같다. 아래 방 그림에서 소실점을 끌어 본다. 앞쪽 방의 입구(그림 테두리)는 그대로 두고 소실점만 옮긴다.</p>
+
+    <div class="sim" id="sim-p1-vp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>소실점을 끌면 내가 선 자리가 바뀐다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="p1-v-cv" class="art"></canvas><span class="hint">소실점(빨간 점)을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="check"><input type="checkbox" id="p1-v-lines" checked> 소실점으로 모이는 선 보기</label>
+          <label class="check"><input type="checkbox" id="p1-v-grid"> 바닥 격자 보기</label>
+          <button class="btn sm" id="p1-v-reset" type="button">가운데로</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">눈높이</span><span class="v" id="p1-v-o-h">—</span></div>
+        <div class="stat"><span class="k">방 가운데에서 옆으로</span><span class="v" id="p1-v-o-x">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 소실점을 왼쪽 벽 쪽으로 끈다. 왼쪽 벽이 가늘어지고 오른쪽 벽이 넓게 열린다. 왼쪽 벽 가까이 서서 방을 들여다본 장면이다. 바닥과 천장, 문과 상자의 앞면 같은 가로선·세로선은 소실점이 움직여도 끝까지 가로와 세로를 지킨다. ② 소실점을 위로 끌어 천장 가까이 올린다. 천장은 가는 띠가 되고 바닥이 넓어진다. 사다리 위에서 본 방이다. ③ 소실점을 방 입구 밖, 그림의 구석까지 끈다. 한쪽 벽의 안쪽 면이 아예 보이지 않고 방이 뒤틀려 보인다. 방 밖에 서서 들여다본 셈이라, 그 자리에서는 사실 벽의 바깥면이 보여야 한다. (방은 폭 4 m, 높이 3 m, 깊이 8 m. 눈은 입구에서 2.5 m 떨어져 있다고 가정했다.)</div>
+    </div>
+
+    <p>소실점을 옮길 때 그림 속 모든 직교선이 함께 따라 움직였다. 1점 투시에서 소실점은 하나뿐이므로, 직교선 하나라도 다른 곳을 향하면 그 물체만 비틀려 보인다. 손으로 투시를 그릴 때 흔한 실수가 바로 이것이다. 상자 하나, 창문 하나를 그릴 때마다 대충 "멀어지는 방향"으로 선을 긋다 보면 직교선들이 조금씩 다른 점을 향한다. 그래서 투시 그림의 첫 단계는 언제나 수평선을 긋고 소실점을 찍는 일이다. 그다음부터 모든 직교선은 자를 대고 그 점을 향해 긋는다.</p>
+  </section>
+
+  <section id="tiles">
+    <h2>바닥 타일과 거리점</h2>
+    <p>소실점만으로는 깊이 방향의 간격을 정할 수 없다. 바둑판 같은 바닥 타일을 그린다고 해 보자. 세로줄(직교선)은 소실점을 향해 그으면 되지만, 가로줄은 어떤 간격으로 그어야 할까. 가로줄 사이가 멀어질수록 좁아져야 한다는 것은 알지만, 얼마나 좁아져야 정사각형으로 보일까.</p>
+    <p>답은 타일의 대각선에 있다. 정사각형 타일의 대각선은 모두 서로 평행하다. 바닥 위에서 정면과 45도를 이루는 평행선이니, 이 선들도 수평선 위의 한 점으로 모인다. 그 점은 소실점에서 정확히 보는 거리 \(f\)만큼 옆에 떨어져 있다. 이 점을 <span class="term">거리점</span><span class="en">(Distance point)</span>이라고 부른다. 앞줄 타일의 가로줄 하나만 정하면, 거리점을 향한 대각선 하나가 세로줄들과 만나는 자리마다 다음 가로줄이 생긴다. 16세기 초 프랑스의 장 펠르랭<span class="en">(Jean Pèlerin, 필명 비아토르 Viator)</span>의 투시 교본을 거치며 널리 퍼진 방법으로 알려져 있다.</p>
+
+    <div class="sim" id="sim-p1-tile">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>바닥 타일 깔기: 거리점과 흔한 실수</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="p1-t-cv" class="art"></canvas><span class="hint">거리점(파란 점)을 옆으로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>보는 거리 f(그림 폭의 배수) <output id="p1-t-f-out"></output></span><input type="range" id="p1-t-f" min="0.3" max="1.6" step="0.01" value="0.8"></label>
+          <div class="seg" id="p1-t-mode"><button data-value="true" class="on">거리점으로</button><button data-value="even">같은 간격으로(실수)</button></div>
+          <label class="check"><input type="checkbox" id="p1-t-diag" checked> 대각선과 거리점 보기</label>
+          <label class="check"><input type="checkbox" id="p1-t-cone"> 60도 원 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">그림의 가로 시야각</span><span class="v" id="p1-t-o-a">—</span></div>
+        <div class="stat"><span class="k">맨 앞 가운데 타일의 세로 ÷ 가로</span><span class="v" id="p1-t-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "대각선과 거리점 보기"를 켠 채 거리점을 끌어 소실점 쪽으로 가까이 가져온다. 타일이 앞뒤로 길쭉해지고, 화면 아래 모서리의 타일은 정사각형이라기보다 비스듬히 늘어진 마름모가 된다. 보는 거리가 짧을수록(넓은 시야각) 깊이가 과장된다. ② 보는 거리를 그림 폭의 1.5배 정도로 늘린다. 타일이 납작해지고 원근이 차분해진다. 망원 렌즈로 본 바닥이다. ③ "같은 간격으로(실수)"를 누른다. 맨 앞 두 줄의 간격을 그대로 되풀이했더니 뒤로 갈수록 타일이 정사각형보다 길어져, 바닥이 벽처럼 일어서다가 수평선 앞에서 갑자기 끝난다. (바닥에서 눈높이 1.5 m. 소실점은 그림 가운데, 타일은 1 m 정사각형이다.)</div>
+    </div>
+
+    <p>거리점은 보는 거리 그 자체다. 그래서 거리점을 소실점 가까이 찍으면 그림을 코앞에서 보도록 그리는 셈이 되어 원근이 과장되고, 멀리 찍으면 원근이 차분해진다. 실제 손그림에서는 거리점이 종이 밖으로 멀리 나가는 경우가 많다. 그럴 때는 소실점과 거리점 사이의 절반 자리(반 거리점)를 쓰고, 대각선 하나가 타일 두 칸이 아니라 한 칸 깊이의 절반을 지나게 하는 식으로 비율을 맞춘다. 4분의 1 거리점도 같은 원리다.</p>
+  </section>
+
+  <section id="divide">
+    <h2>대각선으로 깊이 나누기</h2>
+    <p>바닥 타일이 아니라 벽을 따라 늘어선 기둥, 창문, 서가 칸, 가로등을 그려야 할 때도 많다. 첫 기둥과 둘째 기둥은 눈으로 정했는데 셋째부터가 문제다. 여기에는 거리점도 필요 없는 깔끔한 방법이 있다. 두 기둥의 가운데 높이를 지나는 직교선(소실점으로 가는 선)을 긋고, 첫 기둥의 윗끝에서 둘째 기둥의 가운데 점을 지나는 대각선을 그어 바닥선과 만나는 자리에 셋째 기둥을 세운다. 둘째와 셋째로 같은 일을 되풀이하면 넷째가 생긴다. 직사각형의 대각선은 그 직사각형의 가운데를 지난다는 사실을 투시 속에서 거꾸로 쓰는 방법이다.</p>
+
+    <div class="sim" id="sim-p1-div">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>대각선 하나로 같은 간격 이어 가기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="p1-d-cv" class="art"></canvas><span class="hint">첫째·둘째 기둥의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>기둥 수 <output id="p1-d-n-out"></output></span><input type="range" id="p1-d-n" min="3" max="14" step="1" value="8"></label>
+          <div class="seg" id="p1-d-mode"><button data-value="diag" class="on">대각선으로</button><button data-value="even">같은 간격으로(실수)</button></div>
+          <label class="check"><input type="checkbox" id="p1-d-show" checked> 작도선 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이웃한 기둥 간격의 비(앞 → 뒤)</span><span class="v" id="p1-d-o-r">—</span></div>
+        <div class="stat"><span class="k">실수했을 때 마지막 기둥의 어긋남</span><span class="v" id="p1-d-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "작도선 보기"를 켜고 둘째 기둥을 끈다. 둘째 기둥이 첫째에 가까울수록(간격이 좁을수록) 뒤의 기둥들이 촘촘해지고, 멀수록 몇 개 만에 소실점에 닿는다. 첫 두 기둥의 간격이 실제 간격과 보는 거리를 함께 정하는 셈이다. ② 화면 속 간격이 뒤로 갈수록 줄어드는 비율을 본다. 일정한 비율로 줄지 않는다. 앞쪽에서는 빨리, 뒤쪽에서는 천천히 줄어든다. ③ "같은 간격으로(실수)"를 누른다. 회색 점선은 올바른 자리다. 화면에서 같은 간격으로 세우면 몇 번째 만에 기둥이 소실점을 지나쳐 버린다. 실제로는 무한히 많은 기둥이 소실점 앞에 촘촘히 쌓여야 한다. (벽은 평평하고 기둥은 같은 간격, 같은 높이라고 가정했다. 작도 결과는 엔진의 핀홀 투영으로 계산한 자리와 정확히 같다.)</div>
+    </div>
+
+    <p>같은 방법을 뒤집으면 나누기도 된다. 깊이 방향으로 긴 직사각형(벽면 하나)의 두 대각선을 그으면 교점이 투시 속 정확한 가운데다. 그 교점을 지나는 세로선이 벽을 앞뒤 절반으로 나누고, 반쪽마다 다시 대각선을 그으면 4등분, 8등분이 된다. 문과 창을 벽 가운데에 놓거나, 길게 늘어선 서가를 칸으로 나눌 때 자 하나로 해결된다.</p>
+
+    <div class="callout try">
+      <strong>복도 사진 위에 소실점 찾기, 그리고 대각선으로 칸 세우기</strong>
+      복도, 지하철 승강장, 가로수 길처럼 곧게 뻗은 곳에서 정면을 보고 휴대폰을 수평으로 들어 사진을 찍는다. 사진을 인쇄하거나 화면 위에 투명한 종이를 대고, 바닥과 벽, 천장의 모서리를 자로 연장해 소실점을 찾는다. 그 점을 지나는 수평선이 내 눈높이다. 화면에서 사람들의 머리가 이 선 근처에 걸리는지 본다. 다음으로 복도 벽의 문이나 기둥 둘을 골라 이 절의 대각선 방법으로 셋째, 넷째를 작도하고 사진 속 실제 문과 기둥에 맞는지 확인한다. 어긋난다면 실제 간격이 고르지 않거나, 휴대폰이 기울었거나(그러면 세로선이 모인다, <a href="perspective2.html">5장</a>), 렌즈의 휨 때문일 수 있다.
+    </div>
+  </section>
+
+  <section id="fov">
+    <h2>시야각과 왜곡: 60도 원</h2>
+    <p>투시는 수학적으로 완벽해도 그림이 이상해 보일 때가 있다. 그림의 가장자리에 놓인 공이 달걀처럼 늘어나고, 상자는 비스듬히 찢어진 듯 보인다. 원인은 보는 거리다. 투시 그림은 정해진 거리 \(f\)에서 소실점 앞에 눈을 대고 볼 때만 정확하다. 그 거리가 짧을수록, 곧 그림 한 장에 담은 <span class="term">시야각</span><span class="en">(Field of view)</span>이 넓을수록 가장자리의 물체는 화면에 비스듬히 찍혀 크게 늘어난다. 그런데 우리는 대개 그림을 그보다 멀리서, 정면이 아닌 자리에서 본다. 그래서 늘어난 모양이 그대로 왜곡으로 보인다.</p>
+
+    <div class="sim" id="sim-p1-fov">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>시야각을 넓히면 가장자리가 늘어난다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="p1-f-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>가로 시야각 <output id="p1-f-a-out"></output></span><input type="range" id="p1-f-a" min="20" max="140" step="1" value="60"></label>
+          <label class="check"><input type="checkbox" id="p1-f-cone" checked> 60도 원 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">보는 거리 f</span><span class="v" id="p1-f-o-f">—</span></div>
+        <div class="stat"><span class="k">가장 바깥 공의 늘어남(긴 지름 ÷ 짧은 지름)</span><span class="v" id="p1-f-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 60°에서 시작한다. 점선 원(소실점을 중심으로 시야각 60도가 되는 원) 안의 공은 거의 동그랗다. ② 시야각을 100° 넘게 넓힌다. 원이 그림보다 작아지고, 원 밖의 공은 소실점에서 바깥쪽으로 길게 늘어나며 상자는 바깥으로 기운 사다리꼴이 된다. 140°에서 가장 바깥 공은 긴 지름이 짧은 지름의 두 배 가까이 된다. 수학적으로는 틀린 곳이 없다. ③ 30° 아래로 좁힌다. 가운데 두세 개만 남고 원근이 차분해진다. 대신 담을 수 있는 장면이 좁다. (공과 상자는 모두 7 m 앞의 같은 줄에 4 m 간격으로 놓였다. 공의 윤곽은 공에 닿는 시선 원뿔을 화면에 투영해 정확히 계산했다.)</div>
+    </div>
+
+    <p>그래서 투시를 그리는 사람들은 흔히 <span class="term">60도 원</span><span class="en">(Cone of vision)</span>을 점검 도구로 쓴다. 소실점을 중심으로, 반지름이 보는 거리의 약 0.58배(tan 30°)인 원을 그리고 중요한 물체를 그 안에 둔다. 사람의 눈이 머리를 돌리지 않고 또렷이 보는 범위와 대략 맞는다는 설명이 붙지만, 60도라는 수치는 생리학의 경계가 아니라 오래 쓰여 온 관례다. 45도로 더 보수적으로 잡는 교본도 있고, 일부러 넓은 시야각으로 긴장감을 만드는 그림도 있다.</p>
+
+    <div class="callout warn">
+      <strong>소실점을 그림 안에 가깝게 두 개, 세 개 찍는 실수와 같은 뿌리</strong>
+      1점 투시에서 가장자리가 찢어지는 문제는 <a href="perspective2.html">5장</a>에서 볼 "두 소실점이 너무 가까워 모서리가 찌그러지는" 문제와 원인이 같다. 보는 거리가 그림 크기에 비해 너무 짧다는 것이다. 종이에 맞추려고 소실점(이나 거리점)을 종이 안에 억지로 끌어들이면 시야각이 넓어지고 왜곡이 커진다. 왜곡이 보이면 소실점을 옮기기보다 먼저 보는 거리를 늘려 본다.
+    </div>
+  </section>
+
+  <section id="masters">
+    <h2>명작 속 1점 투시</h2>
+    <p>르네상스 이후 화가들에게 1점 투시는 방과 거리, 건물 안쪽을 깊게 여는 강력한 도구였다. 알브레히트 뒤러의 동판화 「서재의 성 히에로니무스」(1514)는 투시 공부에서 자주 분석되는 그림이다. 뒤러는 이탈리아를 여행하며 투시를 배웠고, 훗날 『측정 교본』<span class="en">(Underweysung der Messung, 1525)</span>에 투시 장치를 그려 넣기도 했다. 아래에서 판화 위에 소실점을 직접 찾아본다.</p>
+
+    <div class="sim" id="sim-p1-durer">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>뒤러의 서재에서 소실점 찾기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="p1-du-cv" class="art"></canvas><span class="hint">빨간 점을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="check"><input type="checkbox" id="p1-du-edges" checked> 이 책이 고른 모서리 세 줄</label>
+          <label class="check"><input type="checkbox" id="p1-du-ext"> 모서리를 끝까지 연장</label>
+          <label class="check"><input type="checkbox" id="p1-du-ans"> 이 책의 어림 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">빨간 점에서 본 모서리의 평균 어긋남</span><span class="v" id="p1-du-o-d">—</span></div>
+        <div class="stat"><span class="k">빨간 점의 자리(판화 폭·높이 대비)</span><span class="v" id="p1-du-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 빨간 점을 끌어, 점에서 뻗은 가는 선 세 줄이 천장 들보의 아래 모서리, 창틀의 가로대, 창가 의자의 앞 모서리와 나란해지는 자리를 찾는다. 어긋남이 1° 아래로 내려가면 거의 맞은 것이다. ② "모서리를 끝까지 연장"을 켠다. 세 선이 판화의 오른쪽 가장자리, 성인의 얼굴보다 조금 아래 높이에서 거의 한곳에 모인다. ③ "이 책의 어림 보기"를 켠다. 세 선의 교점들은 서로 몇 밀리미터 안에 모이지만 정확히 한 점은 아니다. 손으로 새긴 판화이고, 이 책이 모서리를 고른 손도 정확하지 않다. (모서리 좌표는 이 책이 메트로폴리탄 미술관의 이미지에서 직접 잰 어림값이다. 판화의 실제 작도선이 남아 있는 것은 아니다.)</div>
+    </div>
+
+    <p>찾아낸 소실점은 판화의 한가운데가 아니라 오른쪽 가장자리에 있다. 그래서 왼쪽 벽과 창, 천장은 넓게 열리고 오른쪽 벽은 거의 보이지 않는다. 우리는 방의 오른쪽 벽에 바짝 붙어 서서 성인의 서재를 비스듬히 들여다보는 셈이다. 눈높이는 책상에 앉은 성인의 얼굴보다 조금 낮다. 소실점을 가운데 두었다면 대칭의 엄숙한 방이 되었겠지만, 뒤러는 소실점을 옆으로 밀어 창으로 들어오는 빛과 넓은 방의 고요를 보여 주는 쪽을 골랐다. 앞쪽의 사자와 개, 성인의 책상은 정면을 보고 놓여 1점 투시의 질서를 따른다.</p>
+    <p>1점 투시가 언제나 조용한 질서만 만드는 것은 아니다. 빈센트 반 고흐가 1889년 생레미의 요양원에서 그린 복도는 같은 구조를 전혀 다른 감정으로 쓴다.</p>
+
+    <figure class="art-figure" id="fig-p1-vangogh">
+      <div class="art-frame" style="max-width:480px;margin:0 auto"><img src="../../shared/img/vangogh-corridor-asylum.webp" width="1256" height="1600" alt="반 고흐의 요양원 복도 그림. 노란 둥근 천장의 아치가 겹겹이 이어지는 긴 복도가 화면 가운데의 작은 밝은 문을 향해 깊게 빨려 들어간다. 바닥은 붉은 벽돌색이고, 복도 왼쪽 중간에 검은 옷의 작은 사람이 걸어간다. 아래쪽에는 앞의 바닥과 계단이 거친 붓질로 그려져 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 빈센트 반 고흐, 「요양원의 복도」, 1889.</b> 아치와 바닥의 줄, 벽 아래의 띠가 모두 화면 가운데에서 조금 위, 복도 끝의 작은 문 쪽으로 빨려 든다. 소실점이 높고 가운데에 있어 복도가 끝없이 이어지는 듯하다. 그런데 직교선들은 자로 그은 것처럼 한 점에 모이지 않고, 아치의 크기도 거리 공식보다 빨리 줄어 깊이가 과장되었다. 아래쪽의 바닥과 계단은 오히려 위에서 내려다본 듯 기울어 있다. 투시의 틀은 지키되 규칙의 정확함보다 끝없는 복도의 느낌을 앞세운 그림이다.<span class="credit">메트로폴리탄 미술관 소장(Bequest of Abby Aldrich Rockefeller, 1948), 분홍색 레이드지에 검은 초크 밑그림, 붓과 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/336327">소장처 작품 페이지</a> · <a href="../../credits.html#vangogh-corridor-asylum">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="callout studio">
+      <strong>현장에서 소실점을 찾는 두 가지 요령</strong>
+      첫째, 연필을 팔 길이로 뻗어 눈앞에 수평으로 든다. 연필이 가리는 높이가 눈높이, 곧 수평선이다. 실내라면 벽에서 내 눈과 같은 높이의 자리(스위치, 액자 아래 끝 등)를 하나 찾아 기준으로 삼는다. 둘째, 정면을 보는 방향을 정하고 그 방향으로 곧게 뻗은 모서리 하나(복도 바닥과 벽이 만나는 선, 서가 선반의 앞 모서리)를 골라 연필을 그 모서리에 겹쳐 기울기를 잰 뒤, 종이 위에 같은 기울기로 옮긴다. 이 선이 수평선과 만나는 점이 소실점이다. 모서리 둘로 확인하면 더 확실하다. 소실점을 먼저 정해 두면 그 뒤의 모든 직교선은 눈대중 대신 그 점을 향해 긋는다.
+    </div>
+  </section>
+
+  <section id="beyond">
+    <h2>소실점이 하나가 아닐 때, 없을 때</h2>
+    <p>1점 투시는 서양 미술에서 수백 년 동안 공간 그리기의 기준이었지만, 공간을 평면에 옮기는 유일한 방법은 아니다. 18세기 일본의 판화가들은 중국을 거쳐 들어온 서양식 투시 판화를 보고, 극장이나 큰 방의 안쪽을 깊게 그린 <span class="term">우키에</span><span class="en">(浮絵, Uki-e)</span>를 만들었다. 공간이 앞으로 떠오르듯 깊어 보인다는 뜻의 이름이다. 오쿠무라 마사노부는 이 양식을 초기에 이끈 화가 가운데 한 사람이다.</p>
+
+    <figure class="art-figure" id="fig-p1-ukie">
+      <div class="art-frame"><img src="../../shared/img/masanobu-uki-e-kabuki.webp" width="1600" height="1130" alt="오쿠무라 마사노부의 우키에 판화. 가부키 극장 안을 위에서 비스듬히 내려다본 장면이다. 화면 가운데 위에 큰 지붕을 얹은 무대가 정면으로 서 있고, 그 위에서 배우들이 큰 몸짓을 한다. 왼쪽과 오른쪽에는 이층 객석이 안쪽으로 이어지고, 아래쪽에는 칸막이로 나뉜 바닥 객석에 관객들이 빽빽이 앉아 있다. 왼쪽 아래에서 무대 쪽으로 긴 통로가 비스듬히 뻗는다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 오쿠무라 마사노부, 「가부키 극장 안의 우키에(투시 그림)」, 1748.</b> 천장의 들보, 양쪽 이층 객석의 난간, 바닥 객석의 칸막이가 모두 화면 가운데의 무대 쪽으로 깊게 모인다. 서양의 투시 판화에서 배운 직교선의 수렴이다. 그러나 선들을 연장해 보면 한 점으로 정확히 모이지 않고, 무대 위쪽의 넓은 구역에 흩어진다(이 책의 어림). 눈높이도 객석 전체를 내려다볼 만큼 높게 잡았다. 무대 정면은 정면 그대로, 관객 하나하나는 옆에서 본 듯 그려 넣었다. 정확한 작도보다 "깊이 빨려 드는 극장"과 "그 안의 모든 것"을 함께 보여 주려는 그림이다.<span class="credit">메트로폴리탄 미술관 소장(Gift of Mrs. Morris Manges, in memory of her husband, Dr. Morris Manges, 1947), 목판화, 종이에 먹과 채색. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/56534">소장처 작품 페이지</a> · <a href="../../credits.html#masanobu-uki-e-kabuki">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>그보다 훨씬 오래전부터 동아시아 회화는 다른 공간 체계를 써 왔다. 궁궐과 누각을 자로 재듯 정밀하게 그린 중국의 계화(界畫)나 긴 두루마리 속 거리 풍경에서는 건물의 깊이 방향 모서리가 한 점으로 모이지 않고 서로 평행하게 비스듬히 뻗는다. 수학의 말로 <span class="term">평행 사선 투영</span><span class="en">(Oblique parallel projection)</span>에 가깝다. 멀리 있는 건물도 크기가 줄지 않으니, 두루마리를 옆으로 펼쳐 가며 보는 사람의 눈은 어느 한 자리에 묶이지 않고 화면을 따라 걸어간다. 이를 흔히 "이동 시점"이라고 부른다. 산수화가 곽희의 삼원처럼 시점의 유형으로 공간을 짠 것도 같은 맥락이다(<a href="../../composition/chapters/depth.html">CompositionBook 6장</a>, <a href="landscape.html">10장</a>).</p>
+
+    <figure class="diagram" id="fig-p1-cmp">
+      <div class="compare" id="p1-cmp"><div class="cmp-a"><canvas id="p1-cmp-a" class="art"></canvas></div><div class="cmp-b"><canvas id="p1-cmp-b" class="art"></canvas></div></div>
+      <figcaption><b>그림 4. 같은 방, 두 가지 공간.</b> 경계선을 끌어 비교한다. 왼쪽 층은 1점 투시로 그린 방이다. 바닥 줄과 서가의 옆면, 탁자의 다리가 모두 수평선 위의 소실점 하나로 모이고, 먼 서가는 작다. 오른쪽 층은 같은 방을 평행 사선 투영으로 그렸다. 깊이 방향의 선은 모두 같은 각도로 평행하게 뻗고, 먼 서가도 가까운 탁자와 같은 비율로 그려진다. 왼쪽은 "한 자리에 선 나"의 경험을, 오른쪽은 "방 전체의 짜임"을 전한다. 어느 쪽이 옳은 공간이 아니라 무엇을 전하느냐의 차이다. 직접 그린 예시다.</figcaption>
+    </figure>
+
+    <div class="callout deep">
+      <strong>평행 투영은 지금도 쓰인다</strong>
+      평행 투영은 옛 그림만의 방식이 아니다. 가구 조립 설명서, 건축의 엑소노메트릭 도면, 비디오 게임의 아이소메트릭 화면은 모두 깊이 방향의 선을 평행하게 그린다. 크기가 거리와 상관없이 일정하니 자로 재서 실제 치수를 읽을 수 있고, 화면 어디에 놓아도 같은 모양이다. 대신 "어디에서 본 장면"이라는 느낌은 사라진다. 선 원근법은 경험을, 평행 투영은 정보를 나르는 데 강하다. 드로잉에서는 두 가지를 섞기도 한다. 큰 공간은 투시로 열고, 그 안의 작은 소품은 평행선으로 간단히 그리는 식이다. 작은 물체는 깊이가 얕아 두 방식의 차이가 거의 보이지 않기 때문이다.
+    </div>
+  </section>
+
+  <section id="aisle">
+    <h2>서가 통로 세우기</h2>
+    <p>이제 이 장의 도구를 한 장면에 모은다. 서점 안쪽의 서가 통로다. 폭 1.1 m의 통로 양쪽으로 높이 2.1 m의 서가가 5.4 m 이어지고(90 cm 칸 여섯 개), 끝 벽에는 창이 하나 있다. 그리는 사람은 통로 입구에서 2 m 떨어져 선다. 눈높이, 옆으로 비켜 선 거리, 보는 거리를 바꾸고, A4 세로 그림 칸(180 × 250 mm) 위에서 소실점을 끌어 화면을 자른다.</p>
+
+    <div class="sim" id="sim-p1-aisle">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>서가 통로: 눈높이와 소실점으로 그림 칸 세우기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="p1-a-cv" class="art"></canvas><span class="hint">그림 칸 위의 소실점을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>눈높이 <output id="p1-a-e-out"></output></span><input type="range" id="p1-a-e" min="0.3" max="2.4" step="0.05" value="1.1"></label>
+          <label class="ctrl"><span>통로 가운데에서 옆으로 <output id="p1-a-x-out"></output></span><input type="range" id="p1-a-x" min="-0.5" max="0.5" step="0.05" value="0"></label>
+          <label class="ctrl"><span>보는 거리 f(종이 위) <output id="p1-a-f-out"></output></span><input type="range" id="p1-a-f" min="120" max="500" step="10" value="320"></label>
+          <div class="btn-row"><button class="btn sm" id="p1-a-sit" type="button">앉아서(110 cm)</button><button class="btn sm" id="p1-a-stand" type="button">서서(160 cm)</button></div>
+          <label class="check"><input type="checkbox" id="p1-a-cone" checked> 60도 원과 수평선 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">소실점(그림 칸 왼쪽·아래에서)</span><span class="v" id="p1-a-o-v">—</span></div>
+        <div class="stat"><span class="k">수평선 위로 올라간 선반 판</span><span class="v" id="p1-a-o-s">—</span></div>
+        <div class="stat"><span class="k">그림 칸 구석의 시야각</span><span class="v" id="p1-a-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "서서(160 cm)"를 누른다. 수평선이 그림 칸 가운데로 가고 바닥이 넓어지며, 여섯 판의 선반 가운데 두 판(1.7 m와 맨 위 2.1 m)만 아랫면이 보인다. ② "앉아서(110 cm)"를 누른다. 선반 세 판의 아랫면이 보이고, 서가가 머리 위로 높이 솟아 책에 둘러싸인 느낌이 커진다. 1.3 m 판이 눈높이 바로 위라서 거의 한 줄로 보인다. ③ 보는 거리를 120 mm까지 줄인다. 60도 원이 그림 칸보다 작아지고 구석의 시야각이 50°를 넘으며, 앞쪽 서가가 바깥으로 쏟아질 듯 늘어난다. 서윤의 첫 스케치가 어색했던 이유다. (핀홀 투시, ART.project로 계산. 선반 판 높이 0.1·0.5·0.9·1.3·1.7·2.1 m. 그림 칸은 A4 세로 종이 안쪽 180 × 250 mm로 가정했다.)</div>
+    </div>
+
+    <p>시뮬레이터에서 본 것처럼 눈높이는 "무엇이 보이느냐"를 바꾸고, 소실점의 자리는 "어디를 넓게 보여 주느냐"를, 보는 거리는 "얼마나 과장하느냐"를 바꾼다. 세 가지는 서로 다른 결정이다. 그림을 시작하기 전에 수평선 한 줄, 소실점 한 점, 그리고 60도 원 하나를 먼저 그려 두면 나머지 선들이 갈 곳을 잃지 않는다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 4장</span></div>
+      <h4>서가는 머리 위로, 소실점은 왼쪽으로 조금</h4>
+      <p>해칭 규칙을 세운 다음 주, 서윤은 「골목 산책」의 셋째 쪽에 들어갈 서가 안쪽 통로를 그리기 시작했다. 책방 E 1층 안쪽, 폭 1.1 m 남짓한 통로 양쪽으로 높이 2.1 m의 서가가 90 cm 칸 여섯 개씩 이어지고, 끝에는 작은 창과 손님용 나무 의자가 있다. 처음 스케치는 서서 그렸다. 통로 입구에서 2 m쯤 떨어져 섰고, 눈높이는 160 cm였다. 그런데 앞쪽 서가가 종이 양옆으로 쏟아질 듯 기울어 있었고, 바닥이 그림의 절반 가까이를 차지해 정작 책은 작았다.</p>
+      <p>도경은 스케치 위에 자를 대고 직교선 몇 줄을 연장해 보였다. 선들이 서로 다른 세 곳에서 만났다. 서윤은 선반마다 "멀어지는 쪽"으로 대충 선을 그었던 것이다. 게다가 소실점을 종이 안에 맞추려고 아주 가깝게 잡아서, 이 장의 모델로 재 보면 그림 칸 구석의 시야각이 40도를 넘었다. 도경은 "소실점부터 찍고, 모든 선은 그 점을 향해 그어"라고 말한 뒤 한마디를 덧붙였다. "그리고 어디서 볼지는 이 통로에서 무슨 일이 일어나는지 보고 정해."</p>
+      <p>주인이 답을 주었다. 이 통로는 손님들이 끝의 의자에 앉거나 서가 아래 칸 앞에 쪼그려 앉아 책을 펼치는 곳이라는 것이다. 서윤은 의자에 앉아 다시 보았다. 눈높이 110 cm에서는 선반 여섯 판 가운데 0.1·0.5·0.9 m의 세 판은 윗면이, 1.3·1.7 m 판과 맨 위 2.1 m 판은 아랫면이 보였다. 서가가 머리 위로 솟아 책에 둘러싸인 느낌이 들었다. 1.3 m 판은 눈높이 바로 위라 거의 한 줄로 보였는데, 서윤은 그것을 오히려 수평선을 알려 주는 표시로 쓰기로 했다.</p>
+      <p>그림 칸은 A4 세로 종이 안쪽 180 × 250 mm. 서윤은 통로 한가운데 앉은 자리에서 보되, 소실점을 그림 칸 왼쪽에서 81 mm(폭의 45%), 아래에서 100 mm(높이의 40%)에 찍었다. 소실점을 왼쪽으로 조금 밀자 오른쪽 서가의 면이 넓게 열렸다. 그쪽이 주인이 아끼는 동네 작가 책들이 꽂힌 칸이다. 보는 거리는 320 mm로 잡았다. 그러면 소실점에서 가장 먼 오른쪽 위 구석까지 179.7 mm, 시야각으로 29.3°라서 그림 칸 전체가 60도 원 안에 들어간다. 대신 거리점이 소실점 오른쪽 320 mm, 종이 밖으로 멀리 나가므로 서가 칸의 깊이는 대각선 방법으로 나누고, 바닥 줄의 확인에는 소실점 오른쪽 80 mm의 4분의 1 거리점을 쓰기로 했다. 이 장의 모델로 계산하면 바닥은 통로 입구에서 1.5 m쯤 들어간 곳(눈에서 3.5 m)부터 그림 칸 아래 끝에 걸리고, 그 앞의 바닥은 잘려 나간다.</p>
+      <p>서서 본 그림도 버리지 않았다. 눈높이 160 cm에 수평선을 그림 칸 가운데(아래에서 125 mm)에 둔 안은 바닥과 의자가 잘 보여 "들어가 보고 싶은 통로"로는 나았다. 서윤은 두 안을 나란히 두고 토요일 모임 사람들에게 물었는데, 다섯 명 가운데 넷이 앉은 눈높이의 그림을 골랐다. 서윤은 그 결과를 결정의 근거라기보다 참고로 적어 두었다. 도경은 앉은 그림 속 창가 의자 높이에 수평선이 걸린 것을 보더니 "이 그림은 앉아 있는 사람의 그림이구나" 하고 웃었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>서가 그림은 앉은 눈높이 110 cm, 통로 한가운데(옆으로 비켜 서지 않음), 통로 입구에서 2 m 떨어진 자리에서 본다. 그림 칸(A4 세로 안쪽 180 × 250 mm)에서 수평선은 아래에서 100 mm(40%), 소실점은 왼쪽에서 81 mm(45%) 자리. 보는 거리 320 mm(그림 칸 구석의 시야각 29.3°, 60도 원 안). 수평선 위로 선반 판 세 개(1.3·1.7·2.1 m)의 아랫면이 보인다. 서가 칸(90 cm × 6)은 대각선으로 나누고, 바닥 확인은 4분의 1 거리점(소실점 오른쪽 80 mm). 다른 선택지: 서서 본 160 cm 안(수평선 아래에서 125 mm)도 남겨 둔다.</div>
+        <div><b>아직 남은 문제</b>서가 그림은 화면과 나란한 면이 많아 1점 투시로 충분했다. 그러나 「골목 산책」의 표지가 될 서점 외관은 골목 모퉁이에 서 있어, 두 벽이 모두 비스듬히 멀어진다. 소실점 하나로는 그릴 수 없다.</div>
+        <div><b>다음 단계</b><a href="perspective2.html">5장</a>: 모퉁이의 서점 외관을 2점 투시로 세우고, 두 소실점의 간격을 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>투시 그림은 장면의 점에서 눈으로 가는 빛줄기가 화면(유리창)을 지나는 자리를 모은 것이다. 화면 위 크기는 거리에 반비례한다(x = fX/Z, y = fY/Z).</li>
+      <li>수평선은 그린 사람의 눈높이다. 수평선은 장면 속 모든 물체를 바닥에서 눈높이만큼 올라간 자리에서 자르고, 눈높이보다 높은 면은 아랫면이, 낮은 면은 윗면이 보인다. 눈높이와 수평선의 종이 위 자리는 따로 정한다.</li>
+      <li>1점 투시에서 정면으로 뻗은 평행선(직교선)은 모두 눈 바로 앞, 수평선 위의 소실점 하나로 모이고, 화면과 나란한 가로선·세로선은 평행하게 남는다. 소실점의 자리는 그린 사람이 선 자리다.</li>
+      <li>정사각형 타일의 대각선은 소실점에서 보는 거리만큼 떨어진 거리점으로 모인다. 거리점이 가까울수록 깊이가 과장된다. 종이 밖이면 반·4분의 1 거리점을 쓴다.</li>
+      <li>같은 간격의 기둥·칸은 가운데 높이의 직교선과 대각선으로 이어 가거나, 직사각형의 대각선 교점으로 나눈다. 화면에서 같은 간격으로 세우면 틀린다.</li>
+      <li>시야각이 넓을수록(보는 거리가 짧을수록) 가장자리가 늘어난다. 60도 원은 생리학의 경계가 아니라 관례적인 점검 도구다.</li>
+      <li>명작은 1점 투시를 도구로 쓰되 소실점의 자리와 정확함을 표현에 맞게 고른다. 동아시아 회화의 평행 사선 투영과 이동 시점은 다른 경험을 담는 또 하나의 공간 체계다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 눈높이 1.6 m에서 정면을 보고 방을 그린다. 높이 1.2~1.9 m의 선반 위에 놓인 상자는 그림에서 어떻게 보이는가?</p>
+        <div class="opts">
+          <button class="opt">윗면이 보인다. 선반 위에 있는 물체는 언제나 위에서 내려다보게 된다.</button>
+          <button class="opt" data-correct>수평선이 상자의 몸통을 가로질러 윗면도 아랫면도 보이지 않는다.</button>
+          <button class="opt">아랫면이 보인다. 바닥에서 떨어진 물체는 모두 올려다보게 된다.</button>
+          <button class="opt">상자가 눈높이에 걸쳐 있으면 1점 투시로는 그릴 수 없다.</button>
+        </div>
+        <div class="quiz-exp">수평선은 모든 물체를 바닥에서 눈높이(1.6 m)만큼 올라간 자리에서 자른다. 상자의 윗면(1.9 m)은 눈보다 높아 아래에서 보는 각도이고, 아랫면(1.2 m)은 눈보다 낮아 위에서 보는 각도라서, 두 면 모두 눈에 보이는 쪽이 아니라 몸통 뒤로 숨는다. 정면의 앞면만 보인다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 1점 투시로 그린 복도 그림에서 소실점이 그림의 왼쪽 가장자리 가까이에 있다. 이것이 알려 주는 것은?</p>
+        <div class="opts">
+          <button class="opt">그린 사람이 복도 오른쪽 벽에 붙어 서 있었다.</button>
+          <button class="opt">복도가 왼쪽으로 휘어 있다.</button>
+          <button class="opt" data-correct>그린 사람이 복도의 왼쪽 벽 가까이 서서 정면을 보았다. 그래서 왼쪽 벽은 가늘고 오른쪽 벽이 넓게 보인다.</button>
+          <button class="opt">그림을 왼쪽에서 비스듬히 보아야 한다는 표시일 뿐, 그린 사람의 자리와는 상관없다.</button>
+        </div>
+        <div class="quiz-exp">1점 투시의 소실점은 눈 바로 앞, 정면을 보는 방향이다. 소실점이 왼쪽에 있으면 눈이 복도의 왼쪽에 있었다는 뜻이고, 가까운 왼쪽 벽은 비스듬히 보여 가늘어지며 먼 오른쪽 벽이 넓게 열린다. 복도가 휘었다면 직교선들이 한 점에 모이지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 바닥 타일을 1점 투시로 그리는데 정사각형 타일이 앞뒤로 길쭉하게 늘어나 보인다. 가장 알맞은 고침은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>거리점(타일 대각선이 모이는 점)을 소실점에서 더 멀리 옮겨 보는 거리를 늘린다.</button>
+          <button class="opt">가로줄을 화면에서 같은 간격으로 다시 긋는다.</button>
+          <button class="opt">소실점을 수평선 아래로 내린다.</button>
+          <button class="opt">세로줄이 소실점이 아니라 서로 평행하게 내려오도록 고친다.</button>
+        </div>
+        <div class="quiz-exp">타일 대각선의 소실점인 거리점은 소실점에서 보는 거리만큼 떨어져 있다. 거리점이 너무 가까우면 넓은 시야각으로 본 것처럼 깊이가 과장되어 타일이 길쭉해진다. 가로줄을 같은 간격으로 그으면 뒤로 갈수록 더 길어지고, 소실점은 언제나 수평선 위에 있어야 하며, 직교선을 평행하게 그리면 1점 투시가 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 동아시아의 계화나 긴 두루마리에서 건물의 깊이 방향 모서리가 한 점으로 모이지 않고 평행하게 그려지는 것에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">투시를 몰라서 생긴 잘못이므로 소실점을 찾아 고쳐 보아야 한다.</button>
+          <button class="opt">멀리 있는 건물을 더 크게 그리는 역원근법을 의도적으로 쓴 것이다.</button>
+          <button class="opt">평행선은 3점 투시의 한 종류로, 소실점이 세 개 있다는 뜻이다.</button>
+          <button class="opt" data-correct>평행 사선 투영에 가까운 방식으로, 먼 건물도 줄어들지 않아 두루마리를 따라 시점이 옮겨 가는 화면에 어울린다.</button>
+        </div>
+        <div class="quiz-exp">평행 투영에서는 깊이 방향의 선이 평행하고 크기가 거리에 따라 줄지 않는다. 한 자리에 선 눈의 경험 대신 공간 전체의 짜임을 보여 주며, 두루마리를 펼쳐 가며 보는 이동 시점과 잘 맞는다. 투시를 몰라서 생긴 잘못이 아니라 다른 공간 체계이고, 먼 것을 더 크게 그리는 것도 아니며, 3점 투시와도 관계없다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#3a3833", TXT = "#2b2a30", TXT2 = "#6b6874", RED = "#c0392b", BLUE = "#2b6cb0";
+  var DEG = Math.PI / 180;
+  function label(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color || TXT; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight); ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "alphabetic"; ctx.fillText(s, x, y);
+  }
+  function poly(ctx, pts, fill, stroke, lw) {
+    ctx.beginPath(); pts.forEach(function (p, i) { i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
+  }
+  function line(ctx, a, b, col, lw, dash) { ctx.strokeStyle = col; ctx.lineWidth = lw || 1; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); ctx.setLineDash([]); }
+  // 상자 b = {x0,x1,y0,y1,z0,z1}의 면: 보이는 면만 그린다(바깥 법선과 눈 방향의 내적). P: 세계 → 화면, eye: 눈의 세계 좌표
+  function boxFaces(b) {
+    var X = [b.x0, b.x1], Y = [b.y0, b.y1], Z = [b.z0, b.z1];
+    function v(i, j, k) { return [X[i], Y[j], Z[k]]; }
+    return [
+      { p: [v(0, 0, 0), v(1, 0, 0), v(1, 1, 0), v(0, 1, 0)], n: [0, 0, -1], k: "front" },
+      { p: [v(0, 0, 1), v(1, 0, 1), v(1, 1, 1), v(0, 1, 1)], n: [0, 0, 1], k: "front" },
+      { p: [v(0, 1, 0), v(1, 1, 0), v(1, 1, 1), v(0, 1, 1)], n: [0, 1, 0], k: "top" },
+      { p: [v(0, 0, 0), v(1, 0, 0), v(1, 0, 1), v(0, 0, 1)], n: [0, -1, 0], k: "bottom" },
+      { p: [v(0, 0, 0), v(0, 1, 0), v(0, 1, 1), v(0, 0, 1)], n: [-1, 0, 0], k: "side" },
+      { p: [v(1, 0, 0), v(1, 1, 0), v(1, 1, 1), v(1, 0, 1)], n: [1, 0, 0], k: "side" },
+    ];
+  }
+  function drawBox(ctx, b, P, eye, col, lw) {
+    var out = { top: false, bottom: false };
+    boxFaces(b).forEach(function (f) {
+      var c = f.p.reduce(function (a, q) { return [a[0] + q[0] / 4, a[1] + q[1] / 4, a[2] + q[2] / 4]; }, [0, 0, 0]);
+      var d = (eye[0] - c[0]) * f.n[0] + (eye[1] - c[1]) * f.n[1] + (eye[2] - c[2]) * f.n[2];
+      if (d <= 1e-9) return;
+      if (f.k === "top") out.top = true; if (f.k === "bottom") out.bottom = true;
+      poly(ctx, f.p.map(P), col[f.k], INK, lw || 1.2);
+    });
+    return out;
+  }
+
+  /* ---------------- 시뮬레이터 1: 눈높이와 수평선 (ART.project) ---------------- */
+  (function () {
+    var el = document.getElementById("p1-e-cv");
+    var gE = AB.range("p1-e-h", function (v) { return AB.fix(v, 2) + " m"; }, function () { cv.redraw(); });
+    var mark = AB.check("p1-e-mark", function () { cv.redraw(); });
+    var BOX = [
+      { n: "A", b: { x0: -1.8, x1: -1.0, y0: 0, y1: 0.8, z0: 5, z1: 5.8 }, col: { front: "#d9cbb0", top: "#efe6d2", bottom: "#a8987c", side: "#c4b391" } },
+      { n: "B", b: { x0: 0.9, x1: 1.6, y0: 1.2, y1: 1.9, z0: 7.5, z1: 8.2 }, col: { front: "#b9cbd6", top: "#e2ebf0", bottom: "#7f95a3", side: "#9fb4c2" } },
+      { n: "C", b: { x0: -0.6, x1: 0.1, y0: 2.5, y1: 3.2, z0: 10, z1: 10.7 }, col: { front: "#e0b8a6", top: "#f3ddd2", bottom: "#a9796a", side: "#cc9c88" } },
+    ];
+    var PILLAR = { x0: 1.1, x1: 1.4, y0: 0, y1: 1.2, z0: 7.7, z1: 8.0 };
+    var geo = null;
+    function layout(w, h) {
+      if (w >= 560) { var sw = Math.round(w * 0.36); return { side: { x: 8, y: 8, w: sw - 16, h: h - 16 }, pic: { x: sw, y: 8, w: w - sw - 8, h: h - 16 } }; }
+      var sh = Math.round(h * 0.36); return { side: { x: 8, y: 8, w: w - 16, h: sh - 12 }, pic: { x: 8, y: sh, w: w - 16, h: h - sh - 8 } };
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var E = gE(), L = layout(w, h), S = L.side, R = L.pic;
+      // 옆 그림
+      ctx.fillStyle = "#f3efe6"; ctx.fillRect(S.x, S.y, S.w, S.h);
+      var zmax = 12, ymax = 4.3, sx = function (z) { return S.x + 22 + z / zmax * (S.w - 30); }, sy = function (y) { return S.y + S.h - 18 - y / ymax * (S.h - 30); };
+      line(ctx, [S.x + 4, sy(0)], [S.x + S.w - 4, sy(0)], INK, 1.2);
+      BOX.forEach(function (o) { var b = o.b; ctx.fillStyle = o.col.front; ctx.fillRect(sx(b.z0), sy(b.y1), sx(b.z1) - sx(b.z0), sy(b.y0) - sy(b.y1)); ctx.strokeStyle = INK; ctx.lineWidth = 1; ctx.strokeRect(sx(b.z0), sy(b.y1), sx(b.z1) - sx(b.z0), sy(b.y0) - sy(b.y1)); label(ctx, o.n, sx(b.z1) + 3, sy(b.y1) + 10, { size: 11, color: TXT2 }); });
+      ctx.fillStyle = "#cfc6b0"; ctx.fillRect(sx(PILLAR.z0), sy(PILLAR.y1), sx(PILLAR.z1) - sx(PILLAR.z0), sy(0) - sy(PILLAR.y1));
+      line(ctx, [sx(10.35), sy(3.2)], [sx(10.35), sy(4.3)], INK, 1);
+      line(ctx, [sx(0), sy(E)], [S.x + S.w - 4, sy(E)], BLUE, 1.3, [6, 4]);
+      AB.handle(ctx, sx(0), sy(E), { r: 7, fill: "#ffffff", ring: "#111111" });
+      label(ctx, "눈", sx(0) + 10, sy(E) - 8, { size: 11 });
+      label(ctx, "옆에서 본 모습", S.x + 6, S.y + 14, { size: 11, color: TXT2 });
+      // 그린 장면
+      ctx.save(); ctx.beginPath(); ctx.rect(R.x, R.y, R.w, R.h); ctx.clip();
+      var cam = { pos: [0, E, 0], f: R.w * 0.85, cx: R.x + R.w / 2, cy: R.y + R.h * 0.48 };
+      var P = function (p) { return ART.project(p, cam); };
+      ctx.fillStyle = "#e9eef1"; ctx.fillRect(R.x, R.y, R.w, cam.cy - R.y);
+      ctx.fillStyle = "#e4dccb"; ctx.fillRect(R.x, cam.cy, R.w, R.y + R.h - cam.cy);
+      ctx.strokeStyle = "rgba(90,80,60,0.28)"; ctx.lineWidth = 1;
+      [1.5, 2, 3, 4, 5, 6, 8, 10, 13, 17, 24, 35].forEach(function (z) { var y = P([0, 0, z])[1]; if (y < R.y + R.h) { ctx.beginPath(); ctx.moveTo(R.x, y); ctx.lineTo(R.x + R.w, y); ctx.stroke(); } });
+      for (var x = -10; x <= 10; x += 1) { var a = P([x, 0, 1.2]), b = P([x, 0, 300]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+      var eye = [0, E, 0], vis = {};
+      var order = BOX.slice().sort(function (p, q) { return q.b.z0 - p.b.z0; });
+      order.forEach(function (o) {
+        if (o.n === "B") drawBox(ctx, PILLAR, P, eye, { front: "#cfc6b0", top: "#e4ddcc", bottom: "#a89f8a", side: "#bdb39c" }, 1);
+        if (o.n === "C") { var t = P([-0.25, 3.2, 10.35]), u = P([-0.25, 6, 10.35]); line(ctx, t, u, INK, 1); }
+        vis[o.n] = drawBox(ctx, o.b, P, eye, o.col, 1.3);
+        var c = P([(o.b.x0 + o.b.x1) / 2, o.b.y1, o.b.z0]);
+        label(ctx, o.n, c[0], c[1] - 6, { size: 12, weight: 700, align: "center" });
+        if (mark() && E >= o.b.y0 && E <= o.b.y1) { var m0 = P([o.b.x0, E, o.b.z0]), m1 = P([o.b.x1, E, o.b.z0]); line(ctx, m0, m1, RED, 3); }
+      });
+      line(ctx, [R.x, cam.cy], [R.x + R.w, cam.cy], BLUE, 1.4, [6, 4]);
+      label(ctx, "수평선 = 눈높이 " + AB.fix(E, 2) + " m", R.x + 8, cam.cy - 6, { size: 11, color: BLUE });
+      ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(cam.cx, cam.cy, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+      ctx.strokeStyle = "rgba(0,0,0,0.25)"; ctx.lineWidth = 1; ctx.strokeRect(R.x + 0.5, R.y + 0.5, R.w - 1, R.h - 1);
+      geo = { S: S, sy: sy, ymax: ymax };
+      var tops = BOX.filter(function (o) { return vis[o.n] && vis[o.n].top; }).map(function (o) { return o.n; });
+      var bots = BOX.filter(function (o) { return vis[o.n] && vis[o.n].bottom; }).map(function (o) { return o.n; });
+      AB.stat("p1-e-o-t", tops.length ? tops.join(" · ") : "없음");
+      AB.stat("p1-e-o-b", bots.length ? bots.join(" · ") : "없음");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return w >= 560 ? Math.round(AB.clamp(w * 0.52, 280, 380)) : Math.round(w * 1.15); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var S = geo.S;
+        if (x < S.x || x > S.x + S.w || y < S.y || y > S.y + S.h) return;
+        var E = (S.y + S.h - 18 - y) / (S.h - 30) * geo.ymax;
+        gE.set(Math.round(AB.clamp(E, 0.05, 4) * 20) / 20);
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 소실점을 끌면 내가 선 자리가 바뀐다 ---------------- */
+  (function () {
+    var el = document.getElementById("p1-v-cv");
+    var lines = AB.check("p1-v-lines", function () { cv.redraw(); }), grid = AB.check("p1-v-grid", function () { cv.redraw(); });
+    var RW = 4, RH = 3, Z0 = 2.5, DZ = 8, ex = 0, ey = 1.6, geo = null;
+    document.getElementById("p1-v-reset").addEventListener("click", function () { ex = 0; ey = 1.6; cv.redraw(); });
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var fh = h * 0.86, fw = fh * RW / RH; if (fw > w * 0.9) { fw = w * 0.9; fh = fw * RH / RW; }
+      var fx = (w - fw) / 2, fy = (h - fh) / 2;
+      function P(p) { var t = Z0 / p[2], xp = ex + (p[0] - ex) * t, yp = ey + (p[1] - ey) * t; return [fx + (xp + RW / 2) / RW * fw, fy + fh - yp / RH * fh]; }
+      var eye = [ex, ey, 0], zb = Z0 + DZ, x0 = -RW / 2, x1 = RW / 2;
+      var V = P([ex, ey, 1e6]);
+      // 방의 면
+      poly(ctx, [[x0, 0, zb], [x1, 0, zb], [x1, RH, zb], [x0, RH, zb]].map(P), "#e6dfd1", INK, 1.2);
+      poly(ctx, [[x0, 0, Z0], [x1, 0, Z0], [x1, 0, zb], [x0, 0, zb]].map(P), "#e9e1cf", INK, 1.2);
+      poly(ctx, [[x0, RH, Z0], [x1, RH, Z0], [x1, RH, zb], [x0, RH, zb]].map(P), "#f4f0e8", INK, 1.2);
+      poly(ctx, [[x0, 0, Z0], [x0, RH, Z0], [x0, RH, zb], [x0, 0, zb]].map(P), "#efe9dd", INK, 1.2);
+      poly(ctx, [[x1, 0, Z0], [x1, RH, Z0], [x1, RH, zb], [x1, 0, zb]].map(P), "#ece5d7", INK, 1.2);
+      ctx.strokeStyle = "rgba(60,56,50,0.35)"; ctx.lineWidth = 1;
+      var gz = grid() ? 1 : 2;
+      for (var z = Z0 + gz; z < zb; z += gz) { var a = P([x0, 0, z]), b = P([x1, 0, z]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+      for (var xx = x0 + 1; xx < x1; xx += 1) { var c = P([xx, 0, Z0]), d = P([xx, 0, zb]); ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.lineTo(d[0], d[1]); ctx.stroke(); }
+      // 왼쪽 벽의 창, 뒷벽의 문, 천장 등
+      poly(ctx, [[x0, 1.0, Z0 + 2], [x0, 2.2, Z0 + 2], [x0, 2.2, Z0 + 4.2], [x0, 1.0, Z0 + 4.2]].map(P), "#dfe9ee", INK, 1.2);
+      line(ctx, P([x0, 1.6, Z0 + 2]), P([x0, 1.6, Z0 + 4.2]), INK, 1);
+      line(ctx, P([x0, 1.0, Z0 + 3.1]), P([x0, 2.2, Z0 + 3.1]), INK, 1);
+      poly(ctx, [[0.4, 0, zb], [1.4, 0, zb], [1.4, 2.1, zb], [0.4, 2.1, zb]].map(P), "#c9b79a", INK, 1.2);
+      line(ctx, P([0, RH, Z0 + 4]), P([0, 2.5, Z0 + 4]), INK, 1);
+      poly(ctx, [[-0.25, 2.5, Z0 + 3.75], [0.25, 2.5, Z0 + 3.75], [0.25, 2.5, Z0 + 4.25], [-0.25, 2.5, Z0 + 4.25]].map(P), "#f2d98c", INK, 1);
+      var boxes = [
+        { b: { x0: 1.5, x1: 2.0, y0: 0, y1: 2.0, z0: Z0 + 1, z1: Z0 + 3.5 }, col: { front: "#b98f66", top: "#d6b48f", bottom: "#8a6a4b", side: "#a77d56" } },
+        { b: { x0: -1.4, x1: -0.6, y0: 0, y1: 0.8, z0: Z0 + 3, z1: Z0 + 3.8 }, col: { front: "#d4c3a2", top: "#ece1cb", bottom: "#a8987c", side: "#c2af8b" } },
+        { b: { x0: 0.2, x1: 0.8, y0: 0, y1: 0.6, z0: Z0 + 5.2, z1: Z0 + 5.8 }, col: { front: "#c8d3d9", top: "#e6ecef", bottom: "#8e9ea8", side: "#adbdc6" } },
+      ];
+      boxes.sort(function (p, q) { return q.b.z0 - p.b.z0; }).forEach(function (o) { drawBox(ctx, o.b, P, eye, o.col, 1.2); });
+      if (lines()) {
+        [[x0, 0], [x1, 0], [x0, RH], [x1, RH]].forEach(function (q) { line(ctx, P([q[0], q[1], Z0]), V, RED, 1, [4, 4]); });
+        line(ctx, [0, V[1]], [w, V[1]], BLUE, 1.2, [6, 4]);
+        label(ctx, "수평선", 8, V[1] - 5, { size: 11, color: BLUE });
+      }
+      ctx.strokeStyle = "#111111"; ctx.lineWidth = 2; ctx.strokeRect(fx, fy, fw, fh);
+      AB.handle(ctx, V[0], V[1], { r: 7, fill: RED });
+      geo = { fx: fx, fy: fy, fw: fw, fh: fh };
+      AB.stat("p1-v-o-h", AB.fix(ey, 2) + " m" + (ey > RH ? " <small>(천장 위)</small>" : ey < 0 ? " <small>(바닥 아래)</small>" : ""));
+      AB.stat("p1-v-o-x", Math.abs(ex) < 0.05 ? "가운데" : (ex < 0 ? "왼쪽 " : "오른쪽 ") + AB.fix(Math.abs(ex), 2) + " m" + (Math.abs(ex) > RW / 2 ? " <small>(방 밖)</small>" : ""));
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.7, 240, 400)); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        ex = AB.clamp((x - geo.fx) / geo.fw * RW - RW / 2, -3.4, 3.4);
+        ey = AB.clamp((geo.fy + geo.fh - y) / geo.fh * RH, -0.4, 3.6);
+        cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 바닥 타일과 거리점 ---------------- */
+  (function () {
+    var el = document.getElementById("p1-t-cv");
+    var gk = AB.range("p1-t-f", function (v) { return AB.fix(v, 2) + "×"; }, function () { cv.redraw(); });
+    var mode = AB.seg("p1-t-mode", function () { cv.redraw(); });
+    var diag = AB.check("p1-t-diag", function () { cv.redraw(); }), cone = AB.check("p1-t-cone", function () { cv.redraw(); });
+    var E = 1.5, geo = null;
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var hy = h * 0.34, vx = w / 2, f = gk() * w;
+      function P(x, z) { return [vx + f * x / z, hy + f * E / z]; }
+      ctx.fillStyle = "#eef1f2"; ctx.fillRect(0, 0, w, hy);
+      var zs = f * E / (h - hy), z0 = Math.max(0.4, Math.floor(zs * 2) / 2);
+      var rows = [];
+      if (mode() === "true") { for (var z = z0; z < 400; z += 1) rows.push(P(0, z)[1]); }
+      else {
+        var y0 = P(0, z0)[1], y1 = P(0, z0 + 1)[1], d = y0 - y1;
+        for (var i = 0; y0 - i * d > hy + 1; i++) rows.push(y0 - i * d);
+        rows.push(hy + 0.5);
+      }
+      // 각 가로줄의 깊이(같은 간격 실수일 때는 그 줄이 놓인 화면 높이에서 거꾸로 계산)
+      function zAt(y) { return f * E / Math.max(0.01, y - hy); }
+      for (var r = 0; r < rows.length - 1; r++) {
+        var za = zAt(rows[r]), zb = zAt(rows[r + 1]);
+        for (var xi = -14; xi < 14; xi++) {
+          var p1 = [vx + f * xi / za, rows[r]], p2 = [vx + f * (xi + 1) / za, rows[r]], p3 = [vx + f * (xi + 1) / zb, rows[r + 1]], p4 = [vx + f * xi / zb, rows[r + 1]];
+          poly(ctx, [p1, p2, p3, p4], (xi + r) % 2 === 0 ? "#d9cdb5" : "#f2ece0", null);
+        }
+      }
+      ctx.strokeStyle = "rgba(58,56,51,0.55)"; ctx.lineWidth = 1;
+      rows.forEach(function (y) { if (y <= h) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); } });
+      for (var xl = -14; xl <= 14; xl++) { var a = [vx + f * xl / zAt(rows[0]), rows[0]]; ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(vx, hy); ctx.stroke(); }
+      line(ctx, [0, hy], [w, hy], BLUE, 1.3, [6, 4]);
+      label(ctx, "수평선", 8, hy - 6, { size: 11, color: BLUE });
+      ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(vx, hy, 4, 0, Math.PI * 2); ctx.fill();
+      label(ctx, "소실점", vx, hy - 8, { size: 11, color: RED, align: "center" });
+      var dpx = vx + f;
+      if (diag()) {
+        for (var k = -10; k <= 6; k++) { var s = [vx + f * (k) / zAt(rows[0]), rows[0]]; var zf = zAt(rows[0]); line(ctx, s, [vx + f * (k + 60) / (zf + 60), hy + f * E / (zf + 60)], "rgba(43,108,176,0.7)", 1, [3, 3]); }
+        if (dpx < w - 8) { AB.handle(ctx, dpx, hy, { r: 7, fill: BLUE }); label(ctx, "거리점", dpx, hy + 22, { size: 11, color: BLUE, align: "center" }); }
+        else { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.moveTo(w - 4, hy); ctx.lineTo(w - 14, hy - 6); ctx.lineTo(w - 14, hy + 6); ctx.fill(); label(ctx, "거리점(그림 밖 →)", w - 18, hy + 20, { size: 11, color: BLUE, align: "right" }); }
+      }
+      if (cone()) { ctx.strokeStyle = RED; ctx.lineWidth = 1.2; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.arc(vx, hy, f * Math.tan(30 * DEG), 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]); }
+      geo = { vx: vx, hy: hy, w: w };
+      var fov = 2 * Math.atan(w / 2 / f) / DEG;
+      var r0a = rows[0], r0b = rows[1], za0 = zAt(r0a);
+      var tw = f / za0, th = r0a - r0b;
+      AB.stat("p1-t-o-a", AB.fix(fov, 0) + "°");
+      AB.stat("p1-t-o-r", AB.fix(th / tw, 2) + (mode() === "even" ? " <small>(뒤로 갈수록 커진다)</small>" : ""));
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.62, 240, 380)); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo || !diag()) return;
+        var k = Math.abs(x - geo.vx) / geo.w;
+        gk.set(Math.round(AB.clamp(k, 0.3, 1.6) * 100) / 100);
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 대각선으로 깊이 나누기 ---------------- */
+  (function () {
+    var el = document.getElementById("p1-d-cv");
+    var gn = AB.range("p1-d-n", function (v) { return v + "개"; }, function () { cv.redraw(); });
+    var mode = AB.seg("p1-d-mode", function () { cv.redraw(); }), show = AB.check("p1-d-show", function () { cv.redraw(); });
+    var u0 = 0.9, u1 = 0.66, geo = null, drag = -1;
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var vx = w * 0.12, vy = h * 0.42, topY = h * 0.06, botY = h * 0.95;
+      var yt = function (x) { return vy + (x - vx) * (topY - vy) / (w - vx); }, yb = function (x) { return vy + (x - vx) * (botY - vy) / (w - vx); }, ym = function (x) { return (yt(x) + yb(x)) / 2; };
+      ctx.fillStyle = "#eef1f2"; ctx.fillRect(0, 0, w, vy); ctx.fillStyle = "#e7e0d0"; ctx.fillRect(0, vy, w, h - vy);
+      poly(ctx, [[vx, vy], [w, topY], [w, botY]], "#f1ebdf", INK, 1.2);
+      line(ctx, [0, vy], [w, vy], BLUE, 1.2, [6, 4]);
+      ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(vx, vy, 4, 0, Math.PI * 2); ctx.fill();
+      label(ctx, "소실점", vx + 6, vy - 8, { size: 11, color: RED });
+      var x0 = vx + u0 * (w - vx), x1 = vx + u1 * (w - vx), N = gn();
+      // 올바른 자리: 1/(x − vx)가 깊이에 정비례 → 같은 간격이면 등차
+      var a0 = 1 / (x0 - vx), a1 = 1 / (x1 - vx), truth = [];
+      for (var i = 0; i < N; i++) { var ai = a0 + i * (a1 - a0); truth.push(ai > 0 ? vx + 1 / ai : null); }
+      var xs = [];
+      if (mode() === "diag") {
+        xs = [x0, x1];
+        for (var j = 2; j < N; j++) {
+          var A = [xs[j - 2], yt(xs[j - 2])], B = [xs[j - 1], ym(xs[j - 1])];
+          // A→B 직선과 바닥선의 교점
+          var sB = (botY - vy) / (w - vx), m = (B[1] - A[1]) / (B[0] - A[0]);
+          var xi = (A[1] - m * A[0] - vy + sB * vx) / (sB - m);
+          if (show()) line(ctx, A, [xi, yb(xi)], "rgba(43,108,176,0.75)", 1, [3, 3]);
+          xs.push(xi);
+        }
+        if (show()) line(ctx, [vx, vy], [w, ym(w)], "rgba(43,108,176,0.75)", 1, [6, 3]);
+      } else {
+        for (var k = 0; k < N; k++) xs.push(x0 - k * (x0 - x1));
+        truth.forEach(function (t) { if (t) line(ctx, [t, yt(t)], [t, yb(t)], "rgba(90,90,90,0.55)", 1.5, [4, 3]); });
+      }
+      xs.forEach(function (x, k) {
+        var bad = mode() === "even" && (x <= vx + 1 || (truth[k] && Math.abs(x - truth[k]) > 3));
+        if (x <= vx + 0.5) { label(ctx, "✕", vx + 4, vy + 18 + k * 2, { size: 12, color: RED }); return; }
+        var lw = Math.max(1.2, (x - vx) / (w - vx) * 7);
+        line(ctx, [x, yt(x)], [x, yb(x)], bad ? RED : "#6b4f33", lw);
+      });
+      AB.handle(ctx, x0, botY - 10, { r: 7, fill: "#ffffff" });
+      AB.handle(ctx, x1, yb(x1) - 10, { r: 7, fill: "#ffffff" });
+      label(ctx, "1", x0 - 12, botY - 22, { size: 11, weight: 700 }); label(ctx, "2", x1 - 12, yb(x1) - 22, { size: 11, weight: 700 });
+      geo = { vx: vx, w: w, x0: x0, x1: x1, y0: botY - 10, y1: yb(x1) - 10 };
+      var sp = []; for (var q = 1; q < Math.min(xs.length, 5); q++) if (xs[q] > vx) sp.push(xs[q - 1] - xs[q]);
+      var rat = []; for (var q2 = 1; q2 < sp.length; q2++) rat.push(AB.fix(sp[q2] / sp[q2 - 1], 2));
+      AB.stat("p1-d-o-r", rat.length ? rat.join(" → ") : "—");
+      var last = N - 1, err = truth[last] ? (xs[last] - truth[last]) : null;
+      if (mode() === "even") AB.stat("p1-d-o-e", xs[last] <= vx ? '<span style="color:var(--bad)">소실점을 지나침</span>' : AB.fix(Math.abs(err), 0) + " px");
+      else AB.stat("p1-d-o-e", "0 px <small>(대각선은 정확하다)</small>");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.55, 230, 340)); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!geo) return; var d0 = Math.hypot(x - geo.x0, y - geo.y0), d1 = Math.hypot(x - geo.x1, y - geo.y1); drag = d1 < d0 ? 1 : 0; },
+      move: function (x) {
+        if (!geo || drag < 0) return; var u = (x - geo.vx) / (geo.w - geo.vx);
+        if (drag === 0) u0 = AB.clamp(u, u1 + 0.04, 0.98); else u1 = AB.clamp(u, 0.12, u0 - 0.04);
+        cv.redraw();
+      },
+      end: function () { drag = -1; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 시야각과 왜곡 (ART.project) ---------------- */
+  (function () {
+    var el = document.getElementById("p1-f-cv");
+    var ga = AB.range("p1-f-a", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var cone = AB.check("p1-f-cone", function () { cv.redraw(); });
+    var XS = [-12, -8, -4, 0, 4, 8, 12], Z = 7, E = 1.5;
+    function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+    function nrm(a) { var l = Math.hypot(a[0], a[1], a[2]); return [a[0] / l, a[1] / l, a[2] / l]; }
+    function cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var fov = ga(), f = (w / 2) / Math.tan(fov / 2 * DEG), cam = { pos: [0, E, 0], f: f, cx: w / 2, cy: h * 0.5 };
+      var P = function (p) { return ART.project(p, cam); };
+      ctx.fillStyle = "#eef1f2"; ctx.fillRect(0, 0, w, cam.cy); ctx.fillStyle = "#e7e0d0"; ctx.fillRect(0, cam.cy, w, h - cam.cy);
+      ctx.strokeStyle = "rgba(90,80,60,0.25)"; ctx.lineWidth = 1;
+      for (var x = -30; x <= 30; x += 2) { var a = P([x, 0, 0.8]), b = P([x, 0, 400]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+      [1, 1.5, 2, 3, 4, 5, 7, 10, 15, 25].forEach(function (z) { var y = P([0, 0, z])[1]; if (y < h) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); } });
+      var eye = cam.pos, worst = 1;
+      XS.forEach(function (xc) {
+        drawBox(ctx, { x0: xc - 0.6, x1: xc + 0.6, y0: 0, y1: 1.2, z0: Z - 0.6, z1: Z + 0.6 }, P, eye, { front: "#d4c3a2", top: "#ece1cb", bottom: "#a8987c", side: "#bba98a" }, 1.1);
+        // 공: 시선 원뿔이 공에 닿는 원을 투영
+        var C = [xc, 2.6, Z], r = 0.6, dv = sub(C, eye), d = Math.hypot(dv[0], dv[1], dv[2]), c = nrm(dv);
+        var T = [C[0] - c[0] * r * r / d, C[1] - c[1] * r * r / d, C[2] - c[2] * r * r / d], rho = r * Math.sqrt(1 - r * r / (d * d));
+        var u = nrm(cross(c, [0, 1, 0])), v = cross(u, c), pts = [];
+        for (var k = 0; k < 64; k++) { var t = k / 64 * Math.PI * 2; pts.push(P([T[0] + rho * (u[0] * Math.cos(t) + v[0] * Math.sin(t)), T[1] + rho * (u[1] * Math.cos(t) + v[1] * Math.sin(t)), T[2] + rho * (u[2] * Math.cos(t) + v[2] * Math.sin(t))])); }
+        var cxp = pts.reduce(function (s, p) { return s + p[0]; }, 0) / 64, cyp = pts.reduce(function (s, p) { return s + p[1]; }, 0) / 64;
+        var g = ctx.createRadialGradient(cxp - 4, cyp - 4, 1, cxp, cyp, Math.max(4, Math.abs(pts[0][0] - pts[32][0]) * 0.6));
+        g.addColorStop(0, "#f6e0cf"); g.addColorStop(1, "#c98f6e");
+        poly(ctx, pts, g, INK, 1.1);
+        var mx = 0, mn = 1e9; for (var q = 0; q < 32; q++) { var dd = Math.hypot(pts[q][0] - pts[q + 32][0], pts[q][1] - pts[q + 32][1]); mx = Math.max(mx, dd); mn = Math.min(mn, dd); }
+        if (cxp > 0 && cxp < w) worst = Math.max(worst, mx / mn);
+      });
+      line(ctx, [0, cam.cy], [w, cam.cy], BLUE, 1.2, [6, 4]);
+      ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(cam.cx, cam.cy, 3.5, 0, Math.PI * 2); ctx.fill();
+      if (cone()) { ctx.strokeStyle = RED; ctx.lineWidth = 1.3; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.arc(cam.cx, cam.cy, f * Math.tan(30 * DEG), 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]); label(ctx, "60도 원", cam.cx + 6, cam.cy - f * Math.tan(30 * DEG) + 14, { size: 11, color: RED }); }
+      AB.stat("p1-f-o-f", "그림 폭의 " + AB.fix(f / w, 2) + "배");
+      AB.stat("p1-f-o-e", AB.fix(worst, 2) + "배");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.56, 220, 360)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 뒤러의 서재에서 소실점 찾기 ---------------- */
+  (function () {
+    var el = document.getElementById("p1-du-cv");
+    var edges = AB.check("p1-du-edges", function () { cv.redraw(); }), ext = AB.check("p1-du-ext", function () { cv.redraw(); }), ans = AB.check("p1-du-ans", function () { cv.redraw(); });
+    // 판화(1446 × 1866 px 원본) 위에서 이 책이 직접 잰 직교선 세 줄(정규화 좌표)
+    var SEG = [
+      { n: "천장 들보 아래 모서리", a: [0.2248, 0.1083], b: [0.5602, 0.2974], c: "#e8590c" },
+      { n: "창틀 가로대", a: [0.1176, 0.2894], b: [0.2538, 0.3274], c: "#1c7ed6" },
+      { n: "창가 의자 앞 모서리", a: [0.1107, 0.7208], b: [0.4841, 0.6313], c: "#2f9e44" },
+    ];
+    // 최소제곱 교점: 세 직선까지 거리 제곱의 합이 가장 작은 점 (정규화 좌표, 가로세로 비를 맞춘다)
+    var AR = 1866 / 1446;
+    function lsq() {
+      var A11 = 0, A12 = 0, A22 = 0, b1 = 0, b2 = 0;
+      SEG.forEach(function (s) {
+        var ax = s.a[0], ay = s.a[1] * AR, dx = s.b[0] - s.a[0], dy = (s.b[1] - s.a[1]) * AR, l = Math.hypot(dx, dy), nx = -dy / l, ny = dx / l, c = nx * ax + ny * ay;
+        A11 += nx * nx; A12 += nx * ny; A22 += ny * ny; b1 += nx * c; b2 += ny * c;
+      });
+      var det = A11 * A22 - A12 * A12; return [(b1 * A22 - b2 * A12) / det, (A11 * b2 - A12 * b1) / det / AR];
+    }
+    var BEST = lsq(), img = null, vp = [0.72, 0.42], geo = null;
+    AB.loadImage("../../shared/img/durer-saint-jerome-study.webp").then(function (im) { img = im; cv.redraw(); }).catch(function () {});
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var ih = h - 16, iw = ih / AR; if (iw > w * 0.74) { iw = w * 0.74; ih = iw * AR; }
+      var ix = 8, iy = (h - ih) / 2;
+      var M = function (p) { return [ix + p[0] * iw, iy + p[1] * ih]; };
+      if (img) ctx.drawImage(img, ix, iy, iw, ih); else { ctx.fillStyle = "#d8d2c6"; ctx.fillRect(ix, iy, iw, ih); label(ctx, "판화를 불러오는 중…", ix + iw / 2, iy + ih / 2, { align: "center", color: "#2b2a30" }); }
+      var V = M(vp), dev = 0;
+      SEG.forEach(function (s) {
+        var A = M(s.a), B = M(s.b);
+        if (ext()) { var dx = B[0] - A[0], dy = B[1] - A[1], t = (w - A[0]) / dx; line(ctx, A, [A[0] + dx * t, A[1] + dy * t], s.c, 1.2, [5, 4]); }
+        if (edges()) line(ctx, A, B, s.c, 3.5);
+        // 빨간 점에서 모서리 가운데로 그은 선과 모서리 방향의 각도 차
+        var Mx = (A[0] + B[0]) / 2, My = (A[1] + B[1]) / 2;
+        var a1 = Math.atan2(B[1] - A[1], B[0] - A[0]), a2 = Math.atan2(V[1] - My, V[0] - Mx), d = Math.abs(((a1 - a2) / DEG + 540) % 180);
+        dev += Math.min(d, 180 - d) / 3;
+        line(ctx, V, A, "rgba(255,255,255,0.9)", 1);
+        line(ctx, V, A, s.c, 0.8, [2, 2]);
+      });
+      if (ans()) {
+        var Bp = M(BEST); ctx.strokeStyle = "#ffd43b"; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(Bp[0], Bp[1], 9, 0, Math.PI * 2); ctx.stroke();
+        label(ctx, "이 책의 어림", Bp[0] + (Bp[0] > w - 90 ? -12 : 12), Bp[1] + 24, { size: 11, color: "#ffffff", weight: 700, align: Bp[0] > w - 90 ? "right" : "left" });
+      }
+      AB.handle(ctx, V[0], V[1], { r: 7, fill: RED });
+      geo = { ix: ix, iy: iy, iw: iw, ih: ih };
+      AB.stat("p1-du-o-d", AB.fix(dev, 1) + "°" + (dev < 1 ? ' <small style="color:var(--ok)">거의 맞음</small>' : ""));
+      AB.stat("p1-du-o-p", "가로 " + Math.round(vp[0] * 100) + "% · 위에서 " + Math.round(vp[1] * 100) + "%");
+    }, { bg: "#808080", get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.82, 300, 520)); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) { if (!geo) return; vp = [AB.clamp((x - geo.ix) / geo.iw, -0.05, 1.3), AB.clamp((y - geo.iy) / geo.ih, 0, 1)]; cv.redraw(); },
+    });
+  })();
+
+  /* ---------------- 그림 4: 같은 방, 두 가지 공간(전/후 비교) ---------------- */
+  (function () {
+    var OBJ = [
+      { b: { x0: 0.3, x1: 2.6, y0: 0, y1: 1.9, z0: 5, z1: 5.5 }, col: { front: "#b98f66", top: "#d6b48f", bottom: "#8a6a4b", side: "#a77d56" }, shelf: true },
+      { b: { x0: 3.6, x1: 5.6, y0: 0, y1: 1.9, z0: 5, z1: 5.5 }, col: { front: "#b98f66", top: "#d6b48f", bottom: "#8a6a4b", side: "#a77d56" }, shelf: true },
+      { b: { x0: 3.4, x1: 4.2, y0: 0, y1: 0.7, z0: 2.6, z1: 3.4 }, col: { front: "#d4c3a2", top: "#ece1cb", bottom: "#a8987c", side: "#c2af8b" } },
+      { b: { x0: 1.0, x1: 3.0, y0: 0.6, y1: 0.72, z0: 1.0, z1: 2.2 }, col: { front: "#8c6b4a", top: "#c9a77f", bottom: "#6b5038", side: "#7d5f42" }, table: true },
+    ];
+    function scene(ctx, w, h, P, eye) {
+      poly(ctx, [[0, 0, 0], [6, 0, 0], [6, 0, 6], [0, 0, 6]].map(P), "#ece4d3", INK, 1.2);
+      ctx.strokeStyle = "rgba(60,56,50,0.35)"; ctx.lineWidth = 1;
+      for (var x = 0.5; x < 6; x += 0.5) { var a = P([x, 0, 0]), b = P([x, 0, 6]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+      poly(ctx, [[0, 0, 6], [6, 0, 6], [6, 2.6, 6], [0, 2.6, 6]].map(P), "#e3dccd", INK, 1.2);
+      poly(ctx, [[2.4, 1.0, 6], [3.6, 1.0, 6], [3.6, 2.1, 6], [2.4, 2.1, 6]].map(P), "#dfe9ee", INK, 1.1);
+      OBJ.slice().sort(function (p, q) { return q.b.z0 - p.b.z0; }).forEach(function (o) {
+        if (o.table) [[o.b.x0 + 0.08, o.b.z0 + 0.08], [o.b.x1 - 0.16, o.b.z0 + 0.08], [o.b.x0 + 0.08, o.b.z1 - 0.16], [o.b.x1 - 0.16, o.b.z1 - 0.16]].forEach(function (l) { drawBox(ctx, { x0: l[0], x1: l[0] + 0.08, y0: 0, y1: 0.6, z0: l[1], z1: l[1] + 0.08 }, P, eye, o.col, 0.9); });
+        drawBox(ctx, o.b, P, eye, o.col, 1.2);
+        if (o.shelf) for (var y = 0.45; y < 1.9; y += 0.45) line(ctx, P([o.b.x0, y, o.b.z0]), P([o.b.x1, y, o.b.z0]), INK, 1);
+      });
+    }
+    function opts() { return { bg: PAPER, get height() { var el = document.getElementById("p1-cmp-a"); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.6, 220, 400)); } }; }
+    AB.canvas("#p1-cmp-a", function (ctx, w, h) {
+      var cam = { pos: [3, 3.4, -3.2], f: w * 0.62, cx: w / 2, cy: h * 0.16 };
+      var P = function (p) { return ART.project(p, cam); };
+      ctx.fillStyle = "#f3f0ea"; ctx.fillRect(0, 0, w, h);
+      scene(ctx, w, h, P, cam.pos);
+      line(ctx, [0, cam.cy], [w, cam.cy], BLUE, 1.1, [6, 4]);
+      ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(cam.cx, cam.cy, 3.5, 0, Math.PI * 2); ctx.fill();
+      label(ctx, "소실점", cam.cx + 6, cam.cy - 6, { size: 11, color: RED });
+    }, opts());
+    AB.canvas("#p1-cmp-b", function (ctx, w, h) {
+      var s = Math.min(w / 9.2, h / 5.6), ang = 32 * DEG, k = 0.5, ox = w * 0.1, oy = h * 0.93;
+      var P = function (p) { return [ox + (p[0] + k * p[2] * Math.cos(ang)) * s, oy - (p[1] + k * p[2] * Math.sin(ang)) * s]; };
+      ctx.fillStyle = "#f3f0ea"; ctx.fillRect(0, 0, w, h);
+      // 평행 투영에서 보는 방향: 위·앞·왼쪽 무한히 먼 곳 → 가상의 먼 눈으로 면의 보임을 정한다
+      scene(ctx, w, h, P, [-1e4 * Math.cos(ang) * k, 1e4 * Math.sin(ang) * k * 1.6, -1e4]);
+    }, opts());
+    AB.compare("#p1-cmp", { labels: ["1점 투시", "평행 사선 투영"], pos: 0.5 });
+  })();
+
+  /* ---------------- 시뮬레이터 7: 서가 통로 (ART.project) ---------------- */
+  (function () {
+    var el = document.getElementById("p1-a-cv");
+    var gE = AB.range("p1-a-e", function (v) { return Math.round(v * 100) + " cm"; }, function () { cv.redraw(); });
+    var gX = AB.range("p1-a-x", function (v) { return v === 0 ? "가운데" : (v < 0 ? "왼쪽 " : "오른쪽 ") + Math.round(Math.abs(v) * 100) + " cm"; }, function () { cv.redraw(); });
+    var gF = AB.range("p1-a-f", function (v) { return v + " mm"; }, function () { cv.redraw(); });
+    var cone = AB.check("p1-a-cone", function () { cv.redraw(); });
+    var PW = 180, PH = 250, vp = [81, 100], geo = null;  // 그림 칸(mm)과 소실점(왼쪽·아래에서 mm)
+    document.getElementById("p1-a-sit").addEventListener("click", function () { vp = [81, 100]; gX.set(0); gE.set(1.1); });
+    document.getElementById("p1-a-stand").addEventListener("click", function () { vp = [90, 125]; gX.set(0); gE.set(1.6); });
+    var Z0 = 2.0, LEN = 5.4, ZW = 8.0, HW = 0.55, DEP = 0.35, SH = 2.1, BOARDS = [0.1, 0.5, 0.9, 1.3, 1.7, 2.1], CEIL = 2.7;
+    var BOOKC = ["#c7b9a1", "#a9b7ab", "#d2b7a5", "#b5aab9", "#cfc5a4", "#9fb0bb", "#d9cdb9"];
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var E = gE(), Xe = gX(), fmm = gF();
+      var sc = Math.min((h - 30) / PH, (w - 16) / PW * (w >= 520 ? 0.62 : 1)), pw = PW * sc, ph = PH * sc, px0 = 10, py0 = (h - ph) / 2;
+      var cam = { pos: [Xe, E, 0], f: fmm * sc, cx: px0 + vp[0] * sc, cy: py0 + (PH - vp[1]) * sc };
+      var P = function (p) { return ART.project(p, cam); }, eye = cam.pos;
+      ctx.save(); ctx.beginPath(); ctx.rect(px0, py0, pw, ph); ctx.clip();
+      ctx.fillStyle = "#f8f5ee"; ctx.fillRect(px0, py0, pw, ph);
+      // 천장·바닥·끝 벽
+      poly(ctx, [[-HW - DEP, 0, Z0 - 1.5], [HW + DEP, 0, Z0 - 1.5], [HW + DEP, 0, ZW], [-HW - DEP, 0, ZW]].map(P), "#e8dfcc", INK, 1);
+      poly(ctx, [[-HW - DEP, CEIL, Z0 - 1.5], [HW + DEP, CEIL, Z0 - 1.5], [HW + DEP, CEIL, ZW], [-HW - DEP, CEIL, ZW]].map(P), "#f4f1ea", INK, 1);
+      poly(ctx, [[-HW - DEP, 0, ZW], [HW + DEP, 0, ZW], [HW + DEP, CEIL, ZW], [-HW - DEP, CEIL, ZW]].map(P), "#ece6da", INK, 1.1);
+      poly(ctx, [[-0.35, 0.9, ZW], [0.35, 0.9, ZW], [0.35, 1.9, ZW], [-0.35, 1.9, ZW]].map(P), "#dfe9ee", INK, 1.1);
+      line(ctx, P([0, 0.9, ZW]), P([0, 1.9, ZW]), INK, 0.9); line(ctx, P([-0.35, 1.4, ZW]), P([0.35, 1.4, ZW]), INK, 0.9);
+      ctx.strokeStyle = "rgba(60,56,50,0.3)"; ctx.lineWidth = 0.8;
+      for (var fx = -HW; fx <= HW + 1e-6; fx += 0.1375) { var a = P([fx, 0, Z0 - 1.5]), b = P([fx, 0, ZW]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+      // 끝의 의자
+      drawBox(ctx, { x0: -0.2, x1: 0.2, y0: 0.42, y1: 0.46, z0: ZW - 0.5, z1: ZW - 0.1 }, P, eye, { front: "#8c6b4a", top: "#b58e66", bottom: "#6b5038", side: "#7d5f42" }, 1);
+      [[-0.18, ZW - 0.48], [0.14, ZW - 0.48], [-0.18, ZW - 0.16], [0.14, ZW - 0.16]].forEach(function (l) { drawBox(ctx, { x0: l[0], x1: l[0] + 0.04, y0: 0, y1: 0.42, z0: l[1], z1: l[1] + 0.04 }, P, eye, { front: "#7d5f42", top: "#8c6b4a", bottom: "#6b5038", side: "#6b5038" }, 0.8); });
+      // 양쪽 서가: 옆판, 선반, 책등
+      [-1, 1].forEach(function (sd) {
+        var xa = sd * HW, xb = sd * (HW + DEP), r = AB.rng(sd > 0 ? 5 : 9);
+        poly(ctx, [[xa, 0, Z0], [xa, SH, Z0], [xa, SH, Z0 + LEN], [xa, 0, Z0 + LEN]].map(P), "#d8c7a8", null);
+        for (var bi = 0; bi < 6; bi++) {
+          var zA = Z0 + bi * 0.9, zB = zA + 0.9;
+          for (var k = 0; k < BOARDS.length - 1; k++) {
+            var y0 = BOARDS[k] + 0.03, z = zA + 0.04;
+            while (z < zB - 0.05) {
+              var bw = 0.025 + r() * 0.03, bh = Math.min(BOARDS[k + 1] - BOARDS[k] - 0.06, 0.2 + r() * 0.13);
+              poly(ctx, [[xa, y0, z], [xa, y0 + bh, z], [xa, y0 + bh, z + bw], [xa, y0, z + bw]].map(P), BOOKC[Math.floor(r() * BOOKC.length)], "rgba(58,56,51,0.55)", 0.6);
+              z += bw + (r() < 0.08 ? 0.05 : 0.002);
+            }
+          }
+          poly(ctx, [[xa, 0, zA], [xa, SH, zA], [xb, SH, zA], [xb, 0, zA]].map(P), "#c9b28e", INK, 1);
+        }
+        BOARDS.forEach(function (y) {
+          var vis = (E > y) ? [[xa, y, Z0], [xb, y, Z0], [xb, y, Z0 + LEN], [xa, y, Z0 + LEN]] : [[xa, y - 0.03, Z0], [xb, y - 0.03, Z0], [xb, y - 0.03, Z0 + LEN], [xa, y - 0.03, Z0 + LEN]];
+          poly(ctx, vis.map(P), E > y ? "#d9c3a0" : "#b39a76", INK, 0.9);
+          line(ctx, P([xa, y, Z0]), P([xa, y, Z0 + LEN]), INK, 1.1);
+        });
+        poly(ctx, [[xa, 0, Z0 + LEN], [xa, SH, Z0 + LEN], [xb, SH, Z0 + LEN], [xb, 0, Z0 + LEN]].map(P), "#c9b28e", INK, 1);
+      });
+      if (cone()) {
+        line(ctx, [px0, cam.cy], [px0 + pw, cam.cy], BLUE, 1.3, [6, 4]);
+        ctx.strokeStyle = RED; ctx.lineWidth = 1.3; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.arc(cam.cx, cam.cy, cam.f * Math.tan(30 * DEG), 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+      }
+      ctx.restore();
+      ctx.strokeStyle = "#111111"; ctx.lineWidth = 1.5; ctx.strokeRect(px0, py0, pw, ph);
+      AB.handle(ctx, cam.cx, cam.cy, { r: 7, fill: RED });
+      // 옆 그림(넓은 화면)
+      var sx0 = px0 + pw + 18, sw = w - sx0 - 8;
+      if (sw > 120) {
+        var sh = Math.min(ph * 0.62, sw * 0.9), sy0 = py0 + 18, S = function (z, y) { return [sx0 + z / 9 * sw, sy0 + sh - y / 3 * sh]; };
+        label(ctx, "옆에서 본 통로", sx0, sy0 - 6, { size: 11, color: TXT2 });
+        line(ctx, S(0, 0), S(9, 0), INK, 1.2);
+        poly(ctx, [S(Z0, 0), S(Z0, SH), S(Z0 + LEN, SH), S(Z0 + LEN, 0)], "#e6d8bd", INK, 1);
+        BOARDS.forEach(function (y) { line(ctx, S(Z0, y), S(Z0 + LEN, y), E > y ? INK : RED, E > y ? 1 : 2); });
+        line(ctx, S(ZW, 0), S(ZW, CEIL), INK, 1.2); line(ctx, S(0, CEIL), S(9, CEIL), "rgba(58,56,51,0.4)", 1);
+        line(ctx, S(0, E), S(9, E), BLUE, 1.2, [6, 4]);
+        ctx.fillStyle = "#ffffff"; ctx.beginPath(); ctx.arc(S(0, E)[0] + 6, S(0, E)[1], 6, 0, Math.PI * 2); ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.5; ctx.stroke();
+        label(ctx, "눈 " + Math.round(E * 100) + " cm", S(0, E)[0] + 2, S(0, E)[1] - 10, { size: 11 });
+        label(ctx, "빨간 선반: 아랫면이 보인다", sx0, sy0 + sh + 18, { size: 11, color: RED });
+        label(ctx, "그림 칸 180 × 250 mm", sx0, sy0 + sh + 36, { size: 11, color: TXT2 });
+      }
+      geo = { px0: px0, py0: py0, sc: sc };
+      var corners = [[0, 0], [PW, 0], [0, PH], [PW, PH]], md = 0;
+      corners.forEach(function (c) { md = Math.max(md, Math.hypot(c[0] - vp[0], c[1] - vp[1])); });
+      var ca = Math.atan(md / fmm) / DEG;
+      var above = BOARDS.filter(function (y) { return y > E; });
+      AB.stat("p1-a-o-v", Math.round(vp[0]) + " mm · " + Math.round(vp[1]) + " mm");
+      AB.stat("p1-a-o-s", above.length + "판 <small>(" + (above.length ? above.map(function (y) { return AB.fix(y, 1); }).join("·") + " m" : "없음") + ")</small>");
+      AB.stat("p1-a-o-c", AB.fix(ca, 1) + "°" + (ca > 30 ? ' <small style="color:var(--bad)">60도 원 밖</small>' : ' <small style="color:var(--ok)">원 안</small>'));
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return w >= 520 ? Math.round(AB.clamp(w * 0.78, 380, 520)) : Math.round(AB.clamp((w - 16) * PH / PW + 30, 300, 560)); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) { if (!geo) return; vp = [AB.clamp((x - geo.px0) / geo.sc, 0, PW), AB.clamp(PH - (y - geo.py0) / geo.sc, 0, PH)]; cv.redraw(); },
+    });
+  })();
+})();
+</script>
+</body>
+</html>

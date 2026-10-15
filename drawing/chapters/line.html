@@ -1,0 +1,954 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "선의 굵기·속도·압력이 만드는 표정, 선의 무게로 앞뒤를 가르는 법, 해칭·크로스해칭·점묘로 명도를 쌓는 원리(면적 평균 모형), 형태를 따라가는 해칭 방향, 동아시아의 필선과 준법, 그리고 인쇄에서 촘촘한 해칭이 뭉치는 이유를 시뮬레이터로 익힌다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>선과 해칭 · DrawingBook</title>
+<meta name="description" content="선의 굵기·속도·압력이 만드는 표정, 선의 무게로 앞뒤를 가르는 법, 해칭·크로스해칭·점묘로 명도를 쌓는 원리(면적 평균 모형), 형태를 따라가는 해칭 방향, 동아시아의 필선과 준법, 그리고 인쇄에서 촘촘한 해칭이 뭉치는 이유를 시뮬레이터로 익힌다.">
+<link rel="canonical" href="https://artbook.euiyun.com/drawing/chapters/line.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="선과 해칭 · DrawingBook">
+<meta property="og:description" content="선의 굵기·속도·압력이 만드는 표정, 선의 무게로 앞뒤를 가르는 법, 해칭·크로스해칭·점묘로 명도를 쌓는 원리(면적 평균 모형), 형태를 따라가는 해칭 방향, 동아시아의 필선과 준법, 그리고 인쇄에서 촘촘한 해칭이 뭉치는 이유를 시뮬레이터로 익힌다.">
+<meta property="og:url" content="https://artbook.euiyun.com/drawing/chapters/line.html">
+<meta property="og:image" content="https://artbook.euiyun.com/drawing/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/drawing/chapters/line.html#chapter","name":"선과 해칭","headline":"선과 해칭 · DrawingBook","description":"선의 굵기·속도·압력이 만드는 표정, 선의 무게로 앞뒤를 가르는 법, 해칭·크로스해칭·점묘로 명도를 쌓는 원리(면적 평균 모형), 형태를 따라가는 해칭 방향, 동아시아의 필선과 준법, 그리고 인쇄에서 촘촘한 해칭이 뭉치는 이유를 시뮬레이터로 익힌다.","url":"https://artbook.euiyun.com/drawing/chapters/line.html","position":3,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/drawing/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/drawing/#book","name":"DrawingBook · 드로잉","url":"https://artbook.euiyun.com/drawing/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"DrawingBook · 드로잉","item":"https://artbook.euiyun.com/drawing/"},{"@type":"ListItem","position":3,"name":"3. 선과 해칭","item":"https://artbook.euiyun.com/drawing/chapters/line.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="line">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 03</div>
+    <h1>선과 해칭</h1>
+    <p class="lead">종이에 이름을 두 번 써 보자. 한 번은 천천히 또박또박, 한 번은 평소처럼 빠르게. 글자는 같은데 두 줄의 인상은 전혀 다르다. 천천히 쓴 줄은 조심스럽고 조금 떨리며, 빠르게 쓴 줄은 가늘어졌다 굵어지며 흐른다. 드로잉의 선도 마찬가지다. 선은 형태의 가장자리를 알려 주는 동시에 그린 사람의 속도와 망설임, 손의 무게를 고스란히 남긴다. 그리고 선을 촘촘히 겹치면 선은 사라지고 회색이 나타난다. 펜 한 자루로 그림자를 만들 수 있는 이유다. 이 장은 선 하나의 표정에서 시작해 선을 쌓아 명도를 만드는 해칭, 점으로 쌓는 점묘, 동아시아 수묵의 필선과 준법까지 따라간 뒤, 그 선이 인쇄기를 지날 때 생기는 문제로 끝난다.</p>
+    <ul class="objectives">
+      <li>선의 굵기·속도·압력이 선의 표정을 어떻게 바꾸는지 직접 그어 보며 설명한다.</li>
+      <li>윤곽선의 굵기 차이(선의 무게)로 앞뒤와 무게를 나누는 관습을 안다.</li>
+      <li>해칭과 크로스해칭이 "잉크가 덮은 면적"으로 명도를 만든다는 것을 면적 평균 모형으로 계산하고, 어두운 단계일수록 흰 틈이 급히 좁아지는 이유를 안다.</li>
+      <li>해칭의 방향이 명도뿐 아니라 형태의 굴곡을 말한다는 것을 원통과 구에서 본다.</li>
+      <li>동아시아 회화의 필선과 준법(피마준·부벽준·우점준·미점)이 질감과 구조를 함께 나르는 방식을 안다.</li>
+      <li>축소 인쇄와 잉크 번짐이 해칭 간격을 어떻게 무너뜨리는지 계산하고, 인쇄를 견디는 간격 규칙을 세운다.</li>
+    </ul>
+  </header>
+
+  <section id="voice">
+    <h2>선 하나의 표정</h2>
+    <p><a href="seeing.html">2장</a>에서 우리는 보이는 대로 보는 연습을 했다. 윤곽을 따라가고, 음형을 보고, 연필로 비례를 쟀다. 그렇게 찾은 모양을 종이에 옮기는 첫 도구가 선이다. 그런데 자연에는 선이 없다. 컵의 가장자리는 컵이 끝나고 벽이 시작되는 경계일 뿐, 거기에 검은 줄이 그어져 있지는 않다. 드로잉의 선은 경계를 대신하는 약속이고, 그 약속을 어떻게 긋느냐가 그림의 성격을 정한다.</p>
+    <p>선을 이루는 변수는 크게 셋이다. <span class="term">선의 굵기</span><span class="en">(Line weight)</span>는 선이 얼마나 두꺼운가, <span class="term">속도</span><span class="en">(Speed)</span>는 손이 얼마나 빨리 지나갔는가, <span class="term">압력</span><span class="en">(Pressure)</span>은 도구를 얼마나 세게 눌렀는가다. 세 변수는 도구에 따라 서로 얽힌다. 피그먼트 펜(가는 촉의 수성 안료 펜)은 압력을 바꿔도 굵기가 거의 같고, 빨리 그으면 잉크가 덜 묻어 조금 가늘어지거나 끊길 뿐이다. 연필은 누르는 만큼 짙어지고 조금 굵어진다. 붓은 셋이 가장 크게 얽혀, 천천히 누르면 굵고 빨리 들어 올리면 가늘어진다.</p>
+    <p>아래 판에 직접 선을 그어 본다. 처음에는 예시 선 세 줄이 있다. 위는 천천히 망설이며 그은 선, 가운데는 빠르고 자신 있게 그은 곡선, 아래는 천천히 들어가 빨라졌다가 천천히 끝나는 선이다. 도구를 바꾸면 같은 손놀림이 그 도구로 어떻게 남는지 다시 그린다.</p>
+
+    <div class="sim" id="sim-ln-stroke">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 손놀림, 세 가지 도구</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-s-cv" class="art"></canvas><span class="hint">끌어서 선을 긋는다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ln-s-tool"><button data-value="pen" class="on">피그먼트 펜</button><button data-value="pencil">연필</button><button data-value="brush">붓</button></div>
+          <label class="ctrl"><span>속도·압력에 대한 민감도 <output id="ln-s-sens-out"></output></span><input type="range" id="ln-s-sens" min="0" max="1" step="0.05" value="0.5"></label>
+          <div class="btn-row"><button class="btn sm" id="ln-s-demo" type="button">예시 선 다시</button><button class="btn sm" id="ln-s-clear" type="button">모두 지우기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">마지막 선의 평균 속도</span><span class="v" id="ln-s-o-v">—</span></div>
+        <div class="stat"><span class="k">가장 굵은 곳 ÷ 가장 가는 곳</span><span class="v" id="ln-s-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "피그먼트 펜"에서 세 예시 선을 본다. 굵기는 거의 같고, 표정의 차이는 떨림과 흐름에서만 나온다. ② "붓"으로 바꾼다. 같은 손놀림인데 천천히 지난 곳은 굵게, 빨리 지난 곳은 가늘게 남고, 시작과 끝이 뾰족해진다. 아래 예시 선은 가운데가 가늘어진다. ③ 민감도를 1까지 올리고 맨 위의 망설인 선을 본다. 펜은 잉크가 고인 얼룩이, 붓은 굵기가 제멋대로 출렁이는 덩어리가 된다. 민감한 도구일수록 손의 망설임이 그대로 커진다. 스타일러스로 그리면 실제 필압을 쓴다. (굵기·진하기는 속도에서 계산한 교육용 모형이다. 마우스와 손가락은 필압이 없으므로 느릴수록 세게 누른다고 가정했다.)</div>
+    </div>
+
+    <p>마지막 줄을 보면 선의 표정이 어디서 오는지 알 수 있다. 같은 경로라도 속도가 바뀌는 곳에서 굵기와 진하기가 바뀐다. 빠르고 확신 있는 선은 시작과 끝이 가늘어지며 공기를 가르듯 지나가고, 느리고 망설이는 선은 굵기가 고르지 않으며 작은 떨림이 쌓인다. 어느 쪽이 "좋은 선"인 것은 아니다. 바람에 흔들리는 풀은 빠른 선이, 오래된 나무 계단의 닳은 모서리는 천천히 더듬는 선이 더 어울릴 수 있다. 선을 고르는 기준은 그리는 대상과 전하려는 느낌이다.</p>
+
+    <div class="callout studio">
+      <strong>긴 선은 손목이 아니라 팔로 긋는다</strong>
+      드로잉 교사들이 가장 먼저 고쳐 주는 습관은 손목만 까딱여 짧은 선을 이어 붙이는 것이다. 그렇게 이은 선은 마디마다 굵기와 방향이 꺾여 털처럼 보인다. 10 cm가 넘는 선은 팔꿈치를, 그보다 긴 선은 어깨를 축으로 팔 전체를 움직인다. 긋기 전에 펜을 종이 위 1~2 mm에 띄운 채 같은 궤적을 두세 번 허공에서 따라가 본 뒤(흔히 "고스팅"이라고 부른다), 한 번에 긋는다. 시작점과 끝점에 작은 점을 찍어 두고 끝점을 보며 그으면 선이 덜 휜다. 선이 조금 빗나가도 지우지 말고 옆에 다시 긋는다. 여러 번 겹친 탐색선은 그 자체로 살아 있는 드로잉의 일부다.
+    </div>
+  </section>
+
+  <section id="weight">
+    <h2>선의 무게: 굵기로 앞뒤를 나누기</h2>
+    <p>굵기가 일정한 펜으로도 선의 굵기를 바꿀 수 있다. 같은 자리를 한 번 더 긋거나, 굵은 촉의 펜으로 바꾸면 된다. 오래된 관습 가운데 하나가 <span class="term">선의 무게</span><span class="en">(Line weight hierarchy)</span> 구분이다. 덩어리의 바깥 윤곽은 굵게, 덩어리 안쪽의 모서리와 주름은 가늘게 긋는다. 물체가 바닥에 닿는 쪽, 그림자가 지는 쪽, 다른 물체와 겹쳐 앞에 놓인 쪽의 선은 굵게, 빛을 받는 쪽은 가늘게 하거나 아예 끊는다. 가까운 것은 굵게, 먼 것은 가늘게 그리는 것도 같은 생각이다.</p>
+
+    <figure class="diagram" id="fig-ln-weight">
+      <svg viewBox="0 0 460 260" class="art" role="img" aria-label="같은 상자와 머그잔을 두 번 그린 그림. 왼쪽은 모든 선이 같은 굵기이고, 오른쪽은 바깥 윤곽과 바닥 쪽 선이 굵고 안쪽 모서리와 빛을 받는 쪽 선이 가늘다.">
+        <rect x="0" y="0" width="460" height="260" rx="10" fill="#fbfaf7"/>
+        <line x1="230" y1="18" x2="230" y2="214" stroke="#d6d1c6" stroke-width="1"/>
+        <g fill="none" stroke="#2b2a30" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.4">
+          <path d="M34 112 L64 92 L146 92 L116 112 Z"/>
+          <path d="M34 112 L34 186 L116 186 L116 112"/>
+          <path d="M116 186 L146 166 L146 92"/>
+          <ellipse cx="184" cy="108" rx="24" ry="8"/>
+          <path d="M160 108 L160 180 A24 8 0 0 0 208 180 L208 108"/>
+          <path d="M208 122 C228 122 228 166 208 164"/>
+        </g>
+        <g fill="none" stroke="#2b2a30" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M264 112 L294 92 L376 92" stroke-width="1.3"/>
+          <path d="M264 112 L346 112" stroke-width="0.8"/>
+          <path d="M346 112 L376 92" stroke-width="0.8"/>
+          <path d="M346 112 L346 186" stroke-width="0.8"/>
+          <path d="M264 112 L264 186" stroke-width="1.6"/>
+          <path d="M376 92 L376 166" stroke-width="3"/>
+          <path d="M264 186 L346 186 L376 166" stroke-width="3.6"/>
+          <path d="M390 108 A24 8 0 0 1 438 108" stroke-width="1.2"/>
+          <path d="M390 108 A24 8 0 0 0 438 108" stroke-width="0.8"/>
+          <path d="M390 108 L390 180" stroke-width="1.5"/>
+          <path d="M438 108 L438 180" stroke-width="3"/>
+          <path d="M390 180 A24 8 0 0 0 438 180" stroke-width="3.6"/>
+          <path d="M438 122 C458 122 458 166 438 164" stroke-width="2.6"/>
+        </g>
+        <path d="M260 196 Q300 204 380 192" fill="none" stroke="#8d8879" stroke-width="0.9" stroke-dasharray="2 3"/>
+        <g font-size="12" fill="#2b2a30" text-anchor="middle">
+          <text x="115" y="232">모든 선이 같은 굵기</text>
+          <text x="345" y="232">바깥 윤곽·바닥·그늘 쪽은 굵게</text>
+        </g>
+        <g font-size="11" fill="#6b6874" text-anchor="middle">
+          <text x="115" y="249">형태는 보이지만 앞뒤와 무게가 없다</text>
+          <text x="345" y="249">안쪽 모서리·빛 쪽(왼쪽 위)은 가늘게</text>
+        </g>
+        <g font-size="10.5" fill="#6b6874">
+          <text x="262" y="34">빛</text>
+          <path d="M276 30 L300 48" stroke="#8d8879" stroke-width="1" fill="none"/>
+          <path d="M300 48 l-7 -1 l3 -5 z" fill="#8d8879"/>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 같은 상자와 컵, 다른 선의 무게.</b> 왼쪽은 굵기가 일정한 선으로, 오른쪽은 굵기를 다섯 가지로 나눠 그렸다. 오른쪽에서는 바닥에 닿는 선과 그늘 쪽(오른쪽) 윤곽이 굵어 물체가 바닥에 앉고, 빛을 받는 왼쪽 위의 선이 가늘어 위에서 빛이 쏟아지는 느낌이 생긴다. 상자의 안쪽 모서리 세 줄은 가장 가늘어 덩어리 하나로 묶인다. 명암을 한 줄도 넣지 않았는데도 무게와 빛의 방향이 생긴다는 점이 핵심이다. 직접 그린 예시다.</figcaption>
+    </figure>
+
+    <p>이 규칙은 기하학이 아니라 관습이다. 만화와 일러스트레이션, 건축 도면, 제품 스케치가 비슷한 관습을 쓰지만 세부는 분야마다 다르다. 건축 도면에서는 잘린 단면의 선을 가장 굵게, 멀리 보이는 선을 가늘게 하는 식으로 굵기마다 뜻을 정해 둔다. 반대로 굵기가 일정한 선만 쓰는 그림체도 있다. 일본의 우키요에 판화나 유럽의 "리뉴 클레르"(맑은 선, 벨기에 만화가 에르제의 『땡땡의 모험』으로 대표되는 그림체)는 거의 일정한 윤곽선으로 평평하고 맑은 화면을 만든다. 선의 무게를 쓸지 말지도 무엇을 전하려는가의 문제다.</p>
+  </section>
+
+  <section id="hatching">
+    <h2>해칭: 선으로 회색을 만들기</h2>
+    <p>펜은 회색 잉크를 갖고 있지 않다. 종이 위에 남는 것은 검은 선과 흰 종이뿐이다. 그런데 가는 선을 일정한 간격으로 나란히 그으면, 조금 떨어져서 볼 때 선은 사라지고 회색 면이 보인다. 이렇게 평행선을 반복해 명도를 만드는 기법이 <span class="term">해칭</span><span class="en">(Hatching)</span>이고, 방향이 다른 해칭을 겹쳐 더 어둡게 만드는 것이 <span class="term">크로스해칭</span><span class="en">(Cross-hatching)</span>이다. 15세기 독일의 동판화가들과 알브레히트 뒤러(<span class="en">Albrecht Dürer</span>), 17세기 렘브란트의 에칭은 이 방법으로 빛과 그림자의 모든 단계를 만들어 냈다.</p>
+    <p>우리 눈이 선을 회색으로 보는 것은 눈의 해상도에 한계가 있기 때문이다. 눈은 아주 촘촘한 무늬를 하나하나 가르지 못하고 그 영역의 평균 밝기를 본다. 그러면 해칭 면의 밝기는 "잉크가 덮은 면적의 비율"로 정해진다. 인쇄 공학에서 망점 인쇄의 밝기를 계산할 때 쓰는 <span class="term">머리–데이비스 식</span><span class="en">(Murray–Davies equation, 1936)</span>이 바로 이 면적 평균이다. 이 장은 해칭에 같은 식을 쓴다.</p>
+    <div class="formula">$$Y = (1-c)\,Y_{\text{종이}} + c\,Y_{\text{잉크}},\qquad c = 1-\Big(1-\frac{w}{s}\Big)^{k}$$<div class="where">\(Y\): 멀리서 본 해칭 면의 휘도(빛의 양), \(c\): 잉크가 덮은 면적 비율, \(w\): 선 굵기, \(s\): 선의 중심 간격, \(k\): 겹친 방향의 수(한 방향 1, 크로스해칭 2, 세 방향 3). 방향이 다른 해칭은 서로 겹치는 자리가 생기므로 덮는 면적이 단순히 \(k\)배가 되지 않는다. 직각으로 겹친 두 방향의 평행선에서는 이 식이 정확하고, 세 방향 이상은 근사다. 이 장의 모델은 종이를 L* 93, 펜 잉크를 L* 20으로 둔다. 휘도 \(Y\)를 명도 L*로 바꾸는 방법은 <a href="../../color/chapters/value.html">ColorBook 6장</a>에 있다.</div></div>
+    <p>식에서 바로 알 수 있는 것이 하나 있다. 명도는 덮은 면적에 정비례하지 않는다. 이 책의 모델로 계산하면, 종이(L* 93)에서 명도를 16만큼 낮춰 L* 77을 만들려면 면적의 약 39%를 덮어야 하는데, 다시 16을 낮춰 L* 61로 가려면 67%, L* 45로 가려면 86%를 덮어야 한다. 사람의 눈이 어두운 쪽의 작은 빛 차이에 예민하기 때문에, 어두운 단계로 갈수록 "남은 흰 틈"을 아주 조금씩만 줄여야 한다. 해칭이 어두운 쪽에서 갑자기 새까맣게 뭉치기 쉬운 이유다.</p>
+    <p>아래에서 선 굵기와 간격, 겹친 방향의 수를 바꾸며 해칭 면을 만든다. 왼쪽은 확대한 모습, 오른쪽은 화면에서 거의 실제 크기로 그린 같은 해칭이다. 눈을 가늘게 뜨거나 한 걸음 물러나 오른쪽 견본이 회색 견본과 같아 보이는지 확인한다.</p>
+
+    <div class="sim" id="sim-ln-hatch">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>선 굵기·간격·방향으로 명도 만들기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-h-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>선 굵기 w <output id="ln-h-w-out"></output></span><input type="range" id="ln-h-w" min="0.1" max="1" step="0.05" value="0.3"></label>
+          <label class="ctrl"><span>중심 간격 s <output id="ln-h-s-out"></output></span><input type="range" id="ln-h-s" min="0.2" max="3" step="0.05" value="1"></label>
+          <div class="seg" id="ln-h-k"><button data-value="1" class="on">한 방향</button><button data-value="2">두 방향</button><button data-value="3">세 방향</button><button data-value="4">네 방향</button></div>
+          <label class="check"><input type="checkbox" id="ln-h-wob" checked> 손으로 그은 떨림</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">덮은 면적 c</span><span class="v" id="ln-h-o-c">—</span></div>
+        <div class="stat"><span class="k">명도(이 책의 모델)</span><span class="v" id="ln-h-o-l">—</span></div>
+        <div class="stat"><span class="k">선 사이 흰 틈</span><span class="v" id="ln-h-o-g">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 0.3 mm, 간격 1 mm, 한 방향에서 시작한다. 덮은 면적 30%, 명도 약 L* 81이다. "두 방향"으로 바꾸면 면적은 60%가 아니라 51%가 된다. 두 번째 선의 일부가 첫 번째 선 위에 떨어지기 때문이다. ② 간격을 0.5 mm 아래로 줄여 본다. 명도 띠의 표시가 어두운 쪽으로 급히 달려가고, 흰 틈이 0.2 mm 아래로 좁아진다. 간격을 선 굵기(0.3 mm)까지 줄이면 흰 틈이 0이 되어 그냥 검은 면이다. ③ 반대로 간격을 3 mm까지 넓힌다. 실제 크기 견본에서도 선이 하나하나 보여 회색이 아니라 줄무늬가 된다. 해칭이 회색으로 읽히려면 보는 거리에 비해 간격이 충분히 촘촘해야 한다. (면적 평균 모형, 종이 L* 93·잉크 L* 20. 화면의 실제 크기는 96 dpi 기준이라 기기마다 다르다. 화면은 잉크 번짐이 없고, 안티에일리어싱 때문에 아주 가는 선은 조금 옅게 보일 수 있다.)</div>
+    </div>
+
+    <p>간격을 넓힌 끝에서 본 것처럼, 해칭이 회색으로 녹으려면 보는 거리가 중요하다. 반대로 간격을 좁힌 끝에서 본 것처럼, 흰 틈이 너무 좁아지면 선이 사라지고 검은 덩어리가 된다. 해칭은 이 두 끝 사이에서 산다. 그 사이에서 펜 그림의 화가들은 같은 명도라도 일부러 선이 보이게 두어 손맛을 남기기도 하고, 선을 아주 촘촘히 해 사진처럼 매끈한 회색을 만들기도 한다.</p>
+
+    <div class="callout deep">
+      <strong>선이 회색으로 녹는 거리</strong>
+      사람의 시력은 흔히 시각 1분(1/60도)짜리 틈을 가를 수 있는 정도로 표현하고, 줄무늬로 말하면 시각 1도 안에 약 50~60쌍의 밝고 어두운 줄이 들어가는 무늬 근처가 볼 수 있는 한계로 알려져 있다. 책을 읽는 거리 35 cm에서 시각 1분은 약 0.1 mm다. 그래서 간격 1 mm의 해칭은 책을 든 거리에서는 줄 하나하나가 똑똑히 보이고(1도 안에 약 6쌍), 같은 그림을 벽에 걸어 3 m 떨어져 보면 1도 안에 약 52쌍이 들어가 한계에 가까워지며 회색으로 녹는다. 실제로는 대비가 낮을수록 더 일찍 녹는다. 책자처럼 가까이 보는 그림의 해칭은 선이 보인다는 것을 전제로, 벽에 거는 큰 그림의 해칭은 녹는다는 것을 전제로 계획한다.
+    </div>
+  </section>
+
+  <section id="steps">
+    <h2>크로스해칭과 명도 단계</h2>
+    <p>한 방향 해칭만으로도 간격을 바꿔 여러 명도를 만들 수 있지만, 어두운 쪽으로 갈수록 간격이 선 굵기에 바짝 붙어 손으로 고르게 긋기 어렵다. 그래서 화가들은 어두운 단계를 방향을 겹쳐 만든다. 첫 층을 고르게 깐 뒤 각도를 바꾼 둘째 층을 얹고, 더 어두운 곳에만 셋째 층을 얹는다. 층마다 간격이 넉넉해 손이 편하고, 흰 틈이 여러 방향으로 남아 어두운 곳에서도 숨이 쉬어진다.</p>
+    <p>층을 겹치는 각도는 경험칙이 있다. 첫 층과 둘째 층이 직각이면 깔끔하지만 그물이나 격자처럼 보이기 쉽다. 30~45도쯤 비스듬히 겹치면 무늬가 덜 도드라지고 면이 부드러워진다. 반대로 거의 같은 방향(5~10도 차이)으로 겹치면 두 층의 선이 서로 엇갈리며 넓은 물결무늬가 생긴다. 인쇄에서 망점이 엇갈려 생기는 <span class="term">무아레</span><span class="en">(Moiré)</span>와 같은 현상이다.</p>
+
+    <figure class="diagram" id="fig-ln-cmp">
+      <div class="compare" id="ln-cmp"><div class="cmp-a"><canvas id="ln-cmp-a" class="art"></canvas></div><div class="cmp-b"><canvas id="ln-cmp-b" class="art"></canvas></div></div>
+      <figcaption><b>그림 2. 같은 공, 두 가지 손.</b> 경계선을 끌어 비교한다. 두 층 모두 왼쪽 위에서 빛을 받는 공과 그 그림자를 같은 명도 지도로 칠했다. 왼쪽 층은 형태를 감싸는 곡선 해칭을 세 겹까지 쌓았고, 오른쪽 층은 점만 찍었다(점묘). 흑백으로 바꿔 멀리서 보면 두 공의 명도 배치가 거의 같다. 가까이서는 왼쪽이 공의 둥근 표면을 선의 방향으로 말해 주고, 오른쪽은 표면 방향 없이 빛의 양만 말한다. 직접 그린 예시다.</figcaption>
+    </figure>
+
+    <div class="callout try">
+      <strong>펜 한 자루로 명도 다섯 단계 띠 만들기</strong>
+      가는 펜(0.3 mm 안팎) 하나와 흰 종이를 준비한다. 연필로 가로 2 cm, 세로 2 cm의 칸 다섯 개를 나란히 그린다. 첫 칸은 비워 둔다. 둘째 칸은 한 방향으로, 간격 1 mm 정도의 평행선을 긋는다. 셋째 칸은 같은 선 위에 각도를 40도쯤 바꾼 둘째 층을, 넷째 칸은 셋째 층을 얹는다. 다섯째 칸은 굵은 펜(0.5 mm 안팎)으로 세 층을 쌓는다. 다 그렸으면 휴대폰으로 찍어 흑백으로 바꾸고, 2~3 m 떨어져서도 본다. 이웃한 두 칸의 차이가 고르게 보이는지, 어두운 두 칸이 한 덩어리로 붙지 않는지 확인한다. 고르지 않다면 간격을 고쳐 한 번 더 그린다. 이 장 끝의 서윤도 같은 띠로 시작한다.
+    </div>
+
+    <p>단계표를 만들어 보면 대부분 같은 실수를 한다. 둘째 칸을 너무 짙게 시작해 첫 칸과 둘째 칸의 차이만 크고, 넷째와 다섯째 칸은 차이가 없다. 식에서 본 대로 첫 단계의 해칭은 생각보다 성겨도 충분하고, 마지막 단계의 흰 틈은 생각보다 넓게 남겨야 한다.</p>
+  </section>
+
+  <section id="direction">
+    <h2>형태를 따라가는 선</h2>
+    <p>해칭의 선은 명도만 만드는 것이 아니라 방향도 갖는다. 그리고 그 방향이 형태에 대해 말한다. 원통의 둘레를 따라 휘는 해칭은 원통이 둥글다는 것을, 바닥을 따라 눕는 해칭은 바닥이 수평이라는 것을 알려 준다. 물체의 표면을 따라 흐르는 이런 선을 <span class="term">단면선</span><span class="en">(Cross-contour line)</span>이라고 부른다. 물체를 얇게 잘랐을 때 생기는 단면의 둘레를 표면 위에 그린 선이라는 뜻이다(<a href="form.html">7장</a>에서 구조선으로 다시 쓴다).</p>
+    <p>아래에서 같은 명도 지도를 세 가지 방향의 해칭으로 칠해 본다. 명도의 배치는 셋이 같다. 다른 것은 선이 가는 방향뿐이다.</p>
+
+    <div class="sim" id="sim-ln-form">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>해칭의 방향이 형태를 말한다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-f-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ln-f-mode"><button data-value="contour" class="on">형태를 따라</button><button data-value="straight">곧은 평행선</button><button data-value="scribble">제멋대로</button></div>
+          <div class="seg" id="ln-f-shape"><button data-value="cyl" class="on">원통</button><button data-value="sphere">구</button></div>
+          <label class="ctrl"><span>빛의 방향(왼쪽 −, 오른쪽 +) <output id="ln-f-a-out"></output></span><input type="range" id="ln-f-a" min="-80" max="80" step="1" value="-45"></label>
+        </div>
+      </div>
+      <div class="sim-note">해볼 것: ① "형태를 따라"에서 원통을 본다. 첫 층은 원통의 둘레를 따라 휘는 타원 호, 둘째 층은 원통의 길이 방향을 따른다. 둘째 층의 간격이 가장자리에서 저절로 좁아지며 원통이 돌아 나가는 느낌을 더한다. ② "곧은 평행선"으로 바꾼다. 명도는 같은데 원통이 둥근 기둥보다 접힌 종이나 평평한 판처럼 보인다. ③ "제멋대로"로 바꾸고 빛을 끝까지(±80°) 민다. 명도는 맞지만 표면의 방향 정보가 사라져 털이나 덤불의 질감처럼 읽힌다. 빛을 오른쪽으로 옮기면 그림자 쪽이 따라 돈다. (명암은 람베르트 음영으로 계산한 교육용 근사다. 빛은 화면에서 비스듬히 위쪽, 원통은 조금 위에서 내려다본다. 명암 단계 자체는 <a href="light.html">8장</a>에서 자세히 다룬다.)</div>
+    </div>
+
+    <p>곧은 평행선이 무조건 틀린 것은 아니다. 렘브란트의 에칭이나 많은 펜 드로잉은 형태와 상관없는 비스듬한 평행선으로 그림자를 덮으면서도 공간이 살아 있다. 평행선이 화면 전체에서 같은 방향이면 그것은 형태를 말하는 대신 "그림자"라는 하나의 층으로 읽히고, 형태는 윤곽과 명도 배치가 맡는다. 형태를 따르는 선은 입체를 강조하고, 일정한 방향의 선은 화면을 차분하게 묶는다. 한 그림 안에서 둘을 섞을 때는 "어디서 형태를 말할지"를 정해 두면 선이 시끄러워지지 않는다.</p>
+
+    <figure class="art-figure" id="fig-ln-rembrandt">
+      <div class="art-frame" style="max-width:520px;margin:0 auto"><img src="../../shared/img/rembrandt-self-portrait-window.webp" width="1324" height="1600" alt="렘브란트의 에칭 자화상. 챙 있는 모자를 쓴 중년의 렘브란트가 창가 탁자에 두꺼운 책을 놓고 펜으로 무언가를 그리다 정면을 바라본다. 왼쪽 창으로 빛이 들어와 얼굴 한쪽과 종이를 밝히고, 창밖으로 옅은 나무와 집이 보인다. 오른쪽과 아래쪽은 촘촘하게 겹친 선으로 거의 검게 덮여 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 렘브란트 판 레인, 「창가에서 에칭을 하는 자화상」, 1648.</b> 손바닥보다 조금 큰 동판(15.5 × 12.9 cm)에 새긴 에칭이다. 창이 있는 왼쪽 위는 선이 거의 없고, 얼굴의 그늘은 성긴 선 몇 겹, 등 뒤의 벽과 오른쪽 아래는 여러 방향의 선을 거듭 겹쳐 검은 바탕을 만들었다. 그 검은 바탕에서도 흰 틈이 완전히 막히지 않아 깊이가 남는다. 창틀 안쪽 면은 한 방향 평행선으로, 탁자 위 책의 옆면은 책 방향을 따른 선으로 칠해 면마다 방향이 다르다. "흑백"을 켜고 그림에서 한 걸음 물러나면 선이 사라지고 명도 덩어리만 남는다.<span class="credit">메트로폴리탄 미술관 소장(The Sylmaris Collection, Gift of George Coe Graves, 1920), 에칭·드라이포인트·뷰린, 9단계 중 4단계 쇄. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/369807">소장처 작품 페이지</a> · <a href="../../credits.html#rembrandt-self-portrait-window">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>에칭은 동판에 바른 방식막을 바늘로 긁어 선을 내고, 산에 담가 긁힌 자리만 부식시킨 다음 잉크를 채워 찍는 판화다. 선을 그리는 손놀림이 펜과 비슷해서 렘브란트의 에칭은 펜 드로잉 공부의 오랜 교재였다. 같은 판을 고쳐 가며 여러 번 찍은 것을 "단계(state)"라고 부르는데, 이 그림은 아홉 단계 가운데 네 번째로, 판에 선을 더하고 지우며 명도를 고쳐 간 과정의 한 순간이다.</p>
+  </section>
+
+  <section id="stipple">
+    <h2>점묘와 다른 쌓기</h2>
+    <p>선 대신 점을 찍어도 명도가 생긴다. 펜 끝으로 점을 하나하나 찍어 명도를 쌓는 기법을 <span class="term">점묘</span><span class="en">(Stippling)</span>라고 한다. 원리는 해칭과 같다. 점들이 덮은 면적의 비율이 명도를 정한다. 다른 점은 방향이 없다는 것이다. 그래서 점묘는 표면의 방향을 말하지 않고 빛의 양만 말한다. 털, 돌, 피부처럼 결이 뚜렷하지 않은 표면이나, 선이 남기는 손맛을 지우고 싶은 과학 일러스트레이션(곤충, 화석, 고고학 유물 도해)에 오래 쓰였다.</p>
+    <p>점을 아무 데나 찍으면 어떻게 될까. 점이 고르게 흩어진 것처럼 보여도 아무렇게나 찍은 점은 우연히 겹치고 뭉친다. 아래에서 점의 크기와 밀도를 바꾸며, 점을 무작위로 찍을 때와 격자처럼 고르게 찍을 때를 비교한다.</p>
+
+    <div class="sim" id="sim-ln-dots">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>점으로 쌓는 명도와 그 비용</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-d-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>점 지름 <output id="ln-d-d-out"></output></span><input type="range" id="ln-d-d" min="0.2" max="1" step="0.05" value="0.4"></label>
+          <label class="ctrl"><span>밀도(1 cm²당 점) <output id="ln-d-n-out"></output></span><input type="range" id="ln-d-n" min="20" max="1200" step="10" value="300"></label>
+          <div class="seg" id="ln-d-mode"><button data-value="rand" class="on">무작위로 찍기</button><button data-value="even">고르게 찍기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">덮은 면적</span><span class="v" id="ln-d-o-c">—</span></div>
+        <div class="stat"><span class="k">명도(이 책의 모델)</span><span class="v" id="ln-d-o-l">—</span></div>
+        <div class="stat"><span class="k">5 × 5 cm를 이 명도로</span><span class="v" id="ln-d-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 지름 0.4 mm, 1 cm²당 300점에서 무작위와 고르게를 번갈아 본다. 같은 점 수인데 무작위는 군데군데 점이 겹쳐 덮은 면적이 조금 작고(31% 대 38%), 덩어리와 빈터가 생겨 얼룩져 보인다. ② 밀도를 1,200까지 올린다. 무작위로 찍은 면은 점이 서로 엉겨 붙어 검은 덩어리 사이로 흰 구멍이 남는 모습이 된다. ③ 5 × 5 cm를 칠하는 데 드는 점 수와 시간을 본다. L* 60 안팎의 중간 회색 하나에 점이 만 개를 넘기도 한다. (무작위 점의 덮은 면적은 1 − e<sup>−nA</sup>(n: 밀도, A: 점 하나의 넓이), 고르게는 nA로 계산한 근사다. 손으로 1초에 점 세 개를 찍는다고 가정했다.)</div>
+    </div>
+
+    <p>점묘의 숙련자들은 무작위처럼 보이되 점끼리 너무 붙지 않게 일정한 거리를 두며 찍는다. 컴퓨터 그래픽에서도 이런 "고르지만 규칙적이지 않은" 점 배치를 따로 연구한다. 무늬가 보이지 않으면서 얼룩도 없기 때문이다. 손으로 찍는 점묘는 시간이 많이 들어서, 실제 펜 일러스트레이션에서는 넓은 면은 해칭으로 깔고 점은 가장자리를 부드럽게 녹이거나 질감이 필요한 곳에만 쓰는 경우가 많다.</p>
+    <p>이 밖에도 명도를 쌓는 손은 많다. 작은 원이나 꼬불꼬불한 선을 반복하는 <span class="term">스크리블</span><span class="en">(Scribble)</span>은 거칠고 빠른 질감을, 연필이나 콘테를 눕혀 문지르는 톤은 선 없는 부드러운 명도를 만든다. 쇠라의 콘테 크레용 소묘처럼 선의 흔적을 거의 지우고 거친 종이결 위에 명도만 남기는 길도 있다. 펜 드로잉은 지우거나 문지를 수 없다는 제약 때문에 선과 점의 질서가 그림의 성격이 된다.</p>
+
+    <div class="callout warn">
+      <strong>"해칭은 고르고 매끈할수록 잘한 것"이라는 오해</strong>
+      처음 해칭을 배우면 선 간격을 자로 잰 듯 고르게 하려고 애쓰게 된다. 단계표를 만들 때는 그 연습이 필요하다. 그러나 그림 속 해칭이 너무 고르면 기계로 찍은 망점처럼 차갑고, 오히려 형태가 납작해 보일 수 있다. 렘브란트의 에칭에서도 선은 길이와 간격이 조금씩 다르고, 끝이 들쭉날쭉 열려 있다. 고른 간격은 명도를 맞추는 도구이고, 선의 흔들림과 끝처리는 표정이다. 둘 중 무엇을 앞세울지는 그림이 무엇을 전하려는지에 달려 있다.
+    </div>
+  </section>
+
+  <section id="brush">
+    <h2>동아시아의 필선과 준법</h2>
+    <p>동아시아 회화에서 선은 처음부터 그림의 주인공이었다. 붓은 앞에서 본 것처럼 속도와 압력이 굵기와 진하기를 크게 바꾸는 도구라서, 같은 붓으로도 전혀 다른 선이 나온다. 인물화에서는 오래전부터 옷 주름을 긋는 선의 유형을 나눠 불렀다. 굵기가 철사처럼 일정하고 단단한 선(흔히 "철선묘"라고 부른다), 누에가 실을 뽑듯 가늘고 고르게 이어지는 선, 난초 잎처럼 가운데가 부풀고 양 끝이 가늘어지는 선(난엽묘)이 그 예다. 명나라 이후에는 이런 유형을 열여덟 가지로 정리한 목록이 화보에 실리기도 했다. 앞의 시뮬레이터로 말하면 철선묘는 피그먼트 펜에, 난엽묘는 민감도를 높인 붓에 가깝다.</p>
+    <p>산수화에서는 바위와 산의 표면을 그리는 선을 따로 <span class="term">준법</span><span class="en">(皴法, Texture strokes)</span>이라 부른다. 준(皴)은 원래 "주름"이라는 뜻이다. 서양의 해칭이 주로 빛과 그림자의 양을 쌓는 데 쓰였다면, 준법은 바위가 갈라진 결, 흙산의 부드러운 주름, 산의 뼈대를 선의 종류로 말한다. 명도와 질감과 구조를 한 번에 나르는 셈이다. 대표적인 준법 몇 가지와 그것으로 이름난 화가는 다음과 같다. 다만 실제 그림에서는 여러 준이 섞이고, 이름도 후대의 화론이 정리한 분류라는 점을 기억해 둔다.</p>
+    <ul>
+      <li><b>피마준</b><span class="en">(披麻皴, Hemp-fiber strokes)</span>: 풀어 헤친 삼베 올처럼 길고 부드러운 선을 비탈을 따라 늘어뜨린다. 흙이 덮인 둥근 산에 어울린다. 10세기 남당의 동원과 거연, 원나라의 황공망이 대표로 꼽힌다.</li>
+      <li><b>부벽준</b><span class="en">(斧劈皴, Axe-cut strokes)</span>: 도끼로 찍어 낸 자국처럼 짧고 넓으며 한쪽이 날카로운 획이다. 깎아지른 바위에 어울린다. 남송의 이당, 마원, 하규의 그림에서 두드러진다.</li>
+      <li><b>우점준</b><span class="en">(雨點皴, Raindrop strokes)</span>: 빗방울처럼 짧고 굵은 점을 촘촘히 찍는다. 북송 범관의 「계산행려도」의 거대한 암벽이 흔히 예로 든다.</li>
+      <li><b>미점</b><span class="en">(米點, Mi dots)</span>: 옆으로 누운 먹점을 번지듯 겹쳐 비 내린 뒤의 젖은 산을 만든다. 북송의 미불과 미우인 부자의 이름에서 왔다. 조선의 정선도 흙산과 숲을 이런 먹점으로 그렸다.</li>
+    </ul>
+    <p>아래에서 같은 바위에 준법을 바꿔 칠해 본다. 바위의 윤곽은 같고, 표면을 채우는 획의 종류만 바뀐다.</p>
+
+    <div class="sim" id="sim-ln-cun">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 바위, 다른 준법</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-c-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ln-c-type"><button data-value="none">윤곽만</button><button data-value="pima" class="on">피마준</button><button data-value="axe">부벽준</button><button data-value="rain">우점준</button><button data-value="mi">미점</button></div>
+          <label class="ctrl"><span>획의 밀도 <output id="ln-c-den-out"></output></span><input type="range" id="ln-c-den" min="0.2" max="2" step="0.05" value="1"></label>
+          <label class="ctrl"><span>먹의 농도 <output id="ln-c-ink-out"></output></span><input type="range" id="ln-c-ink" min="0.2" max="1" step="0.05" value="0.7"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">획 수</span><span class="v" id="ln-c-o-n">—</span></div>
+        <div class="stat"><span class="k">어울리는 표면</span><span class="v" id="ln-c-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "윤곽만"과 "피마준"을 번갈아 본다. 윤곽만 있을 때는 납작한 판이던 바위가, 비탈을 따라 늘어진 긴 선이 들어가자 흙 덮인 둥근 덩어리가 된다. ② "부벽준"으로 바꾼다. 같은 윤곽인데 단단하고 모난 바위가 된다. 획이 오른쪽 아래, 그늘 쪽에 몰려 명암 역할도 함께 한다. ③ 밀도 2, 먹 농도 1로 민다. 어느 준법이든 획이 서로 묻혀 검은 덩어리가 되고, 결이 사라진다. 그 덩어리를 "미점"과 비교해 보면, 미점은 처음부터 번짐으로 덩어리를 만드는 방식이라 무너지는 모습이 다르다. (획의 모양과 배치는 이 책이 준법의 특징을 흉내 내 만든 단순한 모형이다. 실제 준법은 붓의 각도와 먹의 번짐, 종이와 비단의 차이가 훨씬 크다.)</div>
+    </div>
+
+    <figure class="art-figure" id="fig-ln-cun">
+      <div class="art-frame" style="max-width:520px;margin:0 auto"><img src="../../shared/img/wang-shimin-huang-gongwang-style.webp" width="1176" height="1600" alt="종이에 먹으로 그린 산수화의 부분. 화면 왼쪽 위로 둥근 봉우리가 솟아 있고, 봉우리의 비탈은 위에서 아래로 늘어진 수많은 가는 선으로 덮여 있다. 봉우리 허리에는 흰 구름이 감돌고, 아래쪽에는 짧은 먹점으로 그린 나무숲과 계단처럼 층진 언덕, 작은 집들이 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 4. 왕시민, 「황공망 필의 산수」(부분), 1666.</b> 청나라 초의 화가 왕시민이 원나라의 황공망을 따라 그린 산수의 가운데 부분이다. 큰 봉우리의 비탈은 위에서 아래로 늘어진 긴 선, 곧 피마준으로 덮였다. 선이 겹친 골짜기는 짙고, 선이 성긴 능선은 밝아서 선의 밀도가 명도를 만든다. 동시에 선의 방향은 흙이 흘러내린 비탈의 결을 보여 준다. 봉우리 꼭대기와 언덕 위의 짧은 먹점(태점)은 이끼와 작은 나무다. 구름은 아무것도 그리지 않은 종이다.<span class="credit">메트로폴리탄 미술관 소장(Ex coll.: C. C. Wang Family, Gift of Douglas Dillon, 1980), 족자, 종이에 먹. 공공 도메인(The Met Open Access, CC0). 위쪽의 제발과 아래쪽 일부를 잘라 내고 가운데 부분만 실었다. <a href="https://www.metmuseum.org/art/collection/search/40019">소장처 작품 페이지</a> · <a href="../../credits.html#wang-shimin-huang-gongwang-style">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>왕시민의 그림에는 서양 해칭과 닮은 점과 다른 점이 함께 보인다. 선을 겹친 밀도로 어둠을 만든다는 점은 같다. 그러나 피마준의 선은 빛의 방향을 따라 그림자 쪽에 몰리기보다 산의 결을 따라 화면 전체에 흐르고, 명도는 그 결이 모이고 흩어지는 리듬으로 생긴다. 그리고 이 그림은 "황공망의 필의(筆意)를 따른다"고 밝힌 그림이다. 동아시아 회화에서 옛 대가의 준법과 필선을 익혀 자기 그림으로 다시 쓰는 일은 모방이 아니라 공부의 정식 방법이었다. 선의 종류가 하나의 언어처럼 전해졌다는 뜻이다.</p>
+
+    <div class="callout studio">
+      <strong>펜으로 준법을 빌려 오기</strong>
+      펜에는 붓의 굵기 변화가 없지만, 준법의 "생각"은 빌려 올 수 있다. 첫째, 표면의 성격마다 획의 종류를 정한다. 오래된 벽돌은 짧고 끊긴 획, 나무 판자는 결을 따라 긴 획, 흙과 풀은 짧은 점과 쉼표 모양의 획처럼. 둘째, 획의 방향을 빛이 아니라 재료의 결에 맞추고, 그늘 쪽에서는 같은 획을 더 촘촘히 겹쳐 어둡게 한다. 셋째, 아무것도 그리지 않은 종이를 구름·물·빛으로 남긴다. 한 그림 안에 획의 종류가 너무 많으면 화면이 시끄러워지므로 세 가지 안쪽으로 줄이는 화가가 많다.
+    </div>
+  </section>
+
+  <section id="print">
+    <h2>인쇄되는 선: 해칭이 뭉칠 때</h2>
+    <p>펜 드로잉의 상당수는 원화로 걸리지 않고 인쇄되어 읽힌다. 책의 삽화, 신문의 컷, 동네 안내 책자. 그런데 원화에서 좋던 해칭이 인쇄물에서는 새까맣게 뭉쳐 버리는 일이 흔하다. 원인은 두 가지다.</p>
+    <p>첫째, <b>축소</b>다. 삽화는 흔히 인쇄 크기보다 크게 그려 줄여 싣는다. 선의 떨림과 실수가 함께 작아지기 때문이다. A4에 그려 A5에 실으면 길이가 1/√2, 약 71%로 줄어든다. 선 굵기도 간격도 함께 줄어드니 덮은 면적의 비율은 그대로일 것 같지만, 흰 틈 자체가 좁아져 다음 문제에 약해진다. 둘째, <b>번짐</b>이다. 인쇄에서는 잉크가 종이에 스며들고 퍼지면서 선이 원래보다 조금 굵어진다. 인쇄 공학에서는 이를 망점이 커지는 현상, 곧 <span class="term">도트 게인</span><span class="en">(Dot gain)</span>이라고 부른다. 번짐의 크기는 종이와 인쇄 방식에 따라 다르지만, 굵어지는 양이 선 굵기와 상관없이 비슷하다면 가장 가는 흰 틈이 가장 먼저 막힌다.</p>
+    <p>아래 시뮬레이터는 펜 드로잉 다섯 단계를 원화와 인쇄물로 나란히 보여 준다. 축소율과 번짐을 바꾸며, 어느 단계부터 흰 틈이 막히는지 본다. "첫 시안"은 이 장 끝의 서윤이 처음 그린 단계표이고, "수정안"은 그가 규칙을 세운 뒤 다시 그린 단계표다.</p>
+
+    <div class="sim" id="sim-ln-print">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>원화와 인쇄물: 다섯 단계 해칭은 살아남는가</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-p-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ln-p-set"><button data-value="first" class="on">첫 시안</button><button data-value="rev">수정안</button></div>
+          <label class="ctrl"><span>축소율 <output id="ln-p-r-out"></output></span><input type="range" id="ln-p-r" min="0.5" max="1" step="0.01" value="0.71"></label>
+          <label class="ctrl"><span>인쇄 번짐(선이 굵어지는 양) <output id="ln-p-g-out"></output></span><input type="range" id="ln-p-g" min="0" max="0.12" step="0.005" value="0.04"></label>
+          <label class="check"><input type="checkbox" id="ln-p-warn" checked> 흰 틈이 좁은 칸 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">인쇄물의 명도(L*)</span><span class="v" id="ln-p-o-l">—</span></div>
+        <div class="stat"><span class="k">구별되는 단계</span><span class="v" id="ln-p-o-n">—</span></div>
+        <div class="stat"><span class="k">가장 좁은 흰 틈(인쇄)</span><span class="v" id="ln-p-o-g">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "첫 시안"에서 축소율 71%, 번짐 0.04 mm를 본다. 원화에서는 다섯 칸이 모두 다르지만, 인쇄물에서는 4·5단계의 흰 틈이 막혀 둘 다 검은 면(L* 20)이 되고 구별되는 단계가 넷으로 준다. ② 축소율을 100%로 올려 본다(원화와 같은 크기로 인쇄). 3단계의 흰 틈은 0.10 mm에서 0.16 mm로 넓어지지만 4·5단계는 그래도 막힌다. 원화의 흰 틈이 0.1 mm 남짓인 해칭은 축소가 없어도 번짐만으로 버티지 못한다. ③ "수정안"으로 바꾸고 번짐을 0.12 mm까지 올린다. 모든 칸이 어두워지지만 흰 틈이 넉넉해 다섯 단계가 끝까지 구별된다. 수정안은 단계 사이 명도 차이도 고르다. (면적 평균 모형. 선은 번짐만큼 고르게 굵어지고, 인쇄된 흰 틈이 0.1 mm보다 좁으면 막혀 잉크로 덮인다고 가정했다. 아래 그래프의 점선은 종이와 가장 어두운 칸 사이를 고르게 나눈 목표다. 실제 번짐과 막힘의 한계는 종이와 인쇄 방식마다 다르므로 교정쇄로 확인해야 한다.)</div>
+    </div>
+
+    <p>시뮬레이터에서 본 것처럼, 인쇄를 견디는 해칭의 열쇠는 선의 굵기보다 흰 틈이다. 같은 명도라도 가는 선을 촘촘히 그은 해칭보다, 굵은 선을 성기게 그어 흰 틈을 넓게 남긴 해칭이 인쇄에 강하다. 그래서 인쇄용 펜 그림을 그리는 사람들은 흔히 "가장 어두운 곳에도 흰 틈을 남겨라", "가장 어두운 단계는 선을 더 넣지 말고 굵은 펜으로 바꿔라"라는 요령을 쓴다. 정확한 한계는 종이와 인쇄소마다 다르므로, 같은 조건의 교정쇄로 한 번 찍어 보는 것이 가장 확실하다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 3장</span></div>
+      <h4>다섯 칸의 회색, 네 칸만 남은 교정쇄</h4>
+      <p>창가의 컵과 화분을 연필로 재며 그린 지 한 주가 지났다. 서윤은 그 연필 구조선 위에 처음으로 펜을 올렸다. 「골목 산책」의 열두 점은 모두 펜 한두 자루로 그려 흑백으로 인쇄된다. 그러니 그림자도, 화분 흙의 어둠도, 창밖의 밝은 하늘도 전부 선의 밀도로 만들어야 한다. 토요일 모임에서 도경은 그림보다 먼저 명도 다섯 단계 띠를 만들어 오라고 했다. "회색 물감이 없는 사람은 회색을 몇 단계 가졌는지부터 알아야 해."</p>
+      <p>서윤은 원화를 A4 종이에 그리고 있었다. 책자는 A5라서 인쇄할 때 71%로 줄어든다. 0.3 mm 펜 하나로 만든 첫 단계표는 이랬다. 1단계는 종이, 2단계는 간격 0.6 mm의 한 방향 해칭, 3단계는 간격 0.5 mm의 두 방향, 4단계는 간격 0.4 mm의 두 방향, 5단계는 간격 0.35 mm의 세 방향. 원화에서는 다섯 칸이 모두 달라 보였다. 주인이 동네 인쇄소에 부탁해 컵 그림 한 장과 단계표를 A5 교정쇄로 뽑아 왔는데, 컵 아래 그림자가 한 덩어리 먹처럼 뭉쳐 있었고 단계표의 4·5단계는 구별되지 않았다.</p>
+      <p>서윤은 이 장의 모델로 계산해 보았다. 종이를 L* 93, 잉크를 L* 20으로 두면 첫 시안의 원화 명도는 93, 71.5, 46.7, 34.0, 20.9였다. 첫 칸과 둘째 칸 사이가 21.5나 벌어지고 마지막 두 칸은 13밖에 차이 나지 않아, 인쇄 전부터 고르지 않았다. 71%로 줄이고 선이 0.04 mm씩 굵어진다고 가정하면, 4단계의 흰 틈은 원화의 0.10 mm에서 0.03 mm로, 5단계는 0.05 mm에서 0으로 줄어 둘 다 막힌다. 인쇄물의 명도는 93, 66.1, 37.1, 20, 20. 교정쇄와 같은 결과였다. 번짐 0.04 mm는 서윤이 교정쇄를 돋보기로 보고 어림한 값이라, 계산은 정확한 예측이 아니라 원인을 가르는 데만 썼다.</p>
+      <p>도경의 처방은 짧았다. "어둠을 선을 더 넣어서 만들지 말고, 방향을 바꿔 쌓고 펜을 바꿔." 서윤은 규칙을 하나 세웠다. 원화에서 선 사이의 흰 틈을 0.3 mm 이상 남긴다. 71% 축소와 0.04 mm 번짐을 거쳐도 인쇄된 흰 틈이 약 0.17 mm로 남는 값이다. 0.3 mm 펜이라면 중심 간격을 0.6 mm 아래로 좁히지 않는다는 뜻이다. 그 규칙 안에서 다시 짠 수정안은 1단계 종이, 2단계 0.3 mm 한 방향 간격 1.0 mm, 3단계 0.3 mm 두 방향 간격 0.9 mm, 4단계 0.3 mm 세 방향 간격 0.8 mm, 5단계는 0.5 mm 펜으로 바꿔 세 방향 간격 0.9 mm. 모델로 계산한 인쇄물의 명도는 93, 78.7, 63.5, 47.8, 32.8로, 단계 사이가 14~16씩 고르게 벌어졌다. 두 번째 교정쇄에서 컵의 그림자는 짙지만 바닥의 나뭇결이 비쳐 보였다.</p>
+      <p>선 굵기도 정했다. 해칭과 안쪽 모서리는 0.3 mm, 덩어리의 바깥 윤곽과 바닥에 닿는 선, 가장 어두운 단계는 0.5 mm. 두 자루면 충분했다. 서윤은 대신 도경에게 휴대폰 카메라로 교정쇄를 찍어 화면에서 확대해 보는 법을 알려 주었다. 도경은 돋보기보다 낫다며, 다음 모임부터 단계표를 찍어 서로 비교하자고 했다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#efebe2"></i><b>1단계 · 종이</b><code>L* 93</code></span>
+        <span class="chip"><i style="background:#c3c3c3"></i><b>2단계 · 한 방향</b><code>인쇄 L* 78.7</code></span>
+        <span class="chip"><i style="background:#9a9a9a"></i><b>3단계 · 두 방향</b><code>인쇄 L* 63.5</code></span>
+        <span class="chip"><i style="background:#717171"></i><b>4단계 · 세 방향</b><code>인쇄 L* 47.8</code></span>
+        <span class="chip"><i style="background:#4d4d4d"></i><b>5단계 · 0.5 mm</b><code>인쇄 L* 32.8</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>펜은 두 자루: 0.3 mm(해칭, 안쪽 모서리), 0.5 mm(바깥 윤곽, 바닥에 닿는 선, 가장 어두운 단계). 원화는 A4에 그려 A5로 71% 축소한다. 해칭 간격 규칙: 원화에서 선 사이 흰 틈 0.3 mm 이상(0.3 mm 펜은 중심 간격 0.6 mm 이상, 인쇄에서 약 0.17 mm가 남는다). 다섯 단계: 종이 / 0.3 mm 한 방향 1.0 mm / 두 방향 0.9 mm / 세 방향 0.8 mm / 0.5 mm 세 방향 0.9 mm(이 장의 모델로 인쇄 L* 93, 78.7, 63.5, 47.8, 32.8). 어둠은 선을 더하지 않고 방향을 바꿔 쌓는다. 새 단계표는 교정쇄로 한 번 확인한다.</div>
+        <div><b>아직 남은 문제</b>선과 명도는 준비되었는데, 서가 안쪽 통로를 그리기 시작하자 선반들이 앞으로 쏟아질 듯 어색하다. 눈높이를 어디에 둘지 정하지 못했다.</div>
+        <div><b>다음 단계</b><a href="perspective1.html">4장</a>: 서가 통로를 1점 투시로 세우고, 서서 본 눈높이와 앉아서 본 눈높이를 비교한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>선의 표정은 굵기·속도·압력에서 나온다. 도구가 민감할수록(연필보다 붓) 손의 속도와 망설임이 굵기와 진하기로 크게 남는다. 좋은 선은 하나가 아니라 대상과 전하려는 느낌에 맞는 선이다.</li>
+      <li>선의 무게는 관습이다. 바깥 윤곽·바닥·그늘 쪽·앞의 것은 굵게, 안쪽 모서리·빛 쪽·먼 것은 가늘게 그으면 명암 없이도 무게와 빛의 방향이 생긴다. 일정한 선만 쓰는 그림체도 있다.</li>
+      <li>해칭의 명도는 잉크가 덮은 면적의 비율로 정해진다(머리–데이비스 면적 평균). 방향을 겹치면 덮은 면적은 1 − (1 − w/s)<sup>k</sup>로 늘어, k배가 되지 않는다.</li>
+      <li>명도는 덮은 면적에 비례하지 않는다. 어두운 단계로 갈수록 흰 틈을 아주 조금씩 줄여야 하므로, 첫 단계는 생각보다 성기게, 마지막 단계는 생각보다 흰 틈을 넓게 남긴다.</li>
+      <li>해칭의 방향은 형태를 말한다. 표면을 따라 휘는 단면선은 입체를, 화면 전체에 같은 방향인 평행선은 그림자라는 한 층을 만든다. 점묘는 방향 없이 빛의 양만 말한다.</li>
+      <li>동아시아 회화의 필선과 준법(피마준·부벽준·우점준·미점)은 선의 종류로 질감과 구조와 명도를 함께 나른다. 옛 대가의 준법을 익혀 다시 쓰는 것은 공부의 정식 방법이었다.</li>
+      <li>인쇄에서는 축소와 번짐이 흰 틈을 좁혀 어두운 해칭부터 뭉친다. 선 굵기보다 흰 틈을 기준으로 간격 규칙을 세우고, 교정쇄로 확인한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 0.3 mm 펜으로 간격 1 mm의 한 방향 해칭을 그었더니 면적의 30%가 덮였다. 같은 간격으로 방향만 바꾼 둘째 층을 겹치면 덮은 면적은 대략 얼마가 되는가?</p>
+        <div class="opts">
+          <button class="opt">60%. 선의 양이 두 배가 되므로 덮은 면적도 정확히 두 배다.</button>
+          <button class="opt">30%. 같은 펜과 같은 간격이므로 명도는 변하지 않는다.</button>
+          <button class="opt" data-correct>51%. 둘째 층의 일부가 이미 덮인 자리에 떨어지므로 1 − 0.7 × 0.7 = 0.51이다.</button>
+          <button class="opt">90%. 두 방향이 만나면 교차점마다 잉크가 고여 거의 검게 된다.</button>
+        </div>
+        <div class="quiz-exp">둘째 층의 선 가운데 30%는 이미 첫 층이 덮은 자리 위에 놓인다. 그래서 새로 덮는 면적은 남은 70%의 30%, 곧 21%뿐이고 합은 51%다. 직각으로 겹친 평행선에서는 1 − (1 − 0.3)²이 정확하다. 이 장의 모델에서 명도는 L* 약 81에서 71로 내려간다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 명도 다섯 단계 해칭 띠를 만들었더니 1·2단계 사이 차이는 크고 4·5단계는 거의 같아 보였다. 가장 알맞은 고침은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>2단계를 더 성기게 시작하고, 4·5단계는 흰 틈을 넓게 남기면서 방향을 겹치거나 굵은 펜으로 어둡게 한다.</button>
+          <button class="opt">모든 단계의 간격을 똑같이 0.1 mm씩 줄여 간다. 간격이 고르게 줄면 명도도 고르게 준다.</button>
+          <button class="opt">4·5단계에 같은 방향의 선을 더 촘촘히 넣는다. 선이 많을수록 단계가 잘 갈린다.</button>
+          <button class="opt">1단계를 없애고 네 단계로 만든다. 종이색은 명도 단계로 치지 않는다.</button>
+        </div>
+        <div class="quiz-exp">명도(L*)는 덮은 면적에 비례하지 않아서, 밝은 쪽은 조금만 덮어도 크게 어두워지고 어두운 쪽은 흰 틈을 아주 조금씩 줄여야 한다. 간격을 같은 양씩 줄이면 이 불균형이 그대로 남고, 어두운 쪽에 같은 방향의 선을 더 넣으면 흰 틈이 막혀 뭉친다. 종이의 흰색은 펜 그림에서 가장 밝은 단계다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. A4에 그린 펜 그림을 A5 책자에 실었더니 원화에서는 괜찮던 짙은 크로스해칭이 검게 뭉쳤다. 이 현상을 가장 잘 설명하는 것은?</p>
+        <div class="opts">
+          <button class="opt">축소하면 선 굵기와 간격이 함께 줄어 덮은 면적의 비율이 커지기 때문이다.</button>
+          <button class="opt">흑백 인쇄는 회색을 낼 수 없어서 모든 해칭을 검정으로 바꾸기 때문이다.</button>
+          <button class="opt">A5 종이가 A4 종이보다 잉크를 덜 흡수하기 때문이다.</button>
+          <button class="opt" data-correct>축소로 흰 틈이 약 71%로 좁아진 데다, 인쇄 번짐으로 선이 조금씩 굵어져 가장 좁은 흰 틈부터 막히기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">축소만으로는 선과 간격이 같은 비율로 줄어 덮은 면적의 비율은 변하지 않는다. 문제는 흰 틈의 절대 폭이 좁아진다는 것이다. 여기에 잉크 번짐처럼 선 굵기와 상관없이 비슷하게 더해지는 굵어짐이 겹치면, 가장 좁은 틈이 먼저 막혀 검은 면이 된다. 흑백 인쇄도 해칭의 면적 비율로 회색을 낸다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 동아시아 산수화의 준법(皴法)에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">빛이 오는 방향의 반대쪽에만 평행선을 그어 그림자를 만드는 방법이다.</button>
+          <button class="opt" data-correct>바위와 산의 표면을 그리는 획의 유형으로, 피마준·부벽준처럼 획의 종류로 질감과 구조, 명도를 함께 나타낸다.</button>
+          <button class="opt">산의 거리를 소실점으로 계산해 크기를 줄이는 작도법이다.</button>
+          <button class="opt">붓을 쓰지 않고 손가락으로 먹을 문질러 명도만 만드는 기법이다.</button>
+        </div>
+        <div class="quiz-exp">준(皴)은 주름이라는 뜻으로, 준법은 바위가 갈라진 결이나 흙산의 주름을 그리는 획의 종류다. 흙산에 어울리는 긴 피마준, 깎아지른 바위에 어울리는 짧고 날카로운 부벽준처럼 표면의 성격에 따라 고른다. 획이 모이는 곳이 어두워지므로 명도도 함께 생기지만, 빛의 방향만으로 정하는 그림자 기법이나 원근 작도법은 아니다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#efebe2", INK = "#312f35", TXT = "#2b2a30", TXT2 = "#6b6874", BAD = "#c0392b", ACC = "#2b6cb0";
+  var PX_MM = 96 / 25.4;  // CSS 1 mm = 3.78 px (96 dpi 가정)
+
+  /* ---------- 이 장의 해칭 모형: 머리–데이비스 면적 평균 (Murray & Davies 1936) ----------
+     Y = (1 − c)·Y종이 + c·Y잉크, 한 방향 덮음 c1 = w/s, k방향 c = 1 − (1 − c1)^k (방향끼리 독립이라는 근사)
+     L* ↔ Y 변환은 CIE 15:2004(CIELAB) */
+  var L_PAPER = 93, L_INK = 20;
+  function Yof(L) { var f = (L + 16) / 116; return f > 6 / 29 ? f * f * f : 3 * (6 / 29) * (6 / 29) * (f - 4 / 29); }
+  function Lof(Y) { var f = Y > 0.008856 ? Math.cbrt(Y) : 7.787 * Y + 16 / 116; return 116 * f - 16; }
+  var YP = Yof(L_PAPER), YK = Yof(L_INK);
+  function coverOf(w, s, k) { var c1 = Math.min(1, w / s); return 1 - Math.pow(1 - c1, k); }
+  function Lcov(c) { return Lof((1 - c) * YP + c * YK); }
+  function grayL(L) { var v = ART.toGamma(Yof(L)); return ART.hex([v, v, v]); }
+  var ANG = [45, -45, 0, 90];
+
+  // 사각형 안을 평행선으로 채운다. sp, lw: px, ang: 도, wob: 떨림 함수(선 번호 → px)
+  function hatchRect(ctx, x, y, w, h, sp, lw, ang, col, wob) {
+    if (sp <= 0.4) { ctx.fillStyle = col; ctx.fillRect(x, y, w, h); return; }
+    ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+    var a = ang * Math.PI / 180, dx = Math.cos(a), dy = Math.sin(a), nx = -dy, ny = dx;
+    var cx = x + w / 2, cy = y + h / 2, R = Math.hypot(w, h) / 2 + lw;
+    ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = "butt";
+    var i = 0;
+    for (var t = -R + ((R % sp) / 2); t <= R; t += sp, i++) {
+      var o = wob ? wob(i) : 0, px = cx + nx * (t + o), py = cy + ny * (t + o);
+      ctx.beginPath(); ctx.moveTo(px - dx * R, py - dy * R); ctx.lineTo(px + dx * R, py + dy * R); ctx.stroke();
+    }
+    ctx.restore();
+  }
+  function label(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color || TXT; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight); ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "alphabetic"; ctx.fillText(s, x, y);
+  }
+
+  /* ---------------- 시뮬레이터 1: 같은 손놀림, 세 가지 도구 ---------------- */
+  (function () {
+    var el = document.getElementById("ln-s-cv");
+    var strokes = [], cur = null, W = 600, H = 300, last = null;
+    function demo() {
+      strokes = [];
+      var r = AB.rng(3), a = [], t = 0, i, u;
+      for (i = 0; i <= 120; i++) { u = i / 120; a.push({ x: 0.06 + 0.88 * u, y: 0.2 + 0.03 * Math.sin(u * 9) + (r() - 0.5) * 0.014, t: t }); t += 22 + r() * 50; }
+      var b = []; t = 0;
+      for (i = 0; i <= 40; i++) { u = i / 40; b.push({ x: 0.06 + 0.88 * u, y: 0.58 - 0.14 * Math.sin(u * Math.PI), t: t }); t += 6; }
+      var c = []; t = 0;
+      for (i = 0; i <= 70; i++) { u = i / 70; c.push({ x: 0.06 + 0.88 * u, y: 0.84 + 0.05 * Math.sin(u * 2 * Math.PI), t: t }); t += 5 + 44 * Math.pow(Math.abs(u - 0.5) * 2, 3); }
+      strokes.push({ pts: a }, { pts: b }, { pts: c });
+      last = strokes[2];
+    }
+    demo();
+    var tool = AB.seg("ln-s-tool", function () { cv.redraw(); });
+    var sens = AB.range("ln-s-sens", function (v) { return AB.fix(v, 2); }, function () { cv.redraw(); });
+    document.getElementById("ln-s-demo").addEventListener("click", function () { demo(); cv.redraw(); });
+    document.getElementById("ln-s-clear").addEventListener("click", function () { strokes = []; last = null; cv.redraw(); });
+
+    function drawStroke(ctx, st, w, h, tl, sv, stats) {
+      var P = st.pts; if (P.length < 2) return;
+      var X = P.map(function (p) { return [p.x * w, p.y * h]; });
+      var v = [0], ema = 0, len = [0], i;
+      for (i = 1; i < P.length; i++) {
+        var d = Math.hypot(X[i][0] - X[i - 1][0], X[i][1] - X[i - 1][1]), dt = Math.max(1, P[i].t - P[i - 1].t), s = d / dt;
+        ema = i === 1 ? s : ema * 0.7 + s * 0.3; v.push(ema); len.push(len[i - 1] + d);
+      }
+      v[0] = v[1]; var L = len[len.length - 1], wmax = 0, wmin = 1e9, rr = AB.rng(7);
+      ctx.lineCap = "round"; ctx.lineJoin = "round";
+      for (i = 1; i < P.length; i++) {
+        var vn = Math.min(1, v[i] / 1.5), pr = P[i].p != null ? P[i].p : null, wd, al, col = INK;
+        if (tl === "pen") {
+          wd = 2.1 * (1 - 0.35 * sv * vn) + 2.6 * Math.pow(sv, 2) * Math.pow(1 - vn, 6);
+          al = 1 - 0.75 * sv * Math.max(0, vn - 0.55) / 0.45 * (rr() < 0.5 ? 1 : 0.4);
+        } else if (tl === "pencil") {
+          var p = pr != null ? pr : 1 - sv * 0.85 * vn;
+          wd = 1 + 1.9 * p; al = 0.16 + 0.74 * p; col = "#3b3a40";
+        } else {
+          var pb = pr != null ? pr : 1 - sv * vn;
+          var taper = Math.min(1, (len[i] + 2) / 24, (L - len[i] + 2) / 24);
+          wd = Math.max(0.6, (2 + 13 * ((1 - sv) * 0.55 + sv * pb)) * taper);
+          if (sv > 0.85) wd *= 1 + (sv - 0.85) * 6 * (rr() - 0.3) * (1 - vn);
+          al = 0.92;
+        }
+        wd = Math.max(0.5, wd); wmax = Math.max(wmax, wd); wmin = Math.min(wmin, wd);
+        ctx.globalAlpha = AB.clamp(al, 0.05, 1); ctx.strokeStyle = col; ctx.lineWidth = wd;
+        ctx.beginPath(); ctx.moveTo(X[i - 1][0], X[i - 1][1]); ctx.lineTo(X[i][0], X[i][1]); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      if (stats) {
+        var T = Math.max(1, P[P.length - 1].t - P[0].t);
+        stats.v = (L / T) * 1000 / PX_MM / 10; stats.r = wmax / Math.max(0.5, wmin);
+      }
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      W = w; H = h;
+      ctx.strokeStyle = "rgba(120,110,90,0.12)"; ctx.lineWidth = 1;
+      for (var y = 24; y < h; y += 24) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+      var tl = tool(), sv = sens(), stats = {};
+      strokes.forEach(function (st) { drawStroke(ctx, st, w, h, tl, sv, st === last ? stats : null); });
+      if (cur) drawStroke(ctx, cur, w, h, tl, sv, null);
+      if (!strokes.length && !cur) label(ctx, "여기에 끌어서 선을 그어 본다", w / 2, h / 2, { align: "center", color: TXT2, size: 13 });
+      if (strokes.length === 3 && strokes[0].pts.length === 121) {
+        [["느리게, 망설이며", 0.2], ["빠르게, 자신 있게", 0.58 - 0.17], ["느림 → 빠름 → 느림", 0.84 - 0.07]].forEach(function (s) { label(ctx, s[0], 10, s[1] * h - 10, { size: 11, color: TXT2 }); });
+      }
+      AB.stat("ln-s-o-v", stats.v ? AB.fix(stats.v, 1) + " cm/s" : "—");
+      AB.stat("ln-s-o-r", stats.r ? AB.fix(stats.r, 1) + "배" : "—");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.55, 240, 340)); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y, e) { cur = { pts: [] }; },
+      move: function (x, y, e) {
+        if (!cur) return;
+        var p = { x: x / W, y: y / H, t: performance.now() };
+        if (e && e.pointerType === "pen" && e.pressure > 0) p.p = e.pressure;
+        var q = cur.pts[cur.pts.length - 1];
+        if (!q || Math.hypot((p.x - q.x) * W, (p.y - q.y) * H) > 1.5) { cur.pts.push(p); cv.redraw(); }
+      },
+      end: function () {
+        if (cur && cur.pts.length > 1) { strokes.push(cur); last = cur; if (strokes.length > 24) strokes.shift(); }
+        cur = null; cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 그림 2: 같은 공, 두 가지 손(전/후 비교) ---------------- */
+  (function () {
+    var LD = [-0.55, 0.6, 0.58];  // 빛 방향(왼쪽 위 앞)
+    var n = Math.hypot(LD[0], LD[1], LD[2]); LD = LD.map(function (v) { return v / n; });
+    function geom(w, h) { var R = Math.min(w * 0.24, h * 0.36); return { cx: w * 0.46, cy: h * 0.46, R: R, gy: h * 0.46 + R * 0.98 }; }
+    function dark(g, x, y) {  // 0 밝음 … 1 어두움, 공 밖이면 −1
+      var u = (x - g.cx) / g.R, v = (g.cy - y) / g.R, q = u * u + v * v;
+      if (q > 1) return -1;
+      var z = Math.sqrt(1 - q), d = u * LD[0] + v * LD[1] + z * LD[2];
+      var D = 1 - Math.max(0, d); if (d < 0) D = Math.min(1, 0.82 + 0.1 * (-d)); return D;
+    }
+    function shadowDark(g, x, y) { var sx = g.cx + g.R * 0.55, ex = (x - sx) / (g.R * 1.05), ey = (y - g.gy) / (g.R * 0.22); var q = ex * ex + ey * ey; return q < 1 ? 0.95 - 0.35 * q : -1; }
+    function toneL(D) { return L_PAPER - 44 * D; }
+    function ground(ctx, w, h, g) { ctx.strokeStyle = "rgba(60,56,50,0.35)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(w * 0.06, g.gy + g.R * 0.2); ctx.lineTo(w * 0.94, g.gy + g.R * 0.2); ctx.stroke(); }
+    function opts() { return { bg: PAPER, get height() { var el = document.getElementById("ln-cmp-a"); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.56, 220, 380)); } }; }
+    AB.canvas("#ln-cmp-a", function (ctx, w, h) {
+      var g = geom(w, h); ground(ctx, w, h, g);
+      var sp = Math.max(3.2, g.R / 15);
+      ctx.strokeStyle = INK; ctx.lineCap = "round";
+      // 그림자: 바닥을 따라 눕는 평행선
+      ctx.lineWidth = 0.9;
+      for (var y = g.gy - g.R * 0.25; y < g.gy + g.R * 0.25; y += sp * 0.7) segRun(ctx, w * 0.1, w * 0.95, y, function (x) { return shadowDark(g, x, y) > 0; });
+      // 공: 1층 위도(가로 단면선), 2층 경도, 3층 비스듬한 단면
+      for (var layer = 0; layer < 3; layer++) {
+        var thr = [0.22, 0.5, 0.78][layer];
+        ctx.lineWidth = [1, 0.9, 0.85][layer];
+        var tilt = [0.25, 0, -0.6][layer];
+        if (layer === 1) {
+          for (var th = -Math.PI / 2; th <= Math.PI / 2; th += sp / g.R) {
+            ctx.beginPath(); var on = false;
+            for (var ph = -Math.PI / 2; ph <= Math.PI / 2; ph += 0.03) {
+              var x = g.cx + g.R * Math.cos(ph) * Math.sin(th), yy = g.cy - g.R * Math.sin(ph);
+              var D = dark(g, x, yy); if (D > thr) { on ? ctx.lineTo(x, yy) : ctx.moveTo(x, yy); on = true; } else on = false;
+            }
+            ctx.stroke();
+          }
+        } else {
+          for (var ph2 = -Math.PI / 2 + 0.05; ph2 < Math.PI / 2; ph2 += sp / g.R) {
+            ctx.beginPath(); var on2 = false;
+            for (var th2 = -Math.PI / 2; th2 <= Math.PI / 2; th2 += 0.03) {
+              var r0 = Math.cos(ph2), x2 = g.cx + g.R * r0 * Math.sin(th2), y2 = g.cy - g.R * Math.sin(ph2) + g.R * r0 * Math.cos(th2) * tilt * 0.35;
+              var D2 = dark(g, x2, y2); if (D2 > thr) { on2 ? ctx.lineTo(x2, y2) : ctx.moveTo(x2, y2); on2 = true; } else on2 = false;
+            }
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(g.cx, g.cy, g.R, -0.2, Math.PI * 0.95); ctx.stroke();
+      ctx.lineWidth = 0.8; ctx.beginPath(); ctx.arc(g.cx, g.cy, g.R, Math.PI * 0.95, Math.PI * 1.8); ctx.stroke();
+    }, opts());
+    function segRun(ctx, x0, x1, y, inside) {
+      ctx.beginPath(); var on = false;
+      for (var x = x0; x <= x1; x += 2) { if (inside(x)) { on ? ctx.lineTo(x, y) : ctx.moveTo(x, y); on = true; } else on = false; }
+      ctx.stroke();
+    }
+    AB.canvas("#ln-cmp-b", function (ctx, w, h) {
+      var g = geom(w, h); ground(ctx, w, h, g);
+      var r = AB.rng(21), dot = Math.max(1.1, g.R / 70), A = Math.PI * dot * dot, N = Math.round(w * h * 3.6 / A);
+      ctx.fillStyle = INK;
+      for (var i = 0; i < N; i++) {
+        var x = r() * w, y = r() * h, D = dark(g, x, y);
+        if (D < 0) D = shadowDark(g, x, y);
+        if (D < 0) continue;
+        var c = AB.clamp((YP - Yof(toneL(D))) / (YP - YK), 0, 1), lam = -Math.log(1 - Math.min(0.97, c));  // 무작위 점: c = 1 − e^(−nA)
+        if (r() < lam / 3.6) { ctx.beginPath(); ctx.arc(x, y, dot, 0, Math.PI * 2); ctx.fill(); }
+      }
+      ctx.strokeStyle = INK; ctx.lineWidth = 0.6; ctx.setLineDash([1, 3]); ctx.beginPath(); ctx.arc(g.cx, g.cy, g.R, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+    }, opts());
+    AB.compare("#ln-cmp", { labels: ["곡선 해칭", "점묘"], pos: 0.5 });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 선 굵기·간격·방향으로 명도 만들기 ---------------- */
+  (function () {
+    var el = document.getElementById("ln-h-cv");
+    var gw = AB.range("ln-h-w", function (v) { return AB.fix(v, 2) + " mm"; }, function () { cv.redraw(); });
+    var gs = AB.range("ln-h-s", function (v) { return AB.fix(v, 2) + " mm"; }, function () { cv.redraw(); });
+    var gk = AB.seg("ln-h-k", function () { cv.redraw(); });
+    var wob = AB.check("ln-h-wob", function () { cv.redraw(); });
+    var TARGETS = [93, 77, 61, 45, 29];
+    function patch(ctx, x, y, size, M, w, s, k, wb) {
+      ctx.fillStyle = PAPER; ctx.fillRect(x, y, size, size);
+      for (var j = 0; j < k; j++) {
+        var r = AB.rng(31 + j);
+        hatchRect(ctx, x, y, size, size, s * M, Math.max(0.35, w * M), ANG[j], INK, wb ? function () { return (r() - 0.5) * s * M * 0.18; } : null);
+      }
+      ctx.strokeStyle = "rgba(0,0,0,0.25)"; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, size - 1, size - 1);
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var lw = gw(), s = gs(), k = Number(gk()), c = coverOf(lw, s, k), L = Lcov(c), gap = s - lw;
+      var stripH = 64, top = 14, avail = h - stripH - top - 8;
+      var S = Math.round(Math.min(avail, w * 0.5 - 20)), mm = 8, M = S / mm;
+      patch(ctx, 14, top + 18, S, M, lw, s, k, wob());
+      label(ctx, "확대(가로 " + mm + " mm)", 14, top + 10, { size: 11, color: TXT2 });
+      var x2 = 14 + S + 24, rw = w - x2 - 14;
+      var real = Math.min(rw, Math.round(30 * PX_MM));
+      patch(ctx, x2, top + 18, real, PX_MM, lw, s, k, wob());
+      label(ctx, "거의 실제 크기", x2, top + 10, { size: 11, color: TXT2 });
+      var gy = top + 18 + real + 26;
+      if (gy + 40 < top + 18 + S + 4) {
+        ctx.fillStyle = grayL(L); ctx.fillRect(x2, gy, real, Math.min(real * 0.6, top + 18 + S - gy)); ctx.strokeStyle = "rgba(0,0,0,0.25)"; ctx.strokeRect(x2 + 0.5, gy + 0.5, real - 1, Math.min(real * 0.6, top + 18 + S - gy) - 1);
+        label(ctx, "같은 명도의 회색", x2, gy - 6, { size: 11, color: TXT2 });
+      }
+      // 명도 띠
+      var by = h - stripH + 10, bx = 14, bw = w - 28, bh = 16;
+      for (var i = 0; i < 50; i++) { ctx.fillStyle = grayL(20 + (L_PAPER - 20) * i / 49); ctx.fillRect(bx + bw * i / 50, by, bw / 50 + 1, bh); }
+      var X = function (v) { return bx + bw * (v - 20) / (L_PAPER - 20); };
+      TARGETS.forEach(function (t, j) { var xx = X(t); ctx.strokeStyle = TXT2; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(xx, by + bh); ctx.lineTo(xx, by + bh + 5); ctx.stroke(); label(ctx, String(t), xx, by + bh + 16, { size: 10, mono: true, color: TXT2, align: "center" }); });
+      var xm = X(AB.clamp(L, 20, L_PAPER));
+      ctx.fillStyle = BAD; ctx.beginPath(); ctx.moveTo(xm, by - 1); ctx.lineTo(xm - 6, by - 10); ctx.lineTo(xm + 6, by - 10); ctx.closePath(); ctx.fill();
+      label(ctx, "L* 20(잉크)", bx, by + bh + 30, { size: 10, color: TXT2 }); label(ctx, "L* 93(종이)", bx + bw, by + bh + 30, { size: 10, color: TXT2, align: "right" });
+      AB.stat("ln-h-o-c", AB.fix(c * 100, 0) + "%");
+      AB.stat("ln-h-o-l", "L* " + AB.fix(L, 1));
+      AB.stat("ln-h-o-g", gap <= 0 ? '<span style="color:var(--bad)">없음(검은 면)</span>' : AB.fix(gap, 2) + " mm" + (gap < 0.2 ? ' <small style="color:var(--bad)">좁음</small>' : ""));
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.62, 280, 400)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 해칭의 방향이 형태를 말한다 ---------------- */
+  (function () {
+    var el = document.getElementById("ln-f-cv");
+    var mode = AB.seg("ln-f-mode", function () { cv.redraw(); }), shape = AB.seg("ln-f-shape", function () { cv.redraw(); });
+    var la = AB.range("ln-f-a", function (v) { return (v > 0 ? "+" : "") + v + "°"; }, function () { cv.redraw(); });
+    var THR = [0.25, 0.55, 0.82];
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var a = la() * Math.PI / 180, el0 = 0.45, Lx = Math.sin(a) * Math.cos(el0), Ly = Math.sin(el0), Lz = Math.cos(a) * Math.cos(el0);
+      var md = mode(), sh = shape(), sp = Math.max(4.5, Math.min(w, h) / 48);
+      ctx.strokeStyle = INK; ctx.lineCap = "round";
+      var D, inside;
+      if (sh === "cyl") {
+        var cx = w / 2, r = Math.min(w * 0.2, h * 0.3), y0 = h * 0.17, y1 = h * 0.82, b = r * 0.24;
+        D = function (x, y) {  // 원통 옆면의 어두움(수평 법선 + 빛)
+          var u = (x - cx) / r; if (Math.abs(u) > 1) return -1;
+          var th = Math.asin(u), d = Math.sin(th) * Lx + Math.cos(th) * Lz;
+          return d < 0 ? 0.9 : 1 - d;
+        };
+        inside = function (x, y) { var u = (x - cx) / r; if (Math.abs(u) > 1) return false; var off = b * Math.sqrt(1 - u * u); return y > y0 + off && y < y1 + off; };
+        // 바닥 그림자
+        ctx.lineWidth = 0.8;
+        var sx = cx - Math.sign(la() || 1) * r * 0.9;
+        for (var yy = y1 - b * 0.2; yy < y1 + b * 2.4; yy += sp * 0.8) {
+          ctx.beginPath(); var on0 = false;
+          for (var xx = cx - r * 3; xx < cx + r * 3; xx += 2) {
+            var ex = (xx - (cx + (sx - cx) * 1.1)) / (r * 1.9), ey = (yy - (y1 + b * 0.9)) / (b * 1.6);
+            var ins = ex * ex + ey * ey < 1 && !inside(xx, yy) && !(Math.abs(xx - cx) < r && yy < y1 + b * Math.sqrt(Math.max(0, 1 - Math.pow((xx - cx) / r, 2))));
+            if (ins) { on0 ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); on0 = true; } else on0 = false;
+          }
+          ctx.stroke();
+        }
+        if (md === "contour") {
+          ctx.lineWidth = 0.95;
+          for (var yk = y0 + sp; yk < y1; yk += sp) arcRun(ctx, function (t) { return [cx + r * Math.sin(t), yk + b * Math.cos(t)]; }, -Math.PI / 2, Math.PI / 2, function (p) { return D(p[0], p[1]) > THR[0]; });
+          ctx.lineWidth = 0.9;
+          for (var th = -Math.PI / 2 + sp / r / 2; th < Math.PI / 2; th += sp / r) {
+            var xa = cx + r * Math.sin(th), ya = y0 + b * Math.cos(th), yb = y1 + b * Math.cos(th);
+            if (D(xa, ya + 2) > THR[1]) { ctx.beginPath(); ctx.moveTo(xa, ya); ctx.lineTo(xa, yb); ctx.stroke(); }
+          }
+          ctx.lineWidth = 0.85;
+          for (var k = -12; k < 30; k++) arcRun(ctx, function (t) { return [cx + r * Math.sin(t), y0 + k * sp * 1.4 + b * Math.cos(t) + t * r * 0.55]; }, -Math.PI / 2, Math.PI / 2, function (p) { return inside(p[0], p[1]) && D(p[0], p[1]) > THR[2]; });
+        } else if (md === "straight") {
+          straightFill(ctx, w, h, sp, D, inside);
+        } else scribble(ctx, w, h, sp, D, inside);
+        ctx.lineWidth = 1.6; ctx.beginPath(); ctx.ellipse(cx, y0, r, b, 0, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx - r, y0); ctx.lineTo(cx - r, y1); ctx.moveTo(cx + r, y0); ctx.lineTo(cx + r, y1); ctx.stroke();
+        ctx.lineWidth = 2.2; ctx.beginPath(); ctx.ellipse(cx, y1, r, b, 0, 0, Math.PI); ctx.stroke();
+      } else {
+        var scx = w / 2, scy = h * 0.47, R = Math.min(w * 0.24, h * 0.36), tau = 0.35;
+        D = function (x, y) {
+          var u = (x - scx) / R, v = (scy - y) / R, q = u * u + v * v; if (q > 1) return -1;
+          var z = Math.sqrt(1 - q), d = u * Lx + v * Ly + z * Lz; return d < 0 ? 0.9 : 1 - d;
+        };
+        inside = function (x, y) { return Math.hypot(x - scx, y - scy) < R; };
+        ctx.lineWidth = 0.8;
+        var shx = scx - Math.sign(la() || 1) * R * 0.7, gy = scy + R * 0.97;
+        for (var yy2 = gy - R * 0.12; yy2 < gy + R * 0.3; yy2 += sp * 0.8) {
+          ctx.beginPath(); var on1 = false;
+          for (var xx2 = scx - R * 2.5; xx2 < scx + R * 2.5; xx2 += 2) {
+            var e1 = (xx2 - shx) / (R * 1.15), e2 = (yy2 - gy) / (R * 0.24), ins2 = e1 * e1 + e2 * e2 < 1 && !inside(xx2, yy2);
+            if (ins2) { on1 ? ctx.lineTo(xx2, yy2) : ctx.moveTo(xx2, yy2); on1 = true; } else on1 = false;
+          }
+          ctx.stroke();
+        }
+        function P3(ph, th, roll) {  // 위도 ph, 경도 th → 화면(조금 위에서 내려다봄)
+          var x = Math.cos(ph) * Math.sin(th), y = Math.sin(ph), z = Math.cos(ph) * Math.cos(th);
+          if (roll) { var c = Math.cos(roll), s = Math.sin(roll), xr = x * c - y * s, yr = x * s + y * c; x = xr; y = yr; }
+          var ys = y * Math.cos(tau) - z * Math.sin(tau), zs = y * Math.sin(tau) + z * Math.cos(tau);
+          return [scx + R * x, scy - R * ys, zs];
+        }
+        if (md === "contour") {
+          [0, 1, 2].forEach(function (layer) {
+            ctx.lineWidth = [0.95, 0.9, 0.85][layer];
+            var roll = [0, Math.PI / 2, -0.8][layer];
+            for (var ph = -Math.PI / 2 + sp / R; ph < Math.PI / 2; ph += sp / R) {
+              arcRun(ctx, function (t) { return P3(ph, t, roll); }, -Math.PI, Math.PI, function (p) { return p[2] > 0 && D(p[0], p[1]) > THR[layer]; });
+            }
+          });
+        } else if (md === "straight") straightFill(ctx, w, h, sp, D, inside);
+        else scribble(ctx, w, h, sp, D, inside);
+        ctx.lineWidth = 1.7; ctx.beginPath(); ctx.arc(scx, scy, R, 0, Math.PI * 2); ctx.stroke();
+      }
+      // 빛 방향 표시
+      var ax = w / 2 + Math.sin(a) * Math.min(w, h) * 0.42, ay = h * 0.08;
+      ctx.fillStyle = "#e0a526"; ctx.beginPath(); ctx.arc(ax, ay + 6, 6, 0, Math.PI * 2); ctx.fill();
+      label(ctx, "빛", ax + (a < 0 ? 12 : -12), ay + 10, { size: 11, color: TXT2, align: a < 0 ? "left" : "right" });
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.62, 260, 380)); } });
+    function arcRun(ctx, f, t0, t1, ok) {
+      ctx.beginPath(); var on = false, n = 90;
+      for (var i = 0; i <= n; i++) { var p = f(t0 + (t1 - t0) * i / n); if (ok(p)) { on ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); on = true; } else on = false; }
+      ctx.stroke();
+    }
+    function straightFill(ctx, w, h, sp, D, inside) {
+      [[0, 0.95], [Math.PI / 2, 0.9], [Math.PI / 4, 0.85]].forEach(function (L, j) {
+        ctx.lineWidth = L[1];
+        var a = L[0], dx = Math.cos(a), dy = Math.sin(a), nx = -dy, ny = dx, R = Math.hypot(w, h) / 2;
+        for (var t = -R; t < R; t += sp) {
+          ctx.beginPath(); var on = false;
+          for (var u = -R; u < R; u += 2) {
+            var x = w / 2 + nx * t + dx * u, y = h / 2 + ny * t + dy * u;
+            if (inside(x, y) && D(x, y) > THR[j]) { on ? ctx.lineTo(x, y) : ctx.moveTo(x, y); on = true; } else on = false;
+          }
+          ctx.stroke();
+        }
+      });
+    }
+    function scribble(ctx, w, h, sp, D, inside) {
+      var r = AB.rng(5), N = Math.round(w * h / (sp * sp) * 0.9);
+      ctx.lineWidth = 0.85;
+      for (var i = 0; i < N; i++) {
+        var x = r() * w, y = r() * h; if (!inside(x, y)) continue;
+        var d = D(x, y), p = d < THR[0] ? 0 : d < THR[1] ? 0.22 : d < THR[2] ? 0.48 : 0.75;
+        if (r() > p) continue;
+        var a = r() * Math.PI, l = sp * (1.2 + r() * 1.8);
+        ctx.beginPath(); ctx.moveTo(x - Math.cos(a) * l / 2, y - Math.sin(a) * l / 2); ctx.quadraticCurveTo(x + (r() - 0.5) * l, y + (r() - 0.5) * l, x + Math.cos(a) * l / 2, y + Math.sin(a) * l / 2); ctx.stroke();
+      }
+    }
+  })();
+
+  /* ---------------- 시뮬레이터 4: 점으로 쌓는 명도와 그 비용 ---------------- */
+  (function () {
+    var el = document.getElementById("ln-d-cv");
+    var gd = AB.range("ln-d-d", function (v) { return AB.fix(v, 2) + " mm"; }, function () { cv.redraw(); });
+    var gn = AB.range("ln-d-n", function (v) { return v + "개"; }, function () { cv.redraw(); });
+    var md = AB.seg("ln-d-mode", function () { cv.redraw(); });
+    function dots(ctx, x, y, size, M, d, n, mode) {
+      ctx.fillStyle = PAPER; ctx.fillRect(x, y, size, size);
+      ctx.save(); ctx.beginPath(); ctx.rect(x, y, size, size); ctx.clip();
+      var area = (size / M) * (size / M) / 100, N = Math.round(n * area), rad = Math.max(0.45, d * M / 2), r = AB.rng(11);
+      ctx.fillStyle = INK;
+      if (mode === "rand") {
+        for (var i = 0; i < N; i++) { var px = x + r() * size, py = y + r() * size; if (rad < 1.2) ctx.fillRect(px - rad, py - rad, rad * 2, rad * 2); else { ctx.beginPath(); ctx.arc(px, py, rad, 0, Math.PI * 2); ctx.fill(); } }
+      } else {
+        var a = Math.sqrt(100 / n) * M, off = 0;
+        for (var yy = y + a / 2, row = 0; yy < y + size + a; yy += a * 0.866, row++) {
+          off = row % 2 ? a / 2 : 0;
+          for (var xx = x + off; xx < x + size + a; xx += a) { if (rad < 1.2) ctx.fillRect(xx - rad, yy - rad, rad * 2, rad * 2); else { ctx.beginPath(); ctx.arc(xx, yy, rad, 0, Math.PI * 2); ctx.fill(); } }
+        }
+      }
+      ctx.restore();
+      ctx.strokeStyle = "rgba(0,0,0,0.25)"; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, size - 1, size - 1);
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var d = gd(), n = gn(), mode = md(), A = Math.PI * d * d / 4, lam = n / 100 * A;
+      var c = mode === "rand" ? 1 - Math.exp(-lam) : Math.min(1, lam);
+      if (mode === "even" && lam > 0.9069) c = Math.min(1, 0.9069 + (lam - 0.9069) * 0.6);  // 육각 배열에서 점이 맞닿은 뒤는 근사
+      var L = Lcov(c), top = 14;
+      var S = Math.round(Math.min(h - top - 30, w * 0.5 - 20)), mm = 10, M = S / mm;
+      dots(ctx, 14, top + 18, S, M, d, n, mode);
+      label(ctx, "확대(가로 " + mm + " mm)", 14, top + 10, { size: 11, color: TXT2 });
+      var x2 = 14 + S + 24, rw = w - x2 - 14, real = Math.min(rw, Math.round(30 * PX_MM));
+      dots(ctx, x2, top + 18, real, PX_MM, d, n, mode);
+      label(ctx, "거의 실제 크기", x2, top + 10, { size: 11, color: TXT2 });
+      var gy = top + 18 + real + 26, gh = Math.min(real * 0.6, top + 18 + S - gy);
+      if (gh > 20) { ctx.fillStyle = grayL(L); ctx.fillRect(x2, gy, real, gh); label(ctx, "같은 명도의 회색", x2, gy - 6, { size: 11, color: TXT2 }); }
+      var total = n * 25, sec = total / 3;
+      AB.stat("ln-d-o-c", AB.fix(c * 100, 0) + "%");
+      AB.stat("ln-d-o-l", "L* " + AB.fix(L, 1));
+      AB.stat("ln-d-o-t", total.toLocaleString("ko-KR") + "점 <small>(약 " + (sec < 90 ? Math.round(sec) + "초" : Math.round(sec / 60) + "분") + ")</small>");
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.5, 230, 330)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 같은 바위, 다른 준법 ---------------- */
+  (function () {
+    var el = document.getElementById("ln-c-cv");
+    var HANJI = "#f1ead9", MEOK = "#1c1a18";
+    var type = AB.seg("ln-c-type", function () { cv.redraw(); });
+    var den = AB.range("ln-c-den", function (v) { return AB.fix(v, 2) + "×"; }, function () { cv.redraw(); });
+    var ink = AB.range("ln-c-ink", function (v) { return AB.fix(v, 2); }, function () { cv.redraw(); });
+    var ROCK = [[0.1, 0.94], [0.14, 0.7], [0.22, 0.52], [0.3, 0.44], [0.36, 0.26], [0.47, 0.11], [0.56, 0.13], [0.63, 0.26], [0.7, 0.38], [0.79, 0.46], [0.86, 0.64], [0.9, 0.94]];
+    var SURF = { none: "윤곽만으로는 판처럼 납작", pima: "흙이 덮인 둥근 산", axe: "깎아지른 단단한 바위", rain: "거대한 암벽의 거친 면", mi: "비에 젖은 흙산과 숲" };
+    function inPoly(x, y, P) { var c = false; for (var i = 0, j = P.length - 1; i < P.length; j = i++) { if ((P[i][1] > y) !== (P[j][1] > y) && x < (P[j][0] - P[i][0]) * (y - P[i][1]) / (P[j][1] - P[i][1]) + P[i][0]) c = !c; } return c; }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var bw = Math.min(w, h * 1.25), ox = (w - bw) / 2, oy = 6, bh = h - 14;
+      var P = ROCK.map(function (p) { return [ox + p[0] * bw, oy + p[1] * bh]; });
+      var t = type(), dn = den(), ik = ink(), r = AB.rng(17), count = 0;
+      var alpha = 0.25 + 0.7 * ik;
+      // 땅과 물
+      ctx.strokeStyle = MEOK; ctx.globalAlpha = 0.35; ctx.lineWidth = 1;
+      for (var i = 0; i < 4; i++) { ctx.beginPath(); ctx.moveTo(ox - 10 + i * 9, oy + bh * (0.955 + i * 0.012)); ctx.lineTo(ox + bw * (0.3 + i * 0.12), oy + bh * (0.955 + i * 0.012)); ctx.stroke(); }
+      ctx.globalAlpha = 1;
+      ctx.save(); ctx.beginPath(); P.forEach(function (p, k) { k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.closePath(); ctx.clip();
+      function shadeW(nx, ny) { return 0.25 + 0.75 * AB.clamp((nx - 0.3) / 0.55, 0, 1) * (0.6 + 0.4 * ny); }  // 오른쪽 아래(그늘)에 획이 몰린다
+      var N, k, nx, ny, x, y;
+      if (t === "pima") {
+        N = Math.round(520 * dn);
+        for (k = 0; k < N; k++) {
+          nx = 0.1 + r() * 0.8; ny = 0.1 + r() * 0.85; if (!inPoly(nx, ny, ROCK) || r() > shadeW(nx, ny) + 0.15) continue;
+          x = ox + nx * bw; y = oy + ny * bh;
+          var dir = Math.atan2(1, (nx - 0.5) * 1.6), l = bh * (0.08 + r() * 0.09), cvx = (r() - 0.5) * l * 0.35;
+          ctx.strokeStyle = MEOK; ctx.globalAlpha = alpha * (0.45 + 0.4 * r()); ctx.lineWidth = 0.9 + r() * 0.9; ctx.lineCap = "round";
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + Math.cos(dir) * l / 2 + cvx, y + Math.sin(dir) * l / 2, x + Math.cos(dir) * l, y + Math.sin(dir) * l); ctx.stroke(); count++;
+        }
+      } else if (t === "axe") {
+        N = Math.round(150 * dn);
+        for (k = 0; k < N; k++) {
+          nx = 0.12 + r() * 0.78; ny = 0.12 + r() * 0.82; if (!inPoly(nx, ny, ROCK) || r() > shadeW(nx, ny) * 1.1 - 0.1) continue;
+          x = ox + nx * bw; y = oy + ny * bh;
+          var a = 1.95 + (r() - 0.5) * 0.35, L2 = bh * (0.045 + r() * 0.05), W2 = bw * (0.012 + r() * 0.014);
+          var ex = x + Math.cos(a) * L2, ey = y + Math.sin(a) * L2;
+          ctx.fillStyle = MEOK; ctx.globalAlpha = alpha * (0.4 + 0.5 * r());
+          ctx.beginPath(); ctx.moveTo(x - W2, y); ctx.lineTo(x + W2 * 0.4, y - W2 * 0.3); ctx.quadraticCurveTo(ex + W2 * 0.3, ey - W2 * 0.4, ex, ey); ctx.closePath(); ctx.fill(); count++;
+        }
+      } else if (t === "rain") {
+        N = Math.round(1300 * dn);
+        for (k = 0; k < N; k++) {
+          nx = 0.1 + r() * 0.8; ny = 0.1 + r() * 0.85; if (!inPoly(nx, ny, ROCK) || r() > shadeW(nx, ny)) continue;
+          x = ox + nx * bw; y = oy + ny * bh;
+          ctx.strokeStyle = MEOK; ctx.globalAlpha = alpha * (0.35 + 0.5 * r()); ctx.lineWidth = 1.3 + r() * 1.2; ctx.lineCap = "round";
+          var ll = bh * (0.008 + r() * 0.012);
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + ll * 0.25, y + ll); ctx.stroke(); count++;
+        }
+      } else if (t === "mi") {
+        for (var pass = 0; pass < 2; pass++) {
+          N = Math.round((pass ? 260 : 200) * dn);
+          for (k = 0; k < N; k++) {
+            nx = 0.1 + r() * 0.8; ny = 0.08 + r() * 0.85; if (!inPoly(nx, ny, ROCK)) continue;
+            var nearTop = 1 - AB.clamp((ny - 0.1) / 0.8, 0, 1); if (r() > 0.25 + 0.55 * nearTop * (pass ? 1 : 0.6) + 0.2 * shadeW(nx, ny)) continue;
+            x = ox + nx * bw; y = oy + ny * bh;
+            ctx.fillStyle = MEOK; ctx.globalAlpha = pass ? alpha * (0.55 + 0.35 * r()) : alpha * 0.22;
+            ctx.beginPath(); ctx.ellipse(x, y, bw * (pass ? 0.017 : 0.03) * (0.7 + r() * 0.6), bh * (pass ? 0.006 : 0.012), (r() - 0.5) * 0.25, 0, Math.PI * 2); ctx.fill(); count++;
+          }
+        }
+      }
+      ctx.restore(); ctx.globalAlpha = 1;
+      // 윤곽: 붓처럼 오른쪽(그늘)으로 갈수록 굵게
+      ctx.strokeStyle = MEOK; ctx.lineCap = "round"; ctx.lineJoin = "round";
+      for (var s = 0; s < P.length - 1; s++) {
+        var u = (P[s][0] - ox) / bw; ctx.lineWidth = 1.2 + 2.6 * AB.clamp((u - 0.25) / 0.6, 0, 1); ctx.globalAlpha = 0.85;
+        ctx.beginPath(); ctx.moveTo(P[s][0], P[s][1]); ctx.lineTo(P[s + 1][0], P[s + 1][1]); ctx.stroke();
+      }
+      // 안쪽 구조선 두 줄
+      ctx.lineWidth = 1.2; ctx.globalAlpha = 0.6;
+      ctx.beginPath(); ctx.moveTo(ox + 0.47 * bw, oy + 0.12 * bh); ctx.quadraticCurveTo(ox + 0.4 * bw, oy + 0.45 * bh, ox + 0.46 * bw, oy + 0.8 * bh); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ox + 0.7 * bw, oy + 0.39 * bh); ctx.quadraticCurveTo(ox + 0.64 * bw, oy + 0.62 * bh, ox + 0.7 * bw, oy + 0.9 * bh); ctx.stroke();
+      ctx.globalAlpha = 1;
+      AB.stat("ln-c-o-n", count ? count.toLocaleString("ko-KR") + "획" : "—");
+      AB.stat("ln-c-o-s", SURF[t]);
+    }, { bg: HANJI, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.62, 240, 380)); } });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 원화와 인쇄물 ---------------- */
+  (function () {
+    var el = document.getElementById("ln-p-cv");
+    var SETS = {
+      first: [null, [0.3, 0.6, 1], [0.3, 0.5, 2], [0.3, 0.4, 2], [0.3, 0.35, 3]],
+      rev: [null, [0.3, 1.0, 1], [0.3, 0.9, 2], [0.3, 0.8, 3], [0.5, 0.9, 3]],
+    };
+    var FILL = 0.1, RULE = 0.17;
+    var set = AB.seg("ln-p-set", function () { cv.redraw(); });
+    var gr = AB.range("ln-p-r", function (v) { return Math.round(v * 100) + "%"; }, function () { cv.redraw(); });
+    var gg = AB.range("ln-p-g", function (v) { return AB.fix(v, 3) + " mm"; }, function () { cv.redraw(); });
+    var warn = AB.check("ln-p-warn", function () { cv.redraw(); });
+    function evalSpec(sp, r, g, noFill) {
+      if (!sp) return { L: L_PAPER, gap: Infinity, w: 0, s: 1, k: 0, fill: false };
+      var w = sp[0] * r + g, s = sp[1] * r, gap = s - w, fill = !noFill && gap < FILL, c1 = fill ? 1 : Math.min(1, w / s);
+      return { L: Lcov(1 - Math.pow(1 - c1, sp[2])), gap: gap, w: w, s: s, k: sp[2], fill: fill };
+    }
+    function drawPatch(ctx, x, y, S, M, e) {
+      ctx.fillStyle = PAPER; ctx.fillRect(x, y, S, S);
+      if (e.k) {
+        if (e.fill) { ctx.fillStyle = INK; ctx.fillRect(x, y, S, S); }
+        else for (var j = 0; j < e.k; j++) hatchRect(ctx, x, y, S, S, e.s * M, Math.max(0.4, e.w * M), ANG[j], INK, null);
+      }
+      ctx.strokeStyle = "rgba(0,0,0,0.3)"; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, S - 1, S - 1);
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var specs = SETS[set()], r = gr(), g = gg();
+      var orig = specs.map(function (s) { return evalSpec(s, 1, 0, true); }), prn = specs.map(function (s) { return evalSpec(s, r, g); });
+      var padL = 46, colW = (w - padL - 10) / 5, S = Math.min(colW - 10, 112), M = S / 4;  // 칸 하나 = 가로 4 mm
+      var y1 = 26, y2 = y1 + S + 30;
+      label(ctx, "원화", 6, y1 + S / 2 + 4, { size: 12, weight: 700 });
+      label(ctx, "인쇄", 6, y2 + S / 2 + 4, { size: 12, weight: 700 });
+      for (var i = 0; i < 5; i++) {
+        var x = padL + i * colW + (colW - S) / 2;
+        label(ctx, (i + 1) + "단계", x + S / 2, y1 - 8, { size: 11, color: TXT2, align: "center" });
+        drawPatch(ctx, x, y1, S, M, orig[i]); drawPatch(ctx, x, y2, S, M, prn[i]);
+        label(ctx, "L* " + AB.fix(orig[i].L, 1), x + S / 2, y1 + S + 14, { size: 10.5, mono: true, color: TXT2, align: "center" });
+        label(ctx, "L* " + AB.fix(prn[i].L, 1), x + S / 2, y2 + S + 14, { size: 10.5, mono: true, color: prn[i].fill ? BAD : TXT, align: "center", weight: prn[i].fill ? 700 : null });
+        if (warn() && prn[i].gap < RULE) {
+          ctx.strokeStyle = BAD; ctx.lineWidth = 2.5; ctx.setLineDash(prn[i].fill ? [] : [5, 3]); ctx.strokeRect(x - 3, y2 - 3, S + 6, S + 6); ctx.setLineDash([]);
+        }
+      }
+      // L* 그래프
+      var gy0 = y2 + S + 34, gh = h - gy0 - 22;
+      if (gh > 50) {
+        var X = function (i) { return padL + i * colW + colW / 2; }, Y = function (L) { return gy0 + gh - (L - 15) / (95 - 15) * gh; };
+        ctx.strokeStyle = "rgba(0,0,0,0.12)"; ctx.lineWidth = 1;
+        [20, 40, 60, 80].forEach(function (L) { ctx.beginPath(); ctx.moveTo(padL, Y(L)); ctx.lineTo(w - 10, Y(L)); ctx.stroke(); label(ctx, String(L), padL - 6, Y(L) + 3, { size: 10, mono: true, color: TXT2, align: "right" }); });
+        var lo = prn[4].L;
+        ctx.strokeStyle = TXT2; ctx.setLineDash([4, 4]); ctx.beginPath();
+        for (var t = 0; t < 5; t++) { var yy = Y(L_PAPER + (lo - L_PAPER) * t / 4); t ? ctx.lineTo(X(t), yy) : ctx.moveTo(X(t), yy); } ctx.stroke(); ctx.setLineDash([]);
+        [[orig, "#8a8478"], [prn, ACC]].forEach(function (sr) {
+          ctx.strokeStyle = sr[1]; ctx.lineWidth = 2; ctx.beginPath();
+          sr[0].forEach(function (e, j) { j ? ctx.lineTo(X(j), Y(e.L)) : ctx.moveTo(X(j), Y(e.L)); }); ctx.stroke();
+          sr[0].forEach(function (e, j) { ctx.fillStyle = sr[1]; ctx.beginPath(); ctx.arc(X(j), Y(e.L), 3.5, 0, Math.PI * 2); ctx.fill(); });
+        });
+        label(ctx, "● 원화", w - 120, gy0 + 4, { size: 11, color: "#8a8478" }); label(ctx, "● 인쇄", w - 64, gy0 + 4, { size: 11, color: ACC });
+        label(ctx, "명도 L*", padL, h - 6, { size: 10.5, color: TXT2 });
+      }
+      var distinct = 1; for (var j = 1; j < 5; j++) if (Math.abs(prn[j].L - prn[j - 1].L) >= 5) distinct++;
+      var mg = Math.min.apply(null, prn.map(function (e) { return e.gap; }));
+      AB.stat("ln-p-o-l", prn.map(function (e) { return Math.round(e.L); }).join(" · "));
+      AB.stat("ln-p-o-n", distinct + " / 5");
+      AB.stat("ln-p-o-g", mg <= 0 ? '<span style="color:var(--bad)">0 (막힘)</span>' : AB.fix(mg, 3) + " mm" + (mg < FILL ? ' <small style="color:var(--bad)">막힘</small>' : mg < RULE ? ' <small style="color:var(--warn)">빠듯함</small>' : ""));
+    }, { bg: PAPER, get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); var colW = (w - 56) / 5, S = Math.min(colW - 10, 112); return Math.round(2 * S + 100 + AB.clamp(w * 0.22, 90, 150)); } });
+  })();
+})();
+</script>
+</body>
+</html>

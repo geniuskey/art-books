@@ -1,0 +1,1041 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "몸을 머리·흉곽·골반의 세 덩어리와 척추로 세우고, 겉으로 드러나는 뼈, 경첩과 공 모양 관절의 움직임 범위, 아래팔의 회전, 큰 근육 덩어리를 시뮬레이터로 익힌 뒤 머리와 손을 덩어리부터 세운다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="anatomy">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 12</div>
+    <h1>몸의 구조</h1>
+    <p class="lead">처음 사람을 그리면 팔이 고무호스처럼 휘고, 손은 다섯 개의 소시지가 붙은 장갑이 된다. 비례(<a href="proportion.html">11장</a>)를 맞춰도 그렇다. 길이는 맞는데 그 안에 뼈가 없기 때문이다. 팔꿈치는 한쪽으로만 접히고, 아래팔은 두 개의 뼈가 서로 엇갈리며 돌고, 손은 상자에서 원통 다섯 개가 뻗어 나온 모양이다. 이 장은 의사가 되려는 것이 아니라 그리기 위해 몸 속을 들여다본다. 이름을 외우는 대신, 뼈가 길이를 정하고 관절이 움직임을 정하고 근육이 덩어리를 만든다는 세 가지를 손으로 확인한다.</p>
+    <ul class="objectives">
+      <li>몸을 머리·흉곽·골반의 세 덩어리와 그것을 잇는 척추로 단순화해 세운다.</li>
+      <li>피부 바로 밑에 뼈가 드러나는 곳(골격 표지점)을 알고 그림의 기준점으로 쓴다.</li>
+      <li>경첩 관절과 절구 관절이 움직이는 방향과 대략의 범위를 알고, 불가능한 자세를 알아본다.</li>
+      <li>아래팔의 두 뼈가 엇갈리며 손바닥을 뒤집는 원리와, 근육이 짧아지며 부푸는 모습을 본다.</li>
+      <li>머리를 공과 턱으로, 손을 상자와 원통으로 세우고 방향을 돌려 그린다.</li>
+    </ul>
+  </header>
+
+  <section id="masses">
+    <h2>몸을 세 덩어리로 세우기</h2>
+    <p>사람의 몸에는 뼈가 200개 넘게 있지만, 그림을 시작할 때 생각할 덩어리는 셋이면 된다. 둥근 <b>머리</b>, 새장처럼 갈비뼈가 둘러싼 <span class="term">흉곽</span><span class="en">(Rib cage)</span>, 다리가 붙는 그릇 모양의 <span class="term">골반</span><span class="en">(Pelvis)</span>이다. 셋은 거의 변형되지 않는 단단한 덩어리이고, 그 사이를 휘어지는 <span class="term">척추</span><span class="en">(Spine)</span>가 잇는다. 몸이 굽고 비틀리는 움직임은 대부분 덩어리 자체가 아니라 덩어리 사이, 곧 목과 허리에서 일어난다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="세 덩어리로 단순화한 몸. 왼쪽은 앞모습으로 머리 달걀, 흉곽 달걀, 골반 그릇이 세로로 놓이고, 오른쪽은 옆모습으로 척추가 S자로 휘며 세 덩어리를 잇는다.">
+        <defs><marker id="an-ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <!-- 앞모습 -->
+        <g class="s-dash" fill="none" stroke-width="1.2"><line x1="120" y1="64" x2="120" y2="176"/></g>
+        <ellipse cx="120" cy="40" rx="17" ry="22" class="f-surface s-line" stroke-width="1.6"/>
+        <path d="M112 60 L112 72 L128 72 L128 60" class="f-surface s-line" stroke-width="1.4"/>
+        <ellipse cx="120" cy="110" rx="34" ry="42" class="f-acc-soft s-line" stroke-width="1.6"/>
+        <path d="M86 110 Q120 126 154 110" fill="none" class="s-line" stroke-width="1" opacity=".6"/>
+        <path d="M90 90 Q120 104 150 90" fill="none" class="s-line" stroke-width="1" opacity=".6"/>
+        <path d="M120 70 L120 140" fill="none" class="s-line" stroke-width="1" opacity=".6"/>
+        <path d="M92 168 L148 168 L156 182 L140 204 L100 204 L84 182 Z" class="f-acc2-soft s-line" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M86 184 Q120 196 154 184" fill="none" class="s-line" stroke-width="1" opacity=".6"/>
+        <g class="s-line" stroke-width="1.2" opacity=".45" fill="none"><path d="M104 204 L100 290 M136 204 L140 290 M86 76 L70 160 M154 76 L170 160"/></g>
+        <text x="120" y="296" class="lbl" text-anchor="middle" font-size="12">앞</text>
+        <!-- 옆모습(오른쪽을 본다) -->
+        <ellipse cx="334" cy="38" rx="21" ry="20" class="f-surface s-line" stroke-width="1.6"/>
+        <path d="M346 46 L354 52 L350 62 L338 62" fill="none" class="s-line" stroke-width="1.4"/>
+        <ellipse cx="332" cy="110" rx="26" ry="42" transform="rotate(-8 332 110)" class="f-acc-soft s-line" stroke-width="1.6"/>
+        <path d="M312 176 L352 168 L358 196 L320 210 Z" class="f-acc2-soft s-line" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M330 58 Q322 70 316 84 C306 104 306 126 314 142 C322 154 324 162 318 176" fill="none" class="s-acc" stroke-width="2.4" stroke-linecap="round"/>
+        <g class="s-line" stroke-width="1.2" opacity=".45" fill="none"><path d="M336 204 L340 290 M330 76 L332 160"/></g>
+        <text x="334" y="296" class="lbl" text-anchor="middle" font-size="12">옆</text>
+        <!-- 이름표 -->
+        <g font-size="11.5" class="lbl">
+          <text x="176" y="36">머리: 공과 턱</text>
+          <text x="176" y="106">흉곽: 달걀(위가 좁다)</text>
+          <text x="176" y="190">골반: 그릇</text>
+          <text x="370" y="128" class="lbl-acc">척추의</text>
+          <text x="370" y="143" class="lbl-acc">S자 곡선</text>
+        </g>
+        <g class="s-line" stroke-width="1" fill="none" marker-end="url(#an-ar1)" opacity=".7">
+          <line x1="172" y1="32" x2="140" y2="36"/><line x1="172" y1="102" x2="156" y2="106"/><line x1="172" y1="186" x2="158" y2="184"/>
+          <line x1="366" y1="134" x2="312" y2="122"/>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 세 덩어리와 척추.</b> 앞에서 보면 머리·흉곽·골반이 세로로 쌓이고, 옆에서 보면 척추가 목에서 앞으로, 등에서 뒤로, 허리에서 다시 앞으로 휘는 S자를 그린다. 흉곽은 뒤로 조금 기울고 골반은 앞으로 조금 기운다. 흉곽과 골반을 상자로 그리면 기울기와 비틀림이 잘 보이고, 달걀이나 그릇으로 그리면 부피가 잘 보인다.</figcaption>
+    </figure>
+
+    <p>두 덩어리가 서로 어떻게 움직이는지 직접 본다. 아래 그림은 흉곽과 골반을 상자로 그린 앞모습이다. 흉곽 상자를 좌우로 끌어 옆으로 기울이고, 슬라이더로 몸통을 비틀어 본다. 상자 위의 가로선은 <a href="form.html">7장</a>에서 본 단면선이다.</p>
+
+    <div class="sim" id="sim-torso">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>흉곽과 골반: 척추로 이어진 두 상자</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ts-cv" class="art"></canvas><span class="hint">흉곽 상자를 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>흉곽 옆으로 기울이기 <output id="ts-r-out"></output></span><input type="range" id="ts-r" min="-60" max="60" step="1" value="-14"></label>
+          <label class="ctrl"><span>몸통 비틀기 <output id="ts-t-out"></output></span><input type="range" id="ts-t" min="-70" max="70" step="1" value="0"></label>
+          <label class="ctrl"><span>골반 기울이기 <output id="ts-p-out"></output></span><input type="range" id="ts-p" min="-20" max="20" step="1" value="8"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">흉곽과 골반의 기울기 차이</span><span class="v" id="ts-o-r">—</span></div>
+        <div class="stat"><span class="k">비틀림</span><span class="v" id="ts-o-t">—</span></div>
+        <div class="stat"><span class="k">몸이 감당하나</span><span class="v" id="ts-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 자세는 흉곽과 골반이 서로 반대쪽으로 기운 모습이다. 척추가 부드러운 곡선이 되고, 몸 한쪽은 눌리고 반대쪽은 늘어난다. 서 있는 사람이 한쪽 다리에 무게를 실을 때 흔히 보이는 모습이다(<a href="gesture.html">13장</a>에서 다시 본다). ② 비틀기를 올린다. 흉곽 상자의 앞면이 옆으로 돌며 단면선이 휘고, 앞에서 본 흉곽의 폭이 줄어든다. ③ 기울기 차이를 35° 넘게, 비틀림을 45° 넘게 밀어 본다. 표시가 빨개진다. 실제 허리와 등뼈는 그만큼 굽거나 돌지 못한다. 그림에서 몸통이 엿가락처럼 보이는 것은 대개 이 범위를 넘겼을 때다. (두 상자는 단단하고 척추는 두 상자를 잇는 매끄러운 곡선이라고 둔 단순 모델이다. 35°와 45°는 등과 허리를 합친 옆굽힘과 회전의 참고값이고, 사람마다 다르다.)</div>
+    </div>
+
+    <p>두 상자를 반대 방향으로 기울이면 몸통에 리듬이 생기고, 같은 방향으로 기울이면 몸 전체가 한쪽으로 쓰러지는 느낌이 든다. 몸통을 그릴 때 가장 먼저 정할 것은 윤곽선이 아니라 <b>두 상자가 각각 어느 쪽으로 기울고 돌았는가</b>다. 상자의 방향만 맞으면 그 위에 근육과 옷을 덮어도 자세가 무너지지 않는다.</p>
+  </section>
+
+  <section id="landmarks">
+    <h2>겉으로 드러나는 뼈</h2>
+    <p>뼈는 대부분 근육과 지방에 덮여 있지만 몇 군데는 피부 바로 밑에 있어서 겉에서도 단단한 모서리나 돌기로 보인다. 이런 곳을 <span class="term">골격 표지점</span><span class="en">(Bony landmarks)</span>이라고 한다. 표지점은 살이 찌거나 빠져도, 근육이 움직여도 자리가 크게 변하지 않으므로 그림의 기준점으로 쓰기 좋다. 비례를 잴 때도, 옷 위로 몸을 짐작할 때도 이 점들부터 찍는다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 420" role="img" aria-label="단순하게 그린 사람의 뼈대 앞모습과 표지점 이름. 쇄골, 흉골, 갈비뼈 아래 모서리, 장골능, 대전자, 무릎뼈, 정강이뼈, 복사뼈, 견봉, 위팔뼈, 요골과 척골, 손목이 표시되어 있다.">
+        <g class="f-surface s-line" stroke-width="1.4" stroke-linejoin="round">
+          <ellipse cx="150" cy="40" rx="21" ry="26"/>
+          <path d="M136 52 Q150 74 164 52" fill="none"/>
+          <rect x="146" y="66" width="8" height="20" rx="3"/>
+          <path d="M150 90 C112 90 106 124 112 150 C116 168 128 176 150 176 C172 176 184 168 188 150 C194 124 188 90 150 90 Z"/>
+          <path d="M150 92 L150 150" fill="none" stroke-width="3"/>
+          <path d="M118 112 Q150 124 182 112 M114 132 Q150 146 186 132 M118 152 Q150 166 182 152" fill="none" opacity=".55"/>
+          <rect x="146" y="176" width="8" height="12" rx="2"/>
+          <path d="M112 186 Q150 176 188 186 L182 206 Q168 214 162 224 L138 224 Q132 214 118 206 Z"/>
+          <path d="M104 88 L146 92 M196 88 L154 92" fill="none" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M104 92 L96 160 M196 92 L204 160" fill="none" stroke-width="5" stroke-linecap="round"/>
+          <path d="M96 162 L88 214 M100 162 L95 215 M204 162 L212 214 M200 162 L205 215" fill="none" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M84 216 L96 216 L100 250 L82 250 Z M216 216 L204 216 L200 250 L218 250 Z"/>
+          <path d="M128 206 L122 290 M172 206 L178 290" fill="none" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="122" cy="296" rx="7" ry="8"/><ellipse cx="178" cy="296" rx="7" ry="8"/>
+          <path d="M122 306 L124 384 M178 306 L176 384 M128 306 L130 382 M172 306 L170 382" fill="none" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M116 388 L134 388 L136 400 L108 404 Z M184 388 L166 388 L164 400 L192 404 Z"/>
+        </g>
+        <g class="f-acc">
+          <circle cx="104" cy="88" r="3.2"/><circle cx="150" cy="96" r="3.2"/><circle cx="116" cy="168" r="3.2"/><circle cx="116" cy="190" r="3.2"/>
+          <circle cx="116" cy="212" r="3.2"/><circle cx="178" cy="296" r="3.2"/><circle cx="176" cy="340" r="3.2"/><circle cx="170" cy="384" r="3.2"/>
+          <circle cx="204" cy="160" r="3.2"/><circle cx="212" cy="214" r="3.2"/><circle cx="196" cy="90" r="3.2"/>
+        </g>
+        <g class="s-line" stroke-width=".9" fill="none" opacity=".75">
+          <path d="M104 88 L60 70"/><path d="M116 168 L60 160"/><path d="M116 190 L60 196"/><path d="M116 212 L60 232"/>
+          <path d="M150 96 L250 60"/><path d="M196 90 L250 88"/><path d="M204 160 L250 160"/><path d="M212 214 L250 214"/>
+          <path d="M178 296 L250 290"/><path d="M176 340 L250 336"/><path d="M170 384 L250 384"/>
+        </g>
+        <g font-size="11.5" class="lbl">
+          <text x="56" y="66" text-anchor="end">쇄골</text><text x="56" y="80" text-anchor="end" class="lbl-dim" font-size="10.5">어깨까지 가로지름</text>
+          <text x="56" y="158" text-anchor="end">갈비뼈</text><text x="56" y="172" text-anchor="end">아래 모서리</text>
+          <text x="56" y="200" text-anchor="end">장골능</text>
+          <text x="56" y="236" text-anchor="end">대전자</text><text x="56" y="250" text-anchor="end" class="lbl-dim" font-size="10.5">허벅지 위 바깥</text>
+          <text x="254" y="64">흉골 위 오목(목 아래 V자)</text>
+          <text x="254" y="92">견봉: 어깨의 가장 바깥 끝</text>
+          <text x="254" y="164">팔꿈치: 위팔뼈 아래 끝, 척골 머리</text>
+          <text x="254" y="212">손목: 척골 돌기(새끼손가락 쪽)</text>
+          <text x="254" y="226" class="lbl-dim" font-size="10.5">아래팔은 요골과 척골 두 뼈</text>
+          <text x="254" y="294">무릎뼈</text>
+          <text x="254" y="340">정강이뼈 앞 모서리</text>
+          <text x="254" y="388">복사뼈(안쪽이 더 높다)</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 2. 피부 밑에 드러나는 뼈.</b> 점은 겉에서 만져지거나 보이는 표지점이다. 쇄골과 흉골 위 오목은 목과 어깨의 이음매를, 장골능과 대전자는 허리와 엉덩이의 폭을, 무릎뼈와 복사뼈는 다리의 관절 위치를 알려 준다. 뒤에서 보면 목을 숙였을 때 튀어나오는 7번 목뼈, 날개처럼 움직이는 어깨뼈(견갑골), 골반 뒤의 두 보조개도 표지점이다. 뼈의 모양은 아주 단순하게 그렸다.</figcaption>
+    </figure>
+
+    <p>표지점의 쓰임새를 하나만 들면 <b>폭</b>이다. 어깨의 폭은 양쪽 견봉 사이로, 엉덩이의 폭은 양쪽 대전자 사이로 잰다. 옷을 입은 사람을 그릴 때도 어깨선의 끝(견봉)과 허리띠 아래 골반의 위 모서리(장골능)를 먼저 찍으면 몸통의 기울기가 바로 보인다. 앞 시뮬레이터의 흉곽 상자 윗변과 골반 상자 윗변이 바로 이 두 선이다.</p>
+
+    <div class="callout warn">
+      <strong>이 장은 의학 교과서가 아니다</strong>
+      뼈와 근육의 이름은 그림에 필요한 만큼만 쓴다. 이름을 외우는 것보다 덩어리와 방향, 관절이 접히는 쪽을 아는 것이 먼저다. 이 장의 관절 범위는 정형외과에서 흔히 쓰는 참고값(미국 정형외과학회<span class="en">(AAOS)</span>의 1965년 측정 지침에 실린 값 등)을 반올림한 것이고, 나이·유연성·부상에 따라 사람마다 크게 다르다. 모델을 서 주는 사람에게 범위 끝까지 자세를 요구하지 않는다.
+    </div>
+  </section>
+
+  <section id="joints">
+    <h2>관절: 경첩과 공</h2>
+    <p>뼈와 뼈가 만나는 곳이 <span class="term">관절</span><span class="en">(Joint)</span>이고, 관절의 모양이 움직임의 방향을 정한다. 그림에 필요한 것은 두 가지다. 문의 경첩처럼 한 방향으로만 접히는 <span class="term">경첩 관절</span><span class="en">(Hinge joint)</span>(팔꿈치, 무릎, 손가락 마디)과, 공이 오목한 그릇에 끼워져 여러 방향으로 도는 <span class="term">절구 관절</span><span class="en">(Ball-and-socket joint)</span>(어깨, 고관절)이다. 여기에 아래팔이 도는 <span class="term">중쇠 관절</span><span class="en">(Pivot joint)</span>과, 엄지 뿌리의 <span class="term">안장 관절</span><span class="en">(Saddle joint)</span>이 더해진다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>관절</th><th>모양</th><th>주된 움직임</th><th>참고 범위</th></tr></thead>
+        <tbody>
+          <tr><td>어깨</td><td>절구</td><td>팔을 앞·옆으로 들기, 돌리기</td><td>앞으로 약 180°, 뒤로 약 60°</td></tr>
+          <tr><td>팔꿈치</td><td>경첩</td><td>굽히기(한쪽으로만)</td><td>0~약 150°</td></tr>
+          <tr><td>아래팔</td><td>중쇠</td><td>손바닥 뒤집기</td><td>엎침·뒤침 각 약 80°</td></tr>
+          <tr><td>손목</td><td>타원</td><td>굽히기·펴기, 좌우로 꺾기</td><td>굽힘 약 80°, 폄 약 70°</td></tr>
+          <tr><td>고관절</td><td>절구</td><td>다리를 앞·옆으로 들기</td><td>앞으로 약 120°, 뒤로 약 30°</td></tr>
+          <tr><td>무릎</td><td>경첩</td><td>굽히기(뒤로만)</td><td>0~약 135°</td></tr>
+          <tr><td>손가락 마디</td><td>경첩</td><td>손바닥 쪽으로 굽히기</td><td>밑마디 약 90°, 가운데 약 100°, 끝 약 90°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>팔을 그릴 때 가장 흔한 실수는 팔꿈치를 고무처럼 아무 쪽으로나 휘게 하는 것이다. 아래 그림은 옆에서 본 팔이다. 손목(손잡이)을 끌면 어깨와 팔꿈치의 각도가 자동으로 정해진다. 어깨에서 손목까지의 거리만 알면 팔꿈치의 각도는 삼각형 하나로 정해지기 때문이다.</p>
+    <div class="formula">$$\cos\gamma = \frac{a^2 + b^2 - d^2}{2ab}$$<div class="where">\(a\): 위팔 길이(어깨~팔꿈치), \(b\): 아래팔 길이(팔꿈치~손목), \(d\): 어깨에서 손목까지의 거리, \(\gamma\): 팔꿈치 안쪽 각. 팔꿈치를 굽힌 각도는 \(180° - \gamma\)다(코사인 법칙). 같은 \(d\)에 팔꿈치가 놓일 수 있는 자리는 두 곳인데, 그중 하나는 팔꿈치가 반대로 꺾인 자리다.</div></div>
+
+    <div class="sim" id="sim-arm">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>팔꿈치는 한쪽으로만 접힌다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="am-cv" class="art"></canvas><span class="hint">손목을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="am-mode"><button data-value="real" class="on">관절 범위 지키기</button><button data-value="rubber">고무 팔</button><button data-value="back">반대로 꺾기</button></div>
+          <label class="check"><input type="checkbox" id="am-range" checked> 손목이 닿는 범위 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">어깨(앞으로 든 각)</span><span class="v" id="am-o-s">—</span></div>
+        <div class="stat"><span class="k">팔꿈치 굽힘</span><span class="v" id="am-o-e">—</span></div>
+        <div class="stat"><span class="k">상태</span><span class="v" id="am-o-st">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 손목을 몸 앞쪽 여기저기로 끈다. 팔꿈치는 늘 뒤쪽·아래쪽으로 빠지고, 팔꿈치 굽힘은 0~150° 안에 머문다. ② 손목을 몸 뒤로, 등 쪽 높이 끌어 본다. 어깨는 뒤로 60°까지만 가므로 손목이 따라오지 못하고 멈춘다. 연한 색 영역이 손목이 닿을 수 있는 범위다. ③ "고무 팔"로 바꾼다. 팔이 휘는 곡선이 되어 길이가 늘었다 줄었다 한다. "반대로 꺾기"는 같은 손목 위치에 팔꿈치를 앞으로 꺾은 다른 답이다. 수학으로는 맞는 답이지만 몸으로는 불가능하다. 그림에서 팔이 어색할 때는 대개 이 둘 중 하나다. (옆에서 본 평면 모델이다. 위팔 31 cm, 아래팔 24 cm(키 168 cm 기준), 어깨는 뒤로 60°에서 앞으로 180°까지, 팔꿈치는 0~150°로 두었다. 실제 어깨는 앞뒤뿐 아니라 옆으로도 돌고, 팔을 높이 들면 어깨뼈가 함께 올라간다.)</div>
+    </div>
+
+    <p>"반대로 꺾기"를 켜 보면 이상하다는 것을 설명 없이도 안다. 우리는 팔꿈치가 어느 쪽으로 접히는지 몸으로 알고 있기 때문이다. 그런데 막상 그릴 때는 이 앎이 손으로 잘 넘어오지 않는다. 그래서 많은 화가가 팔다리를 그리기 전에 관절 자리에 작은 동그라미를 먼저 찍고, 동그라미 사이를 곧은 원통으로 잇는다. 관절은 동그라미, 뼈는 곧은 선. 휘는 것은 근육의 윤곽이지 뼈가 아니다.</p>
+  </section>
+
+  <section id="forearm">
+    <h2>아래팔의 회전: 두 뼈가 엇갈린다</h2>
+    <p>팔꿈치는 경첩이라 한 방향으로만 접히는데, 손바닥은 위로도 아래로도 뒤집힌다. 이 회전은 팔꿈치가 아니라 아래팔에서 일어난다. 아래팔에는 뼈가 두 개 있다. 새끼손가락 쪽의 <span class="term">척골</span><span class="en">(Ulna)</span>은 팔꿈치에서 위팔뼈와 경첩을 이루고 거의 돌지 않는다. 엄지 쪽의 <span class="term">요골</span><span class="en">(Radius)</span>은 팔꿈치 쪽 끝이 제자리에서 팽이처럼 돌고, 손목 쪽 끝이 척골 둘레를 반 바퀴 돌며 손을 데리고 간다. 손바닥을 앞(또는 위)으로 하는 것을 <span class="term">뒤침</span><span class="en">(Supination)</span>, 뒤(또는 아래)로 하는 것을 <span class="term">엎침</span><span class="en">(Pronation)</span>이라고 한다. 엎치면 요골이 척골 위를 X자로 엇갈려 지나간다.</p>
+
+    <figure class="art-figure" id="fig-rubens">
+      <div class="art-frame" style="max-width:420px;margin:0 auto"><img src="../../shared/img/rubens-forearm-studies.webp" width="1083" height="1600" alt="루벤스의 펜 소묘. 근육을 드러낸 아래팔 세 개가 종이에 겹쳐 그려져 있다. 위쪽에는 위팔과 아래팔이 비스듬히 누워 있고, 가운데의 아래팔은 주먹을 쥔 채 손등이 보이며 근육 다발이 비틀려 있다. 아래쪽의 아래팔은 손바닥을 보이며 펼쳐져 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 페테르 파울 루벤스, 「해부 습작: 두 자세의 왼쪽 아래팔과 오른쪽 아래팔」, 1600~05년경.</b> 같은 아래팔을 손바닥이 보이는 자세와 손등이 보이는 자세로 그렸다. 손등이 보이는 아래팔에서는 근육 다발이 밧줄처럼 비틀려 손목 쪽으로 감겨 들고, 손바닥이 보이는 아래팔에서는 다발이 나란히 뻗는다. 팔꿈치 쪽은 거의 그대로이고 손목 쪽으로 갈수록 비틀림이 커진다. 요골이 척골 둘레를 돌기 때문이다.<span class="credit">메트로폴리탄 미술관 소장(Rogers Fund, 1996), 종이에 펜과 갈색 잉크. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/342377">소장처 작품 페이지</a> · <a href="../../credits.html#rubens-forearm-studies">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>아래 그림은 오른쪽 아래팔을 앞에서 본 모습이다. 위가 팔꿈치, 아래가 손목과 손이다. 슬라이더로 손을 돌리며 요골(진한 선)이 척골(연한 선)을 어떻게 지나가는지 본다.</p>
+
+    <div class="sim" id="sim-forearm">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>요골이 척골을 넘어간다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="fa-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>뒤침 ← 손 돌리기 → 엎침 <output id="fa-r-out"></output></span><input type="range" id="fa-r" min="-130" max="130" step="1" value="-80"></label>
+          <label class="check"><input type="checkbox" id="fa-skin" checked> 아래팔 윤곽 겹쳐 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">손바닥 방향</span><span class="v" id="fa-o-p">—</span></div>
+        <div class="stat"><span class="k">두 뼈</span><span class="v" id="fa-o-b">—</span></div>
+        <div class="stat"><span class="k">어깨가 돌려 준 몫</span><span class="v" id="fa-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① −80°(뒤침)에서 두 뼈는 나란하고 손바닥이 앞을 본다. 엄지는 바깥쪽에 있다. ② 슬라이더를 오른쪽으로 민다. 팔꿈치 쪽 요골 머리는 제자리에서 돌기만 하고, 손목 쪽 끝이 척골 앞을 지나 안쪽으로 넘어간다. 0°에서 엄지가 앞을 보고, +80°(엎침)에서 두 뼈가 X자로 엇갈리며 손등이 보인다. 아래팔 윤곽도 손목 쪽이 납작하게 돌아간다. ③ ±80°를 넘겨 끝까지 민다. 아래팔은 더 돌지 못하고, 나머지 회전은 팔꿈치의 두 돌기(점)가 함께 도는 것으로, 곧 위팔과 어깨가 돌린 것으로 나타난다. 손바닥을 완전히 뒤집어 보이려면 어깨까지 써야 한다. (팔꿈치를 편 앞모습을 정면 투영한 단순 모델이다. 요골 손목 끝은 척골 둘레의 원을 돈다고 두었다. 엎침과 뒤침은 각 80°로 두었다.)</div>
+    </div>
+
+    <p>손바닥을 뒤집을 때 팔꿈치는 그대로이고 손목 쪽만 돈다는 것, 그래서 아래팔이 손목으로 갈수록 비틀린다는 것이 그림 3의 루벤스가 본 것이다. 아래팔을 그릴 때는 팔꿈치 쪽은 둥글고 두툼하게, 손목 쪽은 납작한 상자로 그리고 그 납작한 면이 손등과 같은 쪽을 보게 하면 비틀림이 저절로 생긴다.</p>
+
+    <div class="callout deep">
+      <strong>알통을 만드는 근육이 손바닥도 뒤집는다</strong>
+      위팔 앞쪽의 이두근<span class="en">(Biceps brachii)</span>은 팔꿈치를 굽히는 근육으로 잘 알려져 있지만, 아래쪽 끝이 요골에 붙어 있어서 손바닥을 위로 돌리는(뒤침) 힘도 크다. 손바닥을 아래로 한 채 팔을 굽히면 알통이 덜 솟고, 손바닥을 위로 하고 굽히면 더 솟는다. 병따개를 오른손으로 돌리는 방향이 뒤침 쪽인 것도 이 근육의 힘을 쓰기 위해서라는 설명이 있다. 그림에서는 손바닥이 위를 볼 때 위팔 앞쪽의 덩어리를 더 둥글게 그리면 된다.
+    </div>
+  </section>
+
+  <section id="muscles">
+    <h2>큰 근육 덩어리</h2>
+    <p>근육은 뼈에 붙어 수축하면서 관절을 당긴다. 근육은 밀지 못하고 당기기만 하므로, 관절마다 반대쪽으로 당기는 근육이 짝을 이룬다. 팔꿈치를 굽히는 이두근과 펴는 삼두근이 대표적이다. 그림에서 기억할 근육은 이름보다 <b>덩어리</b>로 묶는 편이 낫다.</p>
+    <ul>
+      <li><b>어깨와 가슴</b>: 어깨를 둥글게 감싸는 삼각근, 가슴판을 이루는 대흉근, 목에서 어깨로 비스듬히 내려오는 승모근.</li>
+      <li><b>등</b>: 겨드랑이에서 허리로 넓게 펼쳐지는 광배근이 등의 V자 윤곽을 만든다. 어깨뼈(견갑골)는 근육에 싸여 등 위를 미끄러진다.</li>
+      <li><b>팔</b>: 위팔 앞의 이두근, 뒤의 삼두근. 아래팔은 팔꿈치 안쪽에서 시작하는 굽힘근 무리와 바깥쪽에서 시작하는 폄근 무리 두 다발로 본다.</li>
+      <li><b>다리</b>: 엉덩이의 둔근, 허벅지 앞의 대퇴사두근, 뒤의 햄스트링, 종아리의 비복근. 종아리 근육은 안쪽이 바깥쪽보다 낮게 내려온다.</li>
+    </ul>
+
+    <figure class="art-figure" id="fig-sibyl">
+      <div class="art-frame" style="max-width:420px;margin:0 auto"><img src="../../shared/img/michelangelo-libyan-sibyl-studies.webp" width="1180" height="1600" alt="미켈란젤로의 붉은 초크 소묘. 등을 보인 채 몸을 비틀고 두 팔을 머리 위로 들어 올린 인물의 상반신이 크게 그려져 있다. 어깨와 등의 근육이 뚜렷하고, 둘레에 같은 얼굴의 옆모습, 왼손, 발가락을 따로 그린 작은 습작들이 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 4. 미켈란젤로 부오나로티, 「리비아의 무녀를 위한 습작」, 1510~11년경.</b> 시스티나 성당 천장화의 한 인물을 위해 남자 모델을 세우고 그린 습작이다. 두 팔을 들어 올리자 삼각근과 승모근이 어깨 위로 뭉치고, 어깨뼈가 등 위에서 바깥으로 돌아 나간다. 흉곽은 화면 왼쪽으로 돌았고 골반은 거의 정면이다. 오른쪽 아래에는 왼손을 따로 다시 그려, 손가락 마디가 한쪽으로만 접히는 모습을 확인했다. 미켈란젤로는 근육 하나하나보다 덩어리가 서로 밀고 당기는 관계를 그렸다.<span class="credit">메트로폴리탄 미술관 소장(Purchase, Joseph Pulitzer Bequest, 1924), 종이에 붉은 초크(왼쪽 어깨에 흰 초크로 약간의 강조). 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/337497">소장처 작품 페이지</a> · <a href="../../credits.html#michelangelo-libyan-sibyl-studies">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>근육이 수축하면 짧아지지만 부피는 거의 그대로다. 그래서 짧아진 만큼 굵어진다. 알통이 솟는 이유다. 반대편 근육은 늘어나며 가늘어진다. 아래에서 팔꿈치를 굽혀 보고, "부피 유지"를 끄면 어떻게 보이는지 비교한다.</p>
+
+    <div class="sim" id="sim-muscle">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>근육은 짧아지며 부푼다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ms-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>팔꿈치 굽힘 <output id="ms-e-out"></output></span><input type="range" id="ms-e" min="0" max="170" step="1" value="90"></label>
+          <label class="check"><input type="checkbox" id="ms-vol" checked> 부피 유지(짧아지면 굵어진다)</label>
+          <label class="check"><input type="checkbox" id="ms-bone" checked> 뼈 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이두근 길이</span><span class="v" id="ms-o-l">—</span></div>
+        <div class="stat"><span class="k">이두근 굵기</span><span class="v" id="ms-o-w">—</span></div>
+        <div class="stat"><span class="k">삼두근 길이</span><span class="v" id="ms-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 0°에서 90°로 굽힌다. 이두근이 짧아지며 위팔 앞쪽이 둥글게 솟고, 뒤쪽 삼두근은 늘어나며 납작해진다. ② "부피 유지"를 끈다. 근육이 굵기를 그대로 둔 채 짧아지기만 해서 위팔이 밋밋한 원통이 된다. 고무호스 팔의 정체다. ③ 150°를 넘겨 끝까지 민다. 실제 팔꿈치는 150° 안팎에서 아래팔 근육과 위팔 근육이 맞닿아 멈춘다. 그 너머는 근육이 서로를 뚫고 들어가는 불가능한 모습이다. (근육을 부피가 일정한 타원체로, 길이를 두 부착점 사이의 거리로 둔 교육용 근사다. 실제 근육은 힘줄과 근육 배가 따로 늘고 주는 등 훨씬 복잡하다.)</div>
+    </div>
+
+    <p>부피 유지를 켜고 끄며 비교해 보면, 팔을 굽힐 때 위팔의 윤곽이 바뀌어야 그림 속 팔이 "힘을 쓰는" 팔이 된다는 것을 알 수 있다. 윤곽선을 그을 때 한쪽은 부풀고 반대쪽은 펴지는 비대칭을 의식하면 좋다. 근육이 당기는 쪽은 짧고 둥글게, 늘어나는 쪽은 길고 평평하게.</p>
+  </section>
+
+  <section id="head">
+    <h2>머리를 덩어리로</h2>
+    <p>머리는 둥근 머리뼈(공) 아래에 얼굴과 턱이 붙은 모양이다. 미국의 일러스트레이터 앤드루 루미스<span class="en">(Andrew Loomis)</span>는 『머리와 손 그리기』<span class="en">(Drawing the Head and Hands, 1956)</span>에서 공의 양옆을 평평하게 잘라 내고 그 아래에 턱을 붙이는 방법을 소개했고, 이 방식은 지금도 널리 쓰인다. 얼굴의 안내선은 몇 가지만 기억하면 된다.</p>
+    <ul>
+      <li><b>가운데선</b>: 얼굴의 좌우를 나누며 코와 입 가운데를 지난다. 머리가 돌면 이 선이 공 위에서 휘어 보인다.</li>
+      <li><b>눈썹선과 얼굴의 3등분</b>: 이마의 머리카락 선에서 눈썹까지, 눈썹에서 코 밑까지, 코 밑에서 턱 끝까지가 어른에서는 대략 같다.</li>
+      <li><b>눈의 높이</b>: 어른은 눈이 정수리와 턱 끝의 대략 한가운데에 있다. 처음 그리는 사람은 눈을 너무 높게 그리는 경우가 많다. 아이는 이보다 낮다(<a href="proportion.html">11장</a>).</li>
+      <li><b>귀</b>: 옆면에서 눈썹선과 코 밑선 사이에 걸린다.</li>
+    </ul>
+    <p>안내선은 평면의 줄이 아니라 <b>공을 감싼 고리</b>라는 것이 핵심이다. 아래 머리를 끌어 돌리고 숙여 본다.</p>
+
+    <div class="sim" id="sim-head">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>공과 턱: 안내선은 머리를 감싼다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="hd2-cv" class="art"></canvas><span class="hint">머리를 끌어 돌린다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="hd2-pre"><button data-value="front">정면</button><button data-value="tq" class="on">4분의 3</button><button data-value="side">옆</button><button data-value="up">올려다봄</button><button data-value="down">내려다봄</button></div>
+          <label class="check"><input type="checkbox" id="hd2-wrong"> 흔한 실수: 안내선을 화면에 수평으로</label>
+          <label class="check"><input type="checkbox" id="hd2-hid" checked> 뒤쪽 선을 점선으로</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">돌린 각 · 숙인 각</span><span class="v" id="hd2-o-a">—</span></div>
+        <div class="stat"><span class="k">눈선의 휜 정도</span><span class="v" id="hd2-o-c">—</span></div>
+        <div class="stat"><span class="k">가운데선의 위치</span><span class="v" id="hd2-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "4분의 3"에서 가운데선이 공 위에서 휘고, 눈선(빨간 선)과 눈썹선이 가운데선과 직각으로 만나며 공을 감싸는 것을 본다. 먼 쪽 눈은 가운데선에 가까워 좁게 보인다. ② 머리를 위로 끌어 "올려다봄"을 만든다. 눈선과 코 밑선이 위로 볼록한 호가 되고 턱 밑면이 보인다. 아래로 끌면 반대로 아래로 볼록해지고 정수리가 보인다. ③ "흔한 실수"를 켠다. 머리는 돌았는데 눈선과 코 밑선이 화면에 수평인 채로 남아, 얼굴이 머리 위에 붙인 스티커처럼 떠 보인다. 숙인 각을 60°까지 밀면 공 위의 고리가 거의 일직선이 되어 이목구비의 자리를 잡기 어려워진다. 이런 각도에서는 턱 밑면과 정수리 같은 면을 먼저 잡는다. (머리뼈를 공, 얼굴을 아래로 늘인 타원체로 둔 정사영 모델이다. 눈은 머리 높이의 절반, 얼굴은 같은 세 칸으로 두었다.)</div>
+    </div>
+
+    <p>머리를 그릴 때는 이목구비부터 그리고 싶어지지만, 먼저 공과 턱의 방향, 그리고 가운데선과 눈선 두 개의 고리를 잡는 편이 훨씬 빠르다. 두 고리만 맞으면 눈·코·입은 그 위에 얹히기만 하면 된다. 반대로 고리 없이 눈부터 그리면 "흔한 실수"에서 본 스티커 얼굴이 되기 쉽다.</p>
+  </section>
+
+  <section id="hand">
+    <h2>손을 덩어리로</h2>
+    <p>손은 많은 사람이 가장 어려워하는 부분이다. 뼈가 27개나 되고 손가락마다 마디가 셋씩 있다. 그러나 덩어리로 보면 단순하다. 약간 사다리꼴인 납작한 <b>손바닥 상자</b>, 그 위 끝에 부채꼴로 붙은 <b>원통 네 개</b>(손가락), 그리고 상자의 옆 아래에서 따로 뻗어 나오는 <b>엄지</b>다. 몇 가지 관찰이 도움이 된다.</p>
+    <ul>
+      <li>손가락 밑마디(손등의 너클)는 일직선이 아니라 가운뎃손가락이 가장 높은 <b>호</b>를 이룬다. 손가락 끝도 호를 이룬다.</li>
+      <li>손바닥 상자와 손가락의 길이는 대략 비슷하다. 손등에서 보면 손가락이 짧아 보이는데, 손바닥 쪽의 손가락 주름은 실제 밑마디보다 위에 있기 때문이다.</li>
+      <li>엄지는 다른 손가락과 다른 면에서 움직인다. 엄지 뿌리의 안장 관절 덕분에 엄지가 손바닥을 가로질러 다른 손가락 끝과 마주한다(맞섬).</li>
+      <li>손 전체의 길이(손목~가운뎃손가락 끝)는 턱에서 이마의 머리카락 선까지의 얼굴 길이와 비슷하다. 비트루비우스는 둘 다 키의 10분의 1이라고 적었다(<a href="proportion.html">11장</a>).</li>
+    </ul>
+    <p>아래는 상자와 원통으로 만든 손이다. 손을 끌어 방향을 돌리고, 손가락을 굽히고 엄지를 맞서게 해 본다.</p>
+
+    <div class="sim" id="sim-hand">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>상자와 원통으로 세운 손</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="hn-cv" class="art"></canvas><span class="hint">손을 끌어 돌린다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>손가락 굽히기 <output id="hn-c-out"></output></span><input type="range" id="hn-c" min="0" max="100" step="1" value="35"></label>
+          <label class="ctrl"><span>엄지 맞섬 <output id="hn-t-out"></output></span><input type="range" id="hn-t" min="0" max="100" step="1" value="30"></label>
+          <label class="check"><input type="checkbox" id="hn-arc" checked> 밑마디의 호 보기</label>
+          <label class="check"><input type="checkbox" id="hn-over"> 마디 제한 풀기(손가락을 뒤로 꺾기)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">밑·가운데·끝마디</span><span class="v" id="hn-o-j">—</span></div>
+        <div class="stat"><span class="k">손 길이 대비 손가락</span><span class="v" id="hn-o-l">—</span></div>
+        <div class="stat"><span class="k">상태</span><span class="v" id="hn-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 손가락을 100%까지 굽힌다. 주먹을 쥐면 네 손가락 끝이 나란히 접히지 않고 엄지 쪽 손목 근처의 한 점을 향해 모인다. 새끼손가락이 가장 많이 기운다. ② 손을 끌어 옆에서 보고, 엄지 맞섬을 올린다. 엄지는 손바닥 면을 따라 접히지 않고 손바닥 앞으로 돌아 나와 다른 손가락과 마주한다. ③ "마디 제한 풀기"를 켜고 굽히기를 움직이면 손가락이 손등 쪽으로 크게 꺾인다. 손가락 마디도 경첩이라 손바닥 쪽으로만 굽는다. (손바닥을 상자, 손가락 마디를 원통으로 둔 정사영 모델이다. 굽힘 100%에서 밑마디 85°, 가운데 100°, 끝마디 70°로 두었고, 손가락 끝이 모이는 방향은 손 해부학에서 알려진 관찰을 흉내 낸 근사다.)</div>
+    </div>
+
+    <p>상자와 원통으로 세운 손은 뭉툭하지만 방향이 분명하다. 실제 손을 그릴 때도 이 순서를 따른다. 손바닥 상자의 방향을 먼저 정하고, 밑마디의 호를 긋고, 손가락을 마디마다 원통으로 붙인 다음, 마지막에 살과 주름과 손톱을 얹는다. 엄지는 따로, 상자 옆면의 아래에서 시작한다.</p>
+
+    <div class="callout try">
+      <strong>내 손을 상자와 원통으로 열 장</strong>
+      연필을 쥐지 않는 손을 종이 옆에 놓고, 같은 손을 자세를 바꿔 가며 열 번 그린다. 한 장에 1분씩만 쓴다. ① 먼저 손바닥을 납작한 상자로 그리고 윗변에 밑마디의 호를 긋는다. ② 손가락마다 원통 세 마디를 붙인다. 마디가 접히는 자리에 작은 동그라미를 찍는다. ③ 엄지는 상자 옆면 아래에서 시작한다. 펼친 손, 주먹, 연필을 쥔 손, 컵을 쥔 손, 손등, 손바닥, 옆모습을 섞는다. 다 그리면 가장 어색한 두 장을 골라, 어색한 이유가 상자의 방향인지, 호인지, 엄지의 자리인지 적는다. 그다음 아래팔을 손등 쪽으로 엎었다가 뒤집으며 요골이 척골 위를 넘어가는 것을 다른 손가락으로 만져 본다.
+    </div>
+  </section>
+
+  <section id="reach">
+    <h2>책을 꺼내는 사람</h2>
+    <p>지금까지 본 것을 한 동작에 모은다. 서가 맨 위 칸의 책을 꺼내는 사람을 옆에서 본다. 키 168&nbsp;cm, 7.1등신의 마네킹이다. 책(손잡이)을 끌어 꺼낼 책의 위치를 정하고, 발뒤꿈치를 들어 본다. 팔은 관절 범위 안에서 책에 가장 가까이 가는 자세를 찾는다. 팔을 높이 들수록 어깨뼈가 함께 올라가 어깨선이 높아지는 것도 넣었다.</p>
+
+    <div class="sim" id="sim-reach">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>서가 맨 위 칸의 책: 관절로 세운 구조 스케치</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rc-cv" class="art"></canvas><span class="hint">책을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>발뒤꿈치 들기 <output id="rc-h-out"></output></span><input type="range" id="rc-h" min="0" max="10" step="0.5" value="0"></label>
+          <label class="ctrl"><span>고개 들기 <output id="rc-n-out"></output></span><input type="range" id="rc-n" min="0" max="50" step="1" value="25"></label>
+          <div class="seg" id="rc-view"><button data-value="mass" class="on">덩어리</button><button data-value="joint">관절과 뼈</button><button data-value="both">둘 다</button></div>
+          <label class="check"><input type="checkbox" id="rc-lim"> 관절 범위 끄기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">책 높이 · 거리</span><span class="v" id="rc-o-b">—</span></div>
+        <div class="stat"><span class="k">어깨 · 팔꿈치 · 손목</span><span class="v" id="rc-o-j">—</span></div>
+        <div class="stat"><span class="k">손이 닿나</span><span class="v" id="rc-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 책을 190&nbsp;cm 높이, 어깨에서 30&nbsp;cm 앞에 두고 발뒤꿈치를 0에 둔다. 팔을 다 뻗어도 손이 책보다 아래에서 멈춘다. ② 발뒤꿈치를 조금씩 든다. 4&nbsp;cm쯤에서 손이 닿고, 이때 어깨는 거의 150° 넘게 들리고 팔꿈치는 조금만 굽는다. 손목은 책등을 잡으려고 손등 쪽으로 꺾인다. ③ 책을 낮은 칸(140&nbsp;cm쯤)으로 옮기면 팔꿈치가 크게 굽고 어깨는 90° 안팎이 된다. "관절 범위 끄기"를 켜고 책을 몸 뒤쪽으로 끌면 팔이 등 뒤로 꺾여 돌아가는 불가능한 자세가 나온다. (옆에서 본 평면 모델이다. 위팔 32 cm, 아래팔 23 cm, 손 17.5 cm는 11장의 마네킹 비례에서 정했다. 어깨를 90° 넘게 들면 어깨 관절이 최대 6 cm 올라가도록 했고, 손은 책등을 수평으로 잡는다고 두었다. 손목 70° 넘게 꺾이면 표시가 빨개진다.)</div>
+    </div>
+
+    <p>이 시뮬레이터에서 본 것처럼, 동작은 관절 하나가 아니라 여러 관절이 나눠 맡는다. 손이 조금 모자라면 팔꿈치를 펴고, 그래도 모자라면 어깨를 더 들고, 어깨뼈가 따라 올라가고, 마지막으로 발뒤꿈치를 든다. 그림에서 이 순서가 보이면 동작이 그럴듯해진다. 팔만 길게 늘인 그림이 어색한 이유는 이 분담이 없기 때문이다.</p>
+
+    <div class="callout studio">
+      <strong>관절은 동그라미, 뼈는 직선, 덩어리는 상자</strong>
+      한도경은 모임에서 사람을 그리기 전에 연필을 눕혀 아주 연하게 "구조 스케치"를 먼저 하라고 한다. ① 흉곽과 골반을 상자 두 개로 놓고 기울기와 비틀림을 정한다. ② 척추를 한 줄로 이어 머리 공을 얹는다. ③ 어깨·팔꿈치·손목·고관절·무릎·발목에 작은 동그라미를 찍는다. 팔꿈치와 무릎이 접히는 쪽을 확인한다. ④ 동그라미 사이를 곧은 원통으로 잇는다. ⑤ 손은 상자 하나, 손가락 방향은 선 하나로만. 여기까지 2분을 넘기지 않는다. 그다음에 윤곽선을 그 위에 얹는다. 도경의 말로는 "선은 뼈를 덮는 옷이다. 옷부터 입히면 사람이 없다".
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 12장</span></div>
+      <h4>팔이 고무호스였다</h4>
+      <p>둘째 토요일, 서윤은 「골목 산책」 서가 안쪽 그림에 넣을 책방 E 주인을 그렸다. 주인이 맨 위 칸에서 책을 꺼내는 순간이다. 주인은 몇 번이고 팔을 들어 주었지만 서윤의 첫 그림 속 팔은 어깨에서 손끝까지 한 번에 휘어져 있었고, 책을 쥔 손은 벙어리장갑 같았다. 도경은 그림 위에 트레이싱지를 한 장 덮고 동그라미 여섯 개를 찍었다. "팔꿈치가 어디 있지? 이 팔은 팔꿈치가 없어."</p>
+      <p>서윤은 주인에게 다시 같은 동작을 부탁하고 관절부터 봤다. 맨 위 칸 책등의 높이는 바닥에서 190&nbsp;cm, 주인의 키는 168&nbsp;cm(11장에서 잰 7.1등신)이다. 서가 앞에 바짝 서도 책등은 어깨에서 30&nbsp;cm쯤 앞에 있다. 이 책의 모델로 계산하면 발뒤꿈치를 대고서는 팔을 다 뻗어도 손목이 책보다 아래에서 멈추고, 발뒤꿈치를 4&nbsp;cm 들어야 손이 닿는다. 그때 어깨는 앞으로 약 155° 들리고 어깨선이 5&nbsp;cm쯤 올라가며, 팔꿈치는 약 15°만 굽는다. 실제로 주인은 까치발을 했고, 고개를 들어 책등을 올려다보았다. 서윤은 그 모습을 다시 그리면서 오른쪽 어깨선이 왼쪽보다 올라간다는 것을 처음 알아챘다.</p>
+      <p>손은 상자부터 그렸다. 책등을 쥔 오른손은 손바닥 상자가 책 쪽을 보고, 네 손가락은 책등 위로 반쯤 굽어(굽힘 약 60%) 넘어가고, 엄지는 상자 옆면 아래에서 나와 책등 반대편을 누른다. 손등은 손목에서 뒤로 꺾인다. 왼손은 허리 높이에서 이미 꺼낸 책 두 권을 받치고 팔꿈치를 90° 가까이 굽혔다. 주인은 완성된 구조 스케치를 보고 "뼈만 있는데도 저 같네요"라고 했다. 서윤은 그 위에 펜을 올리기 전에 휴대폰으로 스케치를 찍어 두었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>주인 그림의 구조 스케치. 키 168&nbsp;cm, 7.1등신. 오른팔로 190&nbsp;cm 높이의 책을 꺼낸다: 발뒤꿈치 약 4&nbsp;cm 들기, 어깨 약 155°(어깨선 약 5&nbsp;cm 올라감), 팔꿈치 약 15° 굽힘, 손목은 손등 쪽으로 꺾음, 고개를 약 25° 든다. 흉곽은 손 뻗는 쪽으로 늘어나고 골반은 수평에 가깝다. 왼손은 허리 높이에서 책 두 권, 팔꿈치 약 90°. 손은 상자 → 밑마디 호 → 손가락 원통 → 엄지 순서로 그린다.</div>
+        <div><b>아직 남은 문제</b>구조는 맞는데 그림이 딱딱하다. 주인의 몸 전체가 위로 뻗는 흐름이 잘 보이지 않는다. 단골손님들은 오래 서 있어 주지 않는다.</div>
+        <div><b>다음 단계</b><a href="gesture.html">13장</a>: 동작선과 무게중심, 짧은 시간의 크로키로 움직임부터 잡는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>몸은 머리·흉곽·골반의 세 단단한 덩어리와 그것을 잇는 척추로 세운다. 굽힘과 비틀림은 덩어리 사이(목과 허리)에서 일어나고, 그 범위에는 한계가 있다.</li>
+      <li>쇄골, 흉골 위 오목, 견봉, 장골능, 대전자, 무릎뼈, 복사뼈 같은 골격 표지점은 피부 밑에 드러나 자리가 잘 변하지 않으므로 그림의 기준점이 된다.</li>
+      <li>팔꿈치·무릎·손가락은 한 방향으로만 접히는 경첩 관절, 어깨와 고관절은 여러 방향으로 도는 절구 관절이다. 관절은 동그라미, 뼈는 곧은 선으로 먼저 잡는다.</li>
+      <li>손바닥을 뒤집는 회전은 아래팔에서 일어난다. 요골이 척골 둘레를 돌며 엎치면 두 뼈가 X자로 엇갈리고, 그 너머는 어깨가 돌린다.</li>
+      <li>근육은 당기기만 하고, 짧아지면 굵어진다. 당기는 쪽은 짧고 둥글게, 늘어나는 쪽은 길고 평평하게 그린다.</li>
+      <li>머리는 공과 턱, 안내선은 공을 감싸는 고리다. 손은 손바닥 상자와 손가락 원통, 따로 움직이는 엄지로 세운다. 이목구비와 손가락은 덩어리의 방향을 정한 뒤에 얹는다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 서 있는 사람의 몸통을 그릴 때 가장 먼저 정하면 좋은 것은?</p>
+        <div class="opts">
+          <button class="opt">갈비뼈의 개수와 모양</button>
+          <button class="opt">몸통 윤곽선의 정확한 곡선</button>
+          <button class="opt" data-correct>흉곽과 골반, 두 덩어리가 각각 어느 쪽으로 기울고 돌았는가</button>
+          <button class="opt">근육 하나하나의 이름과 위치</button>
+        </div>
+        <div class="quiz-exp">흉곽과 골반은 단단한 덩어리이고 몸통의 움직임은 둘 사이에서 일어난다. 두 상자의 기울기와 비틀림이 정해지면 윤곽선과 근육은 그 위에 얹힌다. 갈비뼈 개수나 근육 이름은 그림의 출발점이 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 손바닥이 위를 보던 손을 아래로 뒤집었다. 아래팔 안에서 일어난 일은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>엄지 쪽 뼈(요골)의 손목 쪽 끝이 새끼손가락 쪽 뼈(척골) 둘레를 돌아, 두 뼈가 X자로 엇갈렸다.</button>
+          <button class="opt">팔꿈치 관절이 경첩처럼 반대쪽으로 접혔다.</button>
+          <button class="opt">척골이 요골 둘레를 돌았다.</button>
+          <button class="opt">손목 관절만 180° 돌았다.</button>
+        </div>
+        <div class="quiz-exp">엎침은 요골이 척골 둘레를 도는 움직임이다. 척골은 팔꿈치에서 위팔뼈와 경첩을 이루어 거의 돌지 않는다. 팔꿈치는 굽히고 펴기만 하고, 손목 관절 자체는 회전하지 않는다. 그래서 아래팔은 손목 쪽으로 갈수록 비틀려 보인다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 팔꿈치를 굽힌 그림에서 위팔이 밋밋한 원통처럼 보여 "고무호스 팔" 같다. 가장 알맞은 고침은?</p>
+        <div class="opts">
+          <button class="opt">팔꿈치를 반대 방향으로 조금 꺾어 준다.</button>
+          <button class="opt">위팔을 더 길게 그린다.</button>
+          <button class="opt">윤곽선을 양쪽 모두 똑같이 부풀린다.</button>
+          <button class="opt" data-correct>짧아진 앞쪽(이두근)은 둥글게 부풀리고, 늘어난 뒤쪽(삼두근)은 길고 평평하게 그린다.</button>
+        </div>
+        <div class="quiz-exp">근육은 부피가 거의 일정해서 짧아지면 굵어지고 늘어나면 가늘어진다. 팔꿈치를 굽히면 앞쪽 이두근이 솟고 뒤쪽 삼두근이 펴진다. 양쪽을 똑같이 부풀리면 대칭이 되어 여전히 힘이 느껴지지 않고, 팔꿈치를 반대로 꺾는 것은 불가능한 자세다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 고개를 들어 위를 올려다보는 얼굴을 그린다. 눈선과 코 밑선은 어떻게 보이나?</p>
+        <div class="opts">
+          <button class="opt">고개를 들어도 늘 화면에 수평인 직선이다.</button>
+          <button class="opt" data-correct>머리를 감싸는 고리이므로 위로 볼록한 호가 되고, 턱의 밑면이 보이기 시작한다.</button>
+          <button class="opt">아래로 볼록한 호가 되고, 정수리가 보인다.</button>
+          <button class="opt">눈선은 사라지고 코 밑선만 남는다.</button>
+        </div>
+        <div class="quiz-exp">안내선은 공과 턱을 감싸는 고리라서, 올려다보면 위로 볼록하게, 내려다보면 아래로 볼록하게 휜다. 올려다보면 턱 밑면이, 내려다보면 정수리가 보인다. 안내선을 화면에 수평으로 두면 얼굴이 머리 위에 붙인 스티커처럼 떠 보인다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#2b2a30", DIM = "#6b6874", SKIN = "#e9e2d4", GUIDE = "#b3ada1";
+  var RED = "#d24f39", GREEN = "#2f7d5b", DEEP = "#22342a", BLUE = "#5d6b8a", BONE = "#f4efe4", MUS = "#d9a796", MUS2 = "#c98b78";
+  var DEG = Math.PI / 180;
+  function txt(ctx, s, x, y, o) {
+    o = o || {};
+    ctx.font = AB.font(o.size || 12, !!o.mono, o.weight || 500);
+    ctx.fillStyle = o.color || INK; ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "middle";
+    ctx.fillText(s, x, y);
+  }
+  function capsule(ctx, a, b, wa, wb) {
+    var dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1e-6, nx = -dy / L, ny = dx / L, ang = Math.atan2(dy, dx);
+    ctx.moveTo(a[0] + nx * wa / 2, a[1] + ny * wa / 2);
+    ctx.lineTo(b[0] + nx * wb / 2, b[1] + ny * wb / 2);
+    ctx.arc(b[0], b[1], wb / 2, ang + Math.PI / 2, ang - Math.PI / 2, true);
+    ctx.lineTo(a[0] - nx * wa / 2, a[1] - ny * wa / 2);
+    ctx.arc(a[0], a[1], wa / 2, ang - Math.PI / 2, ang + Math.PI / 2, true);
+    ctx.closePath();
+  }
+  // 윤곽이 있는 막대 하나(바로 그리기)
+  function limb(ctx, a, b, wa, wb, fill, ink, lw) {
+    ctx.beginPath(); capsule(ctx, a, b, wa + lw * 2, wb + lw * 2); ctx.fillStyle = ink || INK; ctx.fill();
+    ctx.beginPath(); capsule(ctx, a, b, wa, wb); ctx.fillStyle = fill || SKIN; ctx.fill();
+  }
+  function dot(ctx, x, y, r, col) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fillStyle = col; ctx.fill(); }
+  function poly(ctx, pts) { ctx.moveTo(pts[0][0], pts[0][1]); for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]); ctx.closePath(); }
+  // 3D 회전(y축 yaw, x축 pitch)과 정사영
+  function rot(p, yaw, pitch) {
+    var cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+    var x = p[0] * cy + p[2] * sy, z = -p[0] * sy + p[2] * cy, y = p[1];
+    return [x, y * cp - z * sp, y * sp + z * cp];
+  }
+  function heightOf(id, k, lo, hi) { return { get height() { var W = Math.max(200, document.getElementById(id).parentElement.clientWidth || 600); return Math.round(AB.clamp(W * k, lo, hi)); }, bg: PAPER }; }
+
+  /* ---------------- 시뮬레이터 1: 흉곽과 골반 ----------------
+     두 상자를 앞모습(정사영)으로 그린다. 흉곽은 roll(옆 기울기)과 yaw(비틀기), 골반은 roll만. */
+  (function () {
+    var cv, geo = null;
+    var gR = AB.range("ts-r", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var gT = AB.range("ts-t", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var gP = AB.range("ts-p", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    function boxPts(c, w, h, d, roll, yaw) {  // 상자 꼭짓점(위 네 개, 아래 네 개)을 회전해 화면 좌표로
+      var out = [];
+      [[-1, 1], [1, 1], [1, -1], [-1, -1]].forEach(function (s) { [1, -1].forEach(function (zz) { out.push([s[0] * w / 2, s[1] * h / 2, zz * d / 2]); }); });
+      return out.map(function (p) {
+        var q = rot(p, yaw, 0.18);  // 살짝 위에서 본다
+        var cr = Math.cos(roll), sr = Math.sin(roll);
+        return [c[0] + q[0] * cr - q[1] * sr, c[1] - (q[0] * sr + q[1] * cr), q[2]];
+      });
+    }
+    function drawBox(ctx, P, fill, ink, bands) {
+      // 면: 앞(z+) 0,2,4,6 / 뒤 1,3,5,7. 인덱스: 위왼앞0 위왼뒤1 위오앞2 위오뒤3 아오앞4 아오뒤5 아왼앞6 아왼뒤7
+      var faces = [[0, 2, 4, 6], [1, 3, 5, 7], [0, 1, 3, 2], [6, 4, 5, 7], [0, 1, 7, 6], [2, 3, 5, 4]];
+      faces.map(function (f) { return { f: f, z: f.reduce(function (s, i) { return s + P[i][2]; }, 0) / 4 }; })
+        .sort(function (a, b) { return a.z - b.z; })
+        .forEach(function (F, k) {
+          ctx.beginPath(); poly(ctx, F.f.map(function (i) { return P[i]; }));
+          ctx.fillStyle = k >= 3 ? fill : "#d8d1c3"; ctx.fill(); ctx.strokeStyle = ink; ctx.lineWidth = 1.6; ctx.lineJoin = "round"; ctx.stroke();
+        });
+      // 앞면 단면선
+      for (var t = 1; t < bands; t++) {
+        var u = t / bands, a = [P[0][0] + (P[6][0] - P[0][0]) * u, P[0][1] + (P[6][1] - P[0][1]) * u], b = [P[2][0] + (P[4][0] - P[2][0]) * u, P[2][1] + (P[4][1] - P[2][1]) * u];
+        var a2 = [P[1][0] + (P[7][0] - P[1][0]) * u, P[1][1] + (P[7][1] - P[1][1]) * u], b2 = [P[3][0] + (P[5][0] - P[3][0]) * u, P[3][1] + (P[5][1] - P[3][1]) * u];
+        ctx.strokeStyle = "rgba(43,42,48,0.35)"; ctx.lineWidth = 1; ctx.beginPath();
+        var front = (P[0][2] + P[2][2]) / 2 > (P[1][2] + P[3][2]) / 2;
+        if (front) { ctx.moveTo(a2[0], a2[1]); ctx.lineTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.lineTo(b2[0], b2[1]); }
+        ctx.stroke();
+      }
+    }
+    cv = AB.canvas("#ts-cv", function (ctx, w, h) {
+      var u = Math.min(w * 0.42, h * 0.32), cx = w / 2, pelC = [cx, h * 0.74], ribH = u * 1.05, pelH = u * 0.55;
+      var roll = gR() * DEG, yaw = gT() * DEG, pr = gP() * DEG;
+      // 척추 길이 고정: 골반 윗변 가운데에서 흉곽 아랫변 가운데까지
+      var pelTop = [pelC[0] - Math.sin(pr) * pelH / 2, pelC[1] - Math.cos(pr) * pelH / 2];
+      var spineL = u * 0.62, ang = (pr + roll) / 2;
+      var ribBot = [pelTop[0] - Math.sin(ang) * spineL, pelTop[1] - Math.cos(ang) * spineL];
+      var ribC = [ribBot[0] - Math.sin(roll) * ribH / 2, ribBot[1] - Math.cos(roll) * ribH / 2];
+      geo = { ribC: ribC, u: u };
+      var bad = Math.abs(gR() - gP()) > 35 || Math.abs(gT()) > 45;
+      // 다리와 머리(흐릿하게)
+      ctx.save(); ctx.globalAlpha = 0.35;
+      var hipL = [pelC[0] - u * 0.32 * Math.cos(pr), pelC[1] + u * 0.32 * Math.sin(pr) + pelH * 0.3], hipR = [pelC[0] + u * 0.32 * Math.cos(pr), pelC[1] - u * 0.32 * Math.sin(pr) + pelH * 0.3];
+      limb(ctx, hipL, [hipL[0] - u * 0.04, h + 10], u * 0.28, u * 0.2, SKIN, INK, 1.2);
+      limb(ctx, hipR, [hipR[0] + u * 0.04, h + 10], u * 0.28, u * 0.2, SKIN, INK, 1.2);
+      var ribTop = [ribC[0] - Math.sin(roll) * ribH / 2, ribC[1] - Math.cos(roll) * ribH / 2];
+      var neckTop = [ribTop[0] - Math.sin(roll * 0.6) * u * 0.28, ribTop[1] - Math.cos(roll * 0.6) * u * 0.28];
+      limb(ctx, ribTop, neckTop, u * 0.2, u * 0.2, SKIN, INK, 1.2);
+      ctx.beginPath(); ctx.ellipse(neckTop[0], neckTop[1] - u * 0.3, u * 0.26, u * 0.34, roll * 0.3, 0, Math.PI * 2); ctx.fillStyle = SKIN; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.restore();
+      // 척추 곡선
+      ctx.save(); ctx.strokeStyle = bad ? RED : GREEN; ctx.lineWidth = 3; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(pelTop[0], pelTop[1]);
+      ctx.bezierCurveTo(pelTop[0] - Math.sin(pr) * spineL * 0.45, pelTop[1] - Math.cos(pr) * spineL * 0.45, ribBot[0] + Math.sin(roll) * spineL * 0.45, ribBot[1] + Math.cos(roll) * spineL * 0.45, ribBot[0], ribBot[1]);
+      ctx.stroke(); ctx.restore();
+      drawBox(ctx, boxPts(pelC, u * 1.0, pelH, u * 0.55, pr, 0), "#dfe7e2", INK, 2);
+      drawBox(ctx, boxPts(ribC, u * 0.95, ribH, u * 0.62, roll, yaw), bad ? "#f3d9cf" : "#efe6d6", INK, 4);
+      // 어깨선·골반선 연장
+      function axisLine(c, a, len, col) { ctx.save(); ctx.strokeStyle = col; ctx.setLineDash([5, 4]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(c[0] - Math.cos(a) * len, c[1] + Math.sin(a) * len); ctx.lineTo(c[0] + Math.cos(a) * len, c[1] - Math.sin(a) * len); ctx.stroke(); ctx.restore(); }
+      axisLine(ribTop, roll, u * 0.9, BLUE); axisLine(pelTop, pr, u * 0.9, BLUE);
+      AB.handle(ctx, ribC[0], ribC[1], { r: 7, fill: "#ffffff", ring: INK });
+      txt(ctx, "점선: 어깨선과 골반선", 10, 14, { size: 11, color: DIM });
+      AB.stat("ts-o-r", Math.abs(gR() - gP()) + "°" + (gR() * gP() < 0 ? " (서로 반대쪽)" : ""));
+      AB.stat("ts-o-t", Math.abs(gT()) + "°");
+      AB.stat("ts-o-s", bad ? '<span style="color:var(--bad)">범위를 넘음</span>' : "가능");
+    }, heightOf("ts-cv", 0.8, 320, 460));
+    var drag = false, x0 = 0, r0 = 0;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!geo) return; drag = Math.hypot(x - geo.ribC[0], y - geo.ribC[1]) < geo.u * 0.7; x0 = x; r0 = gR(); },
+      move: function (x) { if (!drag) return; gR.set(Math.round(AB.clamp(r0 - (x - x0) * 0.35, -60, 60))); },
+      end: function () { drag = false; },
+    });
+  })();
+
+  /* ---------------- 팔 역기구학(옆모습, 오른쪽을 본다, y 위 +) ----------------
+     어깨 각 phi: 팔을 내린 방향에서 앞으로 든 각(도), 팔꿈치 th: 굽힌 각(도, + 가 정상).
+     limits: phi ∈ [-60, 180], th ∈ [0, 150]. 범위 안에서 손목이 목표에 가장 가까운 자세를 격자 탐색 후 다듬는다. */
+  function armFK(S, a, b, phi, th) {
+    var p = phi * DEG, el = [S[0] + a * Math.sin(p), S[1] - a * Math.cos(p)], q = (phi + th) * DEG;
+    return { el: el, wr: [el[0] + b * Math.sin(q), el[1] - b * Math.cos(q)] };
+  }
+  function armIK(S, a, b, T, lim, shoulderLift) {
+    var best = null;
+    function evalAt(phi, th) {
+      var S2 = shoulderLift ? [S[0], S[1] + shoulderLift(phi)] : S;
+      var f = armFK(S2, a, b, phi, th), d = Math.hypot(f.wr[0] - T[0], f.wr[1] - T[1]);
+      if (!best || d < best.d - 1e-9) best = { phi: phi, th: th, d: d, el: f.el, wr: f.wr, S: S2 };
+    }
+    var p0 = lim ? -60 : -180, p1 = lim ? 180 : 180, t0 = lim ? 0 : -180, t1 = lim ? 150 : 180;
+    for (var phi = p0; phi <= p1; phi += 3) for (var th = t0; th <= t1; th += 3) evalAt(phi, th);
+    for (var k = 0; k < 2; k++) {
+      var c = best, st = k === 0 ? 1 : 0.25;
+      for (var dp = -3; dp <= 3; dp += st) for (var dt = -3; dt <= 3; dt += st) {
+        var pp = c.phi + dp, tt = c.th + dt;
+        if (lim && (pp < -60 || pp > 180 || tt < 0 || tt > 150)) continue;
+        evalAt(pp, tt);
+      }
+    }
+    return best;
+  }
+
+  /* ---------------- 시뮬레이터 2: 팔 ---------------- */
+  (function () {
+    var cv, geo = null, T = null;
+    var mode = AB.seg("am-mode", function () { cv.redraw(); });
+    var showR = AB.check("am-range", function () { reach = null; cv.redraw(); });
+    var reach = null;
+    var A = 31, B = 24;  // cm
+    cv = AB.canvas("#am-cv", function (ctx, w, h) {
+      var s = Math.min(w / 150, h / 130), S = [w * 0.42, h * 0.3];
+      var W = function (q) { return [S[0] + q[0] * s, S[1] - q[1] * s]; };  // 어깨 기준 cm → 화면
+      geo = { s: s, S: S };
+      if (!T) T = [30, -25];
+      // 몸통(옆모습)
+      ctx.save(); ctx.globalAlpha = 0.5;
+      ctx.beginPath(); ctx.ellipse(S[0] - 2 * s, S[1] + 22 * s, 13 * s, 30 * s, 0.06, 0, Math.PI * 2); ctx.fillStyle = SKIN; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(S[0] + 1 * s, S[1] - 26 * s, 10 * s, 12 * s, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.restore();
+      // 닿는 범위
+      if (showR() && mode() === "real") {
+        if (!reach) {
+          reach = document.createElement("canvas"); var R = reach; R.width = Math.ceil(w); R.height = Math.ceil(h);
+          var rc = R.getContext("2d"); rc.fillStyle = "rgba(47,125,91,0.10)";
+          for (var phi = -60; phi <= 180; phi += 2) for (var th = 0; th <= 150; th += 3) { var f = armFK([0, 0], A, B, phi, th), q = W(f.wr); rc.fillRect(q[0] - 2.2, q[1] - 2.2, 4.4, 4.4); }
+          reach.key = w + "x" + h;
+        }
+        if (reach.key === w + "x" + h) ctx.drawImage(reach, 0, 0, w, h); else { reach = null; }
+      }
+      var m = mode(), sol, Sx = W([0, 0]);
+      if (m === "real") sol = armIK([0, 0], A, B, T, true);
+      else {
+        // 해석해(두 답 중 선택). 거리가 범위 밖이면 목표 방향으로 자른다
+        var d = AB.clamp(Math.hypot(T[0], T[1]), Math.abs(A - B) + 0.5, A + B - 0.01), base = Math.atan2(T[0], -T[1]) / DEG;
+        var alpha = Math.acos(AB.clamp((A * A + d * d - B * B) / (2 * A * d), -1, 1)) / DEG, gam = Math.acos(AB.clamp((A * A + B * B - d * d) / (2 * A * B), -1, 1)) / DEG;
+        var phi2 = m === "back" ? base + alpha : base - alpha, th2 = m === "back" ? -(180 - gam) : 180 - gam;
+        var f2 = armFK([0, 0], A, B, phi2, th2); sol = { phi: phi2, th: th2, el: f2.el, wr: f2.wr, d: Math.hypot(f2.wr[0] - T[0], f2.wr[1] - T[1]) };
+      }
+      var E = W(sol.el), Wr = W(sol.wr), Tt = W(T);
+      // 손
+      var hd = [Wr[0] - E[0], Wr[1] - E[1]], hl = Math.hypot(hd[0], hd[1]) || 1, hand = [Wr[0] + hd[0] / hl * 17 * s, Wr[1] + hd[1] / hl * 17 * s];
+      if (m === "rubber") {
+        // 고무 팔: 어깨~목표를 잇는 휜 곡선(길이가 변한다)
+        var ctrl = [(Sx[0] + Tt[0]) / 2 - 18 * s, (Sx[1] + Tt[1]) / 2 + 22 * s];
+        ctx.save(); ctx.lineCap = "round";
+        ctx.strokeStyle = INK; ctx.lineWidth = 9.5 * s + 3; ctx.beginPath(); ctx.moveTo(Sx[0], Sx[1]); ctx.quadraticCurveTo(ctrl[0], ctrl[1], Tt[0], Tt[1]); ctx.stroke();
+        ctx.strokeStyle = SKIN; ctx.lineWidth = 9.5 * s; ctx.stroke(); ctx.restore();
+        var len = 0, prev = Sx; for (var i = 1; i <= 30; i++) { var t = i / 30, x = (1 - t) * (1 - t) * Sx[0] + 2 * (1 - t) * t * ctrl[0] + t * t * Tt[0], y = (1 - t) * (1 - t) * Sx[1] + 2 * (1 - t) * t * ctrl[1] + t * t * Tt[1]; len += Math.hypot(x - prev[0], y - prev[1]); prev = [x, y]; }
+        AB.stat("am-o-s", "—"); AB.stat("am-o-e", "관절 없음");
+        AB.stat("am-o-st", '<span style="color:var(--bad)">팔 길이 ' + (len / s).toFixed(0) + " cm (실제 55 cm)</span>");
+      } else {
+        var bad = m === "back";
+        limb(ctx, Sx, E, 10 * s, 8.5 * s, bad ? "#f3d9cf" : SKIN, INK, 1.5);
+        limb(ctx, E, Wr, 8 * s, 6 * s, bad ? "#f3d9cf" : SKIN, INK, 1.5);
+        limb(ctx, Wr, hand, 7 * s, 5 * s, bad ? "#f3d9cf" : SKIN, INK, 1.5);
+        [Sx, E, Wr].forEach(function (q) { dot(ctx, q[0], q[1], 3.2, bad ? RED : INK); });
+        AB.stat("am-o-s", sol.phi.toFixed(0) + "°");
+        AB.stat("am-o-e", sol.th.toFixed(0) + "°");
+        AB.stat("am-o-st", bad ? '<span style="color:var(--bad)">팔꿈치가 반대로 꺾임: 불가능</span>' : sol.d > 1 ? "손목이 닿지 않음(" + sol.d.toFixed(0) + " cm 모자람)" : "닿음");
+      }
+      // 목표 손잡이
+      AB.handle(ctx, Tt[0], Tt[1], { r: 7, fill: GREEN, ring: DEEP });
+      txt(ctx, "앞 →", w - 10, 14, { size: 11, color: DIM, align: "right" });
+      txt(ctx, "어깨", Sx[0] - 8, Sx[1] - 2, { size: 10.5, color: DIM, align: "right" });
+    }, heightOf("am-cv", 0.78, 300, 440));
+    var drag = false;
+    AB.drag(cv.canvas, {
+      start: function () { drag = true; },
+      move: function (x, y) { if (!drag || !geo) return; T = [AB.clamp((x - geo.S[0]) / geo.s, -70, 75), AB.clamp((geo.S[1] - y) / geo.s, -80, 70)]; cv.redraw(); },
+      end: function () { drag = false; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 아래팔 회전 ---------------- */
+  (function () {
+    var cv;
+    var gR = AB.range("fa-r", function (v) { return (v > 0 ? "+" : "") + v + "°"; }, function () { cv.redraw(); });
+    var skin = AB.check("fa-skin", function () { cv.redraw(); });
+    cv = AB.canvas("#fa-cv", function (ctx, w, h) {
+      var r = gR(), fore = AB.clamp(r, -80, 80), sh = r - fore;  // 아래팔이 맡는 몫과 어깨가 맡는 몫
+      var L = h * 0.5, top = h * 0.1, cx = w * 0.5, R = L * 0.16;
+      // 회전각 psi: 요골 손목 끝이 척골 둘레를 도는 각(0 = 바깥쪽, 180 = 안쪽). 뒤침 −80° → 10°, 엎침 +80° → 170°
+      var psi = (fore + 90) * DEG, shr = sh * DEG;
+      // 팔꿈치 두 돌기(어깨 회전을 보여 준다)
+      var epi = L * 0.22, eL = [cx - epi * Math.cos(shr), top], eR = [cx + epi * Math.cos(shr), top];
+      // 화면에서 바깥(엄지) 쪽 = 왼쪽(−x)으로 둔다(오른팔을 앞에서 본 모습)
+      var ulE = [cx + R * 0.7 * Math.cos(shr), top + L * 0.04], ulW = [cx + R * 0.9 * Math.cos(shr), top + L];
+      var raE = [cx - R * 0.9 * Math.cos(shr), top + L * 0.06];
+      var ang = psi + shr, raW = [ulW[0] - R * 1.9 * Math.cos(ang), top + L * 0.97], raZ = Math.sin(ang);
+      // 아래팔 윤곽
+      if (skin()) {
+        var wW = Math.abs(Math.cos(ang)) * R * 2.2 + R * 1.0, wC = (ulW[0] + raW[0]) / 2;
+        ctx.beginPath(); ctx.moveTo(cx - R * 2.6, top); ctx.quadraticCurveTo(cx - R * 2.9, top + L * 0.3, wC - wW / 2 - R * 0.3, top + L); ctx.lineTo(wC + wW / 2 + R * 0.3, top + L); ctx.quadraticCurveTo(cx + R * 2.7, top + L * 0.3, cx + R * 2.4, top);
+        ctx.closePath(); ctx.fillStyle = "rgba(233,226,212,0.75)"; ctx.fill(); ctx.strokeStyle = "#a59f93"; ctx.lineWidth = 1.2; ctx.stroke();
+      }
+      // 위팔 끝
+      ctx.fillStyle = BONE; ctx.strokeStyle = INK; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.moveTo(cx - epi * 0.7, top - L * 0.22); ctx.lineTo(cx + epi * 0.7, top - L * 0.22); ctx.lineTo(eR[0], eR[1]); ctx.lineTo(eL[0], eL[1]); ctx.closePath(); ctx.fill(); ctx.stroke();
+      [eL, eR].forEach(function (q) { dot(ctx, q[0], q[1], 4, Math.abs(sh) > 0 ? RED : INK); });
+      function bone(a, b, wa, wb, col, front) { ctx.save(); ctx.globalAlpha = front ? 1 : 0.55; limb(ctx, a, b, wa, wb, col, INK, 1.4); ctx.restore(); }
+      var radFront = raZ > 0;
+      if (!radFront) bone(raE, raW, R * 0.7, R * 1.15, "#e7d6b0", false);
+      bone(ulE, ulW, R * 1.0, R * 0.65, BONE, true);
+      if (radFront) bone(raE, raW, R * 0.7, R * 1.15, "#e7d6b0", true);
+      // 손(손바닥 상자): 손목선(척골 머리~요골 끝)을 따라 붙는다
+      var hw = Math.hypot(raW[0] - ulW[0], 1) + R * 0.6, hc = (raW[0] + ulW[0]) / 2, hy = top + L * 1.02, palmFront = Math.cos(ang) > 0;
+      var hL = L * 0.42, half = Math.max(hw / 2, R * 0.5);
+      ctx.beginPath(); ctx.moveTo(hc - half, hy); ctx.lineTo(hc + half, hy); ctx.lineTo(hc + half * 1.05, hy + hL * 0.55); ctx.lineTo(hc - half * 1.05, hy + hL * 0.55); ctx.closePath();
+      ctx.fillStyle = palmFront ? "#f0d9cc" : SKIN; ctx.fill(); ctx.strokeStyle = INK; ctx.stroke();
+      // 손가락(앞에서 보이는 폭만큼)
+      for (var i = 0; i < 4; i++) { var fx = hc - half * 0.8 + (i + 0.5) * (half * 1.6 / 4), fl = hL * [0.4, 0.45, 0.43, 0.33][palmFront ? i : 3 - i]; limb(ctx, [fx, hy + hL * 0.55], [fx, hy + hL * 0.55 + fl], half * 0.32, half * 0.28, palmFront ? "#f0d9cc" : SKIN, INK, 1.1); }
+      // 엄지: 요골 쪽
+      var tx = raW[0] + (raW[0] < ulW[0] ? -1 : 1) * R * 0.5;
+      limb(ctx, [tx, hy + hL * 0.12], [tx + (raW[0] < ulW[0] ? -1 : 1) * R * 0.9, hy + hL * 0.5], R * 0.9, R * 0.7, "#ead2c2", INK, 1.2);
+      if (!palmFront) for (i = 0; i < 4; i++) { var nx = hc - half * 0.8 + (i + 0.5) * (half * 1.6 / 4); var nl = hL * [0.33, 0.43, 0.45, 0.4][i]; ctx.fillStyle = "#f6efe7"; ctx.fillRect(nx - half * 0.09, hy + hL * 0.55 + nl - half * 0.25, half * 0.18, half * 0.2); }
+      // 이름표
+      txt(ctx, "요골(엄지 쪽)", raE[0] - R * 3.0, top + L * 0.18, { size: 11, weight: 700, align: "right" });
+      txt(ctx, "척골", ulE[0] + R * 3.0, top + L * 0.18, { size: 11, color: DIM });
+      txt(ctx, "팔꿈치", cx, top - L * 0.12, { size: 10.5, color: DIM, align: "center" });
+      txt(ctx, "← 바깥쪽", 10, h - 12, { size: 10.5, color: DIM });
+      txt(ctx, "안쪽 →", w - 10, h - 12, { size: 10.5, color: DIM, align: "right" });
+      var pal = r <= -60 ? "앞(뒤침)" : r < -20 ? "앞쪽 비스듬히" : r <= 20 ? "몸 쪽(엄지가 앞)" : r < 60 ? "뒤쪽 비스듬히" : "뒤(엎침)";
+      AB.stat("fa-o-p", pal + (Math.abs(r) > 80 ? " · 더 돌림" : ""));
+      AB.stat("fa-o-b", fore < -55 ? "나란함" : fore > 55 ? "X자로 엇갈림" : "엇갈리는 중");
+      AB.stat("fa-o-s", Math.abs(sh) > 0 ? '<span style="color:var(--bad)">' + Math.abs(sh) + "° (아래팔 한계 넘음)</span>" : "0°");
+    }, heightOf("fa-cv", 0.78, 320, 440));
+  })();
+
+  /* ---------------- 시뮬레이터 4: 근육 ---------------- */
+  (function () {
+    var cv;
+    var gE = AB.range("ms-e", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var vol = AB.check("ms-vol", function () { cv.redraw(); });
+    var boneOn = AB.check("ms-bone", function () { cv.redraw(); });
+    cv = AB.canvas("#ms-cv", function (ctx, w, h) {
+      var s = Math.min(w / 70, h / 62), Sh = [w * 0.38, h * 0.12];
+      var P = function (q) { return [Sh[0] + q[0] * s, Sh[1] + q[1] * s]; };  // cm, y 아래 +
+      var th = gE(), q = th * DEG;
+      var A = 31, B = 25, El = [0, A];
+      var fdir = [Math.sin(q), Math.cos(q)];  // 아래팔 방향(굽히면 앞(+x)으로 올라온다)
+      var Wr = [El[0] + fdir[0] * B, El[1] + fdir[1] * B];
+      var over = th > 150;
+      // 부착점: 이두근 어깨 앞 → 요골(팔꿈치 아래 4 cm), 삼두근 어깨 뒤 → 팔꿈치 뒤 돌기
+      var bO = [2.2, 4], bI = [El[0] + fdir[0] * 4 + fdir[1] * 1.2, El[1] + fdir[1] * 4 - fdir[0] * 1.2];
+      var tO = [-2.5, 5], tI = [El[0] - fdir[0] * 2.2 - 2.0 * Math.cos(q) * 0 - 1.6, El[1] - fdir[1] * 2.2 + 0.6];
+      var bL0 = Math.hypot(31 + 4 - 4, 2.2 - 1.2), tL0 = Math.hypot(-1.6 + 2.5, A - 2.2 + 0.6 - 5);
+      var bL = Math.hypot(bI[0] - bO[0], bI[1] - bO[1]), tL = Math.hypot(tI[0] - tO[0], tI[1] - tO[1]);
+      var bW0 = 7.0, tW0 = 6.0, bW = vol() ? bW0 * Math.sqrt(bL0 / bL) : bW0, tW = vol() ? tW0 * Math.sqrt(tL0 / tL) : tW0;
+      // 근육을 두 부착점 사이 타원으로(가운데가 볼록, 앞쪽으로 부푼다)
+      function belly(o, i, wid, col, side) {
+        var a = P(o), b = P(i), mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, L = Math.hypot(b[0] - a[0], b[1] - a[1]), an = Math.atan2(b[1] - a[1], b[0] - a[0]);
+        var nx = -Math.sin(an) * side, ny = Math.cos(an) * side, off = (wid * s) * 0.18;
+        ctx.save(); ctx.translate(mx + nx * off, my + ny * off); ctx.rotate(an);
+        ctx.beginPath(); ctx.ellipse(0, 0, L / 2, wid * s / 2, 0, 0, Math.PI * 2); ctx.fillStyle = col; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.3; ctx.stroke();
+        ctx.restore();
+      }
+      // 아래팔 살
+      limb(ctx, P(El), P(Wr), 7.5 * s, 5.2 * s, SKIN, INK, 1.4);
+      var hand = [Wr[0] + fdir[0] * 15, Wr[1] + fdir[1] * 15];
+      limb(ctx, P(Wr), P(hand), 6.2 * s, 4.5 * s, SKIN, INK, 1.4);
+      // 위팔 살(배경)
+      limb(ctx, P([0, 0]), P(El), 8.5 * s, 7 * s, "#eee8dc", "#a59f93", 1);
+      if (boneOn()) {
+        ctx.save(); ctx.globalAlpha = 0.9;
+        limb(ctx, P([0, 1]), P(El), 2.4 * s, 2.2 * s, BONE, INK, 1);
+        limb(ctx, P(El), P(Wr), 1.8 * s, 1.5 * s, BONE, INK, 1);
+        dot(ctx, P(El)[0], P(El)[1], 2.4 * s, BONE); ctx.strokeStyle = INK; ctx.lineWidth = 1; ctx.stroke();
+        ctx.restore();
+      }
+      belly(tO, tI, tW, MUS2, -1);
+      belly(bO, bI, bW, over ? "#e98f7c" : MUS, 1);
+      // 어깨 덩어리
+      ctx.beginPath(); ctx.ellipse(P([0, 2])[0], P([0, 2])[1], 6.5 * s, 7 * s, 0, 0, Math.PI * 2); ctx.fillStyle = "#e3c3b5"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.3; ctx.stroke();
+      txt(ctx, "이두근(앞)", P(bO)[0] + 9 * s, P([0, 13])[1], { size: 11, weight: 700 });
+      txt(ctx, "삼두근(뒤)", P(tO)[0] - 8 * s, P([0, 17])[1], { size: 11, weight: 700, align: "right" });
+      txt(ctx, "앞 →", w - 10, 14, { size: 11, color: DIM, align: "right" });
+      if (over) txt(ctx, "근육끼리 맞닿아 더 굽지 못한다", w / 2, h - 14, { size: 12, color: RED, weight: 700, align: "center" });
+      AB.stat("ms-o-l", (bL / bL0 * 100).toFixed(0) + "%");
+      AB.stat("ms-o-w", (bW / bW0 * 100).toFixed(0) + "%");
+      AB.stat("ms-o-t", (tL / tL0 * 100).toFixed(0) + "%");
+    }, heightOf("ms-cv", 0.75, 300, 420));
+  })();
+
+  /* ---------------- 시뮬레이터 5: 머리 ---------------- */
+  (function () {
+    var cv, yaw = 35, pitch = 0;
+    var PRE = { front: [0, 0], tq: [35, 0], side: [88, 0], up: [25, 30], down: [25, -32] };
+    var pre = AB.seg("hd2-pre", function (v) { yaw = PRE[v][0]; pitch = PRE[v][1]; cv.redraw(); });
+    var wrong = AB.check("hd2-wrong", function () { cv.redraw(); });
+    var hid = AB.check("hd2-hid", function () { cv.redraw(); });
+    // 머리 모형: 위쪽은 반지름 1의 공(머리뼈), 아래쪽(y<0)은 x 0.82, y 1.65, z 1.0의 타원체(얼굴). 눈 −0.32, 코 밑 −0.82, 턱 −1.65, 머리카락 선 +0.82
+    function surf(y, t) {  // t: 0 = 오른쪽(+x), 90° = 앞(+z)
+      var rx, rz, k;
+      if (y >= 0) { k = Math.sqrt(Math.max(0, 1 - y * y)); rx = k; rz = k; }
+      else { k = Math.sqrt(Math.max(0, 1 - (y / 1.65) * (y / 1.65))); rx = 0.82 * k + 0.18 * Math.sqrt(Math.max(0, 1 - y * y)) * (y > -1 ? 1 : 0); rz = k; }
+      return [rx * Math.cos(t), y, rz * Math.sin(t)];
+    }
+    function ring(y, t0, t1) { var out = []; for (var i = 0; i <= 48; i++) { var t = (t0 + (t1 - t0) * i / 48) * DEG; out.push(surf(y, t)); } return out; }
+    function meridian() { var out = []; for (var i = 0; i <= 60; i++) { var y = 1 - i / 60 * 2.65; out.push(surf(y, 90 * DEG)); } return out; }
+    cv = AB.canvas("#hd2-cv", function (ctx, w, h) {
+      var s = Math.min(w * 0.26, h * 0.3), cx = w / 2, cy = h * 0.42;
+      var Y = yaw * DEG, Pt = pitch * DEG;
+      var pr = function (p) { var q = rot(p, Y, Pt); return [cx + q[0] * s, cy - q[1] * s, q[2]]; };
+      function path3(pts, col, lw, dashBack) {
+        var Q = pts.map(pr);
+        for (var i = 1; i < Q.length; i++) {
+          var front = (Q[i][2] + Q[i - 1][2]) / 2 > -0.02;
+          if (!front && !dashBack) continue;
+          ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = front ? lw : lw * 0.7; if (!front) { ctx.setLineDash([3, 4]); ctx.globalAlpha = 0.6; }
+          ctx.beginPath(); ctx.moveTo(Q[i - 1][0], Q[i - 1][1]); ctx.lineTo(Q[i][0], Q[i][1]); ctx.stroke(); ctx.restore();
+        }
+        return Q;
+      }
+      // 얼굴 실루엣: 타원체 아래쪽 점들의 투영 윤곽(볼록 껍질)
+      var cloud = [];
+      for (var yy = 0; yy >= -1.65; yy -= 0.08) for (var t = 0; t < 360; t += 10) cloud.push(pr(surf(yy, t * DEG)));
+      cloud.push(pr([0, -1.65, 0]));
+      for (var a = 0; a < 360; a += 6) { cloud.push([cx + Math.cos(a * DEG) * s, cy + Math.sin(a * DEG) * s]); }
+      var hull = convexHull(cloud);
+      ctx.beginPath(); poly(ctx, hull); ctx.fillStyle = "#f2ebdf"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.8; ctx.stroke();
+      // 머리뼈 원
+      ctx.beginPath(); ctx.arc(cx, cy, s, 0, Math.PI * 2); ctx.strokeStyle = "rgba(43,42,48,0.45)"; ctx.lineWidth = 1.2; ctx.stroke();
+      // 옆면(잘라 낸 원), 귀
+      [1, -1].forEach(function (sd) {
+        var pts = []; for (var i = 0; i <= 36; i++) { var u = i / 36 * Math.PI * 2; pts.push([sd * 0.8, 0.12 + 0.5 * Math.sin(u), 0.5 * Math.cos(u) - 0.1]); }
+        path3(pts, BLUE, 1.3, hid());
+        var ear = []; for (i = 0; i <= 24; i++) { u = i / 24 * Math.PI * 2; ear.push([sd * 0.84, -0.4 + 0.38 * Math.sin(u), -0.15 + 0.16 * Math.cos(u)]); }
+        path3(ear, "#8c877d", 1.2, false);
+      });
+      var dashB = hid();
+      if (!wrong()) {
+        path3(meridian(), GREEN, 2, dashB);
+        path3(ring(0, -20, 200), BLUE, 1.6, dashB);           // 눈썹선
+        var eyeQ = path3(ring(-0.32, 20, 160), RED, 2.2, false); // 눈선
+        path3(ring(-0.82, 25, 155), BLUE, 1.4, false);         // 코 밑선
+        path3(ring(0.82, 30, 150), "#a59f93", 1.2, false);     // 머리카락 선
+        // 눈(눈선 위 두 점)
+        [64, 116].forEach(function (td) { var e = pr(surf(-0.32, td * DEG)); if (e[2] > 0.05) { ctx.beginPath(); ctx.ellipse(e[0], e[1], s * 0.13 * Math.max(0.25, e[2]), s * 0.055, 0, 0, Math.PI * 2); ctx.fillStyle = INK; ctx.fill(); } });
+        var nose = pr(surf(-0.82, 90 * DEG)), noseTip = pr([0, -0.72, surf(-0.72, 90 * DEG)[2] + 0.22]);
+        if (nose[2] > -0.1) { ctx.strokeStyle = INK; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(pr(surf(-0.3, 90 * DEG))[0], pr(surf(-0.3, 90 * DEG))[1]); ctx.lineTo(noseTip[0], noseTip[1]); ctx.lineTo(nose[0], nose[1]); ctx.stroke(); }
+        var mouth = []; for (var mt = 70; mt <= 110; mt += 5) mouth.push(surf(-1.15, mt * DEG)); path3(mouth, INK, 1.6, false);
+        var mid = eyeQ[24], curv = Math.abs(eyeQ[0][1] + eyeQ[48][1] - 2 * mid[1]) / s;
+        AB.stat("hd2-o-c", curv < 0.03 ? "거의 직선" : (eyeQ[0][1] + eyeQ[48][1]) / 2 > mid[1] ? "위로 볼록 " + curv.toFixed(2) : "아래로 볼록 " + curv.toFixed(2));
+        var mp = pr(surf(-0.32, 90 * DEG)); AB.stat("hd2-o-m", Math.abs(mp[0] - cx) < s * 0.05 ? "가운데" : (mp[0] > cx ? "오른쪽으로 " : "왼쪽으로 ") + (Math.abs(mp[0] - cx) / s * 100).toFixed(0) + "%");
+      } else {
+        // 흔한 실수: 안내선을 화면에 수평으로, 이목구비를 정면 그대로
+        var c0 = pr([0, 0, 0]);
+        [[0, BLUE], [-0.32, RED], [-0.82, BLUE]].forEach(function (L) { ctx.strokeStyle = L[1]; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(c0[0] - s * 0.8, c0[1] - L[0] * s); ctx.lineTo(c0[0] + s * 0.8, c0[1] - L[0] * s); ctx.stroke(); });
+        ctx.strokeStyle = GREEN; ctx.beginPath(); ctx.moveTo(c0[0], c0[1] - s); ctx.lineTo(c0[0], c0[1] + 1.65 * s); ctx.stroke();
+        [-0.36, 0.36].forEach(function (ex) { ctx.beginPath(); ctx.ellipse(c0[0] + ex * s, c0[1] + 0.32 * s, s * 0.12, s * 0.055, 0, 0, Math.PI * 2); ctx.fillStyle = INK; ctx.fill(); });
+        ctx.strokeStyle = INK; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(c0[0] - s * 0.18, c0[1] + 1.15 * s); ctx.lineTo(c0[0] + s * 0.18, c0[1] + 1.15 * s); ctx.stroke();
+        AB.stat("hd2-o-c", '<span style="color:var(--bad)">돌림과 무관(실수)</span>'); AB.stat("hd2-o-m", "가운데에 고정");
+      }
+      AB.stat("hd2-o-a", Math.round(yaw) + "° · " + (pitch >= 0 ? "위 " : "아래 ") + Math.abs(Math.round(pitch)) + "°");
+      txt(ctx, "초록: 가운데선  빨강: 눈선  파랑: 눈썹선·코 밑선·옆면", 10, h - 12, { size: 10.5, color: DIM });
+    }, heightOf("hd2-cv", 0.8, 320, 440));
+    function convexHull(pts) {
+      var P = pts.map(function (p) { return [p[0], p[1]]; }).sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+      function cr(o, a, b) { return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]); }
+      var lo = [], up = [];
+      P.forEach(function (p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], p) <= 0) lo.pop(); lo.push(p); });
+      for (var i = P.length - 1; i >= 0; i--) { var p = P[i]; while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], p) <= 0) up.pop(); up.push(p); }
+      up.pop(); lo.pop(); return lo.concat(up);
+    }
+    var last = null;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { last = [x, y]; },
+      move: function (x, y) { if (!last) return; yaw = AB.clamp(yaw + (x - last[0]) * 0.6, -90, 90); pitch = AB.clamp(pitch - (y - last[1]) * 0.5, -60, 60); last = [x, y]; pre.set("", false); cv.redraw(); },
+      end: function () { last = null; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 손 ----------------
+     손등이 화면을 보는 오른손. x 오른쪽(새끼손가락 쪽), y 위(손가락 쪽), z 화면 쪽(손등). 손 길이(손목~가운뎃손가락 끝) = 1. */
+  (function () {
+    var cv, yaw = -25, pitch = 15;
+    var gC = AB.range("hn-c", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var gT = AB.range("hn-t", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var arc = AB.check("hn-arc", function () { cv.redraw(); });
+    var over = AB.check("hn-over", function () { cv.redraw(); });
+    var FING = [  // 밑마디 자리, 마디 길이, 벌어진 각, 주먹을 쥘 때 모이는 각(엄지 쪽 = −x)
+      { b: [-0.17, 0.56], L: [0.17, 0.115, 0.09], sp: -0.10, cv: -0.04 },
+      { b: [-0.055, 0.585], L: [0.19, 0.13, 0.10], sp: -0.03, cv: -0.12 },
+      { b: [0.06, 0.57], L: [0.18, 0.125, 0.095], sp: 0.04, cv: -0.22 },
+      { b: [0.17, 0.53], L: [0.135, 0.095, 0.08], sp: 0.12, cv: -0.36 },
+    ];
+    function norm(v) { var l = Math.hypot(v[0], v[1], v[2]) || 1; return [v[0] / l, v[1] / l, v[2] / l]; }
+    cv = AB.canvas("#hn-cv", function (ctx, w, h) {
+      var s = Math.min(w * 0.62, h * 0.62), cx = w / 2, cy = h * 0.78;
+      var Y = yaw * DEG, Pt = pitch * DEG, c = gC() / 100, o = gT() / 100, ov = over();
+      var pr = function (p) { var q = rot([p[0], p[1] - 0.45, p[2]], Y, Pt); return [cx + q[0] * s, cy - (q[1] + 0.45) * s * 1 + 0 * s - 0.0, q[2]]; };
+      var items = [];
+      // 손바닥 상자
+      var pw0 = 0.25, pw1 = 0.23, pd = 0.065;
+      var V = [[-pw0, 0.02, pd], [pw0 - 0.03, 0.02, pd], [pw1, 0.55, pd], [-pw1, 0.57, pd], [-pw0, 0.02, -pd], [pw0 - 0.03, 0.02, -pd], [pw1, 0.55, -pd], [-pw1, 0.57, -pd]].map(pr);
+      [[0, 1, 2, 3, "#ece4d6"], [4, 5, 6, 7, "#f0d9cc"], [0, 3, 7, 4, "#ddd5c6"], [1, 2, 6, 5, "#ddd5c6"], [3, 2, 6, 7, "#e3dbcd"], [0, 1, 5, 4, "#e3dbcd"]].forEach(function (f) {
+        items.push({ z: (V[f[0]][2] + V[f[1]][2] + V[f[2]][2] + V[f[3]][2]) / 4, draw: function () { ctx.beginPath(); poly(ctx, [V[f[0]], V[f[1]], V[f[2]], V[f[3]]]); ctx.fillStyle = f[4]; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.4; ctx.lineJoin = "round"; ctx.stroke(); } });
+      });
+      // 손가락
+      var J = [85, 100, 70], sign = ov ? -0.5 : 1, tipsP = [];
+      FING.forEach(function (F) {
+        var phi = F.sp * (1 - c) + F.cv * c, p = [F.b[0], F.b[1], 0], beta = 0;
+        for (var k = 0; k < 3; k++) {
+          beta += sign * J[k] * c * DEG;
+          var d = [Math.sin(phi) * Math.cos(beta), Math.cos(phi) * Math.cos(beta), -Math.sin(beta)];
+          var q = [p[0] + d[0] * F.L[k], p[1] + d[1] * F.L[k], p[2] + d[2] * F.L[k]];
+          (function (a3, b3, wd) { var A2 = pr(a3), B2 = pr(b3); items.push({ z: (A2[2] + B2[2]) / 2 + 0.001, draw: function () { limb(ctx, A2, B2, wd * s, wd * 0.92 * s, ov && c > 0.05 ? "#f3d9cf" : SKIN, INK, 1.2); } }); })(p, q, 0.082 - k * 0.008);
+          p = q;
+        }
+        tipsP.push(p);
+      });
+      // 엄지
+      var d1 = norm([-0.62 + 0.5 * o, 0.62 + 0.1 * o, -0.15 - 0.75 * o]), t0 = [-0.2, 0.1, -0.02];
+      var tm = [t0[0] + d1[0] * 0.25, t0[1] + d1[1] * 0.25, t0[2] + d1[2] * 0.25];
+      var d2 = norm([d1[0] + 0.3 * o + 0.1 * c, d1[1], d1[2] - 0.2 * o - 0.3 * c]), tp = [tm[0] + d2[0] * 0.17, tm[1] + d2[1] * 0.17, tm[2] + d2[2] * 0.17];
+      var d3 = norm([d2[0] + 0.25 * o, d2[1] - 0.1 * c, d2[2] - 0.35 * c]), tt = [tp[0] + d3[0] * 0.14, tp[1] + d3[1] * 0.14, tp[2] + d3[2] * 0.14];
+      [[t0, tm, 0.12], [tm, tp, 0.095], [tp, tt, 0.085]].forEach(function (seg) { var A2 = pr(seg[0]), B2 = pr(seg[1]); items.push({ z: (A2[2] + B2[2]) / 2, draw: function () { limb(ctx, A2, B2, seg[2] * s, seg[2] * 0.9 * s, "#efdccd", INK, 1.2); } }); });
+      // 아래팔
+      var fa0 = pr([0, 0.02, 0]), fa1 = pr([0.02, -0.5, 0]);
+      items.push({ z: -5, draw: function () { limb(ctx, fa0, fa1, 0.4 * s, 0.46 * s, "#eee8dc", "#a59f93", 1.2); } });
+      items.sort(function (a, b) { return a.z - b.z; }).forEach(function (it) { it.draw(); });
+      if (arc()) {
+        ctx.save(); ctx.strokeStyle = RED; ctx.lineWidth = 2; ctx.setLineDash([5, 3]); ctx.beginPath();
+        FING.forEach(function (F, i) { var q = pr([F.b[0], F.b[1], 0.07]); if (i) ctx.lineTo(q[0], q[1]); else ctx.moveTo(q[0], q[1]); });
+        ctx.stroke(); ctx.restore();
+        FING.forEach(function (F) { var q = pr([F.b[0], F.b[1], 0.07]); dot(ctx, q[0], q[1], 3, RED); });
+      }
+      if (c > 0.85 && !ov) {
+        // 손가락 끝 방향이 모이는 점(엄지 쪽 손목 근처)
+        var sc = pr([-0.12, 0.08, -0.1]); ctx.save(); ctx.strokeStyle = "rgba(47,125,91,0.7)"; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.2;
+        tipsP.forEach(function (tp2) { var q = pr(tp2); ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.lineTo(sc[0], sc[1]); ctx.stroke(); });
+        ctx.restore(); dot(ctx, sc[0], sc[1], 3.5, GREEN);
+      }
+      AB.stat("hn-o-j", (sign * J[0] * c).toFixed(0) + "° · " + (sign * J[1] * c).toFixed(0) + "° · " + (sign * J[2] * c).toFixed(0) + "°");
+      AB.stat("hn-o-l", "가운데 " + ((FING[1].L[0] + FING[1].L[1] + FING[1].L[2]) * 100).toFixed(0) + "% · 손바닥 " + (FING[1].b[1] * 100).toFixed(0) + "%");
+      AB.stat("hn-o-s", ov && c > 0.05 ? '<span style="color:var(--bad)">손등 쪽으로 꺾임: 불가능</span>' : c > 0.85 ? "주먹: 끝이 한 점으로 모인다" : "가능");
+    }, heightOf("hn-cv", 0.8, 320, 440));
+    var last = null;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { last = [x, y]; },
+      move: function (x, y) { if (!last) return; yaw = AB.clamp(yaw + (x - last[0]) * 0.6, -100, 100); pitch = AB.clamp(pitch - (y - last[1]) * 0.5, -70, 70); last = [x, y]; cv.redraw(); },
+      end: function () { last = null; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 7: 책을 꺼내는 사람 ----------------
+     키 168 cm, 7.1등신(11장 마네킹의 높이 비율). 옆모습, 오른쪽(서가)을 본다. 단위 cm, y 위 +. */
+  var REACH = { S: 168, n: 7.1, legR: 0.46 };
+  (function () {
+    var S = REACH.S, hd = S / REACH.n, crotch = REACH.legR * S, chin = S - hd, Bt = chin - crotch;
+    var shoulder = crotch + Bt * 0.86, navel = crotch + Bt * 0.33, hip = crotch + Bt * 0.08, knee = crotch * 0.56, ankle = crotch * 0.085;
+    var shJ = shoulder - 0.01 * S, A = shJ - (navel + 0.01 * S), B = (navel + 0.01 * S) - (crotch + 0.005 * S), HL = Math.min(0.74 * hd, 0.11 * S);
+    REACH.dims = { A: A, B: B, HL: HL, shJ: shJ };
+    var lift = function (phi) { return phi > 90 ? 6 * Math.min(1, (phi - 90) / 90) : 0; };  // 팔을 90° 넘게 들면 어깨뼈와 함께 어깨 관절이 올라간다(교육용 근사, 최대 6 cm)
+    REACH.lift = lift;
+    var cv, geo = null, book = [30, 190];
+    var gH = AB.range("rc-h", function (v) { return v.toFixed(1) + " cm"; }, function () { cv.redraw(); });
+    var gN = AB.range("rc-n", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var view = AB.seg("rc-view", function () { cv.redraw(); });
+    var nolim = AB.check("rc-lim", function () { cv.redraw(); });
+    cv = AB.canvas("#rc-cv", function (ctx, w, h) {
+      var s = Math.min((h - 24) / 225, w / 150), fx = w * 0.36, fy = h - 14;
+      var P = function (q) { return [fx + q[0] * s, fy - q[1] * s]; };
+      geo = { s: s, fx: fx, fy: fy };
+      var hr = gH(), vw = view(), showM = vw !== "joint", showJ = vw !== "mass";
+      // 서가
+      var shelfX = book[0] + 2;
+      ctx.fillStyle = "#e7dfcf"; ctx.fillRect(P([shelfX, 0])[0], P([0, 220])[1], w - P([shelfX, 0])[0], 220 * s);
+      ctx.strokeStyle = "#a59f93"; ctx.lineWidth = 1;
+      var shelves = [0, 45, 90, 135, 180, 220];
+      shelves.forEach(function (yy) { var a = P([shelfX, yy]); ctx.fillStyle = "#b9a98d"; ctx.fillRect(a[0], a[1] - 2, w - a[0], 4); });
+      var colors = ["#567666", "#d24f39", "#c9a46c", "#22342a", "#7c8c80", "#b07a5a"];
+      for (var si = 0; si < shelves.length - 1; si++) for (var bi = 0; bi < 8; bi++) {
+        var bx = shelfX + 2 + bi * 6.5, bh = 26 + ((bi * 7 + si * 3) % 9);
+        var a2 = P([bx, shelves[si] + 2]); ctx.fillStyle = colors[(bi + si) % colors.length]; ctx.fillRect(a2[0], a2[1] - bh * s, 5.6 * s, bh * s);
+      }
+      // 꺼낼 책(목표)
+      var bk = P([book[0] + 2, book[1]]);
+      ctx.fillStyle = "#d24f39"; ctx.fillRect(bk[0] - 3 * s, bk[1] - 13 * s, 6 * s, 26 * s); ctx.strokeStyle = INK; ctx.strokeRect(bk[0] - 3 * s, bk[1] - 13 * s, 6 * s, 26 * s);
+      // 바닥
+      ctx.strokeStyle = INK; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(0, fy); ctx.lineTo(w, fy); ctx.stroke();
+      // 몸(옆모습). 어깨 관절 x = 0
+      var up = hr;
+      var grasp = [book[0] - 1, book[1]], wrT = [grasp[0] - HL * 0.45, grasp[1]];
+      var sol = armIK([0, shJ + up], A, B, wrT, !nolim(), lift);
+      var Sj = sol.S, El = sol.el, Wr = sol.wr;
+      var foreDir = Math.atan2(Wr[1] - El[1], Wr[0] - El[0]), handDir = Math.atan2(grasp[1] - Wr[1], grasp[0] - Wr[0]);
+      if (sol.d > 1.5) handDir = foreDir;
+      var wristAng = (handDir - foreDir) / DEG; while (wristAng > 180) wristAng -= 360; while (wristAng < -180) wristAng += 360;
+      var hand = [Wr[0] + Math.cos(handDir) * HL, Wr[1] + Math.sin(handDir) * HL];
+      var lw = 1.4, ribTilt = AB.clamp((sol.phi - 90) / 90, 0, 1) * 8;  // 팔을 들면 흉곽이 조금 젖혀진다
+      var heel = [-4, up], toe = [12, 0], ank = [0, ankle + up * 0.4];
+      var kn = [2, knee + up * 0.7], hp = [-1, hip + up];
+      var neckB = [-2, shoulder + up + 2], headC = [1, chin + hd * 0.5 + up];
+      // 뒤쪽 팔(책 두 권을 든 왼팔)
+      var lSh = [-3, shJ + up], lEl = [-6, navel + 0.01 * S + up + 2], lWr = [14, navel + up + 6], lHand = [24, navel + up + 6];
+      function seg(a, b, wa, wb, col, alpha) { ctx.save(); if (alpha) ctx.globalAlpha = alpha; limb(ctx, P(a), P(b), wa * s, wb * s, col || SKIN, INK, lw); ctx.restore(); }
+      if (showM || showJ) {
+        // 왼팔과 책
+        seg(lSh, lEl, 8.5, 7, "#e3dccd", 0.9); seg(lEl, lWr, 7, 5.5, "#e3dccd", 0.9); seg(lWr, lHand, 6, 4.5, "#e3dccd", 0.9);
+        var lb = P([12, navel + up + 9]); ctx.fillStyle = "#567666"; ctx.fillRect(lb[0], lb[1] - 4 * s, 16 * s, 4 * s); ctx.fillStyle = "#c9a46c"; ctx.fillRect(lb[0] + 1 * s, lb[1] - 8 * s, 14 * s, 4 * s);
+        // 다리
+        seg(hp, kn, 13, 9, SKIN); seg(kn, ank, 9, 6, SKIN);
+        ctx.beginPath(); poly(ctx, [P(heel), P([ank[0] - 3, ank[1]]), P([ank[0] + 4, ank[1]]), P([toe[0], 2]), P(toe)]); ctx.fillStyle = SKIN; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = lw; ctx.stroke();
+      }
+      if (showM) {
+        // 골반(그릇), 흉곽(달걀), 머리(공과 턱)
+        ctx.save(); var pc = P([0, hip + 6 + up]); ctx.translate(pc[0], pc[1]); ctx.rotate(-8 * DEG);
+        ctx.beginPath(); ctx.moveTo(-11 * s, -9 * s); ctx.lineTo(12 * s, -11 * s); ctx.lineTo(10 * s, 8 * s); ctx.lineTo(-9 * s, 10 * s); ctx.closePath(); ctx.fillStyle = "#dfe7e2"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = lw; ctx.stroke(); ctx.restore();
+        ctx.save(); var rcC = P([1, (shoulder + navel) / 2 + 4 + up]); ctx.translate(rcC[0], rcC[1]); ctx.rotate(ribTilt * DEG * -1 + 6 * DEG);
+        ctx.beginPath(); ctx.ellipse(0, 0, 12.5 * s, 21 * s, 0, 0, Math.PI * 2); ctx.fillStyle = "#efe6d6"; ctx.fill(); ctx.strokeStyle = INK; ctx.stroke();
+        ctx.strokeStyle = "rgba(43,42,48,0.35)"; ctx.lineWidth = 1; [-8, 0, 8].forEach(function (yy) { ctx.beginPath(); ctx.ellipse(0, yy * s, 12.5 * s * Math.sqrt(1 - (yy / 21) * (yy / 21)), 2.5 * s, 0, 0, Math.PI); ctx.stroke(); });
+        ctx.restore();
+        seg(neckB, [headC[0], headC[1] - hd * 0.3], 9, 9, SKIN);
+        ctx.save(); var hc = P(headC); ctx.translate(hc[0], hc[1]); ctx.rotate(-gN() * DEG);
+        ctx.beginPath(); ctx.arc(-1 * s, -2 * s, hd * 0.42 * s, 0, Math.PI * 2); ctx.fillStyle = "#f2ebdf"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = lw; ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(-3 * s, 6 * s); ctx.lineTo(4 * s, hd * 0.5 * s); ctx.lineTo(9 * s, hd * 0.42 * s); ctx.lineTo(10 * s, 0); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(4 * s, -1 * s); ctx.lineTo(10.5 * s, -1 * s); ctx.strokeStyle = RED; ctx.lineWidth = 1.6; ctx.stroke();  // 눈선
+        ctx.restore();
+      }
+      // 오른팔(앞쪽)
+      var bad = Math.abs(wristAng) > 70 && sol.d <= 1.5, armBad = nolim() && (sol.th < 0 || sol.phi < -60 || sol.phi > 180 || sol.th > 150);
+      var armCol = armBad ? "#f3d9cf" : SKIN;
+      if (showM) {
+        ctx.beginPath(); var dl = P([Sj[0] + 1, Sj[1] - 1]); ctx.ellipse(dl[0], dl[1], 6.5 * s, 7.5 * s, 0, 0, Math.PI * 2); ctx.fillStyle = "#e3c3b5"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = lw; ctx.stroke();
+      }
+      seg(Sj, El, 9, 7.5, armCol); seg(El, Wr, 7.5, 5.5, armCol);
+      ctx.save(); ctx.globalAlpha = 1; limb(ctx, P(Wr), P(hand), 6.5 * s, 4.2 * s, bad ? "#f3d9cf" : "#efdccd", INK, lw); ctx.restore();
+      if (showJ) {
+        // 뼈와 관절
+        ctx.save(); ctx.strokeStyle = BLUE; ctx.lineWidth = 2.2; ctx.lineCap = "round";
+        var chain = [[headC, neckB], [neckB, [-1, (shoulder + navel) / 2 + up]], [[-1, (shoulder + navel) / 2 + up], hp], [hp, kn], [kn, ank], [Sj, El], [El, Wr], [Wr, hand], [lSh, lEl], [lEl, lWr]];
+        chain.forEach(function (c2) { var a = P(c2[0]), b = P(c2[1]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); });
+        ctx.restore();
+        [Sj, El, Wr, hp, kn, ank, lSh, lEl, lWr].forEach(function (q, i) { var a = P(q); ctx.beginPath(); ctx.arc(a[0], a[1], 4.2, 0, Math.PI * 2); ctx.fillStyle = (i === 2 && bad) ? RED : "#ffffff"; ctx.fill(); ctx.strokeStyle = BLUE; ctx.lineWidth = 1.6; ctx.stroke(); });
+      }
+      // 높이 눈금
+      [100, 150, 190].forEach(function (yy) { var a = P([-40, yy]); ctx.strokeStyle = "#d6d0c4"; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(P([shelfX, yy])[0], a[1]); ctx.stroke(); ctx.setLineDash([]); txt(ctx, yy + " cm", a[0] - 4, a[1], { size: 10, color: DIM, align: "right", mono: true }); });
+      AB.handle(ctx, bk[0], bk[1], { r: 7, fill: "#ffffff", ring: RED });
+      AB.stat("rc-o-b", book[1].toFixed(0) + " cm · " + book[0].toFixed(0) + " cm 앞");
+      AB.stat("rc-o-j", sol.phi.toFixed(0) + "° · " + sol.th.toFixed(0) + "° · " + (sol.d > 1.5 ? "—" : (wristAng > 0 ? "손등 쪽 " : "손바닥 쪽 ") + Math.abs(wristAng).toFixed(0) + "°"));
+      AB.stat("rc-o-s", armBad ? '<span style="color:var(--bad)">관절이 반대로 꺾임</span>' : sol.d > 1.5 ? "닿지 않음(" + sol.d.toFixed(1) + " cm 모자람)" : bad ? '<span style="color:var(--bad)">손목이 너무 꺾임</span>' : "닿음 · 어깨 " + lift(sol.phi).toFixed(1) + " cm 올라감");
+    }, heightOf("rc-cv", 0.9, 360, 520));
+    var drag = false;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!geo) return; var b = [geo.fx + (book[0] + 2) * geo.s, geo.fy - book[1] * geo.s]; drag = Math.hypot(x - b[0], y - b[1]) < 40; },
+      move: function (x, y) { if (!drag || !geo) return; book = [AB.clamp((x - geo.fx) / geo.s - 2, -50, 70), AB.clamp((geo.fy - y) / geo.s, 60, 215)]; cv.redraw(); },
+      end: function () { drag = false; },
+    });
+  })();
+  window.__anatomyReach = { armIK: armIK, REACH: REACH };
+})();
+</script>
+</body>
+</html>

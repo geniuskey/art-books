@@ -1,0 +1,798 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "하이라이트, 밝은 면, 중간톤, 명암 경계, 반사광, 접촉 그림자, 투영 그림자. 구와 정물에 빛을 옮기며 람베르트 음영의 직관과 빛의 무리·그림자의 무리를 익히고, 명암을 다섯 단계 해칭으로 배분한다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="light">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 08</div>
+    <h1>명암의 단계</h1>
+    <p class="lead">책상 위에 흰 달걀 하나를 올려놓고 스탠드를 켜 보자. 달걀은 흰색 하나인데, 눈에 들어오는 것은 거의 흰빛에 가까운 반짝임부터 숯처럼 짙은 띠까지 여러 겹의 회색이다. 더 이상한 것은 가장 어두운 곳이 달걀의 가장자리가 아니라 그보다 조금 안쪽에 있다는 점이다. 이 장은 빛이 둥근 형태 위에 남기는 명암의 질서를 하나씩 이름 붙여 보고, 그 질서가 왜 생기는지를 빛을 직접 옮겨 가며 확인한다. 마지막에는 그 연속된 명암을 펜 한 자루로 그릴 수 있는 다섯 단계로 나누는 법을 익힌다.</p>
+    <ul class="objectives">
+      <li>하이라이트·밝은 면·중간톤·명암 경계·반사광·접촉 그림자·투영 그림자를 구 위에서 구별한다.</li>
+      <li>면이 빛을 비스듬히 받을수록 어두워지는 람베르트의 코사인 법칙을 직관으로 이해한다.</li>
+      <li>가장 어두운 곳이 명암 경계 바로 안쪽에 생기는 이유와 반사광이 밝은 면을 넘지 않는 이유를 설명한다.</li>
+      <li>연속된 명암을 빛의 무리와 그림자의 무리로 나누고, 다섯 단계 해칭으로 배분한다.</li>
+      <li>공공 도메인 소묘에서 명암 단계가 쓰인 방식을 읽고, 명암을 쓰지 않는 전통도 함께 본다.</li>
+    </ul>
+  </header>
+
+  <section id="egg">
+    <h2>달걀 하나의 빛</h2>
+    <p><a href="form.html">7장</a>에서 우리는 선만으로 덩어리를 세웠다. 단면선이 표면의 굴곡을 알려 주었지만, 그 덩어리가 어디서 오는 빛을 받고 있는지는 아무것도 말해 주지 않았다. 빛은 형태를 드러내는 또 하나의 길이다. 한 방향에서 오는 빛 아래 놓인 둥근 물체는 거의 언제나 같은 순서의 명암을 보인다. 화가들은 오래전부터 이 순서에 이름을 붙여 왔다. 이름은 교재마다 조금씩 다르지만, 이 책은 다음 일곱 가지로 부른다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" class="art" role="img" aria-label="왼쪽 위에서 빛을 받는 구. 하이라이트, 밝은 면, 중간톤, 명암 경계, 반사광, 접촉 그림자, 투영 그림자의 위치가 표시되어 있다">
+        <defs>
+          <radialGradient id="lt-g-sph" cx="0.5" cy="0.5" r="0.5" fx="0.33" fy="0.3">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="0.12" stop-color="#f3f3f1"/><stop offset="0.45" stop-color="#cfcfcc"/><stop offset="0.7" stop-color="#8d8d8a"/><stop offset="0.82" stop-color="#555553"/><stop offset="0.93" stop-color="#6c6c69"/><stop offset="1" stop-color="#7e7e7b"/>
+          </radialGradient>
+          <radialGradient id="lt-g-cast" cx="0.25" cy="0.5" r="0.75">
+            <stop offset="0" stop-color="#3a3a38"/><stop offset="0.45" stop-color="#626260"/><stop offset="1" stop-color="#8e8e8b"/>
+          </radialGradient>
+          <marker id="lt-mk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"><circle cx="5" cy="5" r="4" fill="#2b2a30"/></marker>
+        </defs>
+        <rect x="0" y="0" width="460" height="300" rx="10" fill="#fbfaf7"/>
+        <rect x="0" y="196" width="460" height="104" fill="#e6e3dc"/>
+        <ellipse cx="282" cy="226" rx="118" ry="22" fill="url(#lt-g-cast)"/>
+        <circle cx="200" cy="140" r="82" fill="url(#lt-g-sph)"/>
+        <ellipse cx="206" cy="221" rx="44" ry="5" fill="#2e2e2c"/>
+        <g stroke="#2b2a30" stroke-width="1" fill="none" marker-end="url(#lt-mk)">
+          <path d="M98 40 L167 104"/><path d="M84 92 L150 120"/><path d="M80 170 L172 158"/>
+          <path d="M370 80 L254 136"/><path d="M380 130 L272 168"/><path d="M90 256 L196 222"/><path d="M398 268 L330 230"/>
+        </g>
+        <g font-size="12" fill="#2b2a30">
+          <text x="20" y="36">① 하이라이트</text><text x="20" y="88">② 밝은 면</text><text x="20" y="166">③ 중간톤</text>
+          <text x="374" y="76">④ 명암 경계</text><text x="384" y="128">⑤ 반사광</text><text x="20" y="262">⑥ 접촉 그림자</text><text x="330" y="284">⑦ 투영 그림자</text>
+        </g>
+        <g stroke="#e0a21b" stroke-width="2" fill="none"><circle cx="40" cy="18" r="0"/></g>
+        <text x="30" y="20" font-size="11" fill="#6b6874">빛 ↘ 왼쪽 위에서</text>
+      </svg>
+      <figcaption><b>그림 1. 구 위의 일곱 가지 명암.</b> ① 하이라이트: 광원이 거울처럼 비친 가장 밝은 점. ② 밝은 면: 빛을 정면으로 받는 면. ③ 중간톤: 빛을 비스듬히 받아 점점 어두워지는 띠. ④ 명암 경계: 빛이 닿는 곳과 닿지 않는 곳의 경계로, 그 바로 안쪽이 가장 어둡다. ⑤ 반사광: 바닥에서 되튄 빛이 그림자 쪽을 조금 밝힌 것. ⑥ 접촉 그림자: 물체가 바닥에 닿는 곳의 가장 짙은 그림자. ⑦ 투영 그림자: 물체가 빛을 가려 바닥에 드리운 그림자. ①~③을 빛의 무리, ④~⑦을 그림자의 무리로 묶는다(5절).</figcaption>
+    </figure>
+
+    <p>이 가운데 ①~③은 빛이 직접 닿는 쪽, ④~⑦은 직접 닿지 않는 쪽에 있다. 둘 사이를 가르는 선이 <span class="term">명암 경계</span><span class="en">(Terminator, Core shadow)</span>다. 영어권 교재는 경계선 자체를 터미네이터, 그 안쪽의 가장 어두운 띠를 코어 섀도라고 나눠 부르기도 한다. 물체 자신의 몸에 생기는 그림자(④⑤)를 <span class="term">고유 그림자</span><span class="en">(Form shadow)</span>, 다른 곳에 드리우는 그림자(⑦)를 <span class="term">투영 그림자</span><span class="en">(Cast shadow)</span>라고 구별하는 것도 중요하다. 둘은 생기는 이유도, 가장자리의 모양도 다르다.</p>
+    <p>이제 빛을 직접 옮겨 본다. 오른쪽 위의 작은 원판은 탁자를 위에서 내려다본 지도다. 원판 위의 해를 끌면 빛의 방향이 바뀐다. 해가 원판 가운데에 가까울수록 높이 떠 있고(머리 위), 가장자리일수록 낮게 깔린다. 원판의 아래쪽은 그림을 보는 사람 쪽이다.</p>
+
+    <div class="sim" id="sim-sphere">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>구에 빛 옮기기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ls-cv" class="art"></canvas><span class="hint">원판 위의 해를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="check"><input type="checkbox" id="ls-lbl" checked> 명암 이름 보기</label>
+          <label class="check"><input type="checkbox" id="ls-term" checked> 명암 경계선 보기</label>
+          <div class="seg" id="ls-pre"><button data-value="side" class="on">옆 위</button><button data-value="front">정면</button><button data-value="back">역광</button><button data-value="top">머리 위</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">빛(방위 · 고도)</span><span class="v" id="ls-o-dir">—</span></div>
+        <div class="stat"><span class="k">구에서 빛의 무리 : 그림자의 무리</span><span class="v" id="ls-o-frac">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "옆 위"에서 일곱 이름을 하나씩 찾는다. 가장 어두운 곳이 구의 오른쪽 가장자리가 아니라 명암 경계(점선) 바로 안쪽의 띠라는 것을 본다. ② "정면"으로 바꾼다. 빛이 보는 사람 뒤에서 오면 그림자의 무리가 거의 사라지고, 구는 밝은 원판처럼 납작해진다. 사진의 플래시 조명이 얼굴을 납작하게 만드는 이유다. ③ "역광"으로 바꾼다. 구의 대부분이 그림자의 무리가 되고 가장자리만 빛난다. 투영 그림자는 보는 사람 쪽으로 길게 온다. ④ 해를 원판 가장자리로 끌어 고도를 5° 가까이 낮춘다. 투영 그림자가 화면 밖까지 길어지며 바닥 전체가 어두워진다. (교육용 광선 추적 모형: 람베르트 직접광, 하늘빛, 바닥 반사광, 근사 차폐, 블린–퐁 하이라이트. 빛의 크기는 각반지름 4°로 두었다.)</div>
+    </div>
+
+    <p>빛이 어디서 오든 명암의 순서는 그대로다. 하이라이트는 언제나 밝은 면 안에, 명암 경계는 밝은 면과 그림자 사이에, 반사광은 그림자 안에, 투영 그림자는 빛의 반대편에 생긴다. 달라지는 것은 각 영역의 <b>넓이와 자리</b>뿐이다. 그래서 명암을 그리는 일은 회색을 하나하나 베끼는 일이 아니라, 빛의 방향을 정하고 그 방향이 만드는 순서를 형태 위에 배치하는 일이다.</p>
+  </section>
+
+  <section id="lambert">
+    <h2>빛을 비스듬히 받으면</h2>
+    <p>밝은 면에서 명암 경계로 갈수록 왜 점점 어두워질까. 답은 빛을 받는 각도에 있다. 손전등을 벽에 정면으로 비추면 작고 밝은 원이 생기고, 비스듬히 비추면 같은 빛이 길쭉하게 퍼지며 흐려진다. 빛의 양은 같은데 받는 넓이가 넓어졌기 때문이다. 둥근 물체의 표면은 곳곳에서 빛을 서로 다른 각도로 받는다. 빛을 정면으로 받는 곳은 빛줄기가 촘촘하게 떨어지고, 비스듬한 곳일수록 성기게 떨어진다.</p>
+    <p>아래 판은 평행한 빛줄기와 판자 하나를 옆에서 본 그림이다. 판자 끝의 손잡이를 끌거나 슬라이더로 판자를 기울인다. 판자에 떨어지는 빛줄기의 수와 그 결과로 생기는 판자의 밝기를 본다.</p>
+
+    <div class="sim" id="sim-cos">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>비스듬할수록 성기게 떨어지는 빛</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="lc-cv"></canvas><span class="hint">판자 끝 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>빛과 면의 법선 사이 각 θ <output id="lc-t-out"></output></span><input type="range" id="lc-t" min="0" max="120" step="1" value="40"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">판자에 떨어지는 빛줄기</span><span class="v" id="lc-o-n">—</span></div>
+        <div class="stat"><span class="k">cos θ (받는 빛의 비율)</span><span class="v" id="lc-o-c">—</span></div>
+        <div class="stat"><span class="k">흰 판자의 명도 L*</span><span class="v" id="lc-o-l">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① θ를 0°로 둔다. 판자가 빛을 정면으로 받아 빛줄기 열두 줄이 모두 떨어진다. ② θ를 60°로 올린다. 같은 판자에 빛줄기가 여섯 줄쯤만 떨어진다. cos 60° = 0.5, 받는 빛이 절반이다. 그런데 명도 L*는 절반으로 떨어지지 않는다. 눈은 빛의 양이 줄어든 것보다 덜 어둡게 느끼기 때문이다. ③ θ를 80°에서 90°로 천천히 올린다. 빛줄기가 판자를 스치듯 지나며 거의 떨어지지 않는다. 이 순간이 명암 경계다. ④ 90°를 넘기면 판자는 빛의 뒤편이 되어 직접광을 전혀 받지 않는다. 여기서부터의 밝기는 주변에서 되튄 빛(이 판에서는 L* 약 33에 해당하는 일정한 환경광)이 정한다. (흰 판자의 반사율 0.85, 직접광 1, 환경광 0.1로 둔 교육용 모형. 명도는 휘도를 CIELAB L*로 바꾼 값이다.)</div>
+    </div>
+
+    <p>판자가 기울어지는 만큼 빛줄기의 간격이 벌어지고, 받는 빛은 기울기의 코사인에 비례해 줄어든다. 18세기 스위스 출신의 수학자 요한 하인리히 람베르트<span class="en">(Johann Heinrich Lambert)</span>가 1760년의 책 『광도 측정』<span class="en">(Photometria)</span>에서 정리한 관계라서 <span class="term">람베르트의 코사인 법칙</span><span class="en">(Lambert's cosine law)</span>이라고 부른다. 종이, 석고, 무광 도자기처럼 빛을 사방으로 고르게 흩뜨리는 표면은 어느 방향에서 보아도 같은 밝기로 보이고, 그 밝기는 빛을 받는 각도만으로 정해진다.</p>
+
+    <div class="formula">$$I = \rho \, E \, \max(0,\ \cos\theta)$$<div class="where">\(I\): 표면이 내보내는 밝기, \(\rho\): 표면의 반사율(흰 종이 약 0.8~0.9, 검은 천 0.05 안팎), \(E\): 빛의 세기, \(\theta\): 빛의 방향과 면의 법선(면에 수직인 방향) 사이의 각. \(\theta\)가 90°를 넘으면 직접광은 0이 된다. 이 장의 시뮬레이터는 여기에 하늘빛과 바닥 반사광을 더한 교육용 근사다.</div></div>
+
+    <p>이 식을 구에 적용하면 일곱 가지 명암 가운데 세 가지가 저절로 나온다. 빛을 정면으로 받는 곳(θ = 0°)이 밝은 면, 거기서 멀어질수록 cos θ가 줄어드는 넓은 띠가 중간톤, cos θ가 0이 되는 선이 명암 경계다. 명암 경계가 매끈한 곡선이 아니라 형태의 굴곡을 따라 들쭉날쭉해진다는 것도 이 식에서 나온다. 면의 기울기가 조금만 바뀌어도 θ가 90°를 넘나들기 때문이다. 그래서 명암 경계는 형태를 가장 예민하게 드러내는 선이다.</p>
+
+    <div class="callout deep">
+      <strong>하이라이트는 다른 법칙을 따른다</strong>
+      람베르트의 법칙은 빛을 고르게 흩뜨리는 표면의 이야기다. 하이라이트는 표면이 거울처럼 광원을 비춘 것이라서, 빛의 방향뿐 아니라 <b>보는 사람의 자리</b>에 따라 움직인다. 같은 사과를 보며 고개를 옆으로 옮기면 하이라이트가 따라 미끄러지지만, 중간톤과 명암 경계는 제자리에 있다. 광택이 강한 물체(유리, 금속, 유약 바른 도자기)는 하이라이트가 작고 선명하며, 무광 물체(석고, 종이, 감자)는 하이라이트가 거의 없다. 이 장의 시뮬레이터는 하이라이트를 컴퓨터 그래픽에서 흔히 쓰는 블린–퐁 근사로 그렸다.
+    </div>
+  </section>
+
+  <section id="terminator">
+    <h2>명암 경계와 반사광</h2>
+    <p>이제 그림자 쪽을 본다. 직접광이 닿지 않으니 그림자 쪽은 완전히 깜깜해야 할 것 같지만, 실제로는 바닥·벽·주변 물건에서 되튄 빛이 그림자 안으로 들어온다. 이 빛이 <span class="term">반사광</span><span class="en">(Reflected light)</span>이다. 반사광은 그림자 쪽 가운데서도 바닥이나 밝은 벽을 마주한 곳에 가장 많이 들어온다. 반대로 명암 경계 바로 안쪽은 직접광은 이미 끊겼는데 바닥을 아직 충분히 마주하지 않아 반사광도 적게 받는다. 그래서 그곳이 가장 어둡다. 화가들이 "명암 경계가 가장 짙다"고 말하는 까닭이다.</p>
+    <p>아래 시뮬레이터 아래쪽 그래프는 구의 한가운데를 가로로 지나며 잰 명도다. 바닥의 반사율과 빛의 크기를 바꾸고, 그림자 쪽에 흰 반사판을 세워 본다.</p>
+
+    <div class="sim" id="sim-bounce">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>가장 어두운 곳은 경계 바로 안쪽</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="lb-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>바닥의 반사율 <output id="lb-g-out"></output></span><input type="range" id="lb-g" min="0.05" max="0.95" step="0.05" value="0.6"></label>
+          <label class="ctrl"><span>빛의 크기(각반지름) <output id="lb-s-out"></output></span><input type="range" id="lb-s" min="0" max="20" step="1" value="3"></label>
+          <label class="check"><input type="checkbox" id="lb-card"> 그림자 쪽에 흰 반사판 세우기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">중간톤 L*</span><span class="v" id="lb-o-h">—</span></div>
+        <div class="stat"><span class="k">가장 어두운 곳 L*</span><span class="v" id="lb-o-d">—</span></div>
+        <div class="stat"><span class="k">반사광 L*</span><span class="v" id="lb-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태에서 그래프를 본다. 명암 경계(세로 점선)를 지나 조금 들어간 곳에 골짜기가 있고, 오른쪽 가장자리로 가며 반사광 때문에 다시 올라온다. ② 바닥의 반사율을 0.05(검은 천)로 내린다. 반사광이 사라져 골짜기가 가장자리까지 이어진다. 가장 어두운 곳이 경계 안쪽에 생기는 것은 반사광 때문이다. ③ 반사율을 0.95로 올리고 반사판까지 세운다. 반사광이 중간톤에 바짝 다가가거나 넘어선다. 이렇게 되면 구가 속이 빈 유리처럼 보이며 형태가 무너진다. 판정이 붉게 바뀐다. ④ 빛의 크기를 20°로 키운다. 큰 창이나 흐린 하늘처럼 큰 빛은 명암 경계를 넓고 부드럽게 퍼뜨린다. 작은 전구는 날카로운 경계를 만든다. (교육용 모형. 바닥 반사광은 무한히 넓은 밝은 바닥을 가정한 값의 절반으로 줄였다. 반사판은 화면 밖 오른쪽의 흰 판이다.)</div>
+    </div>
+
+    <p>반사광은 그림자를 살아 있게 만들지만, 너무 밝게 그리면 형태가 무너진다. 실제 장면에서 반사광은 대개 밝은 면은 물론 중간톤보다도 어둡다. 반사광은 이미 한 번 바닥에서 흩어지며 약해진 빛이기 때문이다. 시뮬레이터에서 반사판까지 세워 억지로 밝혀도 반사광이 밝은 면을 넘지는 못했다. 반사광은 그림자의 무리 안에서만 밝다.</p>
+
+    <div class="callout warn">
+      <strong>반사광을 과장하는 실수</strong>
+      명암을 처음 배우면 반사광을 발견한 기쁨에 그림자 쪽 가장자리를 하얗게 남기는 경우가 많다. 그러면 구가 둥근 공이 아니라 테두리가 빛나는 원반이나 속이 빈 유리구슬처럼 보인다. 점검법은 간단하다. 눈을 가늘게 뜨고 그림을 볼 때 그림자 쪽 전체가 하나의 어두운 덩어리로 묶여 보여야 한다. 반사광 자리가 밝은 면과 한 덩어리로 묶여 보인다면 반사광이 너무 밝은 것이다. 반사광은 "그림자 안에서 조금 덜 어두운 곳" 정도로 둔다.
+    </div>
+
+    <div class="callout studio">
+      <strong>가장자리를 세 종류로 나눈다</strong>
+      명암의 가장자리는 모두 같지 않다. 명암 경계는 둥근 물체에서는 부드럽게, 각진 물체(상자의 모서리)에서는 날카롭게 생긴다. 투영 그림자의 가장자리는 물체에 닿은 곳에서 날카롭고 멀어질수록 흐려진다. 많은 화가가 가장자리를 날카로운 가장자리<span class="en">(Hard edge)</span>, 부드러운 가장자리<span class="en">(Soft edge)</span>, 아예 바탕에 녹아 사라지는 가장자리<span class="en">(Lost edge)</span> 세 가지로 나눠 의식적으로 고른다. 펜 드로잉이라면 날카로운 가장자리는 해칭을 한 선에서 딱 멈추고, 부드러운 가장자리는 해칭의 길이를 들쭉날쭉하게 끝내며, 사라지는 가장자리는 해칭을 점점 성기게 하다 끊는다.
+    </div>
+  </section>
+
+  <section id="cast">
+    <h2>접촉 그림자와 투영 그림자</h2>
+    <p>물체가 바닥에 드리우는 투영 그림자는 물체의 무게와 자리를 알려 준다. 투영 그림자가 없으면 물체는 바닥 위에 떠 보이고, 그림자가 물체와 떨어져 있으면 물체가 공중에 떠 있는 것처럼 보인다. 투영 그림자 가운데서도 물체가 바닥에 닿는 바로 그 자리는 특별히 짙다. 이곳을 <span class="term">접촉 그림자</span><span class="en">(Contact shadow, Occlusion shadow)</span>라고 부른다. 직접광뿐 아니라 하늘빛과 반사광까지 물체가 거의 다 가려 버리기 때문이다.</p>
+    <p>투영 그림자의 정확한 모양과 길이를 기하학으로 그리는 방법은 <a href="shadow.html">9장</a>에서 자세히 다룬다. 여기서는 명암의 단계 안에서 투영 그림자가 어떤 자리를 차지하는지만 본다. 물체를 고르고 빛의 고도를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-cast">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>접촉 그림자는 가장 짙고, 그림자 끝은 흐리다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="lk-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="lk-obj"><button data-value="cyl" class="on">원통</button><button data-value="box">상자</button><button data-value="sph">구</button></div>
+          <label class="ctrl"><span>빛의 고도 <output id="lk-e-out"></output></span><input type="range" id="lk-e" min="6" max="80" step="1" value="35"></label>
+          <label class="check"><input type="checkbox" id="lk-soft" checked> 큰 빛(창문, 각반지름 8°)</label>
+          <label class="check"><input type="checkbox" id="lk-guide" checked> 그림자 끝 찾는 선</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">그림자 길이 ÷ 물체 높이</span><span class="v" id="lk-o-len">—</span></div>
+        <div class="stat"><span class="k">접촉 그림자 L*</span><span class="v" id="lk-o-near">—</span></div>
+        <div class="stat"><span class="k">그림자 끝 쪽 L*</span><span class="v" id="lk-o-far">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 원통에서 그림자 끝 찾는 선을 본다. 물체 꼭대기를 지나는 빛줄기가 바닥에 닿는 점(이 책 엔진의 ART.shadowPoint)이 그림자의 끝이다. 고도 35°에서 그림자 길이는 높이의 약 1.4배다. ② 고도를 80°로 올린다. 그림자가 발밑으로 오그라들며 거의 접촉 그림자만 남는다. 한낮의 그림자다. ③ 고도를 6°까지 내린다. 그림자가 높이의 9배 넘게 길어진다. 해 질 녘의 그림자다. ④ 접촉 그림자와 그림자 끝의 L*를 비교한다. 큰 빛에서는 그림자 끝이 흐려지며 바닥 색에 가까워진다. "큰 빛"을 끄면 그림자 끝도 날카롭고 짙어진다. (교육용 광선 추적 모형. 차폐는 물체를 구 몇 개로 근사했다. 빛의 방위는 왼쪽 앞 20°로 고정했다.)</div>
+    </div>
+
+    <p>투영 그림자는 대개 물체의 고유 그림자보다 짙다. 고유 그림자에는 바닥에서 되튄 반사광이 들어오지만, 투영 그림자가 드리운 바닥은 바로 위에 물체가 있어 하늘빛과 주변 빛의 일부를 가려 버리기 때문이다. 특히 물체 바로 아래의 접촉 그림자는 장면 전체에서 가장 어두운 곳이 되기 쉽다. 그래서 명암을 단계로 나눌 때 접촉 그림자는 명암 경계와 함께 가장 짙은 단계에 넣는다.</p>
+  </section>
+
+  <section id="families">
+    <h2>빛의 무리와 그림자의 무리</h2>
+    <p>지금까지 본 일곱 가지 명암은 실제로는 끊김 없이 이어진 회색이다. 연필로 문지르거나 물감으로 번지게 칠하면 그 연속을 그대로 흉내 낼 수 있다. 그러나 펜 한 자루로 그리는 드로잉은 다르다. 펜 선은 진하기가 하나뿐이라서 명암을 <a href="line.html">3장</a>에서 본 해칭의 밀도, 곧 몇 개의 단계로 나눠야 한다. 이때 가장 중요한 규칙은 연속된 명암을 먼저 <b>두 무리</b>로 크게 나누는 것이다.</p>
+    <p>빛이 직접 닿는 영역(하이라이트·밝은 면·중간톤)을 <span class="term">빛의 무리</span><span class="en">(Light family)</span>, 직접 닿지 않는 영역(명암 경계·반사광·접촉 그림자·투영 그림자)을 <span class="term">그림자의 무리</span><span class="en">(Shadow family)</span>라고 한다. 규칙은 하나다. <b>그림자의 무리에서 가장 밝은 곳(반사광)도 빛의 무리에서 가장 어두운 곳(중간톤의 끝)보다 어둡게 둔다.</b> 두 무리의 명도가 겹치지 않아야 빛의 방향이 한눈에 읽힌다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" class="art" role="img" aria-label="명도 다섯 단계와 빛의 무리, 그림자의 무리. 1단계 하이라이트, 2단계 밝은 면, 3단계 중간톤은 빛의 무리, 4단계 반사광과 투영 그림자, 5단계 명암 경계와 접촉 그림자는 그림자의 무리">
+        <defs>
+          <pattern id="lt-h2" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#fbfaf7"/><line x1="0" y1="0" x2="0" y2="9" stroke="#2b2a30" stroke-width="1"/></pattern>
+          <pattern id="lt-h3" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#fbfaf7"/><line x1="0" y1="0" x2="0" y2="5" stroke="#2b2a30" stroke-width="1"/></pattern>
+          <pattern id="lt-h4" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#fbfaf7"/><line x1="0" y1="0" x2="0" y2="5" stroke="#2b2a30" stroke-width="1.1"/><line x1="0" y1="0" x2="5" y2="0" stroke="#2b2a30" stroke-width="0.9"/></pattern>
+          <pattern id="lt-h5" width="3.6" height="3.6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3.6" height="3.6" fill="#fbfaf7"/><line x1="0" y1="0" x2="0" y2="3.6" stroke="#2b2a30" stroke-width="1.3"/><line x1="0" y1="0" x2="3.6" y2="0" stroke="#2b2a30" stroke-width="1.3"/></pattern>
+        </defs>
+        <rect x="0" y="0" width="460" height="250" rx="10" fill="#fbfaf7"/>
+        <g font-size="11" fill="#6b6874" text-anchor="middle"><text x="70" y="22">연필·물감</text><text x="70" y="100">펜 해칭</text></g>
+        <g stroke="#c9c5bc" stroke-width="1">
+          <rect x="120" y="10" width="64" height="44" fill="#f4f4f2"/><rect x="184" y="10" width="64" height="44" fill="#c6c6c3"/><rect x="248" y="10" width="64" height="44" fill="#949491"/><rect x="312" y="10" width="64" height="44" fill="#636361"/><rect x="376" y="10" width="64" height="44" fill="#3a3a38"/>
+          <rect x="120" y="70" width="64" height="58" fill="#fbfaf7"/><rect x="184" y="70" width="64" height="58" fill="url(#lt-h2)"/><rect x="248" y="70" width="64" height="58" fill="url(#lt-h3)"/><rect x="312" y="70" width="64" height="58" fill="url(#lt-h4)"/><rect x="376" y="70" width="64" height="58" fill="url(#lt-h5)"/>
+        </g>
+        <g font-size="12" fill="#2b2a30" text-anchor="middle" font-family="JetBrains Mono, monospace"><text x="152" y="146">1</text><text x="216" y="146">2</text><text x="280" y="146">3</text><text x="344" y="146">4</text><text x="408" y="146">5</text></g>
+        <g font-size="10.5" fill="#2b2a30" text-anchor="middle">
+          <text x="152" y="164">하이라이트</text><text x="216" y="164">밝은 면</text><text x="280" y="164">중간톤</text><text x="344" y="164">반사광</text><text x="408" y="164">명암 경계</text>
+          <text x="344" y="178">투영 그림자</text><text x="408" y="178">접촉 그림자</text>
+        </g>
+        <g fill="none" stroke="#2b2a30" stroke-width="1.2"><path d="M122 196 L122 204 L310 204 L310 196"/><path d="M314 196 L314 204 L438 204 L438 196"/></g>
+        <text x="216" y="224" font-size="12" fill="#2b2a30" text-anchor="middle">빛의 무리 (1 · 2 · 3)</text>
+        <text x="376" y="224" font-size="12" fill="#2b2a30" text-anchor="middle">그림자의 무리 (4 · 5)</text>
+        <text x="312" y="242" font-size="10.5" fill="#6b6874" text-anchor="middle">← 두 무리의 명도는 겹치지 않는다 →</text>
+      </svg>
+      <figcaption><b>그림 2. 다섯 단계와 두 무리.</b> 위 줄은 연속된 명도를 다섯 칸으로 줄인 것, 아래 줄은 같은 다섯 단계를 펜 해칭으로 옮긴 예다(1단계는 종이를 그대로 남긴다). 반사광은 그림자의 무리 안에서 가장 밝은 4단계에, 명암 경계와 접촉 그림자는 가장 짙은 5단계에 둔다. 해칭의 실제 간격과 굵기는 그리는 사람과 인쇄 크기에 따라 정한다.</figcaption>
+    </figure>
+
+    <p>단계를 나누는 방법에 따라 무엇이 달라지는지 비교해 본다. "명도로 나누기"는 장면의 명도 범위를 같은 간격의 다섯 칸으로 기계적으로 자른다. "무리로 나누기"는 먼저 빛이 닿는지로 두 무리를 가르고, 그 안에서 단계를 정한다. 경계선을 좌우로 끌어 연속 명암(왼쪽)과 비교하고, 반사광의 세기를 올려 본다.</p>
+
+    <div class="sim" id="sim-steps">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>다섯 단계로 줄이기: 명도로, 무리로</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <div class="compare" id="lq-cmp">
+            <div class="cmp-a"><canvas id="lq-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="lq-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="lq-mode"><button data-value="value" class="on">명도로 나누기</button><button data-value="family">무리로 나누기</button></div>
+          <label class="ctrl"><span>반사광의 세기 <output id="lq-b-out"></output></span><input type="range" id="lq-b" min="0" max="2.4" step="0.1" value="0.5"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">구의 반사광 → 단계</span><span class="v" id="lq-o-r">—</span></div>
+        <div class="stat"><span class="k">구의 중간톤 끝 → 단계</span><span class="v" id="lq-o-h">—</span></div>
+        <div class="stat"><span class="k">두 무리</span><span class="v" id="lq-o-ok">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "명도로 나누기"에서 반사광의 세기를 0.5에 둔다. 다섯 단계가 그럭저럭 맞는다. ② 반사광을 1.8 이상으로 올린다. 반사광 자리의 명도가 중간톤 끝과 같은 칸으로 올라가며, 그림자 쪽 가장자리가 빛의 무리와 한 덩어리가 된다. 구가 둥글지 않고 겹겹의 띠처럼 보인다. ③ "무리로 나누기"로 바꾼다. 반사광이 아무리 세도 4단계에 머물고, 명암 경계와 접촉 그림자는 5단계로 묶인다. ④ 반사광을 0으로 내려 본다. 두 방법의 차이가 다시 줄어든다. 단계를 명도만으로 나누면 장면의 조건에 따라 무리가 섞일 수 있다. (명도로 나누기는 물체 면 명도 범위를 같은 간격 다섯 칸으로 나눴다. 무리로 나누기는 직접광의 유무와 영역으로 단계를 정했다. 바닥과 벽은 두 방법 모두 명도로 나눴다.)</div>
+    </div>
+
+    <p>"무리로 나누기"가 언제나 옳은 것은 아니다. 실제 장면에서 반사광이 중간톤보다 밝은 경우도 드물게 있다. 아주 밝은 바닥 위의 짙은 색 물체, 강한 반사판을 쓴 사진 촬영이 그렇다. 하지만 그림에서 그 상태를 그대로 옮기면 빛의 방향이 흐려진다. 많은 화가가 실제보다 반사광을 조금 누르고, 두 무리 사이의 간격을 실제보다 조금 벌린다. 관찰한 것을 그대로 옮기는 일과 형태가 읽히게 정리하는 일 사이에서 고르는 것, 그것이 명암을 "그린다"는 말의 뜻이다.</p>
+
+    <div class="callout studio">
+      <strong>두 번에 나눠 칠한다</strong>
+      펜이나 수채로 명암을 넣을 때 많은 사람이 쓰는 순서가 있다. 먼저 그림자의 무리 전체를 같은 진하기(4단계)로 한 번에 덮는다. 고유 그림자, 투영 그림자, 반사광 자리까지 모두다. 이 단계에서 그림은 밝은 종이와 어두운 그림자의 두 덩어리, 곧 노탄(<a href="../../color/chapters/value.html">ColorBook 6장</a>)이 된다. 그다음 명암 경계와 접촉 그림자에만 한 번 더 겹쳐 5단계를 만들고, 마지막으로 빛의 무리 안에 중간톤(3단계)과 밝은 면(2단계)을 가볍게 넣는다. 하이라이트는 처음부터 손대지 않고 종이로 남긴다. 순서를 이렇게 두면 반사광이 저절로 그림자의 무리 안에 머문다.
+    </div>
+  </section>
+
+  <section id="works">
+    <h2>작품 속 명암의 단계</h2>
+    <p>명암의 단계는 재료에 따라 다른 모습으로 나타난다. 프랑스 화가 피에르 폴 프뤼동<span class="en">(Pierre Paul Prud'hon)</span>의 천 습작은 그 구조를 가장 노골적으로 보여 준다. 그는 푸른 색지 위에 검은 분필과 흰 분필, 두 가지로만 그렸다.</p>
+
+    <figure class="art-figure" id="fig-prudhon">
+      <div class="art-frame"><img src="../../shared/img/prudhon-drapery-study.webp" width="1600" height="1342" alt="프뤼동의 천 습작. 푸른 회색 종이 위에 검은 분필과 흰 분필로 무릎 위에 걸쳐 흘러내리는 듯한 천의 주름을 그렸다. 주름의 윗면은 흰 분필로 밝게, 주름 사이의 골은 검은 분필로 짙게 칠했고, 그 사이는 종이 색이 그대로 보인다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 피에르 폴 프뤼동, 「천 습작」, 1813년경.</b> 푸른 종이의 색이 그대로 중간톤 노릇을 한다. 빛을 받는 주름의 등에는 흰 분필을, 명암 경계와 주름 사이의 골에는 검은 분필을 얹었다. 흰 분필은 빛의 무리 안에서만, 검은 분필은 그림자의 무리 안에서만 쓰였고, 두 재료가 같은 자리에서 섞이는 일이 거의 없다. 명암 경계를 따라 검은 분필이 가장 짙게 모여 있는 것도 보인다.<span class="credit">메트로폴리탄 미술관 소장(Purchase, Guy Wildenstein Gift, 2008), 푸른 종이에 검은 분필과 흰 분필, 찰필 문지르기, 검은 분필로 그린 격자 일부. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/376657">소장처 작품 페이지</a> · <a href="../../credits.html#prudhon-drapery-study">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>색지에 흰색과 검은색으로 그리는 방법은 르네상스 이후 유럽 화실에서 오래 쓰였다. 종이가 중간톤을 맡으므로 화가는 가장 밝은 단계와 가장 어두운 단계만 그리면 된다. 세 단계짜리 명암 체계를 재료로 미리 정해 둔 셈이다. 이 장에서 나눈 다섯 단계에 대 보면, 흰 분필이 1~2단계, 종이가 3단계, 옅게 문지른 검은 분필이 4단계, 짙게 누른 검은 분필이 5단계를 맡는다.</p>
+    <p>같은 시대의 다른 한쪽 끝에는 윤곽선이 하나도 없는 명암 드로잉이 있다. 조르주 쇠라<span class="en">(Georges Seurat)</span>는 20대 초반에 결이 거친 종이 위에 콩테 크레용으로 명암만으로 된 소묘를 많이 남겼다.</p>
+
+    <figure class="art-figure" id="fig-seurat">
+      <div class="art-frame" style="max-width:420px;margin:0 auto"><img src="../../shared/img/seurat-aman-jean.webp" width="1225" height="1600" alt="쇠라의 콩테 크레용 초상. 어두운 배경 속에서 옆모습의 남자가 오른쪽을 향해 앉아 붓을 쥐고 있다. 얼굴과 흰 셔츠 깃, 손만 밝게 떠오르고, 검은 옷과 배경은 거친 종이 결이 드러난 짙은 회색으로 이어진다. 윤곽선은 없고 명암의 차이만으로 형태가 보인다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 4. 조르주 쇠라, 「아망장(에드몽 프랑수아 아망장의 초상)」, 1882~83.</b> 선은 하나도 없고 명암의 넓은 덩어리만 있다. 얼굴의 밝은 면과 배경이 만나는 이마와 코끝은 날카로운 가장자리로, 검은 옷과 배경이 만나는 등은 거의 녹아 사라지는 가장자리로 그렸다. 머리 뒤의 배경은 얼굴 가까이에서 조금 밝아지고, 짙은 옷 둘레에서는 조금 어두워진다. 이웃한 덩어리와 대비를 키우려 바탕의 명도를 일부러 바꾼 것이다. 명암의 단계는 물체 위에서만이 아니라 그 둘레와의 관계에서 정해진다.<span class="credit">메트로폴리탄 미술관 소장(Bequest of Stephen C. Clark, 1960), 미샬레 종이에 콩테 크레용. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/339751">소장처 작품 페이지</a> · <a href="../../credits.html#seurat-aman-jean">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>그러나 명암의 단계로 형태를 세우는 방식이 그림의 보편 법칙은 아니다. 동아시아의 전통 회화는 대체로 한 방향의 광원과 그 투영 그림자를 그리지 않았다. 인물의 얼굴과 옷은 선의 굵기와 먹·채색의 농담으로 세웠고, 그림자는 그림 속에 들어와야 할 대상으로 여겨지지 않았다. 조선에서는 18세기 무렵 청나라를 거쳐 들어온 서양 화법의 영향으로 일부 초상화의 얼굴에 음영이 들어가고, 책가도 같은 그림에 선 원근과 명암이 쓰이기도 했다. 이것도 전통 전체를 바꾸기보다 기존의 필선 위에 음영을 조금 얹는 방식이었다. 빛과 그림자로 입체를 세우는 일은 강력한 도구이지만, 하나의 선택이라는 점을 기억해 둔다. 이 책의 <a href="landscape.html">10장</a>에서는 같은 동아시아 회화가 대기와 거리를 어떻게 먹의 농담으로 그렸는지 본다.</p>
+  </section>
+
+  <section id="direction">
+    <h2>빛의 방향 고르기</h2>
+    <p>같은 물체라도 빛의 방향에 따라 전혀 다른 그림이 된다. 화실과 사진 스튜디오에서 흔히 쓰는 몇 가지 방향을 정리하면 다음과 같다.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>빛의 방향</th><th>명암의 모습</th><th>쓰임과 인상</th></tr></thead>
+      <tbody>
+        <tr><td>정면(보는 사람 뒤)</td><td>그림자의 무리가 거의 없음, 윤곽만 남음</td><td>납작하고 평면적. 형태보다 무늬·색을 보여 줄 때</td></tr>
+        <tr><td>옆 앞 위(약 30~45°)</td><td>빛과 그림자가 고르게 나뉨, 일곱 명암이 다 보임</td><td>형태를 설명하는 기본 조명. 정물·석고 소묘의 표준</td></tr>
+        <tr><td>정측면</td><td>물체가 반씩 밝고 어두움, 명암 경계가 가운데</td><td>극적이고 단단함. 질감이 강하게 드러남</td></tr>
+        <tr><td>역광(물체 뒤)</td><td>대부분 그림자의 무리, 가장자리만 빛남</td><td>실루엣과 분위기. 형태의 세부는 숨음</td></tr>
+        <tr><td>머리 위</td><td>윗면만 밝고 짧은 그림자가 발밑에</td><td>한낮의 바깥, 실내 천장 조명</td></tr>
+        <tr><td>아래에서</td><td>평소와 반대로 아랫면이 밝음</td><td>낯설고 불안한 인상(일상에서 드문 빛이라서)</td></tr>
+      </tbody>
+    </table></div>
+    <p>표의 "인상"은 경향이지 규칙이 아니다. 역광으로 그린 따뜻한 오후 장면도, 정면광으로 그린 단단한 정물도 얼마든지 있다. 기준은 "무엇을 보여 주려는가"다. 형태와 구조를 설명하는 것이 목적이라면 옆 앞 위의 빛이 가장 많은 정보를 주고, 분위기나 시간대를 전하는 것이 목적이라면 다른 방향이 더 맞을 수 있다.</p>
+
+    <div class="callout try">
+      <strong>달걀 하나, 스탠드 하나</strong>
+      흰 종이 위에 흰 달걀(또는 탁구공)을 놓고 방의 다른 불을 끈 뒤 스탠드 하나만 켠다. 스탠드를 옆 앞 위 45° 근처에 두고, 엽서만 한 종이에 연필로 일곱 가지 명암의 자리를 먼저 선으로 표시한다(명암 경계와 투영 그림자의 윤곽). 그다음 그림자의 무리 전체를 한 진하기로 덮고, 명암 경계와 접촉 그림자를 한 번 더 겹쳐 칠하고, 마지막에 중간톤을 넣는다. 하이라이트는 종이를 남긴다. 다 그리면 달걀 오른쪽에 흰 종이를 세워 반사광이 어떻게 바뀌는지 보고, 검은 천으로 바꿔 다시 본다. 같은 달걀을 스탠드를 정면, 역광, 머리 위로 옮겨 세 장 더 그리면 이 장의 표를 직접 확인할 수 있다.
+    </div>
+  </section>
+
+  <section id="plan">
+    <h2>창가 정물의 명암 설계</h2>
+    <p>마지막 시뮬레이터는 이 장의 도구를 모아 창가의 정물(컵, 화분, 책 한 권)에 빛을 들이고 명암을 다섯 단계로 배분한다. 오른쪽 위 원판의 해를 끌어 창빛의 방향을 정하고, 창의 크기로 그림자 가장자리의 부드러움을 정한다. 보기 방식을 "다섯 단계"와 "해칭"으로 바꿔 펜 그림으로 어떻게 옮겨질지 미리 본다.</p>
+
+    <div class="sim" id="sim-plan">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>창가 정물 명암 설계기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="lp-cv" class="art"></canvas><span class="hint">원판 위의 해를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="lp-mode"><button data-value="cont">연속 명암</button><button data-value="step" class="on">다섯 단계</button><button data-value="hatch">해칭</button></div>
+          <label class="ctrl"><span>창의 크기(빛의 각반지름) <output id="lp-s-out"></output></span><input type="range" id="lp-s" min="0" max="16" step="1" value="8"></label>
+          <label class="check"><input type="checkbox" id="lp-leg" checked> 단계 범례</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">빛(방위 · 고도)</span><span class="v" id="lp-o-dir">—</span></div>
+        <div class="stat"><span class="k">정물 면의 단계별 넓이 1 · 2 · 3 · 4 · 5</span><span class="v" id="lp-o-area">—</span></div>
+        <div class="stat"><span class="k">그림자의 무리(4 · 5)</span><span class="v" id="lp-o-sh">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태는 왼쪽 앞 위(방위 30°, 고도 35°)의 창빛이다. 세 물체 모두 왼쪽이 빛의 무리, 오른쪽이 그림자의 무리로 갈리고, 투영 그림자는 오른쪽 뒤로 간다. ② 해를 원판 아래쪽(보는 사람 쪽) 가운데로 끈다. 그림자의 무리가 거의 사라지며 단계가 1~3만 남는다. 정물이 납작해진다. ③ 해를 원판 위쪽(창이 정물 뒤에 있는 역광)으로 끈다. 그림자의 무리가 절반을 넘고, 컵의 윗면과 가장자리만 빛난다. ④ "해칭"으로 바꾸고 창의 크기를 0과 16 사이에서 움직인다. 작은 빛은 그림자 가장자리의 해칭을 칼처럼 끊고, 큰 창빛은 단계의 경계를 넓게 흩어 놓는다. (교육용 광선 추적 모형. 단계는 영역으로 정했다: 하이라이트 1, 밝은 면 2, 중간톤 3, 반사광·투영 그림자 4, 명암 경계·접촉 그림자 5. 넓이는 컵·화분·책의 보이는 면만 센 값이다. 해칭 간격은 화면용 예시다.)</div>
+    </div>
+
+    <p>빛의 방향을 고르는 일은 정물 전체의 명암 구조를 고르는 일이다. 같은 컵과 화분이라도 빛이 바뀌면 그림자의 무리가 차지하는 넓이가 열 배 가까이 달라진다. 그리고 이 넓이가 그림의 인상을 크게 정한다. 그림자의 무리가 넓으면 무겁고 조용한 그림, 좁으면 밝고 가벼운 그림이 된다. ColorBook <a href="../../color/chapters/value.html">6장</a>에서 본 하이 키와 로 키의 구분이 여기서도 그대로 통한다. 명암의 단계는 형태를 설명하는 도구이면서, 동시에 그림 전체의 명도 구조를 짜는 도구다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 8장</span></div>
+      <h4>반사광을 너무 사랑한 컵</h4>
+      <p>소품 세 가지의 구조 스케치를 끝낸 주, 서윤은 「골목 산책」 가운데 창가의 정물 그림으로 돌아왔다. 2장에서 재며 그린 컵과 화분 옆에 주인이 읽다 둔 책 한 권을 더 놓았다. 토요일 오후, 서점 2층 창으로 들어오는 빛 아래서 펜으로 명암을 넣었는데 결과가 이상했다. 컵 오른쪽의 그림자 가장자리를 반사광이라며 하얗게 남겼더니 컵이 테두리만 빛나는 유리컵처럼 보였고, 화분은 밝은 면과 그림자에 똑같은 간격의 해칭을 넣어 어디서 빛이 오는지 알 수 없었다.</p>
+      <p>도경은 연필로 컵 옆에 작은 노트를 그렸다. 컵의 왼쪽은 종이로 남기고, 오른쪽 그림자 전체를 한 진하기로 한 번에 덮은 그림이었다. "먼저 두 덩어리로. 반사광은 그다음에 그림자 안에서 조금 덜 칠하는 거야." 두 사람은 창 앞에 서서 빛의 방향부터 정했다. 창은 정물의 왼쪽에 있고 오후 해가 조금 앞쪽에서 들어온다. 서윤은 휴대폰 나침반 대신 연필 한 자루를 탁자에 세워 그림자를 보고, 빛을 "왼쪽에서 보는 사람 쪽으로 30° 돌아온 방향(방위 30°), 높이 35°"로 기록했다. 연필 그림자의 길이가 연필 높이의 1.4배쯤이었으니 tan 35° ≈ 0.70과 맞았다. 창 크기는 이 장의 시뮬레이터에서 각반지름 8°로 두었다.</p>
+      <p>이 조건을 이 장의 정물 시뮬레이터에 넣고 영역별 단계를 세어 보니, 컵·화분·책의 보이는 면 가운데 1단계(하이라이트)가 거의 0%, 2단계(밝은 면) 약 51%, 3단계(중간톤) 약 21%, 4단계(반사광·투영 그림자) 약 17%, 5단계(명암 경계·접촉 그림자) 약 11%였다. 그림자의 무리는 약 28%다. 서윤은 이 비율을 그대로 따르기보다, 컵의 하이라이트를 작게 하나 남기고(유약 바른 컵이라 실제로 보였다) 3장에서 만든 다섯 단계 해칭표의 번호를 그림 위에 연필로 먼저 적었다. 반사광 자리에는 "4", 명암 경계와 컵이 탁자에 닿는 곳에는 "5". 그다음 4단계로 그림자의 무리를 한 번에 덮고, 5단계를 겹쳤다. 컵은 다시 무거워졌다. 도경은 대신 서윤에게서 휴대폰 사진의 노출을 낮춰 하이라이트와 반사광을 비교해 보는 법을 배웠다. "반사광이 정말로 중간톤보다 어둡네. 40년 동안 말로만 가르쳤어."</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>창가 정물의 빛: 왼쪽 앞 위, 방위 30°(왼쪽에서 보는 사람 쪽으로), 고도 35°, 창의 각반지름 약 8°의 부드러운 빛. 명암 다섯 단계 배분: 1 하이라이트(종이, 컵에 하나만), 2 밝은 면, 3 중간톤, 4 반사광·투영 그림자(그림자의 무리 바탕), 5 명암 경계·접촉 그림자. 반사광은 4단계를 넘지 않는다. 시뮬레이터로 센 면적은 2단계 약 51%, 3단계 약 21%, 4단계 약 17%, 5단계 약 11%(그림자의 무리 약 28%). 칠하는 순서는 그림자의 무리 전체(4) → 5 겹치기 → 3 → 2.</div>
+        <div><b>아직 남은 문제</b>실내 정물은 창 하나로 정리되지만, 서점 외관 그림은 해가 움직인다. 처마와 간판의 그림자가 어느 쪽으로, 얼마나 길게 떨어져야 하는지는 아직 감으로 그리고 있다.</div>
+        <div><b>다음 단계</b><a href="shadow.html">9장</a>: 해의 고도와 방위로 외관의 그림자를 기하학으로 투영한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>한 방향의 빛 아래 둥근 물체에는 하이라이트·밝은 면·중간톤·명암 경계·반사광·접촉 그림자·투영 그림자의 순서가 생긴다. 빛이 바뀌면 각 영역의 넓이와 자리만 바뀐다.</li>
+      <li>면이 받는 직접광은 빛과 면의 법선 사이 각 θ의 코사인에 비례한다(람베르트). 60°면 절반, 90°에서 0이 되며, 그 선이 명암 경계다.</li>
+      <li>가장 어두운 곳은 물체의 가장자리가 아니라 명암 경계 바로 안쪽이다. 그림자 쪽 가장자리는 바닥에서 되튄 반사광이 조금 밝힌다.</li>
+      <li>반사광은 그림자의 무리 안에서만 밝다. 반사광을 중간톤만큼 밝게 그리면 물체가 속 빈 유리처럼 보이며 형태가 무너진다.</li>
+      <li>접촉 그림자는 장면에서 가장 짙은 곳이 되기 쉽고, 투영 그림자는 물체에서 멀어질수록 흐려진다(빛이 클수록 더).</li>
+      <li>펜처럼 단계가 정해진 재료에서는 먼저 빛의 무리와 그림자의 무리로 나누고, 그 안에서 다섯 단계를 배분한다. 명도만으로 기계적으로 자르면 무리가 섞일 수 있다.</li>
+      <li>명암으로 입체를 세우는 일은 하나의 선택이다. 프뤼동의 색지 소묘와 쇠라의 콩테 소묘는 그 극단을, 동아시아 전통 회화는 다른 길을 보여 준다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 바닥이 밝은 탁자 위의 흰 공을 옆 위에서 비추었다. 공의 그림자 쪽에서 가장 어두운 곳은 대개 어디인가?</p>
+        <div class="opts">
+          <button class="opt">빛에서 가장 먼 쪽 가장자리</button>
+          <button class="opt" data-correct>명암 경계 바로 안쪽의 띠</button>
+          <button class="opt">공의 한가운데</button>
+          <button class="opt">하이라이트 바로 옆</button>
+        </div>
+        <div class="quiz-exp">빛에서 가장 먼 가장자리는 바닥을 마주하고 있어 반사광을 받아 조금 밝아진다. 명암 경계 바로 안쪽은 직접광이 끊겼으면서도 바닥을 아직 충분히 마주하지 않아 반사광도 적게 받으므로 가장 어둡다. 공의 한가운데와 하이라이트 옆은 빛의 무리에 속한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 람베르트의 코사인 법칙에 따르면, 빛과 면의 법선 사이 각이 60°인 무광 표면은 빛을 정면으로 받을 때에 비해 직접광을 얼마나 받는가?</p>
+        <div class="opts">
+          <button class="opt">같은 양(각도와 상관없다)</button>
+          <button class="opt">3분의 2</button>
+          <button class="opt" data-correct>절반</button>
+          <button class="opt">0(60°부터는 그림자다)</button>
+        </div>
+        <div class="quiz-exp">받는 직접광은 cos θ에 비례하고 cos 60° = 0.5이므로 절반이다. 직접광이 0이 되는 것은 θ가 90°일 때, 곧 명암 경계에서다. 다만 눈이 느끼는 명도(L*)는 빛의 양만큼 절반으로 떨어지지 않고 그보다 덜 어두워진다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 펜으로 그린 컵의 그림자 쪽 가장자리를 반사광이라며 종이 흰색 그대로 남겼더니 컵이 테두리만 빛나는 유리컵처럼 보인다. 가장 알맞은 고침은?</p>
+        <div class="opts">
+          <button class="opt">밝은 면도 반사광만큼 해칭해서 둘을 맞춘다.</button>
+          <button class="opt">반사광을 더 넓게 남겨 효과를 강조한다.</button>
+          <button class="opt">윤곽선을 굵게 그어 컵의 모양을 분명히 한다.</button>
+          <button class="opt" data-correct>그림자의 무리 전체를 한 진하기로 덮고, 반사광은 그 안에서 조금 덜 칠한 정도로 둔다.</button>
+        </div>
+        <div class="quiz-exp">반사광은 그림자의 무리에 속하므로 빛의 무리(중간톤 포함)보다 어둡게 둬야 형태가 읽힌다. 밝은 면을 어둡게 맞추면 빛의 방향이 흐려지고, 반사광을 넓히면 문제가 커지며, 윤곽선은 명암의 질서를 고치지 못한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 프뤼동은 푸른 색지 위에 흰 분필과 검은 분필만으로 천을 그렸다. 이 방법에서 종이의 푸른 회색이 맡은 역할은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>중간톤. 화가는 가장 밝은 단계와 가장 어두운 단계만 얹으면 된다.</button>
+          <button class="opt">하이라이트. 종이 색이 가장 밝은 단계다.</button>
+          <button class="opt">투영 그림자. 종이 색은 모두 그림자로 읽힌다.</button>
+          <button class="opt">아무 역할도 하지 않는 바탕일 뿐이다.</button>
+        </div>
+        <div class="quiz-exp">색지 소묘에서는 종이 색이 중간 명도를 맡고, 흰 분필은 빛의 무리 가운데 밝은 단계를, 검은 분필은 그림자의 무리를 맡는다. 종이보다 밝은 흰 분필이 있으므로 종이가 하이라이트일 수 없고, 종이 색이 넓게 보이는 주름 사이 면은 빛을 비스듬히 받는 중간톤이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#2b2a30", DIM = "#6b6874", SUN = "#e3a21a", RED = "#c8462f", BLUE = "#3f7cc4";
+/*CORE*/
+
+  var D = Math.PI / 180;
+  function grayOfY(Y) { var g = Math.round(255 * ART.toGamma(Math.max(0, Math.min(1, Y)))); return g; }
+  function yOfL(L) { return L > 8 ? Math.pow((L + 16) / 116, 3) : L / (24389 / 27); }
+  var STEP_L = [100, 96, 80, 62, 42, 24]; // 단계 1~5의 표시 명도(L*)
+  var STEP_G = STEP_L.map(function (L) { return grayOfY(yOfL(L)); });
+  // 버퍼 → 오프스크린 캔버스(회색). mode: "cont" | 단계 배열(Uint8Array)
+  function bufToCanvas(b, steps) {
+    var c = document.createElement("canvas"); c.width = b.w; c.height = b.h;
+    var x = c.getContext("2d"), id = x.createImageData(b.w, b.h), d = id.data;
+    for (var i = 0; i < b.w * b.h; i++) {
+      var g = steps ? STEP_G[steps[i]] : grayOfY(b.v[i]);
+      // 종이 결의 따뜻한 기운을 조금 섞는다
+      d[i * 4] = Math.min(255, g + 1); d[i * 4 + 1] = g; d[i * 4 + 2] = Math.max(0, g - 3); d[i * 4 + 3] = 255;
+    }
+    x.putImageData(id, 0, 0); return c;
+  }
+  function blit(ctx, off, w, h) { ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high"; ctx.drawImage(off, 0, 0, w, h); }
+  function lOf(b, i) { return LT.lstar(b.v[i]); }
+  // 정물·구 위의 영역 → 다섯 단계(바닥·벽은 명도로)
+  function stepsByFamily(b) {
+    var s = new Uint8Array(b.w * b.h);
+    for (var i = 0; i < s.length; i++) {
+      var z = b.z[i];
+      if (b.id[i] >= 0 || z === 6 || z === 7) s[i] = LT.STEP_OF_ZONE[z] || 3;
+      else { var L = lOf(b, i); s[i] = L >= 88 ? 1 : L >= 71 ? 2 : L >= 52 ? 3 : L >= 33 ? 4 : 5; }
+    }
+    return s;
+  }
+  // 그림 크기에 맞춘 버퍼 해상도(끄는 동안은 낮춘다)
+  function bufSize(w, h, fast) { var s = fast ? 0.32 : 0.55; if (w * h * s * s > 95000) s = Math.sqrt(95000 / (w * h)); return [Math.max(80, Math.round(w * s)), Math.max(60, Math.round(h * s))]; }
+
+  /* 빛 원판: 탁자를 위에서 본 지도. 가운데 = 머리 위, 가장자리 = 지평선, 아래 = 보는 사람 쪽 */
+  function dialGeo(w) { var R = Math.max(34, Math.min(50, w * 0.08)); return { x: w - R - 14, y: R + 16, R: R }; }
+  function drawDial(ctx, g, az, el) {
+    ctx.save();
+    ctx.beginPath(); ctx.arc(g.x, g.y, g.R, 0, Math.PI * 2); ctx.fillStyle = "rgba(251,250,247,0.92)"; ctx.fill();
+    ctx.strokeStyle = "#9a968c"; ctx.lineWidth = 1; ctx.stroke();
+    ctx.beginPath(); ctx.arc(g.x, g.y, g.R * 0.5, 0, Math.PI * 2); ctx.setLineDash([2, 3]); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = DIM; ctx.font = AB.font(9.5, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.fillText("보는 사람", g.x, g.y + g.R + 3);
+    ctx.textBaseline = "bottom"; ctx.fillText("뒤", g.x, g.y - g.R - 2);
+    var p = dialPos(g, az, el);
+    ctx.beginPath(); ctx.moveTo(g.x, g.y); ctx.lineTo(p[0], p[1]); ctx.strokeStyle = SUN; ctx.lineWidth = 1.5; ctx.stroke();
+    for (var k = 0; k < 8; k++) { var a = k / 8 * Math.PI * 2; ctx.beginPath(); ctx.moveTo(p[0] + Math.cos(a) * 9, p[1] + Math.sin(a) * 9); ctx.lineTo(p[0] + Math.cos(a) * 13, p[1] + Math.sin(a) * 13); ctx.strokeStyle = SUN; ctx.lineWidth = 2; ctx.stroke(); }
+    AB.handle(ctx, p[0], p[1], { r: 7, fill: SUN });
+    ctx.restore();
+  }
+  function dialPos(g, az, el) { var rr = g.R * (90 - el) / 90; return [g.x - rr * Math.cos(az * D), g.y + rr * Math.sin(az * D)]; }
+  function dialPick(g, x, y) {
+    var dx = x - g.x, dy = y - g.y, r = Math.hypot(dx, dy);
+    if (r > g.R) { dx *= g.R / r; dy *= g.R / r; r = g.R; }
+    var el = Math.max(3, 90 * (1 - r / g.R)), az = Math.atan2(dy, -dx) / D;
+    return [az, el];
+  }
+  function azWord(az) {
+    az = ((az % 360) + 540) % 360 - 180; // −180..180
+    var a = Math.abs(az);
+    var side = a < 22.5 ? "왼쪽" : a > 157.5 ? "오른쪽" : (a < 67.5 ? "왼쪽 " : a > 112.5 ? "오른쪽 " : "") + (az > 0 ? "앞" : "뒤");
+    return side;
+  }
+  function fmtDir(az, el) { var a = ((az % 360) + 540) % 360 - 180; return azWord(az) + " · 방위 " + Math.round(a) + "° · 고도 " + Math.round(el) + "°"; }
+  function labelBox(ctx, s, x, y, px, py) {
+    ctx.font = AB.font(11, false, 700);
+    var tw = ctx.measureText(s).width;
+    if (px != null) { ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x, y); ctx.strokeStyle = "rgba(43,42,48,0.85)"; ctx.lineWidth = 1; ctx.stroke(); ctx.beginPath(); ctx.arc(px, py, 2.5, 0, Math.PI * 2); ctx.fillStyle = INK; ctx.fill(); }
+    ctx.fillStyle = "rgba(251,250,247,0.9)"; ctx.fillRect(x - tw / 2 - 4, y - 9, tw + 8, 18);
+    ctx.fillStyle = INK; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(s, x, y);
+  }
+
+  /* ---------------- 시뮬레이터 1: 구에 빛 옮기기 ---------------- */
+  (function () {
+    var st = { az: 30, el: 40 }, fast = false, dial = null;
+    var PRE = { side: [30, 40], front: [90, 30], back: [-90, 22], top: [30, 84] };
+    var lbl = AB.check("ls-lbl", function () { cv.redraw(); }), term = AB.check("ls-term", function () { cv.redraw(); });
+    AB.seg("ls-pre", function (v) { st.az = PRE[v][0]; st.el = PRE[v][1]; cv.redraw(); });
+    var SPH = { type: "sphere", c: [0, 0.5, 0], r: 0.5, alb: 0.85, gloss: 0.3 };
+    var cv = AB.canvas("#ls-cv", function (ctx, w, h) {
+      var bs = bufSize(w, h, fast), cam = LT.camera([0, 1.55, -4.1], [0, 0.42, 0], Math.min(w * 1.55, h * 2.3), w, h);
+      var S = { objs: [SPH], ground: 0.6, wall: 2.6, wallAlb: 0.72, amb: 0.18, bounce: 0.5, light: { az: st.az, el: st.el, soft: 4 } };
+      var b = LT.render(S, cam, bs[0], bs[1]);
+      blit(ctx, bufToCanvas(b), w, h);
+      var L = S.L, E = cam.E, c = SPH.c, r = SPH.r, V = LT.norm(LT.sub(E, c));
+      var P = function (n) { return cam.proj(LT.add(c, LT.mul(n, r))); };
+      // 명암 경계선(빛에 수직인 큰 원)
+      if (term()) {
+        var t0 = Math.abs(L[1]) < 0.95 ? [0, 1, 0] : [1, 0, 0], u = LT.norm([L[1] * t0[2] - L[2] * t0[1], L[2] * t0[0] - L[0] * t0[2], L[0] * t0[1] - L[1] * t0[0]]), wv = [L[1] * u[2] - L[2] * u[1], L[2] * u[0] - L[0] * u[2], L[0] * u[1] - L[1] * u[0]];
+        ctx.beginPath(); var open = false;
+        for (var k = 0; k <= 120; k++) {
+          var a = k / 120 * Math.PI * 2, n = LT.add(LT.mul(u, Math.cos(a)), LT.mul(wv, Math.sin(a))), q = P(n);
+          if (LT.dot(n, V) > 0.02) { if (!open) { ctx.moveTo(q[0], q[1]); open = true; } else ctx.lineTo(q[0], q[1]); } else open = false;
+        }
+        ctx.setLineDash([5, 4]); ctx.strokeStyle = RED; ctx.lineWidth = 1.6; ctx.stroke(); ctx.setLineDash([]);
+      }
+      // 구 위 영역 비율
+      var nl = 0, ns = 0;
+      for (var i = 0; i < b.w * b.h; i++) if (b.id[i] === 0) { if (b.z[i] <= 3) nl++; else ns++; }
+      AB.stat("ls-o-dir", fmtDir(st.az, st.el));
+      AB.stat("ls-o-frac", Math.round(100 * nl / Math.max(1, nl + ns)) + " : " + Math.round(100 * ns / Math.max(1, nl + ns)));
+      if (lbl()) {
+        // 목표 ndl에 가장 가까운 보이는 법선 찾기
+        var pick = function (target, minVis) {
+          var best = null, bs2 = 1e9;
+          for (var a1 = 0; a1 < 40; a1++) for (var b1 = 1; b1 < 20; b1++) {
+            var th = a1 / 40 * Math.PI * 2, ph = b1 / 20 * Math.PI, n2 = [Math.sin(ph) * Math.cos(th), Math.cos(ph), Math.sin(ph) * Math.sin(th)];
+            var vis = LT.dot(n2, V); if (vis < minVis) continue;
+            var sc = Math.abs(LT.dot(n2, L) - target) - 0.25 * vis; if (sc < bs2) { bs2 = sc; best = n2; }
+          }
+          return best;
+        };
+        var cc = cam.proj(c), out = function (n, s, k2) {
+          if (!n) return; var q = P(n), dx = q[0] - cc[0], dy = q[1] - cc[1], dl = Math.hypot(dx, dy) || 1, R = Math.abs(cam.proj(LT.add(c, [r, 0, 0]))[0] - cc[0]);
+          var lx = cc[0] + dx / dl * (R + 40 + (k2 || 0)), ly = cc[1] + dy / dl * (R + 26 + (k2 || 0));
+          lx = AB.clamp(lx, 50, w - 50); ly = AB.clamp(ly, 14, h - 14);
+          labelBox(ctx, s, lx, ly, q[0], q[1]);
+        };
+        var hv = LT.norm(LT.add(L, V));
+        if (LT.dot(hv, V) > 0.1 && LT.dot(hv, L) > 0.05) out(hv, "하이라이트", 6);
+        out(pick(0.82, 0.35), "밝은 면");
+        out(pick(0.3, 0.3), "중간톤");
+        out(pick(-0.12, 0.25), "명암 경계");
+        if (L[1] < 0.9) out(pick(-0.75, 0.2), "반사광");
+        var sp = ART.shadowPoint(c, { dir: LT.mul(L, -1) }, 0), sq = cam.proj(sp);
+        if (L[1] < 0.93 && sq[2] > 0) labelBox(ctx, "투영 그림자", AB.clamp(sq[0], 50, w - 50), AB.clamp(sq[1] + 20, 14, h - 14), sq[0], sq[1]);
+        var cp = cam.proj([c[0] - L[0] * r * 0.4, 0, c[2] - L[2] * r * 0.4 - r * 0.05]);
+        labelBox(ctx, "접촉 그림자", AB.clamp(cp[0] - 70, 50, w - 50), AB.clamp(cp[1] + 26, 14, h - 14), cp[0], cp[1]);
+      }
+      dial = dialGeo(w); drawDial(ctx, dial, st.az, st.el);
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("ls-cv").parentElement.clientWidth || 600); return Math.round(Math.min(400, Math.max(270, w * 0.66))); } });
+    var on = false;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { on = dial && Math.hypot(x - dial.x, y - dial.y) < dial.R + 16; },
+      move: function (x, y) { if (!on) return; var p = dialPick(dial, x, y); st.az = p[0]; st.el = p[1]; fast = true; cv.redraw(); },
+      end: function () { if (on) { fast = false; cv.redraw(); } on = false; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 람베르트의 코사인 ---------------- */
+  (function () {
+    var tG = AB.range("lc-t", function (v) { return v + "°"; }, function () { cv.redraw(); }), geo = null;
+    var ALB = 0.85, AMB = 0.1, LDIR = -50; // 빛줄기는 화면에서 오른쪽 아래로(위에서 왼쪽 위)
+    var cv = AB.canvas("#lc-cv", function (ctx, w, h) {
+      var pal = AB.palette(), th = tG(), wide = w >= 520;
+      var area = wide ? { x: 0, y: 0, w: w * 0.6, h: h } : { x: 0, y: 0, w: w, h: h * 0.58 };
+      var cx = area.x + area.w * 0.5, cy = area.y + area.h * 0.62, Lp = Math.min(area.w, area.h) * 0.36;
+      var ld = [Math.cos(LDIR * D), -Math.sin(LDIR * D)]; // 빛이 나아가는 방향(화면)
+      // 판자의 법선은 빛이 오는 쪽(−ld)에서 θ만큼 돈다
+      var nAng = Math.atan2(-ld[1], -ld[0]) + th * D, nrm = [Math.cos(nAng), Math.sin(nAng)], tan = [-nrm[1], nrm[0]];
+      var A = [cx - tan[0] * Lp, cy - tan[1] * Lp], B = [cx + tan[0] * Lp, cy + tan[1] * Lp];
+      geo = { cx: cx, cy: cy, B: B, ld: ld };
+      // 빛줄기 12줄: 빛 방향에 수직으로 같은 간격
+      var perp = [-ld[1], ld[0]], N = 12, spacing = (2 * Lp) / N, hit = 0;
+      for (var i = 0; i < N; i++) {
+        var o = (i - (N - 1) / 2) * spacing, s0 = [cx + perp[0] * o - ld[0] * area.h, cy + perp[1] * o - ld[1] * area.h];
+        // 판자(선분 A–B)와의 교점
+        var dx = B[0] - A[0], dy = B[1] - A[1], den = ld[0] * dy - ld[1] * dx, endT = area.h * 2.2, hitIt = false;
+        if (Math.abs(den) > 1e-9) {
+          var t = ((A[0] - s0[0]) * dy - (A[1] - s0[1]) * dx) / den, u2 = ((A[0] - s0[0]) * ld[1] - (A[1] - s0[1]) * ld[0]) / den;
+          if (u2 >= 0 && u2 <= 1 && t > 0 && th < 90) { endT = t; hitIt = true; }
+        }
+        ctx.beginPath(); ctx.moveTo(s0[0], s0[1]); ctx.lineTo(s0[0] + ld[0] * endT, s0[1] + ld[1] * endT);
+        ctx.strokeStyle = hitIt ? pal.warn : pal.faint; ctx.lineWidth = hitIt ? 2 : 1; ctx.stroke();
+        if (hitIt) { hit++; ctx.beginPath(); ctx.arc(s0[0] + ld[0] * endT, s0[1] + ld[1] * endT, 2.6, 0, Math.PI * 2); ctx.fillStyle = pal.warn; ctx.fill(); }
+      }
+      // 판자: 빛 받는 면 색(예시 회색)
+      var c = Math.max(0, Math.cos(th * D)), Y = ALB * (c + AMB), g = grayOfY(Y), col = "rgb(" + g + "," + g + "," + g + ")";
+      ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.strokeStyle = pal.text; ctx.lineWidth = 9; ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.stroke();
+      // 법선
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + nrm[0] * Lp * 0.55, cy + nrm[1] * Lp * 0.55); ctx.setLineDash([4, 3]); ctx.strokeStyle = pal.accent; ctx.lineWidth = 1.5; ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = pal.accent; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("법선", cx + nrm[0] * Lp * 0.68, cy + nrm[1] * Lp * 0.68);
+      AB.handle(ctx, B[0], B[1], { r: 8 });
+      // 오른쪽(또는 아래): cos 곡선과 견본
+      var box = wide ? { x: w * 0.64, y: 24, w: w * 0.33, h: h - 92 } : { x: 44, y: h * 0.6 + 10, w: w - 120, h: h * 0.4 - 46 };
+      var ch = AB.chart(ctx, box, { x: [0, 120], y: [0, 1], xTicks: [0, 30, 60, 90, 120], yTicks: [0, 0.5, 1], xFmt: function (v) { return v + "°"; }, yFmt: function (v) { return v; },
+        series: [{ data: Array.from({ length: 61 }, function (_, k) { var a = k * 2; return [a, Math.max(0, Math.cos(a * D))]; }), color: pal.accent, width: 2 }],
+        vlines: [{ x: 90, color: pal.bad, label: "명암 경계" }], points: [{ x: th, y: c, color: pal.warn, r: 5 }] });
+      var sw = wide ? { x: box.x, y: h - 54, w: 46, h: 40 } : { x: w - 64, y: box.y + 4, w: 50, h: 46 };
+      ctx.fillStyle = col; ctx.fillRect(sw.x, sw.y, sw.w, sw.h); ctx.strokeStyle = pal.border; ctx.lineWidth = 1; ctx.strokeRect(sw.x + 0.5, sw.y + 0.5, sw.w - 1, sw.h - 1);
+      if (wide) { ctx.fillStyle = pal.dim; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("판자의 밝기", sw.x + sw.w + 8, sw.y + sw.h / 2); }
+      AB.stat("lc-o-n", hit + " / 12");
+      AB.stat("lc-o-c", AB.fix(c, 2));
+      AB.stat("lc-o-l", AB.fix(LT.lstar(Y), 0));
+    }, { get height() { var w = Math.max(200, document.getElementById("lc-cv").parentElement.clientWidth || 600); return w >= 520 ? 320 : Math.round(Math.max(380, w * 1.15)); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        var a = Math.atan2(y - geo.cy, x - geo.cx), nA = a - Math.PI / 2; // 판자 끝 방향 → 법선
+        var base = Math.atan2(-geo.ld[1], -geo.ld[0]), th = ((nA - base) / D) % 360; if (th < 0) th += 360;
+        if (th > 180) th = 360 - th;
+        tG.set(Math.round(AB.clamp(th, 0, 120)));
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 명암 경계와 반사광 ---------------- */
+  (function () {
+    var gG = AB.range("lb-g", function (v) { return AB.fix(v, 2); }, function () { cv.redraw(); });
+    var sG = AB.range("lb-s", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var card = AB.check("lb-card", function () { cv.redraw(); });
+    var SPH = { type: "sphere", c: [0, 0.5, 0], r: 0.5, alb: 0.85, gloss: 0.15 };
+    var cv = AB.canvas("#lb-cv", function (ctx, w, h) {
+      var chartH = Math.max(96, Math.round(h * 0.3)), rh = h - chartH;
+      var bs = bufSize(w, rh, false), cam = LT.camera([0, 1.25, -3.6], [0, 0.5, 0], Math.min(w * 1.5, rh * 2.3), w, rh);
+      var S = { objs: [SPH], ground: gG(), wall: 2.6, wallAlb: 0.72, amb: 0.14, bounce: 0.5, light: { az: -12, el: 30, soft: sG() }, card: card() ? { n: [-1, 0, 0], alb: 0.9 } : null };
+      var b = LT.render(S, cam, bs[0], bs[1]);
+      blit(ctx, bufToCanvas(b), w, rh);
+      if (card()) { ctx.fillStyle = "#ffffff"; ctx.fillRect(w - 14, rh * 0.25, 10, rh * 0.6); ctx.strokeStyle = "#9a968c"; ctx.strokeRect(w - 14.5, rh * 0.25 + 0.5, 10, rh * 0.6); }
+      // 구 한가운데를 지나는 가로줄의 명도
+      var cc = cam.proj(SPH.c), row = Math.round(cc[1] / rh * b.h), xs = [], Ls = [], ndls = [];
+      var rd = function (px) { return cam.ray(px, cc[1]); };
+      for (var i = 0; i < b.w; i++) {
+        var k = row * b.w + i; if (b.id[k] !== 0) continue;
+        var px = (i + 0.5) * w / b.w, ray = rd(px), oc = LT.sub(cam.E, SPH.c), bb = LT.dot(oc, ray), cq = LT.dot(oc, oc) - 0.25, hq = bb * bb - cq;
+        if (hq < 0) continue; var t = -bb - Math.sqrt(hq), p = LT.add(cam.E, LT.mul(ray, t)), n = LT.mul(LT.sub(p, SPH.c), 2);
+        xs.push(px); Ls.push(lOf(b, k)); ndls.push(LT.dot(n, S.L));
+      }
+      // 아래 그래프(고정색)
+      var gy0 = rh + 12, gy1 = h - 18, Y = function (L) { return gy1 - (L / 100) * (gy1 - gy0); };
+      ctx.fillStyle = PAPER; ctx.fillRect(0, rh, w, chartH);
+      ctx.strokeStyle = "#d8d4ca"; ctx.lineWidth = 1;
+      [0, 50, 100].forEach(function (v) { ctx.beginPath(); ctx.moveTo(30, Y(v)); ctx.lineTo(w - 8, Y(v)); ctx.stroke(); });
+      ctx.fillStyle = DIM; ctx.font = AB.font(9.5, true); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      [0, 50, 100].forEach(function (v) { ctx.fillText(v, 26, Y(v)); });
+      ctx.save(); ctx.translate(9, (gy0 + gy1) / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = "center"; ctx.fillText("L*", 0, 0); ctx.restore();
+      var hal = null, dark = null, refl = null;
+      if (xs.length > 4) {
+        ctx.beginPath(); xs.forEach(function (x, i) { if (i) ctx.lineTo(x, Y(Ls[i])); else ctx.moveTo(x, Y(Ls[i])); }); ctx.strokeStyle = INK; ctx.lineWidth = 2; ctx.stroke();
+        // 명암 경계(ndl 0을 지나는 곳)
+        var tx = null; for (var j = 1; j < xs.length; j++) if ((ndls[j - 1] > 0) !== (ndls[j] > 0)) tx = xs[j];
+        if (tx != null) { ctx.beginPath(); ctx.moveTo(tx, rh); ctx.lineTo(tx, gy1); ctx.setLineDash([4, 3]); ctx.strokeStyle = RED; ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = RED; ctx.font = AB.font(10, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("명암 경계", tx, rh + 1); }
+        // 중간톤: ndl ≈ 0.3, 가장 어두운 곳: 그림자 쪽 최솟값, 반사광: 그림자 쪽 가장자리 10% 안의 최댓값
+        var bi = -1, bd = 9; ndls.forEach(function (v, i) { if (Math.abs(v - 0.3) < bd) { bd = Math.abs(v - 0.3); bi = i; } }); if (bi >= 0) hal = [xs[bi], Ls[bi]];
+        var di = -1; ndls.forEach(function (v, i) { if (v < 0 && (di < 0 || Ls[i] < Ls[di])) di = i; }); if (di >= 0) dark = [xs[di], Ls[di]];
+        var n0 = xs.length, ri = -1; for (var q = Math.floor(n0 * 0.86); q < n0 - 1; q++) if (ndls[q] < 0 && (ri < 0 || Ls[q] > Ls[ri])) ri = q; if (ri >= 0) refl = [xs[ri], Ls[ri]];
+        [[hal, "중간톤", BLUE], [dark, "가장 어두움", INK], [refl, "반사광", "#7a5a12"]].forEach(function (m) {
+          if (!m[0]) return; ctx.beginPath(); ctx.arc(m[0][0], Y(m[0][1]), 4, 0, Math.PI * 2); ctx.fillStyle = m[2]; ctx.fill();
+          ctx.font = AB.font(10, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText(m[1], AB.clamp(m[0][0], 34, w - 30), Y(m[0][1]) - 6);
+        });
+        // 그림 위 가로줄 표시
+        ctx.beginPath(); ctx.moveTo(xs[0], cc[1]); ctx.lineTo(xs[xs.length - 1], cc[1]); ctx.setLineDash([2, 3]); ctx.strokeStyle = "rgba(200,70,47,0.8)"; ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]);
+      }
+      AB.stat("lb-o-h", hal ? AB.fix(hal[1], 0) : "—");
+      AB.stat("lb-o-d", dark ? AB.fix(dark[1], 0) : "—");
+      if (refl && hal) {
+        var bad = refl[1] >= hal[1] - 2;
+        AB.stat("lb-o-r", AB.fix(refl[1], 0) + (bad ? " <small style=\"color:var(--bad)\">중간톤만큼 밝음: 형태가 무너짐</small>" : " <small>중간톤보다 " + AB.fix(hal[1] - refl[1], 0) + " 어두움</small>"));
+      } else AB.stat("lb-o-r", "—");
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("lb-cv").parentElement.clientWidth || 600); return Math.round(Math.min(470, Math.max(360, w * 0.8))); } });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 접촉 그림자와 투영 그림자 ---------------- */
+  (function () {
+    var obj = AB.seg("lk-obj", function () { cv.redraw(); });
+    var eG = AB.range("lk-e", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var soft = AB.check("lk-soft", function () { cv.redraw(); }), guide = AB.check("lk-guide", function () { cv.redraw(); });
+    var OB = {
+      cyl: { o: { type: "frustum", c: [-0.5, 0, 0], r0: 0.28, r1: 0.28, h: 0.8, alb: 0.8 }, top: [-0.5, 0.8, 0], hgt: 0.8 },
+      box: { o: { type: "box", c: [-0.5, 0.35, 0], hs: [0.3, 0.35, 0.3], yaw: 20, alb: 0.8 }, top: [-0.5, 0.7, 0], hgt: 0.7 },
+      sph: { o: { type: "sphere", c: [-0.5, 0.4, 0], r: 0.4, alb: 0.8 }, top: [-0.5, 0.8, 0], hgt: 0.8 },
+    };
+    var cv = AB.canvas("#lk-cv", function (ctx, w, h) {
+      var ob = OB[obj()], el = eG(), az = 20;
+      var bs = bufSize(w, h, false), cam = LT.camera([0.6, 2.6, -4.2], [0.9, 0.2, 0.4], Math.min(w * 1.15, h * 1.9), w, h);
+      var S = { objs: [ob.o], ground: 0.62, wall: null, amb: 0.18, bounce: 0.5, light: { az: az, el: el, soft: soft() ? 8 : 0.0 } };
+      var b = LT.render(S, cam, bs[0], bs[1]);
+      blit(ctx, bufToCanvas(b), w, h);
+      var Ld = LT.mul(S.L, -1), tip = ART.shadowPoint(ob.top, { dir: Ld }, 0), base = [ob.top[0], 0, ob.top[2]];
+      var len = Math.hypot(tip[0] - base[0], tip[2] - base[2]);
+      if (guide()) {
+        var a = cam.proj(ob.top), t2 = cam.proj(tip), bp = cam.proj(base);
+        if (t2[2] > 0) {
+          ctx.setLineDash([5, 4]); ctx.strokeStyle = SUN; ctx.lineWidth = 1.6;
+          ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(t2[0], t2[1]); ctx.stroke();
+          ctx.strokeStyle = BLUE; ctx.beginPath(); ctx.moveTo(bp[0], bp[1]); ctx.lineTo(t2[0], t2[1]); ctx.stroke(); ctx.setLineDash([]);
+          ctx.beginPath(); ctx.arc(t2[0], t2[1], 4, 0, Math.PI * 2); ctx.fillStyle = BLUE; ctx.fill();
+          if (t2[0] > 8 && t2[0] < w - 8 && t2[1] > 8 && t2[1] < h - 8) labelBox(ctx, "그림자 끝", AB.clamp(t2[0], 44, w - 44), AB.clamp(t2[1] + 18, 12, h - 12));
+        }
+      }
+      // 접촉 그림자·그림자 끝 쪽 명도: 그림자 축 위 0.08 높이, 0.85 높이 점의 그림자 자리를 버퍼에서 읽는다
+      var sampleL = function (frac) {
+        var p = [base[0] + (tip[0] - base[0]) * frac, 0, base[2] + (tip[2] - base[2]) * frac];
+        // 물체 바깥으로 조금 밀어 낸다
+        var q = cam.proj(p), i = Math.floor(q[0] / w * b.w), j = Math.floor(q[1] / h * b.h);
+        if (i < 0 || j < 0 || i >= b.w || j >= b.h) return null;
+        var k = j * b.w + i; return b.id[k] < 0 ? lOf(b, k) : null;
+      };
+      var near = null; for (var f = 0.3; f <= 1.2 && near == null; f += 0.05) near = sampleL(Math.min(1, (ob.o.r || ob.o.r0 || 0.36) / Math.max(len, 0.01) + f * 0.12));
+      var far = sampleL(0.92);
+      AB.stat("lk-o-len", AB.fix(len / ob.hgt, 2) + "배 <small>(1 ÷ tan " + el + "°)</small>");
+      AB.stat("lk-o-near", near != null ? AB.fix(near, 0) : "—");
+      AB.stat("lk-o-far", far != null ? AB.fix(far, 0) : "화면 밖");
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("lk-cv").parentElement.clientWidth || 600); return Math.round(Math.min(380, Math.max(250, w * 0.6))); } });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 다섯 단계로 줄이기 ---------------- */
+  (function () {
+    var mode = AB.seg("lq-mode", function () { draw(); });
+    var bG = AB.range("lq-b", function (v) { return AB.fix(v, 1); }, function () { draw(); });
+    var cache = null;
+    function height() { var w = Math.max(200, document.getElementById("lq-cmp").clientWidth || 600); return Math.round(Math.min(360, Math.max(230, w * 0.62))); }
+    function compute(w, h) {
+      var key = w + "x" + h + ":" + bG();
+      if (cache && cache.key === key) return cache;
+      var bs = bufSize(w, h, false), cam = LT.camera([0, 1.3, -3.4], [0, 0.42, 0], Math.min(w * 1.25, h * 2.0), w, h);
+      var S = { objs: [{ type: "sphere", c: [-0.55, 0.45, 0], r: 0.45, alb: 0.82, gloss: 0.2 }, { type: "frustum", c: [0.6, 0, 0.1], r0: 0.36, r1: 0.36, h: 0.85, alb: 0.82 }],
+        ground: 0.75, wall: 2.4, wallAlb: 0.72, amb: 0.14, bounce: bG(), light: { az: 15, el: 32, soft: 3 } };
+      var b = LT.render(S, cam, bs[0], bs[1]);
+      cache = { key: key, b: b, off: bufToCanvas(b) };
+      return cache;
+    }
+    function stepsByValue(b) {
+      var lo = 100, hi = 0, i, s = new Uint8Array(b.w * b.h);
+      for (i = 0; i < s.length; i++) if (b.id[i] >= 0) { var L = lOf(b, i); if (L < lo) lo = L; if (L > hi) hi = L; }
+      for (i = 0; i < s.length; i++) {
+        var L2 = lOf(b, i);
+        if (b.id[i] >= 0) s[i] = 1 + Math.min(4, Math.floor((hi - L2) / Math.max(1e-6, hi - lo) * 5));
+        else s[i] = L2 >= 88 ? 1 : L2 >= 71 ? 2 : L2 >= 52 ? 3 : L2 >= 33 ? 4 : 5;
+      }
+      return s;
+    }
+    var ca = AB.canvas("#lq-a", function (ctx, w, h) { var c = compute(w, h); blit(ctx, c.off, w, h); }, { bg: PAPER, get height() { return height(); } });
+    var cb = AB.canvas("#lq-b", function (ctx, w, h) {
+      var c = compute(w, h), b = c.b, s = mode() === "value" ? stepsByValue(b) : stepsByFamily(b);
+      blit(ctx, bufToCanvas(b, s), w, h);
+      // 구의 반사광(z=4)·중간톤 끝(z=3에서 lit 가장 낮은 곳)의 단계
+      var rs = {}, hs = {};
+      for (var i = 0; i < s.length; i++) if (b.id[i] === 0) { if (b.z[i] === 4) rs[s[i]] = (rs[s[i]] || 0) + 1; if (b.z[i] === 3) hs[s[i]] = (hs[s[i]] || 0) + 1; }
+      var minK = function (o) { var ks = Object.keys(o).map(Number); return ks.length ? Math.min.apply(null, ks) : null; }, maxK = function (o) { var ks = Object.keys(o).map(Number); return ks.length ? Math.max.apply(null, ks) : null; };
+      var rMin = minK(rs), hMax = maxK(hs);
+      AB.stat("lq-o-r", rMin != null ? rMin + (maxK(rs) !== rMin ? "~" + maxK(rs) : "") + "단계" : "—");
+      AB.stat("lq-o-h", hMax != null ? hMax + "단계" : "—");
+      AB.stat("lq-o-ok", rMin != null && hMax != null ? (rMin <= hMax ? "<span style=\"color:var(--bad)\">섞임: 반사광이 빛의 무리 단계로</span>" : "나뉨: 반사광이 그림자의 무리에") : "—");
+      // 범례
+      var lx = 10, ly = h - 14;
+      for (var k = 1; k <= 5; k++) { var g = STEP_G[k]; ctx.fillStyle = "rgb(" + g + "," + g + "," + g + ")"; ctx.fillRect(lx, ly - 8, 16, 16); ctx.strokeStyle = "#9a968c"; ctx.strokeRect(lx + 0.5, ly - 7.5, 15, 15); ctx.fillStyle = k <= 2 ? INK : "#ffffff"; ctx.font = AB.font(10, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(k, lx + 8, ly); lx += 18; }
+    }, { bg: PAPER, get height() { return height(); } });
+    function draw() { ca.redraw(); cb.redraw(); }
+    AB.compare("#lq-cmp", { labels: ["연속 명암", "다섯 단계"], pos: 0.5 });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 창가 정물 명암 설계기 ---------------- */
+  (function () {
+    var st = { az: 30, el: 35 }, fast = false, dial = null;
+    var mode = AB.seg("lp-mode", function () { cv.redraw(); });
+    var sG = AB.range("lp-s", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var leg = AB.check("lp-leg", function () { cv.redraw(); });
+    var NAMES = ["", "하이라이트", "밝은 면", "중간톤", "반사광·투영 그림자", "명암 경계·접촉 그림자"];
+    var cv = AB.canvas("#lp-cv", function (ctx, w, h) {
+      var bs = bufSize(w, h, fast), cam = LT.camera([0, 0.62, -1.25], [0.02, 0.09, 0], Math.min(w * 1.45, h * 2.15), w, h);
+      var S = LT.STILL({ az: st.az, el: st.el, soft: sG() });
+      var b = LT.render(S, cam, bs[0], bs[1]), s = stepsByFamily(b), m = mode();
+      if (m === "cont") blit(ctx, bufToCanvas(b), w, h);
+      else if (m === "step") blit(ctx, bufToCanvas(b, s), w, h);
+      else {
+        // 해칭: 화면 해상도에서 픽셀마다 단계의 무늬
+        var c = document.createElement("canvas"); c.width = w; c.height = h;
+        var x = c.getContext("2d"), id = x.createImageData(w, h), d = id.data;
+        var mod = function (a, n) { return ((a % n) + n) % n; };
+        for (var y = 0; y < h; y++) for (var xx = 0; xx < w; xx++) {
+          var bi = Math.min(b.h - 1, Math.floor(y / h * b.h)) * b.w + Math.min(b.w - 1, Math.floor(xx / w * b.w)), k = s[bi], ink = false;
+          if (k === 2) ink = mod(xx + y, 8) < 1.1;
+          else if (k === 3) ink = mod(xx + y, 4.6) < 1.1;
+          else if (k === 4) ink = mod(xx + y, 4.6) < 1.1 || mod(xx - y, 6) < 1.05;
+          else if (k === 5) ink = mod(xx + y, 3.4) < 1.2 || mod(xx - y, 3.4) < 1.2 || mod(y, 4) < 1;
+          // 물체 윤곽: 이웃 버퍼 칸의 물체 번호가 다르면 선
+          var bx = Math.floor(xx / w * b.w), by = Math.floor(y / h * b.h), i0 = by * b.w + bx;
+          if (bx + 1 < b.w && by + 1 < b.h) { var id0 = b.id[i0]; if ((id0 >= 0 || b.id[i0 + 1] >= 0 || b.id[i0 + b.w] >= 0) && (b.id[i0 + 1] !== id0 || b.id[i0 + b.w] !== id0)) { var fx = xx / w * b.w - bx, fy = y / h * b.h - by; if ((b.id[i0 + 1] !== id0 && fx > 0.55) || (b.id[i0 + b.w] !== id0 && fy > 0.55)) ink = true; } }
+          var o = (y * w + xx) * 4;
+          if (ink) { d[o] = 43; d[o + 1] = 42; d[o + 2] = 48; } else { d[o] = 251; d[o + 1] = 250; d[o + 2] = 247; }
+          d[o + 3] = 255;
+        }
+        x.putImageData(id, 0, 0); ctx.drawImage(c, 0, 0, w, h);
+      }
+      // 단계별 넓이(정물 면)
+      var cnt = [0, 0, 0, 0, 0, 0], tot = 0;
+      for (var i = 0; i < s.length; i++) if (b.id[i] >= 0) { cnt[s[i]]++; tot++; }
+      var pc = cnt.map(function (v) { return Math.round(100 * v / Math.max(1, tot)); });
+      AB.stat("lp-o-dir", fmtDir(st.az, st.el));
+      AB.stat("lp-o-area", pc.slice(1).join(" · ") + " %");
+      AB.stat("lp-o-sh", (pc[4] + pc[5]) + "%");
+      if (leg() && m !== "cont") {
+        var lx = 10, ly = h - 14 - 5 * 19;
+        ctx.fillStyle = "rgba(251,250,247,0.88)"; ctx.fillRect(4, ly - 12, Math.min(196, w * 0.5), 5 * 19 + 10);
+        for (var k = 1; k <= 5; k++) {
+          var yy = ly + (k - 1) * 19, g = STEP_G[k];
+          if (m === "step") { ctx.fillStyle = "rgb(" + g + "," + g + "," + g + ")"; ctx.fillRect(lx, yy - 7, 15, 14); ctx.strokeStyle = "#9a968c"; ctx.strokeRect(lx + 0.5, yy - 6.5, 14, 13); }
+          else { ctx.strokeStyle = "#9a968c"; ctx.strokeRect(lx + 0.5, yy - 6.5, 14, 13); ctx.save(); ctx.beginPath(); ctx.rect(lx + 1, yy - 6, 13, 12); ctx.clip(); ctx.strokeStyle = INK; ctx.lineWidth = 1; var sp = [0, 99, 7, 4.6, 4.6, 3.4][k]; if (k > 1) for (var t = -20; t < 20; t += sp) { ctx.beginPath(); ctx.moveTo(lx + t, yy + 7); ctx.lineTo(lx + t + 14, yy - 7); ctx.stroke(); } if (k >= 4) for (var t2 = -20; t2 < 20; t2 += (k === 4 ? 6 : 3.4)) { ctx.beginPath(); ctx.moveTo(lx + t2, yy - 7); ctx.lineTo(lx + t2 + 14, yy + 7); ctx.stroke(); } ctx.restore(); }
+          ctx.fillStyle = INK; ctx.font = AB.font(10.5, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(k + " " + NAMES[k], lx + 20, yy);
+        }
+      }
+      dial = dialGeo(w); drawDial(ctx, dial, st.az, st.el);
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("lp-cv").parentElement.clientWidth || 600); return Math.round(Math.min(430, Math.max(290, w * 0.68))); } });
+    var on = false;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { on = dial && Math.hypot(x - dial.x, y - dial.y) < dial.R + 16; },
+      move: function (x, y) { if (!on) return; var p = dialPick(dial, x, y); st.az = p[0]; st.el = p[1]; fast = true; cv.redraw(); },
+      end: function () { if (on) { fast = false; cv.redraw(); } on = false; },
+    });
+  })();
+})();
+</script>
+</body>
+</html>
