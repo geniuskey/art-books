@@ -111,7 +111,7 @@
         <div class="stat"><span class="k">켜진 단서</span><span class="v" id="cu-o-n">—</span></div>
         <div class="stat"><span class="k">가장 먼 나무의 대비</span><span class="v" id="cu-o-c">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 모두 끈 상태에서 하나씩 켠다. 어느 단서 하나만으로도 순서는 생기지만, 거리감(얼마나 먼가)은 "상대 크기"와 "화면 속 높이"가 켜져야 생긴다. ② "겹침"만 켜고 나머지를 끈다. 앞뒤는 보이지만 모두 같은 거리에 포개진 종이 인형처럼 보인다. ③ 모두 켠 뒤 "상대 크기"만 끈다. 먼 나무가 멀리 있는 거인처럼 이상해진다. 단서끼리 어긋나면 깊이가 아니라 어색함이 생긴다. (나무 다섯 그루의 실제 거리는 4, 6, 9, 14, 22 m, 눈높이 1.6 m의 핀홀 투시로 그렸다. 대기 원근은 아래 4절의 모형에서 소멸 계수 0.06/m로 둔 과장된 값이다.)</div>
+      <div class="sim-note">해볼 것: ① 모두 끈 상태에서 하나씩 켠다. 어느 단서 하나만으로도 순서는 생기지만, 거리감(얼마나 먼가)은 "상대 크기"와 "화면 속 높이"가 켜져야 생긴다. ② "겹침"만 켜고 나머지를 끈다. 앞뒤는 보이지만 모두 같은 거리에 포개진 종이 인형처럼 보인다. ③ 모두 켠 뒤 "상대 크기"만 끈다. 먼 나무가 멀리 있는 거인처럼 이상해진다. 단서끼리 어긋나면 깊이가 아니라 어색함이 생긴다. (높이 3 m인 나무 다섯 그루의 실제 거리는 6, 9, 13, 19, 28 m, 눈높이 1.6 m의 핀홀 투시로 그렸다. 대기 원근은 아래 4절의 모형에서 소멸 계수 0.06/m로 둔 과장된 값이다.)</div>
     </div>
 
     <p>단서가 많이 겹칠수록 깊이는 또렷해지고, 단서가 서로 다른 말을 하면 화면은 어색해진다. 이 어색함은 실수가 될 수도, 표현이 될 수도 있다. 초현실주의 그림이나 일부러 크기를 뒤튼 포스터는 단서끼리의 다툼을 쓴다. 다만 그런 다툼도 단서가 무엇인지 알 때 고를 수 있다.</p>
@@ -424,35 +424,31 @@
     ids.forEach(function (id) { chk[id] = AB.check(id, function () { cv.redraw(); }); });
     document.getElementById("cu-all").addEventListener("click", function () { ids.forEach(function (id) { document.getElementById(id).checked = true; }); cv.redraw(); });
     document.getElementById("cu-none").addEventListener("click", function () { ids.forEach(function (id) { document.getElementById(id).checked = false; }); cv.redraw(); });
-    var Z = [4, 6, 9, 14, 22], SKY = "#cfdbe3", TREE = "#2f5a3a", GROUND = "#c9b77a", E = 1.6, HT = 5;
+    var Z = [6, 9, 13, 19, 28], SKY = "#cfdbe3", TREE = "#2f5a3a", GROUND = "#c9b77a", E = 1.6, HT = 3;
     var cv = AB.canvas(el, function (ctx, w, h) {
       var on = function (id) { return document.getElementById(id).checked; };
-      var hy = h * 0.34, f = h * 0.9, cx = w / 2;
+      var hy = h * 0.5, f = h * 1.69, cx = w / 2;  // 가장 가까운 나무(6 m)의 발이 화면 아래 끝 근처에 오도록 정한 초점 거리
       var sky = ctx.createLinearGradient(0, 0, 0, hy); sky.addColorStop(0, "#b9cad6"); sky.addColorStop(1, SKY);
       ctx.fillStyle = sky; ctx.fillRect(0, 0, w, hy); ctx.fillStyle = GROUND; ctx.fillRect(0, hy, w, h - hy);
+      ctx.strokeStyle = "rgba(120,96,48,0.4)"; ctx.lineWidth = 1;
       if (on("cu-tx")) {
-        ctx.strokeStyle = "rgba(120,96,48,0.45)"; ctx.lineWidth = 1;
-        for (var zr = 2; zr < 200; zr *= 1.18) { var yy = hy + f * E / zr; if (yy > h) continue; ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(w, yy); ctx.stroke(); }
-        for (var xr = -40; xr <= 40; xr += 2) { ctx.beginPath(); ctx.moveTo(cx + f * xr / 2, h + 40); ctx.lineTo(cx, hy); ctx.stroke(); }
+        for (var zr = 2; zr < 300; zr *= 1.15) { var yy = hy + f * E / zr; if (yy > h) continue; ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(w, yy); ctx.stroke(); }
+        for (var xr = -30; xr <= 30; xr += 1.5) { ctx.beginPath(); ctx.moveTo(cx + f * xr / 2, hy + f * E / 2); ctx.lineTo(cx, hy); ctx.stroke(); }
       } else {
-        ctx.strokeStyle = "rgba(120,96,48,0.35)"; ctx.lineWidth = 1;
-        for (var k = 1; k < 7; k++) { var y2 = hy + (h - hy) * k / 7; ctx.beginPath(); ctx.moveTo(0, y2); ctx.lineTo(w, y2); ctx.stroke(); }
+        for (var k = 1; k < 6; k++) { var y2 = hy + (h - hy) * k / 6; ctx.beginPath(); ctx.moveTo(0, y2); ctx.lineTo(w, y2); ctx.stroke(); }
       }
-      var baseNear = hy + f * E / Z[0], sNear = f * HT / Z[0] * 0.55;
       var farC = 1;
       for (var i = Z.length - 1; i >= 0; i--) {
         var z = Z[i];
-        var scale = on("cu-sz") ? (Z[0] / z) : 0.55;
+        var hh = on("cu-sz") ? f * HT / z : f * HT / 12;
         var by = on("cu-ht") ? hy + f * E / z : hy + (h - hy) * 0.72;
-        var hh = sNear * scale / 0.55 * (on("cu-sz") ? 1 : 0.55);
-        if (!on("cu-sz")) hh = sNear * 0.6;
-        var x = on("cu-ov") ? cx + (i - 2) * w * 0.07 + (i % 2 ? -1 : 1) * w * 0.03 : w * (0.12 + 0.19 * i);
+        var x = on("cu-ov") ? cx + (i - 2) * w * 0.085 : w * (0.12 + 0.19 * i);
         var t = on("cu-air") ? Math.exp(-0.06 * z) : 1;
         if (i === Z.length - 1) farC = t;
         var col = mixLin(TREE, SKY, t), trunk = mixLin("#4a3626", SKY, t);
-        var tw = Math.max(2, hh * 0.08);
-        ctx.fillStyle = trunk; ctx.fillRect(x - tw / 2, by - hh * 0.45, tw, hh * 0.45);
-        ctx.fillStyle = col; ctx.beginPath(); ctx.ellipse(x, by - hh * 0.65, hh * 0.3, hh * 0.38, 0, 0, Math.PI * 2); ctx.fill();
+        var tw = Math.max(2, hh * 0.07);
+        ctx.fillStyle = trunk; ctx.fillRect(x - tw / 2, by - hh * 0.42, tw, hh * 0.42);
+        ctx.fillStyle = col; ctx.beginPath(); ctx.ellipse(x, by - hh * 0.66, hh * 0.24, hh * 0.33, 0, 0, Math.PI * 2); ctx.fill();
       }
       var n = ids.filter(on).length;
       AB.stat("cu-o-n", n + " / 5");
@@ -626,8 +622,8 @@
         ctx.fillStyle = INK_DIM; ctx.font = AB.font(10, true); ctx.textAlign = "right"; ctx.textBaseline = "middle";
         ctx.fillText("100%", bx.x - 4, bx.y + 2); ctx.fillText("0%", bx.x - 4, bx.y + bx.h);
         ctx.textAlign = "center"; ctx.textBaseline = "top";
-        [0, 10, 20, 30].forEach(function (d) { ctx.fillText(d + " km", bx.x + bx.w * d / 30, bx.y + bx.h + 3); });
-        ctx.fillStyle = INK; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("남은 대비 C/C₀", bx.x + 6, bx.y + 4);
+        [10, 20, 30].forEach(function (d) { ctx.fillText(d + " km", bx.x + bx.w * d / 30, bx.y + bx.h + 3); });
+        ctx.fillStyle = INK; ctx.font = AB.font(11, false, 600); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("남은 대비 C/C₀", bx.x + bx.w - 6, bx.y + 4);
       }
       AB.stat("ae-o-c", AB.fix(Math.exp(-b * 30) * 100, 1) + "%");
       AB.stat("ae-o-v", b > 0 ? (3.912 / b >= 1000 ? "1000 km 이상" : AB.fix(3.912 / b, 0) + " km") : "무한");
