@@ -424,11 +424,11 @@
   }
   if (document.fonts && document.fonts.load) {
     ["400 40px Inter", '400 40px "Noto Sans KR"', '700 40px "Noto Sans KR"', '400 40px "Noto Serif KR"'].forEach(function (f) {
-      document.fonts.load(f, "이번 여름 책방 E는 목요일 저녁마다 낭독 모임 Summer reading xhdg").catch(function () {});
+      document.fonts.load(f, "이번 여름 책방 E는 토요일 오후마다 낭독 모임 Summer reading xhdg").catch(function () {});
     });
   }
   var TXT = {
-    ko: "이번 여름 책방 E는 목요일 저녁마다 낭독 모임을 엽니다. 한 사람이 한 쪽씩 소리 내어 읽고, 다 읽은 뒤에는 차를 마시며 마음에 남은 문장을 나눕니다. 처음 오시는 분도 책 한 권만 들고 오시면 됩니다. 창가 자리는 일찍 차니 조금 서둘러 주세요. 지난달에 들어온 산문집과 시집은 입구 오른쪽 낮은 책장에 모아 두었습니다. 비 오는 날에는 우산꽂이를 문 안쪽으로 옮겨 둡니다.",
+    ko: "이번 여름 책방 E는 토요일 오후마다 낭독 모임을 엽니다. 한 사람이 한 쪽씩 소리 내어 읽고, 다 읽은 뒤에는 차를 마시며 마음에 남은 문장을 나눕니다. 처음 오시는 분도 책 한 권만 들고 오시면 됩니다. 창가 자리는 일찍 차니 조금 서둘러 주세요. 지난달에 들어온 산문집과 시집은 입구 오른쪽 낮은 책장에 모아 두었습니다. 비 오는 날에는 우산꽂이를 문 안쪽으로 옮겨 둡니다.",
     la: "This summer, Bookshop E holds a reading circle every Thursday evening. Each of us reads a page aloud, and afterwards we share the sentences that stayed with us over a cup of tea. Newcomers only need to bring one book. The window seats fill up early, so please come a little ahead of time. The essays and poems that arrived last month are gathered on the low shelf to the right of the entrance."
   };
   // 글자별 폭 + 자간으로 줄을 나눈다(어절·낱말 단위). 반환: [{words, chars, width}]
@@ -458,7 +458,7 @@
 
   /* ---------------- 그림 3: 가로쓰기와 세로쓰기 ---------------- */
   (function () {
-    var lines = ["여름 낭독", "목요일 저녁", "책 한 권", "창가 자리"], h = "", v = "";
+    var lines = ["여름 낭독", "토요일 오후", "책 한 권", "창가 자리"], h = "", v = "";
     lines.forEach(function (s, i) {
       h += '<text x="30" y="' + (58 + i * 34) + '" class="lbl-b" font-size="20">' + s + '</text>';
       var x = 376 - i * 34;
