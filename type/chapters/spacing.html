@@ -60,13 +60,13 @@
     <p>아래 그림의 위 줄은 글자의 바깥 테두리끼리 거리를 모두 똑같이 맞췄다. 그런데 둥근 O 둘 사이와 비스듬한 A와 V 사이는 곧은 H 둘 사이보다 훨씬 넓어 보인다. 아래 줄은 거리를 일부러 다르게 했다. 이번에는 사이가 대체로 고르게 보인다.</p>
 
     <figure class="diagram">
-      <svg viewBox="0 0 460 300" class="art" role="img" aria-label="위 줄은 H H O O A V 여섯 도형의 바깥 테두리 사이 거리를 똑같이 맞춘 것이고, 아래 줄은 둥근 글자와 비스듬한 글자를 더 가깝게 붙여 빈 면적을 맞춘 것이다.">
-        <rect x="0" y="0" width="460" height="300" rx="8" fill="#fbfaf7"/>
+      <svg viewBox="0 0 460 292" class="art" role="img" aria-label="위 줄은 H H O O A V 여섯 도형의 바깥 테두리 사이 거리를 똑같이 맞춘 것이고, 아래 줄은 둥근 글자와 비스듬한 글자를 더 가깝게 붙여 빈 면적을 맞춘 것이다.">
+        <rect x="0" y="0" width="460" height="292" rx="8" fill="#fbfaf7"/>
         <text x="20" y="28" fill="#2b2a30" font-size="13" font-weight="700">① 거리를 같게(사이 14)</text>
         <g id="sp-f1-a"></g>
-        <text x="20" y="168" fill="#2b2a30" font-size="13" font-weight="700">② 빈 면적을 같게(둥근·비스듬한 짝은 더 가깝게)</text>
+        <text x="20" y="164" fill="#2b2a30" font-size="13" font-weight="700">② 빈 면적을 같게(둥근·비스듬한 짝은 더 가깝게)</text>
         <g id="sp-f1-b"></g>
-        <text x="230" y="290" text-anchor="middle" fill="#6b6874" font-size="11.5">연한 초록은 글자 사이에 고인 빈 면적(일정한 깊이까지만 센다)</text>
+        <text x="230" y="282" text-anchor="middle" fill="#6b6874" font-size="11.5">연한 초록은 글자 사이에 고인 빈 면적(오목한 곳은 일정한 깊이까지만 센다)</text>
       </svg>
       <figcaption><b>그림 1. 거리와 면적.</b> 위 줄은 자로 잰 거리가 같지만 O O와 A V 사이에 빈 면적이 크게 고여 구멍처럼 보인다. 아래 줄은 그 면적을 H H 사이와 비슷하게 맞추느라 둥근 짝과 비스듬한 짝을 더 붙였다. 글자 사이를 고르게 한다는 것은 거리를 같게 하는 일이 아니라 <b>보이는 빈 면적을 같게</b> 하는 일이다.</figcaption>
     </figure>
@@ -106,23 +106,24 @@
     <p>디지털 글꼴의 모든 글자는 보이지 않는 상자 안에 들어 있다. 상자의 폭을 <span class="term">글자 폭</span><span class="en">(Advance width)</span>이라고 하고, 글자를 하나 찍으면 다음 글자는 그 폭만큼 오른쪽에서 시작한다. 상자 안에서 잉크와 상자 테두리 사이에 남긴 여백을 <span class="term">사이드베어링</span><span class="en">(Sidebearing)</span>이라고 한다. 글꼴 디자이너가 글자마다 정해 두는 왼쪽·오른쪽 옆 여백이다. 두 글자 사이에 보이는 빈 거리는 앞 글자의 오른쪽 여백과 뒤 글자의 왼쪽 여백을 더한 것이다.</p>
 
     <figure class="diagram">
-      <svg viewBox="0 0 460 250" role="img" aria-label="두 글자 A와 V가 각자의 글자 상자 안에 있다. 앞 글자의 오른쪽 여백, 뒤 글자의 왼쪽 여백, 그리고 그 사이에 더해지는 커닝과 트래킹을 화살표로 표시했다.">
+      <svg viewBox="0 0 460 246" role="img" aria-label="두 글자 A와 V가 각자의 글자 상자 안에 있다. 앞 글자의 오른쪽 여백, 뒤 글자의 왼쪽 여백, 그리고 그 사이에 더해지는 커닝과 트래킹을 화살표로 표시했다.">
         <defs><marker id="sp-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <line x1="20" y1="170" x2="440" y2="170" class="s-axis"/>
-        <text x="440" y="186" text-anchor="end" class="lbl-dim">기준선</text>
+        <line x1="20" y1="170" x2="392" y2="170" class="s-axis"/>
+        <text x="396" y="175" class="lbl-dim">기준선</text>
         <rect x="40" y="50" width="150" height="150" class="f-surface s-dash"/>
         <rect x="236" y="50" width="150" height="150" class="f-surface s-dash"/>
-        <path d="M55 170 L115 62 L175 170 M78 130 L152 130" fill="none" class="s-line" stroke-width="14" stroke-linejoin="round"/>
-        <path d="M251 62 L311 170 L371 62" fill="none" class="s-line" stroke-width="14" stroke-linejoin="round"/>
+        <path d="M66 170 L115 66 L164 170 M84 132 L146 132" fill="none" class="s-line" stroke-width="14" stroke-linejoin="round"/>
+        <path d="M262 66 L311 170 L360 66" fill="none" class="s-line" stroke-width="14" stroke-linejoin="round"/>
         <text x="115" y="40" text-anchor="middle" class="lbl-b">A의 글자 폭</text>
         <text x="311" y="40" text-anchor="middle" class="lbl-b">V의 글자 폭</text>
-        <path d="M176 216 L190 216" class="s-acc" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
-        <path d="M236 216 L250 216" class="s-acc" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
-        <text x="183" y="236" text-anchor="middle" class="lbl-acc">오른쪽 여백</text>
-        <text x="243" y="250" text-anchor="middle" class="lbl-acc">왼쪽 여백</text>
-        <path d="M190 104 L236 104" class="s-acc2" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
-        <text x="213" y="96" text-anchor="middle" class="lbl-acc2">커닝 + 트래킹</text>
-        <text x="213" y="122" text-anchor="middle" class="lbl-dim">(빈칸만큼 더하거나 뺀다)</text>
+        <path d="M171 214 L189 214" class="s-acc" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
+        <path d="M237 214 L255 214" class="s-acc" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
+        <text x="176" y="234" text-anchor="middle" class="lbl-acc">오른쪽 여백</text>
+        <text x="252" y="234" text-anchor="middle" class="lbl-acc">왼쪽 여백</text>
+        <path d="M191 186 L235 186" class="s-acc2" marker-end="url(#sp-ar)" marker-start="url(#sp-ar)"/>
+        <text x="420" y="110" text-anchor="middle" class="lbl-acc2">커닝 +</text>
+        <text x="420" y="126" text-anchor="middle" class="lbl-acc2">트래킹</text>
+        <path d="M400 132 L240 182" class="s-acc2 s-dash" fill="none"/>
       </svg>
       <figcaption><b>그림 2. 글자 상자와 옆 여백.</b> 점선 상자가 글자 폭이다. 두 글자 사이의 빈 거리는 앞 글자의 오른쪽 여백과 뒤 글자의 왼쪽 여백의 합에, 그 짝에만 주는 커닝과 글줄 전체에 주는 트래킹을 더한 값이다. A와 V는 서로 비스듬히 기대어 있어서, 기본 여백 그대로 두면 위쪽(A)과 아래쪽(V)에 큰 빈 곳이 생긴다.</figcaption>
     </figure>
@@ -158,7 +159,7 @@
         <div class="stat"><span class="k">짝마다 빈 면적(기준 H H = 100)</span><span class="v" id="kn-o-a">—</span></div>
         <div class="stat"><span class="k">고르지 않음(면적의 변동)</span><span class="v" id="kn-o-cv">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① AVATAR를 커닝 없이 본다. A V, V A, T A, A T 사이에 큰 초록이 고인다. 손잡이를 끌어 직접 맞춰 본다. ② "면적 맞춤"을 누른다. 모델은 짝마다 빈 면적을 H H 사이와 같게 하는 커닝을 찾는다. 대개 −60~−120 근처의 큰 음수가 나온다. ③ LOTTO에서 맞춘 뒤 T T 사이를 본다. 위의 팔끼리 거의 닿을 만큼 붙는다. 면적만 보는 모델은 팔이 부딪치는 것을 신경 쓰지 않는다. 이럴 때는 눈으로 조금 되돌린다. ④ 빈 면적 보기를 끄고 맞춘 결과를 흐릿하게 본다. (빈 면적은 대문자 높이 안의 각 줄에서 두 글자 잉크 사이 거리를 0.2 em까지만 세어 평균한 이 책의 모델이다. 실제 커닝 도구와 디자이너는 더 많은 것을 본다. 글꼴은 Inter Bold, 원래 글꼴에 들어 있는 커닝은 끄고 시작한다.)</div>
+      <div class="sim-note">해볼 것: ① AVATAR를 커닝 없이 본다. A V, V A, T A, A T 사이에 큰 초록이 고인다. 손잡이를 끌어 직접 맞춰 본다. ② "면적 맞춤"을 누른다. 모델은 짝마다 빈 면적을 H H 사이와 같게 하는 커닝을 찾는다. A V는 −130 안팎, T가 낀 짝은 −150 이상의 큰 음수가 나온다. 실제 글꼴의 커닝보다 대체로 크다. ③ LOTTO에서 맞춘 뒤 T T 사이를 본다. 위의 팔끼리 거의 닿을 만큼 붙는다. 면적만 보는 모델은 팔이 부딪치는 것을 신경 쓰지 않는다. 이럴 때는 눈으로 조금 되돌린다. ④ 빈 면적 보기를 끄고 맞춘 결과를 흐릿하게 본다. (빈 면적은 대문자 높이 안의 각 줄에서 두 글자 사이 거리를 재되, 글자 안쪽으로 오목하게 들어간 빈 곳은 바깥 테두리에서 0.15 em 깊이까지만 세어 평균한 이 책의 모델이다. 붉은 줄은 잉크가 겹친 곳이다. 실제 커닝 도구와 디자이너는 더 많은 것을 본다. 글꼴은 Inter Bold, 원래 글꼴에 들어 있는 커닝은 끄고 시작한다.)</div>
     </div>
 
     <p>모델로 맞춘 결과와 눈으로 맞춘 결과를 견주어 보면, 대부분의 짝에서 방향은 같지만 양은 조금씩 다르다. 눈은 면적뿐 아니라 획끼리 가장 가까운 거리, 글자의 무게중심, 위아래 빈 곳의 모양까지 함께 본다. 특히 T T, L T처럼 팔이 맞닿는 짝은 면적을 같게 하면 오히려 너무 붙는다. 모델이 무너지는 자리가 바로 눈이 필요한 자리다.</p>
@@ -185,7 +186,7 @@
         <div class="stat"><span class="k">고르지 않음: 오른쪽</span><span class="v" id="cm-o-b">—</span></div>
         <div class="stat"><span class="k">가장 크게 고친 짝</span><span class="v" id="cm-o-m">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 경계선을 왼쪽 끝과 오른쪽 끝으로 오가며 "AVATAR", "Type", "To" 같은 짝이 어떻게 변하는지 본다. ② 옵티컬(모델)로 바꾼다. 메트릭보다 고르지 않음 수치는 더 작아지지만 "Type"의 T y처럼 지나치게 붙는 짝이 생긴다. 수치가 작다고 더 좋아 보이는 것은 아니다. ③ 세리프로 바꾼다. 세리프가 글자 사이를 이어 주어 커닝 전후의 차이가 산세리프보다 작게 느껴지기도 한다. (고르지 않음은 각 짝의 빈 면적의 변동 계수다. 메트릭 값은 브라우저가 글꼴에서 읽은 커닝을 측정해 쓴다. 글꼴이 아직 오지 않았으면 대체 글꼴로 그려진다.)</div>
+      <div class="sim-note">해볼 것: ① 경계선을 왼쪽 끝과 오른쪽 끝으로 오가며 "AVATAR", "Type", "To" 같은 짝이 어떻게 변하는지 본다. ② 수치를 본다. 이 책의 모델로 재면 메트릭 커닝이 커닝 없음보다 오히려 고르지 않다고 나오기도 한다. 디자이너는 이 모델대로 맞추지 않았기 때문이다. ③ 옵티컬(모델)로 바꾼다. 모델로 맞췄으니 고르지 않음은 0%가 되지만 "LT", "To"처럼 지나치게 붙는 짝이 생긴다. 수치가 작다고 더 좋아 보이는 것은 아니다. ④ 세리프로 바꾼다. 세리프가 글자 사이를 이어 주어 커닝 전후의 차이가 산세리프보다 작게 느껴지기도 한다. (고르지 않음은 각 짝의 빈 면적의 변동 계수다. 메트릭 값은 브라우저가 글꼴에서 읽은 커닝을 측정해 쓴다. 글꼴이 아직 오지 않았으면 대체 글꼴로 그려진다.)</div>
     </div>
 
     <p>메트릭 커닝은 디자이너의 판단이 담긴 값이라 대체로 믿을 만하지만, 목록이 모든 짝을 담지는 못한다. 옵티컬 커닝은 어떤 짝이든 계산하지만, 모양만 보고 판단하므로 디자이너가 일부러 남긴 여유까지 없애 버리기도 한다. 그래서 실무에서는 본문에는 대개 글꼴의 메트릭 커닝을 그대로 쓰고, 제목이나 로고처럼 크게 쓰는 몇 글자는 옵티컬로 출발해 눈으로 한 짝씩 다시 고친다.</p>
@@ -217,7 +218,7 @@
         <div class="stat"><span class="k">가장 넓은 짝 · 가장 좁은 짝</span><span class="v" id="hg-o-x">—</span></div>
         <div class="stat"><span class="k">낱말 사이 ÷ 글자 사이</span><span class="v" id="hg-o-r">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 0에서 글자 몸을 본다. 상자는 모두 같은 폭인데 초록 띠(잉크 폭)는 글자마다 다르다. "가", "의"처럼 오른쪽이 빈 글자 뒤가 넓다. ② 자간을 −40 안팎으로 줄이고 아래 본문을 본다. 성긴 느낌이 줄고 낱말이 덩어리로 묶인다. ③ −120까지 내린다. 받침과 옆 글자의 획이 부딪치고 본문의 회색이 얼룩진다. ④ 명조로 바꾼다. 명조는 획 끝의 부리와 붓의 흐름이 글자 사이를 이어 주어, 같은 자간에서도 고딕과 다르게 느껴진다. (빈 거리는 각 글자 짝의 잉크 사이 거리를 글자 높이 안에서 0.25 em까지만 세어 평균한 이 책의 모델이다. 한글 글꼴은 대부분 짝마다의 커닝 정보가 적거나 없어서, 이 시뮬레이터는 커닝 없이 자간만 바꾼다.)</div>
+      <div class="sim-note">해볼 것: ① 0에서 글자 몸을 본다. 상자는 모두 같은 폭인데 초록 띠(잉크 폭)는 글자마다 다르다. "가", "의"처럼 오른쪽이 빈 글자 뒤가 넓다. ② 자간을 −40 안팎으로 줄이고 아래 본문을 본다. 성긴 느낌이 줄고 낱말이 덩어리로 묶인다. ③ −120까지 내린다. 받침과 옆 글자의 획이 부딪치고 본문의 회색이 얼룩진다. ④ 명조로 바꾼다. 명조는 획 끝의 부리와 붓의 흐름이 글자 사이를 이어 주어, 같은 자간에서도 고딕과 다르게 느껴진다. (빈 거리는 글자 높이 안의 각 줄에서 두 글자 사이 거리를 재되 오목한 빈 곳은 0.15 em 깊이까지만 세어 평균한 이 책의 모델이다. 한글 글꼴은 대부분 짝마다의 커닝 정보가 적거나 없어서, 이 시뮬레이터는 커닝 없이 자간만 바꾼다.)</div>
     </div>
 
     <p>두 번째와 세 번째 해볼 것 사이에 적당한 구간이 있다. 고딕 본문에서는 대체로 약간 줄였을 때 낱말이 묶이고, 지나치게 줄이면 받침과 이웃 글자가 엉긴다. 명조는 같은 값에서도 덜 성겨 보이는 경우가 많다. 무엇보다 한글은 <b>글자 짝마다의 불균형</b>이 라틴보다 크지만, 수천 자의 짝을 모두 커닝하기는 어려워서 대부분의 글꼴이 짝 커닝을 거의 담지 않는다. 대신 글자 상자의 폭 자체를 글자마다 다르게 쓰게 하는 기능(OpenType의 비례 폭 기능 등)을 갖춘 글꼴이 있고, 제목이나 로고에서는 디자이너가 손으로 짝을 고친다.</p>
@@ -258,7 +259,7 @@
     <p>19세기 말 영국의 디자이너 윌리엄 모리스<span class="en">(William Morris, 1834–1896)</span>는 켈름스콧 출판사를 세워 중세 필사본과 초기 인쇄본에서 영감을 얻은 책을 만들었다. 그는 당시 상업 인쇄의 성기고 희멀건 지면을 싫어해서 낱말 사이를 좁게 하고 글자를 짙게 짜, 지면 전체가 고르게 짙은 회색으로 보이기를 바랐다. 아래 그림의 글줄들을 흐리게 보면 그 의도가 보인다. 동시에 대가도 보인다. 양끝을 맞추느라 "so he did", "the trees" 같은 자리에서는 낱말 사이가 거의 사라져 낱말끼리 붙어 읽힌다.</p>
 
     <figure class="art-figure" id="fig-sp-morris">
-      <div class="art-frame"><img src="../../shared/img/morris-well-worlds-end-detail.webp" width="1340" height="1400" alt="덩굴무늬 목판 테두리 안에 고딕풍 글자로 짠 두 단의 본문이 있다. 왼쪽 단 위에는 붉은 장 제목과 장식 머리글자 W가, 오른쪽 단에는 낱말 사이가 아주 좁은 글줄들이 빽빽하게 이어진다." loading="lazy" decoding="async"></div>
+      <div class="art-frame"><img src="../../shared/img/morris-well-worlds-end-detail.webp" width="1420" height="1400" alt="덩굴무늬 목판 테두리 안에 고딕풍 글자로 짠 두 단의 본문이 있다. 왼쪽 단 위에는 붉은 장 제목과 장식 머리글자 A가, 오른쪽 단에는 낱말 사이가 아주 좁은 글줄들이 빽빽하게 이어진다." loading="lazy" decoding="async"></div>
       <figcaption><b>그림 3. 윌리엄 모리스, 『세상 끝의 우물』, 켈름스콧 출판사, 1896.</b> 장식 테두리와 짙은 본문이 하나의 회색 면을 이루도록 짰다. 오른쪽 단의 "so he did, &amp; there", "stepped amidst the trees" 같은 줄에서는 낱말 사이가 글자 사이와 거의 같아져, 회색값은 고르지만 낱말의 경계가 흐려진다. 고른 회색과 낱말 구분은 이렇게 서로 부딪칠 수 있다.<span class="credit">메트로폴리탄 미술관, 인쇄본(목판화 삽화, 양피지 장정본). 공공 도메인(The Met Open Access, CC0). 펼친 면 사진에서 오른쪽 면 일부를 잘랐다. <a href="https://www.metmuseum.org/art/collection/search/354288">소장처 작품 페이지</a> · <a href="../../credits.html#morris-well-worlds-end-detail">크레딧</a></span></figcaption>
     </figure>
 
@@ -297,7 +298,7 @@
         <div class="stat"><span class="k">빈 거리: 책|방 · 방|E</span><span class="v" id="sg-o-g">—</span></div>
         <div class="stat"><span class="k">글자 높이(간판 위)</span><span class="v" id="sg-o-h">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "글꼴 기본값"을 누른다. 본문용 여백 그대로라 크게 키운 간판에서 "책"과 "방"이 떨어져 보이고, 공백 하나의 "방 E"는 오히려 가깝게 보인다. ② "목표대로 맞추기"를 누르고 10 m, 30 m로 본다. 멀어질수록 글자 사이와 낱말 사이의 차이가 흐려진다. ③ 비율을 1.2까지 내리면 "책방E"가 한 낱말처럼 붙고, 5까지 올리면 E가 간판 밖으로 밀려날 듯 따로 논다. ④ 목표 빈 거리를 0.02까지 줄이면 획이 거의 닿는다. 간판은 멀리서 보므로 본문보다는 촘촘하게, 그러나 닿지 않게. (빈 거리는 글자 높이 안에서 두 글자 잉크 사이 거리를 0.25 em까지만 세어 평균한 이 책의 모델이다. 간판 폭 1.8 m에 대해 글자 줄이 약 78%를 차지하도록 글자 크기를 정했다. 흐림은 거리에 비례하게 준 근사이며, 실제 보이는 정도는 글자 크기와 시력, 조명에 따라 다르다.)</div>
+      <div class="sim-note">해볼 것: ① 처음 모습은 목표대로 맞춘 상태다. "글꼴 기본값"을 누른다. 본문용 여백 그대로라 크게 키운 간판에서 "책"과 "방"이 떨어져 보이고, 낱말 사이가 글자 사이의 두 배 남짓이라 "책 방 E"처럼 세 덩어리로 읽힌다. ② 다시 "목표대로 맞추기"를 누르고 10 m, 30 m로 본다. 멀어질수록 글자 사이와 낱말 사이의 차이가 흐려진다. ③ 비율을 1.2까지 내리면 "책방E"가 한 낱말처럼 붙고, 5까지 올리면 E가 간판 밖으로 밀려날 듯 따로 논다. ④ 목표 빈 거리를 0.02까지 줄이면 획이 거의 닿는다. 간판은 멀리서 보므로 본문보다는 촘촘하게, 그러나 닿지 않게. (빈 거리는 앞의 시뮬레이터들과 같은 모델로, 한글 글자 높이 안의 각 줄에서 오목한 빈 곳을 0.15 em 깊이까지만 세어 평균한다. 간판 폭 1.8 m에 대해 글자 줄이 약 78%를 차지하도록 글자 크기를 정했다. 흐림은 거리에 비례하게 준 근사이며, 실제 보이는 정도는 글자 크기와 시력, 조명에 따라 다르다.)</div>
     </div>
 
     <p>모델이 내놓는 값은 "이 목표라면 이만큼"이라는 계산일 뿐이다. 목표 빈 거리와 낱말 비율을 정하는 것은 디자이너의 판단이다. 멀리서 보는 간판이라면 낱말 사이를 본문보다 넉넉히 두어야 흐려져도 "책방"과 "E"가 둘로 읽힌다. 손 레터링으로 넘어가면 획의 모양이 바뀌니 커닝도 다시 보아야 한다. 이 장의 숫자는 그때 기준으로 쓸 출발점이다.</p>
@@ -308,23 +309,23 @@
     <div class="casefile">
       <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 5장</span></div>
       <h4>자로는 같았는데 눈으로는 달랐다</h4>
-      <p>간판 시안을 실제 크기로 출력해 책방 앞 골목에 세워 보았다. 서윤은 글꼴의 기본 간격 그대로 "책방 E"를 앉혔는데, 열 걸음쯤 물러서자 "책"과 "방"이 서로 떨어져 보였다. 반대로 공백 하나를 둔 "방 E"는 생각보다 가까워서, E가 "방"의 받침처럼 따라붙어 보였다. 주인은 "책방이 두 글자로 갈라져 보인다"고 했다.</p>
-      <p>도경은 출력물을 거꾸로 돌려 세웠다. "글자도 그림처럼 사이를 봐. 거리 말고 면적." 그러고는 연필로 "책"의 오른쪽 세로획과 "방"의 ㅂ 사이, "방"의 ㅇ 받침과 E 사이에 고인 빈 곳을 칠했다. 앞의 것은 넓고 뒤의 것은 좁았다. 서윤은 이 장의 작업대 모델로 두 사이를 쟀다. 글꼴 기본값에서 책|방의 빈 거리는 <b data-sp="g1m">0.17</b> em, 방|E는 <b data-sp="g2m">0.22</b> em으로 비율이 1.3 안팎이었다. 낱말 사이가 글자 사이와 거의 같으니 한 낱말처럼 읽히는 것이 당연했다.</p>
-      <p>서윤은 간판을 멀리서 본다는 점을 생각해, 글자 사이의 목표를 본문보다 촘촘한 0.09 em, 낱말 사이는 그 2.5배로 정했다. 모델로 계산하니 책–방 커닝은 <b>−80</b>(1/1000 em), 방–E 사이는 공백을 포함해 <b>0.36 em</b>이 되었다. 이 시안의 글자 크기(간판 위 글자 높이 약 37 cm)로 옮기면 "방"을 약 3 cm 당기고, "방"과 E 사이를 약 3 cm 넓히는 셈이다. 도경은 숫자를 보고 E를 한 번 더 손으로 밀어 보더니 그대로 두자고 했다.</p>
-      <p>웹 본문의 자간은 따로 정했다. 4장에서 고른 고딕 계열의 본문을 휴대폰에서 17px 안팎으로 놓고 0, −0.02em, −0.04em을 나란히 출력해 흐리게 보았다. 0은 글자가 한 자씩 떨어져 보였고, −0.04em은 "책방", "골목" 같은 받침 많은 낱말에서 획이 엉겼다. 서윤은 −0.02em을 골랐다. 대신 13px 이하의 작은 글자에는 음수 자간을 주지 않기로 했다. 그리고 WCAG 1.4.12대로 독자가 글자 사이를 0.12em까지 넓혀도 줄이 넘치지 않는지 시험 페이지로 확인했다.</p>
+      <p>간판 시안을 실제 크기로 출력해 책방 앞 골목에 세워 보았다. 서윤은 견본 글꼴의 기본 간격 그대로 "책방 E"를 앉혔는데, 열 걸음쯤 물러서자 "책"과 "방"이 서로 떨어져 보였다. 본문 크기에서는 알맞던 옆 여백이 글자 높이 50 cm 가까운 간판에서는 손바닥만 한 빈 곳이 된 것이다. 주인은 "책방이 두 글자로 갈라져 보인다"고 했다.</p>
+      <p>도경은 출력물을 거꾸로 돌려 세웠다. "글자도 그림처럼 사이를 봐. 거리 말고 면적." 그러고는 연필로 "책"의 오른쪽 세로획과 "방"의 ㅂ 사이, "방"의 ㅇ 받침과 E 사이에 고인 빈 곳을 칠했다. 서윤은 이 장의 작업대 모델로 두 사이를 쟀다. 글꼴 기본값에서 책|방의 빈 거리는 <b>0.23</b> em, 방|E는 <b>0.49</b> em으로, 낱말 사이가 글자 사이의 2.1배였다. 글자 사이가 넓고 낱말 사이는 그에 비해 덜 넓으니, 간판이 "책 / 방 / E" 세 덩어리로 읽힌 것이다.</p>
+      <p>서윤은 간판을 멀리서 본다는 점을 생각해 글자 사이의 목표를 0.12 em으로 좁히고, 낱말 사이는 그 3배(0.36 em)로 정했다. 30 m 흐림에서도 "책방"과 "E"가 둘로 읽히는 가장 작은 비율을 몇 번 시험한 결과다. 모델로 계산하니 책–방 커닝은 <b>−115</b>(1/1000 em)이고, 방–E 사이의 공백은 기본 0.23 em에서 <b>0.10 em</b>으로 줄이면 되었다. 이 시안 크기(1 em이 약 52 cm, 한글 글자 높이 약 49 cm)로 옮기면 "방"을 약 6 cm 당기고 E는 그보다 약 7 cm 더 당기는 셈이다. 도경은 숫자를 보고 E를 손으로 한 번 더 밀어 보더니 그대로 두자고 했다. "멀리서 보는 글자는 생각보다 많이 붙여야 해."</p>
+      <p>웹 본문의 자간은 따로 정했다. <a href="classification.html">4장</a>에서 고른 고딕 계열의 본문을 휴대폰 크기로 놓고 0, −0.02em, −0.04em을 나란히 출력해 흐리게 보았다. 0은 글자가 한 자씩 떨어져 보였고, −0.04em은 "책방", "골목" 같은 받침 많은 낱말에서 획이 엉겼다. 서윤은 −0.02em을 골랐다. 대신 13px 이하의 작은 글자에는 음수 자간을 주지 않기로 했다. 그리고 WCAG 1.4.12대로 독자가 글자 사이를 0.12em까지 넓혀도 줄이 넘치지 않는지 시험 페이지로 확인했다.</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th>자리</th><th>무엇</th><th class="num">값</th><th>비고</th></tr></thead>
           <tbody>
-            <tr><td>간판 「책방 E」</td><td>책–방 커닝</td><td class="num">−80 / 1000 em</td><td>견본 글꼴 기준, 레터링 때 다시 확인</td></tr>
-            <tr><td>간판 「책방 E」</td><td>방–E 사이(공백 포함)</td><td class="num">0.36 em</td><td>글자 사이 목표 0.09 em의 2.5배</td></tr>
+            <tr><td>간판 「책방 E」</td><td>책–방 커닝</td><td class="num">−115 / 1000 em</td><td>책|방 빈 거리 0.23 → 0.12 em</td></tr>
+            <tr><td>간판 「책방 E」</td><td>방–E 공백</td><td class="num">0.10 em</td><td>방|E 빈 거리 0.36 em(글자 사이의 3배)</td></tr>
             <tr><td>웹 본문(고딕)</td><td>자간</td><td class="num">−0.02em</td><td>−20 / 1000 em</td></tr>
             <tr><td>웹의 작은 글자(13px 이하)</td><td>자간</td><td class="num">0</td><td>음수 자간을 주지 않는다</td></tr>
           </tbody>
         </table>
       </div>
       <div class="clue">
-        <div><b>이 장에서 정한 것</b>간판 커닝: 책–방 −80/1000 em, 방–E 사이 0.36 em(글자 사이 빈 거리 목표 0.09 em, 낱말 사이는 그 2.5배). 웹 본문 자간 −0.02em, 13px 이하 작은 글자는 0. 커닝 값은 이 책의 면적 모델과 견본 글꼴(Noto Sans KR Bold)로 계산한 출발점이며, 손 레터링에서 획이 바뀌면 같은 목표로 다시 맞춘다.</div>
+        <div><b>이 장에서 정한 것</b>간판 간격: 글자 사이 빈 거리 0.12 em, 낱말 사이 빈 거리는 그 3배(0.36 em). 이를 위해 책–방 커닝 −115/1000 em, 방–E 공백 0.10 em. 웹 본문 자간 −0.02em, 13px 이하 작은 글자는 0. 커닝 값은 이 책의 면적 모델과 견본 글꼴(Noto Sans KR Bold)로 계산한 출발점이며, 손 레터링에서 획이 바뀌면 같은 목표로 다시 맞춘다.</div>
         <div><b>아직 남은 문제</b>본문 자간을 정했지만 글자 크기와 줄 사이, 한 줄의 길이가 정해지지 않아 휴대폰과 넓은 화면에서 문단 전체가 어떻게 보일지는 아직 모른다. 서점 소식 글은 넓은 화면에서 여전히 화면 끝까지 이어진다.</div>
         <div><b>다음 단계</b><a href="leading.html">6장</a>: 휴대폰과 넓은 화면에서 본문의 글자 크기, 행간, 최대 글줄 폭을 정한다.</div>
       </div>
@@ -473,38 +474,32 @@
 
   /* ---------------- 그림 1: 거리와 면적 ---------------- */
   (function () {
-    // 단순한 도형 글자: H(두 기둥+가로대), O(고리), A·V(비스듬한 획). 폭 w, 높이 h.
-    var h = 90, sw = 13;
+    // 단순한 도형 글자. 높이 h, 획 굵기 sw. O는 바깥 타원을 칠하고 속공간을 종이색으로 덮는다.
+    var h = 72, sw = 11, K = "#2b2a30", PA = "#fbfaf7";
     var G = {
-      H: { w: 62, svg: function (x, y) { return '<rect x="' + x + '" y="' + y + '" width="' + sw + '" height="' + h + '" fill="#2b2a30"/><rect x="' + (x + 62 - sw) + '" y="' + y + '" width="' + sw + '" height="' + h + '" fill="#2b2a30"/><rect x="' + x + '" y="' + (y + h / 2 - sw / 2) + '" width="62" height="' + sw + '" fill="#2b2a30"/>'; } },
-      O: { w: 80, svg: function (x, y) { return '<ellipse cx="' + (x + 40) + '" cy="' + (y + h / 2) + '" rx="' + (40 - sw / 2) + '" ry="' + (h / 2 - sw / 2) + '" fill="none" stroke="#2b2a30" stroke-width="' + sw + '"/>'; } },
-      A: { w: 76, svg: function (x, y) { return '<path d="M' + (x + sw / 2) + ' ' + (y + h) + ' L' + (x + 38) + ' ' + (y + sw / 2) + ' L' + (x + 76 - sw / 2) + ' ' + (y + h) + ' M' + (x + 20) + ' ' + (y + 62) + ' L' + (x + 56) + ' ' + (y + 62) + '" fill="none" stroke="#2b2a30" stroke-width="' + sw + '" stroke-linejoin="round"/>'; } },
-      V: { w: 76, svg: function (x, y) { return '<path d="M' + (x + sw / 2) + ' ' + y + ' L' + (x + 38) + ' ' + (y + h - sw / 2) + ' L' + (x + 76 - sw / 2) + ' ' + y + '" fill="none" stroke="#2b2a30" stroke-width="' + sw + '" stroke-linejoin="round"/>'; } }
+      H: { w: 50, svg: function (x, y) { return '<rect x="' + x + '" y="' + y + '" width="' + sw + '" height="' + h + '" fill="' + K + '"/><rect x="' + (x + 50 - sw) + '" y="' + y + '" width="' + sw + '" height="' + h + '" fill="' + K + '"/><rect x="' + x + '" y="' + (y + h / 2 - sw / 2) + '" width="50" height="' + sw + '" fill="' + K + '"/>'; } },
+      O: { w: 64, svg: function (x, y) { return '<ellipse cx="' + (x + 32) + '" cy="' + (y + h / 2) + '" rx="32" ry="' + (h / 2) + '" fill="' + K + '"/><ellipse cx="' + (x + 32) + '" cy="' + (y + h / 2) + '" rx="' + (32 - sw) + '" ry="' + (h / 2 - sw) + '" fill="' + PA + '"/>'; } },
+      A: { w: 60, svg: function (x, y) { return '<path d="M' + x + ' ' + (y + h) + ' L' + (x + 24.5) + ' ' + y + ' L' + (x + 35.5) + ' ' + y + ' L' + (x + 60) + ' ' + (y + h) + ' L' + (x + 48.5) + ' ' + (y + h) + ' L' + (x + 30) + ' ' + (y + 14) + ' L' + (x + 11.5) + ' ' + (y + h) + ' Z" fill="' + K + '"/><rect x="' + (x + 16) + '" y="' + (y + 46) + '" width="28" height="9" fill="' + K + '"/>'; } },
+      V: { w: 60, svg: function (x, y) { return '<path d="M' + x + ' ' + y + ' L' + (x + 11.5) + ' ' + y + ' L' + (x + 30) + ' ' + (y + h - 14) + ' L' + (x + 48.5) + ' ' + y + ' L' + (x + 60) + ' ' + y + ' L' + (x + 35.5) + ' ' + (y + h) + ' L' + (x + 24.5) + ' ' + (y + h) + ' Z" fill="' + K + '"/>'; } }
     };
-    // 빈 면적 띠: 각 짝 사이를 대략적인 다각형으로 칠한다
-    function fillBetween(k1, k2, x1, x2, y) {
-      var a = x1, b = x2, pts;
-      if (k1 === "H" && k2 === "H") pts = [[a, y], [b, y], [b, y + h], [a, y + h]];
-      else if (k1 === "O" && k2 === "O") pts = [[a - 24, y], [b + 24, y], [b, y + h / 2], [b + 24, y + h], [a - 24, y + h], [a, y + h / 2]];
-      else if (k1 === "H" && k2 === "O") pts = [[a, y], [b + 24, y], [b, y + h / 2], [b + 24, y + h], [a, y + h]];
-      else if (k1 === "O" && k2 === "A") pts = [[a - 24, y], [b + 38, y], [b, y + h], [a - 24, y + h], [a, y + h / 2]];
-      else pts = [[a - 30, y], [b + 30, y + h], [b, y + h], [a, y + h]]; // A V
-      // 깊이 제한(24px)으로 자른 모양을 칠한다
-      return '<polygon points="' + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ") + '" fill="rgba(47,125,91,0.25)"/>';
+    var D = 22; // 오목한 곳을 세는 깊이
+    function area(k1, k2, a, b, y) {
+      // a: 앞 글자의 오른쪽 테두리 x, b: 뒤 글자의 왼쪽 테두리 x
+      var L = k1 === "O" ? a - D : k1 === "A" ? a - D : a, R = k2 === "O" ? b + D : k2 === "V" ? b + D : b, pts;
+      if (k1 === "A" && k2 === "V") pts = [[a - 24.5, y], [b, y], [b + 24.5, y + h], [a, y + h]];
+      else pts = [[L, y], [R, y], [R, y + h], [L, y + h]];
+      return '<polygon points="' + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ") + '" fill="rgba(47,125,91,0.28)"/>';
     }
     function row(id, y, gaps) {
-      var seq = ["H", "H", "O", "O", "A", "V"], x = 22, html = "", prev = null, xs = [];
+      var seq = ["H", "H", "O", "O", "A", "V"], x = 0, xs = [];
       seq.forEach(function (k, i) { if (i) x += gaps[i - 1]; xs.push(x); x += G[k].w; });
-      // 면적 먼저(글자가 위에 오도록)
-      html += '<clipPath id="' + id + '-clip"><rect x="0" y="' + y + '" width="460" height="' + h + '"/></clipPath><g clip-path="url(#' + id + '-clip)">';
-      seq.forEach(function (k, i) { if (i) html += fillBetween(seq[i - 1], k, xs[i - 1] + G[seq[i - 1]].w, xs[i], y); });
-      html += "</g>";
-      seq.forEach(function (k, i) { html += G[k].svg(xs[i], y); });
+      var x0 = (460 - x) / 2, html = "";
+      seq.forEach(function (k, i) { if (i) html += area(seq[i - 1], k, x0 + xs[i - 1] + G[seq[i - 1]].w, x0 + xs[i], y); });
+      seq.forEach(function (k, i) { html += G[k].svg(x0 + xs[i], y); });
       document.getElementById(id).innerHTML = html;
-      return x;
     }
     row("sp-f1-a", 42, [14, 14, 14, 14, 14]);
-    row("sp-f1-b", 182, [14, 8, 2, 4, -22]);
+    row("sp-f1-b", 178, [14, 8, 2, 6, -12]);
   })();
 
   /* ---------------- 시뮬레이터 1: 글줄의 회색 ---------------- */
@@ -556,7 +551,7 @@
       AB.stat("gy-o-r", (isFinite(ratio) ? ratio.toFixed(1) : "∞(글자가 닿음)") + (ratio < 1.5 ? " · 낱말이 흩어짐" : ""));
       AB.stat("gy-o-cv", dens.length ? (cv2(dens) * 100).toFixed(0) + "%" : "—");
       AB.stat("gy-o-d", dens.length ? (sum / dens.length * 100).toFixed(1) + "%" : "—");
-    }, { bg: PAPER, readback: true, get height() { var w = Math.max(200, (document.getElementById("gy-cv").parentElement.clientWidth || 600)); return w < 420 ? 330 : 280; } }));
+    }, { bg: PAPER, readback: true, get height() { var w = Math.max(200, (document.getElementById("gy-cv").parentElement.clientWidth || 600)); return w < 420 ? 300 : 230; } }));
   })();
 
   /* ---------------- 시뮬레이터 2: 손으로 하는 커닝 ---------------- */
@@ -626,10 +621,15 @@
 
   /* ---------------- 시뮬레이터 3: 커닝 없음과 커닝 있음 ---------------- */
   (function () {
-    var LINES = ["AVATAR WAVE", "Type To Yo", "LT VA Wo P."];
+    var LINES = ["AVATAR WAVE", "Type To Yo", "LT VA Wo"];
     var mode = AB.seg("cm-mode", function () { redraw(); });
     var face = AB.seg("cm-font", function () { redraw(); });
     var stats = {};
+    function cmPx(w, fam) {  // 가장 긴 줄이 폭의 88%를 채우는 크기
+      octx.font = fnt(700, 100, fam); var mw = 0;
+      LINES.forEach(function (s) { mw = Math.max(mw, octx.measureText(s).width); });
+      return Math.round(Math.min(68, Math.max(26, (w * 0.88 - 24) / mw * 100)));
+    }
     function kernOf(ctx, a, b, on) {
       ctx.fontKerning = on ? "normal" : "none";
       var k = ctx.measureText(a + b).width - ctx.measureText(a).width - ctx.measureText(b).width;
@@ -637,14 +637,14 @@
     }
     function draw(ctx, w, h, which) {
       var serif = face() === "serif", fam = serif ? FAM.latSerif : FAM.lat;
-      var px = Math.round(Math.min(64, Math.max(30, w / 9))), font = fnt(700, px, fam);
+      var px = cmPx(w, fam), font = fnt(700, px, fam);
       var m = which === "a" ? "none" : mode();
       ctx.font = font; ctx.fillStyle = INK; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
       if ("fontKerning" in ctx) ctx.fontKerning = "none";
       var H = prof("H", font, px), band = [H.top, 0], cap = 0.15 * px, ref = gapOf(H, H, 0, H.adv, band, cap);
       var gaps = [], maxK = { v: 0, p: "" };
       LINES.forEach(function (s, li) {
-        var y = Math.round(h * 0.08 + px * 1.05 + li * px * 1.3), x = 24, prev = null;
+        var y = Math.round(px * 1.1 + li * px * 1.3), x = 24, prev = null;
         for (var i = 0; i < s.length; i++) {
           var c = s[i], P = prof(c, font, px);
           if (prev && prev.c !== " " && c !== " ") {
@@ -667,7 +667,7 @@
         AB.stat("cm-o-m", stats.b.max.p ? stats.b.max.p + " " + Math.round(stats.b.max.v / stats.b.px * 1000) + " / 1000 em" : "—");
       }
     }
-    var hgt = { get height() { var w = Math.max(200, (document.getElementById("cm-cmp").clientWidth || 600)); return Math.round(Math.min(64, Math.max(30, w / 9)) * 4.6 + 20); } };
+    var hgt = { get height() { var w = Math.max(200, (document.getElementById("cm-cmp").clientWidth || 600)); return Math.round(cmPx(w, face() === "serif" ? FAM.latSerif : FAM.lat) * 4.4 + 30); } };
     var A = reg(AB.canvas("#cm-a", function (ctx, w, h) { draw(ctx, w, h, "a"); }, { bg: PAPER, get height() { return hgt.height; } }));
     var B = reg(AB.canvas("#cm-b", function (ctx, w, h) { draw(ctx, w, h, "b"); }, { bg: PAPER, get height() { return hgt.height; } }));
     function redraw() { A.redraw(); B.redraw(); }
@@ -722,7 +722,7 @@
         for (var b = 0; b < wd.length; b++) { ctx.fillText(wd[b], xx, y + bpx); xx += ctx.measureText(wd[b]).width + bt; }
         xx += spc;
       });
-    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("hg-cv").parentElement.clientWidth || 600)); return w < 420 ? 300 : 270; } }));
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("hg-cv").parentElement.clientWidth || 600)); return w < 420 ? 250 : 220; } }));
   })();
 
   /* ---------------- 시뮬레이터 5: 크기별 트래킹 곡선 ---------------- */
@@ -747,7 +747,7 @@
       ctx.restore();
       ctx.strokeStyle = P.border; ctx.beginPath(); ctx.moveTo(0, sampleH + 0.5); ctx.lineTo(w, sampleH + 0.5); ctx.stroke();
       // 아래: 곡선
-      var b = { x: 52, y: sampleH + 18, w: w - 52 - 16, h: h - sampleH - 18 - 44 };
+      var b = { x: 52, y: sampleH + 18, w: w - 52 - 26, h: h - sampleH - 18 - 62 };
       var data = []; for (var q = 0; q <= 60; q++) { var ss = Math.pow(2, 3 + q / 60 * 4); data.push([L2(ss), trackAt(ss)]); }
       var ch = AB.chart(ctx, b, { x: [3, 7], y: [-150, 150], xTicks: [3, 4, 5, 6, 7], xFmt: function (v) { return Math.round(Math.pow(2, v)) + "px"; }, yTicks: [-150, -100, -50, 0, 50, 100, 150], xLabel: "글자 크기(로그 눈금)", yLabel: "트래킹 /1000 em",
         series: [{ data: data, color: P.accent, width: 2.5 }], hlines: [{ y: 0, color: P.faint }], vlines: [{ x: L2(s), color: P.accent2, label: s + "px" }] });
@@ -828,22 +828,16 @@
       AB.stat("sg-o-w", wordEm.toFixed(2) + " em (" + (wordEm * emMM / 10).toFixed(1) + " cm)");
       AB.stat("sg-o-g", gp[0].toFixed(3) + " · " + gp[1].toFixed(3) + " em (비 " + (gp[0] > 0.002 ? (gp[1] / gp[0]).toFixed(1) : "∞") + ")");
       AB.stat("sg-o-h", "약 " + Math.round(capH / 10) + " cm");
-    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("sg-cv").parentElement.clientWidth || 600)); return Math.round((w - 32) / 3.2) + 90; } }));
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("sg-cv").parentElement.clientWidth || 600)); return Math.round((w - 32) / 3.2) + 110; } }));
     AB.drag(cv.canvas, {
       start: function (x) { if (!L) return; var best = 1, bd = 1e9; [1, 2].forEach(function (i) { var d = Math.abs(L.x0 + L.xs[i] + L.M.P[i].adv / 2 - x); if (d < bd) { bd = d; best = i; } }); dragI = best; ox = x; ok0 = best === 1 ? k1 : k2; },
       move: function (x) { if (dragI < 1 || !L) return; var v = Math.round(AB.clamp(ok0 + (x - ox) / L.M.px * 1000, -400, 600)); if (dragI === 1) k1 = v; else k2 = v; cv.redraw(); },
       end: function () { dragI = -1; cv.redraw(); }
     });
     document.getElementById("sg-fit").addEventListener("click", fit);
+    fit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { PROF = {}; fit(); });
     document.getElementById("sg-metric").addEventListener("click", function () { k1 = 0; k2 = 0; cv.redraw(); });
-    // 사례 본문의 "글꼴 기본값" 수치를 이 모델로 채운다
-    function caseNums() {
-      var M = metrics(EMREF), sk1 = k1, sk2 = k2; k1 = 0; k2 = 0; var g = gaps(M, positions(M)); k1 = sk1; k2 = sk2;
-      var a = document.querySelector('[data-sp="g1m"]'), b = document.querySelector('[data-sp="g2m"]');
-      if (a) a.textContent = g[0].toFixed(2); if (b) b.textContent = g[1].toFixed(2);
-    }
-    caseNums();
-    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { setTimeout(function () { caseNums(); }, 0); });
     window.__spSign = { fit: fit, get k1() { return k1; }, get k2() { return k2; } };
   })();
 })();

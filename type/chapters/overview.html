@@ -204,17 +204,12 @@
   <section id="page">
     <h2>지면: 순서와 질서를 주는 일</h2>
     <p>줄이 모이면 지면이 된다. 지면에서 타이포그래피는 순서를 정한다. 무엇을 먼저 읽고 무엇을 나중에 읽을지, 무엇이 제목이고 무엇이 덧붙인 말인지를 크기, 굵기, 색, 간격, 위치로 보여 준다. 이 순서를 <span class="term">위계</span><span class="en">(Hierarchy)</span>라고 한다. 그리고 여러 요소가 같은 선과 같은 간격을 공유하게 만드는 보이지 않는 틀이 <span class="term">그리드</span><span class="en">(Grid)</span>다.</p>
-    <p>위계를 점검하는 가장 간단한 방법은 눈을 가늘게 뜨고 보는 것이다. 글자가 읽히지 않을 만큼 흐려지면 남는 것은 덩어리뿐이고, 덩어리의 크기와 진하기가 곧 위계다. 아래의 두 안내문은 같은 내용이다. 왼쪽은 모든 줄을 같은 크기와 굵기로, 오른쪽은 크기와 굵기, 간격으로 세 단계를 주었다. 경계선을 끌어 비교하고, 흐림 슬라이더를 올린다.</p>
+    <p>위계를 점검하는 가장 간단한 방법은 눈을 가늘게 뜨고 보는 것이다. 글자가 읽히지 않을 만큼 흐려지면 남는 것은 덩어리뿐이고, 덩어리의 크기와 진하기가 곧 위계다. 아래의 두 안내문은 같은 내용이다. 왼쪽(좁은 화면에서는 위)은 모든 줄을 같은 크기와 굵기로, 오른쪽(아래)은 크기와 굵기, 간격으로 세 단계를 주었다. 흐림 슬라이더를 올리며 두 안내문을 나란히 비교한다.</p>
 
     <div class="sim" id="sim-ov-squint">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>흐리게 보기: 위계가 남는가</h3></div>
       <div class="sim-body side">
-        <div class="sim-view paper">
-          <div class="compare" id="ov-sq-cmp">
-            <div class="cmp-a"><canvas id="ov-sq-a" class="art"></canvas></div>
-            <div class="cmp-b"><canvas id="ov-sq-b" class="art"></canvas></div>
-          </div>
-        </div>
+        <div class="sim-view paper"><canvas id="ov-sq-cv" class="art"></canvas></div>
         <div class="sim-controls">
           <label class="ctrl"><span>흐림(눈을 가늘게 뜬 정도) <output id="ov-sq-blur-out"></output></span><input type="range" id="ov-sq-blur" min="0" max="10" step="0.5" value="0"></label>
           <div class="seg" id="ov-sq-font"><button data-value="sans" class="on">고딕</button><button data-value="serif">명조</button></div>
@@ -259,7 +254,7 @@
       </div>
       <div class="sim-readout">
         <div class="stat"><span class="k">한 글자에 쓰는 격자</span><span class="v" id="ov-px-o-grid">—</span></div>
-        <div class="stat"><span class="k">회색 단계를 쓴 픽셀</span><span class="v" id="ov-px-o-aa">—</span></div>
+        <div class="stat"><span class="k">중간 회색으로 칠한 픽셀</span><span class="v" id="ov-px-o-aa">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① 12픽셀에서 "책방 읽기"와 "Reading"을 비교한다. 같은 격자 안에 한글은 자모 두세 개를 쌓아야 해서, 획 하나에 돌아가는 픽셀이 라틴 글자보다 적다. ② "뷁 똠 앓"을 고르고 8픽셀까지 내린다. 획이 겹치고 뭉쳐 글자를 알아보기 어렵다. 받침과 겹자음이 많은 한글은 작은 크기에서 먼저 무너진다. ③ "흑백 픽셀만"을 켠다. 회색 단계가 사라지면 곡선은 계단이 되고 가는 획은 끊긴다. 지금의 화면이 작은 글자를 부드럽게 보이게 하는 비결이 그 회색 픽셀(안티에일리어싱)이다. (브라우저가 이 크기로 그린 결과를 그대로 확대했다. 실제 화면은 운영체제와 기기의 픽셀 밀도에 따라 다르게 그린다. <a href="screen.html">11장</a>.)</div>
     </div>
@@ -322,7 +317,7 @@
       <figcaption><b>그림 3. TypeBook의 지도.</b> 1장을 가운데 두고 2~12장이 둘레를 돈다. 칸의 색은 부를 나타낸다. 글자에서 시작해 글줄, 지면, 쓰임으로 갈수록 다루는 범위가 한 자에서 한 화면, 한 거리로 넓어진다. 둘레를 다 돌면 13장 실험실에서 모든 도구를 한꺼번에 쓴다. 칸을 누르면 그 장으로 간다(준비 중인 장은 흐리게).</figcaption>
     </figure>
 
-    <p>마지막 시뮬레이터는 이 지도를 손에 쥐어 본다. 서점 소식 글 한 단락을 놓고 네 갈래의 손잡이를 한꺼번에 움직인다. 글꼴(글자), 자간·행간·글줄 길이(글줄), 정렬(지면)을 바꾸고, 아래 띠에서 그 단락을 흐리게 본 회색 덩어리를 함께 본다. 오른쪽 끝의 손잡이를 끌어 글줄 길이를 정한다.</p>
+    <p>마지막 시뮬레이터는 이 지도를 손에 쥐어 본다. 서점 소식 글 한 단락을 놓고 네 갈래의 손잡이를 한꺼번에 움직인다. 글꼴(글자), 자간·행간·글줄 길이(글줄), 정렬(지면)을 바꾸고, "흐리게 보기"로 그 단락이 만드는 회색 덩어리를 확인한다. 오른쪽 끝의 손잡이를 끌어 글줄 길이를 정한다.</p>
 
     <div class="sim" id="sim-ov-map">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>네 손잡이로 짜는 한 단락</h3></div>
@@ -334,6 +329,7 @@
           <label class="ctrl"><span>자간 <output id="ov-mp-track-out"></output></span><input type="range" id="ov-mp-track" min="-0.12" max="0.3" step="0.01" value="0"></label>
           <label class="ctrl"><span>행간 <output id="ov-mp-lead-out"></output></span><input type="range" id="ov-mp-lead" min="1" max="2.6" step="0.05" value="1.7"></label>
           <div class="seg" id="ov-mp-align"><button data-value="left" class="on">왼끝</button><button data-value="justify">양끝</button><button data-value="center">가운데</button></div>
+          <label class="check"><input type="checkbox" id="ov-mp-blur"> 흐리게 보기(회색 덩어리)</label>
         </div>
       </div>
       <div class="sim-readout">
@@ -342,7 +338,7 @@
         <div class="stat"><span class="k">지면 · 8~10장</span><span class="v" id="ov-mp-o-page">—</span></div>
         <div class="stat"><span class="k">회색값(잉크 면적)</span><span class="v" id="ov-mp-o-ink">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 자간을 −0.12까지 줄인다. 한글 글자가 서로 닿을 듯 붙고, 아래 회색 띠가 눈에 띄게 진해진다. 자간과 굵기가 글줄의 "회색"을 정한다(<a href="spacing.html">5장</a>). ② 손잡이를 왼쪽으로 끌어 줄을 짧게 한 뒤 양끝 맞추기를 고른다. 어절 사이가 벌어진 줄이 생기고, 읽기 판에 "가장 넓은 어절 사이"가 커진다. 한글 양끝 맞추기의 고질적인 문제다(<a href="alignment.html">10장</a>). ③ 가운데 맞추기로 바꿔 세 줄 이상 읽어 본다. 줄마다 시작 위치가 달라 눈이 매번 처음을 찾아야 한다. 짧은 제목에는 어울리지만 긴 본문에는 맞지 않는 이유다. ④ 명조와 고딕을 오가며 회색값을 비교한다. (자간은 글자 크기에 대한 비율(em)로, 글자 쌍마다의 커닝은 무시했다. 회색값은 단락이 차지한 넓이에서 잉크가 칠해진 비율이다.)</div>
+      <div class="sim-note">해볼 것: ① 자간을 −0.12까지 줄이고 "흐리게 보기"를 켠다. 한글 글자가 서로 닿을 듯 붙으면서 회색 덩어리가 눈에 띄게 진해지고 회색값이 올라간다. 자간과 굵기가 글줄의 "회색"을 정한다(<a href="spacing.html">5장</a>). ② 손잡이를 왼쪽으로 끌어 줄을 짧게 한 뒤 양끝 맞추기를 고른다. 어절 사이가 벌어진 줄이 생기고, 읽기 판에 "가장 넓은 어절 사이"가 커진다. 한글 양끝 맞추기의 고질적인 문제다(<a href="alignment.html">10장</a>). ③ 가운데 맞추기로 바꿔 세 줄 이상 읽어 본다. 줄마다 시작 위치가 달라 눈이 매번 처음을 찾아야 한다. 짧은 제목에는 어울리지만 긴 본문에는 맞지 않는 이유다. ④ 명조와 고딕을 오가며 회색값을 비교한다. (자간은 글자 크기에 대한 비율(em)로, 글자 쌍마다의 커닝은 무시했다. 회색값은 글줄이 차지한 넓이(줄 길이 × 행간)에서 잉크가 칠해진 비율이다.)</div>
     </div>
 
     <p>네 갈래의 손잡이는 서로 맞물려 있다. 자간을 넓히면 줄이 길어지고, 줄이 길어지면 행간이 더 필요하며, 양끝 맞추기를 고르면 짧은 줄에서 어절 사이가 벌어진다. 그래서 타이포그래피에는 하나만 고쳐서 끝나는 일이 드물다. 이 책은 손잡이를 하나씩 따로 익힌 다음, 마지막 실험실에서 다시 한꺼번에 맞춘다. 그리고 어느 조합이 정답이라고 말하지 않는다. 같은 글도 휴대폰에서 소식을 읽는 손님과, 벽에 붙은 안내문을 지나가며 보는 손님에게는 다른 조판이 필요하다.</p>
@@ -585,7 +581,9 @@
       var m = ctx.measureText("Hxg가");
       var asc = m.fontBoundingBoxAscent || 100, desc = m.fontBoundingBoxDescent || 25;
       var size = Math.min((w - 40) / (tot / 100), (h - 70) / ((asc + desc) / 100));
-      var k = size / 100, x = (w - tot * k) / 2, base = 26 + asc * k;
+      var k = size / 100, x = (w - tot * k) / 2;
+      var blockH = (asc + desc) * k + (linesG() ? 30 : 0);
+      var base = Math.max(12, (h - blockH) / 2) + asc * k;
       ctx.font = F(fam, size);
       var mx = ctx.measureText("x").actualBoundingBoxAscent, mH = ctx.measureText("H").actualBoundingBoxAscent;
       var tints = ["#f3d9a4", "#cfe3d6"], minI = -1, maxI = -1;
@@ -618,7 +616,7 @@
       var em = function (i) { return "“" + txt[i] + "” " + AB.fix(adv[i] / 100, 2) + " em"; };
       AB.stat("ov-bx-o-min", em(minI)); AB.stat("ov-bx-o-max", em(maxI));
       AB.stat("ov-bx-o-r", AB.fix(adv[maxI] / adv[minI], 2) + "배");
-    }, { aspect: 0.42, minHeight: 220, maxHeight: 300, bg: PAPER });
+    }, { get height() { var pw = Math.max(200, document.getElementById("ov-bx-cv").parentElement.clientWidth || 600); return Math.round(Math.min(280, Math.max(170, pw * 0.3 + 60))); }, bg: PAPER });
   })();
 
   /* ---------------- 시뮬레이터 3: 읽을 수는 있지만 읽고 싶지 않은 글 ---------------- */
@@ -655,7 +653,7 @@
       AB.stat("ov-ms-o-lines", L.lines.length + "줄");
       AB.stat("ov-ms-o-gap", AB.fix(size * (lead - 1), 1) + " px");
       st.right = right;
-    }, { get height() { var pw = Math.max(200, document.getElementById("ov-ms-cv").parentElement.clientWidth || 600); return pw < 420 ? 380 : 300; }, bg: PAPER });
+    }, { get height() { var pw = Math.max(200, document.getElementById("ov-ms-cv").parentElement.clientWidth || 600); return pw < 420 ? 360 : 250; }, bg: PAPER });
     var dragging = false;
     AB.drag(cv.canvas, {
       start: function (x) { dragging = Math.abs(x - st.right) < 40; },
@@ -666,54 +664,64 @@
 
   /* ---------------- 시뮬레이터 4: 흐리게 보기 ---------------- */
   (function () {
-    var blurG = AB.range("ov-sq-blur", function (v) { return AB.fix(v, 1); }, function () { a.redraw(); b.redraw(); });
-    var fontG = AB.seg("ov-sq-font", function () { a.redraw(); b.redraw(); });
+    var blurG = AB.range("ov-sq-blur", function (v) { return AB.fix(v, 1); }, function () { cv.redraw(); });
+    var fontG = AB.seg("ov-sq-font", function () { cv.redraw(); });
     var LINES = [
       ["골목 벼룩시장", "t"], ["6월 둘째 토요일 오전 10시–오후 2시", "m"], ["골목 입구 공영주차장", "m"],
       ["집에서 잠자는 물건을 가져오세요.", "b"], ["자리는 무료이고, 먼저 오는 순서로 정합니다.", "b"], ["문의: 동네 주민센터", "s"]
     ];
-    function render(ctx, w, h, hier) {
-      var off = document.createElement("canvas"), dpr = 1;
-      off.width = w; off.height = h;
+    // 안내문 한 장을 pw×ph 크기의 종이에 그린다(흐림은 줄였다 키우는 방식).
+    function sheet(pw, ph, hier) {
+      var off = document.createElement("canvas"); off.width = Math.round(pw); off.height = Math.round(ph);
       var c = off.getContext("2d");
-      c.fillStyle = PAPER; c.fillRect(0, 0, w, h);
-      var fam = fontG(), base = Math.max(11, Math.min(15, w / 30));
-      var spec = hier ? { t: [base * 2.4, 700, 1.25], m: [base * 1.1, 700, 1.5], b: [base, 400, 1.6], s: [base * 0.9, 400, 1.6] }
+      c.fillStyle = "#ffffff"; c.fillRect(0, 0, pw, ph);
+      var fam = fontG(), base = Math.max(10, Math.min(14, pw / 24));
+      var spec = hier ? { t: [base * 2.4, 700, 1.2], m: [base * 1.1, 700, 1.5], b: [base, 400, 1.6], s: [base * 0.9, 400, 1.6] }
                       : { t: [base, 400, 1.6], m: [base, 400, 1.6], b: [base, 400, 1.6], s: [base, 400, 1.6] };
-      var y = h * 0.12, x = w * 0.1;
+      var y = ph * 0.08, x = pw * 0.09;
       LINES.forEach(function (L, i) {
-        var s = spec[L[1]];
-        if (hier && (L[1] === "m" && LINES[i - 1][1] === "t")) y += base * 0.8;
-        if (hier && (L[1] === "b" && LINES[i - 1][1] === "m")) y += base * 1.2;
-        if (hier && L[1] === "s") y += base * 1.2;
-        c.font = F(fam, s[0], s[1]); c.fillStyle = L[1] === "s" && hier ? INK_DIM : INK; c.textBaseline = "alphabetic";
-        var txt = L[0], tw = c.measureText(txt).width;
-        if (tw > w * 0.84) { var fs = s[0] * (w * 0.84) / tw; c.font = F(fam, fs, s[1]); }
+        var s = spec[L[1]], fs = s[0];
+        if (hier && L[1] === "m" && LINES[i - 1][1] === "t") y += base * 0.9;
+        if (hier && L[1] === "b" && LINES[i - 1][1] === "m") y += base * 1.4;
+        if (hier && L[1] === "s") y += base * 1.4;
+        c.font = F(fam, fs, s[1]);
+        var tw = c.measureText(L[0]).width;
+        if (tw > pw * 0.84) { fs = fs * (pw * 0.84) / tw; c.font = F(fam, fs, s[1]); }
         y += s[0] * s[2];
-        c.fillText(txt, x, y);
+        c.fillStyle = L[1] === "s" && hier ? INK_DIM : INK; c.textBaseline = "alphabetic";
+        c.fillText(L[0], x, y);
       });
       var bl = blurG();
-      if (bl > 0) {
-        var f = 1 / (1 + bl * 0.9);
-        var sw = Math.max(4, Math.round(w * f)), sh = Math.max(4, Math.round(h * f));
-        var t = document.createElement("canvas"); t.width = sw; t.height = sh;
-        var tc = t.getContext("2d"); tc.imageSmoothingEnabled = true; tc.imageSmoothingQuality = "high";
-        tc.drawImage(off, 0, 0, sw, sh);
-        var t2 = document.createElement("canvas"); t2.width = Math.max(2, Math.round(sw / 2)); t2.height = Math.max(2, Math.round(sh / 2));
-        var t2c = t2.getContext("2d"); t2c.imageSmoothingEnabled = true; t2c.drawImage(t, 0, 0, t2.width, t2.height);
-        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
-        ctx.drawImage(bl > 3 ? t2 : t, 0, 0, w, h);
-      } else ctx.drawImage(off, 0, 0, w, h);
-      return spec;
+      if (bl <= 0) return { img: off, spec: spec };
+      var f = 1 / (1 + bl * 0.9), cur = off;
+      // 두세 번에 나눠 줄이면 상자 흐림에 가까워진다
+      [f, f * 0.6].forEach(function (k, n) {
+        if (n === 1 && bl < 3) return;
+        var t = document.createElement("canvas"); t.width = Math.max(3, Math.round(pw * k)); t.height = Math.max(3, Math.round(ph * k));
+        var tc = t.getContext("2d"); tc.imageSmoothingEnabled = true; tc.imageSmoothingQuality = "high"; tc.drawImage(cur, 0, 0, t.width, t.height); cur = t;
+      });
+      return { img: cur, spec: spec };
     }
-    var opts = { aspect: 0.75, minHeight: 280, maxHeight: 420, bg: PAPER };
-    var a = AB.canvas("#ov-sq-a", function (ctx, w, h) { render(ctx, w, h, false); AB.stat("ov-sq-o-a", "1단계(모두 같은 크기·굵기)"); }, opts);
-    var b = AB.canvas("#ov-sq-b", function (ctx, w, h) {
-      var s = render(ctx, w, h, true);
+    var cv = AB.canvas("#ov-sq-cv", function (ctx, w, h) {
+      var stack = w < 460, gap = 14, pad = 12;
+      var pw = stack ? Math.min(w - 2 * pad, (h - 3 * pad - 2 * 18) / 2 / 0.72) : (w - 2 * pad - gap) / 2;
+      var ph = pw * 0.72;
+      var pos = stack ? [[(w - pw) / 2, pad + 18], [(w - pw) / 2, pad + 18 + ph + pad + 18]] : [[pad, pad + 18], [pad + pw + gap, pad + 18]];
+      var res;
+      [false, true].forEach(function (hier, i) {
+        var s = sheet(pw, ph, hier);
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+        ctx.save(); ctx.shadowColor = "rgba(0,0,0,0.12)"; ctx.shadowBlur = 6; ctx.shadowOffsetY = 1;
+        ctx.fillStyle = "#ffffff"; ctx.fillRect(pos[i][0], pos[i][1], pw, ph); ctx.restore();
+        ctx.drawImage(s.img, pos[i][0], pos[i][1], pw, ph);
+        ctx.font = AB.font(12, false, 600); ctx.fillStyle = INK_DIM; ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+        ctx.fillText(hier ? "세 단계" : "모두 같게", pos[i][0], pos[i][1] - 4);
+        if (hier) res = s.spec;
+      });
+      AB.stat("ov-sq-o-a", "1단계(모두 같은 크기·굵기)");
       AB.stat("ov-sq-o-b", "3단계(제목 · 날짜와 장소 · 본문)");
-      AB.stat("ov-sq-o-r", AB.fix(s.t[0] / s.b[0], 1) + "배");
-    }, opts);
-    AB.compare("#ov-sq-cmp", { labels: ["모두 같게", "세 단계"], pos: 0.5 });
+      AB.stat("ov-sq-o-r", AB.fix(res.t[0] / res.b[0], 1) + "배");
+    }, { get height() { var pw = Math.max(200, document.getElementById("ov-sq-cv").parentElement.clientWidth || 600); return pw < 460 ? Math.round((pw - 24) * 0.72 * 2 + 72) : Math.round((pw - 38) / 2 * 0.72 + 44); }, bg: PAPER });
   })();
 
   /* ---------------- 시뮬레이터 5: 픽셀 위의 글자 ---------------- */
@@ -736,7 +744,7 @@
       var id = oc.getImageData(0, 0, tw, th), d = id.data, aa = 0, ink = 0;
       for (var i = 0; i < d.length; i += 4) {
         var v = d[i];
-        if (v < 250) { ink++; if (v > 5) aa++; }
+        if (v < 235) { ink++; if (v > 40) aa++; }
         if (bwG()) { var q = v < 128 ? 0 : 255; d[i] = d[i + 1] = d[i + 2] = q; }
       }
       oc.putImageData(id, 0, 0);
@@ -770,36 +778,35 @@
     var alignG = AB.seg("ov-mp-align", function () { cv.redraw(); });
     var edge = 0.78, st = { right: 0 };
     var ALN = { left: "왼끝 맞추기", justify: "양끝 맞추기", center: "가운데 맞추기" };
+    var blurG = AB.check("ov-mp-blur", function () { cv.redraw(); });
     var cv = AB.canvas("#ov-mp-cv", function (ctx, w, h) {
       var size = sizeG(), pad = 16, fam = fontG();
-      var stripH = 46;
       var right = pad + Math.max(size * 5, (w - 2 * pad - 12) * edge);
       var o = { font: F(fam, size), size: size, lead: leadG(), width: right - pad, align: alignG(), track: trackG() };
       var L = layout(ctx, POST, o);
       var r = drawLayout(ctx, L, pad, pad, o);
-      var bodyH = Math.min(r.height, h - stripH - pad * 2 - 8);
-      // 글줄 끝 손잡이
-      ctx.strokeStyle = "rgba(47,125,91,0.5)"; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(right + 0.5, 6); ctx.lineTo(right + 0.5, h - stripH - 14); ctx.stroke(); ctx.setLineDash([]);
-      AB.handle(ctx, right, Math.min(h - stripH - 24, pad + bodyH / 2), { r: 7, fill: GREEN, ring: "#1d3b2c" });
-      st.right = right;
-      // 회색값: 단락 영역의 잉크 비율
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var rx = Math.round(pad * dpr), ry = Math.round(pad * dpr), rw = Math.max(1, Math.round((right - pad) * dpr)), rh = Math.max(1, Math.round(Math.min(r.height, h - stripH - pad * 2) * dpr));
-      var ink = 0;
+      var bodyH = Math.min(r.height, h - pad * 2);
+      // 회색값: 단락이 차지한 넓이에서 잉크의 비율(흐리게 하기 전에 잰다)
+      var dpr = Math.min(window.devicePixelRatio || 1, 2), ink = 0;
       try {
-        var id = ctx.getImageData(rx, ry, rw, rh).data, sum = 0, n = 0;
+        var id = ctx.getImageData(Math.round(pad * dpr), Math.round(pad * dpr), Math.max(1, Math.round((right - pad) * dpr)), Math.max(1, Math.round(bodyH * dpr))).data, sum = 0, n = 0;
         for (var i = 0; i < id.length; i += 16) { sum += 1 - id[i] / 251; n++; }
-        ink = Math.max(0, sum / n);
+        // 단락 상자 전체가 아니라 글줄이 실제로 차지한 넓이(줄 길이 × 행간)로 나눈다
+        var lhh = size * leadG(), cover = 0;
+        L.lines.forEach(function (ln, li) { if ((li + 1) * lhh <= bodyH + 0.5) cover += ln.w * lhh; });
+        ink = Math.max(0, Math.min(1, (sum / n) * ((right - pad) * bodyH) / Math.max(1, cover)));
       } catch (e) { ink = 0; }
-      // 아래 띠: 흐리게 본 회색
-      var sy = h - stripH - 4;
-      ctx.fillStyle = "#efece5"; ctx.fillRect(0, sy - 6, w, stripH + 10);
-      var g = Math.round(251 - ink * 251 * 1.0);
-      ctx.fillStyle = "rgb(" + g + "," + g + "," + (g - 2) + ")";
-      ctx.fillRect(pad, sy + 6, right - pad, stripH - 18);
-      ctx.strokeStyle = "#cfc9be"; ctx.strokeRect(pad + 0.5, sy + 6.5, right - pad - 1, stripH - 19);
-      ctx.font = AB.font(11); ctx.fillStyle = INK_DIM; ctx.textAlign = "left"; ctx.textBaseline = "top";
-      ctx.fillText("흐리게 본 단락의 회색", pad, sy - 4 + 0);
+      if (blurG()) {
+        var cw = ctx.canvas.width, ch = ctx.canvas.height, f = Math.max(2, Math.round(size * dpr * 0.45));
+        var t = document.createElement("canvas"); t.width = Math.max(2, Math.round(cw / f)); t.height = Math.max(2, Math.round(ch / f));
+        var tc = t.getContext("2d"); tc.imageSmoothingEnabled = true; tc.imageSmoothingQuality = "high"; tc.drawImage(ctx.canvas, 0, 0, t.width, t.height);
+        ctx.fillStyle = PAPER; ctx.fillRect(0, 0, w, h);
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high"; ctx.drawImage(t, 0, 0, w, h);
+      }
+      // 글줄 끝 손잡이
+      ctx.strokeStyle = "rgba(47,125,91,0.5)"; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(right + 0.5, 6); ctx.lineTo(right + 0.5, h - 6); ctx.stroke(); ctx.setLineDash([]);
+      AB.handle(ctx, right, Math.min(h - 24, pad + bodyH / 2), { r: 7, fill: GREEN, ring: "#1d3b2c" });
+      st.right = right;
       var chars = 0; L.lines.forEach(function (ln) { ln.words.forEach(function (wd) { chars += wd.t.length; }); chars += ln.words.length - 1; });
       var cpl = chars / L.lines.length;
       AB.stat("ov-mp-o-font", FNAME[fam].replace(/\(.*\)/, "") + " " + size + "px");
@@ -808,7 +815,7 @@
       if (alignG() === "justify") pg += " · 가장 넓은 어절 사이 " + AB.fix(r.maxGap / size, 2) + " em";
       AB.stat("ov-mp-o-page", pg);
       AB.stat("ov-mp-o-ink", AB.fix(ink * 100, 1) + "%");
-    }, { get height() { var pw = Math.max(200, document.getElementById("ov-mp-cv").parentElement.clientWidth || 600); return pw < 420 ? 470 : 380; }, bg: PAPER, readback: true });
+    }, { get height() { var pw = Math.max(200, document.getElementById("ov-mp-cv").parentElement.clientWidth || 600); return pw < 420 ? 440 : 330; }, bg: PAPER, readback: true });
     var dragging = false;
     AB.drag(cv.canvas, {
       start: function (x) { dragging = Math.abs(x - st.right) < 40; },
