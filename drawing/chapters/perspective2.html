@@ -625,7 +625,7 @@
       if (c60()) {
         ctx.save(); ctx.beginPath(); ctx.arc(cx, hy, f * Math.tan(30 * D2R), 0, Math.PI * 2);
         ctx.setLineDash([2, 4]); ctx.strokeStyle = GREEN; ctx.lineWidth = 1.4; ctx.stroke(); ctx.restore();
-        txt(ctx, "60° 시야 원", cx + f * Math.tan(30 * D2R) * 0.72, hy + f * Math.tan(30 * D2R) * 0.72 + 12, { color: GREEN, size: 11 });
+        txt(ctx, "60° 시야 원", cx, hy - f * Math.tan(30 * D2R) - 6, { color: GREEN, size: 11, align: "center" });
       }
       seg(ctx, [0, hy], [w, hy], GREEN, 1.4);
       // 정육면체들: 그림 칸 안의 화면 위치에서 바닥 위치를 거꾸로 구한다
@@ -641,13 +641,15 @@
           if (!S) continue;
           var a = angleAt(S[0], S[1], S[3]);
           minA = Math.min(minA, a);
-          cubes.push({ z: z, P3: P3, bad: a < 90, a: a, S: S });
+          cubes.push({ z: z, P3: P3, bad: a < 90, a: a, S: S, front: k === 1 });
         }
       });
       cubes.sort(function (p, q) { return q.z - p.z; });
       cubes.forEach(function (c) {
         drawBox(ctx, c.P3, cam, c.bad ? [B_TOP, B_A, B_B] : [F_TOP, F_A, F_B], null, 1.1);
-        txt(ctx, Math.round(c.a) + "°", c.S[0][0], c.S[0][1] + 14, { color: c.bad ? RED : DIM, align: "center", size: 10.5, mono: true });
+      });
+      cubes.forEach(function (c) { // 앞줄 상자만 각도를 적는다(뒷줄 글자는 앞 상자에 가린다)
+        if (c.front) txt(ctx, Math.round(c.a) + "°", c.S[0][0], c.S[0][1] + 14, { color: c.bad ? RED : DIM, align: "center", size: 10.5, mono: true });
       });
       dotAt(ctx, [cx, hy], 3, DIM);
       [[xL, "VL"], [xR, "VR"]].forEach(function (q) { AB.handle(ctx, AB.clamp(q[0], 8, w - 8), hy, { r: 7, fill: q[1] === "VL" ? RED : BLUE, ring: "#1b1a1f" }); txt(ctx, q[1], AB.clamp(q[0], 14, w - 14), hy - 14, { color: q[1] === "VL" ? RED : BLUE, align: "center", weight: 700 }); });
