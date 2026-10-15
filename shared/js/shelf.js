@@ -17,7 +17,7 @@ window.AB_SHELF = {
     { order: 4, path: "type", title: "TypeBook", sub: "타이포그래피", status: "published", motif: "glyph",
       desc: "글자의 구조, 한글 타이포그래피, 자간과 행간, 위계, 그리드.",
       topics: ["글자의 구조", "한글 타이포", "자간·행간", "위계", "그리드"] },
-    { order: 5, path: "history", title: "ArtHistoryBook", sub: "미술사", status: "writing", motif: "timeline",
+    { order: 5, path: "history", title: "ArtHistoryBook", sub: "미술사", status: "published", motif: "timeline",
       desc: "사조의 흐름을 색·구도·기법의 변화로 읽는다.",
       topics: ["사조의 흐름", "색의 변화", "구도의 변화", "기법의 변화"] },
     { order: 6, path: "image", title: "ImageBook", sub: "사진과 이미지", status: "writing", motif: "aperture",

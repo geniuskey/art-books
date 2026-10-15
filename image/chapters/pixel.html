@@ -292,7 +292,7 @@
         </div>
       </div>
       <div class="sim-readout">
-        <div class="stat"><span class="k">구석에 남은 단계 수(JPEG / RAW)</span><span class="v" id="rw-o-l">—</span></div>
+        <div class="stat"><span class="k">구석 밝기의 한 스톱에 든 눈금(JPEG / RAW)</span><span class="v" id="rw-o-l">—</span></div>
         <div class="stat"><span class="k">구석의 SNR</span><span class="v" id="rw-o-s">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① 끌어올리기 0에서 두 쪽이 거의 같은 것을 본다. 그대로 볼 사진이라면 JPEG으로 충분하다. ② 2스톱, 4스톱으로 올린다. JPEG 쪽 구석은 계단 띠와 뭉개진 얼룩이 되고, RAW 쪽은 입자가 거칠어지지만 책등의 경계가 남는다. ③ "휴대폰"으로 바꾼다. 같은 노출에서 화소당 빛이 6.6분의 1이라 RAW도 입자가 훨씬 거칠다. 형식만으로 빛의 부족을 메울 수는 없다. (같은 f값·셔터로 찍었다고 놓은 단순 모형. JPEG은 카메라의 노이즈 감소, 그림자를 누르는 톤 커브, 8비트 감마를 흉내 냈다. 디모자이크와 압축은 생략했다.)</div>
@@ -320,14 +320,14 @@
         <div class="sim-controls">
           <div class="seg" id="pp-cam"><button data-value="p">휴대폰</button><button data-value="m" class="on">미러리스</button></div>
           <div class="seg" id="pp-fmt"><button data-value="jpg">JPEG</button><button data-value="raw" class="on">RAW</button></div>
-          <label class="ctrl"><span>장면의 빛 <output id="pp-l-out"></output></span><input type="range" id="pp-l" min="0" max="6" step="1" value="2"></label>
+          <label class="ctrl"><span>장면의 빛 <output id="pp-l-out"></output></span><input type="range" id="pp-l" min="0" max="3" step="1" value="1"></label>
           <label class="ctrl"><span>보정: 그림자 끌어올리기 <output id="pp-e-out"></output></span><input type="range" id="pp-e" min="0" max="3" step="0.5" value="1.5"></label>
         </div>
       </div>
       <div class="sim-readout">
         <div class="stat"><span class="k">탐침의 SNR</span><span class="v" id="pp-o-s">—</span></div>
         <div class="stat"><span class="k">탐침의 광자(화소당)</span><span class="v" id="pp-o-e">—</span></div>
-        <div class="stat"><span class="k">탐침의 단계 수</span><span class="v" id="pp-o-l">—</span></div>
+        <div class="stat"><span class="k">탐침 밝기의 한 스톱에 든 눈금</span><span class="v" id="pp-o-l">—</span></div>
         <div class="stat"><span class="k">판정</span><span class="v" id="pp-o-v">—</span></div>
       </div>
       <div class="sim-note">해볼 것: ① 장면의 빛을 "밝은 창가"로 올린다. 휴대폰 JPEG과 미러리스 RAW가 거의 구별되지 않는다. ② "저녁 서가"로 내리고 그림자를 1.5스톱 이상 끌어올린다. 휴대폰 JPEG의 구석은 단계가 몇 개 남지 않아 얼룩이 되고, 미러리스 RAW는 탐침 SNR이 2.5배쯤 높다. ③ 미러리스로 두고 형식만 JPEG으로 바꾼다. 빛은 같은데도 구석의 단계 수가 크게 준다. 노이즈는 빛이, 고칠 여지는 형식이 정한다. (같은 f값과 셔터로 찍었다고 놓았다. 광자 산탄 잡음, 읽기 잡음(미러리스 4 e⁻, 휴대폰 2 e⁻), 포화, 12비트 RAW, 휴대폰·카메라 JPEG의 노이즈 감소와 톤 커브를 넣은 교육용 모형이다.)</div>
@@ -484,20 +484,22 @@
       x.fillStyle = "#7b5a3c"; x.fillRect(sx0 - W * 0.02, base, sx1 - sx0 + W * 0.04, H * 0.025);
     }
     // 스탠드 갓(빛나는 부분은 조명에서 따로 더한다)
-    x.fillStyle = "#e8dcc0"; x.beginPath(); x.moveTo(W * 0.02, H * 0.2); x.lineTo(W * 0.14, H * 0.2); x.lineTo(W * 0.11, H * 0.06); x.lineTo(W * 0.05, H * 0.06); x.closePath(); x.fill();
+    x.fillStyle = "#2f4a3c"; x.fillRect(W * 0.497, 0, W * 0.006, H * 0.03);
+    x.beginPath(); x.moveTo(W * 0.43, H * 0.11); x.quadraticCurveTo(W * 0.5, -H * 0.02, W * 0.57, H * 0.11); x.closePath(); x.fill();
   }
   var SCN = {};
-  function corner(W, H) {
-    var id = W + "x" + H;
+  function corner(W, H, floor) {
+    floor = floor || 0.07;
+    var id = W + "x" + H + ":" + floor;
     if (SCN[id]) return SCN[id];
     var c = document.createElement("canvas"); c.width = W; c.height = H;
     var x = c.getContext("2d", { willReadFrequently: true });
     drawCorner(x, W, H);
     var d = x.getImageData(0, 0, W, H).data, n = W * H, L = new Float32Array(n * 3), refl = new Float32Array(n * 3);
     for (var j = 0; j < H; j++) for (var i = 0; i < W; i++) {
-      var k = j * W + i, dx = (i - W * 0.08) / W, dy = (j - H * 0.16) / H;
-      var ill = 0.035 + 0.965 * Math.exp(-(dx * dx * 2.2 + dy * dy * 2.6) * 2.6);   // 스탠드 빛 고임(왼쪽 위), 구석은 약 4%
-      var lamp = (i > W * 0.05 && i < W * 0.11 && j > H * 0.07 && j < H * 0.2) ? 3.2 : 0;   // 갓의 빛나는 면
+      var k = j * W + i, dx = (i - W * 0.5) / W, dy = (j - H * 0.04) / H;
+      var ill = floor + (1 - floor) * Math.exp(-(dx * dx * 4.5 + dy * dy * 2.2) * 2.6);   // 가운데 위 전등의 빛 고임, 아래 양쪽 구석은 floor(저녁 7%)
+      var lamp = (i > W * 0.45 && i < W * 0.55 && j > H * 0.075 && j < H * 0.11) ? 3.2 : 0;   // 갓 아래 빛나는 면
       for (var ch = 0; ch < 3; ch++) {
         var rf = LUT[d[k * 4 + ch]] * (ch === 2 ? 0.82 : ch === 1 ? 0.95 : 1);     // 텅스텐 빛의 따뜻함(간단히)
         refl[k * 3 + ch] = LUT[d[k * 4 + ch]];
@@ -518,23 +520,24 @@
   // 결과: 장면 단위(L)로 되돌린 RAW 값(12비트로 양자화), 포화 시 상한
   function capture(S, cam, ePerWhite, seed) {
     var C = CAMS[cam], e1 = cam === "m" ? ePerWhite : ePerWhite / AREA_RATIO, r = AB.rng(seed);
-    var n = S.W * S.H * 3, out = new Float32Array(n), q = C.fw / 4095;
+    var n = S.W * S.H * 3, out = new Float32Array(n), codes = new Uint16Array(n), q = C.fw / 4095;
     for (var i = 0; i < n; i++) {
       var mean = S.L[i] * e1, e = poisson(mean, r) + C.rn * gauss(r);
       if (e > C.fw) e = C.fw; if (e < 0) e = 0;
-      out[i] = (Math.round(e / q) * q) / e1;
+      codes[i] = Math.round(e / q);
+      out[i] = (codes[i] * q) / e1;
     }
-    return { v: out, e1: e1, cam: cam };
+    return { v: out, codes: codes, e1: e1, cam: cam };
   }
   // 카메라 JPEG: 노이즈 감소(휴대폰 강하게) → 노출 → 그림자를 누르는 톤 커브 → sRGB 감마 → 8비트
   // 그림자를 누르고(x²/(x+k)) 밝은 쪽을 살짝 감싸는 곡선. 선형 0~1 → 선형 0~1
-  function toneCurve(v) { var t = v < 0 ? 0 : v > 1 ? 1 : v, y = (t * t) / (t + 0.035); return y / (1 + 0.3 * y); }
+  function toneCurve(v) { var t = v < 0 ? 0 : v > 1 ? 1 : v, y = (t * t) / (t + 0.15); return y / (1 + 0.15 * y); }
   var TC = new Float32Array(1025);
   (function () { var a = toneCurve(0), b = toneCurve(1); for (var i = 0; i <= 1024; i++) TC[i] = (toneCurve(i / 1024) - a) / (b - a); })();
   function tc(v) { return TC[v <= 0 ? 0 : v >= 1 ? 1024 : Math.round(v * 1024)]; }
   var EXPO = 2.2;   // 장면 L을 화면에 놓을 때의 기본 밝기(스탠드 둘레가 거의 흰색)
   function makeJpeg(raw, W, H) {
-    var n = W * H, v = raw.v, nr = raw.cam === "p" ? 1.6 : 0.6, chroma = raw.cam === "p" ? 3 : 1.5;
+    var n = W * H, v = raw.v, nr = raw.cam === "p" ? 2 : 0.8, chroma = raw.cam === "p" ? 3 : 1.5;
     // 밝기(Y)와 색차로 나눠 각각 흐린다
     var Y = new Float32Array(n), Cb = new Float32Array(n * 2);
     for (var i = 0; i < n; i++) {
@@ -571,16 +574,20 @@
       d[i * 4 + 3] = 255;
     }
   }
-  // 영역 통계: 장면 단위 SNR(초록 채널), 단계 수(초록 채널의 서로 다른 출력값)
-  function regionStats(S, raw, img, W, x0, y0, x1, y1) {
-    var s = 0, s2 = 0, n = 0, set = {}, tL = 0;
+  // 영역 통계: 장면 단위 SNR(초록 채널), 단계 수(초록 채널에 저장된 서로 다른 값: JPEG 8비트 또는 RAW 12비트)
+  // levels: 그 영역의 평균 밝기에서 한 스톱(평균 ~ 평균의 절반)을 저장 형식이 몇 개의 눈금으로 나눠 담는가
+  function regionStats(S, raw, fmt, W, x0, y0, x1, y1) {
+    var s = 0, s2 = 0, n = 0, tL = 0, lo = 1e9, hi = 0;
     for (var y = y0; y < y1; y++) for (var x = x0; x < x1; x++) {
       var k = y * W + x, v = raw.v[k * 3 + 1], t = S.L[k * 3 + 1];
       s += v - t; s2 += (v - t) * (v - t); tL += t; n++;
-      set[img.data[k * 4 + 1]] = 1;
+      if (t < lo) lo = t; if (t > hi) hi = t;
     }
     var mean = tL / n, sd = Math.sqrt(Math.max(1e-12, s2 / n - (s / n) * (s / n)));
-    return { snr: mean / sd, levels: Object.keys(set).length, e: mean * raw.e1 };
+    var lv;
+    if (fmt === "jpg") lv = Math.round(enc(tc(mean * EXPO)) * 255) - Math.round(enc(tc(mean * EXPO / 2)) * 255);
+    else { var q = CAMS[raw.cam].fw / 4095; lv = Math.round((mean * raw.e1) / q) - Math.round((mean * raw.e1) / 2 / q); }
+    return { snr: mean / sd, levels: lv, e: mean * raw.e1 };
   }
 
   /* ---------------- 그림 1: 휴대폰 JPEG 대 미러리스 RAW ---------------- */
@@ -589,7 +596,7 @@
     function build(W, H) {
       var S = corner(W, H), id = W + "x" + H;
       if (cache[id]) return cache[id];
-      var e = 900;   // 미러리스 화소가 스탠드 아래 흰 면에서 받는 광자(같은 노출)
+      var e = 20000;   // 미러리스 화소가 스탠드 아래 흰 면에서 받는 광자(같은 노출)
       var rp = capture(S, "p", e, 11), rm = capture(S, "m", e, 12);
       var jp = makeJpeg(rp, W, H);
       var cA = document.createElement("canvas"); cA.width = W; cA.height = H;
@@ -833,7 +840,7 @@
     var eI = AB.range("rw-e", function (v) { return "+" + v + "스톱"; }, function () { dirty = true; redraw(); });
     var cam = AB.seg("rw-cam", function () { cache = null; dirty = true; redraw(); });
     var cache = null, dirty = true, imgs = null, size = null;
-    var E = 900;
+    var E = 20000;
     function prep(W, H) {
       if (!cache || cache.W !== W) {
         var S = corner(W, H), raw = capture(S, cam(), E, cam() === "m" ? 21 : 22);
@@ -847,7 +854,7 @@
         developJpeg(cache.jpg, W, H, eI(), ia); developRaw(cache.raw, W, H, eI(), ib);
         ca.getContext("2d").putImageData(ia, 0, 0); cb.getContext("2d").putImageData(ib, 0, 0);
         var x0 = Math.round(W * 0.7), y0 = Math.round(H * 0.68), x1 = Math.round(W * 0.95), y1 = Math.round(H * 0.86);
-        var sa = regionStats(cache.S, cache.raw, ia, W, x0, y0, x1, y1), sb = regionStats(cache.S, cache.raw, ib, W, x0, y0, x1, y1);
+        var sa = regionStats(cache.S, cache.raw, "jpg", W, x0, y0, x1, y1), sb = regionStats(cache.S, cache.raw, "raw", W, x0, y0, x1, y1);
         imgs = { a: ca, b: cb, box: [x0, y0, x1, y1] };
         AB.stat("rw-o-l", sa.levels + " / " + sb.levels);
         AB.stat("rw-o-s", AB.fix(sb.snr, 1) + " <small>· 화소당 광자 약 " + Math.round(sb.e) + "</small>");
@@ -872,9 +879,10 @@
 
   /* ---------------- 시뮬레이터 6: 종합 ---------------- */
   (function () {
+    // e: 미러리스 화소가 가장 밝은 흰 면에서 받는 광자(같은 노출), floor: 가장 어두운 구석의 조명 비율
     var LIGHT = [
-      { e: 120, name: "저녁 서가(어두움)" }, { e: 300, name: "저녁 서가" }, { e: 900, name: "스탠드 켠 서가" },
-      { e: 2500, name: "흐린 날 실내" }, { e: 7000, name: "창가 실내" }, { e: 16000, name: "밝은 창가" }, { e: 30000, name: "햇빛 드는 창가" },
+      { e: 4000, floor: 0.07, name: "저녁 서가(어두움)" }, { e: 20000, floor: 0.07, name: "저녁 서가" },
+      { e: 25000, floor: 0.2, name: "흐린 날 실내" }, { e: 30000, floor: 0.45, name: "밝은 창가" },
     ];
     var camS = AB.seg("pp-cam", function () { cache = {}; cv.redraw(); });
     var fmt = AB.seg("pp-fmt", function () { cv.redraw(); });
@@ -884,7 +892,7 @@
     function get(W, H) {
       var key = [camS(), lI(), W].join(":");
       if (!cache[key]) {
-        var S = corner(W, H), raw = capture(S, camS(), LIGHT[lI()].e, 40 + lI() * 3 + (camS() === "m" ? 0 : 100));
+        var S = corner(W, H, LIGHT[lI()].floor), raw = capture(S, camS(), LIGHT[lI()].e, 40 + lI() * 3 + (camS() === "m" ? 0 : 100));
         cache = {}; cache[key] = { S: S, raw: raw, jpg: makeJpeg(raw, W, H) };
       }
       return cache[key];
@@ -900,7 +908,7 @@
       geo = { w: w, h: h };
       var bw = Math.round(W * 0.08), bh = Math.round(H * 0.08);
       var x0 = AB.clamp(Math.round(probe.u * W - bw / 2), 0, W - bw), y0 = AB.clamp(Math.round(probe.v * H - bh / 2), 0, H - bh);
-      var st = regionStats(c.S, c.raw, img, W, x0, y0, x0 + bw, y0 + bh), s = w / W;
+      var st = regionStats(c.S, c.raw, fmt(), W, x0, y0, x0 + bw, y0 + bh), s = w / W;
       ctx.strokeStyle = "#ffcc33"; ctx.lineWidth = 2.5; ctx.strokeRect(x0 * s, y0 * s, bw * s, bh * s);
       ctx.strokeStyle = "#1b1a1f"; ctx.lineWidth = 1; ctx.strokeRect(x0 * s - 2, y0 * s - 2, bw * s + 4, bh * s + 4);
       ctx.fillStyle = "rgba(20,18,16,0.66)"; ctx.fillRect(0, 0, w, 22);

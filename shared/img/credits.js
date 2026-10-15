@@ -20,7 +20,10 @@ window.AB_CREDITS = [
   "checked": "2026-10-14",
   "usedIn": [
    "color/chapters/overview.html",
-   "color/chapters/lab.html"
+   "color/chapters/lab.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html",
+   "history/chapters/post.html"
   ]
  },
  {
@@ -42,7 +45,8 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437654",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/overview.html"
+   "color/chapters/overview.html",
+   "history/chapters/post.html"
   ]
  },
  {
@@ -64,7 +68,10 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436839",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/light.html"
+   "color/chapters/light.html",
+   "history/chapters/baroque.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -130,7 +137,8 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/11147",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/mixing.html"
+   "color/chapters/mixing.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -153,7 +161,11 @@ window.AB_CREDITS = [
   "checked": "2026-10-14",
   "usedIn": [
    "color/chapters/value.html",
-   "composition/chapters/eye.html"
+   "composition/chapters/eye.html",
+   "history/chapters/baroque.html",
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -179,7 +191,8 @@ window.AB_CREDITS = [
    "color/chapters/painting.html",
    "composition/chapters/lab.html",
    "composition/chapters/reading.html",
-   "composition/chapters/space.html"
+   "composition/chapters/space.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -202,7 +215,8 @@ window.AB_CREDITS = [
   "checked": "2026-10-14",
   "usedIn": [
    "color/chapters/chroma.html",
-   "composition/chapters/space.html"
+   "composition/chapters/space.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -224,7 +238,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435983",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/chroma.html"
+   "color/chapters/chroma.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -246,7 +262,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/contrast.html"
+   "color/chapters/contrast.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -292,7 +310,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437313",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/temperature.html"
+   "color/chapters/temperature.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -314,7 +334,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437312",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/temperature.html"
+   "color/chapters/temperature.html",
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -338,7 +360,11 @@ window.AB_CREDITS = [
   "usedIn": [
    "color/chapters/painting.html",
    "composition/chapters/lab.html",
-   "composition/chapters/reading.html"
+   "composition/chapters/reading.html",
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html",
+   "history/chapters/print.html"
   ]
  },
  {
@@ -360,7 +386,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436535",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/painting.html"
+   "color/chapters/painting.html",
+   "history/chapters/lab.html",
+   "history/chapters/post.html"
   ]
  },
  {
@@ -382,7 +410,8 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40073",
   "checked": "2026-10-14",
   "usedIn": [
-   "color/chapters/painting.html"
+   "color/chapters/painting.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -404,7 +433,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39882",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/balance.html"
+   "composition/chapters/balance.html",
+   "history/chapters/korea.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -426,7 +457,11 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/36037",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/balance.html"
+   "composition/chapters/balance.html",
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html",
+   "history/chapters/romantic.html"
   ]
  },
  {
@@ -448,7 +483,10 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39668",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/depth.html"
+   "composition/chapters/depth.html",
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -470,7 +508,11 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/55433",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/elements.html"
+   "composition/chapters/elements.html",
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html",
+   "history/chapters/post.html",
+   "history/chapters/print.html"
   ]
  },
  {
@@ -492,7 +534,11 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436105",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/eye.html"
+   "composition/chapters/eye.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html",
+   "history/chapters/rococo.html",
+   "history/chapters/romantic.html"
   ]
  },
  {
@@ -514,7 +560,10 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438817",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/frame.html"
+   "composition/chapters/frame.html",
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -558,7 +607,8 @@ window.AB_CREDITS = [
   "page": "https://www.metmuseum.org/art/collection/search/49929",
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/49929",
   "usedIn": [
-   "composition/chapters/gestalt.html"
+   "composition/chapters/gestalt.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -581,7 +631,9 @@ window.AB_CREDITS = [
   "checked": "2026-10-15",
   "usedIn": [
    "composition/chapters/layout.html",
-   "type/chapters/hierarchy.html"
+   "type/chapters/hierarchy.html",
+   "history/chapters/lab.html",
+   "history/chapters/print.html"
   ]
  },
  {
@@ -603,7 +655,8 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/57648",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/layout.html"
+   "composition/chapters/layout.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -628,7 +681,10 @@ window.AB_CREDITS = [
    "composition/chapters/overview.html",
    "composition/chapters/reading.html",
    "composition/chapters/lab.html",
-   "composition/chapters/proportion.html"
+   "composition/chapters/proportion.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html",
+   "history/chapters/print.html"
   ]
  },
  {
@@ -650,7 +706,10 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438417",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/proportion.html"
+   "composition/chapters/proportion.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html",
+   "history/chapters/romantic.html"
   ]
  },
  {
@@ -672,7 +731,11 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438754",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/proportion.html"
+   "composition/chapters/proportion.html",
+   "history/chapters/ancient.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html",
+   "history/chapters/renaissance.html"
   ]
  },
  {
@@ -696,7 +759,9 @@ window.AB_CREDITS = [
   "usedIn": [
    "composition/chapters/reading.html",
    "composition/chapters/depth.html",
-   "composition/chapters/lab.html"
+   "composition/chapters/lab.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -718,7 +783,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39915",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/reading.html"
+   "composition/chapters/reading.html",
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -740,7 +807,8 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39664",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/rhythm.html"
+   "composition/chapters/rhythm.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -806,7 +874,9 @@ window.AB_CREDITS = [
   "page": "https://www.metmuseum.org/art/collection/search/50486",
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/50486",
   "usedIn": [
-   "composition/chapters/shape.html"
+   "composition/chapters/shape.html",
+   "history/chapters/lab.html",
+   "history/chapters/romantic.html"
   ]
  },
  {
@@ -828,7 +898,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40086",
   "checked": "2026-10-15",
   "usedIn": [
-   "composition/chapters/space.html"
+   "composition/chapters/space.html",
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -892,7 +964,8 @@ window.AB_CREDITS = [
   "objectId": 45432,
   "source": "https://images.metmuseum.org/CRDImages/as/original/DP231900.jpg",
   "usedIn": [
-   "drawing/chapters/ellipse.html"
+   "drawing/chapters/ellipse.html",
+   "history/chapters/korea.html"
   ],
   "page": "https://www.metmuseum.org/art/collection/search/45432",
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/45432"
@@ -938,7 +1011,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435883",
   "checked": "2026-10-15",
   "usedIn": [
-   "drawing/chapters/form.html"
+   "drawing/chapters/form.html",
+   "history/chapters/lab.html",
+   "history/chapters/post.html"
   ]
  },
  {
@@ -1004,7 +1079,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/354633",
   "checked": "2026-10-15",
   "usedIn": [
-   "drawing/chapters/landscape.html"
+   "drawing/chapters/landscape.html",
+   "history/chapters/lab.html",
+   "history/chapters/print.html"
   ]
  },
  {
@@ -1026,7 +1103,10 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/929078",
   "checked": "2026-10-15",
   "usedIn": [
-   "drawing/chapters/landscape.html"
+   "drawing/chapters/landscape.html",
+   "history/chapters/korea.html",
+   "history/chapters/lab.html",
+   "history/chapters/overview.html"
   ]
  },
  {
@@ -1114,7 +1194,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40019",
   "checked": "2026-10-15",
   "usedIn": [
-   "drawing/chapters/line.html"
+   "drawing/chapters/line.html",
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -1180,7 +1262,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/336229",
   "checked": "2026-10-15",
   "usedIn": [
-   "drawing/chapters/perspective1.html"
+   "drawing/chapters/perspective1.html",
+   "history/chapters/lab.html",
+   "history/chapters/print.html"
   ]
  },
  {
@@ -1266,7 +1350,8 @@ window.AB_CREDITS = [
   "objectId": 40134,
   "source": "https://images.metmuseum.org/CRDImages/as/original/DP205767_CRD.jpg",
   "usedIn": [
-   "drawing/chapters/perspective2.html"
+   "drawing/chapters/perspective2.html",
+   "history/chapters/lab.html"
   ],
   "page": "https://www.metmuseum.org/art/collection/search/40134",
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40134"
@@ -1312,7 +1397,9 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/387741",
   "checked": "2026-10-15",
   "usedIn": [
-   "drawing/chapters/seeing.html"
+   "drawing/chapters/seeing.html",
+   "history/chapters/lab.html",
+   "history/chapters/renaissance.html"
   ]
  },
  {
@@ -1356,7 +1443,8 @@ window.AB_CREDITS = [
   "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438103",
   "checked": "2026-10-15",
   "usedIn": [
-   "drawing/chapters/shadow.html"
+   "drawing/chapters/shadow.html",
+   "history/chapters/lab.html"
   ]
  },
  {
@@ -1687,6 +1775,1475 @@ window.AB_CREDITS = [
   "checked": "2026-10-15",
   "usedIn": [
    "type/chapters/spacing.html"
+  ]
+ },
+ {
+  "id": "egypt-menna-hunting-marshes",
+  "file": "egypt-menna-hunting-marshes.webp",
+  "derived": "원본 3811×2098 JPEG를 1600×881 WebP(품질 76)로 줄임",
+  "title": "늪에서 사냥하는 메나와 가족 (메나 무덤 벽화의 모사)",
+  "titleEn": "Menna and Family Hunting in the Marshes, Tomb of Menna",
+  "artist": "니나 드 개리스 데이비스 (Nina de Garis Davies, 1881–1965) 모사, 원작은 이집트 제18왕조 무덤 화가",
+  "date": "1924년 모사, 원작 기원전 1396~1347년경 (1924; original ca. 1396–1347 BCE)",
+  "medium": "종이에 템페라, 실물 크기(1:1) 모사 (Tempera on paper)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1930",
+  "objectId": 548437,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/eg/original/DT10878.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/548437",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/548437",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "egypt-senenmut-gridded-sketch",
+  "file": "egypt-senenmut-gridded-sketch.webp",
+  "derived": "원본 3019×3718 JPEG를 1137×1400 WebP(품질 78)로 줄임",
+  "title": "세넨무트의 격자 스케치",
+  "titleEn": "Artist's Gridded Sketch of Senenmut",
+  "artist": "이집트 신왕국 제18왕조(하트셉수트·투트모세 3세 공동 통치기)의 화가",
+  "date": "기원전 1473~1458년경 (ca. 1473–1458 BCE)",
+  "medium": "석회암, 잉크 (Limestone, ink)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1936",
+  "objectId": 547684,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/eg/original/DT1534.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/547684",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/547684",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "greek-kouros-new-york",
+  "file": "greek-kouros-new-york.webp",
+  "derived": "원본 2686×4000 JPEG를 1007×1500 WebP(품질 78)로 줄임",
+  "title": "대리석 쿠로스(청년) 상",
+  "titleEn": "Marble statue of a kouros (youth)",
+  "artist": "그리스 아티카, 아르카이크 시대",
+  "date": "기원전 590~580년경 (ca. 590–580 BCE)",
+  "medium": "낙소스 대리석 (Marble, Naxian)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Fletcher Fund, 1932",
+  "objectId": 253370,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/gr/original/DP-23263-005.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/253370",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/253370",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html"
+  ]
+ },
+ {
+  "id": "euphiletos-panathenaic-amphora",
+  "file": "euphiletos-panathenaic-amphora.webp",
+  "derived": "원본 1560×2000 JPEG를 1092×1400 WebP(품질 78)로 줄임",
+  "title": "판아테나이아 상(賞) 암포라",
+  "titleEn": "Terracotta Panathenaic prize amphora",
+  "artist": "에우필레토스 화가 (Euphiletos Painter)로 귀속",
+  "date": "기원전 530년경 (ca. 530 BCE)",
+  "medium": "테라코타, 흑화식 (Terracotta)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1914",
+  "objectId": 248902,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/gr/original/DP245711.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/248902",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/248902",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html"
+  ]
+ },
+ {
+  "id": "fayum-young-woman-red",
+  "file": "fayum-young-woman-red.webp",
+  "derived": "원본 2227×4000 JPEG를 835×1500 WebP(품질 78)로 줄임",
+  "title": "붉은 옷을 입은 젊은 여인의 초상",
+  "titleEn": "Portrait of a young woman in red",
+  "artist": "로마 시대 이집트",
+  "date": "90~120년 (90–120 CE)",
+  "medium": "피나무 판에 납화와 금박 (Encaustic on limewood with gold leaf)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1909",
+  "objectId": 547860,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/eg/original/DP-41964-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/547860",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/547860",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "byzantine-icon-hodegetria",
+  "file": "byzantine-icon-hodegetria.webp",
+  "derived": "원본 2975×4000 JPEG를 1116×1500 WebP(품질 76)로 줄임",
+  "title": "성모자 이콘, 호데게트리아 유형",
+  "titleEn": "Icon of the Virgin and Child, Hodegetria variant",
+  "artist": "비잔틴 또는 십자군 (Byzantine or Crusader)",
+  "date": "13세기 (13th century)",
+  "medium": "나무판에 템페라 (Tempera on wood)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Purchase, Mary and Kathryn Jaharis Gift, in honor of Helen C. Evans, 2020",
+  "objectId": 831188,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/md/original/DP-22753-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/831188",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/831188",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "limbourg-belles-heures",
+  "file": "limbourg-belles-heures.webp",
+  "derived": "원본 2730×3792 JPEG를 1080×1500 WebP(품질 78)로 줄임",
+  "title": "베리 공작 장의 『벨 외르』(아름다운 시도서)의 한 면(성 히에로니무스 이야기)",
+  "titleEn": "The Belles Heures of Jean de France, duc de Berry",
+  "artist": "랭부르 형제 (The Limbourg Brothers, 1399년 이전~1416년 활동)",
+  "date": "1405~1408/1409 (1405–1408/1409)",
+  "medium": "양피지에 템페라, 금, 잉크 (Tempera, gold, and ink on vellum)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "The Cloisters Collection, 1954",
+  "objectId": 470306,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/cl/original/DP253014.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/470306",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/470306",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "northern-wei-maitreya-altarpiece",
+  "file": "northern-wei-maitreya-altarpiece.webp",
+  "derived": "원본 3001×4000 JPEG를 1125×1500 WebP(품질 76)로 줄임",
+  "title": "미륵불 제단",
+  "titleEn": "Buddha Maitreya (Mile) Altarpiece",
+  "artist": "중국 북위 (Northern Wei dynasty, 386–534)",
+  "date": "524년(정광 5년 명) (dated 524)",
+  "medium": "금동 (Gilt bronze)",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1938",
+  "objectId": 42162,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP217575.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/42162",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/42162",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/ancient.html"
+  ]
+ },
+ {
+  "id": "caravaggio-denial-saint-peter",
+  "file": "caravaggio-denial-saint-peter.webp",
+  "derived": "원본 3904×2904 JPEG를 긴 변 1600px WebP(1600×1190, 품질 80)로 줄임",
+  "title": "성 베드로의 부인",
+  "titleEn": "The Denial of Saint Peter",
+  "artist": "카라바조 (Caravaggio, Michelangelo Merisi, 1571–1610)",
+  "date": "1610",
+  "medium": "캔버스에 유채 (Oil on canvas), 94 × 125.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Herman and Lila Shickman, and Purchase, Lila Acheson Wallace Gift, 1997",
+  "objectId": 437986,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-12413-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437986",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437986",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/baroque.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "caravaggio-musicians",
+  "file": "caravaggio-musicians.webp",
+  "derived": "원본 4000×3105 JPEG를 긴 변 1600px WebP(1600×1242, 품질 80)로 줄임",
+  "title": "음악가들",
+  "titleEn": "The Musicians",
+  "artist": "카라바조 (Caravaggio, Michelangelo Merisi, 1571–1610)",
+  "date": "1597",
+  "medium": "캔버스에 유채 (Oil on canvas), 92.1 × 118.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers Fund, 1952",
+  "objectId": 435844,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-687-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435844",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435844",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/baroque.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "artemisia-gentileschi-esther",
+  "file": "artemisia-gentileschi-esther.webp",
+  "derived": "원본 4000×3060 JPEG를 긴 변 1600px WebP(1600×1224, 품질 80)로 줄임",
+  "title": "아하수에로 왕 앞의 에스더",
+  "titleEn": "Esther before Ahasuerus",
+  "artist": "아르테미시아 젠틸레스키 (Artemisia Gentileschi, 1593–1654 이후)",
+  "date": "1620년대 (1620s)",
+  "medium": "캔버스에 유채 (Oil on canvas), 208.3 × 273.7 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Elinor Dorrance Ingersoll, 1969",
+  "objectId": 436453,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-20748-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436453",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436453",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/baroque.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "rubens-venus-adonis",
+  "file": "rubens-venus-adonis.webp",
+  "derived": "원본 3809×3089 JPEG를 긴 변 1600px WebP(1600×1298, 품질 80)로 줄임",
+  "title": "비너스와 아도니스",
+  "titleEn": "Venus and Adonis",
+  "artist": "페테르 파울 루벤스 (Peter Paul Rubens, 1577–1640)",
+  "date": "1630년대 중반으로 추정 (probably mid-1630s)",
+  "medium": "캔버스에 유채, 덧댄 띠 포함 (Oil on canvas, with added strips), 197.5 × 242.9 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Harry Payne Bingham, 1937",
+  "objectId": 437535,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT2737.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437535",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437535",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/baroque.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "rembrandt-self-portrait-1660",
+  "file": "rembrandt-self-portrait-1660.webp",
+  "derived": "원본 3298×4000 JPEG를 긴 변 1600px WebP(1319×1600, 품질 80)로 줄임",
+  "title": "자화상",
+  "titleEn": "Self-Portrait",
+  "artist": "렘브란트 판 레인 (Rembrandt van Rijn, 1606–1669)",
+  "date": "1660",
+  "medium": "캔버스에 유채 (Oil on canvas), 80.3 × 67.3 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Benjamin Altman, 1913",
+  "objectId": 437397,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-16323-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437397",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437397",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/baroque.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "valentin-lute-player",
+  "file": "valentin-lute-player.webp",
+  "derived": "원본 2965×3864 JPEG를 긴 변 1600px WebP(1228×1600, 품질 80)로 줄임",
+  "title": "류트 연주자",
+  "titleEn": "Lute Player",
+  "artist": "발랑탱 드 불로뉴 (Valentin de Boulogne, 1591–1632)",
+  "date": "1625~26년경 (ca. 1625–26)",
+  "medium": "캔버스에 유채 (Oil on canvas), 128.3 × 99.1 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Purchase, Walter and Leonore Annenberg Acquisitions Endowment Fund; Director's Fund; Acquisitions Fund; James and Diane Burke and Mark Fisch and Rachel Davidson Gifts; Louis V. Bell, Harris Brisbane Dick, Fletcher, and Rogers Funds and Joseph Pulitzer Bequest, 2008",
+  "objectId": 439933,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP168811.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/439933",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/439933",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/baroque.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "claesz-skull-writing-quill",
+  "file": "claesz-skull-writing-quill.webp",
+  "derived": "The Met 대표 이미지(DP145929.jpg, 3811×2569)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "해골과 깃펜이 있는 정물",
+  "titleEn": "Still Life with a Skull and a Writing Quill",
+  "artist": "피터르 클라스 (Pieter Claesz, 1596/97–1660)",
+  "date": "1628",
+  "medium": "나무판에 유채 (Oil on wood), 24.1 × 35.9 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Rogers Fund, 1949",
+  "objectId": 435904,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP145929.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435904",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435904",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "heda-oysters-silver-tazza",
+  "file": "heda-oysters-silver-tazza.webp",
+  "derived": "The Met 대표 이미지(DP120415.jpg, 3871×2394)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "굴, 은잔, 유리그릇이 있는 정물",
+  "titleEn": "Still Life with Oysters, a Silver Tazza, and Glassware",
+  "artist": "빌럼 클라스 헤다 (Willem Claesz Heda, 1594–1680)",
+  "date": "1635",
+  "medium": "나무판에 유채 (Oil on wood), 49.8 × 80.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "From the Collection of Rita and Frits Markus, Bequest of Rita Markus, 2005",
+  "objectId": 438376,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP120415.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/438376",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438376",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "kalf-wanli-bowl",
+  "file": "kalf-wanli-bowl.webp",
+  "derived": "The Met 대표 이미지(DP145932.jpg, 3251×3697)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "과일, 유리그릇, 만력 사발이 있는 정물",
+  "titleEn": "Still Life with Fruit, Glassware, and a Wanli Bowl",
+  "artist": "빌럼 칼프 (Willem Kalf, 1619–1693)",
+  "date": "1659",
+  "medium": "캔버스에 유채 (Oil on canvas), 58.4 × 50.8 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Maria DeWitt Jesup Fund, 1953",
+  "objectId": 436805,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP145932.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436805",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436805",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "ruisdael-wheat-fields",
+  "file": "ruisdael-wheat-fields.webp",
+  "derived": "The Met 대표 이미지(DP145911.jpg, 3811×2951)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "밀밭",
+  "titleEn": "Wheat Fields",
+  "artist": "야코프 판 라위스달 (Jacob van Ruisdael, 1628/29–1682)",
+  "date": "1670년경 (ca. 1670)",
+  "medium": "캔버스에 유채 (Oil on canvas), 100 × 130.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Bequest of Benjamin Altman, 1913",
+  "objectId": 437549,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP145911.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437549",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437549",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "van-goyen-view-haarlem",
+  "file": "van-goyen-view-haarlem.webp",
+  "derived": "The Met 대표 이미지(DP146495.jpg, 3811×2618)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "하를럼과 하를레메르메이르 호수 전경",
+  "titleEn": "View of Haarlem and the Haarlemmer Meer",
+  "artist": "얀 판 호이언 (Jan van Goyen, 1596–1656)",
+  "date": "1646",
+  "medium": "나무판에 유채 (Oil on wood), 34.6 × 50.5 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Purchase, 1871",
+  "objectId": 436558,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP146495.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436558",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436558",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "hals-paulus-verschuur",
+  "file": "hals-paulus-verschuur.webp",
+  "derived": "The Met 대표 이미지(DP146480.jpg, 1530×1928)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "파울뤼스 페르스휘르 (1606–1667)",
+  "titleEn": "Paulus Verschuur (1606–1667)",
+  "artist": "프란스 할스 (Frans Hals, 1582/83–1666)",
+  "date": "1643",
+  "medium": "캔버스에 유채 (Oil on canvas), 118.7 × 94 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Gift of Archer M. Huntington, in memory of his father, Collis Potter Huntington, 1926",
+  "objectId": 436620,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP146480.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436620",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436620",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "de-hooch-interior-young-couple",
+  "file": "de-hooch-interior-young-couple.webp",
+  "derived": "The Met 대표 이미지(DP145906.jpg, 3791×3363)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "젊은 부부가 있는 실내",
+  "titleEn": "Interior with a Young Couple",
+  "artist": "피터르 데 호흐 (Pieter de Hooch, 1629–1684)",
+  "date": "1662~65년경으로 추정 (probably ca. 1662–65)",
+  "medium": "캔버스에 유채 (Oil on canvas), 54.9 × 62.9 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Bequest of Benjamin Altman, 1913",
+  "objectId": 436675,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP145906.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436675",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436675",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/dutch.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "dong-yuan-riverbank",
+  "file": "dong-yuan-riverbank.webp",
+  "derived": "원본 2778×4000 JPEG에서 표구(좌우 비단과 검은 바탕)를 잘라 그림 부분(가로 465~2305, 세로 115~3870 px)만 남긴 뒤 긴 변 1600px WebP(784×1600, 품질 78)로 줄임",
+  "title": "계안도 (물가)",
+  "titleEn": "Riverbank",
+  "artist": "전 동원 (Attributed to Dong Yuan, 930년대–960년대 활동), 중국 남당",
+  "date": "10세기 (Southern Tang dynasty, 937–76)",
+  "medium": "족자, 비단에 먹과 색 (Hanging scroll; ink and color on silk), 그림 220.3 × 109.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Ex coll.: C. C. Wang Family, Gift of Oscar L. Tang Family, in memory of Douglas Dillon, 2016",
+  "objectId": 39542,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP-13074-006.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/39542",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39542",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "zhao-mengfu-twin-pines",
+  "file": "zhao-mengfu-twin-pines.webp",
+  "derived": "원본 3919×951 JPEG를 긴 변 1600px WebP(1600×388, 품질 78)로 줄임",
+  "title": "쌍송평원도 (두 소나무와 평원)",
+  "titleEn": "Twin Pines, Level Distance",
+  "artist": "조맹부 (趙孟頫, Zhao Mengfu, 1254–1322), 중국 원",
+  "date": "1310년경 (ca. 1310)",
+  "medium": "두루마리, 종이에 먹 (Handscroll; ink on paper), 그림 26.8 × 107.5 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Ex coll.: C. C. Wang Family, Gift of The Dillon Fund, 1973",
+  "objectId": 40508,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP153682.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/40508",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40508",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "ni-zan-mount-yu",
+  "file": "ni-zan-mount-yu.webp",
+  "derived": "원본 2207×4000 JPEG에서 좌우 검은 바탕을 잘라 내고(가로 45~2150 px) 긴 변 1600px WebP(842×1600, 품질 78)로 줄임. 표구 비단 일부가 남아 있다",
+  "title": "우산임학도 (우산의 숲과 골짜기)",
+  "titleEn": "Woods and Valleys of Mount Yu",
+  "artist": "예찬 (倪瓚, Ni Zan, 1306–1374), 중국 원",
+  "date": "1372 (dated 1372)",
+  "medium": "족자, 종이에 먹 (Hanging scroll; ink on paper), 그림 94.6 × 35.9 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Ex coll.: C. C. Wang Family, Gift of The Dillon Fund, 1973",
+  "objectId": 45636,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP-19459-002.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/45636",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/45636",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "fan-kuan-style-landscape",
+  "file": "fan-kuan-style-landscape.webp",
+  "derived": "원본 1241×1942 JPEG를 긴 변 1600px WebP(1022×1600, 품질 78)로 줄임",
+  "title": "범관 양식의 산수",
+  "titleEn": "Landscape in the style of Fan Kuan",
+  "artist": "작가 미상 (Unidentified artist), 중국 북송",
+  "date": "12세기 초 (early 12th century)",
+  "medium": "족자, 비단에 먹과 색 (Hanging scroll; ink and color on silk), 그림 166.1 × 104.5 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Irene and Earl Morse, 1956",
+  "objectId": 40002,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP165244.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/40002",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40002",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "dong-qichang-jingxi",
+  "file": "dong-qichang-jingxi.webp",
+  "derived": "원본 1998×911 JPEG를 긴 변 1600px WebP(1600×730, 품질 78)로 줄임",
+  "title": "형계초은도 (형계로 은거를 청하다)",
+  "titleEn": "Invitation to Reclusion at Jingxi",
+  "artist": "동기창 (董其昌, Dong Qichang, 1555–1636), 중국 명",
+  "date": "1611",
+  "medium": "두루마리, 종이에 먹 (Handscroll; ink on paper), 그림 26 × 92.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Mr. and Mrs. Wan-go H. C. Weng, 1990",
+  "objectId": 41479,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP216493_94.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/41479",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/41479",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/eastasia.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "sisley-bridge-villeneuve",
+  "file": "sisley-bridge-villeneuve.webp",
+  "derived": "The Met 대표 이미지(DP-14936-041.jpg, 4000×3000)에서 가장자리 테두리를 잘라(가로 176~3908, 세로 84~2920 px) 긴 변 1600px WebP(1600×1216, 품질 80)로 줄임",
+  "title": "빌뇌브라가렌의 다리",
+  "titleEn": "The Bridge at Villeneuve-la-Garenne",
+  "artist": "알프레드 시슬레 (Alfred Sisley, 1839–1899)",
+  "date": "1872",
+  "medium": "캔버스에 유채 (Oil on canvas), 49.5 × 65.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Mr. and Mrs. Henry Ittleson Jr., 1964",
+  "objectId": 437680,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-14936-041.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437680",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437680",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "sisley-moret-winter",
+  "file": "sisley-moret-winter.webp",
+  "derived": "The Met 대표 이미지(DP-33708-001.jpg, 4000×3314)에서 가장자리 테두리를 잘라(가로 88~3908, 세로 76~3242 px) 긴 변 1600px WebP(1600×1326, 품질 80)로 줄임",
+  "title": "모레의 외젠 무수아르 거리: 겨울",
+  "titleEn": "Rue Eugène Moussoir at Moret: Winter",
+  "artist": "알프레드 시슬레 (Alfred Sisley, 1839–1899)",
+  "date": "1891",
+  "medium": "캔버스에 유채 (Oil on canvas), 46.7 × 56.5 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Ralph Friedman, 1992",
+  "objectId": 437686,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-33708-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437686",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437686",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "renoir-by-the-seashore",
+  "file": "renoir-by-the-seashore.webp",
+  "derived": "The Met 대표 이미지(DP-14936-039.jpg, 3162×4000)에서 가장자리 테두리를 잘라(가로 96~3078, 세로 96~3864 px) 긴 변 1600px WebP(1266×1600, 품질 80)로 줄임",
+  "title": "바닷가에서",
+  "titleEn": "By the Seashore",
+  "artist": "오귀스트 르누아르 (Auguste Renoir, 1841–1919)",
+  "date": "1883",
+  "medium": "캔버스에 유채 (Oil on canvas), 92.1 × 72.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929",
+  "objectId": 437430,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-14936-039.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437430",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437430",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "morisot-young-woman-knitting",
+  "file": "morisot-young-woman-knitting.webp",
+  "derived": "The Met 대표 이미지(DT1928.jpg, 3803×3179)에서 가장자리 테두리를 잘라(가로 28~3779, 세로 28~3159 px) 긴 변 1600px WebP(1600×1336, 품질 80)로 줄임",
+  "title": "뜨개질하는 젊은 여인",
+  "titleEn": "Young Woman Knitting",
+  "artist": "베르트 모리조 (Berthe Morisot, 1841–1895)",
+  "date": "1883년경 (ca. 1883)",
+  "medium": "캔버스에 유채 (Oil on canvas), 50.2 × 60 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Miss Adelaide Milton de Groot (1876-1967), 1967",
+  "objectId": 437159,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT1928.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437159",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437159",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "manet-boating",
+  "file": "manet-boating.webp",
+  "derived": "The Met 대표 이미지(DP-25466-001.jpg, 4000×3052)에서 가장자리 테두리를 잘라(가로 84~3920, 세로 92~2972 px) 긴 변 1600px WebP(1600×1201, 품질 80)로 줄임",
+  "title": "뱃놀이",
+  "titleEn": "Boating",
+  "artist": "에두아르 마네 (Edouard Manet, 1832–1883)",
+  "date": "1874",
+  "medium": "캔버스에 유채 (Oil on canvas), 97.2 × 130.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929",
+  "objectId": 436947,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-25466-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436947",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436947",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "le-gray-great-wave-sete",
+  "file": "le-gray-great-wave-sete.webp",
+  "derived": "The Met 대표 이미지(DP223650.jpg, 2000×1623)에서 가장자리 테두리를 잘라(가로 52~1952, 세로 48~1587 px) 긴 변 1600px WebP(1600×1296, 품질 80)로 줄임",
+  "title": "큰 파도, 세트",
+  "titleEn": "[The Great Wave, Sète]",
+  "artist": "귀스타브 르 그레 (Gustave Le Gray, 1820–1884)",
+  "date": "1857",
+  "medium": "유리 음화에서 뜬 알부민 인화 (Albumen silver print from glass negative), 33.7 × 41.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of John Goldsmith Phillips, 1976",
+  "objectId": 261941,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ph/original/DP223650.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/261941",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/261941",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/impressionism.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "goryeo-water-moon-avalokiteshvara",
+  "file": "goryeo-water-moon-avalokiteshvara.webp",
+  "derived": "원본 2050×4000 JPEG에서 표구 부분을 잘라 내고(가로 5.6~94.4%, 세로 3~98.6%) 긴 변 1600px WebP(762×1600, 품질 80)로 줄임",
+  "title": "수월관음도",
+  "titleEn": "Water-moon Avalokiteshvara",
+  "artist": "작가 미상 (Unidentified artist), 고려",
+  "date": "14세기 전반 (first half of the 14th century)",
+  "medium": "족자, 비단에 먹과 채색 (Hanging scroll; ink and color on silk), 화면 114.5 × 55.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Charles Stewart Smith Collection, Gift of Mrs. Charles Stewart Smith, Charles Stewart Smith Jr., and Howard Caswell Smith, in memory of Charles Stewart Smith, 1914",
+  "objectId": 36029,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP-15580-002.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/36029",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/36029",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/korea.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "joseon-portrait-yun-dongseom",
+  "file": "joseon-portrait-yun-dongseom.webp",
+  "derived": "원본 2522×3880 JPEG에서 표구 부분을 잘라 내고(가로 9.2~90.5%, 세로 5~98.5%) 긴 변 1600px WebP(904×1600, 품질 80)로 줄임. 돋보기 시뮬레이터의 네 위치는 이 책이 눈으로 정한 자리",
+  "title": "윤동섬(1710–1795) 초상",
+  "titleEn": "Portrait of Yun Dongseom (1710–1795)",
+  "artist": "작가 미상 (Unidentified artist), 조선",
+  "date": "1790~1805년경 (ca. 1790–1805)",
+  "medium": "족자, 비단에 먹과 채색 (Hanging scroll; ink and color on silk), 화면 133 × 77.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Purchase, Harris Brisbane Dick and 2014 Benefit Funds; Friends of Korean Art, Locks Foundation, Hyun Jun M. Kim, and Tchah Sup and Myong Hi Kim Gifts, 2014",
+  "objectId": 656430,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP341229.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/656430",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/656430",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/korea.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "joseon-chaekgeori-two-panel",
+  "file": "joseon-chaekgeori-two-panel.webp",
+  "derived": "원본 3002×4000 JPEG에서 병풍 틀과 아래 바탕을 잘라 내고(가로 20~79%, 세로 9.3~78.6%) 긴 변 1600px WebP(1022×1600, 품질 80)로 줄임",
+  "title": "책가도 (책과 문방구)",
+  "titleEn": "Books and Scholarly Accoutrements",
+  "artist": "작가 미상 (Unidentified artist), 조선",
+  "date": "19세기 (19th century)",
+  "medium": "2폭 병풍, 종이에 먹과 채색 (Two-panel folding screen; ink and color on paper), 한 폭 화면 149.2 × 34.9 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of the children of Lea R. Sneider, 2024",
+  "objectId": 853896,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP-40204-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/853896",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/853896",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/korea.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "joseon-mountain-god-tiger",
+  "file": "joseon-mountain-god-tiger.webp",
+  "derived": "원본 3064×2667 JPEG에서 액자 부분을 잘라 내고(가로 7.4~90.9%, 세로 9~90.6%) 긴 변 1600px WebP(1600×1361, 품질 80)로 줄임",
+  "title": "산신도 (산신과 호랑이)",
+  "titleEn": "Mountain god with tiger",
+  "artist": "작가 미상 (Unidentified artist), 조선",
+  "date": "19세기 말 (late 19th century)",
+  "medium": "액자, 비단에 먹과 채색 (Framed painting; ink and color on silk), 화면 83.8 × 99.1 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of the children of Lea R. Sneider, 2024",
+  "objectId": 853891,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/LC-2024_89_2_at-002.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/853891",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/853891",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/korea.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "joseon-genre-album-music",
+  "file": "joseon-genre-album-music.webp",
+  "derived": "소장처가 공개한 추가 이미지(LC-TR_175a_d_2026_sr1-004.jpg, 3191×3667)에서 화첩 바탕 테두리를 잘라 내고(가로 10~90.8%, 세로 8.9~93.6%) 긴 변 1600px WebP(1328×1600, 품질 80)로 줄임",
+  "title": "풍속 화첩(네 면) 중 한 면: 선비들과 여인들, 현악기",
+  "titleEn": "Genre Paintings (album of four leaves), one leaf",
+  "artist": "작가 미상 (Unidentified artist), 조선(Korea)",
+  "date": "19세기 (19th century)",
+  "medium": "화첩, 비단에 먹과 채색 (Album of four leaves; ink and color on silk), 한 면 약 29.2 × 24.1 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Purchase, Michael and Kathleen Linburn Gift, 2026",
+  "objectId": 955314,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/LC-TR_175a_d_2026_sr1-004.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/955314",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/955314",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/korea.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "seurat-grande-jatte-study",
+  "file": "seurat-grande-jatte-study.webp",
+  "derived": "원본 1959×1332 JPEG를 긴 변 1600px WebP(1600×1088, 품질 78)로 줄임",
+  "title": "「그랑드자트섬의 일요일 오후」를 위한 습작",
+  "titleEn": "Study for \"A Sunday on La Grande Jatte\"",
+  "artist": "조르주 쇠라 (Georges Seurat, 1859–1891)",
+  "date": "1884",
+  "medium": "캔버스에 유채 (Oil on canvas), 70.5 × 104.1 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Sam A. Lewisohn, 1951",
+  "objectId": 437658,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP259921.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437658",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437658",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/post.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "cezanne-mont-sainte-victoire",
+  "file": "cezanne-mont-sainte-victoire.webp",
+  "derived": "원본 3001×1780 JPEG를 긴 변 1600px WebP(1600×949, 품질 78)로 줄임",
+  "title": "생트빅투아르산",
+  "titleEn": "Mont Sainte-Victoire",
+  "artist": "폴 세잔 (Paul Cézanne, 1839–1906)",
+  "date": "1902~06년경 (ca. 1902–6)",
+  "medium": "캔버스에 유채 (Oil on canvas), 57.2 × 97.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "The Walter H. and Leonore Annenberg Collection, Gift of Walter H. and Leonore Annenberg, 1994, Bequest of Walter H. Annenberg, 2002",
+  "objectId": 435878,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/77J_045R2M.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435878",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435878",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/post.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "gauguin-ia-orana-maria",
+  "file": "gauguin-ia-orana-maria.webp",
+  "derived": "원본 2928×3722 JPEG를 긴 변 1600px WebP(1259×1600, 품질 78)로 줄임",
+  "title": "이아 오라나 마리아 (마리아께 경배를)",
+  "titleEn": "Ia Orana Maria (Hail Mary)",
+  "artist": "폴 고갱 (Paul Gauguin, 1848–1903)",
+  "date": "1891",
+  "medium": "캔버스에 유채 (Oil on canvas), 113.7 × 87.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Sam A. Lewisohn, 1951",
+  "objectId": 438821,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT1025.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/438821",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438821",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/post.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "vangogh-self-portrait-straw-hat",
+  "file": "vangogh-self-portrait-straw-hat.webp",
+  "derived": "원본 2829×3520 JPEG(소장처가 자른 이미지)를 긴 변 1600px WebP(1286×1600, 품질 70)로 줄임",
+  "title": "밀짚모자를 쓴 자화상 (뒷면: 감자 깎는 사람)",
+  "titleEn": "Self-Portrait with a Straw Hat (obverse: The Potato Peeler)",
+  "artist": "빈센트 반 고흐 (Vincent van Gogh, 1853–1890)",
+  "date": "1887",
+  "medium": "캔버스에 유채 (Oil on canvas), 40.6 × 31.8 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Miss Adelaide Milton de Groot (1876-1967), 1967",
+  "objectId": 436532,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT1502_cropped2.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436532",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436532",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/post.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "vangogh-potato-peeler",
+  "file": "vangogh-potato-peeler.webp",
+  "derived": "원본 2902×3722 JPEG를 긴 변 1600px WebP(1248×1600, 품질 78)로 줄임",
+  "title": "감자 깎는 사람 (뒷면: 밀짚모자를 쓴 자화상)",
+  "titleEn": "The Potato Peeler (reverse: Self-Portrait with a Straw Hat)",
+  "artist": "빈센트 반 고흐 (Vincent van Gogh, 1853–1890)",
+  "date": "1885",
+  "medium": "캔버스에 유채 (Oil on canvas), 40.6 × 31.8 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Miss Adelaide Milton de Groot (1876-1967), 1967",
+  "objectId": 438722,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT1503.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/438722",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438722",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/post.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "durer-rhinoceros",
+  "file": "durer-rhinoceros.webp",
+  "derived": "원본 3811×3049 JPEG를 긴 변 1600px WebP(1600×1280, 품질 75)로 줄임",
+  "title": "코뿔소",
+  "titleEn": "The Rhinoceros",
+  "artist": "알브레히트 뒤러 (Albrecht Dürer, 1471–1528)",
+  "date": "1515",
+  "medium": "목판화 (Woodcut), 화면 21.3 × 29.5 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Junius Spencer Morgan, 1919",
+  "objectId": 356497,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/dp/original/DT241450.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/356497",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/356497",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/print.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "harunobu-lovers-snow",
+  "file": "harunobu-lovers-snow.webp",
+  "derived": "원본 1449×2000 JPEG를 긴 변 1600px WebP(1159×1600, 품질 80)로 줄임",
+  "title": "눈 속을 걷는 연인 (까마귀와 백로)",
+  "titleEn": "Lovers Walking in the Snow (Crow and Heron)",
+  "artist": "스즈키 하루노부 (Suzuki Harunobu, 1725–1770)",
+  "date": "1764–72",
+  "medium": "목판화, 종이에 먹과 채색, 가라즈리 (Woodblock print; ink and color on paper, with embossing (karazuri)), 28.6 × 20.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "The Howard Mansfield Collection, Purchase, Rogers Fund, 1936",
+  "objectId": 45085,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP116432.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/45085",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/45085",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/print.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "sharaku-morita-kanya",
+  "file": "sharaku-morita-kanya.webp",
+  "derived": "원본 2592×3853 JPEG를 긴 변 1600px WebP(1076×1600, 품질 80)로 줄임",
+  "title": "가부키 배우 모리타 간야 8세(「가타키우치 노리아이바나시」의 가마꾼 역)",
+  "titleEn": "Kabuki Actor Morita Kan'ya VIII as the Palanquin-Bearer in the Play A Medley of Tales of Revenge (Katakiuchi noriaibanashi)",
+  "artist": "도슈사이 샤라쿠 (Tōshūsai Sharaku, 1794–95 활동)",
+  "date": "1794년 5월 (5th month, 1794)",
+  "medium": "목판화, 종이에 먹, 채색, 흰 운모 (Woodblock print; ink, color, white mica on paper), 38.1 × 25.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Harris Brisbane Dick Fund and Rogers Fund, 1949",
+  "objectId": 37371,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/as/original/DP130197.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/37371",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/37371",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/print.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "fra-carnevale-birth-virgin",
+  "file": "fra-carnevale-birth-virgin.webp",
+  "derived": "원본 2565×3823 JPEG를 긴 변 1600px WebP(1074×1600, 품질 80)로 줄임. 시뮬레이터의 소실선 좌표는 이 책이 이 이미지 위에서 직접 고른 어림값",
+  "title": "성모의 탄생",
+  "titleEn": "The Birth of the Virgin",
+  "artist": "프라 카르네발레 (Fra Carnevale, 본명 Bartolomeo di Giovanni Corradini, 1416년 이전 출생–1484)",
+  "date": "1467",
+  "medium": "나무판에 템페라와 유채 (Tempera and oil on wood), 144.8 × 96.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Rogers and Gwynne Andrews Funds, 1935",
+  "objectId": 435848,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP109484.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435848",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435848",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/renaissance.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "botticelli-saint-zenobius",
+  "file": "botticelli-saint-zenobius.webp",
+  "derived": "원본 4000×1855 JPEG에서 사진 가장자리의 검은 테두리를 잘라 내고(가로 62~3924, 세로 66~1796 px) 긴 변 1600px WebP(1600×717, 품질 80)로 줄임",
+  "title": "성 제노비우스의 세 기적",
+  "titleEn": "Three Miracles of Saint Zenobius",
+  "artist": "산드로 보티첼리 (Botticelli, Alessandro di Mariano Filipepi, 1444/45–1510)",
+  "date": "1500년경 (ca. 1500)",
+  "medium": "나무판에 템페라 (Tempera on wood), 67.3 × 150.5 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "John Stewart Kennedy Fund, 1911",
+  "objectId": 435729,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-18875-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435729",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435729",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/renaissance.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "van-eyck-crucifixion-panel",
+  "file": "van-eyck-crucifixion-panel.webp",
+  "derived": "원본 3342×4000 JPEG(두 폭 전체와 액자)에서 왼쪽 폭 「십자가 처형」의 그림 면(가로 262~1445, 세로 245~3745 px)만 잘라 긴 변 1600px WebP(540×1600, 품질 80)로 줄임",
+  "title": "십자가 처형; 최후의 심판 (왼쪽 폭: 십자가 처형)",
+  "titleEn": "The Crucifixion; The Last Judgment (left wing: The Crucifixion)",
+  "artist": "얀 반 에이크 (Jan van Eyck, 1390년경–1441)",
+  "date": "1436~38년경 (ca. 1436–38)",
+  "medium": "나무판에서 캔버스로 옮긴 유채 (Oil on canvas, transferred from wood), 각 56.5 × 19.7 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Fletcher Fund, 1933",
+  "objectId": 436282,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/LC-33_92ab-Primary_Temp.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436282",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436282",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/renaissance.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "petrus-christus-carthusian",
+  "file": "petrus-christus-carthusian.webp",
+  "derived": "원본 2916×4000 JPEG를 긴 변 1600px WebP(1166×1600, 품질 80)로 줄임(그림 면과 함께 칠해진 테두리를 포함)",
+  "title": "카르투시오회 수도사의 초상",
+  "titleEn": "Portrait of a Carthusian",
+  "artist": "페트뤼스 크리스튀스 (Petrus Christus, 1444년 이전 활동–1475/76)",
+  "date": "1446",
+  "medium": "참나무판에 유채 (Oil on oak), 29.2 × 21.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "The Jules Bache Collection, 1949",
+  "objectId": 435896,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-44361-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435896",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435896",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/renaissance.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "leonardo-head-virgin",
+  "file": "leonardo-head-virgin.webp",
+  "derived": "원본 2972×3822 JPEG를 긴 변 1600px WebP(1244×1600, 품질 80)로 줄임",
+  "title": "오른쪽을 향한 4분의 3 측면의 성모 머리",
+  "titleEn": "The Head of the Virgin in Three-Quarter View Facing Right",
+  "artist": "레오나르도 다 빈치 (Leonardo da Vinci, 1452–1519)",
+  "date": "1510~13 (1510–13)",
+  "medium": "검은 초크, 목탄, 붉은 초크, 흰 초크 흔적(?) (Black chalk, charcoal, and red chalk, with some traces of white chalk (?)), 20.3 × 15.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Harris Brisbane Dick Fund, 1951",
+  "objectId": 337496,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/dp/original/DP102382.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/337496",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/337496",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/renaissance.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "watteau-mezzetin",
+  "file": "watteau-mezzetin.webp",
+  "derived": "The Met 대표 이미지(DP170811.jpg, 1520×1932)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "메제탱",
+  "titleEn": "Mezzetin",
+  "artist": "장앙투안 와토 (Antoine Watteau, 1684–1721)",
+  "date": "1718~20년경 (ca. 1718–20)",
+  "medium": "캔버스에 유채 (Oil on canvas), 55.2 × 43.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Munsey Fund, 1934",
+  "objectId": 437926,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP170811.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437926",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437926",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/rococo.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "boucher-toilette-venus",
+  "file": "boucher-toilette-venus.webp",
+  "derived": "The Met 대표 이미지(DP-411-01.jpg, 3144×3984)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "비너스의 단장",
+  "titleEn": "The Toilette of Venus",
+  "artist": "프랑수아 부셰 (François Boucher, 1703–1770)",
+  "date": "1751",
+  "medium": "캔버스에 유채 (Oil on canvas), 108.3 × 85.1 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Bequest of William K. Vanderbilt, 1920",
+  "objectId": 435739,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-411-01.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435739",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435739",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/rococo.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "fragonard-love-letter",
+  "file": "fragonard-love-letter.webp",
+  "derived": "The Met 대표 이미지(DP-1014-001.jpg, 3164×3915)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "연애편지",
+  "titleEn": "The Love Letter",
+  "artist": "장오노레 프라고나르 (Jean Honoré Fragonard, 1732–1806)",
+  "date": "1770년대 초 (early 1770s)",
+  "medium": "캔버스에 유채 (Oil on canvas), 83.2 × 67 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "The Jules Bache Collection, 1949",
+  "objectId": 436322,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-1014-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436322",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436322",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/rococo.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "carriera-gustavus-hamilton",
+  "file": "carriera-gustavus-hamilton.webp",
+  "derived": "The Met 대표 이미지(DP161652.jpg, 3189×3877)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "가면무도회 의상을 입은 거스테이버스 해밀턴(1710–1746), 제2대 보인 자작",
+  "titleEn": "Gustavus Hamilton (1710–1746), Second Viscount Boyne, in Masquerade Costume",
+  "artist": "로살바 카리에라 (Rosalba Carriera, 1673–1757)",
+  "date": "1730–31",
+  "medium": "종이에 파스텔, 캔버스에 붙임 (Pastel on paper, laid down on canvas), 56.5 × 42.9 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Purchase, George Delacorte Fund Gift, in memory of George T. Delacorte Jr., and Gwynne Andrews, Victor Wilbour Memorial, and Marquand Funds, 2002",
+  "objectId": 438544,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP161652.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/438544",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438544",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/rococo.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "labille-guiard-self-portrait-pupils",
+  "file": "labille-guiard-self-portrait-pupils.webp",
+  "derived": "The Met 대표 이미지(DP320103.jpg, 2884×3894)에서 액자를 잘라 내고(좌표 310,290–2575,3525) 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "두 제자 마리 가브리엘 카페(1761–1818), 마리 마르그리트 카로 드 로즈몽(1765–1788)과 함께 있는 자화상",
+  "titleEn": "Self-Portrait with Two Pupils, Marie Gabrielle Capet (1761–1818) and Marie Marguerite Carraux de Rosemond (1765–1788)",
+  "artist": "아델라이드 라비유기아르 (Adélaïde Labille-Guiard, 1749–1803)",
+  "date": "1785",
+  "medium": "캔버스에 유채 (Oil on canvas), 210.8 × 151.1 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Gift of Julia A. Berwind, 1953",
+  "objectId": 436840,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP320103.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436840",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436840",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/rococo.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "vigee-le-brun-julie-mirror",
+  "file": "vigee-le-brun-julie-mirror.webp",
+  "derived": "The Met 대표 이미지(DP-26883-001.jpg, 3302×4000)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "거울을 보는 쥘리 르브룅(1780–1819)",
+  "titleEn": "Julie Le Brun (1780–1819) Looking in a Mirror",
+  "artist": "엘리자베트 루이즈 비제르브룅 (Elisabeth Louise Vigée Le Brun, 1755–1842)",
+  "date": "1787",
+  "medium": "캔버스에 유채 (Oil on canvas), 73 × 59.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Bequest of Mrs. Charles Wrightsman, 2019",
+  "objectId": 438132,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-26883-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/438132",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438132",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/rococo.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "kauffmann-telemachus-calypso",
+  "file": "kauffmann-telemachus-calypso.webp",
+  "derived": "The Met 대표 이미지(DP169393.jpg, 3863×2836)를 긴 변 1600px WebP(품질 80)로 줄임",
+  "title": "텔레마코스와 칼립소의 님프들",
+  "titleEn": "Telemachus and the Nymphs of Calypso",
+  "artist": "앙겔리카 카우프만 (Angelica Kauffmann, 1741–1807)",
+  "date": "1782",
+  "medium": "캔버스에 유채 (Oil on canvas), 82.6 × 112.4 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+  "creditLine": "Bequest of Collis P. Huntington, 1900",
+  "objectId": 436810,
+  "license": "공공 도메인 (CC0, The Met Open Access)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP169393.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436810",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436810",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/rococo.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "turner-whalers",
+  "file": "turner-whalers.webp",
+  "derived": "The Met 대표 이미지(DP-13360-001.jpg, 3958×2967)에서 가장자리 테두리를 잘라(가로 12~3942, 세로 12~2955 px) 긴 변 1600px WebP(1600×1198, 품질 80)로 줄임",
+  "title": "고래잡이",
+  "titleEn": "Whalers",
+  "artist": "조지프 말로드 윌리엄 터너 (Joseph Mallord William Turner, 1775–1851)",
+  "date": "1845년경 (ca. 1845)",
+  "medium": "캔버스에 유채 (Oil on canvas), 91.8 × 122.6 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Catharine Lorillard Wolfe Collection, Wolfe Fund, 1896",
+  "objectId": 437854,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-13360-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437854",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437854",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/romantic.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "constable-salisbury-cathedral",
+  "file": "constable-salisbury-cathedral.webp",
+  "derived": "The Met 대표 이미지(DP164837.jpg, 1955×1541)에서 가장자리 테두리를 잘라(가로 24~1931, 세로 20~1521 px) 긴 변 1600px WebP(1600×1259, 품질 80)로 줄임",
+  "title": "주교의 정원에서 본 솔즈베리 대성당",
+  "titleEn": "Salisbury Cathedral from the Bishop's Grounds",
+  "artist": "존 컨스터블 (John Constable, 1776–1837)",
+  "date": "1825년경 (ca. 1825)",
+  "medium": "캔버스에 유채 (Oil on canvas), 87.9 × 111.8 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Mary Stillman Harkness, 1950",
+  "objectId": 435922,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP164837.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435922",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435922",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/romantic.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "delacroix-christ-tempest",
+  "file": "delacroix-christ-tempest.webp",
+  "derived": "The Met 대표 이미지(DP-14343-001.jpg, 4000×3296)에서 가장자리 테두리를 잘라(가로 56~3936, 세로 48~3248 px) 긴 변 1600px WebP(1600×1320, 품질 80)로 줄임",
+  "title": "폭풍 속에서 잠든 그리스도",
+  "titleEn": "Christ Asleep during the Tempest",
+  "artist": "외젠 들라크루아 (Eugène Delacroix, 1798–1863)",
+  "date": "1853년경 (ca. 1853)",
+  "medium": "캔버스에 유채 (Oil on canvas), 50.8 × 61 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929",
+  "objectId": 436176,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-14343-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436176",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436176",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/romantic.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "courbet-young-ladies-village",
+  "file": "courbet-young-ladies-village.webp",
+  "derived": "The Met 대표 이미지(DT1967.jpg, 3811×2847)에서 가장자리 테두리를 잘라(가로 12~3795, 세로 12~2835 px) 긴 변 1600px WebP(1600×1194, 품질 80)로 줄임",
+  "title": "마을의 아가씨들",
+  "titleEn": "Young Ladies of the Village",
+  "artist": "귀스타브 쿠르베 (Gustave Courbet, 1819–1877)",
+  "date": "1851–52",
+  "medium": "캔버스에 유채 (Oil on canvas), 194.9 × 261 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Harry Payne Bingham, 1940",
+  "objectId": 438820,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DT1967.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/438820",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438820",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/romantic.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "millet-haystacks-autumn",
+  "file": "millet-haystacks-autumn.webp",
+  "derived": "The Met 대표 이미지(DP124093.jpg, 3867×3020)에서 가장자리 테두리를 잘라(가로 24~3835, 세로 40~2980 px) 긴 변 1600px WebP(1600×1234, 품질 80)로 줄임",
+  "title": "건초 더미: 가을",
+  "titleEn": "Haystacks: Autumn",
+  "artist": "장프랑수아 밀레 (Jean-François Millet, 1814–1875)",
+  "date": "1874년경 (ca. 1874)",
+  "medium": "캔버스에 유채 (Oil on canvas), 85.1 × 110.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Bequest of Lillian S. Timken, 1959",
+  "objectId": 437097,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP124093.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/437097",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437097",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/romantic.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "bonheur-horse-fair",
+  "file": "bonheur-horse-fair.webp",
+  "derived": "The Met 대표 이미지(DP-23550-001.jpg, 4000×2043)에서 사진에 함께 찍힌 금빛 액자를 잘라(가로 125~3875, 세로 125~1923 px) 긴 변 1600px WebP(1600×767, 품질 80)로 줄임",
+  "title": "말 시장",
+  "titleEn": "The Horse Fair",
+  "artist": "로자 보뇌르 (Rosa Bonheur, 1822–1899)",
+  "date": "1852–55",
+  "medium": "캔버스에 유채 (Oil on canvas), 244.5 × 506.7 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "Gift of Cornelius Vanderbilt, 1887",
+  "objectId": 435702,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-23550-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/435702",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435702",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/romantic.html",
+   "history/chapters/lab.html"
+  ]
+ },
+ {
+  "id": "daumier-third-class-carriage",
+  "file": "daumier-third-class-carriage.webp",
+  "derived": "The Met 대표 이미지(DP-21027-001.jpg, 4000×2915)에서 가장자리 테두리를 잘라(가로 100~3915, 세로 65~2855 px) 긴 변 1600px WebP(1600×1170, 품질 80)로 줄임",
+  "title": "삼등 열차",
+  "titleEn": "The Third-Class Carriage",
+  "artist": "오노레 도미에 (Honoré Daumier, 1808–1879)",
+  "date": "1864",
+  "medium": "캔버스에 유채 (Oil on canvas), 65.4 × 90.2 cm",
+  "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+  "creditLine": "H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929",
+  "objectId": 436095,
+  "license": "Public Domain (The Met Open Access, CC0)",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-21027-001.jpg",
+  "page": "https://www.metmuseum.org/art/collection/search/436095",
+  "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436095",
+  "checked": "2026-10-15",
+  "usedIn": [
+   "history/chapters/romantic.html",
+   "history/chapters/lab.html"
   ]
  }
 ];
