@@ -84,5 +84,38 @@ window.AB_COVERS = (function () {
       s += `<circle cx="${cx}" cy="${cy}" r="${r - 2}" fill="#f2c36b"/>`;
       return wrap(s, "조리개 날");
     },
+    browser() {
+      let s = `<rect x="40" y="26" width="240" height="150" rx="8" fill="#2a2734" stroke="#e9e3d6" stroke-opacity=".5"/>`;
+      s += `<line x1="40" y1="46" x2="280" y2="46" stroke="#e9e3d6" stroke-opacity=".35"/>`;
+      ["#f26b5b", "#f2c36b", "#6fcf97"].forEach((c, i) => { s += `<circle cx="${54 + i * 12}" cy="36" r="3.6" fill="${c}"/>`; });
+      for (let i = 0; i < 12; i++) s += `<rect x="${52 + i * 18.5}" y="54" width="14" height="114" fill="#7fb2ff" fill-opacity=".1"/>`;
+      s += `<rect x="52" y="58" width="216" height="30" rx="3" fill="#7fb2ff" fill-opacity=".85"/>`;
+      [0, 1, 2].forEach((i) => { s += `<rect x="${52 + i * 74}" y="96" width="68" height="40" rx="3" fill="#e9e3d6" fill-opacity="${0.75 - i * 0.18}"/>`; });
+      s += `<rect x="52" y="144" width="142" height="7" rx="2" fill="#e9e3d6" fill-opacity=".45"/><rect x="52" y="156" width="104" height="7" rx="2" fill="#e9e3d6" fill-opacity=".3"/>`;
+      s += `<rect x="212" y="146" width="56" height="16" rx="8" fill="#f26b5b"/>`;
+      s += `<rect x="290" y="56" width="18" height="100" rx="5" fill="none" stroke="#e9e3d6" stroke-opacity=".35"/><rect x="294" y="62" width="10" height="70" rx="2" fill="#7fb2ff" fill-opacity=".5"/>`;
+      return wrap(s, "열 그리드 위에 놓인 웹 화면");
+    },
+    flow() {
+      const nodes = [[44, 100, "#e9e3d6"], [112, 60, "#7fb2ff"], [112, 140, "#7fb2ff"], [190, 100, "#f2c36b"], [262, 100, "#6fcf97"]];
+      let s = "";
+      const E = (a, b, dash) => `<path d="M${a[0] + 16} ${a[1]} C ${(a[0] + b[0]) / 2} ${a[1]}, ${(a[0] + b[0]) / 2} ${b[1]}, ${b[0] - 16} ${b[1]}" fill="none" stroke="#e9e3d6" stroke-opacity=".55" stroke-width="1.6"${dash ? ' stroke-dasharray="4 4"' : ""}/>`;
+      s += E(nodes[0], nodes[1]) + E(nodes[0], nodes[2], true) + E(nodes[1], nodes[3]) + E(nodes[2], nodes[3], true) + E(nodes[3], nodes[4]);
+      nodes.forEach(([x, y, c], i) => { s += i === 3 ? `<rect x="${x - 15}" y="${y - 15}" width="30" height="30" rx="3" transform="rotate(45 ${x} ${y})" fill="${c}"/>` : `<rect x="${x - 16}" y="${y - 12}" width="32" height="24" rx="6" fill="${c}"/>`; });
+      [100, 82, 61, 48].forEach((h, i) => { s += `<rect x="${40 + i * 62}" y="${188 - h * 0.18}" width="40" height="${h * 0.18}" fill="#f26b5b" fill-opacity="${0.9 - i * 0.15}"/>`; });
+      return wrap(s, "사용자 흐름도와 퍼널");
+    },
+    form() {
+      let s = "";
+      for (let i = 0; i < 9; i++) s += `<line x1="${28 + i * 33}" y1="20" x2="${28 + i * 33}" y2="180" stroke="#e9e3d6" stroke-opacity=".08"/>`;
+      s += `<line x1="20" y1="166" x2="300" y2="166" stroke="#e9e3d6" stroke-opacity=".4"/>`;
+      s += `<path d="M96 166 L104 150 Q160 140 216 150 L224 166 Z" fill="#3b4a42"/>`;
+      s += `<path d="M160 146 C 156 110, 150 84, 176 58" fill="none" stroke="#9aa8a0" stroke-width="7" stroke-linecap="round"/>`;
+      s += `<path d="M162 58 Q 196 34 236 52 L 230 66 Q 198 54 170 70 Z" fill="#2f7d5b"/>`;
+      s += `<path d="M172 70 Q 200 58 228 68" fill="none" stroke="#ffe2d7" stroke-width="2" stroke-opacity=".9"/>`;
+      s += `<path d="M178 74 L 150 150 L 250 150 L 226 72 Z" fill="#f2c36b" fill-opacity=".12"/>`;
+      s += `<circle cx="160" cy="146" r="3" fill="#f26b5b"/><line x1="96" y1="178" x2="224" y2="178" stroke="#f26b5b" stroke-width="1"/><line x1="96" y1="174" x2="96" y2="182" stroke="#f26b5b"/><line x1="224" y1="174" x2="224" y2="182" stroke="#f26b5b"/>`;
+      return wrap(s, "독서등의 옆모습과 치수선");
+    },
   };
 })();
