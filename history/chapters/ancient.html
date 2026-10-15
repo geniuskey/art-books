@@ -1,0 +1,778 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "이집트의 정면성과 격자, 위계적 크기, 그리스 쿠로스와 도기의 비례, 파이윰 초상, 비잔틴의 금빛 바탕, 중세 필사본과 북위의 불상. 보이는 대로가 아니라 아는 대로, 믿는 대로 그린 그림을 시뮬레이터로 읽는다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .an-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+  .an-pair .art-frame img, .an-tall .art-frame img { max-height: 560px; width: 100%; object-fit: contain; }
+  @media (max-width: 520px) { .an-pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-chapter="ancient">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 02</div>
+    <h1>고대와 중세</h1>
+    <p class="lead">3,500년쯤 전 이집트의 한 화가가 석회암 조각에 붉은 격자를 긋고 사람의 옆얼굴을 그렸다. 코와 입술과 턱은 옆에서 본 모양인데, 눈은 정면에서 본 아몬드 모양이다. 지금 보면 "틀린" 그림 같다. 그런데 이 화가는 서툴러서 그렇게 그린 것이 아니다. 같은 방식이 3,000년 가까이 거의 그대로 이어졌다. 이 장은 보이는 대로가 아니라 <b>아는 대로, 믿는 대로</b> 그린 그림들, 곧 이집트의 무덤 벽화에서 그리스의 조각과 도기, 로마 시대 이집트의 초상, 비잔틴의 성상, 중세의 필사본, 그리고 같은 시기 동아시아의 불상까지를 그 그림이 맡았던 일로 읽는다.</p>
+    <ul class="objectives">
+      <li>이집트 그림의 정면성과 조합된 시점이 "부위마다 가장 잘 알아볼 수 있는 모양"을 고른 결과임을 설명한다.</li>
+      <li>격자가 비례를 표준화하고 작은 밑그림을 큰 벽으로 옮기는 도구였음을 시뮬레이터로 확인한다.</li>
+      <li>위계적 크기가 거리 대신 중요도로 크기를 정하는 규칙이며, 이집트·중국·고구려에 두루 나타난다는 것을 본다.</li>
+      <li>쿠로스의 비례를 사진 위에서 직접 재고, 사진으로 잰 값과 실측값이 왜 다른지 안다.</li>
+      <li>금빛 바탕과 중세 필사본의 색이 촛불과 예배라는 쓰임에 맞춘 선택이었음을 읽는다.</li>
+    </ul>
+  </header>
+
+  <section id="map">
+    <h2>3,000년을 한 장에</h2>
+    <p>이 장이 다루는 시간은 이 책의 나머지 장을 모두 합친 것보다 길다. 그래서 먼저 지도를 그린다. 아래 그림의 가로축은 연도, 막대는 이 장에서 만날 그림들이 속한 시대다. 이름이 한 줄에 놓였다고 해서 서로 이어진 한 이야기는 아니다. 이집트의 규칙은 그리스에 영향을 주었고, 비잔틴의 성상은 로마 시대의 초상과 재료를 나누었지만, 북위의 불상은 전혀 다른 길에서 같은 문제, 곧 "가장 중요한 존재를 어떻게 보이게 할까"에 답했다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 260" role="img" aria-label="이 장이 다루는 시대: 이집트 신왕국부터 15세기 초 필사본까지">
+        <line x1="40" y1="218" x2="450" y2="218" class="s-axis"/>
+        <g class="lbl-dim" font-size="11">
+          <text x="40" y="236" text-anchor="middle">BC1500</text><text x="122" y="236" text-anchor="middle">BC1000</text><text x="204" y="236" text-anchor="middle">BC500</text><text x="286" y="236" text-anchor="middle">1</text><text x="368" y="236" text-anchor="middle">500</text><text x="450" y="236" text-anchor="middle">1000</text>
+        </g>
+        <rect x="32" y="30" width="78" height="14" rx="3" class="f-acc-soft"/><text x="36" y="24" class="lbl-b">이집트 신왕국</text>
+        <circle cx="45" cy="37" r="4" class="f-acc"/><circle cx="61" cy="37" r="4" class="f-acc"/>
+        <text x="116" y="41" class="lbl-dim">세넨무트 스케치 · 메나 무덤</text>
+        <rect x="171" y="70" width="57" height="14" rx="3" class="f-acc2-soft"/><text x="171" y="64" class="lbl-b">그리스 아르카이크</text>
+        <circle cx="190" cy="77" r="4" class="f-acc2"/><circle cx="199" cy="77" r="4" class="f-acc2"/>
+        <text x="234" y="81" class="lbl-dim">쿠로스 · 판아테나이아 암포라</text>
+        <rect x="282" y="110" width="78" height="14" rx="3" class="f-ok-soft"/><text x="282" y="104" class="lbl-b">로마 제국(이집트 포함)</text>
+        <circle cx="303" cy="117" r="4" class="f-ok"/>
+        <text x="366" y="121" class="lbl-dim">파이윰 초상</text>
+        <rect x="340" y="150" width="110" height="14" rx="3" class="f-warn-soft"/><text x="300" y="146" class="lbl-b">비잔틴(330~1453) →</text>
+        <text x="300" y="178" class="lbl-dim">이콘(13세기), 『벨 외르』(1405~09)는 그림 밖 →</text>
+        <rect x="350" y="190" width="24" height="14" rx="3" class="f-acc-soft"/><circle cx="372" cy="197" r="4" class="f-acc"/>
+        <text x="300" y="201" text-anchor="end" class="lbl-dim">중국 북위(386~534)</text>
+      </svg>
+      <figcaption><b>그림 1. 이 장의 지도.</b> 점은 이 장에서 보는 작품이다. 13세기의 비잔틴 이콘과 15세기 초의 필사본은 그림의 오른쪽 밖에 있다. 이집트 신왕국에서 『벨 외르』까지 거의 3,000년이고, 그 사이에 같은 문제를 다르게 푼 그림들이 여러 지역에 흩어져 있다. 시대의 경계는 흔히 쓰는 대략의 연도다.</figcaption>
+    </figure>
+  </section>
+
+  <section id="frontal">
+    <h2>옆얼굴에 정면 눈: 정면성</h2>
+    <p>먼저 문제의 그림을 본다. 하트셉수트 여왕 시대의 고관 세넨무트의 얼굴을 그린 스케치다. 이런 석회암 조각이나 깨진 도기에 그린 그림과 글을 <span class="term">오스트라콘</span><span class="en">(Ostracon)</span>이라고 부른다. 파피루스가 비쌌으므로 연습과 메모에는 이런 조각을 썼다.</p>
+
+    <figure class="art-figure an-tall" id="fig-senenmut">
+      <div class="art-frame"><img src="../../shared/img/egypt-senenmut-gridded-sketch.webp" width="1137" height="1400" alt="세넨무트의 얼굴 스케치가 그려진 석회암 조각. 붉은 선으로 그은 격자 위에 검은 선으로 가발을 쓴 남자의 옆얼굴이 그려져 있다. 코와 입술과 턱은 옆모습이지만 눈은 정면에서 본 아몬드 모양이다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 「세넨무트의 격자 스케치」, 이집트 신왕국 제18왕조, 기원전 1473~1458년경.</b> 붉은 격자와 검은 윤곽 두 색뿐이다. 옆얼굴의 윤곽 안에 정면에서 본 눈과 눈썹이 들어 있다. 격자는 비례를 맞추는 도구로, 다음 절에서 직접 써 본다.<span class="credit">메트로폴리탄 미술관(Rogers Fund, 1936), 석회암, 잉크. 높이 22.5 cm. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/547684">소장처 작품 페이지</a> · <a href="../../credits.html#egypt-senenmut-gridded-sketch">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>이집트의 사람 그림에는 거의 늘 같은 조합이 나온다. 머리는 옆모습, 눈은 정면, 어깨와 가슴은 정면, 허리는 비스듬히, 다리와 발은 옆모습. 이런 방식을 흔히 <span class="term">정면성</span><span class="en">(Frontality)</span> 또는 조합된 시점이라고 부른다. 독일의 이집트학자 하인리히 셰퍼는 『이집트 미술에 대하여』(1919)에서, 이집트 화가는 한 자리에서 본 모습이 아니라 사물에 대해 <b>아는 것</b>을 그렸다고 정리했다. 사람의 어깨는 넓고, 눈은 아몬드 모양이고, 발은 앞뒤로 길다. 각 부위를 그 특징이 가장 잘 드러나는 방향에서 그려 하나로 붙인 것이다.</p>
+    <p>정말 그런지 간단한 모형으로 확인해 본다. 아래 왼쪽 인물은 한 자리에서 본 모습이다. 슬라이더로 보는 각도를 바꾼다(0°는 정면, 90°는 옆). 오른쪽은 이집트식으로 부위마다 방향을 따로 고른 인물이다. 아래 막대는 이 책의 모형으로 계산한 "부위별로 알아볼 수 있는 정도"다.</p>
+
+    <div class="sim" id="sim-front">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>한 시점과 조합된 시점</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="fr-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>한 시점의 각도 <output id="fr-a-out"></output></span><input type="range" id="fr-a" min="0" max="90" step="1" value="90"></label>
+          <div class="seg" id="fr-m"><button data-value="egypt" class="on">이집트식 조합</button><button data-value="worst">반대로 조합</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 시점의 알아보기</span><span class="v" id="fr-o-1">—</span></div>
+        <div class="stat"><span class="k">조합한 인물의 알아보기</span><span class="v" id="fr-o-2">—</span></div>
+        <div class="stat"><span class="k">한 시점에서 가장 잃는 부위</span><span class="v" id="fr-o-3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 각도 90°(완전한 옆모습)에서 왼쪽 인물은 어깨가 좁은 막대가 되고 눈은 작은 쐐기가 된다. 머리와 다리는 잘 보인다. ② 0°(정면)로 돌리면 어깨와 눈은 살아나지만 코·턱의 윤곽과 걸음걸이가 사라진다. 어느 각도에서도 다섯 부위가 모두 최고가 되지 않는다. ③ "반대로 조합"을 누른다. 부위마다 가장 나쁜 방향을 고르면 아무도 사람으로 알아보기 어렵다. 조합 자체가 아니라 <b>무엇을</b> 고르느냐가 규칙이다. (모형의 가정: 부위마다 가장 잘 알아볼 수 있는 방향이 하나 있고, 알아보기 = 0.25 + 0.75×cos²(보는 각도 − 그 방향). 머리 90°, 눈 0°, 어깨 0°, 허리 45°, 다리 90°로 이 책이 정했다. 실제 지각 실험의 값이 아니다.)</div>
+    </div>
+
+    <p>이 모형은 단순하지만 핵심을 보여 준다. 한 시점의 그림은 반드시 무언가를 잃는다. 이집트 화가는 그 손실을 받아들이지 않고, 부위마다 가장 "그 사람다운" 모양을 모았다. 무덤 속 그림은 죽은 이가 저세상에서도 온전한 몸으로 살아가기를 바라는 그림이었으므로, 어깨 한쪽이 가려지거나 발이 겹쳐 사라지는 것은 곤란한 일이었다는 해석이 널리 받아들여진다. 이 그림들은 보는 사람의 눈이 아니라 그려진 사람의 온전함을 위해 그렸다.</p>
+    <p>독일의 이집트학자 엠마 브루너트라우트는 이런 방식을 원근법<span class="en">(Perspektive)</span>에 빗대어 <span class="term">아스펙티브</span><span class="en">(Aspektive)</span>라고 불렀다. 한 점에서 본 모습을 모으는 원근법과 달리, 여러 측면을 하나씩 나란히 늘어놓는 방식이라는 뜻이다. 이 장 끝의 종합 시뮬레이터에서 이 방식으로 연못이 있는 정원을 그려 본다.</p>
+
+    <div class="callout try">
+      <strong>친구 얼굴을 기억으로 그리기</strong>
+      종이를 반으로 접는다. 왼쪽에는 가족이나 친구의 얼굴을 보지 않고 기억만으로 옆모습으로 그린다(3분). 오른쪽에는 그 사람을 실제로 옆에서 보며 그린다(5분). 두 그림의 눈을 비교한다. 기억으로 그린 옆얼굴에는 정면의 아몬드 눈이 들어가기 쉽다. 우리가 "눈"이라는 말을 들으면 떠올리는 모양이 정면의 눈이기 때문이다. 이집트 화가는 그 기억의 모양을 규칙으로 삼았다.
+    </div>
+  </section>
+
+  <section id="grid">
+    <h2>격자: 비례를 맞추고 크게 옮기기</h2>
+    <p>세넨무트 스케치의 붉은 선은 장식이 아니다. 이집트 화가들은 벽이나 판에 먼저 같은 간격의 격자를 긋고, 몸의 각 부분이 몇 번째 줄에 오는지 정해진 대로 그렸다. 미국의 이집트학자 게이 로빈스는 『고대 이집트 미술의 비례와 양식』(1994)에서 이 규칙을 정리했다. 서 있는 사람은 발바닥에서 이마의 머리선까지 18칸, 무릎은 6번째 줄, 어깨는 16번째 줄 근처에 온다. 훨씬 뒤인 후기 왕조 시대(기원전 7세기 무렵)부터는 같은 높이를 21칸으로 나누는 다른 격자가 쓰였다.</p>
+    <p>격자의 쓸모는 둘이다. 하나는 <b>표준화</b>다. 여러 화가가 한 무덤을 나누어 그려도 사람들의 비례가 같다. 다른 하나는 <b>옮기기</b>다. 손바닥만 한 밑그림을 칸마다 대응시키면 벽 높이의 인물로 옮겨도 비례가 무너지지 않는다. 아래에서 왼쪽의 작은 밑그림을 오른쪽 벽으로 옮긴다. 격자 칸 수를 바꾸고, 벽 위 인물의 키를 손잡이로 끌어 바꿔 본다.</p>
+
+    <div class="sim" id="sim-grid">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>격자로 옮겨 그리기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gr-cv" class="art"></canvas><span class="hint">오른쪽 인물 위 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>머리선까지의 칸 수 <output id="gr-n-out"></output></span><input type="range" id="gr-n" min="2" max="24" step="1" value="18"></label>
+          <div class="seg" id="gr-m"><button data-value="grid" class="on">격자로 옮기기</button><button data-value="free">눈대중으로 옮기기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">벽 위 인물의 키</span><span class="v" id="gr-o-h">—</span></div>
+        <div class="stat"><span class="k">칸 한 변</span><span class="v" id="gr-o-c">—</span></div>
+        <div class="stat"><span class="k">평균 어긋남</span><span class="v" id="gr-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 18칸에서 오른쪽 인물은 밑그림과 거의 같다. 무릎(6번째 줄)과 어깨(16번째 줄) 높이에 표시된 선을 확인한다. ② 칸 수를 2로 내린다. 한 칸 안에서 생기는 손의 오차가 커져 인물이 일그러진다. 칸이 촘촘할수록 옮기기는 정확해지지만 긋는 데 시간이 든다. ③ "눈대중"으로 바꾸고 손잡이를 위로 끌어 키를 2&nbsp;m 넘게 키운다. 어긋남이 키에 비례해 커진다. 격자는 큰 벽일수록 쓸모가 크다. (모형의 가정: 격자로 옮길 때 각 점의 오차는 한 칸 크기의 12%(표준편차), 눈대중으로 옮길 때는 인물 전체 키의 4%. 오차는 점마다 고정된 난수로 만든다. 실제 화가의 오차를 잰 값이 아니다.)</div>
+    </div>
+
+    <p>칸 수를 바꿔 보면 18칸이라는 숫자가 신비한 비율이 아니라 실용적인 타협이라는 것이 보인다. 무릎·허리·팔꿈치·어깨 같은 몸의 주요 마디가 칸의 경계에 맞아떨어질 만큼 촘촘하고, 큰 벽에 그어도 감당할 만큼 성기다. 이런 격자 옮기기는 지금도 벽화나 큰 그림을 그릴 때 쓰는 방법이고(<a href="../../drawing/chapters/proportion.html">DrawingBook</a>), 르네상스의 화가들도 밑그림을 옮기는 데 격자를 썼다.</p>
+
+    <div class="callout studio">
+      <strong>칸을 세지 말고 마디를 본다</strong>
+      한도경은 격자로 옮길 때 칸 안의 선을 하나하나 따라 그리지 말라고 한다. 먼저 윤곽이 격자선을 <b>가로지르는 점</b>만 모두 찍고, 그 점들을 이어 선을 만든다. 점은 칸 경계에서 옮기므로 오차가 쌓이지 않는다. 이집트 화가들도 붉은 선으로 비례와 윤곽을 잡은 뒤 검은 선으로 고쳐 그렸고, 미완성 무덤 벽에는 그 두 단계가 함께 남아 있다.
+    </div>
+  </section>
+
+  <section id="scale">
+    <h2>위계적 크기: 중요한 사람이 크다</h2>
+    <p>이번에는 큰 그림이다. 테베의 서기 메나의 무덤 벽화를 1924년에 화가 니나 드 개리스 데이비스가 실물 크기로 옮겨 그린 모사본이다. 원래 벽은 이집트에 있고, 이 모사본은 원래 벽에 남은 손상까지 그대로 옮긴 기록이다.</p>
+
+    <figure class="art-figure" id="fig-menna">
+      <div class="art-frame"><img src="../../shared/img/egypt-menna-hunting-marshes.webp" width="1600" height="881" alt="메나 무덤 벽화의 모사본. 파피루스 늪을 가운데 두고 좌우의 작은 배 위에 메나가 크게 서 있다. 왼쪽의 메나는 막대를 던져 새를 잡고, 오른쪽의 메나는 작살로 물고기를 찌른다. 아내와 딸들은 그보다 작게, 하인 아이들은 더 작게 그려져 있다. 아래쪽 물은 지그재그 무늬의 띠로 그렸고 물고기와 새가 옆모습으로 가득하다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 니나 드 개리스 데이비스, 「늪에서 사냥하는 메나와 가족」(메나 무덤 벽화의 모사), 1924. 원작은 이집트 제18왕조, 기원전 1396~1347년경.</b> 같은 장면에 메나가 두 번 나온다. 메나는 가족보다, 가족은 하인보다 크다. 물은 위에서 본 띠로, 물고기와 새는 옆모습으로 그렸다. 남자의 피부는 붉은 갈색, 여자는 옅은 노랑으로 칠하는 것도 이 시대의 관례였다.<span class="credit">메트로폴리탄 미술관(Rogers Fund, 1930), 종이에 템페라. 실물 크기 모사(101 × 189 cm). 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/548437">소장처 작품 페이지</a> · <a href="../../credits.html#egypt-menna-hunting-marshes">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>메나는 같은 배에 탄 하인 아이보다 훨씬 크다. 이 책이 사진 위에서 재면 왼쪽 메나의 키(가발 위부터 발바닥까지)는 약 528픽셀, 그 앞에 선 하인 아이는 약 270픽셀로, 비율이 약 1.96이다. 아이가 멀리 있어서 작은 것이 아니다. 둘은 같은 배 위, 같은 바닥선 위에 서 있다. 이렇게 거리 대신 <b>중요도</b>로 크기를 정하는 방식을 <span class="term">위계적 크기</span><span class="en">(Hierarchical scale)</span>라고 부른다.</p>
+    <p>아래 장면에서 두 규칙을 비교한다. "거리" 쪽 끝에서는 멀리 있는 사람일수록 작고 화면 위쪽에 놓인다(<a href="../../drawing/chapters/perspective1.html">DrawingBook의 원근</a>). "위계" 쪽 끝에서는 모두 같은 바닥선에 서고, 크기는 신분이 정한다. 가운데 주인공을 위아래로 끌어 앞뒤로 옮겨 본다.</p>
+
+    <div class="sim" id="sim-scale">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>거리로 정한 크기, 중요도로 정한 크기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="hs-cv" class="art"></canvas><span class="hint">주인공을 위아래로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>거리 ↔ 위계 <output id="hs-t-out"></output></span><input type="range" id="hs-t" min="0" max="100" step="1" value="100"></label>
+          <label class="ctrl"><span>주인공의 중요도 <output id="hs-i-out"></output></span><input type="range" id="hs-i" min="1" max="3" step="0.05" value="2"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">주인공 ÷ 하인의 키</span><span class="v" id="hs-o-r">—</span></div>
+        <div class="stat"><span class="k">주인공의 거리(하인=1)</span><span class="v" id="hs-o-d">—</span></div>
+        <div class="stat"><span class="k">메나 벽화(이 책이 잰 값)</span><span class="v">약 1.96</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 위계 100%에서 주인공을 위아래로 끌어도 크기가 그대로다. 거리는 크기를 바꾸지 못한다. ② 거리 0%로 내리고 주인공을 화면 위쪽(멀리)으로 끈다. 주인공이 하인보다 작아진다. 원근의 규칙에서는 가장 중요한 사람도 멀리 서면 작다. ③ 위계 100%에서 중요도를 3까지 올린다. 주인공의 머리가 화면 위를 넘어선다. 이집트 화가는 그래서 장면을 여러 단(띠)으로 나누고 단마다 바닥선을 따로 그었다. (거리 쪽 크기는 핀홀 원근의 1/거리, 위계 쪽 크기는 하인 1, 가족 1.4, 주인공은 슬라이더 값. 그 사이는 두 크기를 선형으로 섞었다.)</div>
+    </div>
+
+    <p>위계적 크기는 이집트만의 규칙이 아니다. 고구려의 안악 3호분(357년) 벽화에서 무덤 주인은 둘레의 시종보다 훨씬 크게 그려졌고, 무용총의 「수렵도」에서는 말 탄 사냥꾼보다 산이 작다. 중세 유럽의 제단화에서 성모는 무릎 꿇은 기증자보다 몇 배 크다. 북위의 불상도 같다(그림 5). 서로 영향을 주고받지 않은 지역들이 같은 방법에 이르렀다는 것은, 이것이 서툰 원근이 아니라 "누가 중요한가"를 한눈에 보여 주는 독립적이고 효과적인 해법이라는 뜻이다.</p>
+  </section>
+
+  <section id="greek">
+    <h2>그리스: 서 있는 청년과 비례</h2>
+    <p>기원전 7세기 말부터 그리스 사람들은 이집트와 교류하며 실물 크기의 돌 조각을 세우기 시작했다. 벌거벗은 청년이 왼발을 조금 내딛고 팔을 몸에 붙인 채 정면을 보고 서 있는 조각을 <span class="term">쿠로스</span><span class="en">(Kouros, 청년)</span>라고 부른다. 자세는 이집트의 서 있는 조각과 닮았다. 메트로폴리탄 미술관의 쿠로스는 이런 조각 가운데 이른 시기의 것으로, 소장처는 키 194.6&nbsp;cm, 머리 높이 30.5&nbsp;cm로 기록한다.</p>
+    <p>아래에서 사진 위의 세 손잡이(정수리, 턱, 발바닥)를 끌어 직접 재 본다. 키를 머리 높이로 나눈 값을 흔히 "몇 등신"이라고 부른다.</p>
+
+    <div class="sim" id="sim-kouros">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>쿠로스를 머리로 재기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="ko-cv" class="art"></canvas><span class="hint">세 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ko-g"><button data-value="photo" class="on">사진에서 잰 눈금</button><button data-value="7">7등신 눈금</button><button data-value="8">8등신 눈금</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">사진에서 잰 등신</span><span class="v" id="ko-o-p">—</span></div>
+        <div class="stat"><span class="k">소장처 실측 194.6 ÷ 30.5</span><span class="v" id="ko-o-m">—</span></div>
+        <div class="stat"><span class="k">차이</span><span class="v" id="ko-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 위치(이 책이 놓은 자리)에서 사진으로 잰 값은 약 6.7등신으로, 실측 6.38보다 크다. ② 차이의 원인을 생각해 본다. 사진기는 조각의 가슴 높이쯤에서 찍었으므로 머리 꼭대기는 비스듬히 올려다보여 짧아지고, 발은 받침 위에서 정확한 바닥을 찾기 어렵다. 사진은 실측을 대신하지 못한다. ③ 8등신 눈금을 고른다. 턱의 손잡이가 정한 머리 하나 길이를 무시하고 키를 8로 나눈 눈금이 그려진다. 쿠로스의 실제 턱은 그보다 훨씬 아래다. 흔히 이상적이라 말하는 "8등신"은 이 조각의 규칙이 아니었다. (등신 = (발바닥 − 정수리) ÷ (턱 − 정수리), 사진의 픽셀로 잰다. 소장처의 머리 높이가 정확히 어디서 어디까지인지는 기록에 적혀 있지 않다.)</div>
+    </div>
+
+    <p>그리스 사람들은 비례를 글로도 남기려 했다. 기원전 5세기의 조각가 폴리클레이토스는 『카논(규범)』이라는 글에서 손가락과 손가락, 손과 팔처럼 부분과 부분의 관계로 아름다운 몸을 정의했다고 전한다. 다만 그 글은 남아 있지 않고, 수백 년 뒤 의사 갈레노스 같은 후대 저자의 언급으로만 알려진다. "그리스 조각은 7등신" 같은 숫자는 후대의 측정과 재구성에서 나온 것이지 원문의 숫자가 아니다. 쿠로스의 비례가 이집트의 격자와 관련이 있다는 주장도 있다(예를 들어 Guralnick 1978의 측정 연구). 그러나 영향의 정도는 연구자마다 다르게 본다.</p>
+
+    <figure class="art-figure" id="fig-greek">
+      <div class="an-pair">
+        <div class="art-frame"><img src="../../shared/img/euphiletos-panathenaic-amphora.webp" width="1092" height="1400" alt="에우필레토스 화가의 판아테나이아 상 암포라. 주황빛 흙색 바탕의 넓은 띠에 검은 실루엣으로 달리는 남자 다섯 명이 그려져 있다. 위아래는 검게 칠해져 있다." loading="lazy" decoding="async"></div>
+        <div class="art-frame"><img src="../../shared/img/fayum-young-woman-red.webp" width="835" height="1500" alt="붉은 옷을 입은 젊은 여인의 초상. 머리에 금빛 잎으로 된 관을 쓰고 큰 눈으로 정면을 본다. 얼굴의 밝은 곳과 그늘이 부드럽게 이어진다. 나무판의 아래쪽은 위아래가 좁아지는 모양으로 잘려 있다." loading="lazy" decoding="async"></div>
+      </div>
+      <figcaption><b>그림 4. 왼쪽: 에우필레토스 화가(로 귀속), 판아테나이아 상(賞) 암포라, 기원전 530년경. 오른쪽: 「붉은 옷을 입은 젊은 여인의 초상」, 로마 시대 이집트, 90~120년.</b> 왼쪽은 아테네의 판아테나이아 제전에서 이긴 선수에게 올리브기름을 담아 준 상품 항아리다. 달리기 선수들을 흙의 붉은색 바탕에 검은 실루엣으로 그리고 선을 긁어 세부를 냈다(<span class="term">흑화식</span><span class="en">(Black-figure)</span>). 아테네에서는 이 무렵 바탕을 검게 칠하고 인물을 흙색으로 남기는 <span class="term">적화식</span><span class="en">(Red-figure)</span>이 나왔지만, 상품 항아리는 전통에 따라 그 뒤로도 오래 흑화식으로 만들었다. 오른쪽은 미라의 얼굴 자리에 끼워 넣은 초상이다. 녹인 밀랍에 안료를 갠 <span class="term">납화</span><span class="en">(Encaustic)</span>로 그렸고, 빛을 받는 얼굴의 입체를 밝음과 그늘로 그렸다.<span class="credit">왼쪽: 메트로폴리탄 미술관(Rogers Fund, 1914), 테라코타, 높이 62.2 cm. 오른쪽: 메트로폴리탄 미술관(Rogers Fund, 1909), 피나무 판에 납화와 금박, 38.1 × 18.4 cm. 모두 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/248902">암포라 작품 페이지</a> · <a href="https://www.metmuseum.org/art/collection/search/547860">초상 작품 페이지</a> · <a href="../../credits.html#euphiletos-panathenaic-amphora">크레딧</a> · <a href="../../credits.html#fayum-young-woman-red">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>오른쪽 초상이 이 장에서 가장 중요한 "규칙이 깨지는 순간"이다. 1세기 말의 이집트에서, 이집트의 미라 풍습과 그리스·로마의 회화 기법이 만나 이렇게 "보이는 대로"에 가까운 얼굴이 그려졌다. 르네상스보다 1,300년 이상 앞선다. 고대 사람들이 보이는 대로 그리는 법을 몰랐던 것이 아니다. 무덤 벽에는 아는 대로, 미라의 얼굴에는 보이는 대로, 상품 항아리에는 전통대로. 그림이 맡은 일에 따라 다른 방식을 골랐다.</p>
+  </section>
+
+  <section id="gold">
+    <h2>금빛 바탕: 이 세상 밖의 공간</h2>
+    <p>로마 시대 초상의 납화 기법은 초기 그리스도교의 성상으로도 이어졌다. 시나이반도 성 카타리나 수도원에 남은 6세기 무렵의 이콘 몇 점은 같은 납화로 그려졌다. 그리스어로 "모상"을 뜻하는 <span class="term">이콘</span><span class="en">(Icon)</span>은 예배에 쓰는 그리스도, 성모, 성인의 그림이다. 8~9세기의 비잔틴 제국에서는 성상을 숭배해도 되는가를 두고 오랜 논쟁(성상 파괴 논쟁, 726~843년)이 벌어졌고, 그 뒤로 이콘의 모습은 정해진 유형을 따르게 되었다. 아래 이콘은 성모가 손으로 아기 예수를 가리키는 유형으로, "길을 가리키는 이"라는 뜻의 <span class="term">호데게트리아</span><span class="en">(Hodegetria)</span>라고 부른다.</p>
+    <p>이콘과 그 영향을 받은 이탈리아의 제단화에는 흔히 금박을 입힌 바탕이 있다. 금빛 바탕은 하늘도 방도 아닌 공간, 곧 이 세상 밖의 빛을 뜻한다고 흔히 해석한다. 그리고 금은 물감과 다르게 빛을 받는다. 물감은 빛을 사방으로 고르게 흩뜨리지만 금박은 거울처럼 한쪽으로 되돌려 보낸다. 교회 안에서 흔들리는 촛불 아래라면, 금빛 바탕은 보는 사람의 자리와 불꽃의 움직임에 따라 반짝이고 어두워진다. 아래에서 촛불을 그림 위로 끌어 본다.</p>
+
+    <div class="sim" id="sim-gold">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>촛불 아래의 금빛 바탕</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="gd-cv" class="art"></canvas><span class="hint">촛불을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="gd-w"><button data-value="duccio" class="on">두초(금박)</button><button data-value="icon">비잔틴 이콘</button></div>
+          <div class="seg" id="gd-l"><button data-value="1900" class="on">촛불</button><button data-value="3000">전등</button><button data-value="6500">낮빛</button></div>
+          <label class="check"><input type="checkbox" id="gd-f"> 불꽃 흔들림</label>
+          <label class="check"><input type="checkbox" id="gd-m"> 이 책이 찾은 금빛 영역 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">금빛으로 분류된 넓이</span><span class="v" id="gd-o-a">—</span></div>
+        <div class="stat"><span class="k">금빛 영역 ÷ 나머지의 밝기</span><span class="v" id="gd-o-r">—</span></div>
+        <div class="stat"><span class="k">재료(소장처 기록)</span><span class="v" id="gd-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 두초에서 촛불을 성모의 머리 위로 옮긴다. 금빛 바탕만 밝게 살아나고 짙은 망토는 어둠 속에 남는다. 밝기 비율을 확인한다. ② 불꽃 흔들림을 켠다. 금빛이 숨 쉬듯 밝아졌다 어두워진다. 미술관의 고른 조명 아래에서는 볼 수 없는 모습이다. ③ 비잔틴 이콘으로 바꾸고 "금빛 영역 보기"를 켠다. 이 이콘의 올리브빛 바탕도 금빛으로 분류되지만, 소장처는 재료를 "나무판에 템페라"로만 적는다. 바탕이 금박인지 금빛 안료인지 사진만으로는 알 수 없다. 이 책의 규칙은 색으로 찾을 뿐이다. (금빛 영역은 OKLCH 색상각 78~110°, 채도 0.05 이상, 명도 0.4~0.88인 픽셀로 이 책이 정했다. 금박의 반사는 촛불 자리를 중심으로 한 가우스 모양의 반짝임, 물감은 거리에 따라 천천히 어두워지는 확산 반사로 흉내 낸 교육용 모형이다.)</div>
+    </div>
+
+    <figure class="art-figure an-tall" id="fig-icon">
+      <div class="art-frame"><img src="../../shared/img/byzantine-icon-hodegetria.webp" width="1116" height="1500" alt="작은 나무판에 그린 성모자 이콘. 짙은 자주색 망토를 쓴 성모가 왼팔에 붉은 옷의 아기 예수를 안고 오른손으로 아기를 가리킨다. 바탕은 어두운 올리브 금빛이고 테두리는 붉게 칠해져 있으며 칠이 많이 벗겨졌다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 5. 「성모자 이콘, 호데게트리아 유형」, 비잔틴 또는 십자군, 13세기.</b> 소장처는 비잔틴 제국에서 만든 것인지, 십자군이 세운 지중해 동부의 나라들에서 만든 것인지 정하지 않고 둘 다 적는다. 성모의 코와 눈은 길게 늘였고, 옷 주름은 빛과 그늘보다 선의 리듬으로 그렸다. 얼굴의 볼에는 붉은 기운을 둥글게 얹었다. 높이 25.4&nbsp;cm로 손에 들 수 있는 크기다.<span class="credit">메트로폴리탄 미술관(Purchase, Mary and Kathryn Jaharis Gift, in honor of Helen C. Evans, 2020), 나무판에 템페라. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/831188">소장처 작품 페이지</a> · <a href="../../credits.html#byzantine-icon-hodegetria">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>이콘의 얼굴은 파이윰 초상보다 "덜 사실적"이다. 이것을 기술의 퇴보로 읽으면 틀린다. 이콘은 특정한 사람의 생김새를 남기는 그림이 아니라, 정해진 유형을 반복해 그 원형에 다가가는 그림이었다. 같은 유형을 따르는 것이 신실함이었고, 새롭게 그리는 것은 오히려 위험한 일이었다. 미술관 벽에 걸린 이콘은 원래의 자리, 곧 촛불과 향 연기와 기도 속에서 손으로 만지고 입 맞추던 물건이라는 것을 떠올리며 본다.</p>
+
+    <div class="callout warn">
+      <strong>"역원근법"이라는 말을 조심한다</strong>
+      이콘의 탁자나 건물이 뒤로 갈수록 넓어지는 것을 두고 "역원근법"이라고 부르는 경우가 많다. 이 말은 20세기 초 러시아의 사상가 파벨 플로렌스키 등이 쓴 해석적 용어이며, 비잔틴 화가들이 원근법을 뒤집는 규칙을 의식적으로 썼다는 증거는 확실하지 않다. 연구자들 사이에 견해가 엇갈리므로, 이 책은 "뒤로 갈수록 넓어지게 그린 부분이 있다"고 관찰만 적는다.
+    </div>
+  </section>
+
+  <section id="manuscript">
+    <h2>중세 필사본과 동아시아의 불상</h2>
+    <p>인쇄술 이전 유럽의 책은 양이나 송아지 가죽을 얇게 다듬은 <span class="term">양피지</span><span class="en">(Vellum, parchment)</span>에 손으로 썼다. 글과 함께 그림과 장식을 넣은 책을 <span class="term">채식 필사본</span><span class="en">(Illuminated manuscript)</span>이라고 부른다. "채식(illumination)"이라는 말 자체가 금과 밝은 색으로 페이지를 "빛나게" 한다는 뜻이다. 아래 왼쪽은 프랑스 베리 공작 장을 위해 랭부르 형제가 만든 개인 기도서 『벨 외르(아름다운 시도서)』의 한 면이다.</p>
+
+    <figure class="art-figure" id="fig-books">
+      <div class="an-pair">
+        <div class="art-frame"><img src="../../shared/img/limbourg-belles-heures.webp" width="1080" height="1500" alt="『벨 외르』의 한 면. 금빛 잎이 달린 덩굴무늬 테두리 안에 작은 그림이 있다. 고딕 건물 안 성가대석에 수도사들이 앉아 있고, 파란 옷을 입은 후광의 성인이 무릎 꿇고 있으며, 오른쪽 방에서는 또 한 사람의 성인이 침대에 기대어 있다. 그림 아래에 파랑과 붉은 글씨의 라틴어 문단이 있다." loading="lazy" decoding="async"></div>
+        <div class="art-frame"><img src="../../shared/img/northern-wei-maitreya-altarpiece.webp" width="1125" height="1500" alt="금동 미륵불 제단. 가운데 높은 대좌 위에 미륵불이 크게 서 있고, 그 뒤로 불꽃 모양의 광배가 솟아 있다. 둘레에 작은 보살과 인물들이 여럿 서 있고, 아래 받침에도 작은 인물들이 있다." loading="lazy" decoding="async"></div>
+      </div>
+      <figcaption><b>그림 6. 왼쪽: 랭부르 형제, 『벨 외르』의 한 면, 1405~1408/1409. 오른쪽: 「미륵불 제단」, 중국 북위, 524년.</b> 왼쪽 면의 라틴어 본문은 성 히에로니무스가 다른 이들이 놓아 둔 여자 옷을 입고 새벽 기도에 나갔다가 조롱받은 이야기를 적는다. 그림 속 건물은 비스듬히 뒤로 물러나고 바닥 타일은 안쪽으로 좁아진다. 원근법 이론이 글로 정리되기(<a href="renaissance.html">3장</a>) 전에도 공간을 깊게 보이려는 시도가 이미 있었다. 오른쪽은 금동으로 만든 작은 제단으로, 가운데의 미륵불이 둘레의 보살과 인물들보다 몇 배 크다. 이 장에서 본 위계적 크기의 동아시아 판본이다. 받침에 524년에 해당하는 연호가 새겨져 있다.<span class="credit">왼쪽: 메트로폴리탄 미술관 클로이스터스(The Cloisters Collection, 1954), 양피지에 템페라·금·잉크, 한 장 23.8 × 17 cm. 오른쪽: 메트로폴리탄 미술관(Rogers Fund, 1938), 금동, 높이 76.8 cm. 모두 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/470306">『벨 외르』 작품 페이지</a> · <a href="https://www.metmuseum.org/art/collection/search/42162">제단 작품 페이지</a> · <a href="../../credits.html#limbourg-belles-heures">크레딧</a> · <a href="../../credits.html#northern-wei-maitreya-altarpiece">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>필사본의 색은 비쌌다. 짙고 맑은 파랑은 흔히 아프가니스탄에서 나는 청금석(라피스 라줄리)을 갈아 만든 <span class="term">울트라마린</span><span class="en">(Ultramarine)</span>으로, 같은 무게의 금에 견줄 만큼 귀했다고 전한다. 『벨 외르』의 선명한 파랑도 그렇게 짐작하지만, 이 장은 안료를 분석한 기록을 확인하지 않았으므로 "그렇게 보인다"까지만 쓴다. 비싼 안료와 금은 그 자체로 주문자의 신앙과 재력을 보여 주는 "내용"이었다.</p>
+    <p>아래에서 이 장의 여섯 작품의 팔레트를 나란히 본다. <a href="overview.html">1장</a>에서 본 것처럼 팔레트는 사진의 색이다. 특히 메나 벽화는 20세기 화가가 템페라로 옮긴 모사본의 색이고, 쿠로스는 흰 대리석으로 보이지만 원래는 부분적으로 채색되어 있었을 것으로 보는 연구가 많다.</p>
+
+    <div class="sim" id="sim-pal">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>3,000년의 팔레트</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pl-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-w"><button data-value="menna" class="on">메나(모사)</button><button data-value="amphora">암포라</button><button data-value="fayum">파이윰</button><button data-value="icon">이콘</button><button data-value="belles">벨 외르</button><button data-value="maitreya">북위 제단</button></div>
+          <label class="ctrl"><span>색의 무리 수 k <output id="pl-k-out"></output></span><input type="range" id="pl-k" min="2" max="8" step="1" value="6"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 넓은 색</span><span class="v" id="pl-o-top">—</span></div>
+        <div class="stat"><span class="k">파랑 계열의 넓이</span><span class="v" id="pl-o-b">—</span></div>
+        <div class="stat"><span class="k">평균 채도(OKLCH C)</span><span class="v" id="pl-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 메나에서 k=6. 바탕의 회백색, 남자의 붉은 갈색, 물의 청록이 나뉜다. 이집트의 파랑·청록은 흔히 구리를 넣어 구워 만든 인공 안료 "이집트 청"으로 알려져 있지만, 이것은 모사본이므로 모사가가 고른 물감의 색이다. ② 암포라로 바꾼다. 흙의 주황과 검정, 두 색이 거의 전부다. 흑화식은 색이 아니라 실루엣으로 그린 그림이다. ③ 벨 외르로 바꾼다. 파랑 계열의 넓이가 작아도 그림 안에서는 가장 눈에 띄는 색이다. 넓이와 눈길은 다르다. (사진을 가로 200픽셀로 줄여 OKLab k-평균, 시드 고정. 파랑 계열은 OKLCH 색상각 200~290°, 채도 0.03 이상. 작품 둘레의 배경과 받침도 함께 계산된다.)</div>
+    </div>
+
+    <p>여섯 팔레트를 비교하면 "옛 그림은 색이 적다"는 인상이 꼭 맞지는 않다는 것이 보인다. 흑화식 암포라는 두 색으로 충분했고, 파이윰 초상은 살색의 미묘한 단계를 쌓았으며, 필사본은 비싼 파랑과 금을 작은 면에 집중했다. 색의 수보다 <b>어디에 어떤 색을 아꼈는가</b>가 그 그림의 쓰임을 말해 준다.</p>
+  </section>
+
+  <section id="studio">
+    <h2>종합: 아는 대로 그린 정원</h2>
+    <p>이집트의 무덤 벽화에는 네모난 연못이 있는 정원이 자주 나온다. 연못은 위에서 본 네모로, 물고기와 새는 옆모습으로, 연못 둘레의 나무는 연못에서 바깥쪽으로 쓰러진 것처럼 사방으로 눕혀 그린다. 아래는 그런 정원을 이 책이 새로 그린 가상의 장면이다. "한 시점으로" 슬라이더를 밀면 같은 정원이 한 자리에서 비스듬히 내려다본 모습으로 바뀐다. 위계와 바탕도 바꿔 본다. 이 장의 규칙 세 가지, 곧 조합된 시점, 위계적 크기, 바탕의 선택을 한 화면에서 섞는다.</p>
+
+    <div class="sim" id="sim-pool">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>연못 정원: 아는 대로 ↔ 보이는 대로</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="po-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>한 시점으로 <output id="po-t-out"></output></span><input type="range" id="po-t" min="0" max="100" step="1" value="0"></label>
+          <label class="ctrl"><span>위계적 크기 <output id="po-h-out"></output></span><input type="range" id="po-h" min="0" max="100" step="1" value="100"></label>
+          <div class="seg" id="po-b"><button data-value="plain" class="on">흰 바탕</button><button data-value="gold">금빛</button><button data-value="sky">하늘과 땅</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">시점</span><span class="v" id="po-o-v">—</span></div>
+        <div class="stat"><span class="k">주인 ÷ 하인의 키</span><span class="v" id="po-o-r">—</span></div>
+        <div class="stat"><span class="k">알아보기(연못·나무·물고기)</span><span class="v" id="po-o-k">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 0%에서 연못은 반듯한 네모, 나무는 사방으로 누웠고 물고기는 모두 옆모습이다. 무엇이 몇 개 있는지 셀 수 있다. ② 100%로 민다. 연못은 사다리꼴이 되고, 뒤쪽 나무는 작아지고, 물속 물고기는 비스듬히 보여 거의 알아볼 수 없다. 대신 "한 자리에서 본 장면"이라는 현실감이 생긴다. 무엇을 얻고 무엇을 잃는지 알아보기 숫자로 비교한다. ③ 시점 100%에 위계 100%, 바탕 "금빛"을 고른다. 원근의 공간에 위계의 크기와 금빛 바탕이 섞여 어색해진다. 규칙들은 서로 맞물려 하나의 체계를 이룬다. (연못과 나무는 핀홀 원근(ART.project)으로 투영하고, 0%와 100% 사이는 위치·각도·크기를 선형으로 섞었다. 알아보기는 이 책의 모형: 연못은 네 각이 직각에 가까운 정도, 나무는 크기의 고름, 물고기는 옆모습이 보이는 정도.)</div>
+    </div>
+
+    <p>슬라이더의 0%와 100%는 우열이 아니라 두 가지 약속이다. 0%의 약속은 "이 정원에 무엇이 있는가"를 빠짐없이 전하고, 100%의 약속은 "내가 어디에 서서 보았는가"를 전한다. 무덤의 정원은 죽은 이가 영원히 누릴 정원의 목록이었으므로 앞의 약속이 맞았다. 뒤의 약속이 그림의 중심이 되는 과정은 <a href="renaissance.html">3장</a>에서 따라간다. 그때도 이 장의 질문은 남는다. 그 그림은 누구를 위해, 무엇을 전하려 했는가.</p>
+
+    <div class="callout studio">
+      <strong>규칙을 알면 "이상함"이 정보가 된다</strong>
+      한도경은 고대 그림 앞에서 "어디가 이상한가"를 먼저 찾게 한다. 이상한 곳은 대개 규칙이 일하는 곳이다. 메나가 하인보다 두 배 크다면 그것은 오류가 아니라 "이 사람이 주인공"이라는 표시이고, 물이 지그재그 띠라면 "여기는 물"이라는 기호다. 이상한 곳을 하나 찾으면, 그 규칙이 무엇을 전하려는지 한 문장으로 적어 본다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 그림 읽기 모임</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>모임 노트 · 2장</span></div>
+      <h4>"옛날 사람들은 왜 그림을 이상하게 그렸나요?"</h4>
+      <p>9월 4일 토요일 저녁, 첫 모임에는 열세 명이 왔다. 서윤은 1회차 그림으로 다섯 점을 골라 두었다. 세넨무트의 격자 스케치, 메나 무덤 벽화의 모사본, 뉴욕의 쿠로스, 붉은 옷의 젊은 여인 초상, 13세기의 호데게트리아 이콘. 첫 그림 세넨무트 스케치를 텔레비전에 띄우자마자, 초등학생 아이와 함께 온 아버지가 손을 들었다. "솔직히 좀 이상해요. 옆얼굴인데 눈은 정면이잖아요. 옛날 사람들은 왜 그림을 이렇게 그렸나요?" 몇 사람이 웃으며 고개를 끄덕였다.</p>
+      <p>도경은 바로 답하지 않고 모두에게 종이를 한 장씩 나눠 주었다. "옆자리 사람 얼굴을 보지 말고 기억으로 옆모습을 그려 보세요. 3분." 다 그린 종이를 모으니 열세 장 가운데 아홉 장의 옆얼굴에 정면의 아몬드 눈이 들어 있었다. 아이의 그림도 그랬다. 도경이 말했다. "이상한 게 아니라 다른 규칙이에요. 우리도 기억으로 그리면 이렇게 그려요. 이집트 화가는 그걸 3,000년 동안 지킨 거고." 이어서 메나 벽화로 넘어가 서윤이 사진 위에서 잰 숫자를 보여 주었다. 메나의 키는 같은 배 위의 하인 아이의 약 1.96배다. "멀리 있어서 작은 게 아니에요. 같은 바닥에 서 있죠." 파이윰 초상에서는 다시 조용해졌다. 1세기의 얼굴이 너무 지금 사람 같았기 때문이다.</p>
+      <p>모임이 끝난 뒤 서윤은 다섯 장의 카드를 다시 썼다. 화면에 띄운 사진의 색이 원작과 다르다는 것을 어떻게 알릴지(1장에서 남은 문제)도 이번에 정했다. 메나의 카드에는 앞면에 "1924년 실물 크기 모사본, 원래 벽은 이집트 테베"라고 적었다. 쿠로스의 카드에는 사진으로 잰 값(약 6.7등신)과 소장처 실측으로 계산한 값(194.6 ÷ 30.5 ≈ 6.38등신)을 나란히 적어, 사진이 실물을 대신하지 못한다는 예로 삼았다. 도경은 휴대폰 카메라의 격자선을 켜는 법을 서윤에게 물었고, 그 대신 오래된 이집트 전시 도록을 빌려주었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>1회차 그림 목록(5점): ① 세넨무트의 격자 스케치(기원전 1473~1458년경) ② 메나 무덤 벽화 모사(1924, 원작 기원전 1396~1347년경) ③ 쿠로스(기원전 590~580년경) ④ 붉은 옷의 젊은 여인 초상(90~120년) ⑤ 호데게트리아 이콘(13세기). 대표 카드(메나) — 색: 남자는 붉은 갈색, 여자는 옅은 노랑, 물은 청록 띠. 구도: 메나의 키는 같은 배의 하인 아이의 약 1.96배(사진 위 528 ÷ 270픽셀), 물은 위에서, 물고기는 옆에서. 기법: 20세기의 실물 크기 템페라 모사(원작은 회반죽 벽에 칠한 그림). 질문: "이 장면에서 가장 중요한 사람은 누구이고, 어떻게 알았나요?" 모든 카드 앞면 아래에 "화면과 카드의 색은 사진의 색이다"를 한 줄 넣는다. 첫 활동은 "기억으로 옆얼굴 그리기"(3분).</div>
+        <div><b>아직 남은 문제</b>"보이는 대로" 그리는 그림은 언제, 어떤 도구로 다시 중심이 되는가. 참가자들은 파이윰 초상이 왜 그 뒤로 이어지지 않았는지 물었다.</div>
+        <div><b>다음 단계</b><a href="renaissance.html">3장</a>: 2회차(9월 11일), 원근법을 그림 위에서 찾아 보는 활동을 준비한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>이집트 그림의 정면성은 부위마다 가장 잘 알아볼 수 있는 방향(머리·다리는 옆, 눈·어깨는 정면)을 골라 붙인 체계다. 한 시점의 그림은 반드시 무언가를 잃는다.</li>
+      <li>격자는 비례를 표준화하고 작은 밑그림을 큰 벽으로 옮기는 도구였다. 신왕국까지는 발바닥에서 머리선까지 18칸이 기준이었다.</li>
+      <li>위계적 크기는 거리 대신 중요도로 크기를 정한다. 이집트, 북위, 고구려, 중세 유럽에 두루 나타나는 독립적인 해법이다.</li>
+      <li>쿠로스의 자세는 이집트 조각과 닮았다. 사진으로 잰 비례(약 6.7등신)는 카메라의 시점 때문에 실측(약 6.38등신)과 다르다.</li>
+      <li>파이윰 초상은 1세기에 이미 "보이는 대로"의 얼굴을 그렸다. 고대인이 그 방법을 몰랐던 것이 아니라, 그림의 쓰임에 따라 방식을 골랐다.</li>
+      <li>금빛 바탕은 이 세상 밖의 공간을 뜻하고, 촛불 아래에서 물감과 다르게 반짝인다. 이콘은 새로움보다 정해진 유형을 따르는 것이 중요했다.</li>
+      <li>중세 필사본은 비싼 안료와 금을 작은 면에 집중했고, 원근법 이론 이전에도 공간을 깊게 보이려 했다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 이집트 벽화의 사람이 옆얼굴에 정면 눈, 정면 어깨에 옆모습 다리로 그려진 이유로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">이집트 화가들은 사람을 옆에서 관찰할 기회가 없었다.</button>
+          <button class="opt" data-correct>각 부위를 그 특징이 가장 잘 드러나는 방향에서 그려 하나로 붙이는 규칙을 따랐다.</button>
+          <button class="opt">파라오가 정면 얼굴을 금지했기 때문에 대충 그렸다.</button>
+          <button class="opt">벽이 좁아서 몸을 비틀어 넣어야 했다.</button>
+        </div>
+        <div class="quiz-exp">정면성은 서툼이 아니라 체계다. 머리의 윤곽과 걸음은 옆에서, 눈과 어깨의 폭은 정면에서 가장 잘 드러난다. 같은 방식이 수천 년 동안 거의 그대로 지켜졌다는 것이 규칙이었다는 증거다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 메나 무덤 벽화에서 메나가 같은 배에 탄 하인 아이보다 약 두 배 크게 그려진 것은 무엇 때문인가?</p>
+        <div class="opts">
+          <button class="opt">하인 아이가 멀리 서 있기 때문이다.</button>
+          <button class="opt">모사가가 1924년에 실수로 크기를 바꿨기 때문이다.</button>
+          <button class="opt">메나가 실제로 키가 아주 컸기 때문이다.</button>
+          <button class="opt" data-correct>크기를 거리가 아니라 중요도로 정하는 위계적 크기의 규칙 때문이다.</button>
+        </div>
+        <div class="quiz-exp">둘은 같은 배, 같은 바닥선 위에 서 있으므로 거리 때문이 아니다. 모사본은 원래 벽을 실물 크기로 옮긴 기록이다. 주인공을 크게 그리는 위계적 크기는 북위의 불상이나 고구려 고분 벽화에도 나타난다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 쿠로스를 소장처 사진 위에서 재면 약 6.7등신, 소장처가 기록한 키와 머리 높이로 계산하면 약 6.38등신이다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>카메라가 조각을 한 높이에서 찍어 머리 부분이 비스듬히 줄어 보이는 등, 사진 측정에는 시점의 오차가 들어간다.</button>
+          <button class="opt">조각이 세월이 지나며 키가 자랐다.</button>
+          <button class="opt">그리스 조각은 원래 정확히 8등신이므로 둘 다 틀렸다.</button>
+          <button class="opt">사진의 값이 언제나 실측보다 정확하다.</button>
+        </div>
+        <div class="quiz-exp">사진은 한 점에서 본 투시이므로 카메라에서 먼 부분, 비스듬히 보이는 부분이 줄어든다. 받침 위의 발바닥 위치도 정확히 찾기 어렵다. "8등신"은 이 조각의 규칙이 아니었다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 1세기 말 이집트의 파이윰 초상은 빛과 그늘로 얼굴의 입체를 그렸는데, 13세기의 비잔틴 이콘은 얼굴을 길게 늘이고 정해진 유형을 따랐다. 이 책의 관점에 가장 가까운 것은?</p>
+        <div class="opts">
+          <button class="opt">미술 기술이 1,000년 동안 퇴보했다.</button>
+          <button class="opt">이콘 화가들은 파이윰 초상을 본 적이 없어서 입체를 그릴 줄 몰랐다.</button>
+          <button class="opt" data-correct>이콘은 특정한 생김새보다 정해진 원형을 반복해 따르는 것이 중요한 예배용 그림이었고, 그 쓰임에 맞게 그렸다.</button>
+          <button class="opt">두 그림은 같은 사람이 그렸으므로 차이는 우연이다.</button>
+        </div>
+        <div class="quiz-exp">이 책은 "진보"나 "퇴보"의 한 줄 서사를 쓰지 않는다. 초기 이콘 일부는 파이윰 초상과 같은 납화로 그려졌을 만큼 기법이 이어졌다. 달라진 것은 그림이 맡은 일이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", STAGE = "#5a5a5e", INK = "#2b2a30", INK_DIM = "#6b6874";
+  var IMG = "../../shared/img/";
+  var SKIN_M = "#b5562d", SKIN_F = "#e2b766", LINEN = "#f4efe2", WIG = "#2b2a30", LINE = "#5a3a22";
+  function fit(iw, ih, bw, bh) { var s = Math.min(bw / iw, bh / ih); return { x: (bw - iw * s) / 2, y: (bh - ih * s) / 2, w: iw * s, h: ih * s, s: s }; }
+  function heightFor(el, ratio, max, min) { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.max(min || 200, Math.min(max || 520, Math.round(w * ratio))); }
+  function loading(ctx, w, h, light) { ctx.fillStyle = light ? "#e8e6ea" : INK_DIM; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("그림을 불러오는 중…", w / 2, h / 2); }
+  var cache = {};
+  function load(file) { if (!cache[file]) cache[file] = AB.loadImage(IMG + file).then(function (im) { return { img: im, data: AB.imageData(im, 200) }; }); return cache[file]; }
+
+  /* ---------------- 시뮬레이터 1: 한 시점과 조합된 시점 ---------------- */
+  (function () {
+    var BEST = { head: 90, eye: 0, sh: 0, hip: 45, leg: 90 }, NAMES = { head: "머리 윤곽", eye: "눈", sh: "어깨", hip: "허리", leg: "다리·발" };
+    var WORST = { head: 0, eye: 90, sh: 90, hip: 45, leg: 0 };
+    function info(part, a) { var d = (a - BEST[part]) * Math.PI / 180; return 0.25 + 0.75 * Math.cos(d) * Math.cos(d); }
+    var aG = AB.range("fr-a", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var mG = AB.seg("fr-m", function () { cv.redraw(); });
+    // 인물 하나: ang = {head, eye, sh, hip, leg} (0 정면, 90 옆), 오른쪽을 향한다
+    function figure(ctx, cx, base, H, ang) {
+      var r = Math.PI / 180, c = function (a) { return Math.cos(a * r); }, s = function (a) { return Math.sin(a * r); };
+      ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.strokeStyle = LINE; ctx.lineWidth = Math.max(1, H / 220);
+      var hipY = base - H * 0.47, shY = base - H * 0.82, headCY = base - H * 0.91;
+      // 다리
+      var stride = H * 0.17 * s(ang.leg), sep = H * 0.06 * c(ang.leg);
+      [[-1, -stride / 2 - sep], [1, stride / 2 + sep]].forEach(function (lg) {
+        var fx = cx + lg[1];
+        ctx.fillStyle = SKIN_M; ctx.beginPath();
+        ctx.moveTo(cx + lg[0] * H * 0.04 * c(ang.hip), hipY + H * 0.05); ctx.lineTo(fx - H * 0.025, base - H * 0.02); ctx.lineTo(fx + H * 0.025, base - H * 0.02); ctx.lineTo(cx + lg[0] * H * 0.04 * c(ang.hip) + H * 0.05, hipY + H * 0.05); ctx.closePath(); ctx.fill(); ctx.stroke();
+        // 발: 옆에서는 앞뒤로 길고, 정면에서는 짧은 타원
+        var fl = H * (0.03 + 0.07 * s(ang.leg));
+        ctx.beginPath(); ctx.ellipse(fx + fl * 0.35 * s(ang.leg), base - H * 0.012, fl / 2 + H * 0.012, H * 0.016, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      });
+      // 허리(치마)
+      var hw = H * (0.2 * c(ang.hip) + 0.13 * s(ang.hip));
+      ctx.fillStyle = LINEN; ctx.beginPath(); ctx.moveTo(cx - hw / 2, hipY - H * 0.04); ctx.lineTo(cx + hw / 2, hipY - H * 0.04); ctx.lineTo(cx + hw / 2 + H * 0.03, hipY + H * 0.16); ctx.lineTo(cx - hw / 2 - H * 0.01, hipY + H * 0.16); ctx.closePath(); ctx.fill(); ctx.stroke();
+      // 몸통과 어깨
+      var sw = H * (0.3 * c(ang.sh) + 0.11 * s(ang.sh));
+      ctx.fillStyle = SKIN_M; ctx.beginPath(); ctx.moveTo(cx - sw / 2, shY); ctx.lineTo(cx + sw / 2, shY); ctx.lineTo(cx + hw * 0.45, hipY - H * 0.04); ctx.lineTo(cx - hw * 0.45, hipY - H * 0.04); ctx.closePath(); ctx.fill(); ctx.stroke();
+      // 팔
+      [-1, 1].forEach(function (k) { ctx.beginPath(); ctx.moveTo(cx + k * sw / 2, shY + H * 0.01); ctx.lineTo(cx + k * (sw / 2 + H * 0.02), hipY + H * 0.02); ctx.lineWidth = H * 0.045; ctx.strokeStyle = SKIN_M; ctx.stroke(); ctx.lineWidth = Math.max(1, H / 220); ctx.strokeStyle = LINE; });
+      // 목과 머리
+      ctx.fillStyle = SKIN_M; ctx.fillRect(cx - H * 0.025, shY - H * 0.04, H * 0.05, H * 0.05);
+      var hwid = H * (0.12 * c(ang.head) + 0.13 * s(ang.head)), hh = H * 0.15, off = H * 0.015 * s(ang.head);
+      ctx.beginPath(); ctx.ellipse(cx + off, headCY, hwid / 2, hh / 2, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      // 코: 옆으로 돌수록 윤곽 밖으로
+      var nx = cx + off + (hwid / 2) * s(ang.head) * 0.98, ny = headCY + hh * 0.04, np = H * 0.03 * s(ang.head);
+      ctx.beginPath(); ctx.moveTo(nx - np * 0.2, ny - hh * 0.16); ctx.lineTo(nx + np, ny + hh * 0.06); ctx.lineTo(nx - np * 0.1, ny + hh * 0.1); ctx.closePath(); ctx.fill(); ctx.stroke();
+      if (ang.head < 25) { ctx.beginPath(); ctx.moveTo(cx, ny - hh * 0.1); ctx.lineTo(cx + H * 0.006, ny + hh * 0.08); ctx.stroke(); }
+      // 가발
+      ctx.fillStyle = WIG; ctx.beginPath(); ctx.ellipse(cx + off - hwid * 0.12 * s(ang.head), headCY - hh * 0.12, hwid / 2 + H * 0.012, hh * 0.42, 0, Math.PI, Math.PI * 2); ctx.fill();
+      ctx.fillRect(cx + off - hwid / 2 - H * 0.012, headCY - hh * 0.14, H * 0.03 + (hwid * 0.25) * s(ang.head), hh * 0.62);
+      if (ang.head < 45) ctx.fillRect(cx + off + hwid / 2 - H * 0.018, headCY - hh * 0.14, H * 0.03, hh * 0.62);
+      // 눈: 눈 방향(ang.eye)으로 모양을 정하고 머리 방향(ang.head)으로 위치를 정한다
+      var eyeL = H * 0.04, ey = headCY - hh * 0.06;
+      function eyeAt(ex, a) {
+        var L = eyeL * (0.3 + 0.7 * c(a)), th = H * 0.011 * (0.5 + 0.5 * c(a));
+        ctx.fillStyle = "#ffffff"; ctx.beginPath(); ctx.moveTo(ex - L / 2, ey); ctx.quadraticCurveTo(ex, ey - th * 1.6, ex + L / 2, ey); ctx.quadraticCurveTo(ex, ey + th * 1.6, ex - L / 2, ey); ctx.fill(); ctx.strokeStyle = WIG; ctx.lineWidth = Math.max(1, H / 200); ctx.stroke();
+        ctx.fillStyle = WIG; ctx.beginPath(); ctx.arc(ex + L * 0.08 * s(a), ey, th * 0.9, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.moveTo(ex - L / 2, ey - th * 2.6); ctx.quadraticCurveTo(ex, ey - th * 3.8, ex + L / 2 + H * 0.004, ey - th * 2.4); ctx.stroke(); ctx.strokeStyle = LINE; ctx.lineWidth = Math.max(1, H / 220);
+      }
+      if (ang.head < 40) { eyeAt(cx + off - hwid * 0.22 * c(ang.head), ang.eye); eyeAt(cx + off + hwid * 0.22 * c(ang.head) + hwid * 0.2 * s(ang.head), ang.eye); }
+      else eyeAt(cx + off + hwid * 0.18, ang.eye);
+    }
+    var el = document.getElementById("fr-cv");
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var a = aG(), single = { head: a, eye: a, sh: a, hip: a, leg: a }, comp = mG() === "egypt" ? BEST : WORST;
+      var H = Math.min(h * 0.62, w * 0.42), base = h * 0.68;
+      figure(ctx, w * 0.27, base, H, single);
+      figure(ctx, w * 0.73, base, H, comp);
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("한 시점 " + a + "°", w * 0.27, 8); ctx.fillText(mG() === "egypt" ? "이집트식 조합" : "반대로 조합", w * 0.73, 8);
+      // 부위별 막대
+      var parts = ["head", "eye", "sh", "hip", "leg"], by = base + 16, rowH = Math.max(10, (h - by - 8) / 5), bw = w * 0.3;
+      parts.forEach(function (p, i) {
+        var y = by + i * rowH, v1 = info(p, single[p]), v2 = info(p, comp[p]);
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(NAMES[p], w * 0.5, y + rowH * 0.4);
+        ctx.fillStyle = "#e7e2d6"; ctx.fillRect(w * 0.42 - bw, y + 2, bw, rowH - 5); ctx.fillRect(w * 0.58, y + 2, bw, rowH - 5);
+        ctx.fillStyle = "#7a5aa8"; ctx.fillRect(w * 0.42 - bw * v1, y + 2, bw * v1, rowH - 5);
+        ctx.fillStyle = "#c0793a"; ctx.fillRect(w * 0.58, y + 2, bw * v2, rowH - 5);
+      });
+      var t1 = 0, t2 = 0, worst = null, wv = 9;
+      parts.forEach(function (p) { var v = info(p, single[p]); t1 += v; t2 += info(p, comp[p]); if (v < wv) { wv = v; worst = p; } });
+      AB.stat("fr-o-1", Math.round(t1 / 5 * 100) + "%");
+      AB.stat("fr-o-2", Math.round(t2 / 5 * 100) + "%");
+      AB.stat("fr-o-3", NAMES[worst] + " (" + Math.round(wv * 100) + "%)");
+    }, { get height() { return heightFor(el, 0.8, 520, 380); }, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 격자로 옮겨 그리기 ---------------- */
+  (function () {
+    // 격자 단위(발바닥 0, 머리선 18)로 정한 서 있는 사람의 윤곽(이 책이 그린 도식)
+    var SEGS = [
+      [[3.4, 0], [4.6, 0]], [[7.1, 0], [8.7, 0]], [[4.2, 0.2], [4.6, 6]], [[7.7, 0.2], [6.3, 6]],
+      [[3.9, 6.2], [7.2, 6.2]], [[3.9, 6.2], [4.2, 9.6]], [[7.2, 6.2], [6.7, 9.6]],
+      [[4.2, 9.6], [3.8, 16]], [[6.7, 9.6], [7.1, 16]], [[3.3, 16], [7.4, 16]],
+      [[3.3, 16], [3.0, 9.8]], [[7.4, 16], [7.9, 9.8]], [[5.1, 16], [5.2, 16.6]], [[5.9, 16], [5.9, 16.6]]
+    ];
+    var HEAD = { cx: 5.6, cy: 17.4, rx: 0.95, ry: 1.25 };
+    var nG = AB.range("gr-n", function (v) { return v + "칸"; }, function () { cv.redraw(); });
+    var mG = AB.seg("gr-m", function () { cv.redraw(); });
+    var wallFrac = 0.8, geom = null;
+    var rnd = ART.rng(11), NOISE = [];
+    for (var i = 0; i < 80; i++) { var u = Math.max(1e-6, rnd()), v = rnd(), m = Math.sqrt(-2 * Math.log(u)); NOISE.push([m * Math.cos(2 * Math.PI * v), m * Math.sin(2 * Math.PI * v)]); }
+    var el = document.getElementById("gr-cv");
+    function drawFig(ctx, X, Y, unit, noise, col, lw) {
+      ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = "round";
+      var k = 0;
+      SEGS.forEach(function (sg) {
+        ctx.beginPath();
+        sg.forEach(function (p, j) { var nz = noise(k++); var x = X(p[0]) + nz[0], y = Y(p[1]) + nz[1]; j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+        ctx.stroke();
+      });
+      var nz = noise(k++);
+      ctx.beginPath(); ctx.ellipse(X(HEAD.cx) + nz[0], Y(HEAD.cy) + nz[1], HEAD.rx * unit, HEAD.ry * unit, 0, 0, Math.PI * 2); ctx.stroke();
+    }
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var n = nG(), mode = mG();
+      // 왼쪽 밑그림
+      var sH = Math.min(h * 0.42, w * 0.3), sU = sH / 18, sx0 = 16, sy0 = h * 0.18 + sH;
+      var sX = function (g) { return sx0 + g * sU; }, sY = function (g) { return sy0 - g * sU; };
+      ctx.strokeStyle = "#d26a4a"; ctx.lineWidth = 0.7;
+      var cs = 18 / n;
+      for (var gy = 0; gy <= n; gy++) { ctx.beginPath(); ctx.moveTo(sX(0), sY(gy * cs)); ctx.lineTo(sX(11), sY(gy * cs)); ctx.stroke(); }
+      for (var gx = 0; gx * cs <= 11.01; gx++) { ctx.beginPath(); ctx.moveTo(sX(gx * cs), sY(0)); ctx.lineTo(sX(gx * cs), sY(18)); ctx.stroke(); }
+      drawFig(ctx, sX, sY, sU, function () { return [0, 0]; }, INK, 1.4);
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("밑그림", sx0, 8);
+      // 오른쪽 벽
+      var wx0 = Math.max(sX(11) + 24, w * 0.4), maxH = h - 40, wH = maxH * wallFrac, wU = wH / 18, wy0 = h - 18;
+      var wX = function (g) { return wx0 + g * wU; }, wY = function (g) { return wy0 - g * wU; };
+      ctx.fillStyle = "#efe6d2"; ctx.fillRect(wx0 - 10, 18, w - wx0, h - 26);
+      if (mode === "grid") {
+        ctx.strokeStyle = "#d26a4a"; ctx.lineWidth = 0.7;
+        for (var gy2 = 0; gy2 <= n; gy2++) { ctx.beginPath(); ctx.moveTo(wX(0), wY(gy2 * cs)); ctx.lineTo(wX(11), wY(gy2 * cs)); ctx.stroke(); }
+        for (var gx2 = 0; gx2 * cs <= 11.01; gx2++) { ctx.beginPath(); ctx.moveTo(wX(gx2 * cs), wY(0)); ctx.lineTo(wX(gx2 * cs), wY(18)); ctx.stroke(); }
+      }
+      // 무릎(6)·어깨(16) 표시선
+      ctx.setLineDash([3, 3]); ctx.strokeStyle = "#7a7a80"; ctx.lineWidth = 1;
+      [6, 16].forEach(function (g) { ctx.beginPath(); ctx.moveTo(wX(-0.5), wY(g)); ctx.lineTo(wX(11.2), wY(g)); ctx.stroke(); });
+      ctx.setLineDash([]);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      ctx.fillText("무릎 6", wX(-0.6), wY(6)); ctx.fillText("어깨 16", wX(-0.6), wY(16));
+      var sigma = mode === "grid" ? 0.12 * (wH / n) : 0.04 * wH;
+      var errSum = 0, cnt = 0;
+      drawFig(ctx, wX, wY, wU, function (k) { var z = NOISE[k % NOISE.length]; errSum += Math.hypot(z[0], z[1]) * sigma; cnt++; return [z[0] * sigma, z[1] * sigma]; }, "#1d1b22", 2);
+      // 손잡이: 머리선
+      AB.handle(ctx, wX(5.6), wY(18) - 6, { r: 7 });
+      geom = { wy0: wy0, maxH: maxH };
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("벽", wx0, 22);
+      var cmH = 40 + wallFrac * 200;   // 벽 위 인물의 키를 40~240 cm로 가정
+      AB.stat("gr-o-h", Math.round(cmH) + " cm");
+      AB.stat("gr-o-c", mode === "grid" ? (cmH / n).toFixed(1) + " cm" : "격자 없음");
+      var e = errSum / Math.max(1, cnt) / wH;
+      AB.stat("gr-o-e", (e * cmH).toFixed(1) + " cm (키의 " + (e * 100).toFixed(1) + "%)");
+    }, { get height() { return heightFor(el, 0.7, 460, 320); }, bg: PAPER });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geom) return; wallFrac = AB.clamp((geom.wy0 - y) / geom.maxH, 0.12, 1); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 위계적 크기 ---------------- */
+  (function () {
+    var tG = AB.range("hs-t", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var iG = AB.range("hs-i", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var mDepth = 2.0, geom = null;
+    function person(ctx, x, base, H, skin, cloth) {
+      ctx.fillStyle = skin; ctx.strokeStyle = LINE; ctx.lineWidth = Math.max(1, H / 160);
+      ctx.beginPath(); ctx.ellipse(x, base - H * 0.9, H * 0.065, H * 0.08, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = WIG; ctx.beginPath(); ctx.ellipse(x - H * 0.01, base - H * 0.93, H * 0.07, H * 0.06, 0, Math.PI, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = skin; ctx.beginPath(); ctx.moveTo(x - H * 0.13, base - H * 0.8); ctx.lineTo(x + H * 0.13, base - H * 0.8); ctx.lineTo(x + H * 0.07, base - H * 0.5); ctx.lineTo(x - H * 0.07, base - H * 0.5); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = cloth; ctx.beginPath(); ctx.moveTo(x - H * 0.09, base - H * 0.52); ctx.lineTo(x + H * 0.09, base - H * 0.52); ctx.lineTo(x + H * 0.12, base - H * 0.3); ctx.lineTo(x - H * 0.1, base - H * 0.3); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = skin; ctx.lineWidth = H * 0.05; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(x - H * 0.04, base - H * 0.3); ctx.lineTo(x - H * 0.08, base - H * 0.02); ctx.moveTo(x + H * 0.04, base - H * 0.3); ctx.lineTo(x + H * 0.12, base - H * 0.02); ctx.stroke();
+    }
+    var el = document.getElementById("hs-cv");
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var t = tG() / 100, imp = iG(), horizon = h * 0.28, ground = h * 0.94, H0 = h * 0.42;
+      ctx.fillStyle = "#efe6d2"; ctx.fillRect(0, horizon, w, h - horizon);
+      // 사람들: [x비율, 거리, 중요도, 피부, 옷]
+      var people = [[0.16, 1.0, 1.0, SKIN_M, LINEN, "하인"], [0.36, 2.6, 1.4, SKIN_F, LINEN, "가족"], [0.6, mDepth, imp, SKIN_M, "#ffffff", "주인공"], [0.84, 1.5, 1.0, SKIN_M, LINEN, "하인"]];
+      // 원근: 크기 ∝ 1/거리, 발 위치는 지평선과 바닥 사이에서 1/거리로
+      var drawn = people.map(function (p) {
+        var persH = H0 / p[1], persBase = horizon + (ground - horizon) / p[1];
+        var hierH = H0 * p[2] * 0.62, hierBase = ground;
+        return { p: p, H: persH + (hierH - persH) * t, base: persBase + (hierBase - persBase) * t };
+      });
+      if (t > 0.5) { ctx.strokeStyle = "#8a7a5a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, ground + 1); ctx.lineTo(w, ground + 1); ctx.stroke(); }
+      drawn.slice().sort(function (a, b) { return a.base - b.base; }).forEach(function (d) { person(ctx, d.p[0] * w, d.base, d.H, d.p[3], d.p[4]); });
+      ctx.font = AB.font(11); ctx.fillStyle = INK_DIM; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      drawn.forEach(function (d) { ctx.fillText(d.p[5], d.p[0] * w, Math.max(12, d.base - d.H - 4)); });
+      var m = drawn[2];
+      AB.handle(ctx, m.p[0] * w + m.H * 0.2, m.base - m.H * 0.5, { r: 7 });
+      geom = { horizon: horizon, ground: ground };
+      AB.stat("hs-o-r", (m.H / drawn[0].H).toFixed(2));
+      AB.stat("hs-o-d", mDepth.toFixed(2));
+    }, { get height() { return heightFor(el, 0.62, 420, 300); }, bg: PAPER });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geom) return; var f = AB.clamp((y - geom.horizon) / (geom.ground - geom.horizon), 0.25, 1); mDepth = 1 / f; cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 쿠로스 재기 ---------------- */
+  (function () {
+    var img = null, box = null, marks = { top: 82 / 1500, chin: 270 / 1500, sole: 1340 / 1500 }, act = null;
+    var gG = AB.seg("ko-g", function () { cv.redraw(); });
+    var el = document.getElementById("ko-cv");
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      if (!img) { loading(ctx, w, h, true); return; }
+      var r = fit(img.naturalWidth, img.naturalHeight, w - 20, h - 20); r.x += 10; r.y += 10; box = r;
+      ctx.drawImage(img, r.x, r.y, r.w, r.h);
+      var Y = function (f) { return r.y + f * r.h; }, g = gG();
+      var top = Y(marks.top), chin = Y(marks.chin), sole = Y(marks.sole);
+      var unit = g === "photo" ? chin - top : (sole - top) / +g;
+      ctx.strokeStyle = g === "photo" ? "#ffd166" : "#7ad3ff"; ctx.lineWidth = 1.2; ctx.font = AB.font(11, true); ctx.fillStyle = ctx.strokeStyle; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      for (var k = 1; top + unit * k <= sole + 1; k++) { var yy = top + unit * k; ctx.beginPath(); ctx.moveTo(r.x + r.w * 0.6, yy); ctx.lineTo(r.x + r.w * 0.78, yy); ctx.stroke(); ctx.fillText(String(k), r.x + r.w * 0.8, yy); }
+      [["top", "정수리"], ["chin", "턱"], ["sole", "발바닥"]].forEach(function (m) {
+        var yy = Y(marks[m[0]]);
+        ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 1.5; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(r.x + r.w * 0.18, yy); ctx.lineTo(r.x + r.w * 0.6, yy); ctx.stroke(); ctx.setLineDash([]);
+        AB.handle(ctx, r.x + r.w * 0.18, yy, { r: 7 });
+        ctx.fillStyle = "#ffffff"; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.fillText(m[1], r.x + r.w * 0.18 - 12, yy);
+      });
+      var heads = (marks.sole - marks.top) / Math.max(1e-6, marks.chin - marks.top), mus = 194.6 / 30.5;
+      AB.stat("ko-o-p", heads.toFixed(2) + "등신");
+      AB.stat("ko-o-m", mus.toFixed(2) + "등신");
+      AB.stat("ko-o-d", ((heads / mus - 1) * 100 >= 0 ? "+" : "") + ((heads / mus - 1) * 100).toFixed(1) + "%");
+    }, { get height() { return heightFor(el, 1.0, 560, 380); }, bg: STAGE });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!box) return; var f = (y - box.y) / box.h, best = null, bd = 0.05; ["top", "chin", "sole"].forEach(function (k) { var d = Math.abs(marks[k] - f); if (d < bd) { bd = d; best = k; } }); act = best; },
+      move: function (x, y) { if (!box || !act) return; var f = AB.clamp((y - box.y) / box.h, 0, 1); if (act === "top") f = Math.min(f, marks.chin - 0.01); if (act === "chin") f = AB.clamp(f, marks.top + 0.01, marks.sole - 0.01); if (act === "sole") f = Math.max(f, marks.chin + 0.01); marks[act] = f; cv.redraw(); },
+      end: function () { act = null; }
+    });
+    AB.loadImage(IMG + "greek-kouros-new-york.webp").then(function (im) { img = im; cv.redraw(); });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 촛불 아래의 금빛 바탕 ---------------- */
+  (function () {
+    var FILES = { duccio: ["duccio-madonna-child.webp", "나무판에 템페라와 금"], icon: ["byzantine-icon-hodegetria.webp", "나무판에 템페라"] };
+    var key = "duccio", src = null, PW = 0, PH = 0, lin = null, mask = null, off = document.createElement("canvas"), light = [0.5, 0.18], box = null, flick = 1, loop = null;
+    var lG = AB.seg("gd-l", function () { render(); });
+    var mG = AB.check("gd-m", function () { render(); });
+    AB.check("gd-f", function (on) { if (on) { if (!loop) loop = AB.loop(document.getElementById("gd-cv"), function (dt, t) { flick = 1 + 0.18 * Math.sin(t * 9.1) * Math.sin(t * 3.7 + 1) + 0.06 * Math.sin(t * 23); render(); }); else loop.start(); } else if (loop) { loop.stop(); flick = 1; render(); } });
+    AB.seg("gd-w", function (v) { key = v; src = null; cv.redraw(); prep(); });
+    var el = document.getElementById("gd-cv");
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      if (!src) { loading(ctx, w, h, true); return; }
+      var r = fit(PW, PH, w - 20, h - 20); r.x += 10; r.y += 10; box = r;
+      ctx.drawImage(off, r.x, r.y, r.w, r.h);
+      var lx = r.x + light[0] * r.w, ly = r.y + light[1] * r.h;
+      var g = ctx.createRadialGradient(lx, ly, 0, lx, ly, 16); g.addColorStop(0, "rgba(255,240,200,1)"); g.addColorStop(1, "rgba(255,200,120,0)");
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(lx, ly, 16, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = "#ffcf6b"; ctx.beginPath(); ctx.ellipse(lx, ly - 2, 3.5, 7 * flick, 0, 0, Math.PI * 2); ctx.fill();
+      AB.handle(ctx, lx, ly + 16, { r: 6 });
+    }, { get height() { return heightFor(el, 0.95, 540, 360); }, bg: STAGE });
+    function prep() {
+      var k = key;
+      load(FILES[k][0]).then(function (o) {
+        if (key !== k) return;
+        src = o.img; PW = 300; PH = Math.round(src.naturalHeight / src.naturalWidth * PW);
+        off.width = PW; off.height = PH;
+        var x = off.getContext("2d", { willReadFrequently: true }); x.drawImage(src, 0, 0, PW, PH);
+        var d = x.getImageData(0, 0, PW, PH).data; lin = new Float32Array(PW * PH * 3); mask = new Uint8Array(PW * PH);
+        var gold = 0;
+        for (var i = 0; i < PW * PH; i++) {
+          var rgb = [d[i * 4] / 255, d[i * 4 + 1] / 255, d[i * 4 + 2] / 255], c = ART.srgbToOklch(rgb);
+          for (var j = 0; j < 3; j++) lin[i * 3 + j] = ART.toLinear(rgb[j]);
+          if (c[2] >= 78 && c[2] <= 110 && c[1] >= 0.05 && c[0] >= 0.4 && c[0] <= 0.88) { mask[i] = 1; gold++; }
+        }
+        AB.stat("gd-o-a", Math.round(gold / (PW * PH) * 100) + "%");
+        AB.stat("gd-o-m", FILES[k][1]);
+        cv.resize(); render();
+      });
+    }
+    function gains(T) {
+      var a = ART.cctToSrgb(T).map(ART.toLinear), b = ART.cctToSrgb(6500).map(ART.toLinear);
+      var g = [a[0] / b[0], a[1] / b[1], a[2] / b[2]], Y = 0.2126 * g[0] + 0.7152 * g[1] + 0.0722 * g[2];
+      return g.map(function (v) { return v / Y; });
+    }
+    function render() {
+      if (!src || !lin) return;
+      var T = +lG(), g = gains(T), amb = T === 6500 ? 0.75 : T === 3000 ? 0.45 : 0.22, showM = mG();
+      var x = off.getContext("2d"), id = x.createImageData(PW, PH), od = id.data, gS = 0, gN = 0, pS = 0, pN = 0, asp = PH / PW;
+      for (var yy = 0; yy < PH; yy++) for (var xx = 0; xx < PW; xx++) {
+        var i = yy * PW + xx, dx = xx / PW - light[0], dy = (yy / PH - light[1]) * asp, d2 = dx * dx + dy * dy;
+        var diff = (amb + (1 - amb) * 0.9 * Math.exp(-d2 / 0.18)) * (T === 6500 ? 1 : flick);
+        var spec = mask[i] ? 1.6 * Math.exp(-d2 / 0.012) * (T === 6500 ? 0.4 : flick) : 0;
+        var Ls = 0;
+        for (var c = 0; c < 3; c++) {
+          var v = lin[i * 3 + c] * diff * g[c] + spec * [1.0, 0.82, 0.48][c] * g[c] * 0.6;
+          if (showM && mask[i]) v = v * 0.4 + (c === 0 ? 0.6 : c === 1 ? 0.05 : 0.3);
+          v = Math.min(1, v); od[i * 4 + c] = Math.round(ART.toGamma(v) * 255); Ls += v * [0.2126, 0.7152, 0.0722][c];
+        }
+        od[i * 4 + 3] = 255;
+        if (mask[i]) { gS += Ls; gN++; } else { pS += Ls; pN++; }
+      }
+      x.putImageData(id, 0, 0);
+      AB.stat("gd-o-r", gN && pN ? "× " + ((gS / gN) / Math.max(1e-4, pS / pN)).toFixed(2) : "—");
+      cv.redraw();
+    }
+    AB.drag(cv.canvas, { move: function (x, y) { if (!box) return; light = [AB.clamp((x - box.x) / box.w, 0, 1), AB.clamp((y - box.y) / box.h, 0, 1)]; render(); } });
+    prep();
+  })();
+
+  /* ---------------- 시뮬레이터 6: 3,000년의 팔레트 ---------------- */
+  (function () {
+    var FILES = { menna: "egypt-menna-hunting-marshes.webp", amphora: "euphiletos-panathenaic-amphora.webp", fayum: "fayum-young-woman-red.webp", icon: "byzantine-icon-hodegetria.webp", belles: "limbourg-belles-heures.webp", maitreya: "northern-wei-maitreya-altarpiece.webp" };
+    var key = "menna", cur = null, pal = null;
+    var kG = AB.range("pl-k", function (v) { return v; }, function () { compute(); });
+    AB.seg("pl-w", function (v) { key = v; cur = null; cv.redraw(); load(FILES[v]).then(function (o) { if (key === v) { cur = o; compute(); } }); });
+    var el = document.getElementById("pl-cv");
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      if (!cur) { loading(ctx, w, h); return; }
+      var narrow = w < 520, ib = narrow ? { w: w, h: h - 70 } : { w: w * 0.6, h: h };
+      var r = fit(cur.img.naturalWidth, cur.img.naturalHeight, ib.w - 20, ib.h - 20);
+      ctx.drawImage(cur.img, 10 + r.x, 10 + r.y, r.w, r.h);
+      if (!pal) return;
+      var acc = 0;
+      if (narrow) { pal.forEach(function (p) { var s = p.weight * (w - 20); ctx.fillStyle = ART.hex(p.rgb); ctx.fillRect(10 + acc, h - 56, s + 0.5, 40); acc += s; }); }
+      else {
+        var bx = w * 0.6 + 6, bh = h - 40;
+        ctx.font = AB.font(11, true); ctx.textBaseline = "middle"; ctx.textAlign = "left";
+        pal.forEach(function (p) { var s = p.weight * bh; ctx.fillStyle = ART.hex(p.rgb); ctx.fillRect(bx, 20 + acc, w * 0.18, s + 0.5); if (s > 14) { ctx.fillStyle = INK; ctx.fillText(ART.hex(p.rgb) + " " + Math.round(p.weight * 100) + "%", bx + w * 0.19, 20 + acc + s / 2); } acc += s; });
+      }
+    }, { get height() { return heightFor(el, 0.62, 440, 300); }, bg: PAPER });
+    function compute() {
+      if (!cur) return;
+      pal = ART.kmeans(cur.data.data, kG(), { seed: 7, sample: 6000 });
+      var d = cur.data.data, n = d.length / 4, blue = 0, sc = 0;
+      for (var i = 0; i < n; i++) { var c = ART.srgbToOklch([d[i * 4] / 255, d[i * 4 + 1] / 255, d[i * 4 + 2] / 255]); sc += c[1]; if (c[1] >= 0.03 && c[2] >= 200 && c[2] <= 290) blue++; }
+      AB.stat("pl-o-top", '<span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;background:' + ART.hex(pal[0].rgb) + '"></span> ' + ART.hex(pal[0].rgb) + " · " + Math.round(pal[0].weight * 100) + "%");
+      AB.stat("pl-o-b", (blue / n * 100).toFixed(1) + "%");
+      AB.stat("pl-o-c", (sc / n).toFixed(3));
+      cv.redraw();
+    }
+    load(FILES.menna).then(function (o) { if (key === "menna") { cur = o; compute(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 7: 연못 정원 ---------------- */
+  (function () {
+    var tG = AB.range("po-t", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var hG = AB.range("po-h", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var bG = AB.seg("po-b", function () { cv.redraw(); });
+    // 땅 위의 점(X: 왼쪽−오른쪽, Z: 앞−뒤, 단위 m). 연못은 가운데 4×4 m
+    var TREES = [];
+    [-2.5, -1.25, 0, 1.25, 2.5].forEach(function (x) { TREES.push([x, 3.4, 0]); TREES.push([x, -3.4, 180]); });
+    [-1.6, 0, 1.6].forEach(function (z) { TREES.push([-3.4, z, -90]); TREES.push([3.4, z, 90]); });
+    var FISH = [[-1.1, 0.9, 1], [0.8, 1.2, -1], [-0.6, -0.8, 1], [1.1, -0.5, -1], [0.1, 0.2, 1]];
+    var cam = { pos: [0, 7.5, -12], yaw: 0, pitch: -0.5, f: 1 };
+    function proj(X, Z, Y, w, h) { var p = ART.project([X, Y || 0, Z], cam); return p ? [w / 2 + p[0] * w * 0.95, h * 0.42 - p[1] * w * 0.95, p[2] || 1] : [w / 2, h / 2, 1]; }
+    function plan(X, Z, w, h) { var s = Math.min(w, h) * 0.085; return [w / 2 + X * s, h * 0.45 - Z * s, s]; }
+    function tree(ctx, x, y, size, ang) {
+      ctx.save(); ctx.translate(x, y); ctx.rotate(ang * Math.PI / 180);
+      ctx.fillStyle = "#7a5230"; ctx.fillRect(-size * 0.06, -size * 0.45, size * 0.12, size * 0.45);
+      ctx.fillStyle = "#3f7a3a"; ctx.beginPath(); ctx.ellipse(0, -size * 0.7, size * 0.28, size * 0.34, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = "#c0392b"; [[-0.1, -0.75], [0.12, -0.62], [0.02, -0.9]].forEach(function (q) { ctx.beginPath(); ctx.arc(q[0] * size, q[1] * size, size * 0.035, 0, Math.PI * 2); ctx.fill(); });
+      ctx.restore();
+    }
+    function fish(ctx, x, y, L, dir, squash, alpha) {
+      ctx.save(); ctx.globalAlpha = alpha; ctx.translate(x, y); ctx.scale(dir, squash);
+      ctx.fillStyle = "#d9884a"; ctx.beginPath(); ctx.ellipse(0, 0, L / 2, L / 5, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-L / 2, 0); ctx.lineTo(-L * 0.75, -L / 5); ctx.lineTo(-L * 0.75, L / 5); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#2b2a30"; ctx.beginPath(); ctx.arc(L * 0.3, -L * 0.03, L * 0.04, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+    }
+    function man(ctx, x, base, H, skin, cloth) {
+      ctx.fillStyle = skin; ctx.strokeStyle = LINE; ctx.lineWidth = Math.max(1, H / 140);
+      ctx.beginPath(); ctx.ellipse(x, base - H * 0.9, H * 0.07, H * 0.085, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = WIG; ctx.beginPath(); ctx.ellipse(x - H * 0.01, base - H * 0.93, H * 0.075, H * 0.065, 0, Math.PI, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = skin; ctx.beginPath(); ctx.moveTo(x - H * 0.13, base - H * 0.8); ctx.lineTo(x + H * 0.13, base - H * 0.8); ctx.lineTo(x + H * 0.07, base - H * 0.5); ctx.lineTo(x - H * 0.07, base - H * 0.5); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = cloth; ctx.beginPath(); ctx.moveTo(x - H * 0.09, base - H * 0.52); ctx.lineTo(x + H * 0.09, base - H * 0.52); ctx.lineTo(x + H * 0.12, base - H * 0.28); ctx.lineTo(x - H * 0.1, base - H * 0.28); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = skin; ctx.lineWidth = H * 0.05; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(x - H * 0.04, base - H * 0.28); ctx.lineTo(x - H * 0.08, base); ctx.moveTo(x + H * 0.04, base - H * 0.28); ctx.lineTo(x + H * 0.12, base); ctx.stroke();
+    }
+    var el = document.getElementById("po-cv");
+    var cv = AB.canvas(el, function (ctx, w, h) {
+      var t = tG() / 100, hi = hG() / 100, bg = bG();
+      if (bg === "gold") { var gg = ctx.createLinearGradient(0, 0, w, h); gg.addColorStop(0, "#c9a24a"); gg.addColorStop(0.5, "#e6c56e"); gg.addColorStop(1, "#b58a34"); ctx.fillStyle = gg; ctx.fillRect(0, 0, w, h); }
+      else if (bg === "sky") { var sg = ctx.createLinearGradient(0, 0, 0, h * 0.5); sg.addColorStop(0, "#8fb8d8"); sg.addColorStop(1, "#dfe8e4"); ctx.fillStyle = sg; ctx.fillRect(0, 0, w, h * 0.32); ctx.fillStyle = "#cdb98a"; ctx.fillRect(0, h * 0.32, w, h * 0.68); }
+      function mix(X, Z) { var a = plan(X, Z, w, h), b = proj(X, Z, 0, w, h); return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]; }
+      var sP = plan(0, 0, w, h)[2];
+      function scaleAt(X, Z) { var b = proj(X, Z, 0, w, h), b2 = proj(X, Z, 1, w, h); var persp = Math.abs(b[1] - b2[1]); return sP + (persp - sP) * t; }
+      // 연못
+      var C = [[-2, -2], [2, -2], [2, 2], [-2, 2]].map(function (p) { return mix(p[0], p[1]); });
+      ctx.fillStyle = "#4a8fb0"; ctx.strokeStyle = "#2b5a70"; ctx.lineWidth = 2; ctx.beginPath(); C.forEach(function (p, i) { i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.closePath(); ctx.fill();
+      ctx.save(); ctx.clip(); ctx.strokeStyle = "rgba(255,255,255,0.35)"; ctx.lineWidth = 1;
+      for (var z = -1.8; z < 2; z += 0.45) { ctx.beginPath(); for (var xq = -2; xq <= 2.01; xq += 0.25) { var q = mix(xq, z + ((Math.round(xq * 4) % 2) ? 0.12 : 0)); xq === -2 ? ctx.moveTo(q[0], q[1]) : ctx.lineTo(q[0], q[1]); } ctx.stroke(); }
+      FISH.forEach(function (f) { var q = mix(f[0], f[1]), L = scaleAt(f[0], f[1]) * 0.9; fish(ctx, q[0], q[1], L, f[2], 1 - 0.75 * t, 1 - 0.55 * t); });
+      ctx.restore(); ctx.stroke();
+      // 나무(뒤에서 앞으로)
+      var trees = TREES.map(function (tr) { var q = mix(tr[0], tr[1]); return { q: q, s: scaleAt(tr[0], tr[1]) * 1.6, a: tr[2] * (1 - t), z: tr[1] }; });
+      trees.sort(function (a, b) { return b.z - a.z; }).forEach(function (o) { tree(ctx, o.q[0], o.q[1], o.s, o.a); });
+      // 주인과 하인(연못 앞)
+      var mP = mix(-1.2, -4.6), sPp = mix(1.4, -4.2), base = scaleAt(0, -4.4) * 1.9;
+      var mH = base * (1 + 0.8 * hi), sH = scaleAt(1.4, -4.2) * 1.9;
+      man(ctx, sPp[0], sPp[1], sH, SKIN_M, LINEN);
+      man(ctx, mP[0], mP[1], mH, SKIN_M, "#ffffff");
+      // 판독
+      var angs = C.map(function (p, i) { var a = C[(i + 3) % 4], b = C[(i + 1) % 4]; var v1 = [a[0] - p[0], a[1] - p[1]], v2 = [b[0] - p[0], b[1] - p[1]]; return Math.acos((v1[0] * v2[0] + v1[1] * v2[1]) / (Math.hypot(v1[0], v1[1]) * Math.hypot(v2[0], v2[1]))) * 180 / Math.PI; });
+      var poolK = 1 - angs.reduce(function (s, a) { return s + Math.abs(a - 90); }, 0) / 4 / 60;
+      var ss = trees.map(function (o) { return o.s; }), treeK = Math.min.apply(null, ss) / Math.max.apply(null, ss);
+      var fishK = 1 - 0.75 * t;
+      AB.stat("po-o-v", t < 0.15 ? "사물마다 하나(위·옆)" : t > 0.85 ? "한 자리" : "섞임");
+      AB.stat("po-o-r", (mH / sH).toFixed(2));
+      AB.stat("po-o-k", Math.round(Math.max(0, poolK) * 100) + " · " + Math.round(treeK * 100) + " · " + Math.round(fishK * 100));
+    }, { get height() { return heightFor(el, 0.85, 560, 380); }, bg: PAPER });
+  })();
+})();
+</script>
+</body>
+</html>

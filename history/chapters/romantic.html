@@ -38,6 +38,7 @@
 <style>
   /* 7장 전용 */
   .rm-pair { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 6px; align-items: center; }
+  #sim-rm-card .sim-readout .v { font-family: inherit; font-size: 14px; line-height: 1.5; }
   @media (max-width: 560px) { .rm-pair { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
@@ -115,31 +116,31 @@
     <p>19세기 전반 파리의 화단에서는 "선이냐 색이냐"를 두고 오래 묵은 논쟁이 다시 불붙었다. 앵그르<span class="en">(Jean-Auguste-Dominique Ingres)</span>가 다비드를 이어 정확한 소묘와 매끈한 윤곽을 그림의 뼈대로 삼았다면, 외젠 들라크루아<span class="en">(Eugène Delacroix, 1798–1863)</span>는 색과 붓질의 움직임으로 극을 만들었다. 비평가와 화가들은 두 사람을 맞수로 세워 이야기하곤 했다. 물론 앵그르의 그림에도 색이 있고 들라크루아도 소묘를 수없이 했으니, 이것도 강조점의 차이다.</p>
 
     <figure class="art-figure" id="fig-delacroix">
-      <div class="art-frame"><img src="../../shared/img/delacroix-christ-tempest.webp" width="1600" height="1320" alt="외젠 들라크루아의 「폭풍 속에서 잠든 그리스도」. 짙은 청록의 거센 파도 위에 작은 배가 비스듬히 떠 있다. 배 안에는 붉은색, 주황색 옷을 입은 제자들이 노를 젓거나 팔을 들어 허우적거리고, 왼쪽 끝에 후광을 두른 그리스도가 고요히 잠들어 있다. 위쪽에는 어두운 구름과 먼 산이 있다." loading="lazy" decoding="async"></div>
-      <figcaption><b>그림 3. 외젠 들라크루아, 「폭풍 속에서 잠든 그리스도」, 1853년경.</b> 넓은 청록의 바다 한가운데에 붉은 옷들이 작은 덩어리로 모여 있다. 들라크루아는 1850년대에 이 주제를 여러 번 그렸다. 흑백으로 보면 바다와 배 안의 인물들은 명도가 비슷하다. 두 덩어리를 가르는 것은 명도보다 색상이다.<span class="credit">메트로폴리탄 미술관 소장(H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929), 캔버스에 유채, 50.8 × 61 cm. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/436176">소장처 작품 페이지</a> · <a href="../../credits.html#delacroix-christ-tempest">크레딧</a></span></figcaption>
+      <div class="art-frame"><img src="../../shared/img/delacroix-christ-tempest.webp" width="1600" height="1320" alt="외젠 들라크루아의 「폭풍 속에서 잠든 그리스도」. 짙은 초록빛 거센 파도 위에 작은 배가 비스듬히 떠 있다. 배 안에는 붉은색, 주황색 옷을 입은 제자들이 노를 젓거나 팔을 들어 허우적거리고, 왼쪽 끝에 후광을 두른 그리스도가 고요히 잠들어 있다. 위쪽에는 어두운 구름과 먼 산이 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 외젠 들라크루아, 「폭풍 속에서 잠든 그리스도」, 1853년경.</b> 넓은 초록의 바다 한가운데에 붉은 옷들이 작은 덩어리로 모여 있다. 들라크루아는 1850년대에 이 주제를 여러 번 그렸다. 흑백으로 보면 바다와 배 안의 인물들은 명도가 비슷하다. 두 덩어리를 가르는 것은 명도보다 색상이다.<span class="credit">메트로폴리탄 미술관 소장(H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929), 캔버스에 유채, 50.8 × 61 cm. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/436176">소장처 작품 페이지</a> · <a href="../../credits.html#delacroix-christ-tempest">크레딧</a></span></figcaption>
     </figure>
 
     <p>들라크루아의 일기에는 그림자 속의 색, 이웃한 색이 서로를 바꾸는 효과에 대한 관찰이 자주 나온다. 같은 시기 파리의 화학자 미셸외젠 슈브뢸<span class="en">(Michel-Eugène Chevreul)</span>은 『색의 동시 대비 법칙에 대하여』<span class="en">(1839)</span>에서 나란히 놓인 두 색이 서로를 반대 방향으로 밀어 보이게 한다는 것을 정리했다(<a href="../../color/chapters/relativity.html">ColorBook 9장</a>). 들라크루아가 슈브뢸을 직접 얼마나 참고했는지는 연구자마다 다르게 본다. 확실한 것은 그의 화면에서 반대편 색의 짝이 큰 역할을 한다는 점이고, 이것은 화소로 확인할 수 있다.</p>
-    <p>아래 시뮬레이터의 오른쪽 색상환에서 점을 끌어 색상 하나를 고른다. 그 색상(±30°)에 드는 화소는 그림 위에 제 색으로 남고, 맞은편 색상(±30°)의 화소는 흰 테두리 무늬로 표시되며, 나머지는 회색이 된다.</p>
+    <p>아래 시뮬레이터의 색상환에는 손잡이가 둘 있다. 손잡이 A의 색상(±30°)에 드는 화소는 그림 위에 제 색으로 남고, 손잡이 B의 색상(±30°)에 드는 화소는 흰 줄무늬로 표시되며, 나머지는 회색이 된다. 두 손잡이를 끌어 그림의 두 주인공 색을 찾고, 둘이 색상환에서 얼마나 떨어져 있는지 본다.</p>
 
     <div class="sim" id="sim-rm-hue">
-      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>반대편 색 찾기</h3></div>
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>두 색의 맞섬 찾기</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="rh-cv"></canvas><span class="hint">색상환의 점을 끈다</span></div>
+        <div class="sim-view"><canvas id="rh-cv"></canvas><span class="hint">색상환의 두 점을 끈다</span></div>
         <div class="sim-controls">
           <div class="seg" id="rh-pic"><button data-value="delacroix" class="on">들라크루아</button><button data-value="constable">컨스터블</button><button data-value="courbet">쿠르베</button><button data-value="daumier">도미에</button></div>
-          <label class="ctrl"><span>무채색으로 볼 채도 기준 <output id="rh-c-out"></output></span><input type="range" id="rh-c" min="0.01" max="0.1" step="0.005" value="0.04"></label>
+          <label class="ctrl"><span>무채색으로 볼 채도 기준 <output id="rh-c-out"></output></span><input type="range" id="rh-c" min="0.01" max="0.06" step="0.005" value="0.02"></label>
         </div>
       </div>
       <div class="sim-readout">
-        <div class="stat"><span class="k">고른 색상의 넓이</span><span class="v" id="rh-o-a">—</span></div>
-        <div class="stat"><span class="k">맞은편 색상의 넓이</span><span class="v" id="rh-o-b">—</span></div>
-        <div class="stat"><span class="k">두 무리의 평균 명도 L*</span><span class="v" id="rh-o-l">—</span></div>
+        <div class="stat"><span class="k">A · B 색상의 넓이</span><span class="v" id="rh-o-a">—</span></div>
+        <div class="stat"><span class="k">두 색상 사이의 각</span><span class="v" id="rh-o-b">—</span></div>
+        <div class="stat"><span class="k">A · B 무리의 평균 명도 L*</span><span class="v" id="rh-o-l">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 들라크루아에서 점을 빨강·주황(30° 근처)에 둔다. 제자들의 옷이 남고, 맞은편 표시는 바다 전체를 덮는다. 작은 빨강과 넓은 청록이 맞선다. 두 무리의 평균 명도를 비교하면 차이가 크지 않다. ② 컨스터블로 바꾸고 점을 초록(140° 근처)으로 옮긴다. 넓은 초록의 맞은편(붉은 쪽)은 거의 비어 있고, 작은 인물과 소의 붉은 기운만 남는다. ③ 도미에로 바꾼다. 거의 모든 화소가 갈색 한쪽에 몰려 있고 맞은편 색은 몇 퍼센트에 그친다. 채도 기준을 올리고 내리며 결과가 얼마나 흔들리는지도 본다. (각 그림을 가로 200px로 줄여 모든 화소를 센다. 색상은 OKLCH의 h, 맞은편은 고른 색상 +180°. 바니시가 누렇게 변한 그림은 전체가 노랑·주황 쪽으로 밀려 있다.)<span class="credit">그림: 컨스터블(아래 시뮬레이터 설명), 쿠르베(그림 4), 도미에, 「삼등 열차」, 1864, 캔버스에 유채, 65.4 × 90.2 cm, 메트로폴리탄 미술관 소장(H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929). 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/436095">소장처 작품 페이지</a> · <a href="../../credits.html#daumier-third-class-carriage">크레딧</a></span></div>
+      <div class="sim-note">해볼 것: ① 들라크루아는 A를 빨강·주황(35°), B를 초록(160°)에 두고 시작한다. A는 제자들의 옷에, B의 줄무늬는 바다 전체에 깔린다. 빨강의 넓이는 바다의 3분의 1쯤이고, 두 무리의 평균 명도는 L* 17과 25로 가깝다. 두 색상 사이는 약 125°로, 정확한 맞은편은 아니지만 색상환의 먼 쪽이다. ② 컨스터블로 바꾼다. 화면의 3분의 2가 A(75°)에 몰려 있다. 사진 속 나뭇잎과 풀밭은 "초록"이 아니라 누런 올리브 쪽이다. 맞은편 쪽(B, 225°)의 하늘빛은 3% 남짓뿐이다. ③ 도미에로 바꾼다. 화소의 거의 80%가 갈색 한쪽에 몰려 있고 B는 1%대다. 채도 기준을 0.04로 올리면 들라크루아의 바다는 거의 사라진다. 어두운 바다는 채도가 낮게 잡히기 때문이다. (각 그림을 가로 200px로 줄여 모든 화소를 센다. 색상은 OKLCH의 h. 바니시가 누렇게 변한 그림은 전체가 노랑·주황 쪽으로 밀려 있어, 원래의 바다와 잎은 지금보다 푸르렀을 가능성이 크다.)<span class="credit">그림: 컨스터블(아래 시뮬레이터 설명), 쿠르베(그림 4), 도미에, 「삼등 열차」, 1864, 캔버스에 유채, 65.4 × 90.2 cm, 메트로폴리탄 미술관 소장(H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929). 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/436095">소장처 작품 페이지</a> · <a href="../../credits.html#daumier-third-class-carriage">크레딧</a></span></div>
     </div>
 
-    <p>들라크루아의 빨강은 화면에서 작은 몫이지만, 맞은편의 청록이 넓게 받쳐 주기 때문에 멀리서도 먼저 눈에 들어온다. 그리고 두 색의 명도가 비슷해서, 흑백으로 바꾸면 이 대비가 거의 사라진다. 들라크루아의 극은 명암(<a href="baroque.html">4장</a>의 바로크)이 아니라 색상의 맞섬에서 나온다. 이 차이가 다음 세대에 중요한 유산이 된다. 인상주의 화가들, 그리고 고흐와 쇠라는 들라크루아의 색을 공부했다(<a href="impressionism.html">8장</a>, <a href="post.html">9장</a>).</p>
+    <p>들라크루아의 빨강은 화면에서 작은 몫이지만, 색상환의 먼 쪽에 있는 초록 바다가 넓게 받쳐 주기 때문에 멀리서도 먼저 눈에 들어온다. 그리고 두 색의 명도가 비슷해서, 흑백으로 바꾸면 이 대비가 거의 사라진다. 이 대비는 교과서의 "정확한 보색"이 아니어도 된다. 색상이 충분히 멀고 넓이가 크게 다르면 작은 쪽이 빛난다. 들라크루아의 극은 명암(<a href="baroque.html">4장</a>의 바로크)이 아니라 색상의 맞섬에서 나온다. 이 차이가 다음 세대에 중요한 유산이 된다. 인상주의 화가들, 그리고 고흐와 쇠라는 들라크루아의 색을 공부했다(<a href="impressionism.html">8장</a>, <a href="post.html">9장</a>).</p>
     <div class="callout deep">
       <strong>명도가 같은 두 색이 떨리는 이유</strong>
       밝기가 거의 같고 색상만 반대인 두 색이 맞닿으면 경계가 흔들리는 듯 보인다. 시각 과학에서는 이것을 우리 시각계가 형태와 위치를 주로 밝기 차이로 처리하고, 색상 차이는 상대적으로 낮은 해상도로 처리하기 때문으로 설명한다(Margaret Livingstone, 『Vision and Art』, 2002에 쉬운 설명이 있다). 밝기 차이가 없으면 경계의 위치가 덜 확정되어 떨려 보인다는 것이다. 다만 개별 작품의 "떨림"을 이 효과만으로 설명하는 데에는 신중해야 한다.
@@ -166,10 +167,10 @@
         <div class="stat"><span class="k">창 안의 화소 수(가로)</span><span class="v" id="rl-o-n">—</span></div>
         <div class="stat"><span class="k">결 지수(2 mm 간격 명도 변화)</span><span class="v" id="rl-o-t">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 터너에서 돋보기를 아래쪽 물결로 옮긴다. 굵은 붓질과 긁어낸 자국이 보이고 결 지수가 올라간다. 위쪽 안개로 옮기면 지수가 뚝 떨어진다. 한 그림 안에서도 붓질의 세기가 다르다. ② 다비드로 바꾸고 인물의 몸과 벽을 살핀다. 결 지수가 낮고 고르다. 매끈한 마무리(fini)다. 들라크루아의 파도, 컨스터블의 나뭇잎과 비교한다. ③ 쿠르베로 바꾼다. 그림이 2.6 m로 커서 1화소가 1.6 mm를 넘고, 창 10 cm 안에 화소가 60개 남짓밖에 없다. 붓질이 아니라 화소가 보인다. 이 이미지로는 쿠르베의 붓질을 판단할 수 없다는 것이 이 측정의 결론이다. 창 폭을 4 cm로 줄이면 모든 그림이 무너진다. (실제 크기는 소장처의 치수를 이미지 폭으로 나눈 근사값이다. 결 지수는 창을 2 mm = 1화소로 다시 표본화한 뒤 이웃 화소와의 명도 L* 차이(라플라시안의 절댓값)를 평균한 것이다. 촬영 조명이 비스듬하면 캔버스 결과 균열도 지수를 올린다. 이정의 「풍죽」은 비단 그림이다.)<span class="credit">그림: 다비드, 「소크라테스의 죽음」, 1787, 129.5 × 196.2 cm(<a href="https://www.metmuseum.org/art/collection/search/436105">소장처 작품 페이지</a> · <a href="../../credits.html#david-death-of-socrates">크레딧</a>). 컨스터블, 「주교의 정원에서 본 솔즈베리 대성당」, 1825년경, 캔버스에 유채, 87.9 × 111.8 cm, Bequest of Mary Stillman Harkness, 1950(<a href="https://www.metmuseum.org/art/collection/search/435922">소장처 작품 페이지</a> · <a href="../../credits.html#constable-salisbury-cathedral">크레딧</a>). 이정, 「풍죽」, 17세기 초, 비단에 먹, 그림 115.6 × 53.3 cm(<a href="https://www.metmuseum.org/art/collection/search/50486">소장처 작품 페이지</a> · <a href="../../credits.html#yi-jeong-bamboo-wind">크레딧</a>). 모두 메트로폴리탄 미술관 소장, 공공 도메인(The Met Open Access, CC0).</span></div>
+      <div class="sim-note">해볼 것: ① 터너는 아래쪽 물결에서 시작한다. 굵은 붓질과 긁어낸 자국이 보인다. 왼쪽 위의 안개로 옮기면 결 지수가 1 안팎으로 뚝 떨어진다. 한 그림 안에서도 붓질의 세기가 다르다. ② 다비드로 바꾸고 돋보기를 왼쪽 뒤의 돌벽으로 옮긴다. 결 지수가 1 아래로 내려간다. 인물들 쪽에서는 윤곽과 옷 주름 때문에 지수가 오르지만, 확대해도 붓자국은 거의 보이지 않는다. 매끈한 마무리(fini)다. 컨스터블의 나뭇잎(10을 넘는다)과 비교한다. ③ 쿠르베로 바꾼다. 그림이 2.6 m로 커서 1화소가 1.6 mm를 넘고, 창 10 cm 안에 화소가 60개 남짓밖에 없다. 붓질이 아니라 화소가 보인다. 이 이미지로는 쿠르베의 붓질을 판단할 수 없다는 것이 이 측정의 결론이다. 창 폭을 4 cm로 줄이면 모든 그림이 무너진다. (실제 크기는 소장처의 치수를 이미지 폭으로 나눈 근사값이다. 결 지수는 창을 2 mm = 1화소로 다시 표본화한 뒤 이웃 화소와의 명도 L* 차이(라플라시안의 절댓값)를 평균한 것이다. 촬영 조명이 비스듬하면 캔버스 결과 균열도 지수를 올린다. 이정의 「풍죽」은 비단 그림이다.)<span class="credit">그림: 다비드, 「소크라테스의 죽음」, 1787, 129.5 × 196.2 cm(<a href="https://www.metmuseum.org/art/collection/search/436105">소장처 작품 페이지</a> · <a href="../../credits.html#david-death-of-socrates">크레딧</a>). 컨스터블, 「주교의 정원에서 본 솔즈베리 대성당」, 1825년경, 캔버스에 유채, 87.9 × 111.8 cm, Bequest of Mary Stillman Harkness, 1950(<a href="https://www.metmuseum.org/art/collection/search/435922">소장처 작품 페이지</a> · <a href="../../credits.html#constable-salisbury-cathedral">크레딧</a>). 이정, 「풍죽」, 17세기 초, 비단에 먹, 그림 115.6 × 53.3 cm(<a href="https://www.metmuseum.org/art/collection/search/50486">소장처 작품 페이지</a> · <a href="../../credits.html#yi-jeong-bamboo-wind">크레딧</a>). 모두 메트로폴리탄 미술관 소장, 공공 도메인(The Met Open Access, CC0).</span></div>
     </div>
 
-    <p>같은 실제 크기로 맞추고 보면 "매끈함"과 "거침"이 숫자로 갈린다. 다비드의 몸과 벽은 결 지수가 낮고, 터너의 물결과 들라크루아의 파도는 몇 배 높다. 그러나 이 도구가 보여 주는 가장 중요한 사실은 따로 있다. <b>사진은 붓질을 보여 줄 수도, 지울 수도 있다</b>. 쿠르베처럼 큰 그림은 같은 1600화소 이미지에서 붓질이 녹아 버린다. 책이나 화면으로 본 그림의 "질감"을 말할 때는 그 이미지가 실제 몇 센티미터를 한 화소에 담았는지부터 물어야 한다. 그림 앞에 직접 서는 일을 대신할 수 없는 이유다.</p>
+    <p>같은 실제 크기로 맞추고 보면 "매끈함"과 "거침"이 숫자로 갈린다. 다비드의 돌벽은 결 지수가 1에도 못 미치고, 터너의 물결과 들라크루아의 파도는 몇 배, 컨스터블의 나뭇잎은 열 배 넘게 높다. 그러나 이 도구가 보여 주는 가장 중요한 사실은 따로 있다. <b>사진은 붓질을 보여 줄 수도, 지울 수도 있다</b>. 쿠르베처럼 큰 그림은 같은 1600화소 이미지에서 붓질이 녹아 버린다. 책이나 화면으로 본 그림의 "질감"을 말할 때는 그 이미지가 실제 몇 센티미터를 한 화소에 담았는지부터 물어야 한다. 그림 앞에 직접 서는 일을 대신할 수 없는 이유다.</p>
 
     <div class="callout studio">
       <strong>두껍게 올리는 순서: 마른 것 위에 기름진 것</strong>
@@ -270,7 +271,7 @@
         <div class="stat"><span class="k">기법</span><span class="v" id="rc-o-t">—</span></div>
         <div class="stat"><span class="k">내 점 ↔ 빛의 중심</span><span class="v" id="rc-o-d">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 터너에서 점을 고래 근처로 옮긴다. 계산된 빛의 중심(흰 고리)은 돛 뒤의 밝은 곳에, 어둠의 중심(검은 고리)은 고래 아래쪽에 있다. 터너는 둘을 가까이 붙여 시선을 모았다. ② 도미에로 바꾼다. 선명한 색이 거의 없고 명도의 폭은 아래쪽 어두운 쪽에 몰려 있다. "명도 5단으로 보기"를 켜면 앞줄 세 사람의 얼굴과 손만 밝은 단에 든다. ③ 보뇌르와 밀레를 비교한다. 두 그림 모두 하늘이 밝은데, 보뇌르는 흰 말들이 빛의 중심을 화면 가운데로 끌어내린다. k를 8까지 올려도 카드의 문장이 크게 바뀌지 않는지 본다. (OKLab k-평균, 가로 200px 표본. 빛·어둠의 중심은 명도 L* 상위·하위 5% 화소의 평균 위치. 윤곽은 앞의 "윤곽의 양"에서 기준 12, 결 지수는 그림 전체를 2 mm = 1화소로 맞춰 잰 값이다. 카드의 문장은 숫자를 옮긴 초안이며, 해석은 읽는 사람이 쓴다.)</div>
+      <div class="sim-note">해볼 것: ① 터너에서 점을 고래 근처로 옮긴다. 계산된 빛의 중심(흰 고리)은 돛 위쪽 하늘에, 어둠의 중심(검은 고리)은 고래 왼쪽 아래의 물결에 있다. 고래와 배는 그 둘을 잇는 선 위에 놓인다. ② 도미에로 바꾼다. 선명한 색이 거의 없고 명도 폭(L* 약 2~50)이 어두운 쪽에 몰려 있다. "명도 5단으로 보기"를 켜고 밝은 단이 창과 앞줄 인물들 가운데 어디에 모이는지 본다. ③ 보뇌르와 밀레를 비교한다. 두 그림 모두 하늘이 밝은데, 보뇌르는 흰 말들이 빛의 중심을 화면 가운데로 끌어내린다. k를 8까지 올려도 카드의 문장이 크게 바뀌지 않는지 본다. (OKLab k-평균, 가로 200px 표본. 빛·어둠의 중심은 명도 L* 상위·하위 5% 화소의 평균 위치. 윤곽은 앞의 "윤곽의 양"에서 기준 12, 결 지수는 그림 전체를 2 mm = 1화소로 맞춰 잰 값이다. 카드의 문장은 숫자를 옮긴 초안이며, 해석은 읽는 사람이 쓴다.)</div>
     </div>
 
     <p>카드의 숫자는 출발점이다. "선명한 색의 넓이가 2%"는 사실이지만, 그 2%가 그리스도의 후광인지 소치기 소녀의 치마인지는 그림을 봐야 안다. 그리고 내 눈이 처음 간 곳이 빛의 중심과 다르다면, 그것이 바로 이야기를 시작할 자리다. 사람의 얼굴, 동물, 글자는 밝기와 상관없이 시선을 끈다(<a href="../../composition/chapters/eye.html">CompositionBook 시선</a>).</p>
@@ -282,7 +283,7 @@
       <div class="tag"><b>CASE 서윤</b><span>모임 노트 · 7장</span></div>
       <h4>6회차, 붓질을 같은 크기로 확대하기</h4>
       <p>6회차는 10월 9일 토요일이다. 서윤은 처음에 그림 다섯 점을 화면 가득 띄우고 "가까이 와서 붓질을 보세요"라고 할 생각이었다. 도경이 노트북에서 이 장의 돋보기를 열어 보이며 말렸다. "화면 가득 띄우면 작은 그림은 크게, 큰 그림은 작게 보여. 붓질을 비교하려면 실제 크기를 맞춰야지." 두 사람은 활동 방법을 바꿨다. 그림마다 <b>실제 폭 10 cm</b>의 창을 잘라, 네 칸을 한 화면에 같은 크기로 나란히 띄운다. 참가자는 칸만 보고 어느 그림인지 맞힌 뒤 전체 그림을 확인한다.</p>
-      <p>창의 화소 수를 계산하니 문제가 하나 드러났다. 이 책의 이미지(긴 변 1600화소)로는 10 cm 창이 들라크루아 약 262화소, 컨스터블 약 143화소, 터너 약 130화소, 쿠르베 약 61화소였다. 쿠르베는 붓질이 아니라 화소가 보인다. 서윤은 쿠르베를 돋보기 활동에서 빼고, 대신 "그림의 실제 크기" 화면에 올려 크기 이야기에 쓰기로 했다. 결 지수(이 책의 모델, 같은 2 mm 간격)는 그림 전체로 재면 터너 약 2.6, 다비드 약 2.0, 컨스터블 약 4.5, 들라크루아 약 2.5였다. 안개가 넓은 터너보다 나뭇잎이 빽빽한 컨스터블이 더 거칠게 나오는 것이 재미있어서, 이 숫자는 카드가 아니라 활동 뒤의 질문으로 쓰기로 했다.</p>
+      <p>창의 화소 수를 계산하니 문제가 하나 드러났다. 이 책의 이미지(긴 변 1600화소)로는 10 cm 창이 들라크루아 약 262화소, 컨스터블 약 143화소, 터너 약 130화소, 쿠르베 약 61화소였다. 쿠르베는 붓질이 아니라 화소가 보인다. 서윤은 쿠르베를 돋보기 활동에서 빼고, 대신 "그림의 실제 크기" 화면에 올려 크기 이야기에 쓰기로 했다. 결 지수(이 책의 모델, 같은 2 mm 간격)는 그림 전체로 재면 다비드 약 1.9, 터너 약 3.2, 들라크루아 약 3.6, 컨스터블 약 6.4였다. 안개가 넓은 터너보다 나뭇잎이 빽빽한 컨스터블이 더 거칠게 나오는 것이 재미있어서, 이 숫자는 카드가 아니라 활동 뒤의 질문으로 쓰기로 했다.</p>
       <p>대학생 단골이 미리 남긴 질문은 "터너 그림은 미완성 아닌가요?"였다. 정 선생님은 "다비드는 붓자국이 하나도 안 보이던데, 그게 더 잘 그린 것 아니에요?"라고 물었다. 도경은 두 질문을 한 쌍으로 묶자고 했다. "완성이 무엇인지가 그 시대에 바뀌고 있었다는 걸 보여 주면 돼." 카드는 1장에서 정한 양식(색·구도·기법 세 줄과 질문 하나)을 따랐다.</p>
       <div class="table-wrap"><table>
         <thead><tr><th>순서</th><th>작품</th><th>색</th><th>구도</th><th>기법</th><th>질문</th></tr></thead>
@@ -290,7 +291,7 @@
           <tr><td class="num">1</td><td>프리드리히, 「달을 바라보는 두 남자」(마원과 나란히)</td><td>해 질 녘의 갈색과 보랏빛, 작은 달빛</td><td>등 돌린 두 사람과 기운 큰 나무</td><td>매끈하게 다듬은 얇은 칠</td><td>두 그림 속 사람은 같은 마음으로 달을 볼까?</td></tr>
           <tr><td class="num">2</td><td>터너, 「고래잡이」</td><td>누런 흰색이 대부분, 고래 하나만 어둡다</td><td>가장 밝은 곳과 가장 어두운 곳이 가운데에서 맞닿는다</td><td>문지르고 긁고 덧칠한 붓질, 윤곽이 거의 없다</td><td>이 그림은 미완성일까?</td></tr>
           <tr><td class="num">3</td><td>컨스터블, 「주교의 정원에서 본 솔즈베리 대성당」</td><td>넓은 초록, 흰 구름, 작은 붉은 점</td><td>나무가 액자처럼 대성당을 감싼다</td><td>나이프로 얹은 흰 점(임파스토)</td><td>흰 점을 다 지우면 그림이 어떻게 될까?</td></tr>
-          <tr><td class="num">4</td><td>들라크루아, 「폭풍 속에서 잠든 그리스도」</td><td>넓은 청록 바다 속의 작은 빨강</td><td>사선으로 기운 배, 왼쪽 끝의 고요한 인물</td><td>파도를 따라 움직이는 굵은 붓질</td><td>흑백으로 보면 왜 빨강이 사라질까?</td></tr>
+          <tr><td class="num">4</td><td>들라크루아, 「폭풍 속에서 잠든 그리스도」</td><td>넓은 초록 바다 속의 작은 빨강</td><td>사선으로 기운 배, 왼쪽 끝의 고요한 인물</td><td>파도를 따라 움직이는 굵은 붓질</td><td>흑백으로 보면 왜 빨강이 사라질까?</td></tr>
           <tr><td class="num">5</td><td>쿠르베, 「마을의 아가씨들」(크기 화면)</td><td>초록 골짜기, 밝은 드레스</td><td>가로 2.6 m, 역사화의 크기</td><td>이상화하지 않은 얼굴</td><td>이 장면을 이렇게 크게 그린 이유는?</td></tr>
         </tbody>
       </table></div>
@@ -308,7 +309,7 @@
     <ol>
       <li>낭만주의와 사실주의는 뒤에 붙인 이름이다. 19세기 전반에서 중반 사이 새로 힘을 얻은 경향(감정과 자연의 힘, 그리고 눈앞의 현실)을 가리키는 손잡이로 쓴다.</li>
       <li>숭고는 버크(1757)와 칸트(1790)가 정리한 압도적인 것 앞의 감동이다. 화면에서는 작은 인물과 큰 자연, 뒷모습 인물로 나타난다. 작은 인물과 큰 자연은 남송 산수에도 있지만 정서가 다르다.</li>
-      <li>들라크루아의 극은 명암보다 색상의 맞섬에서 나온다. 작은 빨강과 넓은 청록처럼, 명도가 비슷한 반대편 색은 흑백에서 사라진다.</li>
+      <li>들라크루아의 극은 명암보다 색상의 맞섬에서 나온다. 작은 빨강과 넓은 초록 바다처럼, 명도가 비슷하고 색상이 먼 두 색은 흑백에서 사라진다.</li>
       <li>매끈한 마무리(fini)에서 보이는 붓자국과 임파스토로의 변화는 "완성"의 기준이 바뀐 일이다. 동아시아 그림에서는 붓질이 처음부터 감상의 중심이었다.</li>
       <li>사진 속 붓질은 그림의 실제 크기와 이미지 해상도에 달려 있다. 질감을 비교하려면 실제 크기를 맞추고, 화소가 모자란 경우는 판단하지 않는다.</li>
       <li>사실주의는 노동과 시골과 도시의 가난을 역사화의 크기로 그려 장르의 위계를 건드렸다. "사실"은 대상의 선택이지 기계적 복제가 아니다.</li>
@@ -319,7 +320,7 @@
     <h2>확인 퀴즈</h2>
     <div class="quiz">
       <div class="quiz-q">
-        <p>1. 들라크루아의 「폭풍 속에서 잠든 그리스도」를 흑백으로 바꿨더니 붉은 옷과 청록 바다의 구분이 거의 사라졌다. 가장 알맞은 설명은?</p>
+        <p>1. 들라크루아의 「폭풍 속에서 잠든 그리스도」를 흑백으로 바꿨더니 붉은 옷과 초록 바다의 구분이 거의 사라졌다. 가장 알맞은 설명은?</p>
         <div class="opts">
           <button class="opt">흑백 변환이 빨강을 잘못 계산하는 오류다.</button>
           <button class="opt">들라크루아는 색을 쓰지 않고 명암만으로 그렸다.</button>
@@ -511,30 +512,31 @@
     AB.drag(cv.canvas, { move: function (x, y) { if (!geo) return; fig.x = AB.clamp(x / geo.w, 0.05, 0.95); fig.foot = AB.clamp(y / geo.h, 0.3, 0.98); cv.redraw(); } });
   })();
 
-  /* ---------------- 시뮬레이터 2: 반대편 색 찾기 ---------------- */
+  /* ---------------- 시뮬레이터 2: 두 색의 맞섬 찾기 ---------------- */
   (function () {
-    var picG = AB.seg("rh-pic", function () { load(); });
+    var picG = AB.seg("rh-pic", function () { var d = START[picG()]; hues = [d[0], d[1]]; load(); });
     var cG = AB.range("rh-c", function (v) { return v.toFixed(3); }, function () { compute(); });
-    var hue = 35, cur = null, view = null, geo = null;
+    var START = { delacroix: [35, 160], constable: [75, 225], courbet: [75, 160], daumier: [45, 160] };
+    var hues = [35, 160], active = 0, cur = null, view = null, geo = null;
     var wheelCol = []; for (var b = 0; b < 72; b++) wheelCol.push(hex(ART.gamutMap([0.7, 0.13, b * 5])));
     function hd(a, b) { var d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; }
     function compute() {
       if (!cur) return;
       var d = prep(cur.data), lab = d._lab, L = d._L, n = d.width * d.height, thr = cG();
       var na = 0, nb = 0, la = 0, lb = 0;
-      var opp = (hue + 180) % 360;
       view = remap(d, function (p) {
         var a = lab[p * 3 + 1], bb = lab[p * 3 + 2], C = Math.hypot(a, bb), r = d.data[p * 4], g = d.data[p * 4 + 1], bl = d.data[p * 4 + 2];
         var y = Math.round(0.2126 * r + 0.7152 * g + 0.0722 * bl) * 0.45 + 30;
         if (C >= thr) {
           var h = ART.mod360(Math.atan2(bb, a) * 180 / Math.PI);
-          if (hd(h, hue) <= 30) { na++; la += L[p]; return [r, g, bl]; }
-          if (hd(h, opp) <= 30) { nb++; lb += L[p]; var x = p % d.width, yy = Math.floor(p / d.width); return ((x + yy) % 4 < 2) ? [255, 255, 255] : [r, g, bl]; }
+          if (hd(h, hues[0]) <= 30) { na++; la += L[p]; return [r, g, bl]; }
+          if (hd(h, hues[1]) <= 30) { nb++; lb += L[p]; var x = p % d.width, yy = Math.floor(p / d.width); return ((x + yy) % 4 < 2) ? [255, 255, 255] : [r, g, bl]; }
         }
         return [y, y, y];
       });
-      AB.stat("rh-o-a", AB.pct(na / n, 1));
-      AB.stat("rh-o-b", AB.pct(nb / n, 1));
+      AB.stat("rh-o-a", AB.pct(na / n, 1) + " · " + AB.pct(nb / n, 1));
+      var ang = hd(hues[0], hues[1]);
+      AB.stat("rh-o-b", Math.round(ang) + "° <small>" + (ang >= 150 ? "거의 맞은편" : ang >= 100 ? "색상환의 먼 쪽" : ang >= 50 ? "이웃에 가까운 색" : "같은 계열") + "</small>");
       AB.stat("rh-o-l", (na ? AB.fix(la / na, 0) : "—") + " · " + (nb ? AB.fix(lb / nb, 0) : "—"));
       cv.redraw();
     }
@@ -550,22 +552,26 @@
         ctx.fillStyle = wheelCol[k]; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, R, a0, a1, true); ctx.closePath(); ctx.fill();
       }
       ctx.fillStyle = p.bg; ctx.beginPath(); ctx.arc(cx, cy, R * 0.55, 0, Math.PI * 2); ctx.fill();
-      function wedge(hc, solid) {
-        ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.setLineDash(solid ? [] : [4, 3]);
+      hues.forEach(function (hc, i) {
+        ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.setLineDash(i === 0 ? [] : [4, 3]);
         ctx.beginPath(); ctx.arc(cx, cy, R + 4, -(hc - 30) * Math.PI / 180, -(hc + 30) * Math.PI / 180, true); ctx.stroke(); ctx.setLineDash([]);
-      }
-      wedge(hue, true); wedge((hue + 180) % 360, false);
-      var ha = -hue * Math.PI / 180, hx = cx + Math.cos(ha) * R * 0.78, hy = cy + Math.sin(ha) * R * 0.78;
-      AB.handle(ctx, hx, hy, { r: 7, fill: wheelCol[Math.floor(hue / 5) % 72] });
+        var ha = -hc * Math.PI / 180, hx = cx + Math.cos(ha) * R * 0.78, hy = cy + Math.sin(ha) * R * 0.78;
+        AB.handle(ctx, hx, hy, { r: 8, fill: wheelCol[Math.floor(hc / 5) % 72] });
+        ctx.fillStyle = "#111111"; ctx.font = AB.font(10, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(i ? "B" : "A", hx, hy + 0.5);
+      });
       ctx.fillStyle = p.text; ctx.font = AB.font(11, true); ctx.textAlign = "center"; ctx.textBaseline = "middle";
-      ctx.fillText(Math.round(hue) + "°", cx, cy - 7); ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.fillText("실선 고른 색", cx, cy + 8); ctx.fillText("점선 맞은편", cx, cy + 21);
+      ctx.fillText(Math.round(hues[0]) + "° · " + Math.round(hues[1]) + "°", cx, cy - 7); ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.fillText("A 실선 · B 점선", cx, cy + 9);
       geo = { cx: cx, cy: cy, R: R };
     }, { get height() { var w = Math.max(200, document.getElementById("rh-cv").parentElement.clientWidth || 600); return w >= 520 ? Math.round(Math.min(420, w * 0.55)) : Math.round(w * 1.35); } });
     AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!geo) return; var hh = ART.mod360(-Math.atan2(y - geo.cy, x - geo.cx) * 180 / Math.PI);
+        active = hd(hh, hues[0]) <= hd(hh, hues[1]) ? 0 : 1;
+      },
       move: function (x, y) {
         if (!geo) return; var dx = x - geo.cx, dy = y - geo.cy, r = Math.hypot(dx, dy);
         if (r < geo.R * 0.3 || r > geo.R * 1.4) return;
-        hue = ART.mod360(-Math.atan2(dy, dx) * 180 / Math.PI); compute();
+        hues[active] = ART.mod360(-Math.atan2(dy, dx) * 180 / Math.PI); compute();
       },
     });
     function load() { pic(picG()).then(function (p) { cur = p; compute(); }); }
@@ -629,7 +635,7 @@
         emap = remap(cur.data, function (p) { return e.map[p] ? [30, 28, 32] : [246, 243, 236]; });
         cvA.redraw(); cvB.redraw();
         AB.stat("re-o-a", AB.pct(e.ratio, 1));
-        AB.stat("re-o-all", KEYS.map(function (k) { return PICS[k].name + " " + AB.pct(edgeMap(PICS[k].data, thr).ratio, 0); }).join(" · "));
+        AB.stat("re-o-all", KEYS.map(function (k) { return PICS[k].name + " " + AB.pct(edgeMap(PICS[k].data, thr).ratio, 1); }).join(" · "));
       });
     }
     run();
@@ -646,7 +652,7 @@
       var p = P(), real = modeG() === "real", gap = 20; // cm
       var totalW = 0; KEYS.forEach(function (k) { totalW += (real ? PICS[k].w : PICS[k].w / PICS[k].h * 100) + gap; }); totalW += gap;
       var wallH = real ? 340 : 200; // cm
-      var s = Math.min((w - 16) / totalW, (h - 40) / wallH), x0 = 8 + ((w - 16) - totalW * s) / 2, floor = h - 26;
+      var s = Math.min((w - 16) / totalW, (h - 52) / wallH), x0 = 8 + ((w - 16) - totalW * s) / 2, floor = h - 38;
       ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(8, floor); ctx.lineTo(w - 8, floor); ctx.stroke();
       var x = x0 + gap * s, sel = selG(), hang = real ? 90 : 60;
       KEYS.forEach(function (k) {
@@ -654,7 +660,7 @@
         if (ready && q.img) ctx.drawImage(q.img, x, top, pw, ph); else { ctx.fillStyle = p.surface; ctx.fillRect(x, top, pw, ph); }
         ctx.lineWidth = k === sel ? 3 : 1; ctx.strokeStyle = k === sel ? p.accent : p.border; ctx.strokeRect(x, top, pw, ph);
         ctx.fillStyle = k === sel ? p.accent : p.dim; ctx.font = AB.font(10, false, k === sel ? 700 : 400); ctx.textAlign = "center"; ctx.textBaseline = "top";
-        if (pw > 18 || k === sel) ctx.fillText(q.name, x + pw / 2, floor + 4);
+        if (pw > 46 || k === sel) ctx.fillText(q.name, x + pw / 2, floor + 4 + (k === sel && pw <= 46 ? 12 : 0));
         x += pw + gap * s;
       });
       // 사람(170 cm)
@@ -711,7 +717,7 @@
         upd();
       });
     }
-    function upd() { if (!S) return; var dd = Math.hypot(mark.x - S.cL[0], mark.y - S.cL[1]); AB.stat("rc-o-d", AB.pct(dd, 0) + " <small>(화면 대각선 기준이 아닌 가로·세로 비율 거리)</small>"); }
+    function upd() { if (!S) return; var dd = Math.hypot(mark.x - S.cL[0], mark.y - S.cL[1]); AB.stat("rc-o-d", AB.pct(dd, 0) + " <small>(그림의 가로·세로를 1로 본 거리)</small>"); }
     var cv = AB.canvas("#rc-cv", function (ctx, w, h) {
       var p = P(); if (!S) return;
       var barH = 30, box = drawFit(ctx, S.view || S.p.img, 8, 8, w - 16, h - barH - 26);
