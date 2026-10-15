@@ -838,11 +838,11 @@
       var series = [{ data: curve.jpeg.map(function (d) { return [d[0], d[1] / 1024]; }), color: p.accent2 }, { data: curve.webp.map(function (d) { return [d[0], d[1] / 1024]; }), color: p.accent }];
       var pts = [];
       if (cur && fmt() !== "png" && !cur.unsup) pts.push({ x: qR(), y: cur.size / 1024, color: fmt() === "webp" ? p.accent : p.accent2, r: 5 });
-      AB.chart(ctx, { x: 64, y: 14, w: w - 64 - 18, h: h - 14 - 46 }, { x: [30, 100], y: [0, ymax], xLabel: "품질", yLabel: "KB", series: series, points: pts, hlines: use() === "web" ? [{ y: 400, label: "400 KB" }] : [] });
+      AB.chart(ctx, { x: 64, y: 14, w: w - 64 - 18, h: h - 14 - 66 }, { x: [30, 100], y: [0, ymax], xLabel: "품질", yLabel: "KB", series: series, points: pts, hlines: use() === "web" ? [{ y: 400, label: "400 KB" }] : [] });
       ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top";
       ctx.fillStyle = p.accent2; ctx.fillText("— JPEG", 74, 18); ctx.fillStyle = p.accent; ctx.fillText("— WebP", 134, 18);
       ctx.fillStyle = p.dim; ctx.fillText("가로 " + curve.key + "화소", 200, 18);
-    }, { height: 210 });
+    }, { height: 230 });
     AB.drag(cv.canvas, { move: function (x, y) { if (!geo || x > geo.x + geo.w + 10 || y > geo.y + geo.h + 10) return; lp.x = AB.clamp((x - geo.x) / geo.w - 0.1, 0, 1); lp.y = AB.clamp((y - geo.y) / geo.h - 0.1, 0, 1); cv.redraw(); } });
     need(["homer-wall-nassau"], run);
   })();
