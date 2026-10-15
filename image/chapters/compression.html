@@ -1,0 +1,852 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "같은 사진이 인쇄에서는 거칠고 웹에서는 무겁다. 화소 수와 ppi, 300 ppi 관례의 근거, 리샘플링과 무아레, JPEG의 8×8 블록·DCT·양자화, PNG와 WebP, 다시 저장할 때 쌓이는 손실을 시뮬레이터로 익히고, 도록 인쇄용과 웹용 파일의 크기·형식·품질을 정한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>해상도와 압축 · ImageBook</title>
+<meta name="description" content="같은 사진이 인쇄에서는 거칠고 웹에서는 무겁다. 화소 수와 ppi, 300 ppi 관례의 근거, 리샘플링과 무아레, JPEG의 8×8 블록·DCT·양자화, PNG와 WebP, 다시 저장할 때 쌓이는 손실을 시뮬레이터로 익히고, 도록 인쇄용과 웹용 파일의 크기·형식·품질을 정한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/image/chapters/compression.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="해상도와 압축 · ImageBook">
+<meta property="og:description" content="같은 사진이 인쇄에서는 거칠고 웹에서는 무겁다. 화소 수와 ppi, 300 ppi 관례의 근거, 리샘플링과 무아레, JPEG의 8×8 블록·DCT·양자화, PNG와 WebP, 다시 저장할 때 쌓이는 손실을 시뮬레이터로 익히고, 도록 인쇄용과 웹용 파일의 크기·형식·품질을 정한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/image/chapters/compression.html">
+<meta property="og:image" content="https://artbook.euiyun.com/image/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/image/chapters/compression.html#chapter","name":"해상도와 압축","headline":"해상도와 압축 · ImageBook","description":"같은 사진이 인쇄에서는 거칠고 웹에서는 무겁다. 화소 수와 ppi, 300 ppi 관례의 근거, 리샘플링과 무아레, JPEG의 8×8 블록·DCT·양자화, PNG와 WebP, 다시 저장할 때 쌓이는 손실을 시뮬레이터로 익히고, 도록 인쇄용과 웹용 파일의 크기·형식·품질을 정한다.","url":"https://artbook.euiyun.com/image/chapters/compression.html","position":10,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/image/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/image/#book","name":"ImageBook · 사진과 이미지","url":"https://artbook.euiyun.com/image/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ImageBook · 사진과 이미지","item":"https://artbook.euiyun.com/image/"},{"@type":"ListItem","position":3,"name":"10. 해상도와 압축","item":"https://artbook.euiyun.com/image/chapters/compression.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="compression">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 10</div>
+    <h1>해상도와 압축</h1>
+    <p class="lead">휴대폰 화면에서 선명하던 사진을 크게 인쇄했더니 가장자리가 계단처럼 깨졌다. 반대로 카메라에서 바로 꺼낸 사진을 웹사이트에 올렸더니 한 장이 10 MB가 넘어 페이지가 한참 뒤에야 열렸다. 사진 파일에는 두 가지 숫자가 붙어 다닌다. 화소가 몇 개인가, 그리고 그 화소들을 몇 바이트로 적었는가. 이 장은 첫째 숫자가 인쇄 크기와 어떻게 만나는지, 둘째 숫자를 줄이는 JPEG·PNG·WebP가 무엇을 버리고 무엇을 지키는지 직접 들여다본다. 끝에는 용도마다 내보낼 파일을 정한다.</p>
+    <ul class="objectives">
+      <li>화소 수, ppi, 인쇄 크기의 관계를 계산하고 dpi와 ppi를 구별한다.</li>
+      <li>300 ppi 관례가 사람 눈의 해상력과 보는 거리에서 나온 어림값임을 알고, 거리에 따라 필요한 ppi를 계산한다.</li>
+      <li>사진을 줄이거나 키울 때 생기는 앨리어싱·무아레와 흐림을 보고, 리샘플링 방식의 차이를 설명한다.</li>
+      <li>JPEG가 8×8 블록, DCT, 양자화로 용량을 줄이는 원리와 블록·번짐 같은 흔적이 생기는 이유를 안다.</li>
+      <li>PNG·JPEG·WebP를 내용에 맞게 고르고, 용도별 해상도·형식·품질 값을 정한다.</li>
+    </ul>
+  </header>
+
+  <section id="ppi">
+    <h2>화소 수와 인쇄 크기</h2>
+    <p>디지털 사진은 작은 색 칸의 격자다. 칸 하나가 <span class="term">화소</span><span class="en">(Pixel)</span>이고(<a href="pixel.html">8장</a>), 가로·세로 화소 수를 그 사진의 <span class="term">해상도</span><span class="en">(Resolution)</span>라고 흔히 부른다. 6000×4000 화소 사진, 1600×1122 화소 사진처럼 쓴다. 이 숫자에는 길이 단위가 없다. 6000화소짜리 사진은 손톱만 하게도, 벽만 하게도 인쇄할 수 있다. 크기를 정하는 순간 비로소 "1인치에 화소가 몇 개 들어가는가"가 정해진다. 이것이 <span class="term">ppi</span><span class="en">(Pixels per inch)</span>다.</p>
+    <div class="formula">$$\text{ppi} = \frac{\text{화소 수}}{\text{인쇄 길이(인치)}} = \frac{\text{화소 수} \times 25.4}{\text{인쇄 길이(mm)}}$$<div class="where">1인치는 25.4 mm. 예: 가로 1600화소를 A5 종이 폭(148 mm)에 꽉 차게 인쇄하면 1600 × 25.4 ÷ 148 ≈ 275 ppi. 거꾸로, 300 ppi로 148 mm를 채우려면 148 ÷ 25.4 × 300 ≈ 1748화소가 필요하다.</div></div>
+    <p>비슷한 말인 <span class="term">dpi</span><span class="en">(Dots per inch)</span>는 원래 프린터가 1인치에 찍는 잉크 점의 수다. 잉크젯이나 인쇄기는 화소 하나의 색을 여러 개의 작은 점(망점)으로 섞어 표현하므로, 프린터의 dpi는 사진의 ppi보다 훨씬 크다(1200 dpi, 2400 dpi 등). 일상에서는 둘을 섞어 쓰는 일이 많고 인쇄소도 "300 dpi로 주세요"라고 말하곤 하는데, 그때 뜻하는 것은 대개 사진 파일의 300 ppi다.</p>
+    <p>아래 시뮬레이터는 도록 한 쪽(A5, 148×210 mm에 사방 3 mm 재단 여유)이다. 사진 틀의 오른쪽 아래 손잡이를 끌어 인쇄 크기를 바꾸고, 슬라이더로 사진의 가로 화소 수를 바꾼다. 오른쪽 돋보기는 인쇄물 위 10 mm 정사각형 안에 화소가 실제로 몇 개 들어가는지 크게 보여 준다.</p>
+
+    <div class="sim" id="sim-ppi">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>화소 수와 인쇄 크기, 그리고 ppi</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pp-cv" class="art"></canvas><span class="hint">사진 틀의 오른쪽 아래 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>사진의 가로 화소 <output id="pp-px-out"></output></span><input type="range" id="pp-px" min="400" max="6000" step="100" value="1600"></label>
+          <div class="seg" id="pp-pre"><button data-value="full">재단 여유까지 꽉</button><button data-value="text" class="on">작품면(118 mm)</button><button data-value="small">작게(60 mm)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">인쇄 크기</span><span class="v" id="pp-o-size">—</span></div>
+        <div class="stat"><span class="k">ppi</span><span class="v" id="pp-o-ppi">—</span></div>
+        <div class="stat"><span class="k">300 ppi에 필요한 가로 화소</span><span class="v" id="pp-o-need">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 가로 1600화소로 두고 "작품면(118 mm)"을 고른다. 344 ppi로 넉넉하다. "재단 여유까지 꽉"(154 mm)으로 바꾸면 264 ppi로 내려간다. ② 화소 수를 600까지 내린다. 돋보기 안에서 칸이 보이기 시작하고, 100 ppi 아래로 가면 수채화의 붓 자국 대신 네모난 계단이 보인다. ③ 화소를 6000으로 올리고 틀을 작게 줄인다. 1000 ppi를 넘겨도 돋보기 속 모습은 300 ppi 근처와 거의 같다. 눈이 구별할 수 있는 한계를 넘은 화소는 용량만 차지한다. (돋보기는 10 mm 안의 화소를 확대해 보여 주는 그림이며, 실제 인쇄의 망점이나 종이 번짐은 넣지 않았다.)</div>
+    </div>
+
+    <div class="callout warn">
+      <strong>"웹용은 72 dpi"라는 오래된 말</strong>
+      사진 파일에는 "이 사진을 몇 ppi로 인쇄하라"는 메모 값이 들어 있다. 그런데 화면은 이 값을 읽지 않는다. 웹페이지와 SNS는 화소 수만 보고 사진을 배치하므로, 같은 1600×1122 사진은 메모가 72든 300이든 화면에서 똑같이 보이고 용량도 똑같다. "웹용은 72 dpi로 저장하라"는 말은 오래전 일부 운영체제의 화면 기준에서 생긴 관습이고, 실제로 화면 크기와 용량을 정하는 것은 화소 수다. 반대로 인쇄소에 보낼 때는 메모 값을 실제 인쇄 크기에 맞게(예: 300) 적어 두면 서로 혼동이 줄어든다.
+    </div>
+  </section>
+
+  <section id="acuity">
+    <h2>왜 300 ppi인가</h2>
+    <p>인쇄용 사진은 300 ppi로 준비하라는 관례가 있다. 이 숫자는 어디서 왔을까. 출발점은 사람 눈의 해상력이다. 시력표에서 "정상 시력(1.0)"은 대략 1분각(1/60도) 크기의 틈을 알아보는 능력으로 정의된다. 책을 보는 거리를 30 cm로 두면 1분각은 종이 위에서 약 0.087 mm이고, 1인치에 그런 칸이 약 290개 들어간다. 300 ppi는 이 계산을 반올림한 어림값이다.</p>
+    <div class="formula">$$\text{필요한 ppi} \approx \frac{25.4}{d \cdot \tan(1/60^\circ)}$$<div class="where">\(d\): 보는 거리(mm). 25 cm에서 약 349, 30 cm에서 약 291, 50 cm에서 약 175, 1 m에서 약 87, 3 m에서 약 29 ppi. 1분각은 시력표의 기준일 뿐 사람마다, 대비와 무늬에 따라 다르다. 아주 가는 선의 어긋남은 이보다 훨씬 작게도 알아본다.</div></div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 270" role="img" aria-label="보는 거리에 따라 필요한 ppi. 25센티미터에서 약 349, 30센티미터에서 291, 50센티미터에서 175, 1미터에서 87, 3미터에서 29로 거리가 멀수록 줄어든다">
+        <line x1="60" y1="220" x2="440" y2="220" class="s-axis"/><line x1="60" y1="20" x2="60" y2="220" class="s-axis"/>
+        <g class="lbl-dim t-mono" font-size="10" text-anchor="end">
+          <text x="54" y="224">0</text><text x="54" y="167">100</text><text x="54" y="110">200</text><text x="54" y="53">300</text>
+        </g>
+        <g class="s-dash" stroke-width="1"><line x1="60" y1="163" x2="440" y2="163"/><line x1="60" y1="106" x2="440" y2="106"/><line x1="60" y1="49" x2="440" y2="49"/></g>
+        <path d="M78.4 21.1 L93.1 54.1 L122.6 95.7 L152 120.5 L225.6 170.6 L299.2 187.3 L372.8 195.6 L432 200.8" fill="none" class="s-acc" stroke-width="2.4"/>
+        <g class="f-acc"><circle cx="78.4" cy="21.1" r="4"/><circle cx="93.1" cy="54.1" r="4"/><circle cx="152" cy="120.5" r="4"/><circle cx="225.6" cy="170.6" r="4"/><circle cx="432" cy="203.5" r="4"/></g>
+        <g class="lbl" font-size="10.5">
+          <text x="86" y="24">25 cm 349</text><text x="101" y="57">30 cm 291 · 책, 도록</text><text x="160" y="118">50 cm 175 · 벽의 작은 액자</text><text x="232" y="165">1 m 87 · 포스터</text><text x="372" y="190">3 m 29</text>
+        </g>
+        <g class="lbl-dim t-mono" font-size="10" text-anchor="middle">
+          <text x="78" y="236">0.25</text><text x="152" y="236">0.5</text><text x="226" y="236">1</text><text x="299" y="236">1.5</text><text x="373" y="236">2</text><text x="432" y="236">3 m</text>
+        </g>
+        <text x="250" y="258" text-anchor="middle" class="lbl" font-size="11">보는 거리 (가로축은 고르지 않은 눈금)</text>
+        <text x="16" y="120" class="lbl" font-size="11" transform="rotate(-90 16 120)" text-anchor="middle">필요한 ppi</text>
+      </svg>
+      <figcaption><b>그림 1. 보는 거리와 필요한 ppi.</b> 1분각 기준으로 계산한 값이다. 손에 들고 보는 도록은 30 cm 안팎이라 300 ppi 근처가 필요하지만, 멀리서 보는 포스터나 현수막은 그보다 훨씬 낮아도 화소가 보이지 않는다. 그래서 300은 "언제나"의 숫자가 아니라 "손에 드는 인쇄물"의 숫자다.</figcaption>
+    </figure>
+
+    <p>실무에서는 300 ppi를 목표로 하되, 사진이 조금 모자라면 240~250 ppi까지는 대부분의 인쇄물에서 차이를 알아보기 어렵다고 보는 경우가 많다. 반대로 300을 훨씬 넘게 준비해도 인쇄물은 더 좋아지지 않는다. 인쇄기의 망점과 종이의 번짐이 그보다 먼저 한계를 정하기 때문이다. 인쇄소마다 권하는 값이 있으니 최종 기준은 그 인쇄소의 안내를 따른다.</p>
+  </section>
+
+  <section id="resample">
+    <h2>리샘플링: 줄이기와 키우기</h2>
+    <p>원하는 화소 수가 사진과 다르면 화소를 새로 계산해야 한다. 이것이 <span class="term">리샘플링</span><span class="en">(Resampling)</span>이다. 줄일 때는 여러 화소를 하나로 합치고, 키울 때는 화소 사이를 메울 값을 지어낸다. 어떤 규칙으로 합치고 지어내느냐에 따라 결과가 크게 다르다. 가장 단순한 <span class="term">최근접 이웃</span><span class="en">(Nearest neighbor)</span>은 새 화소 자리에서 가장 가까운 원래 화소 하나를 그대로 가져온다. <span class="term">쌍선형</span><span class="en">(Bilinear)</span>은 가까운 네 화소를 거리에 따라 섞고, <span class="term">바이큐빅</span><span class="en">(Bicubic)</span>은 열여섯 화소를 부드러운 3차 곡선의 무게로 섞는다.</p>
+    <p>줄이기에서 생기는 문제는 <span class="term">앨리어싱</span><span class="en">(Aliasing)</span>이다. 원래 사진에 촘촘한 줄무늬가 있는데 새 격자가 그보다 성기면, 격자가 줄무늬를 띄엄띄엄 집어 원래 없던 굵은 물결무늬가 나타난다. 이 가짜 무늬를 <span class="term">무아레</span><span class="en">(Moiré)</span>라고 한다. 아래 동판화는 가는 평행선이 가득해서 이 문제를 시험하기에 알맞다.</p>
+
+    <figure class="art-figure" id="fig-durer">
+      <div class="art-frame"><img src="../../shared/img/durer-saint-jerome-study.webp" width="1162" height="1500" alt="알브레히트 뒤러의 동판화 「서재의 성 히에로니무스」. 둥근 유리창이 달린 창으로 빛이 들어오는 나무 천장의 방에서 후광이 비치는 노학자가 책상에 엎드려 글을 쓰고, 앞쪽 바닥에는 사자와 개가 잠들어 있다. 천장 판자와 벽, 바닥이 모두 가는 평행선과 교차선으로 새겨져 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 알브레히트 뒤러, 「서재의 성 히에로니무스」, 1514.</b> 동판화는 회색을 칠하지 않고 가는 선의 간격과 굵기로 만든다. 천장 판자의 결과 벽의 그늘이 모두 평행선 다발이다. 이런 그림을 스캔하거나 사진으로 찍어 화면에 작게 띄우면, 선의 간격과 화소의 간격이 맞부딪혀 물결무늬가 생기기 쉽다. 이 그림 파일 자체도 원본을 줄인 것이라, 화면 배율에 따라 천장에 옅은 물결이 보일 수 있다.<span class="credit">메트로폴리탄 미술관 소장(Fletcher Fund, 1919), 동판화. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/336229">소장처 작품 페이지</a> · <a href="../../credits.html#durer-saint-jerome-study">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="sim" id="sim-resample">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>리샘플링: 무아레와 흐림</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rs-cv" class="art"></canvas><span class="hint">가운데 경계선을 끈다(왼쪽이 원본)</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="rs-mode"><button data-value="down" class="on">줄이기</button><button data-value="up">줄였다가 다시 키우기</button></div>
+          <div class="seg" id="rs-m"><button data-value="near" class="on">최근접</button><button data-value="lin">쌍선형</button><button data-value="cub">바이큐빅(필터 넓힘)</button></div>
+          <label class="ctrl"><span>배율 <output id="rs-s-out"></output></span><input type="range" id="rs-s" min="10" max="100" step="1" value="31"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">결과 화소</span><span class="v" id="rs-o-px">—</span></div>
+        <div class="stat"><span class="k">화소 수 비율</span><span class="v" id="rs-o-ratio">—</span></div>
+        <div class="stat"><span class="k">원본과의 차이(PSNR)</span><span class="v" id="rs-o-psnr">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "줄이기", 최근접, 배율 31%. 오른쪽 천장 판자에 원래 없던 굵은 물결과 끊긴 선이 나타난다. 배율을 천천히 움직이면 물결의 방향과 간격이 출렁인다. ② 같은 배율에서 "바이큐빅(필터 넓힘)"을 고른다. 줄이기 전에 가는 선을 회색으로 뭉쳐 주므로 물결이 사라지고 차분한 회색 면이 된다. 쌍선형은 그 중간이다. ③ "줄였다가 다시 키우기"로 바꾼다. 어떤 방식으로 키워도 사라진 선은 돌아오지 않는다. 최근접은 계단을, 바이큐빅은 흐림을 남길 뿐이다. 배율을 내릴수록 PSNR이 떨어진다. (최근접·쌍선형은 줄일 때 필터를 넓히지 않는 단순 구현, 바이큐빅은 Keys(1981)의 a = −0.5 커널을 줄이는 배율만큼 넓혀 썼다. 화면 표시는 결과 화소를 최근접으로 크게 그렸다. PSNR은 다시 키운 결과와 원본의 차이로, 클수록 비슷하다.)</div>
+    </div>
+
+    <p>교훈은 둘이다. 줄일 때는 반드시 "필터를 넓히는" 방식, 곧 줄이는 만큼 넓은 범위를 평균하는 방식을 쓴다. 대부분의 사진 프로그램은 내보내기에서 이렇게 하지만, 브라우저나 간단한 도구의 빠른 축소는 그렇지 않을 때가 있다. 그리고 키우기는 정보를 만들지 못한다. 요즘에는 학습된 모형으로 그럴듯한 세부를 "그려 넣는" 확대 도구도 있지만, 그 세부는 원래 장면에서 온 것이 아니라 모형이 추측한 것이다. 작품 사진이나 기록 사진에서는 그렇게 생긴 세부를 실물의 기록으로 쓰면 안 된다. 필요한 화소는 찍을 때 확보한다.</p>
+
+    <div class="callout studio">
+      <strong>원본은 크게, 내보내기는 그때그때</strong>
+      사진가와 디자이너는 대개 원본(RAW나 16비트 TIFF)을 손대지 않은 채 두고, 용도가 생길 때마다 그 원본에서 필요한 크기로 새로 내보낸다. 웹용으로 줄인 파일을 다시 키워 인쇄용으로 쓰거나, 인쇄용 파일을 줄여 웹용으로 만든 뒤 또 다른 크기로 줄이는 식의 "사본의 사본"은 리샘플링과 압축 손실이 겹겹이 쌓인다. 파일 이름에 용도와 크기를 넣어 두면(예: <code>창가의책_web_1600.webp</code>, <code>창가의책_print_A5full.tif</code>) 어느 것이 원본에서 바로 나온 것인지 헷갈리지 않는다.
+    </div>
+  </section>
+
+  <section id="jpeg">
+    <h2>JPEG는 무엇을 버리는가</h2>
+    <p>1600×1122 사진 한 장을 그대로 적으면 화소마다 빨강·초록·파랑 1바이트씩, 약 5.4 MB다. 같은 사진을 JPEG로 저장하면 수백 KB, 열 분의 일 아래로 준다. JPEG는 사진을 손톱만큼도 흐리게 하지 않고 줄이는 것이 아니라, <b>사람 눈이 잘 알아채지 못하는 정보를 골라 버린다.</b> 이렇게 원본으로 완전히 되돌릴 수 없는 압축을 <span class="term">손실 압축</span><span class="en">(Lossy compression)</span>이라고 한다. JPEG 표준(ITU-T T.81, 1992)이 정한 단계는 다음과 같다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 236" role="img" aria-label="JPEG 압축의 다섯 단계. RGB를 밝기와 두 색차 신호로 바꾸고, 색차는 가로세로 절반으로 줄이고, 8×8 블록마다 DCT로 무늬 성분을 구하고, 양자화 표로 나눠 반올림하고, 남은 숫자를 지그재그 순서로 엔트로피 부호화한다. 손실은 색차 줄이기와 양자화 두 단계에서 생긴다">
+        <defs><marker id="cp-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g font-size="11">
+          <rect x="8" y="24" width="80" height="62" rx="6" class="f-surface s-line"/><text x="48" y="50" text-anchor="middle" class="lbl-b">① 색 분리</text><text x="48" y="68" text-anchor="middle" class="lbl-dim" font-size="10">Y·Cb·Cr</text>
+          <rect x="98" y="24" width="80" height="62" rx="6" class="f-bad-soft s-line"/><text x="138" y="50" text-anchor="middle" class="lbl-b">② 색차 줄이기</text><text x="138" y="68" text-anchor="middle" class="lbl-dim" font-size="10">4:2:0</text>
+          <rect x="188" y="24" width="80" height="62" rx="6" class="f-surface s-line"/><text x="228" y="50" text-anchor="middle" class="lbl-b">③ 8×8 DCT</text><text x="228" y="68" text-anchor="middle" class="lbl-dim" font-size="10">무늬 64개</text>
+          <rect x="278" y="24" width="80" height="62" rx="6" class="f-bad-soft s-line"/><text x="318" y="50" text-anchor="middle" class="lbl-b">④ 양자화</text><text x="318" y="68" text-anchor="middle" class="lbl-dim" font-size="10">나누고 반올림</text>
+          <rect x="368" y="24" width="84" height="62" rx="6" class="f-surface s-line"/><text x="410" y="50" text-anchor="middle" class="lbl-b">⑤ 부호화</text><text x="410" y="68" text-anchor="middle" class="lbl-dim" font-size="10">무손실</text>
+        </g>
+        <g class="s-acc" stroke-width="1.8" fill="none"><path d="M88 55h8" marker-end="url(#cp-ar)"/><path d="M178 55h8" marker-end="url(#cp-ar)"/><path d="M268 55h8" marker-end="url(#cp-ar)"/><path d="M358 55h8" marker-end="url(#cp-ar)"/></g>
+        <g class="lbl" font-size="10.5">
+          <text x="8" y="116">밝기(Y)는 그대로, 두 색차 신호는 가로·세로 절반 해상도로.</text>
+          <text x="8" y="134">눈은 밝기의 세부에 예민하고 색의 세부에는 둔하다(ColorBook 6장).</text>
+          <text x="8" y="160">DCT: 8×8 블록을 "평평함 + 점점 촘촘한 무늬 63개"의 합으로 다시 적는다.</text>
+          <text x="8" y="178">양자화: 촘촘한 무늬일수록 큰 수로 나누고 반올림 → 대부분 0이 된다.</text>
+          <text x="8" y="196">부호화: 0이 줄줄이 이어진 숫자열을 짧게 적는다(되돌릴 수 있다).</text>
+        </g>
+        <text x="8" y="224" class="lbl-bad" font-size="11">붉은 칸(②, ④)에서만 정보가 사라진다. 품질 값은 ④의 나눗셈 크기를 정한다.</text>
+      </svg>
+      <figcaption><b>그림 3. JPEG 압축의 단계.</b> 실제 인코더는 여기에 여러 선택(색차를 줄이지 않는 4:4:4, 점진적 저장, 최적화된 허프만 표 등)을 더한다. 품질 값과 표의 관계는 표준이 정하지 않았고, 아래 시뮬레이터는 널리 쓰이는 독립 JPEG 그룹(IJG) 라이브러리의 방식을 따랐다.</figcaption>
+    </figure>
+
+    <p>핵심은 ③과 ④다. <span class="term">DCT</span><span class="en">(Discrete cosine transform, 이산 코사인 변환)</span>는 8×8 화소 블록을, 완전히 평평한 무늬 하나(평균 밝기)와 가로·세로로 점점 촘촘해지는 물결무늬 63개를 얼마씩 섞으면 되는지로 바꿔 적는다. 64개 화소가 64개 "섞는 양"(계수)으로 바뀔 뿐, 이 단계에서는 아무것도 버리지 않는다. 그런데 사진의 블록은 대개 부드러워서 평평한 무늬와 성긴 무늬 몇 개에 거의 모든 양이 몰리고, 촘촘한 무늬의 양은 작다. ④ <span class="term">양자화</span><span class="en">(Quantization)</span>는 각 계수를 정해진 수로 나누고 반올림한다. 촘촘한 무늬일수록 큰 수로 나누므로 작은 계수들이 대부분 0이 된다. 0이 많을수록 ⑤에서 짧게 적힌다. 아래에서 블록 하나를 직접 들여다본다.</p>
+
+    <div class="sim" id="sim-dct">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>8×8 블록 하나: DCT와 양자화</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="dc-cv" class="art"></canvas><span class="hint">왼쪽 그림 위의 네모를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>품질 <output id="dc-q-out"></output></span><input type="range" id="dc-q" min="1" max="100" step="1" value="50"></label>
+          <div class="seg" id="dc-pre"><button data-value="sky" class="on">하늘(부드러움)</button><button data-value="foam">물보라(촘촘함)</button><button data-value="edge">배의 가장자리</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">0이 아닌 계수</span><span class="v" id="dc-o-nz">—</span></div>
+        <div class="stat"><span class="k">표 배율(IJG)</span><span class="v" id="dc-o-s">—</span></div>
+        <div class="stat"><span class="k">블록의 평균 오차</span><span class="v" id="dc-o-err">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "하늘"을 고른다. 품질 50에서 64개 계수 중 살아남는 것은 평균 밝기 하나뿐이고, 품질을 10까지 내려도 복원 블록의 평균 오차는 1.2에 그친다. 부드러운 블록은 숫자 하나로 충분하다. ② "물보라"로 바꾼다. 품질 50에서 34개가 살아남고, 품질 10에서는 13개만 남아 평균 오차가 28로 커진다. 복원 블록에서 물보라의 점들이 뭉개진다. ③ "배의 가장자리"에서 품질을 10까지 내린다. 경계 양쪽의 평평하던 면에 물결 같은 얼룩이 번진다. 날카로운 경계를 만들던 촘촘한 무늬가 잘려 나가면서 생기는 이 얼룩을 링잉(모스키토 노이즈)이라고 한다. (밝기 Y 채널 하나만 계산했다. 양자화 표는 T.81 부록 K의 밝기 표, 품질에 따른 배율은 IJG libjpeg의 공식이다.)</div>
+    </div>
+
+    <p>블록마다 따로 계산한다는 사실이 JPEG의 대표적인 흔적을 만든다. 품질을 많이 낮추면 블록 하나가 평균 밝기 하나로만 남아 8×8 타일이 드러나고(블록 현상), 이웃 블록끼리 서로 사정을 모르니 경계에서 밝기가 툭 끊긴다. 날카로운 경계 둘레에는 링잉이, 색차를 절반으로 줄인 탓에 빨간 글자 둘레에는 색이 번진 테두리가 생긴다. 이 흔적들은 부드러운 사진에서는 잘 숨고, 글자·선화·평평한 색면에서는 쉽게 드러난다.</p>
+
+    <div class="callout deep">
+      <strong>왜 하필 코사인이고 8×8인가</strong>
+      DCT는 Ahmed, Natarajan, Rao가 1974년에 발표한 변환으로, 이웃한 화소끼리 값이 비슷한 신호(대부분의 사진)에서 에너지를 소수의 계수에 몰아 주는 성질이 좋다. 8×8이라는 크기는 표준을 만들던 1980년대 말의 계산 능력과 압축 효율 사이의 타협이다. 블록이 크면 부드러운 하늘을 더 효율적으로 적지만 계산이 무겁고 링잉이 넓게 퍼진다. 뒤에 나온 형식들은 이 점을 고쳤다. WebP의 손실 모드는 동영상 부호화 방식(VP8)에서 왔고, 블록 크기를 바꾸고 이미 부호화한 이웃 블록으로 현재 블록을 예측한 뒤 차이만 적는다. 그래서 같은 화질에서 대개 JPEG보다 작다.
+    </div>
+  </section>
+
+  <section id="quality">
+    <h2>품질 값과 다시 저장하기</h2>
+    <p>사진 프로그램의 "JPEG 품질" 손잡이는 양자화 표에 곱하는 배율을 고르는 손잡이다. 품질 100은 표의 모든 값을 1로 만들어 반올림 오차만 남기고, 품질을 내릴수록 나눗셈이 커진다. 숫자 자체에는 표준이 없어서, 같은 "품질 80"도 프로그램마다 표와 배율이 다르다. 그러니 품질 값은 프로그램 안에서 비교하는 눈금으로만 쓰고, 다른 프로그램의 값과 맞대어 보지 않는다.</p>
+    <p>아래 시뮬레이터는 이 브라우저에 들어 있는 실제 JPEG 인코더로 그림을 저장했다가 다시 읽는다. 오른쪽(좁은 화면에서는 아래) 돋보기는 사진의 한 부분을 네 배로 키워, 왼쪽 절반은 원본, 오른쪽 절반은 저장 결과를 보여 준다. 돋보기 네모는 큰 그림 위에서 끌어 옮긴다.</p>
+
+    <div class="sim" id="sim-jpeg">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>JPEG 품질과 다시 저장할 때의 손실</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="jq-cv" class="art"></canvas><span class="hint">큰 그림 위의 돋보기 네모를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>품질 <output id="jq-q-out"></output></span><input type="range" id="jq-q" min="5" max="100" step="5" value="60"></label>
+          <label class="ctrl"><span>저장 횟수 <output id="jq-n-out"></output></span><input type="range" id="jq-n" min="1" max="20" step="1" value="1"></label>
+          <label class="check"><input type="checkbox" id="jq-shift"> 저장할 때마다 1화소씩 옮기기(자르기 흉내)</label>
+          <label class="check"><input type="checkbox" id="jq-diff"> 원본과의 차이를 10배로 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">파일 크기</span><span class="v" id="jq-o-size">—</span></div>
+        <div class="stat"><span class="k">비압축 대비</span><span class="v" id="jq-o-ratio">—</span></div>
+        <div class="stat"><span class="k">PSNR</span><span class="v" id="jq-o-psnr">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 품질을 100에서 5까지 내려 본다. 크롬 기준으로 100은 391 KB(PSNR 50 dB), 90은 102 KB(34.5 dB), 60은 47 KB(29.4 dB), 10은 14 KB(24 dB)다. 용량은 90 근처에서 가장 가파르게 준다. 처음 사라지는 것은 판화 종이의 미세한 결이고, 30 아래에서는 물보라 둘레에 얼룩이, 10 아래에서는 하늘에 8×8 타일이 보인다. ② 품질 60에서 저장 횟수를 20으로 올린다. 같은 설정으로 다시 저장하면 PSNR이 29.4 dB 그대로다. 이미 버린 정보를 또 버릴 것이 거의 없기 때문이다. ③ "1화소씩 옮기기"를 켠다. 매번 블록 격자가 그림과 어긋나 새로 계산되므로 PSNR이 28.2(2번), 27.9(5번), 27.3 dB(20번)로 조금씩 계속 내려간다. 사진을 자르거나 회전한 뒤 다시 JPEG로 저장하는 일이 이것과 같다. (이 브라우저의 인코더를 쓰므로 크기와 PSNR은 브라우저마다 조금 다르다. PSNR은 RGB 세 채널의 평균 제곱 오차로 계산했다.)</div>
+    </div>
+
+    <p><span class="term">PSNR</span><span class="en">(Peak signal-to-noise ratio)</span>은 원본과 결과의 차이를 데시벨로 적은 숫자로, 클수록 원본에 가깝다. 사진에서 대략 40 dB를 넘으면 나란히 놓고 봐도 차이를 찾기 어렵고 30 dB 아래면 흔적이 보이기 시작한다고들 하지만, PSNR은 눈이 보는 방식을 단순화한 숫자라서 같은 PSNR도 그림에 따라 눈에 띄는 정도가 다르다. 숫자는 방향을 알려 주고, 판단은 100% 크기로 확대해 눈으로 한다.</p>
+  </section>
+
+  <section id="formats">
+    <h2>PNG, JPEG, WebP: 내용에 맞는 형식</h2>
+    <p>형식은 "좋은 것"과 "나쁜 것"이 아니라 "맞는 내용"이 다르다. <span class="term">PNG</span><span class="en">(Portable Network Graphics)</span>는 <span class="term">무손실 압축</span><span class="en">(Lossless compression)</span>이다. 화소 하나 틀리지 않게 되돌릴 수 있고, 같은 색이 이어지거나 반복되는 곳을 짧게 적는 방식이라 평평한 색면·글자·선화에 강하다. 대신 붓 자국과 종이 결처럼 화소마다 값이 조금씩 다른 사진에서는 거의 줄지 않는다. JPEG는 그 반대다. 사진의 부드러운 변화는 잘 줄이지만 날카로운 글자 둘레에 얼룩을 남긴다. <span class="term">WebP</span>는 구글이 2010년에 발표한 형식으로 손실과 무손실 모드를 모두 갖고 투명도도 지원하며, 지금의 주요 브라우저는 모두 읽는다.</p>
+
+    <div class="sim" id="sim-format">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>내용과 형식: 사진, 안내판, 선화</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="fm-cv" class="art"></canvas><span class="hint">돋보기 네모를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="fm-src"><button data-value="photo" class="on">수채화 사진</button><button data-value="sign">안내판 그래픽</button><button data-value="line">판화 선</button></div>
+          <div class="seg" id="fm-fmt"><button data-value="png">PNG</button><button data-value="jpeg" class="on">JPEG</button><button data-value="webp">WebP</button></div>
+          <label class="ctrl"><span>품질(손실 형식) <output id="fm-q-out"></output></span><input type="range" id="fm-q" min="10" max="100" step="5" value="80"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">PNG</span><span class="v" id="fm-o-png">—</span></div>
+        <div class="stat"><span class="k">JPEG</span><span class="v" id="fm-o-jpeg">—</span></div>
+        <div class="stat"><span class="k">WebP</span><span class="v" id="fm-o-webp">—</span></div>
+        <div class="stat"><span class="k">보고 있는 형식의 PSNR</span><span class="v" id="fm-o-psnr">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "수채화 사진"에서 세 형식의 크기를 비교한다. PNG는 JPEG의 몇 배다. 화소마다 미세하게 다른 종이 결과 붓 자국은 무손실로는 줄일 곳이 없다. ② "안내판 그래픽"으로 바꾼다. 사진에서 열 배 넘게 벌어졌던 PNG와 JPEG의 차이가 1.5배 정도로 좁혀진다(품질 80에서 약 24 KB 대 16 KB). 대신 JPEG로 보면 글자 둘레에 얼룩과 번진 색 테두리가 생기고, PNG는 화소 하나 틀리지 않는다(PSNR ∞). 돋보기를 빨간 글자 위로 옮긴다. ③ "판화 선"에서 JPEG 품질을 40으로 내리고 WebP와 번갈아 본다. 같은 품질 값이라도 형식마다 남기는 흔적과 크기가 다르다. 품질 값은 형식끼리 같은 눈금이 아니다. (이 브라우저의 인코더를 쓴다. WebP 저장을 지원하지 않는 브라우저에서는 WebP 칸에 그렇게 표시된다. 그림 크기는 가로 480화소다.)</div>
+    </div>
+
+    <div class="table-wrap"><table>
+      <thead><tr><th>형식</th><th>압축</th><th>잘 맞는 내용</th><th>피할 때</th></tr></thead>
+      <tbody>
+        <tr><td>JPEG</td><td>손실</td><td>사진, 수채화·유화 같은 부드러운 그림. 어디서나 열린다</td><td>글자·로고·선화, 다시 고칠 중간 파일</td></tr>
+        <tr><td>PNG</td><td>무손실</td><td>글자가 든 그래픽, 화면 캡처, 투명 배경, 선화</td><td>큰 사진(용량이 몇 배)</td></tr>
+        <tr><td>WebP</td><td>손실·무손실</td><td>웹에 올리는 사진과 그래픽. 같은 화질에서 대개 JPEG보다 작다</td><td>인쇄소 제출, 오래된 프로그램과 주고받기</td></tr>
+        <tr><td>TIFF</td><td>무손실(또는 무압축)</td><td>보관용 원본, 16비트 편집 결과, 인쇄소 제출</td><td>웹(브라우저가 보여 주지 않는다)</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout try">
+      <strong>같은 사진, 다섯 개의 파일</strong>
+      휴대폰으로 창가의 화분이나 책 한 권을 찍는다. 사진 편집 앱이나 컴퓨터에서 그 사진을 ① PNG, ② JPEG 품질 95, ③ JPEG 품질 75, ④ JPEG 품질 30, ⑤ 가로 800화소로 줄인 JPEG 품질 75로 각각 내보내고 파일 크기를 종이에 적는다. 그다음 화면에서 다섯 장을 100% 크기로 열어 같은 부분(잎 가장자리, 책 제목 글자)을 비교하고, 어느 것부터 차이가 보이는지 표시한다. 끝으로 ④를 인쇄해 보면 화면에서 안 보이던 블록이 종이에서 보이는지도 확인한다. 크기 숫자와 눈의 판단이 어디서 갈리는지가 이 과제의 요점이다.
+    </div>
+  </section>
+
+  <section id="export">
+    <h2>용도별 내보내기 작업대</h2>
+    <p>지금까지의 숫자를 "어디에 쓸 파일인가"라는 물음으로 모은다. 인쇄용은 지면 크기와 ppi가 화소 수를 정하고, 형식은 손실이 없는 쪽을 고른다. 웹용은 화면에서 보일 크기가 화소 수를 정하고, 형식과 품질은 용량과 화질의 거래로 정한다. 아래 작업대는 수채화 한 점(호머의 「나소의 담」을 서윤의 그림 대신 쓴다)의 1600화소 파일로 이 거래를 직접 해 본다. 그래프는 고른 크기와 형식에서 품질에 따라 파일 크기가 어떻게 변하는지 이 브라우저의 인코더로 그때그때 잰 것이다.</p>
+
+    <div class="sim" id="sim-export">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>용도별 내보내기 작업대</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <canvas id="ex-cv" class="art"></canvas>
+          <canvas id="ex-ch"></canvas>
+          <span class="hint">위 그림의 돋보기 네모를 끈다</span>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="ex-use"><button data-value="full">도록 전면</button><button data-value="page">도록 작품면</button><button data-value="web" class="on">웹사이트</button><button data-value="sns">SNS</button></div>
+          <label class="ctrl"><span>가로 화소 <output id="ex-w-out"></output></span><input type="range" id="ex-w" min="400" max="1600" step="40" value="1600"></label>
+          <div class="seg" id="ex-fmt"><button data-value="jpeg">JPEG</button><button data-value="webp" class="on">WebP</button><button data-value="png">PNG</button></div>
+          <label class="ctrl"><span>품질 <output id="ex-q-out"></output></span><input type="range" id="ex-q" min="30" max="100" step="5" value="80"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">파일 크기</span><span class="v" id="ex-o-size">—</span></div>
+        <div class="stat"><span class="k">PSNR(같은 크기 무손실 대비)</span><span class="v" id="ex-o-psnr">—</span></div>
+        <div class="stat"><span class="k">인쇄했을 때</span><span class="v" id="ex-o-ppi">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="ex-o-judge">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "웹사이트"(가로 1600, WebP 80)에서 시작한다. 이 브라우저(크롬 기준)에서 약 220 KB다. 형식을 JPEG로 바꾸면 같은 품질에서 약 310 KB, PNG는 3.3 MB다. 그래프에서 품질 90을 넘으면 크기가 가파르게 늘어나는 "무릎"을 찾는다. ② 가로 화소를 800으로 내린다. 화소 수가 4분의 1이 되니 용량도 약 70 KB로 크게 준다. 휴대폰 화면에서만 볼 사진이라면 충분하지만, 넓은 모니터에서 크게 열면 흐릿하다. ③ "도록 전면"을 누른다. 1600화소를 154 mm에 펴면 264 ppi라 300에 못 미친다. 이 파일은 웹용이고, 인쇄용은 카메라 원본에서 1819화소 이상으로 다시 내보내야 한다. 인쇄용에서 손실 형식을 고르면 판정이 경고를 띄운다. (돋보기는 결과 파일의 화소를 1:1로 보여 준다. PSNR은 같은 크기로 줄인 무손실 그림과 비교한 압축 손실만의 값이다.)</div>
+    </div>
+
+    <p>작업대에서 보듯 웹용 파일의 크기를 가장 크게 바꾸는 손잡이는 화소 수이고, 그다음이 형식, 마지막이 품질이다. 품질 70~85 근처는 용량과 화질의 거래가 가장 유리한 구간이다. 90을 넘기면 용량은 빠르게 늘지만 눈에 보이는 차이는 거의 없고, 60 아래로 내리면 용량은 조금 줄지만 흔적이 보이기 시작한다. 인쇄용은 이 거래를 하지 않는다. 인쇄소에 보내는 파일은 무손실로, 지면 크기에서 300 ppi가 되게 만든다. 이 단계들은 <a href="lab.html">13장 실험실</a>에서 보정·크롭과 함께 한 번 더 모인다.</p>
+
+    <div class="callout studio">
+      <strong>내보낼 때 함께 확인하는 것</strong>
+      ① 색 공간: 웹용은 sRGB로 변환해 내보낸다. 넓은 색 공간(Adobe RGB 등)의 파일을 변환 없이 올리면 일부 환경에서 색이 흐리게 보인다. 인쇄용 색 변환(CMYK)은 인쇄소의 안내를 따른다(ColorBook <a href="../../color/chapters/print.html">15장</a>). ② 메타데이터: 휴대폰 사진에는 촬영 위치(GPS)가 들어 있을 수 있다. 서점 웹사이트·SNS에 올릴 때는 위치 정보를 지운다. 반대로 작품 사진의 작가·제목·저작권 정보는 남겨 두면 좋다. ③ 선명하게 하기(샤프닝): 크게 줄인 사진은 조금 무르게 보이므로 많은 프로그램이 내보내기 단계에서 약한 샤프닝을 건다. 웹용과 인쇄용은 알맞은 양이 다르니 용도마다 따로 확인한다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 겨울 촬영 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>촬영 노트 · 10장</span></div>
+      <h4>하나의 원본, 두 갈래의 파일</h4>
+      <p>보정을 마친 RAW 파일이 서른 장 남짓 쌓이자, 서윤은 도록 인쇄소와 서점 웹사이트에 보낼 파일을 정해야 했다. 처음에는 "그냥 제일 큰 JPEG 하나로 다 쓰면 되지 않나" 생각했다. 인쇄소 담당자는 "A5 도록이면 300 dpi로 주세요"라고만 했고, 서점 주인은 "웹사이트가 느리면 손님이 안 봐요"라고 했다.</p>
+      <p>서윤은 먼저 인쇄용 숫자를 계산했다. A5(148×210 mm)에 사방 3 mm 재단 여유를 더하면 154×216 mm이고, 300 ppi로 채우려면 1819×2551화소가 필요하다. 쪽 안쪽에 여백을 두고 작품을 놓는 작품면(최대 118×180 mm)은 1394×2126화소다. 미러리스 원본은 이보다 훨씬 크니 화소는 모자라지 않았다. 문제는 형식이었다. 인쇄소가 말한 "300 dpi"는 사진 파일의 300 ppi를 뜻했고, 파일은 손실 없는 TIFF로 받는다고 했다. 한도경은 "원본은 건드리지 말고, 보낼 때마다 거기서 새로 뽑아"라며 필름 시절 원판과 인화의 관계에 빗댔다.</p>
+      <p>웹용은 작업대에서 직접 재 보았다. 호머의 수채화를 대신 놓고 가로 1600화소로 줄이면 비압축 5.4 MB, PNG 약 3.3 MB, JPEG 품질 85 약 365 KB, WebP 품질 80 약 220 KB였다(크롬 인코더 기준). 100% 크기로 확대해 실물 사진과 번갈아 봐도 WebP 80과 JPEG 85에서 붓 자국의 차이를 찾지 못했다. SNS는 올릴 때 한 번 더 압축하므로 그만큼 여유를 두어 JPEG 품질 90(약 460 KB)으로 정했다. 행사 안내처럼 글자가 든 그래픽은 JPEG로 저장했을 때 글자 둘레가 지저분해지는 것을 보고 PNG로 남기기로 했다.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>용도</th><th>크기</th><th>형식·품질</th><th>메모</th></tr></thead>
+        <tbody>
+          <tr><td>보관 원본</td><td>카메라 원본 그대로</td><td>RAW + 16비트 TIFF</td><td>손대지 않는다</td></tr>
+          <tr><td>도록 전면</td><td class="num">1819×2551</td><td>8비트 TIFF(LZW 무손실)</td><td>154×216 mm, 300 ppi</td></tr>
+          <tr><td>도록 작품면</td><td class="num">최대 1394×2126</td><td>8비트 TIFF(LZW 무손실)</td><td>지면 크기 × 300 ppi, 최소 240 ppi</td></tr>
+          <tr><td>웹사이트</td><td class="num">가로 1600</td><td>WebP 품질 80 (대체 JPEG 85)</td><td>sRGB, 장당 400 KB 이하</td></tr>
+          <tr><td>SNS</td><td class="num">가로 1600</td><td>JPEG 품질 90</td><td>위치 정보 삭제</td></tr>
+          <tr><td>글자가 든 안내 그래픽</td><td class="num">가로 1600</td><td>PNG</td><td>사진과 섞지 않는다</td></tr>
+        </tbody>
+      </table></div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>용도별 해상도와 형식·품질은 위 표와 같다. 8비트로 줄이는 것은 내보내기 단계에서만 한 번, 언제나 보관 원본에서 새로 내보낸다. 웹용 파일을 인쇄에 쓰지 않는다(1600화소를 154 mm에 펴면 264 ppi). 인쇄소에 보내는 파일의 ppi 메모 값도 300으로 적는다.</div>
+        <div><b>아직 남은 문제</b>SNS에 올릴 서점 사진은 화면 비율이 제각각이다. 한 장씩 고를 때와 여러 장을 이어서 보여 줄 때 어떻게 자르고 고를 것인가.</div>
+        <div><b>다음 단계</b><a href="composition.html">11장</a>: 사진의 구도와 자르기, 연속 사진에서 고르기.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>화소 수에는 길이 단위가 없다. 인쇄 크기를 정해야 ppi(화소 수 × 25.4 ÷ mm)가 정해진다. 화면은 파일의 ppi 메모 값을 읽지 않는다.</li>
+      <li>300 ppi는 30 cm 거리에서 1분각을 구별하는 시력을 기준으로 한 어림값이다. 멀리서 보는 인쇄물은 훨씬 낮아도 되고, 300을 크게 넘겨도 인쇄물은 좋아지지 않는다.</li>
+      <li>줄일 때 필터를 넓히지 않으면 촘촘한 무늬가 앨리어싱과 무아레를 만든다. 키우기는 사라진 정보를 되살리지 못하고 계단이나 흐림만 남긴다.</li>
+      <li>JPEG는 색차를 줄이고, 8×8 블록을 DCT로 무늬 성분으로 바꾼 뒤, 촘촘한 성분을 크게 나눠 버린다. 블록 현상, 링잉, 색 번짐은 이 과정의 흔적이다.</li>
+      <li>품질 값은 양자화 배율의 눈금이고 프로그램·형식마다 다르다. 같은 설정으로 다시 저장하면 손실이 금방 멈추지만, 자르거나 옮긴 뒤 다시 저장하면 계속 쌓인다.</li>
+      <li>사진은 JPEG나 WebP, 글자·선화·평면 그래픽은 PNG, 보관과 인쇄는 무손실 TIFF가 맞다. 웹용은 화소 수 → 형식 → 품질 순으로 용량을 정한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 가로 1600화소 사진을 A5 도록의 재단 여유까지 꽉 차게(가로 154 mm) 인쇄하려 한다. 이때의 ppi와 판단으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">72 ppi. 웹용 사진은 언제나 72 ppi이기 때문이다.</button>
+          <button class="opt">1600 ppi. 화소 수가 곧 ppi이기 때문이다.</button>
+          <button class="opt" data-correct>약 264 ppi. 300 ppi 관례에 조금 못 미치므로 원본에서 약 1819화소 이상으로 다시 내보내는 것이 낫다.</button>
+          <button class="opt">약 264 ppi. 이 값을 300으로 바꿔 적으면 화소를 더하지 않아도 같은 크기에서 선명해진다.</button>
+        </div>
+        <div class="quiz-exp">ppi = 1600 × 25.4 ÷ 154 ≈ 264. 300 ppi로 154 mm를 채우려면 154 ÷ 25.4 × 300 ≈ 1819화소가 필요하다. 파일의 ppi 메모 값만 바꾸면 같은 크기에서는 화소 수가 그대로이므로 선명해지지 않는다(메모를 300으로 바꾸면 인쇄 크기가 135 mm로 줄어들 뿐이다). 72 ppi는 화면과 무관한 오래된 관습이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 가는 평행선이 많은 동판화 사진을 최근접 이웃 방식으로 3분의 1 크기로 줄였더니 원래 없던 굵은 물결무늬가 나타났다. 이 현상과 대책으로 맞는 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>앨리어싱(무아레)이다. 줄이는 만큼 넓은 범위를 평균하는(필터를 넓히는) 방식으로 줄인다.</button>
+          <button class="opt">JPEG 블록 현상이다. PNG로 저장하면 사라진다.</button>
+          <button class="opt">양자화 오차다. 16비트로 저장하면 사라진다.</button>
+          <button class="opt">렌즈의 색수차다. 다시 찍어야 한다.</button>
+        </div>
+        <div class="quiz-exp">새 격자가 원래 무늬보다 성기면 격자가 무늬를 띄엄띄엄 집어 가짜 저주파 무늬를 만든다. 이것이 앨리어싱이고 줄무늬에서는 무아레로 보인다. 줄이기 전에 가는 무늬를 뭉쳐 주는 필터(면적 평균, 넓힌 바이큐빅 등)가 대책이다. 저장 형식이나 비트 깊이와는 상관없는 리샘플링 단계의 문제다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. JPEG의 품질을 낮추면 파일이 작아지는 가장 직접적인 이유는?</p>
+        <div class="opts">
+          <button class="opt">화소 수를 줄여 사진을 작게 만들기 때문이다.</button>
+          <button class="opt">색의 수를 256가지로 제한하기 때문이다.</button>
+          <button class="opt">DCT 단계에서 계수를 64개보다 적게 만들기 때문이다.</button>
+          <button class="opt" data-correct>DCT 계수를 더 큰 수로 나눠 반올림하므로 0이 되는 계수가 늘고, 0이 이어진 숫자열은 짧게 적히기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">품질 값은 양자화 표의 배율을 정한다. 나눗셈이 커지면 작은 계수, 특히 촘촘한 무늬의 계수가 0이 되고, 부호화 단계가 0의 연속을 짧게 적는다. DCT 자체는 64개 화소를 64개 계수로 바꿀 뿐 아무것도 버리지 않는다. 화소 수와 색의 수는 품질 값으로 바뀌지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 서점의 행사 안내 이미지(흰 바탕에 빨간 큰 글자와 작은 검은 글자)를 웹에 올리려 한다. 가장 알맞은 선택은?</p>
+        <div class="opts">
+          <button class="opt">JPEG 품질 60. 어떤 이미지든 JPEG가 가장 작다.</button>
+          <button class="opt" data-correct>PNG(또는 무손실 WebP). 평평한 색과 글자는 무손실로도 작게 줄고, JPEG처럼 글자 둘레에 얼룩이나 색 번짐이 생기지 않는다.</button>
+          <button class="opt">TIFF. 화질이 가장 좋으므로 웹에서도 가장 낫다.</button>
+          <button class="opt">JPEG 품질 100. 품질 100이면 무손실이 된다.</button>
+        </div>
+        <div class="quiz-exp">평평한 색면과 글자는 같은 값이 이어지므로 무손실 압축이 잘 통하고, JPEG의 블록·링잉·색차 줄이기 흔적이 글자 둘레에서 가장 잘 보인다. JPEG 품질 100도 색 변환과 반올림 때문에 엄밀한 무손실은 아니다. TIFF는 브라우저가 보여 주지 않으므로 웹에 맞지 않는다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874";
+  function cw(id) { var el = document.getElementById(id); return Math.max(200, (el && el.parentElement.clientWidth) || 600); }
+  function kb(n) { return n >= 1048576 ? AB.fix(n / 1048576, 2) + " MB" : Math.round(n / 1024) + " KB"; }
+  function loading(ctx, w, h, msg) {
+    ctx.fillStyle = INK_DIM; ctx.font = AB.font(13); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(msg || "그림을 불러오는 중… (로컬 서버로 열어야 한다)", w / 2, h / 2);
+  }
+  // 작은 캔버스(오프스크린) 도구
+  function mk(w, h) { var c = document.createElement("canvas"); c.width = w; c.height = h; return c; }
+  function pixels(c) { return c.getContext("2d", { willReadFrequently: true }).getImageData(0, 0, c.width, c.height).data; }
+  function fromData(data, w, h) { var c = mk(w, h), x = c.getContext("2d"), id = x.createImageData(w, h); id.data.set(data); x.putImageData(id, 0, 0); return c; }
+  function psnr(a, b) {
+    var s = 0, n = 0;
+    for (var i = 0; i < a.length; i += 4) for (var k = 0; k < 3; k++) { var d = a[i + k] - b[i + k]; s += d * d; n++; }
+    var mse = s / n; return mse < 1e-9 ? Infinity : 10 * Math.log10(255 * 255 / mse);
+  }
+  function psnrStr(v) { return isFinite(v) ? AB.fix(v, 1) + " dB" : "∞ <small>원본과 같음</small>"; }
+  // 브라우저 인코더로 저장 → Blob, 다시 읽기 → 캔버스
+  function encode(c, type, q) { return new Promise(function (res) { c.toBlob(function (b) { res(b); }, type, q); }); }
+  function decode(blob, w, h) {
+    return new Promise(function (res, rej) {
+      var url = URL.createObjectURL(blob), im = new Image();
+      im.onload = function () { var c = mk(w, h); c.getContext("2d").drawImage(im, 0, 0, w, h); URL.revokeObjectURL(url); res(c); };
+      im.onerror = function (e) { URL.revokeObjectURL(url); rej(e); };
+      im.src = url;
+    });
+  }
+  var IMGS = {}, waits = [];
+  function need(names, fn) {
+    var go = function () { if (names.every(function (n) { return IMGS[n]; })) { fn(); return true; } return false; };
+    if (!go()) waits.push(go);
+  }
+  ["hokusai-great-wave", "durer-saint-jerome-study", "homer-wall-nassau"].forEach(function (n) {
+    AB.loadImage("../../shared/img/" + n + ".webp").then(function (im) {
+      IMGS[n] = im; waits = waits.filter(function (f) { try { return !f(); } catch (e) { console.error(e); return false; } });
+    }).catch(function () {});
+  });
+  // 돋보기 네모 그리기
+  function loupeBox(ctx, x, y, w, h) {
+    ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3; ctx.strokeRect(x, y, w, h);
+    ctx.strokeStyle = "#111111"; ctx.lineWidth = 1.4; ctx.strokeRect(x, y, w, h);
+    AB.handle(ctx, x + w, y + h, { r: 6 });
+  }
+  function tag(ctx, s, x, y, right) {
+    ctx.font = AB.font(11, false, 700); ctx.textBaseline = "top"; ctx.textAlign = right ? "right" : "left";
+    var tw = ctx.measureText(s).width;
+    ctx.fillStyle = "rgba(255,255,255,0.88)"; ctx.fillRect(right ? x - tw - 5 : x - 3, y - 2, tw + 8, 17);
+    ctx.fillStyle = INK; ctx.fillText(s, x, y + 1);
+  }
+
+  /* ---------------- 시뮬레이터 1: 화소 수와 인쇄 크기 ---------------- */
+  (function () {
+    var PW = 154, PH = 216, TW = 148, TH = 210, AR = 1122 / 1600;  // 쪽(재단 여유 포함)과 재단선, 사진 비율
+    var st = { mm: 118 }, geo = null, small = {};
+    var pxR = AB.range("pp-px", function (v) { return v + "화소"; }, function () { cv.redraw(); });
+    var pre = AB.seg("pp-pre", function (v) { st.mm = v === "full" ? 154 : v === "text" ? 118 : 60; cv.redraw(); });
+    function judge(ppi) { return ppi >= 300 ? "넉넉함" : ppi >= 240 ? "대개 괜찮음" : ppi >= 150 ? "가까이 보면 거침" : "화소가 보임"; }
+    var cv = AB.canvas("#pp-cv", function (ctx, w, h) {
+      var wide = w >= 560, ph = wide ? h - 40 : Math.min(h * 0.55, (w - 40) * PH / PW), s = ph / PH, pw = PW * s;
+      var ox = wide ? 20 : (w - pw) / 2, oy = 16;
+      // 쪽
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(ox, oy, pw, ph); ctx.strokeStyle = "#c9c5bc"; ctx.lineWidth = 1; ctx.strokeRect(ox + 0.5, oy + 0.5, pw - 1, ph - 1);
+      ctx.setLineDash([4, 3]); ctx.strokeStyle = "#9a968c"; ctx.strokeRect(ox + 3 * s, oy + 3 * s, TW * s, TH * s); ctx.setLineDash([]);
+      var iw = st.mm * s, ih = iw * AR, ix = ox + (pw - iw) / 2, iy = oy + Math.max(3 * s, 30 * s - (st.mm > 140 ? 27 * s : 0));
+      geo = { ox: ox, s: s, cx: ox + pw / 2, iy: iy };
+      if (IMGS["homer-wall-nassau"]) ctx.drawImage(IMGS["homer-wall-nassau"], ix, iy, iw, ih); else { ctx.fillStyle = "#e9e4da"; ctx.fillRect(ix, iy, iw, ih); }
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(ix, iy, iw, ih);
+      AB.handle(ctx, ix + iw, iy + ih, { r: 8 });
+      ctx.fillStyle = "#c9c5bc";
+      for (var k = 0; k < 5; k++) ctx.fillRect(ox + 15 * s, iy + ih + 10 * s + k * 5 * s, (k === 4 ? 60 : 118) * s, 1.6 * s);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("A5 148×210 + 재단 여유 3 mm", ox + pw / 2, oy + ph + 4);
+      // 돋보기: 인쇄물 위 10 mm 정사각형에 들어가는 화소
+      var px = pxR(), ppi = px * 25.4 / st.mm, n = Math.max(1, Math.round(ppi * 10 / 25.4));
+      var lb = wide ? { x: ox + pw + 34, y: 34, s: Math.min(w - ox - pw - 54, h - 90) } : { x: (w - Math.min(w - 40, h - ph - 80)) / 2, y: oy + ph + 40, s: Math.min(w - 40, h - ph - 80) };
+      if (IMGS["homer-wall-nassau"]) {
+        var im = IMGS["homer-wall-nassau"], key = n + "_" + st.mm;
+        if (!small[key]) {  // 10 mm에 해당하는 원본 영역(빨간 꽃 근처)을 n×n 화소로 줄인다
+          var frac = (10 / st.mm), sw = Math.max(4, Math.round(im.naturalWidth * frac)), c = mk(n, n), x = c.getContext("2d");
+          x.imageSmoothingQuality = "high"; x.drawImage(im, 1150, 130, sw, sw, 0, 0, n, n);
+          small = {}; small[key] = { c: c, mm: st.mm };
+        }
+        ctx.imageSmoothingEnabled = false; ctx.drawImage(small[key].c, lb.x, lb.y, lb.s, lb.s); ctx.imageSmoothingEnabled = true;
+      }
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1.2; ctx.strokeRect(lb.x, lb.y, lb.s, lb.s);
+      ctx.fillStyle = INK; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("돋보기: 인쇄물 위 10 mm", lb.x, lb.y - 6);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5, true); ctx.textBaseline = "top";
+      ctx.fillText(n + " × " + n + " 화소", lb.x, lb.y + lb.s + 6);
+      AB.stat("pp-o-size", Math.round(st.mm) + " × " + Math.round(st.mm * AR) + " mm");
+      AB.stat("pp-o-ppi", Math.round(ppi) + " <small>" + judge(ppi) + "</small>");
+      AB.stat("pp-o-need", Math.round(st.mm / 25.4 * 300) + "화소");
+    }, { bg: PAPER, get height() { var w = cw("pp-cv"); return w >= 560 ? 380 : Math.round(Math.min(380, (w - 40) * 216 / 154) / 0.55 * 0.55 + Math.min(w - 40, 300) + 70); } });
+    AB.drag(cv.canvas, {
+      move: function (x) { if (!geo) return; var half = Math.abs(x - geo.cx) / geo.s; st.mm = AB.clamp(Math.round(half * 2), 20, 154); cv.redraw(); },
+    });
+    need(["homer-wall-nassau"], function () { cv.redraw(); });
+  })();
+
+  /* ---------------- 리샘플링(분리형 커널) ---------------- */
+  // 1차원 리샘플: src(Float32, 길이 n·stride) → dst. kernel(x), 반지름 r. widen이면 줄이는 배율만큼 커널을 넓힌다.
+  function keys(x) { x = Math.abs(x); var a = -0.5; return x < 1 ? (a + 2) * x * x * x - (a + 3) * x * x + 1 : x < 2 ? a * x * x * x - 5 * a * x * x + 8 * a * x - 4 * a : 0; }  // Keys 1981
+  function tri(x) { x = Math.abs(x); return x < 1 ? 1 - x : 0; }
+  function resample(src, sw, sh, dw, dh, method) {  // src: Float32Array 회색(0~255)
+    function pass(inp, iw, ih, ow, horiz) {
+      var oh = ih, out, N = horiz ? iw : ih, M = horiz ? ih : iw, O = horiz ? ow : ow;
+      out = new Float32Array(horiz ? ow * ih : iw * ow);
+      var sc = O / N, widen = method === "cub" && sc < 1 ? 1 / sc : 1;
+      var K = method === "cub" ? keys : tri, R = (method === "cub" ? 2 : 1) * widen;
+      for (var o = 0; o < O; o++) {
+        var c = (o + 0.5) / sc - 0.5;
+        if (method === "near") { var j = AB.clamp(Math.round(c), 0, N - 1); for (var m = 0; m < M; m++) out[horiz ? m * ow + o : o * iw + m] = inp[horiz ? m * iw + j : j * iw + m]; continue; }
+        var lo = Math.floor(c - R) + 1, hi = Math.floor(c + R), ws = [], wsum = 0;
+        for (var t = lo; t <= hi; t++) { var wv = K((t - c) / widen); ws.push(wv); wsum += wv; }
+        for (m = 0; m < M; m++) {
+          var acc = 0;
+          for (t = lo; t <= hi; t++) { var tt = AB.clamp(t, 0, N - 1); acc += ws[t - lo] * inp[horiz ? m * iw + tt : tt * iw + m]; }
+          out[horiz ? m * ow + o : o * iw + m] = acc / wsum;
+        }
+      }
+      return out;
+    }
+    var a = pass(src, sw, sh, dw, true);
+    return pass(a, dw, sh, dh, false);
+  }
+
+  /* ---------------- 시뮬레이터 2: 리샘플링 ---------------- */
+  (function () {
+    var mode = AB.seg("rs-mode", function () { run(); });
+    var meth = AB.seg("rs-m", function () { run(); });
+    var sR = AB.range("rs-s", function (v) { return v + "%"; }, function () { run(); });
+    var SRC = null, SW = 0, SH = 0, out = null, ow = 0, oh = 0, split = 0.4, geo = null;
+    function prep() {  // 천장 판자 부분(원본 파일 좌표 300~780, 120~420)을 회색으로
+      var im = IMGS["durer-saint-jerome-study"]; SW = 480; SH = 300;
+      var c = mk(SW, SH); c.getContext("2d").drawImage(im, 300, 120, SW, SH, 0, 0, SW, SH);
+      var d = pixels(c); SRC = new Float32Array(SW * SH);
+      for (var i = 0; i < SW * SH; i++) SRC[i] = 0.299 * d[i * 4] + 0.587 * d[i * 4 + 1] + 0.114 * d[i * 4 + 2];
+    }
+    function run() {
+      if (!IMGS["durer-saint-jerome-study"]) return;
+      if (!SRC) prep();
+      var s = sR() / 100, m = meth(); ow = Math.max(4, Math.round(SW * s)); oh = Math.max(4, Math.round(SH * s));
+      var small = resample(SRC, SW, SH, ow, oh, m), shown = small, psn = null;
+      if (mode() === "up") {
+        shown = resample(small, ow, oh, SW, SH, m === "near" ? "near" : m === "lin" ? "lin" : "cub");
+        var se = 0; for (var i = 0; i < SRC.length; i++) { var d = shown[i] - SRC[i]; se += d * d; }
+        psn = 10 * Math.log10(255 * 255 / Math.max(1e-9, se / SRC.length));
+        out = { data: shown, w: SW, h: SH };
+      } else out = { data: small, w: ow, h: oh };
+      AB.stat("rs-o-px", ow + " × " + oh + (mode() === "up" ? " → " + SW + " × " + SH : ""));
+      AB.stat("rs-o-ratio", AB.pct((ow * oh) / (SW * SH), 1));
+      AB.stat("rs-o-psnr", psn == null ? "<small>다시 키우기에서</small>" : AB.fix(psn, 1) + " dB");
+      cv.redraw();
+    }
+    function grayCanvas(f, w, h) {
+      var d = new Uint8ClampedArray(w * h * 4);
+      for (var i = 0; i < w * h; i++) { var v = f[i]; d[i * 4] = v; d[i * 4 + 1] = v; d[i * 4 + 2] = v; d[i * 4 + 3] = 255; }
+      return fromData(d, w, h);
+    }
+    var cv = AB.canvas("#rs-cv", function (ctx, w, h) {
+      if (!out) { loading(ctx, w, h); return; }
+      var sc = Math.min((w - 24) / SW, (h - 20) / SH), dw = SW * sc, dh = SH * sc, x0 = (w - dw) / 2, y0 = 10;
+      geo = { x: x0, w: dw };
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(grayCanvas(out.data, out.w, out.h), x0, y0, dw, dh);
+      ctx.save(); ctx.beginPath(); ctx.rect(x0, y0, dw * split, dh); ctx.clip();
+      ctx.drawImage(grayCanvas(SRC, SW, SH), x0, y0, dw, dh); ctx.restore();
+      ctx.imageSmoothingEnabled = true;
+      var sx = x0 + dw * split;
+      ctx.strokeStyle = "#e8384f"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(sx, y0); ctx.lineTo(sx, y0 + dh); ctx.stroke();
+      AB.handle(ctx, sx, y0 + dh / 2, { r: 8 });
+      tag(ctx, "원본 " + SW + "×" + SH, x0 + 8, y0 + 6);
+      tag(ctx, (mode() === "up" ? "다시 키움" : "줄인 결과 " + out.w + "×" + out.h), x0 + dw - 8, y0 + 6, true);
+    }, { bg: PAPER, get height() { var w = cw("rs-cv"); return Math.round((w - 24) * 300 / 480 + 20); } });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; split = AB.clamp((x - geo.x) / geo.w, 0, 1); cv.redraw(); } });
+    need(["durer-saint-jerome-study"], run);
+  })();
+
+  /* ---------------- 시뮬레이터 3: 8×8 DCT와 양자화 ---------------- */
+  (function () {
+    // ITU-T T.81 부록 K 표 K.1(밝기 양자화 표)
+    var QT = [16, 11, 10, 16, 24, 40, 51, 61, 12, 12, 14, 19, 26, 58, 60, 55, 14, 13, 16, 24, 40, 57, 69, 56, 14, 17, 22, 29, 51, 87, 80, 62,
+      18, 22, 37, 56, 68, 109, 103, 77, 24, 35, 55, 64, 81, 104, 113, 92, 49, 64, 78, 87, 103, 121, 120, 101, 72, 92, 95, 98, 112, 100, 103, 99];
+    var COS = []; for (var x = 0; x < 8; x++) { COS[x] = []; for (var u = 0; u < 8; u++) COS[x][u] = Math.cos(((2 * x + 1) * u * Math.PI) / 16); }
+    var C = function (u) { return u === 0 ? Math.SQRT1_2 : 1; };
+    function dct(b) { var o = new Float32Array(64); for (var v = 0; v < 8; v++) for (var u = 0; u < 8; u++) { var s = 0; for (var y = 0; y < 8; y++) for (var x = 0; x < 8; x++) s += b[y * 8 + x] * COS[x][u] * COS[y][v]; o[v * 8 + u] = 0.25 * C(u) * C(v) * s; } return o; }
+    function idct(F) { var o = new Float32Array(64); for (var y = 0; y < 8; y++) for (var x = 0; x < 8; x++) { var s = 0; for (var v = 0; v < 8; v++) for (var u = 0; u < 8; u++) s += C(u) * C(v) * F[v * 8 + u] * COS[x][u] * COS[y][v]; o[y * 8 + x] = 0.25 * s; } return o; }
+    function scaleOf(q) { return q < 50 ? 5000 / q : 200 - 2 * q; }  // IJG libjpeg jcparam.c
+    var qR = AB.range("dc-q", function (v) { return v; }, function () { cv.redraw(); });
+    var PRE = { sky: [0.177, 0.263], foam: [0.278, 0.598], edge: [0.589, 0.765] };  // 이 책이 고른 블록 위치(그림 비율)
+    var pre = AB.seg("dc-pre", function (v) { st.u = PRE[v][0]; st.v = PRE[v][1]; cv.redraw(); });
+    var IW = 320, IH = 0, Y = null, st = { u: PRE.sky[0], v: PRE.sky[1] }, geo = null, view = null;
+    function prep() {
+      var id = AB.imageData(IMGS["hokusai-great-wave"], IW); IH = id.height; Y = new Float32Array(IW * IH);
+      for (var i = 0; i < IW * IH; i++) Y[i] = 0.299 * id.data[i * 4] + 0.587 * id.data[i * 4 + 1] + 0.114 * id.data[i * 4 + 2];
+      var d = new Uint8ClampedArray(IW * IH * 4); for (i = 0; i < IW * IH; i++) { d[i * 4] = d[i * 4 + 1] = d[i * 4 + 2] = Y[i]; d[i * 4 + 3] = 255; }
+      view = fromData(d, IW, IH);
+    }
+    function grid(ctx, x, y, s, vals, fn, label) {
+      var c = s / 8;
+      for (var k = 0; k < 64; k++) { ctx.fillStyle = fn(vals[k], k); ctx.fillRect(x + (k % 8) * c, y + Math.floor(k / 8) * c, c + 0.5, c + 0.5); }
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, s - 1, s - 1);
+      ctx.fillStyle = INK; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(label, x + s / 2, y + s + 5);
+    }
+    var gray = function (v) { var g = Math.round(AB.clamp(v, 0, 255)); return "rgb(" + g + "," + g + "," + g + ")"; };
+    function coefCol(v, k) {
+      if (k === 0) return gray(v / 8 + 128 * 0);  // 평균(DC)은 밝기로
+      if (v === 0) return "#f4f1ea";
+      var t = Math.min(1, Math.log(1 + Math.abs(v)) / Math.log(1 + 200));
+      return v > 0 ? "rgb(" + Math.round(250 - 40 * t) + "," + Math.round(230 - 170 * t) + "," + Math.round(210 - 180 * t) + ")" : "rgb(" + Math.round(220 - 190 * t) + "," + Math.round(232 - 140 * t) + "," + Math.round(250 - 40 * t) + ")";
+    }
+    var cv = AB.canvas("#dc-cv", function (ctx, w, h) {
+      if (!IMGS["hokusai-great-wave"]) { loading(ctx, w, h); return; }
+      if (!Y) prep();
+      var wide = w >= 560;
+      var iw = wide ? w * 0.46 : w - 24, ih = iw * IH / IW, x0 = 12, y0 = 12;
+      ctx.drawImage(view, x0, y0, iw, ih);
+      var bx = AB.clamp(Math.floor(st.u * IW / 8) * 8, 0, IW - 8), by = AB.clamp(Math.floor(st.v * IH / 8) * 8, 0, IH - 8), sc = iw / IW;
+      geo = { x: x0, y: y0, w: iw, h: ih };
+      ctx.strokeStyle = "#e8384f"; ctx.lineWidth = 2.5; ctx.strokeRect(x0 + bx * sc - 1, y0 + by * sc - 1, 8 * sc + 2, 8 * sc + 2);
+      var blk = new Float32Array(64); for (var k = 0; k < 64; k++) blk[k] = Y[(by + (k >> 3)) * IW + bx + (k & 7)];
+      var F = dct(blk.map(function (v) { return v - 128; })), q = qR(), S = scaleOf(q), Qz = new Float32Array(64), nz = 0;
+      for (k = 0; k < 64; k++) { var t = Math.min(255, Math.max(1, Math.floor((QT[k] * S + 50) / 100))); Qz[k] = Math.round(F[k] / t) * t; if (Qz[k] !== 0) nz++; }
+      var R = idct(Qz).map(function (v) { return v + 128; }), err = 0; for (k = 0; k < 64; k++) err += Math.abs(AB.clamp(R[k], 0, 255) - blk[k]);
+      // 네 칸
+      var gx0 = wide ? x0 + iw + 22 : 12, gy0 = wide ? 16 : y0 + ih + 20, avail = wide ? w - gx0 - 10 : w - 24;
+      var gs = Math.min(wide ? (avail - 18) / 2 : (avail - 18) / 2, wide ? (h - 70) / 2 : 160);
+      grid(ctx, gx0, gy0, gs, blk, gray, "원래 블록");
+      grid(ctx, gx0 + gs + 18, gy0, gs, F, coefCol, "DCT 계수");
+      grid(ctx, gx0, gy0 + gs + 28, gs, Qz, coefCol, "양자화 뒤(0 = 빈칸)");
+      grid(ctx, gx0 + gs + 18, gy0 + gs + 28, gs, R, gray, "복원 블록");
+      AB.stat("dc-o-nz", nz + " / 64");
+      AB.stat("dc-o-s", AB.fix(S / 100, 2) + "배");
+      AB.stat("dc-o-err", AB.fix(err / 64, 1) + " <small>(0~255)</small>");
+    }, { bg: PAPER, get height() { var w = cw("dc-cv"); if (w >= 560) return Math.round(Math.max(w * 0.46 * 0.68 + 30, Math.min(2 * ((w - w * 0.46 - 50) / 2) + 70, 420))); var gs = Math.min((w - 42) / 2, 160); return Math.round((w - 24) * 0.6725 + 40 + 2 * gs + 60); } });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo || x > geo.x + geo.w + 10 || y > geo.y + geo.h + 10) return; st.u = AB.clamp((x - geo.x) / geo.w, 0, 0.999); st.v = AB.clamp((y - geo.y) / geo.h, 0, 0.999); cv.redraw(); } });
+    need(["hokusai-great-wave"], function () { cv.redraw(); });
+  })();
+
+  /* ---------------- 시뮬레이터 4: JPEG 품질과 다시 저장 ---------------- */
+  (function () {
+    var qR = AB.range("jq-q", function (v) { return v; }, function () { run(); });
+    var nR = AB.range("jq-n", function (v) { return v + "번"; }, function () { run(); });
+    var shift = AB.check("jq-shift", function () { run(); });
+    var diff = AB.check("jq-diff", function () { cv.redraw(); });
+    var W = 640, H = 0, src = null, srcPx = null, res = null, token = 0, lp = { x: 0.18, y: 0.55 }, geo = null;
+    function prep() { var im = IMGS["hokusai-great-wave"]; H = Math.round(W * im.naturalHeight / im.naturalWidth); src = mk(W, H); src.getContext("2d").drawImage(im, 0, 0, W, H); srcPx = pixels(src); }
+    function moved(c, dx) {
+      var d = mk(W, H), x = d.getContext("2d");
+      x.drawImage(c, dx, 0); if (dx > 0) x.drawImage(c, 0, 0, 1, H, 0, 0, 1, H); else x.drawImage(c, W - 1, 0, 1, H, W - 1, 0, 1, H);
+      return d;
+    }
+    function run() {
+      if (!IMGS["hokusai-great-wave"]) return;
+      if (!src) prep();
+      var my = ++token, q = qR() / 100, n = nR(), sh = shift(), cur = src, size = 0, i = 0, net = 0;
+      (function step() {
+        if (my !== token) return;
+        encode(cur, "image/jpeg", q).then(function (b) {
+          size = b.size; return decode(b, W, H);
+        }).then(function (c) {
+          if (my !== token) return;
+          i++;
+          if (sh && i < n) {  // 1화소 옮기고(가장자리는 늘여) 다시 저장할 준비. 오른쪽·왼쪽을 번갈아 옮긴다.
+            var dx = net === 0 ? 1 : -1; cur = moved(c, dx); net += dx;
+          } else cur = c;
+          if (i < n) { step(); return; }
+          var final = net ? moved(cur, -net) : cur;
+          var px = pixels(final);
+          res = { c: final, px: px, size: size };
+          AB.stat("jq-o-size", kb(size));
+          AB.stat("jq-o-ratio", "1 / " + AB.fix(W * H * 3 / size, 1));
+          AB.stat("jq-o-psnr", psnrStr(psnr(px, srcPx)));
+          cv.redraw();
+        }).catch(function (e) { console.error(e); });
+      })();
+    }
+    var diffC = null, diffFor = null;
+    function diffCanvas() {
+      if (diffFor === res) return diffC;
+      var d = new Uint8ClampedArray(W * H * 4);
+      for (var i = 0; i < d.length; i += 4) { for (var k = 0; k < 3; k++) d[i + k] = 128 + (res.px[i + k] - srcPx[i + k]) * 10; d[i + 3] = 255; }
+      diffC = fromData(d, W, H); diffFor = res; return diffC;
+    }
+    var cv = AB.canvas("#jq-cv", function (ctx, w, h) {
+      if (!res) { loading(ctx, w, h); return; }
+      var wide = w >= 560, mw = wide ? w * 0.56 : w - 24, mh = mw * H / W, x0 = 12, y0 = 12;
+      var show = diff() ? diffCanvas() : res.c;
+      ctx.drawImage(show, x0, y0, mw, mh);
+      var LW = 60, LH = 44, lx = AB.clamp(Math.round(lp.x * W), 0, W - LW), ly = AB.clamp(Math.round(lp.y * H), 0, H - LH), sc = mw / W;
+      geo = { x: x0, y: y0, w: mw, h: mh };
+      loupeBox(ctx, x0 + lx * sc, y0 + ly * sc, LW * sc, LH * sc);
+      var zb = wide ? { x: x0 + mw + 16, y: y0, w: w - mw - 40 } : { x: 12, y: y0 + mh + 16, w: w - 24 };
+      zb.h = zb.w * LH / LW;
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(src, lx, ly, LW / 2, LH, zb.x, zb.y, zb.w / 2, zb.h);
+      ctx.drawImage(show, lx + LW / 2, ly, LW / 2, LH, zb.x + zb.w / 2, zb.y, zb.w / 2, zb.h);
+      ctx.imageSmoothingEnabled = true;
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(zb.x + zb.w / 2, zb.y); ctx.lineTo(zb.x + zb.w / 2, zb.y + zb.h); ctx.stroke();
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(zb.x, zb.y, zb.w, zb.h);
+      tag(ctx, "원본", zb.x + 6, zb.y + 6); tag(ctx, diff() ? "차이×10" : "저장 결과", zb.x + zb.w - 6, zb.y + 6, true);
+    }, { bg: PAPER, get height() { var w = cw("jq-cv"); if (w >= 560) return Math.round(Math.max(w * 0.56 * 0.6725, (w * 0.44 - 40) * 44 / 60) + 26); return Math.round((w - 24) * 0.6725 + (w - 24) * 44 / 60 + 42); } });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo || x > geo.x + geo.w + 10 || y > geo.y + geo.h + 10) return; lp.x = AB.clamp((x - geo.x) / geo.w - 0.05, 0, 1); lp.y = AB.clamp((y - geo.y) / geo.h - 0.05, 0, 1); cv.redraw(); } });
+    need(["hokusai-great-wave"], run);
+  })();
+
+  /* ---------------- 시뮬레이터 5: 내용과 형식 ---------------- */
+  (function () {
+    var srcSel = AB.seg("fm-src", function () { run(); });
+    var fmt = AB.seg("fm-fmt", function () { show(); });
+    var qR = AB.range("fm-q", function (v) { return v; }, function () { run(); });
+    var W = 480, H = 320, SRC = {}, res = {}, token = 0, lp = { x: 0.3, y: 0.3 }, geo = null;
+    // 가상의 서점 안내판(책방 E는 이 책의 가상 가게)
+    function drawSign(c) {
+      c.fillStyle = "#ffffff"; c.fillRect(0, 0, W, H);
+      c.fillStyle = "#1f5c4a"; c.fillRect(0, 0, W, 54);
+      c.fillStyle = "#ffffff"; c.font = AB.font(24, false, 800); c.textBaseline = "middle"; c.textAlign = "left"; c.fillText("책방 E", 22, 28);
+      c.font = AB.font(13, false, 600); c.textAlign = "right"; c.fillText("12월 그림 읽기 모임", W - 22, 28);
+      c.fillStyle = "#c8312a"; c.font = AB.font(52, false, 900); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("겨울 도록展", 22, 136);
+      c.fillStyle = "#2b2a30"; c.font = AB.font(15, false, 600);
+      ["일 년 동안 그린 수채화와 드로잉", "12.20 – 12.31 · 오후 1시 – 8시", "입장 무료 · 도록 현장 판매"].forEach(function (s, k) { c.fillText(s, 24, 178 + k * 26); });
+      c.fillStyle = "#e8b931"; c.beginPath(); c.arc(W - 86, 210, 52, 0, Math.PI * 2); c.fill();
+      c.fillStyle = "#1f5c4a"; c.fillRect(W - 112, 186, 52, 40); c.fillStyle = "#ffffff"; c.fillRect(W - 107, 191, 20, 30); c.fillRect(W - 84, 191, 20, 30);
+      c.fillStyle = "#6b6874"; c.font = AB.font(11, false, 500); c.fillText("가상의 안내판 예시", 24, H - 16);
+    }
+    function prep(k) {
+      if (SRC[k]) return SRC[k];
+      var c = mk(W, H), x = c.getContext("2d");
+      if (k === "photo") x.drawImage(IMGS["homer-wall-nassau"], 640, 120, 720, 480, 0, 0, W, H);
+      else if (k === "line") x.drawImage(IMGS["durer-saint-jerome-study"], 520, 800, 600, 400, 0, 0, W, H);
+      else drawSign(x);
+      return (SRC[k] = { c: c, px: pixels(c) });
+    }
+    function run() {
+      if (!IMGS["homer-wall-nassau"] || !IMGS["durer-saint-jerome-study"]) return;
+      var my = ++token, s = prep(srcSel()), q = qR() / 100, next = {};
+      var jobs = [["png", "image/png"], ["jpeg", "image/jpeg"], ["webp", "image/webp"]].map(function (f) {
+        return encode(s.c, f[1], q).then(function (b) {
+          if (!b || b.type !== f[1]) { next[f[0]] = { unsupported: true }; return; }
+          return decode(b, W, H).then(function (c) { next[f[0]] = { c: c, size: b.size, psnr: psnr(pixels(c), s.px) }; });
+        });
+      });
+      Promise.all(jobs).then(function () {
+        if (my !== token) return; res = next;
+        ["png", "jpeg", "webp"].forEach(function (k) { AB.stat("fm-o-" + k, res[k] && !res[k].unsupported ? kb(res[k].size) : "<small>이 브라우저는 저장 불가</small>"); });
+        show();
+      }).catch(function (e) { console.error(e); });
+    }
+    function show() {
+      var r = res[fmt()];
+      AB.stat("fm-o-psnr", r && !r.unsupported ? psnrStr(r.psnr) : "—");
+      cv.redraw();
+    }
+    var cv = AB.canvas("#fm-cv", function (ctx, w, h) {
+      var r = res[fmt()], s = SRC[srcSel()];
+      if (!s || !r) { loading(ctx, w, h); return; }
+      var shown = r.unsupported ? s.c : r.c;
+      var wide = w >= 560, mw = wide ? w * 0.54 : w - 24, mh = mw * H / W, x0 = 12, y0 = 12, sc = mw / W;
+      ctx.drawImage(shown, x0, y0, mw, mh);
+      var LW = 64, LH = 48, lx = AB.clamp(Math.round(lp.x * W), 0, W - LW), ly = AB.clamp(Math.round(lp.y * H), 0, H - LH);
+      geo = { x: x0, y: y0, w: mw, h: mh };
+      loupeBox(ctx, x0 + lx * sc, y0 + ly * sc, LW * sc, LH * sc);
+      var zb = wide ? { x: x0 + mw + 16, y: y0, w: w - mw - 40 } : { x: 12, y: y0 + mh + 16, w: w - 24 };
+      zb.h = zb.w * LH / LW;
+      ctx.imageSmoothingEnabled = false; ctx.drawImage(shown, lx, ly, LW, LH, zb.x, zb.y, zb.w, zb.h); ctx.imageSmoothingEnabled = true;
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(zb.x, zb.y, zb.w, zb.h);
+      tag(ctx, ({ png: "PNG", jpeg: "JPEG", webp: "WebP" })[fmt()] + (r.unsupported ? " (저장 불가, 원본 표시)" : "") + " · 확대", zb.x + 6, zb.y + 6);
+    }, { bg: PAPER, get height() { var w = cw("fm-cv"); if (w >= 560) return Math.round(Math.max(w * 0.54 * 2 / 3, (w * 0.46 - 40) * 0.75) + 26); return Math.round((w - 24) * 2 / 3 + (w - 24) * 0.75 + 42); } });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo || x > geo.x + geo.w + 10 || y > geo.y + geo.h + 10) return; lp.x = AB.clamp((x - geo.x) / geo.w - 0.06, 0, 1); lp.y = AB.clamp((y - geo.y) / geo.h - 0.07, 0, 1); cv.redraw(); } });
+    need(["homer-wall-nassau", "durer-saint-jerome-study"], run);
+  })();
+
+  /* ---------------- 시뮬레이터 6: 용도별 내보내기 작업대 ---------------- */
+  (function () {
+    var USE = { full: { mm: 154, w: 1600, print: true }, page: { mm: 118, w: 1600, print: true }, web: { w: 1600 }, sns: { w: 1600, q: 90, fmt: "jpeg" } };
+    var use = AB.seg("ex-use", function (v) {
+      var u = USE[v]; wR.set(u.w);
+      if (u.fmt) fmt.set(u.fmt, false); else if (!u.print && v === "web") fmt.set("webp", false);
+      if (u.q) qR.set(u.q); else if (v === "web") qR.set(80); else run();
+    });
+    var wR = AB.range("ex-w", function (v) { return v + "화소"; }, function () { run(); });
+    var fmt = AB.seg("ex-fmt", function () { run(); });
+    var qR = AB.range("ex-q", function (v) { return v; }, function () { run(); });
+    var token = 0, cur = null, curve = {}, lp = { x: 0.62, y: 0.2 }, geo = null;
+    var TYPES = { jpeg: "image/jpeg", webp: "image/webp", png: "image/png" };
+    function base(w) {  // 같은 크기로 줄인 무손실 그림(기준)
+      var im = IMGS["homer-wall-nassau"], h = Math.round(w * im.naturalHeight / im.naturalWidth), c = mk(w, h), x = c.getContext("2d");
+      x.imageSmoothingQuality = "high"; x.drawImage(im, 0, 0, w, h); return { c: c, w: w, h: h };
+    }
+    var baseCache = {};
+    function getBase(w) { return baseCache[w] || (baseCache = {}, baseCache[w] = base(w)); }
+    function run() {
+      if (!IMGS["homer-wall-nassau"]) return;
+      var my = ++token, w = wR(), b = getBase(w), f = fmt(), q = qR() / 100;
+      encode(b.c, TYPES[f], q).then(function (blob) {
+        if (my !== token) return;
+        var unsup = !blob || blob.type !== TYPES[f];
+        return decode(blob, b.w, b.h).then(function (c) {
+          if (my !== token) return;
+          cur = { c: c, size: blob.size, w: b.w, h: b.h, unsup: unsup, psnr: psnr(pixels(c), pixels(b.c)) };
+          report(); cv.redraw();
+          sweep(my, b, f);
+        });
+      }).catch(function (e) { console.error(e); });
+    }
+    function sweep(my, b, f) {  // 품질에 따른 크기 곡선(JPEG·WebP 둘 다)
+      var key = b.w;
+      if (curve.key === key) { ch.redraw(); return; }
+      var qs = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0], out = { key: key, jpeg: [], webp: [] };
+      var chain = Promise.resolve();
+      ["jpeg", "webp"].forEach(function (k) { qs.forEach(function (q) { chain = chain.then(function () { if (my !== token && curve.key === key) return; return encode(b.c, TYPES[k], q).then(function (bl) { if (bl && bl.type === TYPES[k]) out[k].push([q * 100, bl.size]); }); }); }); });
+      chain.then(function () { curve = out; ch.redraw(); });
+    }
+    function report() {
+      var u = USE[use()];
+      AB.stat("ex-o-size", kb(cur.size) + (cur.unsup ? " <small>WebP 저장 불가(PNG로 저장됨)</small>" : ""));
+      AB.stat("ex-o-psnr", psnrStr(cur.psnr));
+      if (u.print) {
+        var ppi = cur.w * 25.4 / u.mm;
+        AB.stat("ex-o-ppi", Math.round(ppi) + " ppi <small>가로 " + u.mm + " mm</small>");
+        var lossy = fmt() !== "png";
+        AB.stat("ex-o-judge", ppi < 300 ? "원본에서 " + Math.round(u.mm / 25.4 * 300) + "화소 이상으로 다시" : lossy ? "인쇄용은 무손실(TIFF·PNG)로" : "인쇄 가능");
+      } else {
+        AB.stat("ex-o-ppi", "<small>화면용: ppi 무관</small>");
+        AB.stat("ex-o-judge", cur.psnr < 33 ? "흔적 주의" : use() === "sns" ? "SNS가 다시 압축하므로 여유 있게" : cur.size > 400 * 1024 ? "400 KB 넘음" : "웹용으로 알맞음");
+      }
+    }
+    var cv = AB.canvas("#ex-cv", function (ctx, w, h) {
+      if (!cur) { loading(ctx, w, h); return; }
+      var wide = w >= 560, mw = wide ? w * 0.5 : w - 24, mh = mw * cur.h / cur.w, x0 = 12, y0 = 12, sc = mw / cur.w;
+      ctx.drawImage(cur.c, x0, y0, mw, mh);
+      var zb = wide ? { x: x0 + mw + 16, y: y0, w: w - mw - 40, h: mh } : { x: 12, y: y0 + mh + 16, w: w - 24, h: Math.min(220, (w - 24) * 0.6) };
+      var LW = Math.min(cur.w, Math.round(zb.w)), LH = Math.min(cur.h, Math.round(zb.h));  // 1:1
+      var lx = AB.clamp(Math.round(lp.x * cur.w), 0, cur.w - LW), ly = AB.clamp(Math.round(lp.y * cur.h), 0, cur.h - LH);
+      geo = { x: x0, y: y0, w: mw, h: mh };
+      loupeBox(ctx, x0 + lx * sc, y0 + ly * sc, LW * sc, LH * sc);
+      ctx.imageSmoothingEnabled = false; ctx.drawImage(cur.c, lx, ly, LW, LH, zb.x, zb.y, LW, LH); ctx.imageSmoothingEnabled = true;
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.strokeRect(zb.x, zb.y, LW, LH);
+      tag(ctx, "1:1 (화소 그대로)", zb.x + 6, zb.y + 6);
+    }, { bg: PAPER, get height() { var w = cw("ex-cv"); if (w >= 560) return Math.round(w * 0.5 * 0.70125 + 24); return Math.round((w - 24) * 0.70125 + Math.min(220, (w - 24) * 0.6) + 40); } });
+    var ch = AB.canvas("#ex-ch", function (ctx, w, h) {
+      var p = AB.palette();
+      if (!curve.key) { ctx.fillStyle = p.dim; ctx.font = AB.font(12); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("품질–크기 곡선을 재는 중…", w / 2, h / 2); return; }
+      var all = curve.jpeg.concat(curve.webp), ymax = Math.max.apply(null, all.map(function (d) { return d[1]; })) / 1024 * 1.08;
+      var series = [{ data: curve.jpeg.map(function (d) { return [d[0], d[1] / 1024]; }), color: p.accent2 }, { data: curve.webp.map(function (d) { return [d[0], d[1] / 1024]; }), color: p.accent }];
+      var pts = [];
+      if (cur && fmt() !== "png" && !cur.unsup) pts.push({ x: qR(), y: cur.size / 1024, color: fmt() === "webp" ? p.accent : p.accent2, r: 5 });
+      AB.chart(ctx, { x: 64, y: 14, w: w - 64 - 18, h: h - 14 - 46 }, { x: [30, 100], y: [0, ymax], xLabel: "품질", yLabel: "KB", series: series, points: pts, hlines: use() === "web" ? [{ y: 400, label: "400 KB" }] : [] });
+      ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillStyle = p.accent2; ctx.fillText("— JPEG", 74, 18); ctx.fillStyle = p.accent; ctx.fillText("— WebP", 134, 18);
+      ctx.fillStyle = p.dim; ctx.fillText("가로 " + curve.key + "화소", 200, 18);
+    }, { height: 210 });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo || x > geo.x + geo.w + 10 || y > geo.y + geo.h + 10) return; lp.x = AB.clamp((x - geo.x) / geo.w - 0.1, 0, 1); lp.y = AB.clamp((y - geo.y) / geo.h - 0.1, 0, 1); cv.redraw(); } });
+    need(["homer-wall-nassau"], run);
+  })();
+})();
+</script>
+</body>
+</html>
