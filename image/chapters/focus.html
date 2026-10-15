@@ -281,7 +281,7 @@
         <div class="sim-view"><canvas id="fb-cv" class="art"></canvas><span class="hint">흰 고리의 빛을 끈다</span></div>
         <div class="sim-controls">
           <div class="seg" id="fb-blades"><button data-value="5">날 5장</button><button data-value="7" class="on">날 7장</button><button data-value="9">날 9장</button><button data-value="r9">원형 날 9장</button></div>
-          <label class="ctrl"><span>조리개 <output id="fb-n-out"></output></span><input type="range" id="fb-n" min="0" max="5" step="1" value="1"></label>
+          <label class="ctrl"><span>조리개 <output id="fb-n-out"></output></span><input type="range" id="fb-n" min="0" max="5" step="1" value="0"></label>
           <label class="check"><input type="checkbox" id="fb-cat" checked> 경통에 가리는 효과(고양이 눈)</label>
         </div>
       </div>
@@ -678,14 +678,14 @@
         } });
         // 잉크병(앞)
         L.push({ d: 800, kind: "front", name: "잉크병", draw: function (ctx, pr) {
-          var d = 800, x = -190, s = function (v) { return pr.s(v, d); };
+          var d = 800, x = -150, s = function (v) { return pr.s(v, d); };
           ctx.fillStyle = "#1f2a33"; rr(ctx, pr.x(x - 32, d), pr.y(-40, d), s(64), s(70), s(9)); ctx.fill();
           ctx.fillStyle = "#26333d"; ctx.fillRect(pr.x(x - 12, d), pr.y(-22, d), s(24), s(19));
           ctx.fillStyle = "#121417"; rr(ctx, pr.x(x - 16, d), pr.y(-8, d), s(32), s(15), s(3)); ctx.fill();
           ctx.fillStyle = "#e8e0cc"; ctx.fillRect(pr.x(x - 26, d), pr.y(-58, d), s(52), s(26));
           ctx.fillStyle = "#2f5d7c"; ctx.fillRect(pr.x(x - 18, d), pr.y(-66, d), s(36), s(4));
           ctx.fillStyle = "#9fc3d8"; ctx.fillRect(pr.x(x - 24, d), pr.y(-44, d), s(5), s(12)); ctx.fillRect(pr.x(x - 24, d), pr.y(-88, d), s(5), s(16));
-        }, lights: [{ X: -205, Y: -60, col: [1, 1, 0.95], r: 0.8, a: 0.6 }] });
+        }, lights: [{ X: -165, Y: -60, col: [1, 1, 0.95], r: 0.8, a: 0.6 }] });
         return L;
       },
       subject: [960, 1040], subjectName: "찻잔(깊이 8 cm)", bgDepth: 3000, bgName: "책장(3 m)",
@@ -807,6 +807,7 @@
         var ws = workSize(w, SH / SW, 520), id = ws[0] + ":" + N;
         if (!cache[id]) cache[id] = toCanvas(renderOptical("still", ws[0], ws[1], N, 1000), ws[0], ws[1]);
         ctx.imageSmoothingQuality = "high"; ctx.drawImage(cache[id], 0, 0, w, h);
+        if (w < 520) return;
         ctx.fillStyle = "rgba(20,18,16,0.62)"; ctx.fillRect(0, h - 26, w, 26);
         ctx.fillStyle = "#ffffff"; ctx.font = AB.font(12, true, 600); ctx.textBaseline = "middle";
         ctx.textAlign = N < 3 ? "left" : "right";
@@ -840,12 +841,14 @@
       ctx.beginPath(); ctx.moveTo(8, ax); ctx.lineTo(w - 8, ax); ctx.stroke(); ctx.setLineDash([]);
       // 거리 눈금
       ctx.fillStyle = p.dim; ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      var lastX = 1e9;
       [300, 500, 1000, 2000, 5000, 10000, 20000].forEach(function (s) {
         var x = X(s); ctx.strokeStyle = p.grid; ctx.beginPath(); ctx.moveTo(x, ax + 6); ctx.lineTo(x, ax + 12); ctx.stroke();
-        ctx.fillText(s >= 1000 ? s / 1000 + " m" : s / 10 + " cm", x, h - 18);
+        if (lastX - x < 40) return;
+        lastX = x; ctx.fillText(s >= 1000 ? s / 1000 + " m" : s / 10 + " cm", x, h - 18);
       });
-      ctx.textAlign = "left"; ctx.fillText("물체 거리(로그 눈금)", left, 8);
-      ctx.textAlign = "right"; ctx.fillText("상 거리(크게 늘림)", right, 8);
+      ctx.textAlign = "left"; ctx.fillText(w < 480 ? "물체 거리(로그)" : "물체 거리(로그 눈금)", left, 8);
+      if (w >= 480) { ctx.textAlign = "right"; ctx.fillText("상 거리(크게 늘림)", right, 8); }
       // 렌즈
       ctx.fillStyle = p.accent + "33"; ctx.strokeStyle = p.accent; ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.ellipse(lx, ax, 8, h * 0.4, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
@@ -870,8 +873,8 @@
       ctx.fillStyle = p.text; ctx.fillRect(sx - 2, ax - h * 0.3, 4, h * 0.6);
       ctx.fillStyle = p.bad; ctx.fillRect(sx - 5, ax - bh, 10, Math.max(2, bh * 2));
       AB.handle(ctx, sx, ax - h * 0.3 - 10, { r: 8, fill: "#ffffff", ring: p.text });
-      ctx.fillStyle = p.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-      ctx.fillText("센서", sx, ax - h * 0.3 - 22);
+      ctx.fillStyle = p.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      ctx.fillText("센서", sx - 13, ax - h * 0.3 - 10);
       // 상의 자리
       ctx.fillStyle = p.accent2; ctx.beginPath(); ctx.arc(ix, ax, 3.5, 0, Math.PI * 2); ctx.fill();
       // 물체
@@ -929,7 +932,7 @@
       x.fillStyle = "#2b2a30"; x.textBaseline = "middle"; x.textAlign = "center";
       x.font = "700 " + Math.max(4, Math.round(TXT * sc)) + "px Pretendard, sans-serif";
       x.fillText("책방 E", W / 2, H * 0.38);
-      x.font = "500 " + Math.max(3, Math.round(TXT * 0.5 * sc)) + "px Pretendard, sans-serif"; x.fillText("그림 읽기 모임 · 12월", W / 2, H * 0.78);
+      x.font = "500 " + Math.max(3, Math.round(TXT * 0.5 * sc)) + "px Pretendard, sans-serif"; x.fillText("그림 읽기 모임", W / 2, H * 0.78);
       if (blurPx < 0.3) return c;
       var id = x.getImageData(0, 0, W, H), n = W * H, a = new Float32Array(n);
       for (var i = 0; i < n; i++) a[i] = id.data[i * 4];
@@ -963,7 +966,7 @@
       ctx.fillStyle = p.dim; ctx.textAlign = "left"; ctx.fillText((D / 10) + " cm에서 봄", ex + 18, eyY);
       // 오른쪽: 돋보기(인쇄물 6 mm 폭을 확대)
       var bx = wide ? w * 0.52 : 14, by = wide ? 14 : gy + gh + 8, bw = wide ? w * 0.48 - 14 : w - 28, bh = wide ? h - 28 : h - by - 12;
-      var view = Math.max(6, onPrint * 5), sc = bw / view;   // 인쇄물 mm → 화면 px
+      var view = Math.max(10, onPrint * 5), sc = bw / view;   // 인쇄물 mm → 화면 px
       var th = Math.min(bh * 0.62, bw * 0.4);
       var tH = Math.round(th), tW = Math.round(bw);
       var blurPx = (onPrint / 2) * sc;   // 흐림 원 반지름(px)
@@ -1003,7 +1006,7 @@
     function nmin(f) { return 3.5 + ((f - 18) / (55 - 18)) * 2.1; }
     var cv = AB.canvas("#fd-cv", function (ctx, w, h) {
       var p = P(), f = fI(), N = Math.max(FSTOPS[nI()], nmin(f)), c = strict() ? 0.01 : COC;
-      var D = dofOf(f, N, s, c), MAXD = 7000;
+      var D = dofOf(f, N, s, c), MAXD = 6000;
       var x0 = 46, x1 = w - 18, yc = h * 0.46, half = h * 0.32;
       var X = function (d) { return x0 + (d / MAXD) * (x1 - x0); }, Yl = function (m) { return yc + m * half; };
       geo = { X: X, x0: x0, x1: x1, MAXD: MAXD };
@@ -1039,7 +1042,7 @@
       // 축
       ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x0, h - 30); ctx.lineTo(x1, h - 30); ctx.stroke();
       ctx.fillStyle = p.dim; ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
-      for (var m = 0; m <= 7; m++) { ctx.fillText(m + (m === 7 ? " m" : ""), X(m * 1000), h - 26); }
+      for (var m = 0; m <= 6; m++) { ctx.fillText(m + (m === 6 ? " m" : ""), X(m * 1000), h - 26); }
       // 초점 막대
       var fx = X(s);
       ctx.strokeStyle = p.accent; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.moveTo(fx, Yl(-1.08)); ctx.lineTo(fx, h - 30); ctx.stroke();
@@ -1142,15 +1145,15 @@
       for (var i = 0; i < 15; i++) { var t = i / 14; lights.push([w * (0.04 + 0.92 * t), h * (0.16 + 0.22 * 4 * t * (1 - t)), i % 3]); }
       for (var j = 0; j < 9; j++) { var t2 = j / 8; lights.push([w * (0.1 + 0.8 * t2), h * (0.62 - 0.12 * 4 * t2 * (1 - t2)), (j + 1) % 3]); }
       lights.push([drag.u * w, drag.v * h, 3]);
-      var COLS = ["rgba(255,205,130,", "rgba(255,180,110,", "rgba(255,228,170,", "rgba(255,240,215,"];
+      var COLS = ["rgba(255,196,96,", "rgba(255,150,80,", "rgba(255,226,150,", "rgba(255,246,225,"];
       ctx.globalCompositeOperation = "lighter";
       var cx0 = w / 2, cy0 = h / 2, rmax = Math.hypot(w / 2, h / 2), lastShape = "";
       lights.forEach(function (L, idx) {
         var dx = L[0] - cx0, dy = L[1] - cy0, rho = Math.hypot(dx, dy) / rmax;
-        var al = AB.clamp(0.9 * Math.pow(Ropen / Math.max(R, 1), 0.35) * 0.55, 0.25, 0.85);
+        var al = AB.clamp(0.6 * Math.pow(Ropen / Math.max(R, 1), 0.5), 0.55, 0.95);
         ctx.save();
         if (cat() && rho > 0.02) {
-          var off = 1.15 * rho * Ropen, ux = dx / (rho * rmax), uy = dy / (rho * rmax);
+          var off = 1.5 * rho * rho * Ropen, ux = dx / (rho * rmax), uy = dy / (rho * rmax);
           ctx.beginPath(); ctx.arc(L[0] - ux * off, L[1] - uy * off, Ropen * 1.02, 0, Math.PI * 2); ctx.clip();
         }
         ctx.fillStyle = COLS[L[2]] + al.toFixed(3) + ")";
@@ -1159,7 +1162,7 @@
         ctx.strokeStyle = COLS[L[2]] + (al * 0.6).toFixed(3) + ")"; ctx.lineWidth = Math.max(1, R * 0.08); ctx.stroke();
         ctx.restore();
         if (idx === lights.length - 1) {
-          var offv = cat() ? 1.15 * rho * Ropen : 0, cut = offv + R > Ropen * 1.02 + 0.5;
+          var offv = cat() ? 1.5 * rho * rho * Ropen : 0, cut = offv + R > Ropen * 1.02 + 0.5;
           lastShape = cut ? (offv + R - Ropen > R * 0.6 ? "고양이 눈" : "레몬(바깥쪽 잘림)") : round > 0.85 ? "원" : n + "각형";
         }
       });
@@ -1175,7 +1178,8 @@
       [[0.07, 0.3], [0.05, 0.26], [0.08, 0.33], [0.06, 0.24], [0.05, 0.29], [0.09, 0.31], [0.06, 0.27]].forEach(function (b2) {
         ctx.beginPath(); ctx.moveTo(bx + 1, h * (1 - b2[1]) + 1); ctx.lineTo(bx + w * b2[0] - 3, h * (1 - b2[1]) + 1); ctx.stroke(); bx += w * b2[0];
       });
-      AB.handle(ctx, drag.u * w, drag.v * h, { r: 6, fill: "rgba(255,255,255,0)", ring: "#ffffff", width: 1.5 });
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.setLineDash([4, 3]);
+      ctx.beginPath(); ctx.arc(drag.u * w, drag.v * h, R + 6, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = "#f2efe8"; ctx.font = AB.font(11, true, 600); ctx.textAlign = "left"; ctx.textBaseline = "top";
       ctx.fillText("50 mm · " + fstr(N) + " · 초점 1 m · 줄전구 3 m", 10, 8);
       AB.stat("fb-o-b", b.toFixed(2) + " <small>mm</small>");

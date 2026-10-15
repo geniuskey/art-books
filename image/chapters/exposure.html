@@ -1,0 +1,809 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "조리개, 셔터 속도, 감도는 사진에 들어오는 빛의 양을 정하는 세 손잡이다. f값과 스톱, EV와 상호 법칙, 그리고 각 손잡이가 남기는 흔적(심도, 흔들림, 노이즈)과 노출계의 18% 회색 관습을 어두운 서가 사진으로 조작해 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>노출 · ImageBook</title>
+<meta name="description" content="조리개, 셔터 속도, 감도는 사진에 들어오는 빛의 양을 정하는 세 손잡이다. f값과 스톱, EV와 상호 법칙, 그리고 각 손잡이가 남기는 흔적(심도, 흔들림, 노이즈)과 노출계의 18% 회색 관습을 어두운 서가 사진으로 조작해 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/image/chapters/exposure.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="노출 · ImageBook">
+<meta property="og:description" content="조리개, 셔터 속도, 감도는 사진에 들어오는 빛의 양을 정하는 세 손잡이다. f값과 스톱, EV와 상호 법칙, 그리고 각 손잡이가 남기는 흔적(심도, 흔들림, 노이즈)과 노출계의 18% 회색 관습을 어두운 서가 사진으로 조작해 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/image/chapters/exposure.html">
+<meta property="og:image" content="https://artbook.euiyun.com/image/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/image/chapters/exposure.html#chapter","name":"노출","headline":"노출 · ImageBook","description":"조리개, 셔터 속도, 감도는 사진에 들어오는 빛의 양을 정하는 세 손잡이다. f값과 스톱, EV와 상호 법칙, 그리고 각 손잡이가 남기는 흔적(심도, 흔들림, 노이즈)과 노출계의 18% 회색 관습을 어두운 서가 사진으로 조작해 본다.","url":"https://artbook.euiyun.com/image/chapters/exposure.html","position":2,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/image/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/image/#book","name":"ImageBook · 사진과 이미지","url":"https://artbook.euiyun.com/image/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ImageBook · 사진과 이미지","item":"https://artbook.euiyun.com/image/"},{"@type":"ListItem","position":3,"name":"2. 노출","item":"https://artbook.euiyun.com/image/chapters/exposure.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="exposure">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 02</div>
+    <h1>노출</h1>
+    <p class="lead">해가 짧은 12월 오후, 전구 몇 개가 켜진 서점 안에서 서가를 찍는다. 첫 장은 책 제목이 흔들려 두 겹으로 보이고, 흔들리지 않게 다시 찍은 둘째 장은 어두운 책등 위에 모래 같은 얼룩이 내려앉았다. 사진을 밝게 만드는 방법은 세 가지뿐이다. 구멍을 넓히거나, 오래 열어 두거나, 받은 신호를 키우거나. 세 방법 모두 대가가 있다. 이 장은 그 세 손잡이를 하나씩 돌려 보고, 셋을 함께 돌려 한 장의 서가 사진을 찍는다.</p>
+    <ul class="objectives">
+      <li>노출이 조리개(f값), 셔터 속도, 감도(ISO)의 세 손잡이로 정해진다는 것을 설명한다.</li>
+      <li>f값이 왜 1.4, 2, 2.8, 4처럼 √2배씩 늘어나는지, 스톱(빛 2배)이 세 손잡이를 잇는 공통 단위라는 것을 안다.</li>
+      <li>EV와 상호 법칙으로 "같은 밝기, 다른 조합"을 찾는다.</li>
+      <li>각 손잡이의 흔적(조리개는 심도, 셔터는 흔들림, 감도는 노이즈)을 직접 보고 무엇을 내줄지 고른다.</li>
+      <li>노출계가 모든 것을 18% 회색으로 보려 한다는 관습과 그 함정을 안다.</li>
+    </ul>
+  </header>
+
+  <section id="three">
+    <h2>빛의 양을 정하는 세 손잡이</h2>
+    <p><a href="overview.html">1장</a>에서 노출은 "장면의 어느 부분을 지키고 어느 부분을 버릴지 고르는 일"이라고 했다. 이번에는 그 노출을 실제로 정하는 장치를 본다. 센서 한 칸이 받는 빛의 양, 곧 <span class="term">노출량</span><span class="en">(Exposure, H)</span>은 장면의 밝기, 렌즈의 구멍 크기, 셔터가 열려 있는 시간으로 정해진다. 여기에 센서가 받은 신호를 얼마나 키울지가 더해져 사진의 밝기가 된다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="노출의 세 손잡이: 조리개, 셔터 속도, 감도와 각각의 흔적">
+        <defs><marker id="iex-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="160" y="112" width="140" height="56" rx="28" class="f-acc-soft"/>
+        <text x="230" y="137" text-anchor="middle" class="lbl-acc">사진의 밝기</text>
+        <text x="230" y="155" text-anchor="middle" class="lbl-dim" style="font-size:11px">노출량 × 신호 증폭</text>
+        <!-- 조리개 -->
+        <circle cx="70" cy="62" r="34" class="f-surface"/><circle cx="70" cy="62" r="34" fill="none" class="s-line"/>
+        <path d="M70 46 L84 54 L84 70 L70 78 L56 70 L56 54 Z" class="f-elev"/><path d="M70 46 L84 54 L84 70 L70 78 L56 70 L56 54 Z" fill="none" class="s-acc2"/>
+        <text x="70" y="114" text-anchor="middle" class="lbl-b">조리개</text>
+        <text x="70" y="130" text-anchor="middle" class="lbl-dim" style="font-size:11px">구멍의 넓이(f값)</text>
+        <!-- 셔터 -->
+        <circle cx="390" cy="62" r="34" class="f-surface"/><circle cx="390" cy="62" r="34" fill="none" class="s-line"/>
+        <path d="M390 62 L390 38 M390 62 L408 72" class="s-acc2" stroke-width="2.5"/>
+        <text x="390" y="114" text-anchor="middle" class="lbl-b">셔터 속도</text>
+        <text x="390" y="130" text-anchor="middle" class="lbl-dim" style="font-size:11px">열려 있는 시간</text>
+        <!-- 감도 -->
+        <rect x="196" y="206" width="68" height="40" rx="8" class="f-surface"/><rect x="196" y="206" width="68" height="40" rx="8" fill="none" class="s-line"/>
+        <text x="230" y="231" text-anchor="middle" class="t-mono lbl-b">ISO</text>
+        <text x="230" y="266" text-anchor="middle" class="lbl-b">감도</text>
+        <text x="230" y="282" text-anchor="middle" class="lbl-dim" style="font-size:11px">받은 신호를 키우는 정도</text>
+        <path d="M104 74 L160 124" class="s-line" marker-end="url(#iex-ar)"/>
+        <path d="M356 74 L300 124" class="s-line" marker-end="url(#iex-ar)"/>
+        <path d="M230 204 L230 172" class="s-line" marker-end="url(#iex-ar)"/>
+        <!-- 흔적 -->
+        <text x="70" y="168" text-anchor="middle" class="lbl-bad">흔적: 심도</text>
+        <text x="70" y="184" text-anchor="middle" class="lbl-dim" style="font-size:11px">열수록 앞뒤가 흐려진다</text>
+        <text x="390" y="168" text-anchor="middle" class="lbl-bad">흔적: 흔들림</text>
+        <text x="390" y="184" text-anchor="middle" class="lbl-dim" style="font-size:11px">길수록 움직임이 번진다</text>
+        <text x="340" y="232" class="lbl-bad">흔적: 노이즈</text>
+        <text x="340" y="248" class="lbl-dim" style="font-size:11px">높을수록 얼룩이 는다</text>
+        <rect x="16" y="200" width="104" height="70" rx="6" fill="#d8c7a6"/>
+        <rect x="26" y="210" width="16" height="50" fill="#8c2f2a" opacity=".55"/><rect x="46" y="210" width="12" height="50" fill="#2f4f6f" opacity=".55"/>
+        <rect x="74" y="214" width="12" height="46" fill="#c9a24a"/><rect x="90" y="210" width="14" height="50" fill="#3f6b4a"/>
+        <text x="68" y="290" text-anchor="middle" class="lbl-dim" style="font-size:11px">앞은 흐리고 뒤는 선명</text>
+      </svg>
+      <figcaption><b>그림 1. 노출의 세 손잡이와 그 흔적.</b> 조리개는 렌즈 구멍의 넓이를, 셔터 속도는 빛을 받는 시간을 정한다. 둘이 곱해진 것이 센서가 받는 빛의 양이다. 감도는 받은 빛을 늘리지 않고, 받은 신호를 키운다. 세 손잡이 모두 사진을 밝게 할 수 있지만, 각자 다른 흔적을 남긴다.</figcaption>
+    </figure>
+
+    <p>센서가 받는 빛의 양은 다음처럼 쓸 수 있다.</p>
+    <div class="formula">$$H \;\propto\; L \times \frac{t}{N^2}$$<div class="where">\(H\): 센서 한 칸이 받는 빛의 양(노출량), \(L\): 장면의 밝기(휘도), \(t\): 셔터가 열려 있는 시간(초), \(N\): 렌즈의 <span class="term">f값</span><span class="en">(f-number)</span>(초점거리를 구멍의 지름으로 나눈 값). f값이 클수록 구멍이 작다. 빛이 들어오는 넓이는 지름의 제곱에 비례하므로 \(N^2\)으로 나눈다.</div></div>
+    <p>장면의 밝기 \(L\)은 사진가가 바꾸기 어렵다(조명을 더하는 방법은 <a href="light.html">4장</a>). 그래서 노출을 정한다는 것은 \(t\)와 \(N\)을 고르고, 그래도 모자라거나 남으면 <span class="term">감도</span><span class="en">(ISO sensitivity)</span>로 신호를 키우거나 줄이는 일이다. 감도의 숫자 ISO 100, 200, 400은 국제 표준(ISO 12232)이 정한 방식으로 매긴 것이고, 숫자가 두 배가 되면 같은 밝기의 사진을 얻는 데 필요한 빛이 절반이 된다.</p>
+  </section>
+
+  <section id="aperture">
+    <h2>조리개와 f값</h2>
+    <p>렌즈 안에는 얇은 날개 여러 장이 겹쳐 구멍의 크기를 바꾸는 <span class="term">조리개</span><span class="en">(Aperture)</span>가 있다. 조리개의 크기는 지름 몇 밀리미터가 아니라 f값으로 적는다. 50&nbsp;mm 렌즈의 구멍 지름이 25&nbsp;mm라면 f/2, 12.5&nbsp;mm라면 f/4다. 이렇게 초점거리로 나누어 적으면, 초점거리가 다른 렌즈라도 f값이 같으면 센서에 떨어지는 빛의 밝기가 같다. 긴 렌즈는 구멍이 커야 같은 밝기가 되기 때문이다.</p>
+    <p>아래 조리개의 눈금 위 손잡이를 끌거나 슬라이더를 움직여 f값을 바꾼다. 굵은 눈금은 빛이 정확히 절반씩 줄어드는 자리다.</p>
+
+    <div class="sim" id="sim-ap">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>f값과 구멍의 넓이</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ap-cv"></canvas><span class="hint">눈금 위 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>f값 <output id="ap-s-out"></output></span><input type="range" id="ap-s" min="0" max="8" step="0.3333333" value="3"></label>
+          <label class="check"><input type="checkbox" id="ap-half"> 지름이 절반인 구멍 겹쳐 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">구멍 지름(50 mm 렌즈)</span><span class="v" id="ap-o-d">—</span></div>
+        <div class="stat"><span class="k">빛의 양(f/1.4 = 100%)</span><span class="v" id="ap-o-l">—</span></div>
+        <div class="stat"><span class="k">f/1.4보다 어두운 정도</span><span class="v" id="ap-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① f/2.8에서 굵은 눈금 하나를 오른쪽(f/4)으로 옮긴다. 빛의 양이 정확히 절반이 된다. f값은 1.4배(√2배)만 늘었는데 빛은 두 배 줄었다. ② "지름이 절반인 구멍"을 켠다. 지름 절반은 넓이 4분의 1, 곧 2스톱이다. f/2.8의 지름 절반은 f/5.6이다. ③ 양 끝까지 민다. f/1.4와 f/22는 8스톱, 빛의 양으로 256배 차이다. (실제 렌즈의 f값 표기는 반올림한 값이다. 예를 들어 f/5.6은 정확히는 4√2 ≈ 5.66이다. 렌즈가 빛을 흡수하는 양의 차이는 무시했다.)</div>
+    </div>
+
+    <p>f값의 수열 1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22는 처음 보면 외우기 어렵지만, 규칙은 하나다. 이웃한 값의 비가 √2(약 1.41)다. 지름이 √2배가 되면 넓이는 2배가 되므로, 이 수열의 한 칸은 빛의 양 두 배, 곧 1스톱이다. 두 칸마다 숫자가 정확히 두 배(2, 4, 8, 16 / 1.4, 2.8, 5.6, 11)가 되는 것도 그래서다. 카메라 대부분은 그 사이를 3분의 1스톱씩 나누어 f/3.2, f/3.5 같은 값도 쓴다.</p>
+    <p>"조리개를 연다"는 f값을 작게(구멍을 크게), "조리개를 조인다"는 f값을 크게 하는 것이다. 숫자와 구멍의 크기가 반대로 움직여서 처음에는 헷갈리지만, f값이 분수 f/N이라는 것을 기억하면 된다. f/2는 초점거리의 2분의 1, f/16은 16분의 1이다.</p>
+  </section>
+
+  <section id="stops">
+    <h2>스톱과 EV: 세 손잡이의 공통 화폐</h2>
+    <p>셔터 속도와 감도도 같은 단위로 셀 수 있다. 셔터를 1/60초에서 1/30초로 늘리면 빛을 두 배 받으니 1스톱 밝아진다. 감도를 ISO 400에서 800으로 올리면 같은 빛으로 두 배 밝은 사진이 되니 역시 1스톱이다. 그래서 세 손잡이는 모두 <span class="term">스톱</span><span class="en">(Stop)</span>이라는 하나의 화폐로 바꿀 수 있다. 한 손잡이에서 1스톱을 빼면, 다른 손잡이에서 1스톱을 더해 밝기를 그대로 유지할 수 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="세 손잡이의 스톱 눈금. 한 칸 오른쪽으로 갈 때마다 빛이 절반이 된다.">
+        <defs><marker id="iex-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g id="iex-ladder"></g>
+        <path d="M70 196 L446 196" class="s-line" marker-end="url(#iex-ar2)"/>
+        <text x="72" y="216" class="lbl-dim" style="font-size:11px">한 칸 오른쪽 = 빛 절반(−1스톱) · 사진이 어두워지는 쪽</text>
+      </svg>
+      <figcaption><b>그림 2. 스톱 눈금.</b> 세 줄 모두 한 칸이 1스톱이다. 오른쪽으로 갈수록 조리개는 조이고(f값이 커지고), 셔터는 빨라지고, 감도는 낮아져서 사진이 어두워진다. 위아래 두 줄에서 한 칸씩 반대로 움직이면 밝기는 그대로다. 예를 들어 f/4·1/60초와 f/5.6·1/30초는 같은 노출이다.</figcaption>
+    </figure>
+
+    <p>노출의 조합을 하나의 숫자로 적는 방법이 <span class="term">EV</span><span class="en">(Exposure Value, 노출값)</span>다.</p>
+    <div class="formula">$$\mathrm{EV} = \log_2 \frac{N^2}{t}$$<div class="where">\(N\): f값, \(t\): 셔터 속도(초). f/1·1초가 EV 0이고, EV가 1 오를 때마다 빛을 절반만 받는 조합이다. 같은 EV를 주는 조합은 모두 같은 양의 빛을 받는다. 장면의 밝기를 "ISO 100에서 알맞은 노출이 되는 EV"로 적어 EV<sub>100</sub>이라고 쓰기도 한다.</div></div>
+    <p>같은 EV를 주는 조합끼리는 밝기가 같다는 성질을 <span class="term">상호 법칙</span><span class="en">(Reciprocity)</span>이라고 한다. 시간과 넓이가 서로를 갚는다는 뜻이다. 아래 그래프에서 장면의 밝기와 감도를 고르면, 같은 밝기를 주는 조합이 한 줄로 늘어선다. 줄 위의 점을 끌어 조합을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-rec">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 노출, 다른 조합</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="rc-cv"></canvas><span class="hint">줄 위의 점을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>장면의 밝기 EV<sub>100</sub> <output id="rc-ev-out"></output></span><input type="range" id="rc-ev" min="2" max="16" step="1" value="6"></label>
+          <div class="seg" id="rc-iso"><button data-value="100" class="on">ISO 100</button><button data-value="400">400</button><button data-value="1600">1600</button><button data-value="6400">6400</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 조합</span><span class="v" id="rc-o-pair">—</span></div>
+        <div class="stat"><span class="k">이런 장면</span><span class="v" id="rc-o-scene">—</span></div>
+        <div class="stat"><span class="k">손에 들고 찍을 수 있나</span><span class="v" id="rc-o-hand">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① EV 6(전구 조명의 실내), ISO 100에서 점을 끌어 본다. f/2.8이면 1/8초, f/8이면 1초다. 줄 위 어디든 밝기는 같지만, 회색 띠(손떨림 주의) 안으로 들어간다. ② ISO 1600을 누른다. 줄 전체가 4스톱(16배) 빠른 쪽으로 내려온다. f/5.6이면 1/30초다. ③ EV 15(맑은 날 한낮)로 올린다. ISO 100, f/16에서 약 1/125초가 된다. ("이런 장면"의 예는 흔히 쓰이는 대략의 값이다. 손떨림 띠는 50&nbsp;mm 렌즈를 APS-C 카메라(환산 75&nbsp;mm)에 끼우고 손에 든 경우, "환산 초점거리 분의 1초보다 빠르게"라는 경험칙으로 그렸다.)</div>
+    </div>
+
+    <p>상호 법칙 덕분에 사진가는 밝기를 잃지 않고 조합을 바꿀 수 있다. 하지만 줄 위의 모든 점이 같은 사진을 만드는 것은 아니다. 밝기는 같아도 f/1.4·1/250초의 사진과 f/16·1/2초의 사진은 전혀 다르다. 앞의 사진은 배경이 녹아 흐리고 손님이 멈춰 있으며, 뒤의 사진은 앞뒤가 모두 선명한 대신 손님이 유령처럼 번진다. 다음 세 절에서 이 차이를 하나씩 본다.</p>
+
+    <div class="callout studio">
+      <strong>필름 시절의 "맑은 날 16"</strong>
+      노출계가 귀하던 시절 사진가들은 "맑은 날 16(Sunny 16)"이라는 경험칙을 외웠다. 맑은 날 한낮의 순광이라면 조리개 f/16에 셔터 속도는 1/감도초(ISO 100이면 1/100초, 카메라에 있는 가장 가까운 1/125초)로 찍는다. 옅은 구름이면 1스톱 열어 f/11, 흐리면 f/8, 짙은 그늘이면 f/5.6 하는 식으로 내려간다. 정확한 노출계는 아니지만, 이 기준 하나를 알고 있으면 스톱으로 세는 감각이 몸에 붙는다. 한도경은 지금도 맑은 날 창밖을 보며 "f/16에 125"라고 혼잣말을 한다.
+    </div>
+  </section>
+
+  <section id="shutter">
+    <h2>셔터 속도: 멈추거나 흐르거나</h2>
+    <p><span class="term">셔터 속도</span><span class="en">(Shutter speed)</span>는 센서가 빛을 받는 시간이다. 그 시간 동안 카메라가 흔들리거나 피사체가 움직이면, 같은 점의 빛이 센서 위 여러 칸에 나뉘어 떨어져 번진다. 카메라가 흔들려 생긴 번짐은 사진 전체에 같은 방향으로 생기고, 피사체가 움직여 생긴 번짐은 움직인 것에만 생긴다.</p>
+    <p>아래 서가 앞으로 손님 한 명이 지나간다. 셔터 속도를 바꾸고, 카메라를 손에 들었는지 삼각대에 올렸는지 고른다. 밝기는 감도를 자동으로 바꿔 같게 유지한다고 가정한다(감도가 남기는 흔적은 다음 절에서 본다).</p>
+
+    <div class="sim" id="sim-sh">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>셔터 속도와 번짐</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="sh-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>셔터 속도 <output id="sh-t-out"></output></span><input type="range" id="sh-t" min="0" max="10" step="0.3333333" value="4"></label>
+          <div class="seg" id="sh-hold"><button data-value="hand" class="on">손에 들고</button><button data-value="tripod">삼각대</button></div>
+          <label class="check"><input type="checkbox" id="sh-person" checked> 손님이 지나간다</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">손떨림 번짐</span><span class="v" id="sh-o-shake">—</span></div>
+        <div class="stat"><span class="k">손님의 번짐</span><span class="v" id="sh-o-move">—</span></div>
+        <div class="stat"><span class="k">같은 밝기에 필요한 ISO(f/2.8)</span><span class="v" id="sh-o-iso">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 1/60초, 손에 들고. 서가는 거의 선명한데 손님은 옆으로 번진다. 걷는 사람을 멈추려면 1/250초 근처까지 빨라져야 한다. ② 1/8초로 늦춘다. 서가의 책 제목까지 두 겹으로 흔들린다. "삼각대"를 누르면 서가는 다시 선명해지지만 손님은 그대로 번진다. 삼각대는 카메라의 흔들림만 막는다. ③ 삼각대에서 1초까지 늦춘다. 손님이 반투명한 띠가 되어 거의 사라진다. 19세기의 긴 노출 사진에서 거리의 사람들이 사라진 이유다. (렌즈는 50&nbsp;mm, APS-C 카메라를 가정했다. 손떨림은 초당 약 0.04라디안(2.3°)의 느린 흔들림으로, 손님은 2.2&nbsp;m 앞에서 초속 1.2&nbsp;m로 걷는다고 둔 교육용 가정이다. 번짐은 사진 가로 폭 400칸 기준이다.)</div>
+    </div>
+
+    <p>손에 들고 찍을 때의 한계로 오래 쓰여 온 경험칙이 있다. 셔터 속도를 <b>환산 초점거리 분의 1초</b>보다 빠르게 하라는 것이다. 35&nbsp;mm 필름 기준 50&nbsp;mm 렌즈라면 1/50초, 서윤의 미러리스(환산 1.5배)에 50&nbsp;mm 단렌즈를 끼우면 환산 75&nbsp;mm이니 1/80초쯤이다. 망원일수록 작은 흔들림도 크게 확대되기 때문에 더 빨라야 한다. 이 경험칙은 필름 시절 작은 인화를 기준으로 생긴 것이라, 화소가 많은 센서로 크게 확대해 보면 그보다 빨라야 한다는 의견도 있다. 반대로 손떨림 보정 장치가 있는 렌즈나 카메라, 휴대폰은 몇 스톱 더 느린 셔터에서도 버틴다. 그러니 기준선으로만 쓰고, 찍은 뒤 확대해 확인한다.</p>
+
+    <figure class="art-figure" id="fig-anthony">
+      <div class="art-frame"><img src="../../shared/img/anthony-broadway-rain.webp" width="1600" height="877" alt="에드워드 앤서니의 입체 사진 카드 「비 오는 브로드웨이」. 거의 같은 두 장의 사진이 나란히 붙어 있다. 비에 젖은 넓은 거리에 마차와 승합마차가 늘어서 있고, 오른쪽 아래 보도에 우산을 쓴 사람이 걸어간다. 양쪽으로 높은 건물과 간판이 이어진다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 에드워드 앤서니, 「[비 오는 브로드웨이]」, 1860년대경.</b> 두 눈의 시차만큼 다른 두 장을 나란히 붙인 입체 사진 카드다. 확대해 보면 우산을 쓰고 걷는 사람은 형체가 또렷하지만, 길 한가운데의 마차 몇 대는 반투명한 유령처럼 번져 있다. 같은 순간, 같은 셔터 속도에서도 움직임이 빠른 것만 번진다. 1850년대 말부터 작은 입체 사진 카메라로 거리의 움직임을 멈춰 찍은 "순간 사진(instantaneous view)"이 인기를 얻었고, 앤서니는 뉴욕 거리의 이런 사진을 펴낸 사진가 가운데 한 명이다. 당시의 재료로 비 오는 날의 어두운 빛에서 이만큼 멈춰 찍은 것은 큰 성과였다. 사진의 역사는 <a href="history.html">12장</a>에서 다룬다.<span class="credit">메트로폴리탄 미술관 소장(Warner Communications Inc. Purchase Fund, 1980), 알부민 은염 인화(입체 사진 카드). 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/262762">소장처 작품 페이지</a> · <a href="../../credits.html#anthony-broadway-rain">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>번짐이 언제나 실패는 아니다. 흐르는 물을 비단처럼, 밤길의 자동차 불빛을 선처럼 담는 사진은 일부러 셔터를 오래 연다. 서점 사진이라도, 서가는 선명하고 지나가는 손님만 살짝 번진 사진은 "붐비는 서점"이라는 이야기를 전할 수 있다. 무엇을 멈추고 무엇을 흐르게 할지가 사진이 전하려는 것에 맞는지가 기준이다.</p>
+
+    <div class="callout studio">
+      <strong>삼각대가 없을 때</strong>
+      삼각대가 없으면 몸을 삼각대로 만든다. 두 팔꿈치를 몸통에 붙이고, 벽이나 기둥에 어깨를 기대거나, 카메라를 책장 선반이나 탁자 위에 올린다. 숨을 반쯤 내쉰 상태에서 셔터를 부드럽게 누르고, 연속 촬영으로 서너 장을 찍으면 그중 한 장은 흔들림이 덜하다. 삼각대에 올렸다면 셔터를 누르는 손가락의 흔들림까지 막기 위해 2초 셀프타이머나 원격 셔터를 쓴다. 노출이 긴 사진일수록 마지막 이 한 단계가 차이를 만든다.
+    </div>
+  </section>
+
+  <section id="iso">
+    <h2>감도: 빛을 늘리지 않고 키운다</h2>
+    <p>감도를 올리면 사진이 밝아진다. 그런데 감도는 센서에 들어오는 빛을 늘리지 않는다. 같은 빛을 받은 뒤 그 신호를 크게 키울 뿐이다. 문제는 신호 속에 섞여 있는 불규칙한 흔들림, 곧 <span class="term">노이즈</span><span class="en">(Noise)</span>도 함께 커진다는 점이다. 빛이 적을수록 신호에 비해 노이즈의 몫이 커지고, 그것을 키우면 어두운 부분에 모래 같은 얼룩과 색 반점이 드러난다.</p>
+    <p>아래는 서가 일부를 확대한 것이다. 왼쪽은 삼각대에서 ISO 100으로 오래 찍은 사진, 오른쪽은 고른 감도로 그만큼 짧게 찍은 사진이다. 두 사진의 밝기는 같다. 경계선을 끌어 비교하고 감도를 올려 본다.</p>
+
+    <div class="sim" id="sim-iso">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 밝기, 다른 감도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage">
+          <div class="compare" id="is-cmp">
+            <div class="cmp-a"><canvas id="is-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="is-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>감도 <output id="is-s-out"></output></span><input type="range" id="is-s" min="0" max="8" step="0.3333333" value="4"></label>
+          <label class="check"><input type="checkbox" id="is-dark"> 어두운 쪽만 1스톱 끌어올리기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">셔터 속도(f/2.8, EV<sub>100</sub> 6)</span><span class="v" id="is-o-t">—</span></div>
+        <div class="stat"><span class="k">중간 회색 한 칸이 받은 광자</span><span class="v" id="is-o-n">—</span></div>
+        <div class="stat"><span class="k">신호 대 노이즈(중간 회색)</span><span class="v" id="is-o-snr">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① ISO 1600에서 경계선을 끈다. 밝은 책등은 비슷하지만 어두운 책등과 선반 그림자에 얼룩이 앉았다. ② ISO 25600까지 올린다. 셔터는 약 1/2000초로 빨라졌지만 받은 빛이 256분의 1이라 어두운 곳이 색 반점으로 덮인다. ③ "어두운 쪽 끌어올리기"를 켠다. 찍은 뒤 그림자를 밝히면 그 속의 노이즈도 함께 밝아진다. (교육용 모형: ISO 100에서 알맞게 노출한 중간 회색 한 칸이 광자 2,500개를 받고, 받은 광자 수 \(n\)의 노이즈는 \(\sqrt{n}\)이며, 읽기 노이즈 4개를 더했다. 실제 센서는 기종마다 다르고 카메라 안에서 노이즈를 줄이는 처리도 한다. 자세한 원리는 <a href="pixel.html">8장</a>.)</div>
+    </div>
+
+    <div class="callout deep">
+      <strong>빛도 알갱이로 온다</strong>
+      빛은 광자라는 알갱이로 온다. 같은 밝기의 빛이라도 한 칸에 떨어지는 광자 수는 매번 조금씩 다르다. 빗방울이 고르게 내려도 작은 컵마다 받은 물의 양이 조금씩 다른 것과 같다. 평균 \(n\)개를 받을 때 그 흔들림의 크기는 대략 \(\sqrt{n}\)개다. 그래서 신호 대 노이즈의 비는 \(n/\sqrt{n} = \sqrt{n}\)이다. 광자 10,000개를 받은 칸은 흔들림이 1%(100개)지만, 100개를 받은 칸은 10%(10개)나 된다. 감도를 4스톱 올리면 받는 빛이 16분의 1이 되고, 신호 대 노이즈는 4분의 1이 된다. 이 노이즈는 카메라가 아무리 좋아져도 빛 자체에서 오는 것이라 없앨 수 없다. 노이즈를 줄이는 가장 확실한 방법은 빛을 더 받는 것이다.
+    </div>
+
+    <p>그러니 감도는 "빛이 모자랄 때 마지막에 돌리는 손잡이"로 생각하는 편이 좋다. 조리개를 더 열 수 없고 셔터를 더 늦출 수 없을 때, 흔들린 사진보다는 거친 사진이 낫다는 판단으로 감도를 올린다. 거꾸로 삼각대를 쓸 수 있고 피사체가 움직이지 않는다면, 감도를 낮추고 셔터를 늦추는 것이 언제나 깨끗하다. 도록에 실을 작품처럼 움직이지 않는 대상을 찍을 때 사진가들이 가장 낮은 감도를 고집하는 이유다.</p>
+  </section>
+
+  <section id="dof">
+    <h2>조리개의 흔적: 심도</h2>
+    <p>조리개도 흔적을 남긴다. <a href="overview.html">1장</a>의 바늘구멍과 렌즈를 떠올리면, 렌즈는 한 거리에만 정확히 초점을 맞춘다. 그보다 가깝거나 먼 점은 작은 원으로 퍼져 맺힌다. 구멍이 클수록 이 원도 커진다. 그래서 조리개를 열면 초점 맞은 곳 앞뒤가 빨리 흐려지고, 조이면 앞뒤로 넓은 범위가 선명해 보인다. 선명해 보이는 앞뒤 범위를 <span class="term">피사계 심도</span><span class="en">(Depth of field)</span>, 줄여서 심도라고 한다.</p>
+    <p>아래 장면에는 거리가 다른 세 가지가 있다. 1.3&nbsp;m 앞의 탁자와 책 더미, 2.2&nbsp;m 앞의 손님, 3&nbsp;m 앞의 서가. 장면을 눌러 초점을 맞출 곳을 고르고, f값을 바꾼다.</p>
+
+    <div class="sim" id="sim-dof">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>조리개를 열면 앞뒤가 녹는다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="df-cv" class="art"></canvas><span class="hint">눌러서 초점을 맞춘다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>f값 <output id="df-s-out"></output></span><input type="range" id="df-s" min="0" max="8" step="0.3333333" value="1"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">초점</span><span class="v" id="df-o-f">—</span></div>
+        <div class="stat"><span class="k">탁자(1.3 m)의 번짐</span><span class="v" id="df-o-near">—</span></div>
+        <div class="stat"><span class="k">서가(3 m)의 번짐</span><span class="v" id="df-o-far">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① f/2에서 서가에 초점을 맞춘다. 앞의 탁자와 책 더미가 크게 흐려진다. ② 탁자를 누른다. 이번엔 서가의 책 제목이 녹는다. ③ f/16까지 조인다. 탁자와 서가가 함께 거의 선명해진다. 대신 같은 밝기를 얻으려면 f/2보다 6스톱, 곧 64배 긴 셔터나 높은 감도가 필요하다. (얇은 렌즈 근사로 착란원의 지름을 계산했다. 50&nbsp;mm 렌즈, APS-C 센서(가로 23.5&nbsp;mm)를 가정했고, 번짐은 사진 가로 폭 400칸 기준이다. 심도 계산과 과초점 거리, 보케는 <a href="focus.html">7장</a>에서 자세히 다룬다.)</div>
+    </div>
+
+    <p>심도는 조리개만으로 정해지지 않는다. 초점 거리가 멀수록, 렌즈가 짧을수록 깊어진다. 휴대폰 사진이 거의 모든 곳에서 선명한 것은 휴대폰 렌즈의 초점거리가 아주 짧기 때문이다(<a href="lens.html">5장</a>, <a href="focus.html">7장</a>). 이 장에서 기억할 것은 하나다. 조리개를 열어 빛을 얻으면, 그 대가로 심도를 내준다.</p>
+  </section>
+
+  <section id="meter">
+    <h2>노출계와 18% 회색</h2>
+    <p>카메라는 알맞은 노출을 어떻게 아는가. 카메라 안의 <span class="term">노출계</span><span class="en">(Light meter)</span>는 렌즈로 들어온 빛의 평균을 재고, 그 평균이 <b>중간 회색</b>으로 찍히도록 노출을 정한다. 중간 회색은 흔히 빛의 18%를 반사하는 회색으로 설명한다. 18% 반사율은 명도로 따지면 L* 약 50으로, 흰색과 검정 사이 "보기에 중간"인 밝기다(이 책의 엔진으로 계산하면 49.5). 대부분의 장면은 밝은 것과 어두운 것이 섞여 평균이 중간쯤이 되므로, 이 방법은 대체로 잘 맞는다.</p>
+    <p>잘 맞지 않는 장면도 있다. 아래에 흰 수채화 종이, 회색 카드, 검은 스케치북 표지가 같은 빛 아래 나란히 있다. 측광 표시를 끌어 셋 중 하나를 재고, 측광 방식을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-mt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>노출계는 모든 것을 회색으로 본다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="mt-cv" class="art"></canvas><span class="hint">측광 표시를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mt-mode"><button data-value="reflect" class="on">반사광(카메라)</button><button data-value="incident">입사광(손 노출계)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">잰 곳의 반사율</span><span class="v" id="mt-o-r">—</span></div>
+        <div class="stat"><span class="k">흰 종이의 화면 값 · L*</span><span class="v" id="mt-o-w">—</span></div>
+        <div class="stat"><span class="k">알맞은 노출과의 차이</span><span class="v" id="mt-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 측광 표시를 흰 종이 위에 둔다. 노출계는 종이를 중간 회색으로 만들려고 노출을 2스톱 넘게 줄이고, 흰 종이가 칙칙한 회색으로 찍힌다. ② 검은 표지 위로 옮긴다. 이번에는 2스톱 넘게 늘려 표지가 회색이 되고 흰 종이는 날아간다. ③ 회색 카드 위에 두면 셋 모두 제 밝기가 된다. ④ "입사광"을 누른다. 피사체 쪽에서 카메라를 향해 들어오는 빛 자체를 재므로 어디를 재든 결과가 같다. (반사율: 흰 수채화 종이 85%, 회색 카드 18%, 검은 표지 4%로 둔 가정이다. 실제 노출계의 기준값은 제조사와 교정 방식에 따라 조금씩 다르고, 18%보다 낮은 반사율에 맞춰져 있다는 설명도 있다.)</div>
+    </div>
+
+    <p>흰 눈밭을 찍으면 회색 눈이, 검은 고양이를 찍으면 회색 고양이가 나오는 것이 이 때문이다. 노출계는 무엇이 원래 밝은지 모른다. 그래서 사진가는 장면의 평균이 중간 회색에서 얼마나 벗어나는지 판단해 노출 보정을 한다. 흰 것이 화면을 채우면 +1~+2스톱, 검은 것이 채우면 −1~−2스톱이 흔한 출발점이다. 또는 대상 대신 회색 카드를 재거나, 피사체에 떨어지는 빛 자체를 재는 <span class="term">입사광식 노출계</span><span class="en">(Incident meter)</span>를 쓴다. 18%라는 숫자는 자연의 법칙이 아니라 사진계가 오래 써 온 관습이라는 점도 기억해 둔다.</p>
+
+    <div class="callout warn">
+      <strong>휴대폰은 한 장을 찍지 않을 때가 많다</strong>
+      이 장의 세 손잡이는 한 번의 노출로 한 장을 찍는 카메라를 기준으로 했다. 요즘 휴대폰은 셔터를 한 번 누를 때 여러 장을 연속으로 찍어 합치는 경우가 많다(야간 모드, HDR, 노이즈 줄이기). 그래서 휴대폰이 보여 주는 "1/15초, ISO 800" 같은 값이 실제로 한 장의 노출을 뜻하지 않을 수 있고, 손에 들고도 생각보다 깨끗한 사진이 나오기도 한다. 원리는 같다. 여러 장을 합치면 받은 빛의 총량이 늘어 노이즈가 줄어든다. 다만 합치는 동안 움직인 것은 번지거나 지워진다. 휴대폰의 "프로" 또는 "수동" 모드에서는 대개 한 장 단위로 설정할 수 있다.
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>세 손잡이를 함께 돌리기</h2>
+    <p>이제 세 손잡이를 한꺼번에 돌려 서가 사진 한 장을 찍는다. 장면은 12월 오후 전구 조명 아래의 서가로, 밝기는 EV<sub>100</sub> 6이다. 노출이 알맞은지, 흔들리지 않았는지, 노이즈가 얼마나 되는지, 앞의 탁자가 얼마나 흐린지를 함께 본다. 장면을 눌러 초점을 바꿀 수 있다.</p>
+
+    <div class="sim" id="sim-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>서가 사진 노출 실험실</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="lb-cv" class="art"></canvas><span class="hint">눌러서 초점을 맞춘다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>f값 <output id="lb-n-out"></output></span><input type="range" id="lb-n" min="0" max="8" step="0.3333333" value="2"></label>
+          <label class="ctrl"><span>셔터 속도 <output id="lb-t-out"></output></span><input type="range" id="lb-t" min="0" max="10" step="0.3333333" value="3"></label>
+          <label class="ctrl"><span>감도 <output id="lb-i-out"></output></span><input type="range" id="lb-i" min="0" max="8" step="0.3333333" value="0"></label>
+          <div class="seg" id="lb-hold"><button data-value="hand" class="on">손에 들고</button><button data-value="tripod">삼각대</button></div>
+          <label class="check"><input type="checkbox" id="lb-person"> 손님이 지나간다</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">노출</span><span class="v" id="lb-o-exp">—</span></div>
+        <div class="stat"><span class="k">흔들림 · 번짐</span><span class="v" id="lb-o-blur">—</span></div>
+        <div class="stat"><span class="k">노이즈(중간 회색 SNR)</span><span class="v" id="lb-o-noise">—</span></div>
+        <div class="stat"><span class="k">탁자의 흐림</span><span class="v" id="lb-o-dof">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 설정(f/2.8, 1/125초, ISO 100)은 4스톱 어둡다. 감도만 올려 맞춰 본다(ISO 1600). 밝기는 맞지만 노이즈가 생긴다. ② 감도를 ISO 100으로 되돌리고 셔터만 늦춰 맞춘다(1/8초). 손에 들고 찍으면 흔들린다. "삼각대"로 바꾼다. ③ 서가와 탁자가 함께 선명하도록 f/8까지 조이고, 셔터를 1초로 맞춘다. 이제 "손님이 지나간다"를 켠다. 서가 사진에 손님이 없어야 하는 이유가 보인다. ④ 어떤 조합이든 노출을 2스톱 넘게 높이거나 낮춰 본다. 서가가 하얗게 날아가거나 검게 가라앉는다. (모형의 가정은 앞의 시뮬레이터들과 같다: 50&nbsp;mm 렌즈, APS-C, 손떨림 초당 0.04라디안, 손님 초속 1.2&nbsp;m, 중간 회색 광자 2,500개(ISO 100 알맞은 노출). 노출 오차는 \(\log_2\)(받은 빛 × ISO/100 ÷ 알맞은 빛)으로 셌다.)</div>
+    </div>
+
+    <p>세 손잡이에는 정답 조합이 없다. 대신 "무엇을 내줄 수 있는가"를 묻는 순서는 있다. 움직이는 것이 있으면 셔터 속도부터 정한다. 앞뒤로 선명해야 할 범위가 있으면 조리개를 정한다. 그러고도 빛이 모자라면 마지막으로 감도를 올린다. 거꾸로 삼각대가 있고 아무것도 움직이지 않는다면 감도를 가장 낮게 두고 셔터를 늦춘다. 같은 장면도 무엇을 전하려는지에 따라 이 순서의 답이 달라진다.</p>
+
+    <div class="callout try">
+      <strong>세 장의 같은 밝기</strong>
+      휴대폰의 "프로(수동)" 모드나 미러리스의 수동 노출로, 창가가 아닌 실내의 한 장면(책장, 식탁 위 정물)을 고른다. 휴대폰은 컵이나 책에 기대 고정한다. ① 감도를 가장 낮게 두고 셔터를 늦춰 알맞은 밝기로 한 장, ② 감도를 4스톱 올리고(예: 100 → 1600) 셔터를 4스톱 빠르게 해서 한 장, ③ 감도를 다시 4스톱 올리고 셔터를 그만큼 빠르게 해서 한 장을 찍는다. 세 장을 화면에서 최대로 확대해 가장 어두운 부분을 비교하고, 노트에 "셔터·감도·어두운 곳의 얼룩"을 적는다. 수동 모드가 없다면 휴대폰을 손에 들고 한 장, 고정하고 한 장을 찍어 확대해 비교하는 것만으로도 셔터와 흔들림의 관계를 볼 수 있다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 겨울 촬영 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>촬영 노트 · 2장</span></div>
+      <h4>흔들리거나, 거칠거나, 둘 다 아니거나</h4>
+      <p>창가 사진은 일단 미뤄 두고, 서윤은 빛이 비교적 고른 서가부터 찍기로 했다. 웹사이트에 올릴 서가 사진 두 장이다. 12월 둘째 주 오후 네 시, 창밖은 이미 어두워지기 시작했고 서가는 천장의 전구로만 밝았다. 이번에는 도경의 미러리스를 들었다.</p>
+      <p>첫 장은 카메라가 정한 대로 찍었다. 카메라는 조리개 f/2.8, 감도 ISO 100에 맞춰져 있었고, 노출계가 고른 셔터 속도는 1/4초였다. 손에 든 채 찍은 사진은 책 제목이 두 겹으로 흔들렸다. 둘째 장은 흔들리지 않게 셔터를 1/60초로 빠르게 하고 감도를 ISO 1600으로 올렸다. 셔터에서 4스톱(1/4 → 1/8 → 1/15 → 1/30 → 1/60)을 빼서 감도에 더한 셈이다. 흔들림은 줄었지만, 화면에서 확대하자 어두운 책등과 선반 그림자에 색 얼룩이 앉아 있었다. 두 장은 노출이 같다. 그리고 두 장 다 어두운 책등이 조금 회색빛으로 들떠 보였다.</p>
+      <p>도경은 가방에서 손바닥만 한 낡은 노출계를 꺼냈다. 필름 시절에 쓰던 입사광식 노출계였다. 서가 앞에 서서 하얀 반구를 카메라 쪽으로 향하고 단추를 누르자 바늘이 "ISO 100에서 EV 6" 자리에 멈췄다. 카메라가 고른 f/2.8·1/4초는 EV 약 5이니 1스톱 밝게 찍은 것이다. "책등이 대부분 어두우니 카메라 노출계는 그걸 중간 회색으로 만들려고 밝게 찍은 거야. 이건 서가에 떨어지는 빛을 재는 거라 책 색에 속지 않아." 그리고 덧붙였다. "서가는 움직이지 않잖아. 움직이지 않는 걸 찍는데 왜 빛을 키워. 오래 받아 적으면 되지."</p>
+      <p>서윤의 선택은 삼각대였다. 서가는 움직이지 않고, 문제는 손과 손님뿐이다. 손은 삼각대와 셀프타이머로 막고, 손님은 손님이 없는 개점 전에 찍어서 피한다. 감도는 가장 낮게 두어 노이즈를 피하고, 서가를 비스듬히 찍더라도 앞뒤 칸이 함께 선명하도록 조리개는 f/8로 조인다. EV 6에서 ISO 100, f/8이면 셔터는 \(t = N^2/2^{\mathrm{EV}} = 64/64\), 정확히 1초다. 다만 SNS에 올릴 손님 있는 서가 장면처럼 삼각대를 세울 수 없을 때를 위해 손에 들고 쓸 조합도 하나 적어 두었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>서가 사진(웹 2장)의 노출: 입사광 측정 EV<sub>100</sub> 6(12월 오후, 전구 조명). 미러리스를 <b>삼각대</b>에 올리고 <b>ISO 100, f/8, 1초</b>, 2초 셀프타이머로 셔터 흔들림을 막는다. 손님이 지나가면 1초 동안 번지므로 개점 전 손님이 없을 때 찍는다. 삼각대를 쓸 수 없을 때의 손 촬영 조합은 <b>ISO 1600, f/5.6, 1/30초</b>(같은 EV, 0.1스톱 차이). 단, "환산 초점거리 분의 1초" 경험칙으로 1/30초는 환산 30&nbsp;mm 안쪽에서만 안전하므로, 이 조합은 짧은 초점거리에서만 쓴다. 감도 1600의 노이즈는 감수한다.</div>
+        <div><b>아직 남은 문제</b>서가를 담을 초점거리, 곧 서가 전체가 들어오려면 몇 mm로 찍어야 하는가(<a href="lens.html">5장</a>). 창가 사진은 이 방법으로 되지 않는다. 창밖과 실내의 밝기 차가 한 번의 노출이 담을 수 있는 폭을 넘는다.</div>
+        <div><b>다음 단계</b><a href="histogram.html">3장</a>: 창가 사진의 밝기 분포를 히스토그램으로 읽고, 어느 쪽을 지킬지 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>센서가 받는 빛의 양은 장면의 밝기 × 셔터 시간 ÷ f값의 제곱에 비례한다. 감도는 빛을 늘리지 않고, 받은 신호를 키운다.</li>
+      <li>f값은 초점거리 ÷ 구멍 지름이다. 수열 1.4, 2, 2.8, 4, 5.6, 8, 11, 16의 한 칸은 √2배이고, 빛의 양으로 2배, 곧 1스톱이다.</li>
+      <li>스톱은 세 손잡이의 공통 화폐다. EV = log₂(N²/t)가 같은 조합은 같은 양의 빛을 받는다(상호 법칙).</li>
+      <li>셔터 속도의 흔적은 번짐이다. 삼각대는 카메라 흔들림만 막고, 움직이는 피사체의 번짐은 셔터 속도로만 막는다. 손 촬영은 "환산 초점거리 분의 1초"가 경험칙이다.</li>
+      <li>감도의 흔적은 노이즈다. 빛이 광자 알갱이로 오기 때문에 받은 빛이 적을수록 신호 대 노이즈가 나빠진다(√n). 노이즈를 줄이는 가장 확실한 방법은 빛을 더 받는 것이다.</li>
+      <li>조리개의 흔적은 심도다. 열수록 초점 앞뒤가 흐려진다.</li>
+      <li>노출계는 잰 곳을 중간 회색(18% 관습)으로 만들려 한다. 흰 것과 검은 것이 많은 장면은 노출 보정을 하거나, 회색 카드나 입사광을 잰다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. f/4, 1/125초, ISO 400으로 알맞게 찍히는 장면이 있다. 조리개를 f/8로 조이면서 밝기를 유지하려면 셔터 속도를 어떻게 해야 하는가(감도는 그대로)?</p>
+        <div class="opts">
+          <button class="opt">1/250초로 빠르게 한다.</button>
+          <button class="opt">1/60초로 늦춘다.</button>
+          <button class="opt" data-correct>1/30초로 늦춘다.</button>
+          <button class="opt">f값이 두 배가 되었으니 1/500초로 빠르게 한다.</button>
+        </div>
+        <div class="quiz-exp">f/4에서 f/8은 f값 수열에서 두 칸(4 → 5.6 → 8), 곧 2스톱이다. 빛이 4분의 1로 줄었으니 셔터를 4배 오래 열어야 한다. 1/125초의 4배는 약 1/30초다. f값이 두 배가 되면 넓이는 4분의 1이 된다는 점이 핵심이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 어두운 실내에서 손님이 걸어 다니는 장면을 손에 들고 찍는다. 사진이 흔들렸고 손님도 번졌다. 삼각대를 쓰면 어떻게 되는가?</p>
+        <div class="opts">
+          <button class="opt" data-correct>서가처럼 멈춰 있는 것은 선명해지지만, 걷는 손님의 번짐은 그대로다.</button>
+          <button class="opt">서가와 손님이 모두 선명해진다.</button>
+          <button class="opt">손님은 선명해지지만 서가는 그대로 흔들린다.</button>
+          <button class="opt">흔들림은 그대로이고 노이즈만 줄어든다.</button>
+        </div>
+        <div class="quiz-exp">삼각대는 카메라의 흔들림만 막는다. 피사체가 움직여 생긴 번짐은 셔터가 열려 있는 동안 피사체가 움직인 거리로 정해지므로, 셔터를 빠르게 하는 것 말고는 막을 수 없다. 삼각대 자체가 노이즈를 줄이지는 않지만, 셔터를 늦추고 감도를 낮출 수 있게 해 준다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. ISO 100에서 ISO 1600으로 감도를 올리고 셔터를 그만큼 빠르게 해 같은 밝기의 사진을 얻었다. 어두운 부분에 노이즈가 늘어난 가장 근본적인 이유는?</p>
+        <div class="opts">
+          <button class="opt">감도를 올리면 센서가 뜨거워져서 화소가 망가지기 때문이다.</button>
+          <button class="opt">감도를 올리면 센서에 들어오는 빛이 늘어나 넘치기 때문이다.</button>
+          <button class="opt">셔터가 빨라지면 사진이 흔들리기 때문이다.</button>
+          <button class="opt" data-correct>센서가 받은 빛이 16분의 1이 되어 광자 수의 흔들림이 신호에 비해 커졌고, 그것을 키웠기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">4스톱 빠른 셔터는 빛을 16분의 1만 받는다. 광자 수 n의 흔들림은 √n이므로 신호 대 노이즈는 √16 = 4배 나빠진다. 감도는 이렇게 적게 받은 신호를 키울 뿐이라 노이즈도 함께 커진다. 감도는 빛을 늘리지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 눈 덮인 마당을 자동 노출로 찍었더니 눈이 회색으로 칙칙하게 나왔다. 가장 알맞은 설명과 대처는?</p>
+        <div class="opts">
+          <button class="opt">화이트 밸런스가 틀렸다. 색온도를 높인다.</button>
+          <button class="opt" data-correct>노출계가 흰 눈을 중간 회색으로 만들려고 노출을 줄였다. 노출 보정을 +1~+2스톱 준다.</button>
+          <button class="opt">눈이 너무 밝아 하이라이트가 날아갔다. 노출 보정을 −2스톱 준다.</button>
+          <button class="opt">감도가 너무 높았다. ISO를 낮춘다.</button>
+        </div>
+        <div class="quiz-exp">반사광 노출계는 잰 곳의 평균이 중간 회색(18% 관습)이 되도록 노출을 정한다. 화면을 채운 흰 눈의 평균을 회색으로 만들려다 노출이 모자라게 된 것이다. 흰 것이 많은 장면은 노출을 늘리는 쪽(+)으로 보정한다. 날아간 사진이라면 회색이 아니라 하얗게 비었을 것이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#2b2a30", INK_DIM = "#6b6874";
+  var toL = ART.toLinear, toG = ART.toGamma;
+  var LUT = new Float32Array(256); for (var li = 0; li < 256; li++) LUT[li] = toL(li / 255);
+  function enc(v) { return v <= 0 ? 0 : v >= 1 ? 255 : Math.round(toG(v) * 255); }
+
+  /* ---------------- 눈금 값 ---------------- */
+  var FN = [1.4, 1.6, 1.8, 2, 2.2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22];
+  var ISOS = [100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1000, 1250, 1600, 2000, 2500, 3200, 4000, 5000, 6400, 8000, 10000, 12800, 16000, 20000, 25600];
+  // 셔터 슬라이더: 0 = 1/1000초 … 10 = 1초(1/3스톱 간격). 표기는 카메라의 관용 값.
+  var TS = ["1/1000", "1/800", "1/640", "1/500", "1/400", "1/320", "1/250", "1/200", "1/160", "1/125", "1/100", "1/80", "1/60", "1/50", "1/40", "1/30", "1/25", "1/20", "1/15", "1/13", "1/10", "1/8", "1/6", "1/5", "1/4", "0.3초", "0.4초", "0.5초", "0.6초", "0.8초", "1초"];
+  var idx3 = function (s) { return Math.round(s * 3); };
+  var fNum = function (s) { return Math.sqrt(2) * Math.pow(2, s / 2); };          // 정확한 f값
+  var fLab = function (s) { return "f/" + FN[AB.clamp(idx3(s), 0, FN.length - 1)]; };
+  var tSec = function (s) { return Math.pow(2, s - 10); };                          // 정확한 시간(초)
+  var tLab = function (s) { var l = TS[AB.clamp(idx3(s), 0, TS.length - 1)]; return l.indexOf("초") < 0 ? l + "초" : l; };
+  var isoVal = function (s) { return 100 * Math.pow(2, s); };
+  var isoLab = function (s) { return "ISO " + ISOS[AB.clamp(idx3(s), 0, ISOS.length - 1)].toLocaleString("ko-KR"); };
+  function fmtT(t) {
+    if (t >= 0.95) return (t < 10 ? Math.round(t * 10) / 10 : Math.round(t)) + "초";
+    if (t >= 0.28) return (Math.round(t * 10) / 10) + "초";
+    var std = [4, 5, 6, 8, 10, 13, 15, 20, 25, 30, 40, 50, 60, 80, 100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1000, 1250, 1600, 2000, 2500, 3200, 4000, 5000, 6400, 8000];
+    var inv = 1 / t, best = std[0]; std.forEach(function (v) { if (Math.abs(Math.log(v / inv)) < Math.abs(Math.log(best / inv))) best = v; });
+    return "1/" + best + "초";
+  }
+
+  /* ---------------- 그림 2: 스톱 눈금 ---------------- */
+  (function () {
+    var g = document.getElementById("iex-ladder"), rows = [
+      ["조리개", ["f/1.4", "f/2", "f/2.8", "f/4", "f/5.6", "f/8", "f/11", "f/16"], "f-acc2-soft"],
+      ["셔터", ["1/8", "1/15", "1/30", "1/60", "1/125", "1/250", "1/500", "1/1000"], "f-acc-soft"],
+      ["감도", ["12800", "6400", "3200", "1600", "800", "400", "200", "100"], "f-warn-soft"],
+    ], s = "";
+    rows.forEach(function (r, i) {
+      var y = 18 + i * 58;
+      s += '<text x="8" y="' + (y + 26) + '" class="lbl-b" style="font-size:12px">' + r[0] + "</text>";
+      r[1].forEach(function (v, j) {
+        var x = 62 + j * 49;
+        s += '<rect x="' + x + '" y="' + y + '" width="45" height="40" rx="7" class="' + r[2] + '"/>';
+        s += '<text x="' + (x + 22.5) + '" y="' + (y + 25) + '" text-anchor="middle" class="t-mono lbl-b" style="font-size:' + (v.length > 4 ? 10 : 11.5) + 'px">' + v + "</text>";
+      });
+    });
+    g.innerHTML = s;
+  })();
+
+  /* =====================================================================
+     서가 장면(교육용 모형). 세 겹: 서가(3.0 m), 손님(2.2 m), 앞 탁자와 책 더미(1.3 m).
+     각 겹은 "알맞은 노출"일 때의 모습을 고정색으로 그린다. 노출·번짐·노이즈는 그 위에서 계산한다.
+     렌즈 50 mm, APS-C(가로 23.5 mm). 착란원: c = (f/N)·|d−s|/d · f/(s−f) (얇은 렌즈 근사).
+     ===================================================================== */
+  var EW = 400, EH = 250, F = 50, SENSOR = 23.5, DIST = { far: 3000, person: 2200, near: 1300 };
+  var OMEGA = 0.04, FEQ = 75, WALK = 1200;     // 손떨림(rad/s), 환산 초점거리, 걷는 속도(mm/s)
+  var L = null;
+  function mk(w, h) { var c = document.createElement("canvas"); c.width = w; c.height = h; return c; }
+  function buildLayers() {
+    if (L) return L;
+    var R = AB.rng(5), M = 0.08, FW = Math.round(EW * (1 + 2 * M)), FH = Math.round(EH * (1 + 2 * M));
+    // 서가(여백 포함, 흔들림 때 빈 곳이 보이지 않게)
+    var far = mk(FW, FH), x = far.getContext("2d");
+    x.fillStyle = "#b9a888"; x.fillRect(0, 0, FW, FH);
+    x.fillStyle = "#5a3f2a"; x.fillRect(FW * 0.04, FH * 0.03, FW * 0.92, FH * 0.97);
+    var pal = ["#8c2f2a", "#2f4f6f", "#c9a24a", "#3f6b4a", "#e0d6c2", "#6b3f5a", "#d87a3a", "#2b2b33", "#a8b8c4", "#7a5a3a", "#b8463a", "#efe8d8", "#1f2a3a", "#4a3a2a"];
+    var rows = 4, top = FH * 0.06, rh = (FH * 0.94) / rows;
+    for (var r = 0; r < rows; r++) {
+      var y0 = top + r * rh;
+      x.fillStyle = "#2e2016"; x.fillRect(FW * 0.06, y0, FW * 0.88, rh - 8);
+      var xx = FW * 0.065;
+      while (xx < FW * 0.93) {
+        var bw = 7 + R() * 13, bh = (rh - 14) * (0.7 + R() * 0.28), col = pal[Math.floor(R() * pal.length)];
+        if (xx + bw > FW * 0.935) break;
+        var by = y0 + rh - 8 - bh;
+        x.fillStyle = col; x.fillRect(xx, by, bw - 1, bh);
+        // 책등 제목(가는 밝은 선): 초점·흔들림을 보기 위한 디테일
+        var lite = ["#e0d6c2", "#efe8d8", "#c9a24a", "#a8b8c4"].indexOf(col) >= 0;
+        x.fillStyle = lite ? "#3a2a1e" : "#efe4c8";
+        var ny = by + bh * 0.18; for (var k = 0; k < 4; k++) { x.fillRect(xx + bw * 0.3, ny + k * 5, bw * 0.4, 2); }
+        x.fillRect(xx + 1.5, by + bh * 0.08, bw - 4, 1); x.fillRect(xx + 1.5, by + bh * 0.88, bw - 4, 1);
+        xx += bw;
+        if (R() < 0.06) { x.fillStyle = "#efe8d8"; x.save(); x.translate(xx + 4, y0 + rh - 8); x.rotate(-0.28); x.fillRect(0, -bh * 0.9, 9, bh * 0.9); x.restore(); xx += 12; }
+      }
+      x.fillStyle = "#6b4a30"; x.fillRect(FW * 0.04, y0 + rh - 8, FW * 0.92, 8);
+    }
+    // 손글씨 추천 카드
+    x.fillStyle = "#f6f1e6"; x.fillRect(FW * 0.58, top + rh * 1 - 40, 52, 30);
+    x.fillStyle = "#8c2f2a"; for (var q = 0; q < 3; q++) x.fillRect(FW * 0.58 + 6, top + rh - 34 + q * 8, 40 - q * 9, 2.5);
+    // 손님(뒷모습, 겨울 외투)
+    var PP = 24, pw = Math.round(EW * 0.3), ph = Math.round(EH * 1.0), per = mk(pw + 2 * PP, ph + PP), p = per.getContext("2d");
+    p.translate(PP, PP);
+    p.fillStyle = "#3d4a5c"; p.beginPath(); p.moveTo(pw * 0.08, ph); p.quadraticCurveTo(pw * 0.06, ph * 0.42, pw * 0.3, ph * 0.36); p.lineTo(pw * 0.7, ph * 0.36); p.quadraticCurveTo(pw * 0.94, ph * 0.42, pw * 0.92, ph); p.closePath(); p.fill();
+    p.fillStyle = "#c9a24a"; p.fillRect(pw * 0.3, ph * 0.33, pw * 0.4, ph * 0.07);
+    p.fillStyle = "#2b2420"; p.beginPath(); p.ellipse(pw * 0.5, ph * 0.24, pw * 0.16, ph * 0.1, 0, 0, 7); p.fill();
+    p.fillStyle = "#b8463a"; p.beginPath(); p.ellipse(pw * 0.5, ph * 0.18, pw * 0.17, ph * 0.08, 0, Math.PI, 2 * Math.PI); p.fill(); p.fillRect(pw * 0.33, ph * 0.17, pw * 0.34, ph * 0.03);
+    p.fillStyle = "#efe8d8"; p.beginPath(); p.arc(pw * 0.5, ph * 0.09, pw * 0.05, 0, 7); p.fill();
+    p.fillStyle = "#2a3442"; p.fillRect(pw * 0.48, ph * 0.45, pw * 0.04, ph * 0.55);
+    // 앞 탁자와 책 더미, 화분(여백 포함)
+    var near = mk(FW, FH), n = near.getContext("2d");
+    n.fillStyle = "#7b5534"; n.fillRect(0, FH * 0.86, FW, FH * 0.14);
+    n.fillStyle = "#946a44"; n.fillRect(0, FH * 0.86, FW, 4);
+    var stack = function (x0, w0, cols) { var yy = FH * 0.86; cols.forEach(function (c, i) { var hh = 11 + (i % 2) * 3; yy -= hh; n.fillStyle = c; n.fillRect(x0 + (i % 3) * 4 - 4, yy, w0 - (i % 2) * 8, hh - 1); n.fillStyle = "#efe4c8"; n.fillRect(x0 + (i % 3) * 4 + 4, yy + hh / 2 - 1, w0 * 0.5, 2); }); };
+    stack(FW * 0.16, 92, ["#2f4f6f", "#e3c66b", "#8c2f2a", "#efe8d8", "#3f6b4a", "#6b3f5a"]);
+    stack(FW * 0.66, 84, ["#d87a3a", "#1f2a3a", "#e0d6c2", "#b8463a", "#2f4f6f"]);
+    n.fillStyle = "#f6f1e6"; n.fillRect(FW * 0.43, FH * 0.86 - 34, 46, 32); n.fillStyle = "#2f7d5b"; n.font = "700 16px sans-serif"; n.textAlign = "center"; n.textBaseline = "middle"; n.fillText("추천", FW * 0.43 + 23, FH * 0.86 - 18);
+    n.fillStyle = "#b5643c"; n.fillRect(FW * 0.02, FH * 0.86 - 26, 34, 26);
+    n.fillStyle = "#4f7a3a"; for (var lf = 0; lf < 7; lf++) { n.beginPath(); n.ellipse(FW * 0.02 + 17 + Math.cos(lf) * 22, FH * 0.86 - 46 - Math.sin(lf * 1.7) * 18, 16, 7, lf * 0.9, 0, 7); n.fill(); }
+    L = { far: far, per: per, near: near, M: M, FW: FW, FH: FH };
+    return L;
+  }
+  var HAS_FILTER = (function () { try { var c = mk(2, 2).getContext("2d"); return typeof c.filter === "string"; } catch (e) { return false; } })();
+  var BLUR = {};
+  function blurred(name, px) {
+    var key = name + ":" + (Math.round(px * 2) / 2);
+    if (BLUR[key]) return BLUR[key];
+    var src = buildLayers()[name], c = mk(src.width, src.height), x = c.getContext("2d");
+    var r = Math.round(px * 2) / 2;
+    if (r < 0.5) x.drawImage(src, 0, 0);
+    else if (HAS_FILTER) { x.filter = "blur(" + (r / 2.4).toFixed(2) + "px)"; x.drawImage(src, 0, 0); x.filter = "none"; }
+    else { for (var i = 0; i < 9; i++) { var a = i * 2.4; x.globalAlpha = 1 / (i + 1); x.drawImage(src, i ? Math.cos(a) * r / 2 : 0, i ? Math.sin(a) * r / 2 : 0); } x.globalAlpha = 1; }
+    var keys = Object.keys(BLUR); if (keys.length > 60) delete BLUR[keys[0]];
+    return (BLUR[key] = c);
+  }
+  // 착란원 지름(사진 가로 칸 수)
+  function cocPx(N, s, d) { var A = F / N, c = A * Math.abs(d - s) / d * F / (s - F); return c / SENSOR * EW; }
+  // 셔터 시간 t 동안의 번짐 길이(칸)
+  function shakePx(t, hold) { return hold === "tripod" ? 0 : OMEGA * t * FEQ / 36 * EW; }
+  function walkPx(t) { var fw = DIST.person * SENSOR / F; return WALK * t / fw * EW; }
+  // 한 장 그리기: 흔들림 경로와 손님의 이동을 시간 표본으로 평균(누적 평균)
+  var FR = mk(EW, EH), FRX = FR.getContext("2d"), ACC = mk(EW, EH), ACX = ACC.getContext("2d", { willReadFrequently: true });
+  function shoot(o) {
+    var Ly = buildLayers(), mx = Ly.M * EW, my = Ly.M * EH;
+    var cF = cocPx(o.N, o.focus, DIST.far), cP = cocPx(o.N, o.focus, DIST.person), cN = cocPx(o.N, o.focus, DIST.near);
+    var bF = blurred("far", cF), bN = blurred("near", cN), bP = o.person ? blurred("per", cP) : null;
+    var sh = shakePx(o.t, o.hold), wk = o.person ? walkPx(o.t) : 0;
+    var n = Math.max(1, Math.min(28, Math.ceil(Math.max(sh, wk) / 1.2) + 1));
+    var cx0 = EW * (o.personX == null ? 0.42 : o.personX);
+    for (var i = 0; i < n; i++) {
+      var tau = n === 1 ? 0.5 : i / (n - 1);
+      var sx = sh * ((tau - 0.5) * 0.85 + 0.18 * Math.sin(6 * tau)), sy = sh * 0.45 * Math.sin(3.2 * tau + 0.6);
+      FRX.setTransform(1, 0, 0, 1, 0, 0);
+      FRX.drawImage(bF, -mx + sx, -my + sy, EW + 2 * mx, EH + 2 * my);
+      if (bP) { var pw = bP.width * (EW / EW), px = cx0 + (tau - 0.5) * wk - pw / 2; FRX.drawImage(bP, px + sx, EH * 0.08 + sy, pw, bP.height); }
+      FRX.drawImage(bN, -mx + sx, -my + sy, EW + 2 * mx, EH + 2 * my);
+      ACX.globalAlpha = 1 / (i + 1); ACX.drawImage(FR, 0, 0); ACX.globalAlpha = 1;
+    }
+    return { sh: sh, wk: wk, cF: cF, cP: cP, cN: cN };
+  }
+  // 노출과 노이즈: err(스톱), iso. 중간 회색(선형 0.18) 한 칸의 광자 수 Q = 2500 × 2^err × 100/ISO
+  var Q0 = 2500, READ = 4;
+  function develop(err, iso, lift, seed, noiseOn) {
+    var id = ACX.getImageData(0, 0, EW, EH), d = id.data, k = Math.pow(2, err), g = iso / 100;
+    var Qw = Q0 / 0.18, rnd = AB.rng(seed || 3), spare = null;
+    function gauss() { if (spare != null) { var s = spare; spare = null; return s; } var u = Math.max(1e-9, rnd()), v = rnd(), m = Math.sqrt(-2 * Math.log(u)); spare = m * Math.sin(6.283185 * v); return m * Math.cos(6.283185 * v); }
+    for (var o = 0; o < d.length; o += 4) {
+      for (var c = 0; c < 3; c++) {
+        var v = LUT[d[o + c]] * k;                        // 출력(증폭 후) 선형값
+        if (noiseOn) {
+          var e = Math.max(0, v * Qw / g);                // 센서가 받은 광자(전자) 수
+          v += gauss() * Math.sqrt(e + READ * READ) * g / Qw;
+        }
+        if (lift) v *= v < 0.18 ? 2 - v / 0.18 : 1;      // 어두운 쪽만 최대 1스톱 끌어올림
+        d[o + c] = enc(v);
+      }
+    }
+    return id;
+  }
+  function blit(ctx, id, w, h) { var c = mk(id.width, id.height); c.getContext("2d").putImageData(id, 0, 0); ctx.imageSmoothingEnabled = true; ctx.drawImage(c, 0, 0, w, h); }
+  var SC_H = function (id, extra) { return { get height() { var el = document.getElementById(id); return Math.round(Math.max(200, el.parentElement.clientWidth || 600) * 0.625); }, bg: "#1d1b1a" }; };
+  // 누른 곳의 겹(초점 맞출 대상)
+  function layerAt(u, v, personOn, personX) {
+    var Ly = buildLayers();
+    var nx = Math.floor((u * EW + Ly.M * EW) / (EW + 2 * Ly.M * EW) * Ly.FW), ny = Math.floor((v * EH + Ly.M * EH) / (EH + 2 * Ly.M * EH) * Ly.FH);
+    var a = Ly.near.getContext("2d").getImageData(AB.clamp(nx, 0, Ly.FW - 1), AB.clamp(ny, 0, Ly.FH - 1), 1, 1).data[3];
+    if (a > 100) return "near";
+    if (personOn) {
+      var pw = Ly.per.width, px = Math.floor(u * EW - (EW * personX - pw / 2)), py = Math.floor(v * EH - EH * 0.08);
+      if (px >= 0 && px < pw && py >= 0 && py < Ly.per.height && Ly.per.getContext("2d").getImageData(px, py, 1, 1).data[3] > 100) return "person";
+    }
+    return "far";
+  }
+  var LNAME = { far: "서가(3 m)", person: "손님(2.2 m)", near: "탁자(1.3 m)" };
+
+  /* ---------------- 시뮬레이터 1: f값과 구멍의 넓이 ---------------- */
+  (function () {
+    var sG = AB.range("ap-s", function (s) { return fLab(s); }, function () { cv.redraw(); });
+    var half = AB.check("ap-half", function () { cv.redraw(); });
+    var geo = null;
+    var cv = AB.canvas("#ap-cv", function (ctx, w, h) {
+      var p = AB.palette(), s = sG(), N = fNum(s), D = 50 / N;
+      var cx = w * 0.5, cy = h * 0.4, R0 = Math.min(w * 0.42, h * 0.34);
+      // 경통과 조리개 날개(7장)
+      ctx.fillStyle = "#26262a"; ctx.beginPath(); ctx.arc(cx, cy, R0, 0, 7); ctx.fill();
+      ctx.strokeStyle = "#55555c"; ctx.lineWidth = 2; ctx.stroke();
+      var r = R0 * 0.92 * (1.4142 / N);
+      ctx.fillStyle = "#3a3a42";
+      ctx.beginPath(); ctx.arc(cx, cy, R0 * 0.95, 0, 7); ctx.fill();
+      ctx.save(); ctx.beginPath();
+      for (var i = 0; i < 7; i++) { var a = -Math.PI / 2 + i * 2 * Math.PI / 7 + s * 0.12, X = cx + r * 1.04 * Math.cos(a), Y = cy + r * 1.04 * Math.sin(a); i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }
+      ctx.closePath(); ctx.fillStyle = "#f5e9c8"; ctx.fill();
+      ctx.strokeStyle = "#1c1c20"; ctx.lineWidth = 1;
+      for (var j = 0; j < 7; j++) { var b = -Math.PI / 2 + j * 2 * Math.PI / 7 + s * 0.12; ctx.beginPath(); ctx.moveTo(cx + r * 1.04 * Math.cos(b), cy + r * 1.04 * Math.sin(b)); ctx.lineTo(cx + R0 * 0.95 * Math.cos(b + 0.9), cy + R0 * 0.95 * Math.sin(b + 0.9)); ctx.stroke(); }
+      ctx.restore();
+      if (half()) { ctx.setLineDash([5, 4]); ctx.strokeStyle = "#e86a5a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(cx, cy, r * 0.5, 0, 7); ctx.stroke(); ctx.setLineDash([]); }
+      ctx.fillStyle = "#26262a"; ctx.font = AB.font(12, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      if (r > 30) ctx.fillText("Ø " + D.toFixed(1) + " mm", cx, cy);
+      // 눈금
+      var x0 = 30, x1 = w - 30, y = h * 0.86, X = function (ss) { return x0 + (ss / 8) * (x1 - x0); };
+      geo = { x0: x0, x1: x1, y: y };
+      ctx.strokeStyle = p.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke();
+      for (var t = 0; t <= 24; t++) {
+        var full = t % 3 === 0, xx = X(t / 3);
+        ctx.strokeStyle = full ? p.text : p.faint; ctx.lineWidth = full ? 2 : 1;
+        ctx.beginPath(); ctx.moveTo(xx, y - (full ? 9 : 5)); ctx.lineTo(xx, y + (full ? 9 : 5)); ctx.stroke();
+        if (full) { ctx.fillStyle = p.dim; ctx.font = AB.font(w < 420 ? 10 : 11, true); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(String(FN[t]), xx, y + 12); }
+      }
+      // 빛의 양 막대(f/1.4 = 1)
+      var frac = Math.pow(1.4142 / N, 2), bx = x0, by = y - 40, bw = (x1 - x0);
+      ctx.fillStyle = p.grid; ctx.fillRect(bx, by, bw, 10);
+      ctx.fillStyle = p.accent; ctx.fillRect(bx, by, Math.max(1.5, bw * frac), 10);
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("빛의 양", bx, by - 3);
+      AB.handle(ctx, X(s), y, { r: 8, fill: p.accent, ring: p.text });
+      AB.stat("ap-o-d", D.toFixed(1) + " mm");
+      AB.stat("ap-o-l", frac >= 0.1 ? AB.pct(frac, 0) : AB.pct(frac, 1));
+      AB.stat("ap-o-s", s < 0.01 ? "기준" : "−" + AB.fix(s, s % 1 < 0.01 || s % 1 > 0.99 ? 0 : 1) + "스톱 <small>(1/" + Math.round(1 / frac) + ")</small>");
+    }, { get height() { var el = document.getElementById("ap-cv"), w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(400, Math.max(300, w * 0.62))); } });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo || y < geo.y - 50) return; var s = AB.clamp((x - geo.x0) / (geo.x1 - geo.x0) * 8, 0, 8); sG.set(Math.round(s * 3) / 3); } });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 상호 법칙 ---------------- */
+  (function () {
+    var evG = AB.range("rc-ev", function (v) { return v; }, function () { cv.redraw(); });
+    var isoG = AB.seg("rc-iso", function () { cv.redraw(); });
+    var pickS = 3, geo = null;     // 조리개 슬롯(0 = f/1.4 … 8 = f/22)
+    var SCENES = [[2, "촛불 하나 곁"], [4, "어두운 방, 밤 거리"], [5, "전구 하나인 실내"], [6, "전구 조명의 실내"], [8, "밝은 사무실"], [10, "해 진 직후의 바깥"], [12, "흐린 날 바깥"], [13, "옅은 구름의 바깥"], [14, "맑은 날 그늘 밖, 오전"], [15, "맑은 날 한낮(순광)"], [16, "맑은 날 모래밭·눈밭"]];
+    var cv = AB.canvas("#rc-cv", function (ctx, w, h) {
+      var p = AB.palette(), ev = evG(), iso = +isoG(), evIso = ev + Math.log2(iso / 100);
+      // x: 조리개 스톱(0..8), y: log2(t) (−12 = 1/4000 … 5 = 32초)
+      var box = { x: 54, y: 14, w: w - 70, h: h - 62 };
+      var c = AB.chart(ctx, box, { x: [0, 8], y: [-12, 5], xTicks: [0, 1, 2, 3, 4, 5, 6, 7, 8], yTicks: [-12, -10, -8, -6, -4, -2, 0, 2, 4], xFmt: function (v) { return [1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22][v]; }, yFmt: function (v) { var t = Math.pow(2, v); return t >= 1 ? t + "s" : "1/" + Math.round(1 / t); }, xLabel: "f값", bands: [] });
+      // 손떨림 주의 띠: t > 1/75초
+      var yL = Math.log2(1 / FEQ);
+      ctx.fillStyle = p.grid; ctx.globalAlpha = 0.7; ctx.fillRect(box.x, c.Y(5), box.w, c.Y(yL) - c.Y(5)); ctx.globalAlpha = 1;
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("손떨림 주의(1/75초보다 느림)", box.x + box.w - 6, c.Y(5) + 4);
+      // 같은 노출의 줄: log2 t = 2·log2 N − EV(ISO 반영)
+      var lt = function (s) { return 2 * Math.log2(fNum(s)) - evIso; };
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
+      ctx.strokeStyle = p.accent; ctx.lineWidth = 2.5; ctx.beginPath();
+      for (var s2 = 0; s2 <= 8.001; s2 += 0.1) { var X2 = c.X(s2), Y2 = c.Y(lt(s2)); s2 ? ctx.lineTo(X2, Y2) : ctx.moveTo(X2, Y2); }
+      ctx.stroke();
+      for (var k = 0; k <= 8; k++) { ctx.fillStyle = p.accent; ctx.beginPath(); ctx.arc(c.X(k), c.Y(lt(k)), 3, 0, 7); ctx.fill(); }
+      ctx.restore();
+      var tp = lt(pickS), inRange = tp >= -12 && tp <= 5;
+      if (inRange) AB.handle(ctx, c.X(pickS), c.Y(tp), { r: 8, fill: p.accent, ring: p.text });
+      geo = { c: c };
+      var t = Math.pow(2, tp);
+      AB.stat("rc-o-pair", "f/" + [1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22][pickS] + " · " + (inRange ? fmtT(t) : t > 1 ? "30초 넘음" : "1/4000초보다 빠름") + " · ISO " + iso);
+      var sc = SCENES.reduce(function (a, b) { return Math.abs(b[0] - ev) < Math.abs(a[0] - ev) ? b : a; });
+      AB.stat("rc-o-scene", sc[1] + " <small>(대략)</small>");
+      AB.stat("rc-o-hand", t <= 1 / FEQ * 1.05 ? "예 <small>(환산 75 mm 기준)</small>" : t <= 4 / FEQ ? "아슬아슬 <small>(보정 장치가 있으면)</small>" : "아니요 <small>삼각대</small>");
+    }, { get height() { var el = document.getElementById("rc-cv"), w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(380, Math.max(280, w * 0.6))); } });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; var c = geo.c, s = (x - c.box.x) / c.box.w * 8; pickS = AB.clamp(Math.round(s), 0, 8); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 셔터 속도와 번짐 ---------------- */
+  (function () {
+    var tG = AB.range("sh-t", function (s) { return tLab(s); }, function () { cv.redraw(); });
+    var hG = AB.seg("sh-hold", function () { cv.redraw(); });
+    var pG = AB.check("sh-person", function () { cv.redraw(); });
+    var cv = AB.canvas("#sh-cv", function (ctx, w, h) {
+      var t = tSec(tG()), r = shoot({ N: 4, focus: DIST.far, t: t, hold: hG(), person: pG(), personX: 0.42 });
+      var id = develop(0, 100, false, 1, false);
+      blit(ctx, id, w, h);
+      AB.stat("sh-o-shake", hG() === "tripod" ? "0칸 <small>삼각대</small>" : AB.fix(r.sh, 1) + "칸");
+      AB.stat("sh-o-move", pG() ? AB.fix(r.wk, 1) + "칸" : "—");
+      var iso = 100 * (2.8 * 2.8) / (Math.pow(2, 6) * t);          // EV100 6에서 f/2.8, 시간 t로 알맞은 감도
+      var isoN = 100 * Math.pow(2, Math.round(Math.log2(iso / 100) * 3) / 3);
+      AB.stat("sh-o-iso", isoN < 100 ? "ISO 100 <small>(" + AB.fix(Math.log2(100 / isoN), 1) + "스톱 남음)</small>" : "ISO " + Math.round(isoN).toLocaleString("ko-KR"));
+    }, SC_H("sh-cv"));
+  })();
+
+  /* ---------------- 시뮬레이터 4: 같은 밝기, 다른 감도 ---------------- */
+  (function () {
+    var sG = AB.range("is-s", function (s) { return isoLab(s); }, function () { redraw(); });
+    var dk = AB.check("is-dark", function () { redraw(); });
+    var idA = null, idB = null;
+    var crop = function (ctx, id, w, h) { var c = mk(id.width, id.height); c.getContext("2d").putImageData(id, 0, 0); ctx.imageSmoothingEnabled = false; var sw = id.width * 0.45, sh = id.height * 0.45; ctx.drawImage(c, id.width * 0.28, id.height * 0.18, sw, sh, 0, 0, w, h); };
+    var hopt = function (id) { return SC_H(id); };
+    var cvA = AB.canvas("#is-a", function (ctx, w, h) { if (idA) crop(ctx, idA, w, h); }, hopt("is-a"));
+    var cvB = AB.canvas("#is-b", function (ctx, w, h) { if (idB) crop(ctx, idB, w, h); }, hopt("is-b"));
+    AB.compare("#is-cmp", { labels: ["ISO 100 · 삼각대", "고른 감도"], pos: 0.5 });
+    function redraw() {
+      var s = sG(), iso = isoVal(s);
+      shoot({ N: 2.8, focus: DIST.far, t: 1 / 8, hold: "tripod", person: false });
+      idA = develop(0, 100, dk(), 7, true);
+      idB = develop(0, iso, dk(), 7, true);
+      cvA.redraw(); cvB.redraw();
+      var t = 2.8 * 2.8 / (Math.pow(2, 6) * iso / 100), Q = Q0 * 100 / iso;
+      AB.stat("is-o-t", fmtT(t));
+      AB.stat("is-o-n", Math.round(Q).toLocaleString("ko-KR") + "개");
+      AB.stat("is-o-snr", AB.fix(Q / Math.sqrt(Q + READ * READ), 1) + " <small>(" + AB.pct(Math.sqrt(Q + READ * READ) / Q, 1) + " 흔들림)</small>");
+    }
+    redraw();
+  })();
+
+  /* ---------------- 시뮬레이터 5: 심도 ---------------- */
+  (function () {
+    var sG = AB.range("df-s", function (s) { return fLab(s); }, function () { cv.redraw(); });
+    var focus = "far", geo = null;
+    var cv = AB.canvas("#df-cv", function (ctx, w, h) {
+      geo = { w: w, h: h };
+      var N = fNum(sG()), r = shoot({ N: N, focus: DIST[focus], t: 1 / 500, hold: "tripod", person: true, personX: 0.72 });
+      var id = develop(0, 100, false, 1, false);
+      blit(ctx, id, w, h);
+      var mm = function (px) { return (px / EW * SENSOR).toFixed(2) + " mm"; };
+      AB.stat("df-o-f", LNAME[focus]);
+      AB.stat("df-o-near", AB.fix(r.cN, 1) + "칸 <small>" + mm(r.cN) + "</small>");
+      AB.stat("df-o-far", AB.fix(r.cF, 1) + "칸 <small>" + mm(r.cF) + "</small>");
+    }, SC_H("df-cv"));
+    AB.drag(cv.canvas, { start: function (x, y) { if (!geo) return; focus = layerAt(x / geo.w, y / geo.h, true, 0.72); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 노출계와 18% 회색 ---------------- */
+  (function () {
+    var mode = AB.seg("mt-mode", function () { cv.redraw(); });
+    var spot = { u: 0.2, v: 0.48 }, geo = null;
+    // 물체: [이름, 반사율, x0, y0, w, h](화면 비율). 배경 벽 반사율 0.35, 빛은 고르다.
+    var OBJ = [["흰 수채화 종이", 0.85, 0.06, 0.18, 0.28, 0.6], ["회색 카드", 0.18, 0.39, 0.3, 0.22, 0.36], ["검은 스케치북 표지", 0.04, 0.66, 0.16, 0.28, 0.64]];
+    var WALL = 0.35;
+    function reflAt(u, v) { for (var i = 0; i < OBJ.length; i++) { var o = OBJ[i]; if (u >= o[2] && u <= o[2] + o[4] && v >= o[3] && v <= o[3] + o[5]) return [o[1], o[0]]; } return [WALL, "벽"]; }
+    var cv = AB.canvas("#mt-cv", function (ctx, w, h) {
+      geo = { w: w, h: h };
+      var ref = reflAt(spot.u, spot.v), inc = mode() === "incident";
+      // 노출 배율: 잰 곳이 0.18이 되도록(반사광) / 반사율 그대로(입사광)
+      var k = inc ? 1 : 0.18 / ref[0];
+      var col = function (rho, tint) { var v = rho * k; return "rgb(" + tint.map(function (t) { return enc(Math.min(1, v * t)); }).join(",") + ")"; };
+      ctx.fillStyle = col(WALL, [1, 0.97, 0.9]); ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = col(WALL * 0.55, [1, 0.95, 0.88]); ctx.fillRect(0, h * 0.86, w, h * 0.14);
+      OBJ.forEach(function (o, i) {
+        var x = o[2] * w, y = o[3] * h, ww = o[4] * w, hh = o[5] * h;
+        ctx.fillStyle = col(o[1] * 0.6, [1, 1, 1]); ctx.fillRect(x + 4, y + 5, ww, hh);
+        ctx.fillStyle = col(o[1], i === 0 ? [1, 0.99, 0.96] : [1, 1, 1]); ctx.fillRect(x, y, ww, hh);
+        if (i === 0) { // 종이 위 연한 수채 붓자국(반사율 0.55~0.7)
+          ctx.fillStyle = col(0.62, [0.75, 0.85, 1]); ctx.beginPath(); ctx.ellipse(x + ww * 0.45, y + hh * 0.35, ww * 0.28, hh * 0.1, -0.2, 0, 7); ctx.fill();
+          ctx.fillStyle = col(0.5, [1, 0.8, 0.6]); ctx.beginPath(); ctx.ellipse(x + ww * 0.55, y + hh * 0.65, ww * 0.22, hh * 0.08, 0.3, 0, 7); ctx.fill();
+        }
+        if (i === 2) { ctx.fillStyle = col(0.08, [1, 1, 1]); ctx.fillRect(x + ww * 0.08, y, ww * 0.04, hh); }
+      });
+      // 이름표(고정색, 칸 아래)
+      ctx.font = AB.font(w < 420 ? 10 : 12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      OBJ.forEach(function (o) { var lab = o[0]; ctx.fillStyle = "#1d1b1a"; ctx.globalAlpha = 0.55; var tw = ctx.measureText(lab).width + 10; ctx.fillRect((o[2] + o[4] / 2) * w - tw / 2, (o[3] + o[5]) * h + 6, tw, 18); ctx.globalAlpha = 1; ctx.fillStyle = "#ffffff"; ctx.fillText(lab, (o[2] + o[4] / 2) * w, (o[3] + o[5]) * h + 8); });
+      if (!inc) {
+        var px = spot.u * w, py = spot.v * h, rr = Math.min(w, h) * 0.06;
+        ctx.strokeStyle = "#ffd23a"; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(px, py, rr, 0, 7); ctx.stroke();
+        AB.handle(ctx, px, py, { r: 6, fill: "#ffd23a" });
+      } else {
+        ctx.fillStyle = "#1d1b1a"; ctx.globalAlpha = 0.6; ctx.fillRect(8, 8, 220, 24); ctx.globalAlpha = 1;
+        ctx.fillStyle = "#ffffff"; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("입사광: 떨어지는 빛 자체를 잰다", 16, 20);
+      }
+      var wv = enc(Math.min(1, 0.85 * k)), Lw = ART.lightness([wv / 255, wv / 255, wv / 255]), err = Math.log2(k);
+      AB.stat("mt-o-r", inc ? "— <small>(빛을 잼)</small>" : AB.pct(ref[0], 0) + " <small>" + ref[1] + "</small>");
+      AB.stat("mt-o-w", wv + " · L* " + AB.fix(Lw, 0) + (wv >= 254 ? " <small>날아감</small>" : ""));
+      AB.stat("mt-o-e", Math.abs(err) < 0.05 ? "0스톱 <small>알맞음</small>" : (err > 0 ? "+" : "−") + AB.fix(Math.abs(err), 1) + "스톱 <small>" + (err > 0 ? "너무 밝게" : "너무 어둡게") + "</small>");
+    }, Object.assign(SC_H("mt-cv"), { bg: "#7a7268" }));
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo || mode() === "incident") return; spot.u = AB.clamp(x / geo.w, 0.03, 0.97); spot.v = AB.clamp(y / geo.h, 0.05, 0.95); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 7: 서가 사진 노출 실험실 ---------------- */
+  (function () {
+    var EV = 6;
+    var nG = AB.range("lb-n", function (s) { return fLab(s); }, function () { cv.redraw(); });
+    var tG = AB.range("lb-t", function (s) { return tLab(s); }, function () { cv.redraw(); });
+    var iG = AB.range("lb-i", function (s) { return isoLab(s); }, function () { cv.redraw(); });
+    var hG = AB.seg("lb-hold", function () { cv.redraw(); });
+    var pG = AB.check("lb-person", function () { cv.redraw(); });
+    var focus = "far", geo = null;
+    var cv = AB.canvas("#lb-cv", function (ctx, w, h) {
+      geo = { w: w, h: h };
+      var N = fNum(nG()), t = tSec(tG()), iso = isoVal(iG());
+      var err = Math.log2(t / (N * N) * Math.pow(2, EV) * iso / 100);
+      var r = shoot({ N: N, focus: DIST[focus], t: t, hold: hG(), person: pG(), personX: 0.45 });
+      var id = develop(err, iso, false, 11, true);
+      blit(ctx, id, w, h);
+      // 노출 눈금(왼쪽 위, 고정색)
+      var bx = 10, by = 10, bw = Math.min(170, w * 0.42), bh = 22;
+      ctx.fillStyle = "rgba(20,18,16,0.72)"; ctx.fillRect(bx, by, bw, bh + 16);
+      ctx.strokeStyle = "#cfc9bd"; ctx.lineWidth = 1;
+      for (var k = -3; k <= 3; k++) { var xx = bx + 10 + (k + 3) / 6 * (bw - 20); ctx.beginPath(); ctx.moveTo(xx, by + 8); ctx.lineTo(xx, by + (k === 0 ? 20 : 16)); ctx.stroke(); }
+      var ex = bx + 10 + (AB.clamp(err, -3, 3) + 3) / 6 * (bw - 20);
+      ctx.fillStyle = Math.abs(err) <= 0.35 ? "#7fd18b" : "#ffb35a"; ctx.beginPath(); ctx.moveTo(ex, by + 22); ctx.lineTo(ex - 5, by + 30); ctx.lineTo(ex + 5, by + 30); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#e8e2d6"; ctx.font = AB.font(10, true); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("−3", bx + 4, by + 24); ctx.textAlign = "right"; ctx.fillText("+3", bx + bw - 4, by + 24);
+      var verdict = Math.abs(err) <= 0.35 ? "알맞음" : err < 0 ? "어둡다" : "밝다";
+      AB.stat("lb-o-exp", (err >= 0 ? "+" : "−") + AB.fix(Math.abs(err), 1) + "스톱 <small>" + verdict + " · EV " + AB.fix(Math.log2(N * N / t), 1) + "</small>");
+      AB.stat("lb-o-blur", "손 " + AB.fix(r.sh, 1) + "칸" + (pG() ? " · 손님 " + AB.fix(r.wk, 1) + "칸" : ""));
+      var Q = Q0 * Math.pow(2, err) * 100 / iso, snr = Q / Math.sqrt(Q + READ * READ);
+      AB.stat("lb-o-noise", AB.fix(snr, 0) + " <small>" + (snr >= 30 ? "깨끗함" : snr >= 12 ? "약간 거침" : "거침") + "</small>");
+      AB.stat("lb-o-dof", AB.fix(r.cN, 1) + "칸 <small>초점 " + LNAME[focus] + "</small>");
+    }, SC_H("lb-cv"));
+    AB.drag(cv.canvas, { start: function (x, y) { if (!geo) return; focus = layerAt(x / geo.w, y / geo.h, pG(), 0.45); cv.redraw(); } });
+  })();
+})();
+</script>
+</body>
+</html>
