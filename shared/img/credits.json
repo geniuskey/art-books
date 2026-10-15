@@ -153,7 +153,8 @@
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437394",
       "checked": "2026-10-14",
       "usedIn": [
-        "color/chapters/value.html"
+        "color/chapters/value.html",
+        "composition/chapters/eye.html"
       ]
     },
     {
@@ -176,7 +177,10 @@
       "checked": "2026-10-14",
       "usedIn": [
         "color/chapters/value.html",
-        "color/chapters/painting.html"
+        "color/chapters/painting.html",
+        "composition/chapters/lab.html",
+        "composition/chapters/reading.html",
+        "composition/chapters/space.html"
       ]
     },
     {
@@ -198,7 +202,8 @@
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/13211",
       "checked": "2026-10-14",
       "usedIn": [
-        "color/chapters/chroma.html"
+        "color/chapters/chroma.html",
+        "composition/chapters/space.html"
       ]
     },
     {
@@ -331,7 +336,9 @@
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/437881",
       "checked": "2026-10-14",
       "usedIn": [
-        "color/chapters/painting.html"
+        "color/chapters/painting.html",
+        "composition/chapters/lab.html",
+        "composition/chapters/reading.html"
       ]
     },
     {
@@ -376,6 +383,451 @@
       "checked": "2026-10-14",
       "usedIn": [
         "color/chapters/painting.html"
+      ]
+    },
+    {
+      "id": "goryeo-amitabha-triad",
+      "file": "goryeo-amitabha-triad.webp",
+      "derived": "원본 2021×4000 JPEG를 긴 변 1600px WebP(품질 80)로 줄임",
+      "title": "아미타삼존도",
+      "titleEn": "Amitabha triad",
+      "artist": "작가 미상 (Unidentified artist), 고려",
+      "date": "13세기경",
+      "medium": "족자, 비단에 먹·채색·금",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Rogers Fund, 1930",
+      "objectId": 39882,
+      "license": "CC0 (The Met Open Access, 공공 도메인)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP-15580-031.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/39882",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39882",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/balance.html"
+      ]
+    },
+    {
+      "id": "ma-yuan-moon-pine",
+      "file": "ma-yuan-moon-pine.webp",
+      "derived": "원본 3787×3409 JPEG를 긴 변 1600px WebP(품질 80)로 줄임",
+      "title": "소나무 아래에서 달을 보다 (송음완월)",
+      "titleEn": "Viewing the Moon under a Pine Tree",
+      "artist": "마원 (Ma Yuan, 활동 1190년경–1225년경), 남송",
+      "date": "13세기 초",
+      "medium": "화첩 그림, 비단에 먹과 채색",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Rogers Fund, 1923",
+      "objectId": 36037,
+      "license": "CC0 (The Met Open Access, 공공 도메인)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP153498.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/36037",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/36037",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/balance.html"
+      ]
+    },
+    {
+      "id": "guo-xi-old-trees-level-distance",
+      "file": "guo-xi-old-trees-level-distance.webp",
+      "derived": "The Met 대표 이미지(DP167812_CRD.jpg, 3508×1872, 두루마리의 한 구간과 표장 일부)를 긴 변 1600px WebP(품질 80)로 줄임",
+      "title": "고목평원도",
+      "titleEn": "Old Trees, Level Distance",
+      "artist": "곽희 (郭熙, Guo Xi, ca. 1000–ca. 1090)",
+      "date": "1080년경 (ca. 1080)",
+      "medium": "두루마리, 비단에 먹과 색 (Handscroll; ink and color on silk), 그림 35.6 × 104.4 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+      "creditLine": "Gift of John M. Crawford Jr., in honor of Douglas Dillon, 1981",
+      "objectId": 39668,
+      "license": "공공 도메인 (CC0, The Met Open Access)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP167812_CRD.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/39668",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39668",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/depth.html"
+      ]
+    },
+    {
+      "id": "hiroshige-sudden-shower-ohashi",
+      "file": "hiroshige-sudden-shower-ohashi.webp",
+      "derived": "원본 2650×3860 JPEG를 긴 변 1600px(1098×1600) WebP(품질 80)로 줄임. 본문 시뮬레이터의 점·선·면 층은 이 책이 원본 위에서 손으로 정한 표시",
+      "title": "오하시 다리와 아타케의 소나기 (『명소 에도 백경』 중)",
+      "titleEn": "Sudden Shower over Shin-Ōhashi Bridge and Atake (Ōhashi Atake no yūdachi), from the series One Hundred Famous Views of Edo (Meisho Edo hyakkei)",
+      "artist": "우타가와 히로시게 (Utagawa Hiroshige, 1797–1858)",
+      "date": "1857",
+      "medium": "목판화, 종이에 먹과 색 (Woodblock print; ink and color on paper)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "The Howard Mansfield Collection, Purchase, Rogers Fund, 1936",
+      "objectId": 55433,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP130156.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/55433",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/55433",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/elements.html"
+      ]
+    },
+    {
+      "id": "david-death-of-socrates",
+      "file": "david-death-of-socrates.webp",
+      "derived": "The Met 대표 이미지(DP-13139-001.jpg, 4000×2663)를 긴 변 1600px WebP(품질 80)로 줄임",
+      "title": "소크라테스의 죽음",
+      "titleEn": "The Death of Socrates",
+      "artist": "자크 루이 다비드 (Jacques Louis David, 1748–1825)",
+      "date": "1787",
+      "medium": "캔버스에 유채 (Oil on canvas), 129.5 × 196.2 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art)",
+      "creditLine": "Catharine Lorillard Wolfe Collection, Wolfe Fund, 1931",
+      "objectId": 436105,
+      "license": "공공 도메인 (CC0, The Met Open Access)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-13139-001.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/436105",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436105",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/eye.html"
+      ]
+    },
+    {
+      "id": "degas-dance-class",
+      "file": "degas-dance-class.webp",
+      "derived": "원본 3710×4000 JPEG에서 가장자리의 검은 테두리를 잘라 내고(가로 80~3630, 세로 80~3920 px) 긴 변 1600px WebP(1479×1600, 품질 78)로 줄임",
+      "title": "무용 수업",
+      "titleEn": "The Dance Class",
+      "artist": "에드가 드가 (Edgar Degas, 1834–1917)",
+      "date": "1874",
+      "medium": "캔버스에 유채",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Bequest of Mrs. Harry Payne Bingham, 1986",
+      "objectId": 438817,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-20101-001.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/438817",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438817",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/frame.html"
+      ]
+    },
+    {
+      "id": "hiroshige-mannen-bridge",
+      "file": "hiroshige-mannen-bridge.webp",
+      "derived": "원본 2611×3853 JPEG를 긴 변 1600px WebP(1084×1600, 품질 78)로 줄임",
+      "title": "후카가와 만넨바시 (『명소 에도 백경』 중)",
+      "titleEn": "Mannen Bridge, Fukagawa (from One Hundred Famous Views of Edo)",
+      "artist": "우타가와 히로시게 (Utagawa Hiroshige, 1797–1858)",
+      "date": "1858",
+      "medium": "목판화, 종이에 먹과 채색",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Rogers Fund, 1919",
+      "objectId": 37316,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP121534.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/37316",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/37316",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/frame.html"
+      ]
+    },
+    {
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checked": "2026-10-15",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "id": "hiroshige-descending-geese-katada",
+      "file": "hiroshige-descending-geese-katada.webp",
+      "derived": "원본 3799×2926 JPEG를 긴 변 1600px WebP(1600×1232, 품질 80)로 줄임",
+      "title": "가타다의 내려앉는 기러기 (「오미 팔경」 연작 중)",
+      "titleEn": "Descending Geese at Katada, from the series Eight Views of Ōmi (Ōmi hakkei)",
+      "artist": "우타가와 히로시게 (Utagawa Hiroshige, 1797–1858)",
+      "date": "1834–35년경 (ca. 1834–35)",
+      "medium": "목판화, 종이에 먹과 색",
+      "creditLine": "Rogers Fund, 1919",
+      "objectId": 49929,
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP122146.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/49929",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/49929",
+      "usedIn": [
+        "composition/chapters/gestalt.html"
+      ]
+    },
+    {
+      "id": "toulouse-lautrec-divan-japonais",
+      "file": "toulouse-lautrec-divan-japonais.webp",
+      "derived": "원본 2817×3722 JPEG를 긴 변 1600px WebP(1211×1600, 품질 78)로 줄임",
+      "title": "디방 자포네",
+      "titleEn": "Divan Japonais",
+      "artist": "앙리 드 툴루즈로트레크 (Henri de Toulouse-Lautrec, 1864–1901)",
+      "date": "1892–93",
+      "medium": "4색 석판화, 우브지",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Bequest of Clifford A. Furst, 1958",
+      "objectId": 334197,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DT224360.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/334197",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/334197",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/layout.html"
+      ]
+    },
+    {
+      "id": "utamaro-shell-book-spread",
+      "file": "utamaro-shell-book-spread.webp",
+      "derived": "미술관 추가 이미지 JIB47_006(펼침면 하나, 4000×2859 JPEG)을 긴 변 1600px WebP(1600×1144, 품질 78)로 줄임",
+      "title": "시오히노쓰토 (썰물이 남긴 선물, 조개 그림책)의 한 펼침면",
+      "titleEn": "Gifts from the Ebb-Tide (The Shell Book) (Shiohi no tsuto), one spread",
+      "artist": "기타가와 우타마로 (Kitagawa Utamaro, 1753?–1806)",
+      "date": "1789",
+      "medium": "다색 목판 인쇄 책, 종이에 먹과 채색",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Rogers Fund, 1918",
+      "objectId": 57648,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/JIB47_006.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/57648",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/57648",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/layout.html"
+      ]
+    },
+    {
+      "id": "hokusai-great-wave",
+      "file": "hokusai-great-wave.webp",
+      "derived": "원본 3859×2594 JPEG를 긴 변 1600px(1600×1076) WebP(품질 80)로 줄임. 본문 시뮬레이터의 일곱 점은 이 책이 눈으로 정한 위치",
+      "title": "가나가와 앞바다의 파도 아래 (『후가쿠 36경』 중), 일명 큰 파도",
+      "titleEn": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "artist": "가쓰시카 호쿠사이 (Katsushika Hokusai, 1760–1849)",
+      "date": "1830–32년경 (ca. 1830–32)",
+      "medium": "목판화, 종이에 먹과 색 (Woodblock print; ink and color on paper)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929",
+      "objectId": 45434,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP130155.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/45434",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/45434",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/overview.html",
+        "composition/chapters/reading.html",
+        "composition/chapters/lab.html",
+        "composition/chapters/proportion.html"
+      ]
+    },
+    {
+      "id": "friedrich-two-men-moon",
+      "file": "friedrich-two-men-moon.webp",
+      "derived": "원본 4000×3237 JPEG에서 가장자리를 잘라(가로 80~3900, 세로 80~3130 px) 긴 변 1600px WebP(1600×1277, 품질 78)로 줄임",
+      "title": "달을 바라보는 두 남자",
+      "titleEn": "Two Men Contemplating the Moon",
+      "artist": "카스파르 다비트 프리드리히 (Caspar David Friedrich, 1774–1840)",
+      "date": "1825~30년경 (ca. 1825–30)",
+      "medium": "캔버스에 유채",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Wrightsman Fund, 2000",
+      "objectId": 438417,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP-31997-001-NEW.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/438417",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438417",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/proportion.html"
+      ]
+    },
+    {
+      "id": "duccio-madonna-child",
+      "file": "duccio-madonna-child.webp",
+      "derived": "원본 2697×3542 JPEG에서 붙은 액자를 잘라 내고 그림 면(가로 340~2340, 세로 320~3050 px)만 남긴 뒤 긴 변 1600px WebP(1172×1600, 품질 78)로 줄임",
+      "title": "성모자",
+      "titleEn": "Madonna and Child",
+      "artist": "두초 디 부오닌세냐 (Duccio di Buoninsegna, 1278년 이전 활동~1318)",
+      "date": "1290~1300년경 (ca. 1290–1300)",
+      "medium": "나무판에 템페라와 금",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Purchase, Rogers Fund, Walter and Leonore Annenberg and The Annenberg Foundation Gift, Lila Acheson Wallace Gift, Annette de la Renta Gift, Harris Brisbane Dick, Fletcher, Louis V. Bell, and Dodge Funds, Joseph Pulitzer Bequest, several members of The Chairman's Council Gifts, Elaine L. Rosenberg and Stephenson Family Foundation Gifts, 2003 Benefit Fund, and other gifts and funds from various donors, 2004",
+      "objectId": 438754,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP142735.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/438754",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/438754",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/proportion.html"
+      ]
+    },
+    {
+      "id": "bruegel-harvesters",
+      "file": "bruegel-harvesters.webp",
+      "derived": "원본 3811×2809 JPEG를 긴 변 1600px WebP(1600×1179, 품질 76)로 줄임",
+      "title": "추수하는 사람들",
+      "titleEn": "The Harvesters",
+      "artist": "피터르 브뤼헐 (Pieter Bruegel the Elder, 1525년경–1569)",
+      "date": "1565",
+      "medium": "참나무 판에 유채",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Rogers Fund, 1919",
+      "objectId": 435809,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ep/original/DP119115.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/435809",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/435809",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/reading.html",
+        "composition/chapters/depth.html",
+        "composition/chapters/lab.html"
+      ]
+    },
+    {
+      "id": "qu-ding-summer-mountains",
+      "file": "qu-ding-summer-mountains.webp",
+      "derived": "원본 3951×1580 JPEG에서 표구(위아래 검은 띠, 좌우 비단 테두리)를 잘라 내고 그림 부분(가로 112~3858, 세로 58~1536 px)만 남긴 뒤 긴 변 1600px WebP(1600×631, 품질 80)로 줄임",
+      "title": "하산도 (여름 산)",
+      "titleEn": "Summer Mountains",
+      "artist": "전 굴정 (Attributed to Qu Ding, 1023년경–1056년경 활동), 중국 북송",
+      "date": "1050년경 (ca. 1050)",
+      "medium": "두루마리(수권), 비단에 먹과 옅은 채색",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Ex coll.: C. C. Wang Family, Gift of The Dillon Fund, 1973",
+      "objectId": 39915,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP226465.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/39915",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39915",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/reading.html"
+      ]
+    },
+    {
+      "id": "korin-irises-yatsuhashi",
+      "file": "korin-irises-yatsuhashi.webp",
+      "derived": "원본 2000×970 JPEG(한 쌍 병풍 중 한 폭)를 긴 변 1600px WebP(품질 80)로 줄임",
+      "title": "야쓰하시의 붓꽃",
+      "titleEn": "Irises at Yatsuhashi (Eight Bridges)",
+      "artist": "오가타 고린 (Ogata Kōrin, 1658–1716)",
+      "date": "1709년 이후",
+      "medium": "6폭 병풍 한 쌍, 금박 종이에 먹과 채색",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Purchase, Louisa Eldridge McBurney Gift, 1953",
+      "objectId": 39664,
+      "license": "CC0 (The Met Open Access, 공공 도메인)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DT231.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/39664",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/39664",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/rhythm.html"
+      ]
+    },
+    {
+      "id": "goryeo-maebyeong-cranes",
+      "file": "goryeo-maebyeong-cranes.webp",
+      "derived": "원본 3001×4000 JPEG를 긴 변 1600px WebP(품질 80)로 줄임",
+      "title": "청자 상감 운학문 매병",
+      "titleEn": "Maebyeong (plum bottle) decorated with cranes and clouds",
+      "artist": "작가 미상, 고려",
+      "date": "12세기 후반",
+      "medium": "상감 장식 청자(석기)",
+      "museum": "The Metropolitan Museum of Art",
+      "creditLine": "Gift of Sadajiro Yamanaka, 1911",
+      "objectId": 42301,
+      "license": "CC0 (The Met Open Access, 공공 도메인)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP240189.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/42301",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/42301",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/rhythm.html"
+      ]
+    },
+    {
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checked": "2026-10-15",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "id": "edouart-frank-helen-johnson",
+      "file": "edouart-frank-helen-johnson.webp",
+      "derived": "원본 3153×3845 JPEG를 긴 변 1600px WebP(1312×1600, 품질 80)로 줄임",
+      "title": "프랭크 존슨(새러토가 128연대 군악대장)과 아내 헬렌",
+      "titleEn": "Frank Johnson, Leader of the Brass Band of the 128th Regiment in Saratoga, with his wife, Helen",
+      "artist": "오귀스트 에두아르 (Auguste Edouart, 1789–1861)",
+      "date": "1842–44",
+      "medium": "판지에 붙인 오린 종이 실루엣",
+      "creditLine": "Gift of Philip S. P. and Elisabeth W. Fell, 1976",
+      "objectId": 337070,
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP246963.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/337070",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/337070",
+      "usedIn": [
+        "composition/chapters/shape.html"
+      ]
+    },
+    {
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checked": "2026-10-15",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "id": "yi-jeong-bamboo-wind",
+      "file": "yi-jeong-bamboo-wind.webp",
+      "derived": "원본 1716×3880 JPEG에서 표구와 제발을 잘라 내고 그림 부분(가로 205~1520, 세로 880~3805 px)만 남긴 뒤 긴 변 1600px WebP(719×1600, 품질 80)로 줄임",
+      "title": "풍죽 (바람 속의 대나무)",
+      "titleEn": "Bamboo in the Wind",
+      "artist": "이정 (李霆, 호 탄은 灘隱, Yi Jeong, 1541–1626), 조선",
+      "date": "17세기 초 (early 17th century)",
+      "medium": "족자, 비단에 먹(제발에 금)",
+      "creditLine": "Mary Griggs Burke Collection, Gift of the Mary and Jackson Burke Foundation, 2015",
+      "objectId": 50486,
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP355790.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/50486",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/50486",
+      "usedIn": [
+        "composition/chapters/shape.html"
+      ]
+    },
+    {
+      "id": "ma-yuan-scholar-waterfall",
+      "file": "ma-yuan-scholar-waterfall.webp",
+      "derived": "원본 3407×3000 JPEG에서 화첩 바탕을 잘라 내고 그림 면(가로 620~3015, 세로 345~2655 px)만 남긴 뒤 긴 변 1400px WebP(1400×1350, 품질 72)로 줄임",
+      "title": "폭포를 바라보는 선비",
+      "titleEn": "Scholar viewing a waterfall",
+      "artist": "마원 (Ma Yuan, 1190~1225년경 활동), 중국 남송",
+      "date": "13세기 초 (early 13th century)",
+      "medium": "화첩 한 면, 비단에 먹과 채색",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Ex coll.: C. C. Wang Family, Gift of The Dillon Fund, 1973",
+      "objectId": 40086,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP154090.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/40086",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/40086",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "composition/chapters/space.html"
       ]
     }
   ]
