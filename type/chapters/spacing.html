@@ -430,8 +430,11 @@
 
   /* ---------------- 글자 윤곽 측정(이 장의 "빈 면적" 모델) ----------------
      글자 하나를 화면 밖 캔버스에 그려 줄마다 잉크의 왼쪽·오른쪽 끝을 읽는다.
-     두 글자 사이의 빈 거리 = 띠(band) 안의 각 줄에서 (뒤 글자 왼쪽 끝 − 앞 글자 오른쪽 끝)을
-     cap까지만 세어 평균한 값. 교육용 단순화이며 실제 옵티컬 커닝 알고리즘이 아니다. */
+     두 글자 사이의 빈 거리 = 띠(band) 안의 각 줄에서
+       (두 글자 바깥 테두리 사이 거리) + (앞 글자 오른쪽의 오목한 깊이, cap까지) + (뒤 글자 왼쪽의 오목한 깊이, cap까지)
+     를 평균한 값. 오목한 깊이를 글자 자신의 바깥 테두리에서 일정한 깊이까지만 세는 생각은
+     HT Letterspacer(Huerta Tipográfica) 같은 자동 여백 도구의 "깊이 제한"을 단순화한 것이다.
+     교육용 근사이며 실제 옵티컬 커닝 알고리즘을 재현한 것이 아니다. */
   var PROF = {}, CANS = [];
   var off = document.createElement("canvas"), octx = off.getContext("2d", { willReadFrequently: true });
   function prof(ch, font, px) {
@@ -441,48 +444,29 @@
     off.width = W; off.height = H;
     octx.clearRect(0, 0, W, H); octx.font = font; octx.fillStyle = "#000"; octx.textBaseline = "alphabetic"; octx.textAlign = "left";
     octx.fillText(ch, ox, by);
-    var d = octx.getImageData(0, 0, W, H).data, L = [], R = [], top = H, bot = -1;
+    var d = octx.getImageData(0, 0, W, H).data, L = [], R = [], top = H, bot = -1, bl = Infinity, br = -Infinity;
     for (var y = 0; y < H; y++) {
       var l = null, r = null, row = y * W * 4;
       for (var x = 0; x < W; x++) if (d[row + x * 4 + 3] > 110) { l = x; break; }
       if (l !== null) { for (var x2 = W - 1; x2 >= 0; x2--) if (d[row + x2 * 4 + 3] > 110) { r = x2 + 1; break; } top = Math.min(top, y); bot = Math.max(bot, y); }
       L.push(l === null ? null : l - ox); R.push(r === null ? null : r - ox);
+      if (l !== null) { bl = Math.min(bl, l - ox); br = Math.max(br, r - ox); }
     }
-    var p = { L: L, R: R, by: by, H: H, adv: octx.measureText(ch).width, top: top - by, bot: bot - by + 1 };
+    if (!isFinite(bl)) { bl = 0; br = 0; }
+    var p = { L: L, R: R, by: by, H: H, adv: octx.measureText(ch).width, top: top - by, bot: bot - by + 1, bl: bl, br: br };
     PROF[key] = p; return p;
   }
-  // 앞 글자 A(펜 위치 xa), 뒤 글자 B(펜 위치 xb) 사이의 평균 빈 거리(px)
+  // 줄 r(기준선 기준)에서 앞 글자 A 오른쪽 잉크의 x와 뒤 글자 B 왼쪽 잉크의 x(깊이 제한 적용)
+  function edgeR(A, r, cap) { var i = r + A.by, v = i >= 0 && i < A.H ? A.R[i] : null; return v === null ? A.br - cap : Math.max(v, A.br - cap); }
+  function edgeL(B, r, cap) { var i = r + B.by, v = i >= 0 && i < B.H ? B.L[i] : null; return v === null ? B.bl + cap : Math.min(v, B.bl + cap); }
+  // 앞 글자 A(펜 위치 xa), 뒤 글자 B(펜 위치 xb) 사이의 평균 빈 거리(px). 펜 위치에 대해 일차식이다.
   function gapOf(A, B, xa, xb, band, cap) {
-    var s = 0, n = 0, minD = Infinity;
-    for (var r = band[0]; r < band[1]; r++) {
-      var ia = r + A.by, ib = r + B.by;
-      var ra = ia >= 0 && ia < A.H ? A.R[ia] : null, lb = ib >= 0 && ib < B.H ? B.L[ib] : null;
-      if (ra === null && lb === null) continue;
-      var dd = (ra === null || lb === null) ? cap : (xb + lb) - (xa + ra);
-      if (ra !== null && lb !== null) minD = Math.min(minD, dd);
-      s += Math.max(0, Math.min(cap, dd)); n++;
-    }
-    return { g: n ? s / n : cap, min: minD };
-  }
-  // 빈 거리가 target이 되도록 B의 펜 위치를 이분 탐색으로 찾는다(앞 글자 끝 = xa + A.adv 기준 추가량 e를 돌려준다)
-  function solve(A, B, band, cap, target, px) {
-    var lo = -0.6 * px, hi = 0.6 * px;
-    for (var i = 0; i < 30; i++) {
-      var mid = (lo + hi) / 2, g = gapOf(A, B, 0, A.adv + mid, band, cap).g;
-      if (g < target) lo = mid; else hi = mid;
-    }
-    return (lo + hi) / 2;
-  }
-  // 두 글자에 모두 잉크가 있는 줄만 세는 평균 거리(낱말 사이처럼 넓은 간격용)
-  function gapBoth(A, B, xa, xb) {
     var s = 0, n = 0;
-    for (var r = Math.max(A.top, B.top); r < Math.min(A.bot, B.bot); r++) {
-      var ra = A.R[r + A.by], lb = B.L[r + B.by];
-      if (ra == null || lb == null) continue;
-      s += (xb + lb) - (xa + ra); n++;
-    }
+    for (var r = band[0]; r < band[1]; r++) { s += (xb + edgeL(B, r, cap)) - (xa + edgeR(A, r, cap)); n++; }
     return n ? s / n : 0;
   }
+  // 빈 거리가 target이 되도록 하는 추가 간격 e(앞 글자 폭 뒤에 더할 양, px). 일차식이라 바로 풀린다.
+  function solve(A, B, band, cap, target) { return target - gapOf(A, B, 0, A.adv, band, cap); }
   var cv2 = function (arr) { var m = arr.reduce(function (a, b) { return a + b; }, 0) / arr.length; var v = arr.reduce(function (a, b) { return a + (b - m) * (b - m); }, 0) / arr.length; return m ? Math.sqrt(v) / m : 0; };
   function reg(c) { CANS.push(c); return c; }
   if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { PROF = {}; CANS.forEach(function (c) { c.redraw(); }); });
@@ -578,7 +562,7 @@
   /* ---------------- 시뮬레이터 2: 손으로 하는 커닝 ---------------- */
   (function () {
     var word = "AVATAR", kern = [], showArea = true;
-    var CAP = 0.35; // em
+    var CAP = 0.15; // em
     function reset() { kern = []; for (var i = 0; i < word.length - 1; i++) kern.push(0); }
     reset();
     var layout = null, dragI = -1;
@@ -589,7 +573,7 @@
       var H = prof("H", font, px), n = prof("n", font, px);
       var band = [H.top, 0], cap = CAP * px;
       var lower = /[a-z]/.test(word);
-      var ref = lower ? gapOf(n, n, 0, n.adv, band, cap).g : gapOf(H, H, 0, H.adv, band, cap).g;
+      var ref = lower ? gapOf(n, n, 0, n.adv, band, cap) : gapOf(H, H, 0, H.adv, band, cap);
       var xs = [0];
       for (var j = 1; j < word.length; j++) xs.push(xs[j - 1] + P[j - 1].adv + kern[j - 1] / 1000 * px);
       var total = xs[word.length - 1] + P[word.length - 1].adv, x0 = (w - total) / 2;
@@ -600,15 +584,13 @@
       var gaps = [];
       for (var i = 1; i < word.length; i++) {
         var A = g.P[i - 1], B = g.P[i], xa = g.xs[i - 1], xb = g.xs[i];
-        var r = gapOf(A, B, xa, xb, g.band, g.cap); gaps.push(r.g);
+        gaps.push(gapOf(A, B, xa, xb, g.band, g.cap));
         if (showArea) {
           ctx.fillStyle = AREA;
           for (var rr = g.band[0]; rr < g.band[1]; rr++) {
-            var ia = rr + A.by, ib = rr + B.by, ra = A.R[ia], lb = B.L[ib];
-            var x1 = ra == null ? null : xa + ra, x2 = lb == null ? null : xb + lb;
-            if (x1 == null && x2 == null) continue;
-            if (x1 == null) x1 = x2 - g.cap; if (x2 == null) x2 = x1 + g.cap;
-            var e = Math.min(x2, x1 + g.cap); if (e > x1) ctx.fillRect(x1, g.base + rr, e - x1, 1);
+            var x1 = xa + edgeR(A, rr, g.cap), x2 = xb + edgeL(B, rr, g.cap);
+            if (x2 > x1) ctx.fillRect(x1, g.base + rr, x2 - x1, 1);
+            else { ctx.fillStyle = "rgba(210,79,57,0.55)"; ctx.fillRect(x2, g.base + rr, x1 - x2, 1); ctx.fillStyle = AREA; }
           }
         }
       }
@@ -637,7 +619,7 @@
     document.getElementById("kn-reset").addEventListener("click", function () { reset(); cv.redraw(); });
     document.getElementById("kn-auto").addEventListener("click", function () {
       var g = geom(cv.w);
-      for (var i = 1; i < word.length; i++) { var e = solve(g.P[i - 1], g.P[i], g.band, g.cap, g.ref, g.px); kern[i - 1] = Math.round(e / g.px * 1000); }
+      for (var i = 1; i < word.length; i++) { var e = solve(g.P[i - 1], g.P[i], g.band, g.cap, g.ref); kern[i - 1] = Math.round(e / g.px * 1000); }
       cv.redraw();
     });
   })();
@@ -659,7 +641,7 @@
       var m = which === "a" ? "none" : mode();
       ctx.font = font; ctx.fillStyle = INK; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
       if ("fontKerning" in ctx) ctx.fontKerning = "none";
-      var H = prof("H", font, px), band = [H.top, 0], cap = 0.35 * px, ref = gapOf(H, H, 0, H.adv, band, cap).g;
+      var H = prof("H", font, px), band = [H.top, 0], cap = 0.15 * px, ref = gapOf(H, H, 0, H.adv, band, cap);
       var gaps = [], maxK = { v: 0, p: "" };
       LINES.forEach(function (s, li) {
         var y = Math.round(h * 0.08 + px * 1.05 + li * px * 1.3), x = 24, prev = null;
@@ -668,9 +650,9 @@
           if (prev && prev.c !== " " && c !== " ") {
             var k = 0;
             if (m === "metric") k = kernOf(ctx, prev.c, c, true);
-            else if (m === "optical") k = solve(prev.P, P, band, cap, ref, px);
+            else if (m === "optical") k = solve(prev.P, P, band, cap, ref);
             x += k;
-            gaps.push(gapOf(prev.P, P, prev.x, x, band, cap).g);
+            gaps.push(gapOf(prev.P, P, prev.x, x, band, cap));
             if (Math.abs(k) > Math.abs(maxK.v)) maxK = { v: k, p: prev.c + c };
           }
           ctx.fillText(c, x, y);
@@ -705,7 +687,7 @@
       var P = [], x = 16, xs = [];
       for (var i = 0; i < LINE.length; i++) { var c = LINE[i]; P.push(prof(c, font, px)); xs.push(x); x += P[i].adv + t; }
       var base = Math.round(18 + px * 0.95);
-      var ref = prof("한", font, px), band = [Math.min(ref.top, prof("책", font, px).top), Math.max(ref.bot, prof("방", font, px).bot)], cap = 0.25 * px;
+      var ref = prof("한", font, px), band = [Math.min(ref.top, prof("책", font, px).top), Math.max(ref.bot, prof("방", font, px).bot)], cap = 0.15 * px;
       if (box()) {
         for (var j = 0; j < LINE.length; j++) {
           if (LINE[j] === " ") continue;
@@ -720,7 +702,7 @@
       for (var k = 0; k < LINE.length; k++) ctx.fillText(LINE[k], xs[k], base);
       // 짝마다 빈 거리
       var gaps = [], names = [];
-      for (var q = 1; q < LINE.length; q++) { if (LINE[q] === " " || LINE[q - 1] === " ") continue; gaps.push(gapOf(P[q - 1], P[q], xs[q - 1], xs[q], band, cap).g / px); names.push(LINE[q - 1] + LINE[q]); }
+      for (var q = 1; q < LINE.length; q++) { if (LINE[q] === " " || LINE[q - 1] === " ") continue; gaps.push(gapOf(P[q - 1], P[q], xs[q - 1], xs[q], band, cap) / px); names.push(LINE[q - 1] + LINE[q]); }
       var mean = gaps.reduce(function (a, b) { return a + b; }, 0) / gaps.length;
       var iMax = gaps.indexOf(Math.max.apply(null, gaps)), iMin = gaps.indexOf(Math.min.apply(null, gaps));
       var sp = prof("책", font, px); ctx.font = font; var spW = ctx.measureText(" ").width / px + 2 * trk() / 1000;
@@ -795,7 +777,7 @@
     function metrics(px) {
       var font = fnt(700, px, FAM.sans), P = G.map(function (c) { return prof(c, font, px); });
       octx.font = font; var space = octx.measureText(" ").width;
-      var band = [Math.min(P[0].top, P[1].top), Math.max(P[0].bot, P[1].bot)], cap = 0.25 * px;
+      var band = [Math.min(P[0].top, P[1].top), Math.max(P[0].bot, P[1].bot)], cap = 0.15 * px;
       return { font: font, P: P, space: space, band: band, cap: cap, px: px };
     }
     function positions(M) {
@@ -803,17 +785,14 @@
       return [x1, x2, x3];
     }
     function gaps(M, xs) {
-      return [gapBoth(M.P[0], M.P[1], xs[0], xs[1]) / M.px, gapBoth(M.P[1], M.P[2], xs[1], xs[2]) / M.px];
+      return [gapOf(M.P[0], M.P[1], xs[0], xs[1], M.band, M.cap) / M.px, gapOf(M.P[1], M.P[2], xs[1], xs[2], M.band, M.cap) / M.px];
     }
     function fit() {
       var M = metrics(EMREF);
-      var lo1 = -0.6 * M.px, hi1 = 0.6 * M.px;
-      for (var j = 0; j < 30; j++) { var m1 = (lo1 + hi1) / 2; if (gapBoth(M.P[0], M.P[1], 0, M.P[0].adv + m1) < gTarget() * M.px) lo1 = m1; else hi1 = m1; }
-      k1 = Math.round((lo1 + hi1) / 2 / M.px * 1000 / 5) * 5;
-      // 방–E: 낱말 사이 빈 거리 = 목표 × 비율. 깊이 제한 없이(공백은 넉넉히) 평균 거리로 맞춘다
-      var want = gTarget() * ratio() * M.px, lo = -0.5 * M.px, hi = 1.5 * M.px;
-      for (var i = 0; i < 30; i++) { var mid = (lo + hi) / 2; var xs = [0, 0, M.P[1].adv + M.space + mid]; var g = gapBoth(M.P[1], M.P[2], 0, xs[2]); if (g < want) lo = mid; else hi = mid; }
-      k2 = Math.round((lo + hi) / 2 / M.px * 1000 / 5) * 5;
+      k1 = Math.round(solve(M.P[0], M.P[1], M.band, M.cap, gTarget() * M.px) / M.px * 1000 / 5) * 5;
+      // 방–E: 낱말 사이 빈 거리 = 목표 × 비율. 공백 폭 뒤에 더할 양을 구한다
+      var g0 = gapOf(M.P[1], M.P[2], 0, M.P[1].adv + M.space, M.band, M.cap);
+      k2 = Math.round((gTarget() * ratio() * M.px - g0) / M.px * 1000 / 5) * 5;
       cv.redraw();
     }
     var cv = reg(AB.canvas("#sg-cv", function (ctx, w, h) {

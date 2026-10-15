@@ -599,13 +599,13 @@
     a5: { w: 559, pad: 57, page: 1.4142, name: "A5 148 mm" },
   };
   const PT = 4 / 3; // 1 pt = 4/3 CSS px (CSS 규약 96 px = 1 in = 72 pt)
-  const BASE = { font: "nsans", size: 17, track: 0, htrack: -0.02, lead: 1.7, measure: 34, ratio: 1.333, align: "left", brk: "keep", fg: "#22342a", bg: "#ffffff", bold: true, wcag: false, accent: "#d24f39" };
+  const BASE = { font: "nsans", size: 17, track: 0, htrack: -0.02, lead: 1.7, measure: 34, ratio: 1.333, align: "left", brk: "keep", fg: "#22342a", bg: "#ffffff", bold: true, wcag: false, accent: "#d24f39", smallZero: false };
   const S = (o) => Object.assign({}, BASE, o);
   const PRESETS = {
     news: {
       dev: "phone",
       first: () => S({ font: "sys", size: 16, track: 0, htrack: 0, lead: 1.3, measure: 200, ratio: 1.2, brk: "normal", fg: "#767676" }),
-      choice: (dev) => dev === "wide" ? S({ size: 18, lead: 1.75 }) : S({ size: 17, lead: 1.7 }),
+      choice: (dev) => S({ track: -0.02, smallZero: true, size: dev === "wide" ? 18 : 17, lead: dev === "wide" ? 1.75 : 1.7 }),
     },
     flyer: {
       dev: "a4",
@@ -633,6 +633,7 @@
     const bold = s.bold && BOLD[lv];
     let lh = isBody ? s.lead : (EXP[lv] > 0 ? 1.3 : Math.max(1.4, Math.min(s.lead, 1.6)));
     let ls = isBody || EXP[lv] <= 0 ? s.track : s.htrack;
+    if (s.smallZero && fs <= 13 && ls < 0) ls = 0; // 5장: 13 px 이하 작은 글자에는 음수 자간을 주지 않는다
     let ws = 0, mb = isBody ? 0.8 : (EXP[lv] > 0 ? 0.45 : 0.6);
     if (s.wcag) { lh = Math.max(lh, 1.5); ls = Math.max(ls, 0.12); ws = 0.16; if (isBody) mb = 2; }
     const al = (isBody || lv === "caption") ? s.align : (s.align === "justify" ? "left" : s.align);
@@ -800,6 +801,7 @@
   /* ========================================================== 1. 글줄 패널 */
   (function () {
     const st = { dev: "wide" };
+    let rulerGeom = null;
     const P = Preview(document.getElementById("tl-m-fit"));
     let s = S({ size: 18, lead: 1.75, measure: 34 });
     const size = AB.range("tl-m-size", (v) => v + " px", () => upd());
@@ -827,9 +829,9 @@
       }
       ctx.textAlign = "left"; ctx.fillStyle = pal.dim; ctx.font = AB.font(11);
       AB.handle(ctx, x0 + curEm * em, 21, { r: 7 });
-      ruler.geom = { x0, em, maxEm };
+      rulerGeom = { x0, em, maxEm };
     }, { height: 40 });
-    AB.drag(ruler.canvas, { move(x) { const g = ruler.geom; if (!g) return; const v = Math.round(AB.clamp((x - g.x0) / g.em, 10, 80)); meas.set(v); } });
+    AB.drag(ruler.canvas, { move(x) { const g = rulerGeom; if (!g) return; const v = Math.round(AB.clamp((x - g.x0) / g.em, 10, 80)); meas.set(v); } });
     function upd() {
       s = S({ size: size(), lead: lead(), measure: meas() });
       P.render("news", s, st.dev);
@@ -876,6 +878,7 @@
       return ART.hex(ART.fit(ART.oklchToSrgb([L, Math.min(G[1], 0.03 + 0.02 * (1 - L)), G[2]])));
     };
     const LMIN = 0.15, LMAX = 0.92;
+    let stripGeom = null;
     const size = AB.range("tl-c-size", (v) => v + " px", () => upd());
     AB.seg("tl-c-bg", (v) => { st.bg = v; upd(); });
     AB.seg("tl-c-hue", (v) => { st.hue = v; upd(); });
@@ -904,9 +907,9 @@
       ctx.fillText("어둡게", x0, y + hh + 22); ctx.textAlign = "right"; ctx.fillText("밝게", x1, y + hh + 22);
       const hx = x0 + (x1 - x0) * (st.L - LMIN) / (LMAX - LMIN);
       AB.handle(ctx, hx, y + hh / 2, { r: 8, fill: colorAt(st.L), ring: "#2b2a30" });
-      strip.geom = { x0, x1 };
+      stripGeom = { x0, x1 };
     }, { height: 84, bg: "#fbfaf7" });
-    AB.drag(strip.canvas, { move(x) { const g = strip.geom; if (!g) return; st.L = AB.clamp(LMIN + (LMAX - LMIN) * (x - g.x0) / (g.x1 - g.x0), LMIN, LMAX); upd(); } });
+    AB.drag(strip.canvas, { move(x) { const g = stripGeom; if (!g) return; st.L = AB.clamp(LMIN + (LMAX - LMIN) * (x - g.x0) / (g.x1 - g.x0), LMIN, LMAX); upd(); } });
     function upd() {
       const fg = colorAt(st.L);
       const s = S({ size: size(), fg, bg: st.bg, measure: 40 });
