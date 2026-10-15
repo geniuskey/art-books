@@ -1,0 +1,999 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "망원이 배경을 당긴다는 말의 진실. 원근은 렌즈가 아니라 촬영 거리가 정한다. 같은 자리의 줌은 자르기일 뿐이라는 것, 가까이서 찍은 얼굴이 커지는 코, 올려 찍은 건물의 기울어진 수직선과 시프트·소프트웨어 원근 보정을 직접 만져 본다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="perspective">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 06</div>
+    <h1>거리와 원근</h1>
+    <p class="lead">망원 렌즈는 배경을 당겨 붙이고, 광각 렌즈는 코를 크게 만든다는 말을 흔히 듣는다. 휴대폰으로 셀카를 찍으면 얼굴이 어딘가 낯설고, 친구가 몇 걸음 떨어져 찍어 준 사진의 얼굴이 더 "나 같다". 높은 건물을 올려 찍으면 건물이 뒤로 넘어갈 듯 기운다. 이 장은 이 세 현상이 렌즈의 성질이 아니라 <b>카메라가 선 자리</b>의 결과라는 것을 보인다. 그리고 그 자리를 고르는 법, 이미 기운 선을 바로 세우는 법을 다룬다.</p>
+    <ul class="objectives">
+      <li>같은 자리에서 렌즈를 바꾸는 것은 자르기와 같고 원근을 바꾸지 않는다는 것을 확인한다.</li>
+      <li>가까운 것과 먼 것의 크기 비가 촬영 거리로 정해진다는 것을 식으로 설명하고, "망원 압축"의 실제를 안다.</li>
+      <li>얼굴 사진에서 코와 귀의 상대 크기가 거리에 따라 어떻게 바뀌는지 계산하고, 인물 사진의 거리를 고른다.</li>
+      <li>카메라를 기울이면 수직선이 모이는 까닭을 알고, 수평 유지·시프트·소프트웨어 보정의 대가를 비교한다.</li>
+      <li>규칙을 일부러 깨는 원근(올려 본 시점, 동아시아 그림의 여러 시점)을 의도에 따라 고른다.</li>
+    </ul>
+  </header>
+
+  <section id="myth">
+    <h2>망원은 배경을 당기는가</h2>
+    <p>같은 사람을 두 번 찍는다고 하자. 한 번은 광각 렌즈로 가까이 다가가서, 한 번은 망원 렌즈로 멀리 물러서서. 두 사진에서 사람의 크기를 같게 맞추면 배경이 확연히 다르다. 광각 사진에서는 뒤의 서가가 작고 멀리 물러나 있고, 통로가 길게 뻗는다. 망원 사진에서는 서가가 사람 바로 뒤에 붙어 있는 듯 크고, 통로 끝의 창이 어깨 옆까지 다가와 있다. 사람들은 이것을 "망원 압축"이라고 부른다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="옆에서 본 그림. 사람과 그 뒤 3 m의 창이 있다. 가까운 카메라 A는 사람에게서 1 m, 먼 카메라 B는 4 m 떨어져 있다. 두 카메라에서 사람과 창을 잇는 시선의 각도가 다르다.">
+        <defs><marker id="ps-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <line x1="20" y1="200" x2="445" y2="200" class="s-axis"/>
+        <rect x="262" y="132" width="10" height="68" rx="4" class="f-acc"/>
+        <circle cx="267" cy="122" r="10" class="f-acc"/>
+        <rect x="428" y="110" width="10" height="90" class="f-acc2-soft s-acc2"/>
+        <circle cx="222" cy="150" r="5" class="f-ok"/>
+        <circle cx="72" cy="150" r="5" class="f-bad"/>
+        <path d="M222 150 L262 112 M222 150 L262 200 M222 150 L428 110 M222 150 L428 200" class="s-ok"/>
+        <path d="M72 150 L262 112 M72 150 L262 200 M72 150 L428 110 M72 150 L428 200" class="s-dash"/>
+        <text x="222" y="176" text-anchor="middle" class="lbl-acc2">A</text>
+        <text x="72" y="176" text-anchor="middle" class="lbl-bad">B</text>
+        <text x="267" y="104" text-anchor="middle" class="lbl-acc">사람</text>
+        <text x="433" y="100" text-anchor="middle" class="lbl-acc2">창</text>
+        <line x1="222" y1="222" x2="262" y2="222" class="s-line" marker-start="url(#ps-ar)" marker-end="url(#ps-ar)"/><text x="242" y="240" text-anchor="middle" class="lbl-dim">1 m</text>
+        <line x1="72" y1="222" x2="262" y2="222" class="s-dash"/><text x="140" y="240" text-anchor="middle" class="lbl-dim">4 m</text>
+        <line x1="262" y1="214" x2="428" y2="214" class="s-line" marker-start="url(#ps-ar)" marker-end="url(#ps-ar)"/><text x="345" y="232" text-anchor="middle" class="lbl-dim">3 m</text>
+        <text x="20" y="28" class="lbl-b">사람에 대한 창의 크기 비</text>
+        <text x="20" y="48" class="lbl">A(1 m): 1 ÷ 4 = 0.25</text>
+        <text x="20" y="66" class="lbl">B(4 m): 4 ÷ 7 ≈ 0.57</text>
+      </svg>
+      <figcaption><b>그림 1. 거리가 크기 비를 정한다.</b> 사람에게서 1 m 떨어진 A에게 창은 사람보다 네 배 멀다. 4 m 떨어진 B에게 창은 사람보다 1.75배 멀 뿐이다. 그래서 사람을 같은 크기로 찍으면 B의 사진에서 창이 두 배 넘게 크다. 렌즈는 사람을 화면에서 같은 크기로 맞추는 일만 한다(A는 광각, B는 망원).</figcaption>
+    </figure>
+
+    <p>그림 1이 이 장의 결론을 미리 보여 준다. 배경이 크게 보이는 것은 B가 망원을 썼기 때문이 아니라 <b>멀리 섰기 때문</b>이다. B가 같은 자리에서 광각으로 찍었다면 사람은 작게, 창은 그만큼 작게 찍힌다. 그 사진의 가운데를 잘라 키우면 망원 사진과 똑같아진다. <a href="lens.html">5장</a>에서 본 대로, 같은 자리에서는 렌즈를 바꾸는 것도 자르는 것도 담는 범위를 바꿀 뿐이다.</p>
+  </section>
+
+  <section id="same-place">
+    <h2>같은 자리에서는 줌이 곧 자르기다</h2>
+    <p>직접 확인한다. 아래 두 그림은 책방 E의 통로 입구 앞에 선 같은 카메라의 사진이다. 왼쪽(경계선 왼편)은 18 mm로 찍은 사진의 가운데를 잘라 키운 것, 오른쪽은 줌을 당겨 처음부터 그 화각으로 찍은 것이다. 경계선을 끌어 비교하고, 슬라이더로 줌의 초점거리를 바꾼다.</p>
+
+    <div class="sim" id="sim-same">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 자리, 다른 초점거리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <div class="compare" id="sm-cmp"><div class="cmp-a"><canvas id="sm-a" class="art"></canvas></div><div class="cmp-b"><canvas id="sm-b" class="art"></canvas></div></div>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>줌 초점거리 <output id="sm-f-out"></output></span><input type="range" id="sm-f" min="18" max="55" step="1" value="40"></label>
+          <label class="check"><input type="checkbox" id="sm-e"> 윤곽선 겹쳐 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">18 mm에서 잘라 낸 비율(가로)</span><span class="v" id="sm-o-c">—</span></div>
+        <div class="stat"><span class="k">남는 화소</span><span class="v" id="sm-o-p">—</span></div>
+        <div class="stat"><span class="k">주인과 창의 크기 비</span><span class="v" id="sm-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 40 mm에서 경계선을 끈다. 주인, 서가, 창의 위치와 크기가 양쪽에서 한 화소도 어긋나지 않는다. ② "윤곽선 겹쳐 보기"를 켠다. 줌 사진의 윤곽선이 잘라 키운 사진 위에 정확히 포개진다. ③ 55 mm까지 올린다. 잘라 키운 쪽은 화소가 9분의 1 남짓만 남아 흐려지지만 원근은 그대로다. "주인과 창의 크기 비"는 초점거리를 바꿔도 변하지 않는다. (카메라는 통로 입구 밖 1.6 m, 높이 1.55 m, 주인은 통로 안 1 m에 선 이 책의 모형 장면이다. 잘라 키운 쪽의 흐림은 화소가 줄어드는 것을 흉내 낸 것이다.)</div>
+    </div>
+
+    <p>렌즈는 장면을 상으로 옮기는 장치일 뿐, 장면 속 물체들 사이의 크기 비와 겹침을 정하지 않는다. 그것을 정하는 것은 빛줄기가 모이는 한 점, 곧 카메라의 위치다. 이 점을 <span class="term">시점</span><span class="en">(Point of view, center of projection)</span>이라고 한다. 원근을 바꾸고 싶으면 시점을 옮겨야 하고, 그것은 발로만 할 수 있다. 사진에서 <span class="term">원근</span><span class="en">(Perspective)</span>이라는 말은 이 시점이 만드는 크기와 모양의 관계를 가리킨다.</p>
+  </section>
+
+  <section id="distance">
+    <h2>원근은 거리가 정한다</h2>
+    <p>카메라에서 \(D\)만큼 떨어진 물체와, 그보다 \(\Delta\)만큼 더 뒤에 있는 같은 크기의 물체가 있다. 상의 크기는 거리에 반비례하므로(5장의 \(h = fH/D\)) 앞의 것이 뒤의 것보다 몇 배 크게 찍히는지는 초점거리와 상관없이 정해진다.</p>
+    <div class="formula">$$\frac{h_{\text{앞}}}{h_{\text{뒤}}} = \frac{D + \Delta}{D}$$<div class="where">\(D\): 카메라에서 앞 물체까지의 거리, \(\Delta\): 앞 물체와 뒤 물체 사이의 거리. 초점거리 \(f\)는 식에 없다. 카메라에서 멀어질수록(\(D\)가 클수록) 비가 1에 가까워져 앞과 뒤가 비슷한 크기로 찍힌다.</div></div>
+    <p>이 식이 "망원 압축"의 전부다. 사람을 같은 크기로 찍으려면 멀리 설수록 긴 초점거리가 필요하니, 망원으로 찍은 사진에는 언제나 \(D\)가 큰 원근, 곧 앞뒤가 비슷한 크기로 붙어 보이는 원근이 담긴다. 렌즈 때문에 압축된 것이 아니라 멀리서 본 장면이 원래 그렇게 생겼다. 아래에서 주인의 크기를 화면에 고정해 두고 카메라를 앞뒤로 움직인다. 초점거리는 주인의 크기가 같게 유지되도록 저절로 바뀐다.</p>
+
+    <div class="sim" id="sim-dolly">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>주인은 그대로, 카메라만 물러서기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="dl-cv" class="art"></canvas><span class="hint">위쪽 띠의 카메라를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>주인까지 거리 <output id="dl-d-out"></output></span><input type="range" id="dl-d" min="0.35" max="3.4" step="0.01" value="0.6"></label>
+          <label class="check"><input type="checkbox" id="dl-g" checked> 가까운 자리(0.6 m)의 창 크기 겹쳐 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">필요한 초점거리(APS-C · 환산)</span><span class="v" id="dl-o-f">—</span></div>
+        <div class="stat"><span class="k">주인 대 창의 거리 비</span><span class="v" id="dl-o-r">—</span></div>
+        <div class="stat"><span class="k">창의 폭(화면 폭 대비)</span><span class="v" id="dl-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 0.6 m에서 시작한다. 주인 뒤의 통로가 길게 뻗고 끝의 창은 작다. 이 자리에서 머리부터 가슴까지 담으려면 APS-C에서 약 18 mm가 필요하다. ② 슬라이더를 3 m 넘게 민다. 주인의 크기는 그대로인데 창이 몇 배로 커지고 통로가 짧아 보인다. 필요한 초점거리는 80 mm를 넘는다. ③ 0.35 m까지 당긴다. 필요한 초점거리가 10 mm 남짓으로 짧아지고, 이 미러리스의 줌(18 mm)으로는 더 이상 그 화면을 만들 수 없다. (카메라 높이 1.55 m, 화면 세로에 주인의 머리 위 10 cm부터 가슴까지 약 0.75 m를 담는 모형이다. 통로는 이 책의 모형 서점이다.)</div>
+    </div>
+
+    <p>창이 커지는 정도는 식 그대로다. 주인에서 창까지가 4.4 m일 때 0.6 m에서 보면 창은 주인보다 \((0.6 + 4.4)/0.6 \approx 8.3\)배 멀고, 3 m에서 보면 \(7.4/3 \approx 2.5\)배 멀 뿐이다. 같은 창이 주인에 비해 세 배 넘게 크게 찍힌다. 영화에서 카메라를 뒤로 빼며 동시에 줌을 당겨 인물은 그대로 두고 배경만 밀려오게 하는 기법(돌리 줌)이 바로 이 시뮬레이터의 움직임이다.</p>
+
+    <div class="callout deep">
+      <strong>원근은 사진을 보는 거리와도 짝을 이룬다</strong>
+      사진 속 원근이 "자연스럽게" 보이려면 사진을 보는 사람의 눈이 원래 카메라가 있던 자리에 해당하는 거리에 있어야 한다는 설명이 있다. 풀프레임 환산 초점거리 \(f\)로 찍은 사진을 대각선 43 mm의 \(k\)배로 인쇄했다면, \(f\times k\) 거리에서 보면 원래의 시선 각도와 같아진다. 예를 들어 환산 27 mm로 찍은 사진을 가로 30 cm 남짓(대각선 약 36 cm, 약 8.3배)으로 뽑으면 약 22 cm 앞에서 볼 때 원래 각도와 맞는다. 보통은 그보다 멀리서 보기 때문에 광각 사진의 가장자리가 늘어나 보이고 깊이가 과장되어 보인다. 반대로 망원 사진은 너무 가까이서 보는 셈이라 납작해 보인다. 이 설명은 투시도법의 오랜 원리에서 나온 것이고, 실제로 사람이 사진을 볼 때 얼마나 이 기하를 따르는지는 지각 연구에서 여전히 다뤄지는 문제다.
+    </div>
+  </section>
+
+  <section id="face">
+    <h2>가까이서 찍은 얼굴</h2>
+    <p>얼굴은 납작하지 않다. 코끝에서 귀까지는 깊이가 대략 10 cm쯤 된다(사람마다 다르다. 이 책은 10 cm로 단순화한다). 앞의 식에 넣으면, 카메라에서 코끝까지 30 cm일 때 코는 귀보다 \((30+10)/30 \approx 1.33\)배, 즉 33% 크게 찍힌다. 1.5 m에서는 \(160/150 \approx 1.07\), 7%다. 팔을 뻗어 찍는 셀카(코끝까지 40~60 cm 안팎)에서 코가 커 보이고 얼굴이 좁고 길어 보이며 귀가 뺨 뒤로 숨는 것은 이 때문이다. 렌즈 탓이 아니라 거리 탓이다.</p>
+
+    <div class="sim" id="sim-face">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>거리에 따라 바뀌는 얼굴</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="fc-cv" class="art"></canvas><span class="hint">얼굴을 좌우로 끌어 돌린다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>코끝까지 거리 <output id="fc-d-out"></output></span><input type="range" id="fc-d" min="0.2" max="4" step="0.01" value="0.4"></label>
+          <label class="check"><input type="checkbox" id="fc-g" checked> 4 m에서 본 윤곽 겹쳐 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">코끝 대 귀의 크기 비</span><span class="v" id="fc-o-r">—</span></div>
+        <div class="stat"><span class="k">이 화면에 필요한 초점거리(APS-C 세로)</span><span class="v" id="fc-o-f">—</span></div>
+        <div class="stat"><span class="k">얼굴 폭 ÷ 높이</span><span class="v" id="fc-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 0.4 m(팔을 뻗은 셀카 거리)에서 얼굴을 본다. 코가 커지고 귀는 뺨 뒤로 거의 숨는다. 점선은 4 m에서 본 같은 얼굴이다. ② 슬라이더를 1.5 m, 2 m로 옮긴다. 코의 배율이 1.07, 1.05로 내려가고 귀가 다시 드러난다. 그 너머로는 거의 달라지지 않는다. ③ 0.2 m까지 당기고 얼굴을 옆으로 끌어 돌린다. 이마와 턱이 뒤로 쏠리고 얼굴이 공처럼 부푼다. (머리는 타원체와 몇 개의 점으로 만든 장난감 모형이다. 코끝에서 귀까지 깊이 10 cm, 얼굴 높이를 화면의 70%로 유지하도록 초점거리를 바꾼다.)</div>
+    </div>
+
+    <p>그래서 인물 사진가들은 오래전부터 얼굴을 담을 때 1.5 m 이상 떨어지는 것을 출발점으로 삼는다. 그 거리에서 머리와 어깨를 화면에 채우려면 풀프레임 환산 70~100 mm 안팎의 렌즈가 필요해지고, 그래서 이 범위가 흔히 "인물 렌즈"로 불린다. 순서가 중요하다. 렌즈가 얼굴을 예쁘게 만드는 것이 아니라, 알맞은 거리를 고르면 그 거리에 맞는 렌즈가 따라오는 것이다.</p>
+
+    <div class="callout warn">
+      <strong>"광각 왜곡"이라는 말의 두 뜻</strong>
+      흔히 "광각 왜곡"이라고 부르는 것에는 서로 다른 세 가지가 섞여 있다. ① <b>가까운 거리의 원근</b>: 이 절의 얼굴처럼 시점이 가까워 앞뒤 크기 비가 커지는 것. 렌즈와 무관하고, 같은 자리에서 망원으로 찍어도 같다(다만 화면에 다 들어오지 않을 뿐이다). ② <b>가장자리 늘어남</b>: 직선 투영으로 넓은 화각을 담으면 화면 가장자리의 입체(둥근 얼굴, 공)가 바깥쪽으로 늘어난다. 단체 사진의 양 끝 사람 얼굴이 넓적해지는 현상이다. 이것도 렌즈 결함이 아니라 평면에 넓은 각도를 옮기는 투영의 성질이다. ③ <b>렌즈 왜곡</b>: 직선이 술통이나 바늘겨레 모양으로 휘는 것. 이것만 렌즈 설계의 문제이고, 대부분 소프트웨어로 편다. 고치는 방법이 서로 다르므로 무엇을 고치려는지 먼저 구별한다.
+    </div>
+  </section>
+
+  <section id="keystone">
+    <h2>올려 찍은 건물이 기우는 까닭</h2>
+    <p>이제 서점 밖으로 나간다. 책방 E는 두 골목이 만나는 모퉁이의 2층 건물이고, 이 책의 모형으로 옥상 난간까지 높이가 7.2 m다(<a href="../../drawing/chapters/perspective2.html">DrawingBook 5장</a>의 값). 서윤의 눈높이 1.6 m에서 건물 꼭대기는 5.6 m 위에 있다. 꼭대기를 화면에 넣으려고 카메라를 위로 기울이면, 화면이 건물과 더 이상 나란하지 않게 된다. 그러면 건물의 수직선들도 하나의 소실점을 향해 모인다. 그림으로 그리면 3점 투시가 된다.</p>
+    <p>아래에서 카메라를 위아래로 기울여 본다. 그림을 위아래로 끌거나 슬라이더를 쓴다. 기울기가 0°일 때와 아닐 때 세로선을 비교한다.</p>
+
+    <div class="sim" id="sim-tilt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>카메라를 기울이면 수직선이 모인다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="tl-cv" class="art"></canvas><span class="hint">위아래로 끌어 기울인다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>올려 기울인 각도 <output id="tl-p-out"></output></span><input type="range" id="tl-p" min="-6" max="40" step="0.5" value="8"></label>
+          <label class="ctrl"><span>모퉁이까지 거리 <output id="tl-d-out"></output></span><input type="range" id="tl-d" min="4" max="20" step="0.1" value="13.2"></label>
+          <div class="seg" id="tl-l"><button data-value="18" class="on">미러리스 18 mm</button><button data-value="ultra">휴대폰 0.5×</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">화면 가장자리 세로선의 기울기</span><span class="v" id="tl-o-l">—</span></div>
+        <div class="stat"><span class="k">세로선의 소실점</span><span class="v" id="tl-o-v">—</span></div>
+        <div class="stat"><span class="k">건물 꼭대기</span><span class="v" id="tl-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 13.2 m(삼거리 건너편)에서 8° 기울인 처음 상태를 본다. 건물이 화면 가운데에 오지만 양쪽 벽 모서리가 위로 갈수록 안쪽으로 기운다. ② 기울기를 0°로 둔다. 세로선이 모두 평행해진다. 건물 꼭대기는 화면 위 끝에 겨우 걸리고 아래쪽 절반 가까이가 길바닥이다. ③ 거리를 5 m로 줄인다. 18 mm로는 수평을 지키면 꼭대기가 잘린다. "휴대폰 0.5×"로 바꾸면 수평인 채로 다 들어오지만 건물이 화면 위쪽에 작게 몰리고, 기울이면 30° 넘게 올려야 해 수직선이 크게 넘어간다. (가로로 든 카메라, 눈높이 1.6 m. 건물은 정면 8 m, 옆면 6 m, 높이 7.2 m의 이 책의 모형이며, 정면 벽이 화면과 30°를 이루는 자리에서 본다.)</div>
+    </div>
+
+    <p>규칙은 단순하다. <b>센서가 건물 벽과 나란하면(카메라가 수평이면) 수직선은 평행하게 찍힌다.</b> 거리나 초점거리와는 상관이 없다. 기울이는 순간 수직선은 모이기 시작하고, 기울기가 클수록, 화각이 넓을수록 가장자리에서 더 많이 기운다. 수평을 지키면 건물 꼭대기를 넣기 위해 화면 위쪽 여유가 필요하고, 그 대가로 화면 아래쪽이 길바닥으로 찬다. 건축 사진의 오래된 숙제가 여기서 나온다. 수평을 지키면서 화면의 위쪽만 담을 수는 없을까.</p>
+
+    <figure class="art-figure" id="fig-orange">
+      <div class="art-frame"><img src="../../shared/img/baldus-arc-orange.webp" width="1600" height="1223" alt="갈색조의 옛 사진. 로마 시대의 개선문이 비스듬한 각도에서 화면 위쪽을 채운다. 아치 세 개와 부조로 덮인 벽, 위쪽의 높은 다락이 보인다. 문의 모서리와 기둥은 모두 곧게 서 있고, 화면 아래쪽 4분의 1가량은 빈 땅과 자갈 더미다. 양옆에 키 큰 포플러 나무가 서 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 에두아르 발뒤스, 「오랑주의 고대 개선문」, 1853.</b> 문을 비스듬히 보고 찍어 정면과 옆면이 두 소실점을 향해 물러나지만, 세로선은 모두 곧고 평행하다. 카메라를 기울이지 않았다는 뜻이다. 그 흔적이 아래쪽에 남아 있다. 화면 아래 4분의 1 가까이가 빈 땅과 자갈 더미다. 당시의 대형 카메라는 렌즈판을 위로 올려 화면 위쪽을 담는 장치(라이즈)를 갖춘 것이 많았는데, 이 사진에 그것이 쓰였는지는 확인하지 못했다. 다만 수평을 지킨 카메라가 높은 건물을 담을 때 생기는 화면 배분을 그대로 보여 준다.<span class="credit">메트로폴리탄 미술관 소장(Purchase, The Horace W. Goldsmith Foundation Gift, through Joyce and Robert Menschel, 2006), 종이 음화에서 뜬 염화은 인화. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/287985">소장처 작품 페이지</a> · <a href="../../credits.html#baldus-arc-orange">크레딧</a></span></figcaption>
+    </figure>
+  </section>
+
+  <section id="shift">
+    <h2>원근 보정: 시프트와 소프트웨어</h2>
+    <p>수평을 지키면서 화면 위쪽을 담는 방법은 세 가지다. 첫째, 렌즈를 센서에 대해 위로 평행 이동한다. 이것이 <span class="term">시프트</span><span class="en">(Shift, 대형 카메라에서는 라이즈)</span>, 곧 렌즈의 광축을 센서 가운데에서 비켜 놓아 이미지 서클의 위쪽 부분을 받는 방법이다. 센서는 여전히 건물과 나란하므로 수직선이 평행하다. 시프트 기능이 있는 렌즈는 이미지 서클이 커서 비켜 놓아도 상이 모자라지 않게 만들어져 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="시프트의 원리. 왼쪽은 보통 렌즈로 센서가 이미지 서클의 가운데를 받는다. 오른쪽은 렌즈를 위로 옮겨 센서가 이미지 서클의 아래쪽, 곧 장면의 위쪽을 받는다.">
+        <circle cx="115" cy="118" r="80" class="f-acc-soft s-acc"/>
+        <rect x="79" y="94" width="72" height="48" class="f-surface s-line"/>
+        <circle cx="115" cy="118" r="3" class="f-acc"/>
+        <text x="115" y="28" text-anchor="middle" class="lbl-b">보통 렌즈</text>
+        <text x="115" y="216" text-anchor="middle" class="lbl-dim">센서가 상의 가운데를 받는다</text>
+        <circle cx="330" cy="88" r="104" class="f-acc-soft s-acc"/>
+        <rect x="294" y="118" width="72" height="48" class="f-surface s-line"/>
+        <circle cx="330" cy="88" r="3" class="f-acc"/>
+        <line x1="330" y1="142" x2="330" y2="92" class="s-acc2"/>
+        <text x="338" y="74" class="lbl-acc">광축(렌즈 중심)</text>
+        <text x="410" y="28" text-anchor="end" class="lbl-b">시프트 렌즈를 위로</text>
+        <text x="330" y="216" text-anchor="middle" class="lbl-dim">더 큰 상의 아래쪽(= 장면의 위쪽)을 받는다</text>
+        <text x="372" y="146" class="lbl-acc2">비켜 놓은 거리</text>
+      </svg>
+      <figcaption><b>그림 3. 시프트의 원리.</b> 렌즈가 맺는 상은 위아래가 뒤집혀 있으므로, 렌즈를 위로 올리면 센서는 상의 아래쪽, 곧 장면의 위쪽을 받는다. 카메라는 기울지 않았으니 수직선은 평행하다. 사각형은 센서, 원은 이미지 서클이다.</figcaption>
+    </figure>
+
+    <p>둘째, 수평으로 넓게 찍고 아래쪽을 잘라 낸다. 시프트와 기하가 똑같다. 차이는 버리는 화소다. 셋째, 기울여 찍은 뒤 소프트웨어로 사진을 사다리꼴로 펴서 수직선을 세운다(<span class="term">원근 보정</span><span class="en">(Perspective correction, 키스톤 보정)</span>). 이것은 사진을 수평 카메라가 찍었을 모습으로 다시 투영하는 계산이다. 위쪽을 넓게 늘리므로 가장자리가 잘려 나가고, 위쪽 부분은 늘어난 만큼 화소가 성기다. 아래에서 세 방법과 기울여 찍은 원본을 같은 장면으로 비교한다.</p>
+
+    <div class="sim" id="sim-shift">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>수직선을 세우는 세 가지 방법</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sf-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="sf-m"><button data-value="tilt">기울여 찍은 원본</button><button data-value="soft" class="on">소프트웨어 보정</button><button data-value="crop">수평 + 자르기</button><button data-value="shift">시프트</button></div>
+          <label class="ctrl"><span>기울인 각도(필요한 시프트) <output id="sf-p-out"></output></span><input type="range" id="sf-p" min="0" max="20" step="0.5" value="8"></label>
+          <label class="ctrl"><span>보정 정도(소프트웨어) <output id="sf-a-out"></output></span><input type="range" id="sf-a" min="0" max="100" step="1" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">남는 화소(원래 화면 대비)</span><span class="v" id="sf-o-k">—</span></div>
+        <div class="stat"><span class="k">위쪽 늘어남(위 ÷ 아래)</span><span class="v" id="sf-o-s">—</span></div>
+        <div class="stat"><span class="k">남은 세로선 기울기(가장자리)</span><span class="v" id="sf-o-l">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "소프트웨어 보정" 100%에서 회색 사다리꼴(원래 화면)과 초록 사각형(최종 사진)을 본다. 8°의 기울기를 펴면 위쪽이 1.13배 늘어나고 양 모서리가 잘려 나간다. ② 기울기를 20°로 올린다. 남는 화소가 크게 줄고 위쪽 늘어남이 커진다. 보정은 작은 기울기에서만 값싸다. ③ 보정 정도를 70% 안팎으로 내려 본다. 세로선이 살짝 모인 채로 남아 "올려다본" 느낌이 조금 남고, 위쪽이 덜 늘어난다. 많은 사진가가 완전히 평행하게 펴면 건물 위쪽이 무거워 보인다고 느껴 이렇게 조금 남긴다. ④ "수평 + 자르기"와 "시프트"를 비교한다. 수직선과 원근은 같고 화소 수만 다르다. (18 mm 가로, 13.2 m. 남는 화소는 최종 사진을 원래 센서 위로 되돌려 잰 넓이의 비다. "수평 + 자르기"는 건물 꼭대기부터 모퉁이 바닥 아래 조금까지를 같은 비율로 잘라 낸다.)</div>
+    </div>
+
+    <p>세 방법 모두 결과의 원근은 같다. 시점은 그대로이고, 센서가 건물과 나란한 화면으로 다시 맞춘 것이기 때문이다. 다른 것은 대가다. 시프트는 렌즈 값을 치르고, 수평 + 자르기는 화소를 버리고, 소프트웨어 보정은 화소를 버리는 동시에 위쪽을 늘린다. 휴대폰과 편집 프로그램의 "원근 보정"이나 "수직 맞추기" 기능은 세 번째 방법이다. 기울기가 몇 도 안팎일 때는 거의 표가 나지 않지만, 크게 기울인 사진을 펴면 위쪽이 흐리고 창문이 세로로 늘어난다.</p>
+  </section>
+
+  <section id="break">
+    <h2>규칙을 깨는 원근</h2>
+    <p>수직선을 세우는 것이 언제나 정답은 아니다. 높은 탑을 바로 밑에서 올려다본 사진은 수직선이 하늘의 한 점으로 모이면서 높이와 아찔함을 전한다. 이때 수직선을 펴 버리면 오히려 "올려다보았다"는 경험이 사라진다. 기준은 기울기가 <b>의도로 보이는가, 실수로 보이는가</b>다. 3~5° 남짓 살짝 기운 수직선은 실수처럼 보이기 쉽고, 크게 기울인 수직선은 분명한 선택으로 읽힌다. 반쯤 기운 것이 가장 어색하다.</p>
+
+    <figure class="art-figure" id="fig-chaekgeori">
+      <div class="art-frame" style="max-width:420px;margin:0 auto"><img src="../../shared/img/joseon-chaekgeori-two-panel.webp" width="1022" height="1600" alt="조선 시대의 2폭 병풍 책가도. 칸칸이 나뉜 서가에 책 묶음, 도자기 병, 과일 그릇, 붓통과 두루마리, 문방구가 놓여 있다. 선반과 칸막이는 붉은 갈색과 검은 선으로 그렸고, 칸마다 선반의 윗면과 옆면이 서로 다른 방향에서 보인다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 4. 작가 미상, 「책가도(책과 문방구)」, 조선 19세기.</b> 서가를 그린 그림인데, 사진기 한 대가 한 자리에서 찍은 원근이 아니다. 병풍의 맨 위 칸에서도 선반의 윗면이 보이고, 칸마다 옆면이 왼쪽에서 보이기도 오른쪽에서 보이기도 한다. 보는 사람이 병풍 앞을 거닐며 칸마다 그 앞에 서서 내려다본 것처럼, 물건 하나하나를 가장 잘 보이는 쪽에서 그렸다. 한 시점의 원근을 따르지 않는 이런 그림을 서양의 투시도법에 견주어 "역원근" 또는 "다시점"이라고 설명하기도 한다. 서윤이 통로에서 고민한 문제, 곧 한 자리에서 서가의 모든 칸을 잘 보이게 할 수 없다는 문제를 이 그림은 시점을 여러 개 두어 풀었다.<span class="credit">메트로폴리탄 미술관 소장(Gift of the children of Lea R. Sneider, 2024), 2폭 병풍, 종이에 먹과 채색. 공공 도메인(The Met Open Access, CC0). 병풍 틀과 아래 바탕을 잘라 내고 그림 부분만 실었다. <a href="https://www.metmuseum.org/art/collection/search/853896">소장처 작품 페이지</a> · <a href="../../credits.html#joseon-chaekgeori-two-panel">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>동아시아 산수화에도 비슷한 생각이 있다. 북송의 화가 곽희는 『임천고치』에서 산을 보는 세 방식, 곧 산 아래에서 꼭대기를 올려다보는 고원(高遠), 앞산에서 뒷산 너머를 들여다보는 심원(深遠), 가까운 산에서 먼 산을 바라보는 평원(平遠)을 구별했다. 한 화면 안에서 이 시선들이 섞이기도 한다. 사진은 원칙적으로 한 시점에서 한 번에 찍히지만, 여러 장을 이어 붙이거나 위쪽과 아래쪽을 다른 기울기로 찍어 합치면 사진도 여러 시점을 품을 수 있다. 무엇이 "맞는 원근"인지는 장면을 어떻게 경험하게 하려는가에 달려 있다.</p>
+
+    <div class="callout studio">
+      <strong>건축 사진가의 현장 순서</strong>
+      건물을 찍는 사진가들은 대개 먼저 삼각대 위의 카메라를 수평계로 맞춘다. 화면의 수평선과 수직선을 함께 보여 주는 격자를 켜고, 건물이 화면 위로 넘치면 기울이는 대신 물러서거나(거리를 벌리면 필요한 기울기가 줄어든다), 시프트를 쓰거나, 넓게 찍어 나중에 자를 여유를 남긴다. 물러설 곳이 없어 조금 기울였다면 몇 도 이내에서 소프트웨어로 펴되, 펴질 부분을 생각해 화면 가장자리에 여유를 두고 찍는다. 그리고 수직선은 완전히 평행하게 펼지, 조금 남길지를 사진마다 정한다. 이 서가의 <a href="../../drawing/chapters/perspective2.html">DrawingBook 5장</a>에서 서윤이 외관을 그릴 때 "세로선은 곧게" 그은 것도 같은 판단이다.
+    </div>
+  </section>
+
+  <section id="planner">
+    <h2>종합: 주인 인물 사진 계획기</h2>
+    <p>마지막으로 거리와 초점거리를 함께 골라 인물 사진을 계획한다. 주인은 통로 입구에서 1 m 안쪽에 서 있다. 평면도의 손잡이로 카메라 자리와 방향을 정하고, 카메라와 초점거리를 고른다. 판정은 두 가지다. 머리부터 가슴까지가 화면에 담기는가, 코끝 대 귀의 배율이 1.07 이하인가.</p>
+
+    <div class="sim" id="sim-plan">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>주인 인물 사진 계획기</h3></div>
+      <div class="sim-body">
+        <div class="sim-view paper"><canvas id="pp-cv" class="art"></canvas><span class="hint">평면도의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pp-c"><button data-value="ultra">휴대폰 0.5×</button><button data-value="main" class="on">휴대폰 1×</button><button data-value="tele2">휴대폰 2×</button><button data-value="zoom">미러리스 줌</button><button data-value="prime">50 mm</button></div>
+          <label class="ctrl"><span>줌 초점거리 <output id="pp-f-out"></output></span><input type="range" id="pp-f" min="18" max="55" step="1" value="35"></label>
+          <div class="seg" id="pp-o"><button data-value="land">가로</button><button data-value="port" class="on">세로</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">카메라 · 환산</span><span class="v" id="pp-o-c">—</span></div>
+        <div class="stat"><span class="k">코끝까지 · 코 대 귀</span><span class="v" id="pp-o-r">—</span></div>
+        <div class="stat"><span class="k">화면에 담긴 높이(주인 자리)</span><span class="v" id="pp-o-h">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="pp-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태는 서윤의 첫 시도, 휴대폰 1×로 50 cm 남짓 앞에서 찍은 사진이다. 머리와 가슴이 다 들어와도 코가 귀보다 20% 넘게 크다. ② 카메라를 입구 밖으로 끌어 1.6 m쯤 떨어뜨린다. 1×로는 주인이 작아져 무릎까지 들어온다. "50 mm"로 바꾸면 머리부터 가슴까지가 다시 화면을 채우고 판정을 통과한다. ③ 카메라를 주인 쪽으로 비스듬히 옮겨 주인이 화면 가장자리에 오게 하고 "휴대폰 0.5×"로 바꾼다. 가장자리의 머리가 바깥쪽으로 늘어난다(가장자리 늘어남). ④ "휴대폰 2×"와 "미러리스 줌 55 mm"로도 통과하는 거리를 찾는다. (카메라 높이 1.55 m, 수평. 주인 168 cm는 DrawingBook에서 정한 키다. 몸과 머리는 상자와 구로 만든 모형이고, 코 대 귀 배율은 코끝에서 귀까지 깊이 10 cm로 계산한다.)</div>
+    </div>
+
+    <p>계획기를 돌려 보면 통과하는 조합이 하나가 아니다. 50 mm 단렌즈로 1.4~2.3 m 사이, 줌의 55 mm로 1.4~2.5 m 사이, 휴대폰 2×로 1.4~1.65 m 사이에서 통과한다. 공통점은 거리다. 코끝까지 1.4 m 남짓보다 가까우면 어떤 렌즈로도 통과하지 못한다. 렌즈는 그 거리에서 원하는 크기를 만들어 주는 도구일 뿐이다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 촬영 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>촬영 노트 · 6장</span></div>
+      <h4>코가 큰 주인, 넘어가는 서점</h4>
+      <p>웹사이트의 "책방 사람들" 쪽에 주인의 사진이 들어간다. 서윤은 먼저 휴대폰 1×로 통로 입구 안쪽에 선 주인을 50 cm쯤 앞에서 찍었다. 화면을 본 주인이 웃었다. "내 코가 이렇게 컸나." 이 책의 모형으로 코끝까지 0.5 m에서 코는 귀보다 \(0.6/0.5 = 1.2\)배, 20% 크게 찍힌다. 귀는 뺨 뒤로 반쯤 숨었고, 뒤의 통로는 끝없이 길어 보였다. 주인은 덧붙였다. "사진이 실제 가게보다 길어 보이면 손님이 실망해요."</p>
+      <p>도경은 서윤에게 몇 걸음 물러서라고 했다. 통로 입구 앞의 빈 공간(2.5 m 남짓)으로 나가 주인에게서 1.6 m 떨어지면 코의 배율은 \(1.7/1.6 \approx 1.06\)이다. 그 자리에서 머리부터 가슴까지를 세로로 담으려면 APS-C에서 50 mm 안팎이 필요하다. 50 mm 단렌즈(환산 75 mm)를 세로로 들면 1.6 m 앞에서 화면 세로가 0.77 m, 주인의 머리 위부터 가슴 아래까지다. 뒤의 서가는 0.6 m 앞에서 찍을 때보다 두 배 넘게 커져 주인의 어깨 뒤를 채웠고, 통로 끝 창도 화면 안에 들어왔다. 휴대폰 2×로도 같은 자리에서 비슷한 원근을 얻을 수 있지만, 5장에서 정한 대로 디지털 줌은 쓰지 않았다.</p>
+      <p>외관은 DrawingBook에서 그림을 그린 바로 그 자리, 삼거리 건너편에서 찍었다. 모퉁이까지 약 13 m(모형 값 13.2 m)에서 옥상 모서리는 눈높이보다 23.0° 위에 있다. 18 mm를 가로로 들면 수평에서 위아래로 24.0°까지 담기므로, 카메라를 수평으로 둔 채 꼭대기가 화면에 들어온다. 여유는 1° 남짓뿐이라 서윤은 수평계를 켜고 삼각대에 올렸다. 처음에는 건물을 가운데에 두려고 8° 기울였는데, 그러자 화면 가장자리의 세로선이 5° 넘게 기울었고, 소프트웨어로 펴니 위쪽이 1.13배 늘어나고 화소의 4분의 1 가까이가 잘려 나갔다. 수평으로 찍은 사진은 아래쪽 3분의 1 남짓이 골목 바닥이었는데, 서윤은 그 골목 바닥도 "동네 서점"의 일부라고 보고 남겨 두었다. 얼마나 잘라 낼지는 나중에 정하기로 했다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>사진</th><th>카메라 · 초점거리(환산)</th><th>거리 · 자세</th><th>모형 계산</th></tr></thead>
+          <tbody>
+            <tr><td>주인 인물(첫 시도)</td><td>휴대폰 1× (26 mm)</td><td>코끝까지 0.5 m</td><td>코 대 귀 1.20</td></tr>
+            <tr><td>주인 인물(결정)</td><td>미러리스 50 mm (75 mm), 세로</td><td>1.6 m, 높이 1.55 m, 수평</td><td>코 대 귀 1.06, 화면 세로 0.77 m</td></tr>
+            <tr><td>외관(결정)</td><td>미러리스 18 mm (27 mm), 가로</td><td>모퉁이에서 13.2 m, 높이 1.6 m, 수평</td><td>옥상 모서리 23.0° ≤ 화면 끝 24.0°</td></tr>
+            <tr><td>외관(버린 안)</td><td>같은 자리, 8° 기울임</td><td>소프트웨어로 폄</td><td>위쪽 1.13배, 화소 약 4분의 1 잘림</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>주인 인물 사진은 미러리스 50 mm(환산 75 mm), 세로, 주인에게서 1.6 m(코 대 귀 1.06), 카메라 높이 1.55 m에서 수평으로. 휴대폰 1× 셀카 거리(0.5 m)는 쓰지 않는다. 외관은 삼거리 건너편 13.2 m에서 18 mm 가로, 삼각대와 수평계로 카메라를 수평으로 두어 수직선을 평행하게 찍는다. 원근 보정 소프트웨어는 몇 도 이내의 남은 기울기를 펼 때만 쓰고, 크게 기울여 찍고 펴는 방법은 쓰지 않는다. 모든 값은 이 책의 모형 계산이다.</div>
+        <div><b>아직 남은 문제</b>1.6 m에서 찍은 주인 사진은 뒤의 서가까지 또렷해 책등이 어지럽다. 그림 읽기 모임은 여러 사람이 앞뒤로 앉아 있어 모두를 선명하게 담아야 한다. 무엇을 선명하게, 무엇을 흐리게 할지는 아직 정하지 않았다.</div>
+        <div><b>다음 단계</b><a href="focus.html">7장</a>: 모임 장면과 창가 정물의 조리개와 초점 위치를 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>같은 자리에서 초점거리를 바꾸는 것은 화면을 자르는 것과 같다. 물체들 사이의 크기 비와 겹침, 곧 원근은 그대로다.</li>
+      <li>원근은 시점(카메라의 위치)이 정한다. 앞뒤 물체의 크기 비는 \((D+\Delta)/D\)로, 초점거리와 무관하다. 멀리 설수록 앞뒤가 비슷한 크기로 붙어 보인다. 이것이 "망원 압축"의 실체다.</li>
+      <li>가까이서 찍은 얼굴은 코가 커지고 귀가 숨는다. 코끝에서 귀까지 10 cm로 잡으면 0.5 m에서 1.2배, 1.5 m에서 1.07배다. 인물 사진은 거리를 먼저 고르고, 그 거리에 맞는 초점거리를 고른다.</li>
+      <li>센서가 건물과 나란하면(카메라가 수평이면) 수직선은 평행하다. 기울이면 수직선이 모이고, 기울기와 화각이 클수록 가장자리에서 더 기운다.</li>
+      <li>수직선을 세우는 방법은 시프트, 수평으로 찍고 자르기, 소프트웨어 원근 보정이다. 결과의 원근은 같고, 대가(렌즈, 버리는 화소, 위쪽 늘어남)가 다르다.</li>
+      <li>원근의 규칙은 의도에 따라 깬다. 올려다본 수직선, 여러 시점을 품은 책가도처럼 장면을 어떻게 경험하게 할지가 기준이다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 같은 자리에서 24 mm로 찍은 사진의 가운데를 잘라 키운 것과, 같은 자리에서 72 mm로 찍은 사진을 비교한다. 맞는 것은?</p>
+        <div class="opts">
+          <button class="opt">72 mm 사진에서 배경이 더 크다. 망원이 배경을 압축하기 때문이다.</button>
+          <button class="opt">24 mm 사진을 자른 쪽에서 가장자리 물체가 더 늘어나 보인다.</button>
+          <button class="opt" data-correct>원근은 같다. 화면에 담긴 범위가 같다면 크기 비와 겹침이 같고, 자른 쪽은 화소가 9분의 1로 줄어든다.</button>
+          <button class="opt">72 mm 사진은 시점이 세 배 멀어진 것과 같다.</button>
+        </div>
+        <div class="quiz-exp">시점이 같으면 원근이 같다. 가운데를 3분의 1로 자르면 화각이 72 mm와 같아지고, 가로·세로가 각각 3분의 1이 되어 화소는 9분의 1만 남는다. 가장자리 늘어남은 넓은 화각의 가장자리에서 생기는데, 그 가장자리는 잘려 나갔다. 시점은 카메라를 옮겨야 바뀐다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 사람 뒤 2 m에 나무가 있다. 사람에게서 1 m 떨어져 찍을 때와 4 m 떨어져 찍을 때, 사람을 같은 크기로 맞추면 나무는 어떻게 되는가?</p>
+        <div class="opts">
+          <button class="opt" data-correct>4 m에서 찍을 때 나무가 두 배 크게 찍힌다. 사람에 대한 나무의 크기 비가 1/3에서 2/3으로 바뀌기 때문이다.</button>
+          <button class="opt">같은 크기로 찍힌다. 사람의 크기를 맞췄으므로 배경도 맞춰진다.</button>
+          <button class="opt">1 m에서 찍을 때 나무가 더 크다. 가까울수록 모든 것이 크게 찍힌다.</button>
+          <button class="opt">렌즈의 초점거리를 알아야 답할 수 있다.</button>
+        </div>
+        <div class="quiz-exp">사람에 대한 나무의 크기 비는 \(D/(D+\Delta)\)다. 1 m에서는 1/3, 4 m에서는 4/6 = 2/3이다. 사람의 크기를 같게 맞추면 나무는 4 m에서 두 배 크게 찍힌다. 이 비에는 초점거리가 들어가지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 셀카에서 코가 커 보이는 것을 줄이는 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">같은 거리에서 휴대폰의 2×로 바꾼다. 망원이 얼굴을 납작하게 펴 주기 때문이다.</button>
+          <button class="opt">0.5×로 바꾸어 얼굴을 화면 가운데에 작게 담는다.</button>
+          <button class="opt">렌즈 왜곡 보정 기능을 켠다.</button>
+          <button class="opt" data-correct>카메라를 1.5 m 이상 떨어뜨리고(삼각대·타이머 등) 그 거리에서 얼굴이 알맞은 크기가 되도록 줌을 당긴다.</button>
+        </div>
+        <div class="quiz-exp">코가 커 보이는 것은 시점이 가까워 코와 귀의 거리 비가 커졌기 때문이다. 같은 거리에서 2×로 바꾸면 얼굴 일부가 잘릴 뿐 원근은 같고, 0.5×도 원근은 같다(가장자리에 두면 오히려 늘어난다). 렌즈 왜곡 보정은 휘는 직선을 펴는 것이라 거리 원근과 무관하다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 높은 건물을 수직선이 평행하게 찍으려 한다. 시프트 렌즈가 없을 때 같은 원근을 얻는 방법과 그 대가로 맞는 것은?</p>
+        <div class="opts">
+          <button class="opt">카메라를 위로 기울이고 망원으로 바꾼다. 대가는 없다.</button>
+          <button class="opt" data-correct>카메라를 수평으로 두고 넓게 찍은 뒤 아래쪽을 잘라 낸다. 원근은 시프트와 같고, 대가는 버려지는 화소다.</button>
+          <button class="opt">기울여 찍고 소프트웨어로 펴면 화소 손실 없이 시프트와 똑같아진다.</button>
+          <button class="opt">더 가까이 다가가 초광각으로 찍는다. 가까울수록 수직선이 곧아진다.</button>
+        </div>
+        <div class="quiz-exp">수평 카메라는 수직선을 평행하게 찍고, 아래쪽을 자르면 렌즈를 올린 시프트와 같은 화면이 된다. 버린 화소가 대가다. 소프트웨어 보정도 원근은 같아지지만 가장자리가 잘리고 위쪽이 늘어난다. 기울이면 초점거리와 상관없이 수직선이 모이고, 가까이 갈수록 더 많이 기울여야 한다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#2b2a30", INK_DIM = "#6b6874", PAPER = "#fbfaf7";
+  var ACC = "#b5179e", ACC2 = "#1f6fb2", OKC = "#2f7d5b", BAD = "#c0392b";
+  var DEG = Math.PI / 180;
+
+  /* 센서 모형(mm): APS-C 24 × 16 mm(환산 1.5배), 휴대폰 기본 8 × 6 mm·f 6.0 mm(환산 26 mm),
+     휴대폰 초광각 5.6 × 4.2 mm·f 2.1 mm(환산 13 mm). 5장과 같은 이 책의 모형 값이다. */
+  var FF_DIAG = Math.hypot(36, 24);
+  var SENS = { aps: { w: 24, h: 16 }, main: { w: 8, h: 6 }, ultra: { w: 5.6, h: 4.2 } };
+  function cropOf(s) { return FF_DIAG / Math.hypot(s.w, s.h); }
+  function aov(d, f) { return 2 * Math.atan(d / (2 * f)) / DEG; }
+  function label(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color || INK; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight || 600);
+    ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "top"; ctx.fillText(s, x, y);
+  }
+  function tag(ctx, s, x, y, o) {
+    o = o || {}; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight || 600);
+    var w = ctx.measureText(s).width, al = o.align || "left";
+    var x0 = al === "center" ? x - w / 2 : al === "right" ? x - w : x;
+    ctx.fillStyle = o.bg || "rgba(251,250,247,0.88)"; ctx.fillRect(x0 - 4, y - 2, w + 8, (o.size || 12) + 6);
+    label(ctx, s, x, y, o);
+  }
+  function hull(pts) { // 볼록 껍질(단조 연쇄)
+    var p = pts.slice().sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+    if (p.length < 3) return p;
+    function cr(o, a, b) { return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]); }
+    var lo = [], up = [], i;
+    for (i = 0; i < p.length; i++) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], p[i]) <= 0) lo.pop(); lo.push(p[i]); }
+    for (i = p.length - 1; i >= 0; i--) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], p[i]) <= 0) up.pop(); up.push(p[i]); }
+    up.pop(); lo.pop(); return lo.concat(up);
+  }
+
+  /* ---------------- 3D 렌더러: ART.project + 가까운 면 자르기 + 화가 알고리즘 ----------------
+     ART.project의 depth는 세계 좌표에 대해 일차식이므로 모서리를 세계 좌표에서 보간해 depth = NEAR에서 자른다.
+     구(sphere)는 표면 점들을 투영한 볼록 껍질로 그린다. 그래서 화면 가장자리에서 늘어나는 모양까지 그대로 나온다. */
+  var NEAR = 0.04, SPH = [];
+  (function () { for (var i = 0; i <= 12; i++) for (var j = 0; j < 24; j++) { var th = Math.PI * i / 12, ph = 2 * Math.PI * j / 24; SPH.push([Math.sin(th) * Math.cos(ph), Math.cos(th), Math.sin(th) * Math.sin(ph)]); } })();
+  function projPoly(pts, cam) {
+    var pr = pts.map(function (p) { return ART.project(p, cam); });
+    var out = [], n = pts.length, dsum = 0, cnt = 0;
+    for (var i = 0; i < n; i++) {
+      var a = pts[i], b = pts[(i + 1) % n], pa = pr[i], pb = pr[(i + 1) % n];
+      if (pa[2] >= NEAR) { out.push(pa); dsum += pa[2]; cnt++; }
+      if ((pa[2] - NEAR) * (pb[2] - NEAR) < 0) {
+        var t = (NEAR - pa[2]) / (pb[2] - pa[2]);
+        var q = ART.project([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t], cam);
+        out.push(q); dsum += q[2]; cnt++;
+      }
+    }
+    if (out.length < 3) return null;
+    return { s: out, d: dsum / cnt };
+  }
+  function projSphere(c, r, sx, cam) {
+    var pts = [], dc = ART.project(c, cam)[2];
+    if (dc < r + NEAR) return null;
+    SPH.forEach(function (u) { var q = ART.project([c[0] + u[0] * r * (sx || 1), c[1] + u[1] * r, c[2] + u[2] * r], cam); pts.push([q[0], q[1]]); });
+    return { s: hull(pts), d: dc };
+  }
+  function fillPoly(ctx, s, fill, stroke, lw) {
+    ctx.beginPath(); ctx.moveTo(s[0][0], s[0][1]);
+    for (var k = 1; k < s.length; k++) ctx.lineTo(s[k][0], s[k][1]);
+    ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 0.6; ctx.stroke(); }
+  }
+  function render(ctx, scene, cam, extra, opt) {
+    opt = opt || {};
+    var i, list = [];
+    for (i = 0; i < scene.bg.length; i++) { var r = projPoly(scene.bg[i].p, cam); if (r) fillPoly(ctx, r.s, opt.outline ? null : scene.bg[i].fill, opt.outline || scene.bg[i].stroke, opt.lw); }
+    var items = extra ? scene.items.concat(extra) : scene.items;
+    for (i = 0; i < items.length; i++) {
+      var it = items[i], q = it.sphere ? projSphere(it.c, it.r, it.sx, cam) : projPoly(it.p, cam);
+      if (q) { q.fill = it.fill; q.stroke = it.stroke; q.bias = it.bias || 0; list.push(q); }
+    }
+    list.sort(function (a, b) { return (b.d + b.bias) - (a.d + a.bias); });
+    for (i = 0; i < list.length; i++) fillPoly(ctx, list[i].s, opt.outline ? null : list[i].fill, opt.outline || list[i].stroke, opt.lw);
+  }
+  function Q(a, b, c, d, fill, stroke) { return { p: [a, b, c, d], fill: fill, stroke: stroke }; }
+  function box(x0, x1, y0, y1, z0, z1, fill, side, top) {
+    side = side || fill; top = top || fill;
+    return [
+      Q([x0, y0, z0], [x1, y0, z0], [x1, y1, z0], [x0, y1, z0], fill),
+      Q([x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1], fill),
+      Q([x0, y0, z0], [x0, y0, z1], [x0, y1, z1], [x0, y1, z0], side),
+      Q([x1, y0, z0], [x1, y0, z1], [x1, y1, z1], [x1, y1, z0], side),
+      Q([x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1], top),
+    ];
+  }
+
+  /* ---------------- 모형 서점: 책방 E 안쪽 통로(5장과 같은 모형) ----------------
+     x 오른쪽, y 위, z 통로 안쪽(m). 통로 입구 z = 0, 끝 z = 5.4, 서가 면 x = ±0.55, 뒤판 ±0.85, 높이 2.1 m,
+     선반 0.1·0.5·…·2.1 m, 칸 90 cm × 6(DrawingBook 4장). 통로 앞 공간 2.5 m는 이 책의 모형 값. */
+  var AISLE = { half: 0.55, back: 0.85, len: 5.4, H: 2.1, ceil: 2.6, front: -2.5, room: 2.4 };
+  var BOOKS = ["#2f7d5b", "#567666", "#d24f39", "#22342a", "#ffe2d7", "#c8a77c", "#3b5b8c", "#8c3b3b", "#d8c79a", "#6b4e7a", "#e0d6c2", "#1d1d1f", "#a86b32", "#7a8c5a", "#b9a27e", "#41607a"];
+  var WOOD = "#8a5a36", WOOD_L = "#a8744a", WOOD_D = "#5a3b25", BACK = "#3a2a20", WALL = "#efe6d6", WALL_D = "#e2d6c2", CEIL = "#f5efe4", FLOOR = "#b8925f", FLOOR_D = "#a9844f";
+  function buildAisle() {
+    var A = AISLE, bg = [], items = [], r = ART.rng(5), s, i, row;
+    bg.push(Q([-A.room, 0, A.front], [A.room, 0, A.front], [A.room, 0, 0], [-A.room, 0, 0], FLOOR_D));
+    bg.push(Q([-A.back, 0, 0], [A.back, 0, 0], [A.back, 0, A.len], [-A.back, 0, A.len], FLOOR));
+    for (i = 1; i < 12; i++) { var zz = A.front + i * 0.7; if (zz < A.len) bg.push({ p: [[-A.room, 0.001, zz], [A.room, 0.001, zz], [A.room, 0.001, zz + 0.01], [-A.room, 0.001, zz + 0.01]], fill: "#9c7a4c" }); }
+    bg.push(Q([-A.room, A.ceil, A.front], [A.room, A.ceil, A.front], [A.room, A.ceil, A.len], [-A.room, A.ceil, A.len], CEIL));
+    bg.push(Q([-A.room, 0, 0], [-A.back, 0, 0], [-A.back, A.ceil, 0], [-A.room, A.ceil, 0], WALL));
+    bg.push(Q([A.back, 0, 0], [A.room, 0, 0], [A.room, A.ceil, 0], [A.back, A.ceil, 0], WALL));
+    bg.push(Q([-A.room, 0, A.front], [-A.room, 0, 0], [-A.room, A.ceil, 0], [-A.room, A.ceil, A.front], WALL_D));
+    bg.push(Q([A.room, 0, A.front], [A.room, 0, 0], [A.room, A.ceil, 0], [A.room, A.ceil, A.front], WALL_D));
+    bg.push(Q([-A.back, A.H, 0], [-A.back, A.H, A.len], [-A.back, A.ceil, A.len], [-A.back, A.ceil, 0], WALL_D));
+    bg.push(Q([A.back, A.H, 0], [A.back, A.H, A.len], [A.back, A.ceil, A.len], [A.back, A.ceil, 0], WALL_D));
+    bg.push(Q([-A.half, 0, A.len], [A.half, 0, A.len], [A.half, A.ceil, A.len], [-A.half, A.ceil, A.len], WALL));
+    bg.push(Q([-0.36, 0.95, A.len - 0.001], [0.36, 0.95, A.len - 0.001], [0.36, 1.95, A.len - 0.001], [-0.36, 1.95, A.len - 0.001], "#6b5038"));
+    bg.push(Q([-0.32, 0.99, A.len - 0.002], [0.32, 0.99, A.len - 0.002], [0.32, 1.91, A.len - 0.002], [-0.32, 1.91, A.len - 0.002], "#dce9f2"));
+    bg.push(Q([-0.012, 0.99, A.len - 0.003], [0.012, 0.99, A.len - 0.003], [0.012, 1.91, A.len - 0.003], [-0.012, 1.91, A.len - 0.003], "#6b5038"));
+    [[-1.95, "#c9d8c4"], [-1.45, "#e8cfb6"], [1.3, "#c6d3e3"]].forEach(function (pc) {
+      var x0 = pc[0], w = 0.38, y0 = 1.3, h = 0.5, z = -0.002;
+      bg.push(Q([x0, y0, z], [x0 + w, y0, z], [x0 + w, y0 + h, z], [x0, y0 + h, z], "#5c4430"));
+      bg.push(Q([x0 + 0.04, y0 + 0.04, z - 0.001], [x0 + w - 0.04, y0 + 0.04, z - 0.001], [x0 + w - 0.04, y0 + h - 0.04, z - 0.001], [x0 + 0.04, y0 + h - 0.04, z - 0.001], pc[1]));
+    });
+    bg.push(Q([-A.back, 0, 0], [-A.back, 0, A.len], [-A.back, A.H, A.len], [-A.back, A.H, 0], BACK));
+    bg.push(Q([A.back, 0, 0], [A.back, 0, A.len], [A.back, A.H, A.len], [A.back, A.H, 0], BACK));
+    for (s = -1; s <= 1; s += 2) {
+      var xf = s * A.half, xb = s * A.back, xs = s * 0.6;
+      items.push(Q([xf, 0, -0.001], [xb, 0, -0.001], [xb, A.H, -0.001], [xf, A.H, -0.001], WOOD));
+      for (i = 0; i < 6; i++) {
+        var z0 = i * 0.9, z1 = z0 + 0.9;
+        items.push(Q([xf, 0, z0], [xs, 0, z0], [xs, A.H, z0], [xf, A.H, z0], WOOD_L));
+        items.push(Q([xs, 0, z0 + 0.001], [xb, 0, z0 + 0.001], [xb, A.H, z0 + 0.001], [xs, A.H, z0 + 0.001], WOOD_D));
+        items.push(Q([xf, 0, z0], [xf, 0, z0 + 0.02], [xf, A.H, z0 + 0.02], [xf, A.H, z0], WOOD));
+        for (row = 0; row < 6; row++) {
+          var yb = 0.1 + row * 0.4;
+          items.push(Q([xf, yb - 0.025, z0], [xf, yb - 0.025, z1], [xf, yb, z1], [xf, yb, z0], WOOD));
+          items.push(Q([xf, yb, z0], [xf, yb, z1], [xs, yb, z1], [xs, yb, z0], WOOD_L));
+          if (row > 0) items.push(Q([xf, yb - 0.025, z0], [xf, yb - 0.025, z1], [xb, yb - 0.025, z1], [xb, yb - 0.025, z0], WOOD_D));
+          if (row === 5) continue;
+          var z = z0 + 0.03;
+          while (z < z1 - 0.04) {
+            var bw = 0.025 + r() * 0.025, bh = 0.22 + r() * 0.14, col = BOOKS[Math.floor(r() * BOOKS.length)];
+            if (r() < 0.06) { z += bw * 1.4; continue; }
+            items.push(Q([xs, yb, z], [xs, yb, z + bw], [xs, yb + bh, z + bw], [xs, yb + bh, z], col));
+            z += bw + 0.002;
+          }
+        }
+      }
+      items.push(Q([xf, A.H, 0], [xf, A.H, A.len], [xb, A.H, A.len], [xb, A.H, 0], WOOD_D));
+    }
+    var cx = 0.1, cz = A.len - 0.45, cw = 0.4, ch = 0.45;
+    items.push(Q([cx - cw / 2, ch, cz - cw / 2], [cx + cw / 2, ch, cz - cw / 2], [cx + cw / 2, ch, cz + cw / 2], [cx - cw / 2, ch, cz + cw / 2], WOOD_L));
+    [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(function (k) {
+      var lx = cx + k[0] * (cw / 2 - 0.03), lz = cz + k[1] * (cw / 2 - 0.03);
+      items.push(Q([lx - 0.02, 0, lz - 0.02], [lx + 0.02, 0, lz - 0.02], [lx + 0.02, ch - 0.04, lz - 0.02], [lx - 0.02, ch - 0.04, lz - 0.02], WOOD_D));
+    });
+    items.push(Q([cx - cw / 2, ch, cz + cw / 2], [cx + cw / 2, ch, cz + cw / 2], [cx + cw / 2, ch + 0.42, cz + cw / 2], [cx - cw / 2, ch + 0.42, cz + cw / 2], WOOD));
+    return { bg: bg, items: items };
+  }
+  var SCENE = buildAisle();
+
+  /* 주인(가상, 168 cm, DrawingBook에서 정한 키): 상자 몸통과 구 머리의 모형. 통로 입구에서 1 m 안쪽, 입구 쪽을 본다. */
+  var OWNER = { x: 0, z: 1.0 };
+  var SKIN = "#e2b48f", HAIR = "#3b2f2a", SHIRT = "#567666", PANTS = "#3b3a40", APRON = "#c8a77c";
+  function buildOwner() {
+    var x = OWNER.x, z = OWNER.z, it = [];
+    it = it.concat(box(x - 0.16, x - 0.02, 0, 0.86, z - 0.07, z + 0.07, PANTS, "#2e2d33"));
+    it = it.concat(box(x + 0.02, x + 0.16, 0, 0.86, z - 0.07, z + 0.07, PANTS, "#2e2d33"));
+    it = it.concat(box(x - 0.2, x + 0.2, 0.86, 1.44, z - 0.11, z + 0.11, SHIRT, "#4a675a", "#5f7d6f"));
+    it.push(Q([x - 0.15, 0.8, z - 0.115], [x + 0.15, 0.8, z - 0.115], [x + 0.15, 1.32, z - 0.115], [x - 0.15, 1.32, z - 0.115], APRON));
+    it = it.concat(box(x - 0.27, x - 0.2, 0.82, 1.42, z - 0.06, z + 0.06, SHIRT, "#4a675a"));
+    it = it.concat(box(x + 0.2, x + 0.27, 0.82, 1.42, z - 0.06, z + 0.06, SHIRT, "#4a675a"));
+    it = it.concat(box(x - 0.05, x + 0.05, 1.42, 1.5, z - 0.05, z + 0.05, SKIN));
+    it.push({ sphere: true, c: [x, 1.585, z], r: 0.1, sx: 0.82, fill: SKIN, bias: -0.02 });
+    it.push({ sphere: true, c: [x, 1.615, z + 0.015], r: 0.098, sx: 0.84, fill: HAIR, bias: 0.03 });
+    return it;
+  }
+  var OWNER_ITEMS = buildOwner();
+  // 얼굴 앞면의 눈·입(머리 구 위에 겹쳐 그린다)
+  function drawFaceMarks(ctx, cam) {
+    var x = OWNER.x, z = OWNER.z - 0.082, marks = [[x - 0.03, 1.6], [x + 0.03, 1.6]];
+    var c = ART.project([x, 1.585, OWNER.z], cam);
+    if (c[2] < 0.2) return;
+    ctx.fillStyle = "#2b2420";
+    marks.forEach(function (m) { var q = ART.project([m[0], m[1], z], cam); var rr = Math.max(0.8, cam.f * 0.008 / q[2]); ctx.beginPath(); ctx.arc(q[0], q[1], rr, 0, Math.PI * 2); ctx.fill(); });
+    var a = ART.project([x - 0.025, 1.535, z + 0.004], cam), b = ART.project([x + 0.025, 1.535, z + 0.004], cam);
+    ctx.strokeStyle = "#9a4a3c"; ctx.lineWidth = Math.max(0.8, cam.f * 0.006 / a[2]);
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+  }
+
+  /* ================= 시뮬레이터 1: 같은 자리, 다른 초점거리 ================= */
+  (function () {
+    var st = { f: 40, e: false }, POS = [0, 1.55, -0.6];
+    var off = document.createElement("canvas");
+    function camFor(f, w, h, sx) { return { pos: POS, yaw: 0, pitch: 0, f: f * w / SENS.aps.w * (sx || 1), cx: w / 2, cy: h / 2 }; }
+    function drawZoom(ctx, w, h) {
+      ctx.fillStyle = "#f5efe4"; ctx.fillRect(0, 0, w, h);
+      var cam = camFor(st.f, w, h);
+      render(ctx, SCENE, cam, OWNER_ITEMS); drawFaceMarks(ctx, cam);
+    }
+    var a = AB.canvas("#sm-a", function (ctx, w, h) {
+      // 18 mm로 낮은 해상도(화면 폭의 절반)에 그린 뒤 가운데를 잘라 키운다
+      var k = 18 / st.f, R = Math.round(w * 0.5 / k) > 2400 ? 2400 : Math.round(w * 0.5), Rh = Math.round(R * h / w);
+      off.width = R; off.height = Rh;
+      var oc = off.getContext("2d");
+      oc.fillStyle = "#f5efe4"; oc.fillRect(0, 0, R, Rh);
+      var cam = camFor(18, R, Rh);
+      render(oc, SCENE, cam, OWNER_ITEMS); drawFaceMarks(oc, cam);
+      var sw = R * k, sh = Rh * k;
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(off, (R - sw) / 2, (Rh - sh) / 2, sw, sh, 0, 0, w, h);
+      if (st.e) { ctx.globalAlpha = 0.9; render(ctx, SCENE, camFor(st.f, w, h), OWNER_ITEMS, { outline: "#d1006f", lw: 0.7 }); ctx.globalAlpha = 1; }
+    }, { aspect: 2 / 3, maxHeight: 420, bg: "#f5efe4" });
+    var b = AB.canvas("#sm-b", drawZoom, { aspect: 2 / 3, maxHeight: 420, bg: "#f5efe4" });
+    AB.compare("#sm-cmp", { labels: ["18 mm를 잘라 키움", "줌으로 찍음"] });
+    function upd() {
+      a.redraw(); b.redraw();
+      var k = 18 / st.f;
+      AB.stat("sm-o-c", AB.fix(k * 100, 0) + "<small>%</small>");
+      AB.stat("sm-o-p", AB.fix(k * k * 100, 0) + "<small>%</small>");
+      // 창(폭 0.64 m, 카메라에서 6.0 m)과 주인 어깨 폭(0.54 m, 1.6 m)의 화면 크기 비: 거리만으로 정해진다
+      AB.stat("sm-o-r", "1 : " + AB.fix((0.64 / 6.0) / (0.54 / 1.6), 2));
+    }
+    AB.range("sm-f", function (v) { return v + " mm"; }, function (v) { st.f = v; upd(); });
+    AB.check("sm-e", function (v) { st.e = v; upd(); });
+    upd();
+  })();
+
+  /* ================= 시뮬레이터 2: 주인은 그대로, 카메라만 물러서기 ================= */
+  (function () {
+    var st = { d: 0.6, g: true }, FRAME_H = 0.75, EYE = 1.55; // 화면 세로에 담는 높이(머리 위~가슴)
+    var STRIP = 46;
+    function camAt(d, fr) {
+      // 카메라 높이 1.55 m, 수평. 주인 자리(z = 1.0)에서 화면 세로가 0.75 m가 되도록 초점거리를 정한다.
+      return { pos: [0, EYE, OWNER.z - d], yaw: 0, pitch: 0, f: fr.h * d / FRAME_H, cx: fr.x + fr.w / 2, cy: fr.y + fr.h / 2 };
+    }
+    function winRect(cam) {
+      var a = ART.project([-0.32, 0.99, AISLE.len], cam), b = ART.project([0.32, 1.91, AISLE.len], cam);
+      return [a[0], b[1], b[0] - a[0], a[1] - b[1]];
+    }
+    var cv = AB.canvas("#dl-cv", function (ctx, w, h) {
+      // 위쪽 띠: 옆에서 본 배치(카메라 · 주인 · 창)
+      var sx0 = 30, sx1 = w - 20, zmin = OWNER.z - 3.6, zmax = AISLE.len + 0.1;
+      function SX(z) { return sx0 + (z - zmin) / (zmax - zmin) * (sx1 - sx0); }
+      ctx.fillStyle = "#efe7d8"; ctx.fillRect(0, 0, w, STRIP);
+      ctx.fillStyle = "#a8744a"; ctx.fillRect(SX(0), 10, SX(AISLE.len) - SX(0), 6);
+      ctx.fillStyle = "#7fa6c4"; ctx.fillRect(SX(AISLE.len) - 3, 8, 4, 30);
+      ctx.fillStyle = SHIRT; ctx.fillRect(SX(OWNER.z) - 3, 14, 6, 24);
+      ctx.fillStyle = SKIN; ctx.beginPath(); ctx.arc(SX(OWNER.z), 11, 4, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(SX(AISLE.front), 40); ctx.lineTo(SX(AISLE.front), 8); ctx.stroke();
+      label(ctx, "통로 입구", SX(0) + 3, 20, { size: 10, color: INK_DIM });
+      label(ctx, "벽", SX(AISLE.front) + 3, 30, { size: 10, color: INK_DIM });
+      var cxp = SX(OWNER.z - st.d);
+      AB.handle(ctx, cxp, 24, { r: 7, ring: ACC2 });
+      // 아래: 카메라 화면(세로 3:2)
+      var vb = { x: 8, y: STRIP + 8, w: w - 16, h: h - STRIP - 16 };
+      ctx.fillStyle = "#2a2730"; ctx.fillRect(vb.x, vb.y, vb.w, vb.h);
+      var fh = vb.h, fw = fh * 2 / 3; if (fw > vb.w) { fw = vb.w; fh = fw * 1.5; }
+      var fr = { x: vb.x + (vb.w - fw) / 2, y: vb.y + (vb.h - fh) / 2, w: fw, h: fh };
+      var cam = camAt(st.d, fr);
+      ctx.save(); ctx.beginPath(); ctx.rect(fr.x, fr.y, fr.w, fr.h); ctx.clip();
+      ctx.fillStyle = "#f5efe4"; ctx.fillRect(fr.x, fr.y, fr.w, fr.h);
+      render(ctx, SCENE, cam, OWNER_ITEMS); drawFaceMarks(ctx, cam);
+      if (st.g) { var g = winRect(camAt(0.6, fr)); ctx.strokeStyle = ACC; ctx.setLineDash([5, 4]); ctx.lineWidth = 2; ctx.strokeRect(g[0], g[1], g[2], g[3]); ctx.setLineDash([]); }
+      ctx.restore();
+      var fmm = SENS.aps.w * st.d / FRAME_H; // 세로로 든 APS-C: 긴 변 24 mm가 세로
+      var wr = winRect(cam);
+      AB.stat("dl-o-f", AB.fix(fmm, 0) + "<small>mm</small> · " + AB.fix(fmm * 1.5, 0) + "<small>mm</small>");
+      AB.stat("dl-o-r", "1 : " + AB.fix((st.d + AISLE.len - OWNER.z) / st.d, 1));
+      AB.stat("dl-o-w", AB.fix(wr[2] / fr.w * 100, 0) + "<small>%</small>");
+      cv.sx = SX; cv.zmin = zmin;
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("dl-cv").parentElement.clientWidth || 600)); return Math.round(Math.max(330, Math.min(500, w * 0.9))); } });
+    var dget = AB.range("dl-d", function (v) { return v.toFixed(2) + " m"; }, function (v) { st.d = v; cv.redraw(); });
+    AB.check("dl-g", function (v) { st.g = v; cv.redraw(); });
+    var drag = false;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = y < STRIP + 6; },
+      move: function (x) {
+        if (!drag) return;
+        var w = cv.w, sx0 = 30, sx1 = w - 20, zmin = OWNER.z - 3.6, zmax = AISLE.len + 0.1;
+        var z = zmin + (x - sx0) / (sx1 - sx0) * (zmax - zmin);
+        dget.set(Math.round(AB.clamp(OWNER.z - z, 0.35, 3.4) * 100) / 100);
+      },
+      end: function () { drag = false; },
+    });
+  })();
+
+  /* ================= 시뮬레이터 3: 거리에 따라 바뀌는 얼굴 ================= */
+  (function () {
+    // 머리: 반지름 (0.075, 0.11, 0.095) m의 타원체, 중심은 원점. 카메라는 −z 쪽. 코끝 z = −0.11, 귀 z = −0.01(깊이 차 10 cm).
+    var RA = 0.075, RB = 0.11, RC = 0.095, st = { d: 0.4, g: true, yaw: 0 };
+    var ELL = []; for (var i = 0; i <= 16; i++) for (var j = 0; j < 32; j++) { var th = Math.PI * i / 16, ph = 2 * Math.PI * j / 32; ELL.push([RA * Math.sin(th) * Math.cos(ph), RB * Math.cos(th), RC * Math.sin(th) * Math.sin(ph)]); }
+    function surfZ(x, y) { var t = 1 - (x / RA) * (x / RA) - (y / RB) * (y / RB); return -RC * Math.sqrt(Math.max(0, t)); }
+    function rotY(p, a) { var c = Math.cos(a), s = Math.sin(a); return [p[0] * c + p[2] * s, p[1], -p[0] * s + p[2] * c]; }
+    function drawFace(ctx, d, fr, yawDeg, outlineOnly) {
+      var dc = d + 0.11; // 카메라에서 머리 중심까지
+      var f = 0.7 * fr.h * dc / 0.22; // 얼굴 높이(턱~정수리 0.22 m)를 화면 높이의 70%로
+      var cam = { pos: [0, 0, -dc], yaw: 0, pitch: 0, f: f, cx: fr.x + fr.w / 2, cy: fr.y + fr.h * 0.5 };
+      var a = yawDeg * DEG;
+      function P(p) { var q = ART.project(rotY(p, a), cam); return [q[0], q[1]]; }
+      var head = hull(ELL.map(P));
+      if (outlineOnly) { fillPoly(ctx, head, null, ACC, 1.5); return; }
+      // 귀(머리 뒤에 먼저 그려 뺨에 가려지게)
+      [-1, 1].forEach(function (s) {
+        var pts = []; for (var k = 0; k < 20; k++) { var t = 2 * Math.PI * k / 20; pts.push(P([s * (RA + 0.006), 0.005 + 0.03 * Math.sin(t), -0.01 + 0.018 * Math.cos(t)])); }
+        fillPoly(ctx, hull(pts), "#d39e7a", "#b07c5c", 1);
+      });
+      // 목
+      fillPoly(ctx, [P([-0.045, -0.08, 0.0]), P([0.045, -0.08, 0.0]), P([0.05, -0.2, 0.01]), P([-0.05, -0.2, 0.01])], "#d6a681");
+      fillPoly(ctx, head, SKIN, "#b88a66", 1);
+      // 머리카락: 위쪽 덮개
+      var hair = hull(ELL.filter(function (p) { return p[1] > 0.06 || (p[2] > 0.02 && p[1] > -0.02); }).map(function (p) { return P([p[0] * 1.04, p[1] * 1.03 + 0.004, p[2] * 1.04]); }));
+      fillPoly(ctx, hair, HAIR);
+      // 앞면 특징(눈, 눈썹, 코, 입)
+      function F(x, y, dz) { return P([x, y, surfZ(x, y) - (dz || 0)]); }
+      [-1, 1].forEach(function (s) {
+        var e = []; for (var k = 0; k < 14; k++) { var t = 2 * Math.PI * k / 14; e.push(F(s * 0.031 + 0.011 * Math.cos(t), 0.012 + 0.0055 * Math.sin(t), 0.001)); }
+        fillPoly(ctx, e, "#ffffff", "#5a463c", 1);
+        var c0 = F(s * 0.031, 0.012, 0.002); ctx.fillStyle = "#3b2f2a"; ctx.beginPath(); ctx.arc(c0[0], c0[1], Math.max(1.2, f * 0.0045 / (dc - 0.09)), 0, Math.PI * 2); ctx.fill();
+        var b0 = F(s * 0.018, 0.032), b1 = F(s * 0.045, 0.03); ctx.strokeStyle = HAIR; ctx.lineWidth = Math.max(1.2, f * 0.004 / dc); ctx.beginPath(); ctx.moveTo(b0[0], b0[1]); ctx.lineTo(b1[0], b1[1]); ctx.stroke();
+      });
+      var nose = [F(-0.006, 0.008), F(0.006, 0.008), P([0.017, -0.035, surfZ(0.017, -0.035) - 0.004]), P([0, -0.04, -0.11]), P([-0.017, -0.035, surfZ(-0.017, -0.035) - 0.004])];
+      fillPoly(ctx, nose, "#d9a37e", "#a9765a", 1);
+      var tip = P([0, -0.038, -0.11]); ctx.fillStyle = "#e7b996"; ctx.beginPath(); ctx.arc(tip[0], tip[1], Math.max(1.5, f * 0.008 / (dc - 0.11)), 0, Math.PI * 2); ctx.fill();
+      var m = []; for (var k = 0; k <= 10; k++) { var x = -0.022 + 0.044 * k / 10; m.push(F(x, -0.062 - 0.006 * Math.sin(Math.PI * k / 10), 0.001)); }
+      ctx.strokeStyle = "#9a4a3c"; ctx.lineWidth = Math.max(1.2, f * 0.004 / dc); ctx.beginPath(); m.forEach(function (q, k) { if (k) ctx.lineTo(q[0], q[1]); else ctx.moveTo(q[0], q[1]); }); ctx.stroke();
+      // 화면에서 잰 얼굴 폭·높이(머리 껍질)
+      var xs = head.map(function (q) { return q[0]; }), ys = head.map(function (q) { return q[1]; });
+      return (Math.max.apply(null, xs) - Math.min.apply(null, xs)) / (Math.max.apply(null, ys) - Math.min.apply(null, ys));
+    }
+    var cv = AB.canvas("#fc-cv", function (ctx, w, h) {
+      var fh = h - 16, fw = Math.min(w - 16, fh * 0.8);
+      var fr = { x: (w - fw) / 2, y: 8, w: fw, h: fh };
+      ctx.fillStyle = "#e9e4da"; ctx.fillRect(fr.x, fr.y, fr.w, fr.h);
+      var ratio = drawFace(ctx, st.d, fr, st.yaw, false);
+      if (st.g) { ctx.setLineDash([5, 4]); drawFace(ctx, 4, fr, st.yaw, true); ctx.setLineDash([]); }
+      var dc = st.d + 0.11, fmm = SENS.aps.w * dc / (0.22 / 0.7);
+      AB.stat("fc-o-r", AB.fix((st.d + 0.10) / st.d, 2) + "<small>배</small>");
+      AB.stat("fc-o-f", AB.fix(fmm, 0) + "<small>mm</small> <small>환산 " + AB.fix(fmm * 1.5, 0) + "</small>");
+      AB.stat("fc-o-w", AB.fix(ratio, 2));
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("fc-cv").parentElement.clientWidth || 600)); return Math.round(Math.max(280, Math.min(420, w * 0.62))); } });
+    AB.range("fc-d", function (v) { return v.toFixed(2) + " m"; }, function (v) { st.d = v; cv.redraw(); });
+    AB.check("fc-g", function (v) { st.g = v; cv.redraw(); });
+    var x0 = 0, y0 = 0;
+    AB.drag(cv.canvas, { start: function (x) { x0 = x; y0 = st.yaw; }, move: function (x) { st.yaw = AB.clamp(y0 + (x - x0) * 0.4, -60, 60); cv.redraw(); } });
+  })();
+
+  /* ---------------- 모형 건물: 책방 E 외관 ----------------
+     모퉁이를 원점에 둔 2층 건물. 정면 벽은 z = 0 평면(x −8~0, −z 쪽을 본다), 옆면은 x = 0 평면(z 0~6, +x 쪽을 본다), 높이 7.2 m.
+     카메라는 정면 벽이 화면과 30°를 이루는 방향(DrawingBook 5장)에서 모퉁이를 겨눈다. 정면 8 m·옆면 6 m는 이 책의 모형 값. */
+  var BLD = { W: 8, Dp: 6, H: 7.2 };
+  var BWALL = "#e6d9c4", BWALL_S = "#cdbfa8", BTRIM = "#22342a", BGREEN = "#2f7d5b", BKRAFT = "#c8a77c", BGLASS = "#9fb8c8", BGLASS_S = "#86a1b2";
+  function buildBuilding() {
+    var bg = [], it = [], W = BLD.W, D = BLD.Dp, H = BLD.H;
+    bg.push(Q([-300, 0, -300], [300, 0, -300], [300, 0, 300], [-300, 0, 300], "#a7a39b"));
+    bg.push(Q([-40, 0.005, -2.2], [40, 0.005, -2.2], [40, 0.005, 0], [-40, 0.005, 0], "#c9c3b8"));
+    bg.push(Q([0, 0.005, -40], [2.2, 0.005, -40], [2.2, 0.005, 40], [0, 0.005, 40], "#c9c3b8"));
+    it.push(Q([-W, 0, 0], [0, 0, 0], [0, H, 0], [-W, H, 0], BWALL));
+    it.push(Q([0, 0, 0], [0, 0, D], [0, H, D], [0, H, 0], BWALL_S));
+    var e = 0.01;
+    // 정면 1층: 진열창, 문, 간판 띠
+    it.push(Q([-W + 0.4, 3.0, -e], [-0.3, 3.0, -e], [-0.3, 3.6, -e], [-W + 0.4, 3.6, -e], BKRAFT));
+    it.push(Q([-W + 0.6, 0.5, -e], [-3.2, 0.5, -e], [-3.2, 2.6, -e], [-W + 0.6, 2.6, -e], BTRIM));
+    it.push(Q([-W + 0.7, 0.6, -2 * e], [-3.3, 0.6, -2 * e], [-3.3, 2.5, -2 * e], [-W + 0.7, 2.5, -2 * e], BGLASS));
+    it.push(Q([-2.6, 0, -e], [-1.2, 0, -e], [-1.2, 2.5, -e], [-2.6, 2.5, -e], BGREEN));
+    it.push(Q([-2.45, 0.9, -2 * e], [-1.35, 0.9, -2 * e], [-1.35, 2.35, -2 * e], [-2.45, 2.35, -2 * e], BGLASS_S));
+    // 정면 2층 창 셋, 옆면 2층 창 하나와 1층 작은 창
+    [-7.0, -4.8, -2.6].forEach(function (x0) {
+      it.push(Q([x0, 4.3, -e], [x0 + 1.5, 4.3, -e], [x0 + 1.5, 6.2, -e], [x0, 6.2, -e], BTRIM));
+      it.push(Q([x0 + 0.1, 4.4, -2 * e], [x0 + 1.4, 4.4, -2 * e], [x0 + 1.4, 6.1, -2 * e], [x0 + 0.1, 6.1, -2 * e], BGLASS));
+    });
+    it.push(Q([e, 4.3, 2.0], [e, 4.3, 3.5], [e, 6.2, 3.5], [e, 6.2, 2.0], BTRIM));
+    it.push(Q([2 * e, 4.4, 2.1], [2 * e, 4.4, 3.4], [2 * e, 6.1, 3.4], [2 * e, 6.1, 2.1], BGLASS_S));
+    it.push(Q([e, 1.0, 2.5], [e, 1.0, 4.0], [e, 2.4, 4.0], [e, 2.4, 2.5], BTRIM));
+    it.push(Q([2 * e, 1.1, 2.6], [2 * e, 1.1, 3.9], [2 * e, 2.3, 3.9], [2 * e, 2.3, 2.6], BGLASS_S));
+    // 층 띠와 옥상 난간
+    it.push(Q([-W, 3.9, -e], [0, 3.9, -e], [0, 4.05, -e], [-W, 4.05, -e], BWALL_S));
+    it.push(Q([e, 3.9, 0], [e, 3.9, D], [e, 4.05, D], [e, 4.05, 0], "#b8aa92"));
+    it.push(Q([-W, H - 0.3, -e], [0, H - 0.3, -e], [0, H, -e], [-W, H, -e], "#b8aa92"));
+    it.push(Q([e, H - 0.3, 0], [e, H - 0.3, D], [e, H, D], [e, H, 0], "#a4977f"));
+    // 둥근 돌출 간판(정면 2층 모퉁이 가까이): 벽에 수직인 원판
+    var sg = []; for (var k = 0; k < 24; k++) { var t = 2 * Math.PI * k / 24; sg.push([-0.5, 5.2 + 0.45 * Math.sin(t), -0.6 + 0.45 * Math.cos(t)]); }
+    it.push({ p: sg, fill: BGREEN, stroke: "#1b4a36" });
+    it.push(Q([-0.5, 5.18, -0.15], [-0.5, 5.22, -0.15], [-0.5, 5.22, 0], [-0.5, 5.18, 0], BTRIM));
+    return { bg: bg, items: it };
+  }
+  var BUILDING = buildBuilding();
+  var VIEWDIR = [-0.5, 0, Math.sqrt(3) / 2]; // 카메라 → 모퉁이 방향(정면 벽과 60°)
+  function bCam(dist, pitch, f, fr, shiftY) {
+    return { pos: [-VIEWDIR[0] * dist, 1.6, -VIEWDIR[2] * dist], yaw: -30, pitch: pitch, f: f, cx: fr.x + fr.w / 2, cy: fr.y + fr.h / 2 + (shiftY || 0) };
+  }
+  function drawSky(ctx, fr, cam) {
+    ctx.fillStyle = "#dfe8ef"; ctx.fillRect(fr.x, fr.y, fr.w, fr.h);
+  }
+  // 정면 벽 왼쪽 끝 세로 모서리의 화면 기울기(도)
+  function edgeLean(cam) {
+    var a = ART.project([-BLD.W, 0, 0], cam), b = ART.project([-BLD.W, BLD.H, 0], cam);
+    return Math.atan2(b[0] - a[0], a[1] - b[1]) / DEG;
+  }
+
+  /* ================= 시뮬레이터 4: 카메라를 기울이면 수직선이 모인다 ================= */
+  (function () {
+    var st = { p: 8, d: 13.2, l: "18" };
+    function spec() { return st.l === "18" ? { s: SENS.aps, f: 18 } : { s: SENS.ultra, f: 2.1 }; }
+    var cv = AB.canvas("#tl-cv", function (ctx, w, h) {
+      var sp = spec(), fw = w - 16, fh = fw * sp.s.h / sp.s.w;
+      if (fh > h - 16) { fh = h - 16; fw = fh * sp.s.w / sp.s.h; }
+      var fr = { x: (w - fw) / 2, y: (h - fh) / 2, w: fw, h: fh };
+      var cam = bCam(st.d, st.p, sp.f * fw / sp.s.w, fr);
+      ctx.save(); ctx.beginPath(); ctx.rect(fr.x, fr.y, fr.w, fr.h); ctx.clip();
+      drawSky(ctx, fr, cam);
+      render(ctx, BUILDING, cam);
+      // 수직 기준선(화면 세로)
+      ctx.strokeStyle = "rgba(31,111,178,0.55)"; ctx.setLineDash([4, 5]); ctx.lineWidth = 1;
+      [0.12, 0.88].forEach(function (k) { ctx.beginPath(); ctx.moveTo(fr.x + fr.w * k, fr.y); ctx.lineTo(fr.x + fr.w * k, fr.y + fr.h); ctx.stroke(); });
+      ctx.setLineDash([]);
+      // 건물 세로 모서리 연장선
+      ctx.strokeStyle = "rgba(181,23,158,0.8)"; ctx.lineWidth = 1.4;
+      [[-BLD.W, 0], [0, 0], [0, BLD.Dp]].forEach(function (c) {
+        var a = ART.project([c[0], 0, c[1]], cam), b = ART.project([c[0], BLD.H, c[1]], cam);
+        if (a[2] <= 0 || b[2] <= 0) return;
+        var dx = b[0] - a[0], dy = b[1] - a[1];
+        ctx.beginPath(); ctx.moveTo(a[0] - dx * 3, a[1] - dy * 3); ctx.lineTo(a[0] + dx * 4, a[1] + dy * 4); ctx.stroke();
+      });
+      ctx.restore();
+      var top = ART.project([0, BLD.H, 0], cam);
+      var lean = Math.abs(edgeLean(cam));
+      AB.stat("tl-o-l", AB.fix(lean, 1) + "°");
+      var vpd = Math.abs(st.p) < 0.05 ? null : sp.f / Math.tan(Math.abs(st.p) * DEG);
+      AB.stat("tl-o-v", vpd === null ? "없음 <small>평행</small>" : (st.p > 0 ? "위 " : "아래 ") + AB.fix(vpd / sp.s.h, 1) + "<small>화면 높이</small>");
+      AB.stat("tl-o-t", top[1] >= fr.y ? "들어옴" : "잘림");
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("tl-cv").parentElement.clientWidth || 600)); return Math.round(Math.max(200, Math.min(440, (w - 16) * 0.78 + 16))); } });
+    var pget = AB.range("tl-p", function (v) { return v.toFixed(1) + "°"; }, function (v) { st.p = v; cv.redraw(); });
+    AB.range("tl-d", function (v) { return v.toFixed(1) + " m"; }, function (v) { st.d = v; cv.redraw(); });
+    AB.seg("tl-l", function (v) { st.l = v; cv.redraw(); });
+    var y0 = 0, p0 = 0;
+    AB.drag(cv.canvas, { start: function (x, y) { y0 = y; p0 = st.p; }, move: function (x, y) { pget.set(Math.round(AB.clamp(p0 + (y - y0) * 0.12, -6, 40) * 2) / 2); } });
+  })();
+
+  /* ================= 시뮬레이터 5: 수직선을 세우는 세 가지 방법 =================
+     소프트웨어 보정 = 같은 시점에서 기울기를 (1 − a)배로 줄인 가상 카메라로 다시 투영하는 것(호모그래피).
+     원래 화면의 네 모서리를 가상 화면으로 옮긴 사다리꼴 안에서 같은 비율의 가장 큰 사각형을 남긴다. */
+  var SF = { W: 24, H: 16, f: 18, dist: 13.2 };
+  function corrGeom(p, a) {
+    var P = p * DEG, PP = p * (1 - a) * DEG, f = SF.f;
+    function fwd(u, v) { // 원래 센서 좌표(mm, v 위) → 가상 센서 좌표
+      var yw = v * Math.cos(P) + f * Math.sin(P), zw = -v * Math.sin(P) + f * Math.cos(P);
+      var y2 = yw * Math.cos(PP) - zw * Math.sin(PP), z2 = yw * Math.sin(PP) + zw * Math.cos(PP);
+      return [f * u / z2, f * y2 / z2];
+    }
+    function inv(u, v) { // 가상 → 원래
+      var yw = v * Math.cos(PP) + f * Math.sin(PP), zw = -v * Math.sin(PP) + f * Math.cos(PP);
+      var y2 = yw * Math.cos(P) - zw * Math.sin(P), z2 = yw * Math.sin(P) + zw * Math.cos(P);
+      return [f * u / z2, f * y2 / z2];
+    }
+    var tl = fwd(-SF.W / 2, SF.H / 2), bl = fwd(-SF.W / 2, -SF.H / 2);
+    var at = -tl[0], ab = -bl[0], yt = tl[1], yb = bl[1], r = SF.W / SF.H, hh;
+    if (at >= ab) { var k = (at - ab) / (yt - yb); hh = Math.min(yt - yb, at / (r / 2 + k)); var y0 = yt - hh; }
+    else { var k2 = (ab - at) / (yt - yb); hh = Math.min(yt - yb, ab / (r / 2 + k2)); y0 = yb; }
+    var rect = { x0: -r * hh / 2, x1: r * hh / 2, y0: y0, y1: y0 + hh };
+    // 남는 화소: 최종 사각형을 원래 센서로 되돌린 넓이 ÷ 원래 센서 넓이
+    var c = [inv(rect.x0, rect.y0), inv(rect.x1, rect.y0), inv(rect.x1, rect.y1), inv(rect.x0, rect.y1)], ar = 0;
+    for (var i = 0; i < 4; i++) { var A = c[i], B = c[(i + 1) % 4]; ar += A[0] * B[1] - B[0] * A[1]; }
+    return { quad: [tl, fwd(SF.W / 2, SF.H / 2), fwd(SF.W / 2, -SF.H / 2), bl], rect: rect, kept: Math.abs(ar) / 2 / (SF.W * SF.H), stretch: at / ab, pp: p * (1 - a) };
+  }
+  (function () {
+    var st = { m: "soft", p: 8, a: 100 };
+    var cv = AB.canvas("#sf-cv", function (ctx, w, h) {
+      var fw = w - 16, fh = fw * SF.H / SF.W;
+      if (fh > h * 0.62) { fh = h * 0.62; fw = fh * SF.W / SF.H; }
+      var sc = fw / SF.W; // 센서 mm → 화면 px
+      var view = { x: 8, y: 8, w: w - 16, h: h - 16 };
+      ctx.fillStyle = "#3a3740"; ctx.fillRect(view.x, view.y, view.w, view.h);
+      var cx = w / 2, cy = h / 2, kept = 1, stretch = 1, lean = 0;
+      var frame = { x: cx - fw / 2, y: cy - fh / 2, w: fw, h: fh };
+      function drawScene(cam, clip) {
+        ctx.save(); ctx.beginPath(); ctx.rect(clip.x, clip.y, clip.w, clip.h); ctx.clip();
+        drawSky(ctx, clip, cam); render(ctx, BUILDING, cam); ctx.restore();
+      }
+      if (st.m === "tilt") {
+        var cam = bCam(SF.dist, st.p, SF.f * sc, frame);
+        drawScene(cam, frame); lean = Math.abs(edgeLean(cam));
+      } else if (st.m === "soft") {
+        var g = corrGeom(st.p, st.a / 100);
+        // 가상 화면을 사다리꼴과 최종 사각형이 다 보이게 놓는다
+        var minY = Math.min(g.quad[2][1], g.quad[3][1]), maxY = Math.max(g.quad[0][1], g.quad[1][1]);
+        var maxX = Math.max(Math.abs(g.quad[0][0]), Math.abs(g.quad[3][0]));
+        var s2 = Math.min((view.w - 16) / (2 * maxX), (view.h - 16) / (maxY - minY));
+        var ocx = cx, ocy = view.y + 8 + maxY * s2;
+        var camV = { pos: bCam(SF.dist, 0, 1, frame).pos, yaw: -30, pitch: g.pp, f: SF.f * s2, cx: ocx, cy: ocy };
+        ctx.save(); ctx.beginPath();
+        g.quad.forEach(function (q, i) { var X = ocx + q[0] * s2, Y = ocy - q[1] * s2; if (i) ctx.lineTo(X, Y); else ctx.moveTo(X, Y); });
+        ctx.closePath(); ctx.clip();
+        ctx.fillStyle = "#dfe8ef"; ctx.fillRect(view.x, view.y, view.w, view.h);
+        render(ctx, BUILDING, camV);
+        ctx.fillStyle = "rgba(40,38,46,0.55)";
+        var R = g.rect;
+        ctx.fillRect(view.x, view.y, view.w, ocy - R.y1 * s2 - view.y);
+        ctx.fillRect(view.x, ocy - R.y0 * s2, view.w, view.y + view.h - (ocy - R.y0 * s2));
+        ctx.fillRect(view.x, ocy - R.y1 * s2, ocx + R.x0 * s2 - view.x, (R.y1 - R.y0) * s2);
+        ctx.fillRect(ocx + R.x1 * s2, ocy - R.y1 * s2, view.x + view.w - (ocx + R.x1 * s2), (R.y1 - R.y0) * s2);
+        ctx.restore();
+        ctx.strokeStyle = "#cfc8bb"; ctx.lineWidth = 1.2; ctx.beginPath();
+        g.quad.forEach(function (q, i) { var X = ocx + q[0] * s2, Y = ocy - q[1] * s2; if (i) ctx.lineTo(X, Y); else ctx.moveTo(X, Y); });
+        ctx.closePath(); ctx.stroke();
+        ctx.strokeStyle = "#3fbf7f"; ctx.lineWidth = 2.5;
+        ctx.strokeRect(ocx + R.x0 * s2, ocy - R.y1 * s2, (R.x1 - R.x0) * s2, (R.y1 - R.y0) * s2);
+        kept = g.kept; stretch = g.stretch; lean = Math.abs(edgeLean(camV));
+      } else if (st.m === "crop") {
+        var camL = bCam(SF.dist, 0, SF.f * sc, frame);
+        drawScene(camL, frame);
+        // 건물 꼭대기(화면 위 끝)부터 모퉁이 바닥 아래 4%까지를 같은 비율로
+        var base = ART.project([0, 0, 0], camL)[1] + frame.h * 0.04, cropH = Math.min(frame.h, base - frame.y), cropW = cropH * SF.W / SF.H;
+        ctx.fillStyle = "rgba(40,38,46,0.55)";
+        ctx.fillRect(frame.x, frame.y + cropH, frame.w, frame.h - cropH);
+        ctx.fillRect(frame.x, frame.y, (frame.w - cropW) / 2, cropH); ctx.fillRect(frame.x + (frame.w + cropW) / 2, frame.y, (frame.w - cropW) / 2, cropH);
+        ctx.strokeStyle = "#3fbf7f"; ctx.lineWidth = 2.5; ctx.strokeRect(frame.x + (frame.w - cropW) / 2, frame.y, cropW, cropH);
+        kept = (cropW * cropH) / (frame.w * frame.h); lean = 0;
+      } else {
+        // 시프트: 수평 카메라의 상을 위로 비켜 받는다(기울였을 때 화면 가운데가 가리키던 높이만큼)
+        var shift = SF.f * Math.tan(st.p * DEG) * sc;
+        var camS = bCam(SF.dist, 0, SF.f * sc, frame, shift);
+        drawScene(camS, frame); lean = 0;
+        tag(ctx, "렌즈를 " + AB.fix(SF.f * Math.tan(st.p * DEG), 1) + " mm 위로", frame.x + 6, frame.y + 6, { size: 11 });
+      }
+      if (st.m !== "soft") { ctx.strokeStyle = "#cfc8bb"; ctx.lineWidth = 1; ctx.strokeRect(frame.x, frame.y, frame.w, frame.h); }
+      AB.stat("sf-o-k", AB.fix(kept * 100, 0) + "<small>%</small>");
+      AB.stat("sf-o-s", AB.fix(stretch, 2) + "<small>배</small>");
+      AB.stat("sf-o-l", AB.fix(lean, 1) + "°");
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("sf-cv").parentElement.clientWidth || 600)); return Math.round(Math.max(240, Math.min(460, w * 0.8))); } });
+    AB.seg("sf-m", function (v) { st.m = v; cv.redraw(); });
+    AB.range("sf-p", function (v) { return v.toFixed(1) + "°"; }, function (v) { st.p = v; cv.redraw(); });
+    AB.range("sf-a", function (v) { return v + "%"; }, function (v) { st.a = v; cv.redraw(); });
+  })();
+
+  /* ================= 시뮬레이터 6: 주인 인물 사진 계획기 ================= */
+  (function () {
+    var CAMS = {
+      ultra: { s: SENS.ultra, f: 2.1, name: "휴대폰 0.5×" },
+      main: { s: SENS.main, f: 6.0, name: "휴대폰 1×" },
+      tele2: { s: SENS.main, f: 12.0, name: "휴대폰 2×" },
+      zoom: { s: SENS.aps, f: 35, name: "미러리스" },
+      prime: { s: SENS.aps, f: 50, name: "50 mm" },
+    };
+    var st = { c: "main", f: 35, o: "port", cx: 0, cz: OWNER.z - 0.5 - 0.09, yaw: 0 };
+    var EYE = 1.55, M, PV, grab = null;
+    function spec() { var c = CAMS[st.c]; return { s: c.s, f: st.c === "zoom" ? st.f : c.f, name: c.name }; }
+    function dims() { var c = spec(); return st.o === "land" ? [c.s.w, c.s.h] : [c.s.h, c.s.w]; }
+    function isFree(x, z) { return (z >= 0 && z <= AISLE.len && Math.abs(x) < AISLE.half) || (z < 0 && z >= AISLE.front && Math.abs(x) <= AISLE.room); }
+    function rayHit(cx, cz, yaw) { var dx = Math.sin(yaw * DEG), dz = Math.cos(yaw * DEG), t = 0; while (t < 12 && isFree(cx + dx * (t + 0.01), cz + dz * (t + 0.01))) t += 0.01; return t; }
+    function clampFree(x, z) {
+      var m = 0.12;
+      if (z > -0.05) { x = AB.clamp(x, -AISLE.half + m, AISLE.half - m); z = AB.clamp(z, -0.05, AISLE.len - m); }
+      else { x = AB.clamp(x, -AISLE.room + m, AISLE.room - m); z = AB.clamp(z, AISLE.front + m, -0.05); }
+      // 주인 몸과 겹치지 않게
+      var dx = x - OWNER.x, dz = z - OWNER.z, r = Math.hypot(dx, dz);
+      if (r < 0.3) { x = OWNER.x + dx / (r || 1) * 0.3; z = OWNER.z + (r ? dz / r : -1) * 0.3; }
+      return [x, z];
+    }
+    function planMap(box) {
+      var z0 = AISLE.front - 0.15, z1 = AISLE.len + 0.25, x0 = -AISLE.room - 0.1, x1 = AISLE.room + 0.1;
+      var sc = Math.min(box.w / (z1 - z0), box.h / (x1 - x0));
+      var ox = box.x + (box.w - sc * (z1 - z0)) / 2, oy = box.y + (box.h - sc * (x1 - x0)) / 2;
+      return { sc: sc, X: function (z) { return ox + (z - z0) * sc; }, Y: function (x) { return oy + (x - x0) * sc; }, inv: function (X, Y) { return [(Y - oy) / sc + x0, (X - ox) / sc + z0]; } };
+    }
+    function drawPlan(ctx, M) {
+      var A = AISLE;
+      ctx.fillStyle = "#efe7d8";
+      ctx.fillRect(M.X(A.front), M.Y(-A.room), M.X(0) - M.X(A.front), M.Y(A.room) - M.Y(-A.room));
+      ctx.fillRect(M.X(0), M.Y(-A.half), M.X(A.len) - M.X(0), M.Y(A.half) - M.Y(-A.half));
+      ctx.fillStyle = "#d9cbb4";
+      ctx.fillRect(M.X(0), M.Y(-A.room), M.X(A.len) - M.X(0), M.Y(-A.back) - M.Y(-A.room));
+      ctx.fillRect(M.X(0), M.Y(A.back), M.X(A.len) - M.X(0), M.Y(A.room) - M.Y(A.back));
+      ctx.fillStyle = "#a8744a";
+      ctx.fillRect(M.X(0), M.Y(-A.back), M.X(A.len) - M.X(0), M.Y(-A.half) - M.Y(-A.back));
+      ctx.fillRect(M.X(0), M.Y(A.half), M.X(A.len) - M.X(0), M.Y(A.back) - M.Y(A.half));
+      ctx.strokeStyle = "#2b2a30"; ctx.lineWidth = 1.5;
+      ctx.strokeRect(M.X(A.front), M.Y(-A.room), M.X(0) - M.X(A.front), M.Y(A.room) - M.Y(-A.room));
+      ctx.strokeStyle = "#7fa6c4"; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(M.X(A.len), M.Y(-0.32)); ctx.lineTo(M.X(A.len), M.Y(0.32)); ctx.stroke();
+      ctx.fillStyle = SHIRT; ctx.beginPath(); ctx.arc(M.X(OWNER.z), M.Y(OWNER.x), Math.max(4, 0.2 * M.sc), 0, Math.PI * 2); ctx.fill();
+      label(ctx, "주인", M.X(OWNER.z) + 8, M.Y(OWNER.x) - 22, { size: 10, color: INK });
+      label(ctx, "통로 입구", M.X(0) + 4, M.Y(-A.room) + 4, { size: 10, color: INK_DIM });
+    }
+    function drawFan(ctx, M, cx, cz, yaw, halfA) {
+      var X = M.X(cz), Y = M.Y(cx), n = Math.max(24, Math.round(halfA * 2)), P = [];
+      for (var k = 0; k <= n; k++) { var a = yaw - halfA + 2 * halfA * k / n, t = rayHit(cx, cz, a); P.push([M.X(cz + Math.cos(a * DEG) * t), M.Y(cx + Math.sin(a * DEG) * t)]); }
+      ctx.beginPath(); ctx.moveTo(X, Y); P.forEach(function (q) { ctx.lineTo(q[0], q[1]); }); ctx.closePath();
+      ctx.fillStyle = "rgba(31,111,178,0.16)"; ctx.fill();
+      ctx.strokeStyle = "#1f6fb2"; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(P[0][0], P[0][1]); ctx.lineTo(X, Y); ctx.lineTo(P[n][0], P[n][1]); ctx.stroke();
+    }
+    var cv = AB.canvas("#pp-cv", function (ctx, w, h) {
+      var side = w >= 640, gap = 12;
+      var pb = side ? { x: 8, y: 8, w: w * 0.46 - 8, h: h - 16 } : { x: 8, y: 8, w: w - 16, h: Math.round((w - 16) * 0.56) };
+      var vb = side ? { x: w * 0.46 + gap, y: 8, w: w * 0.54 - gap - 8, h: h - 16 } : { x: 8, y: pb.y + pb.h + gap, w: w - 16, h: h - pb.h - gap - 16 };
+      M = planMap(pb); drawPlan(ctx, M);
+      var c = spec(), d = dims(), half = aov(d[0], c.f) / 2;
+      drawFan(ctx, M, st.cx, st.cz, st.yaw, half);
+      var X = M.X(st.cz), Y = M.Y(st.cx), hx = X + Math.cos(st.yaw * DEG) * 30, hy = Y + Math.sin(st.yaw * DEG) * 30;
+      ctx.strokeStyle = INK; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(X, Y); ctx.lineTo(hx, hy); ctx.stroke();
+      AB.handle(ctx, X, Y, { r: 8, ring: INK }); AB.handle(ctx, hx, hy, { r: 5, ring: ACC2, fill: "#dce9f2" });
+      ctx.fillStyle = "#2a2730"; ctx.fillRect(vb.x, vb.y, vb.w, vb.h);
+      var ar = d[1] / d[0], fw = vb.w, fh = fw * ar; if (fh > vb.h) { fh = vb.h; fw = fh / ar; }
+      var fr = { x: vb.x + (vb.w - fw) / 2, y: vb.y + (vb.h - fh) / 2, w: fw, h: fh }; PV = fr;
+      var cam = { pos: [st.cx, EYE, st.cz], yaw: st.yaw, pitch: 0, f: c.f * fr.w / d[0], cx: fr.x + fr.w / 2, cy: fr.y + fr.h / 2 };
+      ctx.save(); ctx.beginPath(); ctx.rect(fr.x, fr.y, fr.w, fr.h); ctx.clip();
+      ctx.fillStyle = "#f5efe4"; ctx.fillRect(fr.x, fr.y, fr.w, fr.h);
+      render(ctx, SCENE, cam, OWNER_ITEMS); drawFaceMarks(ctx, cam);
+      ctx.restore();
+      // 판정: 주인 자리에서 화면 위 끝이 머리 위(1.70 m) 이상, 아래 끝이 1.0~1.35 m(가슴~허리), 주인이 좌우로 화면 안, 코 대 귀 1.07 이하
+      var q = ART.project([OWNER.x, 1.585, OWNER.z], cam), depth = q[2];
+      var dNose = Math.hypot(st.cx - OWNER.x, st.cz - (OWNER.z - 0.082)) - 0.03;
+      var ratio = (dNose + 0.10) / dNose;
+      var topY = depth > 0 ? EYE + (cam.cy - fr.y) * depth / cam.f : 0, botY = depth > 0 ? EYE - (fr.y + fr.h - cam.cy) * depth / cam.f : 0;
+      var inside = depth > 0.2 && [[-0.27, 1.4], [0.27, 1.4], [0, 1.69]].every(function (p) { var r = ART.project([OWNER.x + p[0], p[1], OWNER.z], cam); return r[0] >= fr.x && r[0] <= fr.x + fr.w && r[2] > 0; });
+      var frameOk = inside && topY >= 1.7 && botY >= 1.0 && botY <= 1.35;
+      var pass = frameOk && ratio <= 1.07;
+      ctx.strokeStyle = pass ? OKC : BAD; ctx.lineWidth = 3; ctx.strokeRect(fr.x + 1.5, fr.y + 1.5, fr.w - 3, fr.h - 3);
+      tag(ctx, c.name + (st.c === "zoom" ? " " + st.f + " mm" : ""), fr.x + 6, fr.y + 6, { size: 11 });
+      var eq = c.f * cropOf(c.s);
+      AB.stat("pp-o-c", (st.c === "zoom" ? st.f + " mm" : c.name) + " <small>환산 " + AB.fix(eq, 0) + "</small>");
+      AB.stat("pp-o-r", AB.fix(dNose, 2) + "<small>m</small> · " + AB.fix(ratio, 2));
+      AB.stat("pp-o-h", depth > 0.2 ? AB.fix(botY, 2) + "~" + AB.fix(topY, 2) + "<small>m</small>" : "—");
+      var msg = pass ? "통과" : !inside ? "주인이 화면 밖" : !frameOk ? (topY < 1.7 ? "머리가 잘림" : botY < 1.0 ? "너무 넓다(허리 아래까지)" : "너무 좁다(가슴이 잘림)") : "너무 가깝다(코가 큼)";
+      AB.stat("pp-o-t", '<span style="font-size:14px">' + msg + "</span>");
+    }, { bg: PAPER, get height() { var w = Math.max(200, (document.getElementById("pp-cv").parentElement.clientWidth || 600)); return w >= 640 ? Math.round(Math.min(520, w * 0.56)) : Math.round((w - 16) * 0.56 + 36 + (w - 16) * 1.05); } });
+    var segC = AB.seg("pp-c", function (v) { st.c = v; cv.redraw(); });
+    AB.range("pp-f", function (v) { return v + " mm"; }, function (v) { st.f = v; if (st.c !== "zoom") segC.set("zoom", false); st.c = "zoom"; cv.redraw(); });
+    AB.seg("pp-o", function (v) { st.o = v; cv.redraw(); });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!M) return;
+        var X = M.X(st.cz), Y = M.Y(st.cx), hx = X + Math.cos(st.yaw * DEG) * 30, hy = Y + Math.sin(st.yaw * DEG) * 30;
+        if (Math.hypot(x - hx, y - hy) < 16) grab = "dir";
+        else if (Math.hypot(x - X, y - Y) < 40 || (PV && !(x >= PV.x && x <= PV.x + PV.w && y >= PV.y && y <= PV.y + PV.h))) grab = "cam";
+        else grab = null;
+      },
+      move: function (x, y) {
+        if (!grab) return;
+        if (grab === "cam") {
+          var p = M.inv(x, y), c = clampFree(p[0], p[1]); st.cx = c[0]; st.cz = c[1];
+          // 카메라를 옮기면 주인 쪽을 겨누게 한다
+          st.yaw = Math.atan2(OWNER.x - st.cx, OWNER.z - st.cz) / DEG;
+        } else { var X = M.X(st.cz), Y = M.Y(st.cx); st.yaw = Math.atan2(y - Y, x - X) / DEG; }
+        cv.redraw();
+      },
+      end: function () { grab = null; },
+    });
+  })();
+})();
+</script>
+</body>
+</html>
