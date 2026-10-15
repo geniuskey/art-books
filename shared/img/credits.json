@@ -139,7 +139,11 @@
       "checked": "2026-10-14",
       "usedIn": [
         "color/chapters/mixing.html",
-        "history/chapters/lab.html"
+        "history/chapters/lab.html",
+        "image/chapters/color.html",
+        "image/chapters/compression.html",
+        "image/chapters/lab.html",
+        "image/chapters/light.html"
       ]
     },
     {
@@ -166,7 +170,8 @@
         "history/chapters/baroque.html",
         "history/chapters/dutch.html",
         "history/chapters/lab.html",
-        "history/chapters/overview.html"
+        "history/chapters/overview.html",
+        "image/chapters/histogram.html"
       ]
     },
     {
@@ -365,7 +370,10 @@
         "history/chapters/dutch.html",
         "history/chapters/lab.html",
         "history/chapters/overview.html",
-        "history/chapters/print.html"
+        "history/chapters/print.html",
+        "image/chapters/lab.html",
+        "image/chapters/light.html",
+        "image/chapters/overview.html"
       ]
     },
     {
@@ -685,7 +693,8 @@
         "composition/chapters/proportion.html",
         "history/chapters/lab.html",
         "history/chapters/overview.html",
-        "history/chapters/print.html"
+        "history/chapters/print.html",
+        "image/chapters/compression.html"
       ]
     },
     {
@@ -1265,7 +1274,8 @@
       "usedIn": [
         "drawing/chapters/perspective1.html",
         "history/chapters/lab.html",
-        "history/chapters/print.html"
+        "history/chapters/print.html",
+        "image/chapters/compression.html"
       ]
     },
     {
@@ -1400,7 +1410,8 @@
       "usedIn": [
         "drawing/chapters/seeing.html",
         "history/chapters/lab.html",
-        "history/chapters/renaissance.html"
+        "history/chapters/renaissance.html",
+        "image/chapters/lens.html"
       ]
     },
     {
@@ -1753,7 +1764,8 @@
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/228489",
       "checked": "2026-10-15",
       "usedIn": [
-        "type/chapters/screen.html"
+        "type/chapters/screen.html",
+        "image/chapters/pixel.html"
       ]
     },
     {
@@ -2508,7 +2520,10 @@
       "checked": "2026-10-15",
       "usedIn": [
         "history/chapters/impressionism.html",
-        "history/chapters/lab.html"
+        "history/chapters/lab.html",
+        "image/chapters/histogram.html",
+        "image/chapters/history.html",
+        "image/chapters/overview.html"
       ]
     },
     {
@@ -2554,7 +2569,8 @@
       "checked": "2026-10-15",
       "usedIn": [
         "history/chapters/korea.html",
-        "history/chapters/lab.html"
+        "history/chapters/lab.html",
+        "image/chapters/light.html"
       ]
     },
     {
@@ -2577,7 +2593,8 @@
       "checked": "2026-10-15",
       "usedIn": [
         "history/chapters/korea.html",
-        "history/chapters/lab.html"
+        "history/chapters/lab.html",
+        "image/chapters/perspective.html"
       ]
     },
     {
@@ -3245,6 +3262,314 @@
       "usedIn": [
         "history/chapters/romantic.html",
         "history/chapters/lab.html"
+      ]
+    },
+    {
+      "id": "hill-adamson-newhaven-fishwives",
+      "file": "hill-adamson-newhaven-fishwives.webp",
+      "derived": "원본 DP352694.jpg(2702×3628)를 긴 변 1600px WebP(1192×1600, 품질 80)로 줄임",
+      "title": "뉴헤이븐의 생선 장수 여인들",
+      "titleEn": "[Newhaven Fishwives]",
+      "artist": "데이비드 옥타비우스 힐과 로버트 애덤슨 (Hill and Adamson, 활동 1843–1848)",
+      "date": "ca. 1845",
+      "medium": "종이 음화에서 뜬 염화은 인화 (Salted paper print from paper negative), 29.5 x 21.7 cm (11 5/8 x 8 9/16 in.)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "The Rubel Collection, Purchase, Lila Acheson Wallace, Harriette and Noel Levine, and Alexandra R. Marshall Gifts, 1997",
+      "objectId": 282022,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP352694.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/282022",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/282022",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/composition.html"
+      ]
+    },
+    {
+      "id": "muybridge-horse-rider-galloping",
+      "file": "muybridge-horse-rider-galloping.webp",
+      "derived": "원본 DP275559.jpg(4000×2823)를 긴 변 1600px WebP(1600×1129, 품질 80)로 줄임",
+      "title": "질주하는 말과 기수(『동물의 운동』 도판)",
+      "titleEn": "[Horse and Rider Galloping]",
+      "artist": "에드워드 머이브리지 (Eadweard Muybridge, 1830–1904)",
+      "date": "1883–86, printed 1887",
+      "medium": "콜로타입 (Collotype)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Rogers Fund, transferred from the Library",
+      "objectId": 266441,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP275559.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/266441",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/266441",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/composition.html"
+      ]
+    },
+    {
+      "id": "anthony-broadway-rain",
+      "file": "anthony-broadway-rain.webp",
+      "derived": "원본 DP218027.jpg(3871×2123, 입체 사진 카드 전체)를 긴 변 1600px WebP(1600×877, 품질 78)로 줄임",
+      "title": "[비 오는 브로드웨이, 아마도 뉴욕 브로드웨이 308번지 또는 310번지에서 촬영]",
+      "titleEn": "[Broadway in the Rain, likely taken from 308 or 310 Broadway, New York City]",
+      "artist": "에드워드 앤서니 (Edward Anthony, 1818–1888)",
+      "date": "1860년대경 (ca. 1860s)",
+      "medium": "알부민 은염 인화, 입체 사진 카드 (Albumen silver print)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Warner Communications Inc. Purchase Fund, 1980",
+      "objectId": 262762,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP218027.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/262762",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/262762",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/exposure.html"
+      ]
+    },
+    {
+      "id": "cameron-thomas-carlyle",
+      "file": "cameron-thomas-carlyle.webp",
+      "derived": "The Met 대표 이미지(DP295239.jpg, 2474×3069)를 긴 변 1600px WebP(1290×1600, 품질 78)로 줄임",
+      "title": "토머스 칼라일",
+      "titleEn": "Thomas Carlyle",
+      "artist": "줄리아 마거릿 캐머런 (Julia Margaret Cameron, 1815–1879)",
+      "date": "1867",
+      "medium": "카본 인화 (Carbon print), 35.0 × 28.1 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Alfred Stieglitz Collection, 1949",
+      "objectId": 269434,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP295239.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/269434",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/269434",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/focus.html"
+      ]
+    },
+    {
+      "id": "southworth-hawes-miss-hodges",
+      "file": "southworth-hawes-miss-hodges.webp",
+      "derived": "원본 DP-32076-001.jpg(2432×3196)를 긴 변 1600px WebP(1218×1600, 품질 80)로 줄임",
+      "title": "세일럼의 호지스 양",
+      "titleEn": "Miss Hodges of Salem",
+      "artist": "사우스워스 앤드 호스 (Southworth and Hawes, 활동 1843–1863)",
+      "date": "ca. 1850",
+      "medium": "다게레오타입 (Daguerreotype), 21.6 x 16.5 cm (8 1/2 x 6 1/2 in.)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of I. N. Phelps Stokes, Edward S. Hawes, Alice Mary Hawes, and Marion Augusta Hawes, 1937",
+      "objectId": 268318,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP-32076-001.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/268318",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/268318",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "choiselat-defile-pont-royal",
+      "file": "choiselat-defile-pont-royal.webp",
+      "derived": "원본 DP237990.jpg(2581×3161)를 긴 변 1600px WebP(1306×1600, 품질 80)로 줄임",
+      "title": "퐁루아얄 다리 위의 행렬",
+      "titleEn": "Défilé sur le Pont-Royal",
+      "artist": "마리샤를이시도르 슈아즐라 (Marie-Charles-Isidore Choiselat, 1815–1858)",
+      "date": "May 1, 1844",
+      "medium": "다게레오타입 (Daguerreotype), Image: 6 1/16 × 4 7/16 in. (15.4 × 11.3 cm)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gilman Collection, Gift of The Howard Gilman Foundation, 2005",
+      "objectId": 286110,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP237990.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/286110",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/286110",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "talbot-fruit-sellers",
+      "file": "talbot-fruit-sellers.webp",
+      "derived": "원본 DP148630.jpg(3160×2574)를 긴 변 1600px WebP(1600×1303, 품질 80)로 줄임",
+      "title": "과일 장수들",
+      "titleEn": "The Fruit Sellers",
+      "artist": "윌리엄 헨리 폭스 탤벗 (William Henry Fox Talbot, 1800–1877)",
+      "date": "ca. 1845",
+      "medium": "종이 음화에서 뜬 염화은 인화 (Salted paper print from paper negative), 17.1 x 21.1 cm (6 3/4 x 8 5/16 in. )",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gilman Collection, Purchase, Harriette and Noel Levine Gift, 2005",
+      "objectId": 283067,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP148630.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/283067",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/283067",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "atkins-spiraea-aruncus",
+      "file": "atkins-spiraea-aruncus.webp",
+      "derived": "원본 DP-510-024.jpg(2779×3907)를 긴 변 1600px WebP(1138×1600, 품질 80)로 줄임",
+      "title": "스피라이아 아룬쿠스(티롤)",
+      "titleEn": "Spiraea aruncus (Tyrol)",
+      "artist": "애나 앳킨스 (Anna Atkins, 1799–1871)",
+      "date": "1851–54",
+      "medium": "시아노타입 (Cyanotype), Image: 35.1 x 24.6 cm (13 13/16 x 9 11/16 in.)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Purchase, Alfred Stieglitz Society Gifts, 2004",
+      "objectId": 285421,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP-510-024.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/285421",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/285421",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "cameron-circe",
+      "file": "cameron-circe.webp",
+      "derived": "원본 DT6532.jpg(2853×3722)를 긴 변 1600px WebP(1226×1600, 품질 80)로 줄임",
+      "title": "키르케",
+      "titleEn": "Circe",
+      "artist": "줄리아 마거릿 캐머런 (Julia Margaret Cameron, 1815–1879)",
+      "date": "1865",
+      "medium": "유리 음화에서 뜬 알부민 은염 인화 (Albumen silver print from glass negative), 25.3 x 20.1 cm. (9  15/16  x 7  15/16  in.)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Bequest of James David Nelson, in memory of Samuel J. Wagstaff Jr., 1988",
+      "objectId": 266257,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DT6532.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/266257",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/266257",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "muybridge-attitudes-animals-motion",
+      "file": "muybridge-attitudes-animals-motion.webp",
+      "derived": "원본 DP-2597-211.jpg(3484×2744)를 긴 변 1600px WebP(1600×1260, 품질 80)로 줄임",
+      "title": "움직이는 동물의 자세",
+      "titleEn": "Attitudes of Animals in Motion",
+      "artist": "에드워드 머이브리지 (Eadweard Muybridge, 1830–1904)",
+      "date": "1879, printed 1881",
+      "medium": "알부민 은염 인화 (Albumen silver print), Image: 6 5/16 × 9 15/16 in. (16 × 25.3 cm)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of Joyce F. Menschel, 2015",
+      "objectId": 700109,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP-2597-211.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/700109",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/700109",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "amateur-snapshot-album-1890",
+      "file": "amateur-snapshot-album-1890.webp",
+      "derived": "원본 DP110391.jpg(3950×3379)를 긴 변 1600px WebP(1600×1369, 품질 80)로 줄임",
+      "title": "아마추어 스냅 사진첩",
+      "titleEn": "[Amateur Snapshot Album]",
+      "artist": "작가 미상, 미국 (Unknown, American)",
+      "date": "1890–92",
+      "medium": "시아노타입과 젤라틴 은염 인화 (Cyanotypes; gelatin silver prints), 28.3 x 36.8 x 2.8 cm (11 1/8 x 14 1/2 x 1 1/8 in.)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Funds from various donors, 1997",
+      "objectId": 281975,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP110391.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/281975",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/281975",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "japan-bugaku-performer-applied-color",
+      "file": "japan-bugaku-performer-applied-color.webp",
+      "derived": "원본 DP71210.jpg(2514×3180)를 긴 변 1600px WebP(1265×1600, 품질 80)로 줄임",
+      "title": "부가쿠 의상을 입은 연기자",
+      "titleEn": "[Performer in Bugaku-style Costume]",
+      "artist": "작가 미상, 일본 (Unknown, Japanese)",
+      "date": "1880s",
+      "medium": "채색을 더한 알부민 은염 인화 (Albumen silver print with applied color)",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Mrs. Jackson Burke Gift, 1983",
+      "objectId": 263532,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP71210.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/263532",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/263532",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/history.html"
+      ]
+    },
+    {
+      "id": "baldus-arles-cloister",
+      "file": "baldus-arles-cloister.webp",
+      "derived": "원본 DP138006.jpg(3803×3162)를 긴 변 1600px WebP(1600×1330, 품질 80)로 줄임",
+      "title": "아를, 생트로핀 회랑",
+      "titleEn": "Arles, Cloitre St. Trophime",
+      "artist": "에두아르 발뒤스 (Edouard Baldus, 1813–1889)",
+      "date": "1861년경 (ca. 1861)",
+      "medium": "유리 음화에서 뜬 알부민 은염 인화 (Albumen silver print from glass negative), 33.2 × 42.5 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gilman Collection, Gift of The Howard Gilman Foundation, 2005",
+      "objectId": 283136,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP138006.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/283136",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/283136",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/lens.html"
+      ]
+    },
+    {
+      "id": "baldus-arc-orange",
+      "file": "baldus-arc-orange.webp",
+      "derived": "원본 DP163224.jpg(3866×2955)를 긴 변 1600px WebP(1600×1223, 품질 80)로 줄임",
+      "title": "오랑주의 고대 개선문",
+      "titleEn": "Arc antique à Orange",
+      "artist": "에두아르 발뒤스 (Edouard Baldus, 1813–1889)",
+      "date": "1853",
+      "medium": "종이 음화에서 뜬 염화은 인화 (Salted paper print from paper negative), 32.4 × 42.4 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Purchase, The Horace W. Goldsmith Foundation Gift, through Joyce and Robert Menschel, 2006",
+      "objectId": 287985,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ph/original/DP163224.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/287985",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/287985",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "image/chapters/perspective.html"
       ]
     }
   ]
