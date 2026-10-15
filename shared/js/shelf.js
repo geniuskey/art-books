@@ -20,7 +20,7 @@ window.AB_SHELF = {
     { order: 5, path: "history", title: "ArtHistoryBook", sub: "미술사", status: "published", motif: "timeline",
       desc: "사조의 흐름을 색·구도·기법의 변화로 읽는다.",
       topics: ["사조의 흐름", "색의 변화", "구도의 변화", "기법의 변화"] },
-    { order: 6, path: "image", title: "ImageBook", sub: "사진과 이미지", status: "writing", motif: "aperture",
+    { order: 6, path: "image", title: "ImageBook", sub: "사진과 이미지", status: "published", motif: "aperture",
       desc: "노출, 렌즈와 원근, 색 보정, 디지털 이미지의 구조.",
       topics: ["노출", "렌즈와 원근", "색 보정", "디지털 이미지"] },
   ],

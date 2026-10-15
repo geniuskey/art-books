@@ -1,0 +1,11 @@
+{
+  "id": "artbook-image",
+  "title": "ArtBook 사진과 이미지",
+  "description": "사진은 빛을 숫자로 받아 적는 일이다. 노출, 히스토그램, 사진의 빛, 초점거리와 화각, 거리와 원근, 초점과 심도, 화소와 센서, 색 보정, 해상도와 압축, 사진의 구도, 사진의 역사까지. 서윤의 겨울 촬영 노트를 따라 셔터를 누르고 화소를 들여다보며 배우는 사진과 디지털 이미지 교과서(ImageBook).",
+  "url": "https://artbook.euiyun.com/image/",
+  "repo": "https://github.com/geniuskey/artbook",
+  "path": "image/",
+  "field": "art",
+  "status": "published",
+  "domain": "artbook.euiyun.com"
+}

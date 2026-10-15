@@ -402,9 +402,9 @@
       "창의 낮빛과 전구 빛이 섞인 장면이라, 전구 빛을 지우는 비율이 창의 흰색에도 똑같이 곱해져 빨강만 준다. 한 번의 화이트 밸런스로 두 빛을 다 맞출 수는 없다. 서윤은 4,600 K에서 멈춰 실내의 따뜻함을 조금 남겼다."],
   ];
   var box = document.getElementById("final");
-  // 정답 자리가 한쪽에 몰리지 않도록 문제마다 보기 순서를 정해진 만큼 돌려 보여 준다(무작위가 아니라 늘 같은 순서).
+  // 정답 자리가 한쪽에 몰리지 않도록 글로 된 보기는 문제마다 정해진 만큼 돌려 보여 준다(무작위가 아니라 늘 같은 순서). 숫자 보기는 크기 순서를 지킨다.
   box.innerHTML = Q.map(function (q, i) {
-    var n = q[3].length, sh = (i * 3 + 1) % n, order = q[3].map(function (_, k) { return (k + sh) % n; });
+    var n = q[3].length, num = q[3].every(function (o) { return /^(약 )?[\d.,/]/.test(o); }), sh = num ? 0 : (i * 3 + 1) % n, order = q[3].map(function (_, k) { return (k + sh) % n; });
     return '<div class="quiz-q" data-i="' + i + '"><p>' + (i + 1) + ". " + esc(q[2]) + '</p><div class="opts">' + order.map(function (k) {
       return '<button class="opt"' + (k === q[4] ? " data-correct" : "") + ">" + esc(q[3][k]) + "</button>";
     }).join("") + '</div><div class="quiz-exp">' + esc(q[5]) + " " + chLink(q[1]) + "</div></div>";

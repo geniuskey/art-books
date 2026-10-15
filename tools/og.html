@@ -15,8 +15,8 @@
   .url { position: absolute; left: 72px; bottom: 54px; font: 600 24px var(--mono); color: #8f8b98; }
   .art { display: grid; place-items: center; }
   .art svg { width: 520px; height: auto; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.18); }
-  .grid { display: grid; grid-template-columns: 250px 250px; gap: 16px; }
-  .grid svg { width: 250px; border-radius: 14px; box-shadow: 0 10px 26px rgba(0,0,0,.16); }
+  .grid { display: grid; grid-template-columns: repeat(2, 230px); gap: 14px; }
+  .grid svg { width: 230px; border-radius: 14px; box-shadow: 0 10px 26px rgba(0,0,0,.16); }
 </style></head>
 <body><div class="og" id="og"></div>
 <script>
@@ -33,6 +33,6 @@
   if (bk) {
     el.innerHTML = '<div class="txt"><div class="ey">ARTBOOK ' + bk[0] + ' · ' + bk[1] + '</div><h1>' + bk[2] + '</h1><p>' + bk[3] + '</p></div><div class="art">' + AB_COVERS[bk[4]]() + '</div><div class="url">artbook.euiyun.com/' + page + '</div>';
   } else {
-    el.innerHTML = '<div class="txt"><div class="ey">ARTBOOK</div><h1>보고, 만지고,<br><span>그려 보며 배우는 미술</span></h1><p>색채, 구도, 드로잉, 타이포그래피, 미술사, 이미지. 미술·시각 디자인 인터랙티브 교과서 서가.</p></div><div class="art"><div class="grid">' + ["wheel", "spiral", "perspective", "glyph"].map(function (m) { return AB_COVERS[m](); }).join("") + '</div></div><div class="url">artbook.euiyun.com</div>';
+    el.innerHTML = '<div class="txt"><div class="ey">ARTBOOK</div><h1>보고, 만지고,<br><span>그려 보며 배우는 미술</span></h1><p>색채, 구도, 드로잉, 타이포그래피, 미술사, 이미지. 여섯 권의 미술·시각 디자인 인터랙티브 교과서.</p></div><div class="art"><div class="grid">' + ["wheel", "spiral", "perspective", "glyph", "timeline", "aperture"].map(function (m) { return AB_COVERS[m](); }).join("") + '</div></div><div class="url">artbook.euiyun.com</div>';
   }
 </script></body></html>
