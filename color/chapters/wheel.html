@@ -1,0 +1,681 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "화가의 RYB 색상환과 지각 색상환(OKLCH)은 보색을 다르게 말한다. 두 색상환을 나란히 돌려 보고, 잔상으로 보색을 확인하고, 보색·유사·삼각·분할 보색 공식을 끝까지 밀어 그 한계를 본 뒤, 색상환 밖의 체계인 오방색까지 살펴본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>색상환과 조화 · ColorBook</title>
+<meta name="description" content="화가의 RYB 색상환과 지각 색상환(OKLCH)은 보색을 다르게 말한다. 두 색상환을 나란히 돌려 보고, 잔상으로 보색을 확인하고, 보색·유사·삼각·분할 보색 공식을 끝까지 밀어 그 한계를 본 뒤, 색상환 밖의 체계인 오방색까지 살펴본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/wheel.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="색상환과 조화 · ColorBook">
+<meta property="og:description" content="화가의 RYB 색상환과 지각 색상환(OKLCH)은 보색을 다르게 말한다. 두 색상환을 나란히 돌려 보고, 잔상으로 보색을 확인하고, 보색·유사·삼각·분할 보색 공식을 끝까지 밀어 그 한계를 본 뒤, 색상환 밖의 체계인 오방색까지 살펴본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/wheel.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/wheel.html#chapter","name":"색상환과 조화","headline":"색상환과 조화 · ColorBook","description":"화가의 RYB 색상환과 지각 색상환(OKLCH)은 보색을 다르게 말한다. 두 색상환을 나란히 돌려 보고, 잔상으로 보색을 확인하고, 보색·유사·삼각·분할 보색 공식을 끝까지 밀어 그 한계를 본 뒤, 색상환 밖의 체계인 오방색까지 살펴본다.","url":"https://artbook.euiyun.com/color/chapters/wheel.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"5. 색상환과 조화","item":"https://artbook.euiyun.com/color/chapters/wheel.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="wheel">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 05</div>
+    <h1>색상환과 조화</h1>
+    <p class="lead">미술 시간에 받은 색상환에서 빨강의 맞은편은 초록이었다. 그런데 디자인 프로그램의 색상환에서 빨강의 맞은편은 청록이고, 빨간 종이를 한참 보다가 흰 벽을 보면 떠오르는 잔상도 청록에 가깝다. 어느 쪽이 "진짜" 보색일까. 이 장은 색상환이 하나가 아니라는 데서 출발해, 색상환 위의 도형으로 배색을 만드는 공식들을 직접 돌려 보고, 그 공식이 어디서 잘 맞고 어디서 무너지는지를 확인한다.</p>
+    <ul class="objectives">
+      <li>화가의 RYB 색상환과 지각 색상환(OKLCH)이 색상을 다르게 배치하는 이유를 설명한다.</li>
+      <li>"보색"에 섞어서 회색이 되는 짝, 빛으로 더해 흰색이 되는 짝, 잔상으로 보이는 짝이 있음을 구별한다.</li>
+      <li>보색·유사색·삼각·분할 보색 배색을 만들고, 같은 공식이 색상환에 따라 다른 결과를 내는 것을 본다.</li>
+      <li>조화 공식이 명도와 채도를 정해 주지 않는다는 한계와, 조화에 관한 연구의 근거 수준을 안다.</li>
+      <li>오방색처럼 색상환이 아닌 방식으로 색을 묶는 체계를 살펴본다.</li>
+    </ul>
+  </header>
+
+  <section id="wheels">
+    <h2>색상환은 하나가 아니다</h2>
+    <p>무지개의 색을 띠로 늘어놓으면 빨강에서 시작해 보라에서 끝난다. 그런데 보라와 빨강 사이에는 자주·마젠타처럼 무지개에 없는 색이 있고, 이 색들로 두 끝을 이으면 띠가 고리가 된다. 이것이 <span class="term">색상환</span><span class="en">(Color wheel)</span>이다. 색상환은 색의 "색상"(빨강·노랑·초록 같은 색의 종류)만 골라 둥글게 늘어놓은 지도다. 뉴턴<span class="en">(Isaac Newton)</span>이 『광학』<span class="en">(Opticks, 1704)</span>에서 스펙트럼의 색을 원 위에 배치한 뒤로 수많은 색상환이 만들어졌다.</p>
+    <p>문제는 원 위에 색을 "어떤 간격으로" 놓느냐다. 화가와 미술 교육에서 오래 써 온 색상환은 빨강·노랑·파랑(RYB)을 세 원색으로 삼아 고르게 120°씩 놓고, 그 사이를 주황·초록·보라로 채운다. 바우하우스의 교사였던 요하네스 이텐<span class="en">(Johannes Itten, 1888–1967)</span>이 『색채의 예술』<span class="en">(Kunst der Farbe, 1961)</span>에서 제시한 12색상환이 대표적이다. 이 책은 이 계열을 <span class="term">RYB 색상환</span><span class="en">(RYB color wheel)</span>이라고 부른다. 반면 디자인 도구의 HSL 색상환은 화면의 빨강·초록·파랑 빛을 기준으로 놓고, <a href="models.html">3장</a>에서 만난 OKLCH 같은 지각 색상환은 사람이 느끼는 색상 차이가 고르도록 각도를 정한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="RYB 12색상환의 열두 칸이 지각 색상환 위에서 어디에 놓이는지 잇는 그림">
+        <defs><linearGradient id="wh-okstrip" x1="0" x2="1" y1="0" y2="0"><stop offset="0.000" stop-color="#e680a1"/><stop offset="0.042" stop-color="#ea808a"/><stop offset="0.083" stop-color="#eb8373"/><stop offset="0.125" stop-color="#e7885d"/><stop offset="0.167" stop-color="#df8f48"/><stop offset="0.208" stop-color="#d49838"/><stop offset="0.250" stop-color="#c4a032"/><stop offset="0.292" stop-color="#b1a93a"/><stop offset="0.333" stop-color="#9ab04b"/><stop offset="0.375" stop-color="#80b761"/><stop offset="0.417" stop-color="#62bb78"/><stop offset="0.458" stop-color="#3fbe90"/><stop offset="0.500" stop-color="#06bfa8"/><stop offset="0.542" stop-color="#00bdbe"/><stop offset="0.583" stop-color="#00bad1"/><stop offset="0.625" stop-color="#22b5e1"/><stop offset="0.667" stop-color="#4baeed"/><stop offset="0.708" stop-color="#6aa7f4"/><stop offset="0.750" stop-color="#859ff6"/><stop offset="0.792" stop-color="#9d98f2"/><stop offset="0.833" stop-color="#b191ea"/><stop offset="0.875" stop-color="#c38adc"/><stop offset="0.917" stop-color="#d285cb"/><stop offset="0.958" stop-color="#de82b7"/><stop offset="1.000" stop-color="#e680a1"/></linearGradient></defs>
+        <text x="30" y="34" class="lbl-b">RYB 12색상환: 열두 칸을 고르게</text>
+        <rect x="30.0" y="44" width="33.3" height="30" fill="#ec1313"/><path d="M46.7 76L61.8 164" class="s-line"/><rect x="63.3" y="44" width="33.3" height="30" fill="#ec4913"/><path d="M80.0 76L70.3 164" class="s-line"/><rect x="96.7" y="44" width="33.3" height="30" fill="#ec8013"/><path d="M113.3 76L92.6 164" class="s-line"/><rect x="130.0" y="44" width="33.3" height="30" fill="#ecb613"/><path d="M146.7 76L126.0 164" class="s-line"/><rect x="163.3" y="44" width="33.3" height="30" fill="#ecec13"/><path d="M180.0 76L151.9 164" class="s-line"/><rect x="196.7" y="44" width="33.3" height="30" fill="#80ec13"/><path d="M213.3 76L179.8 164" class="s-line"/><rect x="230.0" y="44" width="33.3" height="30" fill="#13ec13"/><path d="M246.7 76L188.4 164" class="s-line"/><rect x="263.3" y="44" width="33.3" height="30" fill="#13ecda"/><path d="M280.0 76L235.5 164" class="s-line"/><rect x="296.7" y="44" width="33.3" height="30" fill="#1337ec"/><path d="M313.3 76L324.8 164" class="s-line"/><rect x="330.0" y="44" width="33.3" height="30" fill="#4913ec"/><path d="M346.7 76L339.0 164" class="s-line"/><rect x="363.3" y="44" width="33.3" height="30" fill="#a413ec"/><path d="M380.0 76L373.1 164" class="s-line"/><rect x="396.7" y="44" width="33.3" height="30" fill="#ec13a4"/><path d="M413.3 76L416.5 164" class="s-line"/>
+        <rect x="30" y="178" width="400" height="16" rx="3" fill="url(#wh-okstrip)"/>
+        <circle cx="61.8" cy="170" r="6" fill="#ec1313" stroke="#ffffff" stroke-width="1.5"/><circle cx="70.3" cy="170" r="6" fill="#ec4913" stroke="#ffffff" stroke-width="1.5"/><circle cx="92.6" cy="170" r="6" fill="#ec8013" stroke="#ffffff" stroke-width="1.5"/><circle cx="126.0" cy="170" r="6" fill="#ecb613" stroke="#ffffff" stroke-width="1.5"/><circle cx="151.9" cy="170" r="6" fill="#ecec13" stroke="#ffffff" stroke-width="1.5"/><circle cx="179.8" cy="170" r="6" fill="#80ec13" stroke="#ffffff" stroke-width="1.5"/><circle cx="188.4" cy="170" r="6" fill="#13ec13" stroke="#ffffff" stroke-width="1.5"/><circle cx="235.5" cy="170" r="6" fill="#13ecda" stroke="#ffffff" stroke-width="1.5"/><circle cx="324.8" cy="170" r="6" fill="#1337ec" stroke="#ffffff" stroke-width="1.5"/><circle cx="339.0" cy="170" r="6" fill="#4913ec" stroke="#ffffff" stroke-width="1.5"/><circle cx="373.1" cy="170" r="6" fill="#a413ec" stroke="#ffffff" stroke-width="1.5"/><circle cx="416.5" cy="170" r="6" fill="#ec13a4" stroke="#ffffff" stroke-width="1.5"/>
+        <text x="30" y="214" class="lbl-b">지각 색상환(OKLCH 색상각 0°→360°)</text>
+        <text x="30" y="234" class="lbl-dim">빨강~노랑에 다섯 칸이 몰리고, 청록~파랑 사이는 크게 비어 있다</text>
+      </svg>
+      <figcaption><b>그림 1. RYB 색상환의 열두 칸은 지각 색상환에서 고르지 않다.</b> 위 띠는 이 책이 정한 RYB↔화면 색상 대응표(<code>ART.rybToHue</code>, 이텐식 배치를 화면 색상각에 맞춘 이 책의 약속이며 표준은 아니다)로 칠한 12색이다. 각 칸을 OKLCH 색상각 위에 옮기면(아래 점) 빨강·주황·노랑 사이에 다섯 칸이 몰리고, 초록 다음의 청록(185°)과 파랑(265°) 사이는 80° 넘게 비어 있다. RYB 색상환은 따뜻한 색을 잘게, 청록·파랑 쪽을 크게 뭉뚱그려 나눈 지도다.</figcaption>
+    </figure>
+
+    <p>이 차이 때문에 "맞은편"도 달라진다. 아래 시뮬레이터의 두 원은 같은 색을 두 색상환에 동시에 표시한다. 한쪽 원 위의 손잡이를 끌면 다른 원 위의 같은 색도 따라 움직이고, 각 원의 맞은편(보색)이 함께 표시된다.</p>
+
+    <div class="sim" id="sim-wh-two">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>두 색상환, 두 보색</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="wh-tw-cv"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">둘레의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="wh-tw-pre"><button data-value="0" class="on">빨강</button><button data-value="120">노랑</button><button data-value="198.5">책방 초록 색상</button><button data-value="240">파랑</button></div>
+          <label class="check"><input type="checkbox" id="wh-tw-line" checked> 맞은편 잇기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 색</span><span class="v" id="wh-tw-o0">—</span></div>
+        <div class="stat"><span class="k">RYB 색상환의 보색</span><span class="v" id="wh-tw-o1">—</span></div>
+        <div class="stat"><span class="k">OKLCH 색상환의 보색</span><span class="v" id="wh-tw-o2">—</span></div>
+        <div class="stat"><span class="k">두 보색의 차이 ΔE2000</span><span class="v" id="wh-tw-o3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 빨강에서 RYB의 보색은 초록, OKLCH의 보색은 청록이다. 두 보색의 차이가 30을 넘는다. ② 노랑으로 바꾼다. RYB는 보라, OKLCH는 남보라에 가까운 파랑을 고른다. ③ 손잡이를 RYB 원 위에서 천천히 한 바퀴 돌린다. OKLCH 원 위의 같은 색은 빨강~노랑 구간에서는 느리게, 초록~파랑 구간에서는 갑자기 크게 건너뛴다(그림 1). (RYB 원의 색은 HSL 채도 85%·명도 50%로 칠했다. OKLCH의 보색은 고른 색의 명도와 채도를 지키고 색상만 180° 돌린 뒤 화면 안으로 맞춘 값이다.)</div>
+    </div>
+
+    <p>어느 쪽이 맞을까. 둘 다 틀리지 않았다. 다만 답하는 질문이 다르다. RYB 색상환은 "물감을 섞을 때 서로를 지워 회색을 만드는 짝"에 가깝게 만들어진 화가의 경험 지도다(빨강 물감과 초록 물감을 섞으면 진흙색이 된다, <a href="mixing.html">4장</a>). OKLCH 색상환은 "사람이 느끼는 색상 차이"를 고르게 나눈 지각의 지도이고, 그 맞은편은 빛의 보색과 잔상의 색에 더 가깝다. 어떤 일을 하느냐에 따라 맞는 지도를 고른다.</p>
+  </section>
+
+  <section id="complement">
+    <h2>보색: 마주 보는 두 색</h2>
+    <p><span class="term">보색</span><span class="en">(Complementary colors)</span>은 색상환에서 서로 마주 보는 두 색이다. 그런데 "마주 본다"를 정하는 방법이 적어도 세 가지 있다. 첫째, 두 물감을 섞으면 회색이 되는 짝(물감의 보색). 둘째, 두 빛을 더하면 흰빛이 되는 짝(빛의 보색). 셋째, 한 색을 오래 보고 난 뒤 흰 바탕에 떠오르는 잔상의 색(잔상의 보색). 셋은 비슷하지만 같지 않다. 괴테<span class="en">(J. W. von Goethe)</span>는 『색채론』<span class="en">(Zur Farbenlehre, 1810)</span>에서 눈이 한 색을 본 뒤 그 반대편 색을 "요구한다"며 잔상을 색 조화의 근거로 삼았고, 이 생각은 뒤의 많은 색채 교육에 영향을 주었다.</p>
+    <p>잔상을 직접 만들어 본다. 아래 그림의 가운데 검은 점을 시작 단추를 누른 뒤 정해진 시간 동안 눈을 떼지 말고 바라본다. 시간이 끝나면 색이 사라지고 빈 바탕만 남는다. 그때 무슨 색이 떠오르는지 본다.</p>
+
+    <div class="sim" id="sim-wh-after" data-mono="off">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>잔상으로 보는 보색</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="wh-af-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="wh-af-col"><button data-value="#d8342c" class="on">빨강</button><button data-value="#e8c21e">노랑</button><button data-value="#2f7d5b">책방 초록</button><button data-value="#2f5bd0">파랑</button></div>
+          <label class="ctrl"><span>바라보는 시간 <output id="wh-af-t-out"></output></span><input type="range" id="wh-af-t" min="5" max="30" step="1" value="20"></label>
+          <button class="btn" id="wh-af-go" type="button">시작</button>
+          <label class="check"><input type="checkbox" id="wh-af-ans"> 끝난 뒤 두 보색 견본 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">상태</span><span class="v" id="wh-af-o0">—</span></div>
+        <div class="stat"><span class="k">RYB 보색</span><span class="v" id="wh-af-o1">—</span></div>
+        <div class="stat"><span class="k">OKLCH 보색</span><span class="v" id="wh-af-o2">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 빨강으로 20초를 채운다. 바탕만 남으면 같은 자리에 청록빛 원이 잠깐 떠오른다. ② "끝난 뒤 두 보색 견본 보기"를 켜고 다시 한다. 잔상의 색이 RYB의 초록과 OKLCH의 청록 중 어느 쪽에 더 가까웠는지 스스로 판단한다. 흔히 청록 쪽으로 보인다고 한다. ③ 노랑으로 해 본다. 잔상은 보라라기보다 푸른빛에 가깝다. 시간을 5초로 줄이면 잔상이 약해지고, 30초로 늘리면 더 오래 남는다. (잔상의 색은 사람마다, 화면 밝기와 주변 조명에 따라 다르다. 눈이 불편하면 바로 멈춘다. 이 시뮬레이터는 깜빡이지 않는다.)</div>
+    </div>
+
+    <div class="callout deep">
+      <strong>잔상은 왜 생기나</strong>
+      한 색을 오래 보면 그 색에 강하게 반응하던 원뿔세포의 신호가 지쳐 약해진다. 빨강을 오래 본 자리에서는 긴 파장(L) 원뿔세포의 반응이 둔해진 상태라서, 흰 바탕을 보면 나머지 원뿔세포의 신호가 상대적으로 커지고 그 차이가 청록으로 읽힌다. 시각 신호가 "빨강–초록", "노랑–파랑"처럼 서로 반대되는 짝으로 처리된다는 <span class="term">반대색 이론</span><span class="en">(Opponent-process theory)</span>은 19세기 헤링<span class="en">(Ewald Hering)</span>이 제안했고, 20세기 중반 허비치와 제임슨<span class="en">(Hurvich &amp; Jameson, 1957)</span>의 실험으로 정량적인 근거를 얻었다. 잔상의 색은 대체로 빛의 보색 쪽이지만, 정확한 색은 원래 색의 밝기, 바라본 시간, 바탕의 밝기에 따라 달라진다. 그래서 잔상도 색상환 하나를 "증명"하지는 않는다.
+    </div>
+
+    <div class="callout try">
+      <strong>색종이 잔상과 물감 보색 비교</strong>
+      빨강, 노랑, 초록, 파랑 색종이를 손바닥만 하게 오려 흰 종이 위에 하나씩 놓는다. 가운데에 연필로 점을 찍고 30초 바라본 뒤 색종이를 치우고 같은 점을 본다. 떠오른 잔상의 색을 옆에 색연필로 적는다. 다음으로 빨강 물감과 초록 물감, 빨강 물감과 청록 물감을 각각 섞어 어느 쪽이 더 회색에 가까운지 칠해 본다. 잔상의 짝과 물감의 짝이 같은지 다른지 기록해 둔다. 이 기록이 내 손과 눈의 보색표다.
+    </div>
+  </section>
+
+  <section id="schemes">
+    <h2>색상환 위의 도형: 배색 공식</h2>
+    <p>색상환이 생기자 사람들은 그 위에 도형을 그려 어울리는 색을 고르기 시작했다. 원 위에 점 두 개, 세 개, 네 개를 일정한 각도로 찍고 그 자리의 색을 함께 쓰는 방법이다. 이 장에서는 이것을 <span class="term">배색 공식</span><span class="en">(Color harmony schemes)</span>이라고 부른다. 가장 흔히 쓰는 네 가지는 다음과 같다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 190" role="img" aria-label="보색, 유사색, 삼각 배색, 분할 보색을 원 위의 점과 도형으로 나타낸 그림">
+        <circle cx="60" cy="86" r="42" class="s-axis"/><path d="M60.0 44.0L60.0 128.0" class="s-acc" fill="none"/><circle cx="60.0" cy="44.0" r="7" class="f-acc"/><circle cx="60.0" cy="128.0" r="5.5" class="f-acc2"/><text x="60" y="152" text-anchor="middle" class="lbl-b">보색</text><text x="60" y="170" text-anchor="middle" class="lbl-dim t-mono">0° +180°</text>
+        <circle cx="173" cy="86" r="42" class="s-axis"/><path d="M152.0 49.6L173.0 44.0L194.0 49.6Z" class="s-acc" fill="none"/><circle cx="152.0" cy="49.6" r="5.5" class="f-acc2"/><circle cx="173.0" cy="44.0" r="7" class="f-acc"/><circle cx="194.0" cy="49.6" r="5.5" class="f-acc2"/><text x="173" y="152" text-anchor="middle" class="lbl-b">유사색</text><text x="173" y="170" text-anchor="middle" class="lbl-dim t-mono">-30° 0° +30°</text>
+        <circle cx="286" cy="86" r="42" class="s-axis"/><path d="M286.0 44.0L322.4 107.0L249.6 107.0Z" class="s-acc" fill="none"/><circle cx="286.0" cy="44.0" r="7" class="f-acc"/><circle cx="322.4" cy="107.0" r="5.5" class="f-acc2"/><circle cx="249.6" cy="107.0" r="5.5" class="f-acc2"/><text x="286" y="152" text-anchor="middle" class="lbl-b">삼각 배색</text><text x="286" y="170" text-anchor="middle" class="lbl-dim t-mono">0° +120° +240°</text>
+        <circle cx="399" cy="86" r="42" class="s-axis"/><path d="M399.0 44.0L420.0 122.4L378.0 122.4Z" class="s-acc" fill="none"/><circle cx="399.0" cy="44.0" r="7" class="f-acc"/><circle cx="420.0" cy="122.4" r="5.5" class="f-acc2"/><circle cx="378.0" cy="122.4" r="5.5" class="f-acc2"/><text x="399" y="152" text-anchor="middle" class="lbl-b">분할 보색</text><text x="399" y="170" text-anchor="middle" class="lbl-dim t-mono">0° +150° +210°</text>
+      </svg>
+      <figcaption><b>그림 2. 네 가지 배색 공식.</b> 큰 점이 기준색이다. <span class="term">보색</span> 배색은 맞은편 색 하나를 짝으로 쓴다. <span class="term">유사색</span><span class="en">(Analogous)</span> 배색은 양옆 30° 안팎의 이웃 색을 쓴다. <span class="term">삼각 배색</span><span class="en">(Triadic)</span>은 120°씩 떨어진 세 색, <span class="term">분할 보색</span><span class="en">(Split-complementary)</span>은 보색 자리 대신 그 양옆(±30°) 두 색을 쓴다. 각도는 흔히 쓰는 값이며, 책과 도구마다 조금씩 다르다. 같은 각도라도 어느 색상환 위에서 재느냐에 따라 결과 색이 달라진다.</figcaption>
+    </figure>
+
+    <p>공식은 색상(각도)만 정한다. 명도와 채도는 정하지 않는다. 그래서 도구마다 나머지를 채우는 방식이 다르다. 이 책의 엔진 <code>ART.harmony</code>는 RYB와 HSL 색상환에서는 HSL의 채도·명도를 그대로 두고, OKLCH 색상환에서는 OKLCH의 명도·채도를 그대로 둔 채 각도만 돌린다. 아래에서 기준색과 공식을 고르면 세 색상환의 결과를 나란히 보여 준다. 위쪽 띠에서 손잡이를 끌어 기준색의 색상을 바꾼다.</p>
+
+    <div class="sim" id="sim-wh-same">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 공식, 세 색상환</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="wh-sm-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="wh-sm-sch"><button data-value="complementary">보색</button><button data-value="analogous">유사색</button><button data-value="triadic" class="on">삼각</button><button data-value="split">분할 보색</button><button data-value="square">사각</button></div>
+          <label class="ctrl"><span>기준색의 명도(OKLCH L) <output id="wh-sm-l-out"></output></span><input type="range" id="wh-sm-l" min="0.3" max="0.9" step="0.01" value="0.6"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">기준색</span><span class="v" id="wh-sm-o0">—</span></div>
+        <div class="stat"><span class="k">줄마다 명도 L* 범위</span><span class="v" id="wh-sm-o1">—</span></div>
+        <div class="stat"><span class="k">RYB와 OKLCH 결과의 평균 차이</span><span class="v" id="wh-sm-o2">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 삼각 배색에서 기준색을 빨강 근처에 둔다. RYB 줄에는 노랑 쪽 칸이 들어가 미술 시간의 삼원색(빨강·노랑·파랑)에 가깝고, OKLCH 줄과 HSL 줄은 빨강·초록·파랑 쪽이 나온다. 같은 "120°"인데 세 줄이 다르다. ② 흑백 단추를 켠다. OKLCH 줄은 세 색이 거의 같은 회색이고, RYB·HSL 줄은 노랑 칸만 튀게 밝다. 명도를 지키는 공식과 지키지 않는 공식의 차이다. ③ 명도를 0.9로 올리고 보색을 고른다. 밝은 노랑의 OKLCH 보색은 그 명도에서 화면이 낼 수 있는 파랑이 연해서 채도가 크게 줄어든다. (RYB↔화면 색상 대응은 이 책이 정한 표다. 기준색은 OKLCH 채도 0.13에서 화면 안으로 맞춘 색이다.)</div>
+    </div>
+
+    <p>세 줄의 차이에서 두 가지를 읽을 수 있다. 하나, 같은 공식이라도 색상환에 따라 전혀 다른 색이 나온다. "삼각 배색을 썼다"는 말만으로는 어떤 색인지 알 수 없다. 둘, RYB·HSL로 돌린 결과는 명도가 제멋대로 흩어지고, OKLCH로 돌린 결과는 명도가 가지런하다. 가지런한 것이 늘 좋은 것은 아니다. 다음 절에서 보듯, 명도가 모두 같으면 오히려 그림이 읽히지 않는다.</p>
+  </section>
+
+  <section id="limits">
+    <h2>공식을 끝까지 밀면</h2>
+    <p>배색 공식은 출발점으로는 쓸모가 있다. 하지만 공식 그대로 쓰면 어색해지는 지점이 있다. 아래에서 기준색의 명도와 채도를 끝까지 밀어 본다. 공식이 "요구한" 색과 화면이 실제로 낼 수 있는 색을 나란히 놓고, 아래에는 같은 색들을 흑백으로 보여 준다.</p>
+
+    <div class="sim" id="sim-wh-push">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>공식이 무너지는 자리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="wh-pu-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="wh-pu-h"><button data-value="100" class="on">노랑 기준</button><button data-value="162">초록 기준</button><button data-value="265">파랑 기준</button><button data-value="28">빨강 기준</button></div>
+          <div class="seg" id="wh-pu-sch"><button data-value="complementary" class="on">보색</button><button data-value="triadic">삼각</button><button data-value="square">사각</button></div>
+          <label class="ctrl"><span>명도(OKLCH L) <output id="wh-pu-l-out"></output></span><input type="range" id="wh-pu-l" min="0.2" max="0.97" step="0.01" value="0.86"></label>
+          <label class="ctrl"><span>채도(OKLCH C) <output id="wh-pu-c-out"></output></span><input type="range" id="wh-pu-c" min="0.02" max="0.3" step="0.005" value="0.16"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">요구한 채도 → 실제 최소</span><span class="v" id="wh-pu-o1">—</span></div>
+        <div class="stat"><span class="k">색들의 명도 L* 차이</span><span class="v" id="wh-pu-o2">—</span></div>
+        <div class="stat"><span class="k">가장 비슷한 두 색 ΔE2000</span><span class="v" id="wh-pu-o3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 노랑 기준, 명도 0.86, 채도 0.16에서 보색을 본다. 공식은 같은 명도·채도의 파랑을 요구하지만, 그렇게 밝고 선명한 파랑은 화면에 없다(빗금). 실제로는 연한 하늘빛 회색이 된다. ② 채도를 0.3까지 올린다. 요구한 색 대부분이 빗금이 되고, 실제 색은 기준색보다 훨씬 흐리다. "같은 채도"라는 공식의 약속이 깨진다. ③ 채도를 0.02까지 내린다. 모든 색이 회색에 가까워지며 가장 비슷한 두 색의 색차가 몇 안 된다. 흑백 줄은 처음부터 끝까지 한 가지 회색이다. 명도를 지키는 공식은 명도 대비를 만들어 주지 않는다. (요구한 색은 OKLCH에서 색상만 돌린 값, 실제 색은 CSS Color 4의 색역 맞춤 방식으로 명도·색상을 지키며 채도를 줄인 값이다.)</div>
+    </div>
+
+    <p>여기서 본 한계는 셋이다. 첫째, 색상환은 원이지만 실제 색의 범위는 원통이 아니다. 노랑은 밝을 때만, 파랑은 어두울 때만 선명할 수 있어서 "같은 명도, 같은 채도, 다른 색상"이라는 공식의 약속은 자주 지킬 수 없다(<a href="models.html">3장</a>의 색역). 둘째, 공식은 명도를 정하지 않는다. 명도가 비슷한 색끼리는 흑백으로 보면 하나로 뭉쳐 형태가 읽히지 않는다(<a href="value.html">6장</a>). 셋째, 공식은 넓이를 정하지 않는다. 보색 두 색을 반반씩 칠한 화면과, 하나를 바탕에 넓게 깔고 다른 하나를 작게 찍은 화면은 전혀 다른 그림이다.</p>
+
+    <div class="callout warn">
+      <strong>조화 공식의 근거 수준</strong>
+      "보색끼리는 조화롭다", "삼각 배색은 안정적이다" 같은 말은 오랜 미술 교육의 관습에서 왔고, 실험으로 일반적인 규칙이 확인된 것은 아니다. 색 조합에 대한 선호를 측정한 연구들은 대체로 다른 경향을 보고한다. 예를 들어 슐로스와 파머<span class="en">(Schloss &amp; Palmer, 2011, Attention, Perception, &amp; Psychophysics)</span>의 실험에서는 색상이 비슷한 짝을 더 조화롭다고 평가하는 경향, 그리고 명도 차이가 있는 짝을 선호하는 경향이 나타났다. 오우와 루오<span class="en">(Ou &amp; Luo, 2006, Color Research &amp; Application)</span>는 두 색 조합의 조화 평가를 명도·채도·색상 차이로 설명하는 모형을 제안했다. 이런 연구도 특정 참가자와 조건에서 얻은 평균 경향일 뿐, 개별 작품의 좋고 나쁨을 정하지는 않는다. 공식은 후보를 빨리 만드는 도구로 쓰고, 판단은 실제 화면에서 한다.
+    </div>
+
+    <div class="callout studio">
+      <strong>공식 다음에 하는 세 가지</strong>
+      공식으로 후보를 뽑은 디자이너들이 흔히 이어서 하는 일이 있다. 하나, 명도를 벌린다. 주인공 색 하나를 정하고 나머지는 그보다 확실히 밝거나 어둡게 옮긴다. 둘, 채도에 순서를 둔다. 가장 선명한 색은 하나만 남기고 나머지는 회색 쪽으로 누른다. 셋, 넓이를 나눈다. 흔히 "60-30-10"(바탕 60%, 보조 30%, 강조 10%)이라는 비율이 출발점으로 소개되는데, 이것도 실내 디자인과 패션에서 전해 오는 경험칙이지 검증된 법칙은 아니다. 세 가지 모두 "공식이 정해 주지 않은 것"을 사람이 정하는 일이다.
+    </div>
+  </section>
+
+  <section id="obang">
+    <h2>색상환 밖의 체계: 오방색</h2>
+    <p>색을 묶는 방법이 원 위의 각도만 있는 것은 아니다. 한국을 비롯한 동아시아의 전통에서 <span class="term">오방색</span><span class="en">(五方色, Obangsaek)</span>은 청·적·황·백·흑의 다섯 색을 방위(동·남·중앙·서·북)와 오행(목·화·토·금·수), 계절과 짝지은 체계다. 오방색에는 흰색과 검정이 당당한 한 자리를 차지한다. 색상환에서는 가운데로 밀려나 "색이 없는" 자리인 무채색이, 오방색에서는 방위 하나씩을 맡는다. 다섯 정색 사이에서 나오는 색을 간색이라 부르는 전통도 있지만, 그 이름과 구성은 문헌에 따라 다르다.</p>
+    <p>오방색은 색동저고리, 단청, 혼례의 청홍, 조각보처럼 생활과 의례 곳곳에 쓰였다. 이것을 "보색 배색"이나 "삼각 배색"으로 설명하려 하면 잘 맞지 않는다. 오방색의 짝은 색상 각도가 아니라 우주와 방위의 질서에서 나오기 때문이다. 아래에서 같은 다섯 색을 두 가지 지도에 놓아 본다.</p>
+
+    <div class="sim" id="sim-wh-obang">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>오방색: 방위의 지도와 색상의 지도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="wh-ob-cv"></canvas><span class="hint" style="left:10px;right:auto;top:auto;bottom:8px">색을 끌어 옮겨 본다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="wh-ob-mode"><button data-value="dir" class="on">방위로 놓기</button><button data-value="ab">색상의 지도(OKLab)</button></div>
+          <label class="check"><input type="checkbox" id="wh-ob-ring" checked> 색상의 지도에 색상환 겹치기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 색</span><span class="v" id="wh-ob-o0">—</span></div>
+        <div class="stat"><span class="k">방위 · 오행 · 계절</span><span class="v" id="wh-ob-o1">—</span></div>
+        <div class="stat"><span class="k">OKLCH</span><span class="v" id="wh-ob-o2">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 방위로 놓기에서 다섯 색을 하나씩 눌러 방위·오행·계절을 읽는다. 황이 가운데, 나머지 넷이 둘레다. ② 색상의 지도로 바꾼다. 백과 흑은 한가운데(무채색)에 겹치고, 청·적·황 셋만 둘레에 흩어진다. 색상환의 언어로는 다섯 색 중 둘이 "색이 아닌" 셈이다. ③ 색상의 지도에서 청·적·황의 각도 간격을 본다. 120°씩 고르게 떨어져 있지 않다. 오방색은 처음부터 각도로 만든 체계가 아니다. (여기 다섯 색의 값은 화면에서 보여 주기 위한 이 책의 예시값이다. 전통 색에는 하나로 정해진 수치가 없고, 같은 "청"도 시대·지역·재료·문헌에 따라 쪽빛에서 푸른 초록까지 넓게 다르다. 끌어 옮긴 위치는 보여 주기만 할 뿐 색을 바꾸지 않는다.)</div>
+    </div>
+
+    <p>오방색은 색상환 공식이 유일한 "조화의 원리"가 아님을 보여 준다. 색동은 선명한 색을 띠로 나란히 놓지만 흰 바탕과 색 사이의 리듬으로 질서를 만들고, 단청은 녹청 계열의 넓은 바탕 위에 붉은 계열을 적게, 흰 선으로 경계를 또렷이 그어 명도 대비를 만든다. 여기서도 결국 앞 절의 세 가지, 명도·채도·넓이를 다루는 솜씨가 배색을 살린다. 전통 색의 의미와 문화적 맥락은 <a href="meaning.html">12장</a>, 수묵의 농담은 <a href="painting.html">11장</a>에서 더 다룬다.</p>
+  </section>
+
+  <section id="practice">
+    <h2>실제로 배색을 고르는 순서</h2>
+    <p>지금까지 본 것을 실제 작업 순서로 정리하면 이렇다. 먼저 어떤 색상환으로 생각할지 정한다. 물감을 섞어 그림을 그린다면 RYB 색상환이 손에 익은 언어이고, 화면에서 브랜드 색을 고른다면 명도를 지키는 OKLCH 색상환이 다루기 쉽다. 다음으로 공식으로 후보를 여럿 만든다. 그리고 후보마다 명도를 벌리고, 채도에 순서를 두고, 넓이를 나눠 실제 쓰일 자리(포스터, 웹 화면, 간판)에 놓아 본다. 마지막으로 흑백, 실제 조명, 실제 바탕 위에서 확인한다.</p>
+    <p>가상의 예로, 동네 빵집의 주황 간판에 보색 파랑을 같은 명도·같은 채도로 넣은 시안과, 같은 파랑을 아주 어둡게 눌러 글자색으로만 쓴 시안을 생각해 보자. 앞의 것은 두 색이 서로 밀어내며 경계가 떨리고, 뒤의 것은 주황이 주인공이 되고 파랑은 읽기 좋은 글자가 된다. 색상은 같은 "보색 배색"인데 결과는 전혀 다르다. 공식은 무엇을 쓸지 알려 주지만 어떻게 쓸지는 알려 주지 않는다.</p>
+    <div class="callout studio">
+      <strong>회색 바탕에서 고르고, 실제 바탕에서 확인한다</strong>
+      배색 후보를 비교할 때는 흰 화면 대신 중간 회색 바탕에 견본을 나란히 놓는 경우가 많다. 흰 바탕은 모든 색을 어둡고 탁해 보이게, 검은 바탕은 밝고 선명해 보이게 밀기 때문이다(동시대비, <a href="relativity.html">9장</a>). 회색에서 후보를 좁힌 다음에는 반드시 실제로 쓰일 바탕(크라프트지, 흰 웹 화면, 검은 천)에 올려 다시 본다. 화가들도 팔레트를 흰색보다 중간 회색이나 나무색으로 쓰는 경우가 있는데, 같은 이유에서다.
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>책방 E 배색 실험실</h2>
+    <p>마지막 시뮬레이터는 가상의 서점 "책방 E"의 로고 초록 <code>#2f7d5b</code>를 기준으로 배색 공식을 돌리고, 그 결과를 가을 행사 포스터, 웹사이트 머리, 검은 에코백에 바로 칠해 본다. 왼쪽 위 작은 색상환의 손잡이로 기준색의 색상을 바꿀 수 있다. 두 슬라이더는 공식 다음에 사람이 하는 일, 곧 명도 벌리기와 채도 조절이다. 둘 다 0과 100%에 두면 공식의 결과 그대로다. 화면 색은 기기마다 다르니 색의 관계를 본다.</p>
+
+    <div class="sim" id="sim-wh-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>책방 E 배색 실험실</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="wh-lb-cv" class="art"></canvas><span class="hint" style="left:auto;right:10px;top:8px;bottom:auto">작은 색상환의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="wh-lb-wheel"><button data-value="ryb">RYB</button><button data-value="oklch" class="on">OKLCH</button></div>
+          <div class="seg" id="wh-lb-sch"><button data-value="complementary">보색</button><button data-value="split" class="on">분할 보색</button><button data-value="analogous">유사색</button><button data-value="triadic">삼각</button></div>
+          <label class="ctrl"><span>명도 벌리기 <output id="wh-lb-s-out"></output></span><input type="range" id="wh-lb-s" min="0" max="100" step="1" value="0"></label>
+          <label class="ctrl"><span>짝 색의 채도 <output id="wh-lb-c-out"></output></span><input type="range" id="wh-lb-c" min="0" max="160" step="1" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">배색</span><span class="v" id="wh-lb-o0">—</span></div>
+        <div class="stat"><span class="k">포스터 제목 / 바탕 대비</span><span class="v" id="wh-lb-o1">—</span></div>
+        <div class="stat"><span class="k">웹 단추 글자 대비</span><span class="v" id="wh-lb-o2">—</span></div>
+        <div class="stat"><span class="k">명도 L* (초록 · 짝 색)</span><span class="v" id="wh-lb-o3">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① OKLCH·분할 보색 그대로(명도 벌리기 0)에서 포스터를 본다. 초록 바탕 위 제목의 대비가 1.1 안팎이다. 색상은 정반대인데 명도가 같아 흑백 단추를 켜면 제목이 사라진다. ② RYB로 바꾼다. 짝 색이 와인·갈색 쪽으로 어두워지며 대비가 조금 생긴다. RYB 공식이 명도를 지키지 않은 덕분이다. ③ 명도 벌리기를 100%까지 민다. 짝 색이 밝게, 어둡게 갈라지며 제목이 읽힌다. 하지만 짝 색의 채도까지 160%로 밀면 밝은 쪽 색이 화면 밖으로 나가 채도가 깎이고, 초록과 짝 색이 서로 밀어내는 떨림이 생긴다. ④ 유사색으로 바꾼다. 다툼은 없지만 포스터가 단조롭다. 어느 쪽을 택할지는 "오래된 동네 책방"이라는 이야기와 함께 판단한다. (짝 색은 <code>ART.harmony</code>의 결과에서 출발해 OKLCH 명도를 기준색 위아래로 번갈아 옮기고 채도에 배율을 곱한 뒤 화면 안으로 맞춘 값이다. 대비는 WCAG 2 공식.)</div>
+    </div>
+
+    <p>실험실에서 보듯 공식은 출발점을 빨리 준다. 하지만 같은 공식이라도 색상환을 바꾸고, 명도를 벌리고, 채도를 조절하는 손길에 따라 전혀 다른 포스터가 된다. 마지막에 판단하는 질문은 공식이 아니라 그림과 디자인이 전하려는 이야기다. 이 판단에 필요한 도구, 명도·채도·대비·관계를 다음 부 "관계"에서 하나씩 다룬다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 5장</span></div>
+      <h4>보색을 물었더니 두 개의 답이 돌아왔다</h4>
+      <p>로고 초록 <code>#2f7d5b</code>의 짝이 될 색을 찾으려고 서윤은 디자인 프로그램에서 보색을 눌렀다. 자줏빛 분홍이 나왔다. 도경에게 보여 주자 도경은 손때 묻은 12색상환 카드를 꺼내 초록의 맞은편을 짚었다. 붉은 벽돌색 쪽이었다. "네 화면은 눈의 지도를 보고, 내 카드는 물감의 지도를 보는 거야. 둘 다 맞아. 무엇을 할 건지 먼저 정해."</p>
+      <p>두 사람은 이 장의 실험실에서 같은 초록을 두 색상환에 놓고 보색·분할 보색·유사색 공식을 돌렸다. 이 책의 모델로 계산하면 RYB 색상환에서 초록의 보색은 벽돌색 <code>#7d3b2f</code>, OKLCH 색상환에서는 자두빛 분홍 <code>#91557c</code>이다. 분할 보색은 RYB에서 와인 <code>#7d2f43</code>과 갈색 <code>#7d4f2f</code>, OKLCH에서 자두 보라 <code>#7e5c94</code>와 장미 <code>#9b545e</code>가 나왔다. 유사색은 RYB에서 풀색 <code>#3e7d2f</code>과 남청 <code>#2f587d</code>, OKLCH에서 올리브 <code>#58783c</code>와 청록 <code>#007d7a</code>이었다.</p>
+      <p>서윤은 이 가운데 세 묶음을 후보로 골랐다. 주인이 말한 "오래된 동네 책방"에는 도경의 벽돌색이 잘 어울렸고, "젊은 손님"에는 화면에서 고른 자두·장미 쪽이 산뜻했다. 유사색 묶음은 서점 앞 가로수길을 닮았다. 그런데 공식 결과를 포스터 시안에 그대로 칠하자 어색한 점이 바로 보였다. OKLCH 공식의 짝 색은 모두 초록과 명도가 거의 같아서(L* 44~47), 초록 바탕 위의 자두색 제목은 색상은 정반대인데도 흐릿했다. RYB의 벽돌색은 조금 더 어두웠지만(L* 33) 초록과 반반 칠하니 경계가 떨렸다. 도경은 "공식은 무슨 색을 쓸지만 알려 주지, 얼마나 밝게, 얼마나 넓게는 안 알려 줘"라고 일지에 적었다. 서윤은 그 문장 옆에 후보 셋의 값을 적었다.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>후보</th><th>만든 방법</th><th>색</th><th class="num">명도 L*</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>RYB 보색</td><td><code>#2f7d5b</code> + 벽돌 <code>#7d3b2f</code></td><td class="num">47 · 33</td></tr>
+          <tr><td>B</td><td>OKLCH 분할 보색</td><td><code>#2f7d5b</code> + 자두 <code>#7e5c94</code> + 장미 <code>#9b545e</code></td><td class="num">47 · 45 · 44</td></tr>
+          <tr><td>C</td><td>OKLCH 유사색</td><td>올리브 <code>#58783c</code> + <code>#2f7d5b</code> + 청록 <code>#007d7a</code></td><td class="num">47 · 47 · 47</td></tr>
+        </tbody>
+      </table></div>
+      <div class="chips">
+        <span class="chip"><i style="background:#2f7d5b"></i><b>로고 초록</b><code>#2f7d5b</code></span>
+        <span class="chip"><i style="background:#7d3b2f"></i><b>A 벽돌</b><code>#7d3b2f</code></span>
+        <span class="chip"><i style="background:#7e5c94"></i><b>B 자두</b><code>#7e5c94</code></span>
+        <span class="chip"><i style="background:#9b545e"></i><b>B 장미</b><code>#9b545e</code></span>
+        <span class="chip"><i style="background:#58783c"></i><b>C 올리브</b><code>#58783c</code></span>
+        <span class="chip"><i style="background:#007d7a"></i><b>C 청록</b><code>#007d7a</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>브랜드 배색 후보 셋(A: RYB 보색, B: OKLCH 분할 보색, C: OKLCH 유사색)을 값과 만든 방법으로 기록한다. 어느 것도 확정하지 않는다.</div>
+        <div><b>아직 남은 문제</b>공식 결과의 짝 색이 초록과 명도가 비슷해 포스터 제목이 흐릿하다. 명도를 어떻게 나눌 것인가.</div>
+        <div><b>다음 단계</b><a href="value.html">6장</a>: 포스터 시안을 흑백으로 바꿔 명도 구조부터 다시 본다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>색상환은 하나가 아니다. 화가의 RYB 색상환은 빨강·노랑·파랑을 고르게 놓은 경험의 지도이고, OKLCH 같은 지각 색상환은 사람이 느끼는 색상 차이를 고르게 나눈 지도다. RYB는 따뜻한 색을 잘게, 청록·파랑을 크게 나눈다.</li>
+      <li>보색에는 물감을 섞어 회색이 되는 짝, 빛을 더해 흰색이 되는 짝, 잔상으로 보이는 짝이 있다. 빨강의 보색은 RYB에서 초록, 지각 색상환과 잔상에서는 청록에 가깝다.</li>
+      <li>보색·유사색·삼각·분할 보색 공식은 색상(각도)만 정한다. 같은 공식도 어느 색상환에서 돌리느냐에 따라 결과 색이 크게 다르다.</li>
+      <li>공식은 명도·채도·넓이를 정해 주지 않는다. 명도가 같은 색끼리는 흑백에서 뭉치고, 밝은 노랑의 보색처럼 화면이 낼 수 없는 색을 요구하기도 한다.</li>
+      <li>"보색은 조화롭다" 같은 공식은 교육의 관습이며 일반 법칙으로 검증된 것이 아니다. 선호 연구는 색상이 비슷하고 명도 차이가 있는 조합을 좋게 평가하는 경향을 보고한다.</li>
+      <li>오방색은 색을 각도가 아니라 방위·오행·계절로 묶은 체계로, 흰색과 검정이 정색의 자리를 차지한다. 전통 색에는 하나로 정해진 수치가 없다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 미술 시간의 색상환에서는 빨강의 보색이 초록인데, 디자인 프로그램의 지각 색상환에서는 청록에 가깝다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">디자인 프로그램이 오류를 내고 있다. 보색은 언제나 초록이다.</button>
+          <button class="opt">화면은 색역이 좁아 초록을 낼 수 없어서 청록으로 바꾼 것이다.</button>
+          <button class="opt" data-correct>두 색상환이 색상을 다른 간격으로 배치하기 때문이다. RYB는 물감 경험을, 지각 색상환은 사람이 느끼는 색상 차이를 기준으로 삼는다.</button>
+          <button class="opt">빨강의 명도가 바뀌면 보색이 초록에서 청록으로 바뀐다.</button>
+        </div>
+        <div class="quiz-exp">RYB 색상환은 빨강·노랑·파랑을 120°씩 고르게 놓은 화가의 지도이고, 지각 색상환은 느끼는 색상 차이가 고르도록 각도를 정한다. 그래서 "맞은편"이 다르다. 화면은 초록을 충분히 낼 수 있고, 명도는 색상환의 각도와 상관이 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 빨간 원을 30초 바라본 뒤 흰 바탕을 보면 떠오르는 잔상의 색에 가장 가까운 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>청록빛</button>
+          <button class="opt">노랑빛</button>
+          <button class="opt">더 진한 빨강</button>
+          <button class="opt">보랏빛</button>
+        </div>
+        <div class="quiz-exp">빨강에 강하게 반응하던 신호가 지쳐 약해지면 흰 바탕에서 나머지 신호가 상대적으로 커져 청록빛 잔상이 보인다. 잔상의 색은 사람과 조건에 따라 조금씩 다르지만 대체로 빛의 보색 쪽이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. OKLCH 색상환에서 밝은 노랑(명도 0.86, 채도 0.16)의 보색을 공식대로 만들었더니 연한 하늘빛 회색이 나왔다. 이유로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">OKLCH 공식은 보색의 명도를 일부러 낮추기 때문이다.</button>
+          <button class="opt">노랑의 보색은 원래 회색이기 때문이다.</button>
+          <button class="opt">흑백 단추가 켜져 있었기 때문이다.</button>
+          <button class="opt" data-correct>그렇게 밝으면서 선명한 파랑은 화면이 낼 수 없어, 명도와 색상을 지키며 채도를 줄였기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">파랑은 어두울 때만 선명할 수 있다. 공식은 같은 명도·같은 채도의 파랑을 요구하지만 그런 색은 sRGB 색역 밖에 있어서, 색역 맞춤을 거치면 채도가 크게 줄어든 연한 색이 된다. 공식의 약속(같은 채도)이 색역 때문에 깨지는 경우다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 오방색에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">색상환을 다섯 등분해 72°마다 하나씩 고른 배색 공식이다.</button>
+          <button class="opt" data-correct>청·적·황·백·흑을 방위·오행·계절과 짝지은 체계로, 흰색과 검정도 정색의 자리를 차지하며 하나로 정해진 수치는 없다.</button>
+          <button class="opt">국제 표준으로 정해진 다섯 색의 sRGB 값이다.</button>
+          <button class="opt">보색 두 쌍과 회색 하나로 이루어진 현대 디자인 팔레트다.</button>
+        </div>
+        <div class="quiz-exp">오방색은 색상 각도가 아니라 방위와 오행의 질서로 색을 묶는다. 색상환 위에 올려 보면 백·흑은 가운데 무채색에 놓이고 청·적·황도 고르게 떨어져 있지 않다. 전통 색은 시대·재료·문헌에 따라 다르며, 이 책의 값은 예시다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex, fit = ART.fit;
+  var INK = "#2b2a30", INK_DIM = "#6b6874", PAPER = "#fbfaf7";
+  var RAD = Math.PI / 180;
+  var chip = function (c) { return '<span style="display:inline-block;width:.9em;height:.9em;border-radius:3px;vertical-align:-1px;margin-right:4px;background:' + hex(c) + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)"></span>' + hex(c); };
+  var rybColor = function (r) { return ART.hslToSrgb([ART.rybToHue(r), 0.85, 0.5]); };
+  // 각도(0°=위, 시계 방향) → 원 위의 점
+  var onRing = function (cx, cy, R, deg) { return [cx + R * Math.sin(deg * RAD), cy - R * Math.cos(deg * RAD)]; };
+  var angleAt = function (cx, cy, x, y) { return ART.mod360(Math.atan2(x - cx, -(y - cy)) / RAD); };
+  function ringImage(R, colorAt) {   // 색 고리 그림(오프스크린)
+    var S = Math.ceil(R * 2 + 4), c = document.createElement("canvas"); c.width = S; c.height = S;
+    var x = c.getContext("2d"), cx = S / 2, cy = S / 2, n = 180;
+    for (var i = 0; i < n; i++) {
+      var a0 = (i / n) * 360, a1 = ((i + 1.4) / n) * 360;
+      x.beginPath(); x.moveTo(cx, cy);
+      x.arc(cx, cy, R, (a0 - 90) * RAD, (a1 - 90) * RAD); x.closePath();
+      x.fillStyle = hex(colorAt(a0 + 180 / n)); x.fill();
+    }
+    x.globalCompositeOperation = "destination-out"; x.beginPath(); x.arc(cx, cy, R * 0.62, 0, 7); x.fill();
+    return c;
+  }
+
+  /* ---------------- 시뮬레이터 1: 두 색상환, 두 보색 ---------------- */
+  (function () {
+    var ryb = 0, geo = null, rings = {};
+    var pre = AB.seg("wh-tw-pre", function (v) { ryb = +v; cv.redraw(); });
+    var line = AB.check("wh-tw-line", function () { cv.redraw(); });
+    var okAt = function (h) { return ART.gamutMap([0.7, 0.13, h]); };
+    var cv = AB.canvas("#wh-tw-cv", function (ctx, w, h) {
+      var p = P(), wide = w >= 470;
+      var R = wide ? Math.min((w - 60) / 4, h / 2 - 40) : Math.min(w / 2 - 30, (h - 120) / 4);
+      var c1 = wide ? [w / 4 + 5, h / 2 + 8] : [w / 2, 30 + R], c2 = wide ? [(3 * w) / 4 - 5, h / 2 + 8] : [w / 2, 30 + R + 2 * R + 60];
+      geo = { R: R, c1: c1, c2: c2 };
+      var key = Math.round(R);
+      if (!rings.r || rings.k !== key) rings = { k: key, r: ringImage(R, rybColor), o: ringImage(R, okAt) };
+      ctx.drawImage(rings.r, c1[0] - rings.r.width / 2, c1[1] - rings.r.height / 2);
+      ctx.drawImage(rings.o, c2[0] - rings.o.width / 2, c2[1] - rings.o.height / 2);
+      var col = rybColor(ryb), okH = ART.srgbToOklch(col)[2];
+      var compR = ART.harmony(col, "complementary", "ryb")[1].rgb, compO = ART.harmony(col, "complementary", "oklch")[1].rgb;
+      var okHc = ART.srgbToOklch(compR)[2], rybO = ART.hueToRyb(ART.srgbToHsl(compO)[0]);
+      ctx.fillStyle = p.text; ctx.font = AB.font(13, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.fillText("RYB 색상환", c1[0], c1[1] - R - 8); ctx.fillText("지각 색상환(OKLCH)", c2[0], c2[1] - R - 8);
+      var mR = R * 0.81;
+      function marks(c, a, b, other, colA, colB, colOther) {
+        if (line()) { var pa = onRing(c[0], c[1], mR, a), pb = onRing(c[0], c[1], mR, b); ctx.strokeStyle = p.text; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(pa[0], pa[1]); ctx.lineTo(pb[0], pb[1]); ctx.stroke(); ctx.setLineDash([]); }
+        var po = onRing(c[0], c[1], mR, other); ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.rect(po[0] - 6, po[1] - 6, 12, 12); ctx.fillStyle = hex(colOther); ctx.fill(); ctx.stroke();
+        var q = onRing(c[0], c[1], mR, b); ctx.beginPath(); ctx.arc(q[0], q[1], 8, 0, 7); ctx.fillStyle = hex(colB); ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = p.text; ctx.stroke();
+        var s = onRing(c[0], c[1], mR, a); AB.handle(ctx, s[0], s[1], { r: 10, fill: colA });
+      }
+      marks(c1, ryb, ryb + 180, rybO, col, compR, compO);
+      marks(c2, okH, okH + 180, okHc, col, compO, compR);
+      // 가운데 견본
+      [[c1, compR], [c2, compO]].forEach(function (it) { var c = it[0]; ctx.beginPath(); ctx.arc(c[0], c[1], R * 0.42, 0, 7); ctx.fillStyle = hex(col); ctx.fill(); ctx.beginPath(); ctx.arc(c[0], c[1], R * 0.42, -Math.PI / 2, Math.PI / 2); ctx.fillStyle = hex(it[1]); ctx.fill(); });
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      var ly = wide ? h - 18 : c2[1] + R + 10;
+      ctx.fillText("● 고른 색  ○ 이 원의 보색  □ 다른 원의 보색", w / 2, ly);
+      AB.stat("wh-tw-o0", chip(col)); AB.stat("wh-tw-o1", chip(compR)); AB.stat("wh-tw-o2", chip(compO));
+      AB.stat("wh-tw-o3", AB.fix(ART.diff(compR, compO), 1));
+    }, { get height() { var w = document.getElementById("wh-tw-cv").parentElement.clientWidth || 600; return w >= 470 ? Math.round(Math.min(380, w * 0.55)) : Math.round(w * 2.05); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        var d1 = Math.hypot(x - geo.c1[0], y - geo.c1[1]), d2 = Math.hypot(x - geo.c2[0], y - geo.c2[1]);
+        if (d1 < geo.R * 1.3 && d1 <= d2) ryb = angleAt(geo.c1[0], geo.c1[1], x, y);
+        else if (d2 < geo.R * 1.3) {   // OKLCH 원 위 각도 → 그 색상의 색 → RYB 각도
+          var h = angleAt(geo.c2[0], geo.c2[1], x, y), c = ART.gamutMap([0.6, 0.15, h]);
+          ryb = ART.hueToRyb(ART.srgbToHsl(c)[0]);
+        } else return;
+        cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 잔상 ---------------- */
+  (function () {
+    var BG = "#e9e6df";
+    var colG = AB.seg("wh-af-col", function () { stop(); cv.redraw(); });
+    var tG = AB.range("wh-af-t", function (v) { return v + "초"; }, function () { if (phase === "idle") cv.redraw(); });
+    var ans = AB.check("wh-af-ans", function () { cv.redraw(); });
+    var phase = "idle", t0 = 0, timer = 0;
+    function stop() { if (timer) clearInterval(timer); timer = 0; phase = "idle"; }
+    document.getElementById("wh-af-go").addEventListener("click", function () {
+      stop(); phase = "stare"; t0 = performance.now();
+      timer = setInterval(function () {
+        var el = (performance.now() - t0) / 1000;
+        if (phase === "stare" && el >= tG()) { phase = "after"; t0 = performance.now(); }
+        else if (phase === "after" && el >= 8) { phase = "done"; clearInterval(timer); timer = 0; }
+        cv.redraw();
+      }, 100);
+      cv.redraw();
+    });
+    var cv = AB.canvas("#wh-af-cv", function (ctx, w, h) {
+      var col = ART.parse(colG()), cR = ART.harmony(col, "complementary", "ryb")[1].rgb, cO = ART.harmony(col, "complementary", "oklch")[1].rgb;
+      ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
+      var cx = w / 2, cy = h / 2, r = Math.min(w, h) * 0.3;
+      var el = (performance.now() - t0) / 1000;
+      if (phase === "idle" || phase === "stare") {
+        ctx.fillStyle = hex(col); ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill();
+        ctx.fillRect(cx - r * 1.5, cy - r * 0.18, r * 0.5, r * 0.36); ctx.fillRect(cx + r, cy - r * 0.18, r * 0.5, r * 0.36);
+      }
+      ctx.fillStyle = "#111111"; ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 7); ctx.fill();
+      ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillStyle = INK;
+      var msg = { idle: "시작을 누르고 가운데 점을 바라본다", stare: "점을 계속 바라본다 · " + Math.max(0, Math.ceil(tG() - el)) + "초", after: "그대로 점을 본다 · 무엇이 떠오르는가", done: "끝 · 다시 하려면 시작" }[phase];
+      ctx.fillText(msg, 12, 10);
+      if (phase === "stare") { ctx.strokeStyle = INK_DIM; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(w - 26, 26, 12, -Math.PI / 2, -Math.PI / 2 + 2 * Math.PI * Math.min(1, el / tG())); ctx.stroke(); }
+      if (phase === "done" && ans()) {
+        var sw = Math.min(90, w * 0.22), y = h - sw * 0.6 - 30;
+        [[cR, "RYB 보색"], [cO, "OKLCH 보색"]].forEach(function (s, i) {
+          var x = i ? w - 12 - sw : 12;
+          AB.swatch(ctx, x, y, sw, sw * 0.6, s[0], { label: s[1], color: INK, radius: 6 });
+        });
+      }
+      AB.stat("wh-af-o0", { idle: "대기", stare: "바라보는 중", after: "잔상 보기", done: "끝" }[phase]);
+      AB.stat("wh-af-o1", phase === "done" ? chip(cR) : "끝난 뒤 공개");
+      AB.stat("wh-af-o2", phase === "done" ? chip(cO) : "끝난 뒤 공개");
+    }, { aspect: 0.62, minHeight: 260, maxHeight: 400, bg: BG });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 같은 공식, 세 색상환 ---------------- */
+  (function () {
+    var hue = 28, geo = null;
+    var sch = AB.seg("wh-sm-sch", function () { cv.redraw(); });
+    var lG = AB.range("wh-sm-l", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var cv = AB.canvas("#wh-sm-cv", function (ctx, w, h) {
+      var L = lG(), base = ART.gamutMap([L, 0.13, hue]), s = sch();
+      ctx.fillStyle = PAPER; ctx.fillRect(0, 0, w, h);
+      // 색상 띠
+      var sx = 12, sw = w - 24, sy = 12, sh = 22;
+      for (var i = 0; i < 120; i++) { ctx.fillStyle = hex(ART.gamutMap([L, 0.13, i * 3])); ctx.fillRect(sx + (i / 120) * sw, sy, sw / 120 + 0.8, sh); }
+      var hx = sx + (hue / 360) * sw;
+      AB.handle(ctx, hx, sy + sh / 2, { r: 9, fill: base });
+      geo = { sx: sx, sw: sw, sy: sy, sh: sh };
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("기준색의 색상(OKLCH 0°~360°) · 손잡이를 끈다", sx, sy + sh + 4);
+      var rows = [["RYB 색상환", "ryb"], ["OKLCH 색상환", "oklch"], ["HSL 색상환", "hsl"]], out = {};
+      var top = sy + sh + 26, rh = (h - top - 8) / 3;
+      rows.forEach(function (r, k) {
+        var res = ART.harmony(base, s, r[1]); out[r[1]] = res;
+        var y = top + k * rh;
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(r[0], sx, y);
+        var n = res.length, cw = (sw - (n - 1) * 8) / n, ch = rh - 40;
+        res.forEach(function (c, j) {
+          var x = sx + j * (cw + 8);
+          ctx.fillStyle = hex(c.rgb); ctx.fillRect(x, y + 18, cw, ch);
+          if (j === 0 || (s === "analogous" && j === 1)) { ctx.strokeStyle = INK; ctx.lineWidth = 2; ctx.strokeRect(x + 1, y + 19, cw - 2, ch - 2); }
+          ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5, true); ctx.textBaseline = "top"; ctx.fillText(hex(c.rgb) + " L*" + Math.round(ART.lightness(c.rgb)), x, y + 20 + ch);
+        });
+      });
+      var rng = function (res) { var ls = res.map(function (c) { return ART.lightness(c.rgb); }); return Math.round(Math.max.apply(null, ls) - Math.min.apply(null, ls)); };
+      var d = 0, n2 = 0; out.ryb.forEach(function (c, i) { if (out.ryb[i].rgb !== base) { d += ART.diff(c.rgb, out.oklch[i].rgb); n2++; } });
+      AB.stat("wh-sm-o0", chip(base));
+      AB.stat("wh-sm-o1", "RYB " + rng(out.ryb) + " · OK " + rng(out.oklch) + " · HSL " + rng(out.hsl));
+      AB.stat("wh-sm-o2", "ΔE " + AB.fix(d / Math.max(1, n2 - 1), 1));
+    }, { aspect: 0.7, minHeight: 360, maxHeight: 460, bg: PAPER });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo) return; if (y > geo.sy + geo.sh + 40) return; hue = AB.clamp((x - geo.sx) / geo.sw, 0, 0.999) * 360; cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 공식이 무너지는 자리 ---------------- */
+  (function () {
+    var hG = AB.seg("wh-pu-h", function () { cv.redraw(); });
+    var sch = AB.seg("wh-pu-sch", function () { cv.redraw(); });
+    var lG = AB.range("wh-pu-l", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var cG = AB.range("wh-pu-c", function (v) { return v.toFixed(3); }, function () { cv.redraw(); });
+    var cv = AB.canvas("#wh-pu-cv", function (ctx, w, h) {
+      var L = lG(), C = cG(), h0 = +hG(), offs = ART.SCHEMES[sch()].offsets;
+      ctx.fillStyle = PAPER; ctx.fillRect(0, 0, w, h);
+      var n = offs.length, cw = (w - 24 - (n - 1) * 10) / n, rowH = (h - 96) / 3;
+      var labels = ["공식이 요구한 색", "화면이 낼 수 있는 색", "흑백으로 보면"];
+      var req = offs.map(function (o) { return [L, C, ART.mod360(h0 + o)]; });
+      var got = req.map(function (lch) { return ART.gamutMap(lch); });
+      labels.forEach(function (lab, r) {
+        var y = 8 + r * (rowH + 30);
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(lab, 12, y);
+        req.forEach(function (lch, i) {
+          var x = 12 + i * (cw + 10), yy = y + 18;
+          if (r === 0) {
+            var raw = ART.oklchToSrgb(lch), ok = ART.inGamut(raw, 1e-4);
+            ctx.fillStyle = hex(ART.clip(raw)); ctx.fillRect(x, yy, cw, rowH);
+            if (!ok) {   // 색역 밖: 빗금
+              ctx.save(); ctx.beginPath(); ctx.rect(x, yy, cw, rowH); ctx.clip();
+              ctx.strokeStyle = "rgba(255,255,255,0.85)"; ctx.lineWidth = 3;
+              for (var k = -rowH; k < cw; k += 10) { ctx.beginPath(); ctx.moveTo(x + k, yy + rowH); ctx.lineTo(x + k + rowH, yy); ctx.stroke(); }
+              ctx.strokeStyle = "rgba(0,0,0,0.35)"; ctx.lineWidth = 1;
+              for (var k2 = -rowH + 5; k2 < cw; k2 += 10) { ctx.beginPath(); ctx.moveTo(x + k2, yy + rowH); ctx.lineTo(x + k2 + rowH, yy); ctx.stroke(); }
+              ctx.restore();
+              ctx.fillStyle = "#ffffff"; ctx.fillRect(x + 4, yy + 4, 58, 16); ctx.fillStyle = INK; ctx.font = AB.font(10.5, false, 700); ctx.fillText("화면 밖", x + 9, yy + 6);
+            }
+          } else {
+            var c = r === 1 ? got[i] : ART.grayOf(got[i]);
+            ctx.fillStyle = hex(c); ctx.fillRect(x, yy, cw, rowH);
+            if (r === 1) { ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5, true); ctx.fillText("C " + ART.srgbToOklch(got[i])[1].toFixed(3), x, yy + rowH + 2); }
+          }
+        });
+      });
+      var cs = got.map(function (c) { return ART.srgbToOklch(c)[1]; }), ls = got.map(ART.lightness);
+      var minD = 1e9; for (var a = 0; a < n; a++) for (var b = a + 1; b < n; b++) minD = Math.min(minD, ART.diff(got[a], got[b]));
+      AB.stat("wh-pu-o1", C.toFixed(3) + " → " + Math.min.apply(null, cs).toFixed(3));
+      AB.stat("wh-pu-o2", AB.fix(Math.max.apply(null, ls) - Math.min.apply(null, ls), 1));
+      AB.stat("wh-pu-o3", AB.fix(minD, 1));
+    }, { aspect: 0.66, minHeight: 330, maxHeight: 430, bg: PAPER });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 오방색 ---------------- */
+  (function () {
+    var INFO = { blue: ["동", "목(木)", "봄"], red: ["남", "화(火)", "여름"], yellow: ["중앙", "토(土)", "환절기"], white: ["서", "금(金)", "가을"], black: ["북", "수(水)", "겨울"] };
+    var KEYS = ["blue", "red", "yellow", "white", "black"];
+    var mode = AB.seg("wh-ob-mode", function () { off = {}; cv.redraw(); });
+    var ring = AB.check("wh-ob-ring", function () { cv.redraw(); });
+    var sel = "yellow", off = {}, pos = {}, grab = null, ringImg = null;
+    var cv = AB.canvas("#wh-ob-cv", function (ctx, w, h) {
+      var p = P(), m = mode(), cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.36, sz = Math.max(34, Math.min(64, R * 0.42));
+      if (ring() && m === "ab") {
+        var rr = R * 1.18, key = Math.round(rr);
+        if (!ringImg || ringImg.k !== key) { ringImg = ringImage(rr, function (a) { return ART.gamutMap([0.7, 0.12, a]); }); ringImg.k = key; }
+        // OKLab a,b 평면: a(오른쪽), b(위). ringImage는 0°=위, 시계방향이므로 a,b 각도(반시계, 0°=오른쪽)와 맞추려면 돌려 그린다.
+        ctx.save(); ctx.globalAlpha = 0.9; ctx.translate(cx, cy);
+        ctx.scale(-1, 1); ctx.rotate(-Math.PI / 2);
+        ctx.drawImage(ringImg, -ringImg.width / 2, -ringImg.height / 2); ctx.restore();
+      }
+      ctx.strokeStyle = p.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx - R * 1.2, cy); ctx.lineTo(cx + R * 1.2, cy); ctx.moveTo(cx, cy - R * 1.2); ctx.lineTo(cx, cy + R * 1.2); ctx.stroke();
+      var DIRP = { blue: [1, 0], red: [0, 1], yellow: [0, 0], white: [-1, 0], black: [0, -1] };
+      KEYS.forEach(function (k, i) {
+        var o = ART.OBANG[k], c = ART.parse(o.hex), x, y;
+        if (m === "dir") { x = cx + DIRP[k][0] * R * 0.78; y = cy + DIRP[k][1] * R * 0.78; }
+        else { var lab = ART.srgbToOklab(c), s = (R * 1.18 * 0.62) / 0.12 * 0.85; x = cx + lab[1] * s * 1.0; y = cy - lab[2] * s; if (k === "black") x -= sz * 0.32; if (k === "white") x += sz * 0.32; }
+        if (off[k]) { x += off[k][0]; y += off[k][1]; }
+        pos[k] = [x, y];
+        ctx.fillStyle = o.hex; ctx.strokeStyle = sel === k ? p.accent : p.border; ctx.lineWidth = sel === k ? 3 : 1.2;
+        ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x - sz / 2, y - sz / 2, sz, sz, 8); else ctx.rect(x - sz / 2, y - sz / 2, sz, sz); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = AB.textOn(c); ctx.font = AB.font(13, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(o.name.charAt(0), x, y);
+        if (m === "dir") { ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.fillText(INFO[k][0] + " · " + INFO[k][2], x, y + sz / 2 + 11); }
+      });
+      if (m === "dir") { ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("위가 북, 오른쪽이 동인 지도로 놓았다", 10, 8); }
+      else { ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("가운데 = 무채색 · 바깥 = 선명 · 각도 = 색상", 10, 8); }
+      var o = ART.OBANG[sel], lch = ART.srgbToOklch(ART.parse(o.hex));
+      AB.stat("wh-ob-o0", chip(ART.parse(o.hex)) + " <small>" + o.name + "</small>");
+      AB.stat("wh-ob-o1", INFO[sel].join(" · "));
+      AB.stat("wh-ob-o2", lch[0].toFixed(2) + " " + lch[1].toFixed(3) + (lch[1] < 0.03 ? " 무채색" : " " + Math.round(lch[2]) + "°"));
+    }, { aspect: 0.75, minHeight: 300, maxHeight: 440 });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { grab = null; var bd = 50; KEYS.forEach(function (k) { if (!pos[k]) return; var d = Math.hypot(x - pos[k][0], y - pos[k][1]); if (d < bd) { bd = d; grab = k; } }); if (grab) { sel = grab; this0 = [x, y, (off[grab] || [0, 0]).slice()]; cv.redraw(); } },
+      move: function (x, y) { if (!grab || !this0) return; off[grab] = [this0[2][0] + x - this0[0], this0[2][1] + y - this0[1]]; cv.redraw(); },
+      end: function () { grab = null; },
+    });
+    var this0 = null;
+  })();
+
+  /* ---------------- 시뮬레이터 6: 책방 E 배색 실험실 ---------------- */
+  (function () {
+    var BASE = ART.parse("#2f7d5b"), baseLch = ART.srgbToOklch(BASE), baseH = baseLch[2], geo = null, ringI = null;
+    var wheel = AB.seg("wh-lb-wheel", function () { cv.redraw(); });
+    var sch = AB.seg("wh-lb-sch", function () { cv.redraw(); });
+    var sG = AB.range("wh-lb-s", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var cG = AB.range("wh-lb-c", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    function palette() {
+      var base = ART.gamutMap([baseLch[0], baseLch[1], baseH]);
+      var res = ART.harmony(base, sch(), wheel()), spread = sG() / 100, cs = cG() / 100;
+      var others = res.filter(function (r, i) { return sch() === "analogous" ? i !== 1 : i !== 0; }).map(function (r, k) {
+        var lch = ART.srgbToOklch(r.rgb), sign = k % 2 === 0 ? 1 : -1;
+        var L = AB.clamp(lch[0] + sign * spread * 0.36, 0.15, 0.97);
+        if (spread === 0 && cs === 1) return r.rgb;
+        return ART.gamutMap([L, lch[1] * cs, lch[2]]);
+      });
+      return { base: base, others: others };
+    }
+    function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+    var cv = AB.canvas("#wh-lb-cv", function (ctx, w, h) {
+      var pal = palette(), g = pal.base, a = pal.others[0], b = pal.others[1] || ART.gamutMap([Math.min(0.95, baseLch[0] + 0.35), 0.03, baseH]);
+      ctx.fillStyle = PAPER; ctx.fillRect(0, 0, w, h);
+      var wide = w >= 520;
+      // 작은 색상환
+      var R = wide ? 46 : 40, rc = [14 + R, 14 + R];
+      if (!ringI || ringI.k !== R) { ringI = ringImage(R, function (hh) { return ART.gamutMap([0.6, 0.12, hh]); }); ringI.k = R; }
+      ctx.drawImage(ringI, rc[0] - ringI.width / 2, rc[1] - ringI.height / 2);
+      var hp = onRing(rc[0], rc[1], R * 0.81, baseH); AB.handle(ctx, hp[0], hp[1], { r: 8, fill: g });
+      geo = { rc: rc, R: R };
+      // 견본 줄
+      var cols = [g].concat(pal.others), sx = rc[0] + R + 16, swW = Math.min(64, (w - sx - 12) / cols.length - 6);
+      cols.forEach(function (c, i) { var x = sx + i * (swW + 6); ctx.fillStyle = hex(c); rr(ctx, x, 14, swW, 40, 6); ctx.fill(); ctx.fillStyle = INK_DIM; ctx.font = AB.font(10, true); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(hex(c), x, 58); });
+      ctx.fillStyle = INK; ctx.font = AB.font(11, false, 700); ctx.fillText((wheel() === "ryb" ? "RYB · " : "OKLCH · ") + ART.SCHEMES[sch()].name, sx, 74);
+      // 포스터
+      var top = 2 * R + 36, avail = h - top - 12;
+      var pw = wide ? Math.min(avail * 0.75, w * 0.36) : Math.min(w * 0.46, avail * 0.75), ph = pw / 0.75;
+      var px = 12, py = top;
+      ctx.fillStyle = hex(g); ctx.fillRect(px, py, pw, ph);
+      ctx.fillStyle = hex(b); ctx.beginPath(); ctx.arc(px + pw * 0.78, py + ph * 0.2, pw * 0.14, 0, 7); ctx.fill();
+      ctx.fillStyle = hex(b); ctx.fillRect(px + pw * 0.1, py + ph * 0.7, pw * 0.8, ph * 0.012 + 2);
+      ctx.fillStyle = hex(a); ctx.font = AB.font(Math.round(pw * 0.15), false, 800); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      ctx.fillText("가을", px + pw * 0.1, py + ph * 0.45); ctx.fillText("책 잔치", px + pw * 0.1, py + ph * 0.62);
+      ctx.fillStyle = "#ffffff"; ctx.font = AB.font(Math.max(9, Math.round(pw * 0.055)), false, 600); ctx.fillText("10.24 – 10.27 · 책방 E", px + pw * 0.1, py + ph * 0.82);
+      // 웹 머리
+      var wx = px + pw + 14, ww = w - wx - 12, wh = Math.min(ph * 0.48, 130);
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(wx, py, ww, wh); ctx.strokeStyle = "#d9d5cc"; ctx.lineWidth = 1; ctx.strokeRect(wx + 0.5, py + 0.5, ww - 1, wh - 1);
+      ctx.fillStyle = hex(g); ctx.font = AB.font(Math.max(14, Math.min(22, ww * 0.1)), false, 800); ctx.textBaseline = "top"; ctx.fillText("책방 E", wx + 12, py + 12);
+      ctx.fillStyle = "#555555"; ctx.font = AB.font(11); ctx.fillText("오늘의 책 · 행사 · 오시는 길", wx + 12, py + 44);
+      var bw = Math.min(110, ww * 0.55), bh = 30;
+      ctx.fillStyle = hex(a); rr(ctx, wx + 12, py + wh - bh - 12, bw, bh, 6); ctx.fill();
+      var btnText = AB.textOn(a); ctx.fillStyle = btnText; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("예약하기", wx + 12 + bw / 2, py + wh - bh / 2 - 12);
+      // 에코백
+      var ey = py + wh + 14, eh = ph - wh - 14, ew = Math.min(ww, eh * 0.95);
+      if (eh > 60) {
+        var ex = wx + (ww - ew) / 2;
+        ctx.strokeStyle = "#1d1d1f"; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(ex + ew / 2, ey + eh * 0.24, ew * 0.2, Math.PI, 0); ctx.stroke();
+        ctx.fillStyle = "#1d1d1f"; ctx.fillRect(ex, ey + eh * 0.24, ew, eh * 0.76);
+        ctx.fillStyle = hex(g); ctx.beginPath(); ctx.arc(ex + ew / 2, ey + eh * 0.58, ew * 0.18, 0, 7); ctx.fill();
+        ctx.fillStyle = hex(a); ctx.font = AB.font(Math.max(10, Math.round(ew * 0.1)), false, 800); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("E", ex + ew / 2, ey + eh * 0.58);
+      }
+      var cT = ART.contrast(a, g), cB = ART.contrast(a, btnText === "#000000" ? [0, 0, 0] : [1, 1, 1]);
+      AB.stat("wh-lb-o0", cols.map(function (c) { return chip(c); }).join(" "));
+      AB.stat("wh-lb-o1", cT.toFixed(2) + " <small>" + (cT < 3 ? "흐릿함" : ART.wcagLevel(cT, true)) + "</small>");
+      AB.stat("wh-lb-o2", cB.toFixed(2) + " <small>" + ART.wcagLevel(cB) + "</small>");
+      AB.stat("wh-lb-o3", [g].concat(pal.others).map(function (c) { return Math.round(ART.lightness(c)); }).join(" · "));
+    }, { get height() { var w = document.getElementById("wh-lb-cv").parentElement.clientWidth || 600; return w >= 520 ? Math.round(Math.min(500, Math.max(400, w * 0.7))) : Math.round(w * 1.25); }, bg: PAPER });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var d = Math.hypot(x - geo.rc[0], y - geo.rc[1]);
+        if (d > geo.R * 1.4 || d < geo.R * 0.3) return;
+        baseH = angleAt(geo.rc[0], geo.rc[1], x, y); cv.redraw();
+      },
+    });
+  })();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see LICENSE-MIT).
+     Text: CC-BY-4.0 (see LICENSE.md). Artwork images: see each credit (public domain / CC0). -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이미지 크레딧 · ArtBook</title>
+<meta name="description" content="ArtBook 서가의 모든 책에 실린 작품 이미지의 작품명, 작가, 연도, 소장처, 라이선스, 원본 주소.">
+<link rel="canonical" href="https://artbook.euiyun.com/credits.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="이미지 크레딧 · ArtBook">
+<meta property="og:description" content="ArtBook에 실린 공공 도메인 작품 이미지의 출처와 라이선스.">
+<meta property="og:url" content="https://artbook.euiyun.com/credits.html">
+<meta property="og:image" content="https://artbook.euiyun.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"이미지 크레딧 · ArtBook","url":"https://artbook.euiyun.com/credits.html","inLanguage":"ko","isPartOf":{"@type":"WebSite","name":"ArtBook","url":"https://artbook.euiyun.com/"}}</script>
+<link rel="stylesheet" href="shared/css/style.css">
+<script src="shared/js/shelf.js"></script>
+<script src="shared/js/common.js"></script>
+<script src="shared/img/credits.js"></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-root="" data-shelf="">
+<main class="chapter" style="padding-left:16px;padding-right:16px">
+  <header class="chapter-hero">
+    <div class="eyebrow">Image Credits</div>
+    <h1>이미지 크레딧</h1>
+    <p class="lead">ArtBook의 작품 이미지는 공공 도메인 또는 CC0로 공개된 자료만 쓴다. 웹에서 빨리 열리도록 긴 변 1600px 이하의 WebP로 줄였고, 부분 확대 그림은 원본 해상도에서 잘라 냈다. 아래 목록은 <code>shared/img/credits.json</code>에서 자동으로 만든다.</p>
+  </header>
+  <section id="list" data-nonum>
+    <h2>작품 이미지</h2>
+    <div class="credits-list" id="credits"></div>
+  </section>
+  <section id="rules" data-nonum>
+    <h2>이 서가의 이미지 원칙</h2>
+    <ul>
+      <li>출처(소장처의 원본 주소)와 라이선스를 확인한 이미지만 쓴다. 확인하지 못한 그림은 쓰지 않고, 같은 원리를 보여 주는 그림을 직접 그린다.</li>
+      <li>작품 위에 얹는 분석 그림(명도만 보기, 주요 색, 구도선, 시선 경로)은 이 서가가 만든 것이며 CC BY 4.0을 따른다. 작품 이미지 자체는 각 소장처의 표시(공공 도메인, CC0)를 따른다.</li>
+      <li>현존 작가의 작품, 브랜드 로고, 상업 디자인은 복제하지 않는다. 사례가 필요하면 "가상의 서점 포스터"처럼 직접 만든 예시를 쓴다.</li>
+      <li>화면에 보이는 색은 기기마다 다르다. 같은 이미지도 모니터, 밝기, 색 설정에 따라 달라 보이며, 실제 그림의 색은 미술관 조명 아래에서 또 다르다.</li>
+    </ul>
+  </section>
+</main>
+<script>
+(function () {
+  "use strict";
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var list = window.AB_CREDITS || [];
+  document.getElementById("credits").innerHTML = list.length ? list.map(function (c) {
+    var used = (c.usedIn || []).map(function (u) { return '<a href="' + esc(u) + '">' + esc(u) + "</a>"; }).join(", ");
+    return '<div class="item" id="' + esc(c.id) + '"><img src="shared/img/' + esc(c.file) + '" alt="' + esc(c.title) + '" loading="lazy"><div><h3>' + esc(c.title) + "</h3><p>" +
+      esc(c.artist) + " · " + esc(c.date) + (c.medium ? " · " + esc(c.medium) : "") + "<br>" + esc(c.museum) + (c.creditLine ? " (" + esc(c.creditLine) + ")" : "") +
+      '<br>라이선스: <a href="' + esc(c.licenseUrl) + '">' + esc(c.license) + "</a> · " +
+      '<a href="' + esc(c.page) + '">소장처 작품 페이지</a> · <a href="' + esc(c.source) + '">원본 이미지</a>' +
+      "<br>가공: " + esc(c.derived) + " · 확인일 " + esc(c.checked) + (used ? "<br>쓰인 곳: " + used : "") + "</p></div></div>";
+  }).join("") : "<p>아직 실린 작품 이미지가 없다.</p>";
+})();
+</script>
+</body>
+</html>

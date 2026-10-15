@@ -1,0 +1,715 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "모두가 같은 색을 보지는 않는다. 색각이상 시뮬레이션으로 웹사이트와 차트를 다른 눈으로 보고, WCAG 대비 기준(4.5:1, 3:1)과 색에만 의존하지 않는 정보 표현을 익혀 책방 E의 예약 화면을 직접 고친다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>모두를 위한 색 · ColorBook</title>
+<meta name="description" content="모두가 같은 색을 보지는 않는다. 색각이상 시뮬레이션으로 웹사이트와 차트를 다른 눈으로 보고, WCAG 대비 기준(4.5:1, 3:1)과 색에만 의존하지 않는 정보 표현을 익혀 책방 E의 예약 화면을 직접 고친다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/access.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="모두를 위한 색 · ColorBook">
+<meta property="og:description" content="모두가 같은 색을 보지는 않는다. 색각이상 시뮬레이션으로 웹사이트와 차트를 다른 눈으로 보고, WCAG 대비 기준(4.5:1, 3:1)과 색에만 의존하지 않는 정보 표현을 익혀 책방 E의 예약 화면을 직접 고친다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/access.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/access.html#chapter","name":"모두를 위한 색","headline":"모두를 위한 색 · ColorBook","description":"모두가 같은 색을 보지는 않는다. 색각이상 시뮬레이션으로 웹사이트와 차트를 다른 눈으로 보고, WCAG 대비 기준(4.5:1, 3:1)과 색에만 의존하지 않는 정보 표현을 익혀 책방 E의 예약 화면을 직접 고친다.","url":"https://artbook.euiyun.com/color/chapters/access.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"13. 모두를 위한 색","item":"https://artbook.euiyun.com/color/chapters/access.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="access">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 13</div>
+    <h1>모두를 위한 색</h1>
+    <p class="lead">신호등의 빨강과 초록이 비슷한 색으로 보이는 사람은 어떻게 길을 건널까. 대부분은 위치(빨강은 위나 왼쪽)와 밝기로 구분한다. 그런데 웹사이트의 "품절" 표시가 제목 옆의 작은 빨간 점 하나뿐이라면, 그 사람에게는 구분할 방법이 남지 않는다. 이 장은 다른 눈으로 화면을 보는 법, 글자가 읽히는지 숫자로 재는 법, 그리고 색이 하던 일을 글자와 모양에게도 나눠 맡기는 법을 다룬다.</p>
+    <ul class="objectives">
+      <li>색각이상의 종류(제1·2·3색각이상, 전색각)와 대략의 비율을 설명하고, 시뮬레이션의 한계를 안다.</li>
+      <li>WCAG 2의 대비비를 계산하고, 본문 글자 4.5:1, 큰 글자 3:1, 비텍스트 요소 3:1 기준을 적용한다.</li>
+      <li>APCA가 무엇이며 왜 아직 참고용인지 안다.</li>
+      <li>색에만 의존하는 정보 표현(WCAG 1.4.1)을 찾아내고 글자·모양·위치·패턴을 함께 쓰도록 고친다.</li>
+      <li>색각이상 시뮬레이션과 색차로 팔레트의 구분도를 점검한다.</li>
+    </ul>
+  </header>
+
+  <section id="who">
+    <h2>모두가 같은 색을 보지는 않는다</h2>
+    <p>1장에서 본 것처럼 사람의 눈에는 빛에 반응하는 원뿔세포가 세 종류(L, M, S) 있다. 이 가운데 한 종류가 없거나 감도가 옮겨져 있으면 색을 구분하는 방식이 달라진다. 이것을 <span class="term">색각이상</span><span class="en">(Color vision deficiency)</span>이라고 한다. 예전에는 "색맹", "색약"이라고 불렀지만, 색을 전혀 못 보는 경우는 매우 드물고 대부분은 특정한 색 쌍의 구분이 어려운 정도라서 지금은 색각이상이라는 말을 쓴다.</p>
+    <ul>
+      <li><span class="term">제1색각이상</span><span class="en">(Protan)</span>: L 원뿔세포(긴 파장)에 문제가 있다. 빨강과 초록의 구분이 어렵고, 빨강이 어둡게 보인다.</li>
+      <li><span class="term">제2색각이상</span><span class="en">(Deutan)</span>: M 원뿔세포(중간 파장)에 문제가 있다. 빨강과 초록의 구분이 어렵다. 색각이상 가운데 가장 흔하다.</li>
+      <li><span class="term">제3색각이상</span><span class="en">(Tritan)</span>: S 원뿔세포(짧은 파장)에 문제가 있다. 파랑과 초록, 노랑과 분홍의 구분이 어렵다. 매우 드물다.</li>
+      <li><span class="term">전색각</span><span class="en">(Achromatopsia)</span>: 색을 거의 느끼지 못하고 밝기로만 본다. 극히 드물다.</li>
+    </ul>
+    <p>제1·2색각이상을 묶은 적록 색각이상은 X 염색체를 따라 유전되기 때문에 남성에게 훨씬 많다. 여러 조사를 종합하면 북유럽계 남성의 약 8%, 여성의 약 0.5%가 적록 색각이상이고, 동아시아 남성에서는 대략 4~6%로 그보다 낮게 보고된다. 조사마다 방법과 대상이 달라 숫자는 대략의 값이지만, 남성 스무 명 가운데 한 명꼴이라고 생각하면 크게 틀리지 않는다. 웹사이트 방문자가 하루 수백 명인 서점이라면 매일 그런 손님이 온다는 뜻이다. 여기에 나이가 들며 수정체가 누레지는 변화, 저시력, 눈부신 햇빛 아래의 휴대폰 화면처럼 색 구분이 어려워지는 상황까지 더하면 "모두가 같은 색을 본다"는 가정은 처음부터 성립하지 않는다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="세 원뿔세포의 감도 곡선과 제2색각이상에서 M 곡선이 L 쪽으로 옮겨 간 모습">
+        <g id="ac-cones"></g>
+      </svg>
+      <figcaption><b>그림 1. 원뿔세포의 감도와 제2색각이상.</b> 실선은 세 원뿔세포가 파장마다 얼마나 반응하는지를 단순화한 모양이다. L(긴 파장)과 M(중간 파장) 곡선은 원래도 많이 겹쳐 있다. 제2색각이상 가운데 흔한 형태(이상 3색각)에서는 M 곡선이 L 쪽으로 옮겨 가(점선) 두 신호의 차이가 더 작아지고, 빨강–초록 축의 구분이 약해진다. M 원뿔세포가 아예 없으면(2색각) 그 차이가 사라진다. 곡선은 모양을 흉내 낸 그림이며 측정값이 아니다.</figcaption>
+    </figure>
+  </section>
+
+  <section id="simulate">
+    <h2>다른 눈으로 화면 보기</h2>
+    <p>색각이상이 없는 사람이 그 경험을 짐작해 보는 도구가 <span class="term">색각이상 시뮬레이션</span><span class="en">(CVD simulation)</span>이다. 이 책의 엔진은 마샤두, 올리베이라, 페르난데스<span class="en">(Machado, Oliveira &amp; Fernandes, 2009)</span>가 원뿔세포의 감도 변화를 바탕으로 만든 모형을 쓴다. 이 모형은 "심도"를 바꿔 이상 3색각(약한 쪽)부터 2색각(강한 쪽)까지 흉내 낼 수 있다. 이 책은 논문의 심도 1.0 행렬을 쓰고, 중간 심도는 원래 색과 선형 보간한 근사로 보여 준다.</p>
+    <p>아래는 책방 E 웹사이트의 첫 화면을 단순하게 그린 것이다. 경계선을 좌우로 끌어 원래 화면(왼쪽)과 시뮬레이션(오른쪽)을 비교하고, 위의 단추로 종류를, 슬라이더로 심도를 바꾼다. 책 제목 옆의 점은 예약 가능(초록)과 품절(빨강)을 뜻한다.</p>
+
+    <div class="sim" id="sim-ac-web">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>책방 E 웹사이트, 다른 눈으로</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <div class="compare" id="wb-cmp">
+            <div class="cmp-a"><canvas id="wb-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="wb-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="wb-type"><button data-value="deutan" class="on">제2색각</button><button data-value="protan">제1색각</button><button data-value="tritan">제3색각</button><button data-value="achroma">전색각</button></div>
+          <label class="ctrl"><span>심도 <output id="wb-s-out"></output></span><input type="range" id="wb-s" min="0" max="100" step="1" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">두 상태 점의 색차 ΔE</span><span class="v" id="wb-o-de">—</span></div>
+        <div class="stat"><span class="k">"예약하기" 글자 대비</span><span class="v" id="wb-o-btn">—</span></div>
+        <div class="stat"><span class="k">로고와 바탕 대비</span><span class="v" id="wb-o-logo">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 제2색각, 심도 100%에서 경계선을 왼쪽 끝까지 끈다. 초록 점과 빨간 점이 거의 같은 황갈색이 된다. 색차가 65 가까이에서 7 남짓으로 떨어진다. ② 심도를 50%로 내린다. 이상 3색각처럼 구분은 되지만 작은 점 크기에서는 여전히 헷갈린다. ③ 전색각으로 바꾼다. 색이 사라져도 "예약하기" 버튼은 처음부터 잘 안 읽힌다. 이 문제는 색각이 아니라 <b>명도 대비</b>의 문제다. 대비 값이 시뮬레이션 종류와 상관없이 거의 그대로인 것을 확인한다. (Machado 외 2009 모형. 중간 심도는 선형 보간 근사이고, 실제 경험은 사람마다 다르다. 화면 색은 기기마다 다르다.)</div>
+    </div>
+
+    <p>시뮬레이션에서 본 두 가지 문제는 성격이 다르다. 상태 점은 <b>색상</b>으로만 정보를 전하고 있어서 적록 색각이상에게 사라졌다. 버튼은 색상과 상관없이 <b>명도 대비</b>가 낮아서 누구에게나 읽기 어렵다. 앞의 문제는 정보를 색 말고도 실어 나르면 풀리고, 뒤의 문제는 대비를 재고 기준을 맞추면 풀린다. 이 장의 나머지는 이 두 갈래를 차례로 다룬다.</p>
+
+    <div class="callout warn">
+      <strong>시뮬레이션은 "그 사람이 보는 화면"이 아니다</strong>
+      시뮬레이션은 색각이 정상인 사람의 눈에, 색각이상인 사람이 <b>구분하기 어려운 색 쌍</b>을 같은 색으로 보여 주는 근사다. 같은 제2색각이상이라도 심도가 사람마다 다르고, 오랫동안 명도와 맥락으로 색을 구분하는 법을 익힌 사람의 실제 경험은 시뮬레이션보다 훨씬 풍부하다. 또 모형마다(Brettel·Viénot·Mollon 1997, Viénot 외 1999, Machado 외 2009) 결과가 조금씩 다르다. 그래서 시뮬레이션은 "어디가 위험한지 찾는 도구"로 쓰고, 가능하면 실제 사용자에게 확인받는다.
+    </div>
+  </section>
+
+  <section id="contrast">
+    <h2>명도 대비를 숫자로 재기</h2>
+    <p>글자가 읽히는지는 글자와 바탕의 밝기 차이에 가장 크게 달려 있다. 웹 접근성 국제 기준인 <span class="term">WCAG</span><span class="en">(Web Content Accessibility Guidelines)</span>는 W3C가 만든 지침으로, 두 색의 <span class="term">상대 휘도</span><span class="en">(Relative luminance)</span>를 구해 그 비율로 대비를 잰다. 상대 휘도는 화면 값을 빛의 세기로 되돌린 뒤 초록에 가장 큰 무게를 두어 더한 값으로, 검정이 0, 흰색이 1이다.</p>
+    <div class="formula">$$\text{대비비} = \frac{L_1 + 0.05}{L_2 + 0.05}, \qquad L = 0.2126\,R + 0.7152\,G + 0.0722\,B$$<div class="where">\(L_1\): 더 밝은 색의 상대 휘도, \(L_2\): 더 어두운 색의 상대 휘도. \(R, G, B\)는 sRGB 값을 선형광으로 바꾼 값(0~1)이다. 0.05는 화면 반사광 등을 대신하는 작은 값으로, 아주 어두운 색끼리의 비율이 터무니없이 커지는 것을 막는다. 결과는 1(같은 색)에서 21(검정과 흰색)까지다. 이 책의 엔진은 <code>ART.contrast()</code>로 계산한다.</div></div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="대비비 눈금 위의 3:1, 4.5:1, 7:1 기준과 각 대비의 회색 글자 예시">
+        <g id="ac-ladder"></g>
+      </svg>
+      <figcaption><b>그림 2. 대비비의 눈금.</b> 흰 바탕 위 회색 글자로 대비 2, 3, 4.5, 7, 12를 만든 예시다. 3은 큰 글자와 버튼 테두리·아이콘 같은 비텍스트 요소의 최소, 4.5는 본문 글자의 최소(AA), 7은 더 높은 등급(AAA)이다. 눈금은 비율이라 로그 눈금으로 그렸다. 같은 대비라도 글자가 가늘거나 작으면 더 읽기 어렵다.</figcaption>
+    </figure>
+
+    <p>대비를 직접 재 본다. 아래 색 판은 가로가 색상, 세로가 명도(OKLCH L)이고, 슬라이더로 채도를 정한다. 판 위의 두 손잡이 중 <b>글</b>은 글자색, <b>바</b>는 바탕색이다. 끌어서 옮기면 오른쪽(또는 아래)의 미리보기와 대비 값이 바뀐다.</p>
+
+    <div class="sim" id="sim-ac-contrast">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>대비 측정기: 글자색과 바탕색 끌기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ct-cv" class="art"></canvas><span class="hint">손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>색 판의 채도(OKLCH C) <output id="ct-c-out"></output></span><input type="range" id="ct-c" min="0" max="0.2" step="0.005" value="0.1"></label>
+          <div class="seg" id="ct-pre"><button data-value="logo" class="on">로고 초록/흰색</button><button data-value="yellow">노랑/흰색</button><button data-value="redgreen">빨강/초록</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자 · 바탕</span><span class="v" id="ct-o-c">—</span></div>
+        <div class="stat"><span class="k">WCAG 대비비</span><span class="v" id="ct-o-r">—</span></div>
+        <div class="stat"><span class="k">본문 · 큰 글자</span><span class="v" id="ct-o-l">—</span></div>
+        <div class="stat"><span class="k">APCA Lc (참고)</span><span class="v" id="ct-o-a">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "로고 초록/흰색"에서 시작한다. 서윤의 로고 초록 후보 <code>#2f7d5b</code> 위 흰 글자는 이 책의 모델로 4.99, 본문 기준(4.5)을 넘는다. 바 손잡이를 위로 조금만 올려도 기준 아래로 떨어진다. ② "노랑/흰색"을 고른다. 노랑 글자는 아주 선명해도 1.1 남짓이다. 채도는 대비를 만들지 않는다. ③ "빨강/초록"을 고르고 시뮬레이터 머리의 흑백 단추를 누른다. 색상으로는 정반대인 두 색이 거의 같은 회색이 된다. 대비비도 1 가까이다. 명도를 끝까지 벌려야 비로소 읽힌다. (대비비는 WCAG 2 공식, APCA는 0.0.98G-4g 상수로 계산한 참고값이다. 색 판은 sRGB 색역 안으로 채도를 줄여 칠했다.)</div>
+    </div>
+
+    <p>"빨강/초록"이 보여 주듯, 색상환에서 멀리 떨어진 두 색도 명도가 같으면 대비는 거의 없다. 대비비는 색상과 채도를 모르고 오직 밝기만 본다. 그래서 대비를 맞춘 화면은 흑백으로 바꿔도, 색각이상의 눈으로 봐도 글자가 남는다. <a href="value.html">6장</a>의 "명도가 먼저다"는 접근성에서도 그대로 성립한다.</p>
+  </section>
+
+  <section id="levels">
+    <h2>기준표: 무엇에 몇 대 1인가</h2>
+    <p>WCAG 2(현재 판은 2023년의 2.2)는 색과 관련해 네 가지 성공 기준을 둔다. 한국에도 이를 바탕으로 한 국가 표준인 한국형 웹 콘텐츠 접근성 지침이 있고, 공공기관 웹사이트는 이를 지켜야 한다.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>기준</th><th>등급</th><th>요구</th></tr></thead>
+      <tbody>
+        <tr><td>1.4.1 색의 사용</td><td>A</td><td>정보를 전하거나, 동작을 알리거나, 반응을 요청하거나, 요소를 구분할 때 색을 <b>유일한</b> 시각적 수단으로 쓰지 않는다.</td></tr>
+        <tr><td>1.4.3 대비(최소)</td><td>AA</td><td>글자와 글자 이미지는 대비 <b>4.5:1</b> 이상. 큰 글자는 <b>3:1</b> 이상. 장식, 비활성 요소, 로고의 글자는 예외.</td></tr>
+        <tr><td>1.4.6 대비(강화)</td><td>AAA</td><td>글자 7:1, 큰 글자 4.5:1 이상.</td></tr>
+        <tr><td>1.4.11 비텍스트 대비</td><td>AA</td><td>버튼·입력칸의 경계, 체크 상태, 초점 표시 같은 사용자 인터페이스 요소와, 이해에 필요한 그래픽(차트의 선, 아이콘)은 인접한 색과 <b>3:1</b> 이상.</td></tr>
+      </tbody>
+    </table></div>
+    <p>"큰 글자"는 18포인트 이상, 또는 굵은 14포인트 이상을 말한다. 웹의 CSS 픽셀로는 대략 24&nbsp;px 이상, 굵은 글씨는 약 18.7&nbsp;px 이상이다. 글자가 크고 굵으면 획이 넓어 대비가 조금 낮아도 읽히기 때문이다. 아래에서 크기와 굵기를 바꾸며 요구 기준이 어떻게 바뀌는지 본다.</p>
+
+    <div class="sim" id="sim-ac-size">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글자 크기와 필요한 대비</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sz-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 크기 <output id="sz-p-out"></output></span><input type="range" id="sz-p" min="10" max="40" step="1" value="16"></label>
+          <label class="ctrl"><span>글자의 회색 값(대비) <output id="sz-g-out"></output></span><input type="range" id="sz-g" min="1.2" max="10" step="0.1" value="3.5"></label>
+          <label class="check"><input type="checkbox" id="sz-b"> 굵게</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">크기 분류</span><span class="v" id="sz-o-k">—</span></div>
+        <div class="stat"><span class="k">필요한 대비(AA)</span><span class="v" id="sz-o-n">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="sz-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 기본값(16&nbsp;px, 대비 3.5)은 본문 글자로는 기준에 못 미친다. 크기를 24&nbsp;px까지 올리면 같은 회색이 "통과"로 바뀐다. ② 크기를 19&nbsp;px에 두고 "굵게"를 켰다 껐다 한다. 굵기만으로 분류가 바뀐다. ③ 대비를 1.5 아래로 내리고 크기를 40&nbsp;px까지 키운다. 아무리 커도 3:1 아래의 글자는 기준을 통과하지 못한다. 크기는 대비를 대신하지 못한다. (큰 글자 경계는 WCAG의 18pt·굵은 14pt를 CSS 픽셀 24&nbsp;px·18.7&nbsp;px로 옮긴 값이다. 글꼴마다 실제 읽힘은 다르다.)</div>
+    </div>
+
+    <div class="callout deep">
+      <strong>APCA: 다음 기준의 후보, 아직은 참고용</strong>
+      WCAG 2의 대비비는 단순하고 검증하기 쉽지만 약점도 알려져 있다. 어두운 바탕의 밝은 글자와 밝은 바탕의 어두운 글자를 같은 숫자로 취급하고, 중간 밝기의 색끼리의 대비를 실제보다 높게 매기는 경우가 있으며, 글자 크기와 굵기를 "큰 글자" 하나로만 나눈다. 앤드루 서머스<span class="en">(Andrew Somers)</span>가 제안한 <span class="term">APCA</span><span class="en">(Accessible Perceptual Contrast Algorithm)</span>는 지각 연구를 바탕으로 글자색과 바탕색의 순서를 구분하고, 결과를 Lc라는 값(대략 −108~106)으로 내며, 글자 크기와 굵기에 따라 필요한 값을 달리 정하는 방식이다. 개발 중인 WCAG 3 초안의 후보로 검토되었지만 <b>아직 표준이 아니고</b>, 상수와 권장값도 바뀌어 왔다. 이 책은 APCA를 대비 측정기에 참고값으로만 보여 준다. 실제 프로젝트에서 지켜야 하는 기준은 지금도 WCAG 2의 대비비다.
+    </div>
+  </section>
+
+  <section id="not-only">
+    <h2>색에만 기대지 않기</h2>
+    <p>대비를 맞춰도 남는 문제가 있다. 두 상태 점처럼 명도가 비슷한 두 색으로 <b>종류</b>를 나누는 경우다. WCAG 1.4.1의 요구는 간단하다. 색은 써도 되지만, 색이 유일한 단서여서는 안 된다. 색이 하던 일을 함께 맡을 수 있는 통로는 여럿 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="정보를 색 말고도 전하는 다섯 가지 통로: 글자, 모양, 위치, 패턴, 밑줄">
+        <g id="ac-channels"></g>
+      </svg>
+      <figcaption><b>그림 3. 색과 함께 쓰는 다섯 통로.</b> 맨 위 줄은 색만으로 "예약 가능"과 "품절"을 나눈 것이다. 아래 줄들은 같은 구분을 글자, 모양, 위치, 패턴(빗금), 밑줄로 함께 전한다. 오른쪽 열은 같은 표시를 제2색각이상 시뮬레이션으로 본 것이다. 색이 무너져도 다른 통로가 남는다. 링크를 본문과 색으로만 구분할 때는 주변 글자와 3:1 이상의 대비와 함께, 초점·마우스 올림 때 밑줄 같은 추가 단서를 주는 방법이 W3C의 기법 문서에 안내되어 있다.</figcaption>
+    </figure>
+
+    <p>차트는 색에만 기대는 일이 가장 흔한 곳이다. 아래는 책방 E의 일주일 방문자 수를 행사별로 나눈 선 차트다. 처음에는 색 견본 범례만 있다. 확인란을 하나씩 켜서 다른 통로를 더하고, 보기 단추로 제2색각이상 시뮬레이션을 켠다.</p>
+
+    <div class="sim" id="sim-ac-chart">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>범례만 있는 차트 고치기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ch-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ch-view"><button data-value="normal" class="on">원래 보기</button><button data-value="deutan">제2색각</button><button data-value="protan">제1색각</button></div>
+          <label class="check"><input type="checkbox" id="ch-mark"> 점 모양 다르게(●■▲)</label>
+          <label class="check"><input type="checkbox" id="ch-dash"> 선 모양 다르게(실선·점선)</label>
+          <label class="check"><input type="checkbox" id="ch-label"> 선 끝에 이름 직접 쓰기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 비슷한 두 선의 ΔE</span><span class="v" id="ch-o-de">—</span></div>
+        <div class="stat"><span class="k">색 말고 쓰는 단서</span><span class="v" id="ch-o-n">—</span></div>
+        <div class="stat"><span class="k">범례를 오가야 하는가</span><span class="v" id="ch-o-l">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "제2색각"을 누른다. 낭독회(빨강)와 그림책 시간(초록)의 선이 거의 같은 색이 되고, 범례의 견본도 똑같아 보인다. ② "점 모양"과 "선 모양"을 켠다. 색이 같아 보여도 두 선이 갈린다. 흑백 단추를 눌러도 남는다. ③ "이름 직접 쓰기"를 켠다. 범례가 사라지고 눈이 선과 범례 사이를 오갈 필요가 없어진다. 색각과 상관없이 모두에게 더 빨리 읽힌다. (방문자 수는 이 책이 만든 가상의 값이다. 선 색은 흔히 쓰는 빨강·초록·주황이다.)</div>
+    </div>
+
+    <p>마지막 단계에서 차트는 색각이상이 없는 사람에게도 더 좋아졌다. 접근성을 위한 수정은 대부분 이렇다. 범례를 오가는 수고, 작은 점의 색을 맞춰 보는 수고는 누구에게나 비용이다. 접근성은 소수를 위한 "추가 기능"이 아니라 정보 디자인의 기본기에 가깝다.</p>
+
+    <div class="callout studio">
+      <strong>상태 표시는 "글자 + 모양 + 색" 세 겹으로</strong>
+      UI 디자이너들은 성공·경고·오류 같은 상태를 색 하나로 끝내지 않고 세 겹으로 쌓는다. 맨 아래에 글자("품절", "오류: 이메일 형식이 아닙니다")를 두고, 그 위에 모양(체크 표시, 느낌표 삼각형, 빗금)을, 마지막에 색을 얹는다. 색은 가장 빨리 눈에 들어오는 신호지만 가장 쉽게 무너지는 신호이기도 하다. 점검할 때는 화면을 흑백으로 바꿔 보고, 그래도 모든 상태가 구분되는지 본다. 운영체제의 흑백(회색조) 화면 설정이나 브라우저 개발자 도구의 색각이상 에뮬레이션 기능을 쓰면 실제 사이트를 그대로 점검할 수 있다.
+    </div>
+  </section>
+
+  <section id="palette">
+    <h2>구분되는 팔레트 고르기</h2>
+    <p>범주가 여럿인 차트나 지도처럼 색을 여러 개 동시에 써야 할 때는 팔레트 자체를 구분되게 고른다. 이 책의 엔진은 팔레트에서 가장 비슷한 두 색의 <span class="term">색차</span><span class="en">(Color difference)</span> ΔE2000을 재고, 색각이상 시뮬레이션을 거친 뒤에도 다시 잰다(<code>ART.distinguish</code>). 아래에서 네 가지 팔레트를 비교한다. 오카베 마사타카와 이토 가이<span class="en">(Okabe &amp; Ito, 2002)</span>가 제안한 여덟 색 팔레트는 색각이상에도 구분되도록 고른 팔레트로 널리 쓰인다.</p>
+
+    <div class="sim" id="sim-ac-pal">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>팔레트 구분도 검사</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pl-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-pal"><button data-value="traffic" class="on">신호등 3색</button><button data-value="even">같은 명도 6색</button><button data-value="okabe">오카베–이토 8색</button><button data-value="booke">책방 E 이야기 4색</button></div>
+          <div class="seg" id="pl-type"><button data-value="deutan" class="on">제2색각</button><button data-value="protan">제1색각</button><button data-value="tritan">제3색각</button></div>
+          <label class="ctrl"><span>심도 <output id="pl-s-out"></output></span><input type="range" id="pl-s" min="0" max="100" step="1" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">최소 ΔE · 원래</span><span class="v" id="pl-o-a">—</span></div>
+        <div class="stat"><span class="k">최소 ΔE · 시뮬레이션</span><span class="v" id="pl-o-b">—</span></div>
+        <div class="stat"><span class="k">가장 헷갈리는 쌍</span><span class="v" id="pl-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "신호등 3색"을 제2색각으로 본다. 빨강과 초록의 색차가 한 자릿수로 떨어진다. ② "같은 명도 6색"을 고른다. 원래는 서로 가장 멀리 떨어진 여섯 색인데, 명도가 모두 같아서 제2색각에서는 어떤 쌍은 거의 같은 색(ΔE 1 남짓)이 된다. 흑백을 켜면 여섯 색이 모두 한 회색이다. ③ "오카베–이토 8색"은 세 종류 모두에서 최소 색차가 10 이상을 지킨다. 비결은 색상만이 아니라 <b>명도도 고르게 벌린 것</b>이다. (색차는 ΔE2000. 이 책은 대략 10 미만을 "주의", 5 미만을 "혼동 위험"으로 표시한다. 이 경계는 이 책의 눈대중이며 표준이 아니다.)</div>
+    </div>
+
+    <p>같은 명도 6색이 무너지는 모습은 <a href="overview.html">1장</a>의 HSL 실험과 짝을 이룬다. 그때는 "같아 보여야 할 명도"가 달라서 문제였고, 이번에는 "달라 보여야 할 색"의 명도가 같아서 문제다. 범주를 구분하는 팔레트를 만들 때는 색상과 함께 명도에도 차이를 두고, 그래도 여섯 개를 넘는 범주는 색만으로 구분하려 하지 않는 편이 안전하다. 팔레트를 실제로 짜는 일은 <a href="palette.html">14장</a>에서 이어진다.</p>
+
+    <div class="callout try">
+      <strong>회색 복사로 내 자료 점검하기</strong>
+      최근에 만든 발표 자료나 차트 한 장을 골라 흑백(회색조)으로 인쇄하거나 복사한다. 그 종이만 보고 ① 모든 글자가 읽히는지, ② 차트의 계열과 범례를 짝지을 수 있는지, ③ "빨간 글씨는 주의" 같은 색 약속이 아직 전달되는지 확인한다. 안 되는 곳마다 연필로 고칠 방법(글자 추가, 모양, 밑줄, 명도 차이)을 적는다. 수채화를 그린다면 같은 방법으로 그림을 흑백 복사해 명도 구조도 함께 점검해 본다.
+    </div>
+  </section>
+
+  <section id="fix">
+    <h2>종합: 책방 E 예약 화면 고치기</h2>
+    <p>이제 이 장의 도구를 한꺼번에 쓴다. 아래는 책방 E 웹사이트의 낭독회 예약 화면이다. 처음 상태는 서윤이 처음 만든 그대로다. 연한 초록 "예약하기" 버튼, 제목 옆의 색 점 하나로 된 상태 표시, 밑줄 없는 초록 링크. 슬라이더와 확인란으로 고치면서, 아래 점검표의 네 항목이 모두 통과되게 만든다. 보기 단추로 다른 눈의 화면도 확인한다.</p>
+
+    <div class="sim" id="sim-ac-fix">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>예약 화면 고치기: 네 가지 점검</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="fx-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="fx-view"><button data-value="normal" class="on">원래 보기</button><button data-value="deutan">제2색각</button><button data-value="protan">제1색각</button><button data-value="achroma">흑백</button></div>
+          <label class="ctrl"><span>버튼 초록의 명도(OKLCH L) <output id="fx-l-out"></output></span><input type="range" id="fx-l" min="0.3" max="0.9" step="0.01" value="0.74"></label>
+          <label class="check"><input type="checkbox" id="fx-state"> 상태에 글자·모양 함께 쓰기</label>
+          <label class="check"><input type="checkbox" id="fx-link"> 링크에 밑줄</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">① 버튼 글자 대비(≥4.5)</span><span class="v" id="fx-o-1">—</span></div>
+        <div class="stat"><span class="k">② 버튼과 흰 화면(≥3)</span><span class="v" id="fx-o-2">—</span></div>
+        <div class="stat"><span class="k">③ 상태 구분(1.4.1)</span><span class="v" id="fx-o-3">—</span></div>
+        <div class="stat"><span class="k">④ 링크 구분(1.4.1)</span><span class="v" id="fx-o-4">—</span></div>
+        <div class="stat"><span class="k">통과</span><span class="v" id="fx-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태를 "제2색각"으로 본다. 상태 점 두 개가 같아지고, 버튼 글자는 어떤 보기에서도 흐리다. 점검표는 0/4다. ② 버튼 명도를 내린다. 0.55 아래로 내려가면 흰 글자 대비가 4.5를 넘는다. 서윤의 로고 초록(0.53)과 거의 같은 자리다. 끝까지(0.3) 내리면 대비는 커지지만 초록이 거의 검정이 되어 브랜드 색이 사라진다. 기준을 넘는 범위 안에서 고른다. ③ "상태에 글자·모양"과 "링크에 밑줄"을 켜고 모든 보기를 돌려 본다. 흑백에서도 모든 정보가 남으면 끝이다. (대비는 WCAG 2 공식, 시뮬레이션은 Machado 외 2009 모형. 링크는 본문 글자와의 대비가 3:1 미만이라 밑줄 같은 추가 단서가 필요하다고 판정한다. 버튼 색은 OKLCH 채도 0.094, 색상 162°에서 명도만 바꾼다.)</div>
+    </div>
+
+    <p>네 항목이 모두 통과한 화면을 처음 화면과 비교해 보면, 바뀐 것은 생각보다 적다. 버튼이 조금 진해졌고, 상태에 두 글자가 붙었고, 링크에 밑줄이 생겼다. 그런데 이제 그 화면은 흑백 복사로 봐도, 햇빛 아래 휴대폰으로 봐도, 제2색각이상인 손님이 봐도 같은 정보를 전한다. 접근성 기준은 색을 빼앗는 규칙이 아니라, 색이 혼자 지던 짐을 나눠 지게 하는 규칙이다.</p>
+
+    <div class="callout studio">
+      <strong>명도로 보는 사람에게 배운다</strong>
+      색각이상이 있는 화가와 디자이너는 드물지 않다. 그들 가운데 많은 사람이 물감 튜브의 이름표와 팔레트 위의 자리를 정해 두고, 색을 명도와 온도감으로 기억하는 자기만의 방법을 갖고 있다. 미술 교육자들이 흔히 하는 이야기는, 그런 학생들이 오히려 명도 구조를 빨리 익힌다는 것이다. 색이 흔들리는 대신 밝고 어두움에 기대는 습관이 몸에 배어 있기 때문이다. 디자이너가 화면을 흑백으로 자주 확인하는 습관은 결국 그 방식을 빌려 오는 일이다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 13장</span></div>
+      <h4>"예약하기 버튼이 어디 있는지 한참 찾았어요"</h4>
+      <p>낭독회 예약을 연 지 사흘째, 책방 E의 단골 손님 한 사람이 주인에게 메시지를 보냈다. 자신은 제2색각이상인데, 웹사이트의 "예약하기" 버튼을 한참 찾았고 어떤 책이 품절인지도 알 수 없었다는 내용이었다. 주인은 미안한 마음으로 서윤에게 메시지를 그대로 전했다.</p>
+      <p>서윤은 이 책의 엔진으로 화면을 다시 쟀다. 버튼은 연한 초록 <code>#6fbf8f</code> 위에 흰 글자였고, 대비가 2.20으로 본문 기준 4.5의 절반에도 못 미쳤다. 색각과 상관없이 모두에게 흐린 버튼이었다. 품절 표시는 책 제목 옆의 작은 빨간 점(<code>#d64545</code>), 예약 가능은 초록 점(<code>#3a9a5b</code>)이었다. 원래 눈으로는 색차 ΔE 64.7로 확연히 달랐지만, 제2색각이상 시뮬레이션에서는 6.9로 떨어져 거의 같은 황갈색이 되었다. 정보가 색 하나에만 실려 있었던 것이다(WCAG 1.4.1).</p>
+      <p>한도경은 화면을 흑백으로 바꿔 보더니 말했다. "내 제자 중에 적록 색약이 있었는데, 명도 스케치는 반에서 제일 잘했어. 그 친구는 색이 아니라 밝고 어두운 걸로 그림을 읽었거든. 네 화면도 흑백에서 읽히게 만들면 돼." 서윤은 버튼을 1장의 로고 초록 후보 <code>#2f7d5b</code>(흰 글자 대비 4.99)로 진하게 바꾸고, 상태 표시에 글자와 모양을 붙였다. 예약 가능은 초록 동그라미와 "예약 가능", 품절은 회색 <code>#6b6874</code>(흰 바탕 대비 5.44)의 빗금 친 네모와 "품절" 글자. 두 상태는 제2색각 시뮬레이션에서도 색차 13.7로 갈렸고, 무엇보다 글자가 있으니 색을 못 봐도 읽혔다. 링크에는 밑줄을 넣었다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#6fbf8f"></i><b>예전 버튼</b><code>#6fbf8f · 2.20</code></span>
+        <span class="chip"><i style="background:#2f7d5b"></i><b>새 버튼</b><code>#2f7d5b · 4.99</code></span>
+        <span class="chip"><i style="background:#6b6874"></i><b>품절(회색)</b><code>#6b6874 · 5.44</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>글자와 버튼의 대비는 4.5:1 이상(버튼 <code>#2f7d5b</code> 위 흰 글자 4.99), 버튼·아이콘 같은 비텍스트 요소는 바탕과 3:1 이상. 상태 표시는 색에만 맡기지 않고 글자·모양을 함께 쓴다(예약 가능: 초록 ● + 글자, 품절: 회색 빗금 네모 + 글자). 링크에는 밑줄을 둔다. 모든 화면은 흑백과 제2색각 시뮬레이션으로 한 번씩 확인한다.</div>
+        <div><b>아직 남은 문제</b>상태색, 경고색, 배경 톤까지 포함한 웹 팔레트 전체가 아직 없다. 로고 초록이 버튼으로도 쓰이면서 브랜드 색과 기능 색이 섞였다. 행사 달력과 방문자 차트의 색도 정해야 한다.</div>
+        <div><b>다음 단계</b><a href="palette.html">14장</a>: 브랜드 초록의 톤 스케일, 중립색, 상태색을 갖춘 웹 팔레트 v1을 만든다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>색각이상은 드물지 않다. 적록 색각이상은 북유럽계 남성의 약 8%, 동아시아 남성의 대략 4~6%로 보고되며, 제2색각이상이 가장 흔하다.</li>
+      <li>색각이상 시뮬레이션(Machado 외 2009 등)은 구분이 어려운 색 쌍을 찾는 도구이지 그 사람이 보는 화면 그대로가 아니다.</li>
+      <li>WCAG 2 대비비는 두 색의 상대 휘도 비율이다. 본문 글자 4.5:1, 큰 글자(24&nbsp;px, 굵게 약 18.7&nbsp;px 이상) 3:1, 버튼 경계·아이콘·차트 선 같은 비텍스트 요소 3:1이 최소 기준이다.</li>
+      <li>대비는 색상과 채도가 아니라 명도에서 나온다. 선명한 노랑 글자, 같은 명도의 빨강과 초록은 대비가 거의 없다.</li>
+      <li>APCA는 다음 기준의 후보로 검토되는 참고용 방식이며, 아직 지켜야 하는 기준은 WCAG 2다.</li>
+      <li>색을 유일한 단서로 쓰지 않는다(WCAG 1.4.1). 글자, 모양, 위치, 패턴, 밑줄을 함께 쓰고, 차트에는 범례 대신 직접 이름을 단다.</li>
+      <li>범주 팔레트는 색상과 함께 명도도 벌리고, 색각이상 시뮬레이션 뒤의 색차로 구분도를 확인한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 흰 바탕 위 16&nbsp;px 본문 글자의 대비가 3.8:1이다. WCAG 2.2의 AA 기준에 대한 판단으로 맞는 것은?</p>
+        <div class="opts">
+          <button class="opt">3:1을 넘으므로 통과한다.</button>
+          <button class="opt" data-correct>본문 크기의 글자는 4.5:1 이상이어야 하므로 통과하지 못한다. 24&nbsp;px 이상의 큰 글자였다면 3:1 기준으로 통과한다.</button>
+          <button class="opt">글자색의 채도를 높이면 대비가 올라가므로 채도만 높이면 된다.</button>
+          <button class="opt">대비비는 7:1 이상이어야만 AA를 통과한다.</button>
+        </div>
+        <div class="quiz-exp">1.4.3은 일반 글자 4.5:1, 큰 글자(18pt 또는 굵은 14pt, 대략 24&nbsp;px 또는 굵은 18.7&nbsp;px) 3:1을 요구한다. 7:1은 AAA 기준이다. 대비비는 상대 휘도로만 계산되므로 채도를 높인다고 대비가 생기지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 쇼핑몰의 재고 표시가 "초록 점 = 재고 있음, 빨간 점 = 품절"뿐이다. 가장 알맞은 고치기는?</p>
+        <div class="opts">
+          <button class="opt">빨강과 초록을 더 선명한(채도 높은) 색으로 바꾼다.</button>
+          <button class="opt">점을 두 배로 키운다.</button>
+          <button class="opt">색각이상 사용자를 위해 "색각이상 모드" 단추를 따로 만든다.</button>
+          <button class="opt" data-correct>점 옆에 "재고 있음", "품절" 글자를 쓰고 모양도 다르게 해서, 색을 못 봐도 상태를 알 수 있게 한다.</button>
+        </div>
+        <div class="quiz-exp">WCAG 1.4.1은 색을 유일한 시각적 수단으로 쓰지 말라고 요구한다. 채도를 높이거나 점을 키워도 적록 색각이상에서 두 색은 여전히 비슷하다. 별도 모드보다 모든 사용자에게 같은 화면에서 글자·모양을 함께 주는 편이 단순하고 확실하다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 색각이상 시뮬레이션 도구에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>색각이상인 사람이 구분하기 어려운 색 쌍을 찾아내는 근사 도구다. 실제 경험은 심도와 개인에 따라 다르므로 가능하면 실제 사용자에게도 확인한다.</button>
+          <button class="opt">색각이상인 사람이 보는 화면을 정확히 재현하므로, 시뮬레이션에서 괜찮으면 더 확인할 필요가 없다.</button>
+          <button class="opt">제2색각이상 시뮬레이션만 통과하면 모든 종류의 색각이상에서도 문제가 없다.</button>
+          <button class="opt">시뮬레이션 결과가 회색이면 그 사람은 색을 전혀 보지 못한다는 뜻이다.</button>
+        </div>
+        <div class="quiz-exp">Machado 외(2009) 같은 모형은 원뿔세포 감도의 변화를 바탕으로 한 근사다. 심도와 개인차, 경험으로 익힌 구분 방법은 담지 못한다. 종류마다 헷갈리는 색 쌍이 다르므로(제3색각은 파랑–초록 등) 여러 종류를 확인한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 범주 여섯 개를 구분하는 차트 팔레트를 OKLCH에서 명도·채도를 모두 같게 두고 색상만 60°씩 돌려 만들었다. 가장 먼저 생길 문제는?</p>
+        <div class="opts">
+          <button class="opt">색상이 고르게 떨어져 있으므로 어떤 색각에서도 문제가 없다.</button>
+          <button class="opt">채도가 같아서 화면 색역을 벗어난다.</button>
+          <button class="opt" data-correct>명도가 모두 같아서 흑백 인쇄나 적록 색각이상에서 일부 색 쌍이 거의 같아진다. 명도에도 차이를 두거나 모양·이름을 함께 써야 한다.</button>
+          <button class="opt">색이 여섯 개면 WCAG 1.4.3을 자동으로 통과한다.</button>
+        </div>
+        <div class="quiz-exp">색상만 다른 같은 명도의 색들은 흑백에서 한 회색이 되고, 제2색각 시뮬레이션에서는 어떤 쌍의 ΔE가 1 남짓까지 떨어진다(이 장의 팔레트 검사). 명도를 벌리고, 여섯 개가 넘는 범주는 색 말고 다른 단서와 함께 쓴다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex, parse = ART.parse;
+  var INK = "#2b2a30", INK_DIM = "#6b6874", WHITE = [1, 1, 1];
+  var SMALL = '<small style="font-family:var(--font);letter-spacing:0">';  // 읽기 칸의 한글 설명은 고정폭 글꼴을 쓰지 않는다
+  var OK = "✓", NO = "✗";
+  function pw(id) { return Math.max(200, document.getElementById(id).parentElement.clientWidth || 600); }  // AB.canvas와 같은 폭 규칙
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+  // 색 바꾸기 함수: 시뮬레이션 보기에서 모든 예시 색을 같은 방식으로 바꾼다
+  function mapper(type, sev) { var cache = {}; return function (h) { if (!type || type === "normal") return h; return cache[h] || (cache[h] = hex(ART.simulateCVD(parse(h), type, sev))); }; }
+  function shape(ctx, kind, x, y, r) {
+    ctx.beginPath();
+    if (kind === 0) ctx.arc(x, y, r, 0, 7);
+    else if (kind === 1) ctx.rect(x - r * 0.9, y - r * 0.9, r * 1.8, r * 1.8);
+    else { ctx.moveTo(x, y - r * 1.1); ctx.lineTo(x + r * 1.05, y + r * 0.8); ctx.lineTo(x - r * 1.05, y + r * 0.8); ctx.closePath(); }
+  }
+
+  /* ---------------- 그림 1: 원뿔세포 감도 ---------------- */
+  (function () {
+    var x0 = 50, x1 = 440, y0 = 220, H = 170;
+    var X = function (l) { return x0 + ((l - 400) / 300) * (x1 - x0); };
+    var curve = function (peak, wdt) { var d = ""; for (var l = 400; l <= 700; l += 4) { var v = Math.exp(-0.5 * Math.pow((l - peak) / wdt, 2)); d += (l === 400 ? "M" : "L") + X(l).toFixed(1) + " " + (y0 - v * H).toFixed(1); } return d; };
+    var html = '<path d="M' + x0 + ' ' + y0 + ' L' + x1 + ' ' + y0 + '" class="s-axis"/>';
+    [400, 450, 500, 550, 600, 650, 700].forEach(function (l) { html += '<text x="' + X(l) + '" y="' + (y0 + 18) + '" text-anchor="middle" class="lbl-dim t-mono">' + l + '</text>'; });
+    html += '<text x="' + ((x0 + x1) / 2) + '" y="' + (y0 + 38) + '" text-anchor="middle" class="lbl-dim">파장(nm)</text>';
+    html += '<text x="12" y="40" class="lbl-dim">반응</text>';
+    html += '<path d="' + curve(445, 26) + '" fill="none" stroke="#3a5bd9" stroke-width="2.2"/>';
+    html += '<path d="' + curve(535, 40) + '" fill="none" stroke="#2f9a5b" stroke-width="2.2"/>';
+    html += '<path d="' + curve(565, 44) + '" fill="none" stroke="#d64545" stroke-width="2.2"/>';
+    html += '<path d="' + curve(555, 42) + '" fill="none" stroke="#2f9a5b" stroke-width="2" stroke-dasharray="5 4"/>';
+    html += '<text x="' + X(430) + '" y="' + (y0 - H - 8) + '" text-anchor="middle" class="lbl-b">S</text>';
+    html += '<text x="' + X(518) + '" y="' + (y0 - H - 8) + '" text-anchor="middle" class="lbl-b">M</text>';
+    html += '<text x="' + X(590) + '" y="' + (y0 - H - 8) + '" text-anchor="middle" class="lbl-b">L</text>';
+    html += '<path d="M' + X(535) + ' ' + (y0 - H + 22) + ' L' + X(553) + ' ' + (y0 - H + 22) + '" class="s-acc" marker-end="url(#ac-ar)"/>';
+    html += '<text x="' + X(612) + '" y="' + (y0 - H + 46) + '" class="lbl-acc">옮겨 간 M(점선)</text>';
+    document.getElementById("ac-cones").innerHTML = '<defs><marker id="ac-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>' + html;
+  })();
+
+  /* ---------------- 그림 2: 대비 눈금 ---------------- */
+  (function () {
+    function grayFor(r) { var lo = 0, hi = 1; for (var i = 0; i < 40; i++) { var m = (lo + hi) / 2; if (ART.contrast([m, m, m], WHITE) > r) lo = m; else hi = m; } return hex([lo, lo, lo]); }
+    var x0 = 30, x1 = 430, X = function (r) { return x0 + (Math.log(r) / Math.log(21)) * (x1 - x0); };
+    var html = '<rect x="' + x0 + '" y="54" width="' + (x1 - x0) + '" height="10" rx="5" class="f-surface"/>';
+    [[3, "3:1 큰 글자·비텍스트"], [4.5, "4.5:1 본문(AA)"], [7, "7:1 AAA"]].forEach(function (m, i) {
+      var x = X(m[0]);
+      html += '<path d="M' + x + ' 44 L' + x + ' 74" class="s-acc"/>';
+      html += '<text x="' + x + '" y="' + (i === 1 ? 92 : 38) + '" text-anchor="middle" class="lbl-acc">' + m[1] + '</text>';
+    });
+    [1, 2, 10, 21].forEach(function (r) { html += '<text x="' + X(r) + '" y="' + 92 + '" text-anchor="middle" class="lbl-dim t-mono">' + r + '</text>'; });
+    var samples = [2, 3, 4.5, 7, 12], bw = 76;
+    samples.forEach(function (r, i) {
+      var x = 18 + i * (bw + 9), g = grayFor(r);
+      html += '<rect x="' + x + '" y="128" width="' + bw + '" height="78" rx="8" fill="#ffffff" stroke="#cfc8b8"/>';
+      html += '<text x="' + (x + bw / 2) + '" y="170" text-anchor="middle" font-size="19" font-weight="700" fill="' + g + '">책방 E</text>';
+      html += '<text x="' + (x + bw / 2) + '" y="194" text-anchor="middle" font-size="11" fill="' + g + '">가을 낭독회</text>';
+      html += '<text x="' + (x + bw / 2) + '" y="226" text-anchor="middle" class="lbl-b t-mono">' + r + ':1</text>';
+      html += '<text x="' + (x + bw / 2) + '" y="242" text-anchor="middle" class="lbl-dim t-mono">' + g + '</text>';
+    });
+    document.getElementById("ac-ladder").innerHTML = html;
+  })();
+
+  /* ---------------- 그림 3: 다섯 통로 ---------------- */
+  (function () {
+    var G = "#3a9a5b", R = "#d64545", sim = function (h) { return hex(ART.simulateCVD(parse(h), "deutan")); };
+    var rows = [["색만", "none"], ["+ 글자", "text"], ["+ 모양", "shape"], ["+ 위치", "pos"], ["+ 패턴", "pattern"], ["+ 밑줄", "under"]];
+    var html = '<defs><pattern id="ac-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="5" stroke="#d64545" stroke-width="2.2"/></pattern>' +
+      '<pattern id="ac-hatch2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="5" stroke="' + sim(R) + '" stroke-width="2.2"/></pattern></defs>';
+    html += '<text x="174" y="18" text-anchor="middle" class="lbl-dim">원래 눈</text><text x="362" y="18" text-anchor="middle" class="lbl-dim">제2색각 시뮬레이션</text>';
+    rows.forEach(function (row, i) {
+      var y = 30 + i * 44;
+      html += '<text x="12" y="' + (y + 24) + '" class="lbl-b">' + row[0] + '</text>';
+      [0, 1].forEach(function (side) {
+        var bx = 86 + side * 188, f = side ? sim : function (h) { return h; };
+        html += '<rect x="' + bx + '" y="' + y + '" width="176" height="36" rx="6" fill="#ffffff" stroke="#cfc8b8"/>';
+        var k = row[1];
+        var items = [[f(G), "예약 가능", 0], [f(R), "품절", 1]];
+        items.forEach(function (it, j) {
+          var cx = bx + 16 + j * 88, cy = y + 18;
+          if (k === "pos") cy = y + (j ? 26 : 10);
+          if (k === "under") {
+            html += '<text x="' + (bx + 10 + j * 88) + '" y="' + (cy + 5) + '" font-size="13" fill="' + (j ? f("#2f7d5b") : "#2b2a30") + '"' + (j ? ' text-decoration="underline"' : "") + '>' + (j ? "배송 안내" : "본문 글자") + '</text>';
+            return;
+          }
+          if (k === "shape") {
+            if (j) html += '<rect x="' + (cx - 6) + '" y="' + (cy - 6) + '" width="12" height="12" fill="' + it[0] + '"/>';
+            else html += '<circle cx="' + cx + '" cy="' + cy + '" r="6.5" fill="' + it[0] + '"/>';
+          } else if (k === "pattern") {
+            if (j) html += '<rect x="' + (cx - 7) + '" y="' + (cy - 7) + '" width="14" height="14" fill="url(#' + (side ? "ac-hatch2" : "ac-hatch") + ')" stroke="' + it[0] + '"/>';
+            else html += '<rect x="' + (cx - 7) + '" y="' + (cy - 7) + '" width="14" height="14" fill="' + it[0] + '"/>';
+          } else html += '<circle cx="' + cx + '" cy="' + cy + '" r="6.5" fill="' + it[0] + '"/>';
+          if (k === "text") html += '<text x="' + (cx + 12) + '" y="' + (cy + 4.5) + '" font-size="12" fill="#2b2a30">' + it[1] + '</text>';
+          if (k === "pos") html += '<text x="' + (cx + 12) + '" y="' + (cy + 4) + '" font-size="10" fill="#6b6874">' + (j ? "아래 = 품절" : "위 = 가능") + '</text>';
+        });
+      });
+    });
+    document.getElementById("ac-channels").innerHTML = html;
+  })();
+
+  /* ---------------- 공통: 책방 E 웹 화면 그리기 ---------------- */
+  // o: { btn, btnText, state(bool: 글자·모양), link(bool: 밑줄), dots: [가능, 품절] } , f: 색 바꾸기
+  function drawSite(ctx, w, h, f, o) {
+    var pad = Math.max(10, w * 0.04), s = Math.min(1.25, Math.max(0.78, w / 460));
+    ctx.fillStyle = f("#ffffff"); ctx.fillRect(0, 0, w, h);
+    // 머리
+    ctx.fillStyle = f("#f4efe4"); ctx.fillRect(0, 0, w, 44 * s);
+    ctx.fillStyle = f("#2f7d5b"); ctx.font = AB.font(18 * s, false, 800); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+    ctx.fillText("책방 E", pad, 22 * s);
+    ctx.fillStyle = f("#6b6874"); ctx.font = AB.font(12 * s, false, 500); ctx.textAlign = "right";
+    ctx.fillText(w > 330 ? "행사 · 책 · 오시는 길" : "행사 · 책", w - pad, 22 * s);
+    // 배너
+    var by = 54 * s, bh = 112 * s;
+    rr(ctx, pad, by, w - 2 * pad, bh, 10); ctx.fillStyle = f("#f3d9a4"); ctx.fill();
+    ctx.fillStyle = f("#5a3a24"); ctx.textAlign = "left"; ctx.font = AB.font(20 * s, false, 800); ctx.fillText("가을 낭독회", pad + 14, by + 28 * s);
+    ctx.font = AB.font(12 * s, false, 500); ctx.fillText("10.25 토 저녁 7시 · 자리 20석", pad + 14, by + 52 * s);
+    var bw = 104 * s, bhh = 32 * s, bx = pad + 14, bty = by + bh - bhh - 12 * s;
+    rr(ctx, bx, bty, bw, bhh, 7); ctx.fillStyle = f(o.btn); ctx.fill();
+    ctx.fillStyle = f(o.btnText); ctx.font = AB.font(14 * s, false, 700); ctx.textAlign = "center"; ctx.fillText("예약하기", bx + bw / 2, bty + bhh / 2 + 1);
+    // 책 목록
+    var books = [["가을의 시", "#7a3b32", 0], ["숲길 산책", "#34506b", 1], ["작은 서점 이야기", "#496b4f", 0]];
+    var ly = by + bh + 18 * s, rowH = 40 * s;
+    ctx.textAlign = "left"; ctx.fillStyle = f("#2b2a30"); ctx.font = AB.font(13 * s, false, 700); ctx.fillText("함께 읽을 책", pad, ly);
+    books.forEach(function (b, i) {
+      var y = ly + 14 * s + i * rowH;
+      ctx.fillStyle = f(b[1]); ctx.fillRect(pad, y, 22 * s, 30 * s);
+      ctx.fillStyle = f("#2b2a30"); ctx.font = AB.font(13 * s, false, 600); ctx.textBaseline = "middle"; ctx.fillText(b[0], pad + 32 * s, y + 15 * s);
+      var tw = ctx.measureText(b[0]).width, dx = pad + 32 * s + tw + 12 * s, dy = y + 15 * s;
+      var col = b[2] ? o.dots[1] : o.dots[0];
+      if (o.state) {
+        if (b[2]) {
+          ctx.fillStyle = f(col); ctx.fillRect(dx - 5 * s, dy - 5 * s, 10 * s, 10 * s);
+          ctx.strokeStyle = f("#ffffff"); ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(dx - 5 * s, dy + 5 * s); ctx.lineTo(dx + 5 * s, dy - 5 * s); ctx.stroke();
+        } else { ctx.fillStyle = f(col); ctx.beginPath(); ctx.arc(dx, dy, 5.5 * s, 0, 7); ctx.fill(); }
+        ctx.fillStyle = f(col); ctx.font = AB.font(12 * s, false, 700); ctx.fillText(b[2] ? "품절" : "예약 가능", dx + 10 * s, dy + 1);
+      } else { ctx.fillStyle = f(col); ctx.beginPath(); ctx.arc(dx, dy, 5 * s, 0, 7); ctx.fill(); }
+    });
+    // 본문 속 링크
+    var ty = ly + 14 * s + 3 * rowH + 12 * s;
+    if (ty < h - 8) {
+      ctx.font = AB.font(12 * s, false, 500); ctx.textBaseline = "middle"; ctx.fillStyle = f("#2b2a30");
+      var t1 = "자세한 내용은 ", t2 = "배송 안내", t3 = "를 본다.";
+      ctx.fillText(t1, pad, ty); var x2 = pad + ctx.measureText(t1).width;
+      ctx.fillStyle = f("#2f7d5b"); ctx.fillText(t2, x2, ty); var w2 = ctx.measureText(t2).width;
+      if (o.link) { ctx.fillRect(x2, ty + 8 * s, w2, 1.3); }
+      ctx.fillStyle = f("#2b2a30"); ctx.fillText(t3, x2 + w2, ty);
+    }
+    return { btnRect: [bx, bty, bw, bhh] };
+  }
+  var siteH = function (id) { var w = pw(id), s = Math.min(1.25, Math.max(0.78, w / 460)); return Math.round(346 * s); };
+
+  /* ---------------- 시뮬레이터 1: 웹사이트, 다른 눈으로 ---------------- */
+  (function () {
+    var tG = AB.seg("wb-type", function () { cvB.redraw(); });
+    var sG = AB.range("wb-s", function (v) { return v + "%"; }, function () { cvB.redraw(); });
+    var O = { btn: "#6fbf8f", btnText: "#ffffff", state: false, link: false, dots: ["#3a9a5b", "#d64545"] };
+    var TOP = 30;  // 비교 이름표(원래 화면/시뮬레이션)가 로고를 가리지 않게 화면을 조금 내린다
+    var cvA = AB.canvas("#wb-a", function (ctx, w, h) { ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, w, TOP); ctx.translate(0, TOP); drawSite(ctx, w, h - TOP, function (x) { return x; }, O); }, { get height() { return siteH("wb-a") + TOP; }, bg: "#ffffff" });
+    var cvB = AB.canvas("#wb-b", function (ctx, w, h) {
+      var f = mapper(tG(), sG() / 100);
+      ctx.fillStyle = f("#ffffff"); ctx.fillRect(0, 0, w, TOP); ctx.translate(0, TOP);
+      drawSite(ctx, w, h - TOP, f, O);
+      AB.stat("wb-o-de", AB.fix(ART.diff(parse(f(O.dots[0])), parse(f(O.dots[1]))), 1) + " " + SMALL + "원래 " + AB.fix(ART.diff(parse(O.dots[0]), parse(O.dots[1])), 1) + "</small>");
+      var cb = ART.contrast(parse(f(O.btn)), parse(f(O.btnText)));
+      AB.stat("wb-o-btn", cb.toFixed(2) + " " + SMALL + ART.wcagLevel(cb) + "</small>");
+      var cl = ART.contrast(parse(f("#2f7d5b")), parse(f("#f4efe4")));
+      AB.stat("wb-o-logo", cl.toFixed(2) + " " + SMALL + ART.wcagLevel(cl, true) + "(큰 글자)</small>");
+    }, { get height() { return siteH("wb-b") + TOP; }, bg: "#ffffff" });
+    AB.compare("#wb-cmp", { labels: ["원래 화면", "시뮬레이션"], pos: 0.15 });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 대비 측정기 ---------------- */
+  (function () {
+    var PRE = { logo: [[1, 0, 70], [0.532, 0.094, 162]], yellow: [[0.97, 0.2, 105], [1, 0, 0]], redgreen: [[0.6, 0.17, 28], [0.6, 0.15, 145]] };
+    var T = { h: 70, L: 1 }, B = { h: 162, L: 0.532 }, geo = null, drag = null, field = { key: "", c: null };
+    var cG = AB.range("ct-c", function (v) { return v.toFixed(3); }, function () { cv.redraw(); });
+    var pre = AB.seg("ct-pre", function (v) { var p = PRE[v]; T = { h: p[0][2], L: p[0][0], C: p[0][1] }; B = { h: p[1][2], L: p[1][0], C: p[1][1] }; cv.redraw(); });
+    T.C = 0; B.C = 0.094;
+    function makeField(C) {
+      var FW = 72, FH = 40, c = document.createElement("canvas"); c.width = FW; c.height = FH;
+      var x = c.getContext("2d"), id = x.createImageData(FW, FH);
+      for (var j = 0; j < FH; j++) for (var i = 0; i < FW; i++) {
+        var rgb = ART.gamutMap([1 - (j + 0.5) / FH, C, ((i + 0.5) / FW) * 360]), o = (j * FW + i) * 4;
+        id.data[o] = rgb[0] * 255; id.data[o + 1] = rgb[1] * 255; id.data[o + 2] = rgb[2] * 255; id.data[o + 3] = 255;
+      }
+      x.putImageData(id, 0, 0); return c;
+    }
+    var colOf = function (k) { return ART.gamutMap([k.L, k.C, k.h]); };
+    var cv = AB.canvas("#ct-cv", function (ctx, w, h) {
+      var C = cG(), key = C.toFixed(3), wide = w >= 520;
+      if (field.key !== key) { field.key = key; field.c = makeField(C); }
+      var fx = 12, fy = 30, fw = wide ? Math.round(w * 0.5) : w - 24, fh = wide ? h - 42 : Math.round(h * 0.48);
+      geo = { fx: fx, fy: fy, fw: fw, fh: fh };
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(field.c, fx, fy, fw, fh);
+      ctx.strokeStyle = "#cfc8b8"; ctx.strokeRect(fx + 0.5, fy + 0.5, fw - 1, fh - 1);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("가로: 색상 · 세로: 명도", fx + fw, fy - 4);
+      var tc = colOf(T), bc = colOf(B);
+      [[T, tc, "글"], [B, bc, "바"]].forEach(function (k) {
+        var px = fx + (k[0].h / 360) * fw, py = fy + (1 - k[0].L) * fh;
+        AB.handle(ctx, px, py, { r: 11, fill: k[1] });
+        ctx.fillStyle = AB.textOn(k[1]); ctx.font = AB.font(11, false, 800); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(k[2], px, py + 0.5);
+      });
+      // 미리보기
+      var px0 = wide ? fx + fw + 14 : 12, py0 = wide ? 12 : fy + fh + 14, pW = wide ? w - px0 - 12 : w - 24, pH = wide ? h - 24 : h - py0 - 12;
+      rr(ctx, px0, py0, pW, pH, 10); ctx.fillStyle = hex(bc); ctx.fill(); ctx.strokeStyle = "#cfc8b8"; ctx.stroke();
+      ctx.fillStyle = hex(tc); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      var big = Math.min(30, pW * 0.13);
+      ctx.font = AB.font(big, false, 800); ctx.fillText("가을 낭독회", px0 + 14, py0 + 14);
+      ctx.font = AB.font(14, false, 500);
+      var lines = ["시인과 함께 짧은 시 열두 편을", "소리 내어 읽는 저녁입니다.", "자리는 스무 석, 예약은 웹사이트에서."];
+      lines.forEach(function (l, i) { if (py0 + 24 + big + i * 21 + 18 < py0 + pH) ctx.fillText(l, px0 + 14, py0 + 22 + big + i * 21); });
+      var r = ART.contrast(tc, bc), lc = ART.apca(tc, bc);
+      AB.stat("ct-o-c", hex(tc) + " · " + hex(bc));
+      AB.stat("ct-o-r", r.toFixed(2) + ":1");
+      AB.stat("ct-o-l", (r >= 4.5 ? OK : NO) + " " + ART.wcagLevel(r) + " · " + (r >= 3 ? OK : NO) + " " + ART.wcagLevel(r, true));
+      AB.stat("ct-o-a", "Lc " + lc.toFixed(0));
+    }, { get height() { var w = pw("ct-cv"); return w >= 520 ? 300 : Math.round(w * 1.05); }, bg: "#fbfaf7" });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        drag = null; if (!geo) return;
+        var d = function (k) { return Math.hypot(geo.fx + (k.h / 360) * geo.fw - x, geo.fy + (1 - k.L) * geo.fh - y); };
+        var dt = d(T), db = d(B);
+        if (Math.min(dt, db) < 40) drag = dt <= db ? T : B;
+        else if (x >= geo.fx && x <= geo.fx + geo.fw && y >= geo.fy && y <= geo.fy + geo.fh) drag = dt <= db ? T : B;
+      },
+      move: function (x, y) {
+        if (!drag || !geo) return;
+        drag.h = AB.clamp((x - geo.fx) / geo.fw, 0, 1) * 360; drag.L = AB.clamp(1 - (y - geo.fy) / geo.fh, 0, 1); drag.C = cG(); cv.redraw();
+      },
+      end: function () { drag = null; },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 글자 크기와 필요한 대비 ---------------- */
+  (function () {
+    function grayFor(r) { var lo = 0, hi = 1; for (var i = 0; i < 40; i++) { var m = (lo + hi) / 2; if (ART.contrast([m, m, m], WHITE) > r) lo = m; else hi = m; } return [lo, lo, lo]; }
+    var pG = AB.range("sz-p", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var gG = AB.range("sz-g", function (v) { return v.toFixed(1) + ":1"; }, function () { cv.redraw(); });
+    var bG = AB.check("sz-b", function () { cv.redraw(); });
+    var cv = AB.canvas("#sz-cv", function (ctx, w, h) {
+      var px = pG(), bold = bG(), g = grayFor(gG()), r = ART.contrast(g, WHITE);
+      var large = px >= 24 || (bold && px >= 18.67), need = large ? 3 : 4.5, pass = r >= need;
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = hex(g); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.font = AB.font(px, false, bold ? 700 : 400);
+      var words = "동네 숲길 끝의 작은 서점에서 가을 낭독회를 엽니다. 시인과 함께 짧은 시 열두 편을 읽습니다.".split(" ");
+      var y = 16, line = "", lh = px * 1.45;
+      words.forEach(function (wd) {
+        var t = line ? line + " " + wd : wd;
+        if (ctx.measureText(t).width > w - 32 && line) { if (y + lh < h - 30) ctx.fillText(line, 16, y); y += lh; line = wd; } else line = t;
+      });
+      if (y + lh < h - 30) ctx.fillText(line, 16, y);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.textBaseline = "bottom";
+      ctx.fillText("글자색 " + hex(g) + " · 흰 바탕 · 대비 " + r.toFixed(2) + ":1", 16, h - 8);
+      AB.stat("sz-o-k", SMALL + (large ? "큰 글자" : "일반 글자") + "</small>");
+      AB.stat("sz-o-n", need + ":1");
+      AB.stat("sz-o-j", (pass ? OK + " 통과" : NO + " 미달"));
+    }, { aspect: 0.36, minHeight: 190, maxHeight: 280, bg: "#ffffff" });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 범례만 있는 차트 ---------------- */
+  (function () {
+    var S = [
+      { name: "낭독회", col: "#d64545", v: [12, 18, 15, 22, 30, 41, 26] },
+      { name: "그림책 시간", col: "#3a9a5b", v: [8, 11, 14, 16, 21, 34, 30] },
+      { name: "중고책 장터", col: "#e69f00", v: [4, 6, 5, 9, 12, 24, 19] },
+    ];
+    var DAYS = ["월", "화", "수", "목", "금", "토", "일"];
+    var vG = AB.seg("ch-view", function () { cv.redraw(); });
+    var mk = AB.check("ch-mark", function () { cv.redraw(); }), ds = AB.check("ch-dash", function () { cv.redraw(); }), lb = AB.check("ch-label", function () { cv.redraw(); });
+    var cv = AB.canvas("#ch-cv", function (ctx, w, h) {
+      var p = P(), f = mapper(vG(), 1), labels = lb();
+      var right = labels ? Math.min(96, w * 0.24) : 14;
+      var c = AB.chart(ctx, { x: 40, y: labels ? 16 : 40, w: w - 40 - right, h: h - (labels ? 16 : 40) - 34 }, { x: [0, 6], y: [0, 45], xTicks: [0, 1, 2, 3, 4, 5, 6], yTicks: [0, 10, 20, 30, 40], xFmt: function (v) { return DAYS[v]; }, yFmt: function (v) { return v; } });
+      var DASH = [[], [7, 5], [2, 4]];
+      S.forEach(function (s, k) {
+        ctx.strokeStyle = f(s.col); ctx.lineWidth = 2.6; ctx.setLineDash(ds() ? DASH[k] : []);
+        ctx.beginPath(); s.v.forEach(function (v, i) { var x = c.X(i), y = c.Y(v); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); ctx.setLineDash([]);
+        if (mk()) s.v.forEach(function (v, i) { shape(ctx, k, c.X(i), c.Y(v), 4.5); ctx.fillStyle = f(s.col); ctx.fill(); ctx.lineWidth = 1.2; ctx.strokeStyle = p.bg; ctx.stroke(); });
+        if (labels) { ctx.fillStyle = f(s.col); ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(s.name, c.X(6) + 8, c.Y(s.v[6]) + (k === 0 ? -8 : k === 1 ? 6 : 0)); }
+      });
+      if (!labels) {
+        var x = 44; ctx.font = AB.font(12, false, 600); ctx.textBaseline = "middle"; ctx.textAlign = "left";
+        S.forEach(function (s) { ctx.fillStyle = f(s.col); ctx.fillRect(x, 14, 12, 12); ctx.fillStyle = p.text; ctx.fillText(s.name, x + 17, 20.5); x += ctx.measureText(s.name).width + 36; });
+      }
+      var cols = S.map(function (s) { return parse(f(s.col)); }), d = ART.distinguish(cols);
+      AB.stat("ch-o-de", AB.fix(d.min, 1) + " " + SMALL + S[d.pair[0]].name + "–" + S[d.pair[1]].name + "</small>");
+      var n = (mk() ? 1 : 0) + (ds() ? 1 : 0) + (labels ? 1 : 0);
+      AB.stat("ch-o-n", n + " / 3");
+      AB.stat("ch-o-l", SMALL + (labels ? "아니다(직접 이름)" : "그렇다(색 견본 범례)") + "</small>");
+    }, { aspect: 0.56, minHeight: 260, maxHeight: 360 });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 팔레트 구분도 ---------------- */
+  (function () {
+    var PALS = {
+      traffic: [["빨강", "#d64545"], ["주황", "#e69f00"], ["초록", "#3a9a5b"]],
+      even: ART.categorical(6).map(function (c, i) { return ["색" + (i + 1), hex(c)]; }),
+      // Okabe & Ito (2002) Color Universal Design 팔레트
+      okabe: [["주황", "#e69f00"], ["하늘", "#56b4e9"], ["청록", "#009e73"], ["노랑", "#f0e442"], ["파랑", "#0072b2"], ["주홍", "#d55e00"], ["자주", "#cc79a7"], ["검정", "#000000"]],
+      booke: [["숲길 초록", "#2f7d5b"], ["서가 나무", "#8a5a3b"], ["크라프트", "#c9a878"], ["전구 빛", "#f3d9a4"]],
+    };
+    var pG = AB.seg("pl-pal", function () { cv.redraw(); }), tG = AB.seg("pl-type", function () { cv.redraw(); });
+    var sG = AB.range("pl-s", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#pl-cv", function (ctx, w, h) {
+      var pal = PALS[pG()], n = pal.length, sev = sG() / 100, type = tG();
+      var cols = pal.map(function (p) { return parse(p[1]); }), sims = cols.map(function (c) { return ART.simulateCVD(c, type, sev); });
+      var d0 = ART.distinguish(cols), d1 = ART.distinguish(cols, type, sev);
+      var cw = (w - 24 - (n - 1) * 6) / n, rh = (h - 76) / 2;
+      [[cols, "원래 눈"], [sims, ART.CVD_TYPES[type].split("(")[0] + " · 심도 " + Math.round(sev * 100) + "%"]].forEach(function (row, r) {
+        var y = 22 + r * (rh + 30);
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText(row[1], 12, y - 4);
+        row[0].forEach(function (c, i) {
+          var x = 12 + i * (cw + 6);
+          rr(ctx, x, y, cw, rh, 6); ctx.fillStyle = hex(c); ctx.fill();
+          if (r === 1 && (i === d1.pair[0] || i === d1.pair[1])) { ctx.lineWidth = 3; ctx.strokeStyle = d1.min < 5 ? "#c62828" : d1.min < 10 ? "#b26a00" : "#2b2a30"; rr(ctx, x - 2, y - 2, cw + 4, rh + 4, 8); ctx.stroke(); }
+          if (cw > 34) { ctx.fillStyle = AB.textOn(c); ctx.font = AB.font(cw > 60 ? 11 : 10, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(pal[i][0], x + cw / 2, y + rh / 2); }
+        });
+      });
+      var verdict = function (m) { return m < 5 ? "혼동 위험" : m < 10 ? "주의" : "구분됨"; };
+      AB.stat("pl-o-a", AB.fix(d0.min, 1) + " " + SMALL + verdict(d0.min) + "</small>");
+      AB.stat("pl-o-b", AB.fix(d1.min, 1) + " " + SMALL + verdict(d1.min) + "</small>");
+      AB.stat("pl-o-p", SMALL + pal[d1.pair[0]][0] + " – " + pal[d1.pair[1]][0] + "</small>");
+    }, { aspect: 0.42, minHeight: 230, maxHeight: 300, bg: "#fbfaf7" });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 예약 화면 고치기 ---------------- */
+  (function () {
+    var vG = AB.seg("fx-view", function () { cv.redraw(); });
+    var lG = AB.range("fx-l", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var stG = AB.check("fx-state", function () { cv.redraw(); }), lkG = AB.check("fx-link", function () { cv.redraw(); });
+    var cv = AB.canvas("#fx-cv", function (ctx, w, h) {
+      var btn = hex(ART.gamutMap([lG(), 0.094, 162])), state = stG(), link = lkG();
+      var O = { btn: btn, btnText: "#ffffff", state: state, link: link, dots: state ? ["#2f7d5b", "#6b6874"] : ["#3a9a5b", "#d64545"] };
+      var f = mapper(vG(), 1);
+      drawSite(ctx, w, h, f, O);
+      var c1 = ART.contrast(parse(btn), WHITE), c2 = ART.contrast(parse(btn), WHITE);  // 버튼 바탕은 흰 화면 위(1.4.11), 버튼 글자는 흰색(1.4.3)
+      var dDe = ART.diff(parse(f(O.dots[0])), parse(f(O.dots[1])));
+      var linkC = ART.contrast(parse("#2f7d5b"), parse("#2b2a30"));
+      var ok = [c1 >= 4.5, c2 >= 3, state, link || linkC >= 3];
+      AB.stat("fx-o-1", (ok[0] ? OK : NO) + " " + c1.toFixed(2));
+      AB.stat("fx-o-2", (ok[1] ? OK : NO) + " " + c2.toFixed(2));
+      AB.stat("fx-o-3", (ok[2] ? OK : NO) + " " + SMALL + (state ? "글자·모양" : "색 점만") + " · ΔE " + AB.fix(dDe, 1) + "</small>");
+      AB.stat("fx-o-4", (ok[3] ? OK : NO) + " " + SMALL + (link ? "밑줄" : "색만(본문과 " + linkC.toFixed(2) + ")") + "</small>");
+      AB.stat("fx-o-n", ok.filter(Boolean).length + " / 4");
+    }, { get height() { return siteH("fx-cv"); }, bg: "#ffffff" });
+  })();
+})();
+</script>
+</body>
+</html>

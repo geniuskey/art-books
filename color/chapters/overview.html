@@ -1,0 +1,830 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "색은 빛·물체·눈·뇌 중 어디에 있는가. 빛으로 섞기와 물감으로 섞기와 눈에서 섞이는 색, 같은 색이 다르게 보이고 다른 색이 같게 보이는 순간, 화면 색의 한계, 색을 숫자로 적는 일의 함정을 시뮬레이터로 둘러보고 책 전체의 지도를 그린다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>색의 지도 · ColorBook</title>
+<meta name="description" content="색은 빛·물체·눈·뇌 중 어디에 있는가. 빛으로 섞기와 물감으로 섞기와 눈에서 섞이는 색, 같은 색이 다르게 보이고 다른 색이 같게 보이는 순간, 화면 색의 한계, 색을 숫자로 적는 일의 함정을 시뮬레이터로 둘러보고 책 전체의 지도를 그린다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/overview.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="색의 지도 · ColorBook">
+<meta property="og:description" content="색은 빛·물체·눈·뇌 중 어디에 있는가. 빛으로 섞기와 물감으로 섞기와 눈에서 섞이는 색, 같은 색이 다르게 보이고 다른 색이 같게 보이는 순간, 화면 색의 한계, 색을 숫자로 적는 일의 함정을 시뮬레이터로 둘러보고 책 전체의 지도를 그린다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/overview.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/overview.html#chapter","name":"색의 지도","headline":"색의 지도 · ColorBook","description":"색은 빛·물체·눈·뇌 중 어디에 있는가. 빛으로 섞기와 물감으로 섞기와 눈에서 섞이는 색, 같은 색이 다르게 보이고 다른 색이 같게 보이는 순간, 화면 색의 한계, 색을 숫자로 적는 일의 함정을 시뮬레이터로 둘러보고 책 전체의 지도를 그린다.","url":"https://artbook.euiyun.com/color/chapters/overview.html","position":1,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"1. 색의 지도","item":"https://artbook.euiyun.com/color/chapters/overview.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="overview">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 01</div>
+    <h1>색의 지도</h1>
+    <p class="lead">레몬은 노랗다. 그런데 그 노랑은 어디에 있을까. 레몬 껍질 속에? 레몬을 비추는 햇빛 속에? 그 빛을 받는 눈 속에? 아니면 "노랗다"고 판단하는 뇌 속에? 해 질 녘 전구 아래에서 보면 레몬은 주황에 가깝게 찍히는데, 우리는 여전히 노랗다고 느낀다. 이 장은 색이 생기는 자리를 따라가며, 앞으로 열여섯 장에서 하나씩 풀어 갈 질문들을 한 장의 지도 위에 펼친다.</p>
+    <ul class="objectives">
+      <li>색이 빛·물체·눈·뇌의 네 자리를 거쳐 생긴다는 것을 설명한다.</li>
+      <li>빛으로 섞기(가산), 물감으로 섞기(감산), 눈에서 섞기(병치)가 서로 다른 결과를 내는 이유를 본다.</li>
+      <li>같은 색이 다르게 보이고(동시대비), 다른 색이 같게 보이는(메타메리즘) 순간을 직접 만든다.</li>
+      <li>화면에 보이는 색이 기기마다 다르다는 사실과, 그 안에서 색을 다루는 요령을 안다.</li>
+      <li>색을 숫자로 적을 때의 첫 함정(HSL의 "명도")을 보고, 이 책 전체의 지도를 그린다.</li>
+    </ul>
+  </header>
+
+  <section id="where">
+    <h2>색은 어디에 있는가</h2>
+    <p>방에 불을 끄면 레몬의 노랑도 사라진다. 그러니 색은 레몬에만 있는 것이 아니다. 빛이 있어야 한다. 그렇다고 빛 속에 노랑이 들어 있는 것도 아니다. 햇빛에는 무지개의 모든 색에 해당하는 빛이 섞여 있고, 그 빛 자체는 희게 보인다. 레몬 껍질은 그 빛 중 일부(주로 파랑 쪽)를 흡수하고 나머지를 돌려보낸다. 돌려보낸 빛이 눈에 들어오면, 눈 안쪽의 세포가 그 빛을 세 가지 신호로 바꾸고, 뇌가 그 신호를 주변과 비교해 "노랗다"고 해석한다.</p>
+    <p>그래서 색은 한 자리에 있지 않고, 네 자리를 차례로 거쳐 <b>생긴다</b>. 이 책은 이 네 자리 각각에서 색을 바꾸는 손잡이를 하나씩 찾아간다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 270" role="img" aria-label="색이 생기는 네 자리: 빛, 물체, 눈, 뇌">
+        <defs>
+          <marker id="ov-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker>
+          <linearGradient id="ov-spec" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#7a3cff"/><stop offset=".18" stop-color="#2f55ff"/><stop offset=".34" stop-color="#00b7d4"/><stop offset=".5" stop-color="#2ec84a"/><stop offset=".64" stop-color="#e8e21e"/><stop offset=".78" stop-color="#ff8a1c"/><stop offset="1" stop-color="#e21c1c"/>
+          </linearGradient>
+          <linearGradient id="ov-spec2" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#2a2a2a"/><stop offset=".42" stop-color="#2a2a2a"/><stop offset=".5" stop-color="#6fb94a"/><stop offset=".64" stop-color="#e8e21e"/><stop offset=".78" stop-color="#ff9a2c"/><stop offset="1" stop-color="#e25a2c"/>
+          </linearGradient>
+        </defs>
+        <rect x="8" y="20" width="100" height="150" rx="10" class="f-surface"/>
+        <rect x="124" y="20" width="100" height="150" rx="10" class="f-surface"/>
+        <rect x="240" y="20" width="100" height="150" rx="10" class="f-surface"/>
+        <rect x="356" y="20" width="96" height="150" rx="10" class="f-acc-soft"/>
+        <text x="58" y="44" text-anchor="middle" class="lbl-b">① 빛</text>
+        <text x="174" y="44" text-anchor="middle" class="lbl-b">② 물체</text>
+        <text x="290" y="44" text-anchor="middle" class="lbl-b">③ 눈</text>
+        <text x="404" y="44" text-anchor="middle" class="lbl-acc">④ 뇌</text>
+        <circle cx="58" cy="86" r="18" fill="#fff6d8" stroke="#d8b24a" stroke-width="1.5"/>
+        <path d="M58 58v-6M58 120v-6M30 86h-6M92 86h-6M38 66l-4-4M82 110l-4-4M78 66l4-4M34 110l4-4" class="s-line"/>
+        <rect x="22" y="128" width="72" height="10" rx="2" fill="url(#ov-spec)"/>
+        <ellipse cx="174" cy="88" rx="28" ry="20" fill="#f2d23c" stroke="#b39420" stroke-width="1.2"/>
+        <rect x="138" y="128" width="72" height="10" rx="2" fill="url(#ov-spec2)"/>
+        <path d="M268 88c0-16 12-28 26-28s26 12 26 28-12 28-26 28-26-12-26-28z" fill="none" class="s-line"/>
+        <circle cx="300" cy="88" r="10" class="f-elev"/>
+        <circle cx="303" cy="88" r="4.5" fill="#222"/>
+        <rect x="258" y="128" width="16" height="10" rx="2" fill="#e05a4a"/><rect x="282" y="128" width="16" height="10" rx="2" fill="#4cae4c"/><rect x="306" y="128" width="16" height="10" rx="2" fill="#4a6ae0"/>
+        <path d="M380 92c-8-20 8-34 24-30 10-12 32-6 32 10 10 4 10 22-2 26-2 12-20 16-28 8-12 6-30-2-26-14z" fill="none" class="s-acc"/>
+        <rect x="390" y="124" width="28" height="18" rx="3" fill="#f2d23c" stroke="#b39420"/>
+        <text x="58" y="156" text-anchor="middle" class="lbl-dim">모든 파장</text>
+        <text x="174" y="156" text-anchor="middle" class="lbl-dim">일부를 흡수</text>
+        <text x="290" y="156" text-anchor="middle" class="lbl-dim">세 가지 신호</text>
+        <text x="404" y="156" text-anchor="middle" class="lbl-dim">"노랗다"</text>
+        <path d="M108 95 L122 95" class="s-line" marker-end="url(#ov-ar)"/>
+        <path d="M224 95 L238 95" class="s-line" marker-end="url(#ov-ar)"/>
+        <path d="M340 95 L354 95" class="s-line" marker-end="url(#ov-ar)"/>
+        <text x="58" y="200" text-anchor="middle" class="lbl-dim">2·10장</text>
+        <text x="174" y="200" text-anchor="middle" class="lbl-dim">4·11장</text>
+        <text x="290" y="200" text-anchor="middle" class="lbl-dim">2·13장</text>
+        <text x="404" y="200" text-anchor="middle" class="lbl-dim">6~9장</text>
+        <path d="M404 214 C404 248 58 248 58 214" class="s-dash" marker-end="url(#ov-ar)"/>
+        <text x="230" y="262" text-anchor="middle" class="lbl-dim">뇌는 주변의 색과 조명을 함께 보고 판단한다</text>
+      </svg>
+      <figcaption><b>그림 1. 색이 생기는 네 자리.</b> 빛은 여러 파장의 섞임이고(①), 물체는 그중 일부를 흡수하고 나머지를 돌려보낸다(②). 눈의 세 종류 원뿔세포가 그 빛을 세 가지 신호로 바꾸고(③), 뇌는 그 신호를 주변의 색, 조명에 대한 짐작과 비교해 색을 정한다(④). 아래 숫자는 각 자리를 자세히 다루는 장이다.</figcaption>
+    </figure>
+
+    <p>물체에서 눈으로 가는 빛은 두 가지의 곱이다. 광원이 파장마다 얼마나 센지, 그리고 물체가 그 파장을 얼마나 돌려보내는지.</p>
+    <div class="formula">$$C(\lambda) = E(\lambda)\times R(\lambda)$$<div class="where">\(\lambda\): 빛의 파장(nm), \(E(\lambda)\): 광원의 세기, \(R(\lambda)\): 물체의 <span class="term">반사율</span><span class="en">(Reflectance)</span>(0~1, 그 파장의 빛을 몇 할 돌려보내는가), \(C(\lambda)\): 눈에 들어오는 빛. 같은 물체라도 \(E\)가 바뀌면 눈에 들어오는 빛이 바뀐다.</div></div>
+    <p>아래 시뮬레이터에서 이 곱셈을 직접 해 본다. 위 그래프는 파장 380~780&nbsp;nm(사람이 볼 수 있는 범위)에서 광원의 세기(점선), 물체의 반사율(실선), 그리고 둘을 곱한 결과(색 띠로 칠한 넓이)를 보여 준다. 아래의 두 칸은 같은 빛을 두 방식으로 받아들인 결과다. 왼쪽은 화이트밸런스를 낮빛에 고정한 카메라, 오른쪽은 그 빛에 익숙해진 사람의 눈이다. <span class="term">색온도</span><span class="en">(Color temperature)</span>는 빛이 얼마나 붉은지 푸른지를 켈빈(K) 숫자로 나타낸 것으로, 낮으면 촛불이나 전구처럼 붉고 높으면 흐린 날 그늘처럼 푸르다(<a href="temperature.html">10장</a>).</p>
+
+    <div class="sim" id="sim-chain">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 레몬, 다른 빛</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ch-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>빛의 색온도 <output id="ch-t-out"></output></span><input type="range" id="ch-t" min="1800" max="12000" step="100" value="2700"></label>
+          <div class="seg" id="ch-obj"><button data-value="lemon" class="on">레몬</button><button data-value="tomato">토마토</button><button data-value="leaf">나뭇잎</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">카메라(낮빛 고정)</span><span class="v" id="ch-o-cam">—</span></div>
+        <div class="stat"><span class="k">순응한 눈</span><span class="v" id="ch-o-eye">—</span></div>
+        <div class="stat"><span class="k">두 결과의 차이 ΔE</span><span class="v" id="ch-o-de">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 기본값 2,700&nbsp;K는 집에서 흔히 쓰는 전구색 조명이다. 카메라 칸의 레몬은 주황으로 기울지만, 눈 칸은 여전히 노랑에 가깝다. ② 색온도를 약 6,500&nbsp;K(낮빛)로 옮기면 두 칸이 같아진다. 이 책의 모든 화면 색은 이 낮빛을 기준으로 맞춰져 있다. ③ 나뭇잎으로 바꾸고 1,800&nbsp;K까지 내린다. 카메라에는 올리브색으로 찍히는 잎이 눈에는 여전히 초록이다. 이렇게 조명이 바뀌어도 물체의 색을 비슷하게 느끼는 능력을 <a href="relativity.html">9장</a>에서 <span class="term">색 항상성</span>이라는 이름으로 다시 만난다. (스펙트럼은 이 책의 교육용 모형: 광원은 흑체 복사, 물체의 반사율은 그 색에서 거꾸로 추정한 매끈한 곡선, 순응은 브래드퍼드 방식이다. 밝은 색이 화면의 최대 밝기에 걸리지 않도록 두 칸 모두 같은 비율로 조금 어둡게 보여 준다.)</div>
+    </div>
+
+    <p>카메라와 눈의 차이가 바로 네 번째 자리, 뇌가 하는 일이다. 카메라는 들어온 빛을 그대로 적지만, 사람은 "지금 조명이 붉구나"를 짐작하고 그만큼 빼고 본다. 그래서 색은 측정할 수 있는 물리량(빛)이면서 동시에 판단의 결과(지각)다. 화가와 디자이너가 다루는 색은 대부분 이 두 번째 쪽이다. 한도경의 원칙 "색은 이름이 아니라 관계다"도 여기서 나온다. 같은 빛이라도 무엇 옆에, 어떤 조명 아래에 있느냐에 따라 다른 색이 된다.</p>
+  </section>
+
+  <section id="three">
+    <h2>세 갈래: 빛, 물감, 지각</h2>
+    <p>색을 배우는 길은 크게 세 갈래다. <b>빛</b>의 길은 화면, 조명, 무대처럼 빛을 내는 것들의 색을 다룬다. <b>물감</b>의 길은 물감, 잉크, 염료처럼 빛을 흡수하는 것들의 색을 다룬다. <b>지각</b>의 길은 같은 빛이 사람에게 어떻게 보이는지를 다룬다. 세 갈래는 서로 다른 규칙으로 움직이기 때문에, 한쪽에서 익힌 요령이 다른 쪽에서는 틀리기도 한다. 화면에서 빨강과 초록을 섞으면 노랑이 되는데, 물감으로 섞으면 탁한 갈색이 된다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 330" role="img" aria-label="색을 배우는 세 갈래: 빛, 물감, 지각">
+        <path d="M230 84 L92 252 L368 252 Z" class="s-dash"/>
+        <circle cx="230" cy="190" r="32" class="f-acc-soft"/>
+        <text x="230" y="196" text-anchor="middle" class="lbl-acc">색</text>
+        <circle cx="218" cy="44" r="15" fill="#ff2a2a" fill-opacity=".9"/><circle cx="242" cy="44" r="15" fill="#2aff2a" fill-opacity=".9"/><circle cx="230" cy="64" r="15" fill="#2a4aff" fill-opacity=".9"/>
+        <circle cx="80" cy="244" r="15" fill="#e6007e" fill-opacity=".75"/><circle cx="104" cy="244" r="15" fill="#ffe600" fill-opacity=".75"/><circle cx="92" cy="264" r="15" fill="#009fe3" fill-opacity=".75"/>
+        <rect x="344" y="234" width="48" height="36" fill="#3a3a3a"/><rect x="356" y="244" width="24" height="16" fill="#8a8a8a"/>
+        <text x="266" y="36" class="lbl-b">빛 · 가산 혼합</text>
+        <text x="266" y="54" class="lbl-dim">섞을수록 밝아진다</text>
+        <text x="266" y="70" class="lbl-dim">화면 · 조명 · 무대</text>
+        <text x="92" y="300" text-anchor="middle" class="lbl-b">물감 · 감산 혼합</text>
+        <text x="92" y="318" text-anchor="middle" class="lbl-dim">섞을수록 어두워진다</text>
+        <text x="368" y="300" text-anchor="middle" class="lbl-b">지각 · 눈과 뇌</text>
+        <text x="368" y="318" text-anchor="middle" class="lbl-dim">옆의 색·조명에 달렸다</text>
+        <text x="150" y="166" text-anchor="end" class="lbl-dim">인쇄·사진</text>
+        <text x="150" y="182" text-anchor="end" class="lbl-dim">(15장)</text>
+        <text x="310" y="166" class="lbl-dim">대비·착시</text>
+        <text x="310" y="182" class="lbl-dim">(8·9장)</text>
+        <text x="230" y="272" text-anchor="middle" class="lbl-dim">점묘·직물 (이 장)</text>
+      </svg>
+      <figcaption><b>그림 2. 색을 배우는 세 갈래.</b> 빛은 더할수록 밝아지고(<span class="term">가산 혼합</span><span class="en">(Additive mixing)</span>), 물감은 섞을수록 빛을 더 많이 흡수해 어두워진다(<span class="term">감산 혼합</span><span class="en">(Subtractive mixing)</span>). 지각은 두 쪽 모두에 겹쳐 있다. 세 꼭짓점 사이에는 두 갈래가 만나는 주제들이 있다. 인쇄와 사진은 빛과 물감 사이, 점묘는 물감과 지각 사이, 대비와 착시는 빛과 지각 사이에 있다.</figcaption>
+    </figure>
+
+    <p>두 물감을 하나씩 골라 세 가지 방법으로 섞어 본다. 맨 왼쪽은 두 색의 빛을 한곳에 겹쳐 비추는 경우, 가운데는 두 색을 아주 작은 점으로 번갈아 찍어 멀리서 보는 경우, 오른쪽은 두 물감을 팔레트에서 실제로 섞는 경우다. 슬라이더로 두 번째 색의 비율을 바꾼다.</p>
+
+    <div class="sim" id="sim-mix">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>빛으로, 점으로, 물감으로 섞기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mx-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mx-pair"><button data-value="lemon,phthalo" class="on">노랑+파랑</button><button data-value="red,viridian">빨강+초록</button><button data-value="yellow,magenta">노랑+마젠타</button><button data-value="ultramarine,orange">파랑+주황</button></div>
+          <label class="ctrl"><span>두 번째 색의 비율 <output id="mx-t-out"></output></span><input type="range" id="mx-t" min="0" max="100" step="1" value="50"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">빛을 겹치면</span><span class="v" id="mx-o-a">—</span></div>
+        <div class="stat"><span class="k">점으로 두면</span><span class="v" id="mx-o-o">—</span></div>
+        <div class="stat"><span class="k">물감으로 섞으면</span><span class="v" id="mx-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 노랑+파랑을 반반 섞는다. 물감은 초록이 되지만, 빛을 겹치면 흰빛에 가까운 연노랑, 점으로 두면 회색빛 올리브가 된다. 학교에서 배운 "노랑+파랑=초록"은 물감의 규칙이다. ② 빨강+초록으로 바꾼다. 빛은 노랑에 가까워지고 물감은 진흙색이 된다. ③ 비율을 10%까지 내린다. 물감에서는 프탈로 블루 10%만으로도 노랑이 확 초록으로 넘어간다. 물감마다 색을 내는 힘(착색력)이 달라서다. (물감 혼합은 쿠벨카–뭉크 모형으로 계산한 교육용 근사다. 물감 이름은 실제 안료 이름이지만 스펙트럼은 모양을 흉내 낸 곡선이며, 실제 물감은 제조사·농도·종이에 따라 다르다. 자세한 원리는 <a href="mixing.html">4장</a>.)</div>
+    </div>
+
+    <p>세 결과가 다른 이유는 각 방식이 빛을 다루는 방법이 다르기 때문이다. 빛을 겹치면 두 빛의 에너지가 그대로 더해진다. 물감은 각 안료가 빛의 일부를 흡수하므로, 섞인 물감은 두 안료가 <b>모두 돌려보내는 빛</b>만 돌려보낸다. 노랑 물감은 파랑 쪽을, 파랑 물감은 빨강·노랑 쪽을 흡수하니 둘 다 남겨 두는 초록만 살아남는다. 점으로 두는 방식은 그 중간이다. 빛을 더하지도 흡수하지도 않고, 두 색의 빛이 눈 속에서 넓이만큼 평균된다.</p>
+
+    <div class="callout try">
+      <strong>물감과 셀로판으로 같은 두 색 섞기</strong>
+      노랑과 파랑 수채 물감을 팔레트에서 반반 섞어 종이에 칠한다. 그 옆에 노랑 셀로판지와 파랑 셀로판지를 겹쳐 흰 종이 위에 놓는다. 마지막으로 같은 두 물감을 연필 끝만 한 점으로 번갈아 촘촘히 찍어 한 뼘 크기를 채운 뒤 3~4&nbsp;m 떨어져 본다. 세 결과를 나란히 놓고 사진을 찍지 말고 눈으로 비교한다(카메라는 다시 한 번 색을 바꾼다). 셀로판은 물감처럼 빛을 흡수하는 쪽이라 어두운 초록에 가깝고, 점은 밝고 탁한 쪽으로 간다.
+    </div>
+  </section>
+
+  <section id="optical">
+    <h2>눈에서 섞이는 색: 점묘</h2>
+    <p>세 번째 방식, 눈에서 섞이는 색을 그림의 방법으로 삼은 화가가 있다. 프랑스의 조르주 쇠라<span class="en">(Georges Seurat, 1859–1891)</span>는 물감을 팔레트에서 섞지 않고 순수한 색을 작은 점으로 나란히 찍어, 보는 사람의 눈에서 섞이게 하려 했다. 이 방법을 <span class="term">점묘</span><span class="en">(Pointillism)</span>라고 부르고, 이렇게 작은 색점이 눈에서 섞이는 현상을 <span class="term">병치 혼합</span><span class="en">(Partitive / optical mixing)</span>이라고 한다.</p>
+
+    <figure class="art-figure" id="fig-seurat">
+      <div class="art-frame"><img src="../../shared/img/seurat-circus-sideshow.webp" width="1600" height="1070" alt="조르주 쇠라의 서커스 사이드쇼. 가스등이 켜진 밤의 서커스 무대 앞에서 악단과 곡예사가 손님을 부르고, 아래쪽에는 구경꾼의 뒷모습이 실루엣으로 늘어서 있다. 화면 전체가 작은 색점으로 이루어져 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 조르주 쇠라, 「서커스 사이드쇼(Parade de cirque)」, 1887–88.</b> 가스등 아래 밤의 무대. 멀리서 보면 보랏빛 어둠과 따뜻한 등불로 보이는 화면이, 가까이에서는 주황·파랑·초록·분홍의 점으로 흩어진다. 쇠라는 이 그림에서 어두운 밤의 분위기를 검정이 아니라 서로 다른 색점의 섞임으로 만들었다. 오른쪽 위 "흑백" 단추로 명도만 남겨 보면, 색이 그렇게 시끄러운데도 명도는 조용하게 두 덩어리(어두운 무대, 밝은 등불)로 정리되어 있다.<span class="credit">메트로폴리탄 미술관 소장(Bequest of Stephen C. Clark, 1960), 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/437654">소장처 작품 페이지</a> · <a href="../../credits.html#seurat-circus-sideshow">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>아래는 같은 그림의 오른쪽 위, 가스등 세 개가 있는 부분을 원본 해상도로 잘라 낸 것이다. 경계선을 좌우로 끌어 "가까이에서 본 점"과 "멀리서 본 모습"을 비교한다. 멀리서 본 모습은 눈이 작은 영역의 빛을 평균내는 것을 흉내 내어, 점들의 빛을 섞은 결과다. 보는 거리 슬라이더를 밀면 섞이는 범위가 넓어진다.</p>
+
+    <div class="sim" id="sim-dots">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>점묘: 멀어지면 섞인다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <div class="compare" id="dt-cmp">
+            <div class="cmp-a"><canvas id="dt-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="dt-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>보는 거리 <output id="dt-d-out"></output></span><input type="range" id="dt-d" min="1" max="12" step="1" value="6"></label>
+          <label class="check"><input type="checkbox" id="dt-naive"> 숫자를 그대로 평균(흔한 실수)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">섞이는 범위(원본 픽셀)</span><span class="v" id="dt-o-r">—</span></div>
+        <div class="stat"><span class="k">등불 부분 평균색</span><span class="v" id="dt-o-c">—</span></div>
+        <div class="stat"><span class="k">배경 부분 평균색</span><span class="v" id="dt-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 경계선을 왼쪽 끝까지 끌어 원본만 본다. 배경의 어둠은 보라·파랑·주황·초록 점의 모음이다. ② 보는 거리를 12로 올린다. 점이 사라지고 보랏빛 갈색 어둠과 노란 등불만 남는다. 쇠라가 원한 것은 이 오른쪽 모습이다. ③ "숫자를 그대로 평균"을 켠다. 화면에 저장된 숫자(감마 값)를 평균하면 실제 빛을 평균한 것보다 어둡고 탁해진다. 눈은 숫자가 아니라 빛을 섞는다. 사진을 줄일 때 생기는 흔한 오류이기도 하다(<a href="models.html">3장</a>).</div>
+    </div>
+
+    <p>쇠라의 기대와 달리, 점묘화가 언제나 더 "선명한" 색을 내지는 않는다. 병치 혼합은 빛의 평균이라서, 보색에 가까운 두 점을 나란히 두면 회색 쪽으로 간다. 쇠라의 그림이 보여 주는 반짝임은 색이 선명해서라기보다, 가까이 다가가면 점이 보이고 물러서면 섞이는 그 사이의 떨림에서 온다는 해석이 많다. 직물의 씨실과 날실, 인쇄물의 망점, 화면의 화소도 모두 같은 원리로 섞인다.</p>
+
+    <div class="callout studio">
+      <strong>섞기 전에 나란히 놓아 보기</strong>
+      수채화가들은 두 색을 팔레트에서 섞어 버리기 전에, 종이 귀퉁이에 두 색을 붙여 칠하고 한 걸음 물러서서 본다. 섞어서 만든 색은 탁해지기 쉽지만, 나란히 놓인 두 색은 멀리서 섞여 보이면서도 각자의 선명함을 남긴다. 풀밭을 초록 하나로 칠하는 대신 노랑과 파랑 붓질을 겹치지 않게 엇갈려 놓는 것도 같은 요령이다. 반대로 인물의 피부처럼 매끈하게 이어져야 하는 곳은 미리 섞어 두는 편이 낫다. 섞을지 나란히 둘지는 "그 자리가 가까이서 보일 것인가"로 정한다.
+    </div>
+  </section>
+
+  <section id="same-different">
+    <h2>같은 색이 다르게 보일 때</h2>
+    <p>첫 번째 시뮬레이터에서 조명이 바뀌어도 레몬이 노랗게 보이는 것을 봤다. 반대로 빛이 전혀 바뀌지 않았는데 색이 달라 보이기도 한다. 아래 그림의 두 회색 칸은 화면에서 정확히 같은 값(빨강·초록·파랑 모두 128)이다. 배경은 왼쪽 끝 검정에서 오른쪽 끝 흰색까지 이어진다. 오른쪽 칸을 끌어 배경 위를 오가며 왼쪽 칸과 비교한다.</p>
+
+    <div class="sim" id="sim-sc">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 회색, 다른 회색</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sc-cv" class="art"></canvas><span class="hint">오른쪽 칸을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="check"><input type="checkbox" id="sc-hide"> 배경을 한 가지 회색으로 가리기</label>
+          <div class="seg" id="sc-chip"><button data-value="gray" class="on">회색 칸</button><button data-value="green">초록 칸</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">두 칸의 화면 값</span><span class="v" id="sc-o-v">—</span></div>
+        <div class="stat"><span class="k">왼쪽 칸 뒤 배경 명도 L*</span><span class="v" id="sc-o-l">—</span></div>
+        <div class="stat"><span class="k">오른쪽 칸 뒤 배경 명도 L*</span><span class="v" id="sc-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 오른쪽 칸을 흰 쪽 끝으로 끌어간다. 같은 값인데 왼쪽(어두운 배경)의 칸보다 확실히 어두워 보인다. ② "배경을 한 가지 회색으로 가리기"를 켠다. 두 칸이 같다는 것이 바로 드러난다. ③ 초록 칸으로 바꿔 같은 실험을 한다. 밝은 배경에서는 칙칙한 녹색, 어두운 배경에서는 맑고 밝은 녹색으로 보인다. 로고 색 하나를 정해도 어디에 놓이느냐에 따라 다른 색처럼 보이는 이유다(<a href="relativity.html">9장</a>).</div>
+    </div>
+
+    <p>이 현상을 <span class="term">동시대비</span><span class="en">(Simultaneous contrast)</span>라고 한다. 색은 둘레의 색과 반대 방향으로 밀려 보인다. 밝은 배경 위에서는 더 어둡게, 어두운 배경 위에서는 더 밝게, 붉은 배경 위에서는 조금 더 푸르게. 화가이자 교육자 요제프 알베르스<span class="en">(Josef Albers, 1888–1976)</span>는 이런 현상을 색 수업의 한가운데에 두었고, 그 수업을 정리한 책 『색의 상호작용』<span class="en">(Interaction of Color, 1963)</span> 서문에 색을 잘 쓰려면 "색은 끊임없이 속인다"는 것부터 알아야 한다고 적었다. <a href="relativity.html">9장</a>에서 그의 실험을 하나씩 따라 한다.</p>
+
+    <div class="callout try">
+      <strong>흰 종이와 검은 종이 위의 같은 색종이</strong>
+      같은 색종이(중간 밝기의 회색이나 탁한 초록이 좋다)에서 2&nbsp;cm 정사각형 두 장을 오린다. 한 장은 흰 도화지 위에, 한 장은 검은 도화지 위에 올려 두 도화지를 나란히 놓는다. 어느 쪽이 밝아 보이는지 적은 뒤, 두 조각을 같은 바탕 위로 옮겨 다시 본다. 같은 실험을 노란 바탕과 파란 바탕으로도 해 본다. 회색 조각이 노란 바탕에서는 푸르스름하게, 파란 바탕에서는 노르스름하게 보이면 성공이다.
+    </div>
+  </section>
+
+  <section id="metamer">
+    <h2>다른 색이 같게 보일 때</h2>
+    <p>거꾸로, 실제로는 다른 두 색이 같게 보이기도 한다. 눈의 원뿔세포는 세 종류뿐이라서, 빛의 스펙트럼 전체가 아니라 그 스펙트럼을 세 가지 숫자로 요약한 값만 뇌에 보낸다. 그래서 스펙트럼 모양이 전혀 다른 두 빛도 세 숫자가 같으면 같은 색으로 보인다. 이것을 <span class="term">메타메리즘</span><span class="en">(Metamerism, 조건등색)</span>이라 하고, 같아 보이는 두 색을 <span class="term">메타머</span><span class="en">(Metamer)</span>라고 부른다.</p>
+    <p>문제는 "같아 보인다"가 조명에 달려 있다는 점이다. 아래 두 견본은 낮빛 아래에서는 똑같은 회청색이지만, 반사 스펙트럼이 다르다. 조명을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-meta">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>낮에는 같고 밤에는 다른 두 견본</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mt-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mt-light"><button data-value="daylight" class="on">낮빛</button><button data-value="bulb">전구색 2700K</button><button data-value="fluor">삼파장 형광등</button><button data-value="led">LED 4000K</button></div>
+          <label class="check"><input type="checkbox" id="mt-spec" checked> 반사 스펙트럼 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">견본 A</span><span class="v" id="mt-o-a">—</span></div>
+        <div class="stat"><span class="k">견본 B</span><span class="v" id="mt-o-b">—</span></div>
+        <div class="stat"><span class="k">색차 ΔE2000</span><span class="v" id="mt-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 낮빛에서 두 견본은 색차 0, 완전히 같다. 그런데 아래 스펙트럼은 서로 엇갈린 물결 모양이다. ② 삼파장 형광등으로 바꾼다. 빛이 세 파장에 몰려 있어서, 두 견본이 그 세 파장을 얼마나 돌려보내는지의 차이가 그대로 드러난다. 색차가 10을 넘는다. ③ 전구색에서는 차이가 작아 보이지만 0은 아니다. 옷가게 조명 아래서 맞춘 바지와 재킷이 햇빛 아래에서 다르게 보이는 일이 이것이다. (견본 B는 이 책의 엔진이 견본 A의 스펙트럼에 "낮빛 아래에서 보이지 않는 물결"을 더해 만든 교육용 메타머다. 눈은 사람마다 조금씩 달라서 실제로는 낮빛에서도 아주 작은 차이를 느끼는 사람이 있다.)</div>
+    </div>
+
+    <p>디자이너에게 메타메리즘은 실무 문제다. 인쇄소의 잉크, 간판 업체의 페인트, 매장 벽지가 같은 색표 번호를 달고 와도 재료가 다르면 스펙트럼이 다르다. 그래서 낮빛 아래에서 맞춘 색이 매장 조명 아래에서 갈라진다. 이를 피하는 가장 확실한 방법은 <b>실제로 쓰일 조명 아래에서</b> 견본을 나란히 놓고 확인하는 것이다. 빛과 눈의 원리는 <a href="light.html">2장</a>, 조명의 색은 <a href="temperature.html">10장</a>, 인쇄의 색은 <a href="print.html">15장</a>에서 다룬다.</p>
+
+    <div class="callout studio">
+      <strong>견본은 세 군데에서 본다</strong>
+      색을 고르는 일을 오래 한 디자이너들은 견본을 창가(낮빛), 실제 설치 장소의 조명, 그리고 가능하면 표준 광원 박스(인쇄소와 섬유 회사가 쓰는, 낮빛·백열등·형광등을 바꿔 켤 수 있는 상자) 세 군데에서 본다. 그림을 걸 전시장이 정해졌다면 화가도 마찬가지다. 작업실 형광등 아래에서 맞춘 회색이 전시장의 따뜻한 스포트라이트 아래에서 누렇게 뜨는 일은 흔하다. 견본 뒷면에 "어느 조명에서 확인했는지"를 적어 두는 습관이 나중에 시간을 아껴 준다.
+    </div>
+  </section>
+
+  <section id="screen">
+    <h2>화면 색의 한계</h2>
+    <p>이 책의 모든 색은 화면 위에 있다. 그리고 화면은 색을 다루기에 완벽한 도구가 아니다. 이 사실을 여기서 한 번 분명히 해 둔다.</p>
+
+    <div class="callout warn">
+      <strong>화면에 보이는 색은 기기마다 다르다</strong>
+      이 책은 색을 표준 sRGB 값으로 적는다. 하지만 같은 값도 모니터의 종류(LCD, OLED), 공장 설정과 색 보정 여부, 밝기, 야간 모드나 블루라이트 필터, 주변 조명에 따라 다르게 보인다. 휴대폰은 같은 값을 더 선명하게, 오래된 노트북은 더 흐리게 보여 주는 경우가 많다. 그래서 이 책에서 "이 두 색은 같아 보인다", "이 색은 탁하다"고 할 때는 <b>두 색의 관계</b>를 보라는 뜻이지 절대적인 색을 맞추라는 뜻이 아니다. 관계는 기기가 바뀌어도 대체로 유지된다. 색 정확도가 특히 중요한 실습에는 그때마다 다시 알린다. 밤에는 야간 모드를 끄고 읽기를 권한다.
+    </div>
+
+    <p>내 화면이 어두운 색과 밝은 색을 얼마나 잘 구분해 보여 주는지 간단히 확인해 본다. 아래는 화면 값 0(검정) 또는 255(흰색)에서 시작해 몇 단계씩 밝아지거나 어두워지는 계단이다. 이웃한 칸의 경계가 몇 번째 칸부터 보이는지 센다.</p>
+
+    <div class="sim" id="sim-screen" data-mono="off">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>내 화면 점검: 어두운 계단, 밝은 계단</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sv-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="sv-side"><button data-value="dark" class="on">어두운 쪽</button><button data-value="light">밝은 쪽</button></div>
+          <label class="ctrl"><span>계단 간격(화면 값) <output id="sv-s-out"></output></span><input type="range" id="sv-s" min="1" max="8" step="1" value="3"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">첫 칸 → 마지막 칸</span><span class="v" id="sv-o-r">—</span></div>
+        <div class="stat"><span class="k">명도 L* 범위</span><span class="v" id="sv-o-l">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 어두운 쪽에서 간격 3으로 본다. 잘 맞춘 화면이라면 대부분의 칸 경계가 보이고, 첫 한두 칸만 바탕과 붙어 보인다. 여러 칸이 한 덩어리의 검정으로 뭉쳐 보이면 밝기나 명암 설정 때문에 어두운 색이 뭉개지는 화면이다. ② 밝은 쪽도 확인한다. ③ 간격을 1로 줄인다. 한 단계 차이는 좋은 화면에서도 거의 보이지 않는다. 이 책의 그림에서 "아주 작은 차이"를 다룰 때는 이 한계를 기억한다. (이 점검은 대략의 확인일 뿐 색 보정이 아니다. 정확한 보정에는 측색기가 필요하다.)</div>
+    </div>
+
+    <p>화면은 또 낼 수 있는 색의 범위, 곧 <span class="term">색역</span><span class="en">(Gamut)</span>이 정해져 있다. 실제 세계에는 화면이 낼 수 없는 색이 많다. 아주 선명한 청록이나 형광 물감의 초록이 그렇다. 반대로 화면의 빛나는 파랑은 물감과 잉크로 만들기 어렵다. 그래서 이 책은 화면 밖의 색이 필요할 때, 명도와 색상을 지키며 채도만 줄인 가장 가까운 색으로 바꿔 보여 주고 그렇게 했다고 밝힌다. 색역은 <a href="models.html">3장</a>, 화면과 인쇄의 차이는 <a href="print.html">15장</a>의 주제다.</p>
+  </section>
+
+  <section id="numbers">
+    <h2>색을 숫자로 적는다는 것</h2>
+    <p>"하늘색"이라고 말하면 사람마다 다른 색을 떠올린다. 그래서 디지털 도구는 색을 숫자로 적는다. 가장 흔한 방법은 빨강·초록·파랑 빛의 세기를 0~255로 적는 RGB, 그리고 이를 사람이 다루기 쉽게 바꾼 <span class="term">HSL</span><span class="en">(Hue, Saturation, Lightness)</span>이다. HSL은 색상(H, 색상환 위의 각도), 채도(S, 얼마나 선명한가), 명도(L, 얼마나 밝은가)로 색을 적는다. 이름만 보면 사람의 감각과 딱 맞을 것 같다.</p>
+    <p>정말 그런지 본다. 아래 윗줄은 HSL의 명도 L을 모두 같게 두고 색상만 바꾼 열두 색이다. 숫자로는 "밝기가 같은" 색들이다. 시뮬레이터 오른쪽 위의 <b>흑백</b> 단추를 눌러 명도만 남겨 본다.</p>
+
+    <div class="sim" id="sim-hsl">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>HSL의 함정: 같은 "명도 50%", 다른 밝기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="hs-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>HSL 명도 L <output id="hs-l-out"></output></span><input type="range" id="hs-l" min="20" max="80" step="1" value="50"></label>
+          <div class="seg" id="hs-rows"><button data-value="both" class="on">두 줄 모두</button><button data-value="hsl">HSL 줄</button><button data-value="ok">OKLCH 줄</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">HSL 줄의 실제 명도 L*</span><span class="v" id="hs-o-h">—</span></div>
+        <div class="stat"><span class="k">OKLCH 줄의 실제 명도 L*</span><span class="v" id="hs-o-o">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "흑백"을 켠다. HSL 줄은 노랑·청록 칸이 거의 흰색에 가깝고 파랑 칸은 짙은 회색이다. 명도 숫자는 모두 50%인데 실제 밝기(L*)는 30에서 97까지 벌어진다. ② 아랫줄은 사람의 감각에 맞춰 만든 색 공간 OKLCH에서 명도를 같게 둔 열두 색이다. 흑백으로 보면 거의 한 가지 회색이다. ③ HSL 명도를 80%까지 올려 본다. 함정이 사라지지 않는다. 발표 자료에서 "같은 밝기의 색 여섯 개"를 HSL로 골랐다가 노랑 글자만 안 읽히는 일이 이것이다. (L*는 CIELAB 명도, 0=검정·100=흰색. <a href="models.html">3장</a>에서 자세히 다룬다.)</div>
+    </div>
+
+    <p>HSL이 틀린 것은 아니다. HSL은 화면이 빛을 내는 방식(빨강·초록·파랑 빛의 비율)을 원통 모양으로 다시 배치한 것일 뿐, 사람이 밝기를 느끼는 방식으로 만든 것이 아니다. 사람의 눈은 같은 세기의 빛이라도 초록·노랑 쪽을 훨씬 밝게, 파랑 쪽을 어둡게 느낀다. 그래서 색을 고르고 단계를 만드는 일에는 <span class="term">지각 균일 색 공간</span><span class="en">(Perceptually uniform color space)</span>이 필요하다. 숫자의 차이가 눈으로 느끼는 차이와 비슷하도록 만든 공간이다. 이 책은 CIELAB(1976)과 OKLab·OKLCH(2020)를 쓰고, 계산에는 공통 엔진을 쓴다. 본문에서 "이 책의 모델로 계산하면"이라고 할 때는 이 엔진의 값이다.</p>
+
+    <div class="callout deep">
+      <strong>원뿔세포 세 개, 신호 세 개</strong>
+      사람의 망막에는 빛에 반응하는 원뿔세포가 세 종류 있다. 주로 긴 파장(빨강 쪽), 중간 파장(초록 쪽), 짧은 파장(파랑 쪽)에 반응해 L, M, S 원뿔세포라고 부른다. 세 종류의 감도 곡선은 서로 많이 겹치고, 특히 L과 M은 거의 붙어 있다. 그래서 눈이 뇌로 보내는 것은 "빨강 얼마, 초록 얼마"가 아니라 대략 "밝기", "빨강–초록", "노랑–파랑"의 세 가지 차이 신호에 가깝다고 본다. 이를 반대색 처리라고 한다. 세 숫자로 색을 적을 수 있는 이유(RGB, Lab 모두 숫자 셋이다)도, 메타메리즘이 생기는 이유도, 빨강–초록 구분이 어려운 색각이상이 가장 흔한 이유도 여기서 나온다(<a href="light.html">2장</a>, <a href="access.html">13장</a>). 국제조명위원회(CIE)가 1931년에 정한 등색 함수는 이 세 신호를 표준 관찰자의 숫자로 옮긴 것이고, 이 책의 엔진은 그 함수의 해석적 근사(Wyman 외, 2013)를 쓴다.
+    </div>
+  </section>
+
+  <section id="map">
+    <h2>이 책의 지도</h2>
+    <p>지금까지 이 장에서 만난 질문들은 각각 한 장씩의 주제가 된다. 책은 네 부로 나뉜다. <b>지각</b>은 색이 생기는 자리(빛과 눈, 빛의 색과 그림자의 색), <b>체계</b>는 색을 다루는 도구(숫자, 섞기, 색상환), <b>관계</b>는 색과 색 사이에서 일어나는 일(명도, 채도, 대비, 상대성), <b>쓰임</b>은 색이 실제로 일하는 곳(그림, 문화, 접근성, 팔레트, 인쇄)이다. 마지막의 색 실험실에서는 이미지 한 장으로 모든 도구를 한꺼번에 쓴다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 470" role="img" aria-label="ColorBook의 지도: 1장을 가운데 두고 네 부의 장들이 둘러싼다">
+        <defs><marker id="ov-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <circle cx="230" cy="205" r="128" class="s-dash"/>
+        <circle cx="230" cy="205" r="44" class="f-acc-soft"/>
+        <text x="230" y="201" text-anchor="middle" class="lbl-acc">01</text>
+        <text x="230" y="220" text-anchor="middle" class="lbl-dim">색의 지도</text>
+        <g id="ov-ring"></g>
+        <path d="M230 384 L230 404" class="s-line" marker-end="url(#ov-ar2)"/>
+        <rect x="118" y="410" width="104" height="40" rx="8" class="f-surface"/>
+        <rect x="238" y="410" width="104" height="40" rx="8" class="f-surface"/>
+        <text x="170" y="435" text-anchor="middle" class="lbl-b">16 실험실</text>
+        <text x="290" y="435" text-anchor="middle" class="lbl-b">17 용어집</text>
+        <rect x="8" y="8" width="12" height="12" rx="3" class="f-acc-soft"/><text x="26" y="19" class="lbl-dim">지각</text>
+        <rect x="70" y="8" width="12" height="12" rx="3" class="f-acc2-soft"/><text x="88" y="19" class="lbl-dim">체계</text>
+        <rect x="8" y="30" width="12" height="12" rx="3" class="f-warn-soft"/><text x="26" y="41" class="lbl-dim">관계</text>
+        <rect x="70" y="30" width="12" height="12" rx="3" class="f-ok-soft"/><text x="88" y="41" class="lbl-dim">쓰임</text>
+      </svg>
+      <figcaption><b>그림 4. ColorBook의 지도.</b> 1장을 가운데 두고 2~15장이 둘레를 돈다. 칸의 색은 부를 나타낸다. 지각(2·10장)이 둘로 나뉜 것은, 빛의 색과 그림자의 색(10장)을 명도·대비·상대성을 배운 뒤에 다시 보면 훨씬 잘 보이기 때문이다. 둘레를 다 돌면 16장 실험실에서 모든 도구를 한꺼번에 쓴다. 칸을 누르면 그 장으로 간다(준비 중인 장은 흐리게).</figcaption>
+    </figure>
+
+    <p>마지막 시뮬레이터는 이 지도를 손에 쥐어 본다. 색 하나를 고르면, 그 색을 이 책의 여러 장의 눈으로 동시에 본다. 원판은 OKLCH 공간의 한 단면이다. 가운데는 회색이고 바깥으로 갈수록 선명해지며, 둘레를 돌면 색상이 바뀐다. 빗금 친 바깥쪽은 화면이 낼 수 없는(sRGB 색역 밖의) 색이다. 원판 위의 손잡이를 끌어 색을 고르고, 슬라이더로 명도를 바꾼다.</p>
+
+    <div class="sim" id="sim-map">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>색 하나의 지도</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mp-cv"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">원판 위의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>명도(OKLCH L) <output id="mp-l-out"></output></span><input type="range" id="mp-l" min="0.25" max="0.95" step="0.01" value="0.55"></label>
+          <div class="seg" id="mp-cvd"><button data-value="deutan" class="on">제2색각</button><button data-value="protan">제1색각</button><button data-value="tritan">제3색각</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">HEX · HSL</span><span class="v" id="mp-o-hex">—</span></div>
+        <div class="stat"><span class="k">OKLCH</span><span class="v" id="mp-o-ok">—</span></div>
+        <div class="stat"><span class="k">흰 바탕 대비(WCAG)</span><span class="v" id="mp-o-cw">—</span></div>
+        <div class="stat"><span class="k">검은 바탕 대비(WCAG)</span><span class="v" id="mp-o-cb">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 원판 가장자리의 선명한 빨강을 고른다. 흑백 칸(6장)은 중간 회색, 전구 아래 칸(10장)은 주황으로 기울고, 색각이상 칸(13장)에서는 갈색빛 올리브가 된다. ② 명도를 0.9까지 올리고 노랑 근처를 고른다. 흰 바탕 대비가 1.3~1.4로 떨어진다(본문 글자 기준 4.5에 한참 못 미친다). 흰 종이 위의 노랑 글자가 안 읽히는 이유다. ③ 보색 두 칸(5장)을 비교한다. 화가의 전통 색상환(RYB)에서 빨강의 보색은 초록이고, 지각 색상환(OKLCH)에서는 청록이다. 어느 쪽이 "정답"인지는 <a href="wheel.html">5장</a>에서 다룬다. ④ 두 바탕 칸(9장)에서 같은 색이 밝은 바탕과 어두운 바탕에서 달라 보이는 정도를 본다. (색각이상 시뮬레이션은 Machado 외(2009) 모형, 대비는 WCAG 2 공식, 전구 아래 색은 2,700&nbsp;K 흑체 빛과 낮빛 고정 화이트밸런스로 계산했다.)</div>
+    </div>
+
+    <p>같은 색 하나가 장마다 다른 얼굴을 보인다. 흑백에서는 밝기 하나, 전구 아래에서는 따뜻한 색, 어떤 사람의 눈에는 전혀 다른 색, 흰 종이 위에서는 읽히지 않는 글자. 색을 "고른다"는 것은 이 얼굴들 중 어느 것이 중요한 자리인지 아는 일이다. 포스터라면 흑백과 바탕이, 웹사이트 버튼이라면 대비와 색각이 먼저다. 이 책은 그 판단을 정답 대신 질문으로 남긴다. 이 색은 무엇을 전하려는가, 그리고 그 일을 하고 있는가.</p>
+
+    <div class="callout try">
+      <strong>색 일지 시작하기</strong>
+      작은 공책 한 권을 색 일지로 정한다. 하루에 한 번, 눈에 띈 색 하나를 색연필이나 물감으로 손톱만 하게 칠하고 옆에 세 가지를 적는다. 어디서 봤는지, 무엇 옆에 있었는지, 어떤 빛 아래였는지. "초록"처럼 이름을 적지 않는 것이 규칙이다. 일주일 뒤에 다시 보면, 같은 이름의 색이 놓인 자리마다 얼마나 달랐는지 보인다. 이 책을 읽는 동안 이 일지가 장마다 실습 재료가 된다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 1장</span></div>
+      <h4>모니터에서 고른 초록이 세 번 바뀌었다</h4>
+      <p>9월 첫 주, 윤서윤은 두 가지 일을 받았다. 하나는 동네 독립서점 "책방 E"의 리브랜딩이다. 주인은 "오래된 동네 책방 느낌은 살리되, 젊은 손님도 들어오고 싶게"를 부탁하며 로고 색, 가을 행사 포스터, 웹사이트를 맡겼다. 다른 하나는 11월 가을 개인 소품전에 걸 수채화 세 점이다. 제목만 정해 두었다. 「창가의 책」, 「비 오는 골목」, 「해 질 녘 서점 앞」.</p>
+      <p>서윤은 퇴근길에 노트북에서 서점 로고 초록을 골랐다. 이 책의 엔진으로 적으면 <code>#2f7d5b</code>, OKLCH로 명도 0.53·채도 0.09·색상 162°의 차분한 초록이다. 그런데 휴대폰으로 같은 파일을 열자 더 선명하고 푸르게 보였고, 회사 프린터로 뽑은 시안에서는 거무스름한 녹색이 되었고, 서점의 전구 아래에서는 올리브빛이 돌았다. "색 하나를 골랐는데 세 번 바뀌었어요."</p>
+      <p>멘토인 화가 한도경은 시안을 서점 서가 앞에 대 보고 말했다. "색은 이름이 아니라 관계야. 이 초록이 무슨 색인지 묻기 전에, 어디에, 무엇 옆에, 어떤 빛 아래에 놓일지부터 적어." 도경은 휴대폰 메모장도 못 다룬다며 서윤에게 사진 공유하는 법을 물었고, 서윤은 그 대신 도경의 오래된 색 일지를 빌렸다. 두 사람은 이번 가을 작업을 이 책의 순서대로 함께 기록하기로 했다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>아직 어떤 색도 확정하지 않는다. 후보 색은 이름 대신 값(<code>#2f7d5b</code>)과 "놓일 자리·옆의 색·조명"을 함께 적는다.</div>
+        <div><b>아직 남은 문제</b>서점 조명 아래에서 견본 색이 달라지는 이유는 무엇인가. 휴대폰과 프린터 중 어느 쪽을 믿어야 하는가.</div>
+        <div><b>다음 단계</b><a href="light.html">2장</a>: 서점의 전구 아래와 창가에서 종이 견본을 비교한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>색은 빛·물체·눈·뇌의 네 자리를 거쳐 생긴다. 눈에 들어오는 빛은 광원과 물체 반사율의 곱이고, 뇌는 그 빛을 주변과 조명에 비추어 해석한다.</li>
+      <li>빛은 섞을수록 밝아지고(가산), 물감은 섞을수록 어두워지며(감산), 작은 점은 눈에서 넓이만큼 평균된다(병치). "노랑+파랑=초록"은 물감의 규칙이다.</li>
+      <li>같은 색도 둘레의 색에 따라 다르게 보인다(동시대비). 색은 홀로 판단하지 말고 실제로 놓일 자리에서 판단한다.</li>
+      <li>스펙트럼이 다른 두 색도 한 조명 아래에서 같아 보일 수 있다(메타메리즘). 견본은 실제로 쓰일 조명 아래에서 확인한다.</li>
+      <li>화면에 보이는 색은 기기마다 다르다. 이 책은 절대적인 색보다 색과 색의 관계를 보도록 쓴다.</li>
+      <li>HSL의 "명도"는 사람이 느끼는 밝기가 아니다. 색을 고르고 단계를 만들 때는 Lab·OKLCH 같은 지각 균일 색 공간을 쓴다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 노랑 물감과 파랑 물감을 섞으면 초록이 되는데, 노랑 빛과 파랑 빛을 한곳에 비추면 흰빛에 가까운 색이 된다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">물감에는 초록 안료가 조금씩 섞여 있기 때문이다.</button>
+          <button class="opt">빛은 섞이면 파장이 짧아지고, 물감은 섞이면 파장이 길어지기 때문이다.</button>
+          <button class="opt" data-correct>빛은 섞을수록 밝아지는 가산 혼합이고, 물감은 각자 흡수하는 빛이 겹쳐 둘 다 돌려보내는 파장만 남는 감산 혼합이기 때문이다.</button>
+          <button class="opt">눈이 빛과 물감을 다른 원뿔세포로 보기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">빛을 겹치면 두 빛의 에너지가 더해진다. 물감은 노랑이 파랑 쪽을, 파랑이 빨강·노랑 쪽을 흡수하므로 둘 다 남겨 두는 초록만 돌아온다. 섞는다고 빛의 파장이 바뀌지는 않는다. 원뿔세포는 빛이든 물감이든 같은 세 종류로 본다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 서점 주인이 낮에 창가에서 고른 포스터 종이와 벽 페인트가 똑같아 보였는데, 저녁에 전구를 켜자 서로 달라 보였다. 이 현상의 이름과 가장 좋은 대처는?</p>
+        <div class="opts">
+          <button class="opt" data-correct>메타메리즘. 두 재료를 실제 서점 조명 아래에서 나란히 놓고 다시 고른다.</button>
+          <button class="opt">동시대비. 둘 중 하나의 배경을 바꾼다.</button>
+          <button class="opt">색역 밖의 색. 모니터를 새로 보정한다.</button>
+          <button class="opt">병치 혼합. 두 재료를 멀리서 본다.</button>
+        </div>
+        <div class="quiz-exp">스펙트럼이 다른 두 재료가 한 조명(낮빛)에서는 같고 다른 조명에서는 다르게 보이는 것이 메타메리즘이다. 가장 확실한 대처는 실제로 쓰일 조명 아래에서 견본을 확인하는 것이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 발표 자료에 HSL로 명도 50%, 채도 100%인 여섯 색을 골라 흰 바탕 위 글자색으로 썼다. 가장 먼저 생길 문제는?</p>
+        <div class="opts">
+          <button class="opt">모든 글자가 같은 밝기라서 위계가 없어진다.</button>
+          <button class="opt">파랑 글자만 너무 밝아 보인다.</button>
+          <button class="opt">색이 화면 색역 밖이라 인쇄되지 않는다.</button>
+          <button class="opt" data-correct>노랑·청록 글자가 흰 바탕에서 거의 안 읽힌다. HSL의 명도는 실제 밝기와 다르기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">HSL 명도 50%의 노랑(#ffff00)은 실제 명도 L*가 약 97로 흰색에 가깝고, 파랑(#0000ff)은 약 32다. 숫자는 같아도 밝기는 크게 다르다. 그래서 노랑 글자는 흰 바탕에서 읽히지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 쇠라의 점묘화를 멀리서 볼 때 색점들이 섞이는 방식에 가장 가까운 것은?</p>
+        <div class="opts">
+          <button class="opt">팔레트에서 물감을 섞는 것과 같다. 섞일수록 어두워진다.</button>
+          <button class="opt" data-correct>작은 영역의 빛이 넓이만큼 평균된다. 그래서 보색에 가까운 점들은 회색 쪽으로 간다.</button>
+          <button class="opt">빛을 겹쳐 비추는 것과 같다. 섞일수록 밝아진다.</button>
+          <button class="opt">화면에 저장된 숫자(감마 값)를 평균한 것과 같다.</button>
+        </div>
+        <div class="quiz-exp">병치 혼합은 흡수도 덧셈도 아닌, 빛의 넓이 가중 평균이다. 물감 혼합보다 밝고, 빛을 겹친 것보다 어둡다. 숫자를 그대로 평균하면 실제 빛의 평균보다 어둡게 나오므로 네 번째 보기도 틀리다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex, fit = ART.fit;
+  var INK = "#2b2a30", INK_DIM = "#6b6874";  // 고정된 종이 바탕 위의 글자색(예시 그림 안의 글자)
+
+  /* ---------------- 그림 4: 장 고리 ---------------- */
+  (function () {
+    var g = document.getElementById("ov-ring");
+    var SHORT = { light: "빛과 눈", models: "숫자로", mixing: "섞기", wheel: "색상환", value: "명도", chroma: "채도와 톤", contrast: "대비", relativity: "상대성", temperature: "빛과 그림자", painting: "그림 속 색", meaning: "의미·문화", access: "접근성", palette: "팔레트", print: "인쇄" };
+    var chs = AB.CHAPTERS.filter(function (c) { return +c.num >= 2 && +c.num <= 15; });
+    var cls = ["f-acc-soft", "f-acc2-soft", "f-warn-soft", "f-ok-soft"];
+    var html = "";
+    chs.forEach(function (c, i) {
+      var a = -Math.PI / 2 + (i / chs.length) * Math.PI * 2, cs = Math.cos(a), sn = Math.sin(a);
+      var x = 230 + 128 * cs, y = 205 + 128 * sn, lx = 230 + 172 * cs, ly = 205 + 172 * sn + 5;
+      var anchor = Math.abs(cs) < 0.3 ? "middle" : cs > 0 ? "start" : "end";
+      var ready = c.ready !== false;
+      var node = '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="21" class="f-elev"/>' +
+        '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="21" class="' + cls[c.part] + '"' + (ready ? "" : ' opacity=".5"') + '/>' +
+        '<text x="' + x.toFixed(1) + '" y="' + (y + 5).toFixed(1) + '" text-anchor="middle" class="lbl-b">' + c.num + "</text>" +
+        '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="' + anchor + '" class="lbl-dim">' + SHORT[c.slug] + "</text>";
+      html += ready ? '<a href="' + c.slug + '.html">' + node + "</a>" : "<g><title>" + c.title + " (준비 중)</title>" + node + "</g>";
+    });
+    g.innerHTML = html;
+  })();
+
+  /* ---------------- 시뮬레이터 1: 같은 레몬, 다른 빛 ---------------- */
+  (function () {
+    var OBJ = { lemon: ["#f2d23c", "레몬"], tomato: ["#d23a2a", "토마토"], leaf: ["#4f8a3a", "나뭇잎"] };
+    var tG = AB.range("ch-t", function (v) { return v.toLocaleString("ko-KR") + " K"; }, function () { cv.redraw(); });
+    var oG = AB.seg("ch-obj", function () { cv.redraw(); });
+    var cache = {};
+    var refl = function (k) { return cache[k] || (cache[k] = ART.reflectanceFromSrgb(ART.parse(OBJ[k][0]))); };
+    var WLc = ART.WL.map(function (l) { return hex(ART.wavelengthToSrgb(l)); });
+    var cv = AB.canvas("#ch-cv", function (ctx, w, h) {
+      var p = P(), T = tG(), R = refl(oG()), L = { type: "blackbody", T: T };
+      var E = ART.illuminant(L), Em = Math.max.apply(null, E);
+      var C = ART.WL.map(function (_, i) { return (E[i] / Em) * R[i]; });
+      var plotH = Math.round(h * 0.52);
+      var c = AB.chart(ctx, { x: 40, y: 14, w: w - 54, h: plotH - 40 }, { x: [380, 780], y: [0, 1], xTicks: [400, 500, 600, 700], yTicks: [0, 0.5, 1], xFmt: function (v) { return v + " nm"; }, yFmt: function (v) { return v; } });
+      // 눈에 들어오는 빛: 파장 색으로 칠한 넓이
+      for (var i = 0; i < ART.WL.length - 1; i++) {
+        var x0 = c.X(ART.WL[i]), x1 = c.X(ART.WL[i + 1]);
+        ctx.fillStyle = WLc[i]; ctx.globalAlpha = 0.9;
+        ctx.beginPath(); ctx.moveTo(x0, c.Y(0)); ctx.lineTo(x0, c.Y(C[i])); ctx.lineTo(x1, c.Y(C[i + 1])); ctx.lineTo(x1, c.Y(0)); ctx.closePath(); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      ctx.lineWidth = 2; ctx.strokeStyle = p.text; ctx.setLineDash([]);
+      ctx.beginPath(); ART.WL.forEach(function (l, i) { var x = c.X(l), y = c.Y(R[i]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke();
+      ctx.setLineDash([5, 4]); ctx.strokeStyle = p.dim;
+      ctx.beginPath(); ART.WL.forEach(function (l, i) { var x = c.X(l), y = c.Y(E[i] / Em); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); ctx.setLineDash([]);
+      ctx.font = AB.font(11); ctx.fillStyle = p.dim; ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("점선: 빛의 세기  ·  실선: " + OBJ[oG()][1] + "의 반사율  ·  색 넓이: 눈에 들어오는 빛", c.box.x + 4, c.box.y + 2);
+      // 결과 칸
+      // 두 칸 모두 같은 노출(0.72배)로 보여 준다. 밝은 레몬이 화면의 최대 밝기에 걸려 색이 날아가지 않게 하려는 것이다.
+      var expo = function (c) { return fit(ART.linearToSrgb(ART.srgbToLinear(c).map(function (v) { return v * 0.72; }))); };
+      var cam = expo(ART.renderReflectance(R, L, "daylight")), eye = expo(ART.renderReflectance(R, L, "adapted"));
+      var light = ART.cctToSrgb(T);
+      var top = plotH + 4, bw = (w - 40 - 24) / 3, bh = h - top - 34;
+      [[light, "빛의 색"], [cam, "카메라(낮빛 고정)"], [eye, "순응한 눈"]].forEach(function (it, k) {
+        var x = 20 + k * (bw + 12);
+        AB.swatch(ctx, x, top, bw, bh, it[0], { label: it[1], sub: hex(it[0]), radius: 8, stroke: p.border });
+      });
+      AB.stat("ch-o-cam", hex(cam)); AB.stat("ch-o-eye", hex(eye));
+      AB.stat("ch-o-de", AB.fix(ART.diff(cam, eye), 1));
+    }, { aspect: 0.8, minHeight: 360, maxHeight: 460 });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 빛으로, 점으로, 물감으로 ---------------- */
+  (function () {
+    var pair = AB.seg("mx-pair", function () { cv.redraw(); });
+    var tG = AB.range("mx-t", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#mx-cv", function (ctx, w, h) {
+      var ks = pair().split(","), t = tG() / 100;
+      var A = fit(ART.paintColor(ks[0])), B = fit(ART.paintColor(ks[1]));
+      var la = ART.srgbToLinear(A), lb = ART.srgbToLinear(B);
+      var wa = Math.min(1, 2 * (1 - t)), wb = Math.min(1, 2 * t);
+      var add = ART.clip(ART.linearToSrgb(la.map(function (v, i) { return v * wa + lb[i] * wb; })));
+      var opt = ART.mixOptical(A, B, t);
+      var paint = fit(ART.mixPaints([{ paint: ks[0], amount: 1 - t }, { paint: ks[1], amount: t }]));
+      ctx.fillStyle = "#fbfaf7"; ctx.fillRect(0, 0, w, h);
+      var sw = Math.min(70, (w - 60) / 4), y0 = 16;
+      AB.swatch(ctx, w / 2 - sw - 30, y0, sw, sw * 0.7, A, { label: ART.PAINTS[ks[0]].name, sub: Math.round((1 - t) * 100) + "%", color: INK, subColor: INK_DIM, radius: 6 });
+      AB.swatch(ctx, w / 2 + 30, y0, sw, sw * 0.7, B, { label: ART.PAINTS[ks[1]].name, sub: Math.round(t * 100) + "%", color: INK, subColor: INK_DIM, radius: 6 });
+      ctx.fillStyle = INK; ctx.font = AB.font(20, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("+", w / 2, y0 + sw * 0.35);
+      var top = y0 + sw * 0.7 + 86, bw = (w - 48) / 3, bh = h - top - 30;
+      // 빛: 두 원을 겹쳐 비춘 모습(검은 바탕)
+      var x = 12;
+      ctx.fillStyle = "#000000"; ctx.fillRect(x, top, bw, bh);
+      var r = Math.min(bw, bh) * 0.36, cx = x + bw / 2, cy = top + bh / 2;
+      ctx.save(); ctx.globalCompositeOperation = "lighter";
+      ctx.fillStyle = hex(ART.linearToSrgb(la.map(function (v) { return v * wa; }))); ctx.beginPath(); ctx.arc(cx - r * 0.45, cy, r, 0, 7); ctx.fill();
+      ctx.fillStyle = hex(ART.linearToSrgb(lb.map(function (v) { return v * wb; }))); ctx.beginPath(); ctx.arc(cx + r * 0.45, cy, r, 0, 7); ctx.fill();
+      ctx.restore();
+      // 점: 체커보드 점과 그 평균
+      x = 12 + bw + 12;
+      var cell = 4, rnd = AB.rng(3);
+      for (var yy = top; yy < top + bh * 0.55; yy += cell) for (var xx = x; xx < x + bw; xx += cell) { ctx.fillStyle = rnd() < t ? hex(B) : hex(A); ctx.fillRect(xx, yy, cell, cell); }
+      ctx.fillStyle = hex(opt); ctx.fillRect(x, top + bh * 0.55, bw, bh * 0.45);
+      // 물감
+      x = 12 + 2 * (bw + 12);
+      ctx.fillStyle = hex(paint); ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, top, bw, bh, 8); else ctx.rect(x, top, bw, bh); ctx.fill();
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [["빛을 겹친다", "가산"], ["점으로 둔다", "병치(눈에서 섞임)"], ["물감을 섞는다", "감산"]].forEach(function (s, k) {
+        var xc = 12 + k * (bw + 12) + bw / 2;
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.fillText(s[0], xc, top - 34);
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(11); ctx.fillText(s[1], xc, top - 18);
+      });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(11, true); ctx.textBaseline = "top";
+      [add, opt, paint].forEach(function (c, k) { ctx.fillText(hex(c), 12 + k * (bw + 12) + bw / 2, top + bh + 8); });
+      AB.stat("mx-o-a", hex(add)); AB.stat("mx-o-o", hex(opt)); AB.stat("mx-o-p", hex(paint));
+    }, { aspect: 0.78, minHeight: 360, maxHeight: 460, bg: "#fbfaf7" });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 점묘 ---------------- */
+  (function () {
+    var dG = AB.range("dt-d", function (v) { return v; }, function () { blur(); });
+    var naive = AB.check("dt-naive", function () { blur(); });
+    var SRC = 400, base = null, lin = null, img = null;
+    var drawA = function (ctx, w, h) { if (img) drawCover(ctx, img, w, h); };
+    var cvA = AB.canvas("#dt-a", drawA, { aspect: 0.8, maxHeight: 420, bg: "#2a2a2a" });
+    var out = null;
+    var cvB = AB.canvas("#dt-b", function (ctx, w, h) { if (out) drawCover(ctx, out, w, h); }, { aspect: 0.8, maxHeight: 420, bg: "#2a2a2a" });
+    AB.compare("#dt-cmp", { labels: ["가까이: 원본 점", "멀리서 본 모습"], pos: 0.5 });
+    function drawCover(ctx, im, w, h) {
+      var iw = im.width || im.naturalWidth, ih = im.height || im.naturalHeight, s = Math.max(w / iw, h / ih);
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(im, (w - iw * s) / 2, (h - ih * s) / 2, iw * s, ih * s);
+    }
+    AB.loadImage("../../shared/img/seurat-circus-sideshow-detail.webp").then(function (im) {
+      img = im;
+      var c = document.createElement("canvas"); c.width = SRC; c.height = SRC;
+      var x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0, SRC, SRC);
+      base = x.getImageData(0, 0, SRC, SRC);
+      lin = new Float32Array(SRC * SRC * 3);
+      var LUT = new Float32Array(256); for (var i = 0; i < 256; i++) LUT[i] = ART.toLinear(i / 255);
+      for (var p = 0; p < SRC * SRC; p++) for (var k = 0; k < 3; k++) lin[p * 3 + k] = LUT[base.data[p * 4 + k]];
+      cvA.redraw(); blur();
+    });
+    // 눈의 평균을 흉내 낸 상자 흐림(가로·세로 두 번). 선형광 또는 감마 값에서 평균한다.
+    function blur() {
+      if (!lin) return;
+      var r = Math.round(dG() * 1.5), useNaive = naive(), N = SRC;
+      var src = new Float32Array(N * N * 3);
+      if (useNaive) for (var p = 0; p < N * N; p++) for (var k = 0; k < 3; k++) src[p * 3 + k] = base.data[p * 4 + k] / 255;
+      else src.set(lin);
+      var tmp = new Float32Array(N * N * 3), dst = new Float32Array(N * N * 3);
+      function pass(a, b, horiz) {
+        for (var line = 0; line < N; line++) {
+          for (var k = 0; k < 3; k++) {
+            var acc = 0, cnt = 0;
+            for (var j = -r; j <= r; j++) { var q = AB.clamp(j, 0, N - 1); acc += a[(horiz ? line * N + q : q * N + line) * 3 + k]; cnt++; }
+            for (var i = 0; i < N; i++) {
+              var idx = (horiz ? line * N + i : i * N + line) * 3 + k;
+              b[idx] = acc / cnt;
+              var addI = AB.clamp(i + r + 1, 0, N - 1), subI = AB.clamp(i - r, 0, N - 1);
+              acc += a[(horiz ? line * N + addI : addI * N + line) * 3 + k] - a[(horiz ? line * N + subI : subI * N + line) * 3 + k];
+            }
+          }
+        }
+      }
+      if (r > 0) { pass(src, tmp, true); pass(tmp, dst, false); } else dst = src;
+      var c = document.createElement("canvas"); c.width = N; c.height = N;
+      var x = c.getContext("2d"), id = x.createImageData(N, N);
+      for (var q = 0; q < N * N; q++) {
+        for (var k2 = 0; k2 < 3; k2++) { var v = dst[q * 3 + k2]; id.data[q * 4 + k2] = Math.round(AB.clamp(useNaive ? v : ART.toGamma(v), 0, 1) * 255); }
+        id.data[q * 4 + 3] = 255;
+      }
+      x.putImageData(id, 0, 0); out = c; cvB.redraw();
+      var avg = function (x0, y0, s) { var a = [0, 0, 0]; for (var yy = y0; yy < y0 + s; yy++) for (var xx = x0; xx < x0 + s; xx++) for (var k = 0; k < 3; k++) a[k] += lin[(yy * N + xx) * 3 + k]; return hex(ART.linearToSrgb(a.map(function (v) { return v / (s * s); }))); };
+      AB.stat("dt-o-r", r ? "±" + r * 2 + " px" : "섞지 않음");
+      AB.stat("dt-o-c", avg(88, 70, 40)); AB.stat("dt-o-b", avg(150, 200, 60));
+    }
+  })();
+
+  /* ---------------- 시뮬레이터 4: 같은 회색, 다른 회색 ---------------- */
+  (function () {
+    var hide = AB.check("sc-hide", function () { cv.redraw(); });
+    var chip = AB.seg("sc-chip", function () { cv.redraw(); });
+    var bx = 0.78, by = 0.5, geo = null;
+    var CHIP = { gray: "#808080", green: "#5f8f62" };
+    var bgAt = function (f) { var v = 0.06 + 0.88 * f; return [v, v, v]; };
+    var cv = AB.canvas("#sc-cv", function (ctx, w, h) {
+      var s = Math.min(w, h) * 0.2;
+      geo = { w: w, h: h, s: s };
+      if (hide()) { ctx.fillStyle = "#9a9a9a"; ctx.fillRect(0, 0, w, h); }
+      else { var g = ctx.createLinearGradient(0, 0, w, 0); g.addColorStop(0, hex(bgAt(0))); g.addColorStop(1, hex(bgAt(1))); ctx.fillStyle = g; ctx.fillRect(0, 0, w, h); }
+      var col = CHIP[chip()];
+      ctx.fillStyle = col;
+      ctx.fillRect(w * 0.18 - s / 2, h * 0.5 - s / 2, s, s);
+      ctx.fillRect(bx * w - s / 2, by * h - s / 2, s, s);
+      AB.handle(ctx, bx * w + s / 2, by * h + s / 2, { r: 6, fill: "#ffffff", ring: "#111111" });
+      var lL = ART.lightness(bgAt(0.18)), lR = ART.lightness(bgAt(bx));
+      AB.stat("sc-o-v", col + " · " + col);
+      AB.stat("sc-o-l", hide() ? "가림" : AB.fix(lL, 0)); AB.stat("sc-o-r", hide() ? "가림" : AB.fix(lR, 0));
+    }, { aspect: 0.5, minHeight: 220, maxHeight: 320, bg: "#808080" });
+    AB.drag(cv.canvas, { move: function (x, y) { bx = AB.clamp(x / geo.w, 0.1, 0.92); by = AB.clamp(y / geo.h, 0.2, 0.8); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 메타메리즘 ---------------- */
+  (function () {
+    var LIGHTS = { daylight: ["daylight", "낮빛"], bulb: [{ type: "blackbody", T: 2700 }, "전구색 2700K"], fluor: ["fluorescent", "삼파장 형광등"], led: [{ type: "led", T: 4000 }, "LED 4000K"] };
+    var lg = AB.seg("mt-light", function () { cv.redraw(); });
+    var sp = AB.check("mt-spec", function () { cv.redraw(); });
+    var RA = ART.reflectanceFromSrgb(ART.parse("#7d8a9a")), RB = ART.metamer(RA, "daylight");
+    var cv = AB.canvas("#mt-cv", function (ctx, w, h) {
+      var L = LIGHTS[lg()][0];
+      var a = fit(ART.renderReflectance(RA, L, "adapted")), b = fit(ART.renderReflectance(RB, L, "adapted"));
+      ctx.fillStyle = "#fbfaf7"; ctx.fillRect(0, 0, w, h);
+      var showS = sp(), sh = showS ? h * 0.52 : h - 40, sw = Math.min(180, (w - 60) / 2);
+      ctx.fillStyle = hex(a); ctx.fillRect(w / 2 - sw, 18, sw, sh - 30);
+      ctx.fillStyle = hex(b); ctx.fillRect(w / 2, 18, sw, sh - 30);
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("견본 A · 인쇄 잉크", w / 2 - sw / 2, sh - 6); ctx.fillText("견본 B · 벽 페인트", w / 2 + sw / 2, sh - 6);
+      if (showS) {
+        var box = { x: 46, y: sh + 22, w: w - 64, h: h - sh - 50 };
+        ctx.strokeStyle = "#c9c5bc"; ctx.lineWidth = 1; ctx.strokeRect(box.x, box.y, box.w, box.h);
+        var X = function (l) { return box.x + ((l - 380) / 400) * box.w; }, Y = function (v) { return box.y + box.h - (v / 0.7) * box.h; };
+        var E = ART.illuminant(L), Em = Math.max.apply(null, E);
+        ctx.fillStyle = "rgba(240,200,80,0.18)"; ctx.beginPath(); ctx.moveTo(X(380), Y(0));
+        ART.WL.forEach(function (l, i) { ctx.lineTo(X(l), Y(0.7 * E[i] / Em)); }); ctx.lineTo(X(780), Y(0)); ctx.fill();
+        [[RA, "#3a4a8a"], [RB, "#b04a2a"]].forEach(function (s) { ctx.strokeStyle = s[1]; ctx.lineWidth = 2; ctx.beginPath(); ART.WL.forEach(function (l, i) { i ? ctx.lineTo(X(l), Y(s[0][i])) : ctx.moveTo(X(l), Y(s[0][i])); }); ctx.stroke(); });
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(11, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        [400, 500, 600, 700].forEach(function (l) { ctx.fillText(l + "", X(l), box.y + box.h + 4); });
+        ctx.textAlign = "left"; ctx.font = AB.font(11);
+        ctx.fillStyle = "#3a4a8a"; ctx.fillText("A의 반사율", box.x + 6, box.y + 4);
+        ctx.fillStyle = "#b04a2a"; ctx.fillText("B의 반사율", box.x + 80, box.y + 4);
+        ctx.fillStyle = "#a07d1a"; ctx.fillText("빛: " + LIGHTS[lg()][1], box.x + 154, box.y + 4);
+      }
+      var d = ART.diff(a, b);
+      AB.stat("mt-o-a", hex(a)); AB.stat("mt-o-b", hex(b));
+      AB.stat("mt-o-d", AB.fix(d, 1) + " <small>" + (d < 1 ? "같아 보인다" : d < 3 ? "살짝 다르다" : "확실히 다르다") + "</small>");
+    }, { aspect: 0.72, minHeight: 340, maxHeight: 460, bg: "#fbfaf7" });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 화면 점검 ---------------- */
+  (function () {
+    var side = AB.seg("sv-side", function () { cv.redraw(); });
+    var sG = AB.range("sv-s", function (v) { return v; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#sv-cv", function (ctx, w, h) {
+      var dark = side() === "dark", st = sG(), n = 10;
+      ctx.fillStyle = dark ? "#000000" : "#ffffff"; ctx.fillRect(0, 0, w, h);
+      var cw = (w - 24) / n, vals = [];
+      for (var i = 0; i < n; i++) {
+        var v = dark ? (i + 1) * st : 255 - (i + 1) * st; vals.push(v);
+        ctx.fillStyle = "rgb(" + v + "," + v + "," + v + ")"; ctx.fillRect(12 + i * cw, h * 0.18, cw, h * 0.6);
+        ctx.fillStyle = "#7a7a7a"; ctx.font = AB.font(11, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(String(v), 12 + i * cw + cw / 2, h * 0.82);
+      }
+      ctx.fillStyle = "#7a7a7a"; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("바탕 " + (dark ? 0 : 255) + " · 칸마다 " + st + "씩 " + (dark ? "밝아진다" : "어두워진다"), 12, 8);
+      AB.stat("sv-o-r", vals[0] + " → " + vals[n - 1]);
+      var Ls = vals.map(function (v) { return ART.lightness([v / 255, v / 255, v / 255]); });
+      AB.stat("sv-o-l", AB.fix(Math.min.apply(null, Ls), 1) + " ~ " + AB.fix(Math.max.apply(null, Ls), 1));
+    }, { aspect: 0.36, minHeight: 170, maxHeight: 240, bg: "#000000" });
+  })();
+
+  /* ---------------- 시뮬레이터 7: HSL의 함정 ---------------- */
+  (function () {
+    var lG = AB.range("hs-l", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var rows = AB.seg("hs-rows", function () { cv.redraw(); });
+    var cv = AB.canvas("#hs-cv", function (ctx, w, h) {
+      var L = lG() / 100, n = 12, mode = rows();
+      var hslRow = [], okRow = [];
+      for (var i = 0; i < n; i++) hslRow.push(ART.hslToSrgb([i * 30, 1, L]));
+      var meanL = hslRow.reduce(function (s, c) { return s + ART.srgbToOklch(c)[0]; }, 0) / n;
+      for (var j = 0; j < n; j++) { var hh = ART.srgbToOklch(hslRow[j])[2]; okRow.push(ART.gamutMap([meanL, 0.11, hh])); }
+      ctx.fillStyle = "#fbfaf7"; ctx.fillRect(0, 0, w, h);
+      var cw = (w - 24) / n, show = [];
+      if (mode !== "ok") show.push([hslRow, "HSL: 명도 " + Math.round(L * 100) + "%로 같다"]);
+      if (mode !== "hsl") show.push([okRow, "OKLCH: 명도 " + meanL.toFixed(2) + "로 같다"]);
+      var rh = (h - 30 - show.length * 26) / show.length;
+      show.forEach(function (s, r) {
+        var y = 12 + r * (rh + 26);
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(s[1], 12, y);
+        s[0].forEach(function (c, i) { ctx.fillStyle = hex(c); ctx.fillRect(12 + i * cw, y + 20, cw + 0.5, rh); });
+      });
+      var rng = function (row) { var ls = row.map(ART.lightness); return AB.fix(Math.min.apply(null, ls), 0) + " ~ " + AB.fix(Math.max.apply(null, ls), 0); };
+      AB.stat("hs-o-h", rng(hslRow)); AB.stat("hs-o-o", rng(okRow));
+    }, { aspect: 0.42, minHeight: 200, maxHeight: 280, bg: "#fbfaf7" });
+  })();
+
+  /* ---------------- 시뮬레이터 8: 색 하나의 지도 ---------------- */
+  (function () {
+    var lG = AB.range("mp-l", function (v) { return v.toFixed(2); }, function () { disk = null; cv.redraw(); });
+    var cvd = AB.seg("mp-cvd", function () { cv.redraw(); });
+    var pick = { c: 0.17, h: 25 }, geo = null, disk = null, CMAX = 0.33;
+    var CVDN = { deutan: "제2색각", protan: "제1색각", tritan: "제3색각" };
+    function makeDisk(R, L) {
+      var S = Math.ceil(R * 2), c = document.createElement("canvas"); c.width = S; c.height = S;
+      var x = c.getContext("2d"), id = x.createImageData(S, S);
+      for (var yy = 0; yy < S; yy++) for (var xx = 0; xx < S; xx++) {
+        var dx = xx + 0.5 - R, dy = yy + 0.5 - R, r = Math.hypot(dx, dy), o = (yy * S + xx) * 4;
+        if (r > R) continue;
+        var C = (r / R) * CMAX, H = (Math.atan2(-dy, dx) * 180) / Math.PI, rgb = ART.oklchToSrgb([L, C, H]);
+        if (!ART.inGamut(rgb, 1e-4)) { var stripe = ((xx + yy) >> 2) & 1; rgb = ART.gamutMap([L, C, H]).map(function (v) { return v * 0.35 + (stripe ? 0.62 : 0.5) * 0.65; }); }
+        id.data[o] = rgb[0] * 255; id.data[o + 1] = rgb[1] * 255; id.data[o + 2] = rgb[2] * 255; id.data[o + 3] = 255;
+      }
+      x.putImageData(id, 0, 0); return c;
+    }
+    var cv = AB.canvas("#mp-cv", function (ctx, w, h) {
+      var p = P(), L = lG(), wide = w >= 520;
+      var R = Math.floor(wide ? Math.min(h * 0.45, w * 0.26) : Math.min(w * 0.36, 150));
+      var cx = wide ? 18 + R : w / 2, cy = wide ? h / 2 : 14 + R;
+      geo = { cx: cx, cy: cy, R: R };
+      if (!disk || disk.width !== Math.ceil(R * 2)) disk = makeDisk(R, L);
+      ctx.drawImage(disk, cx - R, cy - R);
+      ctx.strokeStyle = p.border; ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+      // 고른 색(색역 밖이면 명도·색상을 지키며 안으로)
+      var col = ART.gamutMap([L, pick.c, pick.h]);
+      var px = cx + (pick.c / CMAX) * R * Math.cos((pick.h * Math.PI) / 180), py = cy - (pick.c / CMAX) * R * Math.sin((pick.h * Math.PI) / 180);
+      AB.handle(ctx, px, py, { r: 9, fill: col });
+      // 여러 장의 눈으로 본 칸들
+      var gx = wide ? cx + R + 24 : 12, gy = wide ? 16 : cy + R + 18, gw = wide ? w - gx - 12 : w - 24, gh = wide ? h - 32 : h - gy - 10;
+      var cols = 3, rowsN = 3, tw = (gw - (cols - 1) * 8) / cols, th = (gh - (rowsN - 1) * 8) / rowsN;
+      var rybC = ART.harmony(col, "complementary", "ryb")[1].rgb, okC = ART.harmony(col, "complementary", "oklch")[1].rgb;
+      var warm = fit(ART.renderReflectance(ART.reflectanceFromSrgb(col), { type: "blackbody", T: 2700 }, "daylight"));
+      var tiles = [
+        [col, "고른 색", "01"], [ART.grayOf(col), "흑백", "06"], [warm, "전구 아래", "10"],
+        [ART.simulateCVD(col, cvd()), CVDN[cvd()], "13"], [rybC, "보색 RYB", "05"], [okC, "보색 OKLCH", "05"],
+        ["bg-light", "밝은 바탕", "09"], ["bg-dark", "어두운 바탕", "09"], ["text", "글자", "13"],
+      ];
+      tiles.forEach(function (t, i) {
+        var x = gx + (i % cols) * (tw + 8), y = gy + Math.floor(i / cols) * (th + 8);
+        if (t[0] === "bg-light" || t[0] === "bg-dark") {
+          ctx.fillStyle = t[0] === "bg-light" ? "#ece8df" : "#22201f"; ctx.fillRect(x, y, tw, th);
+          ctx.fillStyle = hex(col); ctx.fillRect(x + tw * 0.3, y + th * 0.22, tw * 0.4, th * 0.42);
+          ctx.fillStyle = t[0] === "bg-light" ? "#3a3833" : "#d8d4cc";
+        } else if (t[0] === "text") {
+          ctx.fillStyle = "#ffffff"; ctx.fillRect(x, y, tw, th); ctx.strokeStyle = p.border; ctx.strokeRect(x + 0.5, y + 0.5, tw - 1, th - 1);
+          ctx.fillStyle = hex(col); ctx.font = AB.font(Math.max(13, th * 0.26), false, 800); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          ctx.fillText("책방 E", x + tw / 2, y + th * 0.42);
+          ctx.fillStyle = "#555555";
+        } else { ctx.fillStyle = hex(t[0]); ctx.fillRect(x, y, tw, th); ctx.fillStyle = AB.textOn(t[0]); }
+        ctx.font = AB.font(tw < 90 ? 10 : 11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+        ctx.fillText(t[2] + " " + t[1], x + 5, y + th - 4);
+      });
+      var hs = ART.srgbToHsl(col), ok = ART.srgbToOklch(col);
+      AB.stat("mp-o-hex", hex(col) + " <small>" + Math.round(hs[0]) + "°, " + Math.round(hs[1] * 100) + "%, " + Math.round(hs[2] * 100) + "%</small>");
+      AB.stat("mp-o-ok", ok[0].toFixed(2) + " " + ok[1].toFixed(3) + " " + Math.round(ok[2]) + "°");
+      var cw = ART.contrast(col, [1, 1, 1]), cb = ART.contrast(col, [0, 0, 0]);
+      AB.stat("mp-o-cw", cw.toFixed(2) + " <small>" + ART.wcagLevel(cw) + "</small>");
+      AB.stat("mp-o-cb", cb.toFixed(2) + " <small>" + ART.wcagLevel(cb) + "</small>");
+    }, { get height() { var w = document.getElementById("mp-cv").parentElement.clientWidth; return w >= 520 ? Math.round(Math.min(420, w * 0.6)) : Math.round(w * 0.72 + w * 0.62); } });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        var dx = x - geo.cx, dy = geo.cy - y, r = Math.hypot(dx, dy);
+        if (r > geo.R * 1.15) return;
+        pick.c = Math.min(1, r / geo.R) * CMAX; pick.h = ART.mod360((Math.atan2(dy, dx) * 180) / Math.PI);
+        cv.redraw();
+      },
+    });
+  })();
+})();
+</script>
+</body>
+</html>

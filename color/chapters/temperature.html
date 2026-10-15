@@ -1,0 +1,1022 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "흰 벽은 한낮, 해 질 녘, 전구 아래에서 다른 색이 된다. 색온도와 마이어드, 따뜻한 색과 차가운 색이 물리가 아니라 지각과 관습이라는 점, 카메라의 화이트밸런스와 눈의 순응, 시간대별 햇빛과 하늘빛, 그림자에 하늘빛이 들어가는 이유를 시뮬레이터로 확인하고 해 질 녘 풍경의 색을 설계한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>빛의 색과 그림자의 색 · ColorBook</title>
+<meta name="description" content="흰 벽은 한낮, 해 질 녘, 전구 아래에서 다른 색이 된다. 색온도와 마이어드, 따뜻한 색과 차가운 색이 물리가 아니라 지각과 관습이라는 점, 카메라의 화이트밸런스와 눈의 순응, 시간대별 햇빛과 하늘빛, 그림자에 하늘빛이 들어가는 이유를 시뮬레이터로 확인하고 해 질 녘 풍경의 색을 설계한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/temperature.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="빛의 색과 그림자의 색 · ColorBook">
+<meta property="og:description" content="흰 벽은 한낮, 해 질 녘, 전구 아래에서 다른 색이 된다. 색온도와 마이어드, 따뜻한 색과 차가운 색이 물리가 아니라 지각과 관습이라는 점, 카메라의 화이트밸런스와 눈의 순응, 시간대별 햇빛과 하늘빛, 그림자에 하늘빛이 들어가는 이유를 시뮬레이터로 확인하고 해 질 녘 풍경의 색을 설계한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/temperature.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/temperature.html#chapter","name":"빛의 색과 그림자의 색","headline":"빛의 색과 그림자의 색 · ColorBook","description":"흰 벽은 한낮, 해 질 녘, 전구 아래에서 다른 색이 된다. 색온도와 마이어드, 따뜻한 색과 차가운 색이 물리가 아니라 지각과 관습이라는 점, 카메라의 화이트밸런스와 눈의 순응, 시간대별 햇빛과 하늘빛, 그림자에 하늘빛이 들어가는 이유를 시뮬레이터로 확인하고 해 질 녘 풍경의 색을 설계한다.","url":"https://artbook.euiyun.com/color/chapters/temperature.html","position":10,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"10. 빛의 색과 그림자의 색","item":"https://artbook.euiyun.com/color/chapters/temperature.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="temperature">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 10</div>
+    <h1>빛의 색과 그림자의 색</h1>
+    <p class="lead">서점 앞 흰 벽을 하루 동안 지켜본다. 정오에는 거의 흰색이고, 해 질 녘에는 살구빛으로 물들고, 해가 지고 전구가 켜지면 창 안쪽이 주황으로 빛난다. 같은 시각, 벽에 드리운 처마 그림자는 회색이 아니라 푸르스름하다. 벽은 그대로인데 무엇이 바뀐 걸까. 이 장은 빛에 색이 있다는 사실에서 출발해, 카메라와 눈이 그 색을 어떻게 다르게 다루는지, 그리고 그림자에 왜 다른 색이 들어가는지를 따라간다.</p>
+    <ul class="objectives">
+      <li>색온도(K)가 무엇이고, 왜 K보다 마이어드(mired)가 변화의 크기를 고르게 보여 주는지 안다.</li>
+      <li>"따뜻한 색, 차가운 색"이 물리량이 아니라 지각과 관습이라는 점을 구분한다.</li>
+      <li>눈의 색순응과 카메라의 화이트밸런스가 어떻게 다른지 보고, 사진의 색을 원하는 만큼만 보정한다.</li>
+      <li>하루 동안 햇빛과 하늘빛의 색과 세기가 어떻게 바뀌는지 본다.</li>
+      <li>그림자 색이 "햇빛이 빠지고 하늘빛만 남은 색"이라는 두 광원 모형으로 그림자의 색을 계획한다.</li>
+    </ul>
+  </header>
+
+  <section id="kelvin">
+    <h2>빛에도 온도가 있다: 색온도</h2>
+    <p>쇠막대를 불에 넣고 달구면 처음에는 어두운 빨강으로, 더 뜨거워지면 주황과 노랑으로, 아주 뜨거워지면 흰빛에 가깝게 빛난다. 물체가 열 때문에 내는 빛의 색은 온도로 정해진다. 물리학은 빛을 전부 흡수하는 이상적인 물체, 곧 <span class="term">흑체</span><span class="en">(Black body)</span>가 온도마다 내는 빛의 스펙트럼을 정확한 식(플랑크의 법칙)으로 알고 있다. 그래서 어떤 조명의 색을 "몇 도의 흑체가 내는 빛과 같은 색인가"로 적을 수 있다. 이것이 <span class="term">색온도</span><span class="en">(Color temperature)</span>이고, 단위는 절대온도 켈빈(K)이다.</p>
+    <p>전구나 촛불은 실제로 뜨거운 필라멘트와 불꽃이 내는 빛이라 이 정의에 잘 맞는다. LED나 형광등, 하늘빛처럼 열로 빛나지 않는 빛은 "가장 비슷해 보이는 흑체의 온도"로 적고, 이를 <span class="term">상관 색온도</span><span class="en">(Correlated color temperature, CCT)</span>라고 부른다. 조명 상자에 적힌 2,700&nbsp;K, 6,500&nbsp;K 같은 숫자는 대부분 이 상관 색온도다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="색온도 자: 1,000 K에서 12,000 K까지 빛의 색과 대표적인 광원">
+        <defs>
+          <linearGradient id="tp-cct" x1="0" x2="1" y1="0" y2="0"><stop offset="0.000" stop-color="#ff3100"/><stop offset="0.018" stop-color="#ff4e00"/><stop offset="0.045" stop-color="#ff6c00"/><stop offset="0.073" stop-color="#ff8300"/><stop offset="0.100" stop-color="#ff9521"/><stop offset="0.127" stop-color="#ffa440"/><stop offset="0.155" stop-color="#ffb158"/><stop offset="0.182" stop-color="#ffbc6d"/><stop offset="0.227" stop-color="#ffcc8b"/><stop offset="0.273" stop-color="#ffd9a5"/><stop offset="0.318" stop-color="#ffe3bc"/><stop offset="0.364" stop-color="#ffecd0"/><stop offset="0.409" stop-color="#fff3e2"/><stop offset="0.455" stop-color="#fffaf1"/><stop offset="0.500" stop-color="#ffffff"/><stop offset="0.591" stop-color="#eaf2ff"/><stop offset="0.727" stop-color="#d5e4ff"/><stop offset="0.864" stop-color="#c8dbff"/><stop offset="1.000" stop-color="#bfd5ff"/></linearGradient>
+        </defs>
+        <text x="30" y="22" class="lbl-dim">대략의 값. 같은 이름의 광원도 제품·날씨에 따라 다르다</text>
+        <path d="M63 118V58M97 118V90M187 118V58M248 118V90M368 118V58" class="s-dash"/>
+        <text x="58" y="52" text-anchor="middle" class="lbl">촛불 ~1,900</text>
+        <text x="100" y="84" text-anchor="start" class="lbl">전구색 2,700~3,000</text>
+        <text x="190" y="52" text-anchor="middle" class="lbl">한낮 햇빛 5,000~5,500</text>
+        <text x="252" y="84" text-anchor="start" class="lbl">흐린 날 6,500~7,500</text>
+        <text x="372" y="52" text-anchor="middle" class="lbl">맑은 날 그늘 10,000+</text>
+        <rect x="30" y="120" width="400" height="34" rx="4" fill="url(#tp-cct)" stroke="#9a968c" stroke-width="0.8"/>
+        <path d="M66 162v8M121 162v8M66 166H121" class="s-acc"/>
+        <text x="93" y="186" text-anchor="middle" class="lbl-acc">해 뜰·질 녘 햇빛</text>
+        <text x="93" y="202" text-anchor="middle" class="lbl-dim">2,000~3,500</text>
+        <path d="M230 158v14" class="s-line"/>
+        <text x="230" y="188" text-anchor="middle" class="lbl-b">D65 6,500</text>
+        <text x="230" y="204" text-anchor="middle" class="lbl-dim">화면·사진의 낮빛 기준</text>
+        <g class="t-mono lbl-dim" font-size="10">
+          <text x="30" y="232" text-anchor="middle">1k</text><text x="139" y="232" text-anchor="middle">4k</text><text x="212" y="232" text-anchor="middle">6k</text><text x="285" y="232" text-anchor="middle">8k</text><text x="357" y="232" text-anchor="middle">10k</text><text x="430" y="232" text-anchor="middle">12k K</text>
+        </g>
+        <path d="M176 256H40" class="s-line" marker-end="url(#tp-ar)"/>
+        <path d="M284 256H420" class="s-line" marker-end="url(#tp-ar)"/>
+        <text x="40" y="278" class="lbl-acc">따뜻해 보인다</text>
+        <text x="420" y="278" text-anchor="end" class="lbl-acc2">차가워 보인다</text>
+        <text x="230" y="260" text-anchor="middle" class="lbl-dim">색온도(K)</text>
+        <defs><marker id="tp-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+      </svg>
+      <figcaption><b>그림 1. 색온도 자.</b> 색온도가 낮은 빛은 주황, 높은 빛은 푸르스름하다. 위아래의 광원 값은 흔히 인용되는 대략의 범위다. 띠는 각 온도의 흑체 빛을 낮빛(6,500&nbsp;K)을 흰색으로 맞춘 화면에서 보여 준 색이다. 왼쪽 1,000~4,000&nbsp;K 사이에서는 색이 빠르게 변하고, 오른쪽 8,000&nbsp;K 너머에서는 거의 변하지 않는 데 주목한다.</figcaption>
+    </figure>
+
+    <p>그림 1의 띠에는 이상한 점이 있다. 왼쪽 3,000&nbsp;K 사이에 주황에서 흰색까지의 변화가 몰려 있고, 오른쪽 4,000&nbsp;K 넓이에서는 연한 하늘색이 거의 그대로다. 켈빈 숫자의 차이가 눈에 보이는 색의 차이와 비례하지 않기 때문이다. 사진가와 조명 기술자는 그래서 색온도의 역수를 쓴다. 이를 <span class="term">마이어드</span><span class="en">(Mired, micro reciprocal degree)</span>라고 한다.</p>
+    <div class="formula">$$M = \frac{10^{6}}{T}$$<div class="where">\(T\): 색온도(K), \(M\): 마이어드. 2,700&nbsp;K는 약 370, 6,500&nbsp;K는 약 154 마이어드다. 색온도가 오를수록 마이어드는 줄어든다. 사진용 색온도 보정 필터는 "몇 K"가 아니라 "몇 마이어드만큼 옮기는가"로 표시되는 경우가 많다.</div></div>
+    <p>아래 시뮬레이터의 두 띠는 같은 1,500~12,000&nbsp;K 범위를 위는 K 눈금으로, 아래는 마이어드 눈금으로 펼친 것이다. 슬라이더나 띠 위의 손잡이로 색온도를 옮기면서, 같은 "500&nbsp;K"가 어디서는 큰 변화이고 어디서는 거의 변화가 아닌 것을 확인한다.</p>
+
+    <div class="sim" id="sim-kelvin">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>켈빈 자와 마이어드 자</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="kv-cv"></canvas><span class="hint">띠 위를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>색온도 <output id="kv-t-out"></output></span><input type="range" id="kv-t" min="1500" max="12000" step="50" value="2700"></label>
+          <div class="seg" id="kv-step"><button data-value="k" class="on">±250 K씩</button><button data-value="m">±20 마이어드씩</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">마이어드</span><span class="v" id="kv-o-m">—</span></div>
+        <div class="stat"><span class="k">양옆 두 빛의 범위</span><span class="v" id="kv-o-r">—</span></div>
+        <div class="stat"><span class="k">양옆 두 빛의 색도 거리 Δuv</span><span class="v" id="kv-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "±250 K씩"에서 색온도를 2,000&nbsp;K에 둔다. 아래 세 칸 중 양옆 두 빛이 확연히 다르다. 10,000&nbsp;K로 옮기면 양옆이 거의 같다. 같은 500&nbsp;K 차이인데 색도 거리가 열 배 넘게 벌어진다. ② "±20 마이어드씩"으로 바꿔 같은 실험을 한다. 양옆 두 빛의 K 범위는 2,000&nbsp;K에서는 좁고 10,000&nbsp;K에서는 넓지만, 색도 거리는 어디서나 비슷하다. ③ 아래 마이어드 띠 위를 끌어 본다. 색이 띠 전체에 고르게 퍼져 있다. (흑체 빛의 색을 낮빛 기준의 화면 색으로 보여 준다. Δuv는 CIE 1960 uv 색도도에서 잰 두 빛의 거리로, 밝기는 빼고 색 기운의 차이만 잰다. 마이어드가 완전히 고른 자는 아니지만 K보다 훨씬 고르다.)</div>
+    </div>
+
+    <p>마이어드로 생각하면 실무의 감각이 정리된다. 2,700&nbsp;K 전구를 3,000&nbsp;K로 바꾸는 것(약 37 마이어드)은 6,500&nbsp;K 조명을 8,000&nbsp;K로 바꾸는 것(약 29 마이어드)과 비슷한 크기의 변화다. 따뜻한 쪽의 수백 K는 크고, 차가운 쪽의 수천 K는 작다. 조명을 고르거나 사진의 색온도를 만질 때 "몇 K 올릴까"보다 "따뜻한 쪽에서 움직이는가"를 먼저 묻는 이유다.</p>
+  </section>
+
+  <section id="warmcool">
+    <h2>따뜻한 색, 차가운 색: 물리와 지각이 반대로 간다</h2>
+    <p>그림 1의 아래쪽 화살표를 다시 본다. 색온도가 <b>낮은</b> 주황빛을 우리는 "따뜻하다"고 하고, 색온도가 <b>높은</b> 푸른빛을 "차갑다"고 한다. 물리의 온도와 말의 온도가 정반대다. 이 엇갈림이 보여 주는 것은 단순하다. 색의 <span class="term">한난</span><span class="en">(Warm–cool)</span>, 곧 따뜻함과 차가움은 빛의 물리량이 아니라 사람이 색에 붙인 느낌과 이름이다.</p>
+    <p>그 느낌이 어디서 왔는지는 확실히 알 수 없지만 흔한 설명은 경험의 연상이다. 불, 해 질 녘, 난로는 주황과 빨강이고, 물, 그늘, 얼음, 겨울 하늘은 파랑과 청록이다. 여러 문화권에서 비슷한 짝짓기가 보고되지만, 색이 실제로 몸이 느끼는 온도를 바꾼다는 주장(예를 들어 파란 방이 더 춥게 느껴진다는 이른바 색상–온도 가설)은 연구 결과가 엇갈린다. 이 책은 한난을 "그림과 디자인에서 오래 써 온 약속이자 지각의 경향"으로 다루고, 체온이나 매출을 바꾸는 힘으로 다루지 않는다(<a href="meaning.html">12장</a>).</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="색상환의 따뜻한 쪽과 차가운 쪽, 그리고 옆 색에 따라 한난이 바뀌는 초록">
+        <g transform="translate(20 0)">
+          <path d="M210.0 150.0A92 92 0 0 0 197.7 104.0L157.8 127.0A46 46 0 0 1 164.0 150.0Z" fill="#ea808a"/><path d="M197.7 104.0A92 92 0 0 0 164.0 70.3L141.0 110.2A46 46 0 0 1 157.8 127.0Z" fill="#e7885d"/><path d="M164.0 70.3A92 92 0 0 0 118.0 58.0L118.0 104.0A46 46 0 0 1 141.0 110.2Z" fill="#d49838"/><path d="M118.0 58.0A92 92 0 0 0 72.0 70.3L95.0 110.2A46 46 0 0 1 118.0 104.0Z" fill="#b1a93a"/><path d="M72.0 70.3A92 92 0 0 0 38.3 104.0L78.2 127.0A46 46 0 0 1 95.0 110.2Z" fill="#80b761"/><path d="M38.3 104.0A92 92 0 0 0 26.0 150.0L72.0 150.0A46 46 0 0 1 78.2 127.0Z" fill="#3fbe90"/><path d="M26.0 150.0A92 92 0 0 0 38.3 196.0L78.2 173.0A46 46 0 0 1 72.0 150.0Z" fill="#00bdbe"/><path d="M38.3 196.0A92 92 0 0 0 72.0 229.7L95.0 189.8A46 46 0 0 1 78.2 173.0Z" fill="#22b5e1"/><path d="M72.0 229.7A92 92 0 0 0 118.0 242.0L118.0 196.0A46 46 0 0 1 95.0 189.8Z" fill="#6aa7f4"/><path d="M118.0 242.0A92 92 0 0 0 164.0 229.7L141.0 189.8A46 46 0 0 1 118.0 196.0Z" fill="#9d98f2"/><path d="M164.0 229.7A92 92 0 0 0 197.7 196.0L157.8 173.0A46 46 0 0 1 141.0 189.8Z" fill="#c38adc"/><path d="M197.7 196.0A92 92 0 0 0 210.0 150.0L164.0 150.0A46 46 0 0 1 157.8 173.0Z" fill="#de82b7"/>
+          <path d="M219.9 146.4A102 102 0 0 0 70.1 59.9" class="s-acc" fill="none" stroke-width="3"/>
+          <path d="M16.1 153.6A102 102 0 0 0 165.9 240.1" class="s-acc2" fill="none" stroke-width="3"/>
+          <path d="M63.9 63.5A102 102 0 0 0 16.1 146.4" class="s-dash" fill="none"/>
+          <path d="M172.1 236.5A102 102 0 0 0 219.9 153.6" class="s-dash" fill="none"/>
+          <text x="186" y="40" text-anchor="middle" class="lbl-acc">따뜻한 쪽</text>
+          <text x="70" y="276" text-anchor="middle" class="lbl-acc2">차가운 쪽</text>
+          <text x="10" y="74" text-anchor="middle" class="lbl-dim">경계</text>
+          <text x="214" y="236" class="lbl-dim">경계</text>
+        </g>
+        <rect x="282" y="56" width="70" height="52" rx="4" fill="#ead33f"/><rect x="352" y="56" width="70" height="52" rx="4" fill="#4a9a5e"/>
+        <rect x="282" y="168" width="70" height="52" rx="4" fill="#4a9a5e"/><rect x="352" y="168" width="70" height="52" rx="4" fill="#305eb7"/>
+        <text x="352" y="128" text-anchor="middle" class="lbl">노랑 옆의 초록</text>
+        <text x="352" y="145" text-anchor="middle" class="lbl-acc2">상대적으로 차갑게</text>
+        <text x="352" y="240" text-anchor="middle" class="lbl">파랑 옆의 초록</text>
+        <text x="352" y="257" text-anchor="middle" class="lbl-acc">상대적으로 따뜻하게</text>
+      </svg>
+      <figcaption><b>그림 2. 한난은 관계다.</b> 색상환의 빨강·주황·노랑 쪽을 따뜻한 색, 청록·파랑 쪽을 차가운 색으로 부르는 것이 오래된 관습이다. 그러나 초록과 보라는 경계에 있어서 옆에 무엇이 오느냐에 따라 한쪽으로 기운다. 오른쪽의 같은 초록 견본은 노랑 옆에서는 차가운 쪽으로, 파랑 옆에서는 따뜻한 쪽으로 읽힌다. 같은 이유로 "따뜻한 파랑"(보라 쪽 울트라마린)과 "차가운 파랑"(초록 쪽 세룰리안)처럼, 한 색상 안에서도 한난을 나눠 말한다.</figcaption>
+    </figure>
+
+    <p>그러니 한난은 두 가지 뜻으로 쓰인다. 하나는 <b>빛의 색온도</b>로, 측정할 수 있는 양이다. 다른 하나는 <b>색과 색 사이의 기울기</b>로, 비교로만 정해지는 지각이다. 화가가 "그림자를 차갑게"라고 할 때는 대개 두 번째 뜻, 곧 "빛 받은 부분보다 파랑 쪽으로 기울게"라는 말이다. 이 장의 뒷부분에서 그 말이 실제 빛의 물리와 어떻게 맞닿는지 본다. 이텐이 <span class="term">한난 대비</span>를 일곱 가지 대비의 하나로 꼽은 것도 이 관계의 성질 때문이다(<a href="contrast.html">8장</a>).</p>
+  </section>
+
+  <section id="adapt">
+    <h2>눈은 맞추고, 카메라는 적는다</h2>
+    <p>전구 아래에서 책을 읽을 때 종이는 주황이 아니라 흰색으로 보인다. 몇 분만 지나면 눈과 뇌가 그 조명의 색에 익숙해져서, 조명이 가장 많이 가진 색을 그만큼 덜 느끼게 되기 때문이다. 이를 <span class="term">색순응</span><span class="en">(Chromatic adaptation)</span>이라고 한다. 망막의 세 원뿔세포가 각자 받는 빛의 평균에 맞춰 감도를 낮추거나 높인다는 것이 19세기 말 폰 크리스<span class="en">(Johannes von Kries)</span>가 내놓은 기본 생각이고, 오늘날 색 변환 소프트웨어가 쓰는 브래드퍼드 변환도 이 생각을 다듬은 것이다. 이 책의 엔진도 이 방식으로 계산한다.</p>
+    <p>카메라에는 이 일을 대신하는 설정이 있다. <span class="term">화이트밸런스</span><span class="en">(White balance)</span>는 "이 장면의 빛이 몇 K였다"고 카메라에 알려 주고, 그만큼 반대 방향으로 색을 옮겨 흰 물체가 희게 찍히게 하는 보정이다. 휴대폰은 대개 장면을 보고 빛의 색을 스스로 짐작한다(자동 화이트밸런스). 짐작이 틀리거나, 조명이 두 가지 섞여 있거나, 일부러 낮빛 기준으로 고정해 두면 전구 아래 사진은 주황으로, 그늘 사진은 파랗게 나온다.</p>
+    <p>두 방식에는 결정적인 차이가 하나 있다. 사람의 순응은 <b>완전하지 않다</b>. 전구 아래 종이가 희게 보인다고 해도, 창밖의 낮빛과 나란히 놓으면 실내가 노랗게 느껴진다. 해 질 녘의 금빛도 그 빛 속에 있는 사람에게 여전히 금빛으로 보인다. 반대로 카메라의 보정은 숫자만큼 정확히 한다. 그래서 완벽하게 보정한 해 질 녘 사진은 "기억과 다르게" 밋밋해 보이곤 한다. 사진을 보정하는 사람이 정해야 하는 것은 "얼마나 희게"가 아니라 "그 빛의 기운을 얼마나 남길까"다.</p>
+    <div class="callout deep">
+      <strong>순응의 정도</strong>
+      색 외관 모형(CIE가 2002년에 권고한 CIECAM02 등)은 순응이 얼마나 일어났는지를 0~1 사이의 "순응 정도" 값으로 따로 둔다. 밝은 곳에서 오래 본 장면일수록, 조명이 장면 전체를 고르게 비출수록 1에 가깝고, 어둡거나 짧게 본 장면, 조명 자체가 눈에 보이는 장면(창 밖 노을, 전구 갓)일수록 작아진다. 이 장의 시뮬레이터에서 "눈"은 이 책이 정한 교육용 값으로 60~70%쯤 순응한다고 가정했다. 실제 값은 사람과 상황에 따라 다르다.
+    </div>
+  </section>
+
+  <section id="wb">
+    <h2>화이트밸런스: 사진에서 흰색 찾기</h2>
+    <p>아래는 가상의 책방 내부를 그린 장면이다. 나무 서가, 여러 색의 책, 계산대 위의 흰 종이와 회색 카드, 크라프트지 간판이 있다. 장면 전체를 한 가지 빛으로 비추고, 화이트밸런스를 낮빛(6,500&nbsp;K)에 고정한 카메라로 찍은 결과에서 시작한다. 슬라이더는 카메라에 "이 빛은 몇 K였다"고 알려 주는 설정이다. 사진 위를 눌러 그 점을 흰색 기준으로 삼을 수도 있다(스포이트).</p>
+
+    <div class="sim" id="sim-wb">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>카메라의 화이트밸런스</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="wb-cv" class="art"></canvas><span class="hint" style="top:8px;bottom:auto">사진 위를 눌러 흰색 기준 고르기</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="wb-light"><button data-value="2800" class="on">전구색 2,800K</button><button data-value="4000">백색 4,000K</button><button data-value="7500">흐린 창가 7,500K</button></div>
+          <label class="ctrl"><span>화이트밸런스 설정 <output id="wb-s-out"></output></span><input type="range" id="wb-s" min="2000" max="10000" step="50" value="6500"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">스포이트로 고른 점(찍힌 색)</span><span class="v" id="wb-o-p">—</span></div>
+        <div class="stat"><span class="k">그 점으로 짐작한 빛</span><span class="v" id="wb-o-t">—</span></div>
+        <div class="stat"><span class="k">회색 카드(보정 후)</span><span class="v" id="wb-o-g">—</span></div>
+        <div class="stat"><span class="k">회색 카드에 남은 색 기운</span><span class="v" id="wb-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 기본 상태는 전구색 빛을 낮빛 고정 카메라로 찍은 사진이다. 흰 종이가 주황이다. 회색 카드를 누르면 짐작한 빛이 2,800&nbsp;K 근처로 나오고 사진이 중립으로 돌아온다. ② 빨간 책이나 초록 간판을 눌러 본다. 흰색·회색이 아닌 곳을 기준으로 삼으면 사진 전체가 엉뚱한 색으로 기운다. 자동 화이트밸런스가 붉은 노을이나 잔디밭에서 자주 틀리는 이유다. ③ 설정을 2,000&nbsp;K까지 내린다. 실제 빛보다 더 따뜻하다고 알려 주면 카메라가 지나치게 빼서 사진이 파랗게 무너진다. (이 책 엔진의 교육용 분광 모형으로 빛을 비추고 브래드퍼드 색순응으로 보정한다. 계산을 빠르게 하려고 각 단계를 3×3 행렬로 줄여 픽셀마다 적용했다. 화면 색은 기기마다 다르니 두 상태의 차이를 본다.)</div>
+    </div>
+
+    <p>회색 카드를 누르는 순간 사진이 돌아오는 것은, 회색과 흰색이 "빛의 색을 그대로 돌려보내는" 물체이기 때문이다. 그 점이 주황으로 찍혔다면 빛이 주황이었던 것이다. 색이 있는 물체를 기준으로 삼으면 카메라는 물체의 색까지 빛의 색으로 오해한다. 자동 화이트밸런스도 같은 문제를 안고 있다. 대부분의 알고리즘은 "장면의 평균은 회색일 것"이나 "가장 밝은 곳은 흰색일 것" 같은 가정에서 출발하므로, 장면 전체가 한 색으로 기운 노을이나 붉은 벽돌 골목에서는 그 색을 지워 버린다.</p>
+
+    <div class="callout studio">
+      <strong>회색 카드 한 장, 그리고 "얼마나 남길까"</strong>
+      제품이나 그림을 찍는 사진가는 첫 장에 회색 카드(또는 흰 종이)를 함께 찍어 두고, 나머지 사진을 그 카드 기준으로 한꺼번에 보정한다. 자기 수채화를 기록하는 화가에게도 가장 싼 보험이다. 다만 분위기 사진은 다르다. 전구 아래 카페나 해 질 녘 거리를 회색 카드에 완벽히 맞추면 "그 빛 아래 있었던 느낌"이 사라진다. 이럴 때는 기준을 끝까지 맞추지 않고 실제 빛과 낮빛 사이의 값(예를 들어 2,800&nbsp;K 빛을 3,500~4,500&nbsp;K로)에 멈춘다. 마이어드로 생각하면 "보정할 거리의 몇 할만 간다"는 말이 된다. 흰 종이가 아주 연한 크림색으로 남는 정도가 흔한 출발점이다.
+    </div>
+
+    <div class="callout warn">
+      <strong>내 화면도 색온도가 있다</strong>
+      이 장의 실습은 화면의 흰색이 낮빛(6,500&nbsp;K) 근처라고 가정한다. 휴대폰의 야간 모드, 블루라이트 필터, "트루톤" 같은 주변광 맞춤 기능은 화면의 흰색 자체를 따뜻한 쪽으로 옮긴다. 이 기능이 켜져 있으면 이 장의 "중립"이 이미 주황으로 보인다. 화면 색은 기기마다 다르므로, 색의 절대값보다 두 상태의 차이를 보고, 가능하면 이 장은 그런 기능을 끄고 읽는다.
+    </div>
+  </section>
+
+  <section id="day">
+    <h2>하루의 빛: 햇빛과 하늘빛</h2>
+    <p>야외의 빛은 하나가 아니라 둘이다. 해에서 곧장 오는 <span class="term">직사광</span><span class="en">(Direct sunlight)</span>과, 대기에 흩어져 하늘 전체에서 오는 <span class="term">하늘빛</span><span class="en">(Skylight)</span>이다. 공기 분자는 파장이 짧은 파랑 빛을 긴 파장의 빨강 빛보다 훨씬 잘 흩뜨린다(레일리 산란). 그래서 하늘은 파랗고, 그만큼 파랑을 잃은 직사광은 우주에서 볼 때보다 조금 더 노랗다.</p>
+    <p>해가 낮아지면 햇빛이 지나는 공기의 두께가 급격히 늘어난다. 머리 위에서 내리쬘 때를 1로 하면 고도 30°에서는 약 2배, 10°에서는 약 5.6배, 지평선 근처에서는 30배를 넘는다. 긴 길을 지나는 동안 파랑은 거의 다 흩어지고 빨강·주황만 남는다. 해 질 녘 햇빛이 주황인 이유다. 동시에 직사광이 크게 약해지므로, 상대적으로 하늘빛의 몫이 커진다. 아래 시뮬레이터는 10월 중순 서울(북위 37.5°)의 맑은 날을 가정하고, 시각에 따른 두 빛의 색과 세기를 보여 준다.</p>
+
+    <div class="sim" id="sim-day">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>하루의 빛: 햇빛과 하늘빛</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="dy-cv"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">해를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>시각(태양시) <output id="dy-h-out"></output></span><input type="range" id="dy-h" min="6.5" max="17.5" step="0.05" value="16.5"></label>
+          <label class="check"><input type="checkbox" id="dy-log"> 세기를 로그 눈금으로</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">태양 고도</span><span class="v" id="dy-o-e">—</span></div>
+        <div class="stat"><span class="k">햇빛이 지나는 공기 두께</span><span class="v" id="dy-o-m">—</span></div>
+        <div class="stat"><span class="k">햇빛 · 하늘빛 색온도</span><span class="v" id="dy-o-k">—</span></div>
+        <div class="stat"><span class="k">해를 향한 면 : 그늘 밝기 비</span><span class="v" id="dy-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 정오(12시)에 둔다. 햇빛은 5,000&nbsp;K 대의 거의 흰빛이고, 해를 향한 면이 그늘보다 네 배 넘게 밝다. ② 시각을 17시 넘어까지 민다. 햇빛 색온도가 3,000&nbsp;K 아래로 떨어지고, 해 지기 직전에는 밝기 비가 급격히 줄어든다. 그늘과 양지의 명도 차이가 작아지는 시간, 곧 하늘빛의 몫이 커지는 시간이다. ③ "세기를 로그 눈금으로"를 켠다. 해 질 녘 직사광은 한낮의 몇십 분의 일로 떨어지지만 눈은 그만큼 어둡게 느끼지 않는다. 밝기에도 순응하기 때문이다. (태양 고도는 위도·적위로 계산한 값이고, 시각은 해가 가장 높을 때를 12시로 한 태양시다. 공기 두께는 Kasten–Young(1989)의 대기 질량 근사식. 햇빛·하늘빛의 색온도와 세기는 이 장이 정한 교육용 근사 곡선이며, 실제로는 날씨·먼지·습도에 따라 크게 달라진다.)</div>
+    </div>
+
+    <p>시뮬레이터에서 본 것을 화가의 말로 바꾸면 이렇다. 한낮에는 빛과 그늘의 <b>명도 차이</b>가 크고 색 차이는 작다. 해 질 녘에는 명도 차이가 줄고 <b>색 차이</b>가 커진다. 햇빛은 주황으로, 하늘빛은 여전히 파랑으로 남기 때문이다. 해가 진 직후의 <span class="term">매직 아워</span><span class="en">(Magic hour)</span>나 푸른 시간(blue hour)에는 직사광이 사라지고 하늘빛만 남아 장면 전체가 푸르게 가라앉는다. 그 속에서 켜진 전구의 창이 유난히 따뜻해 보이는 것은 색온도 차이가 가장 커지는 순간이라서다.</p>
+
+    <div class="callout try">
+      <strong>흰 종이 한 장으로 하루의 빛 기록하기</strong>
+      맑은 날, 흰 도화지 한 장을 반으로 접어 세워 한쪽 면은 해를 향하고 다른 쪽은 그늘이 되게 창가나 마당에 둔다. 오전 10시, 정오, 해 지기 한 시간 전, 해 진 직후의 네 번, 양지 면과 그늘 면의 색을 색연필이나 물감으로 손톱만 하게 칠해 기록한다. 이름 대신 "양지가 그늘보다 얼마나 노란가, 그늘이 얼마나 파란가"를 비교해 적는다. 휴대폰 사진은 화이트밸런스를 자동으로 바꾸므로 눈으로 본 것과 다를 수 있다. 사진을 함께 찍었다면 나중에 둘을 비교한다.
+    </div>
+  </section>
+
+  <section id="shadow">
+    <h2>그림자에 들어가는 색</h2>
+    <p>이제 서장의 질문, 흰 벽의 그림자가 왜 푸르스름한지 답할 수 있다. 그림자는 빛이 "없는" 곳이 아니라 <b>한 가지 빛이 빠진</b> 곳이다. 맑은 날 벽의 양지는 햇빛과 하늘빛을 둘 다 받고, 처마 그림자 속은 햇빛만 가려진 채 하늘빛을 받는다. 그래서 그림자의 색은 하늘빛의 색, 곧 파랑 쪽이다. 눈은 장면에서 가장 큰 빛(햇빛+하늘빛)에 순응해 있으므로, 하늘빛만 받는 그림자는 그 기준보다 더 파랗게 느껴진다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 280" role="img" aria-label="두 광원 모형: 양지는 햇빛과 하늘빛을, 그림자는 하늘빛만 받는다">
+        <defs><marker id="tp-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <path d="M20 200 C20 40 440 40 440 200" fill="#dbe7ff" fill-opacity=".55" stroke="#7d9fd8" stroke-width="1.5"/>
+        <text x="370" y="74" class="lbl-acc2">하늘빛(파랑)</text>
+        <circle cx="84" cy="88" r="20" fill="#ffcc8b" stroke="#d9963c" stroke-width="1.5"/>
+        <text x="84" y="128" text-anchor="middle" class="lbl-acc">해</text>
+        <path d="M104 98 L196 150M110 86 L200 132" stroke="#d9963c" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#tp-ar2)"/>
+        <rect x="20" y="200" width="420" height="60" fill="#ece6da"/>
+        <path d="M262 200 L350 200 L412 232 L322 232 Z" fill="#8fa3c8"/>
+        <path d="M200 140 L262 140 L262 200 L200 200 Z" fill="#f6dfc2" stroke="#9a8f7e" stroke-width="1"/>
+        <path d="M200 140 L222 124 L284 124 L262 140 Z" fill="#fbead2" stroke="#9a8f7e" stroke-width="1"/>
+        <path d="M262 140 L284 124 L284 184 L262 200 Z" fill="#a9b6d0" stroke="#9a8f7e" stroke-width="1"/>
+        <path d="M330 104 L340 186M380 112 L372 196M300 100 L300 176" stroke="#7d9fd8" stroke-width="1.6" marker-end="url(#tp-ar2)"/>
+        <path d="M160 100 L196 160" stroke="#7d9fd8" stroke-width="1.6" marker-end="url(#tp-ar2)"/>
+        <text x="130" y="228" text-anchor="middle" class="lbl-b">양지 = 햇빛 + 하늘빛</text>
+        <path d="M150 214 L206 186" class="s-line" marker-end="url(#tp-ar2)"/>
+        <text x="368" y="254" text-anchor="middle" class="lbl-b">그림자 = 하늘빛만</text>
+        <path d="M368 240 L360 224" class="s-line" marker-end="url(#tp-ar2)"/>
+        <text x="230" y="22" text-anchor="middle" class="lbl-dim">해가 낮을수록 햇빛은 주황, 하늘빛은 여전히 파랑</text>
+      </svg>
+      <figcaption><b>그림 3. 두 광원 모형.</b> 맑은 날 야외에는 직사광(해)과 하늘빛(하늘 전체) 두 광원이 있다. 해를 향한 면은 둘을 함께 받고, 그림자 속은 하늘빛만 받는다. 실제로는 땅과 주변 벽에서 튀어 온 반사광이 세 번째 광원으로 더해진다(아래 시뮬레이터에 포함).</figcaption>
+    </figure>
+
+    <p>이 생각을 식으로 쓰면 1장의 \(C = E\times R\)에 광원을 둘로 나눈 것이다.</p>
+    <div class="formula">$$C(\lambda) = \big[\, s\,E_{\text{해}}(\lambda) + E_{\text{하늘}}(\lambda) \,\big]\, R(\lambda)$$<div class="where">\(E_{\text{해}}\), \(E_{\text{하늘}}\): 직사광과 하늘빛의 분광 분포, \(R\): 표면의 반사율, \(s\): 그 표면이 햇빛을 받는 정도(해를 정면으로 향하면 1, 비스듬하면 그 각의 코사인, 그림자 속이면 0). 그림자 속(\(s=0\))에서는 하늘빛만 남는다.</div></div>
+    <p>아래 시뮬레이터에서 흰 상자 하나를 세 가지 상황에 둔다. 맑은 하늘, 흐린 하늘, 그리고 북쪽 창 하나로 빛을 받는 화실이다. 해의 높이를 슬라이더로, 해의 방향을 화면을 끌어 바꾼다.</p>
+
+    <div class="sim" id="sim-shadow">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>빛 두 개, 그림자 하나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sh-cv" class="art"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">좌우로 끌어 해의 방향 바꾸기</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sh-sit"><button data-value="clear" class="on">맑은 하늘</button><button data-value="overcast">흐린 하늘</button><button data-value="north">북창 화실</button></div>
+          <label class="ctrl"><span>해(광원)의 높이 <output id="sh-e-out"></output></span><input type="range" id="sh-e" min="2" max="70" step="1" value="25"></label>
+          <div class="seg" id="sh-obj"><button data-value="#f2efe8" class="on">흰 상자</button><button data-value="#e3c34a">노란 상자</button><button data-value="#b9443a">빨간 상자</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">빛 받은 면</span><span class="v" id="sh-o-l">—</span></div>
+        <div class="stat"><span class="k">그림자 진 면</span><span class="v" id="sh-o-s">—</span></div>
+        <div class="stat"><span class="k">색상 차이(OKLCH)</span><span class="v" id="sh-o-h">—</span></div>
+        <div class="stat"><span class="k">명도 L*</span><span class="v" id="sh-o-v">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 맑은 하늘에서 높이를 60° 이상으로 올린다. 그림자는 어둡지만 색은 살짝 푸른 정도다. 12° 아래로 내리면 빛 받은 면은 살구빛으로, 그림자는 또렷한 파랑으로 갈라진다(그림자 채도가 두세 배로 커진다). ② 흐린 하늘로 바꾼다. 하늘 전체가 하나의 커다란 광원이 되어 그림자가 흐려지고, 양지와 그림자의 색 차이가 거의 사라진다. 흐린 날의 그림자는 "같은 색, 조금 어둡게"에 가깝다. ③ 북창 화실로 바꾼다. 차가운 북쪽 하늘빛이 주광이 되어 빛 받은 면은 차분한 중립에 가깝고, 그림자에는 방 안 나무 벽과 바닥에서 튄 따뜻한 반사광이 들어가 갈색으로 기운다. 상대적으로 "차가운 빛, 따뜻한 그림자", 곧 야외와 거꾸로다. (이 장의 두 광원 모형: 햇빛과 하늘빛을 흑체 빛으로 근사하고, 수직면은 하늘의 절반과 바닥 반사광을 받는다고 가정했다. 눈은 빛을 정면으로 받는 면의 빛에 60% 순응한다. 교육용 근사이며 실제 하늘빛은 흑체보다 더 파랗기도 하다.)</div>
+    </div>
+
+    <p>세 상황을 나란히 놓으면 "그림자는 차갑게"는 규칙이 아니라 <b>맑은 날 야외의 사정</b>이라는 것이 보인다. 그림자의 색을 정하는 것은 "그림자 속까지 들어오는 빛은 무엇인가"다. 맑은 하늘 아래에서는 파란 하늘빛, 북창 화실에서는 방 안의 따뜻한 반사광, 촛불 하나만 켠 방에서는 거의 아무 빛도 없다(그래서 아주 어둡다). 잔디밭 위의 흰 셔츠 그림자에는 초록 반사광이, 붉은 벽돌 골목의 그림자에는 붉은 반사광이 든다.</p>
+
+    <div class="callout deep">
+      <strong>색 그림자: 물리와 지각이 함께 만든다</strong>
+      해 질 녘 촛불 하나와 창밖의 푸른 하늘빛처럼 색이 다른 두 빛이 한 물체를 비추면, 한쪽 빛이 가려진 자리마다 다른 빛의 색이 그림자로 남는다. 괴테는 『색채론』(1810)에서 이런 색 그림자를 자세히 기록했다. 여기에 지각이 한 번 더 보탠다. 주변이 주황으로 물든 장면에서는 거의 회색인 그림자도 동시대비(<a href="relativity.html">9장</a>) 때문에 파랑 쪽으로 밀려 보인다. 그래서 실제로 재면 아주 약하게 푸른 그림자가 눈에는 꽤 파랗게 보이기도 한다. 화가가 그림자를 "보이는 대로" 칠했을 때 측정값보다 파란 이유의 일부가 여기 있다.
+    </div>
+  </section>
+
+  <section id="painters">
+    <h2>화가들의 빛과 그림자</h2>
+    <p>19세기 후반 야외 사생(<i>plein air</i>)에 나선 인상주의 화가들은 같은 장소를 시간과 날씨를 바꿔 가며 반복해 그렸다. 카미유 피사로<span class="en">(Camille Pissarro, 1830–1903)</span>도 말년에 루앙과 파리의 창가 방을 빌려 같은 거리와 정원을 여러 번 그렸다. 아래 그림은 루앙의 좁은 골목 장날 풍경이다. 오후의 햇빛을 받은 건물 정면과, 그 빛이 닿지 않는 골목 바닥과 그림자 쪽 벽을 비교한다.</p>
+
+    <figure class="art-figure" id="fig-rouen">
+      <div class="art-frame"><img src="../../shared/img/pissarro-rue-epicerie-rouen.webp" width="1285" height="1600" alt="카미유 피사로의 「루앙 에피스리 거리(햇빛 효과)」. 고딕 성당의 탑들이 솟은 파란 하늘 아래, 햇빛을 받은 크림색 건물 정면들이 좁은 골목 양쪽에 서 있고, 아래쪽 골목에는 장을 보러 나온 사람들과 차양이 빽빽하다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 4. 카미유 피사로, 「루앙 에피스리 거리(햇빛 효과)」, 1898.</b> 햇빛을 받은 건물 정면은 크림·살구색으로, 그 빛이 닿지 않는 오른쪽 아래 벽과 골목 바닥은 회색이 아니라 푸르고 보랏빛 도는 색으로 칠해져 있다. 하늘의 파랑이 그림자 속 색과 이어진다. 오른쪽 위 "흑백" 단추로 명도만 남기면, 양지와 그림자의 명도 차이는 생각보다 작고 그 차이를 색의 온도가 대신 맡고 있다는 것이 보인다.<span class="credit">메트로폴리탄 미술관 소장(Purchase, Mr. and Mrs. Richard J. Bernhard Gift, 1960), 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/437311">소장처 작품 페이지</a> · <a href="../../credits.html#pissarro-rue-epicerie-rouen">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>그림자를 검정이나 갈색을 섞어 어둡게 하는 대신 파랑·보라 쪽으로 기울여 칠한 것은 인상주의 화가들의 그림을 설명할 때 흔히 드는 특징이다. 앞 절의 두 광원 모형으로 보면, 그것은 맑은 날 야외에서 실제로 일어나는 일을 눈으로 확인하고 옮긴 결과이기도 하다. 다음 시뮬레이터는 피사로가 1899년 파리 리볼리 거리의 방에서 같은 튈르리 정원을 내려다보며 그린 두 점을 겹쳐 놓았다. 하나는 봄날 아침, 하나는 겨울 오후다. 경계선을 끌어 두 그림을 오가며, 아래 띠에 뽑은 주요 색을 비교한다.</p>
+
+    <div class="sim" id="sim-garden">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 정원, 다른 빛</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <div class="compare" id="gd-cmp">
+            <div class="cmp-a"><canvas id="gd-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="gd-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="gd-reg"><button data-value="all" class="on">그림 전체</button><button data-value="sky">하늘(위 30%)</button><button data-value="ground">땅(아래 35%)</button></div>
+          <label class="check"><input type="checkbox" id="gd-band" checked> 주요 색 띠 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">봄 아침 평균색</span><span class="v" id="gd-o-a">—</span></div>
+        <div class="stat"><span class="k">겨울 오후 평균색</span><span class="v" id="gd-o-b">—</span></div>
+        <div class="stat"><span class="k">노랑–파랑 기울기 (OKLab b)</span><span class="v" id="gd-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 그림 전체에서 두 평균색을 비교한다. 봄 아침은 밝은 크림·분홍 쪽, 겨울 오후는 더 어둡고 탁한 회올리브 쪽이다. OKLab b 값(+면 노랑 쪽, −면 파랑 쪽)도 봄 쪽이 크다. ② "하늘"을 고른다. 봄 아침 하늘은 파랑과 분홍 구름이 섞여 평균이 거의 중립(b ≈ 0)이고, 겨울 오후 하늘은 오히려 b가 더 크다. 낮은 해의 노란 기운이 회색 하늘에 섞여 있다. ③ "땅"을 고르고 흑백 단추를 켠다. 겨울 오후 쪽이 전체적으로 어둡고 명도 폭도 좁다. 빛의 색만이 아니라 빛의 세기와 대비도 함께 바뀐다. (주요 색은 OKLab k-평균(k=5), 평균색은 선형광 평균이다. 그림의 색은 물감·바니시의 세월, 촬영과 화면에 따라 원래 모습과 다를 수 있다. 같은 시점이지만 두 그림의 구도는 조금 다르다.)<span class="credit">그림: 카미유 피사로, 「튈르리 정원, 봄날 아침」(1899, Gift of Mr. and Mrs. Douglas Dillon, 1992)과 「튈르리 정원, 겨울 오후」(1899, Gift from the Collection of Marshall Field III, 1979). 메트로폴리탄 미술관 소장, 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/437313">봄날 아침</a> · <a href="https://www.metmuseum.org/art/collection/search/437312">겨울 오후</a> · <a href="../../credits.html#pissarro-tuileries-spring-morning">크레딧</a></span></div>
+    </div>
+
+    <p>두 그림의 차이를 "봄은 따뜻하고 겨울은 차갑다"로 요약하면 반만 맞다. 겨울 오후의 낮은 해는 사실 색온도가 낮은 빛이라, 겨울 그림의 하늘 아래쪽과 나무 끝에는 노란 기운이 남아 있다. 장면 전체를 차갑게 만든 것은 빛의 색보다 짙은 대기와 약한 직사광, 그리고 잎이 진 나무와 젖은 땅의 색이다. 화가가 그린 것은 색온도 숫자가 아니라, 그 시간에 그 장소에서 빛과 그늘과 물체의 색이 맺은 관계 전체다.</p>
+
+    <div class="callout studio">
+      <strong>야외에서 그림자 색을 보는 요령</strong>
+      야외 사생을 오래 한 화가들이 흔히 권하는 방법이 몇 가지 있다. 첫째, 그림자 색은 그림자만 보지 말고 바로 옆 양지와 번갈아 보며 "양지보다 어느 쪽으로 기울었나"로 정한다. 둘째, 눈을 가늘게 뜨면 세부가 사라지고 큰 명도와 색의 덩어리만 남는다. 셋째, 흰 종이나 팔레트를 그림자 속과 양지에 번갈아 대 본다. 같은 흰 종이가 그림자 속에서 얼마나 파래지는지가 그 자리의 하늘빛이다. 마지막으로, 빛은 30분이면 바뀐다. 해 질 녘 풍경은 한 번에 끝내려 하지 말고 같은 시각에 여러 날 나가거나, 첫날 작은 색 메모를 만들어 그 색으로 작업실에서 마무리한다.
+    </div>
+
+    <div class="callout try">
+      <strong>흰 상자 두 번 그리기</strong>
+      흰 종이 상자(우유갑에 흰 종이를 감싸도 된다)를 맑은 날 창가 햇빛 속에 두고, 오후 이른 시각과 해 지기 30분 전에 같은 자리에서 한 번씩 수채 물감으로 작게 그린다. 이번에는 회색과 검정을 쓰지 않는다는 규칙을 둔다. 그림자는 양지의 색보다 파랑·보라 쪽으로, 양지는 노랑·주황 쪽으로 기울여 칠한다. 두 그림을 나란히 놓고 흑백 사진으로 찍어 명도 구조가 같은지도 확인한다(<a href="value.html">6장</a>).
+    </div>
+  </section>
+
+  <section id="dusk">
+    <h2>해 질 녘을 설계하기</h2>
+    <p>지금까지의 도구를 모두 모아 한 장면을 설계한다. 서쪽을 향한 작은 서점의 정면이다. 길 건너 건물이 낮은 해를 가리면서 그림자가 벽을 타고 올라오고, 정면 위쪽만 마지막 햇빛을 받는다. 창 안에는 2,800&nbsp;K 전구가 켜져 있다. 해의 고도와 하늘빛, 창 불빛의 비율이 시각마다 바뀌고, 아래 띠에는 그 순간을 그림으로 옮길 때 필요한 여섯 색이 정리된다. 시각은 슬라이더로, 또는 왼쪽 위 작은 하늘에서 해를 끌어 바꾼다.</p>
+
+    <div class="sim" id="sim-dusk">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>「해 질 녘 서점 앞」 색 계획</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="dk-cv" class="art"></canvas><span class="hint" style="top:8px;bottom:auto">왼쪽 위의 해를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>시각(태양시) <output id="dk-h-out"></output></span><input type="range" id="dk-h" min="14" max="17.9" step="0.02" value="16.9"></label>
+          <div class="seg" id="dk-eye"><button data-value="eye" class="on">눈(부분 순응)</button><button data-value="cam">카메라(낮빛 고정)</button></div>
+          <label class="check"><input type="checkbox" id="dk-black"> 그림자를 "검정 섞기"로 칠하기(비교)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">태양 고도 · 햇빛</span><span class="v" id="dk-o-e">—</span></div>
+        <div class="stat"><span class="k">빛 받은 벽</span><span class="v" id="dk-o-l">—</span></div>
+        <div class="stat"><span class="k">그림자 진 벽</span><span class="v" id="dk-o-s">—</span></div>
+        <div class="stat"><span class="k">창 불빛</span><span class="v" id="dk-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 오후 2시에서 시작한다. 벽 전체가 햇빛을 받고, 길 건너 건물의 그림자는 아직 길 위에만 있다. 창 불빛은 바깥보다 어두워 눈에 띄지 않는다. ② 시각을 16시 50분 근처로 민다. 그림자가 벽 위로 올라오고, 빛 받은 띠는 살구빛, 그림자는 푸른 회청색으로 갈라진다. 창 불빛이 주변보다 밝아지기 시작한다. 해가 진 뒤(17시 34분쯤)에는 직사광이 사라지고 하늘빛과 창 불빛만 남는다. ③ "검정 섞기"를 켠다. 그림자 색을 빛 받은 벽의 색에 검정을 섞어 어둡게 만든 것으로 바꾼다. 명도는 같아도 그림자가 탁한 갈색이 되어 저녁의 공기가 사라진다. "카메라"로 바꾸면 순응 없이 찍힌 색이 되어 빛 받은 벽이 훨씬 주황으로 기운다. (이 장의 교육용 모형: 10월 중순 서울의 맑은 날, 햇빛·하늘빛은 흑체 근사, 그림자 진 벽은 하늘빛의 절반과 바닥 반사광을, 창은 2,800&nbsp;K 전구의 일정한 밝기를 받는다. 눈은 빛 받은 벽의 색에 60% 순응하고 밝기에는 대부분 순응한다고 가정했다. 실제 노을은 구름·먼지에 따라 이보다 훨씬 붉거나 분홍일 수 있다.)</div>
+    </div>
+
+    <p>아래 띠의 빛 받은 벽과 그림자 벽을 나란히 보면 해 질 녘 그림의 핵심이 보인다. 두 색은 명도만큼이나 색상에서도 멀다. 양지는 주황 쪽, 그림자는 파랑·보라 쪽으로 서로 반대편에 서 있고, 그 사이에 하늘과 창 불빛이 각자의 자리를 갖는다. "그림자에는 보색을 넣는다"는 오래된 화실의 요령은 이 관계를 짧게 줄인 말이다. 다만 앞 절의 북창 화실에서 봤듯, 그 요령이 맞는 것은 그림자 속까지 들어오는 빛이 정말 반대 색일 때다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 10장</span></div>
+      <h4>그림자는 회색이 아니라 하늘색이었다</h4>
+      <p>10월 둘째 주 저녁, 서윤은 「해 질 녘 서점 앞」의 밑그림을 들고 책방 E 맞은편 보도에 섰다. 서점 정면은 서쪽을 향해 있어서, 해가 낮아지면 길 건너 건물 그림자가 벽을 타고 올라온다. 지난주 작업실에서 칠한 첫 색 시안은 그림자를 벽 색에 페인즈 그레이를 섞어 칠한 것이었는데, 실제 벽 앞에 대 보니 그림자만 진흙처럼 탁했다. 도경은 팔레트에서 흰 종이 한 장을 떼어 그림자 속에 넣었다. "봐, 종이가 파래지지. 그림자 속에는 하늘이 들어와 있어. 색을 빼지 말고 다른 빛으로 바꿔."</p>
+      <p>서윤은 이 장의 모형으로 시각을 맞춰 봤다. 해가 지기 약 40분 전인 16시 54분(태양시), 태양 고도 약 8°일 때 이 책의 모델로 계산하면 빛 받은 벽은 <code>#e0c1a0</code>(살구빛), 그림자 진 벽은 <code>#44566d</code>(푸른 회청)이다. 명도 L* 차이도 44로 크지만, OKLCH 색상각은 175° 벌어져 거의 색상환의 반대편에 선다. 페인즈 그레이를 섞은 첫 시안처럼 빛 받은 색에 검정만 섞으면 색상 차이는 0이다. 서윤은 그림자를 4장에서 고른 기본 3색의 파랑에 보조색 번트 시에나를 아주 조금 섞어 차분한 회청으로 만들고, 창 불빛만 그림 전체에서 가장 따뜻하고 밝은 자리로 남기기로 했다. 도경은 그 계획 옆에 "30분이면 빛이 바뀐다. 색 메모는 같은 시각에 사흘"이라고 적었다.</p>
+      <p>같은 주에 서윤은 웹사이트에 올릴 서점 내부 사진을 정리했다. 전구색 조명(약 2,800&nbsp;K) 아래에서 휴대폰 화이트밸런스를 낮빛에 고정하고 찍은 사진을 이 책의 모델로 다시 계산하면, 계산대 위 흰 종이는 <code>#ffd9a2</code>(주황빛), 크라프트지 간판 위 로고 초록 <code>#2f7d5b</code>는 <code>#4d6b22</code>(올리브빛)으로 찍힌다. 회색 카드에 완전히 맞추면(2,800&nbsp;K → 낮빛) 종이는 <code>#e4e0da</code>, 초록은 <code>#007356</code>으로 돌아오지만, 주인은 그 사진을 보고 "우리 가게 같지 않다"고 했다. 서윤은 보정할 거리의 약 3분의 2(마이어드로 357 → 222, 곧 4,500&nbsp;K까지)만 옮겼다. 종이는 <code>#fbdcb1</code>의 연한 크림색으로, 초록은 <code>#227143</code>으로 남는다. 사진 속 초록은 조명과 보정에 따라 이렇게 움직이므로, 로고 초록의 기준은 사진이 아니라 OKLCH 기록이라는 3장의 원칙도 다시 적었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>「해 질 녘 서점 앞」의 그림자는 검정·페인즈 그레이를 섞지 않고 파랑·보라 계열(기본 3색의 파랑 + 번트 시에나 소량)로 칠한다. 빛 받은 벽은 살구빛, 창 불빛은 그림의 가장 따뜻하고 밝은 자리. 웹사이트 서점 사진은 전구 분위기를 남기도록 4,500&nbsp;K까지만 보정한다(흰 종이가 연한 크림색으로 남는 정도).</div>
+        <div><b>아직 남은 문제</b>그림자와 하늘의 파랑, 창 불빛의 주황을 어느 정도의 넓이와 채도로 둘 것인가. 다른 화가들은 이런 빛의 관계를 화면에서 어떻게 정리했나.</div>
+        <div><b>다음 단계</b><a href="painting.html">11장</a>: 도경과 함께 공공 도메인 명작의 팔레트를 분석해, 세 점의 수채화에 가져올 원리를 찾는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>색온도(K)는 빛의 색을 같은 색으로 빛나는 흑체의 온도로 적은 값이다. 낮을수록 주황, 높을수록 푸르스름하다. 변화의 크기는 K보다 역수인 마이어드(10<sup>6</sup>/T)가 훨씬 고르게 보여 준다.</li>
+      <li>"따뜻한 색, 차가운 색"은 물리량이 아니라 지각과 관습이다. 색온도가 낮은 빛을 따뜻하다고 부르고, 초록·보라처럼 경계의 색은 옆 색에 따라 한난이 바뀐다.</li>
+      <li>눈은 조명의 색에 순응하지만 완전하지 않고, 카메라의 화이트밸런스는 정해진 숫자만큼 정확히 보정한다. 흰색·회색을 기준으로 삼아야 하며, 분위기 사진은 보정할 거리의 일부만 가는 선택도 있다.</li>
+      <li>야외의 빛은 직사광과 하늘빛 둘이다. 해가 낮을수록 직사광은 주황으로 바뀌고 약해져, 양지와 그늘의 명도 차이는 줄고 색 차이는 커진다.</li>
+      <li>그림자는 한 광원이 빠진 자리다. 맑은 날 야외의 그림자에는 파란 하늘빛이 남고, 북창 화실의 그림자에는 따뜻한 반사광이 든다. 그림자 색은 "그림자 속까지 들어오는 빛"으로 정한다.</li>
+      <li>그림자를 검정으로 어둡게 하면 명도는 맞아도 색이 탁해진다. 해 질 녘 그림에서 양지와 그림자는 명도뿐 아니라 색상에서도 멀어, 색상환의 거의 반대편에 선다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 조명 상자에 "6,500 K"와 "2,700 K"가 적혀 있다. 두 조명에 대한 설명으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt">6,500 K 조명이 더 따뜻한 색이다. 숫자가 클수록 온도가 높기 때문이다.</button>
+          <button class="opt" data-correct>2,700 K 조명이 주황에 가깝고 흔히 "따뜻하다"고 부른다. 따뜻함은 물리 온도가 아니라 색에 붙인 지각과 관습의 이름이다.</button>
+          <button class="opt">두 조명의 색 차이는 6,500 K와 10,700 K 조명의 차이와 같다. 둘 다 4,000 K 차이이기 때문이다.</button>
+          <button class="opt">색온도는 전구의 전력을 뜻하므로 6,500 K 조명이 더 밝다.</button>
+        </div>
+        <div class="quiz-exp">색온도가 낮을수록 빛은 주황, 높을수록 푸르스름하다. 낮은 색온도의 빛을 "따뜻하다"고 부르는 것은 지각·관습이라서 물리의 온도와 방향이 반대다. 같은 4,000 K 차이라도 따뜻한 쪽의 변화가 훨씬 크다(마이어드로 약 216 대 약 60). 색온도는 밝기와 상관이 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 맑은 날 오후, 흰 벽에 드리운 처마 그림자가 푸르스름하게 보인다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">그림자 속에서는 빛이 전혀 없어서 눈이 파랑을 지어낸다.</button>
+          <button class="opt">흰 벽의 페인트가 그늘에서 화학적으로 색이 바뀐다.</button>
+          <button class="opt">햇빛 속의 파랑 성분이 그림자 속에 모이기 때문이다.</button>
+          <button class="opt" data-correct>그림자 속은 직사광이 가려지고 파란 하늘빛만 받는다. 눈은 햇빛+하늘빛에 순응해 있어서 그 차이가 더 푸르게 느껴진다.</button>
+        </div>
+        <div class="quiz-exp">두 광원 모형으로 보면 양지는 햇빛과 하늘빛을, 그림자는 하늘빛만 받는다. 하늘빛은 레일리 산란 때문에 파랑 쪽이다. 동시대비가 그 기울기를 조금 더 키우기도 하지만, 그림자 속에도 빛(하늘빛)은 분명히 있다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 전구색 조명(약 2,800 K) 아래 카페 사진을 화이트밸런스 4,000 K로 보정했다. 결과로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>주황 기운이 줄지만 완전히 없어지지 않아, 흰 종이가 연한 크림색으로 남는다.</button>
+          <button class="opt">흰 종이가 완전한 흰색이 된다. 4,000 K는 낮빛이기 때문이다.</button>
+          <button class="opt">사진이 원래보다 더 주황으로 기운다.</button>
+          <button class="opt">사진이 파랗게 된다. 실제 빛보다 높은 숫자로 보정했기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">2,800 K 빛을 4,000 K로 옮기는 것은 낮빛(약 6,500 K)까지 가는 보정 거리의 절반쯤만 가는 것이다(마이어드로 357 → 250, 낮빛은 154). 주황 기운이 일부 남는다. 사진이 파래지는 것은 실제 빛보다 <b>낮은</b> 색온도로 설정해 지나치게 뺐을 때다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 북쪽 창 하나로만 빛이 드는 화실에서 흰 석고상을 그린다. 그림자 색 계획으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">어디서나 그림자는 파랑·보라로 칠한다. 그림자는 언제나 차갑기 때문이다.</button>
+          <button class="opt">그림자는 빛 받은 면의 색에 검정을 섞어 칠한다. 그래야 명도가 정확하다.</button>
+          <button class="opt" data-correct>빛 받은 면은 차가운 북쪽 하늘빛 쪽으로, 그림자는 방 안 벽·바닥에서 튄 반사광의 색(나무 바닥이면 따뜻한 쪽)으로 기울인다.</button>
+          <button class="opt">북쪽 창의 빛은 색온도가 없으므로 회색으로만 칠한다.</button>
+        </div>
+        <div class="quiz-exp">그림자 색은 그림자 속까지 들어오는 빛이 정한다. 북창 화실의 주광은 차가운 하늘빛이고, 그림자에는 방 안의 반사광이 든다. 나무 바닥과 벽이라면 따뜻한 쪽이다. "그림자는 차갑게"는 맑은 날 야외의 사정일 뿐 규칙이 아니다. 검정을 섞으면 명도는 맞출 수 있어도 반사광의 색이 사라진다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex, fit = ART.fit;
+  var INK = "#2b2a30", INK_DIM = "#6b6874";
+  var D2R = Math.PI / 180;
+  var WL = ART.WL, CMF = WL.map(ART.cmf);
+
+  /* ---------------- 공통: 분광 도구와 이 장의 하루 빛 모형(교육용) ---------------- */
+  var bbCache = {};
+  // 흑체 빛의 분광 분포를 Y = 1로 정규화(ART.planck 사용)
+  function bbN(T) {
+    T = Math.round(T / 10) * 10;
+    if (bbCache[T]) return bbCache[T];
+    var sp = WL.map(function (l) { return ART.planck(l, T); }), y = 0;
+    sp.forEach(function (v, i) { y += v * CMF[i][1]; });
+    return (bbCache[T] = sp.map(function (v) { return v / y; }));
+  }
+  function xyzOf(E, R) {
+    var X = 0, Y = 0, Z = 0;
+    for (var i = 0; i < WL.length; i++) { var e = E[i] * (R ? R[i] : 1); X += e * CMF[i][0]; Y += e * CMF[i][1]; Z += e * CMF[i][2]; }
+    return [X, Y, Z];
+  }
+  function addSp(list) { // [[weight, spectrum], ...]
+    return WL.map(function (_, i) { var s = 0; list.forEach(function (p) { s += p[0] * p[1][i]; }); return s; });
+  }
+  // 대기 질량(머리 위 = 1): Kasten & Young (1989), Applied Optics 28(22)
+  function airmass(e) { e = Math.max(e, 0); return 1 / (Math.sin(e * D2R) + 0.50572 * Math.pow(e + 6.07995, -1.6364)); }
+  // 아래 네 곡선은 이 장이 정한 교육용 근사다(맑은 날 기준). 실제 값은 날씨·먼지·습도에 따라 크게 다르다.
+  function sunK(e) { return 2000 + 3500 * (1 - Math.exp(-Math.max(e, 0) / 15)); }
+  function skyK(e) { return 12000 + 6000 * (1 - Math.exp(-Math.max(e, 0) / 20)); }
+  function sunI(e) { return e <= 0 ? 0 : Math.exp(-0.13 * airmass(e)); }               // 해를 정면으로 향한 면이 받는 직사광
+  function skyI(e) { return 0.28 * Math.sqrt(Math.max(Math.sin(e * D2R), 0)) + 0.02 * Math.exp(Math.min(e, 0) / 3); } // 수평면이 받는 하늘빛(해가 진 뒤에는 서서히 줄어든다)
+  // 10월 중순 서울: 위도 37.5°, 태양 적위 약 −8.5°. h는 태양시(시)
+  var LAT = 37.5 * D2R, DEC = -8.5 * D2R;
+  function elevAt(h) { var H = (h - 12) * 15 * D2R; return Math.asin(Math.sin(LAT) * Math.sin(DEC) + Math.cos(LAT) * Math.cos(DEC) * Math.cos(H)) / D2R; }
+  var SUNSET = 12 + Math.acos(-Math.tan(LAT) * Math.tan(DEC)) / D2R / 15;
+  function clock(h) { var m = Math.round(h * 60); return Math.floor(m / 60) + ":" + String(m % 60).padStart(2, "0"); }
+  // 순응: 순응할 흰색 = 장면의 흰색과 D65를 정도 d로 섞은 것(Y = 1)
+  function adaptWhite(w, d) { var n = [w[0] / w[1], 1, w[2] / w[1]]; return n.map(function (v, i) { return d * v + (1 - d) * ART.D65[i]; }); }
+  var DAYW = ART.whitePoint("daylight");
+  function toScreen(xyz, white) { return ART.xyzToSrgb(ART.adapt(xyz, white, ART.D65)); }
+  function oklch(c) { return ART.srgbToOklch(c); }
+  function hueGap(a, b) { var d = Math.abs(oklch(a)[2] - oklch(b)[2]) % 360; return d > 180 ? 360 - d : d; }
+  var reflCache = {};
+  function refl(c) { return reflCache[c] || (reflCache[c] = ART.reflectanceFromSrgb(ART.parse(c))); }
+
+  /* ---------------- 시뮬레이터 1: 켈빈 자와 마이어드 자 ---------------- */
+  (function () {
+    var TMIN = 1500, TMAX = 12000, MMAX = 1e6 / TMIN, MMIN = 1e6 / TMAX;
+    var tG = AB.range("kv-t", function (v) { return v.toLocaleString("ko-KR") + " K"; }, function () { cv.redraw(); });
+    var step = AB.seg("kv-step", function () { cv.redraw(); });
+    var geo = null, strip = {};
+    var colCache = {};
+    function col(T) { var k = Math.round(T / 25) * 25; return colCache[k] || (colCache[k] = hex(ART.cctToSrgb(k))); }
+    function uv(T) { var w = ART.whitePoint({ type: "blackbody", T: T }), s = w[0] + 15 * w[1] + 3 * w[2]; return [4 * w[0] / s, 6 * w[1] / s]; }
+    var xK = function (T, x0, w) { return x0 + ((T - TMIN) / (TMAX - TMIN)) * w; };
+    var xM = function (T, x0, w) { return x0 + ((MMAX - 1e6 / T) / (MMAX - MMIN)) * w; };
+    var cv = AB.canvas("#kv-cv", function (ctx, w, h) {
+      var p = P(), T = tG(), x0 = 16, sw = w - 32, bh = 30;
+      var rows = [{ y: 30, f: xK, inv: function (t) { return TMIN + t * (TMAX - TMIN); }, name: "K 눈금 (켈빈)" }, { y: 104, f: xM, inv: function (t) { return 1e6 / (MMAX - t * (MMAX - MMIN)); }, name: "마이어드 눈금 (10⁶/K)" }];
+      geo = { x0: x0, sw: sw, rows: rows, bh: bh };
+      rows.forEach(function (r, ri) {
+        var key = ri + ":" + sw;
+        if (!strip[key]) {
+          var c = document.createElement("canvas"); c.width = Math.max(1, Math.round(sw)); c.height = 1;
+          var x = c.getContext("2d");
+          for (var i = 0; i < c.width; i++) { x.fillStyle = col(r.inv(i / (c.width - 1))); x.fillRect(i, 0, 1, 1); }
+          strip[key] = c;
+        }
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(strip[key], x0, r.y, sw, bh);
+        ctx.strokeStyle = p.border; ctx.strokeRect(x0 + 0.5, r.y + 0.5, sw - 1, bh - 1);
+        ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+        ctx.fillText(r.name, x0, r.y - 4);
+        ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        [2000, 3000, 4000, 6000, 8000, 12000].forEach(function (t) {
+          var xx = r.f(t, x0, sw);
+          ctx.strokeStyle = p.dim; ctx.beginPath(); ctx.moveTo(xx, r.y + bh); ctx.lineTo(xx, r.y + bh + 4); ctx.stroke();
+          ctx.fillText(t >= 10000 ? "12k" : t / 1000 + "k", Math.min(Math.max(xx, x0 + 8), x0 + sw - 10), r.y + bh + 5);
+        });
+      });
+      // 양옆 두 빛
+      var lo, hi;
+      if (step() === "k") { lo = Math.max(TMIN, T - 250); hi = Math.min(TMAX + 500, T + 250); }
+      else { var M = 1e6 / T; lo = 1e6 / (M + 20); hi = 1e6 / Math.max(M - 20, 30); }
+      rows.forEach(function (r) {
+        [lo, hi].forEach(function (t) { var xx = r.f(Math.min(t, TMAX), x0, sw); ctx.fillStyle = p.text; ctx.fillRect(xx - 1, r.y - 2, 2, bh + 4); });
+        AB.handle(ctx, r.f(T, x0, sw), r.y + bh / 2, { r: 8, fill: col(T) });
+      });
+      // 세 칸
+      var top = 178, bw = Math.min(150, (w - 48) / 3), gx = (w - (bw * 3 + 16)) / 2, bH = h - top - 40;
+      [[lo, "−"], [T, ""], [hi, "+"]].forEach(function (it, k) {
+        var x = gx + k * (bw + 8);
+        AB.swatch(ctx, x, top, bw, bH, col(it[0]), { radius: 6, stroke: p.border });
+        ctx.fillStyle = p.text; ctx.font = AB.font(11, true, k === 1 ? 700 : 400); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(Math.round(it[0]).toLocaleString("ko-KR") + " K", x + bw / 2, top + bH + 6);
+      });
+      var a = uv(lo), b = uv(hi), duv = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      AB.stat("kv-o-m", Math.round(1e6 / T));
+      AB.stat("kv-o-r", Math.round(lo).toLocaleString("ko-KR") + " ~ " + Math.round(hi).toLocaleString("ko-KR") + " K <small>(" + Math.round(hi - lo).toLocaleString("ko-KR") + " K 폭)</small>");
+      AB.stat("kv-o-d", duv.toFixed(4) + " <small>" + (duv > 0.03 ? "크게 다르다" : duv > 0.008 ? "보인다" : "거의 같다") + "</small>");
+    }, { aspect: 0.62, minHeight: 300, maxHeight: 340 });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        var t = AB.clamp((x - geo.x0) / geo.sw, 0, 1), r = y < (geo.rows[0].y + geo.rows[1].y + geo.bh) / 2 ? geo.rows[0] : geo.rows[1];
+        if (y > geo.rows[1].y + geo.bh + 30) return;
+        tG.set(Math.round(r.inv(t) / 50) * 50);
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 카메라의 화이트밸런스 ---------------- */
+  (function () {
+    var SW = 480, SH = 300;
+    var lightG = AB.seg("wb-light", function () { photoM = null; build(); });
+    var sG = AB.range("wb-s", function (v) { return v.toLocaleString("ko-KR") + " K" + (v === 6500 ? " 낮빛" : ""); }, function () { build(); });
+    var base = null, out = null, pick = null, photoM = null, geo = null;
+    var GRAY = "#777777";
+    // 책방 내부 장면(낮빛 아래의 "참 색")을 그린다
+    function drawShop() {
+      var c = document.createElement("canvas"); c.width = SW; c.height = SH;
+      var x = c.getContext("2d");
+      x.fillStyle = "#efe8dc"; x.fillRect(0, 0, SW, SH);                       // 벽
+      x.fillStyle = "#e4dccd"; x.fillRect(0, 0, SW, 18);
+      // 서가
+      x.fillStyle = "#8f623d"; x.fillRect(20, 30, 250, 190);
+      x.fillStyle = "#6e4a2d"; for (var s = 0; s < 4; s++) x.fillRect(20, 30 + s * 47 + 41, 250, 6);
+      var BOOKS = ["#2f7d5b", "#b23a30", "#2c4a7a", "#d9b44a", "#e8e2d4", "#5a4636", "#7a8f4a", "#c46a3a", "#1f2d3d", "#a8b8c8", "#8a3a5a", "#f0d9a0"];
+      var rnd = AB.rng(11);
+      for (var row = 0; row < 4; row++) {
+        var bx = 26, by = 30 + row * 47 + 4;
+        while (bx < 262) {
+          var bw = 8 + Math.floor(rnd() * 10), bh = 30 + Math.floor(rnd() * 8);
+          if (bx + bw > 264) break;
+          x.fillStyle = BOOKS[Math.floor(rnd() * BOOKS.length)]; x.fillRect(bx, by + (37 - bh), bw, bh);
+          bx += bw + 1;
+        }
+      }
+      // 간판(크라프트지 + 로고 초록)
+      x.fillStyle = "#c9a77c"; x.fillRect(300, 34, 150, 62);
+      x.fillStyle = "#2f7d5b"; x.font = "800 30px Pretendard, sans-serif"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("책방 E", 375, 66);
+      // 화분
+      x.fillStyle = "#b5654a"; x.fillRect(318, 150, 34, 30);
+      x.fillStyle = "#4f8a3a"; x.beginPath(); x.arc(335, 140, 22, 0, 7); x.fill();
+      x.fillStyle = "#5f9a46"; x.beginPath(); x.arc(325, 128, 12, 0, 7); x.fill();
+      // 계산대
+      x.fillStyle = "#7b5236"; x.fillRect(0, 214, SW, 86);
+      x.fillStyle = "#5e3e28"; x.fillRect(0, 214, SW, 6);
+      // 흰 종이, 회색 카드
+      x.fillStyle = "#f4f1ea"; x.fillRect(250, 232, 100, 52);
+      x.fillStyle = GRAY; x.fillRect(372, 236, 56, 44);
+      // 노란 머그
+      x.fillStyle = "#e0b53a"; x.fillRect(190, 236, 30, 36);
+      x.fillStyle = "#3a3633"; x.fillRect(196, 234, 18, 4);
+      return x.getImageData(0, 0, SW, SH);
+    }
+    // 3×3 선형 행렬 뽑기: f는 sRGB→sRGB이고 선형광에서 선형인 변환
+    function matFrom(f) {
+      var g = 0.2, d = 0.05, b = ART.srgbToLinear(f(ART.linearToSrgb([g, g, g]))), M = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+      for (var j = 0; j < 3; j++) { var v = [g, g, g]; v[j] += d; var o = ART.srgbToLinear(f(ART.linearToSrgb(v))); for (var i = 0; i < 3; i++) M[i][j] = (o[i] - b[i]) / d; }
+      return M;
+    }
+    function mul(M, v) { return [M[0][0] * v[0] + M[0][1] * v[1] + M[0][2] * v[2], M[1][0] * v[0] + M[1][1] * v[1] + M[1][2] * v[2], M[2][0] * v[0] + M[2][1] * v[1] + M[2][2] * v[2]]; }
+    function mm(A, B) { return A.map(function (r) { return [0, 1, 2].map(function (j) { return r[0] * B[0][j] + r[1] * B[1][j] + r[2] * B[2][j]; }); }); }
+    var EXPO = 0.85;  // 노출: 보정한 흰 종이가 거의 흰색이 되는 밝기(보정 전 주황 사진에서는 빨강 채널이 조금 넘친다)
+    function photoMatrix() {
+      var T = +lightG();
+      return matFrom(function (c) { return ART.renderReflectance(ART.reflectanceFromSrgb(c), { type: "blackbody", T: T }, "daylight"); }).map(function (r) { return r.map(function (v) { return v * EXPO; }); });
+    }
+    var LIN = new Float32Array(256); for (var i = 0; i < 256; i++) LIN[i] = ART.toLinear(i / 255);
+    var GAM = new Uint8ClampedArray(4097); for (var j = 0; j <= 4096; j++) GAM[j] = Math.round(ART.toGamma(j / 4096) * 255);
+    function build() {
+      if (!base) base = drawShop();
+      if (!photoM) photoM = photoMatrix();
+      var S = sG(), W = matFrom(function (c) { return ART.whiteBalance(c, S); }), M = mm(W, photoM);
+      var c = out || document.createElement("canvas"); c.width = SW; c.height = SH;
+      var x = c.getContext("2d"), id = x.createImageData(SW, SH), s = base.data, d = id.data;
+      for (var p = 0; p < s.length; p += 4) {
+        var r = LIN[s[p]], g = LIN[s[p + 1]], b = LIN[s[p + 2]];
+        for (var k = 0; k < 3; k++) { var v = M[k][0] * r + M[k][1] * g + M[k][2] * b; d[p + k] = GAM[Math.round(AB.clamp(v, 0, 1) * 4096)]; }
+        d[p + 3] = 255;
+      }
+      x.putImageData(id, 0, 0); out = c;
+      var gray = ART.clip(ART.linearToSrgb(mul(M, ART.srgbToLinear(ART.parse(GRAY)))));
+      AB.stat("wb-o-g", hex(gray));
+      var gc = oklch(gray);
+      AB.stat("wb-o-c", "채도 " + gc[1].toFixed(3) + " <small>" + (gc[1] < 0.01 ? "중립" : gc[1] < 0.03 ? "살짝 " + (gc[2] > 180 && gc[2] < 320 ? "푸름" : "따뜻함") : (gc[2] > 180 && gc[2] < 320 ? "푸르게 기욺" : "주황으로 기욺")) + "</small>");
+      cv.redraw();
+    }
+    function samplePick() {
+      if (!pick || !base) return;
+      var acc = [0, 0, 0], n = 0;
+      for (var yy = pick.y - 2; yy <= pick.y + 2; yy++) for (var xx = pick.x - 2; xx <= pick.x + 2; xx++) {
+        var q = (AB.clamp(yy, 0, SH - 1) * SW + AB.clamp(xx, 0, SW - 1)) * 4;
+        acc[0] += LIN[base.data[q]]; acc[1] += LIN[base.data[q + 1]]; acc[2] += LIN[base.data[q + 2]]; n++;
+      }
+      var trueLin = acc.map(function (v) { return v / n; });
+      var shotLin = mul(photoM, trueLin), shot = ART.clip(ART.linearToSrgb(shotLin));
+      var xyY = ART.xyzToXyY(ART.linearToXyz(shotLin));
+      var T = ART.cctFromXy(xyY[0], xyY[1]);
+      var chroma = oklch(ART.linearToSrgb(trueLin))[1];
+      AB.stat("wb-o-p", hex(shot));
+      var ok = chroma < 0.03;
+      AB.stat("wb-o-t", Math.round(T).toLocaleString("ko-KR") + " K <small>" + (ok ? "흰색·회색: 믿을 만함" : "색이 있는 곳: 빛과 물체 색이 섞임") + "</small>");
+      sG.set(AB.clamp(Math.round(T / 50) * 50, 2000, 10000));
+    }
+    var cv = AB.canvas("#wb-cv", function (ctx, w, h) {
+      if (!out) return;
+      var s = Math.min(w / SW, h / SH), dw = SW * s, dh = SH * s, ox = (w - dw) / 2, oy = (h - dh) / 2;
+      geo = { s: s, ox: ox, oy: oy };
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(out, ox, oy, dw, dh);
+      ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [["흰 종이", 300, 286], ["회색 카드", 400, 282]].forEach(function (t) {
+        var tx = ox + t[1] * s, ty = oy + t[2] * s, tw = ctx.measureText(t[0]).width + 8;
+        ctx.fillStyle = "rgba(255,255,255,0.82)"; ctx.fillRect(tx - tw / 2, ty, tw, 15);
+        ctx.fillStyle = INK; ctx.fillText(t[0], tx, ty + 1);
+      });
+      if (pick) AB.handle(ctx, ox + pick.x * s, oy + pick.y * s, { r: 7, fill: "rgba(255,255,255,0.15)" });
+    }, { aspect: SH / SW, maxHeight: 380, bg: "#3a3a3e" });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        pick = { x: Math.round(AB.clamp((x - geo.ox) / geo.s, 0, SW - 1)), y: Math.round(AB.clamp((y - geo.oy) / geo.s, 0, SH - 1)) };
+        cv.redraw();
+      },
+      end: function () { samplePick(); },
+    });
+    AB.stat("wb-o-p", "사진을 눌러 고른다"); AB.stat("wb-o-t", "—");
+    build();
+  })();
+
+  /* ---------------- 시뮬레이터 3: 하루의 빛 ---------------- */
+  (function () {
+    var H0 = 6.5, H1 = 17.5;
+    var hG = AB.range("dy-h", function (v) { return clock(v); }, function () { cv.redraw(); });
+    var logG = AB.check("dy-log", function () { cv.redraw(); });
+    var geo = null;
+    var colC = {};
+    function lc(T) { var k = Math.round(T / 50) * 50; return colC[k] || (colC[k] = hex(ART.cctToSrgb(k))); }
+    var cv = AB.canvas("#dy-cv", function (ctx, w, h) {
+      var p = P(), hr = hG(), e = elevAt(hr);
+      // 위: 하늘과 해의 길
+      var skyH = Math.round(h * 0.36), x0 = 46, x1 = w - 14;
+      var X = function (t) { return x0 + ((t - H0) / (H1 - H0)) * (x1 - x0); };
+      var emax = elevAt(12), Ye = function (el) { return skyH - 14 - (Math.max(el, -2) / (emax + 4)) * (skyH - 34); };
+      var sc = ART.cctToSrgb(skyK(e)), sunC = ART.cctToSrgb(sunK(e));
+      var bright = AB.clamp(0.35 + 0.65 * Math.sqrt(Math.max(Math.sin(e * D2R), 0)) * 1.3, 0.25, 1);
+      var g = ctx.createLinearGradient(0, 0, 0, skyH);
+      var zen = ART.linearToSrgb(ART.srgbToLinear(sc).map(function (v, i) { return v * bright * [0.55, 0.72, 1][i]; }));
+      var hor = ART.linearToSrgb(ART.srgbToLinear(sc).map(function (v, i) { var glow = Math.exp(-Math.max(e, 0) / 8); return (v * (1 - glow) + ART.srgbToLinear(sunC)[i] * glow) * bright; }));
+      g.addColorStop(0, hex(ART.clip(zen))); g.addColorStop(1, hex(ART.clip(hor)));
+      ctx.fillStyle = g; ctx.fillRect(x0, 0, x1 - x0, skyH);
+      ctx.fillStyle = "#4a5a3e"; ctx.fillRect(x0, skyH - 10, x1 - x0, 10);
+      ctx.strokeStyle = "rgba(255,255,255,0.55)"; ctx.setLineDash([3, 4]); ctx.beginPath();
+      for (var t = H0; t <= H1 + 1e-6; t += 0.1) { var xx = X(t), yy = Ye(elevAt(t)); t === H0 ? ctx.moveTo(xx, yy) : ctx.lineTo(xx, yy); }
+      ctx.stroke(); ctx.setLineDash([]);
+      var sx = X(hr), sy = Ye(e);
+      ctx.fillStyle = hex(sunC); ctx.beginPath(); ctx.arc(sx, sy, 16, 0, 7); ctx.globalAlpha = 0.35; ctx.fill(); ctx.globalAlpha = 1;
+      AB.handle(ctx, sx, sy, { r: 9, fill: sunC });
+      geo = { X: X, x0: x0, x1: x1, skyH: skyH };
+      // 아래: 색온도 곡선 + 색 띠 + 세기
+      var top = skyH + 16, ch = h - top - 100;
+      var c = AB.chart(ctx, { x: x0, y: top, w: x1 - x0, h: ch }, { x: [H0, H1], y: [0, 20000], xTicks: [7, 9, 11, 13, 15, 17], yTicks: [0, 5000, 10000, 15000, 20000], xFmt: function (v) { return v + "시"; }, yFmt: function (v) { return v / 1000 + "k"; },
+        series: [
+          { data: [], color: p.warn },
+        ], vlines: [{ x: hr, color: p.text, dash: [3, 3] }] });
+      var sunS = [], skyS = [];
+      for (var t2 = H0; t2 <= H1 + 1e-6; t2 += 0.05) { var el = elevAt(t2); sunS.push([t2, sunK(el)]); skyS.push([t2, skyK(el)]); }
+      [[sunS, "#d9822b"], [skyS, "#3f74c9"]].forEach(function (s) { ctx.strokeStyle = s[1]; ctx.lineWidth = 2.2; ctx.beginPath(); s[0].forEach(function (q, i) { i ? ctx.lineTo(c.X(q[0]), c.Y(q[1])) : ctx.moveTo(c.X(q[0]), c.Y(q[1])); }); ctx.stroke(); });
+      ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillStyle = "#3f74c9"; ctx.fillText("하늘빛 색온도", x0 + 6, top + 2);
+      ctx.fillStyle = "#d9822b"; ctx.fillText("햇빛 색온도", x0 + 98, top + 2);
+      // 세기 띠(해를 향한 면, 그늘)
+      var by = top + ch + 24, bh = 12, log = logG();
+      var Imax = sunI(emax) + skyI(emax);
+      var fI = function (v) { return log ? AB.clamp((Math.log10(Math.max(v, 1e-4)) + 3) / 3, 0, 1) : AB.clamp(v / Imax, 0, 1); };
+      for (var t3 = H0; t3 < H1; t3 += 0.05) {
+        var el3 = elevAt(t3), xa = c.X(t3), xb = c.X(t3 + 0.05) + 0.6;
+        ctx.fillStyle = lc(sunK(el3)); ctx.fillRect(xa, by, xb - xa, bh);
+        ctx.fillStyle = lc(skyK(el3)); ctx.fillRect(xa, by + bh + 3, xb - xa, bh);
+        var vL = fI(sunI(el3) + skyI(el3)), vS = fI(skyI(el3));
+        ctx.fillStyle = p.text; ctx.globalAlpha = 0.85;
+        ctx.fillRect(xa, by + 2 * bh + 10 + (1 - vL) * 14, xb - xa, 1.6);
+        ctx.fillStyle = "#3f74c9"; ctx.fillRect(xa, by + 2 * bh + 10 + (1 - vS) * 14, xb - xa, 1.6);
+        ctx.globalAlpha = 1;
+      }
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      ctx.fillText("햇빛", x0 - 4, by + bh / 2); ctx.fillText("하늘", x0 - 4, by + bh * 1.5 + 3); ctx.fillText("세기", x0 - 4, by + 2 * bh + 17);
+      ctx.strokeStyle = p.text; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(c.X(hr), by - 2); ctx.lineTo(c.X(hr), h - 4); ctx.stroke(); ctx.setLineDash([]);
+      var lit = sunI(e) + skyI(e), sh = skyI(e);
+      AB.stat("dy-o-e", e > 0 ? e.toFixed(1) + "°" : "해가 졌다");
+      AB.stat("dy-o-m", e > 0 ? "머리 위의 " + AB.fix(airmass(e), 1) + "배" : "—");
+      AB.stat("dy-o-k", (e > 0 ? Math.round(sunK(e)).toLocaleString("ko-KR") : "—") + " · " + Math.round(skyK(e)).toLocaleString("ko-KR") + " K");
+      AB.stat("dy-o-r", AB.fix(lit / sh, 1) + " : 1");
+    }, { aspect: 0.86, minHeight: 400, maxHeight: 500 });
+    AB.drag(cv.canvas, {
+      move: function (x, y) { if (!geo || y > geo.skyH + 30) return; hG.set(Math.round(AB.clamp(H0 + ((x - geo.x0) / (geo.x1 - geo.x0)) * (H1 - H0), H0, H1) * 20) / 20); },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 빛 두 개, 그림자 하나 ---------------- */
+  (function () {
+    var sit = AB.seg("sh-sit", function () { cv.redraw(); });
+    var eG = AB.range("sh-e", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var obj = AB.seg("sh-obj", function () { cv.redraw(); });
+    var az = 240, geo = null;   // 해의 방위(도): 180 = 왼쪽에서, 270 = 보는 사람 뒤에서
+    var GROUND = "#e9e4da";
+    // 상황별 두 광원: key(방향 있는 빛), fill(넓게 퍼진 빛), bounce(바닥·벽 반사광의 색)
+    function lights(e) {
+      var s = sit();
+      if (s === "overcast") return { key: [0.03, bbN(6500)], fill: [0.42, bbN(6800)], adaptD: 0.6 };
+      if (s === "north") return { key: [0.7, bbN(7500)], fill: [0.16, ART.WL.map(function (_, i) { return bbN(7500)[i] * refl("#b07a4a")[i]; })], adaptD: 0.6, warmRoom: true };
+      return { key: [sunI(e), bbN(sunK(e))], fill: [skyI(e), bbN(skyK(e))], adaptD: 0.6 };
+    }
+    function hullPts(pts) {
+      pts = pts.slice().sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+      var cr = function (o, a, b) { return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]); };
+      var lo = [], up = [];
+      pts.forEach(function (p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], p) <= 0) lo.pop(); lo.push(p); });
+      pts.slice().reverse().forEach(function (p) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], p) <= 0) up.pop(); up.push(p); });
+      return lo.slice(0, -1).concat(up.slice(0, -1));
+    }
+    var cv = AB.canvas("#sh-cv", function (ctx, w, h) {
+      var e = eG(), L = lights(e), col = obj();
+      var s = [Math.cos(e * D2R) * Math.cos(az * D2R), Math.cos(e * D2R) * Math.sin(az * D2R), Math.sin(e * D2R)]; // x 오른쪽, y 안쪽, z 위
+      var Rg = refl(GROUND), Ro = refl(col);
+      var key = L.key, fill = L.fill;
+      // 바닥(양지)이 받는 빛과 그 반사광
+      var Eg = addSp([[key[0] * Math.max(s[2], 0), key[1]], [fill[0], fill[1]]]);
+      var bounce = WL.map(function (_, i) { return Eg[i] * Rg[i] * 0.2; });
+      // 눈은 "빛을 정면으로 받는 면"의 빛(주광 + 퍼진 빛의 절반)에 순응하고, 그 밝기에 노출을 맞춘다
+      var Eface = addSp([[key[0], key[1]], [fill[0] * 0.5, fill[1]]]);
+      var white = adaptWhite(xyzOf(Eface), L.adaptD);
+      var Yref = Math.max(xyzOf(Eg)[1], xyzOf(Eface)[1]), k = 0.82 / Yref;
+      function shade(R, n, vf, inShadow) {
+        var ndot = inShadow ? 0 : Math.max(0, n[0] * s[0] + n[1] * s[1] + n[2] * s[2]);
+        var E = addSp([[key[0] * ndot, key[1]], [fill[0] * vf, fill[1]], [n[2] > 0.5 ? 0 : 1, bounce]]);
+        var xyz = xyzOf(E, R).map(function (v) { return v * k; });
+        return fit(toScreen(xyz, white));
+      }
+      // 투영: 사선 투영(x 오른쪽, y 안쪽, z 위)
+      var sc = Math.min(w, h * 1.4) / 9.5, cx = w * 0.42, gy = h * 0.66;
+      var pr = function (q) { return [cx + (q[0] + q[1] * 0.55) * sc, gy - q[2] * sc - q[1] * 0.38 * sc]; };
+      // 하늘 띠(배경)와 바닥
+      var skyCol = sit() === "north" ? "#d9d4cb" : hex(fit(ART.linearToSrgb(ART.srgbToLinear(toScreen(xyzOf(fill[1]).map(function (v) { return v * 0.9; }), white)).map(function (v) { return v * 0.85; }))));
+      ctx.fillStyle = skyCol; ctx.fillRect(0, 0, w, gy - 3.2 * sc * 0.38 - 40 > 0 ? gy - 2.4 * sc : 0);
+      var gcol = shade(Rg, [0, 0, 1], 1, false);
+      ctx.fillStyle = hex(gcol); ctx.fillRect(0, gy - 2.4 * sc, w, h);
+      // 상자 꼭짓점
+      var B = [[-1, -1, 0], [1, -1, 0], [1, 1, 0], [-1, 1, 0]], Hh = 1.7;
+      var Tp = B.map(function (q) { return [q[0], q[1], Hh]; });
+      // 그림자
+      var shCol = shade(Rg, [0, 0, 1], 0.85, true);
+      if (s[2] > 0.02 && key[0] > 0.05) {
+        var proj = Tp.map(function (q) { var t = q[2] / s[2]; return [q[0] - s[0] * t, q[1] - s[1] * t, 0]; });
+        var hp = hullPts(B.concat(proj).map(pr));
+        ctx.fillStyle = hex(shCol); ctx.beginPath(); hp.forEach(function (q, i) { i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); ctx.closePath(); ctx.fill();
+      } else {
+        ctx.fillStyle = hex(shCol); ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.ellipse(cx + 0.3 * sc, gy - 0.1 * sc, 1.9 * sc, 0.55 * sc, 0, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
+      }
+      // 면: 위, 앞(y=-1), 오른쪽(x=1), 왼쪽(x=-1)은 해가 왼쪽일 때 앞면 대신 비교용으로 쓰지 않는다
+      var faces = [
+        { q: [Tp[0], Tp[1], Tp[2], Tp[3]], n: [0, 0, 1], vf: 1 },
+        { q: [B[0], B[1], Tp[1], Tp[0]], n: [0, -1, 0], vf: 0.5 },
+        { q: [B[1], B[2], Tp[2], Tp[1]], n: [1, 0, 0], vf: 0.5 },
+      ];
+      var cols = faces.map(function (f) { return shade(Ro, f.n, f.vf, false); });
+      faces.forEach(function (f, i) {
+        var pts = f.q.map(pr);
+        ctx.fillStyle = hex(cols[i]); ctx.beginPath(); pts.forEach(function (q, j) { j ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = "rgba(40,36,30,0.25)"; ctx.lineWidth = 1; ctx.stroke();
+      });
+      // 해 방향 표시(작은 나침반)
+      var hx = w - 46, hy = 40;
+      ctx.strokeStyle = "#8a857a"; ctx.lineWidth = 1; ctx.beginPath(); ctx.ellipse(hx, hy, 30, 14, 0, 0, 7); ctx.stroke();
+      var sx = hx + Math.cos(az * D2R) * 30, sy = hy - Math.sin(az * D2R) * 14;
+      AB.handle(ctx, sx, sy, { r: 6, fill: hex(ART.cctToSrgb(sit() === "clear" ? sunK(e) : 7000)) });
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(sit() === "north" ? "창 방향" : "해 방향", hx, hy + 18);
+      // 가장 밝은 면과 가장 어두운 면
+      var Ls = cols.map(ART.lightness), li = Ls.indexOf(Math.max.apply(null, Ls)), si = Ls.indexOf(Math.min.apply(null, Ls));
+      var litC = cols[li], shC = cols[si];
+      // 아래 견본
+      var y0 = h - 44;
+      [[litC, "빛 받은 면"], [shC, "그림자 진 면"], [gcol, "바닥(양지)"], [shCol, "바닥 그림자"]].forEach(function (it, i) {
+        var bw = Math.min(90, (w - 40) / 4 - 6), x = 12 + i * (bw + 8);
+        AB.swatch(ctx, x, y0, bw, 18, it[0], { radius: 3, stroke: "rgba(0,0,0,0.2)" });
+        ctx.fillStyle = INK; ctx.font = AB.font(10, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(it[1], x + bw / 2, y0 + 22);
+      });
+      geo = { w: w };
+      AB.stat("sh-o-l", hex(litC)); AB.stat("sh-o-s", hex(shC));
+      var dh = hueGap(litC, shC), cs = oklch(shC)[1], cl = oklch(litC)[1];
+      AB.stat("sh-o-h", (cs < 0.012 && cl < 0.012 ? "둘 다 거의 무채색" : Math.round(dh) + "°") + " <small>그림자 채도 " + cs.toFixed(3) + "</small>");
+      AB.stat("sh-o-v", AB.fix(ART.lightness(litC), 0) + " → " + AB.fix(ART.lightness(shC), 0));
+    }, { aspect: 0.72, minHeight: 320, maxHeight: 440, bg: "#fbfaf7" });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; az = AB.clamp(100 + (x / geo.w) * 160, 100, 260); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 같은 정원, 다른 빛 ---------------- */
+  (function () {
+    var reg = AB.seg("gd-reg", function () { analyse(); });
+    var band = AB.check("gd-band", function () { cvA.redraw(); cvB.redraw(); });
+    var SRC = ["../../shared/img/pissarro-tuileries-spring-morning.webp", "../../shared/img/pissarro-tuileries-winter-afternoon.webp"];
+    var imgs = [null, null], data = [null, null], res = [null, null];
+    var REG = { all: [0, 1], sky: [0, 0.3], ground: [0.65, 1] };
+    function drawLayer(i) {
+      return function (ctx, w, h) {
+        var im = imgs[i]; if (!im) return;
+        var s = Math.max(w / im.naturalWidth, h / im.naturalHeight);
+        ctx.drawImage(im, (w - im.naturalWidth * s) / 2, (h - im.naturalHeight * s) / 2, im.naturalWidth * s, im.naturalHeight * s);
+        var r = REG[reg()];
+        if (reg() !== "all") {
+          ctx.fillStyle = "rgba(20,20,24,0.55)";
+          if (r[0] > 0) ctx.fillRect(0, 0, w, h * r[0]);
+          if (r[1] < 1) ctx.fillRect(0, h * r[1], w, h * (1 - r[1]));
+        }
+        if (band() && res[i]) {
+          var bh = Math.max(22, h * 0.08), y = h - bh, x = 0;
+          res[i].pal.forEach(function (c) { var ww = c.weight * w; ctx.fillStyle = hex(c.rgb); ctx.fillRect(x, y, ww + 0.5, bh); x += ww; });
+          ctx.fillStyle = hex(res[i].mean); ctx.fillRect(w - bh * 1.6 - 6, y - bh * 1.2 - 6, bh * 1.6, bh * 1.2);
+          ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.strokeRect(w - bh * 1.6 - 6, y - bh * 1.2 - 6, bh * 1.6, bh * 1.2);
+          ctx.fillStyle = "#ffffff"; ctx.font = AB.font(10, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+          ctx.fillText("평균", w - bh * 1.6 - 10, y - 8);
+        }
+      };
+    }
+    var opt = { aspect: 0.79, maxHeight: 460, bg: "#2a2a2a" };
+    var cvA = AB.canvas("#gd-a", drawLayer(0), opt), cvB = AB.canvas("#gd-b", drawLayer(1), opt);
+    AB.compare("#gd-cmp", { labels: ["봄 아침", "겨울 오후"], pos: 0.5 });
+    function analyse() {
+      if (!data[0] || !data[1]) return;
+      var r = REG[reg()];
+      [0, 1].forEach(function (i) {
+        var d = data[i], y0 = Math.floor(d.height * r[0]), y1 = Math.ceil(d.height * r[1]);
+        var sub = d.data.subarray(y0 * d.width * 4, y1 * d.width * 4);
+        var acc = [0, 0, 0], n = 0;
+        for (var p = 0; p < sub.length; p += 4) { acc[0] += ART.toLinear(sub[p] / 255); acc[1] += ART.toLinear(sub[p + 1] / 255); acc[2] += ART.toLinear(sub[p + 2] / 255); n++; }
+        res[i] = { pal: ART.kmeans(sub, 5, { seed: 3, sample: 3000 }), mean: ART.linearToSrgb(acc.map(function (v) { return v / n; })) };
+      });
+      cvA.redraw(); cvB.redraw();
+      var ba = ART.srgbToOklab(res[0].mean)[2], bb = ART.srgbToOklab(res[1].mean)[2];
+      AB.stat("gd-o-a", hex(res[0].mean) + " <small>L* " + AB.fix(ART.lightness(res[0].mean), 0) + "</small>");
+      AB.stat("gd-o-b", hex(res[1].mean) + " <small>L* " + AB.fix(ART.lightness(res[1].mean), 0) + "</small>");
+      AB.stat("gd-o-d", (ba >= 0 ? "+" : "") + ba.toFixed(3) + " → " + (bb >= 0 ? "+" : "") + bb.toFixed(3));
+    }
+    SRC.forEach(function (src, i) {
+      AB.loadImage(src).then(function (im) {
+        imgs[i] = im; data[i] = AB.imageData(im, 180);
+        (i ? cvB : cvA).redraw(); analyse();
+      });
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 해 질 녘 서점 앞 ---------------- */
+  (function () {
+    var C = { wall: "#efe3cf", awning: "#2f7d5b", sign: "#c9a77c", frame: "#5b3f2c", ground: "#b9b1a5", curb: "#9c968c", roofs: "#6f625a", door: "#4a3426" };
+    var IN_ROOM = 0.6;  // 창 안쪽(서가·책)의 평균 반사율에 해당하는 밝기
+    // 한 시각의 장면 색을 계산한다. mode: "eye" | "cam", black: 그림자를 검정 섞기로
+    function scene(hr, mode, black) {
+      var e = elevAt(hr), sK = sunK(e), kK = skyK(e), S = sunI(e) * Math.cos(Math.max(e, 0) * D2R), D = skyI(e);
+      var sun = bbN(sK), sky = bbN(kK);
+      var Egl = addSp([[sunI(e) * Math.max(Math.sin(e * D2R), 0), sun], [D, sky]]);     // 빛 받은 길
+      var bounce = WL.map(function (_, i) { return Egl[i] * refl(C.ground)[i] * 0.3; });
+      var Elit = addSp([[S, sun], [D * 0.5, sky], [1, bounce]]);                          // 해를 향한 벽
+      var Egs = addSp([[D * 0.85, sky]]);                                                 // 그늘진 길: 하늘 대부분
+      var Esh = addSp([[D * 0.5, sky], [1, WL.map(function (_, i) { return Egs[i] * refl(C.ground)[i] * 0.3; })]]); // 그림자 진 벽: 하늘 절반 + 그늘진 길의 반사
+      var Wl = xyzOf(Elit);
+      // 밝기 순응: 빛 받은 벽(없으면 하늘빛)을 기준으로 대부분 맞추고, 어두워진 만큼 조금만 어둡게(최대 20배까지만 밝혀 본다)
+      var key = Math.max(Wl[1], xyzOf(Esh)[1] * 1.6), keyRef = 0.66, k = Math.min(20, (0.78 / key) * Math.pow(key / keyRef, 0.22));
+      // 색순응 정도: 밝을 때 60%, 어두워질수록 줄어든다(어두운 곳에서는 순응이 덜 일어난다)
+      var dAd = 0.6 * AB.clamp(Math.sqrt(key / 0.15), 0.3, 1);
+      var white = mode === "cam" ? DAYW.slice() : adaptWhite(Wl, dAd);
+      var surf = function (c, E) { return fit(toScreen(xyzOf(E, refl(c)).map(function (v) { return v * k; }), white)); };
+      var lampY = Math.min(0.5 * IN_ROOM * k, 0.9);    // 창 불빛: 밝기는 일정, 화면 최대 밝기 근처에서 멈춘다
+      var lamp = ART.whitePoint({ type: "blackbody", T: 2800 }).map(function (v) { return v * lampY; });
+      var out = {
+        e: e, sK: sK, kK: kK,
+        wallLit: surf(C.wall, Elit), wallSh: surf(C.wall, Esh),
+        groundLit: surf(C.ground, Egl), groundSh: surf(C.ground, Egs),
+        awnLit: surf(C.awning, Elit), awnSh: surf(C.awning, Esh),
+        signLit: surf(C.sign, Elit), signSh: surf(C.sign, Esh),
+        frame: surf(C.frame, Esh), door: surf(C.door, Esh), roofs: surf(C.roofs, Esh), curb: surf(C.curb, Egs),
+        window: fit(toScreen(lamp, white)),
+        skyTop: fit(toScreen(ART.whitePoint({ type: "blackbody", T: kK }).map(function (v) { return v * (D * 2.6) * k; }), white).map(function (v, i) { return v * [0.86, 0.93, 1][i]; })),
+      };
+      var glow = Math.exp(-Math.max(e, 0) / 6);
+      var hz = ART.whitePoint({ type: "blackbody", T: kK }).map(function (v, i) { return v * (1 - glow) + ART.whitePoint({ type: "blackbody", T: Math.max(sK, 1900) })[i] * glow; });
+      out.skyLow = fit(toScreen(hz.map(function (v) { return v * (D * 3.4) * k; }), white));
+      if (black) {
+        // 흔한 방법: 빛 받은 색에 검정을 섞어 같은 명도로 어둡게(색상 유지, 채도는 검정 때문에 줄어든다)
+        var dark = function (lit, ref) { var a = oklch(lit), b = oklch(ref); return ART.gamutMap([b[0], a[1] * 0.55, a[2]]); };
+        out.wallSh = dark(out.wallLit, out.wallSh); out.groundSh = dark(out.groundLit, out.groundSh);
+        out.awnSh = dark(out.awnLit, out.awnSh); out.signSh = dark(out.signLit, out.signSh);
+      }
+      out.shadowH = e > 0 ? AB.clamp(1.15 - 0.9 * Math.tan(e * D2R) / Math.tan(12 * D2R), 0, 1.02) : 1.02; // 길 건너 건물 그림자가 벽을 타고 오르는 높이(0=바닥, 1=지붕선)
+      return out;
+    }
+    var hG = AB.range("dk-h", function (v) { return clock(v) + (v > SUNSET ? " (해 진 뒤)" : ""); }, function () { cv.redraw(); });
+    var eye = AB.seg("dk-eye", function () { cv.redraw(); });
+    var blk = AB.check("dk-black", function () { cv.redraw(); });
+    var geo = null, H0 = 14, H1 = 17.9;
+    var cv = AB.canvas("#dk-cv", function (ctx, w, h) {
+      var S = scene(hG(), eye(), blk());
+      var palH = 64, H = h - palH;
+      // 하늘
+      var roofY = H * 0.2, g = ctx.createLinearGradient(0, 0, 0, roofY);
+      g.addColorStop(0, hex(S.skyTop)); g.addColorStop(1, hex(S.skyLow));
+      ctx.fillStyle = g; ctx.fillRect(0, 0, w, roofY + 2);
+      // 정면 벽
+      var wx0 = w * 0.06, wx1 = w * 0.94, gyy = H * 0.84, wh = gyy - roofY;
+      var shY = gyy - S.shadowH * wh;                     // 이 높이 아래가 그림자
+      ctx.fillStyle = hex(S.wallLit); ctx.fillRect(wx0, roofY, wx1 - wx0, wh);
+      ctx.fillStyle = hex(S.wallSh); ctx.fillRect(wx0, Math.max(shY, roofY), wx1 - wx0, gyy - Math.max(shY, roofY));
+      // 지붕선(처마)
+      ctx.fillStyle = hex(S.roofs); ctx.fillRect(wx0 - 6, roofY - 8, wx1 - wx0 + 12, 10);
+      // 간판
+      var sgx = w * 0.3, sgw = w * 0.4, sgy = roofY + wh * 0.07, sgh = wh * 0.13;
+      var signC = sgy + sgh / 2 < shY ? S.signLit : S.signSh;
+      ctx.fillStyle = hex(signC); ctx.fillRect(sgx, sgy, sgw, sgh);
+      ctx.fillStyle = hex(sgy + sgh / 2 < shY ? S.awnLit : S.awnSh); ctx.font = AB.font(Math.max(12, sgh * 0.58), false, 800); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("책방 E", sgx + sgw / 2, sgy + sgh / 2 + 1);
+      // 차양
+      var awY = roofY + wh * 0.28, awH = wh * 0.09;
+      ctx.fillStyle = hex(awY + awH / 2 < shY ? S.awnLit : S.awnSh);
+      ctx.beginPath(); ctx.moveTo(wx0 + 10, awY); ctx.lineTo(wx1 - 10, awY); ctx.lineTo(wx1 - 2, awY + awH); ctx.lineTo(wx0 + 2, awY + awH); ctx.closePath(); ctx.fill();
+      // 차양 아래 그림자 띠(차양이 가리는 하늘 절반)
+      ctx.fillStyle = "rgba(0,0,0,0.12)"; ctx.fillRect(wx0, awY + awH, wx1 - wx0, wh * 0.03);
+      // 창 둘과 문
+      var winY = awY + awH + wh * 0.06, winH = gyy - winY - wh * 0.08;
+      [[0.1, 0.36], [0.64, 0.9]].forEach(function (r) {
+        var x0 = wx0 + (wx1 - wx0) * r[0], x1 = wx0 + (wx1 - wx0) * r[1];
+        ctx.fillStyle = hex(S.frame); ctx.fillRect(x0 - 4, winY - 4, x1 - x0 + 8, winH + 8);
+        ctx.fillStyle = hex(S.window); ctx.fillRect(x0, winY, x1 - x0, winH);
+        // 창 속 서가 실루엣
+        ctx.fillStyle = "rgba(60,36,20,0.28)";
+        for (var s = 1; s < 4; s++) ctx.fillRect(x0, winY + (winH * s) / 4, x1 - x0, 3);
+        ctx.fillStyle = hex(S.frame); ctx.fillRect((x0 + x1) / 2 - 1.5, winY, 3, winH);
+      });
+      var dx0 = wx0 + (wx1 - wx0) * 0.43, dx1 = wx0 + (wx1 - wx0) * 0.57;
+      ctx.fillStyle = hex(S.door); ctx.fillRect(dx0, winY - wh * 0.02, dx1 - dx0, gyy - winY + wh * 0.02);
+      ctx.fillStyle = hex(S.window); ctx.globalAlpha = 0.85; ctx.fillRect(dx0 + 6, winY + 4, dx1 - dx0 - 12, winH * 0.4); ctx.globalAlpha = 1;
+      // 길: 앞쪽은 그늘, 해가 높으면 일부 양지
+      ctx.fillStyle = hex(S.groundSh); ctx.fillRect(0, gyy, w, H - gyy);
+      if (S.e > 0 && S.shadowH < 0.02) { ctx.fillStyle = hex(S.groundLit); ctx.fillRect(0, gyy, w, (H - gyy) * 0.45); }
+      ctx.fillStyle = hex(S.curb); ctx.fillRect(0, H - 6, w, 6);
+      // 그림자 경계(오르는 그림자 윗선)를 살짝 들쭉날쭉하게: 길 건너 지붕선
+      if (shY > roofY && shY < gyy) {
+        ctx.fillStyle = hex(S.wallSh);
+        for (var i = 0; i < 6; i++) { var bx = wx0 + (wx1 - wx0) * (i / 6), bw2 = (wx1 - wx0) / 6; var bump = (i % 2 ? 1 : -1) * wh * 0.025 + (i === 3 ? -wh * 0.05 : 0); ctx.fillRect(bx, shY + Math.min(0, bump), bw2, Math.abs(Math.min(0, bump)) + 1); }
+      }
+      // 작은 하늘(해 끌기)
+      var dW = Math.min(150, w * 0.32), dH = 54, dX = 10, dY = 10;
+      ctx.fillStyle = "rgba(20,20,26,0.55)"; ctx.fillRect(dX, dY, dW, dH);
+      var tx = function (t) { return dX + 10 + ((t - H0) / (H1 - H0)) * (dW - 20); }, ty = function (el) { return dY + dH - 10 - (Math.max(el, -3) / elevAt(H0)) * (dH - 22); };
+      ctx.strokeStyle = "rgba(255,255,255,0.5)"; ctx.setLineDash([2, 3]); ctx.beginPath();
+      for (var t = H0; t <= H1 + 1e-6; t += 0.05) { t === H0 ? ctx.moveTo(tx(t), ty(elevAt(t))) : ctx.lineTo(tx(t), ty(elevAt(t))); }
+      ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle = "rgba(255,255,255,0.7)"; ctx.beginPath(); ctx.moveTo(dX + 6, ty(0)); ctx.lineTo(dX + dW - 6, ty(0)); ctx.stroke();
+      AB.handle(ctx, tx(hG()), ty(S.e), { r: 6, fill: S.e > 0 ? ART.cctToSrgb(S.sK) : "#555566" });
+      ctx.fillStyle = "#f4f2ee"; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("해의 높이", dX + 6, dY + 3);
+      geo = { tx0: dX + 10, tw: dW - 20, box: [dX, dY, dW, dH + 10] };
+      // 팔레트 띠
+      ctx.fillStyle = "#f4f1ea"; ctx.fillRect(0, H, w, palH);
+      var items = [[S.skyTop, "하늘(위)"], [S.wallLit, "빛 받은 벽"], [S.wallSh, "그림자 벽"], [S.window, "창 불빛"], [S.groundSh, "그늘진 길"], [awY + awH / 2 < shY ? S.awnLit : S.awnSh, "차양(초록)"]];
+      var n = items.length, bw = (w - 16 - (n - 1) * 6) / n;
+      items.forEach(function (it, i) {
+        var x = 8 + i * (bw + 6);
+        ctx.fillStyle = hex(it[0]); ctx.fillRect(x, H + 8, bw, 24);
+        ctx.strokeStyle = "rgba(0,0,0,0.18)"; ctx.strokeRect(x + 0.5, H + 8.5, bw - 1, 23);
+        ctx.fillStyle = INK; ctx.font = AB.font(bw < 64 ? 9 : 10, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(it[1], x + bw / 2, H + 35);
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(9, true); ctx.fillText(hex(it[0]), x + bw / 2, H + 49);
+      });
+      AB.stat("dk-o-e", S.e > 0 ? S.e.toFixed(1) + "° · " + Math.round(S.sK).toLocaleString("ko-KR") + " K" : "해가 졌다 · 하늘빛만");
+      AB.stat("dk-o-l", S.shadowH < 1 ? hex(S.wallLit) : "<small>벽 전체가 그림자</small>");
+      AB.stat("dk-o-s", hex(S.wallSh) + " <small>색상차 " + Math.round(hueGap(S.wallLit, S.wallSh)) + "°</small>");
+      AB.stat("dk-o-w", hex(S.window));
+    }, { get height() { var w = document.getElementById("dk-cv").parentElement.clientWidth; return Math.round(AB.clamp(w * 0.78, 330, 480)); }, bg: "#222226" });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var b = geo.box;
+        if (x < b[0] - 10 || x > b[0] + b[2] + 10 || y > b[1] + b[3] + 20) return;
+        hG.set(Math.round(AB.clamp(H0 + ((x - geo.tx0) / geo.tw) * (H1 - H0), H0, H1) * 50) / 50);
+      },
+    });
+  })();
+
+})();
+</script>
+</body>
+</html>

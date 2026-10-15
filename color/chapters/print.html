@@ -1,0 +1,901 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "화면에서 고른 색이 인쇄물에서 달라지는 이유를 따라간다. RGB를 CMYK로 바꾸는 공식의 함정, 인쇄가 낼 수 없는 색(색역), 프로파일과 소프트 프루프와 렌더링 의도, 망점과 망점 확대, 종이와 조명, 별색까지 교육용 인쇄 모형과 시뮬레이터로 다룬다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>화면과 인쇄 · ColorBook</title>
+<meta name="description" content="화면에서 고른 색이 인쇄물에서 달라지는 이유를 따라간다. RGB를 CMYK로 바꾸는 공식의 함정, 인쇄가 낼 수 없는 색(색역), 프로파일과 소프트 프루프와 렌더링 의도, 망점과 망점 확대, 종이와 조명, 별색까지 교육용 인쇄 모형과 시뮬레이터로 다룬다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/print.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="화면과 인쇄 · ColorBook">
+<meta property="og:description" content="화면에서 고른 색이 인쇄물에서 달라지는 이유를 따라간다. RGB를 CMYK로 바꾸는 공식의 함정, 인쇄가 낼 수 없는 색(색역), 프로파일과 소프트 프루프와 렌더링 의도, 망점과 망점 확대, 종이와 조명, 별색까지 교육용 인쇄 모형과 시뮬레이터로 다룬다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/print.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/print.html#chapter","name":"화면과 인쇄","headline":"화면과 인쇄 · ColorBook","description":"화면에서 고른 색이 인쇄물에서 달라지는 이유를 따라간다. RGB를 CMYK로 바꾸는 공식의 함정, 인쇄가 낼 수 없는 색(색역), 프로파일과 소프트 프루프와 렌더링 의도, 망점과 망점 확대, 종이와 조명, 별색까지 교육용 인쇄 모형과 시뮬레이터로 다룬다.","url":"https://artbook.euiyun.com/color/chapters/print.html","position":15,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"15. 화면과 인쇄","item":"https://artbook.euiyun.com/color/chapters/print.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="print">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 15</div>
+    <h1>화면과 인쇄</h1>
+    <p class="lead">화면에서 몇 시간을 들여 맞춘 초록이 인쇄소에서 온 포스터에서는 탁하고 어둡다. 인쇄소가 잘못한 것일까, 내 모니터가 거짓말을 한 것일까. 대개는 둘 다 아니다. 화면은 빛을 <b>내고</b>, 종이는 빛을 <b>돌려보낸다</b>. 두 세계는 색을 만드는 방법이 달라서 낼 수 있는 색의 범위도, 색이 흔들리는 이유도 다르다. 이 장은 같은 파일이 화면에서 종이로 건너가는 동안 색에 무슨 일이 생기는지 하나씩 따라간다.</p>
+    <ul class="objectives">
+      <li>빛을 내는 화면(RGB)과 빛을 흡수하는 잉크(CMYK)가 색을 만드는 방식의 차이를 설명한다.</li>
+      <li>RGB를 CMYK로 바꾸는 단순 공식이 왜 틀리는지, 프로파일이 무슨 일을 하는지 안다.</li>
+      <li>인쇄의 색역이 화면보다 좁은 곳을 찾고, 색역 밖의 색을 옮기는 두 방법(렌더링 의도)을 비교한다.</li>
+      <li>망점, 망점 확대, 종이의 흡수와 색, 조명이 인쇄물의 색을 바꾸는 과정을 본다.</li>
+      <li>교정쇄와 소프트 프루프, 별색을 언제 어떻게 쓰는지 판단한다.</li>
+    </ul>
+  </header>
+
+  <section id="two-worlds">
+    <h2>빛을 내는 화면, 빛을 돌려보내는 종이</h2>
+    <p>화면의 화소 하나는 빨강·초록·파랑 세 개의 작은 빛이다. 세 빛을 모두 켜면 흰색, 모두 끄면 검정이다. 색은 빛을 <b>더해서</b> 만든다(<a href="overview.html">1장</a>의 가산 혼합). 종이 위의 인쇄물은 반대다. 종이가 흰 것은 거의 모든 빛을 돌려보내기 때문이고, 잉크는 그 빛의 일부를 <b>빼앗아</b> 색을 만든다. 시안(청록) 잉크는 빨강 빛을, 마젠타(자홍) 잉크는 초록 빛을, 옐로(노랑) 잉크는 파랑 빛을 주로 흡수한다. 세 잉크를 모두 겹치면 이론적으로는 검정이 되어야 하지만, 실제 잉크는 완벽하지 않아 탁한 고동색이 된다. 그래서 검정 잉크(K)를 따로 쓴다. 이렇게 네 잉크로 색을 만드는 방식을 <span class="term">4원색 인쇄</span><span class="en">(Process printing, CMYK)</span>라고 한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 280" role="img" aria-label="화면은 빛을 내고 종이는 빛을 돌려보낸다">
+        <defs><marker id="pr-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="110" y="22" text-anchor="middle" class="lbl-b">화면: 빛을 더한다</text>
+        <text x="345" y="22" text-anchor="middle" class="lbl-b">종이: 빛을 뺀다</text>
+        <rect x="30" y="150" width="160" height="40" rx="4" class="f-elev"/>
+        <rect x="44" y="160" width="40" height="20" fill="#ff3030"/><rect x="90" y="160" width="40" height="20" fill="#30d040"/><rect x="136" y="160" width="40" height="20" fill="#3050ff"/>
+        <path d="M64 150 L 96 64" stroke="#ff3030" stroke-width="2.5" marker-end="url(#pr-ar)"/>
+        <path d="M110 150 L 110 64" stroke="#30d040" stroke-width="2.5" marker-end="url(#pr-ar)"/>
+        <path d="M156 150 L 124 64" stroke="#3050ff" stroke-width="2.5" marker-end="url(#pr-ar)"/>
+        <circle cx="110" cy="48" r="14" fill="#ffffff" stroke="#b9b6ae"/>
+        <text x="110" y="214" text-anchor="middle" class="lbl-dim">세 빛이 모이면 흰빛</text>
+        <text x="110" y="232" text-anchor="middle" class="lbl-dim">어두운 방에서도 보인다</text>
+        <circle cx="262" cy="56" r="14" fill="#fff6d8" stroke="#d8b24a"/>
+        <path d="M268 70 L 318 152" class="s-line" marker-end="url(#pr-ar)"/>
+        <text x="250" y="96" text-anchor="end" class="lbl-dim">조명</text>
+        <rect x="270" y="168" width="170" height="12" fill="#f3f1ea" stroke="#b9b6ae"/>
+        <rect x="300" y="160" width="36" height="8" fill="#00a0e0" opacity=".85"/><rect x="318" y="156" width="36" height="8" fill="#fff000" opacity=".85"/>
+        <rect x="380" y="160" width="36" height="8" fill="#e5007d" opacity=".85"/>
+        <path d="M330 156 L 374 72" stroke="#00954a" stroke-width="2.5" marker-end="url(#pr-ar)"/>
+        <path d="M398 156 L 420 92" stroke="#e5007d" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#pr-ar)"/>
+        <text x="378" y="62" class="lbl-dim">초록만 돌아온다</text>
+        <text x="345" y="200" text-anchor="middle" class="lbl-dim">시안+옐로: 빨강·파랑을 흡수</text>
+        <text x="345" y="218" text-anchor="middle" class="lbl-dim">빛이 없으면 아무 색도 없다</text>
+        <text x="230" y="262" text-anchor="middle" class="lbl-dim">같은 hex 값이라도 두 세계는 서로 다른 재료로 색을 만든다</text>
+      </svg>
+      <figcaption><b>그림 1. 빛을 내는 화면과 빛을 돌려보내는 종이.</b> 화면은 세 가지 빛의 세기로 색을 만든다. 인쇄물은 종이가 돌려보내는 빛에서 잉크가 일부를 흡수하고 남은 빛이 색이 된다. 시안과 옐로를 겹치면 빨강 쪽과 파랑 쪽이 흡수되어 초록이 남는다. 그래서 인쇄물의 색은 잉크뿐 아니라 종이의 흰색과 비추는 조명에 따라 달라진다.</figcaption>
+    </figure>
+
+    <p>이 차이에서 세 가지가 따라 나온다. 첫째, 같은 색을 만드는 "숫자"가 다르므로 RGB 값을 CMYK 값으로 바꾸는 번역이 필요하다. 둘째, 화면의 빛나는 색 중에는 잉크로 만들 수 없는 색이 있다. 셋째, 인쇄물의 색은 종이와 조명이 바뀌면 함께 바뀐다. 이 장의 절들은 이 순서를 따른다.</p>
+
+    <div class="callout warn">
+      <strong>이 장의 인쇄 모형은 교육용이다</strong>
+      실제 인쇄 색은 잉크, 종이, 인쇄기, 인쇄소의 설정마다 다르고, 정확한 값은 그 인쇄 조건을 측정해 만든 프로파일로만 얻는다. 이 장의 시뮬레이터는 잉크 네 개와 그 겹침 색(이 책이 정한 근삿값), 종이 세 종류, 단순한 망점 확대 규칙으로 만든 <b>교육용 모형</b>이다. 숫자는 경향을 보기 위한 것이지 인쇄소에 보낼 값이 아니다. 그리고 화면에 보이는 색은 기기마다 다르므로, 화면 위의 "인쇄 미리보기"도 대략의 모습일 뿐이다.
+    </div>
+  </section>
+
+  <section id="cmyk">
+    <h2>RGB에서 CMYK로: 공식의 함정</h2>
+    <p>인터넷에서 "RGB CMYK 변환"을 찾으면 흔히 나오는 공식이 있다. 가장 밝은 채널만큼 검정을 빼고, 나머지를 세 잉크로 나누는 방법이다.</p>
+    <div class="formula">$$K = 1-\max(R,G,B),\qquad C = \frac{1-R-K}{1-K},\quad M = \frac{1-G-K}{1-K},\quad Y = \frac{1-B-K}{1-K}$$<div class="where">\(R, G, B\): 화면 값(0~1), \(C, M, Y, K\): 잉크 양(0~1, 보통 %로 적는다). 이 공식은 잉크가 정확히 한 가지 빛만 완벽하게 흡수하고, 잉크끼리 겹쳐도 서로 영향을 주지 않으며, 종이가 완벽한 흰색이라고 가정한다. 실제 잉크와 종이는 그 어느 것도 아니다.</div></div>
+    <p>이 공식이 내놓는 숫자를 그대로 인쇄하면 어떻게 되는지 본다. 원판에서 색을 고르면, 가운데 칸은 공식의 CMYK를 이 장의 인쇄 모형으로 찍은 결과, 오른쪽 칸은 그 종이의 프로파일(이 장에서는 모형을 거꾸로 풀어 만든 변환)로 바꾼 CMYK를 찍은 결과다.</p>
+
+    <div class="sim" id="sim-naive">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>공식으로 바꾼 CMYK, 프로파일로 바꾼 CMYK</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="nv15-cv" class="art"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto;background:rgba(251,250,247,.85);color:#6b6874">원판 위 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>명도(OKLCH L) <output id="nv15-l-out"></output></span><input type="range" id="nv15-l" min="0.3" max="0.9" step="0.002" value="0.532"></label>
+          <div class="seg" id="nv15-p"><button data-value="coated" class="on">코팅지</button><button data-value="uncoated">비코팅지</button><button data-value="kraft">크라프트지</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">공식 CMYK · 화면과의 ΔE</span><span class="v" id="nv15-o-n">—</span></div>
+        <div class="stat"><span class="k">프로파일 CMYK · ΔE</span><span class="v" id="nv15-o-p">—</span></div>
+        <div class="stat"><span class="k">잉크 총량(프로파일)</span><span class="v" id="nv15-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 색은 책방 E의 초록 <code>#2f7d5b</code>다. 공식은 C62 M0 Y27 K51처럼 검정을 절반 넘게 넣고 노랑을 아주 조금만 넣는다. 찍어 보면 칙칙한 청록 회색(ΔE 16 안팎)이 된다. 프로파일 변환은 검정을 줄이고 옐로를 늘려 화면 색에 거의 그대로 닿는다. ② 원판 가장자리의 선명한 초록·파랑을 고른다. 프로파일로 바꿔도 ΔE가 줄지 않는다. 그 색은 잉크로 만들 수 없는 색, 곧 인쇄 색역 밖이다(다음 절). ③ 비코팅지와 크라프트지로 바꾼다. 같은 초록이라도 종이가 바뀌면 프로파일 CMYK가 달라진다. "이 초록의 CMYK 값"이라는 하나의 정답은 없고, 종이마다 따로 있다. (이 장의 교육용 인쇄 모형: 잉크 8가지 겹침 색의 노이게바우어 혼합, 율–닐슨 계수 1.8, 종이별 망점 확대. 프로파일 변환은 검정 양을 정한 뒤 C·M·Y를 반복 계산으로 찾는 간단한 방법이며 실제 ICC 프로파일과 값이 다르다.)</div>
+    </div>
+
+    <p>공식이 틀리는 이유는 실제 잉크가 이상적이지 않아서다. 시안 잉크는 빨강 빛만이 아니라 초록 빛도 꽤 흡수하고, 마젠타 잉크는 파랑 빛도 흡수한다. 잉크를 겹치면 흡수가 단순히 더해지지 않고, 종이에 스미는 정도에 따라 점이 커진다. 그래서 실무에서는 공식을 쓰지 않는다. 인쇄 조건(잉크·종이·인쇄기)마다 수백 가지 색 조각을 실제로 찍어 측정하고, 그 결과로 "이 CMYK를 찍으면 이 색이 나온다"는 표를 만든다. 이 표가 담긴 파일이 <span class="term">ICC 프로파일</span><span class="en">(ICC profile)</span>이다. 국제 색 컨소시엄(ICC)이 정한 형식으로, 기기 하나가 색을 어떻게 내는지를 기기와 상관없는 색 공간(CIELAB 등)과의 대응표로 적어 둔다.</p>
+
+    <p>또 하나 눈여겨볼 것은 검정 잉크를 얼마나 쓰느냐다. 회색이나 어두운 색은 C·M·Y를 섞어서도, K 하나로도 만들 수 있다. C·M·Y 대신 K를 더 쓰는 방식을 <span class="term">GCR</span><span class="en">(Gray component replacement)</span>이라 하는데, 잉크를 아끼고 회색이 색으로 기울지 않게 해 준다. 반대로 잉크를 너무 많이 겹치면 종이가 마르지 않아 뒷면에 묻어난다. 그래서 인쇄 조건마다 네 잉크의 합(총 잉크량, TAC)에 한계를 둔다. 코팅지 오프셋에서는 보통 300% 안팎이고, 흡수가 큰 종이일수록 낮다.</p>
+  </section>
+
+  <section id="gamut">
+    <h2>인쇄가 낼 수 없는 색</h2>
+    <p>앞 시뮬레이터에서 선명한 초록과 파랑은 프로파일로 바꿔도 화면 색에 닿지 못했다. 네 잉크를 어떻게 섞어도 만들 수 없는 색이기 때문이다. 이렇게 한 장치가 낼 수 있는 색의 범위를 <span class="term">색역</span><span class="en">(Gamut)</span>이라 한다(<a href="models.html">3장</a>). 인쇄의 색역은 화면(sRGB)의 색역과 모양이 다르다. 대부분의 방향에서 더 좁고, 특히 밝고 선명한 초록·파랑·보라, 그리고 아주 밝은 선명한 색에서 차이가 크다.</p>
+    <p>아래는 색상 하나를 고정하고 명도(세로)와 채도(가로)로 자른 색 공간의 단면이다. 칠해진 부분은 화면이 낼 수 있는 색, 굵은 선 안쪽은 이 장의 모형으로 인쇄할 수 있는 색이다. 단면 위의 점을 끌어 색을 고른다.</p>
+
+    <div class="sim" id="sim-gamut">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>색역 단면: 화면이 내는 색, 잉크가 내는 색</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="gm15-cv"></canvas><span class="hint">단면 위의 점을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>색상 h <output id="gm15-h-out"></output></span><input type="range" id="gm15-h" min="0" max="359" step="1" value="162"></label>
+          <div class="seg" id="gm15-p"><button data-value="coated" class="on">코팅지</button><button data-value="uncoated">비코팅지</button><button data-value="kraft">크라프트지</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 색</span><span class="v" id="gm15-o-c">—</span></div>
+        <div class="stat"><span class="k">인쇄 색역</span><span class="v" id="gm15-o-in">—</span></div>
+        <div class="stat"><span class="k">가장 가까운 인쇄 색 · ΔE</span><span class="v" id="gm15-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 점은 책방 E의 초록이다. 코팅지에서는 굵은 선 안쪽, 비코팅지로 바꾸면 선 밖으로 나간다. 종이에 잉크가 스며 선명한 색을 덜 내기 때문이다. ② 색상을 250°(파랑)와 140°(초록)로 옮긴다. 화면의 칠해진 부분은 오른쪽으로 길게 뻗는데 인쇄의 선은 한참 안쪽에서 멈춘다. ③ 크라프트지로 바꾼다. 위쪽(밝은 쪽)이 통째로 잘린다. 갈색 종이보다 밝은 색은 잉크로 만들 수 없다. 투명한 잉크는 빛을 빼기만 하기 때문이다. (모형의 인쇄 색역은 이 책이 정한 잉크 근삿값으로 계산했고 화면 색역 안에서만 그린다. 실제 코팅지 인쇄의 일부 청록·초록은 sRGB 밖까지 나가기도 한다. 굵은 선은 모형의 CMYK 조합을 촘촘히 훑어 그린 근사 경계라 조금 울퉁불퉁하다. "안·밖" 판정과 가장 가까운 색은 그 종이의 프로파일 CMYK로 실제로 찍어 본 결과로 정한다.)</div>
+    </div>
+
+    <p>단면을 돌려 보면 인쇄의 색역이 좁아지는 자리는 대개 두 곳이다. 하나는 선명한 색의 끝, 특히 화면의 원색(빨강·초록·파랑 빛) 근처다. 다른 하나는 밝은 쪽 끝이다. 인쇄물에서 가장 밝은 색은 종이 자체이고, 종이가 누렇거나 회색이면 그보다 밝은 색은 없다. 어두운 쪽 끝도 종이에 따라 다르다. 잉크가 스미는 종이는 검정 잉크를 듬뿍 올려도 진한 회갈색에서 멈춘다. 그래서 같은 사진을 코팅지와 신문 용지에 찍으면, 신문 쪽은 밝은 곳은 덜 밝고 어두운 곳은 덜 어두워 전체가 납작해 보인다.</p>
+  </section>
+
+  <section id="management">
+    <h2>색 관리: 프로파일로 번역하기</h2>
+    <p>화면과 인쇄기와 카메라는 각자 자기 숫자로 색을 말한다. 같은 <code>#2f7d5b</code>도 모니터마다 조금씩 다른 빛이 되고, 같은 C75 M4 Y58 K21도 종이마다 다른 색이 된다. <span class="term">색 관리</span><span class="en">(Color management)</span>는 이 숫자들을 기기와 상관없는 공통의 색(측정한 색, CIELAB이나 XYZ)으로 한 번 옮긴 뒤 다른 기기의 숫자로 다시 옮기는 일이다. 통역이 가운데에 공통어를 두는 것과 같다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="색 관리의 흐름: 기기 숫자에서 공통 색 공간을 거쳐 다른 기기 숫자로">
+        <defs><marker id="pr-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="12" y="40" width="120" height="70" rx="10" class="f-surface"/>
+        <text x="72" y="64" text-anchor="middle" class="lbl-b">디자인 파일</text>
+        <text x="72" y="82" text-anchor="middle" class="lbl-dim t-mono">RGB 47 125 91</text>
+        <text x="72" y="98" text-anchor="middle" class="lbl-dim">sRGB 프로파일</text>
+        <rect x="170" y="40" width="120" height="70" rx="10" class="f-acc-soft"/>
+        <text x="230" y="64" text-anchor="middle" class="lbl-acc">공통의 색</text>
+        <text x="230" y="82" text-anchor="middle" class="lbl-dim t-mono">L* 47 a* −33 b* 12</text>
+        <text x="230" y="98" text-anchor="middle" class="lbl-dim">측정한 색(PCS)</text>
+        <rect x="328" y="40" width="120" height="70" rx="10" class="f-surface"/>
+        <text x="388" y="64" text-anchor="middle" class="lbl-b">인쇄기</text>
+        <text x="388" y="82" text-anchor="middle" class="lbl-dim t-mono">CMYK ? ? ? ?</text>
+        <text x="388" y="98" text-anchor="middle" class="lbl-dim">종이별 출력 프로파일</text>
+        <path d="M132 75 L168 75" class="s-line" marker-end="url(#pr-ar2)"/>
+        <path d="M290 75 L326 75" class="s-line" marker-end="url(#pr-ar2)"/>
+        <text x="309" y="22" text-anchor="middle" class="lbl-acc2">렌더링 의도</text>
+        <text x="309" y="36" text-anchor="middle" class="lbl-dim" font-size="11">색역 밖을 어떻게?</text>
+        <path d="M309 40 L309 70" class="s-dash"/>
+        <rect x="328" y="190" width="120" height="64" rx="10" class="f-surface"/>
+        <text x="388" y="216" text-anchor="middle" class="lbl-b">교정쇄</text>
+        <text x="388" y="234" text-anchor="middle" class="lbl-dim">실제 종이에 찍어 확인</text>
+        <rect x="12" y="190" width="120" height="64" rx="10" class="f-surface"/>
+        <text x="72" y="216" text-anchor="middle" class="lbl-b">소프트 프루프</text>
+        <text x="72" y="234" text-anchor="middle" class="lbl-dim">화면에서 미리 보기</text>
+        <path d="M388 110 L388 188" class="s-line" marker-end="url(#pr-ar2)"/>
+        <path d="M326 104 C 250 130 180 150 134 202" class="s-dash" marker-end="url(#pr-ar2)"/>
+        <text x="236" y="184" text-anchor="middle" class="lbl-dim">인쇄될 색을 다시 화면으로</text>
+        <text x="230" y="285" text-anchor="middle" class="lbl-dim">프로파일은 기기의 숫자와 공통의 색 사이의 대응표다</text>
+      </svg>
+      <figcaption><b>그림 2. 색 관리의 흐름.</b> 디자인 파일의 RGB 값은 그 파일에 붙은 프로파일(대개 sRGB)로 공통의 색(프로파일 연결 공간, PCS)이 되고, 인쇄 조건의 출력 프로파일을 거쳐 CMYK 값이 된다. 이때 인쇄 색역 밖의 색을 어떻게 옮길지 정하는 규칙이 렌더링 의도다. 인쇄될 색을 다시 모니터 프로파일로 옮겨 화면에 보여 주는 것이 소프트 프루프, 실제 종이에 찍어 보는 것이 교정쇄다. 가운데 Lab 값은 이 책의 엔진으로 계산한 책방 E 초록의 값이다.</figcaption>
+    </figure>
+
+    <p>이 흐름이 제대로 돌려면 고리가 셋 필요하다. 파일에 어떤 RGB 공간인지 적혀 있어야 하고(프로파일을 붙여 저장한다), 인쇄소가 쓸 종이와 인쇄기의 출력 프로파일을 알아야 하며, 화면이 보정되어 있어야 소프트 프루프를 믿을 수 있다. 셋 중 하나만 빠져도 번역은 짐작이 된다. 실무에서 가장 흔한 사고는 첫 번째 고리, 곧 RGB 파일을 아무 설명 없이 넘겨 인쇄소의 기본 설정으로 변환되는 경우다.</p>
+    <p>인쇄 조건은 표준으로도 정해져 있다. 오프셋 인쇄의 공정 관리 표준인 ISO 12647-2는 종이 종류별로 잉크의 색, 망점 확대의 목표치를 정해 두었고, 그 조건을 측정한 특성화 자료(예: 유럽 인쇄 연구소 FOGRA가 낸 코팅지용 FOGRA39, FOGRA51)가 널리 쓰인다. 인쇄물을 보는 조명도 ISO 3664가 정한 표준 광원(D50, 약 5,000&nbsp;K의 낮빛)이 기준이다. 표준이 있다는 것은 "이 조건으로 찍어 달라"고 말할 수 있다는 뜻이다.</p>
+
+    <div class="callout studio">
+      <strong>인쇄소에 먼저 묻는 세 가지</strong>
+      인쇄물을 자주 만드는 디자이너들은 디자인을 시작하기 전에 인쇄소에 세 가지를 묻는다. 어떤 종이에 찍는가(코팅지인가, 비코팅지인가, 색 종이인가), 어떤 프로파일로 변환해 주기를 원하는가(또는 RGB로 넘기면 어떤 프로파일로 변환하는가), 교정쇄를 실제 종이로 뽑아 줄 수 있는가. 이 셋을 알면 디자인 단계에서 그 종이의 프로파일로 소프트 프루프를 켜 두고 작업할 수 있다. 처음부터 색역 밖의 색을 피해 가면, 인쇄 직전에 "초록이 죽었다"는 소식을 듣는 일이 크게 줄어든다.
+    </div>
+  </section>
+
+  <section id="intent">
+    <h2>색역 밖의 색을 옮기는 두 방법</h2>
+    <p>인쇄할 수 없는 색은 결국 인쇄할 수 있는 어떤 색으로 바뀐다. 문제는 "어떻게"다. ICC 프로파일은 이 규칙을 <span class="term">렌더링 의도</span><span class="en">(Rendering intent)</span>라는 이름으로 네 가지 정해 두었는데, 디자인에서 주로 고르는 것은 두 가지다.</p>
+    <ul>
+      <li><b>상대 색도계</b><span class="en">(Relative colorimetric)</span>: 색역 안의 색은 그대로 두고, 밖의 색만 가장 가까운 경계로 옮긴다. 종이의 흰색을 흰색으로 맞춘다. 단색 로고처럼 색역 안의 색을 정확히 지키는 데 좋지만, 밖에 있던 여러 색이 경계의 한 색으로 뭉칠 수 있다.</li>
+      <li><b>지각적</b><span class="en">(Perceptual)</span>: 색역 전체를 통째로 줄여 밖의 색까지 안으로 들인다. 색과 색 사이의 관계(그라데이션)는 지켜지지만, 원래 안에 있던 색도 조금씩 탁해진다. 선명한 색이 많은 사진에 좋다.</li>
+    </ul>
+    <p>나머지 둘은 종이색까지 흉내 내는 <b>절대 색도계</b>(교정쇄를 다른 종이로 흉내 낼 때)와, 정확도보다 선명함을 앞세우는 <b>채도</b> 의도(도표·그래픽)다. 아래에서 화면의 선명한 색 띠를 두 방법으로 인쇄 색역에 옮겨 비교한다.</p>
+
+    <div class="sim" id="sim-intent">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>렌더링 의도: 자르기와 줄이기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="it15-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>색 띠의 색상 h <output id="it15-h-out"></output></span><input type="range" id="it15-h" min="0" max="359" step="1" value="150"></label>
+          <div class="seg" id="it15-p"><button data-value="coated" class="on">코팅지</button><button data-value="uncoated">비코팅지</button><button data-value="kraft">크라프트지</button></div>
+          <label class="check"><input type="checkbox" id="it15-w" checked> 원본에서 색역 밖 칸 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">상대 색도계: 뭉친 칸</span><span class="v" id="it15-o-r">—</span></div>
+        <div class="stat"><span class="k">상대 색도계: 안쪽 칸 변화 ΔE</span><span class="v" id="it15-o-ri">—</span></div>
+        <div class="stat"><span class="k">지각적: 안쪽 칸 변화 ΔE</span><span class="v" id="it15-o-pi">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 위 줄의 오른쪽 칸들(점 표시)이 인쇄 색역 밖이다. 상대 색도계 줄에서는 그 칸들이 거의 같은 색으로 뭉쳐, 원본의 단계가 사라진다. 대신 왼쪽(색역 안) 칸은 원본과 거의 같다(변화 0.5 미만). ② 지각적 줄은 오른쪽 끝까지 단계가 남는다. 대신 왼쪽의 수수한 칸들까지 조금씩 탁해진다. ③ 비코팅지로 바꾼다. 색역이 좁아져 뭉치는 칸이 늘고, 지각적 줄은 전체가 더 많이 줄어든다. 어느 쪽이 낫다는 정답은 없다. 로고 하나라면 상대 색도계, 선명한 사진이라면 지각적이 흔한 선택이다. (색 띠는 OKLCH 명도 0.62에서 채도 0.02~0.26을 열두 칸으로 나눈 것이다. 아래 두 줄은 종이색까지 포함해 그 종이에 찍힌 모습이다. 두 의도는 이 장의 단순한 구현이다. 상대 색도계는 프로파일 CMYK로 바로 찍어 가장 가까운 색으로 옮기고, 지각적은 먼저 명도 범위를 종이에 맞게 줄이고 그 명도·색상에서 화면 색역 경계를 인쇄 색역 경계로 비례해 줄인 뒤 찍는다. 실제 프로파일의 지각적 변환은 제작사마다 다르다.)</div>
+    </div>
+
+    <p>두 방법의 차이는 "색 하나를 지킬 것인가, 색들 사이의 관계를 지킬 것인가"로 요약된다. <a href="relativity.html">9장</a>에서 본 대로 사람은 색을 홀로 보지 않고 관계로 보기 때문에, 사진은 모든 색이 조금씩 탁해져도 자연스럽게 느껴지는 경우가 많다. 반면 로고의 초록은 그 자체로 기억되는 색이라 다른 색과의 관계보다 값 자체가 중요하다. 그래서 같은 포스터 안에서도 사진과 로고를 다른 의도로 변환하기도 한다.</p>
+  </section>
+
+  <section id="halftone">
+    <h2>망점: 인쇄는 점이다</h2>
+    <p>인쇄기는 잉크를 "조금 옅게" 칠할 수 없다. 한 자리에는 잉크가 있거나 없거나 둘 중 하나다. 그래서 옅은 하늘색은 시안 잉크를 작은 점으로 듬성듬성 찍어 만든다. 점이 크면 진하게, 작으면 옅게 보인다. 이 점들을 <span class="term">망점</span><span class="en">(Halftone dot)</span>이라고 한다. <a href="overview.html">1장</a>의 점묘처럼, 눈은 작은 점과 그 사이의 흰 종이를 섞어 하나의 색으로 본다.</p>
+    <p>네 잉크의 망점은 서로 다른 각도의 격자에 놓인다. 같은 각도라면 판이 조금만 어긋나도 점이 겹치거나 비켜 색이 크게 흔들리고, 비슷한 각도라면 두 격자가 간섭해 물결무늬(<span class="term">모아레</span><span class="en">(Moiré)</span>)가 생기기 때문이다. 흔히 쓰는 배치는 시안 15°, 마젠타 75°, 옐로 0°, 검정 45°다. 각도가 서로 30°씩 떨어진 세 판이 작은 장미꽃 모양(로제트)을 만든다. 눈에 가장 덜 띄는 옐로는 다른 판과 15°만 떨어진 0°에 둔다.</p>
+
+    <div class="sim" id="sim-halftone">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>망점 확대경</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ht15-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>망점 간격(확대) <output id="ht15-s-out"></output></span><input type="range" id="ht15-s" min="3" max="22" step="1" value="9"></label>
+          <label class="ctrl"><span>망점 확대(50% 점에서) <output id="ht15-g-out"></output></span><input type="range" id="ht15-g" min="0" max="0.35" step="0.01" value="0.14"></label>
+          <div class="seg" id="ht15-a"><button data-value="std" class="on">표준 각도</button><button data-value="close">비슷한 각도</button><button data-value="same">모두 같은 각도</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">판 각도 C · M · Y · K</span><span class="v" id="ht15-o-a">—</span></div>
+        <div class="stat"><span class="k">50% 점이 찍히는 넓이</span><span class="v" id="ht15-o-g">—</span></div>
+        <div class="stat"><span class="k">초록 칸의 멀리서 본 색</span><span class="v" id="ht15-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 망점 간격을 3으로 줄였다가 22로 키운다. 작게 보면 매끈한 초록과 하늘색인데, 크게 보면 시안과 옐로 점이 따로 놓여 있다. 오른쪽 띠는 같은 점들을 멀리서 본(섞은) 색이다. ② 망점 확대를 0.35까지 올린다. 점이 번져 커지면 같은 CMYK 값이 훨씬 어둡고 진하게 찍힌다. 하늘색 쪽의 옅은 단계가 특히 크게 변한다. ③ "비슷한 각도"(시안 15°, 마젠타 22°)를 고른다. 초록 칸과 회색 띠에 굵은 물결무늬가 생긴다. "모두 같은 각도"에서는 점이 정확히 겹쳐 무늬는 사라지지만, 실제 인쇄에서 판이 조금만 어긋나도 색이 크게 바뀐다. (교육용 모형: 원형에 가까운 망점, 이 장의 잉크 근삿값, 겹친 자리의 색은 노이게바우어 겹침 색. 망점 확대는 50% 점에서 가장 크고 0%와 100%에서 0이 되는 단순한 곡선이다.)</div>
+    </div>
+
+    <p>망점 간격은 실제로는 1인치에 몇 줄의 망점이 들어가는지(선수, lpi)로 적는다. 신문은 대략 85~100선, 잡지와 책은 150~175선 정도가 흔하다. 선수가 높을수록 점이 작아 매끈하지만, 종이가 잉크를 빨아들이는 비코팅지에서는 작은 점이 뭉개지므로 선수를 낮춘다. 최근에는 같은 크기의 아주 작은 점을 흩뿌리는 FM 스크린(확률적 망점)처럼 각도가 없는 방식도 쓴다.</p>
+
+    <div class="callout try">
+      <strong>돋보기로 망점 찾기</strong>
+      확대경(10배 정도의 루페가 좋다. 없으면 휴대폰 카메라를 최대로 확대한다)을 들고 집에 있는 인쇄물 세 가지를 본다. 잡지의 사진, 신문의 사진, 과자 봉지의 큰 로고. 잡지와 신문에서는 시안·마젠타·옐로·검정 점이 장미꽃 무늬로 모여 있고, 신문 쪽 점이 더 크고 번져 있다. 과자 봉지의 로고는 점이 하나도 없이 매끈한 한 색일 때가 많다. 그것이 다음 절의 별색이다. 각각 찾은 것을 공책에 그려 두고, 종이를 손가락으로 쓸어 표면이 매끈한지 거친지도 적는다.
+    </div>
+  </section>
+
+  <section id="paper">
+    <h2>종이와 조명이 바꾸는 색</h2>
+    <p>같은 CMYK 값도 종이에 따라 다르게 찍힌다. 이유는 세 가지다. 첫째, <b>종이의 흰색</b>. 종이마다 흰색이 다르고(푸르스름한 흰색, 미색, 갈색), 투명한 잉크는 그 종이색 위에서 색을 걸러 낼 뿐이라 모든 색이 종이색을 닮는다. 둘째, <b>흡수</b>. 표면을 코팅하지 않은 종이는 잉크를 빨아들여 잉크층이 얇고 고르지 않게 되므로, 같은 잉크도 덜 선명하고 검정도 덜 진하다. 셋째, <span class="term">망점 확대</span><span class="en">(Dot gain, Tone value increase)</span>. 잉크가 종이 섬유를 따라 번지고, 점 둘레의 그림자 때문에 실제보다 커 보여, 중간 톤이 계획보다 어둡게 찍힌다.</p>
+    <p>그리고 인쇄물은 스스로 빛을 내지 않으므로 <b>비추는 조명</b>에 따라 다르게 보인다. 아래는 가을 행사 포스터를 화면에서 본 모습과 인쇄물로 본 모습이다. 종이와 망점 확대, 조명을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-paper">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 파일, 세 가지 종이</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pp15-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="pp15-p"><button data-value="coated">코팅지</button><button data-value="uncoated" class="on">비코팅지</button><button data-value="kraft">크라프트지</button></div>
+          <label class="ctrl"><span>인쇄 당일의 망점 확대 차이 <output id="pp15-g-out"></output></span><input type="range" id="pp15-g" min="-0.1" max="0.15" step="0.01" value="0"></label>
+          <label class="check"><input type="checkbox" id="pp15-l"> 서점의 전구색 조명(2,700K) 아래</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">인쇄된 책방 초록</span><span class="v" id="pp15-o-g">—</span></div>
+        <div class="stat"><span class="k">화면과의 차이 ΔE</span><span class="v" id="pp15-o-d">—</span></div>
+        <div class="stat"><span class="k">종이 흰색의 명도 L*</span><span class="v" id="pp15-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음은 비코팅지다. 프로파일로 변환해도 초록이 화면보다 탁하고(ΔE 6 안팎), 선명한 잎사귀 초록과 하늘 파랑이 특히 수수해진다. 코팅지로 바꾸면 책방 초록은 거의 그대로 돌아온다. ② 크라프트지로 바꾼다. 바탕의 크림색은 갈색 종이색이 되고, 초록은 어둡고 누렇게 가라앉는다(ΔE 10 넘게). 투명한 잉크로는 종이보다 밝은 색을 만들 수 없다. ③ 망점 확대 차이를 +0.15로 올린다. 교정쇄 때보다 인쇄기에서 잉크가 더 번진 날이다. 같은 파일인데 중간 톤이 눈에 띄게 어두워진다. ④ 전구색 조명을 켠다. 인쇄물은 종이와 잉크가 함께 따뜻해지고 눈이 그 빛에 순응해 거의 원래 색으로 느껴지지만, 왼쪽 화면은 스스로 빛을 내므로 순응한 눈에는 오히려 푸르게 보인다. 화면과 인쇄물을 같은 방에서 나란히 비교하면 안 되는 이유다. (교육용 인쇄 모형. 조명은 이 책의 분광 모형으로 계산했고, 눈이 전구 빛에 완전히 순응했다고 가정한 과장된 비교다.)</div>
+    </div>
+
+    <p>인쇄소가 교정쇄에 "D50 조명 아래에서 보세요"라고 적어 주는 이유가 마지막 실험에 있다. 인쇄물의 색은 조명의 일부다. 그래서 색을 확인하는 조명을 하나로 정해 두어야 서로 같은 것을 보고 이야기할 수 있다. 다만 포스터가 실제로 걸릴 곳은 표준 광원 상자가 아니라 서점의 전구 아래다. 표준 조명에서 맞추고, 실제 장소에서 한 번 더 본다(<a href="light.html">2장</a>, <a href="temperature.html">10장</a>).</p>
+
+    <div class="callout deep">
+      <strong>망점의 색을 계산하는 법</strong>
+      시안 점이 종이의 40%를 덮었다고 해서 반사율이 정확히 "종이 60% + 잉크 40%"가 되지는 않는다. 종이 속으로 들어간 빛이 섬유 안에서 퍼지다가 점 아래로 나오며 한 번 더 흡수되기 때문이다(광학적 망점 확대). 율과 닐슨<span class="en">(Yule &amp; Nielsen, 1951)</span>은 반사율을 \(1/n\) 제곱한 값을 섞으면 이 효과를 잘 흉내 낼 수 있음을 보였다. \(R^{1/n} = a\,R_\text{잉크}^{1/n} + (1-a)\,R_\text{종이}^{1/n}\), \(n\)은 종이마다 1.5~2 정도다. 잉크 셋이 겹치면 종이 위에는 여덟 가지 조합(종이, C, M, Y, 빨강, 초록, 파랑, 세 잉크 모두)이 생기는데, 각 조합이 차지하는 넓이를 확률로 계산한 것이 드미셸<span class="en">(Demichel)</span>의 식이고, 여덟 색을 그 넓이로 섞는 것이 노이게바우어<span class="en">(Neugebauer, 1937)</span> 모형이다. 이 장의 시뮬레이터는 이 둘을 합친 가장 단순한 형태를 쓴다. 실제 프로파일은 이런 모형 대신 수백~수천 개의 측정 조각으로 만든다.
+    </div>
+  </section>
+
+  <section id="spot">
+    <h2>별색: 미리 섞어 둔 잉크</h2>
+    <p>네 잉크의 점으로 만들 수 없는 색이 꼭 필요하면 방법이 있다. 그 색으로 미리 섞은 잉크를 따로 만들어 한 판을 더 찍는 것이다. 이렇게 4원색 망점이 아니라 지정한 색의 잉크로 찍는 색을 <span class="term">별색</span><span class="en">(Spot color)</span>이라고 한다. 별색은 망점 없이 한 겹으로 매끈하게 찍혀 선명하고, 인쇄할 때마다 색이 덜 흔들린다. 형광색, 금속색(금·은), 4원색 색역 밖의 선명한 초록·주황도 별색으로는 낼 수 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 270" role="img" aria-label="4원색으로 만든 초록과 별색 초록, 별색 견본첩">
+        <defs>
+          <pattern id="pr-dots" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><rect width="10" height="10" fill="#f6f6f2"/><circle cx="5" cy="5" r="3.7" fill="#00a0e0" fill-opacity=".9"/></pattern>
+          <pattern id="pr-dots2" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="3.1" fill="#fff000" fill-opacity=".75"/></pattern>
+          <pattern id="pr-dots3" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="5" cy="5" r="2" fill="#1f1d1c" fill-opacity=".8"/></pattern>
+        </defs>
+        <text x="80" y="22" text-anchor="middle" class="lbl-b">4원색 초록(확대)</text>
+        <rect x="20" y="34" width="120" height="120" fill="url(#pr-dots)"/>
+        <rect x="20" y="34" width="120" height="120" fill="url(#pr-dots2)"/>
+        <rect x="20" y="34" width="120" height="120" fill="url(#pr-dots3)"/>
+        <rect x="20" y="34" width="120" height="120" fill="none" class="s-line"/>
+        <text x="80" y="174" text-anchor="middle" class="lbl-dim">C · Y · K 점이 섞여 보인다</text>
+        <text x="230" y="22" text-anchor="middle" class="lbl-b">별색 초록</text>
+        <rect x="170" y="34" width="120" height="120" fill="#2f7d5b"/>
+        <rect x="170" y="34" width="120" height="120" fill="none" class="s-line"/>
+        <text x="230" y="174" text-anchor="middle" class="lbl-dim">한 겹의 매끈한 잉크</text>
+        <text x="380" y="22" text-anchor="middle" class="lbl-b">별색 잉크 견본첩</text>
+        <g transform="rotate(-8 380 100)">
+          <rect x="330" y="36" width="100" height="140" rx="4" fill="#ffffff" stroke="#c9c5bc"/>
+          <rect x="338" y="44" width="84" height="26" fill="#8fd1ad"/><rect x="338" y="72" width="84" height="26" fill="#3fa476"/><rect x="338" y="100" width="84" height="26" fill="#2f7d5b"/><rect x="338" y="128" width="84" height="26" fill="#1f5a40"/>
+          <text x="342" y="168" fill="#6b6874" font-size="9">코팅 · 비코팅 각 한 쪽</text>
+        </g>
+        <circle cx="425" cy="190" r="12" fill="#ffffff" stroke="#c9c5bc"/><circle cx="425" cy="190" r="5" fill="#c9c5bc"/>
+        <text x="230" y="214" text-anchor="middle" class="lbl-dim">별색은 판이 하나 더 들어가 비용과 시간이 는다</text>
+        <text x="230" y="234" text-anchor="middle" class="lbl-dim">사진처럼 색이 많은 곳은 4원색, 로고·큰 면은 별색이 흔하다</text>
+        <text x="230" y="258" text-anchor="middle" class="lbl-dim">(4원색 점의 색은 이 장의 잉크 근삿값)</text>
+      </svg>
+      <figcaption><b>그림 3. 4원색 초록과 별색 초록.</b> 왼쪽은 시안·옐로·검정 점을 겹쳐 만든 초록을 크게 확대한 모습이고, 가운데는 미리 섞은 초록 잉크 한 겹이다. 오른쪽은 인쇄소와 디자이너가 별색을 고를 때 쓰는 별색 잉크 견본첩을 흉내 낸 그림이다. 견본첩은 같은 잉크를 코팅지와 비코팅지에 각각 찍어 보여 주는 경우가 많다. 같은 잉크라도 종이에 따라 색이 달라지기 때문이다. 별색 번호는 화면 값이 아니라 그 견본첩의 실물 색을 가리킨다.</figcaption>
+    </figure>
+
+    <p>별색을 쓸 때 주의할 점은 별색도 결국 잉크라는 것이다. 종이에 따라 색이 달라지는 것은 마찬가지이고, 견본첩의 색을 고를 때는 실제로 찍을 종이 쪽의 견본을 봐야 한다. 그리고 별색 번호의 "화면용 값"은 그 잉크를 화면에서 흉내 낸 근삿값일 뿐이다. 견본첩의 실물과 화면을 나란히 놓고 비교해 보면, 선명한 별색일수록 화면 값이 실물을 따라가지 못한다. 화면의 초록을 별색으로 "옮기는" 것이 아니라, 견본첩에서 실물 초록을 고르고 그것을 브랜드 색의 인쇄용 버전으로 기록하는 순서가 맞다.</p>
+
+    <div class="callout studio">
+      <strong>인쇄용 색은 따로 적는다</strong>
+      브랜드 색 안내서를 오래 만들어 온 디자이너들은 색 하나를 매체별로 따로 적는다. 화면용 hex(와 OKLCH), 코팅지용 CMYK, 비코팅지용 CMYK, 별색이 있다면 별색 번호, 간판이라면 도료 견본 번호. 그리고 각 값 옆에 "어디서 확인했는지"(어느 인쇄소의 어느 종이 교정쇄, 어느 조명)를 함께 적는다. 이 값들은 서로 "같은 색"이 아니라 각 매체에서 <b>가장 비슷하게 보이도록 고른 색</b>이다. 그래서 하나에서 다른 하나를 공식으로 계산해 내지 않고, 각각 실물로 맞춘다.
+    </div>
+  </section>
+
+  <section id="proof">
+    <h2>찍기 전에 화면에서: 소프트 프루프</h2>
+    <p>교정쇄는 정확하지만 시간과 돈이 든다. 그래서 그 전에 화면에서 한 번 미리 본다. 인쇄 조건의 프로파일로 "이 파일이 이 종이에 찍히면 이렇게 보일 것"을 계산해 화면에 보여 주는 기능을 <span class="term">소프트 프루프</span><span class="en">(Soft proof)</span>라고 한다. 색역 밖의 색에 빗금이나 회색을 칠해 주는 <b>색역 경고</b>도 함께 쓴다. 아래는 책방 E의 가을 행사 포스터를 소프트 프루프로 본 모습이다. 가운데 경계선을 끌어 화면과 인쇄 미리보기를 비교한다.</p>
+
+    <div class="sim" id="sim-proof">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>소프트 프루프: 포스터를 인쇄하기 전에</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <div class="compare" id="sp15-cmp">
+            <div class="cmp-a"><canvas id="sp15-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="sp15-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="sp15-p"><button data-value="coated">코팅지</button><button data-value="uncoated" class="on">비코팅지</button><button data-value="kraft">크라프트지</button></div>
+          <div class="seg" id="sp15-i"><button data-value="relative" class="on">상대 색도계</button><button data-value="perceptual">지각적</button></div>
+          <label class="check"><input type="checkbox" id="sp15-paper" checked> 종이색 흉내</label>
+          <label class="check"><input type="checkbox" id="sp15-warn"> 색역 경고</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">색역 밖 넓이</span><span class="v" id="sp15-o-o">—</span></div>
+        <div class="stat"><span class="k">책방 초록 · 미리보기 ΔE</span><span class="v" id="sp15-o-g">—</span></div>
+        <div class="stat"><span class="k">책방 초록의 CMYK(모형)</span><span class="v" id="sp15-o-k">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "색역 경고"를 켠다. 비코팅지에서는 책방 초록 띠, 잎사귀의 선명한 초록, 하늘의 파랑, 주황 해, 날짜 글자의 진한 검정까지 경고가 뜬다. 흡수가 큰 종이는 진한 검정도 내지 못한다. ② 상대 색도계와 지각적을 번갈아 본다. 상대 색도계는 잎사귀 초록의 밝은 쪽과 어두운 쪽이 한 덩어리로 뭉치고, 지각적은 단계가 살아 있는 대신 크림색 바탕과 글자까지 조금 바랜다. ③ 크라프트지로 바꾸고 "종이색 흉내"를 껐다 켠다. 끄면 종이를 흰색으로 가정한 미리보기(상대 색도계의 화면 표시), 켜면 종이색까지 흉내 낸 미리보기다. 크라프트지 포스터는 크림색 바탕이 사라지고 갈색 종이 위에 초록이 가라앉는다. 흰 잉크를 먼저 깔거나 별색을 쓰지 않으면 이 모습이 된다. ④ 코팅지로 바꾸면 경고가 크게 줄어든다. 남는 곳은 선명한 하늘 파랑과 잎사귀 초록, 그리고 종이보다 밝은 제목 글자의 흰색이다. 종이보다 밝은 색은 어떤 종이에서도 찍을 수 없다. (교육용 인쇄 모형과 이 장의 단순한 렌더링 의도 구현. 실제 소프트 프루프는 인쇄소의 출력 프로파일과 보정된 모니터가 있어야 믿을 수 있다.)</div>
+    </div>
+
+    <p>소프트 프루프는 "이 종이에서 무엇이 문제가 될지"를 미리 알려 주는 도구이지 최종 확인이 아니다. 화면은 여전히 빛을 내고, 종이의 질감과 반사, 조명은 흉내 낼 수 없다. 그래서 순서는 늘 같다. 소프트 프루프로 문제를 미리 찾아 고치고, 실제 종이로 뽑은 교정쇄를 표준 조명과 실제 장소의 조명 아래에서 보고, 그 교정쇄를 인쇄소에 "이 색으로"라는 기준으로 돌려준다.</p>
+
+    <div class="callout try">
+      <strong>같은 파일을 세 종이에 뽑기</strong>
+      같은 그림 파일(선명한 초록·파랑과 회색 단계가 들어간 것)을 집이나 근처 출력소에서 세 종이에 뽑는다. 광택 사진 용지, 일반 복사 용지, 갈색 크라프트지(또는 재생지). 세 장을 창가 낮빛 아래 나란히 놓고, 화면의 원본과 비교해 어느 색이 가장 많이 변했는지 적는다. 다음에는 세 장을 전구 아래로 옮겨 같은 비교를 한다. 대개 복사 용지에서 선명한 초록과 파랑이 가장 많이 죽고, 크라프트지에서는 밝은 색이 모두 사라진다. 이 실험의 결과가 다음 인쇄물의 종이를 고르는 기준이 된다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 15장</span></div>
+      <h4>인쇄소에서 온 초록이 죽어 있었다</h4>
+      <p>가을 행사 포스터를 인쇄소에 넘기기 일주일 전, 인쇄소에서 보낸 교정쇄 사진을 보고 서윤은 한숨을 쉬었다. 주인이 "오래된 책방 느낌"을 원해 고른 미색 비코팅지 위에서, 책방 초록 띠는 화면보다 탁하고 어두웠고, 잎사귀 그림의 선명한 초록은 납작한 한 덩어리가 되어 있었다. 서윤이 RGB 파일을 그대로 넘겼고, 인쇄소가 기본 설정으로 변환한 결과였다.</p>
+      <p>서윤은 인쇄소에 종이와 프로파일을 묻고, 그 조건으로 소프트 프루프를 켰다. 이 책의 교육용 모형으로 계산하면 책방 초록 <code>#2f7d5b</code>은 코팅지에서는 인쇄 색역 안(모형의 CMYK 약 C75 M4 Y58 K21)이지만, 비코팅지에서는 밖이다. 가장 가까운 값(약 C100 M0 Y100 K21)으로 찍어도 화면과 ΔE 6 정도가 남는다. 잎사귀의 밝은 초록 <code>#3cc46a</code>는 코팅지에서도 밖이었다. 인터넷 공식으로 바꾼 값(C62 M0 Y27 K51)은 어느 종이에서든 칙칙한 청록 회색이 되었다.</p>
+      <p>도경은 교정쇄를 들고 창가로 갔다가 서점 계산대의 전구 아래로 옮겼다. "종이가 물감을 먹는 거야. 수채화지도 종이마다 같은 물감이 다르게 앉잖아. 화면의 초록을 종이에 억지로 맞추지 말고, 이 종이에서 제일 좋은 초록을 찾아." 서윤은 화면 초록을 "원본"으로, 종이별 초록을 각각의 "번역"으로 보기로 했다. 잎사귀 그림은 지각적 의도로 변환해 단계를 살리고, 로고와 초록 띠는 상대 색도계로 변환해 값을 지켰다.</p>
+      <p>남은 것은 크라프트지 쇼핑백이었다. 모형으로 계산하면 갈색 종이 위의 4원색 초록은 가장 가까운 값에서도 ΔE가 11을 넘었다. 서윤은 인쇄소의 별색 잉크 견본첩에서 비코팅 쪽 견본 중 책방 초록에 가까운 초록 세 개를 골라, 크라프트지 시험 인쇄를 요청했다. 별색 하나를 더 쓰는 비용은 주인과 상의하기로 했다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>인쇄용 초록을 화면 값과 따로 지정한다: 코팅지·비코팅지 CMYK는 인쇄소 프로파일로 다시 변환해 정하고(모형 값은 출발점), 크라프트지는 별색 후보 셋을 시험 인쇄한다. 절차: 종이·프로파일 확인 → 소프트 프루프(색역 경고) → 실제 종이 교정쇄 → D50과 서점 전구 아래에서 확인 → 승인한 교정쇄를 기준으로 보관.</div>
+        <div><b>아직 남은 문제</b>교정쇄에서 고른 인쇄용 초록이 화면의 초록과 "같은 브랜드 색"으로 읽히는가. 별색 비용을 들일 만한가.</div>
+        <div><b>다음 단계</b><a href="lab.html">16장</a>: 화면·인쇄·수채화의 색을 실험실에서 한꺼번에 놓고 최종 팔레트를 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>화면은 빛을 더해 색을 만들고(RGB), 인쇄물은 종이가 돌려보내는 빛을 잉크가 빼앗아 색을 만든다(CMYK). 그래서 인쇄의 색은 잉크, 종이, 조명에 함께 달려 있다.</li>
+      <li>RGB→CMYK 단순 공식은 이상적인 잉크와 종이를 가정하므로 실제 인쇄에서 크게 틀린다. 실무에서는 인쇄 조건을 측정해 만든 ICC 프로파일로 변환한다. 같은 색의 CMYK 값은 종이마다 다르다.</li>
+      <li>인쇄의 색역은 화면과 모양이 다르고 대부분의 방향에서 좁다. 선명한 초록·파랑과 아주 밝은 선명한 색이 특히 밖으로 나가며, 흡수가 큰 종이와 색 종이에서 더 좁아진다.</li>
+      <li>색역 밖의 색을 옮기는 규칙이 렌더링 의도다. 상대 색도계는 안쪽 색을 지키고 밖의 색을 경계로 자르며(로고), 지각적은 전체를 줄여 색 사이의 관계를 지킨다(사진).</li>
+      <li>인쇄는 망점으로 농도를 만든다. 판마다 각도를 달리해 모아레를 피하고, 잉크가 번지는 망점 확대 때문에 중간 톤은 계획보다 어둡게 찍힌다.</li>
+      <li>4원색으로 낼 수 없는 색이나 매번 같아야 하는 큰 면에는 별색을 쓴다. 별색도 종이에 따라 달라지므로 실제 종이 쪽 견본으로 고른다.</li>
+      <li>순서는 소프트 프루프로 미리 찾고, 실제 종이의 교정쇄를 표준 조명과 실제 장소에서 확인하고, 승인한 교정쇄를 기준으로 남기는 것이다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 화면의 초록 <code>#2f7d5b</code>를 "K = 1 − max(R,G,B)" 공식으로 CMYK로 바꿔 인쇄했더니 칙칙한 청록 회색이 나왔다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">공식에서 계산 실수가 있었다. 소수점 반올림만 고치면 같은 색이 나온다.</button>
+          <button class="opt">인쇄기가 고장 났다. 공식은 모든 인쇄기에서 같은 색을 보장한다.</button>
+          <button class="opt" data-correct>공식은 이상적인 잉크와 종이를 가정한다. 실제 잉크·종이의 특성을 측정한 프로파일로 변환해야 하며, 그 값은 종이마다 다르다.</button>
+          <button class="opt">초록은 원래 CMYK로 만들 수 없는 색이므로 어떤 방법으로도 비슷하게 찍을 수 없다.</button>
+        </div>
+        <div class="quiz-exp">단순 공식은 잉크가 한 가지 빛만 완벽히 흡수하고, 겹쳐도 서로 영향이 없으며, 종이가 완벽한 흰색이라고 가정한다. 실제 잉크는 다른 빛도 흡수하고 망점은 번진다. 이 책의 모형에서 이 초록은 코팅지 프로파일 변환으로 거의 그대로(ΔE 0 근처) 찍힌다. 그러니 초록이 모두 색역 밖인 것도 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 브랜드 로고의 단색 초록은 인쇄 색역 안에 있고, 같은 포스터의 풍경 사진에는 색역 밖의 선명한 색이 많다. 가장 알맞은 렌더링 의도 조합은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>로고는 상대 색도계(안쪽 색을 그대로 지킨다), 사진은 지각적(전체를 줄여 단계를 살린다).</button>
+          <button class="opt">로고는 지각적, 사진은 상대 색도계.</button>
+          <button class="opt">둘 다 채도 의도. 인쇄에서는 선명할수록 좋다.</button>
+          <button class="opt">렌더링 의도는 화면에만 적용되므로 인쇄와 관계없다.</button>
+        </div>
+        <div class="quiz-exp">상대 색도계는 색역 안의 색을 바꾸지 않으므로 로고 색을 지키는 데 알맞다. 지각적은 색역 전체를 줄여 밖의 색들 사이의 단계를 살리므로 선명한 사진에 흔히 쓴다. 로고를 지각적으로 변환하면 색역 안의 초록까지 탁해진다. 렌더링 의도는 프로파일 변환, 곧 인쇄로 보내는 바로 그 단계의 규칙이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 같은 CMYK 파일을 코팅지와 비코팅지에 찍었더니 비코팅지 쪽 중간 톤이 눈에 띄게 어두웠다. 가장 직접적인 원인은?</p>
+        <div class="opts">
+          <button class="opt">비코팅지는 빛을 더 많이 내기 때문이다.</button>
+          <button class="opt">비코팅지에서는 잉크가 마른 뒤 색이 변하기 때문이다.</button>
+          <button class="opt">비코팅지에서는 렌더링 의도가 자동으로 지각적으로 바뀌기 때문이다.</button>
+          <button class="opt" data-correct>잉크가 종이 섬유로 번져 망점이 커지는 망점 확대가 크기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">흡수가 큰 종이에서는 잉크가 번지고, 종이 속에서 퍼진 빛이 점 아래로 나오며 한 번 더 흡수되어 점이 실제보다 커 보인다. 망점 확대는 50% 근처의 중간 톤에서 가장 크다. 종이는 빛을 내지 않고, 렌더링 의도는 종이가 바꾸는 것이 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 갈색 크라프트지 쇼핑백에 밝은 브랜드 초록 로고를 인쇄하려는데, 소프트 프루프에서 초록이 어둡고 누렇게 가라앉았다. 가장 알맞은 대처는?</p>
+        <div class="opts">
+          <button class="opt">CMYK 값을 모두 100%로 올려 잉크를 두껍게 찍는다.</button>
+          <button class="opt" data-correct>투명한 4원색 잉크로는 종이보다 밝은 색을 만들 수 없으므로, 흰 잉크를 먼저 깔거나 별색을 검토하고 실제 종이로 시험 인쇄한다.</button>
+          <button class="opt">모니터 밝기를 낮추면 소프트 프루프가 화면과 같아진다.</button>
+          <button class="opt">RGB 파일 그대로 보내면 인쇄소가 알아서 원래 초록으로 찍어 준다.</button>
+        </div>
+        <div class="quiz-exp">CMYK 잉크는 투명해서 종이가 돌려보내는 빛을 거를 뿐이다. 갈색 종이 위에서는 갈색보다 밝은 색이 나오지 않는다. 잉크를 더 올리면 더 어두워질 뿐이고, 총 잉크량 한계도 넘는다. 불투명한 흰 잉크나 별색이 방법이며, 결과는 실제 종이로 확인해야 한다. 모니터 설정이나 RGB 파일로는 종이의 한계가 바뀌지 않는다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex, fit = ART.fit;
+  var INK = "#2b2a30", INK_DIM = "#6b6874";
+  var BRAND = ART.parse("#2f7d5b");
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+  var pct = function (v) { return Math.round(v * 100); };
+  var cmykStr = function (k) { return "C" + pct(k[0]) + " M" + pct(k[1]) + " Y" + pct(k[2]) + " K" + pct(k[3]); };
+
+  /* ================= 교육용 인쇄 모형 =================
+     - 잉크와 겹침 색 8가지(종이, C, M, Y, M+Y, C+Y, C+M, C+M+Y)와 검정의 sRGB 값은 코팅지 오프셋 인쇄에서 흔히 보이는 색을
+       흉내 낸 이 책의 근삿값이다(측정값이 아니다).
+     - 혼합: 드미셸 넓이 + 노이게바우어 혼합(Neugebauer 1937)에 율–닐슨 계수 n=1.8(Yule & Nielsen 1951)을 적용, 선형 RGB 채널별.
+     - 망점 확대: a' = a + g·(1 − (2a − 1)²) (50%에서 g만큼 커지고 0%·100%에서 0).
+     - 비코팅지: 잉크 색을 종이 흰색 쪽으로 12% 옮기고 검정을 덜 진하게. 색 종이(크라프트): 투명한 잉크가 종이색을 거른다고 보고 종이색 비율을 곱한다.
+     - 역변환(이 장의 "프로파일"): 검정 양을 GCR 규칙으로 먼저 정하고 C·M·Y를 OKLab 거리 최소화(가우스–뉴턴)로 찾는다. */
+  var PR = (function () {
+    var lin = function (h) { return ART.srgbToLinear(ART.parse(h)); };
+    var KEYS = ["c", "m", "y", "r", "g", "b", "cmy", "k"];
+    var INKS = { c: "#00a0e0", m: "#e5007d", y: "#fff000", r: "#e3101a", g: "#00954a", b: "#2e3087", cmy: "#35302e", k: "#1f1d1c" };
+    var PAPERS = {
+      coated: { name: "코팅지", paper: "#f6f6f2", gain: 0.14, fade: 0, lift: 0, tac: 3.2 },
+      uncoated: { name: "비코팅지", paper: "#f0ede4", gain: 0.2, fade: 0.12, lift: 0.18, tac: 2.8 },
+      kraft: { name: "크라프트지", paper: "#c9ab80", gain: 0.22, fade: 0.12, lift: 0.18, tac: 2.6 },
+    };
+    var WHITE = lin("#f6f6f2"), N = 1.8, cache = {};
+    function build(key) {
+      var p = PAPERS[key], Pp = lin(p.paper), S = { paper: Pp, gain: p.gain, tac: p.tac };
+      KEYS.forEach(function (k) {
+        var v = lin(INKS[k]);
+        S[k] = v.map(function (x, i) { var r = x * (1 - p.fade) + WHITE[i] * p.fade; if (k === "k" || k === "cmy") r = r + (WHITE[i] - r) * p.lift * 0.3; return (r * Pp[i]) / WHITE[i]; });
+      });
+      return S;
+    }
+    function set(k) { return cache[k] || (cache[k] = build(k)); }
+    function gainF(a, g) { return a + g * (1 - (2 * a - 1) * (2 * a - 1)); }
+    var NK = ["paper", "c", "m", "y", "r", "g", "b", "cmy"];
+    /** CMYK(0~1) → 선형 RGB 반사율. g를 주면 그 망점 확대를 쓴다. */
+    function forward(paper, cmyk, g) {
+      var S = set(paper), gg = g == null ? S.gain : g;
+      var c = gainF(AB.clamp(cmyk[0], 0, 1), gg), m = gainF(AB.clamp(cmyk[1], 0, 1), gg), y = gainF(AB.clamp(cmyk[2], 0, 1), gg), k = gainF(AB.clamp(cmyk[3], 0, 1), gg);
+      var W = [(1 - c) * (1 - m) * (1 - y), c * (1 - m) * (1 - y), (1 - c) * m * (1 - y), (1 - c) * (1 - m) * y, (1 - c) * m * y, c * (1 - m) * y, c * m * (1 - y), c * m * y];
+      var out = [0, 0, 0];
+      for (var i = 0; i < 3; i++) {
+        var s = 0; for (var j = 0; j < 8; j++) s += W[j] * Math.pow(S[NK[j]][i], 1 / N);
+        var Rc = Math.pow(s, N), kr = S.k[i] / S.paper[i];
+        out[i] = Math.pow((1 - k) * Math.pow(Rc, 1 / N) + k * Math.pow(Rc * kr, 1 / N), N);
+        // 잉크 표면에서 바로 튕기는 빛(표면 반사): 아무리 잉크를 올려도 아주 검게는 되지 않는다
+        out[i] += 0.01 * (1 - out[i] / S.paper[i]);
+      }
+      return out;
+    }
+    function naive(rgb) { var k = 1 - Math.max(rgb[0], rgb[1], rgb[2]); if (k >= 1) return [0, 0, 0, 1]; return [(1 - rgb[0] - k) / (1 - k), (1 - rgb[1] - k) / (1 - k), (1 - rgb[2] - k) / (1 - k), k]; }
+    function det(m) { return m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) - m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]); }
+    function solve3(A, b) { var D = det(A) || 1e-12; return [0, 1, 2].map(function (j) { return det(A.map(function (row, i) { return row.map(function (v, jj) { return jj === j ? b[i] : v; }); })) / D; }); }
+    var invCache = {};
+    function inverse(paper, rgb) {
+      var key = paper + hex(rgb); if (invCache[key]) return invCache[key];
+      var T = ART.srgbToOklab(rgb), n0 = naive(rgb), S = set(paper);
+      var k = Math.max(0, (n0[3] - 0.35) / 0.65) * 0.85, x = n0.slice(0, 3);
+      var f = function (v) { return ART.linearToOklab(forward(paper, [v[0], v[1], v[2], k])); };
+      for (var it = 0; it < 25; it++) {
+        var F = f(x), r = [F[0] - T[0], F[1] - T[1], F[2] - T[2]], J = [[0, 0, 0], [0, 0, 0], [0, 0, 0]], h = 1e-3;
+        for (var j = 0; j < 3; j++) {
+          var xp = x.slice(), xm = x.slice(); xp[j] = Math.min(1, xp[j] + h); xm[j] = Math.max(0, xm[j] - h);
+          var Fp = f(xp), Fm = f(xm), d = xp[j] - xm[j] || 1e-6;
+          for (var i = 0; i < 3; i++) J[i][j] = (Fp[i] - Fm[i]) / d;
+        }
+        var A = [[0, 0, 0], [0, 0, 0], [0, 0, 0]], g = [0, 0, 0];
+        for (var a = 0; a < 3; a++) { for (var b = 0; b < 3; b++) { var s = 0; for (var i2 = 0; i2 < 3; i2++) s += J[i2][a] * J[i2][b]; A[a][b] = s + (a === b ? 1e-4 : 0); } var s2 = 0; for (var i3 = 0; i3 < 3; i3++) s2 += J[i3][a] * r[i3]; g[a] = -s2; }
+        var dx = solve3(A, g); x = x.map(function (v, jj) { return AB.clamp(v + dx[jj], 0, 1); });
+      }
+      var tot = x[0] + x[1] + x[2] + k;
+      if (tot > S.tac) { var sc = (S.tac - k) / (x[0] + x[1] + x[2]); x = x.map(function (v) { return v * sc; }); }
+      return (invCache[key] = [x[0], x[1], x[2], k]);
+    }
+    /** 인쇄 결과를 화면 색으로(색역 밖 값은 자른다) */
+    function show(paper, cmyk, g) { return ART.clip(ART.linearToSrgb(forward(paper, cmyk, g))); }
+    /* 색역 표: 색상 4° × 명도 0.01 칸마다 인쇄로 낼 수 있는 최대 OKLCH 채도 */
+    var GT = {}, HB = 90, LB = 101;
+    function table(paper) {
+      if (GT[paper]) return GT[paper];
+      // 가장 선명한 색은 세 잉크 중 하나가 0인 면 위에 있으므로, 그 세 면을 촘촘히(옅은 쪽을 더 촘촘히) 훑는다
+      var S = set(paper), cm = new Float32Array(HB * LB), Lmin = 1, Lmax = 0, ks = [0, 0.1, 0.25, 0.4, 0.55, 0.7, 0.85, 1], LV = [];
+      for (var q0 = 0; q0 <= 28; q0++) LV.push(Math.pow(q0 / 28, 1.6));
+      var pts = [];
+      for (var f = 0; f < 3; f++) for (var a = 0; a < LV.length; a++) for (var b = 0; b < LV.length; b++) { var v3 = [LV[a], LV[b]]; v3.splice(f, 0, 0); pts.push(v3); }
+      pts.push([1, 1, 1], [0.8, 0.8, 0.8], [0.6, 0.6, 0.6]);
+      for (var ki = 0; ki < ks.length; ki++) for (var pi = 0; pi < pts.length; pi++) {
+        var cc = pts[pi][0], mm = pts[pi][1], yy = pts[pi][2], kk = ks[ki];
+        if (cc + mm + yy + kk > S.tac) continue;
+        var lab = ART.linearToOklab(forward(paper, [cc, mm, yy, kk])), L = lab[0], C = Math.hypot(lab[1], lab[2]);
+        if (L < Lmin) Lmin = L; if (L > Lmax) Lmax = L;
+        if (C < 0.004) continue;
+        var hh = ART.mod360((Math.atan2(lab[2], lab[1]) * 180) / Math.PI), hb = Math.round(hh / 4) % HB, lb = Math.round(L * 100);
+        if (C > cm[hb * LB + lb]) cm[hb * LB + lb] = C;
+      }
+      // 빈칸 메우기(명도 방향 보간)와 색상 방향 다듬기
+      for (var hb2 = 0; hb2 < HB; hb2++) {
+        var last = -1;
+        for (var lb2 = 0; lb2 < LB; lb2++) {
+          var v = cm[hb2 * LB + lb2];
+          if (v > 0) { if (last >= 0 && lb2 - last > 1) for (var q = last + 1; q < lb2; q++) cm[hb2 * LB + q] = cm[hb2 * LB + last] + ((v - cm[hb2 * LB + last]) * (q - last)) / (lb2 - last); last = lb2; }
+        }
+      }
+      var out = new Float32Array(HB * LB);
+      for (var h3 = 0; h3 < HB; h3++) for (var l3 = 0; l3 < LB; l3++) {
+        var me = cm[h3 * LB + l3], nb = (cm[((h3 + HB - 1) % HB) * LB + l3] + cm[((h3 + 1) % HB) * LB + l3]) / 2;
+        var nl = l3 > 0 && l3 < LB - 1 ? (cm[h3 * LB + l3 - 1] + cm[h3 * LB + l3 + 1]) / 2 : 0;
+        out[h3 * LB + l3] = Math.max(me, nb * 0.98, nl * 0.98);
+      }
+      return (GT[paper] = { cm: out, Lmin: Lmin, Lmax: Lmax });
+    }
+    function cmaxAt(T, L, h) {
+      if (L < T.Lmin || L > T.Lmax) return 0;
+      var hf = ART.mod360(h) / 4, h0 = Math.floor(hf), th = hf - h0, lf = L * 100, l0 = Math.floor(lf), tl = lf - l0;
+      var g = function (hb, lb) { return T.cm[(((hb % HB) + HB) % HB) * LB + AB.clamp(lb, 0, LB - 1)]; };
+      return (g(h0, l0) * (1 - th) + g(h0 + 1, l0) * th) * (1 - tl) + (g(h0, l0 + 1) * (1 - th) + g(h0 + 1, l0 + 1) * th) * tl;
+    }
+    /** 모형 안에서 찍을 수 있는 색인가: 프로파일 CMYK로 찍은 결과가 원래 색과 ΔE2000 2 안쪽이면 안이다 */
+    var igCache = {};
+    function inGamut(paper, rgb) { var k = paper + hex(rgb); if (!(k in igCache)) igCache[k] = ART.diff(show(paper, inverse(paper, rgb)), rgb) < 2; return igCache[k]; }
+    /** 렌더링 의도(이 장의 단순한 구현). 반환: 그 종이에 찍힌 색(종이색 포함, 측정한 색에 해당)
+        - relative: 프로파일 CMYK로 찍은 결과(안쪽 색은 그대로, 밖의 색은 가장 가까운 색)
+        - perceptual: 명도 범위를 종이 흰색~가장 진한 잉크로 줄이고, 그 명도·색상에서 화면 색역 경계를 인쇄 색역 경계로 비례해 줄인 뒤 찍는다 */
+    function mapIntent(paper, rgb, intent) {
+      if (intent === "perceptual") {
+        var T = table(paper), l = ART.srgbToOklch(rgb), L = T.Lmin + (T.Lmax - T.Lmin) * AB.clamp(l[0], 0, 1);
+        var cs = ART.maxChroma(L, l[2]), cp = cmaxAt(T, L, l[2]);
+        rgb = ART.gamutMap([L, Math.min(l[1] * (cs > 1e-3 ? Math.min(1, cp / cs) : 0), cp), l[2]]);
+      }
+      return show(paper, inverse(paper, rgb));
+    }
+    /** 종이 흰색을 화면 흰색으로 맞춰 보여 준다(상대 색도계의 화면 표시) */
+    function relDisplay(paper, rgb) { var pl = set(paper).paper; return ART.clip(ART.linearToSrgb(ART.srgbToLinear(rgb).map(function (v, i) { return v / pl[i]; }))); }
+    function paperLin(paper) { return set(paper).paper; }
+    return { PAPERS: PAPERS, forward: forward, naive: naive, inverse: inverse, show: show, table: table, cmaxAt: cmaxAt, inGamut: inGamut, mapIntent: mapIntent, relDisplay: relDisplay, paperLin: paperLin, set: set };
+  })();
+
+  /** OKLCH 원판(색상·채도)과 그 위의 손잡이 */
+  function makeDisk(R, L, CMAX) {
+    var S = Math.ceil(R * 2), c = document.createElement("canvas"); c.width = S; c.height = S;
+    var x = c.getContext("2d"), id = x.createImageData(S, S);
+    for (var yy = 0; yy < S; yy++) for (var xx = 0; xx < S; xx++) {
+      var dx = xx + 0.5 - R, dy = yy + 0.5 - R, r = Math.hypot(dx, dy), o = (yy * S + xx) * 4;
+      if (r > R) continue;
+      var C = (r / R) * CMAX, H = (Math.atan2(-dy, dx) * 180) / Math.PI, rgb = ART.oklchToSrgb([L, C, H]);
+      if (!ART.inGamut(rgb, 1e-4)) { var st = ((xx + yy) >> 2) & 1; rgb = ART.gamutMap([L, C, H]).map(function (v) { return v * 0.35 + (st ? 0.62 : 0.5) * 0.65; }); }
+      id.data[o] = rgb[0] * 255; id.data[o + 1] = rgb[1] * 255; id.data[o + 2] = rgb[2] * 255; id.data[o + 3] = 255;
+    }
+    x.putImageData(id, 0, 0); return c;
+  }
+
+  /* ---------------- 시뮬레이터 1: 공식 대 프로파일 ---------------- */
+  (function () {
+    var lG = AB.range("nv15-l", function (v) { return v.toFixed(2); }, function () { disk = null; cv.redraw(); });
+    var pG = AB.seg("nv15-p", function () { cv.redraw(); });
+    var b0 = ART.srgbToOklch(BRAND), pick = { c: b0[1], h: b0[2] }, CMAX = 0.26, geo = null, disk = null;
+    var cv = AB.canvas("#nv15-cv", function (ctx, w, h) {
+      var L = lG(), paper = pG(), wide = w >= 500, pad = 14;
+      var col = Math.abs(L - b0[0]) < 0.002 && Math.abs(pick.c - b0[1]) < 1e-6 ? BRAND : ART.gamutMap([L, pick.c, pick.h]);
+      var R = wide ? Math.min(110, (h - 40) / 2) : Math.min(90, w * 0.26);
+      var cx = wide ? pad + R : w / 2, cy = 30 + R;
+      geo = { cx: cx, cy: cy, R: R };
+      if (!disk || disk.width !== Math.ceil(R * 2)) disk = makeDisk(R, L, CMAX);
+      ctx.drawImage(disk, cx - R, cy - R);
+      ctx.strokeStyle = "#c9c5bc"; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke();
+      AB.handle(ctx, cx + (pick.c / CMAX) * R * Math.cos((pick.h * Math.PI) / 180), cy - (pick.c / CMAX) * R * Math.sin((pick.h * Math.PI) / 180), { r: 9, fill: col });
+      var nv = PR.naive(col), pf = PR.inverse(paper, col);
+      var nvc = PR.show(paper, nv), pfc = PR.show(paper, pf);
+      var gx = wide ? cx + R + 24 : pad, gy = wide ? 24 : cy + R + 24, gw = w - gx - pad, sw = (gw - 16) / 3, sh = wide ? h - gy - 70 : h - gy - 64;
+      [[col, "화면 색", hex(col)], [nvc, "공식 CMYK로 찍으면", cmykStr(nv)], [pfc, "프로파일 CMYK로", cmykStr(pf)]].forEach(function (it, i) {
+        var x = gx + i * (sw + 8);
+        if (i > 0) { var pp = PR.show(paper, [0, 0, 0, 0]); ctx.fillStyle = hex(pp); rr(ctx, x - 3, gy - 3, sw + 6, sh + 6, 9); ctx.fill(); }
+        ctx.fillStyle = hex(it[0]); rr(ctx, x, gy, sw, sh, 7); ctx.fill();
+        ctx.fillStyle = INK; ctx.font = AB.font(sw < 90 ? 10.5 : 12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(it[1], x + sw / 2, gy + sh + 10);
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(sw < 90 ? 9 : 10.5, true); ctx.fillText(it[2], x + sw / 2, gy + sh + 28);
+        if (i > 0) ctx.fillText("ΔE " + AB.fix(ART.diff(it[0], col), 1), x + sw / 2, gy + sh + 43);
+      });
+      AB.stat("nv15-o-n", cmykStr(nv) + " <small>ΔE " + AB.fix(ART.diff(nvc, col), 1) + "</small>");
+      AB.stat("nv15-o-p", cmykStr(pf) + " <small>ΔE " + AB.fix(ART.diff(pfc, col), 1) + "</small>");
+      AB.stat("nv15-o-t", Math.round((pf[0] + pf[1] + pf[2] + pf[3]) * 100) + "% <small>한계 " + Math.round(PR.PAPERS[paper].tac * 100) + "%</small>");
+    }, { get height() { var w = document.getElementById("nv15-cv").parentElement.clientWidth; return w >= 500 ? 290 : Math.round(30 + 2 * Math.min(90, w * 0.26) + 24 + 150 + 64); }, bg: "#fbfaf7" });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return;
+        var dx = x - geo.cx, dy = geo.cy - y, r = Math.hypot(dx, dy);
+        if (r > geo.R * 1.15) return;
+        pick.c = Math.min(1, r / geo.R) * CMAX; pick.h = ART.mod360((Math.atan2(dy, dx) * 180) / Math.PI);
+        cv.redraw();
+      },
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 색역 단면 ---------------- */
+  (function () {
+    var hG = AB.range("gm15-h", function (v) { return v + "°"; }, function () { slice = null; cv.redraw(); });
+    var pG = AB.seg("gm15-p", function () { cv.redraw(); });
+    var b0 = ART.srgbToOklch(BRAND), pt = { L: b0[0], C: b0[1] }, geo = null, slice = null, CM = 0.3;
+    function makeSlice(W, H, hue) {
+      var c = document.createElement("canvas"); c.width = W; c.height = H;
+      var x = c.getContext("2d"), id = x.createImageData(W, H);
+      for (var j = 0; j < H; j++) for (var i = 0; i < W; i++) {
+        var L = 1 - j / (H - 1), C = (i / (W - 1)) * CM, rgb = ART.oklchToSrgb([L, C, hue]), o = (j * W + i) * 4;
+        if (!ART.inGamut(rgb, 1e-4)) continue;
+        id.data[o] = rgb[0] * 255; id.data[o + 1] = rgb[1] * 255; id.data[o + 2] = rgb[2] * 255; id.data[o + 3] = 255;
+      }
+      x.putImageData(id, 0, 0); return c;
+    }
+    var cv = AB.canvas("#gm15-cv", function (ctx, w, h) {
+      var p = P(), hue = hG(), paper = pG(), T = PR.table(paper);
+      var box = { x: 58, y: 22, w: w - 58 - 14, h: h - 22 - 40 };
+      geo = box;
+      if (!slice) slice = makeSlice(160, 160, hue);
+      AB.chart(ctx, box, { x: [0, CM], y: [0, 1], xTicks: [0, 0.1, 0.2, 0.3], yTicks: [0, 0.5, 1], xFmt: function (v) { return v.toFixed(1); }, yFmt: function (v) { return v; }, xLabel: "채도 C →" });
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(slice, box.x, box.y, box.w, box.h);
+      // 인쇄 경계
+      var X = function (C) { return box.x + (C / CM) * box.w; }, Y = function (L) { return box.y + (1 - L) * box.h; };
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(X(0), Y(T.Lmax));
+      for (var L = T.Lmax; L >= T.Lmin; L -= 0.005) ctx.lineTo(X(PR.cmaxAt(T, L, hue)), Y(L));
+      ctx.lineTo(X(0), Y(T.Lmin)); ctx.closePath();
+      ctx.lineWidth = 2.5; ctx.strokeStyle = p.text; ctx.stroke();
+      ctx.restore();
+      ctx.setLineDash([4, 4]); ctx.strokeStyle = p.dim; ctx.lineWidth = 1;
+      [T.Lmax, T.Lmin].forEach(function (L) { ctx.beginPath(); ctx.moveTo(box.x, Y(L)); ctx.lineTo(box.x + box.w, Y(L)); ctx.stroke(); });
+      ctx.setLineDash([]);
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10.5); ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+      ctx.fillText("종이 흰색", box.x + box.w - 4, Y(T.Lmax) - 2); ctx.textBaseline = "top"; ctx.fillText("가장 진한 잉크", box.x + box.w - 4, Y(T.Lmin) + 2);
+      ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillStyle = p.text; ctx.font = AB.font(11, false, 700);
+      ctx.fillText("굵은 선 안: " + PR.PAPERS[paper].name + " 인쇄", box.x + 6, box.y - 18);
+      ctx.save(); ctx.translate(12, box.y + box.h / 2); ctx.rotate(-Math.PI / 2); ctx.fillStyle = p.dim; ctx.font = AB.font(12); ctx.textAlign = "center"; ctx.fillText("명도 L", 0, 0); ctx.restore();
+      // 고른 점
+      var col = ART.oklchToSrgb([pt.L, pt.C, hue]), inS = ART.inGamut(col, 1e-4);
+      if (Math.abs(hue - 162) < 0.5 && Math.abs(pt.L - b0[0]) < 1e-6 && Math.abs(pt.C - b0[1]) < 1e-6) col = BRAND;
+      var shownCol = inS ? col : ART.gamutMap([pt.L, pt.C, hue]);
+      AB.handle(ctx, X(pt.C), Y(pt.L), { r: 8, fill: shownCol });
+      var inP = inS && PR.inGamut(paper, ART.clip(col));
+      var near = PR.mapIntent(paper, ART.clip(shownCol), "relative");
+      AB.stat("gm15-o-c", inS ? hex(col) : "화면 밖 <small>" + hex(shownCol) + "</small>");
+      AB.stat("gm15-o-in", inP ? "안" : "밖");
+      AB.stat("gm15-o-n", hex(near) + " <small>ΔE " + AB.fix(ART.diff(near, shownCol), 1) + "</small>");
+    }, { aspect: 0.75, minHeight: 300, maxHeight: 440 });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo) return; pt.C = AB.clamp(((x - geo.x) / geo.w) * CM, 0, CM); pt.L = AB.clamp(1 - (y - geo.y) / geo.h, 0.02, 0.99); cv.redraw(); } });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 렌더링 의도 ---------------- */
+  (function () {
+    var hG = AB.range("it15-h", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var pG = AB.seg("it15-p", function () { cv.redraw(); });
+    var wG = AB.check("it15-w", function () { cv.redraw(); });
+    var cv = AB.canvas("#it15-cv", function (ctx, w, h) {
+      var hue = hG(), paper = pG(), n = 12, pad = 12, lw = w >= 460 ? 92 : 0;
+      var src = [], inside = [];
+      for (var i = 0; i < n; i++) { var c = ART.gamutMap([0.62, 0.02 + (0.24 * i) / (n - 1), hue]); src.push(c); inside.push(PR.inGamut(paper, c)); }
+      var rel = src.map(function (c) { return PR.mapIntent(paper, c, "relative"); }), per = src.map(function (c) { return PR.mapIntent(paper, c, "perceptual"); });
+      var rows = [[src, "화면 원본"], [rel, "상대 색도계"], [per, "지각적"]];
+      var gw = w - pad * 2 - lw, cw = gw / n, rh = (h - pad * 2 - (lw ? 0 : 3 * 18) - 2 * 12) / 3;
+      rows.forEach(function (r, k) {
+        var y = pad + k * (rh + 12) + (lw ? 0 : (k + 1) * 18);
+        ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textBaseline = lw ? "middle" : "bottom"; ctx.textAlign = "left";
+        ctx.fillText(r[1], pad, lw ? y + rh / 2 : y - 3);
+        r[0].forEach(function (c, i) {
+          var x = pad + lw + i * cw;
+          ctx.fillStyle = hex(c); ctx.fillRect(x, y, cw + 0.5, rh);
+          if (k === 0 && wG() && !inside[i]) { ctx.fillStyle = AB.textOn(c); ctx.beginPath(); ctx.arc(x + cw / 2, y + rh / 2, Math.min(4, cw * 0.15), 0, 7); ctx.fill(); }
+        });
+      });
+      var merged = 0; for (var j = 1; j < n; j++) if (!inside[j] && ART.diff(rel[j], rel[j - 1]) < 1) merged++;
+      var avg = function (arr) { var s = 0, m = 0; arr.forEach(function (c, i) { if (inside[i]) { s += ART.diff(c, src[i]); m++; } }); return m ? s / m : 0; };
+      AB.stat("it15-o-r", merged + "쌍 <small>ΔE&lt;1로 붙음</small>");
+      AB.stat("it15-o-ri", AB.fix(avg(rel), 1));
+      AB.stat("it15-o-pi", AB.fix(avg(per), 1));
+    }, { aspect: 0.48, minHeight: 230, maxHeight: 320, bg: "#fbfaf7" });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 망점 ---------------- */
+  (function () {
+    var sG = AB.range("ht15-s", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var gG = AB.range("ht15-g", function (v) { return "+" + Math.round(v * 100) + "%p"; }, function () { cv.redraw(); });
+    var aG = AB.seg("ht15-a", function () { cv.redraw(); });
+    var ANG = { std: [15, 75, 0, 45], close: [15, 22, 0, 45], same: [45, 45, 45, 45] };
+    // 점 모양 함수의 넓이 → 문턱값 표(점이 덮는 넓이가 a가 되도록)
+    var SP = []; for (var i = 0; i < 64; i++) for (var j = 0; j < 64; j++) SP.push((Math.cos((2 * Math.PI * (i + 0.5)) / 64) + Math.cos((2 * Math.PI * (j + 0.5)) / 64)) / 2);
+    SP.sort(function (a, b) { return b - a; });
+    var thr = function (a) { if (a <= 0) return 2; if (a >= 1) return -2; return SP[Math.min(SP.length - 1, Math.floor(a * SP.length))]; };
+    // 대상 그림: 위 하늘 그라데이션, 가운데 책방 초록과 주황 원, 아래 회색 단계(값 u: 0~1, v: 0~1)
+    var SKY = ART.parse("#3a8fe0"), ORA = ART.parse("#e0602a");
+    var SKY_CM = [], GRAY_CM = [];
+    for (var q = 0; q <= 16; q++) { SKY_CM.push(PR.inverse("coated", ART.mixOklab([1, 1, 1], SKY, q / 16))); var gv = 1 - q / 16; GRAY_CM.push(PR.inverse("coated", [gv, gv, gv])); }
+    var ORA_CM = PR.inverse("coated", ORA), BR_CM = PR.inverse("coated", BRAND);
+    /** 대상 그림의 CMYK(코팅지 프로파일로 바꾼 값) */
+    function target(u, v) {
+      if (v < 0.34) return SKY_CM[Math.round(u * 16)];
+      if (v < 0.68) { var dx = (u - 0.72) * 2.2, dy = (v - 0.51) * 3; return dx * dx + dy * dy < 0.12 ? ORA_CM : BR_CM; }
+      return GRAY_CM[Math.round(u * 16)];
+    }
+    var S = PR.set("coated"), NK = ["paper", "c", "m", "y", "r", "g", "b", "cmy"];
+    var gamma = function (l) { return Math.round(ART.toGamma(AB.clamp(l, 0, 1)) * 255); };
+    var cv = AB.canvas("#ht15-cv", function (ctx, w, h) {
+      var cell = sG(), g = gG(), ang = ANG[aG()], dpr = 1;
+      var hw = Math.round(w * 0.66), W = hw, H = h;
+      var img = ctx.createImageData(W, H), d = img.data;
+      var rots = ang.map(function (a) { var r = (a * Math.PI) / 180; return [Math.cos(r), Math.sin(r)]; });
+      var gainF = function (a) { return a + g * (1 - (2 * a - 1) * (2 * a - 1)); };
+      for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
+        var cm = target(x / W, y / H), bits = [];
+        for (var p = 0; p < 4; p++) {
+          var u = (x * rots[p][0] + y * rots[p][1]) / cell, v = (-x * rots[p][1] + y * rots[p][0]) / cell;
+          var s = (Math.cos(2 * Math.PI * u) + Math.cos(2 * Math.PI * v)) / 2;
+          bits.push(s > thr(AB.clamp(gainF(cm[p]), 0, 1)) ? 1 : 0);
+        }
+        // 비트 순서: c=1, m=2, y=4 → 0 종이, 1 C, 2 M, 3 C+M(파랑), 4 Y, 5 C+Y(초록), 6 M+Y(빨강), 7 CMY
+        var idx = bits[0] + bits[1] * 2 + bits[2] * 4, key = ["paper", "c", "m", "b", "y", "g", "r", "cmy"][idx];
+        var col = S[key], o = (y * W + x) * 4;
+        for (var ch = 0; ch < 3; ch++) d[o + ch] = gamma(bits[3] ? (col[ch] * S.k[ch]) / S.paper[ch] : col[ch]);
+        d[o + 3] = 255;
+      }
+      // 캔버스 HiDPI 변환을 피해 putImageData는 장치 픽셀에 찍히므로, 임시 캔버스에 그린 뒤 drawImage로 옮긴다
+      var tmp = document.createElement("canvas"); tmp.width = W; tmp.height = H; tmp.getContext("2d").putImageData(img, 0, 0);
+      ctx.imageSmoothingEnabled = false; ctx.drawImage(tmp, 0, 0, W, H);
+      // 오른쪽: 멀리서 본 색(모형의 평균)
+      var rx = hw + 10, rw = w - rx, steps = Math.round(h / 2), cols = Math.max(12, Math.round(rw / 2)), fv = {};
+      for (var yy = 0; yy < steps; yy++) {
+        var vv = (yy + 0.5) / steps;
+        for (var xx = 0; xx < cols; xx++) {
+          var uu = (xx + 0.5) / cols, cmk = target(uu, vv), fk = cmk.join(",");
+          ctx.fillStyle = fv[fk] || (fv[fk] = hex(PR.show("coated", cmk, g))); ctx.fillRect(rx + (xx * rw) / cols, (yy * h) / steps, rw / cols + 0.6, h / steps + 0.6);
+        }
+      }
+      ctx.fillStyle = "rgba(251,250,247,.88)"; ctx.fillRect(rx + 4, 4, Math.min(rw - 8, 92), 20);
+      ctx.fillStyle = INK; ctx.font = AB.font(11, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("멀리서 본 색", rx + 10, 14);
+      var gc = PR.show("coated", BR_CM, g);
+      AB.stat("ht15-o-a", ang.join("° · ") + "°");
+      AB.stat("ht15-o-g", Math.round(gainF(0.5) * 100) + "%");
+      AB.stat("ht15-o-c", hex(gc) + " <small>ΔE " + AB.fix(ART.diff(gc, BRAND), 1) + "</small>");
+    }, { aspect: 0.55, minHeight: 240, maxHeight: 340, bg: "#f6f6f2" });
+  })();
+
+  /* ---------------- 포스터(가상의 가을 낭독회 포스터) ---------------- */
+  var POSTER = { bg: "#f3ead6", green: "#2f7d5b", leaf: "#3cc46a", leaf2: "#1f9a4c", accent: "#e0602a", sky: "#3a8fe0", sky2: "#a9d1f2", ink: "#2b2a30", cream: "#fffaf0" };
+  /** col(key) → css 색. 포스터 안의 글자도 포스터의 색이다(고정색). */
+  function drawPoster(ctx, x, y, w, h, col) {
+    ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+    ctx.fillStyle = col("bg"); ctx.fillRect(x, y, w, h);
+    // 하늘
+    var sky = ctx.createLinearGradient(0, y, 0, y + h * 0.42); sky.addColorStop(0, col("sky")); sky.addColorStop(1, col("sky2"));
+    ctx.fillStyle = sky; ctx.fillRect(x, y, w, h * 0.42);
+    // 주황 해
+    ctx.fillStyle = col("accent"); ctx.beginPath(); ctx.arc(x + w * 0.74, y + h * 0.2, w * 0.13, 0, 7); ctx.fill();
+    // 잎사귀
+    for (var i = 0; i < 7; i++) {
+      var lx = x + w * (0.08 + i * 0.13), ly = y + h * (0.4 + (i % 2) * 0.04), s = w * 0.12;
+      ctx.fillStyle = col(i % 2 ? "leaf2" : "leaf");
+      ctx.beginPath(); ctx.ellipse(lx, ly, s * 0.5, s * 0.95, (i % 2 ? 0.5 : -0.4), 0, 7); ctx.fill();
+    }
+    // 초록 띠와 제목
+    ctx.fillStyle = col("green"); ctx.fillRect(x, y + h * 0.52, w, h * 0.22);
+    ctx.fillStyle = col("cream"); ctx.font = AB.font(Math.round(w * 0.11), false, 800); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+    ctx.fillText("가을 낭독회", x + w * 0.08, y + h * 0.6);
+    ctx.font = AB.font(Math.round(w * 0.05), false, 600); ctx.fillText("동네 작가와 함께 읽는 저녁", x + w * 0.08, y + h * 0.68);
+    ctx.fillStyle = col("ink"); ctx.font = AB.font(Math.round(w * 0.055), false, 700);
+    ctx.fillText("10월 18일 토 오후 4시", x + w * 0.08, y + h * 0.82);
+    ctx.font = AB.font(Math.round(w * 0.045)); ctx.fillText("책방 E · 골목 2층", x + w * 0.08, y + h * 0.89);
+    ctx.fillStyle = col("green"); ctx.font = AB.font(Math.round(w * 0.09), false, 800); ctx.textAlign = "right"; ctx.fillText("E", x + w * 0.92, y + h * 0.86);
+    ctx.restore();
+  }
+
+  /* ---------------- 시뮬레이터 5: 종이와 조명 ---------------- */
+  (function () {
+    var pG = AB.seg("pp15-p", function () { cv.redraw(); });
+    var gG = AB.range("pp15-g", function (v) { return (v >= 0 ? "+" : "") + Math.round(v * 100) + "%p"; }, function () { cv.redraw(); });
+    var lG = AB.check("pp15-l", function () { cv.redraw(); });
+    var BULB = { type: "blackbody", T: 2700 };
+    var bulbWhite = (function () { var w = ART.whitePoint(BULB); return w.map(function (v) { return v / w[1]; }); })();
+    var lightCache = {};
+    // 순응한 눈으로 본 인쇄물(반사)과 화면(스스로 빛남)
+    function underBulbPrint(rgb) { var k = hex(rgb); return lightCache[k] || (lightCache[k] = fit(ART.renderReflectance(ART.reflectanceFromSrgb(rgb), BULB, "adapted"))); }
+    function underBulbScreen(rgb) { return fit(ART.xyzToSrgb(ART.adapt(ART.srgbToXyz(rgb), bulbWhite, ART.D65))); }
+    var cv = AB.canvas("#pp15-cv", function (ctx, w, h) {
+      var paper = pG(), g0 = PR.PAPERS[paper].gain, g = AB.clamp(g0 + gG(), 0, 0.5), bulb = lG(), pad = 14;
+      var map = {};
+      Object.keys(POSTER).forEach(function (k) {
+        var src = ART.parse(POSTER[k]), cm = PR.inverse(paper, src), out = PR.show(paper, cm, g);
+        map[k] = bulb ? underBulbPrint(out) : out;
+      });
+      var scr = function (k) { var c = ART.parse(POSTER[k]); return hex(bulb ? underBulbScreen(c) : c); };
+      var wide = w >= 460, pw = wide ? (w - pad * 3) / 2 : Math.min(w - pad * 2, (h - 3 * pad - 40) / 2 / 1.3), ph = pw * 1.3;
+      var x1 = wide ? pad : (w - pw) / 2, y1 = 26, x2 = wide ? pad * 2 + pw : x1, y2 = wide ? y1 : y1 + ph + 34;
+      if (bulb) { ctx.fillStyle = "#3a2f22"; ctx.fillRect(0, 0, w, h); }
+      // 화면 쪽은 모니터 테두리
+      ctx.fillStyle = "#222222"; rr(ctx, x1 - 5, y1 - 5, pw + 10, ph + 10, 6); ctx.fill();
+      drawPoster(ctx, x1, y1, pw, ph, scr);
+      drawPoster(ctx, x2, y2, pw, ph, function (k) { return hex(map[k]); });
+      ctx.fillStyle = bulb ? "#e8dcc6" : INK_DIM; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("화면", x1, y1 - 8); ctx.fillText(PR.PAPERS[paper].name + "에 인쇄", x2, y2 - 8);
+      var gp = map.green, d = ART.diff(gp, BRAND);
+      AB.stat("pp15-o-g", hex(gp));
+      AB.stat("pp15-o-d", AB.fix(d, 1));
+      AB.stat("pp15-o-w", AB.fix(ART.lightness(PR.show(paper, [0, 0, 0, 0])), 1));
+    }, { get height() { var w = document.getElementById("pp15-cv").parentElement.clientWidth; if (w >= 460) return Math.round(((w - 42) / 2) * 1.3 + 50); var pw = w - 28; return Math.round(pw * 1.3 * 2 + 26 + 34 + 20); }, bg: "#fbfaf7" });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 소프트 프루프 ---------------- */
+  (function () {
+    var pG = AB.seg("sp15-p", function () { proof = null; cvB.redraw(); });
+    var iG = AB.seg("sp15-i", function () { proof = null; cvB.redraw(); });
+    var paperG = AB.check("sp15-paper", function () { proof = null; cvB.redraw(); });
+    var wG = AB.check("sp15-warn", function () { proof = null; cvB.redraw(); });
+    var PW = 300, PH = 390, src = null, proof = null;
+    function makeSrc() {
+      var c = document.createElement("canvas"); c.width = PW; c.height = PH;
+      drawPoster(c.getContext("2d"), 0, 0, PW, PH, function (k) { return POSTER[k]; });
+      return c;
+    }
+    function makeProof() {
+      var paper = pG(), intent = iG(), simPaper = paperG(), warn = wG();
+      var sctx = src.getContext("2d", { willReadFrequently: true }), id = sctx.getImageData(0, 0, PW, PH), d = id.data;
+      var c = document.createElement("canvas"); c.width = PW; c.height = PH;
+      var x = c.getContext("2d"), od = x.createImageData(PW, PH), o = od.data, cache = new Map(), out = 0;
+      for (var i = 0; i < PW * PH; i++) {
+        // 화소 색을 채널당 5비트로 묶어 계산량을 줄인다(같은 묶음은 같은 결과)
+        var r5 = d[i * 4] >> 3, g5 = d[i * 4 + 1] >> 3, b5 = d[i * 4 + 2] >> 3, key = (r5 << 10) | (g5 << 5) | b5, v = cache.get(key);
+        if (!v) {
+          var rgb = [(r5 * 8 + 4) / 255, (g5 * 8 + 4) / 255, (b5 * 8 + 4) / 255], ing = PR.inGamut(paper, rgb), m = PR.mapIntent(paper, rgb, intent);
+          if (!simPaper) m = PR.relDisplay(paper, m);
+          v = [Math.round(m[0] * 255), Math.round(m[1] * 255), Math.round(m[2] * 255), ing ? 1 : 0];
+          cache.set(key, v);
+        }
+        var px = i % PW, py = (i / PW) | 0;
+        if (!v[3]) out++;
+        if (warn && !v[3]) { var st = ((px + py) >> 2) & 1; o[i * 4] = o[i * 4 + 1] = o[i * 4 + 2] = st ? 150 : 110; }
+        else { o[i * 4] = v[0]; o[i * 4 + 1] = v[1]; o[i * 4 + 2] = v[2]; }
+        o[i * 4 + 3] = 255;
+      }
+      x.putImageData(od, 0, 0);
+      var g = PR.mapIntent(paper, BRAND, intent);
+      AB.stat("sp15-o-o", Math.round((out / (PW * PH)) * 100) + "%");
+      AB.stat("sp15-o-g", hex(g) + " <small>ΔE " + AB.fix(ART.diff(g, BRAND), 1) + "</small>");
+      AB.stat("sp15-o-k", cmykStr(PR.inverse(paper, BRAND)));
+      return c;
+    }
+    function drawFit(ctx, im, w, h) {
+      var s = Math.min(w / PW, h / PH), dw = PW * s, dh = PH * s;
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(im, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    }
+    src = makeSrc();
+    var opts = { get height() { var w = document.getElementById("sp15-a").parentElement.clientWidth; return Math.round(Math.min(520, Math.max(320, w * 1.0))); }, bg: "#e9e6df" };
+    var cvA = AB.canvas("#sp15-a", function (ctx, w, h) { drawFit(ctx, src, w, h); }, opts);
+    var cvB = AB.canvas("#sp15-b", function (ctx, w, h) { if (!proof) proof = makeProof(); drawFit(ctx, proof, w, h); }, opts);
+    AB.compare("#sp15-cmp", { labels: ["화면", "인쇄 미리보기"], pos: 0.5 });
+  })();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "공공 도메인 명작에서 주요 색을 뽑아 비율과 명도 구조를 읽는다. 페르메이르의 작은 파랑, 고흐의 반대편 색, 피사로의 섞지 않은 붓질, 조선 수묵의 농담과 여백, 방위와 색을 묶은 오방색을 시뮬레이터로 분석하고, 모작이 아니라 원리를 가져오는 법을 익힌다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>그림 속 색 · ColorBook</title>
+<meta name="description" content="공공 도메인 명작에서 주요 색을 뽑아 비율과 명도 구조를 읽는다. 페르메이르의 작은 파랑, 고흐의 반대편 색, 피사로의 섞지 않은 붓질, 조선 수묵의 농담과 여백, 방위와 색을 묶은 오방색을 시뮬레이터로 분석하고, 모작이 아니라 원리를 가져오는 법을 익힌다.">
+<link rel="canonical" href="https://artbook.euiyun.com/color/chapters/painting.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="그림 속 색 · ColorBook">
+<meta property="og:description" content="공공 도메인 명작에서 주요 색을 뽑아 비율과 명도 구조를 읽는다. 페르메이르의 작은 파랑, 고흐의 반대편 색, 피사로의 섞지 않은 붓질, 조선 수묵의 농담과 여백, 방위와 색을 묶은 오방색을 시뮬레이터로 분석하고, 모작이 아니라 원리를 가져오는 법을 익힌다.">
+<meta property="og:url" content="https://artbook.euiyun.com/color/chapters/painting.html">
+<meta property="og:image" content="https://artbook.euiyun.com/color/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/color/chapters/painting.html#chapter","name":"그림 속 색","headline":"그림 속 색 · ColorBook","description":"공공 도메인 명작에서 주요 색을 뽑아 비율과 명도 구조를 읽는다. 페르메이르의 작은 파랑, 고흐의 반대편 색, 피사로의 섞지 않은 붓질, 조선 수묵의 농담과 여백, 방위와 색을 묶은 오방색을 시뮬레이터로 분석하고, 모작이 아니라 원리를 가져오는 법을 익힌다.","url":"https://artbook.euiyun.com/color/chapters/painting.html","position":11,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/color/og.png","dateModified":"2026-10-14","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/color/#book","name":"ColorBook · 색채","url":"https://artbook.euiyun.com/color/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ColorBook · 색채","item":"https://artbook.euiyun.com/color/"},{"@type":"ListItem","position":3,"name":"11. 그림 속 색","item":"https://artbook.euiyun.com/color/chapters/painting.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="painting">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 11</div>
+    <h1>그림 속 색</h1>
+    <p class="lead">"고흐의 노랑", "페르메이르의 파랑"이라는 말을 듣는다. 그런데 막상 그 그림 앞에 서면 노랑이나 파랑은 화면의 일부일 뿐이고, 대부분은 회색에 가까운 벽, 흙빛 땅, 탁한 초록이다. 우리가 기억하는 색과 그림이 실제로 쓴 색은 어떻게 다를까. 이 장은 공공 도메인 명작 다섯 점에서 색을 직접 뽑아 비율과 명도와 색상의 짜임을 읽고, 수묵의 농담과 오방색처럼 다른 전통이 색을 다루는 방식도 같은 눈으로 본다. 목표는 명작을 베끼는 것이 아니라, 그 안에서 내 그림에 가져올 <b>원리</b>를 찾는 것이다.</p>
+    <ul class="objectives">
+      <li>k-평균 군집으로 그림의 주요 색과 그 비율을 뽑고, 결과를 읽을 때의 함정을 안다.</li>
+      <li>명작의 색이 명도 구조 위에 놓여 있고, 선명한 색은 작은 면적에 아껴 쓰인다는 것을 숫자로 확인한다.</li>
+      <li>색상의 분포에서 반대편 색의 짝(보색 대비)을 찾고, 인상주의의 섞지 않은 붓질을 가까이서 본다.</li>
+      <li>수묵화가 먹 하나의 농담과 여백으로 명도를 짜는 방식을 본다.</li>
+      <li>오방색을 방위·오행과 묶인 문화적 색 체계로 이해하고, 정해진 하나의 수치가 없다는 점을 안다.</li>
+    </ul>
+  </header>
+
+  <section id="reading">
+    <h2>그림의 색을 읽는다는 것</h2>
+    <p>요하네스 페르메이르<span class="en">(Johannes Vermeer, 1632–1675)</span>의 그림 한 점에서 시작한다. 왼쪽 창으로 빛이 들어오는 방에서 한 여인이 창을 열며 다른 손으로 물병을 잡고 있다. 이 그림을 떠올리면 많은 사람이 흰 두건과 짙은 파랑 치마, 물병의 금빛을 먼저 기억한다. 그런데 화면의 넓이를 재 보면 이야기가 달라진다.</p>
+
+    <figure class="art-figure" id="fig-vermeer">
+      <div class="art-frame"><img src="../../shared/img/vermeer-young-woman-water-pitcher.webp" width="1423" height="1600" alt="요하네스 페르메이르의 「물병을 든 젊은 여인」. 왼쪽의 납 유리창을 연 여인이 흰 두건과 깃을 쓰고 서서 오른손으로 은빛 물병을 잡고 있다. 앞의 탁자에는 붉은 무늬 양탄자가 덮여 있고 파란 천과 보석함이 놓여 있다. 뒤쪽은 밝은 회백색 벽과 지도다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 1. 요하네스 페르메이르, 「물병을 든 젊은 여인」, 1662년경.</b> 화면의 대부분은 밝은 회백색 벽과 회갈색 그늘이다. 짙은 파랑(치마, 탁자 위 천)과 붉은 양탄자, 금빛 물병은 생각보다 작은 넓이를 차지한다. 오른쪽 위 "흑백" 단추로 보면 창에서 오른쪽 아래로 밝기가 고르게 가라앉는 명도의 흐름이 먼저 보인다.<span class="credit">메트로폴리탄 미술관 소장(Marquand Collection, Gift of Henry G. Marquand, 1889), 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/437881">소장처 작품 페이지</a> · <a href="../../credits.html#vermeer-young-woman-water-pitcher">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>그림의 색을 "읽는다"는 것은 이런 차이를 확인하는 일이다. 어떤 색이 얼마만큼의 넓이로, 어떤 명도에, 어떤 색 옆에 놓였는가. 화가들은 오래전부터 명작 앞에서 작은 색 견본을 칠해 가며 이 일을 했고, 오늘은 컴퓨터가 수만 개의 화소를 몇 초 만에 세어 준다. 다만 숫자를 읽기 전에 그 숫자가 무엇의 숫자인지부터 분명히 해 둔다.</p>
+
+    <div class="callout warn">
+      <strong>화면 속 그림의 색은 물감의 색이 아니다</strong>
+      이 장의 숫자는 소장처가 촬영해 공개한 디지털 이미지의 화소 값이다. 그 사이에는 여러 겹의 변화가 있다. 수백 년 동안 누렇게 변한 바니시, 빛에 바래기 쉬운 일부 안료(붉은 레이크 계열 등)의 퇴색, 촬영 조명과 카메라의 화이트밸런스(<a href="temperature.html">10장</a>), 이미지 압축, 그리고 지금 보고 있는 화면의 색. 그래서 이 장은 "고흐가 쓴 노랑은 #…이다"라고 말하지 않는다. 같은 조건에서 찍은 한 이미지 안의 <b>상대적인 관계</b>, 곧 비율, 명도의 순서, 색상의 방향을 읽는다. 화면 색은 기기마다 다르다.
+    </div>
+  </section>
+
+  <section id="kmeans">
+    <h2>주요 색 뽑기: k-평균</h2>
+    <p>그림 한 장에는 수십만 개의 화소가 있고, 거의 같은 색도 조금씩 다르다. 이것을 몇 개의 대표색으로 줄이는 흔한 방법이 <span class="term">k-평균 군집</span><span class="en">(k-means clustering)</span>이다. 색을 공간 속의 점으로 보고, 가까운 점끼리 k개의 무리로 묶은 뒤 각 무리의 평균을 대표색으로 삼는다. 이 책은 사람이 느끼는 색 차이에 가까운 OKLab 공간에서 묶는다(<a href="models.html">3장</a>).</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="k-평균 군집: 색 점들을 가장 가까운 대표색에 배정하고, 대표색을 무리의 평균으로 옮기기를 되풀이한다">
+        <defs><marker id="pt-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="14" y="30" width="200" height="200" rx="8" class="f-surface"/>
+        <rect x="246" y="30" width="200" height="200" rx="8" class="f-surface"/>
+        <text x="114" y="22" text-anchor="middle" class="lbl-b">① 가까운 대표색에 배정</text>
+        <text x="346" y="22" text-anchor="middle" class="lbl-b">② 대표색을 무리의 평균으로</text>
+        <g id="pt-km-a"></g><g id="pt-km-b"></g>
+        <path d="M216 130 H244" class="s-line" marker-end="url(#pt-ar)"/>
+        <text x="230" y="250" text-anchor="middle" class="lbl-dim">두 칸 모두 가로 a: 초록 ↔ 빨강, 세로 b: 파랑 ↔ 노랑</text>
+        <path d="M346 262 C346 292 114 292 114 262" class="s-dash" marker-end="url(#pt-ar)"/>
+        <text x="230" y="296" text-anchor="middle" class="lbl-dim">대표색이 더 움직이지 않을 때까지 되풀이</text>
+      </svg>
+      <figcaption><b>그림 2. k-평균의 두 단계.</b> 색 점(작은 원)마다 가장 가까운 대표색(큰 원, k=3)을 정하고(①), 대표색을 자기 무리 점들의 평균 위치로 옮긴다(②). 두 단계를 되풀이하면 대표색이 무리의 중심에 자리 잡는다. 실제로는 명도까지 세 축의 공간에서 계산하고, 시작점은 서로 멀리 떨어진 점을 고르는 방식(k-means++)으로 정한다.</figcaption>
+    </figure>
+
+    <p>이 과정이 줄이려는 것은 "각 화소와 그 대표색 사이 거리의 제곱합"이다.</p>
+    <div class="formula">$$\min_{\mu_1,\dots,\mu_k}\ \sum_{j=1}^{k}\ \sum_{x\in S_j} \lVert x-\mu_j \rVert^{2}$$<div class="where">\(x\): 화소의 색(OKLab의 세 값), \(S_j\): \(j\)번째 무리, \(\mu_j\): 그 무리의 대표색. 넓은 면적의 색일수록 합에 많이 들어가므로, k-평균은 <b>넓은 색을 먼저</b> 정확하게 맞춘다. 작은 면적의 색은 k가 커져야 비로소 자기 자리를 얻고, 작으면서 어둡기까지 하면 끝내 다른 무리에 묻히기도 한다.</div></div>
+    <p>아래 시뮬레이터는 페르메이르의 그림에서 k개의 색을 뽑고, 그 색만으로 그림을 다시 칠한다. 경계선을 끌어 원본과 비교하고, 슬라이더로 k를 바꾼다.</p>
+
+    <div class="sim" id="sim-km">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>k개의 색으로 다시 칠하기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <div class="compare" id="km-cmp">
+            <div class="cmp-a"><canvas id="km-a" class="art"></canvas></div>
+            <div class="cmp-b"><canvas id="km-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>뽑을 색의 수 k <output id="km-k-out"></output></span><input type="range" id="km-k" min="2" max="12" step="1" value="5"></label>
+          <label class="check"><input type="checkbox" id="km-sort"> 비율 대신 명도 순으로 띠 정렬</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 넓은 색</span><span class="v" id="km-o-big">—</span></div>
+        <div class="stat"><span class="k">가장 선명한 색(넓이)</span><span class="v" id="km-o-viv">—</span></div>
+        <div class="stat"><span class="k">평균 재현 오차 ΔE<sub>OK</sub>×100</span><span class="v" id="km-o-err">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① k=2에서 시작한다. 그림이 밝은 벽과 어두운 덩어리, 두 명도로 갈린다. 색보다 명도가 먼저 나뉜다. ② k를 하나씩 올리며 치마의 짙은 파랑을 찾아본다. k=12까지 올려도 파랑은 따로 뽑히지 않고 가장 어두운 무리(거의 검정)에 묻힌다. 사진 속 그 파랑은 아주 어두운 색이라 숫자로는 검정 가까이에 있다. ③ k=12에서 재현 오차는 줄지만 새로 생기는 색은 대부분 벽과 그늘의 미세한 회갈색 단계다. 넓이 순위는 "중요한 색"의 순위가 아니고, k-평균은 작고 어두운 색에 약하다. (OKLab k-평균, k-means++ 시작점, 시드 고정. 화소는 가로 240px로 줄인 이미지에서 최대 6,000개를 표본으로 뽑는다. 다시 칠하기는 각 화소를 가장 가까운 대표색으로 바꾼 것이다.)</div>
+    </div>
+
+    <p>숫자를 따로 세어 보면 사정이 분명해진다. 이 이미지에서 파랑 쪽 색상(OKLCH 220~290°)에 채도가 조금이라도 있는 화소는 약 8%이고, 그 대부분은 명도 0.2대의 아주 어두운 파랑이다. 채도 0.08을 넘는 "선명한" 화소는 그림 전체에서 0.3%뿐이다. 페르메이르는 그림 대부분을 밝고 조용한 회백색과 회갈색으로 채우고, 파랑과 빨강은 어둡고 작은 조각으로만 두었다. 그런데도 우리는 그 파랑을 또렷이 기억한다. 넓은 따뜻한 회색이 옆에 있어 작은 색 기운이 크게 느껴지기 때문이다(<a href="relativity.html">9장</a>). <a href="chroma.html">7장</a>에서 본 "채도 예산", 곧 선명한 색은 아껴 써야 빛난다는 원리가 명작 안에서 숫자로 드러난다. 반대로 말하면, 팔레트 추출 결과의 맨 앞에 오는 색은 대개 배경이고, 그림의 성격을 정하는 색은 띠의 끝에 작게 붙어 있거나 아예 다른 무리에 묻혀 있다. 팔레트 추출은 출발점이지 답이 아니다.</p>
+  </section>
+
+  <section id="hue">
+    <h2>색상의 지도: 반대편의 색</h2>
+    <p>넓이 다음으로 볼 것은 색상의 방향이다. 빈센트 반 고흐<span class="en">(Vincent van Gogh, 1853–1890)</span>는 동생 테오에게 보낸 편지에서 보색과 색의 대비에 대해 자주 썼고, 들라크루아의 색 이론에 관심이 많았다. 생레미 시절의 아래 그림은 그 관심이 화면에서 어떻게 짜였는지 보기 좋은 예다.</p>
+
+    <figure class="art-figure" id="fig-vangogh">
+      <div class="art-frame"><img src="../../shared/img/vangogh-wheat-field-cypresses.webp" width="1600" height="1257" alt="빈센트 반 고흐의 「사이프러스가 있는 밀밭」. 앞쪽에 금빛 밀밭이 펼쳐지고, 오른쪽에는 짙은 초록 사이프러스 나무가 불꽃처럼 솟아 있다. 뒤로 푸른 산과 소용돌이치는 흰 구름이 있는 파란 하늘이 보인다. 두꺼운 물감이 굽이치는 붓질로 칠해져 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 빈센트 반 고흐, 「사이프러스가 있는 밀밭」, 1889.</b> 화면 아래 절반의 노랑·황토와 위 절반의 파랑·청록이 색상환의 먼 쪽에서 마주한다. 그 사이를 초록의 덤불과 사이프러스가 잇는다. 흑백으로 보면 밀밭과 하늘은 둘 다 밝은 중간 명도라서, 둘을 가르는 일은 명도보다 색상이 맡고 있다.<span class="credit">메트로폴리탄 미술관 소장(Purchase, The Annenberg Foundation Gift, 1993), 캔버스에 유채. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/436535">소장처 작품 페이지</a> · <a href="../../credits.html#vangogh-wheat-field-cypresses">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>아래 시뮬레이터는 그림의 모든 화소를 색상환 위에 뿌린다. 각도는 색상(OKLCH h), 꽃잎의 길이는 그 색상에 얼마나 많은, 얼마나 선명한 화소가 있는지(채도를 무게로 한 개수)다. 채도가 아주 낮은 화소는 색상이 의미가 없으므로 따로 세어 "무채색 비율"로 보여 준다. 그림을 바꿔 가며 꽃잎의 모양을 비교한다.</p>
+
+    <div class="sim" id="sim-hue">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>그림의 색상 꽃잎</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="hu-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="hu-pic"><button data-value="vangogh" class="on">고흐</button><button data-value="vermeer">페르메이르</button><button data-value="pissarro">피사로</button><button data-value="rooster">금계도</button><button data-value="geese">평사낙안</button></div>
+          <label class="ctrl"><span>무채색으로 볼 채도 기준 <output id="hu-c-out"></output></span><input type="range" id="hu-c" min="0.01" max="0.08" step="0.005" value="0.03"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">무채색 비율</span><span class="v" id="hu-o-gray">—</span></div>
+        <div class="stat"><span class="k">가장 큰 꽃잎</span><span class="v" id="hu-o-main">—</span></div>
+        <div class="stat"><span class="k">그 맞은편(±60°)의 몫</span><span class="v" id="hu-o-opp">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 고흐에서 노랑·황토 쪽 꽃잎이 가장 길고, 맞은편 파랑·청록 쪽에도 꽃잎이 넓게 펼쳐진다. 그 사이 초록에도 꽃잎이 있다. 반대편의 두 색과 그 사이를 잇는 색이 화면을 나눠 갖는 모양이다. ② 페르메이르로 바꾼다. 무채색 비율이 60%로 올라가고, 꽃잎은 노랑·황토 쪽에 몰린 가운데 맞은편 파랑 쪽에도 꽃잎이 남는다. 화소 수는 적어도 채도를 무게로 세기 때문이다. ③ 피사로 「루앙」에서는 거꾸로 하늘의 파랑이 가장 큰 꽃잎이고, 햇빛 받은 건물의 살구색이 맞은편을 채운다. ④ 평사낙안(수묵화)과 금계도로 바꾼다. 꽃잎이 바탕 비단·종이의 누런 색상 한쪽에 몰리고 맞은편은 거의 비어 있다. 기준 채도를 올리고 내리며 결과가 얼마나 흔들리는지도 본다. (각 그림을 가로 200px로 줄여 모든 화소를 센다. 꽃잎은 10° 간격, 길이는 채도를 무게로 더한 값을 그림마다 가장 큰 꽃잎에 맞춰 늘린 것이다. 꽃잎 색은 그 색상의 견본일 뿐 그림의 실제 색이 아니다.)<span class="credit">그림 출처: 페르메이르(그림 1), 고흐(그림 3), 피사로 「루앙 에피스리 거리」(<a href="temperature.html#fig-rouen">10장 그림 4</a>), 「금계도」와 「평사낙안」(아래 시뮬레이터의 설명). 모두 메트로폴리탄 미술관 소장, 공공 도메인(The Met Open Access, CC0). <a href="../../credits.html">크레딧</a></span></div>
+    </div>
+
+    <p>꽃잎의 모양은 그림이 색상을 다루는 전략을 요약한다. 고흐의 꽃잎은 노랑에서 초록, 청록, 파랑까지 부채처럼 넓게 펼쳐지고, 무채색은 3분의 1 정도뿐이다. 노랑 들판과 파랑 하늘이라는 먼 두 색을 초록이 잇는다. 페르메이르는 화소의 60%가 무채색이고, 색이 있는 화소도 대부분 따뜻한 노랑·황토 쪽 한 방향에 모여 있으며, 맞은편의 파랑은 작고 어둡다. 둘 다 반대편 색의 짝, 곧 <span class="term">보색 대비</span><span class="en">(Complementary contrast)</span>를 쓰지만 넓이의 배분이 다르다. 넓게 맞세우면 화면 전체가 진동하고, 작게 박으면 한 점이 빛난다(<a href="contrast.html">8장</a>). 어느 쪽이 옳은 것이 아니라, 그림이 무엇을 전하려는가에 따라 고른 배분이다.</p>
+  </section>
+
+  <section id="impression">
+    <h2>인상주의: 섞지 않은 색</h2>
+    <p>인상주의 화가들의 그림은 멀리서 보면 회색 거리이고, 가까이서 보면 분홍, 하늘색, 연두, 살구색의 짧은 붓질 모음이다. 팔레트에서 섞어 회색을 만드는 대신, 서로 다른 색의 붓질을 나란히 놓아 눈에서 섞이게 한 것이다(<a href="overview.html">1장</a>의 병치 혼합). 이런 방식을 흔히 <span class="term">분할된 색</span><span class="en">(Broken color)</span>이라고 부른다. <a href="temperature.html">10장</a>에서 본 카미유 피사로의 「루앙 에피스리 거리(햇빛 효과)」에서 그 붓질을 가까이 본다. 아래 돋보기 안의 화소를 하나하나 OKLab의 a–b 평면(가로 초록↔빨강, 세로 파랑↔노랑)에 점으로 찍는다. 점이 가운데에 몰리면 정말 회색이고, 사방으로 흩어져 있는데 평균만 가운데라면 "색들이 모여 만든 회색"이다.</p>
+
+    <div class="sim" id="sim-loupe">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>돋보기: 회색 속의 붓질</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="lp-cv" class="art"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">돋보기를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="lp-pic"><button data-value="pissarro" class="on">피사로 「루앙」</button><button data-value="vangogh">고흐</button></div>
+          <label class="ctrl"><span>돋보기 크기 <output id="lp-r-out"></output></span><input type="range" id="lp-r" min="20" max="120" step="5" value="50"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">돋보기 안 평균색</span><span class="v" id="lp-o-mean">—</span></div>
+        <div class="stat"><span class="k">화소 하나하나의 평균 채도 → 평균색의 채도</span><span class="v" id="lp-o-c">—</span></div>
+        <div class="stat"><span class="k">따뜻한 화소 · 차가운 화소</span><span class="v" id="lp-o-de">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 자리는 골목 왼쪽 집들의 회청색 지붕이다. 평균색은 거의 완전한 회색인데, 점들은 노랑·분홍 쪽과 파랑·보라 쪽으로 흩어져 있다. 화소 하나하나의 평균 채도가 평균색의 채도보다 몇 배 크다. ② 오른쪽의 햇빛 받은 건물 정면으로 옮긴다. 점 구름 전체가 노랑·분홍 쪽으로 옮겨 가고 따뜻한 화소가 늘어난다. 그래도 파랑 쪽 점이 남아 있다(<a href="temperature.html">10장</a>의 하늘빛). ③ 고흐로 바꾼다. 점 구름이 훨씬 넓게 퍼지고, 평균을 내도 채도가 남는다. 같은 "섞지 않기"라도 고흐는 대비를, 피사로는 회색 속의 떨림을 만든다. (돋보기 안의 화소를 1600px 이미지에서 읽는다. 점은 그중 최대 700개 표본. 평균색은 선형광 평균. 채도 0.03이 넘는 화소 중 노랑·빨강 쪽을 따뜻한 화소, 파랑 쪽을 차가운 화소로 셌다. 이미지 압축과 캔버스 표면의 결도 작은 색 잡음을 보탠다.)<span class="credit">그림: 카미유 피사로, 「루앙 에피스리 거리(햇빛 효과)」, 1898(그림 정보는 <a href="temperature.html#fig-rouen">10장 그림 4</a>). 메트로폴리탄 미술관 소장, 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/437311">소장처 작품 페이지</a> · <a href="../../credits.html#pissarro-rue-epicerie-rouen">크레딧</a></span></div>
+    </div>
+
+    <p>회청색 지붕의 점들은 사방으로 흩어져 있는데, 그 평균은 회색이다. 피사로의 회색은 "탁한 회색 물감"이 아니라 "서로 다른 색들의 균형"이다. 이 차이는 멀리서는 거의 안 보이지만, 그림 앞을 걸어 다니면 회색이 살아 떨리는 느낌으로 남는다. 같은 회색을 팔레트에서 섞어 한 번에 칠하면 이 떨림이 없다.</p>
+
+    <div class="callout studio">
+      <strong>수채화에서 "섞지 않고 나란히"</strong>
+      수채화는 유화처럼 두꺼운 붓질을 나란히 쌓기 어렵지만, 같은 원리를 쓰는 방법이 있다. 하나는 마른 종이 위에 작은 붓질을 겹치지 않게 나란히 두는 것이다. 다른 하나는 첫 색이 완전히 마른 뒤 다른 색을 얇게 덮는 <span class="term">글레이징</span><span class="en">(Glazing)</span>인데, 이것은 병치가 아니라 셀로판을 겹친 것처럼 빛을 거르는 혼합이라 결과가 다르다. 회색 그늘을 칠할 때 페인즈 그레이 한 가지 대신 파랑과 번트 시에나를 젖은 종이 위에서 반쯤만 섞이게 두면, 멀리서는 회색이고 가까이서는 두 색이 갈라져 보이는 회색을 얻는다. 어디까지 섞을지는 1장에서처럼 "그 자리가 가까이서 보일 것인가"로 정한다.
+    </div>
+  </section>
+
+  <section id="ink">
+    <h2>수묵: 먹 하나의 다섯 색</h2>
+    <p>동아시아의 수묵화는 먹 하나로 그린다. 그런데도 수묵화를 "색이 없는 그림"이라고 부르지 않는다. 당나라의 장언원<span class="en">(張彥遠)</span>이 『역대명화기』에서 먹을 잘 운용하면 다섯 가지 색이 갖추어진다는 뜻의 말을 남긴 뒤로, "먹에 다섯 색이 있다(墨分五彩)"는 표현이 화론에서 오래 쓰였다. 여기서 "색"은 색상이 아니라 먹의 짙고 옅음, 곧 <span class="term">농담</span><span class="en">(濃淡, Ink tonality)</span>이다. 다섯 단계의 이름은 책마다 조금씩 다르지만, 흔히 가장 짙은 초묵(焦墨)부터 농묵(濃墨), 중묵(重墨), 담묵(淡墨), 가장 옅은 청묵(淸墨)으로 나눈다.</p>
+    <p>아래는 조선 전기(15세기 말~16세기 초)의 이름 모를 화가가 비단에 먹으로 그린 「평사낙안」이다. 물가 모래톱으로 기러기가 내려앉는 풍경으로, 중국에서 시작된 "소상팔경"의 한 장면을 그린 것이다. 그림의 명도를 다섯 단으로 나누고, 단을 하나씩 골라 그 농담이 화면의 어디에 있는지 본다.</p>
+
+    <div class="sim" id="sim-ink">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>먹의 다섯 단계와 여백</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="ik-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ik-band"><button data-value="0">초묵</button><button data-value="1">농묵</button><button data-value="2" class="on">중묵</button><button data-value="3">담묵</button><button data-value="4">청묵·여백</button></div>
+          <label class="check"><input type="checkbox" id="ik-all"> 다섯 단을 한꺼번에 칠하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이 단의 명도 L* 범위</span><span class="v" id="ik-o-l">—</span></div>
+        <div class="stat"><span class="k">이 단의 넓이</span><span class="v" id="ik-o-a">—</span></div>
+        <div class="stat"><span class="k">이 단의 평균색</span><span class="v" id="ik-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 초묵과 농묵을 차례로 고른다. 가장 짙은 먹은 앞쪽 물가의 바위와 소나무, 기러기에만 아주 작게 쓰였다. ② 담묵과 청묵·여백을 고른다. 화면의 대부분은 옅은 먹과 아무것도 칠하지 않은 비단 바탕이고, 먼 산과 물안개가 그 안에서 거의 경계 없이 녹아 있다. ③ "다섯 단을 한꺼번에 칠하기"를 켠다. 짙은 먹이 아래 앞쪽에, 옅은 먹이 위 먼 쪽에 놓여 거리감을 만든다. 먹 하나로 공간을 짠 셈이다. (단은 이 그림 화소의 명도 L*를 어두운 쪽 1%와 밝은 쪽 1% 사이에서 다섯 등분한 것이며, 전통적인 다섯 먹의 정의가 아니다. 비단은 세월에 누렇게 변해 원래보다 어둡고 따뜻하다.)<span class="credit">그림: 작가 미상, 「평사낙안(Wild geese descending to sandbar)」, 조선 15세기 말~16세기 초, 비단에 먹, 족자. 메트로폴리탄 미술관 소장(Purchase, Harris Brisbane Dick Fund, John M. Crawford Jr. Bequest, and The Vincent Astor Foundation Gift, 1992). 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/39888">소장처 작품 페이지</a> · <a href="../../credits.html#joseon-wild-geese-sandbar">크레딧</a></span></div>
+    </div>
+
+    <p>수묵화에서 칠하지 않은 바탕, 곧 <span class="term">여백</span><span class="en">(餘白, Empty space)</span>은 빈 곳이 아니라 물, 안개, 하늘이 되는 한 단계의 "색"이다. 앞 절의 페르메이르가 회백색 벽에 넓은 자리를 준 것과 같은 일을, 수묵화는 아무것도 칠하지 않음으로써 한다. 서양화의 명도 계획(<a href="value.html">6장</a>)이 "어디를 가장 어둡게 할까"에서 출발한다면, 수묵의 계획은 "어디를 비워 둘까"에서 출발하는 경우가 많다. 둘 다 결국 명도의 단계와 그 넓이를 정하는 일이다.</p>
+
+    <div class="callout try">
+      <strong>한 색으로 다섯 단계 칠하기</strong>
+      먹이 없다면 수채 물감 한 가지(울트라마린이나 번트 엄버처럼 어두운 색)로 해도 된다. 종이에 가로 3&nbsp;cm 칸 다섯 개를 그리고, 물을 점점 많이 타서 가장 짙은 칸부터 가장 옅은 칸까지 칠한다. 마지막 칸은 칠하지 않고 종이 그대로 둔다(여백). 마른 뒤 눈을 가늘게 뜨고 이웃한 칸의 차이가 고르게 보이는지 본다. 대개 짙은 쪽 차이가 작고 옅은 쪽 차이가 크게 나오므로, 고르게 맞을 때까지 다시 칠한다. 그다음 같은 다섯 단계만으로 창밖 풍경이나 컵 하나를 그려 본다.
+    </div>
+  </section>
+
+  <section id="obang">
+    <h2>오방색: 방위와 색의 체계</h2>
+    <p>한국의 전통 색을 말할 때 자주 나오는 말이 <span class="term">오방색</span><span class="en">(五方色, Five cardinal colors)</span>이다. 청(靑)·적(赤)·황(黃)·백(白)·흑(黑) 다섯 색을 동·남·중앙·서·북의 다섯 방위, 그리고 목·화·토·금·수의 오행과 짝지은 체계로, 동아시아에 널리 퍼진 음양오행 사상에서 나왔다. 그러니 오방색은 "다섯 가지 예쁜 색"이 아니라, 세계를 다섯으로 나누어 이해하던 생각의 틀에 색을 붙인 <b>상징 체계</b>다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 350" role="img" aria-label="오방색: 동쪽 청, 남쪽 적, 중앙 황, 서쪽 백, 북쪽 흑과 오행의 짝">
+        <rect x="185" y="20" width="90" height="70" rx="8" fill="#1d1d1f"/>
+        <rect x="185" y="130" width="90" height="70" rx="8" fill="#e8b21e"/>
+        <rect x="185" y="240" width="90" height="70" rx="8" fill="#c8232c"/>
+        <rect x="320" y="130" width="90" height="70" rx="8" fill="#1f5aa6"/>
+        <rect x="50" y="130" width="90" height="70" rx="8" fill="#f4f1e8" stroke="#b9b4a8"/>
+        <text x="230" y="52" text-anchor="middle" font-size="18" font-weight="700" fill="#f4f1e8">흑 黑</text>
+        <text x="230" y="74" text-anchor="middle" font-size="12" fill="#d0ccc4">북 · 수(水)</text>
+        <text x="230" y="162" text-anchor="middle" font-size="18" font-weight="700" fill="#2b2a30">황 黃</text>
+        <text x="230" y="184" text-anchor="middle" font-size="12" fill="#3d3a33">중앙 · 토(土)</text>
+        <text x="230" y="272" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">적 赤</text>
+        <text x="230" y="294" text-anchor="middle" font-size="12" fill="#f6dcdc">남 · 화(火)</text>
+        <text x="365" y="162" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">청 靑</text>
+        <text x="365" y="184" text-anchor="middle" font-size="12" fill="#dbe6f6">동 · 목(木)</text>
+        <text x="95" y="162" text-anchor="middle" font-size="18" font-weight="700" fill="#2b2a30">백 白</text>
+        <text x="95" y="184" text-anchor="middle" font-size="12" fill="#55524a">서 · 금(金)</text>
+        <path d="M230 92V128M230 202V238M142 165H183M277 165H318" class="s-dash"/>
+        <text x="440" y="340" text-anchor="end" class="lbl-dim">색 값은 이 책의 예시(ART.OBANG)</text>
+        <text x="20" y="340" class="lbl-dim">북쪽이 위, 남쪽이 아래</text>
+      </svg>
+      <figcaption><b>그림 4. 오방색과 방위.</b> 다섯 색은 방위와 오행에 짝지어진다. 칸의 색은 화면에 보여 주기 위해 이 책이 고른 예시값(청 <code>#1f5aa6</code>, 적 <code>#c8232c</code>, 황 <code>#e8b21e</code>, 백 <code>#f4f1e8</code>, 흑 <code>#1d1d1f</code>)이다. 전통 색에는 하나로 정해진 수치가 없다. 같은 "청"도 시대, 지역, 안료와 염료, 쓰인 자리(옷감, 단청, 그림)에 따라 쪽빛에서 녹청까지 넓게 걸친다. 방위 배치는 지도처럼 북을 위에 두고 그린 것이다.</figcaption>
+    </figure>
+
+    <p>오방색과 그 사이 색(간색)은 궁궐과 절의 <span class="term">단청</span><span class="en">(丹靑)</span>, 아이 옷의 소매를 여러 색 띠로 이은 색동, 혼례와 의례의 물건 등 여러 자리에서 쓰였다. 다만 각 색에 어떤 의미(예를 들어 액막이, 축원)가 붙는지는 문헌과 쓰임에 따라 다르고, 오늘날 흔히 도는 "이 색은 이런 뜻" 목록 중에는 근거가 분명하지 않은 것도 섞여 있다. 색의 문화적 의미는 <a href="meaning.html">12장</a>에서 근거의 수준을 따져 가며 다시 다룬다.</p>
+    <p>이 장에서는 질문을 하나로 좁힌다. 실제 조선 그림의 색은 오방색 "예시값"과 얼마나 같을까. 아래는 19세기 조선의 채색화 「금계도」다. 붉은 해와 붉은 나무 줄기, 금빛 수탉과 암탉, 청록의 바위와 파도가 있다. 오방색 예시값마다 그림에서 그 색에 가장 가까운 화소 3%를 골라, 그 자리와 평균색을 본다.</p>
+
+    <div class="sim" id="sim-obang">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>오방색 예시값과 그림 속 색</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="ob-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ob-col"><button data-value="blue">청</button><button data-value="red" class="on">적</button><button data-value="yellow">황</button><button data-value="white">백</button><button data-value="black">흑</button></div>
+          <label class="check"><input type="checkbox" id="ob-hl" checked> 그 3%의 자리만 색으로 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">오방색 예시값</span><span class="v" id="ob-o-ex">—</span></div>
+        <div class="stat"><span class="k">그림에서 가장 가까운 3% 화소의 평균</span><span class="v" id="ob-o-pic">—</span></div>
+        <div class="stat"><span class="k">둘의 색차 ΔE2000</span><span class="v" id="ob-o-de">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 적을 고른다. 표시되는 자리는 붉은 해와 나무 줄기, 닭의 볏이다. 그 평균은 예시값보다 어둡고 갈색 쪽으로 기운 붉은색이다. 다섯 색 중 예시값과 가장 가깝지만 그래도 한눈에 다르다. ② 청을 고른다. 청에 가장 가까운 화소들은 바위와 파도 쪽에 모이지만, 그 평균은 쨍한 파랑이 아니라 회색에 가까운 색이다. 오래된 채색화의 청록은 안료와 세월 때문에 대개 이렇게 가라앉아 있다. ③ 백과 흑을 고른다. 그림의 "흰" 곳은 누렇게 변한 종이 바탕이고, 가장 어두운 곳도 갈색빛 먹이다. 오방색 예시값은 개념을 보여 주는 견본이지, 옛 그림의 색을 재는 자가 아니다. (각 예시값과 OKLab 거리가 가장 가까운 화소 3%를 고르고 그 선형광 평균을 낸다. ΔE2000이 10을 넘으면 한눈에 다른 색이다. 오른쪽 아래 띠는 같은 그림의 k-평균 8색이다.)<span class="credit">그림: 작가 미상, 「금계도(Golden Rooster and Hen)」, 조선 19세기, 종이에 먹과 채색, 족자(표구 부분을 잘라 냄). 메트로폴리탄 미술관 소장(Rogers Fund, 1919). 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/40073">소장처 작품 페이지</a> · <a href="../../credits.html#joseon-golden-rooster-hen">크레딧</a></span></div>
+    </div>
+
+    <p>예시값과 그림 속 색이 크게 다르다는 것이 실패는 아니다. 그 차이가 오방색의 성격을 알려 준다. 오방색은 처음부터 "몇 번 물감"이 아니라 "동쪽의 색, 봄의 색, 나무의 색"이라는 범주였다. 화가와 장인은 그 범주 안에서 구할 수 있는 안료와 놓일 자리에 맞춰 실제 색을 골랐다. 그래서 오방색을 오늘의 디자인에 가져올 때도, 다섯 개의 hex 값을 그대로 붙이기보다 "다섯 범주가 서로 어떤 관계로 놓이는가"(예를 들어 중앙의 황을 둘러싼 네 색, 밝음과 어둠의 짝인 백과 흑)를 가져오는 편이 원래의 생각에 가깝다.</p>
+  </section>
+
+  <section id="compare">
+    <h2>팔레트 실험실: 두 그림 나란히</h2>
+    <p>지금까지의 도구를 한곳에 모은다. 왼쪽에 그림 하나(A)를 놓고, k개의 주요 색과 그 넓이, 명도 단계를 본다. 오른쪽 아래에는 다른 그림 하나(B)의 팔레트를 함께 놓고, 두 팔레트를 색 공간(OKLab의 a–b 평면) 위에 원으로 겹쳐 그린다. 원의 크기는 넓이, 원 안의 숫자는 명도 L*다(작은 원은 생략). 안쪽 원 세 개는 채도 0.04, 0.08, 0.12다. 보기 방식을 바꿔 원본, k색으로 다시 칠한 그림, 명도 단계 그림을 오간다.</p>
+
+    <div class="sim" id="sim-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>두 그림의 팔레트 비교</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="lb-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="lb-a"><button data-value="vermeer" class="on">A 페르메이르</button><button data-value="vangogh">A 고흐</button><button data-value="pissarro">A 피사로</button><button data-value="rooster">A 금계도</button><button data-value="geese">A 평사낙안</button></div>
+          <div class="seg" id="lb-b"><button data-value="vermeer">B 페르메이르</button><button data-value="vangogh" class="on">B 고흐</button><button data-value="pissarro">B 피사로</button><button data-value="rooster">B 금계도</button><button data-value="geese">B 평사낙안</button></div>
+          <label class="ctrl"><span>뽑을 색의 수 k <output id="lb-k-out"></output></span><input type="range" id="lb-k" min="3" max="10" step="1" value="6"></label>
+          <div class="seg" id="lb-view"><button data-value="orig" class="on">원본</button><button data-value="kc">k색</button><button data-value="val">명도 5단</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">A의 명도 범위(L* 5~95%)</span><span class="v" id="lb-o-l">—</span></div>
+        <div class="stat"><span class="k">A에서 선명한 색(C&gt;0.08)의 넓이</span><span class="v" id="lb-o-v">—</span></div>
+        <div class="stat"><span class="k">B의 명도 범위 · 선명한 색 넓이</span><span class="v" id="lb-o-b">—</span></div>
+        <div class="stat"><span class="k">두 팔레트의 거리(평균 ΔE2000)</span><span class="v" id="lb-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① A 페르메이르, B 고흐에서 원들을 본다. 페르메이르의 원은 가운데(무채색) 근처에 크게 모이고 바깥에 작은 원이 한두 개 있다. 고흐의 원은 노랑 쪽과 파랑 쪽으로 넓게 퍼져 있다. 선명한 색의 넓이가 몇 배 차이 나는지 숫자로 비교한다. ② A를 평사낙안으로 바꾸고 "명도 5단"을 본다. 색은 거의 없는데 명도 단계만으로 그림이 온전히 읽힌다. ③ A 피사로 「루앙」과 B 금계도를 비교한다. 피사로는 선명한 색이 거의 없는데(채도 0.08 넘는 화소가 1% 미만) 원들이 하늘의 파랑 쪽과 건물의 살구색 쪽으로 고르게 갈라지고, 금계도는 선명한 색이 몇 퍼센트 있지만 원들이 모두 누런 바탕 쪽에 모이고 붉은색만 따로 떨어져 있다. 같은 "차분한 그림"도 색을 아끼는 방식이 다르다. (OKLab k-평균, 그림마다 가로 200px 이미지에서 최대 6,000화소 표본. 두 팔레트의 거리는 A의 각 색에서 B의 가장 가까운 색까지의 ΔE2000을 넓이로 가중 평균한 값이다. 명도 5단은 그 그림의 L* 1~99% 사이를 다섯 등분했다.)</div>
+    </div>
+
+    <p>두 그림을 나란히 놓으면 "이 그림은 따뜻하다", "이 그림은 화려하다" 같은 인상이 어떤 숫자에서 오는지 보인다. 화려해 보이는 그림이 실제로 선명한 색의 넓이가 큰 것인지, 아니면 작은 선명한 색이 넓은 무채색 위에 놓여서 그렇게 보이는 것인지. 차분해 보이는 그림이 색이 없는 것인지, 색은 있지만 명도와 채도를 좁은 범위에 모은 것인지. 이 구분이 남의 그림에서 원리를 가져오는 첫걸음이다.</p>
+
+    <div class="callout studio">
+      <strong>모작이 아니라 원리를 가져온다</strong>
+      명작의 팔레트를 그대로 옮겨 쓰면 대개 어색하다. 색은 그 그림의 크기, 주제, 빛, 재료 안에서 관계로 맞춰진 것이기 때문이다. 화가들이 명작을 공부할 때 흔히 하는 일은 색 값을 베끼는 것이 아니라 질문을 하나씩 뽑는 것이다. "가장 선명한 색은 화면의 몇 퍼센트인가", "가장 어두운 곳은 어디이고 얼마나 작은가", "그늘은 어느 쪽으로 기울었나", "비워 둔 곳은 어디인가". 그 답 하나를 내 그림의 조건 안에서 다시 적용한다. 공공 도메인 작품은 모사 자체도 자유지만, 내 작품으로 내놓을 때는 무엇을 참고했는지 밝혀 두는 것이 좋은 습관이다.
+    </div>
+
+    <div class="callout try">
+      <strong>좋아하는 그림 한 점의 색 다섯 개 손으로 뽑기</strong>
+      좋아하는 그림을 한 점 골라(도록이나 소장처 웹사이트의 공공 도메인 이미지) 옆에 두고, 물감이나 색연필로 그 그림의 "가장 넓은 색" 셋과 "가장 선명한 색" 둘을 엄지손톱만 하게 칠한다. 각 견본 옆에 그 색이 화면의 몇 퍼센트쯤인지 어림해 적는다. 그다음 이 장의 실험실에 비슷한 그림을 넣어 보거나, 직접 찍은 사진을 흑백으로 바꿔 내 어림과 비교한다. 대부분의 사람은 선명한 색의 넓이를 실제보다 크게 어림한다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 11장</span></div>
+      <h4>세 그림, 세 개의 질문</h4>
+      <p>10월 셋째 주 토요일, 서윤은 도경의 작업실에서 노트북을 펴고 이 장의 실험실에 그림을 하나씩 넣었다. 도경은 화면 옆에 오래된 도록을 펼쳐 놓고 "숫자는 네가 읽고, 나는 손으로 칠해 볼게"라며 같은 그림에서 색 다섯 개를 물감으로 뽑았다. 두 사람의 결과를 비교하니, 도경의 견본에서도 선명한 색은 실제 넓이보다 크게 칠해져 있었다. "봐, 화가 눈도 선명한 색은 부풀려 기억해." 서윤은 대신 도경에게 k를 바꾸는 법을 가르쳐 주었다.</p>
+      <p>두 사람은 수채화 세 점마다 그림 하나와 질문 하나를 짝지었다. 아래 숫자는 이 장의 실험실(k=6)과 시뮬레이터로 이 책의 모델이 계산한 값이다.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>서윤의 그림</th><th>참고한 그림</th><th>뽑은 원리(질문)</th><th>이 책의 모델로 잰 값</th></tr></thead>
+        <tbody>
+          <tr><td>「창가의 책」</td><td>페르메이르, 「물병을 든 젊은 여인」</td><td>창에서 드는 빛 하나, 넓고 조용한 중간 명도 위에 선명한 색은 아주 작게</td><td>선명한 색(채도 C&gt;0.08) 넓이 0.3%, 명도 범위 L* 8~57</td></tr>
+          <tr><td>「비 오는 골목」</td><td>작가 미상, 「평사낙안」</td><td>한 색의 다섯 농담과 여백으로 거리감을 짠다. 가장 짙은 단은 앞쪽에 아주 작게</td><td>가장 짙은 단(초묵)의 넓이 4.7%, 가장 옅은 단(청묵·여백) 16.9%</td></tr>
+          <tr><td>「해 질 녘 서점 앞」</td><td>피사로, 「루앙 에피스리 거리(햇빛 효과)」</td><td>그늘의 회색을 섞어 만들지 않고, 따뜻한 붓질과 차가운 붓질을 나란히 두어 눈에서 섞이게</td><td>회색 지붕 돋보기: 화소 하나하나의 평균 채도 0.026 → 평균색 채도 0.009</td></tr>
+        </tbody>
+      </table></div>
+      <p>「창가의 책」에서 서윤은 처음에 책 표지 다섯 권을 모두 다른 선명한 색으로 칠할 생각이었다. 페르메이르의 숫자를 본 뒤 계획을 바꿨다. 창가의 벽과 책장은 따뜻한 회백색과 회갈색의 넓은 중간 명도로 두고, 선명한 색은 맨 위 책 한 권의 파랑에만 쓴다. 「비 오는 골목」은 먹 대신 기본 3색으로 섞은 회색 한 가지의 다섯 농담으로 밑칠을 하고, 젖은 바닥의 반사는 종이의 흰색을 남겨 표현한다. 「해 질 녘 서점 앞」은 10장에서 정한 푸른 그림자를 한 번에 섞어 칠하지 않고, 파랑과 번트 시에나를 젖은 종이 위에서 반쯤만 섞이게 둔다. 도경은 마지막에 한 줄을 덧붙였다. "남의 그림에서 색을 가져오지 말고, 질문을 가져와."</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>세 그림의 참고 원리 하나씩. 「창가의 책」: 선명한 색은 한 군데에만(넓이 몇 퍼센트 이내). 「비 오는 골목」: 한 색 다섯 농담 + 종이 여백. 「해 질 녘 서점 앞」: 그늘은 따뜻한 색과 차가운 색의 나란한 붓질로. 색 값을 베끼지 않고 원리만 가져온다.</div>
+        <div><b>아직 남은 문제</b>주인이 "초록은 편안함, 빨강은 구매욕"이라는 말을 꺼냈다. 색의 의미에 대한 이런 말은 얼마나 믿을 수 있는가. 오방색처럼 문화마다 다른 색의 의미는 브랜드에 어떻게 쓰나.</div>
+        <div><b>다음 단계</b><a href="meaning.html">12장</a>: 색채 심리 통설의 근거 수준을 검토하고 문화권별 색의 의미를 본다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>화면 속 그림의 색은 물감의 색이 아니라 촬영·바니시·퇴색·화면을 거친 값이다. 절대값보다 한 이미지 안의 비율, 명도 순서, 색상 방향을 읽는다.</li>
+      <li>k-평균은 넓은 색부터 맞추므로 팔레트의 앞자리는 대개 배경이다. 그림의 성격을 정하는 작은 색은 k를 키워야 나타나거나 어두운 무리에 묻히기도 한다. 넓이 순위는 중요도 순위가 아니다.</li>
+      <li>명작은 대개 넓은 무채색·저채도 바탕 위에 선명한 색을 작게 둔다. 보색 대비도 넓게 맞세우느냐(고흐) 작게 박느냐(페르메이르)에 따라 효과가 다르다.</li>
+      <li>인상주의의 회색은 선명한 붓질들이 눈에서 섞인 회색이다. 평균은 회색이어도 가까이서는 색이 갈라져 떨림을 만든다.</li>
+      <li>수묵화는 먹 하나의 농담(흔히 다섯 단계)과 칠하지 않은 여백으로 명도와 공간을 짠다. 여백도 한 단계의 색이다.</li>
+      <li>오방색은 방위·오행과 묶인 문화적 상징 체계다. 정해진 하나의 수치가 없고, 실제 그림 속 색은 예시값과 크게 다를 수 있다. 가져올 것은 hex 값보다 범주 사이의 관계다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 페르메이르의 그림에서 k를 5에서 12까지 올리며 주요 색을 뽑았더니 회백색과 회갈색 단계만 늘고, 기억 속의 짙은 파랑은 끝내 따로 나오지 않았다. 가장 알맞은 해석은?</p>
+        <div class="opts">
+          <button class="opt">k-평균은 파랑을 잘 인식하지 못하는 알고리즘이라서 결과를 믿을 수 없다.</button>
+          <button class="opt" data-correct>파랑은 넓이가 작고 아주 어두워서 거리 제곱합에 적게 들어가 어두운 무리에 묻힌다. 팔레트의 넓이 순위가 중요도 순위는 아니므로, 작은 색은 따로 찾아봐야 한다.</button>
+          <button class="opt">그림의 파랑이 세월에 바래 회색이 되었기 때문이다.</button>
+          <button class="opt">k-평균은 선명한 색을 먼저 뽑으므로, 결과에 없는 파랑은 그림에 없는 색이다.</button>
+        </div>
+        <div class="quiz-exp">k-평균은 각 화소와 대표색 사이 거리의 제곱합을 줄이므로 넓은 색을 먼저 맞춘다. 작고 어두운 색은 가까운 어두운 무리에 묻히기 쉽다. 이 이미지에서 파랑 쪽 화소는 약 8%, 그것도 대부분 아주 어두운 파랑이다. 페르메이르가 파랑을 작고 어둡게 아껴 쓴 것이 그 그림의 전략이다. 퇴색 가능성은 일반적인 주의 사항이지만 이 현상의 설명은 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 피사로의 그림에서 회색으로 보이는 지붕을 확대하니 노랑·분홍 쪽과 파랑·보라 쪽의 작은 붓질이 섞여 있었다. 이 방식에 대한 설명으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt">팔레트에서 여러 색을 섞어 회색을 만든 뒤 칠한 것이다.</button>
+          <button class="opt">사진을 찍을 때 생긴 색 잡음이다.</button>
+          <button class="opt">각 붓질 색이 원래 회색이었는데 바니시 때문에 색이 생겼다.</button>
+          <button class="opt" data-correct>서로 다른 색의 붓질을 나란히 두어 멀리서 눈에서 섞이게 한 것이다(병치 혼합). 평균은 회색이지만 가까이서는 색이 갈라져 보인다.</button>
+        </div>
+        <div class="quiz-exp">인상주의의 분할된 색은 붓질을 섞지 않고 나란히 둔다. 멀리서는 빛의 평균(병치 혼합)으로 회색에 가깝게 보이고, 가까이서는 각 붓질의 색이 살아 있다. 팔레트에서 섞은 회색에는 이 떨림이 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 오방색에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>청·적·황·백·흑을 동·남·중앙·서·북과 오행에 짝지은 문화적 상징 체계이며, 하나로 정해진 색 수치는 없다.</button>
+          <button class="opt">국가 표준으로 정해진 다섯 개의 hex 값이 있어 그 값을 쓰지 않으면 오방색이 아니다.</button>
+          <button class="opt">빨강·초록·파랑 빛의 삼원색에 흰색과 검정을 더한 서양 색채학의 체계다.</button>
+          <button class="opt">청은 서쪽, 백은 동쪽을 뜻한다.</button>
+        </div>
+        <div class="quiz-exp">오방색은 음양오행 사상에서 나온 방위와 색의 짝이다(청-동, 적-남, 황-중앙, 백-서, 흑-북). 실제 색은 시대·재료·쓰임에 따라 넓게 달랐다. 이 책의 ART.OBANG 값도 화면용 예시일 뿐이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 수묵화의 "먹에 다섯 색이 있다(墨分五彩)"는 말에서 "색"이 가리키는 것으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">먹에 섞는 다섯 가지 안료의 색상</button>
+          <button class="opt">오방색 다섯 가지</button>
+          <button class="opt" data-correct>물의 양으로 조절한 먹의 짙고 옅음, 곧 명도의 단계(농담). 칠하지 않은 여백도 화면에서 한 단계의 역할을 한다.</button>
+          <button class="opt">종이 다섯 장을 겹쳐 내는 색의 차이</button>
+        </div>
+        <div class="quiz-exp">수묵의 "다섯 색"은 색상이 아니라 농담이다. 흔히 초묵·농묵·중묵·담묵·청묵으로 나누지만 이름과 수는 책마다 다르다. 여백은 물·안개·하늘이 되는 가장 밝은 단계로 쓰인다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var P = function () { return AB.palette(); };
+  var hex = ART.hex;
+  var INK = "#2b2a30", INK_DIM = "#6b6874";
+
+  /* ---------------- 공통: 그림 불러오기와 분석 도구 ---------------- */
+  var PICS = {
+    vermeer: { src: "../../shared/img/vermeer-young-woman-water-pitcher.webp", name: "페르메이르" },
+    vangogh: { src: "../../shared/img/vangogh-wheat-field-cypresses.webp", name: "고흐" },
+    pissarro: { src: "../../shared/img/pissarro-rue-epicerie-rouen.webp", name: "피사로" },
+    rooster: { src: "../../shared/img/joseon-golden-rooster-hen.webp", name: "금계도" },
+    geese: { src: "../../shared/img/joseon-wild-geese-sandbar.webp", name: "평사낙안" },
+  };
+  var loading = {};
+  function pic(key) {
+    if (!loading[key]) loading[key] = AB.loadImage(PICS[key].src).then(function (im) {
+      var p = PICS[key]; p.img = im; p.data = AB.imageData(im, 200); return p;
+    });
+    return loading[key];
+  }
+  // 바이트 → 선형광, OKLab 미리 계산
+  var LIN = new Float32Array(256); for (var i = 0; i < 256; i++) LIN[i] = ART.toLinear(i / 255);
+  function labsOf(d) {
+    if (d._lab) return d._lab;
+    var n = d.width * d.height, out = new Float32Array(n * 3), L = new Float32Array(n);
+    for (var p = 0; p < n; p++) {
+      var q = ART.linearToOklab([LIN[d.data[p * 4]], LIN[d.data[p * 4 + 1]], LIN[d.data[p * 4 + 2]]]);
+      out[p * 3] = q[0]; out[p * 3 + 1] = q[1]; out[p * 3 + 2] = q[2];
+      L[p] = ART.lightness(ART.linearToSrgb([LIN[d.data[p * 4]], LIN[d.data[p * 4 + 1]], LIN[d.data[p * 4 + 2]]]));
+    }
+    d._lab = out; d._L = L; return out;
+  }
+  function nearestIdx(lab, p, cents) {
+    var best = 0, bd = 1e9;
+    for (var c = 0; c < cents.length; c++) { var k = cents[c], d = (lab[p * 3] - k[0]) * (lab[p * 3] - k[0]) + (lab[p * 3 + 1] - k[1]) * (lab[p * 3 + 1] - k[1]) + (lab[p * 3 + 2] - k[2]) * (lab[p * 3 + 2] - k[2]); if (d < bd) { bd = d; best = c; } }
+    return best;
+  }
+  function quantile(arr, q) { var a = Array.prototype.slice.call(arr).sort(function (x, y) { return x - y; }); return a[Math.min(a.length - 1, Math.max(0, Math.round(q * (a.length - 1))))]; }
+  function drawFit(ctx, src, x, y, w, h) { // contain
+    var iw = src.width || src.naturalWidth, ih = src.height || src.naturalHeight, s = Math.min(w / iw, h / ih);
+    var dw = iw * s, dh = ih * s; ctx.drawImage(src, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
+    return { x: x + (w - dw) / 2, y: y + (h - dh) / 2, w: dw, h: dh, s: s };
+  }
+  // 분석 이미지(ImageData)를 픽셀 함수로 다시 칠한 캔버스
+  function remap(d, fn) {
+    var c = document.createElement("canvas"); c.width = d.width; c.height = d.height;
+    var x = c.getContext("2d"), id = x.createImageData(d.width, d.height);
+    for (var p = 0; p < d.width * d.height; p++) { var rgb = fn(p); id.data[p * 4] = rgb[0]; id.data[p * 4 + 1] = rgb[1]; id.data[p * 4 + 2] = rgb[2]; id.data[p * 4 + 3] = 255; }
+    x.putImageData(id, 0, 0); return c;
+  }
+  var to255 = ART.to255;
+  function chromaOf(rgb) { return ART.srgbToOklch(rgb)[1]; }
+
+  /* ---------------- 그림 2: k-평균 도식 ---------------- */
+  (function () {
+    var rnd = AB.rng(5), centers = [[60, 150, "#c4553f"], [150, 80, "#3d6fb0"], [140, 170, "#d7b23e"]];
+    var pts = [];
+    centers.forEach(function (c) { for (var i = 0; i < 9; i++) pts.push([c[0] + (rnd() - 0.5) * 60, c[1] + (rnd() - 0.5) * 56, c[2]]); });
+    var start = [[110, 120], [90, 60], [170, 200]];
+    var A = "", B = "";
+    pts.forEach(function (p) {
+      var x = 14 + p[0] * 0.95, y = 30 + p[1] * 0.95;
+      var best = 0, bd = 1e9; start.forEach(function (s, k) { var d = Math.hypot(p[0] - s[0], p[1] - s[1]); if (d < bd) { bd = d; best = k; } });
+      var s = start[best];
+      A += '<path d="M' + x.toFixed(1) + " " + y.toFixed(1) + "L" + (14 + s[0] * 0.95).toFixed(1) + " " + (30 + s[1] * 0.95).toFixed(1) + '" class="s-dash" stroke-width=".6"/>';
+      A += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="4" fill="' + p[2] + '"/>';
+      B += '<circle cx="' + (x + 232).toFixed(1) + '" cy="' + y.toFixed(1) + '" r="4" fill="' + p[2] + '"/>';
+    });
+    start.forEach(function (s) { A += '<circle cx="' + (14 + s[0] * 0.95).toFixed(1) + '" cy="' + (30 + s[1] * 0.95).toFixed(1) + '" r="10" fill="none" class="s-acc" stroke-width="2.5"/>'; });
+    centers.forEach(function (c) { var mx = 0, my = 0, n = 0; pts.forEach(function (p) { if (p[2] === c[2]) { mx += p[0]; my += p[1]; n++; } }); B += '<circle cx="' + (246 + (mx / n) * 0.95).toFixed(1) + '" cy="' + (30 + (my / n) * 0.95).toFixed(1) + '" r="11" fill="' + c[2] + '" fill-opacity=".35" class="s-acc" stroke-width="2.5"/>'; });
+    document.getElementById("pt-km-a").innerHTML = A; document.getElementById("pt-km-b").innerHTML = B;
+  })();
+
+  /* ---------------- 시뮬레이터 1: k개의 색으로 다시 칠하기 ---------------- */
+  (function () {
+    var kG = AB.range("km-k", function (v) { return v; }, function () { run(); });
+    var sortG = AB.check("km-sort", function () { cvB.redraw(); });
+    var P0 = null, D = null, recol = null, pal = null;
+    function drawLayer(which) {
+      return function (ctx, w, h) {
+        if (!P0) return;
+        var barH = 26, box = drawFit(ctx, which === "a" ? P0.img : recol || P0.img, 0, 0, w, h - barH - 4);
+        if (pal) {
+          var list = pal.slice();
+          if (sortG()) list.sort(function (a, b) { return ART.lightness(a.rgb) - ART.lightness(b.rgb); });
+          var x = 0, y = h - barH;
+          list.forEach(function (c) { var ww = c.weight * w; ctx.fillStyle = hex(c.rgb); ctx.fillRect(x, y, ww + 0.6, barH); x += ww; });
+        }
+      };
+    }
+    var opt = { aspect: 1.18, maxHeight: 520, bg: "#2a2a2a" };
+    var cvA = AB.canvas("#km-a", drawLayer("a"), opt), cvB = AB.canvas("#km-b", drawLayer("b"), opt);
+    AB.compare("#km-cmp", { labels: ["원본", "k색으로"], pos: 0.5 });
+    function run() {
+      if (!P0) return;
+      var k = kG();
+      pal = ART.kmeans(D.data, k, { seed: 7, sample: 6000 });
+      var lab = labsOf(D), cents = pal.map(function (c) { return ART.srgbToOklab(c.rgb); }), cols = pal.map(function (c) { return to255(c.rgb); });
+      var err = 0, n = D.width * D.height;
+      recol = remap(D, function (p) { var j = nearestIdx(lab, p, cents), c = cents[j]; err += Math.hypot(lab[p * 3] - c[0], lab[p * 3 + 1] - c[1], lab[p * 3 + 2] - c[2]); return cols[j]; });
+      cvA.redraw(); cvB.redraw();
+      var viv = pal.slice().sort(function (a, b) { return chromaOf(b.rgb) - chromaOf(a.rgb); })[0];
+      AB.stat("km-o-big", hex(pal[0].rgb) + " <small>" + AB.pct(pal[0].weight, 0) + "</small>");
+      AB.stat("km-o-viv", hex(viv.rgb) + " <small>" + AB.pct(viv.weight, 1) + "</small>");
+      AB.stat("km-o-err", AB.fix((err / n) * 100, 1));
+    }
+    AB.loadImage(PICS.vermeer.src).then(function (im) { P0 = { img: im }; D = AB.imageData(im, 240); run(); });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 그림의 색상 꽃잎 ---------------- */
+  (function () {
+    var picG = AB.seg("hu-pic", function () { load(); });
+    var cG = AB.range("hu-c", function (v) { return v.toFixed(3); }, function () { cv.redraw(); });
+    var cur = null;
+    var petalCol = []; for (var b = 0; b < 36; b++) petalCol.push(hex(ART.gamutMap([0.72, 0.13, b * 10 + 5])));
+    var cv = AB.canvas("#hu-cv", function (ctx, w, h) {
+      var p = P(); if (!cur) return;
+      var wide = w >= 520, thumbW = wide ? w * 0.34 : w - 24, thumbH = wide ? h - 24 : h * 0.34;
+      drawFit(ctx, cur.img, 12, 12, thumbW, thumbH);
+      var cx = wide ? 12 + thumbW + (w - thumbW - 24) / 2 : w / 2, cy = wide ? h / 2 : thumbH + 24 + (h - thumbH - 36) / 2;
+      var R = wide ? Math.min((w - thumbW - 80) / 2, h / 2 - 24) : Math.min(w / 2 - 36, (h - thumbH - 52) / 2);
+      var lab = labsOf(cur.data), n = cur.data.width * cur.data.height, thr = cG();
+      var bins = new Float32Array(36), gray = 0;
+      for (var q = 0; q < n; q++) {
+        var a = lab[q * 3 + 1], bb = lab[q * 3 + 2], C = Math.hypot(a, bb);
+        if (C < thr) { gray++; continue; }
+        var hdeg = ART.mod360(Math.atan2(bb, a) * 180 / Math.PI); bins[Math.floor(hdeg / 10) % 36] += C;
+      }
+      var mx = Math.max.apply(null, bins) || 1;
+      ctx.strokeStyle = p.grid; ctx.lineWidth = 1;
+      [0.33, 0.66, 1].forEach(function (f) { ctx.beginPath(); ctx.arc(cx, cy, R * f, 0, Math.PI * 2); ctx.stroke(); });
+      for (var k = 0; k < 36; k++) {
+        var r = R * Math.sqrt(bins[k] / mx), a0 = -(k * 10) * Math.PI / 180, a1 = -((k + 1) * 10) * Math.PI / 180;
+        if (r < 0.5) continue;
+        ctx.fillStyle = petalCol[k]; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, r, a0, a1, true); ctx.closePath(); ctx.fill();
+      }
+      // 무채색 원
+      ctx.fillStyle = "#9a9a9a"; ctx.beginPath(); ctx.arc(cx, cy, Math.max(3, R * 0.18 * Math.sqrt(gray / n)), 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      [[25, "빨강"], [100, "노랑"], [195, "청록"], [265, "파랑"]].forEach(function (t) {
+        var ang = -t[0] * Math.PI / 180; ctx.fillText(t[1], cx + Math.cos(ang) * (R + 14), cy + Math.sin(ang) * (R + 12));
+      });
+      var main = 0; for (var j = 1; j < 36; j++) if (bins[j] > bins[main]) main = j;
+      var opp = 0, tot = 0; for (var m = 0; m < 36; m++) { tot += bins[m]; var dd = Math.abs((((m - main) * 10) % 360 + 360) % 360 - 180); if (dd <= 60) opp += bins[m]; }
+      // 가장 큰 꽃잎과 맞은편 표시
+      ctx.strokeStyle = p.text; ctx.setLineDash([4, 4]); ctx.beginPath();
+      var am = -(main * 10 + 5) * Math.PI / 180; ctx.moveTo(cx + Math.cos(am) * R, cy + Math.sin(am) * R); ctx.lineTo(cx - Math.cos(am) * R, cy - Math.sin(am) * R); ctx.stroke(); ctx.setLineDash([]);
+      AB.stat("hu-o-gray", AB.pct(gray / n, 0));
+      AB.stat("hu-o-main", (main * 10) + "~" + (main * 10 + 10) + "° <small>" + AB.pct(bins[main] / tot, 0) + "</small>");
+      AB.stat("hu-o-opp", AB.pct(opp / tot, 0) + " <small>" + (opp / tot > 0.25 ? "반대편 색이 뚜렷하다" : opp / tot > 0.1 ? "반대편 색이 조금 있다" : "한쪽에 몰려 있다") + "</small>");
+    }, { get height() { var w = document.getElementById("hu-cv").parentElement.clientWidth; return w >= 520 ? Math.round(Math.min(400, w * 0.62)) : Math.round(w * 1.25); } });
+    function load() { pic(picG()).then(function (p) { cur = p; cv.redraw(); }); }
+    load();
+  })();
+
+  /* ---------------- 시뮬레이터 3: 돋보기 ---------------- */
+  (function () {
+    var picG = AB.seg("lp-pic", function () { load(); });
+    var rG = AB.range("lp-r", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var cur = null, full = {}, pos = { pissarro: [0.35, 0.45], vangogh: [0.45, 0.6] }, geo = null;
+    function fullData(key, im) {
+      if (full[key]) return full[key];
+      var c = document.createElement("canvas"); c.width = im.naturalWidth; c.height = im.naturalHeight;
+      var x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
+      return (full[key] = x);
+    }
+    var cv = AB.canvas("#lp-cv", function (ctx, w, h) {
+      if (!cur) return;
+      var wide = w >= 520, key = picG(), im = cur.img;
+      var areaW = wide ? w * 0.62 : w, areaH = wide ? h : h * 0.58;
+      var box = drawFit(ctx, im, 6, 6, areaW - 12, areaH - 12);
+      var pp = pos[key], px = box.x + pp[0] * box.w, py = box.y + pp[1] * box.h;
+      var rr = rG(), r = rr * box.s;             // 원본 px 반지름 rr → 화면
+      geo = { box: box };
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(px, py, Math.max(r, 6), 0, Math.PI * 2); ctx.stroke();
+      ctx.strokeStyle = "rgba(0,0,0,0.6)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(px, py, Math.max(r, 6) + 2, 0, Math.PI * 2); ctx.stroke();
+      // 확대 칸
+      var zx = wide ? areaW + 6 : 6, zy = wide ? 6 : areaH + 2, zw = wide ? w - areaW - 12 : (w - 18) * 0.5, zh = wide ? (h - 12) * 0.48 : h - areaH - 8;
+      var zs = Math.min(zw, zh);
+      var sx = pp[0] * im.naturalWidth - rr, sy = pp[1] * im.naturalHeight - rr;
+      ctx.save(); ctx.beginPath(); ctx.rect(zx, zy, zs, zs); ctx.clip();
+      ctx.imageSmoothingEnabled = false; ctx.drawImage(im, sx, sy, rr * 2, rr * 2, zx, zy, zs, zs); ctx.restore();
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 1; ctx.strokeRect(zx + 0.5, zy + 0.5, zs - 1, zs - 1);
+      // 돋보기 안 분석: 화소를 a–b 평면에 찍는다
+      var fx = fullData(key, im), x0 = Math.max(0, Math.round(sx)), y0 = Math.max(0, Math.round(sy)), S = Math.round(rr * 2);
+      var d = fx.getImageData(x0, y0, Math.min(S, im.naturalWidth - x0), Math.min(S, im.naturalHeight - y0));
+      var acc = [0, 0, 0], n = 0, sc = 0, warm = 0, cool = 0, pts = [], step = Math.max(1, Math.floor(d.data.length / 4 / 700));
+      for (var q = 0, k = 0; q < d.data.length; q += 4, k++) {
+        var lr = LIN[d.data[q]], lg = LIN[d.data[q + 1]], lb = LIN[d.data[q + 2]], o = ART.linearToOklab([lr, lg, lb]), C = Math.hypot(o[1], o[2]);
+        acc[0] += lr; acc[1] += lg; acc[2] += lb; n++; sc += C;
+        if (C > 0.03) { if (o[2] < -0.01 && o[1] < 0.03) cool++; else warm++; }
+        if (k % step === 0) pts.push([o[1], o[2], d.data[q], d.data[q + 1], d.data[q + 2]]);
+      }
+      var mean = ART.linearToSrgb(acc.map(function (v) { return v / n; })), mo = ART.srgbToOklab(mean);
+      var bx = wide ? zx : zx + zs + 8, by = wide ? zy + zs + 8 : zy, bs = wide ? Math.min(zs, h - by - 8) : Math.min(w - bx - 6, zs);
+      var pcx = bx + bs / 2, pcy = by + bs / 2, SC = bs / 2 / 0.1;
+      ctx.fillStyle = "#1c1c1e"; ctx.fillRect(bx, by, bs, bs);
+      ctx.strokeStyle = "#55555a"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(bx, pcy); ctx.lineTo(bx + bs, pcy); ctx.moveTo(pcx, by); ctx.lineTo(pcx, by + bs); ctx.stroke();
+      ctx.beginPath(); ctx.arc(pcx, pcy, 0.03 * SC, 0, Math.PI * 2); ctx.stroke();
+      pts.forEach(function (t) { ctx.fillStyle = "rgb(" + t[2] + "," + t[3] + "," + t[4] + ")"; ctx.fillRect(pcx + AB.clamp(t[0], -0.1, 0.1) * SC - 1.5, pcy - AB.clamp(t[1], -0.1, 0.1) * SC - 1.5, 3, 3); });
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(pcx + mo[1] * SC, pcy - mo[2] * SC, 6, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = "#cfcdc8"; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("노랑 +b", pcx + 4, by + 3); ctx.fillText("빨강 +a", bx + bs - 44, pcy + 3); ctx.fillText("흰 고리: 평균", bx + 4, by + bs - 14);
+      AB.stat("lp-o-mean", hex(mean));
+      AB.stat("lp-o-c", (sc / n).toFixed(3) + " → " + ART.srgbToOklch(mean)[1].toFixed(3));
+      AB.stat("lp-o-de", AB.pct(warm / n, 0) + " · " + AB.pct(cool / n, 0));
+    }, { get height() { var w = document.getElementById("lp-cv").parentElement.clientWidth; return w >= 520 ? Math.round(Math.min(440, w * 0.56)) : Math.round(w * 1.25); }, bg: "#2a2a2c" });
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var b = geo.box;
+        if (x < b.x - 10 || x > b.x + b.w + 10 || y < b.y - 10 || y > b.y + b.h + 10) return;
+        pos[picG()] = [AB.clamp((x - b.x) / b.w, 0.03, 0.97), AB.clamp((y - b.y) / b.h, 0.03, 0.97)]; cv.redraw();
+      },
+    });
+    function load() { pic(picG()).then(function (p) { cur = p; cv.redraw(); }); }
+    load();
+  })();
+
+  /* ---------------- 시뮬레이터 4: 먹의 다섯 단계 ---------------- */
+  (function () {
+    var bandG = AB.seg("ik-band", function () { draw(); });
+    var allG = AB.check("ik-all", function () { draw(); });
+    var cur = null, D = null, edges = null, view = null;
+    var BAND_SHOW = ["#e8505b", "#f0a33a", "#4fb37a", "#3f8fd8", "#a070d8"];
+    function prep() {
+      var L = D._L; var lo = quantile(L, 0.01), hi = quantile(L, 0.99);
+      edges = [0, 1, 2, 3, 4, 5].map(function (i) { return lo + (hi - lo) * i / 5; });
+      edges[0] = -1; edges[5] = 101;
+    }
+    function bandOf(v) { for (var i = 0; i < 5; i++) if (v < edges[i + 1]) return i; return 4; }
+    function draw() {
+      if (!D) return;
+      var b = +bandG(), all = allG(), L = D._L, n = D.width * D.height, cnt = 0, acc = [0, 0, 0];
+      view = remap(D, function (p) {
+        var r = D.data[p * 4], g = D.data[p * 4 + 1], bl = D.data[p * 4 + 2], k = bandOf(L[p]);
+        if (k === b) { cnt++; acc[0] += LIN[r]; acc[1] += LIN[g]; acc[2] += LIN[bl]; }
+        if (all) { var c = ART.parse(BAND_SHOW[k]); var t = to255(c); return [t[0] * 0.75 + r * 0.25, t[1] * 0.75 + g * 0.25, t[2] * 0.75 + bl * 0.25]; }
+        if (k === b) return [r * 0.35 + 255 * 0.65 * (b < 2 ? 1 : 0.9), g * 0.35 + 70 * 0.65, bl * 0.35 + 90 * 0.65];
+        var y = Math.round(0.2126 * r + 0.7152 * g + 0.0722 * bl); return [y * 0.55 + 40, y * 0.55 + 40, y * 0.55 + 40];
+      });
+      cv.redraw();
+      var lo = Math.max(0, edges[b]), hi = Math.min(100, edges[b + 1]);
+      AB.stat("ik-o-l", AB.fix(b === 0 ? quantile(L, 0) : lo, 0) + " ~ " + AB.fix(b === 4 ? quantile(L, 1) : hi, 0));
+      AB.stat("ik-o-a", AB.pct(cnt / n, 1));
+      AB.stat("ik-o-c", cnt ? hex(ART.linearToSrgb(acc.map(function (v) { return v / cnt; }))) : "—");
+    }
+    var cv = AB.canvas("#ik-cv", function (ctx, w, h) {
+      if (!cur) return;
+      var p = P();
+      var gw = Math.min(w * 0.42, h * 0.384 + 0), box = drawFit(ctx, cur.img, 8, 8, w * 0.46 - 12, h - 16);
+      if (view) drawFit(ctx, view, w * 0.46, 8, w * 0.46 - 12, h - 16);
+      // 다섯 단 견본(그림 속 평균색)
+      var sx = w * 0.92 - 4, sw = w - sx - 6, sh = (h - 16) / 5;
+      if (D && edges) {
+        for (var i = 0; i < 5; i++) {
+          var acc = [0, 0, 0], c = 0, L = D._L;
+          for (var q = 0; q < L.length; q += 3) if (bandOf(L[q]) === i) { acc[0] += LIN[D.data[q * 4]]; acc[1] += LIN[D.data[q * 4 + 1]]; acc[2] += LIN[D.data[q * 4 + 2]]; c++; }
+          ctx.fillStyle = c ? hex(ART.linearToSrgb(acc.map(function (v) { return v / c; }))) : "#555"; ctx.fillRect(sx, 8 + i * sh, sw, sh - 3);
+          if (+bandG() === i) { ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 2; ctx.strokeRect(sx + 1, 9 + i * sh, sw - 2, sh - 5); }
+        }
+      }
+    }, { get height() { var w = document.getElementById("ik-cv").parentElement.clientWidth; return Math.round(Math.min(560, w * 1.12)); }, bg: "#2a2a2c" });
+    pic("geese").then(function (p) { cur = p; D = p.data; labsOf(D); prep(); draw(); });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 오방색 예시값과 그림 속 색 ---------------- */
+  (function () {
+    var colG = AB.seg("ob-col", function () { draw(); });
+    var hlG = AB.check("ob-hl", function () { draw(); });
+    var cur = null, D = null, lab = null, view = null, pal = null, res = {};
+    var NEAR = 0.03;   // 예시값에 가장 가까운 화소 3%
+    function analyse(key) {
+      if (res[key]) return res[key];
+      var ex = ART.srgbToOklab(ART.parse(ART.OBANG[key].hex)), n = D.width * D.height, dist = new Float32Array(n);
+      for (var p = 0; p < n; p++) dist[p] = Math.hypot(lab[p * 3] - ex[0], lab[p * 3 + 1] - ex[1], lab[p * 3 + 2] - ex[2]);
+      var cut = quantile(dist, NEAR), acc = [0, 0, 0], c = 0, mask = new Uint8Array(n);
+      for (var q = 0; q < n; q++) if (dist[q] <= cut) { mask[q] = 1; acc[0] += LIN[D.data[q * 4]]; acc[1] += LIN[D.data[q * 4 + 1]]; acc[2] += LIN[D.data[q * 4 + 2]]; c++; }
+      var mean = ART.linearToSrgb(acc.map(function (v) { return v / c; }));
+      return (res[key] = { mask: mask, mean: mean, de: ART.diff(ART.parse(ART.OBANG[key].hex), mean) });
+    }
+    function draw() {
+      if (!D) return;
+      var key = colG(), ob = ART.OBANG[key], r = analyse(key);
+      view = hlG() ? remap(D, function (p) {
+        var R = D.data[p * 4], G = D.data[p * 4 + 1], B = D.data[p * 4 + 2];
+        if (r.mask[p]) return [R, G, B];
+        var y = Math.round(0.2126 * R + 0.7152 * G + 0.0722 * B) * 0.4 + 18; return [y, y, y];
+      }) : null;
+      cv.redraw();
+      AB.stat("ob-o-ex", ob.name + " " + ob.dir + " <small>" + ob.hex + "</small>");
+      AB.stat("ob-o-pic", hex(r.mean));
+      AB.stat("ob-o-de", AB.fix(r.de, 1) + " <small>" + (r.de < 5 ? "비슷하다" : r.de < 10 ? "차이가 보인다" : "한눈에 다르다") + "</small>");
+    }
+    var cv = AB.canvas("#ob-cv", function (ctx, w, h) {
+      if (!cur) return;
+      var key = colG(), ob = ART.OBANG[key], r = res[key];
+      drawFit(ctx, view || cur.img, 8, 8, w * 0.44, h - 16);
+      var rx = w * 0.44 + 18, rw = w - rx - 10, sh = Math.min(64, h * 0.14);
+      ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillStyle = "#e8e6e1";
+      ctx.fillText("오방색 예시값", rx, 10);
+      ctx.fillStyle = ob.hex; ctx.fillRect(rx, 28, rw, sh);
+      var y2 = 28 + sh + 12;
+      ctx.fillStyle = "#e8e6e1"; ctx.fillText("그림에서 가장 가까운 3%의 평균", rx, y2);
+      if (r) { ctx.fillStyle = hex(r.mean); ctx.fillRect(rx, y2 + 18, rw, sh); }
+      var y3 = y2 + 18 + sh + 16;
+      if (!pal) return;
+      ctx.fillStyle = "#e8e6e1"; ctx.fillText("그림 전체의 주요 색 8(넓이 순)", rx, y3);
+      var cellH = Math.max(12, Math.min(26, (h - y3 - 26) / 8));
+      pal.forEach(function (c, i) { ctx.fillStyle = hex(c.rgb); ctx.fillRect(rx, y3 + 18 + i * cellH, rw * Math.max(0.12, Math.sqrt(c.weight / pal[0].weight)), cellH - 3); });
+    }, { get height() { var w = document.getElementById("ob-cv").parentElement.clientWidth; return Math.round(Math.min(560, w * 1.0)); }, bg: "#2a2a2c" });
+    pic("rooster").then(function (p) {
+      cur = p; D = p.data; lab = labsOf(D);
+      pal = ART.kmeans(D.data, 8, { seed: 7, sample: 6000 });
+      draw();
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 6: 두 그림의 팔레트 비교 ---------------- */
+  (function () {
+    var aG = AB.seg("lb-a", function () { run(); });
+    var bG = AB.seg("lb-b", function () { run(); });
+    var kG = AB.range("lb-k", function (v) { return v; }, function () { run(); });
+    var vG = AB.seg("lb-view", function () { run(); });
+    var S = null;
+    function stats(p, k) {
+      var d = p.data, lab = labsOf(d), L = d._L, n = d.width * d.height;
+      var pal = ART.kmeans(d.data, k, { seed: 7, sample: 6000 });
+      var viv = 0; for (var q = 0; q < n; q++) if (Math.hypot(lab[q * 3 + 1], lab[q * 3 + 2]) > 0.08) viv++;
+      return { pal: pal, l5: quantile(L, 0.05), l95: quantile(L, 0.95), viv: viv / n, lo: quantile(L, 0.01), hi: quantile(L, 0.99) };
+    }
+    function run() {
+      var ka = aG(), kb = bG(), k = kG();
+      Promise.all([pic(ka), pic(kb)]).then(function (ps) {
+        var A = stats(ps[0], k), B = stats(ps[1], k), view = null, d = ps[0].data;
+        if (vG() === "kc") {
+          var lab = labsOf(d), cents = A.pal.map(function (c) { return ART.srgbToOklab(c.rgb); }), cols = A.pal.map(function (c) { return to255(c.rgb); });
+          view = remap(d, function (p) { return cols[nearestIdx(lab, p, cents)]; });
+        } else if (vG() === "val") {
+          var L = d._L, lv = [0, 1, 2, 3, 4].map(function (i) { var t = (i + 0.5) / 5, v = A.lo + (A.hi - A.lo) * t; return to255(ART.labToSrgb([v, 0, 0]).map(function (x) { return AB.clamp(x, 0, 1); })); });
+          view = remap(d, function (p) { var t = AB.clamp(Math.floor(((L[p] - A.lo) / (A.hi - A.lo)) * 5), 0, 4); return lv[t]; });
+        }
+        var dist = 0; A.pal.forEach(function (c) { var m = Math.min.apply(null, B.pal.map(function (e) { return ART.diff(c.rgb, e.rgb); })); dist += m * c.weight; });
+        S = { A: A, B: B, img: ps[0].img, view: view, nameA: ps[0].name, nameB: ps[1].name };
+        cv.redraw();
+        AB.stat("lb-o-l", AB.fix(A.l5, 0) + " ~ " + AB.fix(A.l95, 0));
+        AB.stat("lb-o-v", AB.pct(A.viv, 1));
+        AB.stat("lb-o-b", AB.fix(B.l5, 0) + "~" + AB.fix(B.l95, 0) + " · " + AB.pct(B.viv, 1));
+        AB.stat("lb-o-d", AB.fix(dist, 1));
+      });
+    }
+    var cv = AB.canvas("#lb-cv", function (ctx, w, h) {
+      var p = P(); if (!S) return;
+      var wide = w >= 560;
+      var iw = wide ? w * 0.36 : w - 24, ih = wide ? h - 70 : h * 0.4;
+      ctx.fillStyle = "#2a2a2c"; ctx.fillRect(12, 12, iw, ih);
+      drawFit(ctx, S.view || S.img, 12, 12, iw, ih);
+      // 팔레트 띠 A, B
+      var bx = wide ? 12 : 12, by = wide ? h - 50 : ih + 20, bw = iw;
+      function bar(pal, y, label) {
+        var x = bx; ctx.fillStyle = p.dim; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText(label, bx, y - 2);
+        pal.forEach(function (c) { var ww = c.weight * bw; ctx.fillStyle = hex(c.rgb); ctx.fillRect(x, y, ww + 0.6, 14); x += ww; });
+      }
+      if (wide) { bar(S.A.pal, h - 44, "A " + S.nameA); bar(S.B.pal, h - 16 - 2, ""); ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText("B", bx - 2, h - 11); }
+      else { bar(S.A.pal, by + 14, "A " + S.nameA); bar(S.B.pal, by + 46, "B " + S.nameB); }
+      // a–b 평면
+      var px = wide ? 12 + iw + 24 : 12, py = wide ? 12 : by + 74, pw = wide ? w - px - 12 : w - 24, ph = wide ? h - 24 : h - py - 10;
+      var cx = px + pw / 2, cy = py + ph / 2 + 8, R = Math.min(pw, ph - 16) / 2 - 14, SC = R / 0.12;
+      ctx.strokeStyle = p.grid; ctx.lineWidth = 1;
+      [0.04, 0.08, 0.12].forEach(function (c) { ctx.beginPath(); ctx.arc(cx, cy, c * SC, 0, Math.PI * 2); ctx.stroke(); });
+      ctx.beginPath(); ctx.moveTo(cx - R, cy); ctx.lineTo(cx + R, cy); ctx.moveTo(cx, cy - R); ctx.lineTo(cx, cy + R); ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("빨강 +a", cx + R - 8, cy - 9); ctx.fillText("초록 −a", cx - R + 12, cy - 9); ctx.fillText("노랑 +b", cx + 22, cy - R + 6); ctx.fillText("파랑 −b", cx + 22, cy + R - 6);
+      function dots(pal, ring) {
+        pal.forEach(function (c) {
+          var o = ART.srgbToOklab(c.rgb), x = cx + AB.clamp(o[1], -0.12, 0.12) * SC, y = cy - AB.clamp(o[2], -0.12, 0.12) * SC, r = 4 + Math.sqrt(c.weight) * R * 0.2;
+          ctx.fillStyle = hex(c.rgb); ctx.globalAlpha = 0.92; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1;
+          ctx.lineWidth = 2; ctx.strokeStyle = ring; ctx.setLineDash(ring === p.accent2 ? [3, 3] : []); ctx.stroke(); ctx.setLineDash([]);
+          if (r > 10) { ctx.fillStyle = AB.textOn(c.rgb); ctx.font = AB.font(10, true); ctx.fillText(Math.round(ART.lightness(c.rgb)), x, y); }
+        });
+      }
+      dots(S.B.pal, p.accent2); dots(S.A.pal, p.text);
+      ctx.fillStyle = p.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("실선 A " + S.nameA + " · 점선 B " + S.nameB, px, py);
+    }, { get height() { var w = document.getElementById("lb-cv").parentElement.clientWidth; return w >= 560 ? Math.round(Math.min(440, w * 0.62)) : Math.round(w * 1.75); } });
+    run();
+  })();
+
+})();
+</script>
+</body>
+</html>
