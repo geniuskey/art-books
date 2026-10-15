@@ -623,17 +623,13 @@
     label(ctx, "창", M.X(A.len) - 4, M.Y(0.36) + 2, { size: fs, color: INK_DIM, align: "right" });
     label(ctx, "앞 공간 2.5 m", M.X(A.front) + 4, M.Y(A.room) - fs - 6, { size: fs, color: INK_DIM });
   }
-  // 겨눈 방향으로 처음 닿는 면까지의 거리(광선 진행)
+  // 자유 공간 판정과 광선 진행: 겨눈 방향으로 처음 닿는 면까지의 거리
+  function isFree(x, z) {
+    return (z >= 0 && z <= AISLE.len && Math.abs(x) < AISLE.half) || (z < 0 && z >= AISLE.front && Math.abs(x) <= AISLE.room);
+  }
   function rayHit(cx, cz, yaw) {
     var dx = Math.sin(yaw * DEG), dz = Math.cos(yaw * DEG), t = 0;
-    for (; t < 12; t += 0.01) {
-      var x = cx + dx * t, z = cz + dz * t;
-      if (z >= 0 && Math.abs(x) >= AISLE.half) break;
-      if (z >= AISLE.len) break;
-      if (z < AISLE.front || Math.abs(x) >= AISLE.room) break;
-      if (z >= 0 && z < 0.01 && Math.abs(x) >= AISLE.half) break;
-      if (cz < 0 && z >= 0 && Math.abs(x) > AISLE.half) break;
-    }
+    while (t < 12 && isFree(cx + dx * (t + 0.01), cz + dz * (t + 0.01))) t += 0.01;
     return t;
   }
   // 서가 면 위 보이는 길이(수평 화각 halfA 안, 가림 없음)
@@ -651,14 +647,17 @@
     });
     return out;
   }
-  function drawFan(ctx, M, cx, cz, yaw, halfA, fill, stroke, len) {
-    var X = M.X(cz), Y = M.Y(cx), L = (len || 9) * M.sc;
-    var a0 = (yaw - halfA) * DEG, a1 = (yaw + halfA) * DEG;
-    ctx.beginPath(); ctx.moveTo(X, Y);
-    for (var k = 0; k <= 24; k++) { var a = a0 + (a1 - a0) * k / 24; ctx.lineTo(X + Math.cos(a) * L, Y + Math.sin(a) * L); }
-    ctx.closePath(); ctx.fillStyle = fill; ctx.fill();
+  function drawFan(ctx, M, cx, cz, yaw, halfA, fill, stroke) {
+    // 광선이 벽·서가에 닿는 곳에서 멈추는 부채꼴(가시 영역)
+    var X = M.X(cz), Y = M.Y(cx), n = Math.max(24, Math.round(halfA * 2)), P = [];
+    for (var k = 0; k <= n; k++) {
+      var a = yaw - halfA + (2 * halfA) * k / n, t = rayHit(cx, cz, a);
+      P.push([M.X(cz + Math.cos(a * DEG) * t), M.Y(cx + Math.sin(a * DEG) * t)]);
+    }
+    ctx.beginPath(); ctx.moveTo(X, Y); P.forEach(function (q) { ctx.lineTo(q[0], q[1]); }); ctx.closePath();
+    ctx.fillStyle = fill; ctx.fill();
     ctx.strokeStyle = stroke; ctx.lineWidth = 1.2;
-    ctx.beginPath(); ctx.moveTo(X + Math.cos(a0) * L, Y + Math.sin(a0) * L); ctx.lineTo(X, Y); ctx.lineTo(X + Math.cos(a1) * L, Y + Math.sin(a1) * L); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(P[0][0], P[0][1]); ctx.lineTo(X, Y); ctx.lineTo(P[n][0], P[n][1]); ctx.stroke();
   }
   function clipPlan(ctx, M) {
     ctx.beginPath();
