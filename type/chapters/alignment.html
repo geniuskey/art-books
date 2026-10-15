@@ -1,0 +1,915 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "왼끝·양끝·가운데·오른끝 맞추기, 양끝 맞추기가 만드는 강물, 하이픈과 한글의 어절 단위 줄바꿈, 들여쓰기와 단락 간격, 외톨이 줄. 줄 끝을 어떻게 할지 직접 짜 보며 책자와 웹의 정렬과 단락 방식을 정한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정렬과 단락 · TypeBook</title>
+<meta name="description" content="왼끝·양끝·가운데·오른끝 맞추기, 양끝 맞추기가 만드는 강물, 하이픈과 한글의 어절 단위 줄바꿈, 들여쓰기와 단락 간격, 외톨이 줄. 줄 끝을 어떻게 할지 직접 짜 보며 책자와 웹의 정렬과 단락 방식을 정한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/type/chapters/alignment.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="정렬과 단락 · TypeBook">
+<meta property="og:description" content="왼끝·양끝·가운데·오른끝 맞추기, 양끝 맞추기가 만드는 강물, 하이픈과 한글의 어절 단위 줄바꿈, 들여쓰기와 단락 간격, 외톨이 줄. 줄 끝을 어떻게 할지 직접 짜 보며 책자와 웹의 정렬과 단락 방식을 정한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/type/chapters/alignment.html">
+<meta property="og:image" content="https://artbook.euiyun.com/type/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/type/chapters/alignment.html#chapter","name":"정렬과 단락","headline":"정렬과 단락 · TypeBook","description":"왼끝·양끝·가운데·오른끝 맞추기, 양끝 맞추기가 만드는 강물, 하이픈과 한글의 어절 단위 줄바꿈, 들여쓰기와 단락 간격, 외톨이 줄. 줄 끝을 어떻게 할지 직접 짜 보며 책자와 웹의 정렬과 단락 방식을 정한다.","url":"https://artbook.euiyun.com/type/chapters/alignment.html","position":10,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/type/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/type/#book","name":"TypeBook · 타이포그래피","url":"https://artbook.euiyun.com/type/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"TypeBook · 타이포그래피","item":"https://artbook.euiyun.com/type/"},{"@type":"ListItem","position":3,"name":"10. 정렬과 단락","item":"https://artbook.euiyun.com/type/chapters/alignment.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400;700&family=Source+Serif+4:wght@400&display=swap">
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="alignment">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 10</div>
+    <h1>정렬과 단락</h1>
+    <p class="lead">신문 기사는 양쪽 끝이 칼로 자른 듯 반듯하고, 휴대폰으로 읽는 블로그 글은 오른쪽 끝이 들쭉날쭉하다. 청첩장은 가운데로 모이고, 그림 옆의 짧은 설명은 오른쪽에 붙는다. 글줄의 끝을 어떻게 처리할지는 사소해 보이지만, 그 선택이 낱말 사이의 간격과 줄바꿈 위치, 단락의 모양을 한꺼번에 바꾼다. 이 장은 같은 글을 네 가지로 맞춰 보고, 양끝 맞추기가 남기는 틈과 그 틈을 메우는 방법(하이픈, 글자 단위 줄바꿈, 단락 전체 줄나눔)을 비교한다. 그리고 단락을 나누는 법과 외톨이 줄을 다룬다.</p>
+    <ul class="objectives">
+      <li>왼끝·양끝·가운데·오른끝 맞추기의 성격과 쓰임을 구별한다.</li>
+      <li>양끝 맞추기가 낱말 사이를 벌려 만드는 강물을 찾고, 그 원인을 글줄 길이와 줄바꿈 방식에서 찾는다.</li>
+      <li>라틴 글자의 하이픈 넣기와 한글의 어절·글자 단위 줄바꿈을 비교하고, 줄 머리·줄 끝 금칙을 안다.</li>
+      <li>한 줄씩 끊는 줄나눔과 단락 전체를 보는 줄나눔의 차이를 이해한다.</li>
+      <li>들여쓰기와 단락 간격으로 단락을 나누고, 외톨이 줄과 짧은 끝줄을 고친다.</li>
+    </ul>
+  </header>
+
+  <section id="edges">
+    <h2>줄 끝을 어떻게 할 것인가</h2>
+    <p>글자가 모여 한 줄이 되면, 그 줄은 대개 단의 폭과 정확히 같지 않다. 낱말이 어디서 끝나느냐에 따라 조금 모자라거나, 다음 낱말이 들어가지 않아 남는다. 이 남는 폭을 어디에 둘지가 <span class="term">정렬</span><span class="en">(Alignment)</span>의 문제다. 선택지는 넷이다. 남는 폭을 줄 오른쪽에 모두 두면 왼쪽 끝이 반듯한 <span class="term">왼끝 맞추기</span><span class="en">(Flush left, Ragged right)</span>, 왼쪽에 두면 <span class="term">오른끝 맞추기</span><span class="en">(Flush right)</span>, 양쪽에 반씩 나누면 <span class="term">가운데 맞추기</span><span class="en">(Centered)</span>, 줄 안의 낱말 사이에 나눠 넣어 양쪽 끝을 다 반듯하게 하면 <span class="term">양끝 맞추기</span><span class="en">(Justified)</span>다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 236" role="img" aria-label="같은 길이의 글줄 여섯 개를 네 가지로 맞춘 견본. 왼끝 맞추기는 왼쪽이 반듯하고 오른쪽이 들쭉날쭉하다. 양끝 맞추기는 마지막 줄을 빼고 양쪽이 반듯하다. 가운데 맞추기는 양쪽이 대칭으로 들쭉날쭉하다. 오른끝 맞추기는 오른쪽이 반듯하다.">
+        <g class="f-elev s-line" stroke-width="0.4">
+          <g transform="translate(10,22)"><rect x="0" y="0" width="94" height="6"/><rect x="0" y="14" width="80" height="6"/><rect x="0" y="28" width="98" height="6"/><rect x="0" y="42" width="72" height="6"/><rect x="0" y="56" width="90" height="6"/><rect x="0" y="70" width="52" height="6"/></g>
+          <g transform="translate(124,22)"><rect x="0" y="0" width="100" height="6"/><rect x="0" y="14" width="100" height="6"/><rect x="0" y="28" width="100" height="6"/><rect x="0" y="42" width="100" height="6"/><rect x="0" y="56" width="100" height="6"/><rect x="0" y="70" width="52" height="6"/></g>
+          <g transform="translate(238,22)"><rect x="3" y="0" width="94" height="6"/><rect x="10" y="14" width="80" height="6"/><rect x="1" y="28" width="98" height="6"/><rect x="14" y="42" width="72" height="6"/><rect x="5" y="56" width="90" height="6"/><rect x="24" y="70" width="52" height="6"/></g>
+          <g transform="translate(352,22)"><rect x="6" y="0" width="94" height="6"/><rect x="20" y="14" width="80" height="6"/><rect x="2" y="28" width="98" height="6"/><rect x="28" y="42" width="72" height="6"/><rect x="10" y="56" width="90" height="6"/><rect x="48" y="70" width="52" height="6"/></g>
+        </g>
+        <g class="s-acc" stroke-width="1.4">
+          <line x1="10" y1="14" x2="10" y2="106"/>
+          <line x1="124" y1="14" x2="124" y2="106"/><line x1="224" y1="14" x2="224" y2="106"/>
+          <line x1="288" y1="14" x2="288" y2="106" class="s-dash"/>
+          <line x1="452" y1="14" x2="452" y2="106"/>
+        </g>
+        <g font-size="12" text-anchor="middle">
+          <text x="58" y="126" class="lbl-b">왼끝 맞추기</text><text x="174" y="126" class="lbl-b">양끝 맞추기</text><text x="288" y="126" class="lbl-b">가운데 맞추기</text><text x="402" y="126" class="lbl-b">오른끝 맞추기</text>
+        </g>
+        <g font-size="11" text-anchor="middle" class="lbl-dim">
+          <text x="58" y="144">줄 머리가 한 자리</text><text x="58" y="159">간격이 고르다</text>
+          <text x="174" y="144">양쪽이 반듯하다</text><text x="174" y="159">간격이 줄마다 다름</text>
+          <text x="288" y="144">대칭, 격식</text><text x="288" y="159">줄 머리가 흔들림</text>
+          <text x="402" y="144">오른쪽에 붙는다</text><text x="402" y="159">긴 글에 불편</text>
+        </g>
+        <text x="230" y="196" text-anchor="middle" class="lbl" font-size="12">붉은 선: 눈이 기댈 수 있는 반듯한 끝</text>
+        <text x="230" y="214" text-anchor="middle" class="lbl-dim" font-size="11">가운데 맞추기에는 그어진 끝이 없고 보이지 않는 축(점선)만 있다</text>
+      </svg>
+      <figcaption><b>그림 1. 네 가지 맞추기.</b> 정렬은 "남는 폭을 어디에 둘 것인가"에 대한 네 가지 답이다. 왼끝·오른끝·가운데 맞추기는 낱말 사이 간격을 그대로 두고 줄의 위치를 옮긴다. 양끝 맞추기만 줄 안의 간격을 바꾼다. 그래서 양끝 맞추기에서만 줄마다 낱말 사이가 달라지는 문제가 생긴다.</figcaption>
+    </figure>
+
+    <p>읽기에서 가장 중요한 끝은 <b>왼쪽 끝</b>이다. 한글과 라틴 글자를 가로로 쓸 때 눈은 한 줄을 다 읽으면 왼쪽으로 크게 되돌아가 다음 줄 머리를 찾는다. 줄 머리가 늘 같은 세로선 위에 있으면 이 되돌아가기가 쉽다. 왼끝 맞추기와 양끝 맞추기가 긴 본문에 쓰이고, 가운데·오른끝 맞추기가 짧은 글에 쓰이는 까닭이다. CompositionBook의 <a href="../../composition/chapters/layout.html">지면 구성 장</a>에서 본 "보이지 않는 정렬선"이 글줄 안에서 일하는 모습이다.</p>
+  </section>
+
+  <section id="four">
+    <h2>네 가지 맞추기</h2>
+    <p>아래에서 같은 단락을 네 가지로 맞춰 보고, 단의 폭을 바꿔 본다. 폭은 한글 글자 수로 나타냈다. "공백 보기"를 켜면 낱말 사이의 공백이 색으로 드러나는데, 기본 폭보다 넓을수록 진하다.</p>
+
+    <div class="sim" id="sim-a4">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 단락, 네 가지 끝</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="a4-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="a4-al"><button data-value="left" class="on">왼끝</button><button data-value="justify">양끝</button><button data-value="center">가운데</button><button data-value="right">오른끝</button></div>
+          <label class="ctrl"><span>단 폭(자) <output id="a4-w-out"></output></span><input type="range" id="a4-w" min="8" max="40" step="1" value="24"></label>
+          <label class="check"><input type="checkbox" id="a4-sp"> 공백 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">줄 끝의 들쭉날쭉(표준편차)</span><span class="v" id="a4-o-r">—</span></div>
+        <div class="stat"><span class="k">가장 넓은 공백</span><span class="v" id="a4-o-s">—</span></div>
+        <div class="stat"><span class="k">줄 수</span><span class="v" id="a4-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 왼끝에서 시작한다. 공백은 모두 같고(기본 폭) 오른쪽 끝만 들쭉날쭉하다. ② 양끝으로 바꾸고 "공백 보기"를 켠다. 끝은 반듯해졌지만 공백이 줄마다 다르다. 짧은 어절이 많은 줄은 공백이 좁고, 긴 어절 앞에서 끊긴 줄은 넓다. ③ 가운데로 바꾸고 다섯 줄쯤 이어 읽어 본다. 줄 머리가 매번 다른 곳에 있어 눈이 다음 줄을 찾느라 멈칫한다. ④ 양끝에서 폭을 10자 아래로 줄인다. 공백이 글자 하나보다 넓어지는 줄이 생긴다. (어절 단위로 줄을 바꾸는 한 줄씩 줄나눔. 공백 기본 폭은 이 글꼴의 공백 글자 폭, 들여쓰기 1자.)</div>
+    </div>
+
+    <p>왼끝 맞추기의 장점은 <b>간격이 일정하다</b>는 것이다. 낱말 사이가 늘 같아서 글줄의 회색이 고르고, 글자를 짠 사람이 손대지 않아도 대체로 괜찮다. 단점은 오른쪽 끝의 들쭉날쭉함, 곧 <span class="term">래그</span><span class="en">(Rag)</span>다. 래그가 너무 심하거나, 줄 끝이 한 줄 걸러 길고 짧게 톱니처럼 반복되거나, 래그가 우연히 기울어진 쐐기 모양을 만들면 눈에 거슬린다. 그래서 공들인 왼끝 조판에서는 줄 끝이 부드러운 물결을 이루도록 몇 줄의 줄바꿈 위치를 손으로 고치기도 한다.</p>
+    <p><b>가운데 맞추기</b>는 대칭이라 격식 있고 조용하다. 청첩장, 기념비의 글, 책의 속표지, 시의 제목처럼 줄이 몇 개 안 되고 한 줄 한 줄이 따로 읽히는 글에 맞다. 이때는 줄바꿈 위치가 곧 의미 단위가 되도록 손으로 끊는다. "여름 낭독 모임 / 7월 마지막 토요일 / 책방 E 2층"처럼. <b>오른끝 맞추기</b>는 오른쪽에 있는 무엇에 붙어야 할 때 쓴다. 그림 왼쪽에 놓인 캡션, 표의 숫자 열(자릿수를 맞추려면 오른끝이나 소수점 맞추기), 편지 끝의 날짜와 서명이 그렇다. 둘 다 서너 줄을 넘는 본문에는 잘 맞지 않는다.</p>
+  </section>
+
+  <section id="rivers">
+    <h2>양끝 맞추기와 강물</h2>
+    <p>양끝 맞추기는 줄마다 남는 폭을 그 줄의 낱말 사이에 나눠 넣는다. 남는 폭이 같아도 낱말 사이가 적은 줄일수록 공백 하나가 많이 벌어진다. 이렇게 벌어진 공백들이 위아래 줄에서 우연히 비슷한 자리에 놓이면, 글 덩어리 속에 흰 물길이 세로로 흐르는 것처럼 보인다. 이것을 <span class="term">강물</span><span class="en">(River)</span>이라고 한다. 강물은 글을 읽는 동안에는 잘 의식되지 않지만, 지면을 한눈에 볼 때 회색 덩어리를 찢어 놓는다.</p>
+    <p>강물은 가까이 보면 오히려 잘 안 보인다. 글자를 읽어 버리기 때문이다. 아래에서 "흐리게 보기"를 켜면 글자가 뭉개지고 공백의 흰 모양만 남는다. 책을 거꾸로 들거나 눈을 가늘게 뜨는 것과 같은 효과다.</p>
+
+    <div class="sim" id="sim-rv">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>흐르는 흰 물길</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rv-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>단 폭(자) <output id="rv-w-out"></output></span><input type="range" id="rv-w" min="10" max="36" step="1" value="16"></label>
+          <label class="check"><input type="checkbox" id="rv-blur"> 흐리게 보기</label>
+          <label class="check"><input type="checkbox" id="rv-mark" checked> 강물 표시</label>
+          <div class="seg" id="rv-al"><button data-value="justify" class="on">양끝</button><button data-value="left">왼끝</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">강물(3줄 이상 이어진 공백)</span><span class="v" id="rv-o-n">—</span></div>
+        <div class="stat"><span class="k">가장 긴 강물</span><span class="v" id="rv-o-l">—</span></div>
+        <div class="stat"><span class="k">가장 넓은 공백</span><span class="v" id="rv-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 16자 폭, 양끝에서 "흐리게 보기"를 켠다. 회색 덩어리 사이로 흰 틈이 몇 줄에 걸쳐 이어지는 곳이 보인다. 붉은 띠가 이 장의 모델이 찾은 강물이다. ② 폭을 30자 넘게 넓힌다. 한 줄에 공백이 많아져 하나하나가 덜 벌어지고 강물이 줄어든다. ③ 다시 좁히고 "왼끝"으로 바꾼다. 공백이 모두 기본 폭이라 넓은 틈이 없다. 그래도 공백이 우연히 위아래로 겹치면 가는 강물이 남는다. 강물은 넓은 공백과 우연한 겹침이 함께 만든다. (강물 판정: 이웃한 줄의 공백 구간이 겹치거나 0.05자 안으로 가까우면 이어진 것으로 보고, 3줄 이상 이어지면 강물로 센다. 이 장이 정한 단순한 기준이다.)</div>
+    </div>
+
+    <p>강물을 줄이는 방법은 결국 <b>공백이 크게 벌어지지 않게</b> 하는 것이다. 글줄을 넓히면 한 줄의 공백 수가 늘어 남는 폭이 잘게 나뉜다. 낱말 안에서도 줄을 바꿀 수 있게 하면(라틴 글자의 하이픈, 한글의 글자 단위 줄바꿈) 남는 폭 자체가 줄어든다. 한 줄씩이 아니라 단락 전체를 보고 줄바꿈 위치를 고르면 벌어짐을 여러 줄에 고르게 나눌 수 있다. 그리고 마지막 방법은 글을 고치는 것이다. 이 넷을 차례로 본다.</p>
+
+    <figure class="art-figure" id="fig-al-hyp">
+      <div class="art-frame"><img src="../../shared/img/colonna-hypnerotomachia-tapered-page.webp" width="1079" height="1600" alt="15세기 이탈리아 인쇄본의 한 쪽. 라틴 글자 본문이 양쪽 끝을 반듯하게 맞춰 짜여 있고, 끝 단락은 줄이 점점 짧아지며 가운데로 모여 역삼각형을 이룬다. 맨 아래에는 그리스 글자 세 줄과 별표가 있고, 오른쪽 아래 구석에 다음 쪽 첫 낱말이 작게 찍혀 있다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 『폴리필로의 꿈』, 알두스 마누티우스 인쇄, 베네치아, 1499년.</b> 위쪽 본문은 양끝 맞추기다. 줄 끝마다 낱말을 끊고 그 표시를 남겼고, 약자와 합자도 섞어 줄 길이를 맞췄다. 아래 단락은 줄이 하나씩 짧아지며 가운데로 모여 술잔 같은 모양을 이룬다. 가운데 맞추기를 정렬이 아니라 그림처럼 쓴 예다. 오른쪽 아래 구석의 작은 낱말은 다음 쪽 첫 낱말을 미리 찍은 것으로, 제본할 때 쪽 순서를 확인하는 데 썼다.<span class="credit">The Metropolitan Museum of Art, 목판 삽화가 든 인쇄본. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/365313">소장처 작품 페이지</a> · <a href="../../credits.html#colonna-hypnerotomachia-tapered-page">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="callout deep">
+      <strong>활판의 양끝 맞추기는 손으로 끼운 쇠붙이였다</strong>
+      금속 활자로 짠 줄은 길이가 정확히 같아야 판이 단단히 조여진다. 그래서 활판 인쇄에서 양끝 맞추기는 선택이 아니라 판을 짜는 조건이었다. 식자공은 한 줄을 모은 뒤 낱말 사이에 두께가 다른 공목(빈 쇠붙이)을 끼워 길이를 맞췄다. 구텐베르크의 42행 성서(1450년대)에 쓰인 활자는 알파벳 수보다 훨씬 많은 종류(흔히 290종 안팎으로 설명된다)였는데, 같은 글자의 폭이 다른 모양과 합자, 약자가 들어 있어 낱말 사이를 크게 벌리지 않고도 줄을 맞출 수 있었다고 설명된다. 그림 2의 1499년 인쇄본에서도 약자와 낱말 끊기가 같은 일을 한다. 컴퓨터 조판에서는 줄 길이가 달라도 아무 문제가 없으니, 양끝 맞추기는 다시 고를 수 있는 선택이 되었다.
+    </div>
+  </section>
+
+  <section id="hyphen">
+    <h2>하이픈: 낱말을 끊어 틈을 메운다</h2>
+    <p>라틴 글자 조판에서 강물을 줄이는 가장 오래된 방법은 <span class="term">하이픈 넣기</span><span class="en">(Hyphenation)</span>다. 줄 끝에 걸린 긴 낱말을 음절 경계에서 끊고 하이픈(-)을 붙여 나머지를 다음 줄로 넘긴다. 남는 폭이 낱말 하나에서 음절 하나 크기로 줄어드니 공백이 덜 벌어진다. 어디서 끊어도 되는지는 언어마다 규칙이 다르다. 영어의 "neigh-bour-hood"는 되지만 "neighb-ourhood"는 안 된다. 조판 프로그램은 사전이나 끊기 패턴으로 이 자리를 찾는다. 오늘날 널리 쓰이는 패턴 방식은 프랭크 리앙<span class="en">(Frank Liang)</span>이 1983년 학위 논문에서 TeX을 위해 만든 것이다.</p>
+    <p>아래 영어 단락은 끊어도 되는 자리를 미리 표시해 둔 가상의 책자 머리말이다. 하이픈을 켜고 끄며 공백을 비교한다.</p>
+
+    <div class="sim" id="sim-hy">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>하이픈이 메우는 틈</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="hy-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>단 폭(em) <output id="hy-w-out"></output></span><input type="range" id="hy-w" min="9" max="34" step="0.5" value="15"></label>
+          <label class="check"><input type="checkbox" id="hy-on"> 하이픈 넣기</label>
+          <label class="check"><input type="checkbox" id="hy-sp" checked> 공백 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 넓은 공백(기본의)</span><span class="v" id="hy-o-s">—</span></div>
+        <div class="stat"><span class="k">하이픈 줄 · 연속 최대</span><span class="v" id="hy-o-h">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 15 em에서 하이픈 없이 본다. 긴 낱말("neighbourhood") 앞에서 끊긴 줄은 공백이 기본의 열 배 넘게 벌어진다. ② "하이픈 넣기"를 켠다. 가장 넓은 공백이 눈에 띄게 줄고, 몇 줄 끝에 하이픈이 붙는다. ③ 폭을 9 em까지 줄인다. 하이픈이 서너 줄 연달아 생겨 줄 끝에 사다리처럼 쌓인다. 흔히 연속 하이픈은 두세 줄까지로 제한한다. (양끝 맞추기, 한 줄씩 줄나눔. 끊는 자리는 영어 사전식 음절 경계를 손으로 표시했고, 앞 조각 2자·뒤 조각 3자 이상일 때만 끊는다.)</div>
+    </div>
+
+    <p>하이픈에도 규칙이 따른다. 너무 짧은 조각을 남기지 않는다(앞에 두 글자, 뒤에 세 글자 이상이 흔한 기본값이다). 하이픈이 세 줄 넘게 연달아 쌓이지 않게 한다. 고유명사, 숫자, 단락의 마지막 낱말, 쪽의 마지막 줄은 끊지 않는 편이 좋다. 그리고 하이픈은 양끝 맞추기만의 도구가 아니다. 왼끝 맞추기에서도 가볍게 쓰면 래그가 부드러워진다.</p>
+    <p>한글에는 하이픈이 없다. 한글은 낱말 안에서 줄을 바꿀 때 아무 표시도 붙이지 않는다. 그러면 한글 조판은 "낱말 안에서 끊느냐 마느냐"를 어떻게 정할까.</p>
+  </section>
+
+  <section id="hangul">
+    <h2>한글의 줄바꿈: 어절이냐 글자냐</h2>
+    <p>한글 조판에는 줄을 바꾸는 단위가 둘이다. 띄어쓰기로 나뉜 <span class="term">어절</span><span class="en">(Eojeol, 띄어 쓴 말 덩어리)</span> 단위로만 줄을 바꾸는 방식과, 음절 하나하나를 경계로 어디서든 줄을 바꾸는 <span class="term">글자 단위 줄바꿈</span><span class="en">(Syllable breaking)</span>이다. 한자와 일본어 조판은 띄어쓰기가 없어 원래 글자 단위로 줄을 바꾼다. 한글도 띄어쓰기가 자리 잡기 전에는 그랬고, 지금도 한국의 책과 신문에서 낱말 중간에서 줄을 바꾸고 양끝을 맞춘 조판을 흔히 볼 수 있다. 반면 웹 브라우저는 한국어 글을 기본적으로 글자 단위로 바꾸고, CSS의 <code>word-break: keep-all</code>을 주면 어절 단위로 바꾼다.</p>
+    <p>두 방식은 서로 반대의 대가를 치른다. 글자 단위로 끊으면 줄 끝까지 글자를 채울 수 있어 공백이 거의 벌어지지 않는다. 대신 "골목"이 "골/목"으로, "그림자가"가 "그림/자가"로 나뉘어 낱말을 두 줄에 걸쳐 읽어야 한다. 어절 단위로 끊으면 낱말은 온전하지만 남는 폭이 커져 양끝 맞추기에서 공백이 벌어진다. 아래에서 두 방식과, 그 사이를 메우는 두 장치를 비교한다. "단락 전체 줄나눔"은 줄바꿈 위치를 한 줄씩 정하지 않고 단락 전체에서 벌어짐의 합이 가장 작도록 고르고, "글자 사이 나눔"은 남는 폭의 일부를 공백 대신 글자 사이에 조금씩 나눈다.</p>
+
+    <div class="sim" id="sim-ko">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>어절 단위와 글자 단위</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ko-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ko-unit"><button data-value="keep" class="on">어절 단위</button><button data-value="all">글자 단위</button></div>
+          <div class="seg" id="ko-opt"><button data-value="greedy" class="on">한 줄씩</button><button data-value="opt">단락 전체</button></div>
+          <label class="ctrl"><span>단 폭(자) <output id="ko-w-out"></output></span><input type="range" id="ko-w" min="10" max="36" step="1" value="20"></label>
+          <label class="ctrl"><span>글자 사이 나눔 최대(자) <output id="ko-ls-out"></output></span><input type="range" id="ko-ls" min="0" max="0.08" step="0.005" value="0"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 넓은 공백</span><span class="v" id="ko-o-s">—</span></div>
+        <div class="stat"><span class="k">공백 0.5자 넘는 줄</span><span class="v" id="ko-o-b">—</span></div>
+        <div class="stat"><span class="k">낱말 안에서 끊긴 줄</span><span class="v" id="ko-o-k">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 어절 단위, 한 줄씩, 20자에서 시작한다. 공백이 한 자 가까이 벌어진 줄이 보인다. ② "글자 단위"로 바꾼다. 공백은 고르게 좁아지지만 붉게 표시된 줄 끝마다 낱말이 둘로 갈라진다. ③ 어절 단위로 돌아가 "단락 전체"를 고른다. 같은 어절 단위인데 몇 줄의 바꿈 위치가 달라지며 가장 넓은 공백이 줄어든다. ④ 글자 사이 나눔을 0.03까지 올린다. 남은 벌어짐이 글자 사이로 흩어진다. 0.08까지 올리면 그 줄만 글자가 성글어 보인다. (공백 기본 폭은 이 글꼴의 공백, 허용 범위 0.2~0.5자로 계산했다. 줄 머리에 마침표·쉼표·닫는 따옴표가, 줄 끝에 여는 따옴표가 오지 않게 했다.)</div>
+    </div>
+
+    <p>단락 전체 줄나눔은 컴퓨터 조판의 오래된 성과다. 도널드 커누스와 마이클 플래스<span class="en">(Donald Knuth &amp; Michael Plass)</span>는 1981년 논문 「단락을 줄로 나누기」<span class="en">(Breaking Paragraphs into Lines)</span>에서, 줄마다 벌어짐에 벌점을 매기고 단락 전체 벌점이 가장 작은 줄바꿈 조합을 찾는 방법을 발표했다. 앞 줄에서 조금 덜 채우면 뒤의 줄이 훨씬 좋아질 수 있다는 것을 계산으로 찾는다. TeX이 이 방법을 쓰고, 여러 조판 프로그램이 비슷한 기능을 갖추고 있다. 이 장의 시뮬레이터는 그 생각을 단순화한 모델이다. 반면 웹 브라우저는 대개 한 줄씩 채우는 방식이라, 웹에서 양끝 맞추기를 하면 공백이 크게 벌어지기 쉽다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="한글 줄바꿈 규칙의 예 세 가지. 첫째, 마침표나 쉼표가 줄 머리에 오면 안 된다. 둘째, 여는 따옴표나 괄호가 줄 끝에 오면 안 된다. 셋째, 어절 단위 줄바꿈과 글자 단위 줄바꿈의 차이.">
+        <g font-size="13">
+          <text x="14" y="24" class="lbl-b">줄 머리 금칙</text>
+          <rect x="14" y="34" width="200" height="54" class="f-surface s-line"/>
+          <text x="22" y="54" class="lbl">… 길게 눕는다</text><text x="22" y="78" class="lbl-bad">. 이 책자는 …</text>
+          <rect x="236" y="34" width="210" height="54" class="f-surface s-line"/>
+          <text x="244" y="54" class="lbl">… 길게 눕는다.</text><text x="244" y="78" class="lbl">이 책자는 …</text>
+          <text x="114" y="104" text-anchor="middle" class="lbl-bad" font-size="11">마침표가 줄 머리로 넘어갔다</text>
+          <text x="341" y="104" text-anchor="middle" class="lbl-dim" font-size="11">앞 줄 끝에 붙여 둔다</text>
+
+          <text x="14" y="134" class="lbl-b">줄 끝 금칙 · 줄바꿈 단위</text>
+          <rect x="14" y="144" width="200" height="54" class="f-surface s-line"/>
+          <text x="22" y="164" class="lbl">주인은 말했다. <tspan class="lbl-bad">“</tspan></text><text x="22" y="188" class="lbl">사진보다 그림이 …</text>
+          <rect x="236" y="144" width="102" height="54" class="f-surface s-line"/>
+          <text x="244" y="164" class="lbl">처마 그림</text><text x="244" y="188" class="lbl-bad">자가 길 …</text>
+          <rect x="344" y="144" width="102" height="54" class="f-surface s-line"/>
+          <text x="352" y="164" class="lbl">처마</text><text x="352" y="188" class="lbl">그림자가 …</text>
+          <text x="114" y="214" text-anchor="middle" class="lbl-bad" font-size="11">여는 따옴표가 줄 끝에 홀로 남았다</text>
+          <text x="287" y="214" text-anchor="middle" class="lbl-dim" font-size="11">글자 단위</text>
+          <text x="395" y="214" text-anchor="middle" class="lbl-dim" font-size="11">어절 단위</text>
+          <text x="341" y="236" text-anchor="middle" class="lbl-dim" font-size="11">글자 단위는 간격이 고르고 어절 단위는 낱말이 온전하다</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 3. 줄 머리·줄 끝 금칙과 줄바꿈 단위.</b> 마침표, 쉼표, 물음표, 닫는 따옴표와 괄호는 앞 글자에 붙어 있어야 하므로 줄 머리에 오지 않게 하고, 여는 따옴표와 괄호는 줄 끝에 홀로 남지 않게 한다. 이런 규칙을 <span class="term">금칙 처리</span><span class="en">(Line breaking rules, Kinsoku)</span>라고 부르며, W3C의 『한국어 텍스트 레이아웃 및 타이포그래피 요건』(KLREQ)이 한국어의 경우를 정리했다. 숫자와 단위("2층", "5.5 mm")처럼 떨어지면 뜻이 흐려지는 묶음도 한 줄에 둔다.</figcaption>
+    </figure>
+
+    <p>어느 쪽이 옳은지는 정해져 있지 않다. 글자 단위 줄바꿈은 오랜 관습이고 지면의 회색이 고르다. 어절 단위 줄바꿈은 낱말을 온전히 두어 짧은 글이나 큰 글자에서 읽기 편하다는 평가가 많다. 다만 한글 줄바꿈 단위에 따른 읽기 속도나 이해도 차이를 분명하게 보여 주는 연구 결과는 이 책이 확인한 범위에서는 찾기 어렵다. 그러니 지면의 조건, 곧 <b>글줄 길이, 정렬, 쓸 수 있는 도구</b>를 보고 고른다. 글줄이 길고 단락 전체 줄나눔을 쓸 수 있으면 어절 단위로도 양끝을 고르게 맞출 수 있다. 글줄이 짧고 한 줄씩 끊는 도구라면, 어절 단위 양끝 맞추기는 공백이 벌어지기 쉽다.</p>
+
+    <div class="callout studio">
+      <strong>마지막 수단은 문장을 고치는 것</strong>
+      조판 설정을 아무리 바꿔도 공백이 벌어지는 줄이 한두 개 남는다. 책을 만드는 편집자와 디자이너는 그럴 때 글쓴이의 허락을 받아 문장을 조금 고친다. "찾아보시기를 바란다"를 "찾아보시라"로, "스무 해 가까이"를 "스무 해 남짓"으로 바꾸면 줄 끝의 어절이 한두 글자 짧아지거나 길어져 문제가 풀린다. 뜻을 바꾸지 않는 범위에서 낱말 하나를 바꾸는 일은 조판의 정상적인 일부다. 반대로 공백을 메우려고 글자 사이를 크게 벌리거나(자간을 0.05자 넘게), 글자 폭을 눌러 좁히는 것은 그 줄만 다른 회색으로 만들어 강물보다 더 눈에 띈다.
+    </div>
+
+    <div class="callout try">
+      <strong>책을 거꾸로 들고 강물 찾기</strong>
+      양끝 맞추기로 짠 책이나 신문 한 쪽, 왼끝 맞추기로 짠 잡지나 웹 글을 인쇄한 것 한 쪽을 준비한다. 종이를 거꾸로 돌려 팔을 뻗고 눈을 가늘게 뜬다. 글자가 읽히지 않으니 흰 틈만 보인다. 세 줄 이상 이어진 흰 물길을 연필로 따라 그린다. 그다음 바로 세워 그 줄들을 읽고 원인을 적는다. 긴 어절 앞에서 끊겼는가, 한 줄에 어절이 너무 적은가, 숫자나 라틴 글자가 끼어 있는가. 같은 종이에서 낱말 중간에서 바뀐 줄 끝도 세어 본다.
+    </div>
+  </section>
+
+  <section id="paragraph">
+    <h2>단락을 나누는 법</h2>
+    <p>글은 줄 다음에 단락으로 묶인다. 단락이 바뀌는 곳을 보여 주는 방법은 크게 둘이다. 첫 줄을 안쪽으로 밀어 넣는 <span class="term">들여쓰기</span><span class="en">(Indent)</span>와, 단락 사이에 빈 간격을 두는 <span class="term">단락 간격</span><span class="en">(Paragraph spacing)</span>이다. 책은 오래 들여쓰기를 써 왔고, 웹과 업무 문서는 단락 간격을 많이 쓴다. 둘 다 쓰는 것은 같은 신호를 두 번 주는 셈이라 대개 하나만 고른다.</p>
+    <p>들여쓰기는 공간을 아끼고 기준선 격자를 깨지 않는다. 대신 앞 단락의 마지막 줄이 꽉 차 있을 때는 들여쓰기만이 경계를 알려 주므로 꼭 필요하다. 한글 책에서는 한 자(1 em) 들여쓰기가 흔하다. 소제목이나 장 첫머리 바로 다음 단락은 경계가 이미 분명하니 들여쓰지 않는 관습이 있다. 단락 간격은 경계가 뚜렷하고 훑어 읽기 좋지만 공간을 쓰고, 간격이 한 줄의 정수 배가 아니면 기준선 격자가 어긋난다(<a href="grid.html">9장</a>). 아래에서 바꿔 본다.</p>
+
+    <div class="sim" id="sim-pa">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>들여쓰기와 단락 간격</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pa-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="pa-mode"><button data-value="indent" class="on">들여쓰기</button><button data-value="space">단락 간격</button><button data-value="both">둘 다</button><button data-value="none">없음</button></div>
+          <label class="ctrl"><span>들여쓰기(자) <output id="pa-i-out"></output></span><input type="range" id="pa-i" min="0.5" max="6" step="0.5" value="1"></label>
+          <label class="ctrl"><span>단락 간격(줄) <output id="pa-s-out"></output></span><input type="range" id="pa-s" min="0" max="1.5" step="0.1" value="0.5"></label>
+          <label class="check"><input type="checkbox" id="pa-grid" checked> 기준선 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">단락 경계</span><span class="v" id="pa-o-e">—</span></div>
+        <div class="stat"><span class="k">기준선에서 어긋난 줄</span><span class="v" id="pa-o-g">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "없음"을 고른다. 단락이 이어 붙어 어디서 바뀌는지 찾기 어렵다. 앞 단락 마지막 줄이 거의 꽉 찬 곳에서는 경계가 아예 사라진다(읽은 값이 그런 곳을 센다). ② "들여쓰기"에서 들여쓰기를 6자까지 늘린다. 경계는 분명하지만 첫 줄이 줄 머리 선에서 떨어져 나간 조각처럼 보인다. 1~2자면 충분하다. ③ "단락 간격"에서 간격을 0.5줄로 둔다. 경계는 또렷하지만 둘째 단락부터 기준선(파란 선)과 어긋난다. 1.0줄로 바꾸면 다시 맞는다. (20자 폭, 양끝 맞추기, 단락 전체 줄나눔. 첫 단락은 장 첫머리로 보고 들여쓰지 않았다. 끝줄이 단 폭에서 1자 안쪽까지 차면 "꽉 찬" 것으로 셌다.)</div>
+    </div>
+
+    <p>단락의 길이도 정렬의 일부다. 한 단락이 한 쪽을 넘으면 회색 벽이 되고, 한두 문장짜리 단락만 이어지면 지면이 잘게 부서진다. 휴대폰 화면에서는 같은 단락도 줄 수가 두세 배로 늘어나 길어 보이므로, 웹 글은 종이보다 단락을 조금 짧게 끊는 경우가 많다. 이것은 조판보다 글쓰기의 문제지만, 조판하는 사람이 가장 먼저 알아챈다.</p>
+  </section>
+
+  <section id="widows">
+    <h2>외톨이 줄과 짧은 끝줄</h2>
+    <p>단이나 쪽이 바뀌는 곳에서 단락이 잘리면 작은 사고가 생긴다. 단락의 <b>첫 줄 하나만</b> 단의 맨 아래에 남고 나머지가 다음 단으로 넘어가는 것을 <span class="term">오펀</span><span class="en">(Orphan)</span>, 단락의 <b>마지막 줄 하나만</b> 다음 단이나 쪽의 맨 위로 넘어가는 것을 <span class="term">위도</span><span class="en">(Widow)</span>라고 한다. 우리말로는 둘을 묶어 <span class="term">외톨이 줄</span>이라고 부르기도 한다. 용어의 뜻은 책마다 조금씩 다르게 쓰이지만, 고칠 대상은 같다. 특히 짧은 마지막 줄이 쪽 머리에 홀로 서면 쪽 위쪽의 흐름선이 끊겨 보인다. 단락 안의 문제도 있다. 마지막 줄이 한두 글자뿐인 <b>짧은 끝줄</b>은 단락 사이에 구멍을 낸다.</p>
+
+    <div class="sim" id="sim-wd">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>단이 바뀌는 곳</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="wd-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>단 높이(줄) <output id="wd-h-out"></output></span><input type="range" id="wd-h" min="4" max="14" step="1" value="6"></label>
+          <label class="ctrl"><span>단 폭(자) <output id="wd-w-out"></output></span><input type="range" id="wd-w" min="12" max="24" step="1" value="16"></label>
+          <label class="check"><input type="checkbox" id="wd-fix"> 외톨이 줄 피하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">오펀 · 위도</span><span class="v" id="wd-o-w">—</span></div>
+        <div class="stat"><span class="k">짧은 끝줄(4자 미만)</span><span class="v" id="wd-o-s">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 단 높이와 폭을 움직이며 붉은 표시가 생기는 곳을 찾는다. 단락의 첫 줄만 왼쪽 단 맨 아래에 걸리거나(오펀), 마지막 줄만 오른쪽 단 맨 위로 넘어간다(위도). ② "외톨이 줄 피하기"를 켠다. 그런 경우 왼쪽 단이 한 줄 일찍 끝나 두 줄 이상이 함께 넘어간다. 대신 왼쪽 단 아래가 한 줄 비어 두 단의 바닥이 어긋난다. ③ 폭을 바꾸며 짧은 끝줄을 찾는다. 단락 전체 줄나눔이 짧은 끝줄에 벌점을 주지만, 폭에 따라서는 피하지 못한다. (양끝 맞추기, 어절 단위, 단락 전체 줄나눔, 들여쓰기 1자.)</div>
+    </div>
+
+    <p>외톨이 줄을 고치는 방법은 셋이다. 하나는 단이나 쪽의 길이를 한 줄 줄이거나 늘리는 것인데, 펼친 두 쪽의 바닥이 어긋나는 대가가 있다. 펼침면의 두 쪽을 같이 한 줄 줄이면 바닥은 맞지만 다른 펼침면과 다르다. 둘째는 앞 단락 몇 줄의 공백이나 글자 사이를 아주 조금 조여 한 줄을 당기거나 풀어 한 줄을 밀어내는 것이다. 셋째는 역시 문장을 고치는 것이다. 웹에서는 CSS의 <code>orphans</code>, <code>widows</code> 속성이 인쇄와 다단 레이아웃에서 최소 줄 수를 정하고, 짧은 끝줄은 <code>text-wrap: pretty</code>가 일부 브라우저에서 줄여 준다. 지원하지 않는 브라우저에서는 그냥 무시되므로 넣어 두어도 해가 없다.</p>
+  </section>
+
+  <section id="design">
+    <h2>책자와 웹, 두 지면의 정렬</h2>
+    <p>마지막 시뮬레이터는 이 장의 선택지를 모두 모았다. 같은 머리말 세 단락을 종이 책자와 휴대폰, 넓은 화면에서 짜 본다. 책자는 9장에서 정한 33자 판면에 명조 계열, 화면은 고딕 계열 글꼴로 그린다. 폭 측정을 "이 장의 모델"로 바꾸면 한글 1자, 공백 0.25자처럼 고정된 폭으로 계산해 케이스의 숫자를 그대로 확인할 수 있다.</p>
+
+    <div class="sim" id="sim-af">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>책자와 웹의 단락 설계기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="af-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="af-media"><button data-value="book" class="on">책자 33자</button><button data-value="phone">휴대폰</button><button data-value="wide">넓은 화면</button></div>
+          <label class="ctrl"><span>글줄 폭(자) <output id="af-w-out"></output></span><input type="range" id="af-w" min="12" max="40" step="1" value="33"></label>
+          <div class="seg" id="af-al"><button data-value="justify" class="on">양끝</button><button data-value="left">왼끝</button></div>
+          <div class="seg" id="af-unit"><button data-value="keep" class="on">어절</button><button data-value="all">글자</button></div>
+          <label class="check"><input type="checkbox" id="af-opt"> 단락 전체 줄나눔</label>
+          <label class="check"><input type="checkbox" id="af-ls"> 글자 사이 나눔(최대 0.03자)</label>
+          <label class="check"><input type="checkbox" id="af-ind" checked> 들여쓰기 1자(끄면 단락 간격)</label>
+          <div class="seg" id="af-meas"><button data-value="font" class="on">실제 글꼴</button><button data-value="model">이 장의 모델</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">줄 수 · 가장 넓은 공백</span><span class="v" id="af-o-s">—</span></div>
+        <div class="stat"><span class="k">공백 0.5자 넘는 줄</span><span class="v" id="af-o-b">—</span></div>
+        <div class="stat"><span class="k">낱말 안 끊김 · 강물</span><span class="v" id="af-o-k">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "이 장의 모델"로 바꾼다. 책자 33자, 양끝, 어절, 한 줄씩이 서윤의 첫 시안이다. 가장 넓은 공백 0.67자, 0.5자를 넘는 줄이 2개다. ② "글자"로 바꾼다. 공백은 0.37자 아래로 고르지만 열두 줄 가운데 열 줄이 낱말 중간에서 끊긴다. ③ "어절"로 돌아가 "단락 전체 줄나눔"을 켠다. 14줄로 한 줄 줄고, 가장 넓은 공백이 0.48자로 모든 줄이 허용 범위 안에 든다. ④ "휴대폰"으로 바꾸고 폭을 20자 안팎에 둔 채 양끝과 왼끝을 비교한다. 웹 브라우저처럼 한 줄씩 끊는 양끝 맞추기는 공백이 한 자를 넘는다. 화면의 실제 글줄 폭은 6장에서 정한 값을 넣어 본다. (공백 기본 0.25자, 허용 0.2~0.5자. 모델 폭: 한글 1, 숫자 0.55, 라틴 대문자 0.65, 문장부호 0.3. 실제 글꼴은 Noto Serif KR·Noto Sans KR의 폭을 재며, 글꼴이 오지 않으면 대체 글꼴로 잰다.)</div>
+    </div>
+
+    <p>정렬과 줄바꿈은 따로 정할 수 없다. 양끝 맞추기를 고르면 줄바꿈 단위와 줄나눔 방식이 공백의 품질을 결정하고, 왼끝 맞추기를 고르면 공백은 저절로 고르지만 래그를 돌봐야 한다. 그리고 도구가 정한다. 같은 사람이 같은 글을 짜도 종이 책자에서는 단락 전체 줄나눔을 쓸 수 있고, 웹 브라우저에서는 대개 쓸 수 없다. 좋은 정렬은 원칙 하나를 모든 지면에 밀어붙이는 것이 아니라, 지면마다 그 도구로 가장 고른 회색을 만드는 조합을 찾는 일이다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>여름 조판 노트 · 10장</span></div>
+      <h4>양끝을 맞췄더니 어절 사이가 벌어졌다</h4>
+      <p>9장에서 「골목 산책」의 판이 섰다. 판면 폭 33자, 본문 3.5 mm, 줄 보내기 5.5 mm. 서윤은 책다운 반듯한 지면을 원해서 본문을 양끝 맞추기로 흘렸다. 웹에서 늘 쓰던 대로 낱말이 갈라지지 않게 어절 단위로 줄을 바꾸고, 단락 첫 줄은 한 자 들여썼다. 머리말 세 단락의 교정쇄를 뽑아 보니 몇 줄의 어절 사이가 눈에 띄게 벌어져 있었다. "오후 네 시가 지나면 처마 그림자가 길 건너"로 끝나는 셋째 줄은 다음 어절 "담장까지"가 들어가지 못해 남은 폭이 공백 아홉 개에 나뉘어 있었다.</p>
+      <p>이 장의 모델로 계산하면(한글 1자, 공백 기본 0.25자), 첫 시안의 가장 넓은 공백은 0.67자로 기본의 2.7배였고, 공백이 있는 열두 줄 가운데 두 줄이 0.5자를 넘었다. 서윤은 먼저 글자 단위 줄바꿈을 시험했다. 가장 넓은 공백은 0.37자로 고르게 줄었지만 열두 줄 가운데 열 줄이 낱말 중간에서 끊겼다. "철/물점", "나/무", "만/큼". 둘째 단락의 마지막 줄에는 "다." 두 글자만 남았다. 주인은 교정쇄를 소리 내어 읽다가 줄이 바뀔 때마다 멈칫했다. "할머니 손님들은 이걸 손가락으로 짚어 가며 읽으실 텐데요."</p>
+      <p>한도경은 활판 시절 이야기를 꺼냈다. "우리는 줄마다 공목을 끼워서 맞췄어. 넓게 벌어지는 줄이 나오면 식자공이 편집자한테 가서 낱말 하나만 바꿔 달라고 했지." 서윤은 조판 프로그램의 단락 전체 줄나눔을 켜 보았다. 같은 어절 단위인데 첫 단락 셋째 줄이 "담장까지"를 받아들이며 줄바꿈 위치가 몇 군데 바뀌었고, 열다섯 줄이 열네 줄이 되었다. 가장 넓은 공백은 0.48자로 모든 줄이 0.5자 안에 들었다. 글자 사이 나눔(최대 0.03자)을 켜도 이 원고에서는 쓸 일이 없었지만, 다른 원고를 위해 안전장치로 남겨 두었다. 그래도 0.5자를 넘는 줄이 생기면 그 줄은 주인과 상의해 문장을 고치기로 했다.</p>
+      <p>웹은 따로 정했다. 같은 단락을 휴대폰 폭(예로 20자)에서 한 줄씩 끊는 양끝 맞추기로 짜면 이 장의 모델로 가장 넓은 공백이 1.17자, 19줄 가운데 5줄이 0.5자를 넘었다. 브라우저는 단락 전체 줄나눔을 하지 않으니, 서윤은 웹 본문을 왼끝 맞추기로 두었다. 단락은 들여쓰기 대신 단락 사이 간격으로 나눴다. 화면에서는 기준선 격자를 지킬 일이 없고, 짧게 끊긴 단락을 훑어 읽기 좋기 때문이다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#2f7d5b"></i><b>책자 · 단락 전체</b><code>최대 0.48자</code></span>
+        <span class="chip"><i style="background:#d24f39"></i><b>첫 시안 · 한 줄씩</b><code>최대 0.67자</code></span>
+        <span class="chip"><i style="background:#567666"></i><b>글자 단위</b><code>0.37자 · 끊김 10줄</code></span>
+        <span class="chip"><i style="background:#22342a"></i><b>웹 20자 양끝(버림)</b><code>최대 1.17자</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b><b>책자</b>: 양끝 맞추기, 어절 단위 줄바꿈, 단락 전체 줄나눔. 공백 기본 0.25자, 허용 0.2~0.5자, 남는 폭은 글자 사이에 최대 0.03자까지만 나눈다. 그래도 0.5자를 넘는 줄은 문장을 고친다. 줄 머리에 마침표·쉼표·물음표·닫는 따옴표와 괄호, 줄 끝에 여는 따옴표와 괄호가 오지 않게 하고, 숫자와 단위는 한 줄에 둔다. 단락은 들여쓰기 1자(3.5 mm)로 나누고 단락 사이에 빈 줄을 두지 않는다(기준선 격자 유지). 소제목 바로 다음 단락은 들여쓰지 않는다. 마지막 줄은 4자 이상, 단락의 첫 줄이나 마지막 줄 하나만 쪽 끝이나 쪽 머리에 남기지 않는다. <b>웹</b>: 왼끝 맞추기(<code>text-align: start</code>), 어절 단위(<code>word-break: keep-all</code>), 긴 주소만 어디서든 끊기(<code>overflow-wrap: anywhere</code>), 들여쓰기 없이 단락 사이 간격 1 em, 짧은 끝줄은 <code>text-wrap: pretty</code>로 지원 브라우저에서만 다듬는다.</div>
+        <div><b>아직 남은 문제</b>웹 본문에 한글 웹폰트를 넣었더니 첫 화면이 늦게 뜬다. 글자 폭을 재는 글꼴이 늦게 오면 그사이 대체 글꼴로 줄이 바뀌었다가 다시 바뀐다.</div>
+        <div><b>다음 단계</b><a href="screen.html">11장</a>: 화면의 글자. 웹폰트 전략과 반응형 크기를 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>정렬은 줄마다 남는 폭을 어디에 두느냐의 문제다. 왼끝·오른끝·가운데 맞추기는 줄의 위치를 옮기고, 양끝 맞추기만 줄 안의 낱말 사이를 바꾼다.</li>
+      <li>긴 본문은 줄 머리가 반듯한 왼끝이나 양끝 맞추기로 짠다. 가운데 맞추기는 줄마다 따로 읽히는 짧은 글에, 오른끝 맞추기는 오른쪽의 무엇에 붙어야 할 때 쓴다.</li>
+      <li>양끝 맞추기에서 벌어진 공백이 위아래로 이어지면 강물이 된다. 흐리게 보거나 거꾸로 들면 잘 보인다. 글줄이 짧을수록, 낱말 안에서 끊지 못할수록 심해진다.</li>
+      <li>라틴 글자는 하이픈으로 낱말을 끊어 틈을 메운다. 짧은 조각, 세 줄 넘는 연속 하이픈, 고유명사 끊기를 피한다. 한글은 표시 없이 끊으며 어절 단위와 글자 단위 줄바꿈이 서로 반대의 대가를 치른다.</li>
+      <li>단락 전체를 보는 줄나눔(Knuth와 Plass, 1981)은 벌어짐을 여러 줄에 고르게 나눈다. 웹 브라우저는 대개 한 줄씩 끊으므로 웹의 양끝 맞추기는 공백이 크게 벌어지기 쉽다.</li>
+      <li>단락은 들여쓰기(공간을 아끼고 격자를 지킨다)나 단락 간격(경계가 또렷하다) 가운데 하나로 나눈다. 단락 간격은 줄 간격의 정수 배가 아니면 기준선을 깬다.</li>
+      <li>단락의 첫 줄이나 마지막 줄 하나만 단·쪽 경계에 남는 외톨이 줄과 한두 글자짜리 짧은 끝줄은 단 길이 조정, 미세한 간격 조정, 문장 고치기로 고친다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 휴대폰 화면의 좁은 글줄에서 한국어 본문을 <code>text-align: justify</code>와 <code>word-break: keep-all</code>로 짰더니 몇 줄의 어절 사이가 한 글자보다 넓게 벌어졌다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">한글 글꼴은 공백 글자가 원래 넓기 때문이다.</button>
+          <button class="opt">keep-all이 글자 사이 간격(자간)을 늘리기 때문이다.</button>
+          <button class="opt" data-correct>어절 단위로만 줄을 바꾸니 줄마다 남는 폭이 크고, 브라우저가 한 줄씩 끊으며 그 폭을 몇 안 되는 공백에 나누기 때문이다.</button>
+          <button class="opt">양끝 맞추기는 원래 화면에서 동작하지 않는 기능이기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">글줄이 짧으면 한 줄의 공백 수가 적고, 어절 단위로만 끊으면 다음 어절이 들어가지 못해 남는 폭이 크다. 브라우저는 대개 단락 전체를 보지 않고 한 줄씩 끊으므로 그 폭이 그대로 몇 개의 공백에 몰린다. keep-all은 줄바꿈 위치만 정하고 자간을 바꾸지 않는다. 화면에서도 양끝 맞추기는 동작하지만 이런 대가를 치른다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 양끝 맞추기 지면에서 강물을 찾는 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>종이를 거꾸로 들거나 눈을 가늘게 떠서 글자가 읽히지 않게 하고 흰 틈의 모양을 본다.</button>
+          <button class="opt">돋보기로 한 줄씩 자세히 읽으며 공백을 잰다.</button>
+          <button class="opt">글자 크기를 키워서 다시 인쇄해 본다.</button>
+          <button class="opt">흑백으로 복사해 회색 차이를 본다.</button>
+        </div>
+        <div class="quiz-exp">강물은 여러 줄에 걸친 흰 모양이라, 글자를 읽는 동안에는 잘 의식되지 않는다. 거꾸로 들거나 흐리게 보면 글자가 회색 덩어리로 뭉쳐 흰 틈만 남는다. 한 줄씩 자세히 보면 오히려 줄 사이의 이어짐을 놓친다. 글자 크기를 바꾸면 줄바꿈 자체가 달라져 원래의 강물을 볼 수 없고, 흑백 복사는 명도를 볼 때의 방법이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 양끝 맞추기 책의 한 쪽이 앞 단락의 마지막 한 줄("넘어가 주시기를.")로 시작한다. 이것을 부르는 말과 고치는 방법으로 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">강물. 낱말 사이 공백을 넓힌다.</button>
+          <button class="opt">오펀. 다음 단락의 들여쓰기를 없앤다.</button>
+          <button class="opt">래그. 오른끝 맞추기로 바꾼다.</button>
+          <button class="opt" data-correct>위도(외톨이 줄). 앞 쪽의 간격을 조금 조여 그 줄을 당기거나, 한 줄을 더 넘기거나, 문장을 고친다.</button>
+        </div>
+        <div class="quiz-exp">단락의 마지막 줄 하나만 다음 쪽 머리로 넘어간 것을 위도라고 하고, 오펀(첫 줄만 앞 단·쪽 끝에 남는 것)과 함께 외톨이 줄이라고 부르기도 한다. 앞 쪽의 공백이나 글자 사이를 미세하게 조여 한 줄을 당기거나, 반대로 두 줄 이상이 함께 넘어가게 하거나, 문장을 고쳐 고친다. 들여쓰기나 정렬 방식을 바꾸는 것은 이 문제와 상관없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 기준선 격자를 쓰는 책자에서 단락을 나누려 한다. 격자를 깨지 않는 방법은?</p>
+        <div class="opts">
+          <button class="opt">단락 사이에 0.5줄 간격을 둔다.</button>
+          <button class="opt" data-correct>첫 줄을 한 자 들여쓰고 단락 사이 간격은 두지 않는다.</button>
+          <button class="opt">단락마다 글자 크기를 조금씩 바꾼다.</button>
+          <button class="opt">단락 사이 간격을 0.7줄로 하고 행간도 0.7줄씩 늘린다.</button>
+        </div>
+        <div class="quiz-exp">들여쓰기는 줄의 세로 위치를 바꾸지 않으므로 모든 글줄이 기준선에 그대로 앉는다. 0.5줄이나 0.7줄의 단락 간격은 그 뒤의 모든 줄을 기준선 사이로 밀어낸다. 단락 간격을 쓰고 싶으면 한 줄(정수 배)로 해야 한다. 행간을 함께 바꾸면 격자 자체가 달라지고, 단락마다 글자 크기를 바꾸면 위계가 흐트러진다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" data-nonum>
+    <h2>출처와 글꼴</h2>
+    <ul>
+      <li>Donald E. Knuth, Michael F. Plass, "Breaking Paragraphs into Lines", <i>Software: Practice and Experience</i> 11(11), 1981. (단락 전체 줄나눔, 요약. 이 장의 모델은 단순화한 것이다.)</li>
+      <li>Franklin Mark Liang, <i>Word Hy-phen-a-tion by Com-put-er</i>, 박사 학위 논문, Stanford University, 1983. (패턴 방식의 하이픈 넣기, 요약)</li>
+      <li>Robert Bringhurst, <i>The Elements of Typographic Style</i>. 하이픈·외톨이 줄·래그에 관한 관습(요약).</li>
+      <li>W3C, <i>Requirements for Hangul Text Layout and Typography</i>(KLREQ), W3C Group Note. 한국어의 줄바꿈 단위와 금칙.</li>
+      <li>CSS Text Module Level 3·4(W3C): <code>word-break</code>, <code>overflow-wrap</code>, <code>text-wrap</code>; CSS Fragmentation: <code>orphans</code>, <code>widows</code>.</li>
+      <li>그림 2: The Metropolitan Museum of Art, 『폴리필로의 꿈』(23.73.1), 공공 도메인.</li>
+      <li>글꼴: Noto Serif KR, Noto Sans KR(Google·Adobe), Source Serif 4(Adobe, Frank Grießhammer). 모두 SIL Open Font License 1.1, Google Fonts에서 불러온다.</li>
+    </ul>
+  </section>
+</main>
+<script>
+(function () {
+  "use strict";
+  /* ---------- 고정색(예시 그림: 테마와 무관) ---------- */
+  var PAPER = "#fbfaf7", INK = "#2b2a30", DIM = "#6b6874", ACC = "#d24f39", GREEN = "#2f7d5b", BLUE = "#3a7fb0";
+  var SERIF = '"Noto Serif KR", "Nanum Myeongjo", "AppleMyungjo", serif';
+  var SANS = '"Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
+  var LATIN = '"Source Serif 4", Georgia, "Times New Roman", serif';
+  function F(px, w, fam) { return (w || 400) + " " + Math.max(1, px).toFixed(2) + "px " + (fam || SERIF); }
+
+  /* ---------- 견본 글(가상의 「골목 산책」 머리말, 이 책이 지은 글) ---------- */
+  var TEXT = [
+    "책방 E는 두 골목이 만나는 모퉁이에 있다. 오래된 세탁소와 문을 닫은 철물점 사이, 낮은 2층 건물의 1층이다. 아침에는 빵집에서 나온 냄새가 계단을 타고 올라오고, 오후 네 시가 지나면 처마 그림자가 길 건너 담장까지 길게 눕는다. 이 책자는 그 골목을 천천히 걸으며 그린 열두 장의 그림과, 그림마다 붙인 짧은 이야기로 되어 있다.",
+    "그림은 모두 펜 한두 자루로 그렸다. 선이 촘촘한 곳은 그늘이고 비어 있는 곳은 빛이다. 지도에는 나오지 않는 계단과, 주인이 아침마다 내놓는 나무 의자와, 비 오는 날에만 열리는 2층 창문을 찾아보시기를 바란다. 걸음이 느린 분이라면 더 좋다. 골목은 빨리 지나가면 보이지 않는 것들로 가득하다.",
+    "책방 E 주인은 이 골목에서 스무 해 가까이 책을 팔았다. 손님들은 책을 사러 오기도 하지만, 길을 묻거나 비를 피하거나 그냥 창가 의자에 앉아 있다 가기도 한다. 그런 손님들의 모습도 몇 장 그렸다. 얼굴을 알아볼 수 있을 만큼 자세히 그리지는 않았으니, 자기 모습을 찾았다면 조용히 웃고 넘어가 주시기를."
+  ];
+  // 끊어도 되는 자리를 ·로 표시한 영어 견본(가상의 머리말, 영어 사전식 음절 경계)
+  var EN = "The book·shop stands at the cor·ner where two al·leys meet, be·tween an old laun·dry and a hard·ware store that closed years ago. In the morn·ing the smell of bread drifts up the stairs from the bak·ery next door, and af·ter four in the af·ter·noon the shad·ow of the eaves stretch·es across the lane to the op·po·site wall. This book·let col·lects twelve draw·ings made while walk·ing slow·ly through that neigh·bour·hood, each with a short story at·tached.";
+  var CHARS = TEXT.join("") + "“”‘’";
+  if (document.fonts && document.fonts.load) {
+    ['400 16px "Noto Serif KR"', '400 16px "Noto Sans KR"'].forEach(function (f) { try { document.fonts.load(f, CHARS).catch(function () {}); } catch (e) {} });
+    try { document.fonts.load('400 16px "Source Serif 4"', EN).catch(function () {}); } catch (e) {}
+  }
+
+  /* ---------- 줄 나누기·양끝 맞추기 모델(장 안 구현) ----------
+     한글: 어절 단위(keep) 또는 글자 단위(all). 줄 머리·줄 끝 금칙은 W3C KLREQ의 설명을 단순화했다.
+     라틴: ·로 표시한 음절 경계에서만 하이픈을 넣는다(latin-hy). 앞 조각 2자, 뒤 조각 3자 이상.
+     최적 줄나눔은 Knuth & Plass(1981)의 '단락 전체 벌점 최소화' 생각을 단순화한 동적 계획법이다. */
+  /* 줄 나누기·양끝 맞추기 모델 (장 안 구현).
+     단위: em. measure(s) → 글자열 폭(em). */
+  var NO_START = ".,!?)]}」』’”:;%·…~-";   // 줄 머리 금칙
+  var NO_END = "([{「『‘“";               // 줄 끝 금칙
+  function isHangul(c) { var k = c.charCodeAt(0); return k >= 0xac00 && k <= 0xd7a3; }
+  // 단락 → 원자 목록. mode "keep": 어절 단위, "all": 글자 단위 끊기 허용
+  function atoms(text, mode, measure, indent) {
+    var out = [], words = text.split(" ").filter(Boolean);
+    if (indent) out.push({ s: "", w: indent, n: 0, ind: true });
+    words.forEach(function (w, wi) {
+      if (wi > 0) out.push({ g: 1 });
+      if (mode === "keep") { out.push({ s: w, w: measure(w), n: [...w].length }); return; }
+      if (mode === "latin" || mode === "latin-hy") {
+        var parts = w.split("·");
+        if (mode === "latin") parts = [parts.join("")];
+        // 앞 조각 2자 이상, 뒤에 남는 글자 3자 이상일 때만 끊는다(TeX의 기본값과 같은 생각)
+        var whole = parts.join(""), acc = "", pieces = [];
+        parts.forEach(function (pt, pi) {
+          acc += pt;
+          var rest = whole.length - acc.length;
+          if (pi < parts.length - 1 && acc.length >= 2 && rest >= 3 && /[a-z]$/i.test(acc)) { pieces.push(acc); acc = ""; }
+        });
+        if (acc) pieces.push(acc);
+        pieces.forEach(function (pc, pi) { var last = pi === pieces.length - 1; out.push({ s: pc, w: measure(pc), n: pc.length, soft: !last, hy: !last }); });
+        return;
+      }
+      var chars = [...w], piece = "";
+      for (var i = 0; i < chars.length; i++) {
+        piece += chars[i];
+        var nx = chars[i + 1];
+        var canBreak = nx && isHangul(chars[i]) && isHangul(nx) && NO_START.indexOf(nx) < 0 && NO_END.indexOf(chars[i]) < 0;
+        if (!nx || canBreak) { out.push({ s: piece, w: measure(piece), n: [...piece].length, soft: !!nx }); piece = ""; }
+        else if (nx && !isHangul(chars[i]) && !isHangul(nx)) { /* 라틴·숫자 덩어리는 붙여 둔다 */ }
+      }
+    });
+    return out;
+  }
+  // 줄 하나의 자연 폭과 공백 수: atoms[a..b) (앞뒤 공백 제외)
+  function lineStat(A, a, b, hyW) {
+    while (a < b && A[a].g) a++;
+    var e = b; while (e > a && A[e - 1].g) e--;
+    var w = 0, gaps = 0, chars = 0;
+    for (var i = a; i < e; i++) { if (A[i].g) gaps++; else { w += A[i].w; chars += A[i].n; } }
+    var hy = b < A.length && A[b - 1] && A[b - 1].hy;
+    if (hy) w += hyW || 0;
+    return { a: a, e: e, w: w, gaps: gaps, chars: chars, hy: hy };
+  }
+  /* 맞추기 계산. o: {W, space, minSp, maxSp, maxLs}
+     반환: 공백 폭, 글자 사이 추가 폭, 넘침 여부 */
+  function fit(st, o, last) {
+    var nat = st.w + st.gaps * o.space, slack = o.W - nat;
+    var r = { nat: nat, slack: slack, sp: o.space, ls: 0, over: false, bad: 0 };
+    if (last) { r.bad = 0; return r; }
+    if (st.gaps === 0 && st.chars < 2) { r.over = slack < -1e-6; r.bad = slack > 0.05 ? 1000 : 0; return r; }
+    if (slack < 0) {
+      if (st.gaps === 0) { r.over = true; r.bad = 1e6; return r; }
+      r.sp = o.space + slack / st.gaps;
+      if (r.sp < o.minSp - 1e-9) { r.over = true; r.bad = 1e6; return r; }
+      var t = (o.space - r.sp) / (o.space - o.minSp);
+      r.bad = 100 * t * t * t; return r;
+    }
+    var room = st.gaps * (o.maxSp - o.space);
+    var toSp = Math.min(slack, room), rest = slack - toSp;
+    var lgaps = Math.max(0, st.chars - 1);
+    var toLs = Math.min(rest, lgaps * (o.maxLs || 0));
+    rest -= toLs;
+    r.ls = lgaps ? toLs / lgaps : 0;
+    r.sp = st.gaps ? o.space + (toSp + rest) / st.gaps : o.space;
+    if (!st.gaps && rest > 0) { r.ls += lgaps ? rest / lgaps : 0; }
+    var cap = st.gaps * (o.maxSp - o.space) + lgaps * (o.maxLs || 0);
+    var t2 = cap > 0 ? slack / cap : 10;
+    r.bad = 100 * t2 * t2 * t2;
+    r.loose = rest > 1e-6;
+    return r;
+  }
+  // 줄 나누기: greedy 또는 optimal(단락 전체 최소 벌점, Knuth & Plass 1981의 생각을 단순화)
+  function breakLines(A, o, optimal) {
+    var brk = []; // 가능한 끊는 자리: 원자 i 앞
+    for (var i = 1; i < A.length; i++) if (A[i].g || A[i - 1].soft) brk.push(i);
+    brk.push(A.length);
+    if (!optimal) {
+      var lines = [], start = 0;
+      while (start < A.length) {
+        var lastOk = -1;
+        for (var k = 0; k < brk.length; k++) {
+          var b = brk[k]; if (b <= start) continue;
+          var st = lineStat(A, start, b, o.hyW);
+          var shrink = o.greedyShrink ? st.gaps * (o.space - o.minSp) : 0;
+          if (st.w + st.gaps * o.space - shrink <= o.W + 1e-6) lastOk = b;
+          else { if (lastOk < 0) lastOk = b; break; }
+        }
+        if (lastOk < 0) lastOk = A.length;
+        lines.push([start, lastOk]); start = lastOk;
+      }
+      return lines;
+    }
+    var pos = [0].concat(brk), best = [0], from = [-1];
+    for (var j = 1; j < pos.length; j++) {
+      best[j] = Infinity; from[j] = -1;
+      for (var i2 = j - 1; i2 >= 0; i2--) {
+        if (!isFinite(best[i2])) continue;
+        var st2 = lineStat(A, pos[i2], pos[j], o.hyW);
+        if (st2.w + st2.gaps * o.minSp > o.W + 1e-6 && !(j === i2 + 1)) break;
+        var last = pos[j] === A.length;
+        var f = fit(st2, o, last);
+        var c = (f.over && last) ? 1e6 : (f.over && j !== i2 + 1 ? Infinity : (1 + f.bad) * (1 + f.bad));
+        if (A[pos[j] - 1] && A[pos[j] - 1].soft) c += 50; // 낱말 안 끊기 벌점
+        if (last && st2.chars < 4) c += 3000; // 짧은 끝줄 벌점
+        if (best[i2] + c < best[j]) { best[j] = best[i2] + c; from[j] = i2; }
+      }
+    }
+    var res = [], j2 = pos.length - 1;
+    while (j2 > 0) { res.unshift([pos[from[j2]], pos[j2]]); j2 = from[j2]; }
+    return res;
+  }
+  // 단락 조판: 각 줄의 상자 위치(em)
+  function setPara(text, o) {
+    var A = atoms(text, o.mode, o.measure, o.indent || 0);
+    var L = breakLines(A, o, o.optimal);
+    return L.map(function (ab, li) {
+      var last = li === L.length - 1;
+      var st = lineStat(A, ab[0], ab[1], o.hyW);
+      var just = o.align === "justify";
+      var f = just ? fit(st, o, last) : { sp: o.space, ls: 0, nat: st.w + st.gaps * o.space };
+      if (!just) f.slack = o.W - (st.w + st.gaps * o.space);
+      var x = 0, items = [], gaps = [];
+      if (o.align === "center") x = f.slack / 2; else if (o.align === "right") x = f.slack;
+      for (var i = st.a; i < st.e; i++) {
+        var t = A[i];
+        if (t.g) { gaps.push([x, x + f.sp]); x += f.sp; continue; }
+        if (!t.ind) items.push({ s: t.s, x: x, w: t.w + f.ls * t.n, ls: f.ls });
+        x += t.w + f.ls * t.n;
+        // 다음 상자가 같은 낱말이면 글자 사이 간격도 하나 더
+        if (A[i + 1] && !A[i + 1].g && i + 1 < st.e) x += 0;
+      }
+      if (st.hy) { items.push({ s: "-", x: x, w: o.hyW, ls: 0, hyph: true }); x += o.hyW; }
+      return { hy: !!st.hy, items: items, gaps: gaps, sp: f.sp, ls: f.ls, slack: f.slack, last: last, chars: st.chars, soft: A[ab[1] - 1] && A[ab[1] - 1].soft && !last, loose: f.loose, end: x };
+    });
+  }
+  // 강물: 이웃한 줄의 공백 구간이 겹치며 3줄 이상 이어지는 사슬
+  function rivers(lines, tol, minLen) {
+    var chains = [], open = [];
+    lines.forEach(function (ln, li) {
+      var next = [];
+      ln.gaps.forEach(function (g) {
+        var c = null;
+        for (var k = 0; k < open.length; k++) { var p = open[k].g; if (g[0] - tol < p[1] && g[1] + tol > p[0]) { c = open[k].c; break; } }
+        if (!c) { c = []; chains.push(c); }
+        c.push({ li: li, g: g });
+        next.push({ g: g, c: c });
+      });
+      open = next;
+    });
+    return chains.filter(function (c) { return c.length >= (minLen || 3); });
+  }
+
+  // 이 장의 폭 모델(em): 한글 1, 공백 0.25, 숫자 0.55, 라틴 대문자 0.65, 소문자 0.5, 그 밖의 문장부호 0.3
+  function modelW(s) { var w = 0; for (var c of s) { var k = c.charCodeAt(0); if (k >= 0xac00 && k <= 0xd7a3) w += 1; else if (/[0-9]/.test(c)) w += 0.55; else if (/[A-Z]/.test(c)) w += 0.65; else if (/[a-z]/.test(c)) w += 0.5; else if (c === " ") w += 0.25; else w += 0.3; } return w; }
+
+  var MC = {}, OURS = [];
+  // 폭 재기(em). 32px로 재서 정밀도를 지킨다
+  function measurer(ctx, fam) {
+    var font = F(32, 400, fam);
+    return function (s) {
+      var k = font + "|" + s, v = MC[k];
+      if (v === undefined) { ctx.save(); ctx.font = font; v = ctx.measureText(s).width / 32; ctx.restore(); MC[k] = v; }
+      return v;
+    };
+  }
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { MC = {}; OURS.forEach(function (c) { c.redraw(); }); });
+  function mk(id, draw, opts) { opts.bg = PAPER; var c = AB.canvas(id, draw, opts); OURS.push(c); return c; }
+  function hfn(sel, r, min, max) {
+    return { get height() { var el = document.querySelector(sel); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(AB.clamp(w * r, min, max)); } };
+  }
+  function setAll(paras, o) { var out = []; paras.forEach(function (p, pi) { setPara(p, o).forEach(function (ln, li) { ln.pi = pi; ln.first = li === 0; out.push(ln); }); }); return out; }
+  // 줄 하나 그리기. boxed: 모델 폭의 칸 가운데에 한 자씩
+  function drawLine(ctx, ln, x, y, px, meas, color, boxed) {
+    ln.items.forEach(function (it) {
+      var cx = x + it.x * px;
+      ctx.fillStyle = it.hyph ? ACC : color;
+      if (boxed) { for (var c of it.s) { var cw = modelW(c) + it.ls; ctx.textAlign = "center"; ctx.fillText(c, cx + cw * px / 2, y); cx += cw * px; } ctx.textAlign = "left"; }
+      else if (it.ls > 0.0005) { for (var c2 of it.s) { ctx.fillText(c2, cx, y); cx += (meas(c2) + it.ls) * px; } }
+      else ctx.fillText(it.s, cx, y);
+    });
+  }
+  function drawGaps(ctx, ln, x, y, px, base) {
+    ln.gaps.forEach(function (g) {
+      var r = (g[1] - g[0]) / base;
+      var a = AB.clamp((r - 1) * 0.35, 0.06, 0.75);
+      ctx.fillStyle = r > 1.9 ? "rgba(210,79,57," + a + ")" : "rgba(58,127,176," + a + ")";
+      ctx.fillRect(x + g[0] * px, y - px * 0.85, (g[1] - g[0]) * px, px * 1.05);
+    });
+  }
+  function maxSpace(lines) { var m = 0; lines.forEach(function (l) { if (!l.last && l.gaps.length) m = Math.max(m, l.sp); }); return m; }
+  function countOver(lines, t) { var c = 0, n = 0; lines.forEach(function (l) { if (!l.last && l.gaps.length) { n++; if (l.sp > t + 1e-9) c++; } }); return [c, n]; }
+  function blurCanvas(ctx, w, h) {
+    // 흐리게 보기: 지원하면 캔버스 필터, 아니면 줄였다 키우기
+    var cv = ctx.canvas, off = document.createElement("canvas");
+    off.width = cv.width; off.height = cv.height;
+    var oc = off.getContext("2d"); oc.drawImage(cv, 0, 0);
+    ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.fillStyle = PAPER; ctx.fillRect(0, 0, cv.width, cv.height);
+    if ("filter" in ctx) { ctx.filter = "blur(" + Math.round(cv.width / w * 2.6) + "px)"; ctx.drawImage(off, 0, 0); ctx.filter = "none"; }
+    else { var s = document.createElement("canvas"); s.width = Math.ceil(cv.width / 6); s.height = Math.ceil(cv.height / 6); s.getContext("2d").drawImage(off, 0, 0, s.width, s.height); ctx.imageSmoothingEnabled = true; ctx.drawImage(s, 0, 0, cv.width, cv.height); }
+    ctx.restore();
+  }
+  function koOpts(meas, W, extra) {
+    var sp = meas(" ") || 0.25;
+    return Object.assign({ measure: meas, W: W, space: sp, minSp: sp * 0.8, maxSp: Math.max(0.5, sp * 2), maxLs: 0, mode: "keep", align: "justify", indent: 1, optimal: false }, extra || {});
+  }
+
+  /* ================= 1. 같은 단락, 네 가지 끝 ================= */
+  (function () {
+    var al = AB.seg("a4-al", function () { cv.redraw(); });
+    var wR = AB.range("a4-w", function (v) { return v + "자"; }, function () { cv.redraw(); });
+    var sp = AB.check("a4-sp", function () { cv.redraw(); });
+    var cv = mk("#a4-cv", function (ctx, w, h) {
+      var meas = measurer(ctx, SERIF), W = wR();
+      var o = koOpts(meas, W, { align: al() });
+      var lines = setPara(TEXT[0], o);
+      var pad = 16, px = Math.min(19, (w - 2 * pad) / W, (h - 2 * pad) / (lines.length * 1.7 + 0.4));
+      var ox = (w - W * px) / 2, oy = pad + px;
+      ctx.strokeStyle = "rgba(210,79,57,0.45)"; ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
+      ctx.strokeRect(ox, pad - 4, W * px, lines.length * px * 1.7 + 4); ctx.setLineDash([]);
+      ctx.font = F(px, 400);
+      var ends = [];
+      lines.forEach(function (ln, i) {
+        var y = oy + i * px * 1.7;
+        if (sp()) drawGaps(ctx, ln, ox, y, px, o.space);
+        drawLine(ctx, ln, ox, y, px, meas, INK);
+        if (!ln.last) ends.push(ln.slack);
+      });
+      var a = al(), rag = 0;
+      if (a !== "justify" && ends.length) { var mean = ends.reduce(function (s, v) { return s + v; }, 0) / ends.length; rag = Math.sqrt(ends.reduce(function (s, v) { return s + (v - mean) * (v - mean); }, 0) / ends.length); if (a === "center") rag /= 2; }
+      AB.stat("a4-o-r", AB.fix(rag, 2) + "자" + (a === "center" ? " (양쪽 각각)" : ""));
+      var ms = a === "justify" ? maxSpace(lines) : o.space;
+      AB.stat("a4-o-s", AB.fix(ms, 2) + "자 (기본의 " + AB.fix(ms / o.space, 1) + "배)");
+      AB.stat("a4-o-n", lines.length + "줄");
+    }, hfn("#a4-cv", 0.5, 220, 380));
+  })();
+
+  /* ================= 2. 흐르는 흰 물길 ================= */
+  (function () {
+    var wR = AB.range("rv-w", function (v) { return v + "자"; }, function () { cv.redraw(); });
+    var blur = AB.check("rv-blur", function () { cv.redraw(); });
+    var mark = AB.check("rv-mark", function () { cv.redraw(); });
+    var al = AB.seg("rv-al", function () { cv.redraw(); });
+    var cv = mk("#rv-cv", function (ctx, w, h) {
+      var meas = measurer(ctx, SERIF), W = wR();
+      var o = koOpts(meas, W, { align: al() });
+      var lines = setAll(TEXT.slice(0, 2), o);
+      var pad = 14, px = Math.min(17, (w - 2 * pad) / W, (h - 2 * pad) / (lines.length * 1.55 + 0.5));
+      var ox = (w - W * px) / 2, oy = pad + px, lh = px * 1.55;
+      ctx.font = F(px, 400);
+      lines.forEach(function (ln, i) { drawLine(ctx, ln, ox, oy + i * lh, px, meas, INK); });
+      if (blur()) blurCanvas(ctx, w, h);
+      var R = rivers(lines, 0.05, 3), longest = 0;
+      if (mark()) {
+        ctx.fillStyle = "rgba(210,79,57,0.38)";
+        R.forEach(function (ch) {
+          longest = Math.max(longest, ch.length);
+          for (var k = 0; k < ch.length; k++) {
+            var e = ch[k], y = oy + e.li * lh;
+            ctx.fillRect(ox + e.g[0] * px, y - px * 0.9, (e.g[1] - e.g[0]) * px, px * 1.0);
+            if (k < ch.length - 1) {
+              var f = ch[k + 1], y2 = oy + f.li * lh;
+              ctx.beginPath(); ctx.moveTo(ox + e.g[0] * px, y + px * 0.1); ctx.lineTo(ox + e.g[1] * px, y + px * 0.1);
+              ctx.lineTo(ox + f.g[1] * px, y2 - px * 0.9); ctx.lineTo(ox + f.g[0] * px, y2 - px * 0.9); ctx.closePath(); ctx.fill();
+            }
+          }
+        });
+      } else R.forEach(function (ch) { longest = Math.max(longest, ch.length); });
+      AB.stat("rv-o-n", R.length + "개");
+      AB.stat("rv-o-l", longest ? longest + "줄" : "—");
+      var ms = al() === "justify" ? maxSpace(lines) : o.space;
+      AB.stat("rv-o-s", AB.fix(ms, 2) + "자");
+    }, hfn("#rv-cv", 1.0, 320, 620));
+  })();
+
+  /* ================= 3. 하이픈이 메우는 틈 ================= */
+  (function () {
+    var wR = AB.range("hy-w", function (v) { return AB.fix(v, 1); }, function () { cv.redraw(); });
+    var on = AB.check("hy-on", function () { cv.redraw(); });
+    var sp = AB.check("hy-sp", function () { cv.redraw(); });
+    var cv = mk("#hy-cv", function (ctx, w, h) {
+      var meas = measurer(ctx, LATIN), W = wR(), base = meas(" ") || 0.25;
+      var o = { measure: meas, W: W, space: base, minSp: base * 0.8, maxSp: base * 1.5, maxLs: 0, mode: on() ? "latin-hy" : "latin", align: "justify", hyW: meas("-"), optimal: false };
+      var lines = setPara(EN, o);
+      var pad = 16, px = Math.min(20, (w - 2 * pad) / W, (h - 2 * pad) / (lines.length * 1.45 + 0.4));
+      var ox = (w - W * px) / 2, oy = pad + px, lh = px * 1.45;
+      ctx.font = F(px, 400, LATIN);
+      var run = 0, maxRun = 0, hyN = 0;
+      lines.forEach(function (ln, i) {
+        var y = oy + i * lh;
+        if (sp()) drawGaps(ctx, ln, ox, y, px, base);
+        drawLine(ctx, ln, ox, y, px, meas, INK);
+        if (ln.hy) { hyN++; run++; maxRun = Math.max(maxRun, run); } else run = 0;
+      });
+      AB.stat("hy-o-s", AB.fix(maxSpace(lines) / base, 2) + "배");
+      AB.stat("hy-o-h", hyN + "줄 · " + maxRun + "줄" + (maxRun >= 3 ? ' <span style="color:var(--bad)">사다리</span>' : ""));
+    }, hfn("#hy-cv", 0.62, 240, 440));
+  })();
+
+  /* ================= 4. 어절 단위와 글자 단위 ================= */
+  (function () {
+    var unit = AB.seg("ko-unit", function () { cv.redraw(); });
+    var opt = AB.seg("ko-opt", function () { cv.redraw(); });
+    var wR = AB.range("ko-w", function (v) { return v + "자"; }, function () { cv.redraw(); });
+    var lsR = AB.range("ko-ls", function (v) { return AB.fix(v, 3); }, function () { cv.redraw(); });
+    var cv = mk("#ko-cv", function (ctx, w, h) {
+      var meas = measurer(ctx, SERIF), W = wR();
+      var o = koOpts(meas, W, { mode: unit(), optimal: opt() === "opt", maxLs: lsR() });
+      var lines = setAll(TEXT, o);
+      var pad = 14, px = Math.min(17, (w - 2 * pad - 14) / W, (h - 2 * pad) / (lines.length * 1.6 + 1.2));
+      var ox = (w - W * px) / 2, oy = pad + px, lh = px * 1.6, extra = 0, soft = 0;
+      ctx.font = F(px, 400);
+      lines.forEach(function (ln, i) {
+        if (ln.first && i > 0) extra += px * 0.6;
+        var y = oy + i * lh + extra;
+        drawGaps(ctx, ln, ox, y, px, o.space);
+        drawLine(ctx, ln, ox, y, px, meas, INK);
+        if (ln.soft) { soft++; ctx.fillStyle = ACC; ctx.fillRect(ox + W * px + 4, y - px * 0.75, 4, px * 0.8); }
+      });
+      var ms = maxSpace(lines), ov = countOver(lines, 0.5);
+      AB.stat("ko-o-s", AB.fix(ms, 2) + "자");
+      AB.stat("ko-o-b", ov[0] + " / " + ov[1] + "줄");
+      AB.stat("ko-o-k", soft ? '<span style="color:var(--bad)">' + soft + "줄</span>" : "0줄");
+    }, hfn("#ko-cv", 0.85, 300, 580));
+  })();
+
+  /* ================= 5. 들여쓰기와 단락 간격 ================= */
+  (function () {
+    var mode = AB.seg("pa-mode", function () { cv.redraw(); });
+    var iR = AB.range("pa-i", function (v) { return AB.fix(v, 1); }, function () { cv.redraw(); });
+    var sR = AB.range("pa-s", function (v) { return AB.fix(v, 1); }, function () { cv.redraw(); });
+    var grid = AB.check("pa-grid", function () { cv.redraw(); });
+    var cv = mk("#pa-cv", function (ctx, w, h) {
+      var meas = measurer(ctx, SERIF), W = 20, md = mode();
+      var useI = md === "indent" || md === "both", useS = md === "space" || md === "both";
+      var all = [];
+      TEXT.forEach(function (p, pi) {
+        var o = koOpts(meas, W, { optimal: true, indent: useI && pi > 0 ? iR() : 0 });
+        setPara(p, o).forEach(function (ln, li) { ln.pi = pi; ln.first = li === 0; all.push(ln); });
+      });
+      var gap = useS ? sR() : 0, rows = all.length + gap * 2;
+      var pad = 14, px = Math.min(17, (w - 2 * pad) / W, (h - 2 * pad) / (rows * 1.7 + 0.6));
+      var lh = px * 1.7, ox = (w - W * px) / 2, oy = pad + px;
+      if (grid()) { ctx.strokeStyle = "rgba(58,127,176,0.45)"; ctx.lineWidth = 1; for (var g = 0; g < rows + 1; g++) { ctx.beginPath(); ctx.moveTo(ox - 8, oy + g * lh); ctx.lineTo(ox + W * px + 8, oy + g * lh); ctx.stroke(); } }
+      ctx.font = F(px, 400);
+      var yOff = 0, bad = 0, lost = 0;
+      all.forEach(function (ln, i) {
+        if (ln.first && i > 0) {
+          yOff += gap * lh;
+          var prev = all[i - 1];
+          var prevFull = prev.end > W - 1.0;
+          if (!useI && !useS && prevFull) lost++;
+        }
+        var y = oy + i * lh + yOff;
+        var ph = (yOff / lh) % 1; if (ph > 0.02 && ph < 0.98) { bad++; ctx.fillStyle = ACC; ctx.fillRect(ox - 10, y - px * 0.7, 4, px * 0.7); }
+        drawLine(ctx, ln, ox, y, px, meas, INK);
+      });
+      var edge;
+      if (md === "none") edge = lost ? '<span style="color:var(--bad)">' + (2 - lost) + "곳만 보인다, " + lost + "곳 사라짐</span>" : '<span style="color:var(--warn)">끝줄 길이로만 짐작</span>';
+      else if (md === "both") edge = "보인다(신호가 겹친다)";
+      else edge = useI && iR() > 3 ? '<span style="color:var(--warn)">보이지만 첫 줄이 떨어져 보인다</span>' : "보인다";
+      AB.stat("pa-o-e", edge);
+      AB.stat("pa-o-g", bad ? '<span style="color:var(--bad)">' + bad + "줄</span>" : "없음");
+    }, hfn("#pa-cv", 1.0, 340, 620));
+  })();
+
+  /* ================= 6. 단이 바뀌는 곳(외톨이 줄) ================= */
+  (function () {
+    var hR = AB.range("wd-h", function (v) { return v + "줄"; }, function () { cv.redraw(); });
+    var wR = AB.range("wd-w", function (v) { return v + "자"; }, function () { cv.redraw(); });
+    var fix = AB.check("wd-fix", function () { cv.redraw(); });
+    function plen(lines, i) { var p = lines[i].pi, n = 0; lines.forEach(function (l) { if (l.pi === p) n++; }); return n; }
+    function cut(lines, start, cap, doFix) {
+      var b = Math.min(lines.length, start + cap);
+      if (!doFix || b >= lines.length) return b;
+      for (var t = 0; t < 2; t++) {
+        var lastIn = lines[b - 1], firstOut = lines[b];
+        if (!firstOut) break;
+        if (lastIn.first && plen(lines, b - 1) > 1 && b - 1 > start) { b--; continue; }        // 오펀
+        if (firstOut.last && plen(lines, b) > 1 && lines[b - 1].pi === firstOut.pi && b - 1 > start) { b--; continue; } // 위도
+        break;
+      }
+      return b;
+    }
+    var cv = mk("#wd-cv", function (ctx, w, h) {
+      var meas = measurer(ctx, SERIF), W = wR(), H = hR();
+      var lines = setAll(TEXT, koOpts(meas, W, { optimal: true }));
+      var b1 = cut(lines, 0, H, fix()), b2 = cut(lines, b1, H, fix());
+      var pad = 12, px = Math.min(15, (w - 2 * pad) / (2 * W + 2), (h - 2 * pad - 20) / (H * 1.65 + 0.6));
+      var lh = px * 1.65, ox = (w - (2 * W + 2) * px) / 2, oy = pad + px;
+      ctx.fillStyle = "rgba(58,127,176,0.06)"; ctx.fillRect(ox - 4, oy - px - 2, W * px + 8, H * lh + 4); ctx.fillRect(ox + (W + 2) * px - 4, oy - px - 2, W * px + 8, H * lh + 4);
+      ctx.font = F(px, 400);
+      var orph = 0, wid = 0, shortN = 0;
+      function col(a, b, x0) {
+        for (var i = a; i < b; i++) {
+          var ln = lines[i], y = oy + (i - a) * lh;
+          drawLine(ctx, ln, x0, y, px, meas, INK);
+          if (ln.last && ln.chars < 4) { shortN++; ctx.strokeStyle = "#c98a00"; ctx.lineWidth = 1.5; ctx.strokeRect(x0 - 2, y - px * 0.95, ln.end * px + 4, px * 1.2); }
+        }
+        // 단 끝·단 머리 검사
+        if (b > a && b < lines.length) {
+          if (lines[b - 1].first && plen(lines, b - 1) > 1) { orph++; ctx.fillStyle = "rgba(210,79,57,0.25)"; ctx.fillRect(x0 - 3, oy + (b - 1 - a) * lh - px * 0.95, W * px + 6, px * 1.25); }
+        }
+        if (a > 0 && a < b && lines[a].last && plen(lines, a) > 1 && lines[a - 1].pi === lines[a].pi) { wid++; ctx.fillStyle = "rgba(210,79,57,0.25)"; ctx.fillRect(x0 - 3, oy - px * 0.95, W * px + 6, px * 1.25); }
+      }
+      col(0, b1, ox); col(b1, b2, ox + (W + 2) * px);
+      // 다음 쪽 첫 줄이 위도인지
+      if (b2 < lines.length && lines[b2].last && plen(lines, b2) > 1 && lines[b2 - 1].pi === lines[b2].pi) wid++;
+      ctx.font = F(11, 500, SANS); ctx.fillStyle = DIM; ctx.textAlign = "right";
+      ctx.fillText(b2 < lines.length ? "다음 쪽으로 " + (lines.length - b2) + "줄 →" : "글 끝", ox + (2 * W + 2) * px, oy + H * lh + 8); ctx.textAlign = "left";
+      AB.stat("wd-o-w", (orph || wid) ? '<span style="color:var(--bad)">' + orph + " · " + wid + "</span>" : "0 · 0");
+      AB.stat("wd-o-s", shortN ? '<span style="color:var(--warn)">' + shortN + "개</span>" : "0개");
+    }, hfn("#wd-cv", 0.6, 240, 420));
+  })();
+
+  /* ================= 7. 책자와 웹의 단락 설계기 ================= */
+  (function () {
+    var media = AB.seg("af-media", function (v) {
+      wR.set(v === "book" ? 33 : v === "phone" ? 20 : 34);
+      ind.set(v === "book");
+      cv.redraw();
+    });
+    var wR = AB.range("af-w", function (v) { return v + "자"; }, function () { cv.redraw(); });
+    var al = AB.seg("af-al", function () { cv.redraw(); });
+    var unit = AB.seg("af-unit", function () { cv.redraw(); });
+    var opt = AB.check("af-opt", function () { cv.redraw(); });
+    var ls = AB.check("af-ls", function () { cv.redraw(); });
+    var ind = AB.check("af-ind", function () { cv.redraw(); });
+    var measM = AB.seg("af-meas", function () { cv.redraw(); });
+    var cv = mk("#af-cv", function (ctx, w, h) {
+      var book = media() === "book", fam = book ? SERIF : SANS, model = measM() === "model";
+      var meas = model ? modelW : measurer(ctx, fam), W = wR();
+      var sp = model ? 0.25 : (meas(" ") || 0.25);
+      var o = { measure: meas, W: W, space: sp, minSp: model ? 0.2 : sp * 0.8, maxSp: 0.5, maxLs: ls() ? 0.03 : 0, mode: unit(), align: al(), indent: ind() ? 1 : 0, optimal: opt() };
+      var lines = setAll(TEXT, o);
+      var gapL = ind() ? 0 : 1 / 1.7; // 단락 간격 1 em(줄 높이 1.7 em 기준)
+      var rows = lines.length + gapL * 2;
+      var pad = 14, px = Math.min(17, (w - 2 * pad - 14) / W, (h - 2 * pad - 10) / (rows * 1.7 + 0.5));
+      var lh = px * 1.7, ox = (w - W * px) / 2, oy = pad + px, yOff = 0, soft = 0;
+      // 매체 테두리
+      ctx.strokeStyle = book ? "rgba(47,125,91,0.5)" : "rgba(58,127,176,0.5)"; ctx.lineWidth = 1; ctx.setLineDash([4, 3]);
+      ctx.strokeRect(ox - 8, pad - 6, W * px + 16, rows * lh + 10); ctx.setLineDash([]);
+      ctx.font = F(px, 400, fam);
+      lines.forEach(function (ln, i) {
+        if (ln.first && i > 0) yOff += gapL * lh;
+        var y = oy + i * lh + yOff;
+        if (!ln.last && ln.gaps.length && ln.sp > 0.5 + 1e-9) { ctx.fillStyle = "rgba(210,79,57,0.12)"; ctx.fillRect(ox - 4, y - px * 0.95, W * px + 8, px * 1.3); }
+        drawLine(ctx, ln, ox, y, px, meas, INK, model);
+        if (ln.soft) { soft++; ctx.fillStyle = ACC; ctx.fillRect(ox + W * px + 5, y - px * 0.75, 4, px * 0.8); }
+      });
+      var R = rivers(lines, 0.05, 3).length, ov = countOver(lines, 0.5), ms = al() === "justify" ? maxSpace(lines) : sp;
+      AB.stat("af-o-s", lines.length + "줄 · " + AB.fix(ms, 2) + "자");
+      AB.stat("af-o-b", (ov[0] ? '<span style="color:var(--bad)">' + ov[0] + "</span>" : "0") + " / " + ov[1] + "줄");
+      AB.stat("af-o-k", soft + "줄 · " + R + "개");
+    }, hfn("#af-cv", 0.72, 300, 520));
+  })();
+})();
+
+</script>
+</body>
+</html>

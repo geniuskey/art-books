@@ -62,7 +62,7 @@
   .tl-table td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
   .tl-table tr.warn td { color: var(--bad); }
   .tl-export { padding: 14px 18px; border-top: 1px solid var(--border); display: grid; gap: 10px; background: var(--bg-elev); }
-  .tl-export textarea { width: 100%; box-sizing: border-box; min-height: 200px; font-family: var(--mono); font-size: 12.5px; line-height: 1.5; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface); color: var(--text); resize: vertical; }
+  .tl-export textarea { width: 100%; box-sizing: border-box; min-height: 140px; font-family: var(--mono); font-size: 12.5px; line-height: 1.5; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface); color: var(--text); resize: vertical; }
   .tl-export .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .tl-export .row span { font-size: 13px; color: var(--text-dim); }
   #sim-tl-measure .hint, #sim-tl-contrast .hint { position: static; display: block; text-align: right; margin: 0 12px 8px; background: none; color: #6b6874; }
@@ -139,7 +139,7 @@
         <div class="cmp-a"><div class="tl-fit" id="tl-cmp-a"><div class="tl-dev"></div></div></div>
         <div class="cmp-b"><div class="tl-fit" id="tl-cmp-b"><div class="tl-dev"></div></div></div>
       </div>
-      <figcaption><b>그림 2. 같은 글, 다른 조판.</b> 왼쪽(첫 시안): 시스템 글꼴 16&nbsp;px, 행간 1.3, 글줄 폭 제한 없음, 날짜 줄 <code>#999999</code>. 오른쪽(조정): Noto Sans KR 18&nbsp;px, 자간 −0.02&nbsp;em, 행간 1.75, 글줄 폭 34&nbsp;em, 본문 <code>#22342a</code>, 날짜 줄 14&nbsp;px <code>#567666</code>(<a href="readability.html">7장</a>의 값). 왼쪽은 넓은 화면에서 한 줄에 <span id="tl-cmp-n-a">—</span>자, 오른쪽은 <span id="tl-cmp-n-b">—</span>자가 들어간다(이 페이지에서 잰 값). 글자는 그대로인데 "읽을 수는 있지만 읽고 싶지 않은" 쪽과 "읽어 볼 만한" 쪽이 갈린다.</figcaption>
+      <figcaption><b>그림 2. 같은 글, 다른 조판.</b> 왼쪽(첫 시안): 시스템 글꼴 16&nbsp;px, 행간 1.3, 글줄 폭 제한 없음, 날짜 줄 <code>#999999</code>. 오른쪽(조정): Noto Sans KR 18&nbsp;px, 자간 −0.02&nbsp;em, 행간 1.8, 최대 글줄 폭 28&nbsp;em(<a href="leading.html">6장</a>의 값), 본문 <code>#22342a</code>, 날짜 줄 14&nbsp;px <code>#567666</code>(<a href="readability.html">7장</a>의 값). 왼쪽은 넓은 화면에서 한 줄에 <span id="tl-cmp-n-a">—</span>자, 오른쪽은 <span id="tl-cmp-n-b">—</span>자가 들어간다(이 페이지에서 잰 값). 글자는 그대로인데 "읽을 수는 있지만 읽고 싶지 않은" 쪽과 "읽어 볼 만한" 쪽이 갈린다.</figcaption>
     </figure>
 
     <p>두 판은 한두 가지가 아니라 다섯 가지가 함께 다르다. 그래서 "무엇 때문에 좋아졌는가"를 말하기 어렵다. 이 장의 앞부분은 그 다섯 가지를 하나씩 떼어 낸 패널이고(각 패널은 앞 장의 시뮬레이터를 실험실 형식으로 다시 쓴 것이다), 마지막 절의 종합 실험실이 다시 그 다섯을 한데 모은다.</p>
@@ -174,7 +174,7 @@
         <text x="36" y="182" class="lbl">글자 폭은 Noto Sans KR로 잰 값이다. 글꼴마다 조금씩 다르다</text>
         <text x="36" y="202" class="lbl">(Noto Serif KR 음절 0.97 em, IBM Plex Sans KR 1.00 em).</text>
       </svg>
-      <figcaption><b>그림 3. 폭은 같아도 담기는 글자 수는 다르다.</b> 라틴 관행 45~75자는 글줄 폭으로 대략 22~38&nbsp;em이다. 같은 폭에 한글 산문은 빈칸까지 세어 대략 30~50자가 들어간다. 이 책은 이 범위(글줄 폭 22~38&nbsp;em, 한 줄 약 30~50자)를 한글 본문의 <em>출발점</em>으로 쓴다. 한글 본문 글줄 길이에 대해 널리 합의된 연구 수치는 없고, 위 범위는 라틴 관행을 폭의 비로 옮긴 어림이다.</figcaption>
+      <figcaption><b>그림 3. 폭은 같아도 담기는 글자 수는 다르다.</b> 라틴 관행 45~75자는 글줄 폭으로 대략 22~38&nbsp;em이다. 같은 폭에 한글 산문은 빈칸까지 세어 대략 30~50자가 들어간다. 한편 WCAG 2의 1.4.8(AAA)은 글줄 폭의 상한을 라틴 80자, 한중일 글자 40자로 따로 적는다. 그래서 이 책은 <a href="leading.html">6장</a>에서 한글 본문 한 줄 약 30~40자를 넓은 화면의 <em>출발점</em>으로 잡았다. 한글 본문 글줄 길이에 대해 널리 합의된 연구 수치는 없고, 위 범위는 관행과 지침을 옮긴 어림이다.</figcaption>
     </figure>
 
     <p>그림의 관계를 식으로 적으면 이렇다. 글줄 폭을 키우거나 글자를 줄이면 한 줄 글자 수가 늘고, 자간을 넓혀도 줄어든다.</p>
@@ -193,8 +193,8 @@
         <div class="sim-controls">
           <div class="seg" id="tl-m-dev"><button data-value="phone">휴대폰 360</button><button data-value="wide" class="on">넓은 화면 1280</button></div>
           <label class="ctrl"><span>글자 크기 <output id="tl-m-size-out"></output></span><input type="range" id="tl-m-size" min="12" max="26" step="0.5" value="18"></label>
-          <label class="ctrl"><span>행간(글자 크기의 배수) <output id="tl-m-lead-out"></output></span><input type="range" id="tl-m-lead" min="1" max="2.6" step="0.05" value="1.75"></label>
-          <label class="ctrl"><span>최대 글줄 폭(em) <output id="tl-m-meas-out"></output></span><input type="range" id="tl-m-meas" min="10" max="80" step="1" value="34"></label>
+          <label class="ctrl"><span>행간(글자 크기의 배수) <output id="tl-m-lead-out"></output></span><input type="range" id="tl-m-lead" min="1" max="2.6" step="0.05" value="1.8"></label>
+          <label class="ctrl"><span>최대 글줄 폭(em) <output id="tl-m-meas-out"></output></span><input type="range" id="tl-m-meas" min="10" max="80" step="1" value="28"></label>
         </div>
       </div>
       <div class="sim-readout">
@@ -203,10 +203,10 @@
         <div class="stat"><span class="k">줄 간격 · 줄 사이 빈 띠</span><span class="v" id="tl-m-o-lead">—</span></div>
         <div class="stat"><span class="k">본문 줄 수</span><span class="v" id="tl-m-o-lines">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 넓은 화면에서 글줄 폭을 80&nbsp;em까지 끈다. 한 줄이 70자를 넘으면 줄 끝에서 다음 줄 첫머리로 돌아가는 눈의 길이 길어져, 줄을 건너뛰거나 같은 줄을 다시 읽기 쉽다. 이때 행간을 1.3으로 줄이면 더 나빠지고, 2.0으로 넓히면 조금 버틴다. 긴 줄일수록 행간이 넓어야 하는 이유다. ② 휴대폰으로 바꾼다. 글줄 폭을 얼마로 끌어도 틀 폭(좌우 여백 20&nbsp;px을 뺀 320&nbsp;px)에서 멈추고, 글자 크기가 한 줄 글자 수를 정한다. 18&nbsp;px에서는 한 줄이 22자 안팎이다. 휴대폰에서는 글줄 폭보다 글자 크기가 글줄 길이를 정한다. ③ 행간을 1.0과 2.6 양 끝으로 민다. 1.0에서는 받침과 다음 줄의 위 획이 닿을 듯하고, 2.6에서는 줄이 서로 떨어져 단락이 한 덩어리로 보이지 않는다. (한 줄 글자 수는 빈칸을 포함해 세고, 단락의 마지막 줄은 뺀다. 행간은 CSS line-height다. 글꼴은 Noto Sans KR이며 아직 도착하지 않았으면 대체 글꼴로 잰다.)</div>
+      <div class="sim-note">해볼 것: ① 넓은 화면에서 글줄 폭을 80&nbsp;em까지 끈다. 한 줄이 70자를 넘으면 줄 끝에서 다음 줄 첫머리로 돌아가는 눈의 길이 길어져, 줄을 건너뛰거나 같은 줄을 다시 읽기 쉽다. 이때 행간을 1.3으로 줄이면 더 나빠지고, 2.0으로 넓히면 조금 버틴다. 긴 줄일수록 행간이 넓어야 하는 이유다. ② 휴대폰으로 바꾼다. 글줄 폭을 얼마로 끌어도 틀 폭(좌우 여백 20&nbsp;px을 뺀 320&nbsp;px)에서 멈추고, 글자 크기가 한 줄 글자 수를 정한다. 18&nbsp;px에서는 한 줄이 23자 안팎이다. 휴대폰에서는 글줄 폭보다 글자 크기가 글줄 길이를 정한다. ③ 행간을 1.0과 2.6 양 끝으로 민다. 1.0에서는 받침과 다음 줄의 위 획이 닿을 듯하고, 2.6에서는 줄이 서로 떨어져 단락이 한 덩어리로 보이지 않는다. (한 줄 글자 수는 빈칸을 포함해 세고, 단락의 마지막 줄은 뺀다. 행간은 CSS line-height다. 글꼴은 Noto Sans KR이며 아직 도착하지 않았으면 대체 글꼴로 잰다.)</div>
     </div>
 
-    <p>넓은 화면에서 서윤의 첫 글이 한 줄에 95자에 이르렀던 것은 글줄 폭을 정하지 않았기 때문이다. 휴대폰에서는 반대로 걱정이 하나 줄어든다. 화면이 좁아 한 줄이 길어질 수가 없다. 대신 글자를 24&nbsp;px로 키우면 한 줄이 16자 안팎으로 내려가고, 그러면 어절이 자주 다음 줄로 넘어가며 줄 끝이 들쭉날쭉해진다. 휴대폰의 글줄 문제는 "너무 길다"가 아니라 "너무 짧다"에 가깝다.</p>
+    <p>넓은 화면에서 서윤의 첫 글이 한 줄에 97자에 이르렀던 것은 글줄 폭을 정하지 않았기 때문이다. 휴대폰에서는 반대로 걱정이 하나 줄어든다. 화면이 좁아 한 줄이 길어질 수가 없다. 대신 글자를 24&nbsp;px로 키우면 한 줄이 16자 안팎으로 내려가고, 그러면 어절이 자주 다음 줄로 넘어가며 줄 끝이 들쭉날쭉해진다. 휴대폰의 글줄 문제는 "너무 길다"가 아니라 "너무 짧다"에 가깝다.</p>
   </section>
 
   <section id="tracking">
@@ -268,7 +268,7 @@
 
   <section id="scale">
     <h2>위계 패널: 비율 하나로 크기 단계 세우기</h2>
-    <p><a href="hierarchy.html">8장</a>의 <span class="term">모듈 스케일</span><span class="en">(Modular scale)</span>은 본문 크기에 같은 비율을 거듭 곱해 크기 단계를 만드는 방법이다. 비율이 1.25면 본문 11&nbsp;pt에서 13.75, 17.2, 21.5&nbsp;pt로 올라간다. 실험실은 이 비율 하나로 안내문의 모든 크기를 정한다. 제목은 본문의 비율 세제곱, 날짜와 부제는 한 제곱, 신청 안내는 한 단계 아래다. "흐리게 보기"를 켜면 글자가 읽히지 않는 상태에서도 단계가 보이는지 확인할 수 있다.</p>
+    <p><a href="hierarchy.html">8장</a>의 <span class="term">모듈 스케일</span><span class="en">(Modular scale)</span>은 본문 크기에 같은 비율을 거듭 곱해 크기 단계를 만드는 방법이다. 비율이 1.25면 본문 11&nbsp;pt에서 13.75, 17.2, 21.5&nbsp;pt로 올라간다. 실험실은 이 비율 하나로 안내문의 크기를 정한다. 8장의 구성대로 제목은 본문의 비율 세제곱, 날짜와 장소는 한 제곱이고, 그 사이의 제곱 단계는 비워 제목과 정보 사이를 넓힌다. 신청 안내는 본문과 같은 크기에 색과 위치로 구별한다. "흐리게 보기"를 켜면 글자가 읽히지 않는 상태에서도 단계가 보이는지 확인할 수 있다.</p>
 
     <div class="sim" id="sim-tl-scale">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>위계 패널: 낭독 모임 안내문의 크기 단계</h3></div>
@@ -281,12 +281,12 @@
         </div>
       </div>
       <div class="sim-readout">
-        <div class="stat"><span class="k">제목 · 날짜 · 본문 · 안내(pt)</span><span class="v" id="tl-s-o-sizes">—</span></div>
+        <div class="stat"><span class="k">제목 · 날짜와 장소 · 본문(pt)</span><span class="v" id="tl-s-o-sizes">—</span></div>
         <div class="stat"><span class="k">제목 ÷ 본문</span><span class="v" id="tl-s-o-ratio">—</span></div>
-        <div class="stat"><span class="k">제목 글자 높이(A4 위)</span><span class="v" id="tl-s-o-mm">—</span></div>
+        <div class="stat"><span class="k">제목 글자 높이(A4 위, 어림)</span><span class="v" id="tl-s-o-mm">—</span></div>
         <div class="stat"><span class="k">판정</span><span class="v" id="tl-s-o-judge">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 비율을 1.0으로 내린다. 모든 줄이 같은 크기가 되고, 굵기와 색만 남는다. 서윤의 첫 안내문이 이랬다. "흐리게 보기"를 켜면 제목, 날짜, 본문이 한 덩어리의 회색 띠로 녹는다. ② 비율을 1.2로 올린다. 이웃한 단계의 차이가 1.2배 남짓이면 흐리게 볼 때 단계가 겨우 갈린다. 1.5에서는 제목, 날짜, 본문이 흐려도 세 덩어리로 읽힌다. ③ 비율을 2.0으로 올린다. 제목이 본문의 8배가 되어 A4 폭을 넘치고 줄이 바뀐다. 비율이 크면 단계 수를 줄여야 한다. (판정은 이 장의 어림 기준이다. 이웃한 단계의 크기 비가 1.15보다 작으면 "단계가 흐림", 제목이 A4 본문 폭을 넘쳐 두 줄 이상이 되면 "제목이 넘침". 날짜는 강조색 #d24f39, 굵게.)</div>
+      <div class="sim-note">해볼 것: ① 비율을 1.0으로 내린다. 모든 줄이 같은 크기가 되고, 굵기와 색만 남는다. 8장의 첫 시안(제목 18&nbsp;pt, 나머지 14&nbsp;pt, 전부 굵게)이 이것과 크게 다르지 않았다. "흐리게 보기"를 켜면 제목, 날짜, 본문이 한 덩어리의 회색 띠로 녹는다. ② 비율을 1.2로 올린다. 이웃한 단계의 차이가 1.2배 남짓이면 흐리게 볼 때 단계가 겨우 갈린다. 1.5에서는 제목, 날짜, 본문이 흐려도 세 덩어리로 읽힌다. ③ 비율을 2.0으로 올린다. 제목이 본문의 8배가 되어 A4 폭을 넘치고 줄이 바뀐다. 비율이 크면 단계 수를 줄여야 한다. (판정은 이 장의 어림 기준이다. 이웃한 단계의 크기 비가 1.15보다 작으면 "단계가 흐림", 제목이 A4 본문 폭을 넘쳐 두 줄 이상이 되면 "제목이 넘침". 날짜는 강조색 #d24f39, 굵게.)</div>
     </div>
 
     <p>위계는 크기만으로 만들지 않는다. 날짜를 강조색으로 칠하고 굵게 쓰면 크기 차이가 작아도 앞으로 나온다. 실험실이 비율 하나로 크기를 묶는 이유는 크기를 "따로따로" 정하지 않기 위해서다. 제목 36&nbsp;pt, 날짜 15&nbsp;pt, 장소 13&nbsp;pt처럼 하나씩 정하면 단계 사이의 간격이 들쭉날쭉해지고, 고칠 때마다 다른 값이 흔들린다. 비율로 묶어 두면 본문 크기 하나를 바꿔도 위계 전체가 같은 모양으로 따라온다.</p>
@@ -356,7 +356,7 @@
         <div class="stat"><span class="k">글꼴 용량</span><span class="v" id="tl-f-o-kb">—</span></div>
         <div class="stat"><span class="k">받는 데 걸리는 시간</span><span class="v" id="tl-f-o-t">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 소식 글을 Noto Sans KR로 본다. 고유 글자는 160자 남짓이고 받는 조각은 본문 13개, 제목 7개다. 자주 쓰는 글자는 앞쪽 몇 조각에 몰려 있지만, "엽", "읊" 같은 드문 글자 하나가 조각 하나를 통째로 부른다. ② 같은 글을 Noto Serif KR로 바꾼다. 명조는 획 끝의 부리와 굵기 변화 때문에 글자 하나의 윤곽 정보가 많아 같은 조각 수에도 용량이 크다. "조각 전부"로 바꾸면 3&nbsp;MB를 넘는다. 웹 본문에 명조를 쓰려면 용량을 감수해야 한다. ③ "이 글자만 서브셋"을 고른다. 쓰인 글자만 뽑아 글꼴 파일을 직접 만드는 방법으로, 용량이 가장 작지만 글을 고칠 때마다 다시 만들어야 하고, 손님이 남긴 댓글처럼 미리 모르는 글자에는 쓸 수 없다. 시스템 글꼴은 0&nbsp;KB이지만 기기마다 모양이 다르다. (조각 용량은 2026-10-15에 잰 실제 값. 서브셋 용량은 "고유 글자 수 × 그 글꼴 조각의 글자당 평균 크기"로 어림한 값이며 파일 머리(표 정보)의 몫을 넣지 않아 실제보다 작게 나온다. 시간은 용량 ÷ 연결 속도이며 연결을 맺는 시간과 동시 내려받기는 넣지 않았다.)</div>
+      <div class="sim-note">해볼 것: ① 소식 글을 Noto Sans KR로 본다. 고유 글자는 150자 남짓이고 받는 조각은 본문 13개, 제목 7개다. 자주 쓰는 글자는 앞쪽 몇 조각에 몰려 있지만, "엽", "읊" 같은 드문 글자 하나가 조각 하나를 통째로 부른다. ② 같은 글을 Noto Serif KR로 바꾼다. 명조는 획 끝의 부리와 굵기 변화 때문에 글자 하나의 윤곽 정보가 많아 같은 조각 수에도 용량이 크다. "조각 전부"로 바꾸면 3&nbsp;MB를 넘는다. 웹 본문에 명조를 쓰려면 용량을 감수해야 한다. ③ "이 글자만 서브셋"을 고른다. 쓰인 글자만 뽑아 글꼴 파일을 직접 만드는 방법으로, 용량이 가장 작지만 글을 고칠 때마다 다시 만들어야 하고, 손님이 남긴 댓글처럼 미리 모르는 글자에는 쓸 수 없다. 시스템 글꼴은 0&nbsp;KB이지만 기기마다 모양이 다르다. (조각 용량은 2026-10-15에 잰 실제 값. 서브셋 용량은 "고유 글자 수 × 그 글꼴 조각의 글자당 평균 크기"로 어림한 값이며 파일 머리(표 정보)의 몫을 넣지 않아 실제보다 작게 나온다. 시간은 용량 ÷ 연결 속도이며 연결을 맺는 시간과 동시 내려받기는 넣지 않았다.)</div>
     </div>
 
     <p>조각 방식 덕분에 한글 웹폰트도 첫 화면에 수 MB를 받지는 않는다. 그래도 글 한 편에 수백 KB는 흔하고, 글꼴이 오기 전까지 글자가 대체 글꼴로 보였다가 바뀌는 깜빡임(FOUT, <a href="screen.html">11장</a>)이 생긴다. 굵기를 하나 더 쓰면 그만큼 또 받는다. 그래서 웹 본문의 글꼴을 고를 때는 모양과 함께 "몇 굵기를, 어떤 방식으로 받는가"를 같이 적는다.</p>
@@ -370,7 +370,7 @@
   <section id="lab">
     <h2>종합 실험실</h2>
     <p>이제 모든 설정을 한 작업대에 모은다. 위쪽 미리보기에 두 설정 A와 B가 나란히 놓이고, 아래 조절기는 "지금 고치는 쪽"(A 또는 B) 하나를 움직인다. 글을 바꾸면 그 글의 "첫 시안"이 A에, "서윤의 선택"이 B에 들어간다. 둘 다 출발점일 뿐이니 마음껏 바꾼다. 맨 아래 비교표는 두 설정의 숫자를 나란히 보여 주고, "CSS 쓰기"는 지금 설정을 웹에 붙일 수 있는 CSS로 적어 준다.</p>
-    <p>순서는 이렇게 권한다. ① 기기를 정하고 글꼴과 본문 크기를 고른다. ② 글줄 폭으로 한 줄 글자 수를 출발 범위(글줄 폭 22~38&nbsp;em, 빈칸 포함 한 줄 약 30~50자) 안에 넣는다. 휴대폰이면 글자 크기가 이 일을 한다. ③ 행간을 글줄 길이에 맞춘다. ④ 자간을 본문과 제목에 따로 준다. ⑤ 위계 비율로 단계를 세운다. ⑥ 정렬과 줄바꿈을 정한다. ⑦ 대비와 용량을 확인한다. ⑧ "WCAG 간격 덮어쓰기"를 켜서 사용자가 간격을 넓혀도 무너지지 않는지 본다.</p>
+    <p>순서는 이렇게 권한다. ① 기기를 정하고 글꼴과 본문 크기를 고른다. ② 글줄 폭으로 한 줄 글자 수를 출발 범위(빈칸 포함 한 줄 약 30~40자) 안에 넣는다. 휴대폰이면 글자 크기가 이 일을 한다. ③ 행간을 글줄 길이에 맞춘다. ④ 자간을 본문과 제목에 따로 준다. ⑤ 위계 비율로 단계를 세운다. ⑥ 정렬과 줄바꿈을 정한다. ⑦ 대비와 용량을 확인한다. ⑧ "WCAG 간격 덮어쓰기"를 켜서 사용자가 간격을 넓혀도 무너지지 않는지 본다.</p>
 
     <div class="sim" id="sim-tl-lab">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>조판 실험실</h3></div>
@@ -420,7 +420,7 @@
         <div class="row"><button class="btn primary" id="tl-L-css" type="button">CSS 쓰기</button><button class="btn" id="tl-L-copy" type="button">복사하기</button><span id="tl-L-msg" aria-live="polite"></span></div>
         <textarea id="tl-L-out" spellcheck="false" aria-label="조판 설정 CSS"></textarea>
       </div>
-      <div class="sim-note">해볼 것: ① 소식 글을 휴대폰으로 본다. A(첫 시안)도 B도 한 줄 24자 안팎이다. 휴대폰에서는 첫 시안도 글줄이 길지 않다. 차이는 행간, 날짜 줄의 크기와 대비(13&nbsp;px·2.85 대 14&nbsp;px·5.03), 그리고 A의 글자 단위 줄바꿈이 만든 쪼개진 어절에서 난다. 기기를 넓은 화면으로 바꾸고 "서윤의 선택 → B"를 다시 누르면(넓은 화면용 18&nbsp;px) A만 한 줄 95자에 이른다. 서윤의 첫 글이 노트북에서 유난히 읽기 싫었던 이유다. ② 책자 A5로 바꾼다. 틀과 판면은 <a href="grid.html">9장</a>의 그리드다. A는 양끝·어절 단위라 빈칸이 벌어지고, B는 왼끝이라 빈칸은 1배다. B를 고치는 중에 "양끝"과 "글자 단위"를 눌러 보고, 쪼개진 어절과 빈칸 배수가 서로 바뀌는 것을 본다. ③ "WCAG 간격 덮어쓰기"를 켠다. WCAG 2.2의 1.4.12는 사용자가 행간을 1.5배, 단락 간격을 2배, 자간을 0.12&nbsp;em, 어절 간격을 0.16&nbsp;em으로 넓혀도 내용이 잘리거나 겹치지 않을 것을 요구한다. 책자 A5에서 켜면 본문 줄 수가 늘고 쪽 아래 여백이 줄어든다. 글이 조금만 더 길었다면 틀 밖으로 넘쳤을 것이다(비교표의 "틀 밖으로 넘침"). 화면에서는 글이 길어질 뿐이지만, 높이를 못 박은 상자에 글을 넣었다면 이렇게 잘린다. (비교표의 숫자는 이 장의 다른 패널과 같은 방식으로 잰다. 용량은 Google Fonts 조각 방식 기준, 대비는 본문 글자색과 바탕색의 WCAG 2 대비율이다.)</div>
+      <div class="sim-note">해볼 것: ① 소식 글을 휴대폰으로 본다. A(첫 시안)도 B도 한 줄 24자 안팎이다. 휴대폰에서는 첫 시안도 글줄이 길지 않다. 차이는 행간, 날짜 줄의 크기와 대비(13&nbsp;px·2.85 대 14&nbsp;px·5.03), 그리고 A의 글자 단위 줄바꿈이 만든 쪼개진 어절에서 난다. 기기를 넓은 화면으로 바꾸고 "서윤의 선택 → B"를 다시 누르면(넓은 화면용 18&nbsp;px·행간 1.8·28&nbsp;em) A는 한 줄 97자, B는 37자다. 서윤의 첫 글이 노트북에서 유난히 읽기 싫었던 이유다. ② 책자 A5로 바꾼다. 틀과 판면은 <a href="grid.html">9장</a>의 그리드다. A(9장 상태)와 B(<a href="alignment.html">10장</a>의 양끝·어절 단위·들여쓰기)는 둘 다 빈칸이 2배 넘게 벌어지는 줄이 있다. B를 고치는 중에 "글자 단위"와 "왼끝"을 눌러 보고, 쪼개진 어절, 빈칸 배수, 줄 끝의 들쭉날쭉함이 서로 바뀌는 것을 본다. ③ "WCAG 간격 덮어쓰기"를 켠다. WCAG 2.2의 1.4.12는 사용자가 행간을 1.5배, 단락 간격을 2배, 자간을 0.12&nbsp;em, 어절 간격을 0.16&nbsp;em으로 넓혀도 내용이 잘리거나 겹치지 않을 것을 요구한다. 책자 A5에서 켜면 본문 줄 수가 늘고 쪽 아래 여백이 줄어든다. 글이 조금만 더 길었다면 틀 밖으로 넘쳤을 것이다(비교표의 "틀 밖으로 넘침"). 화면에서는 글이 길어질 뿐이지만, 높이를 못 박은 상자에 글을 넣었다면 이렇게 잘린다. (비교표의 숫자는 이 장의 다른 패널과 같은 방식으로 잰다. 용량은 Google Fonts 조각 방식 기준, 대비는 본문 글자색과 바탕색의 WCAG 2 대비율이다.)</div>
     </div>
 
     <p>비교표에서 가장 먼저 볼 줄은 "한 줄 글자 수"와 "대비"다. 둘은 독자가 글을 끝까지 읽을지에 바로 닿고, 고치는 데 비용이 거의 들지 않는다. "용량"은 웹에만 해당하고, "빈칸 배수"와 "쪼개진 어절"은 양끝 맞추기를 고를 때만 중요하다. 표의 어느 줄도 빨갛게 표시되지 않았다고 해서 좋은 조판이 되는 것은 아니다. 숫자가 말하지 못하는 것, 곧 글의 성격에 글꼴이 맞는지, 책방의 목소리처럼 들리는지는 두 판을 나란히 놓고 눈으로 고른다.</p>
@@ -446,27 +446,27 @@
     <div class="casefile">
       <div class="tag"><b>CASE 서윤</b><span>조판 노트 · 13장</span></div>
       <h4>글 세 편을 한 작업대에</h4>
-      <p>8월 첫 주, 낭독 모임이 두 번째 토요일을 맞기 전날 밤이었다. 서윤은 책방 E 계산대에 노트북과 휴대폰을 나란히 놓고 여름 조판 일감 세 편을 실험실에 차례로 넣었다. 서점 소식 글, 낭독 모임 안내문, 「골목 산책」의 글 쪽 하나. 간판 레터링은 <a href="display.html">12장</a>에서 손으로 마무리했으니 남은 것은 글이 많은 세 편이었다. 지난 여름 내내 장마다 따로 정한 값들이 한 화면에서도 서로 어긋나지 않는지, 정하지 못하고 남겨 둔 것이 무엇인지 보는 것이 목표였다. 도경은 옆에서 교정쇄를 넘기며 "글자도 그림처럼 사이를 본다"는 말을 한 번 더 했다.</p>
+      <p>8월 둘째 주, 첫 낭독 모임(8일)을 마치고 22일 모임을 앞둔 저녁이었다. 서윤은 책방 E 계산대에 노트북과 휴대폰을 나란히 놓고 여름 조판 일감 세 편을 실험실에 차례로 넣었다. 서점 소식 글, 낭독 모임 안내문, 「골목 산책」의 글 쪽 하나. 간판 레터링은 <a href="display.html">12장</a>에서 손으로 마무리했으니 남은 것은 글이 많은 세 편이었다. 지난 여름 내내 장마다 따로 정한 값들이 한 화면에서도 서로 어긋나지 않는지, 정하지 못하고 남겨 둔 것이 무엇인지 보는 것이 목표였다. 도경은 옆에서 교정쇄를 넘기며 "글자도 그림처럼 사이를 본다"는 말을 한 번 더 했다.</p>
       <p>아래 값은 이 장의 실험실에서 각 글의 "첫 시안"(A)과 "서윤의 선택"(B)을 잰 것이다. 한 줄 글자 수는 이 책이 2026년 10월에 Chrome으로 잰 값이며, 글꼴 파일과 브라우저에 따라 한두 자 달라질 수 있다.</p>
       <div class="table-wrap"><table>
         <thead><tr><th>글 · 기기</th><th>설정</th><th>글꼴 · 크기 · 행간 · 글줄 폭</th><th class="num">한 줄 글자 수</th><th>대비(본문 · 보조)</th><th>그 밖에</th></tr></thead>
         <tbody>
-          <tr><td rowspan="3">소식 글</td><td>A 첫 시안 · 넓은 화면</td><td>시스템 · 16&nbsp;px · 1.3 · 제한 없음(1,200&nbsp;px)</td><td class="num" id="tl-case-n1">95</td><td>14.22 · 2.85</td><td>보조 글자 13&nbsp;px <code>#999999</code></td></tr>
-          <tr><td>B 선택 · 넓은 화면</td><td>Noto Sans KR · 18&nbsp;px · 1.75 · 34&nbsp;em · 자간 −0.02&nbsp;em</td><td class="num" id="tl-case-n2">46</td><td>13.19 · 5.03</td><td>웹폰트 <span id="tl-case-kb">185 KB</span>(400·700)</td></tr>
+          <tr><td rowspan="3">소식 글</td><td>A 첫 시안 · 넓은 화면</td><td>시스템 · 16&nbsp;px · 1.3 · 제한 없음(1,216&nbsp;px)</td><td class="num" id="tl-case-n1">97</td><td>14.22 · 2.85</td><td>보조 글자 13&nbsp;px <code>#999999</code></td></tr>
+          <tr><td>B 선택 · 넓은 화면</td><td>Noto Sans KR · 18&nbsp;px · 1.8 · 28&nbsp;em · 자간 −0.02&nbsp;em</td><td class="num" id="tl-case-n2">37</td><td>13.19 · 5.03</td><td>웹폰트 <span id="tl-case-kb">185 KB</span>(400·700)</td></tr>
           <tr><td>B 선택 · 휴대폰</td><td>Noto Sans KR · 17&nbsp;px · 1.7 · 틀 폭(320&nbsp;px)</td><td class="num" id="tl-case-n3">24</td><td>13.19 · 5.03</td><td>보조 글자 14&nbsp;px <code>#567666</code></td></tr>
-          <tr><td rowspan="2">안내문 · A4</td><td>A 첫 시안</td><td>시스템 · 11&nbsp;pt · 비율 1.08 · 가운데</td><td class="num">56</td><td>13.19 · 13.19</td><td>제목 ÷ 본문 1.26</td></tr>
-          <tr><td>B 선택</td><td>Noto Sans KR · 11&nbsp;pt · 비율 1.5 · 30&nbsp;em · 왼끝</td><td class="num">37</td><td>13.19 · 5.03</td><td>제목 37&nbsp;pt, 날짜 16.5&nbsp;pt 굵게 <code>#d24f39</code>(4.27, 큰 글자), 안내 9&nbsp;pt</td></tr>
-          <tr><td rowspan="2">책자 글 쪽 · A5</td><td>A 첫 시안</td><td>Noto Serif KR · 3.5&nbsp;mm · 5.5&nbsp;mm · 판면 33자 · 양끝·어절</td><td class="num" id="tl-case-n4">39</td><td>14.22</td><td>빈칸 최대 <span id="tl-case-g1">2.3배</span></td></tr>
-          <tr><td>B 선택</td><td>같은 글꼴·크기·줄 보내기·판면 · 왼끝·어절</td><td class="num" id="tl-case-n5">39</td><td>14.22</td><td>빈칸 1배, 줄 끝 들쭉날쭉 <span id="tl-case-r2">1.9 em</span></td></tr>
+          <tr><td rowspan="2">안내문 · A4</td><td>A 첫 시안</td><td>시스템 · 제목 18&nbsp;pt, 나머지 14&nbsp;pt 모두 굵게 · 가운데</td><td class="num">45</td><td>13.19 · 13.19</td><td>제목 ÷ 본문 1.29</td></tr>
+          <tr><td>B 선택</td><td>Noto Sans KR · 11&nbsp;pt · 비율 1.5 · 30&nbsp;em · 왼끝</td><td class="num">37</td><td>13.19 · 5.03</td><td>제목 37&nbsp;pt <code>#2f7d5b</code>, 날짜·장소 16.5&nbsp;pt 굵게(날짜 <code>#d24f39</code> 4.27, 큰 글자), 신청 11&nbsp;pt <code>#567666</code></td></tr>
+          <tr><td rowspan="2">책자 글 쪽 · A5</td><td>A 9장 상태</td><td>Noto Serif KR · 3.5&nbsp;mm · 5.5&nbsp;mm · 판면 33자 · 양끝·어절 · 단락 사이 띄움</td><td class="num" id="tl-case-n4">39</td><td>14.22</td><td>빈칸 최대 <span id="tl-case-g1">2.3배</span></td></tr>
+          <tr><td>B 10장 방식</td><td>같은 글꼴·크기·줄 보내기·판면 · 양끝·어절 · 들여쓰기 1자</td><td class="num" id="tl-case-n5">39</td><td>14.22</td><td>2배(0.5자) 넘는 줄 <span id="tl-case-r2">2</span>개(브라우저 줄나눔)</td></tr>
         </tbody>
       </table></div>
-      <p>소식 글에서 가장 큰 차이는 넓은 화면에서 났다. 휴대폰에서는 <a href="overview.html">1장</a>의 첫 시안도 한 줄이 스물네 자 안팎이라 길지 않았다(대신 글자 단위 줄바꿈 때문에 낱말이 여섯 군데서 쪼개졌다). 그런데 회사 모니터의 1,200&nbsp;px 본문 칸에서는 한 줄이 95자였다. 1장에서 어림한 "100자 안팎"이 실제로 그랬다. 서윤은 넓은 화면에서 최대 글줄 폭을 34&nbsp;em으로 묶고 18&nbsp;px, 행간 1.75로, 휴대폰에서는 17&nbsp;px, 행간 1.7로 짰다. 넓은 화면 한 줄은 46자, 휴대폰은 24자다. 둘 다 이 장의 출발 범위 안이고, 휴대폰 쪽이 짧으니 행간도 조금 좁게 두었다. 두 크기는 <a href="screen.html">11장</a>의 공식대로 화면 폭 360~1,280&nbsp;px 사이를 <code>clamp(1.0625rem, 1.038rem + 0.1087vw, 1.125rem)</code>로 잇는다. 본문 자간은 <a href="spacing.html">5장</a>의 −0.02&nbsp;em이고, 글자색과 보조 글자는 <a href="readability.html">7장</a>에서 정한 그대로다(본문 <code>#22342a</code> 13.19:1, 날짜 줄 14&nbsp;px <code>#567666</code> 5.03:1). 실험실로 보니 첫 시안의 날짜 줄은 13&nbsp;px, 2.85:1로 비교표에서 빨갛게 떴다. 7장에서 할머니 손님이 돋보기를 꺼냈던 바로 그 줄이다. 웹폰트는 본문 400과 제목 700 두 굵기를 조각으로 받아 이 글 한 편에 <span id="tl-case-kb2">185 KB</span>(본문 굵기만 122&nbsp;KB)였다. 11장에서 세운 예산 200&nbsp;KB 안이다. 서윤은 시스템 글꼴만 쓰는 안도 끝까지 저울질했다. 용량이 0이고 깜빡임도 없지만, 기기마다 글자 모양이 달라 책방의 목소리가 기기마다 바뀐다는 것이 마음에 걸렸다.</p>
-      <p>안내문의 첫 시안은 위계 비율이 1.08이었다. 제목이 본문의 1.26배에 그쳐 제목, 날짜, 장소, 본문이 다 비슷해 보였고, "흐리게 보기"를 켜자 한 덩어리의 회색 띠가 되었다. 실험실에서 비율을 1.25, 1.33, 1.5, 1.618로 바꿔 가며 흐리게 보니 1.33부터 단계가 갈렸고, 서윤은 1.5를 골랐다. 본문 11&nbsp;pt에서 날짜와 부제가 16.5&nbsp;pt, 제목이 37&nbsp;pt가 되어 A4 위에서 계산대 너머로도 제목이 먼저 읽혔다. 비율을 그대로 한 단계 내리면 신청 안내가 7.3&nbsp;pt가 되므로 7장의 인쇄물 보조 글자 기준(9&nbsp;pt 이상)에 맞춰 9&nbsp;pt로 올렸다. 날짜는 강조색 <code>#d24f39</code>로 칠했다. 흰 바탕 대비가 4.27:1이라 본문 기준에는 모자라지만, 16.5&nbsp;pt 굵은 글자는 큰 글자 기준(3:1)에 들어 7장의 규칙과도 맞는다. 가운데 맞추기는 왼끝 맞추기로 바꿨다. 짧은 안내문이라 가운데 맞추기도 쓸 수 있지만, 날짜와 장소처럼 눈이 찾아 읽는 줄은 시작점이 한 곳에 모여 있는 편이 찾기 쉬웠다.</p>
-      <p>책자 글 쪽은 <a href="grid.html">9장</a>의 그리드를 그대로 실험실의 A5 틀에 옮겼다. 본문 3.5&nbsp;mm, 줄 보내기 5.5&nbsp;mm, 판면 33자 폭, 여백 위 16·아래 23.5·안 14·바깥 18.5&nbsp;mm. 판면 33자는 한 자를 정사각 1&nbsp;em으로 친 폭이라, 빈칸까지 세는 실험실 방식으로는 한 줄 39자가 나왔다. 9장에서 남긴 문제가 숫자로 다시 보였다. 판면에 양끝 맞추기와 어절 단위로 흘리면 빈칸이 기본의 2.3배까지 벌어지는 줄이 있었다. 글자 단위로 바꾸면 빈칸 최대는 1.37배로 고르게 줄었지만 낱말이 줄 끝에서 두 군데 쪼개졌다. 서윤은 실험실에서는 왼끝 맞추기와 어절 단위 줄바꿈을 골랐다. 빈칸은 언제나 1배이고 낱말도 온전하다. 대신 줄 끝이 1.9&nbsp;em 폭만큼 들쭉날쭉하다. 다만 이 값은 한 줄씩 채우는 브라우저로 잰 것이고, 실제 책자는 조판 프로그램이 단락 전체를 보고 줄을 바꾸므로, <a href="alignment.html">10장</a>에서 정한 정렬 방식을 교정쇄에서 한 번 더 비교하기로 했다. 판면, 크기, 줄 보내기는 건드리지 않았다. 도경은 "그리드는 9장에서 끝났어. 여기서는 글자만 본다"고 했다.</p>
+      <p>소식 글에서 가장 큰 차이는 넓은 화면에서 났다. 휴대폰에서는 <a href="overview.html">1장</a>의 첫 시안도 한 줄이 스물네 자 안팎이라 길지 않았다(대신 글자 단위 줄바꿈 때문에 낱말이 여덟 군데서 쪼개졌다). 그런데 회사 모니터의 1,216&nbsp;px 본문 칸에서는 한 줄이 97자였다. <a href="leading.html">6장</a>의 작업대가 잰 106자와는 글꼴과 재는 방식이 달라 몇 자 차이가 나지만, "100자 안팎"이라는 결론은 같다. 6장에서 정한 값(휴대폰 17&nbsp;px·행간 1.7, 넓은 화면 18&nbsp;px·행간 1.8·최대 28&nbsp;em)을 실험실에 넣으니 휴대폰 24자, 넓은 화면 37자로 6장의 계산과 같게 나왔다. 넓은 화면의 37자는 WCAG 1.4.8의 한중일 40자 상한 안쪽이다. 두 크기는 <a href="screen.html">11장</a>의 공식대로 화면 폭 360~1,280&nbsp;px 사이를 <code>clamp(1.0625rem, 1.038rem + 0.1087vw, 1.125rem)</code>로 잇는다. 본문 자간은 <a href="spacing.html">5장</a>의 −0.02&nbsp;em이고, 글자색과 보조 글자는 <a href="readability.html">7장</a>에서 정한 그대로다(본문 <code>#22342a</code> 13.19:1, 날짜 줄 14&nbsp;px <code>#567666</code> 5.03:1). 실험실의 비교표에서 첫 시안의 날짜 줄은 13&nbsp;px, 2.85:1로 빨갛게 떴다. 7장에서 할머니 손님이 돋보기를 꺼냈던 바로 그 줄이다. 웹폰트는 본문 400과 제목 700 두 굵기를 조각으로 받아 이 글 한 편에 <span id="tl-case-kb2">185 KB</span>(본문 굵기만 122&nbsp;KB)였다. 11장에서 세운 예산 200&nbsp;KB 안이다. 실험실에서 새로 정한 것은 제목의 위계였다. 위계 비율 1.333으로 제목을 본문의 약 1.78배(휴대폰 30&nbsp;px, 넓은 화면 32&nbsp;px)로 두고 제목 자간을 −0.02&nbsp;em으로 했다. 1.25에서는 제목이 날짜 줄과 붙어 보였고, 1.5에서는 휴대폰 제목이 두 줄로 꺾였다. 서윤은 시스템 글꼴만 쓰는 안도 끝까지 저울질했다. 용량이 0이고 깜빡임도 없지만, 기기마다 글자 모양이 달라 책방의 목소리가 기기마다 바뀐다는 것이 마음에 걸렸다.</p>
+      <p>안내문은 <a href="hierarchy.html">8장</a>의 첫 시안과 선택을 나란히 넣었다. 첫 시안(제목 18&nbsp;pt, 나머지 모두 14&nbsp;pt, 전부 굵게)은 제목이 본문의 1.29배에 그쳐 "흐리게 보기"를 켜자 한 덩어리의 회색 띠가 되었다. 8장의 선택(비율 1.5, 본문 11&nbsp;pt, 날짜·장소 16.5&nbsp;pt, 제목 37&nbsp;pt, 24.75&nbsp;pt 단계는 비움)은 흐려도 세 덩어리로 갈렸다. 실험실이 더한 것은 글줄과 정렬이다. 본문을 A4 판면 폭 그대로 흘리면 한 줄이 50자를 넘으므로 글줄 폭을 30&nbsp;em으로 묶어 한 줄 37자로 했고, 첫 시안의 가운데 맞추기를 왼끝 맞추기로 바꿨다. 짧은 안내문이라 가운데 맞추기도 쓸 수 있지만, 날짜와 장소처럼 눈이 찾아 읽는 줄은 시작점이 한 곳에 모여 있는 편이 찾기 쉬웠다. 날짜의 강조색 <code>#d24f39</code>(4.27:1)는 16.5&nbsp;pt 굵은 글자라 큰 글자 기준(3:1)을 넘는다는 것도 표에서 다시 확인했다.</p>
+      <p>책자 글 쪽은 <a href="grid.html">9장</a>의 그리드를 그대로 실험실의 A5 틀에 옮겼다. 본문 3.5&nbsp;mm, 줄 보내기 5.5&nbsp;mm, 판면 33자 폭, 여백 위 16·아래 23.5·안 14·바깥 18.5&nbsp;mm. 판면 33자는 한 자를 정사각 1&nbsp;em으로 친 폭이라, 빈칸까지 세는 실험실 방식으로는 한 줄 39자가 나왔다. 여기에 <a href="alignment.html">10장</a>의 방식(양끝 맞추기, 어절 단위 줄바꿈, 단락은 들여쓰기 1자)을 넣으니 빈칸이 기본의 2.3배까지 벌어지는 줄이 있었다. 단락의 마지막 줄을 뺀 네 줄 가운데 두 줄이 10장의 허용 상한(0.5자, 기본 빈칸 0.25자의 2배)을 넘었다. 서윤은 처음에 놀랐지만 이유는 곧 보였다. 브라우저는 줄을 앞에서부터 한 줄씩 채우고, 10장이 정한 "단락 전체 줄나눔"과 글자 사이 0.03자 나누기를 하지 못한다. 실험실의 숫자는 조판 프로그램이 손대기 전의 최악에 가깝다. 글자 단위로 바꾸면 빈칸 최대는 1.37배로 줄지만 낱말이 두 군데 쪼개져, 10장이 어절 단위를 고른 이유가 그대로 보였다. 서윤은 정렬 방식을 바꾸지 않았다. 대신 실험실에서 2배를 넘은 두 줄에 표시를 해 두고, 조판 프로그램의 교정쇄에서도 0.5자를 넘으면 10장의 규칙대로 문장을 고치기로 했다. 도경은 "그리드는 9장에서, 정렬은 10장에서 끝났어. 여기서는 그 결정이 실제 글에서 어디가 아픈지만 본다"고 했다.</p>
       <p>도경은 마지막으로 서윤의 노트에 메모 한 장을 끼워 두었다. "숫자는 글자 사이를 대신 봐 주지 않는다. 숫자가 괜찮다고 할 때 한 번 더 뽑아서, 멀리서 한 번, 가까이서 한 번 봐라. 그리고 네가 고른 것 옆에 고르지 않은 것도 같이 적어 둬. 내년 여름의 네가 그걸 보고 다시 고를 테니까." 서윤은 도경에게 실험실의 "CSS 쓰기" 결과를 휴대폰 메모장에 옮기는 법을 알려 주었다. 도경은 그 글자들을 한참 보더니 "납 활자 대신 이게 활자 상자구나" 했다.</p>
       <div class="clue">
-        <div><b>이 장에서 정한 것</b>서윤의 선택(실험실 종합 점검 뒤). ① 소식 글(웹): Noto Sans KR 400·700 조각 방식(이 글 185&nbsp;KB, 예산 200&nbsp;KB 안). 휴대폰 17&nbsp;px·행간 1.7, 넓은 화면 18&nbsp;px·행간 1.75·최대 글줄 폭 34&nbsp;em, 크기는 <code>clamp(1.0625rem, 1.038rem + 0.1087vw, 1.125rem)</code>. 한 줄 휴대폰 24자, 넓은 화면 46자. 본문 자간 −0.02&nbsp;em, 제목 자간 −0.02&nbsp;em, 위계 비율 1.333(제목 30~32&nbsp;px), 왼끝·어절 단위. 색과 보조 글자는 7장 값. ② 안내문(A4): 본문 11&nbsp;pt, 위계 비율 1.5(날짜·부제 16.5&nbsp;pt, 제목 37&nbsp;pt), 신청 안내 9&nbsp;pt, 행간 1.6, 글줄 폭 30&nbsp;em, 왼끝, 날짜만 <code>#d24f39</code> 굵게. ③ 책자(A5): 9장 그리드 그대로, 실험실에서는 왼끝·어절 단위가 가장 고르게 나왔다(정렬은 10장의 결정과 교정쇄로 최종 비교). 모든 값은 이 장의 실험실로 잰 것이며, 실제 휴대폰과 실제 크기 인쇄로 다시 본다.</div>
-        <div><b>남겨 둔 다른 선택지</b>시스템 글꼴만 쓰는 웹 본문(용량 0, 기기마다 모양이 다름), 안내문의 위계 비율 1.33(더 차분함)과 가운데 맞추기(짧은 글이라 가능), 책자의 양끝·글자 단위 줄바꿈(빈칸 1.37배, 낱말 두 군데 쪼개짐). 두 설정의 CSS와 비교표를 함께 작업 노트에 남겼다.</div>
+        <div><b>이 장에서 정한 것</b>서윤의 선택(실험실 종합 점검 뒤). ① 소식 글(웹): 5·6·7·11장의 값을 한 화면에서 확인했다. Noto Sans KR 400·700 조각 방식(이 글 185&nbsp;KB, 예산 200&nbsp;KB 안), 휴대폰 17&nbsp;px·1.7(한 줄 24자), 넓은 화면 18&nbsp;px·1.8·최대 28&nbsp;em(한 줄 37자), 크기는 <code>clamp(1.0625rem, 1.038rem + 0.1087vw, 1.125rem)</code>, 본문 자간 −0.02&nbsp;em. 정렬은 10장대로 왼끝·어절 단위, 단락 사이 1&nbsp;em. 새로 정한 것: 제목 위계 비율 1.333(제목 30~32&nbsp;px, 굵게), 제목 자간 −0.02&nbsp;em. ② 안내문(A4): 8장의 크기·색 그대로, 새로 정한 것은 본문 글줄 폭 30&nbsp;em(한 줄 37자), 행간 1.6, 왼끝 맞추기. ③ 책자(A5): 9장 그리드와 10장 정렬 그대로. 새로 정한 것은 점검 절차다. 실험실(브라우저 줄나눔)에서 빈칸이 2배(0.5자)를 넘은 줄을 표시해 두고, 조판 프로그램 교정쇄에서도 넘으면 문장을 고친다. 모든 값은 이 장의 실험실로 잰 것이며, 실제 휴대폰과 실제 크기 인쇄로 다시 본다.</div>
+        <div><b>남겨 둔 다른 선택지</b>시스템 글꼴만 쓰는 웹 본문(용량 0, 기기마다 모양이 다름), 소식 글 제목의 위계 비율 1.25(더 차분함), 안내문의 가운데 맞추기(짧은 글이라 가능), 책자의 양끝·글자 단위 줄바꿈(빈칸 1.37배, 낱말 두 군데 쪼개짐)과 왼끝 맞추기(빈칸 1배, 줄 끝 1.9&nbsp;em 들쭉날쭉). 두 설정의 CSS와 비교표를 함께 작업 노트에 남겼다.</div>
         <div><b>다음 단계</b>낭독 모임 날 손님 몇 분, 특히 주인이 말한 할머니 손님에게 휴대폰으로 소식 글을 보여 드리고 읽기 편한지 묻는다. 안내문과 책자는 실제 크기 교정쇄로 확인한다. 여름 조판 노트 전체는 <a href="glossary.html">14장</a>의 조판 노트 색인에 모은다.</div>
       </div>
     </div>
@@ -476,7 +476,7 @@
     <h2>핵심 정리</h2>
     <ol>
       <li>글꼴, 크기, 자간, 행간, 글줄 폭, 정렬, 위계는 따로 놀지 않는다. 하나를 바꾸면 한 줄 글자 수, 줄 수, 빈칸이 함께 바뀌므로 한 작업대에서 같이 본다.</li>
-      <li>한 줄 글자 수는 빈칸을 포함해 실제 줄바꿈에서 센다. 라틴 관행 45~75자는 글줄 폭 약 22~38&nbsp;em이고, 그 폭에 한글 산문은 약 30~50자가 들어간다. 연구로 정한 최적값이 아니라 출발점이다.</li>
+      <li>한 줄 글자 수는 빈칸을 포함해 실제 줄바꿈에서 센다. 라틴 관행 45~75자를 폭으로 옮기면 한글 산문은 약 30~50자이고, WCAG 1.4.8은 한중일 글자 40자를 상한으로 둔다. 이 책의 출발점(한 줄 약 30~40자)은 연구로 정한 최적값이 아니다.</li>
       <li>넓은 화면에서는 글줄 폭(최대 폭)이, 휴대폰에서는 글자 크기가 한 줄 글자 수를 정한다. 긴 줄일수록 행간을 넓힌다.</li>
       <li>WCAG 2는 본문 4.5:1, 큰 글자(24&nbsp;px 이상 또는 약 18.7&nbsp;px 이상 굵게) 3:1을 바닥으로 둔다. 바탕을 바꾸면 대비를 다시 잰다.</li>
       <li>위계는 비율 하나로 묶어 세운다. 이웃한 단계의 차이가 작으면 흐리게 볼 때 단계가 사라지고, 비율이 크면 단계 수를 줄여야 한다.</li>
@@ -489,10 +489,10 @@
     <h2>확인 퀴즈</h2>
     <div class="quiz">
       <div class="quiz-q">
-        <p>1. 같은 서점 소식 글이 휴대폰(폭 360&nbsp;px)에서는 한 줄 20자 안팎인데, 넓은 화면에서는 한 줄 70자를 넘었다. 넓은 화면에서 한 줄 글자 수를 줄이는 가장 알맞은 방법은?</p>
+        <p>1. 같은 서점 소식 글이 휴대폰(폭 360&nbsp;px)에서는 한 줄 24자 안팎인데, 넓은 화면에서는 한 줄 97자가 되었다. 넓은 화면에서 한 줄 글자 수를 줄이는 가장 알맞은 방법은?</p>
         <div class="opts">
           <button class="opt">행간을 1.0으로 줄여 줄을 촘촘하게 한다.</button>
-          <button class="opt" data-correct>본문의 최대 글줄 폭(예: 34&nbsp;em)을 정해 화면이 넓어도 글줄이 그 이상 길어지지 않게 한다.</button>
+          <button class="opt" data-correct>본문의 최대 글줄 폭(예: 28&nbsp;em)을 정해 화면이 넓어도 글줄이 그 이상 길어지지 않게 한다.</button>
           <button class="opt">자간을 −0.1&nbsp;em으로 줄여 한 줄에 더 많은 글자를 넣는다.</button>
           <button class="opt">휴대폰과 넓은 화면 모두 글자를 12&nbsp;px로 줄인다.</button>
         </div>
@@ -519,7 +519,7 @@
         <div class="quiz-exp">글자 단위로 줄을 바꾸면 어절 중간에서도 줄을 넘길 수 있어 줄을 꽉 채우기 쉽다. 그래서 빈칸에 몰리던 남는 공간이 작아진다. 대신 "능소/화"처럼 낱말이 두 줄로 나뉜다. 양끝 맞추기를 하는 한 이 대가는 빈칸이나 낱말 가운데 어느 한쪽이 치른다. 글줄 끝은 여전히 양끝이 맞으므로 왼끝 맞추기와는 다르다.</div>
       </div>
       <div class="quiz-q">
-        <p>4. 소식 글 한 편에 쓰인 고유 글자는 160자 남짓인데, Noto Sans KR을 Google Fonts에서 받으면 조각 스무 개, 약 185&nbsp;KB를 받는다. 고유 글자만 담은 파일보다 훨씬 큰 이유로 가장 알맞은 것은?</p>
+        <p>4. 소식 글 한 편에 쓰인 고유 글자는 150자 남짓인데, Noto Sans KR을 Google Fonts에서 받으면 조각 스무 개, 약 185&nbsp;KB를 받는다. 고유 글자만 담은 파일보다 훨씬 큰 이유로 가장 알맞은 것은?</p>
         <div class="opts">
           <button class="opt">Google Fonts는 글꼴 전체를 한 번에 보내고 조각은 표시만 하기 때문이다.</button>
           <button class="opt">한글은 글자마다 별도의 파일이 하나씩 있기 때문이다.</button>
@@ -575,21 +575,21 @@
     plex: { name: "IBM Plex Sans KR", short: "IBM Plex Sans KR", css: '"IBM Plex Sans KR", sans-serif', file: "IBM_Plex_Sans_KR" },
   };
   // lv: 크기 단계(위계 비율의 지수). bold: 굵게 쓰는 단계. 글은 모두 이 책이 지은 가상의 글이다.
-  const EXP = { title: 3, head: 2, sub: 1, date: 1, place: 0, body: 0, note: -1, meta: -1, caption: -1, folio: -1 };
+  const EXP = { title: 3, head: 2, sub: 1, date: 1, place: 1, body: 0, note: 0, meta: -1, caption: -1, folio: -1 };
   const BOLD = { title: 1, head: 1, date: 1, place: 1 };
   const DOCS = {
     news: { name: "서점 소식 글", blocks: [
       ["head", "여름 낭독 모임을 엽니다"],
       ["meta", "책방 E 소식 · 2026년 7월 3일 · Summer Reading Night"],
-      ["body", "올여름에도 책방 2층에서 낭독 모임을 엽니다. 7월 넷째 주부터 8월 말까지, 매주 토요일 저녁 일곱 시에 모여 한 시간 동안 소리 내어 책을 읽습니다. 잘 읽지 않아도 괜찮습니다. 천천히, 자기 목소리로 한 쪽씩 읽고 서로의 목소리를 듣는 자리입니다."],
+      ["body", "올여름에는 책방 2층에서 낭독 모임을 엽니다. 8월 8일과 22일, 두 번의 토요일 오후 다섯 시에 모여 한 시간 동안 소리 내어 책을 읽습니다. 잘 읽지 않아도 괜찮습니다. 천천히, 자기 목소리로 한 쪽씩 읽고 서로의 목소리를 듣는 자리입니다."],
       ["body", "첫 책은 동네 이야기를 모은 산문집입니다. 골목의 오래된 가게와 계단, 저녁 무렵 창가의 빛을 적은 글들이라 이 동네에 사는 분이라면 익숙한 장면이 많을 것입니다. 책은 모임 날 책방에서 빌려 드리니 따로 사지 않으셔도 됩니다."],
       ["body", "자리는 열두 개입니다. 계산대에서 이름과 연락처를 적어 주시거나, 이 글 아래의 신청 단추를 눌러 주세요. 2층은 에어컨이 약하니 얇은 겉옷을 챙겨 오시면 좋습니다. 읊고 싶은 시 한 편을 가져오셔도 반갑습니다."],
     ] },
     flyer: { name: "낭독 모임 안내문", blocks: [
       ["title", "여름 낭독 모임"],
-      ["sub", "Summer Reading Night"],
-      ["date", "7월 25일 – 8월 29일 · 매주 토요일 저녁 7시"],
-      ["place", "책방 E 2층 · 골목길 12"],
+      ["date", "8월 8일 · 22일 토요일 오후 5시"],
+      ["place", "책방 E 2층"],
+      ["figbook", ""],
       ["body", "소리 내어 읽으면 눈으로 읽을 때 지나친 문장이 다시 들립니다. 한 사람이 한 쪽씩, 자기 속도로 읽습니다. 책은 책방에서 빌려 드리고 참가비는 없습니다."],
       ["note", "자리 12개 · 계산대 또는 웹사이트에서 신청하세요"],
     ] },
@@ -606,7 +606,7 @@
   const MM = 96 / 25.4; // 1 mm = 3.78 CSS px
   const DEVICES = {
     phone: { w: 360, pad: 20, name: "휴대폰 360 px" },
-    wide: { w: 1280, pad: 40, name: "넓은 화면 1280 px" },
+    wide: { w: 1280, pad: 32, name: "넓은 화면 1280 px" },
     a4: { w: 794, pad: 76, page: 1.4142, name: "A4 210 mm" },
     // 9장의 여백(글 쪽은 짝수 쪽 = 왼쪽 쪽): 위 16, 아래 23.5, 안(오른쪽) 14, 바깥(왼쪽) 18.5 mm
     a5: { w: 559, pad: 57, page: 1.4142, padCss: `${(16 * MM).toFixed(1)}px ${(14 * MM).toFixed(1)}px ${(23.5 * MM).toFixed(1)}px ${(18.5 * MM).toFixed(1)}px`, name: "A5 148 mm" },
@@ -619,46 +619,56 @@
       // 첫 시안: 1장(기본 글꼴·16 px·기본 행간·폭 제한 없음) + 7장 이전의 보조 글자(13 px 안팎, #999999)
       first: () => S({ font: "sys", size: 16, track: 0, htrack: 0, lead: 1.3, measure: 200, ratio: 1.2, brk: "normal", fg: "#2b2a30", meta: "#999999" }),
       // 선택: 5장 자간 −0.02 em(13 px 이하 0), 7장 보조 글자 14 px 이상·#567666, 본문 #22342a
-      choice: (dev) => S({ track: -0.02, smallZero: true, size: dev === "wide" ? 18 : 17, lead: dev === "wide" ? 1.75 : 1.7, meta: "#567666", minAux: 14 }),
+      // 6장: 휴대폰 17 px·1.7, 넓은 화면 18 px·1.8·최대 28 em
+      choice: (dev) => S({ track: -0.02, smallZero: true, size: dev === "wide" ? 18 : 17, lead: dev === "wide" ? 1.8 : 1.7, measure: dev === "wide" ? 28 : 34, meta: "#567666", minAux: 14 }),
     },
     flyer: {
       dev: "a4",
-      first: () => S({ font: "sys", size: 11 * PT, htrack: 0, lead: 1.4, measure: 200, ratio: 1.08, align: "center", brk: "normal" }),
-      // 7장: 인쇄물 보조 글자 9 pt 이상
-      choice: () => S({ size: 11 * PT, lead: 1.6, measure: 30, ratio: 1.5, minAux: 9 * PT, meta: "#567666" }),
+      // 8장의 첫 시안: 제목 18 pt, 나머지 모두 14 pt, 전부 굵게
+      first: () => S({ font: "sys", size: 14 * PT, htrack: 0, lead: 1.4, measure: 200, ratio: Math.cbrt(18 / 14), align: "center", brk: "normal", allBold: true, over: { title: 18 * PT } }),
+      // 8장의 선택: 비율 1.5, 본문 11 pt, 날짜·장소 16.5 pt 굵게, 제목 37 pt 굵게 #2f7d5b, 신청 방법 11 pt #567666
+      choice: () => S({ size: 11 * PT, lead: 1.6, measure: 30, ratio: 1.5, meta: "#567666", titleC: "#2f7d5b" }),
     },
     booklet: {
       dev: "a5",
       // 9장 그리드: 본문 3.5 mm(14급), 줄 보내기 5.5 mm(22치), 판면 33자. 첫 시안은 그 판면에 양끝 맞추기로 흘린 것
       first: () => S({ font: "nserif", size: 3.5 * MM, htrack: 0, lead: 5.5 / 3.5, measure: 33, ratio: 1.2, align: "justify", fg: "#2b2a30", minAux: 9 * PT }),
-      choice: () => S({ font: "nserif", size: 3.5 * MM, htrack: 0, lead: 5.5 / 3.5, measure: 33, ratio: 1.2, align: "left", fg: "#2b2a30", minAux: 9 * PT }),
+      // 10장: 양끝 맞추기, 어절 단위, 단락은 들여쓰기 1자(빈 줄 없음). 단락 전체 줄나눔은 브라우저가 하지 못한다
+      choice: () => S({ font: "nserif", size: 3.5 * MM, htrack: 0, lead: 5.5 / 3.5, measure: 33, ratio: 1.2, align: "justify", indent: true, fg: "#2b2a30", minAux: 9 * PT }),
     },
   };
 
   const esc = (t) => t.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
   const fx = (x, d) => AB.fix(x, d);
-  const lvSize = (s, lv) => { const v = Math.max(7, s.size * Math.pow(s.ratio, EXP[lv] || 0)); return EXP[lv] < 0 ? Math.max(v, s.minAux || 0) : v; };
+  const lvSize = (s, lv) => {
+    if (s.over) return s.over[lv] || s.size; // 단계 대신 크기를 직접 정한 시안(8장의 첫 시안)
+    const v = Math.max(7, s.size * Math.pow(s.ratio, EXP[lv] || 0));
+    return EXP[lv] < 0 ? Math.max(v, s.minAux || 0) : v;
+  };
   const ptStr = (px) => fx(px / PT, 1).replace(/\.0$/, "");
 
   // 펜 그림 자리: 화분 세 개(이 책이 그린 단순한 선 그림, 고정색)
   const POTS = '<svg viewBox="0 0 300 120" aria-hidden="true"><g fill="none" stroke="#2b2a30" stroke-width="1.4" stroke-linecap="round"><path d="M10 112H290"/><path d="M40 112L34 76H86L80 112"/><path d="M30 76H90"/><path d="M60 76C58 56 44 48 40 34M60 76C64 52 78 44 86 30M60 76C60 58 60 46 62 26"/><path d="M128 112L122 86H170L164 112"/><path d="M118 86H174"/><path d="M146 86C140 70 132 62 126 56M146 86C150 70 160 62 168 58M146 86V60"/><path d="M212 112L204 70H268L260 112"/><path d="M200 70H272"/><path d="M236 70C226 50 214 40 206 20M236 70C244 48 258 40 270 24M236 70C234 48 236 34 240 14M222 50L214 54M250 46L258 50"/></g></svg>';
 
+  // 안내문 그림 자리: 펼친 책(이 책이 그린 단순한 선 그림, 고정색)
+  const BOOK = '<svg viewBox="0 0 300 150" aria-hidden="true"><g fill="none" stroke="#22342a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M150 40C120 22 70 20 30 30V128C70 118 120 120 150 138C180 120 230 118 270 128V30C230 20 180 22 150 40Z"/><path d="M150 40V138"/><path d="M48 50C80 44 112 46 136 56M48 66C80 60 112 62 136 72M48 82C80 76 112 78 136 88M48 98C76 93 104 95 126 102M164 56C188 46 220 44 252 50M164 72C188 62 220 60 252 66M164 88C188 78 220 76 252 82"/></g><circle cx="236" cy="104" r="9" fill="#d24f39"/></svg>';
   function blockStyle(s, lv) {
     const fs = lvSize(s, lv);
     const isBody = lv === "body";
-    const bold = s.bold && BOLD[lv];
+    const bold = s.allBold || (s.bold && BOLD[lv]);
     let lh = isBody ? s.lead : (EXP[lv] > 0 ? 1.3 : Math.max(1.4, Math.min(s.lead, 1.6)));
     let ls = isBody || EXP[lv] <= 0 ? s.track : s.htrack;
     if (s.smallZero && fs <= 13 && ls < 0) ls = 0; // 5장: 13 px 이하 작은 글자에는 음수 자간을 주지 않는다
-    let ws = 0, mb = isBody ? 0.8 : (EXP[lv] > 0 ? 0.45 : 0.6);
+    let ws = 0, mb = isBody ? (s.indent ? 0 : 1) : (EXP[lv] > 0 ? 0.45 : 0.6); // 10장: 웹은 단락 사이 1 em, 책자는 빈 줄 없이 들여쓰기
     if (s.wcag) { lh = Math.max(lh, 1.5); ls = Math.max(ls, 0.12); ws = 0.16; if (isBody) mb = 2; }
     const al = (isBody || lv === "caption") ? s.align : (s.align === "justify" ? "left" : s.align);
     let css = `font-size:${fs.toFixed(2)}px;line-height:${lh};letter-spacing:${ls}em;word-spacing:${ws}em;margin-bottom:${mb}em;text-align:${al};word-break:${s.brk === "keep" ? "keep-all" : "normal"};font-weight:${bold ? 700 : 400};`;
     if (lv === "date") css += `color:${s.accent};`;
     if (s.meta && (lv === "meta" || lv === "note")) css += `color:${s.meta};`;
+    if (s.titleC && lv === "title") css += `color:${s.titleC};`;
     if (lv === "folio") css += "text-align:left;margin-top:1.2em;";
     if (lv === "head" || lv === "title") css += "margin-top:0;";
-    if (lv === "place") css += "margin-bottom:1.4em;";
+    if (lv === "place") css += "margin-bottom:1.2em;"; // 8장: 묶음 사이 간격은 묶음 안 줄 간격의 두 배 이상
     return css;
   }
 
@@ -682,7 +692,7 @@
       const page = D.page ? "display:flex;flex-direction:column;height:100%;" : "";
       const push = (lv) => (D.page && (lv === "note" || lv === "folio")) ? "margin-top:auto;" : "";
       dev.innerHTML = `<div class="tl-doc" style="font-family:${FONTS[s.font].css.replace(/"/g, "'")};font-size:${s.size}px;max-width:${s.measure}em;${center}${page}">` +
-        blocks.map(([lv, t]) => lv === "fig" ? `<div class="tl-b tl-fig">${POTS}</div>` : `<div class="tl-b tl-${lv}" style="${blockStyle(s, lv)}${push(lv)}">${esc(t)}</div>`).join("") + "</div>";
+        blocks.map(([lv, t], i) => lv === "fig" ? `<div class="tl-b tl-fig">${POTS}</div>` : lv === "figbook" ? `<div class="tl-b tl-fig" style="max-width:340px;margin:0.6em ${s.align === "center" ? "auto" : "0"} 1.6em">${BOOK}</div>` : `<div class="tl-b tl-${lv}" style="${blockStyle(s, lv)}${push(lv)}${s.indent && lv === "body" && i > 0 && blocks[i - 1][0] === "body" ? "text-indent:1em;" : ""}">${esc(t)}</div>`).join("") + "</div>";
       P.refit();
       return P;
     };
@@ -755,6 +765,7 @@
     if (!(nat > 0)) { cvM.font = `${fs}px ${FONTS[P.s.font].css}`; nat = cvM.measureText(" ").width + (P.s.wcag ? Math.max(P.s.track, 0.12) : P.s.track) * fs + (P.s.wcag ? 0.16 * fs : 0); }
     const g = gaps.map((x) => x / nat);
     return {
+      over2: g.filter((x) => x > 2).length, nLines: g.length,
       cplAvg: cpl.length ? cpl.reduce((a, b) => a + b, 0) / cpl.length : NaN,
       cplMax: cpl.length ? Math.max(...cpl) : NaN,
       lines, split, fs, W,
@@ -804,17 +815,25 @@
 
   /* ========================================================== 그림 2: 전/후 비교 */
   (function () {
-    const clip = (avail) => Math.round(Math.min(avail * 0.62, 460));
-    const pa = Preview(document.getElementById("tl-cmp-a"), { clipH: clip });
-    const pb = Preview(document.getElementById("tl-cmp-b"), { clipH: clip });
+    const pa = Preview(document.getElementById("tl-cmp-a"));
+    const pb = Preview(document.getElementById("tl-cmp-b"));
+    pa.refit0 = pa.refit; pb.refit0 = pb.refit;
+    pa.refit = pb.refit = () => eq();
     const sa = PRESETS.news.first(), sb = PRESETS.news.choice("wide");
+    // 두 층의 높이를 같게 맞춘다(더 긴 쪽 기준). 비교 막대 양쪽이 같은 틀 안에 있어야 한다
+    const eq = () => {
+      pa.dev.style.minHeight = pb.dev.style.minHeight = "0px";
+      const hd = Math.max(pa.dev.offsetHeight, pb.dev.offsetHeight);
+      pa.dev.style.minHeight = pb.dev.style.minHeight = hd + "px";
+      pa.refit0(); pb.refit0();
+    };
     function draw() {
-      pa.render("news", sa, "wide"); pb.render("news", sb, "wide");
+      pa.render("news", sa, "wide"); pb.render("news", sb, "wide"); eq();
       document.getElementById("tl-cmp-n-a").textContent = Math.round(measurePreview(pa).cplAvg);
       document.getElementById("tl-cmp-n-b").textContent = Math.round(measurePreview(pb).cplAvg);
     }
     draw();
-    AB.compare("#tl-cmp", { labels: ["첫 시안", "조정"], pos: 0.5 });
+    AB.compare("#tl-cmp", { labels: ["첫 시안", "조정"], pos: 0.4 });
     REFRESH.push(draw);
   })();
 
@@ -823,7 +842,7 @@
     const st = { dev: "wide" };
     let rulerGeom = null;
     const P = Preview(document.getElementById("tl-m-fit"));
-    let s = S({ size: 18, lead: 1.75, measure: 34 });
+    let s = S({ size: 18, lead: 1.8, measure: 28 });
     const size = AB.range("tl-m-size", (v) => v + " px", () => upd());
     const lead = AB.range("tl-m-lead", (v) => fx(v, 2), () => upd());
     const meas = AB.range("tl-m-meas", (v) => v + " em", () => upd());
@@ -954,12 +973,12 @@
     const base = AB.range("tl-s-base", (v) => v + " pt", () => upd());
     AB.check("tl-s-blur", (on) => { stage.classList.toggle("tl-blur", on); });
     function upd() {
-      const s = S({ size: base() * PT, ratio: ratio(), lead: 1.6, measure: 30 });
+      const s = S({ size: base() * PT, ratio: ratio(), lead: 1.6, measure: 30, meta: "#567666", titleC: "#2f7d5b" });
       P.render("flyer", s, "a4");
-      const lv = ["title", "date", "body", "note"].map((k) => lvSize(s, k));
+      const lv = ["title", "date", "body"].map((k) => lvSize(s, k));
       AB.stat("tl-s-o-sizes", lv.map(ptStr).join(" · "));
       AB.stat("tl-s-o-ratio", `${fx(lv[0] / lv[2], 2)}배`);
-      AB.stat("tl-s-o-mm", `${fx(lv[0] / 3.7795 * 0.72, 1)} mm <small>(글자 높이 어림)</small>`);
+      AB.stat("tl-s-o-mm", `${fx(lv[0] / 3.7795 * 0.72, 1)} mm`);
       const titleEl = P.dev.querySelector(".tl-title");
       const lines = titleEl ? Math.round(titleEl.offsetHeight / (lv[0] * 1.3)) : 1;
       const judge = lines > 1 ? "제목이 넘침" : (s.ratio < 1.15 ? "단계가 흐림" : "세 단계가 갈림");
@@ -980,7 +999,7 @@
       const s = S({ font: "nserif", size: 3.5 * MM, lead: 5.5 / 3.5, ratio: 1.2, htrack: 0, measure: meas(), align, brk, fg: "#2b2a30" });
       P.render("booklet", s, "a5");
       const m = measurePreview(P);
-      AB.stat("tl-a-o-gap", align === "justify" ? `${fx(m.gapMax, 2)}배 <small>· ${fx(m.gapAvg, 2)}배</small>` : "1배 <small>(맞추지 않음)</small>");
+      AB.stat("tl-a-o-gap", align === "justify" ? `${fx(m.gapMax, 2)}배 <small>· ${fx(m.gapAvg, 2)}배 · 2배 넘는 줄 ${m.over2}</small>` : "1배 <small>(맞추지 않음)</small>");
       AB.stat("tl-a-o-split", `${m.split}곳`);
       AB.stat("tl-a-o-rag", align === "justify" ? "0 <small>(양끝 맞춤)</small>" : `${fx(m.rag, 1)} em`);
       AB.stat("tl-a-o-cpl", `${fx(m.cplAvg, 1)}자`);
@@ -1107,7 +1126,7 @@
       let h = "";
       h += row("글꼴", FONTS[st.A.font].short, FONTS[st.B.font].short);
       h += row("본문 크기", `${fx(bodyPx[0], 1)} px · ${ptStr(bodyPx[0])} pt`, `${fx(bodyPx[1], 1)} px · ${ptStr(bodyPx[1])} pt`, web ? bodyPx[0] < 16 : bodyPx[0] < 13.3, web ? bodyPx[1] < 16 : bodyPx[1] < 13.3);
-      h += row("한 줄 글자 수(평균 · 최대)", `${fx(ms[0].cplAvg, 1)} · ${ms[0].cplMax}`, `${fx(ms[1].cplAvg, 1)} · ${ms[1].cplMax}`, ms[0].cplAvg > 52 || ms[0].cplAvg < 18, ms[1].cplAvg > 52 || ms[1].cplAvg < 18);
+      h += row("한 줄 글자 수(평균 · 최대)", `${fx(ms[0].cplAvg, 1)} · ${ms[0].cplMax}`, `${fx(ms[1].cplAvg, 1)} · ${ms[1].cplMax}`, ms[0].cplAvg > 42 || ms[0].cplAvg < 18, ms[1].cplAvg > 42 || ms[1].cplAvg < 18);
       h += row("본문 줄 수", ms[0].lines, ms[1].lines);
       h += row("줄 간격", `${fx(ss[0].size * (ss[0].wcag ? Math.max(1.5, ss[0].lead) : ss[0].lead), 1)} px`, `${fx(ss[1].size * (ss[1].wcag ? Math.max(1.5, ss[1].lead) : ss[1].lead), 1)} px`);
       h += row("대비(본문, WCAG 2)", `${fx(cr[0], 2)} ${ART.wcagLevel(cr[0], false)}`, `${fx(cr[1], 2)} ${ART.wcagLevel(cr[1], false)}`, cr[0] < 4.5, cr[1] < 4.5);
@@ -1117,7 +1136,9 @@
       h += row("보조 글자(크기 · 대비)", `${fx(aux[0].px, 1)} px · ${fx(aux[0].c, 2)}`, `${fx(aux[1].px, 1)} px · ${fx(aux[1].c, 2)}`, auxBad(aux[0]), auxBad(aux[1]));
       h += row("빈칸 최대(양끝일 때)", ss[0].align === "justify" ? fx(ms[0].gapMax, 2) + "배" : "—", ss[1].align === "justify" ? fx(ms[1].gapMax, 2) + "배" : "—", ss[0].align === "justify" && ms[0].gapMax > 2, ss[1].align === "justify" && ms[1].gapMax > 2);
       h += row("쪼개진 어절", ms[0].split + "곳", ms[1].split + "곳", ms[0].split > 0, ms[1].split > 0);
-      h += row("위계: 제목 ÷ 본문", fx(Math.pow(ss[0].ratio, st.doc === "flyer" ? 3 : st.doc === "news" ? 2 : 1), 2) + "배", fx(Math.pow(ss[1].ratio, st.doc === "flyer" ? 3 : st.doc === "news" ? 2 : 1), 2) + "배", ss[0].ratio < 1.15, ss[1].ratio < 1.15);
+      const topLv = st.doc === "flyer" ? "title" : st.doc === "news" ? "head" : "sub";
+      const tr = ss.map((x) => lvSize(x, topLv) / x.size);
+      h += row("위계: 제목 ÷ 본문", fx(tr[0], 2) + "배", fx(tr[1], 2) + "배", tr[0] < 1.35, tr[1] < 1.35);
       h += row(web ? "웹폰트 용량(조각 방식)" : "웹폰트 용량(인쇄물이라 해당 없음)", web ? kb(cs[0].bytes) : "—", web ? kb(cs[1].bytes) : "—");
       if (!web) h += row("틀 밖으로 넘침", ms[0].overflow ? "넘침" : "없음", ms[1].overflow ? "넘침" : "없음", ms[0].overflow, ms[1].overflow);
       rows.innerHTML = h;
@@ -1132,7 +1153,7 @@
         `  line-height: ${s.lead}; letter-spacing: ${s.track}em; color: ${s.fg}; background: ${s.bg};`,
         `  max-width: ${s.measure >= 200 ? "none" : s.measure + "em"}; text-align: ${s.align}; word-break: ${s.brk === "keep" ? "keep-all" : "normal"}; }`,
       ];
-      const lvls = st.doc === "flyer" ? ["title", "sub", "date", "note"] : st.doc === "news" ? ["head", "meta"] : ["sub", "caption"];
+      const lvls = st.doc === "flyer" ? ["title", "date", "place", "note"] : st.doc === "news" ? ["head", "meta"] : ["sub", "caption"];
       for (const lv of lvls) lines.push(`.post .${lv} { font-size: ${pxr(lvSize(s, lv))}; /* ${fx(lvSize(s, lv), 1)} px = 본문 × ${fx(s.ratio, 2)}^${EXP[lv]} */${EXP[lv] > 0 ? ` letter-spacing: ${s.htrack}em; font-weight: ${s.bold && BOLD[lv] ? 700 : 400};` : ""} }`);
       return lines.join("\n");
     }
@@ -1171,7 +1192,7 @@
       put("tl-case-n1", fx(a.cplAvg, 0)); put("tl-case-n2", fx(b.cplAvg, 0)); put("tl-case-n3", fx(c.cplAvg, 0));
       put("tl-case-n4", fx(d.cplAvg, 0)); put("tl-case-n5", fx(e.cplAvg, 0));
       put("tl-case-g1", fx(d.gapMax, 1) + "배");
-      put("tl-case-r2", fx(e.rag, 1) + " em");
+      put("tl-case-r2", String(e.over2));
       const k = kb(fontCost("nsans", "news", true, "google").bytes);
       put("tl-case-kb", k); put("tl-case-kb2", k);
     }

@@ -553,7 +553,7 @@
     var nat = st.w + st.gaps * o.space, slack = o.W - nat;
     var r = { nat: nat, slack: slack, sp: o.space, ls: 0, over: false, bad: 0 };
     if (last) { r.bad = 0; return r; }
-    if (st.gaps === 0 && st.chars < 2) { r.over = slack < -1e-6; return r; }
+    if (st.gaps === 0 && st.chars < 2) { r.over = slack < -1e-6; r.bad = slack > 0.05 ? 1000 : 0; return r; }
     if (slack < 0) {
       if (st.gaps === 0) { r.over = true; r.bad = 1e6; return r; }
       r.sp = o.space + slack / st.gaps;

@@ -1,0 +1,729 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html.
+     Fonts: Noto Sans KR, Noto Serif KR, Inter (SIL Open Font License 1.1, via Google Fonts). -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "줄 사이와 한 줄의 길이. 행간과 반행간, 글줄 길이와 한 줄 글자 수, 되돌아가는 눈의 각도, 한글과 라틴의 행간 차이를 직접 끌어 보고, 근거의 수준을 가려 휴대폰과 넓은 화면의 본문 크기·행간·최대 글줄 폭을 정한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>행간과 글줄 길이 · TypeBook</title>
+<meta name="description" content="줄 사이와 한 줄의 길이. 행간과 반행간, 글줄 길이와 한 줄 글자 수, 되돌아가는 눈의 각도, 한글과 라틴의 행간 차이를 직접 끌어 보고, 근거의 수준을 가려 휴대폰과 넓은 화면의 본문 크기·행간·최대 글줄 폭을 정한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/type/chapters/leading.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="행간과 글줄 길이 · TypeBook">
+<meta property="og:description" content="줄 사이와 한 줄의 길이. 행간과 반행간, 글줄 길이와 한 줄 글자 수, 되돌아가는 눈의 각도, 한글과 라틴의 행간 차이를 직접 끌어 보고, 근거의 수준을 가려 휴대폰과 넓은 화면의 본문 크기·행간·최대 글줄 폭을 정한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/type/chapters/leading.html">
+<meta property="og:image" content="https://artbook.euiyun.com/type/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/type/chapters/leading.html#chapter","name":"행간과 글줄 길이","headline":"행간과 글줄 길이 · TypeBook","description":"줄 사이와 한 줄의 길이. 행간과 반행간, 글줄 길이와 한 줄 글자 수, 되돌아가는 눈의 각도, 한글과 라틴의 행간 차이를 직접 끌어 보고, 근거의 수준을 가려 휴대폰과 넓은 화면의 본문 크기·행간·최대 글줄 폭을 정한다.","url":"https://artbook.euiyun.com/type/chapters/leading.html","position":6,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/type/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/type/#book","name":"TypeBook · 타이포그래피","url":"https://artbook.euiyun.com/type/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"TypeBook · 타이포그래피","item":"https://artbook.euiyun.com/type/"},{"@type":"ListItem","position":3,"name":"6. 행간과 글줄 길이","item":"https://artbook.euiyun.com/type/chapters/leading.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400&display=swap">
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="leading">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 06</div>
+    <h1>행간과 글줄 길이</h1>
+    <p class="lead">넓은 모니터에서 긴 기사를 읽다 보면 한 줄을 다 읽고 다음 줄로 넘어갈 때 같은 줄을 다시 읽거나 한 줄을 건너뛰는 일이 생긴다. 휴대폰에서는 반대로 줄이 너무 자주 끊겨 문장이 토막 난다. 글자를 잘 골라도 줄 사이가 좁거나 한 줄이 너무 길면 글은 읽기 싫어진다. 이 장은 줄과 줄 사이의 거리인 행간, 한 줄의 길이인 글줄 길이, 그리고 글자 크기가 서로 어떻게 맞물리는지를 직접 끌어 보며 익힌다. 그리고 이 분야의 "정답 같은 숫자"들이 어디서 왔고 근거가 얼마나 단단한지 가려 본다.</p>
+    <ul class="objectives">
+      <li>행간, 반행간, 줄 높이(line-height)를 구별하고 em과 비율로 적는다.</li>
+      <li>글줄 길이를 한 줄 글자 수와 em으로 재고, 라틴 글자와 한글의 차이를 계산한다.</li>
+      <li>줄 끝에서 다음 줄 첫머리로 되돌아가는 눈의 움직임으로 행간과 글줄 길이의 관계를 설명한다.</li>
+      <li>한글이 같은 행간에서 라틴 글자보다 빽빽해 보이는 이유를 글자 높이로 설명한다.</li>
+      <li>흔히 쓰이는 권장 수치의 근거 수준(표준, 연구, 관습)을 구별하고 화면별 본문 값을 정한다.</li>
+    </ul>
+  </header>
+
+  <section id="breath">
+    <h2>줄 사이의 숨</h2>
+    <p>글줄과 글줄 사이의 거리를 <span class="term">행간</span><span class="en">(Leading)</span>이라고 한다. 영어 이름은 금속 활자 시절 줄과 줄 사이에 끼우던 얇은 납(lead) 띠에서 왔다. 우리 인쇄소에서는 이 띠를 흔히 "인테르"라고 불렀다. 인테르를 끼우지 않고 활자의 몸끼리 맞붙여 짜는 것을 "솔리드"라고 했고, 인테르를 한 장 끼울 때마다 줄 사이가 그 두께만큼 벌어졌다. 그러니 원래 뜻의 행간은 <b>글자 몸 바깥에 더한 빈 띠의 두께</b>다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 284" role="img" aria-label="두 줄의 글자 상자. 첫째 줄 기준선에서 둘째 줄 기준선까지가 줄 높이이고, 글자 크기를 뺀 나머지가 행간이다. 행간은 반씩 나뉘어 글자 몸의 위아래에 붙는다.">
+        <defs><marker id="ld-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="70" y="20" width="260" height="110" class="f-acc-soft"/>
+        <rect x="70" y="39" width="260" height="72" class="f-surface s-dash"/>
+        <rect x="70" y="130" width="260" height="110" class="f-acc-soft"/>
+        <rect x="70" y="149" width="260" height="72" class="f-surface s-dash"/>
+        <line x1="70" y1="130" x2="330" y2="130" class="s-line"/>
+        <text x="200" y="97" text-anchor="middle" class="lbl-b" font-size="40">한글 Type</text>
+        <text x="200" y="207" text-anchor="middle" class="lbl-b" font-size="40">글줄 Line</text>
+        <line x1="60" y1="97" x2="340" y2="97" class="s-acc2"/>
+        <line x1="60" y1="207" x2="340" y2="207" class="s-acc2"/>
+        <text x="64" y="93" text-anchor="end" class="lbl-acc2">기준선</text>
+        <text x="64" y="203" text-anchor="end" class="lbl-acc2">기준선</text>
+        <path d="M372 97 L372 207" class="s-line" marker-end="url(#ld-ar)" marker-start="url(#ld-ar)"/>
+        <text x="378" y="176" class="lbl-b">줄 높이</text>
+        <text x="378" y="192" class="lbl-dim">(기준선 사이)</text>
+        <path d="M24 149 L24 221" class="s-acc" marker-end="url(#ld-ar)" marker-start="url(#ld-ar)"/>
+        <text x="30" y="258" class="lbl-acc">글자 크기(1 em)</text>
+        <path d="M342 111 L342 149" class="s-acc" marker-end="url(#ld-ar)" marker-start="url(#ld-ar)"/>
+        <text x="380" y="122" class="lbl-acc">행간</text>
+        <text x="380" y="138" class="lbl-dim">= 반행간 둘</text>
+        <text x="230" y="274" text-anchor="middle" class="lbl-dim">점선: 글자 몸 · 연한 띠: 줄 하나가 차지하는 높이</text>
+      </svg>
+      <figcaption><b>그림 1. 줄 높이와 행간.</b> 점선 상자가 글자 크기(1 em)의 몸이고, 연한 띠가 줄 하나가 차지하는 높이다. 기준선에서 다음 기준선까지가 줄 높이이고, 여기서 글자 크기를 뺀 나머지가 행간이다. 웹 브라우저는 이 행간을 반으로 나눠 글자 몸의 위와 아래에 붙인다(반행간). 그래서 두 줄 사이의 빈 띠는 위 줄의 아래 반행간과 아래 줄의 위 반행간을 합친 것이다.</figcaption>
+    </figure>
+
+    <p>디지털 조판에서는 행간을 보통 두 가지로 적는다. 디자인 프로그램은 "10/14"처럼 글자 크기와 <b>기준선 사이 거리</b>를 함께 적는다(10pt 글자, 기준선 사이 14pt). 웹의 CSS는 <code>line-height</code>로 줄 하나의 높이를 적는데, 단위 없이 <code>1.6</code>이라고 쓰면 글자 크기의 1.6배라는 뜻이다. 어느 쪽이든 결국 같은 양을 가리킨다.</p>
+    <div class="formula">$$\ell = \frac{h}{s}, \qquad \text{행간} = h - s, \qquad \text{반행간} = \frac{h - s}{2}$$<div class="where">\(s\): 글자 크기, \(h\): 줄 높이(기준선 사이 거리), \(\ell\): 줄 높이 비율(CSS의 단위 없는 <code>line-height</code>). 16px 글자에 <code>line-height: 1.6</code>이면 \(h\) = 25.6px, 행간은 9.6px, 반행간은 4.8px이다.</div></div>
+    <p>우리나라 문서 작성 프로그램에서 흔히 보는 "줄 간격 160%" 같은 표기도 비슷한 생각이지만, 프로그램마다 100%의 기준(글자 크기인지, 글꼴이 정한 기본 줄 높이인지)이 달라 같은 숫자라도 CSS의 1.6과 정확히 같지는 않다. 다른 도구로 옮길 때는 숫자만 옮기지 말고 출력해서 기준선 사이 거리를 직접 재 보는 것이 안전하다.</p>
+  </section>
+
+  <section id="lineheight">
+    <h2>행간을 끌어 보기</h2>
+    <p>아래 문단에서 둘째 줄 기준선의 손잡이를 위아래로 끌면 줄 높이가 바뀐다. 모든 줄이 같은 간격으로 따라 움직인다. 처음 값은 1.25로, 많은 글꼴이 행간을 따로 정하지 않았을 때 쓰는 기본값과 비슷하다.</p>
+
+    <div class="sim" id="sim-ld-lh">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>줄 높이 끌기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="lh-cv" class="art"></canvas><span class="hint">둘째 줄 왼쪽 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="lh-script"><button data-value="ko" class="on">한글</button><button data-value="la">라틴</button></div>
+          <label class="check"><input type="checkbox" id="lh-guide" checked> 기준선과 잉크 범위 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">줄 높이(line-height)</span><span class="v" id="lh-o-l">—</span></div>
+        <div class="stat"><span class="k">행간</span><span class="v" id="lh-o-g">—</span></div>
+        <div class="stat"><span class="k">줄 사이 빈 띠 ÷ 글자 잉크 높이</span><span class="v" id="lh-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 1.25에서 본다. 한글은 줄 사이가 빠듯해 위아래 줄이 하나의 덩어리처럼 보인다. ② 손잡이를 내려 1.6~1.8 근처로 둔다. 줄마다 숨이 생기고 줄을 따라가기가 쉬워진다. ③ 0.9까지 올린다. 받침과 다음 줄 글자가 부딪치고 붉게 표시된다. ④ 2.6 이상으로 내린다. 줄들이 서로 떨어진 낱낱의 띠가 되어 문단으로 읽히지 않는다. 라틴으로 바꿔 같은 일을 한다. (잉크 높이는 이 문단의 글자들이 실제로 차지한 위아래 범위를 화면에서 잰 값이다. 글꼴마다 다르다.)</div>
+    </div>
+
+    <p>세 번째와 네 번째 해볼 것이 행간의 양 끝이다. 줄 사이가 글자 잉크와 겹칠 만큼 좁으면 글자가 엉기고, 줄 사이 빈 띠가 글자 높이에 가까울 만큼 넓으면 줄들이 서로 상관없는 띠처럼 떨어진다. 문단이 하나의 고른 회색 면으로 보이면서도 줄 하나하나를 따라갈 수 있는 구간은 그 사이 어딘가에 있다. 그 구간이 어디인지는 다음 두 가지, 글줄 길이와 글자의 생김새에 달려 있다.</p>
+  </section>
+
+  <section id="measure">
+    <h2>한 줄의 길이</h2>
+    <p>한 줄의 길이를 <span class="term">글줄 길이</span><span class="en">(Measure, Line length)</span>라고 한다. 길이를 센티미터나 픽셀로 적을 수도 있지만, 읽기에 중요한 것은 <b>한 줄에 몇 글자가 들어가는가</b>이므로 타이포그래피에서는 흔히 한 줄 글자 수(공백과 문장부호 포함)로 말한다. 로버트 브링허스트는 『타이포그래피 스타일의 요소』<span class="en">(The Elements of Typographic Style, 1992)</span>에서 세리프 글꼴로 짠 한 단 본문은 45~75자, 그중 66자 안팎이 흔히 알맞다고 썼다. 이 숫자는 오랜 조판 관습을 정리한 권고이지, 이 범위를 실험으로 증명한 연구에서 나온 것은 아니다.</p>
+    <p>이 숫자를 한글에 그대로 쓸 수는 없다. 라틴 본문은 공백과 문장부호를 합쳐 한 자의 평균 폭이 글자 크기의 절반 안팎(이 장의 견본으로 재면 약 0.48 em)이지만, 한글은 한 자가 거의 1 em을 차지하고 어절 사이 공백이 끼어 평균이 약 0.68 em이다. 그러니 같은 폭의 줄에 들어가는 글자 수는 한글이 라틴의 70% 남짓이다. 웹 접근성 지침 WCAG 2의 성공 기준 1.4.8(시각적 표현, AAA 등급)도 이 차이를 반영해, 사용자가 고를 수 있게 할 글줄 폭의 상한을 80자, 한중일 글자는 40자로 따로 적었다. 아래에서 단의 오른쪽 끝을 끌어 글줄 길이를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-ld-measure">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>단의 폭 끌기</h3></div>
+      <div class="sim-body">
+        <div class="sim-view paper"><canvas id="ms-cv" class="art"></canvas><span class="hint">단의 오른쪽 끝을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ms-script"><button data-value="ko" class="on">한글</button><button data-value="la">라틴</button></div>
+          <label class="check"><input type="checkbox" id="ms-next" checked> 다음 줄 첫머리 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">단의 폭</span><span class="v" id="ms-o-w">—</span></div>
+        <div class="stat"><span class="k">한 줄 평균 글자 수(공백 포함)</span><span class="v" id="ms-o-c">—</span></div>
+        <div class="stat"><span class="k">참고 기준</span><span class="v" id="ms-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 한글에서 단을 끌어 한 줄이 35~40자가 되게 한다. 폭이 얼마나 되는지 em으로 읽는다. ② 라틴으로 바꾸면 같은 폭에 1.4배 안팎의 글자가 들어간다. 위 눈금의 45~75자 띠가 한글의 몇 em에 해당하는지 본다. ③ 단을 아주 좁게 줄인다. 한 줄에 한두 낱말만 들어가 줄이 자주 끊기고 오른쪽 끝이 들쭉날쭉하다. ④ 끝까지 넓힌다. 다음 줄 첫머리(초록 표시)를 찾으려 눈이 먼 길을 되돌아가야 한다. (글자 크기는 16px, 행간 1.6, 한글은 −0.02em 자간으로 짰다. 한 줄 글자 수는 마지막 줄을 뺀 줄들의 평균이다.)</div>
+    </div>
+
+    <p>두 번째 해볼 것에서 라틴 45~75자는 대략 22~36 em이었다. 같은 폭에 한글을 넣으면 30~50자쯤 들어가서, 긴 쪽은 WCAG의 한글 상한 40자(약 27~29 em)를 넘는다. 여기서 한글 본문의 출발점을 하나 얻는다. 한 줄의 <b>폭</b>을 라틴 권고의 짧은 쪽, 곧 20~29 em 안팎에 두면 한글은 줄당 30~40자로 표준의 상한 안쪽에 들어온다. 이것은 연구로 얻은 한글의 최적값이 아니라, 라틴 권고와 표준의 상한을 한글의 글자 폭으로 옮겨 본 계산이다.</p>
+  </section>
+
+  <section id="return">
+    <h2>되돌아가는 눈</h2>
+    <p>글을 읽는 눈은 줄을 따라 매끄럽게 미끄러지지 않는다. 짧은 도약과 멈춤을 되풀이하며 오른쪽으로 가다가, 줄 끝에서 왼쪽 아래로 크게 한 번 건너뛰어 다음 줄 첫머리로 간다. 이 큰 도약을 <span class="term">되돌아가기</span><span class="en">(Return sweep)</span>라고 한다. 읽기 연구에서는 이 도약이 다음 줄 첫머리에 정확히 닿지 못하고 조금 모자라게 떨어진 뒤 짧게 바로잡는 일이 흔하다고 보고한다. 줄이 길수록 도약이 길어지고, 줄 사이가 좁을수록 엉뚱한 줄에 떨어지기 쉽다.</p>
+    <p>이 책은 이 관계를 아주 단순한 기하로 흉내 낸다. 줄 끝에서 다음 줄 첫머리를 겨냥할 때, 위아래로 반 줄 높이 안에만 떨어지면 맞는 줄에 닿는다고 보자. 그러면 허용되는 각도는 다음과 같다.</p>
+    <div class="formula">$$\theta = \arctan\!\left(\frac{\ell / 2}{L}\right)$$<div class="where">\(\ell\): 줄 높이 비율, \(L\): 글줄 길이(em). 둘 다 글자 크기에 대한 비율이라 글자 크기는 약분된다. \(\theta\)가 작을수록 되돌아갈 때 줄을 놓치기 쉽다고 본다. 이 식은 방향을 감으로 익히기 위한 이 책의 모델이며, 실제 눈의 정확도를 잰 값이 아니다.</div></div>
+
+    <div class="sim" id="sim-ld-sweep">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>되돌아가기의 과녁</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sw-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글줄 길이 <output id="sw-l-out"></output></span><input type="range" id="sw-l" min="10" max="100" step="1" value="28"></label>
+          <label class="ctrl"><span>줄 높이 <output id="sw-h-out"></output></span><input type="range" id="sw-h" min="1" max="2.4" step="0.05" value="1.8"></label>
+          <label class="check"><input type="checkbox" id="sw-run" checked> 눈의 움직임 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">허용 각도 θ</span><span class="v" id="sw-o-t">—</span></div>
+        <div class="stat"><span class="k">이 길이에서 θ 1.5°를 지키는 줄 높이</span><span class="v" id="sw-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 28 em, 1.8에서 과녁(초록 부채꼴)의 각도를 본다. 약 1.8°다. ② 글줄 길이를 100 em까지 늘린다. 같은 줄 높이인데 부채꼴이 바늘처럼 가늘어진다. 화면 폭 끝까지 이어지는 본문이 이렇다. ③ 길이를 늘린 채로 줄 높이를 2.4까지 올린다. 각도가 조금 회복되지만 28 em 때만큼은 되지 않는다. 둘째 칸은 1.5°를 지키려면 줄 높이가 5를 넘어야 한다고 알려 준다. 행간만으로 긴 줄을 구할 수는 없다. ④ 길이를 10 em으로 줄인다. 각도는 크지만 줄이 너무 자주 끊긴다. (그림은 글줄 길이가 바뀌어도 줄이 그림 폭을 채우도록 같은 비율로 줄여 그렸다. 회색 막대가 글줄, 점이 눈의 위치다.)</div>
+    </div>
+
+    <p>두 번째와 세 번째 해볼 것을 견주면 이 장의 중심 생각이 나온다. <b>줄이 길어질수록 행간을 늘려야 하지만, 행간을 늘리는 것만으로는 긴 줄의 불리함을 다 메울 수 없다.</b> 28 em에서 1.8이 주는 각도(약 1.8°)를 100 em에서 지키려면 줄 높이가 6을 넘어야 하는데, 그러면 줄들이 떨어져 문단이 무너진다. 그래서 긴 줄은 행간이 아니라 글줄 길이 자체를 줄여서 고친다.</p>
+  </section>
+
+  <section id="mesh">
+    <h2>세 값이 맞물린다</h2>
+    <p>글자 크기, 행간, 글줄 길이는 따로 정할 수 없다. 단의 폭이 정해져 있으면 글자를 키울수록 한 줄 글자 수가 줄고, 글자를 줄이면 줄이 길어진다. 줄이 길어지면 행간을 늘려야 하고, 행간을 늘리면 같은 지면에 들어가는 줄 수가 준다. 아래 지도는 가로가 글줄 길이, 세로가 줄 높이다. 점을 끌어 위치를 옮기면 위쪽 견본이 그 조합으로 짜인다(견본은 지도 폭에 맞게 같은 비율로 줄인다).</p>
+
+    <div class="sim" id="sim-ld-mesh">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글줄 길이 × 행간 지도</h3></div>
+      <div class="sim-body">
+        <div class="sim-view"><canvas id="mh-cv"></canvas><span class="hint">지도 위의 점을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mh-script"><button data-value="ko" class="on">한글</button><button data-value="la">라틴</button></div>
+          <label class="check"><input type="checkbox" id="mh-zone" checked> 이 책의 출발 구간 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글줄 길이 · 줄 높이</span><span class="v" id="mh-o-p">—</span></div>
+        <div class="stat"><span class="k">한 줄 글자 수(대략)</span><span class="v" id="mh-o-c">—</span></div>
+        <div class="stat"><span class="k">θ · 판정</span><span class="v" id="mh-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 점을 출발 구간(초록) 안의 여러 곳으로 옮겨 견본을 비교한다. ② 구간 아래 오른쪽(긴 줄, 좁은 행간)으로 끈다. 견본의 줄들이 촘촘한 띠로 뭉친다. ③ 구간 위(행간 2.2 이상)로 끈다. 줄들이 흩어진다. ④ 라틴으로 바꾼다. 같은 em 길이에서 한 줄 글자 수가 1.4배 안팎이고, 출발 구간의 아래 경계가 조금 내려간다. (출발 구간은 이 책이 정한 것이다. 아래 경계는 앞 시뮬레이터의 θ가 1.5° 이상, 그리고 한글 1.5·라틴 1.3 이상의 줄 높이, 위 경계는 2.2. 연구로 정해진 경계가 아니라 비교의 기준이다.)</div>
+    </div>
+
+    <p>지도의 초록 구간은 오른쪽으로 갈수록 위로 올라간다. 긴 줄일수록 더 넓은 행간이 필요하다는 뜻이다. 동시에 구간은 오른쪽 끝에서 위 경계(2.2)에 부딪혀 닫힌다. 어떤 행간으로도 알맞게 만들 수 없는 길이가 있다는 뜻이다. 이렇게 행간과 글줄 길이가 함께 움직여야 한다는 생각은 20세기 전반 미국의 마일스 팅커<span class="en">(Miles Tinker)</span>와 도널드 패터슨<span class="en">(Donald Paterson)</span>이 인쇄물의 읽기 속도를 여러 조건으로 잰 연구에서도 나타난다. 그들은 글자 크기, 글줄 길이, 행간을 하나씩 따로 볼 수 없고 조합으로 봐야 한다고 정리했다(팅커, 『인쇄물의 가독성』<span class="en">(Legibility of Print)</span>, 1963에 요약).</p>
+  </section>
+
+  <section id="evidence">
+    <h2>근거의 수준</h2>
+    <p>행간과 글줄 길이에는 유난히 "정답 같은 숫자"가 많다. "행간은 150%", "한 줄은 66자" 같은 숫자들이다. 그런데 이 숫자들의 출처는 성격이 저마다 다르다. 표준 문서가 정한 것, 실험으로 잰 것, 오랜 관습을 정리한 것이 섞여 있다. 아래 표는 이 장에서 쓴 숫자들의 근거를 가른 것이다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>주장</th><th>출처</th><th>근거의 성격</th><th>주의할 점</th></tr></thead>
+        <tbody>
+          <tr><td>한 단 본문은 45~75자, 66자 안팎</td><td>브링허스트(1992) 등 조판 교본</td><td>관습의 정리(권고)</td><td>라틴 세리프 인쇄 본문 기준. 한글·화면에 그대로 옮길 수 없다.</td></tr>
+          <tr><td>글줄 폭은 80자(한중일 40자) 이하로 고를 수 있게</td><td>WCAG 2, 성공 기준 1.4.8(AAA)</td><td>표준</td><td>"사용자가 그렇게 바꿀 수 있어야 한다"는 요구. 최적값이 아니라 상한이다.</td></tr>
+          <tr><td>문단 안 행간은 1.5배 이상</td><td>WCAG 2, 1.4.8(AAA)</td><td>표준</td><td>같은 기준이 단락 간격도 정한다. AA 등급의 1.4.12는 사용자가 1.5배로 넓혀도 깨지지 않을 것을 요구한다.</td></tr>
+          <tr><td>화면에서는 긴 줄이 더 빨리 읽히기도 한다</td><td>메리 다이슨(Mary Dyson) 등의 화면 읽기 실험(1998, 2001)</td><td>실험 연구</td><td>읽기 속도와 이해도, 선호가 서로 다른 방향을 가리키기도 했다. 스크롤 방식과 과제에 따라 결과가 달라진다.</td></tr>
+          <tr><td>크기·길이·행간은 조합으로 봐야 한다</td><td>팅커와 패터슨의 인쇄물 연구(1920~40년대)</td><td>실험 연구</td><td>오래된 인쇄물·영어 독자 조건. 숫자 그대로보다 "상호작용이 있다"는 결론이 중요하다.</td></tr>
+          <tr><td>한글 본문은 라틴보다 행간을 넉넉히(대략 1.6~1.8)</td><td>한국 편집·웹 실무</td><td>관습</td><td>글꼴의 글자 높이와 크기에 따라 다르다. 연구로 정해진 값이 아니다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <strong>"연구에 따르면 X% 더 빨리 읽힌다"를 조심한다</strong>
+      글줄 길이와 행간에 관한 실험 결과는 글자 크기, 매체(종이·화면), 넘기는 방식(쪽 넘김·스크롤), 독자(나이·언어), 과제(훑어 읽기·이해)에 따라 크게 달라진다. 한 실험의 퍼센트 숫자를 다른 조건에 옮겨 붙이면 근거 없는 통설이 된다. 이 책이 퍼센트 대신 "출발 구간"을 쓰는 이유다. 구간 안에서 고른 뒤에는 실제 독자에게 실제 기기로 읽혀 보고 고친다.
+    </div>
+  </section>
+
+  <section id="hangul">
+    <h2>한글의 행간</h2>
+    <p>같은 줄 높이로 짜도 한글 문단은 라틴 문단보다 빽빽해 보인다. 이유는 글자의 높이에 있다. 라틴 소문자는 대부분 x높이(글자 크기의 절반 안팎) 안에 들어가고, 어센더와 디센더가 있는 몇 글자만 위아래로 뻗는다. 그래서 줄 사이에 실제로 빈 띠가 넓게 남는다. 한글은 거의 모든 글자가 글자 몸의 높이를 꽉 채운다(받침 있는 글자는 특히). 같은 줄 높이라면 줄 사이에 남는 빈 띠가 훨씬 좁다. 아래에서 두 문단을 같은 크기, 같은 줄 높이로 나란히 놓고 비교한다.</p>
+
+    <div class="sim" id="sim-ld-script">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 행간, 다른 빈 띠</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sc-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>줄 높이(두 문단 같음) <output id="sc-h-out"></output></span><input type="range" id="sc-h" min="1" max="2.2" step="0.05" value="1.5"></label>
+          <div class="seg" id="sc-face"><button data-value="sans" class="on">고딕 · 산세리프</button><button data-value="serif">명조 · 세리프</button></div>
+          <label class="check"><input type="checkbox" id="sc-band" checked> 빈 띠 칠하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">라틴: 줄 사이 빈 띠(x높이 기준)</span><span class="v" id="sc-o-l">—</span></div>
+        <div class="stat"><span class="k">한글: 줄 사이 빈 띠(글자 높이 기준)</span><span class="v" id="sc-o-k">—</span></div>
+        <div class="stat"><span class="k">한글 빈 띠가 라틴과 같아지는 줄 높이</span><span class="v" id="sc-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 1.5에서 두 문단을 흐리게 본다. 라틴 문단은 줄 사이로 바탕이 시원하게 보이고, 한글 문단은 회색 띠가 거의 맞닿는다. ② 줄 높이를 올리며 한글 문단이 1.5의 라틴 문단만큼 숨 쉬어 보이는 값을 찾는다. 셋째 칸이 이 장의 계산이다(줄 사이 빈 띠의 em 두께를 같게). ③ 명조·세리프로 바꾼다. 글꼴이 바뀌면 글자 높이도 바뀐다. (빈 띠는 줄 높이에서 글자의 주된 높이를 뺀 값이다. 라틴은 x높이, 한글은 문단 한글 글자들의 평균 잉크 높이로 잰다. 어센더·디센더를 무시한 단순 비교이며 글꼴마다 다르다.)</div>
+    </div>
+
+    <p>이 계산은 한국의 편집 실무에서 한글 본문에 대개 라틴보다 넉넉한 행간을 주는 관습과 방향이 같다. 다만 셋째 칸의 숫자를 그대로 정답으로 쓰지는 않는다. 라틴 문단은 어센더와 디센더가 줄 사이로 뻗어 실제로는 x높이만큼 시원하지 않고, 한글은 받침이 없는 글자가 섞이면 띠가 조금 넓어진다. 계산은 방향을 알려 주고, 마지막 값은 실제 문단을 실제 크기로 짜 보고 정한다.</p>
+
+    <div class="callout studio">
+      <strong>행간은 글자 크기와 짝으로 적는다</strong>
+      편집 디자이너들은 행간을 홀로 적지 않는다. "본문 10/17", "캡션 8/12"처럼 언제나 글자 크기와 짝으로 적는다. 글자 크기를 바꾸면 행간도 다시 정해야 한다는 것을 숫자가 스스로 일깨우기 때문이다. 웹에서도 <code>line-height</code>는 픽셀 대신 단위 없는 비율로 적어 두는 것이 안전하다. 픽셀로 적으면 독자가 브라우저에서 글자를 키웠을 때 줄 높이가 따라오지 않아 글줄이 겹친다. 한도경은 인쇄소에서 배운 순서를 이렇게 말한다. "크기를 정하고, 인테르를 끼워 보고, 판을 멀리서 본다. 그다음에 줄 길이를 자른다."
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>작품과 디자인에서: 규칙이 깨질 때</h2>
+    <p>1499년 베네치아의 인쇄업자 알두스 마누티우스가 펴낸 『폴리필로의 꿈 속 사랑의 싸움』<span class="en">(Hypnerotomachia Poliphili)</span>은 초기 인쇄본 가운데 가장 아름다운 책으로 자주 꼽힌다. 이 책은 글줄 길이의 규칙을 일부러 깬다. 아래 그림처럼 문단의 마지막 부분에서 줄을 하나씩 짧게 잘라 본문을 역삼각형이나 잔 모양으로 짰다. 줄이 짧아지는 만큼 낱말이 줄 끝에서 자주 끊기고 읽기는 조금 불편해진다. 대신 지면 위의 글 덩어리가 그림처럼 하나의 모양이 되어, 위의 목판화와 함께 한 장의 구성을 이룬다.</p>
+
+    <figure class="art-figure" id="fig-ld-colonna">
+      <div class="art-frame"><img src="../../shared/img/colonna-hypnerotomachia-triumphus-detail.webp" width="1317" height="1600" alt="위쪽에 말이 끄는 개선 행렬의 목판화가 있고, 그 아래에 라틴 글자로 짠 본문이 이어진다. 본문의 아래쪽 문단은 줄이 점점 짧아져 역삼각형을 이루고, 맨 끝에는 별 모양 장식 세 개가 놓였다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 2. 프란체스코 콜론나 지음, 알두스 마누티우스 인쇄, 『폴리필로의 꿈 속 사랑의 싸움』, 1499.</b> 아래쪽 문단은 행간은 그대로 두고 글줄 길이만 한 줄씩 줄여 역삼각형을 만들었다. 짧은 줄에서는 낱말이 줄 끝에서 잘려 다음 줄로 넘어간다. 읽기의 편안함 일부를 내주고 지면의 모양을 얻은 선택이다.<span class="credit">메트로폴리탄 미술관, 목판화 삽화가 든 인쇄본. 공공 도메인(The Met Open Access, CC0). 펼친 면 사진에서 오른쪽 면 일부를 잘랐다. <a href="https://www.metmuseum.org/art/collection/search/365313">소장처 작품 페이지</a> · <a href="../../credits.html#colonna-hypnerotomachia-triumphus-detail">크레딧</a></span></figcaption>
+    </figure>
+
+    <p>행간의 규칙도 자주 깨진다. 큰 제목은 본문의 비율로 행간을 주면 줄 사이가 지나치게 벌어져 두 줄짜리 제목이 두 개의 제목처럼 보인다. 그래서 큰 제목은 줄 높이를 1.0~1.2 안팎으로, 때로는 글자 크기보다 작게 잡아 위아래 줄을 하나의 덩어리로 묶는다. 시와 노랫말은 반대로 한 줄이 하나의 숨이므로 줄 길이가 들쭉날쭉한 것이 내용이고, 행간을 넉넉히 두어 줄마다 쉼을 준다. 지하철 노선도나 표지판처럼 멀리서 한두 줄만 읽는 글은 글줄 길이 규칙과 거의 상관이 없다.</p>
+    <p>동아시아의 <b>세로쓰기</b>는 행간과 글줄 길이를 처음부터 다르게 본다. 글줄이 위에서 아래로 내려가고 줄은 오른쪽에서 왼쪽으로 쌓이므로, "행간"은 세로 글줄 사이의 가로 간격이 되고 "글줄 길이"는 단의 높이가 된다. 아래 그림은 같은 글을 가로와 세로로 짠 모습이다. 세로쓰기 책에서 지면을 위아래 두세 단으로 나누어 한 줄을 짧게 하는 방식은 가로쓰기 신문이 여러 단으로 줄을 자르는 것과 같은 이유에서다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="왼쪽은 가로로 짠 글줄 네 개, 오른쪽은 같은 글을 세로로 짠 글줄 네 개다. 가로쓰기에서는 줄 사이 간격이 위아래로, 세로쓰기에서는 좌우로 생긴다.">
+        <defs><marker id="ld-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="110" y="22" text-anchor="middle" class="lbl-b">가로쓰기</text>
+        <text x="345" y="22" text-anchor="middle" class="lbl-b">세로쓰기</text>
+        <g id="ld-f3-h"></g>
+        <g id="ld-f3-v"></g>
+        <path d="M206 64 L206 92" class="s-acc" marker-end="url(#ld-ar2)" marker-start="url(#ld-ar2)"/>
+        <text x="200" y="112" text-anchor="end" class="lbl-acc">행간</text>
+        <path d="M30 200 L190 200" class="s-acc2" marker-end="url(#ld-ar2)"/>
+        <text x="110" y="222" text-anchor="middle" class="lbl-acc2">글줄 방향 · 길이</text>
+        <path d="M398 44 L398 196" class="s-acc2" marker-end="url(#ld-ar2)"/>
+        <text x="412" y="120" class="lbl-acc2">글줄</text>
+        <path d="M352 210 L376 210" class="s-acc" marker-end="url(#ld-ar2)" marker-start="url(#ld-ar2)"/>
+        <text x="364" y="232" text-anchor="middle" class="lbl-acc">행간</text>
+        <text x="300" y="246" text-anchor="middle" class="lbl-dim">줄은 오른쪽에서 왼쪽으로 쌓인다</text>
+      </svg>
+      <figcaption><b>그림 3. 가로쓰기와 세로쓰기의 행간.</b> 같은 네 줄을 두 방향으로 짰다. 세로쓰기에서는 글줄 길이가 단의 높이, 행간이 세로줄 사이의 가로 간격이 된다. 한글 세로쓰기는 지금은 드물지만, 세로로 짠 옛 책과 신문을 읽을 때 행간과 글줄 길이를 이렇게 돌려서 보면 같은 원리가 보인다.</figcaption>
+    </figure>
+
+    <div class="callout try">
+      <strong>종이 띠로 행간 고르기</strong>
+      같은 문단(10줄 안팎)을 글자 크기 10pt로, 줄 높이만 1.2, 1.5, 1.8, 2.1로 바꿔 네 장 출력한다. 같은 내용을 단의 폭만 8 cm와 16 cm로 바꿔 두 벌 만든다. 여덟 장을 벽에 붙이고 2 m 떨어져 흐리게 본 뒤, 가까이 가서 각 장을 소리 내어 한 문단씩 읽는다. 읽다가 줄을 놓친 곳에 연필로 표시한다. 16 cm 단에서 표시가 많았던 장과, 8 cm 단에서 표시가 없던 장의 줄 높이를 견주어 본다. 금속 활자 시절 인쇄공들은 이 일을 인테르의 장수를 바꿔 가며 했다.
+    </div>
+  </section>
+
+  <section id="screens">
+    <h2>휴대폰과 넓은 화면</h2>
+    <p>이 장의 생각을 모아 서점 소식 글 한 편을 두 화면에 짠다. 아래 작업대에서 화면 폭을 끌어 휴대폰부터 넓은 모니터까지 바꿔 볼 수 있다. 글자 크기, 줄 높이, 최대 글줄 폭(em)을 정하면 그 화면에서 실제로 한 줄에 몇 자가 들어가는지, 되돌아가기 각도가 얼마인지가 바로 계산된다. 화면 양옆에는 휴대폰에서 20px, 넓은 화면에서 32px의 바깥 여백을 둔다.</p>
+
+    <div class="sim" id="sim-ld-news">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>서점 소식 조판 작업대</h3></div>
+      <div class="sim-body">
+        <div class="sim-view stage"><canvas id="nw-cv" class="art"></canvas><span class="hint">화면 오른쪽 끝 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="nw-dev"><button data-value="360" class="on">휴대폰 360</button><button data-value="768">태블릿 768</button><button data-value="1280">넓은 화면 1280</button></div>
+          <label class="ctrl"><span>글자 크기 <output id="nw-s-out"></output></span><input type="range" id="nw-s" min="13" max="24" step="1" value="16"></label>
+          <label class="ctrl"><span>줄 높이 <output id="nw-h-out"></output></span><input type="range" id="nw-h" min="1.1" max="2.4" step="0.05" value="1.3"></label>
+          <label class="ctrl"><span>최대 글줄 폭 <output id="nw-m-out"></output></span><input type="range" id="nw-m" min="16" max="90" step="1" value="90"></label>
+          <div class="btn-row"><button type="button" class="btn" id="nw-first">처음 소식</button><button type="button" class="btn" id="nw-plan">서윤 안</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글줄 폭</span><span class="v" id="nw-o-w">—</span></div>
+        <div class="stat"><span class="k">한 줄 글자 수(공백 포함)</span><span class="v" id="nw-o-c">—</span></div>
+        <div class="stat"><span class="k">되돌아가기 θ</span><span class="v" id="nw-o-t">—</span></div>
+        <div class="stat"><span class="k">WCAG 1.4.8(한글 40자, 행간 1.5)</span><span class="v" id="nw-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태는 "처음 소식"이다(16px, 줄 높이 약 1.3, 최대 폭 없음). 넓은 화면 1280으로 바꾸면 한 줄이 90자를 넘고 θ가 0.5° 안팎으로 떨어진다. ② "서윤 안"을 누른 뒤 휴대폰과 넓은 화면을 오간다. 휴대폰은 화면 폭이 곧 글줄 폭이고, 넓은 화면은 최대 폭에서 멈춘다. ③ 서윤 안에서 최대 폭을 90까지 풀어 본다. 화면이 넓을수록 줄이 끝없이 길어진다. ④ 휴대폰에서 글자 크기를 24px까지 키운다. 한 줄이 열 몇 자로 줄어 문장이 토막 난다. (화면이 그림보다 넓으면 같은 비율로 줄여 그린다. 글꼴은 Noto Sans KR, 자간 −0.02em. 한 줄 글자 수는 마지막 줄을 뺀 평균이다. 단락 간격과 정렬은 이 작업대에서 다루지 않는다.)</div>
+    </div>
+
+    <p>휴대폰에서는 글줄 길이를 고를 여지가 거의 없다. 화면 폭에서 양옆 여백을 빼면 그것이 글줄 폭이고, 남은 손잡이는 글자 크기뿐이다. 글자를 키우면 한 줄 글자 수가 줄고, 줄이면 읽기 힘든 작은 글자가 된다. 그래서 휴대폰에서는 글자 크기를 먼저 정하고, 짧은 줄에 맞게 행간을 조금 덜 준다. 넓은 화면은 반대다. 글자 크기에는 여유가 있지만 줄이 끝없이 길어질 수 있으니, <b>최대 글줄 폭</b>을 먼저 정하고 그 길이에 맞는 행간을 준다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>작업 노트 · 6장</span></div>
+      <h4>화면 끝까지 가던 줄을 자르다</h4>
+      <p>본문 자간을 정한 다음 날, 서윤은 서점 소식 글을 사무실의 넓은 모니터로 열었다. 브라우저 기본 16px, 행간은 따로 정하지 않은 채 화면 끝까지 이어지는 줄이었다. 이 장의 작업대로 재 보니 1280px 화면에서 한 줄이 <b>106</b>자 안팎이었고, 되돌아가기 각도는 <b>0.5</b>°였다. 서윤 자신도 셋째 문단에서 같은 줄을 두 번 읽었다. 주인은 휴대폰으로 같은 글을 보여 주며 "여기서는 괜찮아 보이는데, 할머니 손님은 자꾸 키워서 보신다"고 했다.</p>
+      <p>도경은 서윤의 화면 앞에 신문 한 장을 펴 놓았다. "신문은 왜 단을 나눴을 것 같아? 종이가 아까워서가 아니야." 서윤은 두 화면을 따로 정하기로 했다. 휴대폰에서는 양옆 여백 20px을 빼면 360px 화면의 글줄 폭이 320px뿐이다. 글자를 17px로 두면 18.8 em, 한 줄 <b>24</b>자 안팎이 된다. 줄이 짧으니 행간은 1.7(기준선 사이 28.9px)로 두었다. θ는 <b>2.6</b>°다. 넓은 화면에서는 글자를 18px로 키우고, 최대 글줄 폭을 28 em(504px)으로 막았다. 한 줄 <b>37</b>자 안팎으로 WCAG 1.4.8의 한글 40자 상한 안쪽이다. 처음에는 32 em을 생각했지만 계산해 보니 한 줄이 43자로 상한을 넘었다. 줄이 휴대폰보다 기니 행간은 1.8(32.4px)로 조금 더 주었다. θ는 <b>1.8</b>°로, 이 책의 출발 구간 경계(1.5°)보다 크다.</p>
+      <p>서윤은 한때 넓은 화면의 최대 폭을 40 em까지 풀어 보았다. 한 줄이 55자 안팎이 되고 θ가 1.3°로 떨어졌다. 줄 높이를 2.0으로 올리면 각도는 회복되지만 문단이 성기게 흩어졌다. 서윤은 줄을 자르는 쪽을 택했다. 두 값 모두 <code>line-height</code>는 단위 없는 비율로 적어, 할머니 손님이 글자를 키워도 줄 사이가 함께 넓어지게 했다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>화면</th><th class="num">글자 크기</th><th class="num">줄 높이</th><th class="num">최대 글줄 폭</th><th class="num">한 줄 글자 수</th><th class="num">θ</th></tr></thead>
+          <tbody>
+            <tr><td>처음 소식(1280px)</td><td class="num">16px</td><td class="num">약 1.3</td><td class="num">없음(1216px)</td><td class="num">106</td><td class="num">0.5°</td></tr>
+            <tr><td>휴대폰(360px)</td><td class="num">17px</td><td class="num">1.7</td><td class="num">화면 폭 − 40px(320px)</td><td class="num">24</td><td class="num">2.6°</td></tr>
+            <tr><td>넓은 화면</td><td class="num">18px</td><td class="num">1.8</td><td class="num">28 em(504px)</td><td class="num">37</td><td class="num">1.8°</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>휴대폰: 본문 17px, 줄 높이 1.7, 글줄 폭은 화면 폭에서 양옆 20px을 뺀 값(360px 화면에서 320px, 18.8 em). 넓은 화면: 본문 18px, 줄 높이 1.8, 최대 글줄 폭 28 em(504px, 한 줄 40자 이하). <code>line-height</code>는 단위 없는 비율, 글줄 폭은 em으로 적는다. 자간은 5장의 −0.02em을 그대로 쓴다.</div>
+        <div><b>아직 남은 문제</b>17px과 18px이 할머니 손님에게 충분한 크기인지, 글자와 바탕의 대비가 충분한지는 아직 재지 않았다. 휴대폰과 넓은 화면 사이(태블릿)의 값을 어떻게 이을지도 정하지 않았다.</div>
+        <div><b>다음 단계</b><a href="readability.html">7장</a>: 주인의 말에 따라 최소 본문 크기와 글자–바탕 대비 기준을 점검한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>줄 높이는 기준선 사이 거리이고, 행간은 줄 높이에서 글자 크기를 뺀 빈 띠다. 웹은 행간을 반씩 글자 위아래에 붙인다. 줄 높이는 글자 크기와 짝으로, 웹에서는 단위 없는 비율로 적는다.</li>
+      <li>글줄 길이는 한 줄 글자 수로 생각한다. 라틴 본문의 45~75자는 관습의 권고이고, 한글은 공백을 포함한 평균 글자 폭이 라틴의 1.4배 안팎이라 같은 폭에 70% 남짓이 들어간다. WCAG 1.4.8은 한중일 글자의 상한을 40자로 따로 적는다.</li>
+      <li>줄이 길수록 줄 끝에서 다음 줄로 되돌아가는 도약이 길어지고 엉뚱한 줄에 떨어지기 쉽다. 긴 줄에는 행간을 더 주지만, 행간만으로 긴 줄을 구할 수는 없다. 긴 줄은 길이를 줄여 고친다.</li>
+      <li>글자 크기, 행간, 글줄 길이는 함께 움직인다. 하나를 바꾸면 나머지를 다시 본다.</li>
+      <li>한글은 글자가 글자 몸 높이를 거의 채워, 같은 줄 높이에서 라틴보다 줄 사이 빈 띠가 좁다. 한글 본문에 행간을 넉넉히 주는 관습은 이 차이와 방향이 같다.</li>
+      <li>권장 수치는 표준, 실험, 관습으로 근거가 다르다. 퍼센트를 옮겨 붙이지 말고 출발 구간을 정한 뒤 실제 독자와 기기로 확인한다.</li>
+      <li>제목, 시, 그림 같은 지면 구성에서는 행간과 글줄 길이의 규칙을 일부러 깨기도 한다. 기준은 읽혀야 하는 글인가, 보여야 하는 모양인가다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 20px 글자에 CSS로 <code>line-height: 1.5</code>를 주었다. 행간과 반행간은 각각 얼마인가?</p>
+        <div class="opts">
+          <button class="opt">행간 30px, 반행간 15px</button>
+          <button class="opt">행간 1.5px, 반행간 0.75px</button>
+          <button class="opt" data-correct>행간 10px, 반행간 5px</button>
+          <button class="opt">행간 20px, 반행간 10px</button>
+        </div>
+        <div class="quiz-exp">줄 높이는 20 × 1.5 = 30px이고, 행간은 줄 높이에서 글자 크기를 뺀 30 − 20 = 10px이다. 반행간은 그 절반인 5px로, 글자 몸의 위와 아래에 하나씩 붙는다. 30px은 줄 높이(기준선 사이 거리)이지 행간이 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 넓은 모니터에서 본문이 화면 끝까지 이어져 한 줄이 100자 가까이 된다. 이 장의 생각에 가장 맞는 처방은?</p>
+        <div class="opts">
+          <button class="opt">줄 높이를 3.0으로 크게 늘린다. 행간만 넉넉하면 줄 길이는 상관없다.</button>
+          <button class="opt" data-correct>최대 글줄 폭을 em으로 정해 줄을 자르고, 그 길이에 맞게 행간을 조금 넉넉히 준다.</button>
+          <button class="opt">글자 크기를 12px로 줄인다. 글자가 작으면 줄이 짧아 보인다.</button>
+          <button class="opt">자간을 넓혀 한 줄 글자 수를 줄인다.</button>
+        </div>
+        <div class="quiz-exp">긴 줄의 불리함은 행간만으로 메울 수 없다. 이 장의 모델로도 28 em·1.8과 같은 각도를 100 em 줄에서 지키려면 줄 높이가 6을 넘어야 하고, 그러면 문단이 흩어진다. 글자를 줄이면 한 줄 글자 수가 오히려 늘고, 본문 자간을 넓히면 회색값이 무너진다(5장).</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 같은 크기, 같은 줄 높이 1.5로 짠 라틴 문단보다 한글 문단이 더 빽빽해 보인다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">한글 글꼴은 줄 높이를 계산하는 방식이 CSS와 달라서다.</button>
+          <button class="opt">한글은 낱말 사이 공백이 없어 줄이 꽉 차기 때문이다.</button>
+          <button class="opt">연구에 따르면 한글 독자는 행간을 정확히 30% 더 필요로 하기 때문이다.</button>
+          <button class="opt" data-correct>라틴 소문자는 대부분 x높이 안에 들어가 줄 사이 빈 띠가 넓게 남지만, 한글은 글자가 글자 몸 높이를 거의 채워 빈 띠가 좁기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">같은 줄 높이에서 줄 사이에 실제로 남는 빈 띠는 글자의 주된 높이에 따라 다르다. 라틴은 x높이가 글자 크기의 절반 안팎이라 빈 띠가 넓고, 한글은 받침 있는 글자를 중심으로 글자 몸 높이를 거의 채운다. 한글도 어절 사이에 공백을 둔다. 30%라는 연구 수치는 지어낸 것이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. "한 단 본문은 45~75자"라는 권고에 대한 설명으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>라틴 인쇄 본문의 조판 관습을 정리한 권고이며, 한글에 쓰려면 글자 폭의 차이를 고려해 다시 따져야 한다.</button>
+          <button class="opt">WCAG가 AA 등급으로 정한 의무 기준이다.</button>
+          <button class="opt">여러 나라 언어로 실험해 모든 매체에서 가장 빠르다고 증명된 값이다.</button>
+          <button class="opt">한글 기준으로 정해진 값이라 라틴 글자에는 두 배를 적용해야 한다.</button>
+        </div>
+        <div class="quiz-exp">45~75자는 브링허스트 등 조판 교본이 정리한 라틴 본문의 관습적 권고다. WCAG에는 AAA 등급의 1.4.8에 80자(한중일 40자) 상한이 있을 뿐이다. 실험 결과는 매체와 조건에 따라 엇갈린다. 한글은 평균 글자 폭이 넓어 같은 폭에 70% 남짓만 들어간다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" data-nonum>
+    <h2>출처와 글꼴</h2>
+    <ul>
+      <li>W3C, <i>Web Content Accessibility Guidelines (WCAG) 2.1</i>, 성공 기준 1.4.8 Visual Presentation(AAA), 1.4.12 Text Spacing(AA), 2018.</li>
+      <li>Robert Bringhurst, <i>The Elements of Typographic Style</i>, Hartley &amp; Marks, 1992. 글줄 길이 45~75자 권고(요약).</li>
+      <li>Miles A. Tinker, <i>Legibility of Print</i>, Iowa State University Press, 1963. 팅커와 패터슨의 인쇄물 읽기 연구 요약(요지만 인용).</li>
+      <li>Mary C. Dyson 등, 화면 읽기에서 글줄 길이의 영향에 관한 실험(Dyson &amp; Kipping, 1998; Dyson &amp; Haselgrove, 2001). 결과의 방향만 요약했고 수치는 옮기지 않았다.</li>
+      <li>되돌아가기 각도 θ와 "출발 구간"은 이 책이 교육용으로 만든 모델과 기준이며, 실험으로 맞춘 값이 아니다.</li>
+      <li>그림 2: 메트로폴리탄 미술관 소장 『폴리필로의 꿈 속 사랑의 싸움』(1499), 공공 도메인(CC0).</li>
+      <li>글꼴: Noto Sans KR, Noto Serif KR(Google의 한국어 Noto 글꼴), Inter(Rasmus Andersson). 모두 SIL Open Font License 1.1, Google Fonts로 불러온다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#2b2a30", DIM = "#6b6874", PAPER = "#fbfaf7", GREEN = "#2f7d5b", CREAM = "#ffe2d7", RED = "#d24f39", DEEP = "#22342a";
+  var FAM = {
+    sans: '"Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif',
+    serif: '"Noto Serif KR", "AppleMyungjo", "Batang", serif',
+    lat: 'Inter, "Helvetica Neue", Arial, sans-serif',
+    latSerif: '"Noto Serif KR", Georgia, serif'
+  };
+  var fnt = function (w, px, fam) { return w + " " + px + "px " + fam; };
+  function label(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color || INK; ctx.font = fnt(o.weight || 600, o.size || 12, o.fam || FAM.sans);
+    ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "top"; ctx.fillText(s, x, y);
+  }
+  if (document.fonts && document.fonts.load) {
+    ["400 40px Inter", '400 40px "Noto Sans KR"', '700 40px "Noto Sans KR"', '400 40px "Noto Serif KR"'].forEach(function (f) {
+      document.fonts.load(f, "이번 여름 책방 E는 목요일 저녁마다 낭독 모임 Summer reading xhdg").catch(function () {});
+    });
+  }
+  var TXT = {
+    ko: "이번 여름 책방 E는 목요일 저녁마다 낭독 모임을 엽니다. 한 사람이 한 쪽씩 소리 내어 읽고, 다 읽은 뒤에는 차를 마시며 마음에 남은 문장을 나눕니다. 처음 오시는 분도 책 한 권만 들고 오시면 됩니다. 창가 자리는 일찍 차니 조금 서둘러 주세요. 지난달에 들어온 산문집과 시집은 입구 오른쪽 낮은 책장에 모아 두었습니다. 비 오는 날에는 우산꽂이를 문 안쪽으로 옮겨 둡니다.",
+    la: "This summer, Bookshop E holds a reading circle every Thursday evening. Each of us reads a page aloud, and afterwards we share the sentences that stayed with us over a cup of tea. Newcomers only need to bring one book. The window seats fill up early, so please come a little ahead of time. The essays and poems that arrived last month are gathered on the low shelf to the right of the entrance."
+  };
+  // 글자별 폭 + 자간으로 줄을 나눈다(어절·낱말 단위). 반환: [{words, chars, width}]
+  function wrap(ctx, text, maxW, track) {
+    var words = text.split(" "), sp = ctx.measureText(" ").width + track, lines = [], cur = [], cw = 0;
+    var ww = function (s) { var a = 0; for (var i = 0; i < s.length; i++) a += ctx.measureText(s[i]).width + track; return a; };
+    words.forEach(function (w) { var x = ww(w); if (cur.length && cw + sp + x > maxW) { lines.push({ words: cur, width: cw }); cur = []; cw = 0; } cw += (cur.length ? sp : 0) + x; cur.push(w); });
+    if (cur.length) lines.push({ words: cur, width: cw });
+    lines.forEach(function (l) { l.chars = l.words.join(" ").length; });
+    return lines;
+  }
+  function drawLine(ctx, line, x, y, track) {
+    ctx.textAlign = "left";
+    var sp = ctx.measureText(" ").width + track;
+    line.words.forEach(function (w, i) { if (i) x += sp; for (var k = 0; k < w.length; k++) { ctx.fillText(w[k], x, y); x += ctx.measureText(w[k]).width + track; } });
+    return x;
+  }
+  function avgChars(lines) { if (lines.length < 2) return lines.length ? lines[0].chars : 0; var s = 0; for (var i = 0; i < lines.length - 1; i++) s += lines[i].chars; return s / (lines.length - 1); }
+  // 문단 글자들의 잉크 범위(기준선 기준 위·아래)
+  function inkOf(ctx, text) {
+    var m = ctx.measureText(text.replace(/ /g, "").slice(0, 80));
+    return { up: m.actualBoundingBoxAscent || 0, down: m.actualBoundingBoxDescent || 0 };
+  }
+  var CANS = [];
+  function reg(c) { CANS.push(c); return c; }
+  var thetaDeg = function (lh, L) { return Math.atan(lh / 2 / L) * 180 / Math.PI; };
+
+  /* ---------------- 그림 3: 가로쓰기와 세로쓰기 ---------------- */
+  (function () {
+    var lines = ["여름 낭독", "목요일 저녁", "책 한 권", "창가 자리"], h = "", v = "";
+    lines.forEach(function (s, i) {
+      h += '<text x="30" y="' + (58 + i * 34) + '" class="lbl-b" font-size="20">' + s + '</text>';
+      var x = 376 - i * 34;
+      for (var k = 0; k < s.length; k++) if (s[k] !== " ") v += '<text x="' + x + '" y="' + (58 + k * 26) + '" text-anchor="middle" class="lbl-b" font-size="20">' + s[k] + '</text>';
+    });
+    document.getElementById("ld-f3-h").innerHTML = h;
+    document.getElementById("ld-f3-v").innerHTML = v;
+  })();
+
+  /* ---------------- 시뮬레이터 1: 줄 높이 끌기 ---------------- */
+  (function () {
+    var lh = 1.25, geo = null, drag = false;
+    var script = AB.seg("lh-script", function () { cv.redraw(); });
+    var guide = AB.check("lh-guide", function () { cv.redraw(); });
+    var cv = reg(AB.canvas("#lh-cv", function (ctx, w, h) {
+      var ko = script() === "ko", px = w < 420 ? 16 : 19, track = ko ? -0.02 * px : 0;
+      ctx.font = fnt(400, px, ko ? FAM.sans : FAM.lat);
+      var lines = wrap(ctx, TXT[ko ? "ko" : "la"], w - 52, track).slice(0, 4);
+      var ink = inkOf(ctx, TXT[ko ? "ko" : "la"]), y0 = 22 + ink.up, step = lh * px;
+      geo = { y0: y0, step: step, px: px };
+      var gap = step - ink.up - ink.down;
+      if (guide()) {
+        for (var i = 0; i < lines.length; i++) {
+          var by = y0 + i * step;
+          ctx.fillStyle = "rgba(47,125,91,0.12)"; ctx.fillRect(36, by - ink.up, w - 52, ink.up + ink.down);
+          if (i > 0 && gap < 0) { ctx.fillStyle = "rgba(210,79,57,0.35)"; ctx.fillRect(36, by - ink.up, w - 52, -gap); }
+          ctx.strokeStyle = "rgba(43,42,48,0.3)"; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(30, by + 0.5); ctx.lineTo(w - 10, by + 0.5); ctx.stroke(); ctx.setLineDash([]);
+        }
+      }
+      ctx.fillStyle = INK; ctx.textBaseline = "alphabetic";
+      lines.forEach(function (l, i) { drawLine(ctx, l, 36, y0 + i * step, track); });
+      // 줄 높이 괄호
+      ctx.strokeStyle = GREEN; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(22, y0); ctx.lineTo(22, y0 + step); ctx.stroke();
+      AB.handle(ctx, 14, y0 + step, { r: 8, fill: drag ? GREEN : "#ffffff", ring: INK });
+      AB.stat("lh-o-l", lh.toFixed(2) + " (" + step.toFixed(1) + "px / " + px + "px)");
+      AB.stat("lh-o-g", ((lh - 1) * px).toFixed(1) + "px (" + (lh - 1).toFixed(2) + " em)" + (lh < 1 ? " · 음수" : ""));
+      var r = gap / (ink.up + ink.down);
+      AB.stat("lh-o-r", (gap < 0 ? "겹침 " : "") + r.toFixed(2) + (r > 0.9 ? " · 줄이 흩어짐" : ""));
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("lh-cv").parentElement.clientWidth || 600); return w < 420 ? 290 : 280; } }));
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = !!geo; },
+      move: function (x, y) { if (!drag || !geo) return; lh = AB.clamp((y - geo.y0) / geo.px, 0.8, 3); lh = Math.round(lh * 20) / 20; cv.redraw(); },
+      end: function () { drag = false; cv.redraw(); }
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 2: 단의 폭 끌기 ---------------- */
+  (function () {
+    var colEm = 30, geo = null, drag = false;
+    var script = AB.seg("ms-script", function () { cv.redraw(); });
+    var next = AB.check("ms-next", function () { cv.redraw(); });
+    var cv = reg(AB.canvas("#ms-cv", function (ctx, w, h) {
+      var ko = script() === "ko", px = w < 420 ? 13 : 16, track = ko ? -0.02 * px : 0, x0 = 16;
+      var maxEm = (w - 32) / px; colEm = AB.clamp(colEm, 6, maxEm);
+      var cw = colEm * px;
+      ctx.font = fnt(400, px, ko ? FAM.sans : FAM.lat);
+      var lines = wrap(ctx, TXT[ko ? "ko" : "la"], cw, track);
+      // 라틴 45~75자 띠(이 문단 라틴의 평균 글자 폭으로 환산)
+      ctx.font = fnt(400, px, FAM.lat); var latAvg = ctx.measureText(TXT.la).width / TXT.la.length;
+      ctx.font = fnt(400, px, FAM.sans); var koAvg = (ctx.measureText(TXT.ko).width + track * TXT.ko.length) / TXT.ko.length;
+      var rulerY = 44;
+      ctx.fillStyle = "rgba(47,125,91,0.18)"; ctx.fillRect(x0 + 45 * latAvg, rulerY - 8, 30 * latAvg, 10);
+      label(ctx, "라틴 45~75자", x0 + 45 * latAvg + 4, rulerY - 38, { size: 10.5, color: GREEN, weight: 600 });
+      var k40 = x0 + 40 * koAvg; if (k40 < w - 10) { ctx.fillStyle = RED; ctx.fillRect(k40 - 1, rulerY - 10, 2, 14); label(ctx, "한글 40자", k40 + 4, rulerY - 22, { size: 10.5, color: RED, weight: 600 }); }
+      ctx.strokeStyle = "rgba(43,42,48,0.45)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x0, rulerY + 0.5); ctx.lineTo(w - 10, rulerY + 0.5);
+      for (var e = 0; e * px <= w - 26; e += 5) { var tx = x0 + e * px; ctx.moveTo(tx + 0.5, rulerY); ctx.lineTo(tx + 0.5, rulerY + (e % 10 ? 4 : 7)); }
+      ctx.stroke();
+      for (var e2 = 10; e2 * px <= w - 40; e2 += 10) label(ctx, e2 + " em", x0 + e2 * px, rulerY + 9, { size: 9.5, color: DIM, weight: 500, align: "center", fam: FAM.lat });
+      // 본문
+      ctx.font = fnt(400, px, ko ? FAM.sans : FAM.lat); ctx.fillStyle = INK; ctx.textBaseline = "alphabetic";
+      var y0 = rulerY + 40, step = px * 1.6, maxLines = Math.floor((h - y0 - 6) / step) + 1;
+      lines.slice(0, maxLines).forEach(function (l, i) { drawLine(ctx, l, x0, y0 + i * step, track); });
+      if (next() && lines.length > 1) {
+        ctx.strokeStyle = GREEN; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+        ctx.beginPath(); ctx.moveTo(x0 + lines[0].width, y0 - px * 0.35); ctx.lineTo(x0 + 2, y0 + step - px * 0.35); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = "rgba(47,125,91,0.25)"; ctx.fillRect(x0 - 3, y0 + step - px * 0.95, ctx.measureText(lines[1].words[0]).width + 6, px * 1.2);
+      }
+      // 단 오른쪽 끝
+      ctx.strokeStyle = GREEN; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0 + cw + 0.5, rulerY + 30); ctx.lineTo(x0 + cw + 0.5, h - 8); ctx.stroke();
+      AB.handle(ctx, x0 + cw, (rulerY + 30 + h) / 2, { r: 9, fill: drag ? GREEN : "#ffffff", ring: INK });
+      geo = { x0: x0, px: px, maxEm: maxEm };
+      var avg = avgChars(lines);
+      AB.stat("ms-o-w", colEm.toFixed(1) + " em (" + Math.round(cw) + "px)");
+      AB.stat("ms-o-c", avg.toFixed(0) + "자");
+      AB.stat("ms-o-j", ko ? (avg <= 40 ? "WCAG 1.4.8 상한(40자) 안" : "WCAG 상한 40자 넘음") : (avg < 45 ? "45자보다 짧음" : avg <= 75 ? "45~75자 안" : "75자보다 김"));
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("ms-cv").parentElement.clientWidth || 600); return w < 420 ? 380 : 320; } }));
+    AB.drag(cv.canvas, {
+      start: function () { drag = !!geo; },
+      move: function (x) { if (!drag || !geo) return; colEm = AB.clamp((x - geo.x0) / geo.px, 6, geo.maxEm); cv.redraw(); },
+      end: function () { drag = false; cv.redraw(); }
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 3: 되돌아가기의 과녁 ---------------- */
+  (function () {
+    var L = AB.range("sw-l", function (v) { return v + " em"; }, function () { if (!run()) cv.redraw(); });
+    var H = AB.range("sw-h", function (v) { return v.toFixed(2); }, function () { if (!run()) cv.redraw(); });
+    var run = AB.check("sw-run", function (on) { on ? loop.start() : loop.stop(); cv.redraw(); });
+    var T = 0;
+    var cv = AB.canvas("#sw-cv", function (ctx, w, h) {
+      var P = AB.palette(), len = L(), lh = H();
+      var x0 = 24, x1 = w - 24, sc = (x1 - x0) / len, step = lh * sc, barH = Math.max(1.5, sc * 0.72);
+      var y0 = 30, n = Math.max(2, Math.min(40, Math.floor((h - 60) / step) + 1));
+      ctx.fillStyle = P.faint;
+      for (var i = 0; i < n; i++) { var y = y0 + i * step; if (y > h - 30) break; ctx.globalAlpha = i === 0 || i === 1 ? 0.9 : 0.35; ctx.fillRect(x0, y - barH / 2, (x1 - x0) * (i % 3 === 2 ? 0.7 : 1), barH); }
+      ctx.globalAlpha = 1;
+      // 과녁: 줄 끝에서 다음 줄 첫머리 ± 반 줄
+      var ya = y0, yb = y0 + step;
+      ctx.fillStyle = P.ok; ctx.globalAlpha = 0.25;
+      ctx.beginPath(); ctx.moveTo(x1, ya); ctx.lineTo(x0, yb - step / 2); ctx.lineTo(x0, yb + step / 2); ctx.closePath(); ctx.fill();
+      ctx.globalAlpha = 1; ctx.strokeStyle = P.ok; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x1, ya); ctx.lineTo(x0, yb); ctx.stroke();
+      // 눈의 위치(애니메이션): 0~0.8 줄을 따라, 0.8~1 되돌아가기
+      var t = (T % 3) / 3, ex, ey;
+      if (t < 0.8) { var u = t / 0.8; ex = x0 + (x1 - x0) * (Math.floor(u * 9) / 9 + 0.03); ey = ya; }
+      else { var v = (t - 0.8) / 0.2; ex = x1 + (x0 - x1) * v; ey = ya + (yb - ya) * v; }
+      if (run() || T > 0) { ctx.fillStyle = P.accent; ctx.beginPath(); ctx.arc(ex, ey, 5, 0, Math.PI * 2); ctx.fill(); }
+      var th = thetaDeg(lh, len);
+      ctx.fillStyle = P.text; ctx.font = AB.font(12, false, 600); ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+      ctx.fillText("θ = " + th.toFixed(2) + "°", x1, h - 8);
+      ctx.textAlign = "left"; ctx.fillStyle = P.dim; ctx.fillText("글줄 " + len + " em · 줄 높이 " + lh.toFixed(2), x0, h - 8);
+      AB.stat("sw-o-t", th.toFixed(2) + "°" + (th < 1.5 ? " · 이 책의 기준 1.5° 미만" : ""));
+      var need = 2 * len * Math.tan(1.5 * Math.PI / 180);
+      AB.stat("sw-o-n", need.toFixed(2) + " 이상" + (need > 2.2 ? " · 줄이 흩어지는 범위" : ""));
+    }, { get height() { var w = Math.max(200, document.getElementById("sw-cv").parentElement.clientWidth || 600); return w < 420 ? 260 : 280; } });
+    var loop = AB.loop(cv.canvas, function (dt) { T += dt; cv.redraw(); });
+  })();
+
+  /* ---------------- 시뮬레이터 4: 글줄 길이 × 행간 지도 ---------------- */
+  (function () {
+    var pt = { L: 28, h: 1.8 }, box = null, drag = false;
+    var script = AB.seg("mh-script", function () { cv.redraw(); });
+    var zone = AB.check("mh-zone", function () { cv.redraw(); });
+    var LMIN = 10, LMAX = 90, HMIN = 1, HMAX = 2.6;
+    function lower(L, ko) { return Math.max(ko ? 1.5 : 1.3, 2 * L * Math.tan(1.5 * Math.PI / 180)); }
+    var cv = AB.canvas("#mh-cv", function (ctx, w, h) {
+      var P = AB.palette(), ko = script() === "ko";
+      // 위: 견본(지도 폭에 맞게 같은 비율)
+      var prevH = Math.round(h * 0.42), pw = w - 32, px = pw / pt.L, track = ko ? -0.02 * px : 0;
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, prevH); ctx.clip();
+      ctx.font = fnt(400, px, ko ? FAM.sans : FAM.lat); ctx.fillStyle = P.text; ctx.textBaseline = "alphabetic";
+      var lines = wrap(ctx, TXT[ko ? "ko" : "la"], pw, track), ink = inkOf(ctx, TXT[ko ? "ko" : "la"]);
+      lines.forEach(function (l, i) { var y = 12 + ink.up + i * pt.h * px; if (y + ink.down < prevH - 4) drawLine(ctx, l, 16, y, track); });
+      ctx.restore();
+      ctx.strokeStyle = P.border; ctx.beginPath(); ctx.moveTo(0, prevH + 0.5); ctx.lineTo(w, prevH + 0.5); ctx.stroke();
+      // 아래: 지도
+      var b = { x: 52, y: prevH + 16, w: w - 52 - 18, h: h - prevH - 16 - 50 };
+      var bands = [];
+      var ch = AB.chart(ctx, b, { x: [LMIN, LMAX], y: [HMIN, HMAX], xTicks: [10, 20, 30, 40, 50, 60, 70, 80, 90], yTicks: [1, 1.4, 1.8, 2.2, 2.6], xLabel: "글줄 길이(em)", yLabel: "줄 높이", xFmt: function (v) { return v; }, yFmt: function (v) { return v.toFixed(1); } });
+      if (zone()) {
+        ctx.save(); ctx.beginPath(); ctx.rect(b.x, b.y, b.w, b.h); ctx.clip();
+        ctx.fillStyle = P.ok; ctx.globalAlpha = 0.18; ctx.beginPath();
+        var first = true;
+        for (var L = LMIN; L <= LMAX; L += 0.5) { var lo = Math.min(2.2, lower(L, ko)); var X = ch.X(L), Y = ch.Y(lo); first ? ctx.moveTo(X, Y) : ctx.lineTo(X, Y); first = false; }
+        for (var L2 = LMAX; L2 >= LMIN; L2 -= 0.5) ctx.lineTo(ch.X(L2), ch.Y(2.2));
+        ctx.closePath(); ctx.fill(); ctx.restore();
+      }
+      box = ch;
+      AB.handle(ctx, ch.X(pt.L), ch.Y(pt.h), { r: 9, fill: drag ? P.accent : "#ffffff" });
+      // 글자 수
+      ctx.font = fnt(400, 100, ko ? FAM.sans : FAM.lat);
+      var avgW = (ctx.measureText(TXT[ko ? "ko" : "la"]).width / TXT[ko ? "ko" : "la"].length) / 100 + (ko ? -0.02 : 0);
+      var th = thetaDeg(pt.h, pt.L), lo2 = lower(pt.L, ko);
+      AB.stat("mh-o-p", pt.L.toFixed(0) + " em · " + pt.h.toFixed(2));
+      AB.stat("mh-o-c", "약 " + Math.round(pt.L / avgW) + "자");
+      AB.stat("mh-o-j", th.toFixed(2) + "° · " + (pt.h > 2.2 ? "줄이 흩어짐" : pt.h < lo2 ? (th < 1.5 ? "줄을 놓치기 쉬움" : "줄 사이가 빠듯함") : "출발 구간 안"));
+    }, { get height() { var w = Math.max(200, document.getElementById("mh-cv").parentElement.clientWidth || 600); return w < 420 ? 440 : 470; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = !!box && y > box.box.y - 20; },
+      move: function (x, y) { if (!drag) return; var bb = box.box; pt.L = Math.round(AB.clamp(LMIN + (x - bb.x) / bb.w * (LMAX - LMIN), LMIN, LMAX)); pt.h = Math.round(AB.clamp(HMAX - (y - bb.y) / bb.h * (HMAX - HMIN), HMIN, HMAX) * 20) / 20; cv.redraw(); },
+      end: function () { drag = false; cv.redraw(); }
+    });
+  })();
+
+  /* ---------------- 시뮬레이터 5: 같은 행간, 다른 빈 띠 ---------------- */
+  (function () {
+    var lhR = AB.range("sc-h", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var face = AB.seg("sc-face", function () { cv.redraw(); });
+    var band = AB.check("sc-band", function () { cv.redraw(); });
+    var cv = reg(AB.canvas("#sc-cv", function (ctx, w, h) {
+      var serif = face() === "serif", lh = lhR(), stack = w < 520;
+      var px = stack ? 15 : 16, colW = stack ? w - 32 : (w - 48) / 2;
+      var cols = [
+        { key: "la", fam: serif ? FAM.latSerif : FAM.lat, x: 16, y: 18, track: 0, name: "라틴" },
+        { key: "ko", fam: serif ? FAM.serif : FAM.sans, x: stack ? 16 : 32 + colW, y: stack ? 18 + (h - 18) / 2 : 18, track: -0.02 * px, name: "한글" }
+      ];
+      var res = {};
+      cols.forEach(function (c) {
+        ctx.font = fnt(400, px, c.fam);
+        var mainH;
+        if (c.key === "la") mainH = ctx.measureText("x").actualBoundingBoxAscent;
+        else { var hs = 0, n = 0; for (var q = 0; q < TXT.ko.length; q++) if (/[가-힣]/.test(TXT.ko[q])) { var mm = ctx.measureText(TXT.ko[q]); hs += mm.actualBoundingBoxAscent + mm.actualBoundingBoxDescent; n++; } mainH = hs / n; }
+        var up = c.key === "la" ? mainH : mainH * 0.9;
+        var lines = wrap(ctx, TXT[c.key], colW, c.track), step = lh * px, y0 = c.y + 16 + px;
+        var maxY = stack ? c.y + (h - 18) / 2 - 10 : h - 10;
+        label(ctx, c.name, c.x, c.y, { size: 11, color: DIM, weight: 600 });
+        var gap = step - mainH;
+        lines.forEach(function (l, i) {
+          var y = y0 + i * step; if (y > maxY) return;
+          if (band() && i > 0) { ctx.fillStyle = gap > 0 ? "rgba(47,125,91,0.16)" : "rgba(210,79,57,0.3)"; ctx.fillRect(c.x, y - up - Math.max(0, gap), colW, Math.abs(gap)); }
+          ctx.font = fnt(400, px, c.fam); ctx.fillStyle = INK; ctx.textBaseline = "alphabetic"; drawLine(ctx, l, c.x, y, c.track);
+        });
+        res[c.key] = { gap: gap / px, main: mainH / px };
+      });
+      AB.stat("sc-o-l", res.la.gap.toFixed(2) + " em (x높이 " + res.la.main.toFixed(2) + " em)");
+      AB.stat("sc-o-k", res.ko.gap.toFixed(2) + " em (글자 높이 " + res.ko.main.toFixed(2) + " em)");
+      AB.stat("sc-o-m", (lh + res.ko.main - res.la.main).toFixed(2));
+    }, { bg: PAPER, get height() { var w = Math.max(200, document.getElementById("sc-cv").parentElement.clientWidth || 600); return w < 520 ? 470 : 300; } }));
+  })();
+
+  /* ---------------- 시뮬레이터 6: 서점 소식 조판 작업대 ---------------- */
+  (function () {
+    var V = 360, geo = null, drag = false;
+    var dev = AB.seg("nw-dev", function (v) { V = Number(v); cv.redraw(); });
+    var S = AB.range("nw-s", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var Hh = AB.range("nw-h", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var M = AB.range("nw-m", function (v) { return v >= 90 ? "없음" : v + " em"; }, function () { cv.redraw(); });
+    var HEAD = "여름 낭독 모임 안내";
+    function compute(ctx, Vw, fs, lh, mEm) {
+      var margin = Vw < 600 ? 20 : 32, avail = Vw - 2 * margin, col = mEm >= 90 ? avail : Math.min(avail, mEm * fs);
+      var track = -0.02 * fs;
+      ctx.font = fnt(400, fs, FAM.sans);
+      var lines = wrap(ctx, TXT.ko + " " + TXT.ko, col, track);
+      return { margin: margin, col: col, lines: lines, track: track, avg: avgChars(lines), th: thetaDeg(lh, col / fs) };
+    }
+    var cv = reg(AB.canvas("#nw-cv", function (ctx, w, h) {
+      var fs = S(), lh = Hh(), mEm = M();
+      var r = compute(ctx, V, fs, lh, mEm);
+      var sc = Math.min(1, (w - 48) / V), fw = V * sc, fx = Math.round((w - fw) / 2), fy = 26, fh = h - 36;
+      // 기기 틀
+      ctx.fillStyle = "#3a3a40"; ctx.fillRect(fx - 6, fy - 6, fw + 12, fh + 12);
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(fx, fy, fw, fh);
+      ctx.save(); ctx.beginPath(); ctx.rect(fx, fy, fw, fh); ctx.clip();
+      ctx.translate(fx, fy); ctx.scale(sc, sc);
+      // 사이트 머리
+      ctx.fillStyle = GREEN; ctx.fillRect(0, 0, V, 44);
+      ctx.fillStyle = CREAM; ctx.font = fnt(700, 18, FAM.sans); ctx.textBaseline = "middle"; ctx.textAlign = "left"; ctx.fillText("책방 E", r.margin, 22);
+      var cx = (V - r.col) / 2;
+      ctx.fillStyle = DEEP; ctx.font = fnt(700, Math.round(fs * 1.4), FAM.sans); ctx.textBaseline = "alphabetic";
+      ctx.fillText(HEAD, cx, 44 + 28 + fs * 1.4);
+      ctx.font = fnt(400, fs, FAM.sans); ctx.fillStyle = INK;
+      var y = 44 + 28 + fs * 1.4 + fs * 1.2 + fs, step = lh * fs;
+      for (var i = 0; i < r.lines.length; i++) { if ((y + i * step) * sc > fh + fs) break; drawLine(ctx, r.lines[i], cx, y + i * step, r.track); }
+      ctx.restore();
+      // 오른쪽 끝 손잡이
+      AB.handle(ctx, fx + fw + 6, fy + fh / 2, { r: 9, fill: drag ? GREEN : "#ffffff", ring: INK });
+      ctx.fillStyle = "#ffffff"; ctx.font = fnt(600, 11, FAM.lat); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillStyle = "#3a3a40"; ctx.fillRect(fx, fy + fh + 6, 0, 0);
+      geo = { fx: fx, sc: sc, w: w };
+      label(ctx, "화면 " + V + "px" + (sc < 1 ? " (×" + sc.toFixed(2) + "로 줄여 그림)" : ""), fx - 6, 4, { size: 11, color: INK, weight: 600 });
+      AB.stat("nw-o-w", Math.round(r.col) + "px · " + (r.col / fs).toFixed(1) + " em");
+      AB.stat("nw-o-c", r.avg.toFixed(0) + "자");
+      AB.stat("nw-o-t", r.th.toFixed(1) + "°" + (r.th < 1.5 ? " · 기준 미만" : ""));
+      var okW = r.avg <= 40, okH = lh >= 1.5;
+      AB.stat("nw-o-j", (okW ? "폭 충족" : "폭 넘음") + " · " + (okH ? "행간 충족" : "행간 부족"));
+    }, { get height() { var w = Math.max(200, document.getElementById("nw-cv").parentElement.clientWidth || 600); return w < 420 ? 440 : 420; }, bg: "#d9d7d2" }));
+    AB.drag(cv.canvas, {
+      start: function (x) { drag = !!geo; },
+      move: function (x) { if (!drag || !geo) return; var nv = (x - geo.fx) / geo.sc; V = Math.round(AB.clamp(nv, 320, 1600)); cv.redraw(); },
+      end: function () { drag = false; cv.redraw(); }
+    });
+    function setVals(fs, lh, m) { S.set(fs); Hh.set(lh); M.set(m); }
+    document.getElementById("nw-first").addEventListener("click", function () { setVals(16, 1.3, 90); });
+    document.getElementById("nw-plan").addEventListener("click", function () { if (V < 600) setVals(17, 1.7, 90); else setVals(18, 1.8, 28); });
+  })();
+})();
+</script>
+</body>
+</html>

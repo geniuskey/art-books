@@ -660,7 +660,7 @@
         }
       });
       label(ctx, which === "a" ? "커닝 없음" : (m === "metric" ? "메트릭(글꼴)" : "옵티컬(모델)"), which === "a" ? 14 : w - 14, h - 24, { size: 11, color: DIM, weight: 600, align: which === "a" ? "left" : "right" });
-      stats[which] = { cv: cv2(gaps), max: maxK, px: px, gaps: gaps }; window.__cmStats = stats;
+      stats[which] = { cv: cv2(gaps), max: maxK, px: px, gaps: gaps };
       if (stats.a && stats.b) {
         AB.stat("cm-o-a", (stats.a.cv * 100).toFixed(0) + "%");
         AB.stat("cm-o-b", (stats.b.cv * 100).toFixed(0) + "%");
@@ -838,7 +838,6 @@
     fit();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { PROF = {}; fit(); });
     document.getElementById("sg-metric").addEventListener("click", function () { k1 = 0; k2 = 0; cv.redraw(); });
-    window.__spSign = { fit: fit, get k1() { return k1; }, get k2() { return k2; } };
   })();
 })();
 </script>
