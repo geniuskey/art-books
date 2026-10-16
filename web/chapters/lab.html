@@ -205,7 +205,7 @@
         </div>
       </div>
       <div class="table-wrap" style="margin:0;border-top:1px solid var(--border)"><table class="wl-table">
-        <thead><tr><th>짝(쓰인 곳)</th><th>글자</th><th>바탕</th><th class="num">대비</th><th>기준</th></tr></thead>
+        <thead><tr><th>짝(쓰인 곳)</th><th>글자</th><th>바탕</th><th>대비(기준)</th></tr></thead>
         <tbody id="wc-rows"></tbody>
       </table></div>
       <div class="sim-note">해볼 것: ① "옛 색"에서 가장 낮은 짝을 찾는다. 날짜 줄의 <code>#999999</code>가 2.85, 바닥글의 차분한 초록이 2.62다. ② "반전 다크"로 바꾼다. 주색 버튼과 흐린 글자가 3.19·3.06으로 떨어진다(6장에서 지후가 본 숫자). ③ "밝은 토큰"에서 주색 명도를 +0.08쯤 올린다. 버튼 위 흰 글자가 4.5 아래로 내려가는 순간을 본다. 어두운 토큰에서 같은 막대를 내리면 반대 방향으로 무너진다. (모형의 가정: 대비는 이 서가의 엔진 <code>ART.contrast</code>, 명도 조정은 OKLCH에서 L만 바꾸고 색역 밖이면 채도를 줄인다.)</div>
@@ -1176,9 +1176,9 @@
       var html = rows.map(function (p) {
         var ok = p.c >= p.need, cls = ok ? (p.c < p.need * 1.1 ? "v-warn" : "v-ok") : "v-bad";
         var sw = function (c) { return '<span style="display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.2);background:' + c + ';vertical-align:-2px;margin-right:4px"></span><code>' + c + "</code>"; };
-        return "<tr><td>" + p.n + (p.nt ? " <small>비텍스트</small>" : p.need === 3 ? " <small>큰 글자</small>" : "") + "</td><td>" + sw(p.fg) + "</td><td>" + sw(p.bg) + '</td><td class="num ' + cls + '">' + f2(p.c) + '</td><td class="' + cls + '">' + (ok ? "통과" : "미달") + " (" + p.need + ")</td></tr>";
+        return "<tr><td>" + p.n + (p.nt ? " <small>비텍스트</small>" : p.need === 3 ? " <small>큰 글자</small>" : "") + "</td><td>" + sw(p.fg) + "</td><td>" + sw(p.bg) + '</td><td class="num ' + cls + '">' + f2(p.c) + "<small>" + (ok ? "통과" : "미달") + " · " + p.need + "</small></td></tr>";
       }).join("");
-      body.innerHTML = html + '<tr><td colspan="5"><small>이 페이지의 짝 ' + nAll + '개 중 기준에 가장 가까운 10개</small></td></tr>';
+      body.innerHTML = html + '<tr><td colspan="4"><small>이 페이지의 짝 ' + nAll + '개 중 기준에 가장 가까운 10개</small></td></tr>';
     }, { get height() { var W = W0("wc-cv"); return Math.round(Math.min(600, Math.max(420, W * 0.95))); }, bg: STAGE });
   });
 
