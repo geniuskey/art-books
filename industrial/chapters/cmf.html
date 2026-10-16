@@ -123,7 +123,7 @@
     <div class="sim" id="sim-gloss">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>거칠기와 광택</h3></div>
       <div class="sim-body side">
-        <div class="sim-view stage"><canvas id="gl-cv" class="art"></canvas><span class="hint">공 위를 끌어 조명을 옮긴다</span></div>
+        <div class="sim-view stage"><canvas id="gl-cv" class="art"></canvas><span class="hint" style="top:8px;bottom:auto">공 위를 끌어 조명을 옮긴다</span></div>
         <div class="sim-controls">
           <label class="ctrl"><span>표면 거칠기 α <output id="gl-r-out"></output></span><input type="range" id="gl-r" min="0" max="1" step="0.01" value="0.25"></label>
           <label class="check"><input type="checkbox" id="gl-diff" checked> 확산 반사(안료의 색) 켜기</label>
@@ -549,11 +549,8 @@
         var df = diffOn ? 0.12 / Math.PI : 0;
         vals.push([th, sp, df]);
       }
-      var scale = function (v) { return Math.pow(v, 0.35); };
-      var mx = 0; vals.forEach(function (q) { mx = Math.max(mx, scale(q[1] + q[2])); });
-      var sMax = Math.max(mx, scale(4));
-      // 확산 부분(초록), 정반사(흰빛 → 진한 회색 선)
-      ctx.beginPath(); vals.forEach(function (q, i) { var rr = scale(q[1] + q[2]) / sMax * Rr; var X = ox + Math.sin(q[0]) * rr, Y = oy - Math.cos(q[0]) * rr; i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); });
+      // 확산은 고정 반원(0.28), 정반사는 세기 1.5에서 잘라 그린다(바늘이 화면을 넘지 않게).
+      ctx.beginPath(); vals.forEach(function (q, i) { var rr = ((diffOn ? 0.28 : 0) + 0.7 * Math.min(1, q[1] / 1.5)) * Rr; var X = ox + Math.sin(q[0]) * rr, Y = oy - Math.cos(q[0]) * rr; i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); });
       ctx.closePath(); ctx.fillStyle = "rgba(47,125,91,0.18)"; ctx.fill(); ctx.strokeStyle = "#2f7d5b"; ctx.lineWidth = 2; ctx.stroke();
       // 광택도계 수신 창
       var thR = 60 * Math.PI / 180;
@@ -561,7 +558,7 @@
       ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox + Math.sin(thR) * Rr, oy - Math.cos(thR) * Rr); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = "#b5179e"; ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("수신 창", ox + Math.sin(thR) * Rr - 2, oy - Math.cos(thR) * Rr - 2);
       ctx.fillStyle = INK_DIM; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.font = AB.font(11);
-      ctx.fillText("방향별 반사(세기는 눌러 그림)", ox, oy + 9);
+      ctx.fillText("방향별 반사(정반사 봉우리는 잘라 그림)", ox, oy + 9);
       // 판독
       var G = gu(a);
       AB.stat("gl-o-gu", fx(G, G < 10 ? 1 : 0) + " <small>GU</small>");

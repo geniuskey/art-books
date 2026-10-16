@@ -6,6 +6,31 @@
 <html lang="ko">
 <head>
 <!--head:start {"desc": "사용자 조사는 사람에게 의견을 묻는 일이 아니라 사람이 실제로 한 일을 찾아내는 일이다. 알고 싶은 것에 맞는 방법 고르기, 유도 질문 고쳐 쓰기, 말과 행동의 차이, 관찰과 일지, 누구를 만날지(표본 편향), 몇 명이면 충분한지(포화)를 가상의 인터뷰와 관찰 기록으로 직접 흔들어 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사용자 조사 · ProductBook</title>
+<meta name="description" content="사용자 조사는 사람에게 의견을 묻는 일이 아니라 사람이 실제로 한 일을 찾아내는 일이다. 알고 싶은 것에 맞는 방법 고르기, 유도 질문 고쳐 쓰기, 말과 행동의 차이, 관찰과 일지, 누구를 만날지(표본 편향), 몇 명이면 충분한지(포화)를 가상의 인터뷰와 관찰 기록으로 직접 흔들어 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/research.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="사용자 조사 · ProductBook">
+<meta property="og:description" content="사용자 조사는 사람에게 의견을 묻는 일이 아니라 사람이 실제로 한 일을 찾아내는 일이다. 알고 싶은 것에 맞는 방법 고르기, 유도 질문 고쳐 쓰기, 말과 행동의 차이, 관찰과 일지, 누구를 만날지(표본 편향), 몇 명이면 충분한지(포화)를 가상의 인터뷰와 관찰 기록으로 직접 흔들어 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/research.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/research.html#chapter","name":"사용자 조사","headline":"사용자 조사 · ProductBook","description":"사용자 조사는 사람에게 의견을 묻는 일이 아니라 사람이 실제로 한 일을 찾아내는 일이다. 알고 싶은 것에 맞는 방법 고르기, 유도 질문 고쳐 쓰기, 말과 행동의 차이, 관찰과 일지, 누구를 만날지(표본 편향), 몇 명이면 충분한지(포화)를 가상의 인터뷰와 관찰 기록으로 직접 흔들어 본다.","url":"https://artbook.euiyun.com/product/chapters/research.html","position":2,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"2. 사용자 조사","item":"https://artbook.euiyun.com/product/chapters/research.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
 <!--head:end-->
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
@@ -369,6 +394,333 @@
     </div>
   </section>
 </main>
-<!--SCRIPT-->
+<script>
+(function () {
+  "use strict";
+  function sim(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  function alpha(ctx, a, fn) { ctx.save(); ctx.globalAlpha = a; fn(); ctx.restore(); }
+  function widthOf(id) { var el = document.getElementById(id); return Math.max(200, (el && el.parentElement && el.parentElement.clientWidth) || 600); }
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function avg(a) { return a.reduce(function (s, v) { return s + v; }, 0) / a.length; }
+
+  /* ---------------- 시뮬레이터 1: 질문에 맞는 방법 ---------------- */
+  sim("method", function () {
+    var METH = [["인터뷰", 0.2, 0.78], ["포커스 그룹", 0.1, 0.93], ["설문", 0.86, 0.84], ["카드 소팅", 0.52, 0.64], ["일지 연구", 0.3, 0.47], ["관찰·맥락 인터뷰", 0.14, 0.22], ["사용성 테스트", 0.38, 0.1], ["기록·로그 집계", 0.84, 0.24], ["A/B 테스트", 0.78, 0.06]];
+    var Q = [
+      { t: "손님은 찾는 책이 있을 때 실제로 어떻게 하나?", x: 0.15, y: 0.2, why: "실제로 하는 일(행동)을 '어떻게'(질적) 알고 싶다. 책방과 손님 곁에서 지켜보며 그때그때 묻는 관찰·맥락 인터뷰가 가장 가깝다. 인터뷰로 한다면 의견 대신 '마지막으로 한 일'을 구체적으로 묻는다." },
+      { t: "재고를 묻는 전화가 하루에 몇 통 오나?", x: 0.8, y: 0.22, why: "행동을 '얼마나'로 세고 싶다. 주인에게 '하루에 몇 통쯤 와요?'라고 묻는 대신, 일주일 동안 전화가 올 때마다 공책에 표시하게 하는 것처럼 일어날 때마다 남는 기록을 센다." },
+      { t: "손님은 '맡아 두기'라는 말을 무슨 뜻으로 이해하나?", x: 0.18, y: 0.8, why: "사람의 머릿속 이해(태도)를 '어떻게'(질적) 알고 싶다. 인터뷰에서 그 말을 보여 주고 무슨 뜻일 것 같은지 자기 말로 설명하게 한다. 몇 명만 만나도 서로 다른 이해가 드러난다." },
+      { t: "동네 손님 중 휴대폰으로 책 재고를 찾아본 사람이 얼마나 되나?", x: 0.84, y: 0.7, why: "많은 사람의 비율(양적)이라 설문이 가장 가깝다. 다만 설문이 돌려주는 것은 행동이 아니라 '스스로 말한 행동'이다. 그래서 하린의 답은 설문 점보다 조금 아래, 행동 쪽으로 걸쳐 있다. 가능하면 기록으로 일부를 확인한다." },
+    ];
+    var h0 = { x: 0.5, y: 0.5 }, geo = null;
+    var qG = AB.seg("me-q", function () { cv.redraw(); });
+    var ans = AB.check("me-ans", function () { cv.redraw(); });
+    var cv = AB.canvas("#me-cv", function (ctx, w, h) {
+      var P = AB.palette(), q = Q[+qG()], L = 26, R = w - 18, T = 26, B = h - 30;
+      var X = function (v) { return L + v * (R - L); }, Y = function (v) { return B - v * (B - T); };
+      geo = { L: L, R: R, T: T, B: B };
+      ctx.fillStyle = P.surface; ctx.fillRect(L, T, R - L, B - T);
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.strokeRect(L, T, R - L, B - T);
+      ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(0.5), T); ctx.lineTo(X(0.5), B); ctx.moveTo(L, Y(0.5)); ctx.lineTo(R, Y(0.5)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11.5, false, 600); ctx.textBaseline = "middle";
+      ctx.textAlign = "center"; ctx.fillText("태도: 말하는 것", X(0.5), T - 13); ctx.fillText("행동: 하는 것", X(0.5), B + 14);
+      ctx.textAlign = "left"; ctx.fillText("질적 (왜·어떻게)", L, B + 14 > h - 6 ? h - 6 : B + 14);
+      ctx.textAlign = "right"; ctx.fillText("양적 (얼마나)", R, B + 14);
+      if (ans()) {
+        ctx.beginPath(); ctx.arc(X(q.x), Y(q.y), Math.min(R - L, B - T) * 0.15, 0, 7);
+        alpha(ctx, 0.18, function () { ctx.fillStyle = P.ok; ctx.fill(); }); ctx.strokeStyle = P.ok; ctx.lineWidth = 1.5; ctx.setLineDash([5, 4]); ctx.stroke(); ctx.setLineDash([]);
+      }
+      METH.forEach(function (m) {
+        var x = X(m[1]), y = Y(m[2]);
+        ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fillStyle = P.dim; ctx.fill();
+        ctx.fillStyle = P.text; ctx.font = AB.font(11.5); ctx.textBaseline = "middle";
+        ctx.textAlign = m[1] > 0.6 ? "right" : "left"; ctx.fillText(m[0], x + (m[1] > 0.6 ? -8 : 8), y);
+      });
+      AB.handle(ctx, X(h0.x), Y(h0.y), { r: 8, fill: P.accent, ring: P.text });
+      var best = null, bd = 9;
+      METH.forEach(function (m) { var d = Math.hypot(m[1] - h0.x, m[2] - h0.y); if (d < bd) { bd = d; best = m[0]; } });
+      var d = Math.hypot(q.x - h0.x, q.y - h0.y), fit = d < 0.15 ? '<span class="ok-t">잘 맞는다</span>' : d < 0.32 ? '<span class="warn-t">가깝다</span>' : '<span class="bad-t">어긋난다</span>';
+      AB.stat("me-o-m", best);
+      AB.stat("me-o-fit", fit);
+      document.getElementById("me-msg").innerHTML = '<span class="tagk">질문 ' + (+qG() + 1) + "</span><b>" + q.t + "</b><br>" + (ans() ? '<span class="dim">하린:</span> ' + q.why : '<span class="dim">손잡이를 이 질문에 맞는 자리로 끈 뒤 "하린의 답 보기"를 켠다.</span>');
+    }, { get height() { return Math.round(AB.clamp(widthOf("me-cv") * 0.72, 300, 420)); } });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo) return; h0.x = AB.clamp((x - geo.L) / (geo.R - geo.L), 0, 1); h0.y = AB.clamp((geo.B - y) / (geo.B - geo.T), 0, 1); cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 2: 질문 고쳐 쓰기 ---------------- */
+  sim("rewrite", function () {
+    var EX = [
+      { q: "책을 사러 갔다가 원하는 책이 없어서 불편하셨던 적 많으시죠?", a: "지난번에 책을 사러 책방에 가셨던 날을 처음부터 이야기해 주시겠어요?" },
+      { q: "재고를 미리 알려 주고 맡아 주는 앱이 있다면 쓰시겠어요?", a: "찾는 책이 그 가게에 있는지 미리 알아보신 적이 있다면, 마지막으로 그랬던 때 어떻게 하셨어요?" },
+      { q: "책방 검색과 예약 기능이 빠르고 편하면 좋겠다고 생각하세요?", a: "책방에서 책을 찾다가 시간이 가장 오래 걸렸던 때는 언제였어요? 그때 이야기를 들려주세요." },
+      { q: "보통 한 달에 책방에 몇 번 가세요?", a: "지난 4주 동안 책방에 가신 날을 달력을 보면서 같이 짚어 볼까요?" },
+      { q: "책방에서 연락을 받는 게 중요하지 않나요?", a: "책방에서 연락을 받은 적이 있다면 어떤 연락이었고, 그다음에 어떻게 하셨어요?" },
+      { q: "UX가 직관적인 서비스를 선호하시나요?", a: "휴대폰으로 무언가를 찾다가 그만두신 적이 있다면, 그때 이야기를 들려주세요." },
+    ];
+    var RULES = [
+      { n: "답을 정해 둔 끝맺음", c: "bad", re: /[가-힣]*(?:시죠|잖아요|지 않나요|지 않으세요|않으세요|겠죠|죠)(?=\?|$)/g, tip: "끝맺음에 동의를 구하는 말을 빼고, 있었던 일을 그대로 묻는다." },
+      { n: "평가하는 말(유도)", c: "warn", re: /(?:불편|편하|편리|좋겠|좋으|중요|만족|직관|힘드|힘들|어렵|괜찮)[가-힣]*/g, tip: "불편·편리·중요 같은 평가는 질문자가 아니라 상대가 꺼내게 둔다." },
+      { n: "가정·미래", c: "bad", re: /[가-힣]*(?:(?<!적이 )있다면|생긴다면|생기면|된다면|만약|시겠어요|실 건가요|겠습니까|실래요|실 것 같)[가-힣]*/g, tip: "일어날 일 대신 이미 일어난 일을 묻는다: \"마지막으로 ~했던 때를 이야기해 주세요.\"" },
+      { n: "두 가지를 한 번에", c: "bad", re: /[가-힣]+(?:과|와|및|이나|랑) [가-힣]+|[가-힣]+고 [가-힣]*(?:하면|으면|면)(?=[ ?])/g, tip: "두 질문으로 나눈다. 하나에만 답해도 둘 다에 답한 것처럼 적히기 쉽다." },
+      { n: "평균을 짐작하게 하는 말", c: "warn", re: /(?:보통|평소에?|대개|대체로|자주|항상)(?=[ ,])/g, tip: "\"보통\" 대신 정해진 기간(지난 4주)의 실제 날짜를 함께 짚는다." },
+      { n: "전문 용어", c: "warn", re: /(?:UX|UI|직관적|인터페이스|사용성|플랫폼|프로세스|니즈)/gi, tip: "상대가 평소에 쓰는 말로 바꾼다." },
+    ];
+    var GOOD = [
+      { n: "지난 일을 가리키는 말", re: /(?:지난번에|지난번|지난 \d+주|지난|마지막으로|최근에|그때|던 날|던 때)/g },
+      { n: "이야기를 여는 말", re: /(?:이야기해|들려주|어떻게|무엇을|어떤|언제|짚어 볼까요)/g },
+    ];
+    var ex = AB.seg("rw-ex", function () { render(); });
+    var inp = document.getElementById("rw-in");
+    inp.addEventListener("input", function () { render(); });
+    function scan(text) {
+      var marks = [], hits = [];
+      RULES.forEach(function (r, ri) { r.re.lastIndex = 0; var m; while ((m = r.re.exec(text))) { if (!m[0]) { r.re.lastIndex++; continue; } marks.push({ s: m.index, e: m.index + m[0].length, c: r.c === "bad" ? "" : "m-warn", pr: r.c === "bad" ? 0 : 1 }); if (hits.indexOf(ri) < 0) hits.push(ri); } });
+      var good = [];
+      GOOD.forEach(function (g, gi) { g.re.lastIndex = 0; var m; while ((m = g.re.exec(text))) { if (!m[0]) { g.re.lastIndex++; continue; } marks.push({ s: m.index, e: m.index + m[0].length, c: "m-good", pr: 2 }); if (good.indexOf(gi) < 0) good.push(gi); } });
+      marks.sort(function (a, b) { return a.pr - b.pr || a.s - b.s; });
+      var taken = [], keep = [];
+      marks.forEach(function (m) { if (taken.some(function (t) { return m.s < t.e && t.s < m.e; })) return; taken.push(m); keep.push(m); });
+      keep.sort(function (a, b) { return a.s - b.s; });
+      var html = "", pos = 0;
+      keep.forEach(function (m) { html += esc(text.slice(pos, m.s)) + '<mark class="' + m.c + '">' + esc(text.slice(m.s, m.e)) + "</mark>"; pos = m.e; });
+      html += esc(text.slice(pos));
+      return { html: html, hits: hits, good: good };
+    }
+    function render() {
+      var v = ex(), own = v === "own";
+      inp.hidden = !own;
+      var text = own ? inp.value.trim() : EX[+v].q;
+      var qEl = document.getElementById("rw-q"), chips = document.getElementById("rw-chips"), after = document.getElementById("rw-after"), afterL = document.getElementById("rw-after-l");
+      if (!text) { qEl.innerHTML = '<span style="color:var(--text-faint)">위 칸에 질문을 써 본다.</span>'; chips.innerHTML = ""; after.innerHTML = "—"; AB.stat("rw-o-bad", "—"); AB.stat("rw-o-open", "—"); AB.stat("rw-o-past", "—"); return; }
+      var r = scan(text);
+      qEl.innerHTML = r.html;
+      chips.innerHTML = r.hits.map(function (i) { return '<span class="rw-chip ' + RULES[i].c + '">' + RULES[i].n + "</span>"; }).join("") + r.good.map(function (i) { return '<span class="rw-chip good">' + GOOD[i].n + "</span>"; }).join("") || '<span class="rw-chip">걸리는 표현을 찾지 못했다</span>';
+      if (!r.hits.length && !r.good.length) chips.innerHTML = '<span class="rw-chip">걸리는 표현을 찾지 못했다(검사기가 놓친 것일 수도 있다)</span>';
+      if (own) {
+        afterL.textContent = "고쳐 쓸 때 볼 것";
+        after.innerHTML = r.hits.length ? r.hits.map(function (i) { return "· " + RULES[i].tip; }).join("<br>") : (r.good.length >= 2 ? "지난 일을 열린 질문으로 묻고 있다. 소리 내어 읽어 보고, 상대가 \"네\" 한마디로 끝낼 수 있는지 확인한다." : "· 가장 최근에 실제로 있었던 일 하나를 가리키는 말(지난번, 마지막으로)을 넣고, 이야기로 답하게 연다(\"이야기해 주세요\").");
+      } else { afterL.textContent = "하린과 고친 질문"; after.innerHTML = scan(EX[+v].a).html; }
+      var open = r.good.indexOf(1) >= 0 ? '<span class="ok-t">열려 있다</span>' : /몇/.test(text) ? '<span class="warn-t">숫자 하나</span>' : '<span class="bad-t">예/아니오</span>';
+      AB.stat("rw-o-bad", r.hits.length + "가지");
+      AB.stat("rw-o-open", open);
+      AB.stat("rw-o-past", r.good.indexOf(0) >= 0 ? '<span class="ok-t">예</span>' : '<span class="bad-t">아니오</span>');
+    }
+    render();
+  });
+
+  /* ---------------- 시뮬레이터 3: 말한 것과 한 것 ---------------- */
+  sim("saydo", function () {
+    var WHO = ["단골", "가끔", "단골", "처음", "가끔", "단골", "가끔", "처음"];
+    var C = [
+      { max: 100, unit: "%", say: [90, 80, 30, 70, 40, 90, 80, 20], did: [50, 40, 0, 30, 10, 60, 40, 0], sl: "말: 가기 전에 미리 확인하는 비율", dl: "기록: 지난 4주 방문 중 미리 확인한 비율",
+        msg: "거의 모든 사람의 기록이 말보다 왼쪽에 있다. 말의 평균 63%, 기록 29%. 이유를 물었더니 C2는 \"전화하면 주인이 바빠 보여서요\", C4는 \"확인할 방법이 생각이 안 났어요\"라고 했다. 행동은 무엇을, 말은 왜를 알려 준다." },
+      { max: 10, unit: "회", say: [6, 3, 8, 2, 4, 5, 3, 2], did: [3, 4, 5, 1, 5, 6, 1, 2], sl: "말: 한 달에 가는 횟수", dl: "기록: 지난 4주 동안 간 횟수",
+        msg: "차이가 한쪽으로만 나지 않는다. C1, C3, C7은 말보다 덜 갔고 C2, C5, C6은 더 갔다. 기억 속 평균은 인상적인 방문 쪽으로 기운다. 이런 질문에는 '보통'을 묻지 말고 달력을 함께 짚는다." },
+      { max: 100, unit: "%", say: [90, 60, 80, 50, 70, 90, 60, 40], did: [50, 25, 70, 15, 60, 55, 20, 30], sl: "말: 동네 책방에서 사는 비율", dl: "기록: 지난 석 달 구매 중 동네 책방 비율",
+        msg: "책방 쪽 사람이 묻는 자리에서는 '좋은 손님'의 답이 나오기 쉽다(사회적 바람직성). 그래서 이 질문의 숫자는 크게 믿지 않고, 온라인에서 사는 순간이 언제인지를 따로 묻는다." },
+    ];
+    var guess = [null, null, null], geo = null;
+    var cG = AB.seg("sd-claim", function () { cv.redraw(); });
+    var show = AB.check("sd-show", function () { cv.redraw(); });
+    var cv = AB.canvas("#sd-cv", function (ctx, w, h) {
+      var P = AB.palette(), ci = +cG(), c = C[ci], sh = show();
+      if (guess[ci] === null) guess[ci] = avg(c.say);
+      var L = 66, R = w - 16, T = 30, rowH = 28, B = T + 8 * rowH, X = function (v) { return L + (v / c.max) * (R - L); };
+      geo = { L: L, R: R, B: B, max: c.max };
+      ctx.font = AB.font(11); ctx.textBaseline = "top"; ctx.fillStyle = P.dim;
+      for (var t = 0; t <= c.max; t += c.max / 5) { ctx.strokeStyle = P.grid; ctx.beginPath(); ctx.moveTo(X(t), T - 4); ctx.lineTo(X(t), B); ctx.stroke(); ctx.textAlign = "center"; ctx.fillText(t + (c.unit === "%" ? "%" : ""), X(t), B + 6); }
+      ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.font = AB.font(11.5);
+      ctx.beginPath(); ctx.arc(L + 6, 12, 5, 0, 7); ctx.strokeStyle = P.accent; ctx.lineWidth = 2; ctx.stroke();
+      ctx.fillStyle = P.dim; ctx.fillText("말", L + 15, 12);
+      ctx.beginPath(); ctx.arc(L + 46, 12, 5, 0, 7); ctx.fillStyle = sh ? P.accent2 : P.faint; ctx.fill();
+      ctx.fillStyle = P.dim; ctx.fillText(sh ? "기록" : "기록(가려 둠)", L + 55, 12);
+      for (var i = 0; i < 8; i++) {
+        var y = T + rowH * (i + 0.5);
+        ctx.fillStyle = P.text; ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.fillText("C" + (i + 1), 8, y);
+        ctx.fillStyle = P.faint; ctx.font = AB.font(10.5); ctx.fillText(WHO[i], 32, y);
+        if (sh) { ctx.strokeStyle = P.border; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(X(c.say[i]), y); ctx.lineTo(X(c.did[i]), y); ctx.stroke(); ctx.beginPath(); ctx.arc(X(c.did[i]), y, 6, 0, 7); ctx.fillStyle = P.accent2; ctx.fill(); }
+        ctx.beginPath(); ctx.arc(X(c.say[i]), y, 6, 0, 7); ctx.fillStyle = P.bg; ctx.fill(); ctx.strokeStyle = P.accent; ctx.lineWidth = 2; ctx.stroke();
+      }
+      function mline(v, col, lbl, up) { ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(v), T - 6); ctx.lineTo(X(v), B); ctx.stroke(); ctx.restore(); }
+      mline(avg(c.say), P.accent);
+      if (sh) mline(avg(c.did), P.accent2);
+      ctx.strokeStyle = P.warn; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(guess[ci]), T - 6); ctx.lineTo(X(guess[ci]), B + 26); ctx.stroke();
+      AB.handle(ctx, X(guess[ci]), B + 30, { r: 7, fill: P.warn, ring: P.text });
+      ctx.fillStyle = P.warn; ctx.font = AB.font(11, false, 600); ctx.textBaseline = "middle"; var right = X(guess[ci]) < (L + R) / 2; ctx.textAlign = right ? "left" : "right"; ctx.fillText("내 예상", X(guess[ci]) + (right ? 12 : -12), B + 30);
+      var fmt = function (v) { return c.unit === "%" ? Math.round(v) + "%" : AB.fix(v, 1) + "회"; };
+      AB.stat("sd-o-say", fmt(avg(c.say)));
+      AB.stat("sd-o-do", sh ? fmt(avg(c.did)) : "<small>가려 둠</small>");
+      AB.stat("sd-o-guess", sh ? (guess[ci] >= avg(c.did) ? "+" : "−") + fmt(Math.abs(guess[ci] - avg(c.did))) : "<small>기록을 열면</small>");
+      document.getElementById("sd-msg").innerHTML = '<span class="dim">' + c.sl + " · " + c.dl + "</span><br>" + (sh ? c.msg : "기록을 열기 전에 아래 손잡이로 기록의 평균이 어디쯤일지 예상해 둔다.");
+    }, { height: 30 + 8 * 28 + 52 });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; guess[+cG()] = AB.clamp((x - geo.L) / (geo.R - geo.L), 0, 1) * geo.max; cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 4: 관찰 창 ---------------- */
+  sim("window", function () {
+    var H0 = 11, H1 = 21, center = 15;
+    function g(h, m, s) { return Math.exp(-((h - m) * (h - m)) / s); }
+    var RATE = {
+      wd: { v: function (h) { return 1.4 + 5 * g(h, 19, 1.2); }, c: function (h) { return 0.4 + 1.3 * g(h, 12.5, 0.8) + 1.1 * g(h, 18, 1); }, e: function (h) { return 0.16 + 0.14 * g(h, 19.2, 1.5); } },
+      sat: { v: function (h) { return 2 + 7 * g(h, 15, 3); }, c: function (h) { return 0.5 + 2.4 * g(h, 12, 0.7) + 0.5 * g(h, 16, 2); }, e: function (h) { return 0.15; } },
+    };
+    var EV = {};
+    ["wd", "sat"].forEach(function (d, k) {
+      var R = AB.rng(400 + k * 17), out = { v: [], c: [], e: [] }, r = RATE[d];
+      for (var t = H0; t < H1; t += 1 / 60) {
+        if (R() < r.v(t) / 60) { out.v.push(t); if (R() < r.e(t)) out.e.push(t + 0.05 + R() * 0.15); }
+        if (R() < r.c(t) / 60) out.c.push(t);
+      }
+      EV[d] = out;
+    });
+    var geo = null;
+    var day = AB.seg("ow-day", function () { cv.redraw(); });
+    var len = AB.range("ow-len", function (v) { return AB.fix(v, 1) + "시간"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#ow-cv", function (ctx, w, h) {
+      var P = AB.palette(), ev = EV[day()], L = 54, R = w - 14, X = function (t) { return L + ((t - H0) / (H1 - H0)) * (R - L); };
+      var ln = len(); center = AB.clamp(center, H0 + ln / 2, H1 - ln / 2);
+      var a = center - ln / 2, b = center + ln / 2, rows = [["방문", ev.v, P.accent], ["전화", ev.c, P.warn], ["빈손", ev.e, P.bad]], top = 24, rh = (h - top - 46) / 3;
+      geo = { L: L, R: R };
+      alpha(ctx, 0.13, function () { ctx.fillStyle = P.accent2; ctx.fillRect(X(a), top - 8, X(b) - X(a), rh * 3 + 12); });
+      ctx.strokeStyle = P.accent2; ctx.lineWidth = 2; ctx.strokeRect(X(a), top - 8, X(b) - X(a), rh * 3 + 12);
+      ctx.fillStyle = P.accent2; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("관찰 창", (X(a) + X(b)) / 2, top - 10);
+      ctx.font = AB.font(11); ctx.textBaseline = "top"; ctx.fillStyle = P.dim;
+      for (var hh = H0; hh <= H1; hh++) { ctx.strokeStyle = P.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(X(hh), top - 4); ctx.lineTo(X(hh), top + rh * 3); ctx.stroke(); if ((hh - H0) % (w < 480 ? 2 : 1) === 0) { ctx.textAlign = "center"; ctx.fillText(hh + "시", X(hh), top + rh * 3 + 6); } }
+      var counts = [];
+      rows.forEach(function (r, i) {
+        var y = top + rh * (i + 0.5), n = 0;
+        ctx.fillStyle = P.text; ctx.font = AB.font(12, false, 600); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(r[0], 6, y);
+        r[1].forEach(function (t) {
+          var inn = t >= a && t <= b; if (inn) n++;
+          ctx.globalAlpha = inn ? 1 : 0.35; ctx.fillStyle = r[2];
+          if (i === 0) { ctx.beginPath(); ctx.arc(X(t), y + ((t * 97) % 1 - 0.5) * rh * 0.5, 3, 0, 7); ctx.fill(); }
+          else if (i === 1) { var x = X(t); ctx.beginPath(); ctx.moveTo(x, y - 6); ctx.lineTo(x + 5, y + 4); ctx.lineTo(x - 5, y + 4); ctx.closePath(); ctx.fill(); }
+          else { var x2 = X(t); ctx.strokeStyle = r[2]; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x2 - 4, y - 4); ctx.lineTo(x2 + 4, y + 4); ctx.moveTo(x2 + 4, y - 4); ctx.lineTo(x2 - 4, y + 4); ctx.stroke(); }
+          ctx.globalAlpha = 1;
+        });
+        counts.push([n, r[1].length]);
+      });
+      AB.handle(ctx, X(center), top + rh * 3 + 30, { r: 7, fill: P.accent2, ring: P.text });
+      AB.stat("ow-o-v", counts[0][0] + " <small>/ 하루 " + counts[0][1] + "</small>");
+      AB.stat("ow-o-c", counts[1][0] + " <small>/ 하루 " + counts[1][1] + "</small>");
+      AB.stat("ow-o-e", counts[2][0] + " <small>/ 하루 " + counts[2][1] + "</small>");
+    }, { height: 280 });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; center = H0 + ((x - geo.L) / (geo.R - geo.L)) * (H1 - H0); cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 5: 모집 경로와 표본 편향 ---------------- */
+  sim("sample", function () {
+    var R = AB.rng(2028), POP = [];
+    for (var i = 0; i < 400; i++) {
+      var r = Math.sqrt(R()), th = R() * Math.PI * 2, u = R(), pReg = 0.6 * Math.exp(-r / 0.35);
+      var type = u < pReg ? 0 : u < pReg + 0.4 ? 1 : 2, wasted = R() < [0.2, 0.6, 0.4][type];
+      POP.push({ x: r * Math.cos(th), y: r * Math.sin(th), r: r, type: type, w: wasted });
+    }
+    var TRUE = POP.filter(function (p) { return p.w; }).length / POP.length;
+    var seed = 1, hist = [], cur = [], key = "";
+    var mode = AB.seg("sp-mode", function () { draw(); });
+    var nG = AB.range("sp-n", function (v) { return v + "명"; }, function () { draw(); });
+    function sample() {
+      var rr = AB.rng(seed * 7919 + 13), n = nG(), m = mode(), pool = POP.map(function (p, i) { return i; }), out = [];
+      if (m === "reg") pool = pool.filter(function (i) { return POP[i].type === 0; });
+      var wt = pool.map(function (i) { return m === "pass" ? Math.exp(-POP[i].r / 0.35) : 1; });
+      while (out.length < n && pool.length) {
+        var tot = wt.reduce(function (s, v) { return s + v; }, 0), t = rr() * tot, k = 0;
+        while (k < wt.length - 1 && t > wt[k]) { t -= wt[k]; k++; }
+        out.push(pool[k]); pool.splice(k, 1); wt.splice(k, 1);
+      }
+      return out;
+    }
+    function est(s) { return s.filter(function (i) { return POP[i].w; }).length / Math.max(1, s.length); }
+    function draw(times) {
+      var k = mode() + nG();
+      if (k !== key) { key = k; hist = []; }
+      for (var t = 0; t < (times || 1); t++) { seed++; cur = sample(); hist.push(est(cur)); }
+      if (hist.length > 60) hist = hist.slice(-60);
+      cv.redraw();
+    }
+    var cv = AB.canvas("#sp-cv", function (ctx, w, h) {
+      var P = AB.palette(), S = Math.min(w - 24, h - 104), cx = w / 2, cy = 14 + S / 2, rad = S / 2 - 6, sel = {};
+      cur.forEach(function (i) { sel[i] = true; });
+      ctx.beginPath(); ctx.arc(cx, cy, rad + 4, 0, 7); ctx.fillStyle = P.surface; ctx.fill();
+      POP.forEach(function (p, i) {
+        var x = cx + p.x * rad, y = cy + p.y * rad, s = sel[i];
+        ctx.fillStyle = p.w ? P.text : P.faint; ctx.globalAlpha = s ? 1 : (p.w ? 0.55 : 0.4);
+        if (p.type === 0) ctx.fillRect(x - 2.5, y - 2.5, 5, 5); else { ctx.beginPath(); ctx.arc(x, y, 2.4, 0, 7); ctx.fill(); }
+        ctx.globalAlpha = 1;
+        if (s) { ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.strokeStyle = P.accent; ctx.lineWidth = 2; ctx.stroke(); }
+      });
+      ctx.fillStyle = P.accent2; ctx.fillRect(cx - 7, cy - 7, 14, 14);
+      ctx.fillStyle = P.text; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("책방", cx, cy + 10);
+      ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillStyle = P.dim;
+      ctx.fillText("■ 단골  ● 그 밖  진한 점: 헛걸음 경험", 8, 10);
+      // 띠: 뽑을 때마다의 추정값
+      var sy = 14 + S + 30, L = 16, Rr = w - 16, X = function (v) { return L + v * (Rr - L); };
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(L, sy); ctx.lineTo(Rr, sy); ctx.stroke();
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10.5); ctx.textBaseline = "top"; ctx.textAlign = "center";
+      [0, 0.25, 0.5, 0.75, 1].forEach(function (v) { ctx.fillText(Math.round(v * 100) + "%", X(v), sy + 22); ctx.beginPath(); ctx.moveTo(X(v), sy - 3); ctx.lineTo(X(v), sy + 3); ctx.stroke(); });
+      hist.forEach(function (v, j) { ctx.strokeStyle = P.accent; ctx.globalAlpha = j === hist.length - 1 ? 1 : 0.35; ctx.lineWidth = j === hist.length - 1 ? 3 : 2; ctx.beginPath(); ctx.moveTo(X(v), sy - 14); ctx.lineTo(X(v), sy + 14); ctx.stroke(); ctx.globalAlpha = 1; });
+      ctx.save(); ctx.setLineDash([4, 3]); ctx.strokeStyle = P.text; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(TRUE), sy - 20); ctx.lineTo(X(TRUE), sy + 18); ctx.stroke(); ctx.restore();
+      ctx.fillStyle = P.dim; ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("뽑을 때마다의 헛걸음 비율 (점선: 동네 전체)", L, sy - 18);
+      var e = cur.length ? est(cur) : NaN, reg = cur.filter(function (i) { return POP[i].type === 0; }).length;
+      AB.stat("sp-o-s", AB.pct(e, 0) + " <small>" + hist.length + "번 평균 " + AB.pct(avg(hist.length ? hist : [NaN]), 0) + "</small>");
+      AB.stat("sp-o-t", AB.pct(TRUE, 0));
+      AB.stat("sp-o-r", reg + " <small>/ " + cur.length + "명</small>");
+    }, { get height() { var w = widthOf("sp-cv"); return Math.min(w - 24, 320) + 104; } });
+    document.getElementById("sp-draw").addEventListener("click", function () { draw(1); });
+    document.getElementById("sp-many").addEventListener("click", function () { draw(20); });
+    draw(1);
+  });
+
+  /* ---------------- 시뮬레이터 6: 포화 ---------------- */
+  sim("sat", function () {
+    var G0 = [0.7, 0.6, 0.5, 0.45, 0.4, 0.35, 0.3, 0.25, 0.2, 0.18, 0.15, 0.12, 0.1, 0.08], G1 = [0.6, 0.45, 0.3, 0.2], G2 = [0.55, 0.4, 0.3, 0.2];
+    var TH = [];
+    G0.forEach(function (p) { TH.push({ g: 0, p: p }); }); G1.forEach(function (p) { TH.push({ g: 1, p: p }); }); G2.forEach(function (p) { TH.push({ g: 2, p: p }); });
+    var K = TH.length, seed = 3;
+    var nG = AB.range("st-n", function (v) { return v + "명"; }, function () { cv.redraw(); });
+    var pop = AB.seg("st-pop", function () { cv.redraw(); });
+    document.getElementById("st-seed").addEventListener("click", function () { seed++; cv.redraw(); });
+    function typeOf(i) { return pop() === "same" ? 0 : [0, 0, 1, 0, 0, 2][i % 6]; }
+    function prob(th, t) { return th.g === 0 ? (t === 0 ? th.p : th.p * 0.6) : th.g === t ? th.p : 0; }
+    function run() {
+      var R = AB.rng(seed * 101 + (pop() === "same" ? 0 : 50)), seen = TH.map(function () { return false; }), nw = [], cum = [], c = 0, exp = [], miss = TH.map(function () { return 1; });
+      for (var i = 0; i < 20; i++) {
+        var t = typeOf(i), k = 0;
+        TH.forEach(function (th, j) { var p = prob(th, t); if (R() < p && !seen[j]) { seen[j] = true; k++; } miss[j] *= 1 - p; });
+        c += k; nw.push(k); cum.push(c); exp.push(K - miss.reduce(function (s, v) { return s + v; }, 0));
+      }
+      return { nw: nw, cum: cum, exp: exp };
+    }
+    var cv = AB.canvas("#st-cv", function (ctx, w, h) {
+      var P = AB.palette(), n = nG(), r = run();
+      var ch = AB.chart(ctx, { x: 46, y: 16, w: w - 46 - 16, h: h - 16 - 50 }, {
+        x: [0.5, 20.5], y: [0, 24], xTicks: [1, 5, 10, 15, 20], yTicks: [0, 5, 10, 15, 20], xLabel: "인터뷰 순서", yLabel: "주제 수",
+        hlines: [{ y: K, color: P.faint, label: "모형 안의 전체 주제 " + K }],
+      });
+      var bw = Math.max(3, (ch.X(2) - ch.X(1)) * 0.55);
+      for (var i = 0; i < 20; i++) {
+        var x = ch.X(i + 1), y = ch.Y(r.nw[i]), y0 = ch.Y(0);
+        if (i < n) { ctx.fillStyle = P.accent; alpha(ctx, 0.75, function () { ctx.fillRect(x - bw / 2, y, bw, y0 - y); }); }
+        else { ctx.strokeStyle = P.border; ctx.lineWidth = 1; ctx.strokeRect(x - bw / 2 + 0.5, y + 0.5, bw - 1, Math.max(0, y0 - y - 1)); }
+      }
+      ctx.save(); ctx.setLineDash([4, 4]); ctx.strokeStyle = P.dim; ctx.lineWidth = 1.4; ctx.beginPath();
+      r.exp.forEach(function (v, i) { var x = ch.X(i + 1), y = ch.Y(v); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); ctx.restore();
+      ctx.strokeStyle = P.accent2; ctx.lineWidth = 2.5; ctx.beginPath();
+      for (var j = 0; j < n; j++) { var xx = ch.X(j + 1), yy = ch.Y(r.cum[j]); j ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); } ctx.stroke();
+      ctx.beginPath(); ctx.arc(ch.X(n), ch.Y(r.cum[n - 1]), 4.5, 0, 7); ctx.fillStyle = P.accent2; ctx.fill();
+      ctx.font = AB.font(11); ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      var lx = ch.X(1), ly = 30;
+      ctx.fillStyle = P.accent; ctx.fillRect(lx, ly - 5, 10, 10); ctx.fillStyle = P.dim; ctx.fillText("새 주제", lx + 14, ly);
+      ctx.strokeStyle = P.accent2; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(lx + 70, ly); ctx.lineTo(lx + 86, ly); ctx.stroke(); ctx.fillText("누적", lx + 90, ly);
+      if (w >= 420) { ctx.save(); ctx.setLineDash([4, 4]); ctx.strokeStyle = P.dim; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(lx + 130, ly); ctx.lineTo(lx + 146, ly); ctx.stroke(); ctx.restore(); ctx.fillText("기대값", lx + 150, ly); }
+      var f = r.cum[n - 1], last = r.nw.slice(Math.max(0, n - 3), n).reduce(function (s, v) { return s + v; }, 0);
+      AB.stat("st-o-f", f + " <small>/ " + K + "</small>");
+      AB.stat("st-o-l", last + "개");
+      AB.stat("st-o-m", (K - f) + "개");
+    }, { get height() { return Math.round(AB.clamp(widthOf("st-cv") * 0.62, 280, 360)); } });
+  });
+})();
+</script>
 </body>
 </html>

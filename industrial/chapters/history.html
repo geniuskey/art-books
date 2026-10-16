@@ -59,7 +59,7 @@
     <div class="sim" id="sim-tl">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>산업디자인 연표</h3></div>
       <div class="sim-body">
-        <div class="sim-view"><canvas id="tl-cv"></canvas><span class="hint" style="left:10px;right:auto;top:8px;bottom:auto">아래 축의 두 손잡이를 끈다</span></div>
+        <div class="sim-view"><canvas id="tl-cv"></canvas><span class="hint">축 위의 두 손잡이를 끈다</span></div>
       </div>
       <div class="sim-readout">
         <div class="stat"><span class="k">고른 기간</span><span class="v" id="tl-o-range">—</span></div>
@@ -292,6 +292,11 @@
       <div class="sim-note">해볼 것: ① 처음 상태. 스피커, 눈금창, 손잡이, 버튼이 저마다 조금씩 다른 자리에 있다. 세로·가로 기준선의 수를 기억한다. ② "격자에 맞추기"를 켠다. 기준선과 여백의 종류가 크게 줄고, 같은 물건인데 차분해 보인다. ③ 모듈을 6 mm와 20 mm로 바꿔 본다. 모듈이 크면 질서는 강해지지만 부품이 모듈에 맞춰 커지거나 작아져야 해서 자유가 준다. 모듈이 너무 작으면 격자가 있으나 마나다. (가상의 라디오, 앞면 240 × 140 mm. 기준선은 부품 가장자리의 위치를 0.5 mm 단위로 세었다.)</div>
     </div>
 
+    <div class="callout studio">
+      <strong>모듈은 가장 고치기 어려운 부품에서 고른다</strong>
+      태오는 제품 앞면의 격자를 정할 때 보기 좋은 숫자부터 고르지 않는다. 먼저 바꿀 수 없는 치수를 찾는다. 이미 정해진 부품(스위치, 커넥터, 화면, 스피커)의 크기, 손가락이 눌러야 하는 버튼의 최소 크기(<a href="control.html">6장</a>), 금형에서 리브와 보스가 놓이는 간격이 그것이다. 그 치수들을 가장 잘 나누어 떨어지게 하는 수를 모듈로 삼고, 여백은 두세 가지(모듈의 1배, 2배)로 묶는다. 격자에 맞지 않는 부품이 하나 남으면 억지로 늘리지 말고, 그 부품을 격자의 기준선 하나에 맞춰 정렬만 한다. 질서는 모든 것을 같게 만드는 데서가 아니라 예외의 수를 줄이는 데서 생긴다.
+    </div>
+
     <p>격자는 보기 좋은 질서를 주지만, 그 자체로 좋은 디자인을 보장하지 않는다. 1960~70년대에 기능주의는 곧 "회색 상자"의 획일성이라는 비판을 받았다. 모든 물건이 비슷해지고, 감정과 장식, 지역의 문화가 사라진다는 것이다. 1981년 이탈리아 밀라노에서 에토레 소트사스(Ettore Sottsass)를 중심으로 모인 멤피스 그룹은 원색과 엉뚱한 형태의 가구로 이 질서에 정면으로 맞섰다. 기능주의와 그 반론은 지금도 함께 쓰인다. 화면의 그리드 시스템(<a href="../../type/chapters/grid.html">TypeBook 그리드</a>)과 제품의 모듈 설계는 울름의 후손이고, 브랜드가 감정과 이야기를 앞세우는 것은 그 반론의 후손이다.</p>
   </section>
 
@@ -505,10 +510,10 @@
     var a = 1840, b = 1940, drag = null, geo = null;
     var cv = AB.canvas("#tl-cv", function (ctx, w, h) {
       var P = AB.palette(), L = 16, R = w - 16, X = function (y) { return L + (y - Y0) / (Y1 - Y0) * (R - L); };
-      var rowH = Math.min(22, (h - 110) / MV.length), top = 12;
-      geo = { X: X, L: L, R: R, axisY: h - 34 };
+      var rowH = Math.min(22, (h - 130) / MV.length), top = 12;
+      geo = { X: X, L: L, R: R, axisY: h - 52 };
       // 고른 범위 배경
-      ctx.fillStyle = P.accent; ctx.globalAlpha = 0.08; ctx.fillRect(X(a), top - 4, X(b) - X(a), h - top - 30); ctx.globalAlpha = 1;
+      ctx.fillStyle = P.accent; ctx.globalAlpha = 0.08; ctx.fillRect(X(a), top - 4, X(b) - X(a), h - top - 48); ctx.globalAlpha = 1;
       // 흐름 막대
       MV.forEach(function (m, i) {
         var y = top + i * rowH, inR = m[1] >= a && m[0] <= b;
@@ -526,7 +531,7 @@
         ctx.beginPath(); ctx.arc(x, ey + (i % 3) * 9, inR ? 4 : 3, 0, 7); ctx.fillStyle = inR ? P.accent : P.faint; ctx.fill();
       });
       // 축
-      var ay = h - 34;
+      var ay = h - 52;
       ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(L, ay); ctx.lineTo(R, ay); ctx.stroke();
       ctx.font = AB.font(11, true); ctx.fillStyle = P.dim; ctx.textAlign = "center"; ctx.textBaseline = "top";
       var step = w < 480 ? 50 : 25;
@@ -657,7 +662,7 @@
       for (var i = 2; i < pts.length - 2; i++) {
         for (var s = -1; s <= 1; s += 2) {
           if (R() < 0.12) continue;
-          var ang = (s > 0 ? 0.15 : Math.PI - 0.15) + (R() - 0.5) * 0.9 + 0.55, len = 0.08 + R() * 0.06;
+          var ang = (s > 0 ? 0.7 : Math.PI - 0.7) + (R() - 0.5) * 0.8, len = 0.08 + R() * 0.06;
           LV.push({ x: pts[i][0], y: pts[i][1], a: ang, l: len, k: 1 + Math.floor(R() * 3) });
         }
       }

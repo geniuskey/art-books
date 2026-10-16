@@ -952,6 +952,14 @@
         ctx.fillStyle = "#e9efe9"; ctx.font = AB.font(10, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("▶", -40 * sc, 0);
       }
       ctx.restore();
+      // 덮개가 닫혔을 때: 칸의 접점 자리를 겹쳐 그려 맞닿았는지 보여 준다
+      if (inserted && (k === "sym" || k === "key")) {
+        var hitOk = attempt(flip) === "ok";
+        ctx.strokeStyle = hitOk ? OKC : BADC; ctx.lineWidth = 2.5; ctx.setLineDash([3, 3]);
+        ctx.strokeRect(cx + 44 * sc, sy - 9 * sc, 14 * sc, 18 * sc); ctx.setLineDash([]);
+        ctx.fillStyle = hitOk ? OKC : BADC; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+        ctx.fillText(hitOk ? "접점 맞닿음" : "칸의 접점에 아무것도 없다", cx + 30 * sc, sy - 22 * sc);
+      }
       // 뒤집기 손잡이와 상태 글자
       AB.handle(ctx, cx + 100 * sc, py, { r: 9, fill: "#ffffff", ring: INK });
       ctx.fillStyle = INK; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "middle";
