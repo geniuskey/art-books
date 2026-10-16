@@ -1,0 +1,11 @@
+{
+  "id": "artbook-product",
+  "title": "ArtBook 제품 디자인",
+  "description": "화면을 그리기 전에 문제를 고른다. 사용자 조사, 문제 정의, 정보 구조, 사용자 흐름, 상호작용의 원리, 프로토타입, 사용성 테스트, 지표와 A/B 테스트, UX 라이팅, 디자인 시스템, 다크 패턴과 윤리까지. 책방 E의 '맡아 두기' 서비스를 따라 묻고 그리고 시험해 보며 배우는 디지털 제품 디자인 교과서(ProductBook).",
+  "url": "https://artbook.euiyun.com/product/",
+  "repo": "https://github.com/geniuskey/artbook",
+  "path": "product/",
+  "field": "art",
+  "status": "published",
+  "domain": "artbook.euiyun.com"
+}

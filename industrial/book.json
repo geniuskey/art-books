@@ -1,0 +1,11 @@
+{
+  "id": "artbook-industrial",
+  "title": "ArtBook 산업디자인",
+  "description": "물건은 손에서 완성된다. 제품 스케치와 도면, 형태와 곡면, 비례와 안정, 인간공학과 인체 치수, 조작과 피드백, 재료, 생산 공정, 구조와 조립, CMF, 수명과 지속가능성, 산업디자인의 역사까지. 책방 E 10주년 독서등을 따라 형태를 돌리고 손에 쥐어 보며 배우는 산업디자인 교과서(IndustrialBook).",
+  "url": "https://artbook.euiyun.com/industrial/",
+  "repo": "https://github.com/geniuskey/artbook",
+  "path": "industrial/",
+  "field": "art",
+  "status": "published",
+  "domain": "artbook.euiyun.com"
+}

@@ -1,7 +1,7 @@
 {
   "id": "artbook",
   "title": "ArtBook",
-  "description": "보고, 만지고, 그려 보며 배우는 미술·시각 디자인 교과서 서가. 색채, 형태와 구도, 드로잉, 타이포그래피, 미술사, 사진과 이미지를 한 저장소의 여러 권으로 엮는다. ColorBook(색채), CompositionBook(형태와 구도), DrawingBook(드로잉), TypeBook(타이포그래피), ArtHistoryBook(미술사), ImageBook(사진과 이미지) 여섯 권이 모두 나와 있다.",
+  "description": "보고, 만지고, 그려 보며 배우는 미술·시각 디자인 교과서 서가. 색채, 형태와 구도, 드로잉, 타이포그래피, 미술사, 사진과 이미지, 웹·제품·산업디자인을 한 저장소의 여러 권으로 엮는다. ColorBook(색채), CompositionBook(형태와 구도), DrawingBook(드로잉), TypeBook(타이포그래피), ArtHistoryBook(미술사), ImageBook(사진과 이미지), WebBook(웹 디자인), ProductBook(제품 디자인), IndustrialBook(산업디자인) 아홉 권이 모두 나와 있다.",
   "url": "https://artbook.euiyun.com/",
   "repo": "https://github.com/geniuskey/artbook",
   "field": "art",
@@ -13,6 +13,9 @@
     "drawing/book.json",
     "type/book.json",
     "history/book.json",
-    "image/book.json"
+    "image/book.json",
+    "web/book.json",
+    "product/book.json",
+    "industrial/book.json"
   ]
 }
