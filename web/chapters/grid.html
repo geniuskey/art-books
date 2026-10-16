@@ -62,7 +62,7 @@
     <p>TypeBook <a href="../../type/chapters/grid.html">9장</a>에서 지면을 여백·판면·단·거터·모듈로 미리 나눈 보이지 않는 격자를 세웠다. 웹 화면의 그리드도 같은 생각에서 나왔다. 화면을 세로로 긴 몇 개의 칸으로 나누고, 모든 요소의 왼쪽 끝과 오른쪽 끝을 그 칸의 경계에 맞춘다. 이렇게 세로 칸으로 나눈 그리드를 <span class="term">열 그리드</span><span class="en">(Column grid)</span>라고 부른다. 세로 칸 하나가 <span class="term">단</span><span class="en">(Column)</span>이고, 단과 단 사이의 빈 띠가 <span class="term">거터</span><span class="en">(Gutter)</span>, 그리드 전체와 화면 가장자리 사이의 빈 자리가 <span class="term">바깥 여백</span><span class="en">(Margin)</span>이다. 3장의 CSS <code>margin</code>과 이름이 같지만, 여기서는 그리드의 양옆 빈 자리를 가리킨다. 실제 코드에서는 페이지 바탕 상자의 <code>padding</code>으로 만드는 경우가 많다.</p>
 
     <figure class="diagram">
-      <svg viewBox="0 0 460 250" role="img" aria-label="열 그리드의 해부도. 브라우저 창 안에 양옆 바깥 여백이 있고, 그 사이의 콘텐츠 영역이 열두 개의 단과 열한 개의 거터로 나뉘어 있다. 아래에는 세 단에 걸친 카드 하나가 그려져 있다.">
+      <svg viewBox="0 0 460 272" role="img" aria-label="열 그리드의 해부도. 브라우저 창 안에 양옆 바깥 여백이 있고, 그 사이의 콘텐츠 영역이 열두 개의 단과 열한 개의 거터로 나뉘어 있다. 아래에는 세 단에 걸친 카드 하나가 그려져 있다.">
         <defs><marker id="gr-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
         <rect x="10" y="20" width="440" height="180" rx="6" class="f-surface s-line"/>
         <rect x="10" y="20" width="440" height="16" rx="6" class="f-elev"/>
@@ -74,17 +74,14 @@
         </g>
         <rect x="66" y="132" width="90" height="52" rx="4" class="f-acc2-soft" style="stroke-width:1.5"/>
         <text x="111" y="162" text-anchor="middle" class="lbl-b" font-size="12">3단 카드</text>
-        <line x1="10" y1="214" x2="34" y2="214" class="s-line" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
-        <text x="22" y="232" text-anchor="middle" class="lbl-dim" font-size="11">바깥 여백</text>
-        <line x1="66" y1="214" x2="92" y2="214" class="s-acc" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
-        <text x="79" y="232" text-anchor="middle" class="lbl-acc" font-size="12">단</text>
-        <line x1="92" y1="214" x2="98" y2="214" class="s-line"/>
-        <text x="122" y="232" text-anchor="middle" class="lbl-dim" font-size="11">거터</text>
-        <line x1="95" y1="200" x2="112" y2="222" class="s-dash"/>
-        <line x1="34" y1="244" x2="412" y2="244" class="s-line" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
-        <rect x="178" y="236" width="104" height="14" class="f-surface" style="stroke:none"/>
-        <text x="230" y="248" text-anchor="middle" class="lbl-dim" font-size="11">콘텐츠 폭(최대 폭까지)</text>
-        <text x="412" y="70" text-anchor="end" class="lbl-dim" font-size="11" transform="rotate(0)">12</text>
+        <line x1="10" y1="212" x2="34" y2="212" class="s-line" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
+        <text x="10" y="230" class="lbl-dim" font-size="11">바깥 여백</text>
+        <line x1="66" y1="212" x2="92" y2="212" class="s-acc" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
+        <text x="79" y="230" text-anchor="middle" class="lbl-acc" font-size="12">단</text>
+        <line x1="95" y1="200" x2="95" y2="218" class="s-dash"/>
+        <text x="100" y="230" class="lbl-dim" font-size="11">거터</text>
+        <line x1="34" y1="246" x2="412" y2="246" class="s-line" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
+        <text x="223" y="264" text-anchor="middle" class="lbl-dim" font-size="11">콘텐츠 폭(최대 폭까지)</text>
       </svg>
       <figcaption><b>그림 1. 열 그리드의 해부.</b> 브라우저 창 안에서 양옆 바깥 여백을 빼면 콘텐츠 폭이 남고, 그것을 단과 거터로 나눈다. 단 열두 개 사이에는 거터가 열한 개다. 카드는 단 몇 개와 그 사이 거터를 함께 차지한다(그림의 카드는 3단). 화면이 아주 넓을 때 콘텐츠 폭이 끝없이 늘지 않도록 최대 폭을 둔다.</figcaption>
     </figure>
@@ -114,7 +111,7 @@
         <div class="stat"><span class="k">3단 · 4단 · 6단에 걸친 폭</span><span class="v" id="gr-ar-o-s">—</span></div>
         <div class="stat"><span class="k">판정</span><span class="v" id="gr-ar-o-j">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 처음 상태(V 1280, 12단, 거터 24, 바깥 여백 40)에서 단 폭이 정확히 78이 되는 것을 본다. ② 창을 왼쪽으로 끌어 360까지 줄인다. 단 폭이 5 남짓으로 쪼그라들어 거터(24)보다 좁아진다. 이런 그리드에 3단 카드를 놓으면 글 한 줄도 들어가지 않는다. 좁은 화면에 넓은 화면의 12단을 그대로 쓸 수 없다는 뜻이다. ③ 창을 1,600까지 늘린다. 단도 카드도 끝없이 넓어진다. 최대 폭이 없는 그리드다. ④ 단 수를 5나 7로 바꾼다. 3단 카드가 몇 장 들어가는지, 남는 단이 생기는지 본다. (화면 폭은 이 그림 속 가상 창의 폭이다. 단 폭은 소수점까지 계산하고, 브라우저도 소수 픽셀 폭을 그대로 다룬다.)</div>
+      <div class="sim-note">해볼 것: ① 처음 상태(V 1280, 12단, 거터 24, 바깥 여백 40)에서 단 폭이 정확히 78이 되는 것을 본다. ② 창을 왼쪽으로 끌어 360까지 줄인다. 단 폭이 1.3으로 쪼그라들어 거터(24)보다 훨씬 좁아진다. 바깥 여백을 16으로 줄여도 5 남짓이다. 이런 그리드에 3단 카드를 놓으면 글 한 줄도 들어가지 않는다. 좁은 화면에 넓은 화면의 12단을 그대로 쓸 수 없다는 뜻이다. ③ 창을 1,600까지 늘린다. 단도 카드도 끝없이 넓어진다. 최대 폭이 없는 그리드다. ④ 단 수를 5나 7로 바꾼다. 3단 카드가 몇 장 들어가는지, 남는 단이 생기는지 본다. (화면 폭은 이 그림 속 가상 창의 폭이다. 단 폭은 소수점까지 계산하고, 브라우저도 소수 픽셀 폭을 그대로 다룬다.)</div>
     </div>
 
     <p>왜 하필 12단이 흔할까. 12는 1, 2, 3, 4, 6, 12로 나누어떨어진다. 한 줄에 카드 2장(6단씩), 3장(4단씩), 4장(3단씩), 6장(2단씩)을 남는 단 없이 놓을 수 있고, 8단 본문과 4단 곁글처럼 2:1로 나눌 수도, 9단과 3단처럼 3:1로 나눌 수도 있다. 10단은 3으로 나누어지지 않고, 16단은 3과 6으로 나누어지지 않는다. 12는 이 정도 크기의 수 중에서 약수가 가장 많은 축에 든다. 단 수가 많다고 좋은 것도 아니다. 단이 많으면 선택지가 늘지만 실제로 쓰는 조합은 몇 개뿐이고, 단 폭이 거터보다 좁아지면 그리드는 쓸모를 잃는다.</p>
@@ -253,7 +250,7 @@
         <div class="stat"><span class="k">카드 폭: 위 줄 · 마지막 줄</span><span class="v" id="gr-ax-o-w">—</span></div>
         <div class="stat"><span class="k">세로 열 맞춤</span><span class="v" id="gr-ax-o-a">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "플렉스(늘어남)"에서 폭 760이면 한 줄에 세 장, 마지막 줄에 한 장이 남는다. 그 한 장이 줄 전체로 늘어나 다른 카드의 세 배 폭이 된다. 표지 그림이 혼자 거대해진다. ② "플렉스(고정 폭)"으로 바꾼다. 카드가 200으로 고정되어 마지막 줄도 같은 폭이지만, 줄 오른쪽에 빈자리가 남아 목록이 왼쪽으로 쏠린다. ③ "그리드(auto-fill)"로 바꾼다. 카드가 줄 폭을 고르게 나누면서도 마지막 줄은 위 줄과 같은 단에 선다. ④ 폭을 천천히 바꾸며 세 방식의 마지막 줄을 비교한다. 플렉스(늘어남)는 남는 카드 수에 따라 마지막 줄이 계속 모양을 바꾼다. (플렉스: <code>flex: 1 1 200px</code> 또는 <code>0 0 200px</code>, 그리드: <code>repeat(auto-fill, minmax(200px, 1fr))</code>, 간격은 모두 <code>gap: 24px</code>.)</div>
+      <div class="sim-note">해볼 것: ① "플렉스(늘어남)"에서 폭 760이면 한 줄에 세 장, 마지막 줄에 한 장이 남는다. 그 한 장이 줄 전체로 늘어나 다른 카드의 세 배가 넘는 폭이 된다. 표지 그림이 혼자 거대해진다. ② "플렉스(고정 폭)"으로 바꾼다. 카드가 200으로 고정되어 마지막 줄도 같은 폭이지만, 줄 오른쪽에 빈자리가 남아 목록이 왼쪽으로 쏠린다. ③ "그리드(auto-fill)"로 바꾼다. 카드가 줄 폭을 고르게 나누면서도 마지막 줄은 위 줄과 같은 단에 선다. ④ 폭을 천천히 바꾸며 세 방식의 마지막 줄을 비교한다. 플렉스(늘어남)는 남는 카드 수에 따라 마지막 줄이 계속 모양을 바꾼다. (플렉스: <code>flex: 1 1 200px</code> 또는 <code>0 0 200px</code>, 그리드: <code>repeat(auto-fill, minmax(200px, 1fr))</code>, 간격은 모두 <code>gap: 24px</code>.)</div>
     </div>
 
     <p>마지막 줄의 거대한 카드는 플렉스박스의 버그가 아니다. 플렉스박스는 줄마다 남는 공간을 그 줄의 상자들에게 나눠 주라는 규칙을 충실히 따랐다. 줄과 줄 사이의 관계는 플렉스박스가 모르는 일이다. 그래서 단추 여러 개를 한 줄에 놓거나, 머리 띠 안에서 로고를 왼쪽에, 메뉴를 오른쪽에 두는 일은 플렉스박스가 잘하고, 카드 목록처럼 줄과 줄이 맞아야 하는 일은 그리드가 잘한다. 한 페이지에 둘을 섞어 쓰는 것이 보통이다. 페이지의 큰 짜임은 그리드로, 카드 안의 단추 줄은 플렉스박스로.</p>
@@ -276,7 +273,7 @@
       <div class="sim-note">해볼 것: ① 처음 상태(최소 폭 240, 간격 24)에서 그래프가 톱니 모양인 것을 본다. 목록이 넓어지면 카드도 넓어지다가, 한 장이 더 들어갈 자리가 생기는 순간 카드 수가 하나 늘며 폭이 뚝 떨어진다. ② 세로선을 1,200에 놓는다. 한 줄에 네 장, 카드 폭 282다. 앞 절의 12단에서 3단에 걸친 카드와 정확히 같은 폭이다. ③ 최소 폭을 220으로 내린다. 1,200에서 다섯 장이 되고, 다섯은 12의 약수가 아니라서 노란 구간(12단과 어긋나는 카드 수)에 들어간다. ④ 최소 폭을 300 이상으로 올린다. 1,200에서 세 장, 카드 폭 384로 4단에 걸친 폭과 같다. (그래프의 카드 폭 = (목록 폭 − (n − 1) × 간격) ÷ n, n = ⌊(목록 폭 + 간격) ÷ (최소 폭 + 간격)⌋. 목록 폭이 최소 폭보다 좁으면 카드가 넘친다.)</div>
     </div>
 
-    <p>톱니의 이빨 하나하나가 "한 줄에 n장"인 구간이다. 카드 폭은 최소 폭 아래로는 내려가지 않고, 위로는 다음 카드가 들어오기 직전까지 커진다. 두 장 이상인 구간에서는 그 위쪽 끝이 최소 폭의 1.5배를 넘지 않는다. 그래서 최소 폭 하나만 잘 고르면 어떤 화면 폭에서도 카드 폭이 일정한 범위 안에 머문다. 그리고 앞 절의 12단과 함께 쓰려면 한 가지를 더 확인한다. 한 줄의 카드 수가 12의 약수(1, 2, 3, 4, 6)이고 카드 사이가 거터와 같으면, auto-fill로 놓은 카드의 경계는 계산하지 않아도 12단의 단 선 위에 정확히 선다. 식으로 확인하면 카드 \(n\)장의 폭 \((C - (n-1)G)/n\)과 \(12/n\)단에 걸친 폭이 같은 값이 된다.</p>
+    <p>톱니의 이빨 하나하나가 "한 줄에 n장"인 구간이다. 카드 폭은 최소 폭 아래로는 내려가지 않고, 위로는 다음 카드가 들어오기 직전까지 커진다. 두 장 이상인 구간에서는 그 위쪽 끝이 "최소 폭의 1.5배 + 간격의 절반"을 넘지 않는다(최소 폭 240, 간격 24라면 372). 그래서 최소 폭 하나만 잘 고르면 어떤 화면 폭에서도 카드 폭이 일정한 범위 안에 머문다. 그리고 앞 절의 12단과 함께 쓰려면 한 가지를 더 확인한다. 한 줄의 카드 수가 12의 약수(1, 2, 3, 4, 6)이고 카드 사이가 거터와 같으면, auto-fill로 놓은 카드의 경계는 계산하지 않아도 12단의 단 선 위에 정확히 선다. 식으로 확인하면 카드 \(n\)장의 폭 \((C - (n-1)G)/n\)과 \(12/n\)단에 걸친 폭이 같은 값이 된다.</p>
 
 <pre class="code" data-scroll><code>.book-list {
   display: grid;
@@ -508,7 +505,7 @@
     var mG = AB.range("gr-ar-m", function (v) { return v + "px"; }, function () { cv.redraw(); });
     var cv = AB.canvas("#gr-ar-cv", function (c, w, h) {
       var n = nG(), G = gG(), M = mG();
-      var s = (w - 30) / VMAX, ox = 12, oy = 34, bar = 14, wh = h - oy - 58;
+      var s = (w - 30) / VMAX, ox = 12, oy = 34, bar = 14, wh = h - oy - 66;
       var C = V - 2 * M, col = (C - (n - 1) * G) / n;
       geo = { s: s, ox: ox, oy: oy, wh: wh };
       // 눈금자: 흔한 화면 폭
@@ -516,7 +513,7 @@
       c.beginPath(); c.moveTo(ox, 22); c.lineTo(ox + VMAX * s, 22); c.stroke();
       [320, 360, 768, 1024, 1280, 1440, 1600].forEach(function (v, i) {
         var x = ox + v * s; c.beginPath(); c.moveTo(x, 17); c.lineTo(x, 27); c.stroke();
-        if (s * 400 > 90 || [360, 768, 1280].indexOf(v) >= 0) txt(c, String(v), x, 13, { size: 9.5, mono: true, color: DIM, align: "center" });
+        if (v !== 320 && (s * 400 > 90 || [360, 768, 1280].indexOf(v) >= 0)) txt(c, String(v), x, 13, { size: 9.5, mono: true, color: DIM, align: "center" });
       });
       chrome(c, ox, oy, V * s, wh, bar);
       var top = oy + bar + 6, x0 = ox + M * s, ch = wh - bar - 12;
@@ -542,15 +539,12 @@
       } else {
         txt(c, "단이 없다: 거터와 여백이 화면보다 넓다", ox + V * s / 2, top + ch / 2, { size: 12, weight: 700, color: BAD, align: "center" });
       }
-      // 치수: M, 단, G
-      var dy = oy + wh + 18;
-      function dim(a, b, label, colr, row) {
-        var y = dy + row * 18; c.strokeStyle = colr; c.lineWidth = 1.2;
-        c.beginPath(); c.moveTo(a, y); c.lineTo(b, y); c.moveTo(a, y - 4); c.lineTo(a, y + 4); c.moveTo(b, y - 4); c.lineTo(b, y + 4); c.stroke();
-        txt(c, label, Math.max(a, Math.min(b, (a + b) / 2)), y - 4, { size: 10.5, weight: 700, color: colr, align: (b - a) < 40 ? "left" : "center" });
-      }
-      if (M > 0) dim(ox, ox + M * s, "M " + M, "#8a6d3b", 1);
-      if (col > 0) { dim(x0, x0 + col * s, "단 " + f1(col), RL, 0); if (G > 0 && n > 1) dim(x0 + col * s, x0 + (col + G) * s, "G " + G, "#2f6fb0", 1); }
+      // 범례: 바깥 여백, 단, 거터
+      var ly = oy + wh + 18, lx = ox;
+      [["#efe6d6", "바깥 여백 " + M], [COL, "단 " + (col > 0 ? f1(col) : "—")], ["#ffffff", "거터 " + G]].forEach(function (it) {
+        fill(c, lx, ly - 9, 12, 12, it[0]); c.strokeStyle = "#b9b2a6"; c.lineWidth = 1; c.strokeRect(lx + 0.5, ly - 8.5, 11, 11);
+        txt(c, it[1], lx + 17, ly + 1, { size: 11, weight: 700, color: INK }); c.font = F(11, 700); lx += 17 + c.measureText(it[1]).width + 14;
+      });
       // 손잡이
       AB.handle(c, ox + V * s, oy + wh / 2, { r: 8, fill: "#ffffff", ring: INK });
       // 읽을거리
@@ -768,7 +762,7 @@
         data.push([W, W < m ? W : cardW(W, m, g)]);
       }
       if (12 % prevK !== 0) bands.push({ x0: bandStart, x1: X1, color: "rgba(230,170,40,0.16)" });
-      var box = { x: 54, y: 16, w: w - 54 - 16, h: h - 16 - 46 };
+      var box = { x: 54, y: 22, w: w - 54 - 16, h: h - 22 - 72 };
       ch = AB.chart(c, box, {
         x: [X0, X1], y: [0, 800], xLabel: "목록 상자의 폭(px)", yLabel: "카드 한 장의 폭(px)",
         xTicks: [400, 600, 800, 1000, 1200, 1400], yTicks: [0, 200, 400, 600, 800],
@@ -785,7 +779,7 @@
         var a = n === 1 ? m : n * (m + g) - g, b = (n + 1) * (m + g) - g;
         if (a > X1 || b < X0) continue;
         var mid = (Math.max(a, X0) + Math.min(b, X1)) / 2;
-        if (ch.X(Math.min(b, X1)) - ch.X(Math.max(a, X0)) > 18) c.fillText(n + "장", ch.X(mid), box.y + 14);
+        if (ch.X(Math.min(b, X1)) - ch.X(Math.max(a, X0)) > 22) c.fillText(n + "장", ch.X(mid), box.y - 4);
       }
       var lo = 2 * (m + g) - g, hiMax = m;
       for (var n2 = 2; n2 <= 8; n2++) hiMax = Math.max(hiMax, ((n2 + 1) * (m + g) - g - (n2 - 1) * g) / n2);

@@ -1,0 +1,847 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "사용성 테스트는 사람에게 과업을 맡기고 그 사람이 한 것을 보는 일이다. 유도하지 않는 과업 시나리오, 생각 말하기와 진행자의 말, 성공률의 신뢰 구간(수정 왈드), 과업 시간, SUS 점수 계산, 문제 발견 모형과 '다섯 명' 주장의 가정과 한계, 심각도와 빈도로 정하는 우선순위를 가상의 테스트 자료로 조작해 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사용성 테스트 · ProductBook</title>
+<meta name="description" content="사용성 테스트는 사람에게 과업을 맡기고 그 사람이 한 것을 보는 일이다. 유도하지 않는 과업 시나리오, 생각 말하기와 진행자의 말, 성공률의 신뢰 구간(수정 왈드), 과업 시간, SUS 점수 계산, 문제 발견 모형과 '다섯 명' 주장의 가정과 한계, 심각도와 빈도로 정하는 우선순위를 가상의 테스트 자료로 조작해 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/usability.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="사용성 테스트 · ProductBook">
+<meta property="og:description" content="사용성 테스트는 사람에게 과업을 맡기고 그 사람이 한 것을 보는 일이다. 유도하지 않는 과업 시나리오, 생각 말하기와 진행자의 말, 성공률의 신뢰 구간(수정 왈드), 과업 시간, SUS 점수 계산, 문제 발견 모형과 '다섯 명' 주장의 가정과 한계, 심각도와 빈도로 정하는 우선순위를 가상의 테스트 자료로 조작해 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/usability.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/usability.html#chapter","name":"사용성 테스트","headline":"사용성 테스트 · ProductBook","description":"사용성 테스트는 사람에게 과업을 맡기고 그 사람이 한 것을 보는 일이다. 유도하지 않는 과업 시나리오, 생각 말하기와 진행자의 말, 성공률의 신뢰 구간(수정 왈드), 과업 시간, SUS 점수 계산, 문제 발견 모형과 '다섯 명' 주장의 가정과 한계, 심각도와 빈도로 정하는 우선순위를 가상의 테스트 자료로 조작해 본다.","url":"https://artbook.euiyun.com/product/chapters/usability.html","position":8,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"8. 사용성 테스트","item":"https://artbook.euiyun.com/product/chapters/usability.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<style>
+  .stat .v.txt { font-family: var(--font); font-size: 14px; font-weight: 500; line-height: 1.55; }
+  .ut-doc { padding: 18px 20px; font-size: 15.5px; line-height: 1.85; color: var(--text); }
+  .ut-doc .lbl { display: block; font-size: 12px; font-weight: 700; color: var(--text-faint); letter-spacing: .04em; margin-bottom: 6px; }
+  .ut-doc .card { border: 1px solid var(--border); border-radius: 10px; background: var(--bg-elev); padding: 14px 16px; }
+  .ut-doc .crit { margin-top: 12px; font-size: 13.5px; color: var(--text-dim); }
+  .ut-doc mark { background: none; padding: 0 1px; border-bottom: 2px solid; color: inherit; }
+  .ut-doc mark.bad { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, transparent); }
+  .ut-doc mark.warn { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+  .ut-doc mark.ok { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent); }
+  .ut-doc .legend-row { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; font-size: 12.5px; color: var(--text-dim); }
+  .ut-chat { display: grid; gap: 8px; }
+  .ut-chat p { margin: 0; padding: 8px 12px; border-radius: 10px; max-width: 92%; font-size: 14.5px; line-height: 1.6; }
+  .ut-chat .who { display: block; font-size: 11.5px; font-weight: 700; color: var(--text-faint); margin-bottom: 2px; }
+  .ut-chat .p { background: var(--surface); justify-self: start; }
+  .ut-chat .m { background: var(--accent-soft); justify-self: end; }
+  .ut-chat .act { justify-self: center; font-size: 12.5px; color: var(--text-faint); background: none; padding: 2px 0; }
+  .sus-items { margin: 0; padding-left: 1.6em; }
+  .sus-items li { margin: 2px 0; }
+</style>
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="usability">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 08</div>
+    <h1>사용성 테스트</h1>
+    <p class="lead">손님 한 사람이 결과 화면에서 책방 E의 줄을 찾고, 엄지로 화면 위쪽의 하트를 누른다. 하트가 빨갛게 채워지자 고개를 끄덕이며 말한다. "됐네요. 이제 가서 찾으면 되죠?" 맡아 두기 요청은 가지 않았다. 손님은 성공했다고 믿고, 서비스는 아무 일도 하지 않았다. 옆에서 메모하던 하린은 아무 말도 하지 않는다. 이 장면은 설문으로도, 접속 기록으로도 잡히지 않는다. 사람에게 과업을 맡기고 옆에서 지켜볼 때만 보인다. 이 장은 그렇게 지켜보는 법과, 지켜본 것을 숫자로 옮길 때 그 숫자가 말해 주는 것과 말해 주지 못하는 것을 다룬다.</p>
+    <ul class="objectives">
+      <li>사용성 테스트가 무엇을 보는지(효과성, 효율성, 만족)와 탐색용·평가용 테스트의 차이를 안다.</li>
+      <li>정답을 흘리지 않는 과업 시나리오를 쓰고, 생각 말하기를 진행하며 유도하지 않는 말을 고른다.</li>
+      <li>작은 표본의 성공률을 신뢰 구간(수정 왈드)으로 읽고, 과업 시간은 기하평균으로 요약하는 이유를 안다.</li>
+      <li>SUS 열 문항으로 점수를 계산하고, 그 점수를 백분율로 읽지 않는다.</li>
+      <li>문제 발견 모형 \(1-(1-p)^n\)과 "다섯 명이면 85%"의 가정을 알고, 드문 문제와 서로 다른 사용자 앞에서 그 가정이 어떻게 무너지는지 본다.</li>
+      <li>심각도와 빈도로 고칠 문제의 순서를 정한다.</li>
+    </ul>
+  </header>
+
+  <section id="what">
+    <h2>사용성 테스트는 무엇을 보는가</h2>
+    <p><span class="term">사용성</span><span class="en">(Usability)</span>은 국제 표준 ISO 9241-11(2018)에서 "정해진 사용자가 정해진 사용 맥락에서 정해진 목표를 효과적으로, 효율적으로, 만족스럽게 이룰 수 있는 정도"로 정의된다. 이 정의에는 "정해진"이 세 번 나온다. 누가, 어떤 상황에서, 무엇을 하려는지 정하지 않으면 사용성은 잴 수 없다. "이 앱은 쓰기 쉽다"는 말이 공허한 이유다. 손님이 퇴근길 지하철에서 책 한 권을 맡기는 일과, 주인이 계산대에서 손님을 응대하며 요청을 수락하는 일은 같은 서비스라도 다른 사용성을 갖는다.</p>
+    <p><span class="term">사용성 테스트</span><span class="en">(Usability test)</span>는 실제 사용자에 가까운 사람에게 실제에 가까운 과업을 맡기고, 그 사람이 하는 것을 지켜보는 방법이다. <a href="research.html">2장</a>의 인터뷰가 "어떻게 하시나요?"를 묻는다면, 사용성 테스트는 "해 보세요"라고 한다. 하린의 원칙 "사람이 말한 것보다 한 것을 믿어요"가 가장 직접적으로 쓰이는 자리다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 280" role="img" aria-label="사용성 테스트 한 회의 구성: 참가자와 진행자, 관찰자, 그리고 정의의 세 기준과 측정값">
+        <defs><marker id="ut-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="16" y="20" width="200" height="236" rx="12" class="f-surface"/>
+        <rect x="16" y="20" width="200" height="236" rx="12" fill="none" class="s-line"/>
+        <text x="116" y="44" text-anchor="middle" class="lbl-b">한 회(45~60분)</text>
+        <g style="font-size:12px">
+          <rect x="32" y="60" width="168" height="30" rx="7" class="f-elev"/><text x="44" y="80" class="lbl">① 맞이하기 · 동의 받기</text>
+          <rect x="32" y="96" width="168" height="30" rx="7" class="f-elev"/><text x="44" y="116" class="lbl">② 사전 질문(짧게)</text>
+          <rect x="32" y="132" width="168" height="48" rx="7" class="f-acc-soft"/><text x="44" y="152" class="lbl-acc">③ 과업 3~5개</text><text x="44" y="170" class="lbl-dim" style="font-size:11px">생각 말하기 · 관찰 · 기록</text>
+          <rect x="32" y="186" width="168" height="30" rx="7" class="f-elev"/><text x="44" y="206" class="lbl">④ 설문(SUS 등)</text>
+          <rect x="32" y="222" width="168" height="26" rx="7" class="f-elev"/><text x="44" y="240" class="lbl">⑤ 사후 질문 · 인사</text>
+        </g>
+        <path d="M216 156 L262 156" class="s-line" marker-end="url(#ut-ar)"/>
+        <text x="272" y="44" class="lbl-b">ISO 9241-11의 세 기준</text>
+        <rect x="270" y="58" width="176" height="56" rx="9" class="f-ok-soft"/>
+        <text x="282" y="80" class="lbl-b" style="font-size:13px">효과성</text><text x="282" y="100" class="lbl-dim" style="font-size:11.5px">해냈는가 → 성공률, 오류</text>
+        <rect x="270" y="122" width="176" height="56" rx="9" class="f-acc2-soft"/>
+        <text x="282" y="144" class="lbl-b" style="font-size:13px">효율성</text><text x="282" y="164" class="lbl-dim" style="font-size:11.5px">얼마나 들었나 → 시간, 단계</text>
+        <rect x="270" y="186" width="176" height="56" rx="9" class="f-warn-soft"/>
+        <text x="282" y="208" class="lbl-b" style="font-size:13px">만족</text><text x="282" y="228" class="lbl-dim" style="font-size:11.5px">어떻게 느꼈나 → SUS, 말</text>
+      </svg>
+      <figcaption><b>그림 1. 사용성 테스트 한 회와 세 기준.</b> 한 회는 대개 한 시간 안쪽이다. 핵심은 ③의 과업이고, 나머지는 그것을 준비하고 정리하는 시간이다. 과업에서 얻는 성공률·시간과, 끝난 뒤의 설문이 ISO 9241-11의 세 기준에 대응한다. 하지만 가장 쓸모 있는 결과는 대개 숫자가 아니라 "어디서 왜 막혔는가"의 관찰이다.</figcaption>
+    </figure>
+
+    <p>목적에 따라 두 가지로 나눈다. <span class="term">탐색용 테스트</span><span class="en">(Formative test)</span>는 만드는 도중에 문제를 찾아 고치려고 한다. 적은 사람으로 자주 하고, 결과는 문제 목록이다. <span class="term">평가용 테스트</span><span class="en">(Summative test)</span>는 완성에 가까운 제품이 기준을 넘는지, 이전 판이나 다른 제품보다 나은지 재려고 한다. 결과는 숫자이고, 숫자를 믿으려면 더 많은 사람이 필요하다. 서윤의 테스트는 탐색용이다. 이 장의 숫자들도 그 눈으로 읽어야 한다. 다섯 명의 성공률은 "얼마나 좋은가"보다 "어디를 고칠까"를 알려 준다.</p>
+  </section>
+
+  <section id="task">
+    <h2>과업 시나리오 쓰기</h2>
+    <p>테스트의 질은 과업 문장에서 대부분 정해진다. <span class="term">과업 시나리오</span><span class="en">(Task scenario)</span>는 참가자에게 줄 목표를 짧은 상황 이야기에 담은 것이다. 나쁜 시나리오는 정답을 흘린다. 화면에 있는 단어를 그대로 쓰면 참가자는 이해하지 않고도 단어 짝 맞추기로 성공한다. 단계를 알려 주면 참가자가 스스로 길을 찾는지 볼 수 없다. 상황이 없으면 참가자는 "시험받는 사람"으로 행동하고, 실제라면 하지 않을 일을 끝까지 한다.</p>
+    <p>좋은 시나리오의 조건은 셋이다. 화면의 단어 대신 사용자의 말로 쓴다. 방법이 아니라 목표를 준다. 그럴듯한 이유와 상황을 준다. 그리고 진행자만 보는 <b>성공 기준</b>을 따로 적어 둔다. 아래에서 서윤의 첫 초안을 고르고, 고칠 점을 하나씩 켜 본다.</p>
+
+    <div class="sim" id="sim-tk">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>과업 문장 고쳐 쓰기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><div class="ut-doc" id="tk-doc"></div></div>
+        <div class="sim-controls">
+          <div class="seg" id="tk-task"><button data-value="0" class="on">맡기기</button><button data-value="1">상태 확인</button><button data-value="2">취소</button></div>
+          <label class="check"><input type="checkbox" id="tk-f1"> 화면의 단어 빼기</label>
+          <label class="check"><input type="checkbox" id="tk-f2"> 방법 대신 목표만</label>
+          <label class="check"><input type="checkbox" id="tk-f3"> 상황과 이유 주기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이 문장이 재는 것</span><span class="v txt" id="tk-o-m">—</span></div>
+        <div class="stat"><span class="k">남은 흠</span><span class="v" id="tk-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "맡기기" 초안을 읽는다. 빨간 밑줄은 화면의 단어, 노란 밑줄은 방법을 알려 주는 부분이다. 이대로라면 버튼 이름을 읽을 줄만 알면 성공한다. ② 세 가지를 하나씩 켠다. 문장이 어떻게 바뀌고 "재는 것"이 어떻게 달라지는지 본다. ③ "취소"를 고른다. "취소"라는 말은 사용자의 말이기도 해서, 피하려다 오히려 어색해지기 쉽다. 이럴 때는 버튼 이름과 겹쳐도 사용자가 실제로 쓸 말을 쓴다. (문장은 서윤의 초안을 바탕으로 한 예시다.)</div>
+    </div>
+
+    <p>성공 기준은 참가자에게 보여 주지 않지만, 테스트 전에 반드시 적는다. 기준이 없으면 끝난 뒤에 "그 정도면 성공이죠"라고 너그러워진다. 맡기기 과업이라면 "책방 E 또는 작은 숲에 요청이 접수되어 '요청됨' 상태가 보이면 성공, 진행자의 도움을 받으면 실패, 5분이 지나면 멈춘다"처럼 쓴다. 과업의 순서도 정한다. 앞 과업이 뒤 과업의 준비가 되게(맡긴 뒤 상태 확인, 그다음 취소) 하면 자연스럽지만, 앞 과업에서 실패하면 뒤 과업을 시작할 수 없다. 이럴 때를 위해 진행자가 다음 과업의 시작 화면을 대신 만들어 두는 방법도 정해 둔다.</p>
+
+    <div class="callout warn">
+      <strong>"해 보세요"가 아니라 "평소처럼"</strong>
+      참가자는 시험을 받는다고 느끼면 평소보다 꼼꼼해지고, 막혀도 포기하지 않으며, 진행자를 기쁘게 하려 한다. 시작할 때 "시험받는 것은 여러분이 아니라 서비스입니다. 막히는 곳이 있으면 그게 저희에게 가장 쓸모 있는 결과예요"라고 말해 둔다. 진행자가 그 서비스를 만든 사람이라는 것을 굳이 밝히지 않는 것도 같은 이유다. 만든 사람 앞에서 흉보기는 어렵다.
+    </div>
+  </section>
+
+  <section id="think">
+    <h2>생각 말하기와 진행자의 말</h2>
+    <p>참가자가 무엇을 하는지는 보이지만, 왜 그렇게 하는지는 보이지 않는다. 그래서 과업을 하면서 머릿속의 생각을 소리 내어 말해 달라고 부탁한다. 이것을 <span class="term">생각 말하기</span><span class="en">(Think-aloud)</span>라고 한다. 원래는 심리학에서 사고 과정을 연구하는 방법으로, 에릭슨과 사이먼은 『프로토콜 분석(Protocol Analysis)』(Ericsson &amp; Simon 1993)에서 사람이 생각을 해석하거나 설명하지 않고 떠오르는 그대로 말할 때 그 말이 사고를 크게 흐트러뜨리지 않는다고 보았다. 실무의 생각 말하기는 이보다 느슨해서, 진행자가 중간에 묻기도 한다. 보런과 레이미(Boren &amp; Ramey 2000)는 실무자들이 이론과 다르게 진행하는 경우가 많다는 것을 보이고, 진행자의 개입을 짧은 맞장구 정도로 줄이자고 제안했다.</p>
+    <p>진행자에게 가장 어려운 순간은 참가자가 막혔을 때다. 돕고 싶은 마음이 크다. 그러나 진행자가 한 말 한 마디가 그 과업의 결과를 바꾼다. 아래는 참가자가 전화번호 화면에서 멈춘 순간이다. 진행자의 대답을 하나씩 골라 본다.</p>
+
+    <div class="sim" id="sim-md">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>막힌 순간, 진행자의 한 마디</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><div class="ut-doc"><div class="ut-chat" id="md-chat"></div></div></div>
+        <div class="sim-controls">
+          <div class="ctrl"><span>진행자의 대답</span>
+            <div class="seg" id="md-r"><button data-value="0" class="on">답해 준다</button><button data-value="1">되묻는다</button><button data-value="2">생각을 묻는다</button><button data-value="3">기다린다</button><button data-value="4">가리킨다</button></div>
+          </div>
+          <label class="check"><input type="checkbox" id="md-long"> 이미 3분 넘게 막혀 있다</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">얻는 것</span><span class="v txt" id="md-o-g">—</span></div>
+        <div class="stat"><span class="k">잃는 것</span><span class="v txt" id="md-o-l">—</span></div>
+        <div class="stat"><span class="k">판단</span><span class="v" id="md-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "답해 준다"를 고른다. 대화는 매끄럽지만, 참가자가 이 화면에서 무엇을 이해하지 못했는지 영영 모르게 된다. ② "되묻는다"와 "생각을 묻는다"를 비교한다. 질문을 되돌려주면 참가자가 스스로 생각을 말한다. ③ "이미 3분 넘게 막혀 있다"를 켜고 다시 고른다. 이때는 도와주고, 그 과업을 실패로 기록한 뒤 다음으로 넘어가는 것이 맞다. 참가자를 오래 곤란하게 두는 것도 테스트를 망친다. (대화는 가상의 예시다.)</div>
+    </div>
+
+    <p>진행자의 말은 세 종류만 있으면 된다. 계속 말하게 하는 맞장구("음", "계속 말씀해 주세요"), 질문을 돌려주는 되묻기("어떻게 될 것 같으세요?"), 그리고 과업이 끝난 뒤의 회고 질문("아까 전화번호 화면에서 잠깐 멈추셨는데, 그때 무슨 생각을 하셨어요?")이다. 회고 질문은 과업 중에 묻고 싶었던 것을 모아 두었다가 끝나고 묻는 것으로, 과업의 흐름을 끊지 않으면서 이유를 들을 수 있다.</p>
+
+    <div class="callout studio">
+      <strong>관찰자의 메모는 동사로</strong>
+      관찰자가 "헷갈려함", "불편해함"이라고 적으면, 나중에 그것이 관찰인지 해석인지 알 수 없다. "하트를 누름 → 화면을 2초 봄 → '됐네요'라고 말함"처럼 한 일과 한 말을 시간과 함께 적는다. 해석은 줄 끝에 괄호로 따로 적는다. 여러 사람이 관찰하면 같은 장면을 다르게 읽는다. 사용성 평가에서 평가자마다 찾는 문제가 크게 다르다는 "평가자 효과"(Hertzum &amp; Jacobsen 2001)는, 관찰자를 둘 이상 두고 기록을 맞춰 보는 이유가 된다.
+    </div>
+  </section>
+
+  <section id="measure">
+    <h2>성공률과 시간</h2>
+    <p>과업마다 가장 먼저 세는 것은 <span class="term">성공률</span><span class="en">(Completion rate)</span>이다. 다섯 명 중 네 명이 성공하면 80%다. 그런데 이 80%를 그대로 믿기는 어렵다. 다른 다섯 명을 데려오면 다섯 명 모두 성공할 수도, 세 명만 성공할 수도 있다. 작은 표본의 비율이 얼마나 흔들리는지는 <span class="term">신뢰 구간</span><span class="en">(Confidence interval)</span>으로 나타낸다.</p>
+    <p>비율의 신뢰 구간을 구하는 가장 흔한 공식(왈드 구간)은 표본이 작거나 성공률이 0%·100% 근처일 때 잘 맞지 않는다. 다섯 명 모두 성공하면 구간의 폭이 0이 되어 "100% 확실하다"고 말해 버린다. 애그레스티와 쿨(Agresti &amp; Coull 1998)은 성공과 실패를 몇 개씩 더한 뒤 계산하는 <span class="term">수정 왈드 구간</span><span class="en">(Adjusted Wald interval)</span>을 제안했고, 사우로와 루이스는 사용성 테스트처럼 작은 표본의 성공률에 이 방법을 권한다(Sauro &amp; Lewis, 『사용자 경험 정량화(Quantifying the User Experience)』, 2판 2016).</p>
+    <div class="formula">$$\hat p_{\text{adj}} = \frac{x + z^2/2}{n + z^2},\qquad \hat p_{\text{adj}} \pm z\sqrt{\frac{\hat p_{\text{adj}}(1-\hat p_{\text{adj}})}{n + z^2}}$$<div class="where">\(x\): 성공한 사람 수, \(n\): 참가자 수, \(z\): 신뢰 수준에 따른 값(95%면 1.96, 이때 \(z^2 \approx 3.84\)이니 성공 약 2명과 실패 약 2명을 더하는 셈이다). 계산한 구간이 0 아래나 1 위로 나가면 0과 1에서 자른다.</div></div>
+    <p>이 식으로 계산하면 5명 중 4명 성공의 95% 구간은 약 36%~98%다. "80%"라는 숫자가 실제로는 "3분의 1을 조금 넘을 수도, 거의 전부일 수도 있다"는 뜻이다. 아래 시뮬레이터는 과업마다 정해 둔 "진짜 성공률"(가상)에서 참가자를 뽑아 테스트를 되풀이한다. 참가자 수를 바꾸고, 다시 뽑아 본다.</p>
+
+    <div class="sim" id="sim-rs">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>다섯 명의 성공률은 얼마나 흔들리나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="rs-cv"></canvas><span class="hint" style="top:4px;bottom:auto">과업 줄을 눌러 고른다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>참가자 수 <output id="rs-n-out"></output></span><input type="range" id="rs-n" min="3" max="30" step="1" value="5"></label>
+          <div class="btn-row"><button class="btn" id="rs-again">다른 참가자 뽑기</button></div>
+          <label class="check"><input type="checkbox" id="rs-true"> 진짜 성공률 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 과업</span><span class="v txt" id="rs-o-t">—</span></div>
+        <div class="stat"><span class="k">성공</span><span class="v" id="rs-o-x">—</span></div>
+        <div class="stat"><span class="k">95% 구간(수정 왈드)</span><span class="v" id="rs-o-ci">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 뽑힌 다섯 명의 결과(5·2·3·4명 성공)는 이 장의 케이스와 같다. "다른 참가자 뽑기"를 여러 번 누른다. 같은 과업의 성공 수가 매번 달라지고, 구간은 늘 넓다. ② "진짜 성공률 보기"를 켠다. 구간(막대)이 대부분 진짜 값(세로 선)을 덮지만, 가끔 빗나간다. 95% 구간은 이렇게 스무 번에 한 번쯤 빗나가도록 만든 구간이다. ③ 참가자를 30명으로 늘린다. 구간이 좁아지지만, 폭을 절반으로 줄이려면 사람이 대략 네 배 필요하다. (과업별 진짜 성공률 90%·50%·70%·80%와 "도움 받아 성공"의 비율은 교육용 가정이다. 도움 받아 성공은 실패로 센다.)</div>
+    </div>
+
+    <p>작은 표본에서 구간이 넓다고 테스트가 쓸모없는 것은 아니다. 다섯 명 중 두 명만 성공한 과업의 구간은 약 12%~77%로 넓지만, 위쪽 끝조차 80%에 못 미친다. "이 과업은 고쳐야 한다"는 결론에는 충분하다. 구간이 넓어서 못 하는 것은 "어느 판이 몇 % 더 나은가" 같은 비교다. 그것은 <a href="metrics.html">9장</a>의 일이다.</p>
+
+    <h3>시간은 기하평균으로</h3>
+    <p><span class="term">과업 시간</span><span class="en">(Time on task)</span>은 효율성의 대표 지표다. 시간 자료는 오른쪽으로 꼬리가 긴 모양이 흔하다. 대부분은 1분 안팎에 끝내는데, 한 사람이 헤매며 4분을 쓰면 산술평균이 크게 끌려간다. 사우로와 루이스는 작은 표본(대략 25명 이하)의 과업 시간을 요약할 때는 산술평균이나 중앙값보다 <span class="term">기하평균</span><span class="en">(Geometric mean)</span>이 실제 중심을 더 잘 추정했다고 보고했다(Sauro &amp; Lewis 2010). 기하평균은 시간마다 로그를 취해 평균한 뒤 되돌린 값이다. 아래에서 점을 끌어 한 사람의 시간을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-tm">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>느린 한 사람과 세 가지 평균</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="tm-cv"></canvas><span class="hint">점을 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="check"><input type="checkbox" id="tm-log"> 로그 눈금으로 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">산술평균</span><span class="v" id="tm-o-a">—</span></div>
+        <div class="stat"><span class="k">중앙값</span><span class="v" id="tm-o-m">—</span></div>
+        <div class="stat"><span class="k">기하평균</span><span class="v" id="tm-o-g">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 가장 오른쪽 점(190초)을 400초까지 끈다. 산술평균은 크게 따라가고, 중앙값은 꿈쩍하지 않으며, 기하평균은 그 사이에서 조금 움직인다. ② 가장 오른쪽 점을 다른 점들 사이(약 60초)로 끌어온다. 세 값이 거의 같아진다. ③ "로그 눈금"을 켠다. 로그 눈금에서는 점들이 고르게 퍼져 보인다. 기하평균은 로그 눈금 위의 산술평균이다. (다섯 사람의 시간은 성공한 사람만의 가상 자료다. 실패한 사람의 시간은 따로 본다.)</div>
+    </div>
+
+    <p>중앙값은 극단값에 흔들리지 않지만 다섯 명에서는 가운데 한 사람의 값일 뿐이라 정보를 많이 버린다. 기하평균은 모든 사람의 값을 쓰면서도 긴 꼬리에 덜 끌려간다. 어느 쪽을 쓰든 다섯 명의 시간으로 "평균 몇 초"를 단정하지 않고, 느린 사람이 왜 느렸는지를 관찰 기록에서 찾는 것이 탐색용 테스트의 쓰임이다.</p>
+  </section>
+
+  <section id="sus">
+    <h2>SUS: 열 문항의 점수</h2>
+    <p>과업이 끝나면 참가자에게 짧은 설문을 준다. 가장 널리 쓰이는 것이 존 브룩이 만든 <span class="term">시스템 사용성 척도</span><span class="en">(System Usability Scale, SUS)</span>다. 브룩은 1986년 무렵 회사 안에서 쓰려고 만들었다고 밝히며 「SUS: 빠르고 거친 사용성 척도(A 'quick and dirty' usability scale)」(Brooke 1996)로 발표했다. 이름처럼 빠르고 거칠지만, 이후 수많은 연구에서 쓰이며 신뢰도가 확인되어 사실상의 표준이 되었다.</p>
+    <p>열 문항에 "전혀 그렇지 않다(1)"부터 "매우 그렇다(5)"까지 답한다. 홀수 문항은 긍정문, 짝수 문항은 부정문으로 번갈아 있다. 아래는 이 책이 옮긴 문장이다. 원문의 "system"은 "서비스"로 옮겼고, 공인된 단일 한국어판이 없어 연구마다 번역이 조금씩 다르다.</p>
+    <ol class="sus-items">
+      <li>이 서비스를 자주 쓰고 싶다.</li>
+      <li>이 서비스는 쓸데없이 복잡하다.</li>
+      <li>이 서비스는 쓰기 쉬웠다.</li>
+      <li>이 서비스를 쓰려면 기술에 밝은 사람의 도움이 필요할 것 같다.</li>
+      <li>이 서비스의 여러 기능이 잘 어우러져 있다.</li>
+      <li>이 서비스에는 앞뒤가 맞지 않는 부분이 너무 많다.</li>
+      <li>대부분의 사람이 이 서비스를 금방 익힐 것 같다.</li>
+      <li>이 서비스는 쓰기가 몹시 번거로웠다.</li>
+      <li>이 서비스를 쓰면서 자신감이 있었다.</li>
+      <li>이 서비스를 쓰기 전에 배워야 할 것이 많았다.</li>
+    </ol>
+    <p>점수 계산은 단순하다. 홀수 문항은 답에서 1을 빼고, 짝수 문항은 5에서 답을 뺀다. 그러면 모든 문항이 0~4점이 되고 "좋을수록 높은" 방향으로 맞춰진다. 열 개를 더하면 0~40점, 여기에 2.5를 곱하면 0~100점이 된다(Brooke 1996). 아래 열 개의 슬라이더로 한 참가자의 답을 넣어 본다.</p>
+
+    <div class="sim" id="sim-sus">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>SUS 계산기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sus-cv"></canvas></div>
+        <div class="sim-controls" id="sus-ctrls">
+          <div class="seg" id="sus-pre"><button data-value="a" class="on">가상 손님</button><button data-value="mid">모두 3</button><button data-value="five">모두 5</button><button data-value="best">가장 좋게</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">합(0~40)</span><span class="v" id="sus-o-raw">—</span></div>
+        <div class="stat"><span class="k">SUS 점수(0~100)</span><span class="v" id="sus-o-s">—</span></div>
+        <div class="stat"><span class="k">읽는 법</span><span class="v txt" id="sus-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "가상 손님"의 답을 본다. 막대는 문항마다 0~4점으로 바꾼 값이다. 2번(복잡하다)에 2라고 답한 것이 3점이 되는 방향을 확인한다. ② "모두 5"를 누른다. 긍정문에는 만점, 부정문에는 0점이 되어 50점이다. 문장을 읽지 않고 한 줄로 찍은 답을 알아보는 단서가 된다. "모두 3"도 50점이다. ③ "가장 좋게"(홀수 5, 짝수 1)는 100점이다. 그래도 그것은 "100%의 사람이 만족한다"는 뜻이 아니다. (SUS 점수는 백분율이 아니다. 68 안팎의 평균은 Sauro &amp; Lewis가 정리한 여러 연구의 값이다.)</div>
+    </div>
+
+    <p>SUS 점수를 읽을 때 가장 흔한 실수는 백분율로 읽는 것이다. 70점은 "70% 만족"이 아니다. 점수의 뜻은 다른 서비스들의 점수와 비교할 때 생긴다. 사우로와 루이스가 여러 연구의 SUS 점수를 모은 자료에서 평균은 68 안팎이었다(Sauro &amp; Lewis 2016). 그러니 68보다 높으면 "흔한 서비스보다 나은 쪽", 낮으면 "못한 쪽"으로 읽는 것이 출발점이다. 그리고 다섯 명의 SUS 평균도 성공률처럼 크게 흔들린다. 다섯 명의 평균 62와 68의 차이는 우연으로도 쉽게 생긴다. 탐색용 테스트에서 SUS는 숫자 자체보다 다음 판과의 비교, 그리고 낮은 점수를 준 사람이 과업 중에 무엇을 겪었는지를 찾는 실마리로 쓴다.</p>
+
+    <div class="callout deep">
+      <strong>왜 긍정문과 부정문을 섞었나</strong>
+      브룩은 응답자가 문장을 읽지 않고 한쪽 끝만 고르는 것을 막으려고 긍정문과 부정문을 번갈아 두었다. 그러나 부정문을 섞으면 응답자가 실수로 반대쪽을 고르거나, 연구자가 점수를 뒤집지 않고 더하는 실수도 생긴다. 사우로와 루이스는 열 문항을 모두 긍정문으로 바꾼 판이 원래 판과 비슷한 점수를 낸다고 보고했다(Sauro &amp; Lewis 2011). 어느 판을 쓰든, 판을 섞어 비교하지 말고 계산 방법을 결과와 함께 적는다.
+    </div>
+  </section>
+
+  <section id="five">
+    <h2>다섯 명이면 충분한가</h2>
+    <p>사용성 테스트에 관해 가장 널리 알려진 숫자는 "다섯 명이면 문제의 85%를 찾는다"일 것이다. 이 숫자에는 출처와 가정이 있다. 닐슨과 랜다우어는 「사용성 문제 발견의 수학적 모형(A mathematical model of the finding of usability problems)」(Nielsen &amp; Landauer 1993)에서 사용자 테스트와 전문가 평가 자료를 모아, 한 사람이 어떤 문제를 발견할 확률을 \(p\)라 할 때 \(n\)명이 찾는 문제의 비율을 다음처럼 모형화했다.</p>
+    <div class="formula">$$P(n) = 1 - (1 - p)^n$$<div class="where">\(p\): 참가자 한 명이 한 문제를 겪을(발견할) 확률, \(n\): 참가자 수. 한 사람이 그 문제를 놓칠 확률이 \(1-p\)이고, \(n\)명이 모두 놓칠 확률이 \((1-p)^n\)이다. 비슷한 생각은 Virzi(1992)에도 있다.</div></div>
+    <p>그들이 모은 프로젝트들의 \(p\)는 평균 0.31이었다. 이 값을 넣으면 \(1 - 0.69^5 \approx 0.84\)로, 다섯 명이 약 85%를 찾는다. 닐슨은 뒤에 이것을 근거로 "다섯 명으로 한 번 크게 하지 말고, 다섯 명씩 여러 번 고치며 하라"고 권했다(Nielsen 2000). 아래에서 \(p\)와 \(n\)을 바꿔 곡선을 본다.</p>
+
+    <div class="sim" id="sim-dc">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>문제 발견 곡선</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="dc-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>한 사람의 발견 확률 p <output id="dc-p-out"></output></span><input type="range" id="dc-p" min="0.02" max="0.6" step="0.01" value="0.31"></label>
+          <label class="ctrl"><span>참가자 수 n <output id="dc-n-out"></output></span><input type="range" id="dc-n" min="1" max="20" step="1" value="5"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">n명이 찾는 비율</span><span class="v" id="dc-o-f">—</span></div>
+        <div class="stat"><span class="k">85%에 필요한 사람</span><span class="v" id="dc-o-85">—</span></div>
+        <div class="stat"><span class="k">95%에 필요한 사람</span><span class="v" id="dc-o-95">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① p = 0.31, n = 5에서 84%를 확인한다. 이것이 "다섯 명"의 근거다. ② p를 0.10으로 내린다. 열 명 중 한 명만 겪는 문제라면 다섯 명은 41%만 찾고, 85%에는 열아홉 명이 필요하다. ③ p를 0.5로 올린다. 두 명 중 한 명이 겪는 문제는 세 명이면 거의 다 찾는다. 곡선의 모양은 p 하나에 달려 있다. (모든 문제의 p가 같다는 이 모형의 가정은 다음 시뮬레이터에서 깨 본다.)</div>
+    </div>
+
+    <p>이 모형에는 가정이 둘 숨어 있다. 첫째, 모든 문제의 \(p\)가 같다. 실제로는 거의 모든 사람이 겪는 문제와 스무 명에 한 명이 겪는 문제가 섞여 있다. 평균 \(p\)가 0.31이라도 드문 문제는 다섯 명이 거의 찾지 못한다. 둘째, 모든 참가자가 같은 확률로 문제를 겪는다. 실제로는 사람마다 다르다. 휴대폰 글자를 크게 해 둔 사람, 서비스를 처음 쓰는 사람, 헌책을 찾는 사람은 다른 문제를 겪는다. 그런 사람이 다섯 명 안에 없으면 그들의 문제는 \(p\)가 아무리 커도 0으로 보인다.</p>
+    <p>아래 시뮬레이터는 문제 20개에 대해 가상의 참가자를 뽑아, 누가 어떤 문제를 겪었는지 표로 보여 준다. 그리고 같은 테스트를 1,000번 되풀이해 찾은 비율이 얼마나 흩어지는지 그린다.</p>
+
+    <div class="sim" id="sim-mc">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>다섯 명은 어떤 문제를 찾았나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mc-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mc-model"><button data-value="same" class="on">p가 모두 같다</button><button data-value="vary">문제마다 다르다</button><button data-value="group">사람도 다르다</button></div>
+          <label class="ctrl"><span>참가자 수 <output id="mc-n-out"></output></span><input type="range" id="mc-n" min="1" max="15" step="1" value="5"></label>
+          <div class="btn-row"><button class="btn" id="mc-again">다른 참가자 뽑기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이번에 찾은 문제</span><span class="v" id="mc-o-x">—</span></div>
+        <div class="stat"><span class="k">1,000번 평균 · 공식(평균 p)</span><span class="v" id="mc-o-avg">—</span></div>
+        <div class="stat"><span class="k">이번 자료로 추정한 p</span><span class="v" id="mc-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "p가 모두 같다"(0.31)에서 1,000번 평균이 공식의 84%와 거의 같은 것을 확인한다. 그래도 한 번의 테스트는 70%에서 95%까지 흩어진다. ② "문제마다 다르다"(평균 p는 같은 약 0.31)를 누른다. 평균이 공식보다 낮아지고, 오른쪽의 드문 문제들은 거의 늘 빈칸이다. ③ "사람도 다르다"를 누른다. 다섯 명 중 큰 글자를 쓰는 사람(전체의 20%로 가정)이 한 명도 없으면, 맨 오른쪽 다섯 문제는 통째로 사라진다. "이번 자료로 추정한 p"가 진짜 평균보다 높게 나오는 것도 본다. 찾지 못한 문제는 계산에 들어가지 않기 때문이다. (문제 20개와 그 p값, 사용자 무리의 비율은 교육용 가정이다.)</div>
+    </div>
+
+    <p>시뮬레이터가 보여 주는 한계는 실제 연구에서도 보고되었다. 큰 쇼핑 웹사이트를 시험한 스풀과 슈뢰더는 다섯 명이 찾은 문제가 85%에 한참 못 미쳤다고 보고했고(Spool &amp; Schroeder 2001), 포크너는 같은 시스템을 여러 무리의 다섯 명에게 시험해 무리마다 찾은 비율이 크게 다르다는 것, 어떤 다섯 명은 문제의 절반을 조금 넘게 찾는 데 그쳤다는 것을 보였다(Faulkner 2003). 또 적은 참가자의 자료로 \(p\)를 추정하면 실제보다 크게 나오는 경향이 있어, 이를 보정하는 방법도 제안되었다(Lewis 2001). 다섯 명의 테스트에서 "모든 문제를 85% 찾았다"고 말할 수는 없다. 말할 수 있는 것은 "자주 일어나는 문제는 거의 다 보았다"까지다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="열다섯 명을 한 번에 시험하는 것과 다섯 명씩 세 번 고치며 시험하는 것의 비교">
+        <text x="20" y="28" class="lbl-b">한 번에 15명</text>
+        <g id="ut-row1"></g>
+        <rect x="380" y="40" width="64" height="30" rx="7" class="f-warn-soft"/><text x="412" y="60" text-anchor="middle" class="lbl" style="font-size:12px">고치기</text>
+        <text x="20" y="118" class="lbl-b">5명씩 세 번</text>
+        <g id="ut-row2"></g>
+        <text x="20" y="214" class="lbl-dim" style="font-size:11.5px">뒤의 다섯 명은 앞에서 찾은 문제를 고친 판을 본다. 앞의 문제에 가려 있던 문제가 드러난다.</text>
+      </svg>
+      <figcaption><b>그림 2. 다섯 명씩 여러 번.</b> 같은 열다섯 명이라도 한 번에 쓰면 자주 일어나는 문제를 열다섯 번 보게 된다. 다섯 명씩 나누어 사이사이 고치면, 뒤의 참가자는 고친 판에서 새 문제를 보여 준다(Nielsen 2000의 권고를 그림으로 옮겼다). 다만 드문 문제나 특정 사용자의 문제를 찾으려면 참가자를 고르는 방법(누구를 넣을지)이 사람 수보다 중요하다.</figcaption>
+    </figure>
+
+    <div class="callout warn">
+      <strong>"다섯 명"은 사용자 무리마다</strong>
+      서로 다르게 쓰는 사용자 무리가 있으면, 무리마다 따로 몇 명씩 시험해야 한다. 맡아 두기에는 손님과 주인이라는 전혀 다른 두 무리가 있고, 손님 안에도 큰 글자 설정을 쓰는 사람, 헌책을 찾는 사람처럼 다른 문제를 겪는 사람이 있다. 닐슨도 무리가 뚜렷이 다르면 무리마다 테스트하라고 권했다. "다섯 명"은 마법의 수가 아니라 "자주 일어나는 문제를 싸게 찾는 출발점"이다.
+    </div>
+  </section>
+
+  <section id="severity">
+    <h2>심각도와 빈도로 순서 정하기</h2>
+    <p>테스트가 끝나면 문제 목록이 남는다. 다 고칠 시간은 없다. 순서를 정하는 데 흔히 두 축을 쓴다. <b>빈도</b>는 몇 명이 그 문제를 겪었는가, <span class="term">심각도</span><span class="en">(Severity)</span>는 겪었을 때 얼마나 나쁜가다. 닐슨은 심각도를 0(문제 아님)부터 4(치명적: 출시 전에 반드시 고칠 것)까지의 척도로 매기고, 판단할 때 빈도, 영향(과업을 못 하게 하는가), 지속성(한 번 알면 넘어가는가, 매번 걸리는가)을 함께 보라고 했다(Nielsen 1994). 이 장의 시뮬레이터는 1~4만 쓴다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th class="num">심각도</th><th>뜻</th><th>예</th></tr></thead>
+        <tbody>
+          <tr><td class="num">4</td><td>과업을 못 하거나, 했다고 잘못 믿게 한다</td><td>하트(찜하기)를 누르고 맡겼다고 믿는다</td></tr>
+          <tr><td class="num">3</td><td>크게 늦어지거나 그만두고 싶게 한다</td><td>전화번호를 왜 묻는지 몰라 화면을 닫으려 한다</td></tr>
+          <tr><td class="num">2</td><td>잠깐 막히지만 스스로 넘어간다</td><td>"확인됨"과 "준비됨"의 차이를 몰라 되묻는다</td></tr>
+          <tr><td class="num">1</td><td>거슬리지만 결과에는 영향이 없다</td><td>전화번호 칸에 하이픈을 넣을지 망설인다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>아래는 서윤의 손님 테스트에서 나온 문제 11개(가상 자료)다. 점은 문제 하나이고, 가로는 다섯 명 중 겪은 사람 수, 세로는 심각도다. 점을 끌어 판단을 바꿔 보고, 순서를 정하는 규칙도 바꿔 본다.</p>
+
+    <div class="sim" id="sim-sv">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>무엇부터 고칠까</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sv-cv"></canvas><span class="hint">점을 끌어 옮긴다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sv-rule"><button data-value="prod" class="on">심각도 × 빈도</button><button data-value="sev">심각도 먼저</button></div>
+          <div class="btn-row"><button class="btn sm" id="sv-reset">처음 판단으로</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">상위 다섯</span><span class="v txt" id="sv-o-top">—</span></div>
+        <div class="stat"><span class="k">고른 점</span><span class="v txt" id="sv-o-sel">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 배치에서 상위 다섯을 본다. 1번(맡아 두기와 찜하기 혼동)이 압도적이다. ② "심각도 먼저"로 바꾼다. 한 사람만 겪었지만 심각도 3인 6번과 9번이 앞으로 올라온다. ③ 9번(재고 수 글자가 작음)을 눌러 본다. 도경 한 사람만 겪었지만 큰 글자 설정을 쓰는 모든 사람에게 매번 일어나는 문제라면, 빈도 1은 과소평가다. 판단이 바뀌면 점을 옮긴다. (문제와 판단은 가상 자료다. 빈도는 다섯 명 중 몇 명인가이고, 같은 칸의 점은 겹치지 않게 조금씩 벌려 그렸다.)</div>
+    </div>
+
+    <p>곱셈은 편리하지만 함정이 있다. 심각도 4 × 빈도 1(4점)과 심각도 1 × 빈도 4(4점)가 같은 점수가 된다. 한 사람을 맡겼다고 착각하게 만든 문제와, 네 사람을 잠깐 거슬리게 한 문제는 같은 무게가 아니다. 그래서 많은 팀이 "심각도 4는 빈도와 상관없이 고친다"처럼 규칙에 예외를 둔다. 빈도도 표본의 빈도일 뿐이다. 다섯 명 중 한 명은 앞 절에서 본 것처럼 실제로는 20%일 수도, 2%일 수도 있다. 숫자는 순서를 정하는 대화를 돕는 도구이고, 마지막 판단은 그 문제를 겪는 사람이 누구인지를 아는 사람이 한다.</p>
+
+    <div class="callout try">
+      <strong>한 사람, 세 과업</strong>
+      자주 쓰는 앱이나 웹사이트에서 과업 세 개를 정하고, 이 장의 규칙대로 시나리오를 쓴다(화면의 단어 빼기, 목표만, 상황과 이유). 과업마다 성공 기준을 따로 적는다. 가족이나 친구 한 명에게 생각을 말해 달라고 부탁하고, 휴대폰 화면을 함께 보며 진행한다. 돕고 싶어도 "어떻게 될 것 같으세요?"로만 답한다. 끝나면 이 장의 SUS 열 문항을 종이로 주고 점수를 계산한다. 관찰 메모에서 문제를 뽑아 심각도(1~4)를 매기고, 고칠 순서 세 개를 적는다. 한 사람이라도, 앱을 만든 사람이 예상하지 못한 곳에서 멈추는 순간이 거의 반드시 나온다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 봄 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 8장</span></div>
+      <h4>하트를 누르고 "됐네요"라고 말한 사람들</h4>
+      <p>5월 첫 주 목요일과 금요일, 책방 E의 안쪽 작은 방에서 손님 다섯 명이 한 사람씩 테스트를 했다. 하린이 진행하고, 서윤과 지후가 관찰하며 메모했다. 참가자는 2장의 조사 때 연락처를 남긴 손님 가운데 정해 둔 책을 자주 사는 사람(3장의 유형 A) 넷과, 휴대폰 글자를 가장 크게 해 두고 쓰는 도경이었다. 손님 쪽은 7장에서 정한 대로 화면 프로토타입이 아니라 지후가 만든 시험판을 각자의 휴대폰으로 열었다. 주인 네 명은 금요일 오후 각자의 가게 계산대에서, 7장의 클릭 목업으로 따로 시험했다.</p>
+      <p>과업은 네 개였다. 서윤의 첫 초안 "'맡아 두기' 버튼을 눌러 책방 E에 맡겨 보세요"를 하린이 고쳐 쓴 문장은 이랬다. "토요일에 조카에게 줄 그림책 『고양이 책방의 사계절』을 사려고 한다. 집을 나서기 전에, 가서 그 책을 확실히 살 수 있게 해 두자." 결과(가상)는 T1 책이 있는 책방 찾기 5/5, T2 맡겨 두기 요청 끝내기 2/5, T3 요청 상태 확인 3/5, T4 요청 취소 4/5였다. T2의 95% 구간(수정 왈드)은 약 12%~77%로 넓지만, 위쪽 끝도 80%에 못 미친다. 실패한 세 명은 모두 책 카드 위의 하트(찜하기)를 누르고 "됐네요"라고 말했다. 하트를 맡아 두기로 읽은 것이다. T3에서 실패한 두 명은 "내 요청" 화면으로 가는 길을 찾지 못했다. SUS는 손님 평균 58.5(57.5, 62.5, 70, 47.5, 55), 주인 평균 70(72.5, 67.5, 77.5, 62.5)이었다. 다섯 명과 네 명의 평균이니 68과 비교해 단정하지 않고, 47.5를 준 손님이 T2와 T3에서 모두 막힌 사람이었다는 것을 적어 두었다.</p>
+      <p>손님 테스트에서 나온 문제는 모두 11개였다. 지후가 물었다. "다섯 명이면 85%라던데, 그럼 거의 다 찾은 거죠?" 하린은 메모를 넘겼다. 11개 문제를 겪은 횟수를 모두 더하면 21번, 이걸로 추정한 \(p\)는 21 ÷ (11 × 5) ≈ 0.38이고, 공식에 넣으면 다섯 명이 91%를 찾았다는 계산이 나온다. "그런데 이건 우리가 찾은 문제만으로 계산한 거예요. 아무도 겪지 않은 문제는 분모에 없어요. 그리고 11개 중 5개는 한 사람만 겪었어요." 그 다섯 개 중 하나가 도경만 겪은 문제였다. 결과 화면의 "2권 · 걸어서 6분"이 큰 글자 설정에서 줄이 바뀌며 버튼 아래로 숨어, 재고 수를 읽지 못했다. 도경이 없었다면 이 문제는 목록에 없었다. 헌책방 나무의 책이 헌책이라는 표시를 놓친 문제도 한 사람만 겪었는데, 그 사람만 헌책방 나무를 고른 참가자였다.</p>
+      <p>서윤은 심각도와 빈도로 순서를 매겼다. 곱셈으로는 1번(혼동, 4×3), 3번(기한 모름, 2×4), 2번(번호를 묻는 이유를 모름, 3×2), 4번("확인됨"과 "준비됨"의 차이, 2×3)이 위였고, 그다음 다섯째 자리를 두고 고민했다. 손님 쪽의 5번("내 요청"으로 가는 길, 2×2) 대신, 서윤은 주인 쪽 문제를 다섯째로 올렸다. 주인 네 명 모두 30초 안에 요청을 수락했지만, 셋이 "손님한테 알림이 간 거예요?"라고 되물었다. 주인 한 명의 문제는 그 가게의 모든 요청에 걸린다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>고칠 문제 상위 다섯 개(서윤의 선택, 가상 자료). ① 하트(찜하기)를 맡아 두기로 착각(손님 3/5, 심각도 4) → 첫 버전의 결과 화면에서 찜하기를 뺀다. 결과 화면의 행동은 맡아 두기 하나. ② 맡아 두는 기한을 모름(4/5, 심각도 2) → 요청 버튼 가까이와 요청 완료 화면에 기한을 날짜로 보여 준다. ③ 전화번호를 묻는 이유를 몰라 멈춤(2/5, 심각도 3, 한 명은 그만두려 함) → 번호 입력 화면에 이유를 한 줄로 밝힌다. ④ "확인됨"과 "준비됨"의 차이를 모름(3/5, 심각도 2) → 상태마다 지금 손님이 할 일을 한 줄로 붙인다. ⑤ 주인이 수락한 뒤 손님에게 알림이 갔는지 모름(주인 3/4, 심각도 3) → 수락 직후 "손님에게 문자를 보냈어요"를 보여 준다. 다음 순위인 "내 요청"으로 가는 길(2/5)과, 한 사람씩만 겪은 큰 글자 줄바꿈·헌책 표시 문제는 목록에 남기고 2차 테스트에서 다시 본다. <b>2차 테스트</b>: 고친 판으로 시범 운영 전에, 1차와 겹치지 않는 손님 다섯 명. 같은 과업 네 개와 같은 성공 기준, SUS. 다섯 명 중 큰 글자 설정을 쓰는 사람 한 명 이상, 헌책방 나무를 자주 가는 사람 한 명 이상을 일부러 넣는다.</div>
+        <div><b>아직 남은 문제</b>테스트는 "고치면 나아지는가"를 다섯 명의 행동으로 보여 줄 수 있지만, "얼마나 많은 손님이 끝까지 가서 책을 찾아가는가"는 보여 주지 못한다. 결과 화면의 버튼 문구도 의견이 갈린다. 책방 E 주인은 기한이 버튼에 들어가야 한다고 하고, 서윤은 지금 문구를 지키고 싶다.</div>
+        <div><b>다음 단계</b><a href="metrics.html">9장</a>: 시범 운영에서 숫자로 확인한다. 무엇을 잴지, 몇 명이 필요한지부터 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>사용성은 정해진 사용자가 정해진 맥락에서 정해진 목표를 효과적으로, 효율적으로, 만족스럽게 이루는 정도다(ISO 9241-11). 탐색용 테스트는 문제를 찾고, 평가용 테스트는 기준과 비교한다.</li>
+      <li>과업 시나리오는 화면의 단어 대신 사용자의 말로, 방법이 아니라 목표로, 상황과 이유를 담아 쓴다. 성공 기준은 진행자용으로 미리 적는다.</li>
+      <li>생각 말하기에서 진행자는 답하지 않고 맞장구와 되묻기로 말을 잇게 한다. 묻고 싶은 것은 과업 뒤 회고 질문으로 모은다. 오래 막히면 돕고 실패로 기록한다.</li>
+      <li>작은 표본의 성공률은 수정 왈드 구간으로 읽는다. 5명 중 4명 성공의 95% 구간은 약 36%~98%다. 구간이 넓어도 "고쳐야 한다"는 결론에는 충분할 수 있다.</li>
+      <li>과업 시간은 오른쪽 꼬리가 길다. 작은 표본에서는 기하평균이 중심을 더 잘 추정한다.</li>
+      <li>SUS는 홀수 문항(답−1), 짝수 문항(5−답)을 더해 2.5를 곱한다. 0~100점이지만 백분율이 아니며, 여러 연구의 평균은 68 안팎이다.</li>
+      <li>\(1-(1-p)^n\)에 평균 \(p\) = 0.31을 넣으면 다섯 명이 약 85%를 찾는다(Nielsen &amp; Landauer 1993). 이것은 모든 문제와 모든 사람의 \(p\)가 같다는 가정 위의 숫자다. 드문 문제와 다른 사용자 무리의 문제는 다섯 명이 놓친다.</li>
+      <li>고칠 순서는 심각도와 빈도로 정하되, 곱셈 점수에 맡기지 않는다. 심각한 문제는 한 사람만 겪어도 앞에 둔다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 다음 과업 시나리오 가운데 가장 잘 쓴 것은?</p>
+        <div class="opts">
+          <button class="opt">"'맡아 두기' 버튼을 눌러 책방 E에 책을 맡겨 보세요."</button>
+          <button class="opt">"검색 창에 책 제목을 입력하고, 결과에서 가장 가까운 책방을 고른 뒤 요청을 보내세요."</button>
+          <button class="opt" data-correct>"토요일에 조카에게 줄 그림책을 사려고 한다. 집을 나서기 전에, 가서 그 책을 확실히 살 수 있게 해 두자."</button>
+          <button class="opt">"이 서비스의 맡아 두기 기능이 얼마나 편리한지 평가해 주세요."</button>
+        </div>
+        <div class="quiz-exp">좋은 시나리오는 화면의 단어(맡아 두기)를 쓰지 않고, 방법(검색 창, 결과, 요청)을 알려 주지 않으며, 그럴듯한 상황과 이유를 준다. 첫째는 버튼 이름을 흘리고, 둘째는 단계를 알려 주며, 넷째는 과업이 아니라 의견을 묻는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 다섯 명 중 다섯 명이 과업에 성공했다. 이 결과에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">성공률이 100%이므로 이 과업에는 문제가 없다고 확신할 수 있다.</button>
+          <button class="opt" data-correct>관찰된 성공률은 100%지만, 95% 수정 왈드 구간으로 보면 진짜 성공률은 50%대까지 낮을 수도 있다.</button>
+          <button class="opt">다섯 명은 너무 적어서 이 결과로는 아무것도 말할 수 없다.</button>
+          <button class="opt">왈드 구간의 폭이 0이므로 이 결과가 가장 정확하다.</button>
+        </div>
+        <div class="quiz-exp">5/5에 수정 왈드를 적용하면 하한이 약 51%다. 다섯 명 모두 성공했어도 진짜 성공률이 꽤 낮을 가능성을 배제하지 못한다. 그렇다고 아무것도 말할 수 없는 것은 아니다. 적어도 이 다섯 명에게서는 막히는 곳이 보이지 않았다. 폭이 0인 왈드 구간은 작은 표본에서 공식이 실패한 것이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 한 참가자가 SUS 열 문항에 모두 5(매우 그렇다)라고 답했다. SUS 점수는?</p>
+        <div class="opts">
+          <button class="opt">100점</button>
+          <button class="opt">0점</button>
+          <button class="opt">125점</button>
+          <button class="opt" data-correct>50점</button>
+        </div>
+        <div class="quiz-exp">홀수 문항 다섯 개는 5−1 = 4점씩 20점, 짝수 문항 다섯 개는 5−5 = 0점씩 0점이다. 합 20에 2.5를 곱하면 50점이다. 긍정문과 부정문이 번갈아 있어서, 문장을 읽지 않고 한쪽 끝만 찍으면 50점이 된다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. "다섯 명이면 사용성 문제의 85%를 찾는다"는 주장에 대한 설명으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt">어떤 서비스든 다섯 명이 문제의 85% 이상을 찾는다는 것이 수학적으로 증명되었다.</button>
+          <button class="opt">다섯 명보다 많이 시험하면 새로운 문제는 나오지 않는다.</button>
+          <button class="opt" data-correct>한 사람의 발견 확률 p가 모든 문제와 사람에게 0.31로 같다고 둔 모형의 값이라, 드문 문제나 다른 사용자 무리의 문제는 다섯 명이 놓치기 쉽다.</button>
+          <button class="opt">85%는 다섯 명 중 85%가 과업에 성공한다는 뜻이다.</button>
+        </div>
+        <div class="quiz-exp">\(1-(1-0.31)^5 \approx 0.84\)는 Nielsen &amp; Landauer(1993)가 모은 프로젝트들의 평균 p를 모든 문제에 똑같이 적용한 값이다. p = 0.1인 문제는 다섯 명이 41%만 찾고, 다섯 명 안에 없는 사용자 무리의 문제는 아예 보이지 않는다. 85%는 성공률이 아니라 찾은 문제의 비율이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function run(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  function H(id, k, min) { return { get height() { var el = document.getElementById(id); return Math.max(min || 260, Math.round(Math.max(200, el.parentElement.clientWidth || 600) * k)); } }; }
+  function aw(x, n) { var z = 1.96, z2 = z * z, p = (x + z2 / 2) / (n + z2), m = z * Math.sqrt(p * (1 - p) / (n + z2)); return [Math.max(0, p - m), Math.min(1, p + m)]; }
+  function pc(v) { return Math.round(v * 100) + "%"; }
+
+  /* ---------------- 그림 2: 15명 한 번 대 5명 세 번 ---------------- */
+  run("fig2", function () {
+    var s1 = "", s2 = "";
+    for (var i = 0; i < 15; i++) s1 += '<circle cx="' + (30 + i * 22) + '" cy="55" r="8" class="f-acc-soft"/><circle cx="' + (30 + i * 22) + '" cy="55" r="8" fill="none" class="s-acc"/>';
+    for (var r = 0; r < 3; r++) {
+      var x0 = 30 + r * 140;
+      for (var j = 0; j < 5; j++) s2 += '<circle cx="' + (x0 + j * 18) + '" cy="145" r="7" class="f-acc-soft"/><circle cx="' + (x0 + j * 18) + '" cy="145" r="7" fill="none" class="s-acc"/>';
+      s2 += '<text x="' + (x0 + 36) + '" y="174" text-anchor="middle" class="lbl-dim" style="font-size:11px">' + (r + 1) + "차</text>";
+      if (r < 2) s2 += '<rect x="' + (x0 + 86) + '" y="132" width="44" height="26" rx="6" class="f-warn-soft"/><text x="' + (x0 + 108) + '" y="149" text-anchor="middle" class="lbl" style="font-size:11px">고치기</text>';
+    }
+    s2 += '<rect x="380" y="132" width="64" height="26" rx="6" class="f-warn-soft"/><text x="412" y="149" text-anchor="middle" class="lbl" style="font-size:11px">고치기</text>';
+    document.getElementById("ut-row1").innerHTML = s1.replace(/cx="(\d+)"/g, function (m, v) { return 'cx="' + Math.min(+v, 360) + '"'; });
+    document.getElementById("ut-row2").innerHTML = s2;
+  });
+
+  /* ---------------- 시뮬레이터 1: 과업 문장 고쳐 쓰기 ---------------- */
+  run("tk", function () {
+    // 조각: [텍스트, 종류, 어떤 고침이 바꾸는가]. 종류 bad(화면의 단어) warn(방법) ok(상황)
+    var T = [
+      {
+        ctx: "토요일에 조카에게 줄 그림책 『고양이 책방의 사계절』을 사려고 한다. 집을 나서기 전에, ",
+        goal: ["'맡아 두기' 버튼을 눌러 책을 맡겨 보세요.", "가서 그 책을 확실히 살 수 있게 해 두자."],
+        steps: "검색 창에 제목을 입력하고 결과에서 책방 E를 고른 뒤, ",
+        crit: "성공 기준(진행자용): 어느 책방이든 \"요청됨\" 상태가 보이면 성공. 도움을 받으면 실패. 5분이 지나면 멈춘다.",
+        m: ["버튼 이름을 읽고 누를 수 있는지(단어 짝 맞추기)", "정해 준 길을 따라갈 수 있는지", "스스로 기능을 찾아 목표를 이루는지"],
+      },
+      {
+        ctx: "어제 맡겨 둔 책을 오늘 저녁 퇴근길에 찾으러 가려고 한다. 헛걸음하고 싶지 않다. ",
+        goal: ["'내 요청'에서 '준비됨' 상태인지 확인해 보세요.", "지금 가면 책을 받을 수 있는지 알아보자."],
+        steps: "첫 화면 위 오른쪽의 아이콘을 누르고 목록 맨 위 요청을 연 뒤, ",
+        crit: "성공 기준(진행자용): 요청의 현재 상태를 말로 정확히 답하면 성공(\"아직 준비 중이에요\" 등). 3분이 지나면 멈춘다.",
+        m: ["메뉴 이름과 상태 이름을 찾는지", "정해 준 길을 따라갈 수 있는지", "상태 표시를 보고 '갈지 말지'를 판단하는지"],
+      },
+      {
+        ctx: "맡겨 둔 책을 친구가 선물로 줬다. 책방에 괜히 책을 붙잡아 두고 싶지 않다. ",
+        goal: ["'요청 취소' 버튼을 눌러 요청을 취소해 보세요.", "맡겨 둔 것을 취소하자."],
+        steps: "요청 상세 화면을 아래로 내려 맨 아래 버튼을 누른 뒤, ",
+        crit: "성공 기준(진행자용): 요청이 \"취소됨\"이 되고 참가자가 그것을 확인하면 성공. 3분이 지나면 멈춘다.",
+        m: ["버튼 이름을 읽고 누를 수 있는지(단어 짝 맞추기)", "정해 준 길을 따라갈 수 있는지", "스스로 취소하는 길을 찾는지(이 경우 '취소'는 사용자의 말이기도 하다)"],
+      },
+    ];
+    var task = AB.seg("tk-task", upd), f1 = AB.check("tk-f1", upd), f2 = AB.check("tk-f2", upd), f3 = AB.check("tk-f3", upd);
+    function upd() {
+      var t = T[+task()], a = f1(), b = f2(), c = f3(), html = "";
+      if (c) html += '<mark class="ok">' + t.ctx + "</mark>";
+      if (!b) html += '<mark class="warn">' + t.steps + "</mark>";
+      html += a ? t.goal[1] : t.goal[0].replace(/'([^']+)'/g, '<mark class="bad">\'$1\'</mark>');
+      document.getElementById("tk-doc").innerHTML = '<span class="lbl">참가자에게 주는 카드</span><div class="card">' + html + '</div><div class="crit">' + t.crit + '</div><div class="legend-row"><span><mark class="bad">빨강</mark> 화면의 단어</span><span><mark class="warn">노랑</mark> 방법 알려 주기</span><span><mark class="ok">초록</mark> 상황과 이유</span></div>';
+      var meas = !a ? t.m[0] : !b ? t.m[1] : t.m[2];
+      if (a && b && !c) meas += ". 다만 왜 하는지 몰라 '시험받는 사람'처럼 행동하기 쉽다";
+      AB.stat("tk-o-m", meas);
+      var n = (a ? 0 : 1) + (b ? 0 : 1) + (c ? 0 : 1);
+      AB.stat("tk-o-n", n === 0 ? "없음" : n + "가지");
+    }
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 2: 진행자의 한 마디 ---------------- */
+  run("md", function () {
+    var BASE = [["act", "참가자가 전화번호 칸을 누르려다 손을 멈춘다. 8초 동안 화면을 본다."], ["p", "참가자", "이거… 번호를 꼭 넣어야 돼요? 어디에 쓰는 거예요?"]];
+    var R = [
+      { m: "찾으러 가실 때 확인하려는 거예요. 넣으셔도 괜찮아요.", p: "아, 그렇구나. (번호를 넣는다)", g: "과업이 매끄럽게 이어진다.", l: "참가자가 이 화면에서 무엇을 몰랐는지, 혼자였다면 그만뒀을지를 알 수 없게 된다. 이 과업의 성공은 진행자의 성공이다.", j: "피한다" },
+      { m: "어디에 쓰일 것 같으세요?", p: "음… 광고 문자 보내려는 거 아닐까요? 그럼 좀 싫은데. 근데 맡기려면 넣어야겠죠.", g: "참가자가 품은 걱정(광고 문자)이 말로 나온다. 화면이 이유를 밝히지 않는다는 것이 드러난다.", l: "거의 없다. 다만 되묻기를 너무 자주 하면 참가자가 시험받는다고 느낀다.", j: "좋다" },
+      { m: "지금 어떤 생각을 하고 계세요?", p: "번호를 넣으면 뭐가 오는지 모르겠어요. 문자가 오는 건가? 책방에서 전화가 오나?", g: "질문에 답하지 않으면서, 참가자가 머릿속에 그린 다음 단계(문자? 전화?)가 드러난다.", l: "거의 없다.", j: "좋다" },
+      { m: "(아무 말 없이 고개만 끄덕이고 기다린다)", p: "…그냥 넣어 볼게요. (번호를 넣는다) 이상한 데 쓰이면 안 되는데.", g: "혼자였다면 어떻게 했을지에 가장 가까운 행동을 본다. 망설임과 혼잣말이 기록된다.", l: "참가자가 진행자의 침묵을 불편해할 수 있다. 시작할 때 '질문에 바로 답하지 못할 수 있다'고 알려 두어야 한다.", j: "좋다" },
+      { m: "아래쪽 '인증번호 받기' 버튼을 먼저 보시면 돼요.", p: "아, 네. (번호를 넣고 버튼을 누른다)", g: "과업이 빨리 끝난다.", l: "참가자의 질문(왜 묻는가)에 답하지도, 생각을 듣지도 않은 채 길만 알려 주었다. 이후 과업의 시간과 성공이 모두 오염된다.", j: "피한다" },
+    ];
+    var LONG = { m: "많이 기다리셨네요. 이 화면은 찾으러 가실 때 본인 확인용이에요. 다음으로 넘어가 볼게요.", p: "아, 그렇구나. 이유를 알았으면 바로 넣었을 거예요.", g: "참가자를 더 곤란하게 두지 않고, 남은 과업을 지킨다. 왜 막혔는지도 들었다.", l: "이 과업은 실패로 기록한다. 도움을 받은 성공은 성공이 아니다.", j: "이때는 돕는다" };
+    var r = AB.seg("md-r", upd), lg = AB.check("md-long", upd);
+    function line(who, cls, txt) { return '<p class="' + cls + '">' + (who ? '<span class="who">' + who + "</span>" : "") + txt + "</p>"; }
+    function upd() {
+      var long = lg(), d = long ? LONG : R[+r()], h = "";
+      h += line(null, "act", BASE[0][1]);
+      if (long) h += line(null, "act", "(3분이 지났다. 참가자가 한숨을 쉰다.)");
+      h += line(BASE[1][1], "p", BASE[1][2]);
+      h += line("진행자", "m", d.m);
+      h += line("참가자", "p", d.p);
+      document.getElementById("md-chat").innerHTML = h;
+      AB.stat("md-o-g", d.g); AB.stat("md-o-l", d.l); AB.stat("md-o-j", d.j);
+    }
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 3: 성공률과 신뢰 구간 ---------------- */
+  run("rs", function () {
+    var TASKS = [["T1 책 찾기", 0.9], ["T2 맡겨 두기", 0.5], ["T3 상태 확인", 0.7], ["T4 취소", 0.8]];
+    var seed = 161, sel = 1, data = null, geo = null;
+    var nG = AB.range("rs-n", function (v) { return v + "명"; }, function () { gen(); cv.redraw(); upd(); });
+    var trueC = AB.check("rs-true", function () { cv.redraw(); });
+    function gen() {
+      var R = AB.rng(seed), n = nG();
+      data = TASKS.map(function (t) {
+        var out = [];
+        for (var i = 0; i < 30; i++) { var u = R(), v = R(); out.push(u < t[1] ? 2 : v < 0.5 ? 1 : 0); }   // 2 성공, 1 도움 받아 성공(실패로 셈), 0 실패
+        return out.slice(0, n);
+      });
+    }
+    gen();
+    var cv = AB.canvas("#rs-cv", function (ctx, w, h) {
+      var P = AB.palette(), n = nG(), left = w < 460 ? 86 : 104, gridW = w - left - 14;
+      var cell = Math.min(22, gridW / n), rowH = 30, top = 22;
+      geo = { top: top, rowH: rowH };
+      ctx.font = AB.font(11, false, 600); ctx.fillStyle = P.dim; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("참가자 " + n + "명의 결과", left, 10);
+      TASKS.forEach(function (t, k) {
+        var y = top + k * rowH;
+        if (k === sel) { ctx.fillStyle = P.accent; ctx.globalAlpha = 0.1; ctx.fillRect(4, y, w - 8, rowH - 2); ctx.globalAlpha = 1; }
+        ctx.fillStyle = k === sel ? P.accent : P.text; ctx.font = AB.font(w < 460 ? 11.5 : 12.5, false, k === sel ? 700 : 500); ctx.textAlign = "left";
+        ctx.fillText(t[0], 10, y + rowH / 2);
+        data[k].forEach(function (o, i) {
+          var cx = left + i * cell + cell / 2, cy = y + rowH / 2, r = Math.max(3, Math.min(8, cell * 0.36));
+          ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7);
+          if (o === 2) { ctx.fillStyle = P.ok; ctx.fill(); }
+          else if (o === 1) { ctx.strokeStyle = P.warn; ctx.lineWidth = 2; ctx.stroke(); }
+          else { ctx.strokeStyle = P.bad; ctx.lineWidth = 2; ctx.moveTo(cx - r * 0.7, cy - r * 0.7); ctx.lineTo(cx + r * 0.7, cy + r * 0.7); ctx.moveTo(cx + r * 0.7, cy - r * 0.7); ctx.lineTo(cx - r * 0.7, cy + r * 0.7); ctx.stroke(); }
+        });
+      });
+      // 범례
+      var ly = top + 4 * rowH + 10;
+      ctx.font = AB.font(11); ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      ctx.fillStyle = P.ok; ctx.beginPath(); ctx.arc(14, ly, 5, 0, 7); ctx.fill(); ctx.fillStyle = P.dim; ctx.fillText("성공", 24, ly);
+      ctx.strokeStyle = P.warn; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(70, ly, 5, 0, 7); ctx.stroke(); ctx.fillStyle = P.dim; ctx.fillText("도움 받아 성공(실패로 셈)", 80, ly);
+      ctx.strokeStyle = P.bad; ctx.beginPath(); ctx.moveTo(236, ly - 4); ctx.lineTo(244, ly + 4); ctx.moveTo(244, ly - 4); ctx.lineTo(236, ly + 4); ctx.stroke(); ctx.fillText("실패", 250, ly);
+      // 구간 그림
+      var cTop = ly + 22, cl = left, cr = w - 18, X = function (v) { return cl + (cr - cl) * v; };
+      ctx.strokeStyle = P.grid; ctx.lineWidth = 1; ctx.fillStyle = P.dim; ctx.font = AB.font(10.5, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [0, 0.25, 0.5, 0.75, 1].forEach(function (v) { ctx.beginPath(); ctx.moveTo(X(v), cTop); ctx.lineTo(X(v), cTop + 4 * 26); ctx.stroke(); ctx.fillText(pc(v), X(v), cTop + 4 * 26 + 4); });
+      TASKS.forEach(function (t, k) {
+        var y = cTop + k * 26 + 13, x = data[k].filter(function (o) { return o === 2; }).length, ci = aw(x, n);
+        ctx.fillStyle = k === sel ? P.accent : P.text; ctx.font = AB.font(11.5, false, k === sel ? 700 : 400); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+        ctx.fillText(t[0].split(" ")[0] + " " + x + "/" + n, 10, y);
+        ctx.strokeStyle = k === sel ? P.accent : P.accent2; ctx.lineWidth = k === sel ? 6 : 4; ctx.lineCap = "round";
+        ctx.beginPath(); ctx.moveTo(X(ci[0]), y); ctx.lineTo(X(ci[1]), y); ctx.stroke(); ctx.lineCap = "butt";
+        ctx.fillStyle = P.text; ctx.beginPath(); ctx.arc(X(x / n), y, 3.5, 0, 7); ctx.fill();
+        if (trueC()) { var miss = t[1] < ci[0] || t[1] > ci[1]; ctx.strokeStyle = miss ? P.bad : P.ok; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(t[1]), y - 10); ctx.lineTo(X(t[1]), y + 10); ctx.stroke(); }
+      });
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("막대: 95% 구간 · 점: 관찰한 성공률" + (trueC() ? " · 세로선: 진짜 값" : ""), 10, cTop + 4 * 26 + 22);
+    }, { get height() { return 22 + 4 * 30 + 10 + 22 + 4 * 26 + 42; } });
+    function upd() {
+      var n = nG(), x = data[sel].filter(function (o) { return o === 2; }).length, ci = aw(x, n);
+      AB.stat("rs-o-t", TASKS[sel][0]);
+      AB.stat("rs-o-x", x + " / " + n + " (" + pc(x / n) + ")");
+      AB.stat("rs-o-ci", pc(ci[0]) + " ~ " + pc(ci[1]));
+    }
+    document.getElementById("rs-again").addEventListener("click", function () { seed += 1; gen(); cv.redraw(); upd(); });
+    AB.drag(cv.canvas, { start: function (x, y) { if (!geo) return; var k = Math.floor((y - geo.top) / geo.rowH); if (k >= 0 && k < 4) { sel = k; cv.redraw(); upd(); } } });
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 4: 세 가지 평균 ---------------- */
+  run("tm", function () {
+    var T = [38, 45, 52, 70, 190], MAX = 420, drag = -1, box = null;
+    var lg = AB.check("tm-log", function () { cv.redraw(); });
+    function X(v) { if (!box) return 0; return lg() ? box.x + box.w * Math.log(v / 10) / Math.log(MAX / 10) : box.x + box.w * v / MAX; }
+    function inv(px) { var f = AB.clamp((px - box.x) / box.w, 0, 1); return lg() ? 10 * Math.pow(MAX / 10, f) : f * MAX; }
+    function stats() {
+      var s = T.slice().sort(function (a, b) { return a - b; }), mean = T.reduce(function (a, b) { return a + b; }, 0) / T.length;
+      var g = Math.exp(T.reduce(function (a, b) { return a + Math.log(b); }, 0) / T.length);
+      return { mean: mean, med: s[2], geo: g };
+    }
+    var cv = AB.canvas("#tm-cv", function (ctx, w, h) {
+      var P = AB.palette(); box = { x: 30, w: w - 60, y: 40 }; var y = 92, st = stats();
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, y); ctx.lineTo(box.x + box.w, y); ctx.stroke();
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10.5, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      (lg() ? [10, 20, 50, 100, 200, 400] : [0, 60, 120, 180, 240, 300, 360, 420]).forEach(function (v) { if (v < 10 && lg()) return; var px = X(Math.max(v, lg() ? 10 : 0)); ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px, y + 5); ctx.stroke(); ctx.fillText(v + "초", px, y + 8); });
+      // 평균선
+      [["산술평균", st.mean, P.bad, 20], ["중앙값", st.med, P.accent2, 132], ["기하평균", st.geo, P.accent, 150]].forEach(function (m, i) {
+        var px = X(m[1]); ctx.strokeStyle = m[2]; ctx.lineWidth = 2; ctx.setLineDash(i === 1 ? [5, 4] : []); ctx.beginPath(); ctx.moveTo(px, i === 0 ? 30 : y); ctx.lineTo(px, i === 0 ? y : 142 + i * 0); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = m[2]; ctx.font = AB.font(11.5, false, 700); ctx.textBaseline = "middle";
+        var ly = i === 0 ? 22 : i === 1 ? 128 : 148; ctx.textAlign = px > w * 0.7 ? "right" : "left"; ctx.fillText(m[0] + " " + Math.round(m[1]) + "초", px + (px > w * 0.7 ? -5 : 5), ly);
+      });
+      T.forEach(function (v, i) { AB.handle(ctx, X(v), y, { r: 7, fill: P.surface, ring: P.text }); });
+    }, { height: 170 });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = -1; var best = 24; T.forEach(function (v, i) { var d = Math.abs(X(v) - x); if (d < best) { best = d; drag = i; } }); },
+      move: function (x) { if (drag < 0 || !box) return; T[drag] = Math.max(10, Math.round(inv(x))); cv.redraw(); upd(); },
+      end: function () { drag = -1; },
+    });
+    function upd() { var s = stats(); AB.stat("tm-o-a", Math.round(s.mean) + "초"); AB.stat("tm-o-m", Math.round(s.med) + "초"); AB.stat("tm-o-g", Math.round(s.geo) + "초"); }
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 5: SUS 계산기 ---------------- */
+  run("sus", function () {
+    var SHORT = ["자주 쓰고 싶다", "쓸데없이 복잡하다", "쓰기 쉬웠다", "도움이 필요할 것 같다", "기능이 잘 어우러진다", "앞뒤가 안 맞는다", "금방 익힐 것 같다", "몹시 번거로웠다", "자신감이 있었다", "배울 것이 많았다"];
+    var PRE = { a: [4, 2, 4, 1, 3, 2, 4, 2, 3, 2], mid: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3], five: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5], best: [5, 1, 5, 1, 5, 1, 5, 1, 5, 1] };
+    var box = document.getElementById("sus-ctrls"), gets = [];
+    for (var i = 0; i < 10; i++) {
+      var lab = document.createElement("label"); lab.className = "ctrl";
+      lab.innerHTML = '<span>' + (i + 1) + ". " + SHORT[i] + ' <output id="sus-' + i + '-out"></output></span><input type="range" id="sus-' + i + '" min="1" max="5" step="1" value="' + PRE.a[i] + '">';
+      box.appendChild(lab);
+    }
+    var pre = AB.seg("sus-pre", function (v) { PRE[v].forEach(function (x, k) { gets[k].set(x); }); });
+    for (var k = 0; k < 10; k++) gets.push(AB.range("sus-" + k, function (v) { return String(v); }, function () { cv.redraw(); upd(); }));
+    function contrib(k) { var v = gets[k](); return k % 2 === 0 ? v - 1 : 5 - v; }
+    var cv = AB.canvas("#sus-cv", function (ctx, w, h) {
+      var P = AB.palette(), left = w < 460 ? 30 : 36, right = w - 16, top = 14, rowH = 22, bw = right - left - 40;
+      ctx.font = AB.font(11, false, 600); ctx.textBaseline = "middle";
+      for (var k = 0; k < 10; k++) {
+        var y = top + k * rowH + rowH / 2, c = contrib(k), odd = k % 2 === 0;
+        ctx.fillStyle = P.dim; ctx.textAlign = "right"; ctx.fillText((k + 1) + (odd ? "+" : "−"), left - 6, y);
+        ctx.fillStyle = P.surface; ctx.fillRect(left, y - 7, bw, 14);
+        ctx.fillStyle = odd ? P.accent : P.accent2; ctx.fillRect(left, y - 7, bw * c / 4, 14);
+        ctx.fillStyle = P.text; ctx.textAlign = "left"; ctx.font = AB.font(11.5, true, 600); ctx.fillText(c + "점", left + bw + 6, y); ctx.font = AB.font(11, false, 600);
+      }
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("+ 긍정문(답−1)  − 부정문(5−답)  · 문항당 0~4점", left, top + 10 * rowH + 4);
+      // 점수 눈금
+      var sum = 0; for (var j = 0; j < 10; j++) sum += contrib(j);
+      var score = sum * 2.5, gy = top + 10 * rowH + 44, X = function (v) { return left + (right - left) * v / 100; };
+      ctx.fillStyle = P.surface; ctx.fillRect(left, gy, right - left, 16);
+      ctx.fillStyle = P.accent; ctx.fillRect(left, gy, X(score) - left, 16);
+      ctx.strokeStyle = P.text; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(68), gy - 8); ctx.lineTo(X(68), gy + 24); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10.5, true); ctx.textAlign = "center";
+      [0, 25, 50, 75, 100].forEach(function (v) { ctx.fillText(String(v), X(v), gy + 22); });
+      ctx.fillStyle = P.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = X(68) > right - 90 ? "right" : "left"; ctx.textBaseline = "bottom"; ctx.fillText("여러 연구의 평균 68 안팎", X(68) + 4, gy - 9);
+    }, { get height() { return 14 + 10 * 22 + 44 + 16 + 40; } });
+    function upd() {
+      var sum = 0; for (var j = 0; j < 10; j++) sum += contrib(j);
+      var s = sum * 2.5, pattern = gets.every(function (g) { return g() === gets[0](); });
+      AB.stat("sus-o-raw", sum + " / 40");
+      AB.stat("sus-o-s", (s % 1 ? s.toFixed(1) : s) + "점");
+      AB.stat("sus-o-r", pattern ? "모든 문항에 같은 답: 문장을 읽지 않고 찍었을 수 있다. 점수보다 응답을 의심한다." : s >= 68 ? "여러 연구의 평균(68 안팎)보다 높은 쪽. 백분율이 아니다." : "여러 연구의 평균(68 안팎)보다 낮은 쪽. 낮은 문항이 무엇인지 본다.");
+    }
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 6: 문제 발견 곡선 ---------------- */
+  run("dc", function () {
+    var pG = AB.range("dc-p", function (v) { return v.toFixed(2); }, function () { cv.redraw(); upd(); });
+    var nG = AB.range("dc-n", function (v) { return v + "명"; }, function () { cv.redraw(); upd(); });
+    function need(p, P) { return Math.ceil(Math.log(1 - P) / Math.log(1 - p) - 1e-9); }
+    var cv = AB.canvas("#dc-cv", function (ctx, w, h) {
+      var P = AB.palette(), p = pG(), n = nG();
+      function curve(pp) { var d = []; for (var k = 0; k <= 20; k += 0.25) d.push([k, 1 - Math.pow(1 - pp, k)]); return d; }
+      var ch = AB.chart(ctx, null, {
+        x: [0, 20], y: [0, 1], xLabel: "참가자 수 n", yLabel: "찾는 문제의 비율", xTicks: [0, 5, 10, 15, 20], yTicks: [0, 0.25, 0.5, 0.75, 0.85, 1], yFmt: function (v) { return Math.round(v * 100) + "%"; },
+        series: [{ data: curve(0.31), color: P.faint, width: 1.5, dash: [5, 4] }, { data: curve(0.1), color: P.faint, width: 1.5, dash: [2, 3] }, { data: curve(p), color: P.accent, width: 2.8 }],
+        vlines: [{ x: n, color: P.accent2 }],
+        points: [{ x: n, y: 1 - Math.pow(1 - p, n), color: P.accent, r: 5 }],
+      });
+      ctx.font = AB.font(11); ctx.fillStyle = P.dim; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("p = 0.31(점선)", ch.X(13.5), ch.Y(0.94));
+      ctx.fillText("p = 0.10(점선)", ch.X(13.5), ch.Y(1 - Math.pow(0.9, 13.5)) + 14);
+    }, H("dc-cv", 0.62, 280));
+    function upd() {
+      var p = pG(), n = nG();
+      AB.stat("dc-o-f", pc(1 - Math.pow(1 - p, n)));
+      AB.stat("dc-o-85", need(p, 0.85) + "명"); AB.stat("dc-o-95", need(p, 0.95) + "명");
+    }
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 7: 몬테카를로 ---------------- */
+  run("mc", function () {
+    var VARY = [0.85, 0.75, 0.65, 0.6, 0.5, 0.45, 0.4, 0.35, 0.3, 0.25, 0.22, 0.2, 0.18, 0.15, 0.12, 0.1, 0.08, 0.05, 0.03, 0.02];
+    // 사람도 다르다: 15개는 모두에게(평균을 맞춘 값), 5개는 B 무리(20%)에게만 p = 0.6
+    var GROUP = [0.85, 0.75, 0.65, 0.6, 0.55, 0.5, 0.45, 0.4, 0.35, 0.3, 0.25, 0.2, 0.15, 0.1, 0.06, 0.6, 0.6, 0.6, 0.6, 0.6];
+    var SHARE_B = 0.2, seed = 3;
+    var model = AB.seg("mc-model", function () { refresh(); }), nG = AB.range("mc-n", function (v) { return v + "명"; }, function () { refresh(); });
+    function probs() { var m = model(); return m === "same" ? VARY.map(function () { return 0.31; }) : m === "vary" ? VARY : GROUP; }
+    function onlyB(j) { return model() === "group" && j >= 15; }
+    function meanP() { var ps = probs(); if (model() !== "group") return ps.reduce(function (a, b) { return a + b; }, 0) / 20; var s = 0; ps.forEach(function (p, j) { s += onlyB(j) ? p * SHARE_B : p; }); return s / 20; }
+    function sim(R, n) {
+      var ps = probs(), grid = [], isB = [];
+      for (var i = 0; i < n; i++) { isB.push(model() === "group" && R() < SHARE_B); var row = []; for (var j = 0; j < 20; j++) { var p = onlyB(j) ? (isB[i] ? ps[j] : 0) : ps[j]; row.push(R() < p); } grid.push(row); }
+      return { grid: grid, isB: isB };
+    }
+    var one = null, hist = null, avg = 0;
+    function refresh() {
+      var n = nG();
+      one = sim(AB.rng(seed * 7919 + 13), n);
+      var R = AB.rng(424242), H2 = new Array(21).fill(0), tot = 0;
+      for (var r = 0; r < 1000; r++) { var s = sim(R, n), f = 0; for (var j = 0; j < 20; j++) { for (var i = 0; i < n; i++) if (s.grid[i][j]) { f++; break; } } H2[f]++; tot += f; }
+      hist = H2; avg = tot / 1000 / 20;
+      cv.redraw(); upd();
+    }
+    var cv = AB.canvas("#mc-cv", function (ctx, w, h) {
+      if (!one) return;
+      var P = AB.palette(), n = nG(), ps = probs(), left = 46, right = w - 10, cw = (right - left) / 20, top = 46, rh = Math.min(16, 150 / n);
+      // 문제의 p 막대
+      ctx.font = AB.font(10.5); ctx.fillStyle = P.dim; ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("문제 20개(왼쪽일수록 흔하다) · 막대 높이 = p", left, 2);
+      for (var j = 0; j < 20; j++) {
+        var x = left + j * cw, found = one.grid.some(function (r) { return r[j]; });
+        ctx.fillStyle = onlyB(j) ? P.warn : P.accent2; ctx.globalAlpha = 0.6; ctx.fillRect(x + 2, top - 6 - ps[j] * 24, cw - 4, ps[j] * 24); ctx.globalAlpha = 1;
+        ctx.strokeStyle = P.border; ctx.lineWidth = 1;
+        for (var i = 0; i < n; i++) {
+          var y = top + i * rh;
+          ctx.strokeRect(x + 1, y + 1, cw - 2, rh - 2);
+          if (one.grid[i][j]) { ctx.fillStyle = onlyB(j) ? P.warn : P.accent; ctx.beginPath(); ctx.arc(x + cw / 2, y + rh / 2, Math.max(2, Math.min(cw, rh) * 0.3), 0, 7); ctx.fill(); }
+        }
+        ctx.fillStyle = found ? P.ok : P.bad; ctx.font = AB.font(10, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(found ? "✓" : "–", x + cw / 2, top + n * rh + 3);
+      }
+      ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.font = AB.font(10);
+      for (var i2 = 0; i2 < n; i2++) { ctx.fillStyle = one.isB[i2] ? P.warn : P.dim; ctx.fillText((one.isB[i2] ? "큰 " : "") + "P" + (i2 + 1), left - 4, top + i2 * rh + rh / 2); }
+      // 1000번 히스토그램
+      var hy = top + n * rh + 26, hh = h - hy - 34, hl = left, hr = right, bw = (hr - hl) / 21, mx = Math.max.apply(null, hist);
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("같은 테스트 1,000번: 찾은 문제 수의 분포", hl, hy - 14);
+      for (var f = 0; f <= 20; f++) { var bh = hist[f] / mx * hh; ctx.fillStyle = P.accent; ctx.globalAlpha = 0.55; ctx.fillRect(hl + f * bw + 1, hy + hh - bh, bw - 2, bh); ctx.globalAlpha = 1; }
+      var formula = 1 - Math.pow(1 - meanP(), n), fx = hl + formula * 20 * bw + bw / 2;
+      ctx.strokeStyle = P.text; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(fx, hy); ctx.lineTo(fx, hy + hh); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = P.text; ctx.font = AB.font(10.5, false, 600); ctx.textAlign = fx > w * 0.7 ? "right" : "left"; ctx.textBaseline = "top"; ctx.fillText("공식의 예측", fx + (fx > w * 0.7 ? -4 : 4), hy);
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10, true); ctx.textAlign = "center";
+      [0, 5, 10, 15, 20].forEach(function (v) { ctx.fillText(String(v), hl + v * bw + bw / 2, hy + hh + 4); });
+    }, { get height() { var n = nGv(); return 46 + n * Math.min(16, 150 / n) + 26 + 120 + 34; } });
+    function nGv() { return Number(document.getElementById("mc-n").value); }
+    function upd() {
+      var n = nG(), found = 0, det = 0;
+      for (var j = 0; j < 20; j++) { var c = 0; for (var i = 0; i < n; i++) if (one.grid[i][j]) c++; if (c) { found++; det += c; } }
+      AB.stat("mc-o-x", found + " / 20 (" + pc(found / 20) + ")");
+      AB.stat("mc-o-avg", pc(avg) + " · " + pc(1 - Math.pow(1 - meanP(), n)));
+      AB.stat("mc-o-p", found ? (det / (found * n)).toFixed(2) + " (진짜 평균 " + meanP().toFixed(2) + ")" : "—");
+    }
+    document.getElementById("mc-again").addEventListener("click", function () { seed++; refresh(); });
+    refresh();
+    nG.el.addEventListener("input", function () { cv.resize(); });
+  });
+
+  /* ---------------- 시뮬레이터 8: 심각도 × 빈도 ---------------- */
+  run("sv", function () {
+    var INIT = [
+      ["찜하기를 맡아 두기로 착각", 3, 4], ["번호를 묻는 이유를 모름", 2, 3], ["맡아 두는 기한을 모름", 4, 2], ["확인됨·준비됨 차이를 모름", 3, 2],
+      ["'내 요청'으로 가는 길을 못 찾음", 2, 2], ["헌책 표시를 놓침", 1, 3], ["같은 책의 다른 판 구분", 1, 2], ["취소 버튼이 맨 아래", 1, 2],
+      ["큰 글자에서 재고 수가 숨음", 1, 3], ["번호에 하이픈을 넣을지 망설임", 2, 1], ["검색 칸 안내가 모호함", 1, 1],
+    ];
+    var pts = [], sel = -1, drag = -1, geo = null;
+    function reset() { pts = INIT.map(function (d) { return { n: d[0], f: d[1], s: d[2] }; }); }
+    reset();
+    var rule = AB.seg("sv-rule", function () { cv.redraw(); upd(); });
+    function order() {
+      var idx = pts.map(function (p, i) { return i; });
+      idx.sort(function (a, b) {
+        var A = pts[a], B = pts[b], fa = Math.round(A.f), fb = Math.round(B.f), sa = Math.round(A.s), sb = Math.round(B.s);
+        if (rule() === "prod") return (sb * fb - sa * fa) || (sb - sa) || (a - b);
+        return (sb - sa) || (fb - fa) || (a - b);
+      });
+      return idx;
+    }
+    function layout() {
+      var cells = {}, pos = [];
+      pts.forEach(function (p, i) { var k = Math.round(p.f) + ":" + Math.round(p.s); (cells[k] = cells[k] || []).push(i); });
+      Object.keys(cells).forEach(function (k) { var list = cells[k]; list.forEach(function (i, j) { pos[i] = [(j - (list.length - 1) / 2) * 0.24, 0]; }); });
+      return pos;
+    }
+    var cv = AB.canvas("#sv-cv", function (ctx, w, h) {
+      var P = AB.palette(), top5 = order().slice(0, 5), off = layout();
+      var ch = AB.chart(ctx, { x: 52, y: 16, w: w - 52 - 18, h: h - 16 - 50 }, {
+        x: [0.5, 5.5], y: [0.5, 4.5], xLabel: "겪은 사람(5명 중)", yLabel: "심각도", xTicks: [1, 2, 3, 4, 5], yTicks: [1, 2, 3, 4],
+      });
+      geo = ch;
+      // 배경: 곱 점수 띠
+      for (var f = 1; f <= 5; f++) for (var s = 1; s <= 4; s++) {
+        var v = rule() === "prod" ? f * s / 20 : (s - 1) / 3 * 0.8 + f / 25;
+        ctx.fillStyle = P.accent; ctx.globalAlpha = 0.04 + v * 0.16;
+        ctx.fillRect(ch.X(f - 0.5) + 1, ch.Y(s + 0.5) + 1, ch.X(1) - ch.X(0) - 2, ch.Y(0) - ch.Y(1) - 2);
+      }
+      ctx.globalAlpha = 1;
+      pts.forEach(function (p, i) {
+        var dragging = i === drag, x = dragging ? p.f : Math.round(p.f) + off[i][0], y = dragging ? p.s : Math.round(p.s);
+        var px = ch.X(x), py = ch.Y(y), isTop = top5.indexOf(i) >= 0, r = 11;
+        ctx.beginPath(); ctx.arc(px, py, r, 0, 7);
+        ctx.fillStyle = isTop ? P.accent : P.surface; ctx.fill();
+        ctx.lineWidth = i === sel ? 3 : 1.5; ctx.strokeStyle = i === sel ? P.text : isTop ? P.accent : P.axis; ctx.stroke();
+        ctx.fillStyle = isTop ? "#ffffff" : P.text; ctx.font = AB.font(11, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText(String(i + 1), px, py + 0.5);
+      });
+    }, H("sv-cv", 0.66, 300));
+    function hit(x, y) {
+      var off = layout(), best = -1, bd = 16;
+      pts.forEach(function (p, i) { var d = Math.hypot(geo.X(Math.round(p.f) + off[i][0]) - x, geo.Y(Math.round(p.s)) - y); if (d < bd) { bd = d; best = i; } });
+      return best;
+    }
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!geo) return; drag = hit(x, y); if (drag >= 0) sel = drag; upd(); },
+      move: function (x, y) {
+        if (drag < 0 || !geo) return;
+        var b = geo.box, fx = 0.5 + 5 * (x - b.x) / b.w, sy = 4.5 - 4 * (y - b.y) / b.h;
+        pts[drag].f = AB.clamp(fx, 1, 5); pts[drag].s = AB.clamp(sy, 1, 4); cv.redraw(); upd();
+      },
+      end: function () { if (drag >= 0) { pts[drag].f = Math.round(pts[drag].f); pts[drag].s = Math.round(pts[drag].s); } drag = -1; cv.redraw(); upd(); },
+    });
+    document.getElementById("sv-reset").addEventListener("click", function () { reset(); sel = -1; cv.redraw(); upd(); });
+    function upd() {
+      var o = order().slice(0, 5);
+      AB.stat("sv-o-top", o.map(function (i) { return (i + 1) + ". " + pts[i].n; }).join("<br>"));
+      if (sel >= 0) { var p = pts[sel]; AB.stat("sv-o-sel", (sel + 1) + ". " + p.n + "<br>빈도 " + Math.round(p.f) + "/5 · 심각도 " + Math.round(p.s) + " · 곱 " + Math.round(p.f) * Math.round(p.s)); }
+      else AB.stat("sv-o-sel", "점을 누르면 내용이 보인다");
+    }
+    upd();
+  });
+})();
+</script>
+</body>
+</html>

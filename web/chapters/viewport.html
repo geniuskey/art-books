@@ -1,0 +1,1010 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "웹 페이지의 캔버스인 뷰포트를 잰다. 뷰포트 메타 태그, CSS 픽셀과 기기 픽셀 비율(DPR), 촘촘한 화면의 1px 선과 이미지, 제각각인 화면 폭의 분포, 확대와 글자 크기 설정, 접힘선 통설을 시뮬레이터로 확인한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>브라우저라는 캔버스 · WebBook</title>
+<meta name="description" content="웹 페이지의 캔버스인 뷰포트를 잰다. 뷰포트 메타 태그, CSS 픽셀과 기기 픽셀 비율(DPR), 촘촘한 화면의 1px 선과 이미지, 제각각인 화면 폭의 분포, 확대와 글자 크기 설정, 접힘선 통설을 시뮬레이터로 확인한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/viewport.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="브라우저라는 캔버스 · WebBook">
+<meta property="og:description" content="웹 페이지의 캔버스인 뷰포트를 잰다. 뷰포트 메타 태그, CSS 픽셀과 기기 픽셀 비율(DPR), 촘촘한 화면의 1px 선과 이미지, 제각각인 화면 폭의 분포, 확대와 글자 크기 설정, 접힘선 통설을 시뮬레이터로 확인한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/viewport.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/viewport.html#chapter","name":"브라우저라는 캔버스","headline":"브라우저라는 캔버스 · WebBook","description":"웹 페이지의 캔버스인 뷰포트를 잰다. 뷰포트 메타 태그, CSS 픽셀과 기기 픽셀 비율(DPR), 촘촘한 화면의 1px 선과 이미지, 제각각인 화면 폭의 분포, 확대와 글자 크기 설정, 접힘선 통설을 시뮬레이터로 확인한다.","url":"https://artbook.euiyun.com/web/chapters/viewport.html","position":2,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"2. 브라우저라는 캔버스","item":"https://artbook.euiyun.com/web/chapters/viewport.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .wb-code { font-family: var(--mono); font-size: 13px; line-height: 1.6; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin: 1rem 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .wb-code code { background: none; padding: 0; font-size: inherit; }
+</style>
+</head>
+<body data-chapter="viewport">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 02</div>
+    <h1>브라우저라는 캔버스</h1>
+    <p class="lead">화가는 캔버스를 사러 가서 크기를 고른다. 웹 디자이너는 캔버스를 고르지 못한다. 손님이 저마다 자기 캔버스를 들고 온다. 폭이 360인 휴대폰, 1440인 노트북, 글자를 키운 휴대폰, 창을 반만 연 모니터. 같은 "1픽셀"도 어떤 화면에서는 빛의 점 하나이고 어떤 화면에서는 아홉 개다. 이 장은 웹 페이지의 캔버스인 뷰포트를 재는 법을 익힌다. 무엇으로 재는지(CSS 픽셀), 실제로는 무엇으로 그려지는지(기기 픽셀), 손님들의 캔버스는 얼마나 제각각인지, 그리고 손님이 그 캔버스를 어떻게 바꾸는지 본다.</p>
+    <ul class="objectives">
+      <li>뷰포트가 무엇이고, 뷰포트 메타 태그가 휴대폰의 페이지 배치를 어떻게 바꾸는지 설명한다.</li>
+      <li>CSS 픽셀과 기기 픽셀을 구별하고, 기기 픽셀 비율(DPR)로 1px 선과 이미지의 선명도를 계산한다.</li>
+      <li>방문자의 화면 폭이 몇 개의 "기기 크기"가 아니라 넓게 흩어진 분포라는 것을 가상 자료로 확인한다.</li>
+      <li>페이지 확대와 글자 크기 설정이 뷰포트와 레이아웃에 주는 영향을 구별하고, 관련된 WCAG 2.2 기준을 안다.</li>
+      <li>"접힘선 아래는 아무도 보지 않는다"는 통설의 근거 수준을 밝히고, 첫 화면의 높이가 기기마다 다르다는 것을 본다.</li>
+    </ul>
+  </header>
+
+  <section id="window">
+    <h2>뷰포트: 창 안의 캔버스</h2>
+    <p><a href="overview.html">1장</a>에서 웹 페이지가 그려지는 창 안의 사각형을 <span class="term">뷰포트</span><span class="en">(Viewport)</span>라고 불렀다. 조금 더 정확히 나누면 세 겹이 있다. 가장 바깥은 기기의 <b>화면</b>이다. 그 안에 브라우저의 <b>창</b>이 있고, 창에서 주소창·탭·도구 막대를 뺀 부분이 페이지가 실제로 그려지는 뷰포트다. 컴퓨터에서는 창을 화면보다 작게 쓸 수 있으므로 뷰포트 폭이 화면 폭보다 좁은 일이 흔하다. 휴대폰에서는 대개 창이 화면 전체를 쓰지만, 주소창이 스크롤에 따라 나타났다 사라지며 뷰포트의 높이가 바뀐다.</p>
+    <p>뷰포트의 크기는 <span class="term">CSS 픽셀</span><span class="en">(CSS pixel)</span>로 잰다. CSS 픽셀은 웹 페이지의 모든 길이를 재는 기본 단위(<code>px</code>)로, 화면의 실제 빛 점 하나와 같지 않다. 둘의 관계는 이 장의 셋째 절에서 다룬다. 지금은 "뷰포트 폭 390"이라는 말이 "그 화면에 CSS 픽셀 390개만큼의 폭이 있다"는 뜻이라는 것만 기억한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="화면, 브라우저 창, 뷰포트의 세 겹. 컴퓨터에서는 창이 화면보다 작을 수 있고, 휴대폰에서는 주소창이 뷰포트 높이를 바꾼다">
+        <defs><marker id="vp-ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="148" y="20" text-anchor="middle" class="lbl-b">컴퓨터</text>
+        <rect x="10" y="32" width="276" height="176" rx="6" class="f-surface s-line"/>
+        <text x="20" y="50" class="lbl-dim">화면 1920</text>
+        <rect x="36" y="60" width="200" height="132" rx="5" class="f-elev s-line"/>
+        <rect x="36" y="60" width="200" height="22" rx="5" class="f-acc-soft"/>
+        <text x="46" y="76" class="lbl-dim">창(탭·주소창)</text>
+        <rect x="36" y="82" width="200" height="110" class="f-acc2-soft s-acc2"/>
+        <text x="136" y="132" text-anchor="middle" class="lbl-acc2">뷰포트</text>
+        <path d="M36 204 H236" class="s-acc2" marker-start="url(#vp-ar1)" marker-end="url(#vp-ar1)"/>
+        <text x="136" y="226" text-anchor="middle" class="lbl-dim">뷰포트 폭 1100 &lt; 화면 폭</text>
+        <text x="380" y="20" text-anchor="middle" class="lbl-b">휴대폰</text>
+        <rect x="330" y="32" width="100" height="200" rx="14" class="f-surface s-line"/>
+        <rect x="338" y="44" width="84" height="16" rx="3" class="f-acc-soft"/>
+        <text x="380" y="56" text-anchor="middle" class="lbl-dim" style="font-size:10px">주소창</text>
+        <rect x="338" y="60" width="84" height="150" class="f-acc2-soft s-acc2"/>
+        <text x="380" y="132" text-anchor="middle" class="lbl-acc2">뷰포트</text>
+        <rect x="338" y="210" width="84" height="12" rx="3" class="f-acc-soft"/>
+        <path d="M440 60 V210" class="s-acc2" marker-start="url(#vp-ar1)" marker-end="url(#vp-ar1)"/>
+        <path d="M452 44 V222" class="s-dash" marker-start="url(#vp-ar1)" marker-end="url(#vp-ar1)"/>
+        <text x="380" y="252" text-anchor="middle" class="lbl-dim">스크롤하면 막대가 숨어</text>
+        <text x="380" y="270" text-anchor="middle" class="lbl-dim">뷰포트가 길어진다</text>
+        <text x="148" y="262" text-anchor="middle" class="lbl">폭과 높이는 모두 CSS 픽셀로 잰다</text>
+      </svg>
+      <figcaption><b>그림 1. 화면, 창, 뷰포트.</b> 컴퓨터에서는 창 크기를 사용자가 정하므로 뷰포트 폭이 화면 폭과 다르다. 휴대폰에서는 창이 화면을 다 쓰지만, 주소창과 도구 막대가 스크롤에 따라 나타났다 숨으며 뷰포트의 높이(실선)가 화면 높이(점선) 안에서 바뀐다.</figcaption>
+    </figure>
+
+    <p>디자이너가 신경 쓸 것은 화면의 크기가 아니라 뷰포트의 크기다. "이 휴대폰은 화면이 6.1인치"라는 말은 웹 디자인에 거의 쓸모가 없다. 쓸모 있는 것은 "그 휴대폰의 뷰포트 폭은 CSS 픽셀로 얼마인가"이고, 그 값조차 사용자가 화면을 눕히거나 확대하면 바뀐다.</p>
+  </section>
+
+  <section id="meta">
+    <h2>작은 화면이 큰 페이지를 흉내 낼 때</h2>
+    <p>휴대폰 브라우저가 처음 나왔을 때 웹의 거의 모든 페이지는 넓은 모니터를 위한 고정폭 페이지였다. 그 페이지를 좁은 휴대폰 폭에 그대로 배치하면 모두 깨진다. 그래서 휴대폰 브라우저는 꾀를 썼다. 페이지를 휴대폰 폭이 아니라 넓은 가상의 폭(흔히 980 CSS px)에 배치한 다음, 그 결과를 휴대폰 화면 폭에 맞게 통째로 줄여 보여 준 것이다. 페이지를 배치하는 데 쓰는 이 가상의 폭을 <span class="term">레이아웃 뷰포트</span><span class="en">(Layout viewport)</span>라 하고, 사용자가 실제로 보고 있는 부분을 <span class="term">시각 뷰포트</span><span class="en">(Visual viewport)</span>라고 한다. 손가락으로 벌려 확대하면 레이아웃 뷰포트는 그대로이고 시각 뷰포트만 작아진다.</p>
+    <p>이 꾀는 옛 페이지를 깨지지 않게 보여 주었지만, 처음부터 휴대폰을 위해 만든 페이지까지 980 폭에 배치하고 줄여 버린다. 그래서 페이지가 브라우저에게 "레이아웃 뷰포트를 기기의 폭과 같게 해 달라"고 알리는 방법이 생겼다. HTML의 <code>&lt;head&gt;</code>에 넣는 한 줄, <span class="term">뷰포트 메타 태그</span><span class="en">(Viewport meta tag)</span>다.</p>
+    <pre class="wb-code"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+    <p><code>width=device-width</code>는 레이아웃 뷰포트 폭을 기기의 폭(CSS 픽셀)과 같게 하라는 뜻이고, <code>initial-scale=1</code>은 처음에 줄이거나 키우지 말고 1배로 보여 주라는 뜻이다. 아래 시뮬레이터에서 오른쪽 손잡이로 기기의 폭을 바꾸고, 메타 태그가 있을 때와 없을 때를 비교한다.</p>
+
+    <div class="sim" id="sim-vp-meta">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>메타 태그 한 줄의 차이</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="vp-mt-cv" class="art"></canvas><span class="hint">끌어서 기기 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="vp-mt-mode"><button data-value="none" class="on">메타 태그 없음</button><button data-value="meta">width=device-width</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">레이아웃 뷰포트 폭</span><span class="v" id="vp-mt-o-l">—</span></div>
+        <div class="stat"><span class="k">화면에 맞춘 배율</span><span class="v" id="vp-mt-o-k">—</span></div>
+        <div class="stat"><span class="k">본문 17px이 보이는 크기</span><span class="v" id="vp-mt-o-t">—</span></div>
+        <div class="stat"><span class="k">"신청하기" 버튼 높이</span><span class="v" id="vp-mt-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(메타 태그 없음)에서 페이지를 본다. 휴대폰을 위해 흐르게 만든 페이지인데도 980 폭에 배치되어 넓은 화면의 모습(사진이 글 옆, 메뉴가 로고 옆)으로 나타나고, 전체가 40% 남짓으로 줄어 본문이 7px쯤이 된다. ② "width=device-width"로 바꾼다. 레이아웃 뷰포트가 기기 폭과 같아져 휴대폰용 배치(메뉴가 로고 아래, 사진 없는 카드)가 나타나고 본문은 17px 그대로다. ③ 손잡이를 끌어 기기 폭을 320에서 430까지 바꾼다. 메타 태그가 있으면 폭에 따라 줄바꿈만 달라지고, 없으면 페이지 전체의 배율이 달라진다. (가상의 책방 E 페이지다. 메타 태그가 없을 때의 레이아웃 뷰포트는 흔한 기본값 980으로 두었다. 실제 기본값은 브라우저마다 다를 수 있다.)</div>
+    </div>
+
+    <p>메타 태그가 없는 페이지는 휴대폰에서 "넓은 화면용 페이지를 멀리서 본 모습"이 된다. 1장에서 본 옛 책방 사이트의 깨알 같은 글자가 바로 이것이다. 거꾸로 말하면, 메타 태그를 넣는 순간 브라우저는 더 이상 줄여 주지 않으므로 페이지가 좁은 폭에서도 스스로 흐를 수 있어야 한다. 고정폭 960 페이지에 메타 태그만 넣으면 오른쪽이 잘려 옆으로 밀어야 하는 페이지가 된다. 메타 태그와 흐르는 레이아웃은 한 벌이다.</p>
+
+    <div class="callout warn">
+      <strong>확대를 막지 않는다</strong>
+      뷰포트 메타 태그에 <code>user-scalable=no</code>나 <code>maximum-scale=1</code>을 덧붙이면 손가락으로 벌려 확대하는 것을 막을 수 있다. 화면이 "앱처럼" 단단해 보인다는 이유로 이렇게 하는 사이트가 있지만, 작은 글자나 사진을 크게 봐야 하는 사람에게서 가장 손쉬운 도구를 빼앗는다. W3C WCAG 2.2의 성공 기준 1.4.4(글자 크기 조정, AA)는 보조 기술 없이 글자를 200%까지 키울 수 있어야 한다고 정한다. 확대를 막으면 이 기준을 지키기 어렵다. 일부 브라우저는 접근성을 이유로 이 설정을 무시하기도 하지만, 그것을 믿고 넣어서는 안 된다.
+    </div>
+  </section>
+
+  <section id="pixels">
+    <h2>CSS 픽셀과 기기 픽셀</h2>
+    <p>휴대폰 화면을 돋보기로 들여다보면 빨강·초록·파랑의 작은 빛 점이 촘촘히 늘어서 있다. 이 물리적인 점(세 색이 모인 한 칸)을 <span class="term">기기 픽셀</span><span class="en">(Device pixel)</span>이라고 한다. 요즘 휴대폰은 기기 픽셀이 아주 작아서, 웹 페이지의 1 CSS 픽셀을 기기 픽셀 2×2개나 3×3개로 그린다. 1 CSS 픽셀의 한 변에 기기 픽셀이 몇 개 들어가는지를 <span class="term">기기 픽셀 비율</span><span class="en">(Device pixel ratio, DPR)</span>이라고 한다.</p>
+    <div class="formula">$$\text{기기 픽셀 수} = \text{CSS 픽셀 수} \times \text{DPR}$$<div class="where">폭과 높이에 각각 곱한다. 폭 390 CSS px, DPR 3인 휴대폰의 화면은 가로 1,170 기기 픽셀이다. 넓이로는 DPR의 제곱(9배)만큼 기기 픽셀이 들어간다.</div></div>
+    <p>DPR은 화면마다 다르다. 오래된 사무실 모니터는 1, 노트북은 1.25·1.5·2, 휴대폰은 2에서 3 남짓이 흔하다. 운영체제의 배율 설정(예: 125%)과 브라우저의 확대도 DPR을 바꾼다. 페이지 안에서는 자바스크립트의 <code>window.devicePixelRatio</code>로 읽을 수 있다.</p>
+    <p>그러면 1 CSS 픽셀은 실제로 얼마나 큰가. CSS 명세는 1 CSS 픽셀을 길이가 아니라 <b>보이는 각도</b>로 정의한다. 기준은 해상도 96 dpi인 화면을 팔 길이(약 28인치, 71 cm)에서 볼 때 픽셀 하나가 차지하는 시각, 약 0.0213°다(CSS Values and Units). 기기 제조사는 사람이 그 기기를 보는 보통 거리를 생각해 CSS 픽셀의 크기를 이 각도 근처로 맞춘다. 그래서 눈에서 30 cm쯤 떨어진 휴대폰의 1 CSS 픽셀은 모니터의 것보다 물리적으로 작고, 멀리서 보는 텔레비전의 것은 더 크다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="기준 픽셀: 가까운 휴대폰의 작은 픽셀과 먼 모니터의 큰 픽셀이 같은 시각을 차지한다">
+        <circle cx="34" cy="125" r="16" class="f-surface s-line"/>
+        <circle cx="42" cy="125" r="5" class="f-acc"/>
+        <path d="M46 125 L430 70 M46 125 L430 180" class="s-dash"/>
+        <rect x="160" y="96" width="10" height="58" rx="2" class="f-acc2"/>
+        <text x="165" y="86" text-anchor="middle" class="lbl-b">휴대폰</text>
+        <text x="165" y="176" text-anchor="middle" class="lbl-dim">약 30 cm</text>
+        <rect x="408" y="70" width="14" height="110" rx="2" class="f-warn"/>
+        <text x="415" y="60" text-anchor="middle" class="lbl-b">모니터</text>
+        <text x="415" y="200" text-anchor="middle" class="lbl-dim">약 71 cm</text>
+        <text x="96" y="130" class="lbl-acc">θ</text>
+        <text x="230" y="230" text-anchor="middle" class="lbl">같은 각도 θ ≈ 0.0213° 안에 든 길이가 "1 CSS px"</text>
+        <text x="280" y="122" text-anchor="middle" class="lbl-dim">가까우면 작게, 멀면 크게</text>
+      </svg>
+      <figcaption><b>그림 2. 각도로 정한 픽셀.</b> CSS의 기준 픽셀은 96 dpi 화면을 팔 길이에서 볼 때 한 픽셀이 차지하는 시각이다. 그래서 가까이 보는 휴대폰의 1 CSS px은 물리적으로 작고, 멀리 보는 모니터의 1 CSS px은 크다. 같은 16px 글자가 기기마다 비슷한 크기로 "보이는" 이유다. 그림의 각도는 알아보기 쉽게 크게 그렸다.</figcaption>
+    </figure>
+
+    <p>디자이너에게 DPR이 중요한 첫째 이유는 가는 선이다. 시안에서 1px로 그린 구분선은 DPR 1 화면에서는 기기 픽셀 한 줄이지만 DPR 3 화면에서는 세 줄이다. 시안 도구에서 0.5px처럼 1보다 가는 선을 그리면, DPR 2 화면에서는 또렷한 한 줄이 되지만 DPR 1 화면에서는 반만 칠할 수 없어 흐린 회색 한 줄이 되거나 아예 사라진다. 아래 시뮬레이터는 CSS 픽셀 6×4칸을 크게 확대하고, 그 안에 가로선 하나를 그린다. 굵은 격자가 CSS 픽셀, 가는 격자가 기기 픽셀이다.</p>
+
+    <div class="sim" id="sim-vp-hair">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>1px 선은 기기 픽셀 몇 줄인가</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="vp-hl-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="vp-hl-dpr"><button data-value="1">DPR 1</button><button data-value="1.5">1.5</button><button data-value="2">2</button><button data-value="3" class="on">3</button></div>
+          <label class="ctrl"><span>선 두께(CSS px) <output id="vp-hl-w-out"></output></span><input type="range" id="vp-hl-w" min="0.25" max="2" step="0.25" value="1"></label>
+          <label class="check"><input type="checkbox" id="vp-hl-half"> 선을 0.5 CSS px 어긋난 자리에 놓기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">선 두께(기기 픽셀)</span><span class="v" id="vp-hl-o-d">—</span></div>
+        <div class="stat"><span class="k">칠해진 기기 픽셀 줄</span><span class="v" id="vp-hl-o-n">—</span></div>
+        <div class="stat"><span class="k">가장 옅은 줄의 진하기</span><span class="v" id="vp-hl-o-f">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(DPR 3, 1px)에서 선이 기기 픽셀 세 줄로 또렷하게 칠해진 것을 본다. 서윤의 휴대폰에서 1px 구분선이 노트북보다 가늘고 깨끗해 보이는 이유다. 선의 물리적 두께는 1 CSS px이지만 그 안을 더 잘게 그린다. ② 선 두께를 0.5로 줄이고 DPR을 1로 바꾼다. 기기 픽셀 반 줄은 칠할 수 없으므로 한 줄을 50% 회색으로 칠한다. 또렷한 선이 아니라 흐린 선이다. 0.25면 더 옅어져 거의 보이지 않는다. ③ DPR 1.5에서 1px 선을 어긋난 자리에 놓는다. 선이 1.5줄에 걸쳐 진한 줄과 옅은 줄로 번진다. 노트북의 125%·150% 배율에서 가는 선이 들쭉날쭉해 보이는 까닭이다. (모형은 덮인 넓이만큼 진하게 칠하는 가장 단순한 방식이다. 실제 브라우저는 테두리 두께를 기기 픽셀에 맞춰 반올림하기도 해서 결과가 다를 수 있다.)</div>
+    </div>
+
+    <p>정리하면, 가는 선은 DPR이 높은 화면에서 좋아 보이고 DPR 1 화면에서 가장 먼저 무너진다. 시안을 촘촘한 노트북이나 휴대폰에서만 보면 1px보다 가는 선이 예뻐 보이지만, 회사나 도서관의 공용 모니터에서는 흐려지거나 사라진다. 구분선과 입력 칸의 테두리는 적어도 1 CSS px로 두고, 선이 아니라 간격과 면의 색으로 나누는 방법도 함께 생각한다(<a href="box.html">3장</a>). 같은 원리가 작은 글자에도 적용된다. 픽셀 격자 위의 글자는 TypeBook의 <a href="../../type/chapters/screen.html">화면의 글자</a>에서 자세히 다뤘다.</p>
+
+    <div class="callout deep">
+      <strong>DPR이 정수가 아닐 때</strong>
+      DPR 2나 3처럼 정수이면 CSS 픽셀의 경계가 늘 기기 픽셀의 경계와 맞는다. 1.25, 1.5, 2.625처럼 정수가 아니면 CSS 픽셀 경계의 일부가 기기 픽셀 한가운데를 지난다. 그러면 같은 1px 선이라도 놓인 자리에 따라 기기 픽셀 한 줄이 되기도, 두 줄에 걸쳐 번지기도 한다. 브라우저는 테두리 같은 선을 가장 가까운 기기 픽셀 경계에 붙여 그리는 식으로 이를 누그러뜨리지만, 그 방식은 브라우저와 그리는 대상(테두리, 그림자, 변형된 요소)마다 다르다. 표 안의 구분선 두께가 줄마다 미세하게 달라 보이는 일이 그래서 생긴다.
+    </div>
+  </section>
+
+  <section id="images">
+    <h2>촘촘한 화면과 이미지</h2>
+    <p>DPR이 중요한 둘째 이유는 이미지다. 사진은 처음부터 픽셀의 격자로 되어 있다. 폭 300 CSS px 칸에 사진을 넣으면, DPR 1 화면은 그 칸을 기기 픽셀 300개로 그리고 DPR 2 화면은 600개, DPR 3 화면은 900개로 그린다. 사진의 폭이 300픽셀뿐이라면 DPR 2 화면은 사진 픽셀 하나를 기기 픽셀 2×2개로 늘려 그려야 하고, 늘린 만큼 흐려진다.</p>
+    <div class="formula">$$\text{선명하게 필요한 이미지 폭} = \text{칸의 폭(CSS px)} \times \text{DPR}$$<div class="where">필요한 폭보다 작은 이미지는 늘어나 흐려지고, 훨씬 큰 이미지는 선명함은 더하지 못한 채 내려받을 무게만 늘린다.</div></div>
+    <p>아래 시뮬레이터는 행사 카드의 사진 칸(폭 300 CSS px)을 놓고, 화면의 DPR과 사진 파일의 폭을 바꾼다. 왼쪽은 칸 전체를, 오른쪽은 간판 글자 부분의 CSS 픽셀 24×16칸을 기기 픽셀 단위로 확대한 모습이다.</p>
+
+    <div class="sim" id="sim-vp-img">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>사진은 몇 픽셀이어야 하나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="vp-im-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="vp-im-dpr"><button data-value="1">DPR 1</button><button data-value="2" class="on">DPR 2</button><button data-value="3">DPR 3</button></div>
+          <div class="seg" id="vp-im-n"><button data-value="300" class="on">사진 폭 300</button><button data-value="600">600</button><button data-value="900">900</button><button data-value="1800">1800</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">선명하게 필요한 폭</span><span class="v" id="vp-im-o-need">—</span></div>
+        <div class="stat"><span class="k">사진 픽셀 1개가 덮는 기기 픽셀</span><span class="v" id="vp-im-o-cov">—</span></div>
+        <div class="stat"><span class="k">파일 무게(교육용 대표값)</span><span class="v" id="vp-im-o-kb">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(DPR 2, 사진 폭 300)에서 오른쪽 확대 그림을 본다. 사진 픽셀 하나가 기기 픽셀 2×2개로 늘어나 간판의 "E"와 창살이 뭉개진다. ② 사진 폭을 600으로 바꾼다. 사진 픽셀과 기기 픽셀이 하나씩 맞아 가장자리가 또렷해진다. 무게는 네 배다(폭이 두 배면 넓이가 네 배). ③ 사진 폭을 1800으로 바꾼다. DPR 2 화면에서는 600과 거의 차이가 없는데 무게는 아홉 배가 된다. DPR 3으로 바꿔 900과 1800을 비교해 본다. (사진은 이 장에서 그린 가상의 쇼윈도 그림이다. 무게는 사진 한 픽셀에 0.2바이트로 잡은 교육용 대표값이며, 실제 무게는 형식, 압축 품질, 사진의 내용에 따라 크게 다르다.)</div>
+    </div>
+
+    <p>칸 하나에 맞는 사진 크기는 화면마다 다르다. DPR 1 노트북에는 300, DPR 2 휴대폰에는 600, DPR 3 휴대폰에는 900이 필요하다. 가장 큰 900을 모두에게 보내면 DPR 1 화면을 쓰는 사람은 필요 없는 무게를 아홉 배나 내려받는다. 그래서 HTML에는 같은 사진의 여러 크기를 적어 두고 브라우저가 화면에 맞는 것을 고르게 하는 방법(<code>srcset</code>과 <code>sizes</code>)이 있다. 그 쓰는 법은 <a href="responsive.html">5장</a>, 사진의 형식과 압축은 <a href="performance.html">12장</a>과 ImageBook의 <a href="../../image/chapters/compression.html">압축</a>에서 다룬다. 로고나 아이콘처럼 선과 면으로 된 그림은 처음부터 픽셀이 아닌 벡터 형식(SVG)으로 두면 어떤 DPR에서도 또렷하다.</p>
+
+    <div class="callout studio">
+      <strong>시안은 1배로, 내보내기는 여러 배로</strong>
+      화면 디자인 도구에서 시안을 그릴 때는 대개 CSS 픽셀과 같은 단위(1배)로 그린다. 폭 390의 휴대폰 화면이면 대지 폭도 390이다. 사진과 아이콘을 개발자에게 넘길 때는 같은 그림을 1배, 2배, 3배로 따로 내보낸다. 실무에서는 이 셋을 흔히 <code>@1x</code>, <code>@2x</code>, <code>@3x</code>라는 꼬리표로 구별한다. 서윤은 대지 폭을 기기 픽셀(1,170)로 잡았다가 모든 숫자가 세 배로 나와 지후를 헷갈리게 한 적이 있다. 시안의 숫자는 CSS 픽셀로 말하기로 약속해 두면 디자이너와 개발자가 같은 자를 쓰게 된다.
+    </div>
+  </section>
+
+  <section id="sizes">
+    <h2>화면 크기의 다양성</h2>
+    <p>"휴대폰은 360, 태블릿은 768, 컴퓨터는 1280"처럼 화면을 몇 개의 크기로 나누어 생각하기 쉽다. 1장에서 서윤이 시안을 세 폭으로 그리기로 한 것도 그런 견본이다. 하지만 실제 방문자의 화면은 몇 개의 크기로 깔끔하게 모이지 않는다. 휴대폰만 해도 제조사와 모델마다 뷰포트 폭이 조금씩 다르고, 컴퓨터는 창을 얼마나 열었는지에 따라 아무 값이나 될 수 있다. 접는 휴대폰, 화면을 나눠 두 앱을 함께 쓰는 사람, 확대해 둔 사람은 흔한 값보다 좁은 뷰포트를 만든다.</p>
+    <p>아래 그래프는 책방 E 옛 사이트의 한 달 방문 기록에서 뷰포트 폭만 뽑았다고 가정한 <b>가상 자료</b>다(2027년 12월, 1,320회 방문, 가까운 대표 폭으로 묶음). 가로축은 폭(CSS px)이고 넓은 화면 쪽을 압축한 로그 눈금이다. 그래프 위를 끌어 세로선을 옮기면 그보다 좁은 화면으로 들어온 방문이 몇인지 읽는다.</p>
+
+    <div class="sim" id="sim-vp-hist">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>한 달 방문자의 화면 폭(가상 자료)</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="vp-hs-cv"></canvas><span class="hint">끌어서 기준선을 옮긴다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="vp-hs-bin"><button data-value="raw" class="on">폭 값 그대로</button><button data-value="group">기기 종류로 묶기</button></div>
+          <label class="check"><input type="checkbox" id="vp-hs-mine" checked> 서윤의 노트북 폭(1440) 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">기준선</span><span class="v" id="vp-hs-o-x">—</span></div>
+        <div class="stat"><span class="k">기준선보다 좁은 방문</span><span class="v" id="vp-hs-o-lt">—</span></div>
+        <div class="stat"><span class="k">기준선과 같은 폭의 방문</span><span class="v" id="vp-hs-o-eq">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습에서 막대 무리를 본다. 360~430 사이에 키가 다른 막대가 여럿 서 있다. 가장 높은 막대(390)도 전체의 6분의 1이 안 된다. 휴대폰은 "360 하나"가 아니라 한 무리의 폭이다. ② 기준선을 600 근처로 끈다. 그보다 좁은 화면, 곧 휴대폰 폭의 방문이 셋 중 둘이다. "기기 종류로 묶기"로 바꿔 같은 것을 세 막대로 본다. ③ 기준선을 1440에 맞춘다. 서윤이 시안을 그린 노트북과 같은 폭으로 들어온 방문은 4%쯤이다. 기준선을 360으로 옮겨 그보다 좁은 방문(320, 344)도 확인한다. 적지만 0이 아니다. (모든 수치는 이 책이 지어낸 가상 자료다. 실제 분포는 사이트, 손님, 시기에 따라 크게 다르므로 자기 사이트의 기록으로 확인한다.)</div>
+    </div>
+
+    <p>이 가상 자료에서 읽을 것은 숫자 자체가 아니라 모양이다. 방문자의 화면 폭은 몇 개의 값에 모이지 않고 넓게 흩어져 있으며, 휴대폰 폭 안에서도 서로 다르다. 그러니 "우리 사이트의 기준 폭"을 하나 정하고 그 폭에서만 완벽하게 맞추는 것은 의미가 적다. 오히려 물어야 할 것은 두 가지다. 가장 좁은 쪽으로 어디까지 깨지지 않을 것인가, 그리고 가장 넓은 쪽에서 어디부터 더 넓어지지 않을 것인가. 그 사이의 모든 폭에서 페이지가 자연스럽게 흐르게 하는 것이 반응형의 일이다(<a href="responsive.html">5장</a>).</p>
+
+    <div class="callout studio">
+      <strong>기기 목록 대신 폭의 범위</strong>
+      웹 팀이 "지원 기기 목록"을 만들던 시절이 있었다. 특정 휴대폰 몇 종과 특정 모니터 해상도 몇 가지. 기기가 해마다 바뀌면서 그 목록은 늘 낡았다. 지금은 많은 팀이 기기 이름 대신 폭의 범위로 약속한다. "320부터 넓은 화면까지 어디서도 깨지지 않는다, 내용은 일정 폭 이상 넓어지지 않는다." 그리고 확인할 때는 그 범위의 양 끝과 중간 몇 곳에서 창을 천천히 끌어 본다. 시안의 세 폭(1장)은 이 범위 안의 견본일 뿐이고, 견본 사이의 폭이 더 자주 쓰인다.
+    </div>
+  </section>
+
+  <section id="zoom">
+    <h2>확대와 글자 크기</h2>
+    <p>방문자는 뷰포트를 바꾸기도 한다. 방법은 크게 둘이다. 하나는 <b>페이지 확대</b>다. 컴퓨터 브라우저에서 Ctrl(맥에서는 Cmd) 키와 + 키를 누르면 페이지 전체가 커진다. 이때 브라우저는 CSS 픽셀 하나를 더 크게 그린다. 그러면 같은 창에 들어가는 CSS 픽셀의 수가 줄어든다. 폭 1280의 창을 200%로 확대하면 뷰포트 폭은 CSS 픽셀로 640이 되고, 400%면 320이 된다. 넓은 화면이 휴대폰만큼 좁아지는 셈이다.</p>
+    <p>다른 하나는 <b>글자 크기 설정</b>이다. 운영체제나 브라우저의 설정에서 기본 글자 크기를 키우면, 그 설정을 따르도록 만든 글자만 커지고 뷰포트 폭은 그대로다. 이 설정이 웹 페이지에 어떻게 반영되는지는 기기와 브라우저마다 다르다. 휴대폰 운영체제의 글자 크기를 그대로 따르는 브라우저도 있고, 따로 글자 크기 메뉴를 둔 브라우저도 있다. 어느 쪽이든 페이지가 글자 크기를 픽셀로 못 박아 두었다면 설정이 무시되거나, 글자만 커지고 글자를 담은 상자가 그대로여서 넘친다.</p>
+    <p>아래 시뮬레이터는 폭 1280, 높이 720의 컴퓨터 창을 놓고 두 가지 방법을 비교한다. "옛 사이트"는 고정폭 960에 헤더 높이를 못 박은 페이지, "새 시안"은 흐르는 레이아웃에 높이를 정하지 않은 페이지다.</p>
+
+    <div class="sim" id="sim-vp-zoom">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>페이지 확대와 글자 크기 설정</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="vp-zm-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="vp-zm-mode"><button data-value="zoom" class="on">페이지 확대</button><button data-value="text">글자 크기만</button></div>
+          <label class="ctrl"><span>배율 <output id="vp-zm-z-out"></output></span><input type="range" id="vp-zm-z" min="100" max="400" step="10" value="200"></label>
+          <div class="seg" id="vp-zm-site"><button data-value="old">옛 사이트(고정 960)</button><button data-value="new" class="on">새 시안(흐름)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">뷰포트 폭(CSS px)</span><span class="v" id="vp-zm-o-w">—</span></div>
+        <div class="stat"><span class="k">본문이 화면에서 차지하는 크기</span><span class="v" id="vp-zm-o-t">—</span></div>
+        <div class="stat"><span class="k">옆으로 밀어야 하는 양</span><span class="v" id="vp-zm-o-s">—</span></div>
+        <div class="stat"><span class="k">메뉴</span><span class="v" id="vp-zm-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(새 시안, 페이지 확대 200%)에서 창 안을 본다. 뷰포트가 640으로 좁아져 태블릿 폭의 배치가 나타난다. 확대한 사람에게 페이지는 좁은 화면처럼 보인다. ② 배율을 400%로 올린다. 뷰포트가 320이 되고 휴대폰 배치가 나타난다. 옆으로 밀 필요는 없다. ③ "옛 사이트"로 바꾼다. 고정폭 960 페이지는 뷰포트가 960보다 좁아지는 순간부터 오른쪽이 잘리고, 400%에서는 640픽셀을 옆으로 밀어야 한다. 글줄마다 좌우로 밀며 읽어야 한다. ④ "글자 크기만"으로 바꾼다. 뷰포트는 1280 그대로이고 글자만 커진다. 옛 사이트는 헤더 높이가 못 박혀 있어 커진 메뉴가 아래 내용 위로 넘친다. (가상의 페이지다. 글자 크기 설정은 페이지의 모든 글자가 그 설정을 따르도록 만들었다고 가정했다. 400%의 글자 크기 설정은 실제 브라우저에서 고를 수 없는 경우가 많지만 비교를 위해 열어 두었다.)</div>
+    </div>
+
+    <p>확대한 사람에게 넓은 화면은 좁은 화면이 된다. 그래서 "휴대폰에서 잘 보이는 페이지"는 "확대해서 보는 사람에게도 잘 보이는 페이지"와 거의 같은 말이다. WCAG 2.2는 이것을 두 성공 기준으로 정해 두었다. 1.4.4 <b>글자 크기 조정</b>(AA)은 보조 기술 없이 글자를 200%까지 키워도 내용과 기능을 잃지 않아야 한다고 정하고, 1.4.10 <b>리플로</b><span class="en">(Reflow)</span>(AA)는 세로로 스크롤하는 내용이라면 폭 320 CSS px에서 두 방향 스크롤 없이 볼 수 있어야 한다고 정한다. 320은 폭 1280의 창을 400%로 확대했을 때의 뷰포트 폭이다. 표처럼 두 방향으로 펼쳐져야 의미가 있는 내용은 예외로 둔다. 접근성 점검표 전체는 <a href="access.html">11장</a>에서 다룬다.</p>
+
+    <div class="callout try">
+      <strong>400% 확대 시험</strong>
+      컴퓨터의 브라우저 창을 화면 가득 펴고, 자주 쓰는 웹사이트 두 곳에서 Ctrl(맥은 Cmd)과 + 키를 눌러 배율을 200%, 300%, 400%로 올려 본다(브라우저마다 단계가 조금 다르다). 단계마다 ① 메뉴가 어떻게 바뀌는지, ② 옆으로 밀어야 읽을 수 있는 곳이 생기는지, ③ 글자가 겹치거나 잘리는 곳이 있는지를 종이에 표로 적는다. 다 보면 Ctrl과 0으로 원래 배율로 돌린다. 휴대폰 배치로 바뀌는 사이트와 그냥 커지기만 하는 사이트가 갈린다.
+    </div>
+  </section>
+
+  <section id="fold">
+    <h2>접힘선은 한 줄이 아니다</h2>
+    <p>신문은 가판대에서 반으로 접혀 진열된다. 접힌 윗단, 곧 지나가는 사람에게 보이는 부분에 가장 중요한 기사를 싣는다는 오래된 관행에서 <span class="term">접힘선 위</span><span class="en">(Above the fold)</span>라는 말이 나왔다. 웹에서는 스크롤하지 않고 처음 보이는 부분을 같은 말로 부른다. 그리고 "접힘선 아래는 아무도 보지 않으니 중요한 것은 모두 첫 화면에 넣어야 한다"는 말이 오래 따라다녔다.</p>
+    <p>이 말은 두 가지 점에서 조심해서 써야 한다. 첫째, 사람들은 스크롤한다. 사용성 연구 기관 닐슨 노먼 그룹<span class="en">(Nielsen Norman Group)</span>의 시선 추적 보고(2010년, 2018년에 다시 조사)를 비롯한 여러 관찰은, 사람들이 페이지를 아래로 내려 보지만 보는 시간은 위쪽에 더 많이 몰린다고 보고한다. 그러니 "아무도 보지 않는다"는 틀렸고, "위쪽이 더 많이 보인다"는 대체로 맞다. 둘째, 접힘선의 위치가 사람마다 다르다. 첫 화면의 높이는 기기의 화면 높이, 주소창과 도구 막대, 화면을 눕혔는지, 글자 크기에 따라 달라진다. 접힘선은 한 줄이 아니라 넓은 띠다.</p>
+    <p>아래 시뮬레이터의 왼쪽은 폭 390 휴대폰으로 본 책방 E 첫 화면이다. 화면 안을 위아래로 끌어 스크롤한다. 오른쪽은 페이지 전체를 줄인 지도이고, 가로 줄들은 가상 방문 기록에서 휴대폰 방문자들의 첫 화면 높이(가상 자료)를 진하기로 나타낸 접힘선의 띠다.</p>
+
+    <div class="sim" id="sim-vp-fold">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>첫 화면의 높이는 사람마다 다르다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="vp-fd-cv" class="art"></canvas><span class="hint">화면 안을 끌어 스크롤한다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="vp-fd-lay"><button data-value="photo">큰 사진 먼저</button><button data-value="next" class="on">다음 모임 먼저</button><button data-value="cram">모두 첫 화면에(글자 줄임)</button></div>
+          <div class="seg" id="vp-fd-dev"><button data-value="560">작은 화면 560</button><button data-value="660" class="on">보통 660</button><button data-value="780">큰 화면 780</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">"신청하기"가 첫 화면에 보이는 방문</span><span class="v" id="vp-fd-o-b">—</span></div>
+        <div class="stat"><span class="k">다음 내용이 걸쳐 보이는 방문</span><span class="v" id="vp-fd-o-c">—</span></div>
+        <div class="stat"><span class="k">본문 글자</span><span class="v" id="vp-fd-o-t">—</span></div>
+        <div class="stat"><span class="k">지금 내린 거리</span><span class="v" id="vp-fd-o-y">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(다음 모임 먼저)에서 오른쪽 지도를 본다. 접힘선의 띠는 위에서 540 근처부터 820 근처까지 퍼져 있다. 다음 모임 카드와 "신청하기"는 띠보다 위에 있어 모든 방문자의 첫 화면에 들고, 아래의 행사 일정 제목도 대부분의 첫 화면 끝에 걸쳐 보인다. 내용이 이어진다는 단서다. ② "큰 사진 먼저"로 바꾼다. 사진이 첫 화면을 크게 차지해 "신청하기"가 띠 한가운데로 내려간다. 작은 화면의 방문자는 버튼을 보지 못한다. 화면 크기를 560으로 바꿔 확인한다. ③ "모두 첫 화면에"를 고른다. 주인의 바람대로 행사 일정까지 첫 화면에 넣으려고 글자를 70%로 줄였더니 본문이 12px 아래로 내려간다. 첫 화면은 꽉 찼지만 읽기 어렵다. (첫 화면 높이 분포와 비율은 모두 가상 자료다. 주소창과 도구 막대를 뺀 높이로 가정했다.)</div>
+    </div>
+
+    <p>첫 화면에 모든 것을 넣으려 하면 글자와 사진이 작아지고, 결국 첫 화면조차 제대로 읽히지 않는다. 반대로 첫 화면을 큰 사진 한 장으로 꽉 채우면 페이지가 거기서 끝난 것처럼 보이기 쉽다. 아래 내용이 이어진다는 단서가 없는 화면을 디자이너들은 흔히 <span class="term">가짜 바닥</span><span class="en">(False floor)</span>이라고 부른다. 첫 화면에서 할 일은 가장 중요한 것 하나를 분명히 보여 주고, 다음 내용의 끝자락을 살짝 걸쳐 두어 아래로 내려가게 하는 것이다. 무엇을 "가장 중요한 하나"로 고를지는 CompositionBook의 <a href="../../composition/chapters/layout.html">내용의 순위표</a>가 도움이 된다.</p>
+
+    <div class="callout deep">
+      <strong>100vh가 화면보다 길 때</strong>
+      CSS에는 뷰포트 높이의 1%를 뜻하는 <code>vh</code> 단위가 있어서, 첫 화면을 꽉 채우는 상자를 <code>height: 100vh</code>로 만들곤 했다. 그런데 휴대폰에서는 주소창이 나타났다 숨으며 뷰포트 높이가 바뀌기 때문에, 많은 브라우저가 <code>100vh</code>를 "막대가 숨었을 때의 큰 높이"로 계산했다. 그 결과 첫 화면을 꽉 채운다던 상자의 아래쪽(대개 버튼이 놓이는 자리)이 막대에 가려졌다. CSS Values and Units Level 4는 이 문제를 위해 작은 뷰포트(<code>svh</code>), 큰 뷰포트(<code>lvh</code>), 지금의 뷰포트(<code>dvh</code>)를 따로 정의했다. 첫 화면의 높이를 정해야 한다면 어떤 높이를 기준으로 할지 먼저 정하고, 무엇보다 높이를 고정하지 않아도 되는 설계를 먼저 찾는다.
+    </div>
+  </section>
+
+  <section id="visitors">
+    <h2>가상 방문자 100명의 화면</h2>
+    <p>이 장에서 본 것을 한꺼번에 모아 본다. 아래 시뮬레이터는 앞의 가상 방문 기록에서 방문 100회를 무작위로 뽑아, 각 방문자의 뷰포트 폭과 높이, 글자 크기 설정으로 책방 E 페이지를 작게 그린다. 사이트를 바꾸면 100개의 화면이 한꺼번에 바뀐다. 화면을 누르면 그 방문자의 첫 화면을 아래에 크게 보여 준다.</p>
+
+    <div class="sim" id="sim-vp-crowd">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>가상 방문자 100명의 첫 화면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="vp-vs-cv" class="art"></canvas><span class="hint">화면을 눌러 크게 본다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="vp-vs-site"><button data-value="old">옛 사이트(고정 960, 메타 태그 없음)</button><button data-value="pic">1440 시안 그림</button><button data-value="new" class="on">새 시안(흐름, 메타 태그)</button></div>
+          <label class="check"><input type="checkbox" id="vp-vs-bad" checked> 문제 있는 화면에 빨간 테두리</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">본문이 12px보다 작게 보임</span><span class="v" id="vp-vs-o-tiny">—</span></div>
+        <div class="stat"><span class="k">글자 크기 설정이 깨뜨리거나 무시됨</span><span class="v" id="vp-vs-o-set">—</span></div>
+        <div class="stat"><span class="k">"신청하기"가 첫 화면에</span><span class="v" id="vp-vs-o-btn">—</span></div>
+        <div class="stat"><span class="k">고른 방문</span><span class="v" id="vp-vs-o-sel">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "옛 사이트"를 고른다. 휴대폰과 태블릿 폭의 방문이 거의 모두 빨간 테두리다. 페이지가 980 폭으로 배치된 뒤 줄어 본문이 12px보다 작게 보이고, 글자를 키운 방문자의 화면에서는 고정된 헤더 밖으로 메뉴가 넘친다. ② "1440 시안 그림"을 고른다. 그림을 폭에 맞춰 넣으면 1,016보다 좁은 화면에서 본문이 12px 아래로 줄고, 그림 속 글자는 글자 크기 설정을 따르지 않는다. ③ "새 시안"을 고른다. 빨간 테두리가 사라진다. 읽기 판의 "신청하기가 첫 화면에"도 확인한다. ④ 가장 좁은 화면(폭 320, 344)과 글자를 키운 화면을 눌러 크게 본다. (가상 자료와 가상의 페이지다. 12px은 이 책이 고른 점검선이며 표준이 아니다. 글자 크기 설정은 가상의 방문자 중 일부가 130~200%로 쓴다고 가정했다.)</div>
+    </div>
+
+    <p>100개의 작은 화면을 한꺼번에 보면 "기준 폭"이라는 생각이 왜 위험한지 분명해진다. 옛 사이트는 1280 이상의 넓은 화면에서는 멀쩡하지만, 방문의 셋 중 둘인 휴대폰에서 모두 무너진다. 한 폭에서 완성한 그림은 그 폭 근처에서만 맞는다. 흐르는 레이아웃은 어느 한 화면에서 가장 아름답지는 않을 수 있지만, 100개의 화면 어디에서도 깨지지 않는 쪽을 고른다. 이 책의 나머지 장은 "깨지지 않는다"에서 "어디서나 좋다"로 가는 방법을 하나씩 다룬다.</p>
+
+    <div class="callout try">
+      <strong>내 휴대폰의 뷰포트 재기</strong>
+      휴대폰의 브라우저에서 뷰포트 크기와 DPR을 보여 주는 웹 페이지를 찾아 연다(검색창에 "viewport size"나 "뷰포트 크기 확인"을 넣으면 여럿 나온다). 세로로 들었을 때, 가로로 눕혔을 때, 글자 크기를 키웠을 때의 폭과 높이, DPR을 종이에 적는다. 가족이나 친구의 휴대폰도 두세 대 재어 본다. 같은 "휴대폰"의 숫자가 얼마나 다른지가 이 장의 결론이다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 2장</span></div>
+      <h4>기준 폭은 정하지 않는다</h4>
+      <p>1월 둘째 주, 오지후가 옛 사이트의 방문 기록에서 지난달(2027년 12월) 방문의 뷰포트 폭을 뽑아 왔다(이 책의 가상 자료). 방문은 모두 1,320회. 폭이 600보다 좁은 휴대폰 화면이 888회(67%)로 셋 중 둘이었다. 휴대폰 폭은 하나가 아니었다. 360, 375, 390, 393, 412, 430…, 가까운 값으로 묶었는데도 폭 값이 29가지였고, 가장 많은 390도 204회(15.5%)뿐이었다. 서윤이 시안을 그린 노트북과 같은 폭 1440은 56회(4.2%)였다. 360보다 좁은 방문도 22회(1.7%) 있었다. 접는 휴대폰을 접은 채로 본 화면(344)과, 지후의 추측으로는 화면을 나눠 쓰거나 확대한 화면(320)이었다.</p>
+      <p>서윤은 자기 휴대폰(뷰포트 폭 390, DPR 3)에서 시안을 열어 보고 1px 구분선이 노트북에서보다 훨씬 가늘고 또렷하다는 것을 알아챘다. 1 CSS 픽셀이 기기 픽셀 3줄로 그려지기 때문이다. 시안의 몇몇 선은 0.5px로 그려져 있었는데, 지후가 회사의 오래된 모니터(DPR 1)로 보여 주자 그 선들은 흐린 회색이 되거나 거의 보이지 않았다. 서윤은 시안의 선을 모두 1px 이상으로 바꾸고, 시안의 숫자는 CSS 픽셀로 말하기로 지후와 약속했다.</p>
+      <p>주인은 다른 걱정을 했다. "첫 화면에 다 보여야 해요. 사람들은 아래로 안 내려요." 행사 일정과 신간까지 첫 화면에 넣어 달라는 것이다. 서윤은 이 장의 시뮬레이터에서 주인의 바람대로 모두 첫 화면에 넣어 보았다. 글자가 70%로 줄어 본문이 12px 아래가 되었다. 큰 사진을 먼저 둔 안은 작은 휴대폰(첫 화면 높이 560)에서 "신청하기"가 화면 밖으로 밀렸다. 서윤은 주인에게 한도경의 휴대폰으로 두 안을 직접 보여 주었다. 도경은 글자를 줄인 안을 보더니 휴대폰을 주인에게 건네며 "이 글자를 읽어 보라"고 했다. 주인은 첫 화면에 한 가지만 두는 안에 동의했다. 단, 그 한 가지는 "다음 모임"이어야 한다고 했다.</p>
+      <p>서윤의 선택은 "기준 폭"을 정하지 않는 것이었다. 1장의 세 폭(360·768·1280)은 그리는 견본으로 남기고, 약속은 폭의 범위로 했다. 가장 좁은 쪽은 320이다. 지난달 방문에 320이 실제로 있었고, WCAG 2.2의 리플로 기준(1.4.10)도 폭 320 CSS px에서 두 방향 스크롤 없이 볼 수 있기를 요구한다. 지후는 웹 페이지의 첫 줄에 뷰포트 메타 태그를 넣고, 확대를 막는 설정은 넣지 않기로 했다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>기준 폭은 정하지 않는다. 최소 폭 <b>320 CSS px</b>까지 어떤 폭에서도 깨지지 않고 옆으로 밀 필요가 없게 한다(WCAG 2.2 1.4.10과 같은 값). 뷰포트 메타 태그 <code>width=device-width, initial-scale=1</code>을 넣고 확대는 막지 않는다. 시안의 길이는 CSS 픽셀로 말하고, 선은 1px 이상. 첫 화면에는 <b>"다음 모임" 하나</b>만 둔다(모임 이름, 날짜·시간·장소, "신청하기" 버튼). 그 아래 행사 일정의 첫머리가 첫 화면 끝에 걸쳐 보이게 해 아래로 이어진다는 단서를 남긴다. 근거 자료: 2027년 12월 방문 1,320회(가상) 중 휴대폰 폭 67%, 폭 값 29가지, 1440은 4.2%, 360 미만 1.7%.</div>
+        <div><b>아직 남은 문제</b>지후가 시안을 코드로 옮기다가 멈췄다. 카드 안쪽 여백이 13px, 제목 아래가 17px, 카드 사이가 22px처럼 곳곳의 간격이 제각각이라 규칙을 찾을 수 없다고 한다.</div>
+        <div><b>다음 단계</b><a href="box.html">3장</a>: 시안의 모든 요소를 상자로 다시 보고 간격 체계를 만든다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>뷰포트는 브라우저 창에서 페이지가 그려지는 부분이고, 크기는 CSS 픽셀로 잰다. 컴퓨터에서는 창 크기에 따라, 휴대폰에서는 방향과 주소창에 따라 바뀐다.</li>
+      <li>휴대폰 브라우저는 메타 태그가 없는 페이지를 넓은 레이아웃 뷰포트(흔히 980)에 배치해 줄여 보여 준다. <code>width=device-width, initial-scale=1</code>은 레이아웃 뷰포트를 기기 폭과 같게 한다. 메타 태그와 흐르는 레이아웃은 한 벌이고, 확대를 막지 않는다.</li>
+      <li>기기 픽셀 = CSS 픽셀 × DPR. CSS 픽셀은 보이는 각도로 정의된다. DPR이 높은 화면에서 1px 선은 여러 기기 픽셀로 또렷하게, 1px보다 가는 선은 DPR 1 화면에서 흐리게 그려진다.</li>
+      <li>이미지는 칸의 폭 × DPR 픽셀이 있어야 선명하다. 그보다 작으면 흐려지고, 훨씬 크면 무게만 늘어난다.</li>
+      <li>방문자의 화면 폭은 몇 개의 크기로 모이지 않고 넓게 흩어진다. 기준 폭 하나보다 지킬 폭의 범위(가장 좁은 쪽과 가장 넓은 쪽)를 정한다.</li>
+      <li>페이지 확대는 뷰포트를 좁히고(1280의 400% = 320), 글자 크기 설정은 글자만 키운다. WCAG 2.2 1.4.4(글자 200%)와 1.4.10(폭 320에서 리플로)이 그 기준이다. 접힘선은 한 줄이 아니라 기기마다 다른 띠이며, "아무도 아래를 안 본다"는 통설이다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 뷰포트 폭 390, DPR 3인 휴대폰에서 CSS로 1px 두께의 가로선을 그렸다. 이 선은 기기 픽셀로 몇 줄인가?</p>
+        <div class="opts">
+          <button class="opt">1줄. CSS 픽셀과 기기 픽셀은 언제나 같다.</button>
+          <button class="opt" data-correct>3줄. 기기 픽셀 수는 CSS 픽셀 수에 DPR을 곱한 값이다.</button>
+          <button class="opt">9줄. DPR의 제곱만큼 줄이 생긴다.</button>
+          <button class="opt">0.33줄. 촘촘한 화면일수록 선이 가늘어진다.</button>
+        </div>
+        <div class="quiz-exp">길이는 DPR을 곱한다. 1 CSS px × 3 = 기기 픽셀 3줄이다. DPR의 제곱(9)은 CSS 픽셀 하나의 넓이에 들어가는 기기 픽셀 수(3×3)이지 선의 줄 수가 아니다. 선의 물리적 두께는 1 CSS px 그대로이고, 그 안을 더 잘게 그려 또렷해질 뿐이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 흐르는 레이아웃으로 만든 페이지가 휴대폰에서 넓은 화면의 모습 그대로 작게 줄어 보인다. 가장 먼저 의심할 것은?</p>
+        <div class="opts">
+          <button class="opt">휴대폰의 DPR이 너무 높아서 모든 것이 작게 그려진다.</button>
+          <button class="opt">사용자가 글자 크기 설정을 줄여 두었다.</button>
+          <button class="opt">페이지의 이미지가 너무 커서 브라우저가 전체를 줄였다.</button>
+          <button class="opt" data-correct>뷰포트 메타 태그가 없어서 브라우저가 넓은 레이아웃 뷰포트(흔히 980)에 배치한 뒤 화면 폭에 맞게 줄였다.</button>
+        </div>
+        <div class="quiz-exp">메타 태그가 없으면 휴대폰 브라우저는 옛 고정폭 페이지를 위해 넓은 가상의 폭에 배치하고 결과를 줄여 보여 준다. 흐르는 페이지라도 그 넓은 폭의 배치가 나타난다. DPR은 CSS 픽셀을 그리는 촘촘함일 뿐 배치를 바꾸지 않고, 글자 크기 설정은 배치 전체를 줄이지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 폭 1280의 컴퓨터 창에서 페이지를 400%로 확대했다. 이때 뷰포트 폭과 관련 기준으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>뷰포트가 320 CSS px이 되고, WCAG 2.2 1.4.10(리플로)은 이 폭에서 두 방향 스크롤 없이 볼 수 있기를 요구한다.</button>
+          <button class="opt">뷰포트는 1280 그대로이고 글자만 네 배가 된다.</button>
+          <button class="opt">뷰포트가 5120 CSS px으로 넓어진다.</button>
+          <button class="opt">확대는 휴대폰에서만 뷰포트를 바꾸고 컴퓨터에서는 바꾸지 않는다.</button>
+        </div>
+        <div class="quiz-exp">페이지 확대는 CSS 픽셀 하나를 크게 그리므로 같은 창에 들어가는 CSS 픽셀이 준다. 1280 ÷ 4 = 320이다. WCAG 2.2의 1.4.10은 세로로 스크롤하는 내용을 폭 320 CSS px에서 가로 스크롤 없이 볼 수 있게 하라고 정한다. 뷰포트를 그대로 두고 글자만 키우는 것은 글자 크기 설정이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 행사 카드의 사진 칸이 폭 300 CSS px이다. DPR 2 휴대폰에서 사진이 선명하면서 불필요하게 무겁지 않으려면 사진 파일의 폭은 얼마쯤이 알맞은가?</p>
+        <div class="opts">
+          <button class="opt">150픽셀. 휴대폰은 화면이 작으므로 절반이면 된다.</button>
+          <button class="opt">300픽셀. 칸의 폭과 같으면 된다.</button>
+          <button class="opt" data-correct>600픽셀. 칸의 폭 × DPR이다.</button>
+          <button class="opt">3,000픽셀. 클수록 언제나 더 선명하다.</button>
+        </div>
+        <div class="quiz-exp">DPR 2 화면은 폭 300 CSS px 칸을 기기 픽셀 600개로 그린다. 사진이 600픽셀이면 사진 픽셀과 기기 픽셀이 하나씩 맞는다. 300픽셀이면 늘어나 흐려지고, 3,000픽셀은 더 선명해지지 않은 채 무게만 100배 가까이 늘어난다(넓이 기준).</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs" data-nonum>
+    <h2>출처</h2>
+    <ul>
+      <li>W3C, <i>CSS Values and Units Module Level 3</i>. — 기준 픽셀(96 dpi 화면을 팔 길이에서 볼 때 한 픽셀의 시각, 약 0.0213°)과 <code>px</code>, <code>in</code>의 관계.</li>
+      <li>W3C, <i>CSS Values and Units Module Level 4</i>. — 작은·큰·동적 뷰포트 단위(<code>svh</code>, <code>lvh</code>, <code>dvh</code>).</li>
+      <li>W3C, <i>Web Content Accessibility Guidelines (WCAG) 2.2</i>, 2023. 성공 기준 1.4.4 글자 크기 조정(AA), 1.4.10 리플로(AA).</li>
+      <li>Nielsen Norman Group의 스크롤과 주의에 관한 시선 추적 보고(2010, 2018). — 수치는 옮기지 않고 결론의 방향만 요약했다.</li>
+      <li>방문 기록, 화면 폭과 높이의 분포, 방문자 표본, 사진 무게는 모두 이 책이 지어낸 가상 자료이거나 교육용 대표값이다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  /* ================= 책방 E 가상 웹 페이지(목업) 그리기 =================
+     buildPage(폭, 설정)가 CSS px 좌표로 배치를 계산해 그리기 목록(ops)과 측정값을 돌려주고,
+     paint()가 그 목록을 캔버스의 정해진 칸 안에 배율을 주어 그린다. 칸 밖으로는 절대 그리지 않는다(clip).
+     색은 모두 책방 E의 고정색이다(예시 그림이므로 다크 모드에서도 바뀌지 않는다). */
+  var E = { green: "#2f7d5b", cream: "#ffe2d7", sage: "#567666", red: "#d24f39", dark: "#22342a", page: "#fffdf9", dim: "#5b6760", line: "#e6e0d6", white: "#ffffff", chip: "#f3ece2" };
+  var FAMILY = (getComputedStyle(document.body).getPropertyValue("--font") || "sans-serif").trim();
+  function fnt(px, wt) { return (wt || 400) + " " + (Math.round(px * 100) / 100) + "px " + FAMILY; }
+  var MC = document.createElement("canvas").getContext("2d");
+  var MEAS = {};
+  // 웹 글꼴이 도착하면 측정값을 비우고 이 장의 캔버스를 다시 그린다(AB.canvas의 자동 다시 그리기보다 뒤에 한 번 더)
+  var MINE = [];
+  function canvas(el, draw, opts) { var c = AB.canvas(el, draw, opts); MINE.push(c); return c; }
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { MEAS = {}; MINE.forEach(function (c) { c.redraw(); }); });
+  function tw(txt, px, wt) {
+    var key = (wt || 400) + "|" + px + "|" + txt;
+    if (MEAS[key] == null) { MC.font = fnt(px, wt); MEAS[key] = MC.measureText(txt).width; }
+    return MEAS[key];
+  }
+  function wrap(txt, px, wt, maxW) {
+    var words = txt.split(" "), lines = [], cur = "";
+    words.forEach(function (wd) {
+      var t = cur ? cur + " " + wd : wd;
+      if (!cur || tw(t, px, wt) <= maxW) cur = t; else { lines.push(cur); cur = wd; }
+    });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  function rr(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(x, y, w, h, Math.max(0, Math.min(r, w / 2, h / 2))); else ctx.rect(x, y, w, h);
+  }
+  var NAV = ["행사", "모임 신청", "신간", "소개", "오시는 길"];
+  var EVENTS = [["1.22", "토", "그림책 낭독 모임"], ["1.29", "토", "겨울 수채 스케치"], ["2.05", "토", "동네 작가와 차 한잔"]];
+  var BOOKS = [["겨울 정원", "#2f7d5b"], ["골목의 오후", "#d24f39"], ["작은 수채 수업", "#567666"], ["밤의 서점", "#22342a"]];
+  var INTRO = "골목 끝 책방 E는 한 달에 두 번 모임을 연다. 그림책을 소리 내어 읽고, 마음에 남은 장면을 수채로 그려 본다. 처음 오는 사람도 빈손으로 오면 된다.";
+
+  function header(L, inner, x0, ts) {
+    var lp = 18 * ts, np = 15 * ts, g = 18 * ts, mark = 28 * ts, top = 14;
+    var logoW = mark + 8 * ts + tw("책방 E", lp, 700);
+    var items = NAV.map(function (t) { return { t: t, w: tw(t, np, 500) }; });
+    var navW = items.reduce(function (a, b) { return a + b.w; }, 0) + g * (items.length - 1);
+    var rowH = Math.max(mark, np * 1.5);
+    var out = { lp: lp, np: np, mark: mark, logoY: top + rowH / 2, rows: [] };
+    if (logoW + 32 + navW <= inner) {
+      var x = x0 + inner - navW, row = [];
+      items.forEach(function (it) { row.push({ t: it.t, x: x, w: it.w }); x += it.w + g; });
+      out.rows.push({ y: top + rowH / 2, items: row });
+      out.h = top * 2 + rowH; out.oneRow = true;
+      return out;
+    }
+    var y = top + rowH + 8 + np * 0.8, cur = [], cx = x0, rowStep = np * 1.9;
+    items.forEach(function (it) {
+      if (cur.length && cx + it.w > x0 + inner) { out.rows.push({ y: y, items: cur }); cur = []; cx = x0; y += rowStep; }
+      cur.push({ t: it.t, x: cx, w: it.w }); cx += it.w + g;
+    });
+    if (cur.length) out.rows.push({ y: y, items: cur });
+    out.h = y + np * 0.8 + 12; out.oneRow = false;
+    return out;
+  }
+
+  // o: { ts 글자 배율, layoutW 고정 배치 폭, maxW 내용 최대 폭, fixedHeader 헤더 높이 고정, hero "next"|"photo", old 옛 사이트 }
+  function buildPage(vw, o) {
+    o = o || {};
+    var ts = o.ts || 1, L = o.layoutW || vw, ops = [], late = [];
+    function R(x, y, w, h, c, r) { ops.push({ k: "r", x: x, y: y, w: w, h: h, c: c, r: r || 0 }); }
+    function T(x, y, s, px, c, wt, al, arr) { (arr || ops).push({ k: "t", x: x, y: y, s: s, px: px, c: c, wt: wt || 400, al: al || "left", w: tw(s, px, wt) }); }
+    var pad = L < 600 ? 16 : 32;
+    var inner = Math.min(L - 2 * pad, o.maxW || 1e9), x0 = (L - inner) / 2;
+    var m = { L: L, ts: ts };
+    // 머리(헤더)
+    var hd = header(L, inner, x0, ts), hd1 = header(L, inner, x0, 1);
+    var hH = o.fixedHeader ? hd1.h : hd.h;
+    R(0, 0, L, hH, o.old ? E.dark : E.white); R(0, hH - 1, L, 1, E.line);
+    m.navLines = hd.rows.length; m.overflow = Math.max(0, hd.h - hH); m.headerH = hH;
+    var lc = o.old ? E.white : E.dark, nc = o.old ? "#dfe8e2" : E.dark;
+    late.push({ k: "r", x: x0, y: hd.logoY - hd.mark / 2, w: hd.mark, h: hd.mark, c: o.old ? E.cream : E.green, r: 6 * ts });
+    T(x0 + hd.mark / 2, hd.logoY + hd.lp * 0.36, "E", hd.lp, o.old ? E.dark : E.white, 700, "center", late);
+    T(x0 + hd.mark + 8 * ts, hd.logoY + hd.lp * 0.36, "책방 E", hd.lp, lc, 700, "left", late);
+    hd.rows.forEach(function (row) { row.items.forEach(function (it, i) { T(it.x, row.y + hd.np * 0.36, it.t, hd.np, i === 1 && !o.old ? E.green : nc, 500, "left", late); }); });
+    // 첫 화면: 다음 모임
+    var y = hH + (L < 600 ? 16 : 28);
+    var wide = L >= 900, cp = L < 600 ? 18 : 28;
+    if (o.hero === "photo" && !wide) { var ph = Math.round(inner * 0.92); ops.push({ k: "ph", x: x0, y: y, w: inner, h: ph }); y += ph + 14; }
+    var tcol = wide ? inner * 0.56 - cp * 2 : inner - cp * 2;
+    var lab = 13 * ts, tp = (L < 600 ? 24 : L < 900 ? 28 : 34) * ts, mp = 15 * ts, bp = 16 * ts;
+    var tl = wrap("1월 그림책 낭독 모임", tp, 700, tcol), ml = wrap("1월 22일 토요일 오후 3시 · 책방 E 2층", mp, 400, tcol);
+    var btnH = bp * 1.25 + 24, btnW = tw("신청하기", bp, 700) + 44;
+    var textH = cp + lab * 1.3 + 8 + tl.length * tp * 1.28 + 8 + ml.length * mp * 1.5 + 18 + btnH + cp;
+    var photoH = wide ? (inner * 0.44) * 0.68 : 0;
+    var cardH = Math.max(textH, photoH + cp * 2);
+    R(x0, y, inner, cardH, o.old ? "#f1efe9" : E.cream, o.old ? 0 : 14);
+    if (wide) ops.push({ k: "ph", x: x0 + inner * 0.56, y: y + cp, w: inner * 0.44 - cp, h: cardH - cp * 2 });
+    var ty = y + cp + lab;
+    T(x0 + cp, ty, "다음 모임", lab, E.red, 700);
+    ty += lab * 0.3 + 8;
+    tl.forEach(function (s) { ty += tp * 1.28; T(x0 + cp, ty - tp * 0.28, s, tp, E.dark, 700); });
+    ty += 8;
+    ml.forEach(function (s) { ty += mp * 1.5; T(x0 + cp, ty - mp * 0.45, s, mp, E.dim, 400); });
+    ty += 18;
+    R(x0 + cp, ty, btnW, btnH, E.green, 10);
+    T(x0 + cp + btnW / 2, ty + btnH / 2 + bp * 0.36, "신청하기", bp, E.white, 700, "center");
+    m.btnTop = ty; m.btnBottom = ty + btnH; m.cardBottom = y + cardH;
+    y += cardH + 28;
+    // 소개 글(본문)
+    var bpx = (o.old ? 14 : 17) * ts, bl = wrap(INTRO, bpx, 400, inner);
+    m.bodyPx = bpx;
+    var cs = 0; bl.forEach(function (s, i) { if (i < bl.length - 1) cs += s.length; });
+    m.cpl = bl.length > 1 ? cs / (bl.length - 1) : INTRO.length;
+    bl.forEach(function (s) { y += bpx * 1.6; T(x0, y - bpx * 0.5, s, bpx, E.dark, 400); });
+    y += 28;
+    // 행사 일정
+    var hp = 20 * ts; m.nextTop = y;
+    y += hp * 1.3; T(x0, y - hp * 0.3, "행사 일정", hp, E.dark, 700); y += 10;
+    var rp = 16 * ts, rowH = Math.max(48, rp * 1.5 + 22);
+    EVENTS.forEach(function (ev) {
+      R(x0, y, inner, 1, E.line);
+      var cw = tw(ev[0] + " " + ev[1], 14 * ts, 700) + 18;
+      R(x0, y + (rowH - 14 * ts * 1.6 - 6) / 2, cw, 14 * ts * 1.6 + 6, E.chip, 8);
+      T(x0 + 9, y + rowH / 2 + 14 * ts * 0.36, ev[0] + " " + ev[1], 14 * ts, E.green, 700);
+      var tx = x0 + cw + 14, tl2 = wrap(ev[2], rp, 500, inner - cw - 14);
+      tl2.forEach(function (s, i) { T(tx, y + rowH / 2 + rp * 0.36 + (i - (tl2.length - 1) / 2) * rp * 1.3, s, rp, E.dark, 500); });
+      y += Math.max(rowH, tl2.length * rp * 1.3 + 16);
+    });
+    R(x0, y, inner, 1, E.line); y += 30;
+    // 신간
+    y += hp * 1.3; T(x0, y - hp * 0.3, "신간", hp, E.dark, 700); y += 12;
+    var g = L < 600 ? 12 : 20, cols = Math.max(1, Math.min(4, Math.floor((inner + g) / (140 + g))));
+    if (o.old) cols = 4;
+    m.cols = cols;
+    var cwid = (inner - g * (cols - 1)) / cols, ch = cwid * 1.42, tpx = 14 * ts, rowY = y, maxB = y;
+    BOOKS.forEach(function (b, i) {
+      var c = i % cols, r = Math.floor(i / cols);
+      if (c === 0 && r > 0) rowY = maxB + 18;
+      var bx = x0 + c * (cwid + g);
+      R(bx, rowY, cwid, ch, b[1], 6);
+      R(bx + cwid * 0.12, rowY + ch * 0.16, cwid * 0.76, Math.max(2, ch * 0.05), "rgba(255,255,255,0.75)", 2);
+      R(bx + cwid * 0.12, rowY + ch * 0.25, cwid * 0.5, Math.max(2, ch * 0.03), "rgba(255,255,255,0.55)", 2);
+      var bl2 = wrap(b[0], tpx, 500, cwid), by = rowY + ch + 6;
+      bl2.forEach(function (s) { by += tpx * 1.4; T(bx, by - tpx * 0.35, s, tpx, E.dark, 500); });
+      maxB = Math.max(maxB, by);
+    });
+    y = maxB + 32;
+    // 바닥
+    var fp = 13 * ts, fl = wrap("책방 E · 골목 끝 2층 · 화요일은 쉽니다", fp, 400, inner);
+    var fh = fl.length * fp * 1.6 + 36;
+    R(0, y, L, fh, E.dark);
+    fl.forEach(function (s, i) { T(x0, y + 18 + (i + 1) * fp * 1.6 - fp * 0.5, s, fp, E.cream, 400); });
+    y += fh;
+    m.H = y;
+    m.ops = ops.concat(late);
+    return m;
+  }
+  function drawPhoto(ctx, o) {
+    ctx.fillStyle = E.sage; ctx.fillRect(o.x, o.y, o.w, o.h);
+    var wx = o.x + o.w * 0.14, wy = o.y + o.h * 0.14, ww = o.w * 0.72, wh = o.h * 0.72;
+    ctx.fillStyle = "#f2dfae"; ctx.fillRect(wx, wy, ww, wh);
+    var cols = ["#2f7d5b", "#d24f39", "#22342a", "#e8b04b", "#7d5a8c", "#3d6f8f"];
+    for (var s = 0; s < 3; s++) {
+      var sy = wy + wh * (0.3 + s * 0.3);
+      ctx.fillStyle = "#8a6a46"; ctx.fillRect(wx, sy, ww, Math.max(1, wh * 0.025));
+      for (var i = 0; i < 9; i++) { ctx.fillStyle = cols[(i + s * 2) % cols.length]; ctx.fillRect(wx + ww * (0.04 + i * 0.105), sy - wh * 0.2, ww * 0.08, wh * 0.2); }
+    }
+    ctx.fillStyle = E.dark;
+    ctx.fillRect(wx + ww / 2 - Math.max(1, ww * 0.012), wy, Math.max(2, ww * 0.024), wh);
+    ctx.lineWidth = Math.max(1, ww * 0.02); ctx.strokeStyle = E.dark; ctx.strokeRect(wx, wy, ww, wh);
+  }
+  // P를 화면 (ox, oy)에서 배율 s로, 보이는 범위 vw×vh(배치 좌표)만큼 그린다. sy: 내려 본 거리, sx: 옆으로 민 거리
+  function paint(ctx, P, ox, oy, s, vw, vh, sy, sx) {
+    sy = sy || 0; sx = sx || 0;
+    ctx.save();
+    ctx.beginPath(); ctx.rect(ox, oy, vw * s, vh * s); ctx.clip();
+    ctx.fillStyle = E.page; ctx.fillRect(ox, oy, vw * s, vh * s);
+    ctx.translate(ox - sx * s, oy - sy * s); ctx.scale(s, s);
+    var y0 = sy - 40, y1 = sy + vh + 40;
+    ctx.textBaseline = "alphabetic";
+    P.ops.forEach(function (q) {
+      if (q.k === "r") {
+        if (q.y > y1 || q.y + q.h < y0) return;
+        ctx.fillStyle = q.c;
+        if (q.r) { rr(ctx, q.x, q.y, q.w, q.h, q.r); ctx.fill(); } else ctx.fillRect(q.x, q.y, q.w, q.h);
+      } else if (q.k === "t") {
+        if (q.y - q.px * 1.2 > y1 || q.y + q.px < y0) return;
+        var bx = q.al === "center" ? q.x - q.w / 2 : q.x;
+        if (q.px * s < 3.4) { ctx.globalAlpha = 0.5; ctx.fillStyle = q.c; ctx.fillRect(bx, q.y - q.px * 0.66, q.w, q.px * 0.56); ctx.globalAlpha = 1; }
+        else { ctx.font = fnt(q.px, q.wt); ctx.fillStyle = q.c; ctx.textAlign = q.al; ctx.fillText(q.s, q.x, q.y); }
+      } else if (q.k === "ph") {
+        if (q.y > y1 || q.y + q.h < y0) return;
+        drawPhoto(ctx, q);
+      }
+    });
+    ctx.restore();
+  }
+  function bezel(ctx, x, y, w, h, r) { ctx.fillStyle = "#2b2f2d"; rr(ctx, x - 4, y - 4, w + 8, h + 8, r || 6); ctx.fill(); }
+
+  var BG = "#ece8e0", PAPER = "#fbfaf7", LBL = "#3d3b36", LBL_DIM = "#6f6c64", BAD = "#c4432f", MARGIN = "#d6d0c4", INK = "#22342a";
+  function sim(name, fn) { try { fn(); } catch (e) { if (window.console) console.error("[" + name + "]", e); } }
+  function pill(ctx, txt, x, y, align) {
+    var lw = tw(txt, 11, 700) + 14, lx = align === "right" ? x - lw : align === "center" ? x - lw / 2 : x;
+    ctx.fillStyle = INK; rr(ctx, lx, y, lw, 20, 10); ctx.fill();
+    ctx.font = AB.font(11, false, 700); ctx.fillStyle = "#ffffff"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(txt, lx + lw / 2, y + 10);
+  }
+  // 가상 자료: 2027년 12월 책방 E 옛 사이트 방문 1,320회의 뷰포트 폭(가까운 대표 폭으로 묶음)
+  var WD = [[320, 6], [344, 16], [360, 168], [375, 62], [384, 30], [390, 204], [393, 112], [400, 12], [412, 150], [414, 40], [428, 22], [430, 58], [540, 8], [600, 8], [744, 10], [768, 30], [810, 18], [820, 26], [834, 14], [1024, 26], [1100, 10], [1180, 8], [1280, 44], [1366, 52], [1440, 56], [1536, 48], [1680, 12], [1920, 62], [2560, 8]];
+  var WTOT = WD.reduce(function (a, d) { return a + d[1]; }, 0);
+  function groupOf(w) { return w < 600 ? 0 : w < 1100 ? 1 : 2; }
+  // 가상 자료: 휴대폰 방문의 첫 화면 높이(주소창·도구 막대를 뺀 CSS px)와 비율(%)
+  var HD = [[540, 5], [580, 9], [620, 14], [660, 20], [700, 22], [740, 17], [780, 9], [820, 4]];
+  function shareH(f) { return HD.reduce(function (a, d) { return a + (f(d[0]) ? d[1] : 0); }, 0) / 100; }
+
+  /* ---------------- 시뮬레이터 1: 메타 태그 ---------------- */
+  sim("meta", function () {
+    var vw = 390, G = { fx: 0, s: 1 };
+    var modeG = AB.seg("vp-mt-mode", function () { cv.redraw(); });
+    var cv = canvas("#vp-mt-cv", function (ctx, w, h) {
+      var top = 44, vh = 700, s = Math.min((h - top - 18) / vh, (w - 60) / 430), fx = Math.round((w - 430 * s) / 2), fw = vw * s, fh = vh * s;
+      G.fx = fx; G.s = s;
+      ctx.strokeStyle = "#c9c2b6"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
+      ctx.strokeRect(fx + 320 * s, top - 6, (430 - 320) * s, fh + 12); ctx.setLineDash([]);
+      ctx.font = AB.font(10, true); ctx.fillStyle = LBL_DIM; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.fillText("320", fx + 320 * s, top - 8); ctx.fillText("430", fx + 430 * s, top - 8);
+      bezel(ctx, fx, top, fw, fh, 10);
+      var none = modeG() === "none", k = 1, P;
+      if (none) { P = buildPage(980, {}); k = vw / 980; paint(ctx, P, fx, top, s * k, 980, vh / k); }
+      else { P = buildPage(vw, {}); paint(ctx, P, fx, top, s, vw, vh); }
+      AB.handle(ctx, fx + fw + 4, top + fh / 2, { r: 8, fill: "#ffffff", ring: INK });
+      pill(ctx, "기기 폭 " + vw, fx, 10, "left");
+      if (none) pill(ctx, "980 폭에 배치 → " + Math.round(k * 100) + "%로 줄임", fx + fw, 10, "right");
+      AB.stat("vp-mt-o-l", (none ? 980 : vw) + " px");
+      AB.stat("vp-mt-o-k", AB.fix(k * 100, 0) + "%");
+      AB.stat("vp-mt-o-t", AB.fix(17 * k, 1) + " px" + (17 * k < 12 ? " · 읽기 어려움" : ""));
+      AB.stat("vp-mt-o-b", AB.fix((P.btnBottom - P.btnTop) * k, 0) + " px");
+    }, { aspect: 0.8, minHeight: 360, maxHeight: 460, bg: BG });
+    AB.drag(cv.canvas, { move: function (x) { vw = Math.round(AB.clamp((x - G.fx) / G.s, 320, 430)); cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 2: 1px 선과 DPR ---------------- */
+  sim("hair", function () {
+    var dprG = AB.seg("vp-hl-dpr", function () { cv.redraw(); });
+    var wG = AB.range("vp-hl-w", function (v) { return AB.fix(v, 2) + " px"; }, function () { cv.redraw(); });
+    var halfG = AB.check("vp-hl-half", function () { cv.redraw(); });
+    var cv = canvas("#vp-hl-cv", function (ctx, w, h) {
+      var dpr = +dprG(), t = wG(), y0 = 1.5 + (halfG() ? 0.5 : 0) - 0.5, C = 6, R = 4;
+      var nx = Math.round(C * dpr), ny = Math.round(R * dpr);
+      var c = Math.min((w - 48) / nx, (h - 84) / ny), gw = nx * c, gh = ny * c, ox = (w - gw) / 2, oy = 46;
+      var rows = [];
+      for (var i = 0; i < ny; i++) {
+        var a = i / dpr, b = (i + 1) / dpr, cov = Math.max(0, Math.min(b, y0 + t) - Math.max(a, y0)) * dpr;
+        rows.push(cov);
+        if (cov > 0.004) { ctx.fillStyle = "rgba(34,52,42," + Math.min(1, cov).toFixed(3) + ")"; ctx.fillRect(ox, oy + i * c, gw, c); }
+      }
+      ctx.lineWidth = 1; ctx.strokeStyle = "#d8d1c4";
+      for (var x = 0; x <= nx; x++) { ctx.beginPath(); ctx.moveTo(ox + x * c, oy); ctx.lineTo(ox + x * c, oy + gh); ctx.stroke(); }
+      for (var y = 0; y <= ny; y++) { ctx.beginPath(); ctx.moveTo(ox, oy + y * c); ctx.lineTo(ox + gw, oy + y * c); ctx.stroke(); }
+      ctx.lineWidth = 2.5; ctx.strokeStyle = "#8a8174";
+      for (var cx = 0; cx <= C; cx++) { ctx.beginPath(); ctx.moveTo(ox + cx * dpr * c, oy); ctx.lineTo(ox + cx * dpr * c, oy + gh); ctx.stroke(); }
+      for (var cy = 0; cy <= R; cy++) { ctx.beginPath(); ctx.moveTo(ox, oy + cy * dpr * c); ctx.lineTo(ox + gw, oy + cy * dpr * c); ctx.stroke(); }
+      ctx.strokeStyle = BAD; ctx.lineWidth = 1.5; ctx.setLineDash([6, 4]);
+      ctx.strokeRect(ox - 6, oy + y0 * dpr * c, gw + 12, t * dpr * c); ctx.setLineDash([]);
+      ctx.font = AB.font(12, false, 700); ctx.fillStyle = LBL; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      ctx.fillText("CSS 픽셀 6×4칸 = 기기 픽셀 " + (C * dpr) + "×" + (R * dpr) + "칸", ox, 22);
+      ctx.font = AB.font(11); ctx.fillStyle = LBL_DIM;
+      ctx.fillText("굵은 격자: CSS 픽셀 · 가는 격자: 기기 픽셀 · 빨간 점선: 그리려는 선", ox, 38);
+      var painted = rows.filter(function (v) { return v > 0.004; });
+      var faint = painted.length ? Math.min.apply(null, painted) : 0;
+      AB.stat("vp-hl-o-d", AB.fix(t * dpr, 2).replace(/\.?0+$/, "") + "줄 두께");
+      AB.stat("vp-hl-o-n", painted.length + "줄");
+      AB.stat("vp-hl-o-f", AB.pct(Math.min(1, faint), 0) + (faint < 0.99 ? " · 번짐" : " · 또렷"));
+    }, { aspect: 0.6, minHeight: 250, maxHeight: 360, bg: PAPER });
+  });
+
+  /* ---------------- 시뮬레이터 3: 이미지와 DPR ---------------- */
+  sim("img", function () {
+    var SRC = {}, RX = 159, RY = 16, RW = 24, RH = 16;
+    function scene(N) {
+      if (SRC[N]) return SRC[N];
+      var H = Math.round(N * 2 / 3), c = document.createElement("canvas"); c.width = N; c.height = H;
+      var g = c.getContext("2d"), u = N / 300;
+      g.fillStyle = "#e9dcc6"; g.fillRect(0, 0, N, H);
+      g.fillStyle = "#567666"; g.fillRect(40 * u, 48 * u, 220 * u, 152 * u);
+      g.fillStyle = INK; g.fillRect(84 * u, 10 * u, 132 * u, 32 * u);
+      g.fillStyle = "#ffe2d7"; g.font = "700 " + (21 * u) + "px " + FAMILY; g.textAlign = "center"; g.textBaseline = "middle";
+      g.fillText("책방 E", 150 * u, 27 * u);
+      g.fillStyle = "#f2dfae"; g.fillRect(56 * u, 62 * u, 188 * u, 120 * u);
+      var cols = ["#2f7d5b", "#d24f39", "#22342a", "#e8b04b", "#7d5a8c", "#3d6f8f"];
+      for (var s = 0; s < 3; s++) {
+        var sy = (62 + 36 + s * 38) * u;
+        g.fillStyle = "#8a6a46"; g.fillRect(56 * u, sy, 188 * u, 2 * u);
+        for (var i = 0; i < 14; i++) { g.fillStyle = cols[(i + s) % cols.length]; g.fillRect((60 + i * 13) * u, sy - 26 * u, 9 * u, 26 * u); }
+      }
+      g.fillStyle = INK;
+      g.fillRect(149 * u, 62 * u, 2 * u, 120 * u);
+      g.fillRect(56 * u, 61 * u, 188 * u, 1 * u);
+      for (var k = 0; k < 6; k++) g.fillRect((96 + k * 26) * u, 44 * u, 1 * u, 4 * u);
+      SRC[N] = c; return c;
+    }
+    var tmp = document.createElement("canvas");
+    var dprG = AB.seg("vp-im-dpr", function () { cv.redraw(); });
+    var nG = AB.seg("vp-im-n", function () { cv.redraw(); });
+    var cv = canvas("#vp-im-cv", function (ctx, w, h) {
+      var dpr = +dprG(), N = +nG(), src = scene(N);
+      var narrow = w < 520, pw = narrow ? Math.min(w - 32, 300) : Math.min(w * 0.42, 300), ph = pw * 2 / 3, px = 16, py = 34;
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(src, px, py, pw, ph);
+      var k = pw / 300;
+      ctx.strokeStyle = BAD; ctx.lineWidth = 2; ctx.strokeRect(px + RX * k, py + RY * k, RW * k, RH * k);
+      ctx.font = AB.font(11, false, 700); ctx.fillStyle = LBL; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      ctx.fillText("사진 칸 300 CSS px(축소 미리보기)", px, 22);
+      // 확대: 기기 픽셀 단위
+      var mx = narrow ? 16 : px + pw + 24, my = narrow ? py + ph + 34 : py, mw = narrow ? w - 32 : w - mx - 16, mh = narrow ? h - my - 16 : h - my - 16;
+      var nx = RW * dpr, ny = RH * dpr, c = Math.min(mw / nx, mh / ny);
+      tmp.width = nx; tmp.height = ny;
+      var t = tmp.getContext("2d"); t.imageSmoothingEnabled = true; t.imageSmoothingQuality = "high";
+      t.clearRect(0, 0, nx, ny);
+      t.drawImage(src, RX * N / 300, RY * N / 300, RW * N / 300, RH * N / 300, 0, 0, nx, ny);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(tmp, mx, my, nx * c, ny * c);
+      ctx.imageSmoothingEnabled = true;
+      if (c >= 5) {
+        ctx.strokeStyle = "rgba(255,255,255,0.35)"; ctx.lineWidth = 1;
+        for (var x = 0; x <= nx; x++) { ctx.beginPath(); ctx.moveTo(mx + x * c, my); ctx.lineTo(mx + x * c, my + ny * c); ctx.stroke(); }
+        for (var y = 0; y <= ny; y++) { ctx.beginPath(); ctx.moveTo(mx, my + y * c); ctx.lineTo(mx + nx * c, my + y * c); ctx.stroke(); }
+      }
+      ctx.strokeStyle = BAD; ctx.lineWidth = 2; ctx.strokeRect(mx, my, nx * c, ny * c);
+      ctx.font = AB.font(11, false, 700); ctx.fillStyle = LBL; ctx.textAlign = "left";
+      ctx.fillText("확대: CSS 24×16칸 = 기기 픽셀 " + nx + "×" + ny, mx, my - 8);
+      var cov = dpr * 300 / N;
+      AB.stat("vp-im-o-need", 300 * dpr + " px" + (N >= 300 * dpr ? (N > 300 * dpr ? " · 사진이 " + AB.fix(N / (300 * dpr), 1) + "배 큼" : " · 꼭 맞음") : " · 사진이 모자람"));
+      AB.stat("vp-im-o-cov", cov >= 1 ? AB.fix(cov, 2).replace(/\.?0+$/, "") + "×" + AB.fix(cov, 2).replace(/\.?0+$/, "") + "개" : "1개에 사진 픽셀 " + AB.fix(1 / cov, 1) + "×" + AB.fix(1 / cov, 1) + "개");
+      AB.stat("vp-im-o-kb", "약 " + Math.round(N * N * 2 / 3 * 0.2 / 1000) + " KB");
+    }, { get height() { var W = Math.max(200, document.getElementById("vp-im-cv").parentElement.clientWidth || 600); return W < 520 ? Math.round((W - 32) * 2 / 3 + 34 + 34 + (W - 32) * 2 / 3 + 16) : Math.round(Math.max(250, Math.min(340, W * 0.5))); }, bg: PAPER });
+  });
+
+  /* ---------------- 시뮬레이터 4: 화면 폭의 분포 ---------------- */
+  sim("hist", function () {
+    var xw = 600, G = { L: 0, bw: 1 };
+    var binG = AB.seg("vp-hs-bin", function () { cv.redraw(); });
+    var mineG = AB.check("vp-hs-mine", function () { cv.redraw(); });
+    var LO = Math.log(300), HI = Math.log(2700);
+    var cv = canvas("#vp-hs-cv", function (ctx, w, h) {
+      var P = AB.palette(), left = 46, right = 14, top = 26, bottom = 46, bw = w - left - right, bh = h - top - bottom;
+      G.L = left; G.bw = bw;
+      var X = function (v) { return left + (Math.log(v) - LO) / (HI - LO) * bw; };
+      var gcol = [P.accent, P.accent2, P.warn], gname = ["휴대폰(600 미만)", "태블릿(600~1099)", "컴퓨터(1100 이상)"];
+      ctx.font = AB.font(11, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [320, 480, 768, 1024, 1440, 1920, 2560].forEach(function (t) {
+        ctx.strokeStyle = P.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(X(t), top); ctx.lineTo(X(t), top + bh); ctx.stroke();
+        ctx.fillStyle = P.dim; ctx.fillText(String(t), X(t), top + bh + 6);
+      });
+      ctx.strokeStyle = P.axis; ctx.beginPath(); ctx.moveTo(left, top); ctx.lineTo(left, top + bh); ctx.lineTo(left + bw, top + bh); ctx.stroke();
+      ctx.font = AB.font(12); ctx.fillStyle = P.dim; ctx.textBaseline = "bottom";
+      ctx.fillText("뷰포트 폭(CSS px, 로그 눈금)", left + bw / 2, h - 4);
+      if (binG() === "raw") {
+        var mx = 220;
+        ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.font = AB.font(11, true);
+        [0, 100, 200].forEach(function (v) { var y = top + bh - v / mx * bh; ctx.fillStyle = P.dim; ctx.fillText(String(v), left - 6, y); ctx.strokeStyle = P.grid; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + bw, y); ctx.stroke(); });
+        WD.forEach(function (d) {
+          var bx = X(d[0]), hh = d[1] / mx * bh;
+          ctx.fillStyle = gcol[groupOf(d[0])]; ctx.fillRect(bx - 2.5, top + bh - hh, 5, hh);
+        });
+        ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; ctx.font = AB.font(11);
+        gname.forEach(function (n, i) { var lx = left + 10, ly = top + 12 + i * 16; ctx.fillStyle = gcol[i]; ctx.fillRect(lx + bw * 0.42, ly - 8, 9, 9); ctx.fillStyle = P.text; ctx.fillText(n, lx + bw * 0.42 + 14, ly); });
+      } else {
+        var sums = [0, 0, 0]; WD.forEach(function (d) { sums[groupOf(d[0])] += d[1]; });
+        var edges = [[300, 600], [600, 1100], [1100, 2700]];
+        ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.font = AB.font(11, true);
+        [0, 25, 50, 75].forEach(function (v) { var y = top + bh - v / 80 * bh; ctx.fillStyle = P.dim; ctx.fillText(v + "%", left - 6, y); ctx.strokeStyle = P.grid; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + bw, y); ctx.stroke(); });
+        edges.forEach(function (e, i) {
+          var x0 = X(e[0]) + 3, x1 = X(e[1]) - 3, pct = sums[i] / WTOT * 100, hh = pct / 80 * bh;
+          ctx.fillStyle = gcol[i]; ctx.fillRect(x0, top + bh - hh, x1 - x0, hh);
+          ctx.fillStyle = P.text; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+          ctx.fillText(AB.fix(pct, 1) + "%", (x0 + x1) / 2, top + bh - hh - 4);
+          ctx.font = AB.font(11); ctx.fillStyle = P.dim; ctx.textBaseline = "top";
+          ctx.fillText(["휴대폰", "태블릿", "컴퓨터"][i], (x0 + x1) / 2, top + bh - hh + 4 > top + bh - 16 ? top + bh - hh - 34 : top + bh - hh + 4);
+        });
+      }
+      if (mineG()) {
+        ctx.strokeStyle = P.text; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.moveTo(X(1440), top); ctx.lineTo(X(1440), top + bh); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "top";
+        ctx.fillText("서윤의 노트북", X(1440) - 4, top + 2);
+      }
+      ctx.strokeStyle = P.bad; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(X(xw), top - 6); ctx.lineTo(X(xw), top + bh); ctx.stroke();
+      ctx.fillStyle = P.bad; ctx.font = AB.font(11, false, 700); ctx.textBaseline = "bottom";
+      ctx.textAlign = X(xw) > left + bw - 60 ? "right" : "left";
+      ctx.fillText(xw + " px", X(xw) + (ctx.textAlign === "right" ? -4 : 4), top - 4);
+      var lt = 0, eq = 0;
+      WD.forEach(function (d) { if (d[0] < xw) lt += d[1]; if (d[0] === xw) eq += d[1]; });
+      AB.stat("vp-hs-o-x", xw + " px");
+      AB.stat("vp-hs-o-lt", lt + "회 · " + AB.pct(lt / WTOT, 1));
+      AB.stat("vp-hs-o-eq", eq ? eq + "회 · " + AB.pct(eq / WTOT, 1) : "없음");
+    }, { aspect: 0.52, minHeight: 260, maxHeight: 360 });
+    AB.drag(cv.canvas, { move: function (x) {
+      var v = Math.exp(LO + AB.clamp((x - G.L) / G.bw, 0, 1) * (HI - LO)), best = null, bd = 1e9;
+      WD.forEach(function (d) { var px = Math.abs((Math.log(d[0]) - Math.log(v)) / (HI - LO) * G.bw); if (px < bd) { bd = px; best = d[0]; } });
+      xw = bd < 6 ? best : Math.round(v); cv.redraw();
+    } });
+  });
+
+  /* ---------------- 시뮬레이터 5: 확대와 글자 크기 ---------------- */
+  sim("zoom", function () {
+    var modeG = AB.seg("vp-zm-mode", function () { cv.redraw(); });
+    var zG = AB.range("vp-zm-z", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var siteG = AB.seg("vp-zm-site", function () { cv.redraw(); });
+    var cv = canvas("#vp-zm-cv", function (ctx, w, h) {
+      var pad = 16, top = 40, s = (w - 2 * pad) / 1280, fh = 720 * s, fx = pad, fy = top;
+      var z = zG() / 100, zoom = modeG() === "zoom", old = siteG() === "old";
+      var vw = zoom ? 1280 / z : 1280, vh = zoom ? 720 / z : 720, ps = zoom ? s * z : s, ts = zoom ? 1 : z, P, scroll = 0;
+      ctx.fillStyle = "#2b2f2d"; rr(ctx, fx - 3, fy - 22, 1280 * s + 6, fh + 25, 6); ctx.fill();
+      ctx.fillStyle = "#4a504c"; rr(ctx, fx + 40, fy - 17, Math.min(260, 1280 * s * 0.5), 12, 6); ctx.fill();
+      if (old) {
+        P = buildPage(960, { layoutW: 960, old: true, fixedHeader: true, ts: ts });
+        if (vw >= 960) { ctx.fillStyle = MARGIN; ctx.fillRect(fx, fy, 1280 * s, fh); paint(ctx, P, fx + (vw - 960) / 2 * ps, fy, ps, 960, vh); }
+        else { paint(ctx, P, fx, fy, ps, vw, vh); scroll = 960 - vw; }
+      } else {
+        var L = Math.max(320, Math.round(vw));
+        P = buildPage(L, { maxW: 1200, ts: ts });
+        paint(ctx, P, fx, fy, ps, vw, vh);
+        scroll = Math.max(0, L - vw);
+      }
+      if (scroll > 0.5) {
+        ctx.fillStyle = "rgba(34,52,42,0.18)"; ctx.fillRect(fx, fy + fh - 7, 1280 * s, 7);
+        ctx.fillStyle = "rgba(196,67,47,0.85)"; ctx.fillRect(fx, fy + fh - 7, 1280 * s * vw / (vw + scroll), 7);
+      }
+      pill(ctx, "창 1280×720 · 뷰포트 " + Math.round(vw) + " CSS px", fx, 6, "left");
+      var bodyOn = P.bodyPx * (zoom ? z : 1);
+      AB.stat("vp-zm-o-w", Math.round(vw) + " px");
+      AB.stat("vp-zm-o-t", AB.fix(bodyOn, 0) + " px 크기(" + Math.round(z * 100) + "%)");
+      AB.stat("vp-zm-o-s", scroll > 0.5 ? Math.round(scroll) + " px" : "없음");
+      AB.stat("vp-zm-o-n", (P.overflow > 0 ? "헤더 밖으로 " + Math.round(P.overflow) + " px 넘침" : P.navLines > 1 ? P.navLines + "줄(로고 아래)" : P.oneRow ? "한 줄(로고 옆)" : "한 줄(로고 아래)"));
+    }, { get height() { var W = Math.max(200, document.getElementById("vp-zm-cv").parentElement.clientWidth || 600); return Math.round((W - 32) * 720 / 1280 + 40 + 16); }, bg: BG });
+  });
+
+  /* ---------------- 시뮬레이터 6: 접힘선의 띠 ---------------- */
+  sim("fold", function () {
+    var sy = 0, G = { s: 1, H: 1000, vh: 660, y0: 0, sy0: 0, fx: 0, fw: 0 };
+    var layG = AB.seg("vp-fd-lay", function () { sy = 0; cv.redraw(); });
+    var devG = AB.seg("vp-fd-dev", function () { cv.redraw(); });
+    var cv = canvas("#vp-fd-cv", function (ctx, w, h) {
+      var lay = layG(), vh = +devG(), ts = lay === "cram" ? 0.7 : 1;
+      var P = buildPage(390, { hero: lay === "photo" ? "photo" : "next", ts: ts });
+      var pad = 16, wl = w * 0.58, s = Math.min((h - 2 * pad - 24) / 820, (wl - 2 * pad) / 390);
+      var fw = 390 * s, fh = vh * s, fx = Math.max(pad, (wl - fw) / 2), fy = pad + 20;
+      sy = AB.clamp(sy, 0, Math.max(0, P.H - vh));
+      G.s = s; G.H = P.H; G.vh = vh; G.fx = fx; G.fw = fw;
+      bezel(ctx, fx, fy, fw, fh, 10);
+      paint(ctx, P, fx, fy, s, 390, vh, sy);
+      ctx.font = AB.font(11, false, 700); ctx.fillStyle = LBL; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+      ctx.fillText("휴대폰 390 × " + vh, fx + fw / 2, pad + 8);
+      // 지도
+      var mx = wl + 8, mw = w - mx - pad - 30, ms = Math.min((h - 2 * pad - 24) / P.H, mw / 390), mfw = 390 * ms, my = fy;
+      mx = mx + (mw - mfw) / 2;
+      ctx.fillStyle = "#cfc8bb"; ctx.fillRect(mx - 2, my - 2, mfw + 4, P.H * ms + 4);
+      paint(ctx, P, mx, my, ms, 390, P.H, 0);
+      HD.forEach(function (d) {
+        var y = my + d[0] * ms;
+        ctx.strokeStyle = "rgba(196,67,47," + (0.25 + d[1] / 30).toFixed(2) + ")"; ctx.lineWidth = 1 + d[1] / 8;
+        ctx.beginPath(); ctx.moveTo(mx - 6, y); ctx.lineTo(mx + mfw + 6, y); ctx.stroke();
+      });
+      ctx.font = AB.font(10, true); ctx.fillStyle = BAD; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("540", mx + mfw + 8, my + 540 * ms); ctx.fillText("820", mx + mfw + 8, my + 820 * ms);
+      ctx.font = AB.font(11, false, 700); ctx.fillStyle = LBL; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+      ctx.fillText("페이지 전체와 접힘선의 띠", mx + mfw / 2, pad + 8);
+      ctx.strokeStyle = INK; ctx.lineWidth = 2; ctx.strokeRect(mx, my + sy * ms, mfw, vh * ms);
+      // 버튼 표시
+      var by = my + P.btnBottom * ms;
+      ctx.fillStyle = "#2f7d5b"; ctx.beginPath(); ctx.moveTo(mx - 4, by); ctx.lineTo(mx - 12, by - 5); ctx.lineTo(mx - 12, by + 5); ctx.closePath(); ctx.fill();
+      var seeBtn = shareH(function (hh) { return hh >= P.btnBottom; }), seeCue = shareH(function (hh) { return hh >= P.nextTop + 20 * ts; });
+      AB.stat("vp-fd-o-b", AB.pct(seeBtn, 0));
+      AB.stat("vp-fd-o-c", AB.pct(seeCue, 0));
+      AB.stat("vp-fd-o-t", AB.fix(P.bodyPx, 1) + " px" + (P.bodyPx < 12 ? " · 읽기 어려움" : ""));
+      AB.stat("vp-fd-o-y", Math.round(sy) + " px");
+    }, { aspect: 0.82, minHeight: 360, maxHeight: 470, bg: BG });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { G.y0 = y; G.sy0 = sy; },
+      move: function (x, y) { sy = AB.clamp(G.sy0 - (y - G.y0) / G.s, 0, Math.max(0, G.H - G.vh)); cv.redraw(); }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 7: 가상 방문자 100명 ---------------- */
+  sim("crowd", function () {
+    var r = AB.rng(20271231), V = [];
+    var HDESK = [650, 700, 720, 760, 800, 860, 900];
+    for (var i = 0; i < 100; i++) {
+      var u = r() * WTOT, acc = 0, w0 = WD[0][0];
+      for (var j = 0; j < WD.length; j++) { acc += WD[j][1]; if (u < acc) { w0 = WD[j][0]; break; } }
+      var g = groupOf(w0), hh, q = r() * 100, a2 = 0;
+      if (g === 0) { hh = HD[HD.length - 1][0]; for (var k = 0; k < HD.length; k++) { a2 += HD[k][1]; if (q < a2) { hh = HD[k][0]; break; } } }
+      else if (g === 1) hh = w0 >= 1000 ? 700 : Math.round(w0 * 1.28);
+      else hh = HDESK[Math.floor(r() * HDESK.length)];
+      var t = r(), ts = t < 0.82 ? 1 : t < 0.92 ? 1.3 : t < 0.98 ? 1.6 : 2;
+      var dpr = g === 0 ? [2, 2.625, 3, 3, 3][Math.floor(r() * 5)] : g === 1 ? 2 : [1, 1, 1.25, 1.5, 2][Math.floor(r() * 5)];
+      V.push({ n: i + 1, w: w0, h: hh, ts: ts, dpr: dpr, g: g });
+    }
+    var sel = 0; for (var q2 = 0; q2 < V.length; q2++) if (V[q2].g === 0 && V[q2].ts > 1.2) { sel = q2; break; }
+    function evalV(v, site) {
+      var o = { probs: [] }, P, k = 1;
+      if (site === "old") {
+        P = buildPage(960, { layoutW: 960, old: true, fixedHeader: true, ts: v.ts });
+        if (v.g < 2) k = v.w / 980;
+        o.body = P.bodyPx * k;
+        if (o.body < 12) o.probs.push("본문이 " + AB.fix(o.body, 1) + "px로 보임");
+        if (P.overflow > 0) { o.probs.push("메뉴가 헤더 밖으로 넘침"); o.set = true; }
+        o.P = P; o.L = 960; o.k = k; o.mode = v.g < 2 ? "shrink" : "center";
+      } else if (site === "pic") {
+        P = PIC(); k = Math.min(1, v.w / 1440);
+        o.body = 17 * k;
+        if (o.body < 12) o.probs.push("본문이 " + AB.fix(o.body, 1) + "px로 보임");
+        if (v.ts > 1) { o.probs.push("그림 속 글자는 글자 크기 설정을 무시"); o.set = true; }
+        o.P = P; o.L = 1440; o.k = k; o.mode = v.w >= 1440 ? "center" : "shrink";
+      } else {
+        P = buildPage(Math.max(320, v.w), { maxW: 1200, ts: v.ts });
+        o.body = P.bodyPx;
+        if (P.overflow > 0) { o.probs.push("메뉴 넘침"); o.set = true; }
+        o.P = P; o.L = v.w; o.k = 1; o.mode = "fit";
+      }
+      o.btn = P.btnBottom * o.k <= v.h;
+      return o;
+    }
+    var picCache = null;
+    function PIC() { if (!picCache) picCache = buildPage(1440, { maxW: 1200 }); return picCache; }
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { picCache = null; });
+    function drawScreen(ctx, v, o, x, y, s) {
+      var fw = v.w * s, fh = v.h * s;
+      if (o.mode === "center") { ctx.fillStyle = MARGIN; ctx.fillRect(x, y, fw, fh); paint(ctx, o.P, x + (v.w - o.L) / 2 * s, y, s, o.L, v.h); }
+      else if (o.mode === "shrink") { paint(ctx, o.P, x, y, s * o.k, o.L, v.h / o.k); }
+      else paint(ctx, o.P, x, y, s, v.w, v.h);
+    }
+    var siteG = AB.seg("vp-vs-site", function () { cv.redraw(); });
+    var badG = AB.check("vp-vs-bad", function () { cv.redraw(); });
+    var G = {};
+    function geom(w) {
+      var cols = w >= 560 ? 20 : 10, gap = 4, pad = 14, tw0 = (w - 2 * pad - (cols - 1) * gap) / cols, th = tw0 * 1.35;
+      return { cols: cols, gap: gap, pad: pad, tw: tw0, th: th, gridH: Math.ceil(100 / cols) * (th + gap) };
+    }
+    var cv = canvas("#vp-vs-cv", function (ctx, w, h) {
+      var site = siteG(), gm = geom(w), nTiny = 0, nSet = 0, nBtn = 0;
+      G.gm = gm;
+      V.forEach(function (v, i) {
+        var o = evalV(v, site), col = i % gm.cols, row = Math.floor(i / gm.cols);
+        var bx = gm.pad + col * (gm.tw + gm.gap), by = gm.pad + row * (gm.th + gm.gap);
+        var s = Math.min((gm.tw - 2) / v.w, (gm.th - 2) / v.h), fw = v.w * s, fh = v.h * s, x = bx + (gm.tw - fw) / 2, y = by + (gm.th - fh) / 2;
+        drawScreen(ctx, v, o, x, y, s);
+        var bad = o.probs.length > 0;
+        if (o.body < 12) nTiny++; if (o.set) nSet++; if (o.btn) nBtn++;
+        ctx.lineWidth = i === sel ? 2.5 : 1;
+        ctx.strokeStyle = i === sel ? "#2a6fdb" : bad && badG() ? BAD : "#7d776c";
+        if (bad && badG() && i !== sel) ctx.lineWidth = 2;
+        ctx.strokeRect(x - 0.5, y - 0.5, fw + 1, fh + 1);
+      });
+      // 고른 방문 자세히
+      var v = V[sel], o = evalV(v, site), py = gm.pad + gm.gridH + 10, ph = h - py - 14;
+      ctx.fillStyle = "#e2ddd3"; ctx.fillRect(gm.pad, py - 4, w - 2 * gm.pad, 1);
+      var tx0 = w < 520 ? 0.5 : 0.56, s = Math.min((ph - 8) / v.h, (w * tx0 - 2 * gm.pad) / v.w), fw = v.w * s, fh = v.h * s, x = gm.pad + 4, y = py + 6;
+      bezel(ctx, x, y, fw, fh, 5);
+      drawScreen(ctx, v, o, x, y, s);
+      var lx = x + fw + 18, ly = y + 14, lines = [
+        ["방문 #" + v.n, 700, LBL],
+        ["뷰포트 " + v.w + " × " + v.h, 400, LBL],
+        ["DPR " + v.dpr + " · 글자 " + Math.round(v.ts * 100) + "%", 400, LBL],
+        ["본문 " + AB.fix(o.body, 1) + " px로 보임", 400, o.body < 12 ? BAD : LBL],
+        [o.btn ? "신청하기: 첫 화면에 보임" : "신청하기: 스크롤해야 보임", 400, LBL_DIM]
+      ].concat(o.probs.length ? o.probs.map(function (p) { return ["· " + p, 400, BAD]; }) : [["문제 없음", 700, "#2f7d5b"]]);
+      lines.forEach(function (L) {
+        ctx.font = AB.font(12, false, L[1]); ctx.fillStyle = L[2]; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        var ws = wrap(L[0], 12, L[1], Math.max(80, w - lx - 12));
+        ws.forEach(function (sv) { if (ly < h - 6) ctx.fillText(sv, lx, ly); ly += 17; });
+      });
+      AB.stat("vp-vs-o-tiny", nTiny + "명");
+      AB.stat("vp-vs-o-set", nSet + "명");
+      AB.stat("vp-vs-o-btn", nBtn + "명");
+      AB.stat("vp-vs-o-sel", "#" + v.n + " · " + v.w + " px · 글자 " + Math.round(v.ts * 100) + "%");
+    }, { get height() { var W = Math.max(200, document.getElementById("vp-vs-cv").parentElement.clientWidth || 600); var gm = geom(W); return Math.round(gm.pad + gm.gridH + 14 + 230); }, bg: BG });
+    cv.canvas.style.cursor = "pointer";
+    cv.canvas.addEventListener("click", function (e) {
+      var rc = cv.canvas.getBoundingClientRect(), x = e.clientX - rc.left, y = e.clientY - rc.top, gm = G.gm;
+      if (!gm) return;
+      var col = Math.floor((x - gm.pad) / (gm.tw + gm.gap)), row = Math.floor((y - gm.pad) / (gm.th + gm.gap)), i = row * gm.cols + col;
+      if (col >= 0 && col < gm.cols && row >= 0 && i < 100) { sel = i; cv.redraw(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -297,7 +297,7 @@
     <p>최악은 대칭 덮개처럼 틀린 방향이 조용히 받아들여지는 경우다. 막히는 실수는 사용자가 바로 알고 고친다. 조용한 오류는 "고장 났다"는 결론으로 이어진다. 배터리를 갈아 끼운 사람이 등이 켜지지 않는 것을 보고 새 배터리가 불량이라고 생각할 수도 있다. 사용자가 직접 여는 부분(배터리 칸, 충전 단자, 교체 부품)에는 이런 조용한 오류가 생길 자리가 없는지 하나씩 확인한다.</p>
 
     <figure class="diagram">
-      <svg viewBox="0 0 460 210" role="img" aria-label="실수를 다루는 세 가지 형태: 막는다, 받아들인다, 조용히 틀린다">
+      <svg viewBox="0 0 460 184" role="img" aria-label="실수를 다루는 세 가지 형태: 막는다, 받아들인다, 조용히 틀린다">
         <rect x="10" y="20" width="136" height="150" rx="10" class="f-ok-soft"/>
         <rect x="162" y="20" width="136" height="150" rx="10" class="f-acc2-soft"/>
         <rect x="314" y="20" width="136" height="150" rx="10" class="f-bad-soft"/>
@@ -314,14 +314,13 @@
         <rect x="200" y="84" width="60" height="22" rx="11" class="f-elev"/>
         <path d="M212 95 L248 95" class="s-acc2" style="stroke-width:3"/>
         <text x="230" y="146" text-anchor="middle" class="lbl" style="font-size:12px">어느 쪽이든 맞다</text>
-        <text x="230" y="162" text-anchor="middle" class="lbl-dim" style="font-size:11px">USB-C, 대칭 원통 배터리 홀더*</text>
+        <text x="230" y="162" text-anchor="middle" class="lbl-dim" style="font-size:11px">USB-C, 위아래 없는 부품</text>
         <!-- 조용히 틀린다 -->
         <rect x="342" y="72" width="80" height="44" rx="4" fill="none" class="s-line"/>
         <rect x="348" y="78" width="68" height="32" rx="3" class="f-elev"/>
         <circle cx="360" cy="94" r="4" class="f-bad"/><circle cx="404" cy="94" r="4" fill="none" class="s-line"/>
         <text x="382" y="146" text-anchor="middle" class="lbl" style="font-size:12px">끼워지는데 안 된다</text>
         <text x="382" y="162" text-anchor="middle" class="lbl-dim" style="font-size:11px">대칭 덮개, 같은 모양 부품</text>
-        <text x="10" y="196" class="lbl-dim" style="font-size:11px">* 극성이 없는 경우만. 원통형 전지는 대개 +·− 방향이 있어 홀더의 형태와 표시가 필요하다.</text>
       </svg>
       <figcaption><b>그림 2. 실수를 다루는 세 가지 형태.</b> 막는 형태와 받아들이는 형태는 모두 좋은 선택이고, 무엇을 고를지는 부품과 비용이 정한다. 피해야 할 것은 오른쪽, 틀린 조작을 조용히 받아들이는 형태다.</figcaption>
     </figure>
@@ -419,12 +418,12 @@
   /* ---------------- 시뮬레이터 1: 클릭감 편집기 ---------------- */
   safe("ft", function () {
     var PRE = {
-      metal: { pk: [0.12, 2.5], mn: [0.21, 1.4], T: 0.3 },
-      rubber: { pk: [0.55, 1.6], mn: [0.85, 1.25], T: 1.1 },
-      linear: { pk: [0.5, 1.0], mn: [0.9, 1.7], T: 1.0 }
+      metal: { pk: [0.12, 2.5], mn: [0.21, 1.4], T: 0.3, XM: 0.4 },
+      rubber: { pk: [0.55, 1.6], mn: [0.85, 1.25], T: 1.1, XM: 1.2 },
+      linear: { pk: [0.5, 1.0], mn: [0.9, 1.7], T: 1.0, XM: 1.2 }
     };
-    var st = JSON.parse(JSON.stringify(PRE.metal)), geo = null, act = null, XM = 1.2, YM = 5;
-    var pre = AB.seg("ft-pre", function (v) { st = JSON.parse(JSON.stringify(PRE[v])); cv.redraw(); });
+    var st = JSON.parse(JSON.stringify(PRE.metal)), geo = null, act = null, XM = st.XM, YM = 5;
+    var pre = AB.seg("ft-pre", function (v) { st = JSON.parse(JSON.stringify(PRE[v])); XM = st.XM; cv.redraw(); });
     var ret = AB.check("ft-ret", function () { cv.redraw(); });
     function smooth(t) { return t * t * (3 - 2 * t); }
     function force(x) {
@@ -443,7 +442,7 @@
       for (var x2 = 0; x2 <= st.T + 1e-9; x2 += st.T / 200) back.push([x2, Math.max(0, force(x2) * 0.82 - 0.1)]);
       var series = [{ data: data, color: p.accent, width: 2.8 }];
       if (ret()) series.push({ data: back, color: p.faint, width: 1.5, dash: [5, 4] });
-      var c = AB.chart(ctx, box, { x: [0, XM], y: [0, YM], xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], yTicks: [0, 1, 2, 3, 4, 5], xFmt: function (v) { return v.toFixed(1); }, yFmt: function (v) { return v + " N"; }, xLabel: "누른 깊이(mm)", series: series });
+      var c = AB.chart(ctx, box, { x: [0, XM], y: [0, YM], xTicks: XM < 1 ? [0, 0.1, 0.2, 0.3, 0.4] : [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], yTicks: [0, 1, 2, 3, 4, 5], xFmt: function (v) { return v.toFixed(1); }, yFmt: function (v) { return v + " N"; }, xLabel: "누른 깊이(mm)", series: series });
       // 딸깍 구간
       if (st.pk[1] > st.mn[1]) {
         ctx.fillStyle = p.accent; ctx.globalAlpha = 0.08; ctx.fillRect(c.X(st.pk[0]), box.y, c.X(st.mn[0]) - c.X(st.pk[0]), box.h); ctx.globalAlpha = 1;
@@ -454,7 +453,7 @@
       }
       ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
       ctx.fillText("반발력", box.x + 4, box.y - 6);
-      if (ret()) { ctx.textAlign = "right"; ctx.fillText("점선: 손을 뗄 때", box.x + box.w, box.y - 6); }
+      if (ret()) { ctx.fillText("· 점선: 손을 뗄 때", box.x + 48, box.y - 6); }
       // 손잡이
       AB.handle(ctx, c.X(st.pk[0]), c.Y(st.pk[1]), { r: 7, fill: p.accent, ring: p.text });
       AB.handle(ctx, c.X(st.mn[0]), c.Y(st.mn[1]), { r: 7, fill: p.accent2, ring: p.text });
@@ -534,22 +533,23 @@
       });
       ctx.globalAlpha = 1;
       // 아래: 단면
-      var sy = topH + (h - topH) * 0.55, half = 22 * sc;
+      var s2 = sc * 0.5, sy = topH + (h - topH) * 0.62, half = 22 * s2;
       ctx.fillStyle = BODY; ctx.beginPath();
       ctx.moveTo(cx - half, sy);
       var prof = function (xm) { var a = Math.abs(xm); if (a > RB) return 0; var k = 1 - (a / RB) * (a / RB); return sh === "convex" ? -0.9 * k : sh === "concave" ? 0.6 * k : 0; };
-      for (var xm = -22; xm <= 22.001; xm += 0.25) ctx.lineTo(cx + xm * sc, sy + prof(xm) * sc * 2.2);
-      ctx.lineTo(cx + half, sy + 7 * sc); ctx.lineTo(cx - half, sy + 7 * sc); ctx.closePath(); ctx.fill();
-      ctx.strokeStyle = INK; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx - RB * sc, sy + 3 * sc); ctx.lineTo(cx - RB * sc, sy + 7 * sc); ctx.moveTo(cx + RB * sc, sy + 3 * sc); ctx.lineTo(cx + RB * sc, sy + 7 * sc); ctx.stroke();
+      for (var xm = -22; xm <= 22.001; xm += 0.25) ctx.lineTo(cx + xm * s2, sy + prof(xm) * s2 * 3);
+      ctx.lineTo(cx + half, sy + 6 * s2); ctx.lineTo(cx - half, sy + 6 * s2); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = INK; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx - RB * s2, sy + 2.5 * s2); ctx.lineTo(cx - RB * s2, sy + 6 * s2); ctx.moveTo(cx + RB * s2, sy + 2.5 * s2); ctx.lineTo(cx + RB * s2, sy + 6 * s2); ctx.stroke();
       // 손끝
       ctx.fillStyle = "#e8b894"; ctx.strokeStyle = "#c98f68"; ctx.lineWidth = 1.2;
-      var fy = sy + prof(0) * sc * 2.2 - 6 * sc;
-      ctx.beginPath(); ctx.ellipse(cx, fy, 7 * sc, 6 * sc, 0, 0, 7); ctx.fill(); ctx.stroke();
+      var fy = sy + prof(0) * s2 * 3 - 5.4 * s2;
+      ctx.beginPath(); ctx.ellipse(cx, fy, 7 * s2, 5.5 * s2, 0, 0, 7); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("단면(높이 3배 과장)", cx + half + 8, sy);
       ctx.fillStyle = INK; ctx.font = AB.font(11, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
       ctx.fillText({ flat: "평평: 단서 없음", convex: "볼록: 솟아 있다", concave: "오목: 턱 + 기울기" }[sh], 8, topH + 4);
-      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(10); ctx.textAlign = "right"; ctx.textBaseline = "top";
-      ctx.fillText("● 한 번에 찾음  ● 빗나감", w - 8, 6);
-      ctx.fillStyle = HIT; ctx.fillText("●", w - 8 - ctx.measureText(" 한 번에 찾음  ● 빗나감").width, 6);
+      ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillStyle = HIT; ctx.beginPath(); ctx.arc(12, 12, 4, 0, 7); ctx.fill(); ctx.fillStyle = "#6b6874"; ctx.fillText("한 번에 찾음", 20, 12);
+      ctx.fillStyle = MISS; ctx.beginPath(); ctx.arc(12, 28, 4, 0, 7); ctx.fill(); ctx.fillStyle = "#6b6874"; ctx.fillText("빗나감", 20, 28);
       // 판단
       var pf = 1 - Math.exp(-FIND[sh] * FIND[sh] / (2 * sg * sg)), pa = Math.PI * ACC[sh] * ACC[sh] / AREA;
       AB.stat("ds-o-f", AB.pct(pf, 0) + " <small>표본 " + found + "/200</small>");
@@ -627,6 +627,8 @@
           for (var j = 0; j < 4; j++) { ctx.fillStyle = j === i ? p.accent : p.faint; ctx.fillRect(x + kr + 3 + (j % 2) * (s + 1), y - s + Math.floor(j / 2) * (s + 1), s, s); }
         }
       });
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("손잡이 테두리: 초록 맞음 · 노랑 헷갈림 · 빨강 틀림", w * 0.08 + 6, h * 0.98 - 3);
       geo = { w: w, h: h, kr: kr };
       AB.stat("mp-o-m", S.match + " / 4");
       AB.stat("mp-o-a", S.amb ? S.amb + "개 <small>반반으로 고른다</small>" : "없음");
@@ -740,6 +742,7 @@
       if (lit > 0) { var g = ctx.createRadialGradient(lx, ly, 2, lx, ly, lampH * 0.42); g.addColorStop(0, "rgba(" + warmCol + "," + (0.25 + 0.65 * lit) + ")"); g.addColorStop(1, "rgba(" + warmCol + ",0)"); ctx.fillStyle = g; ctx.fillRect(0, 0, lampW, lampH); }
       ctx.fillStyle = lit > 0 ? "rgb(" + warmCol + ")" : p.faint; ctx.beginPath(); ctx.arc(lx, ly, Math.min(lampW, lampH) * 0.1, 0, 7); ctx.fill();
       ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("등", lx, ly + Math.min(lampW, lampH) * 0.1 + 6);
       var bx = lx, by = lampH * 0.74, br = Math.min(lampW, lampH) * 0.1;
       ctx.fillStyle = press ? p.accent : p.surface; ctx.strokeStyle = p.text; ctx.lineWidth = 2.5;
       ctx.beginPath(); ctx.arc(bx, by, br, 0, 7); ctx.fill(); ctx.stroke();
@@ -952,7 +955,7 @@
       // 뒤집기 손잡이와 상태 글자
       AB.handle(ctx, cx + 100 * sc, py, { r: 9, fill: "#ffffff", ring: INK });
       ctx.fillStyle = INK; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "middle";
-      ctx.fillText(f ? "뒤집음" : "처음 방향", cx + 88 * sc, py + (inserted ? 30 * sc : -28 * sc));
+      ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(f ? "뒤집음" : "처음 방향", cx + 100 * sc, py + 14);
       if (outcome) {
         var txt = outcome === "ok" ? "들어가고 작동한다" : outcome === "block" ? "막힌다: 뒤집어 다시" : "들어갔는데 작동하지 않는다", col = outcome === "ok" ? OKC : outcome === "block" ? WARN : BADC;
         ctx.fillStyle = col; ctx.font = AB.font(13, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
