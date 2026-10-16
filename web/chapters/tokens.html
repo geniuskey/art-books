@@ -245,7 +245,7 @@
         <div class="stat"><span class="k">가장 낮은 짝</span><span class="v" id="tp-o-min">—</span></div>
         <div class="stat"><span class="k">고른 짝</span><span class="v" id="tp-o-sel">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "밝은 화면 · 본문 4.5"에서 붉은 칸을 찾는다. 강조색 #d24f39는 바탕 위 4.1이라 본문에는 못 쓰고, 크림 띠 위에는 흐린 글자와 주색도 4.1에 그친다. TypeBook 7장에서 "크림 위에는 짙은 글자만"이라고 정한 이유가 표에 그대로 보인다. "큰 글자 3"으로 바꾸면 이 칸들이 통과한다. ② "어두운 화면"으로 바꾼다. 모든 짝이 통과한다. 어두운 화면의 글자 토큰은 밝은 화면과 다른 칸을 가리키기 때문이다. ③ 어두운 바탕 명도를 0.42까지 올린다. 바탕과 표면이 함께 밝아지면서 주색과 흐린 글자의 칸부터 붉어진다. 어두운 화면의 바탕을 "너무 검지 않게" 올릴 수 있는 한계가 여기서 나온다. (표면은 바탕보다 OKLCH 명도 0.09 밝게, 어두운 크림 띠는 바탕 명도 + 0.11로 둔다. 대비는 ART.contrast로 잰 WCAG 2 대비비다.)</div>
+      <div class="sim-note">해볼 것: ① "밝은 화면 · 본문 4.5"에서 붉은 칸 여섯 개를 찾는다. 강조색 #d24f39는 바탕 위 4.1이라 본문에는 못 쓰고, 크림 띠 위에서는 흐린 글자와 주색도 4.1, 위험색은 4.3에 그친다. TypeBook 7장에서 "크림 위에는 짙은 글자만"이라고 정한 이유가 표에 그대로 보인다. "큰 글자 3"으로 바꾸면 이 칸들이 통과한다. ② "어두운 화면"으로 바꾼다. 열다섯 짝이 모두 통과한다. 어두운 화면의 글자 토큰은 밝은 화면과 다른 칸을 가리키기 때문이다. ③ 어두운 바탕 명도를 한 칸(0.22)만 올려 본다. 바탕과 표면, 띠가 함께 밝아지면서 주색과 강조의 띠 칸이 먼저 붉어지고, 0.28부터는 흐린 글자도 떨어진다. 0.42에서는 본문 글자의 세 칸만 남는다. 이 장의 바탕 0.21이 "너무 검지 않게" 올릴 수 있는 한계에 거의 붙어 있다는 뜻이다. (표면은 바탕보다 OKLCH 명도 0.09 밝게, 어두운 크림 띠는 바탕 명도 + 0.11로 둔다. 대비는 ART.contrast로 잰 WCAG 2 대비비다.)</div>
     </div>
 
     <p>표에서 붉은 칸은 "그 색이 틀렸다"는 뜻이 아니라 "그 짝을 본문에 쓰지 않는다"는 뜻이다. 강조색은 큰 제목과 장식에 쓰고, 크림 띠에는 짙은 글자만 올린다. 이 규칙을 문서로만 남기면 잊힌다. 그래서 토큰 이름에 짝을 넣는 방법이 쓰인다. 크림 띠의 바탕이 <code>--color-band</code>라면 그 위에 쓸 글자는 <code>--color-on-band</code> 하나만 두고, 그 값은 짙은 색으로 고정한다. 크림 띠 위에 흐린 글자를 쓰고 싶어도 쓸 토큰이 없다. 체계가 실수를 막는 방식이다.</p>
@@ -263,7 +263,7 @@
       </tbody>
     </table></div>
     <p>브라우저의 <b>확대</b>(Ctrl +)는 이것과 다르다. 확대는 CSS 픽셀 자체를 키우므로 px로 적은 글자도 커진다. 그 대신 화면 폭이 CSS 픽셀로 좁아져 <a href="responsive.html">5장</a>의 중단점이 바뀐다. 기본 글자 크기 설정은 글자만 키운다. 그래서 px로 적은 페이지는 확대에는 반응하지만 글자 크기 설정에는 반응하지 않는다. 두 가지 모두를 받아 주려면 글자 크기를 rem으로 적고, 중단점을 em으로 적는다. TypeBook <a href="../../type/chapters/screen.html">11장</a>에서 서윤이 루트 글자 크기를 건드리지 않기로 한 것도 이 때문이다. <code>html { font-size: 62.5%; }</code>처럼 루트를 10px로 바꾸는 요령은 계산을 쉽게 하지만, 사용자가 정한 기준을 디자이너가 덮어쓴다.</p>
-    <p>글자만 rem으로 바꾸고 나머지를 px로 두면 새로운 문제가 생긴다. 높이를 44px로 고정한 버튼 안에서 글자가 커지면 글자가 잘리고, 높이를 고정한 카드에서는 글이 카드 밖으로 넘친다. 아래 시뮬레이터는 폭 768px 화면(태블릿을 세로로 든 정도)의 행사 목록이다. 기본 글자 크기를 올리며 세 가지 적기 방식을 비교한다.</p>
+    <p>글자만 rem으로 바꾸고 나머지를 px로 두면 새로운 문제가 생긴다. 높이를 44px로 고정한 버튼 안에서 글자가 커지면 글자가 위아래 여백을 밀어내며 상자에 꽉 끼고(더 커지면 상자 밖으로 흘러나간다), 높이를 고정한 카드에서는 글이 카드 밖으로 넘친다. 아래 시뮬레이터는 폭 768px 화면(태블릿을 세로로 든 정도)의 행사 목록이다. 기본 글자 크기를 올리며 세 가지 적기 방식을 비교한다.</p>
 
     <div class="sim" id="sim-tk-rem">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>기본 글자 크기를 올리면</h3></div>
@@ -277,9 +277,9 @@
       <div class="sim-readout">
         <div class="stat"><span class="k">본문 글자</span><span class="v" id="tr-o-f">—</span></div>
         <div class="stat"><span class="k">모양</span><span class="v" id="tr-o-lay">—</span></div>
-        <div class="stat"><span class="k">잘리거나 넘친 곳</span><span class="v" id="tr-o-bad">—</span></div>
+        <div class="stat"><span class="k">끼거나 넘친 곳</span><span class="v" id="tr-o-bad">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① "모두 px"에서 기본 글자 크기를 24px로 올린다. 화면이 하나도 바뀌지 않는다. 깨지지 않으니 좋아 보이지만, 글자를 키워야 읽는 사람의 설정을 무시한 것이다. ② "글자만 rem"으로 바꾼다. 글자는 25.5px로 커지는데 버튼(높이 44px)과 배지(높이 24px) 안에서 글자가 잘리고, 높이를 고정한 카드에서 글이 넘친다. 중단점이 560px로 고정되어 있어 768px 화면은 여전히 행 모양이고 글 칸이 비좁다. ③ "rem + em 중단점"으로 바꾼다. 높이 대신 안쪽 여백을 rem으로 주어 상자가 글자를 따라 커지고, 35em 중단점이 24 × 35 = 840px로 밀려 768px 화면이 1단 쌓기로 바뀐다. (행 모양의 판정은 5장과 같은 가상 모형이다. 글 칸 12자 미만이면 비좁음으로 친다.)</div>
+      <div class="sim-note">해볼 것: ① "모두 px"에서 기본 글자 크기를 24px로 올린다. 화면이 하나도 바뀌지 않는다. 깨지지 않으니 좋아 보이지만, 글자를 키워야 읽는 사람의 설정을 무시한 것이다. ② "글자만 rem"으로 바꾼다. 글자는 25.5px로 커지는데 높이를 고정한 배지(24px)와 버튼(44px)은 그대로라 글자가 상자에 꽉 끼거나 아래로 밀리고, 높이를 고정한 카드에서는 글이 카드 밖으로 넘친다. 중단점이 560px로 고정되어 있어 768px 화면은 여전히 행 모양이고 글 칸이 비좁다. ③ "rem + em 중단점"으로 바꾼다. 높이 대신 안쪽 여백을 rem으로 주어 상자가 글자를 따라 커지고, 35em 중단점이 24 × 35 = 840px로 밀려 768px 화면이 1단 쌓기로 바뀐다. (행 모양의 판정은 5장과 같은 가상 모형이다. 글 칸 12자 미만이면 비좁음으로 친다.)</div>
     </div>
 
     <p>세 번째 방식이 이 장의 결론이다. <b>글자 크기는 rem, 글자를 담는 상자는 높이 대신 rem 여백, 중단점은 em.</b> 그러면 사용자가 글자를 키웠을 때 페이지는 "같은 모양을 크게"가 아니라 "더 좁은 화면의 모양"으로 바뀐다. 글자를 1.5배로 키운 768px 화면은 글자 기준으로 보면 512px 화면과 같기 때문이다. 다만 화면 가장자리 여백처럼 글자와 상관없는 값까지 rem으로 적으면, 글자를 키운 사람의 좁은 화면에서 여백이 글 칸을 먹는다. 무엇을 글자에 묶고 무엇을 화면에 묶을지 토큰마다 정한다.</p>
@@ -310,7 +310,7 @@
         <div class="stat"><span class="k">페이지 제목(h1)</span><span class="v" id="ts-o-h1">—</span></div>
         <div class="stat"><span class="k">점검</span><span class="v" id="ts-o-chk">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 처음 상태는 넓은 화면 비율 1.333(완전4도), 360px 화면은 비율을 줄여 1.2다. 본문 17px에서 h1이 29px 남짓이고 "2월 행사 일정"이 한 줄에 들어간다. ② "좁은 화면은 비율 줄이기"를 끈다. 360px 화면에도 1.333을 쓰면 h1이 40px을 넘어 제목이 두 줄로 꺾인다. ③ 비율을 1.618까지 올리고 "1,280px 화면"을 본다. h1이 본문의 네 배를 넘어 제목만 화면을 차지한다. 비율을 1.125로 내리면 h3와 본문이 거의 구별되지 않는다(이웃 단계 비가 1.15 미만이면 표시). (본문은 360px에서 17px, 1,280px에서 18px. 작은 글자는 비율과 상관없이 14px로 둔다(TypeBook 7장). 좁은 화면의 비율은 1 + (넓은 화면 비율 − 1) × 0.6. 제목 줄 수는 이 화면의 글꼴로 실제로 나누어 센 값이다.)</div>
+      <div class="sim-note">해볼 것: ① 처음 상태는 넓은 화면 비율 1.333(완전4도), 360px 화면은 비율을 줄여 1.2다. 본문 17px에서 h1이 29px 남짓이고 "2월 행사와 모임 일정"이 한 줄에 들어간다. ② "좁은 화면은 비율 줄이기"를 끈다. 360px 화면에도 1.333을 쓰면 h1이 40px을 넘어 같은 제목이 두 줄로 꺾인다. ③ 비율을 1.618까지 올리고 "1,280px 화면"을 본다. h1이 본문의 네 배를 넘어 제목만 화면을 차지한다. 비율을 1.125로 내리면 h3와 본문이 거의 구별되지 않는다(이웃 단계 비가 1.15 미만이면 표시). (본문은 360px에서 17px, 1,280px에서 18px. 작은 글자는 비율과 상관없이 14px로 둔다(TypeBook 7장). 좁은 화면의 비율은 1 + (넓은 화면 비율 − 1) × 0.6. 제목 줄 수는 이 화면의 글꼴로 실제로 나누어 센 값이다.)</div>
     </div>
 
     <p>단계를 정했으면 실제 값은 반올림해 토큰으로 적는다. 계산기에서 나온 29.38px을 그대로 쓰기보다 30px처럼 기억하기 쉬운 값으로 고르고, 앞 장들에서 이미 정한 값(5장의 제목 30 → 40px)과 맞춘다. 비율은 출발점이고, 최종 값은 실제 글과 화면에서 눈으로 고른다. TypeBook <a href="../../type/chapters/lab.html">13장</a>에서 서윤이 1.25와 1.5 사이에서 1.333을 고른 것도 비율 표가 아니라 휴대폰에서 꺾이는 제목을 보고서였다.</p>
@@ -337,7 +337,7 @@
         <div class="stat"><span class="k">카드와 바탕 구분</span><span class="v" id="tl-o-s">—</span></div>
       </div>
       <pre class="tk-code" id="tl-css" data-scroll aria-live="polite"></pre>
-      <div class="sim-note">해볼 것: ① "첫 코드 · 밝은 화면"을 본다. 화면에서는 멀쩡하지만 아래 CSS에 초록이 여섯 가지, 회색이 세 가지 적혀 있다. 날짜 줄의 연회색 #999999는 TypeBook 7장에서 버린 값인데 다시 들어와 있다. ② "어두운 화면"을 누른다. 명도 뒤집기로 만든 화면이라 초록 버튼이 가라앉고 카드가 바탕에 녹는다. ③ "서윤의 토큰"으로 바꿔 같은 것을 본다. CSS는 원시 토큰 몇 줄과 의미 토큰 두 벌(밝은·어두운)로 줄고, 대비 미달 짝이 사라진다. ④ 기본 글자 크기를 24px로 올린다. 첫 코드는 그대로이고, 토큰 판은 글자와 버튼이 함께 커진다. (색 값과 대비는 이 책의 엔진으로 계산했다. 첫 코드의 값은 이 장의 이야기를 위해 만든 가상의 코드다.)</div>
+      <div class="sim-note">해볼 것: ① "첫 코드 · 밝은 화면"을 본다. 화면에서는 멀쩡해 보이지만 아래 CSS에 초록이 여섯 가지, 회색이 세 가지 적혀 있고, 대비 미달 짝도 벌써 셋(날짜 줄 2.85, 배지 3.79, 안내 띠 4.01)이다. 날짜 줄의 연회색 #999999는 TypeBook 7장에서 버린 값인데 다시 들어와 있다. ② "어두운 화면"을 누른다. 명도 뒤집기로 만든 화면이라 초록 버튼이 가라앉고 카드가 바탕에 녹는다. ③ "서윤의 토큰"으로 바꿔 같은 것을 본다. CSS는 원시 토큰 몇 줄과 의미 토큰 두 벌(밝은·어두운)로 줄고, 대비 미달 짝이 사라진다. ④ 기본 글자 크기를 24px로 올린다. 첫 코드는 그대로이고, 토큰 판은 글자와 버튼이 함께 커진다. (색 값과 대비는 이 책의 엔진으로 계산했다. 첫 코드의 값은 이 장의 이야기를 위해 만든 가상의 코드다.)</div>
     </div>
 
     <p>토큰이 해 주지 않는 일도 분명히 해 두자. 토큰은 결정을 <b>기록하고 전파</b>할 뿐, 결정을 대신 내려 주지 않는다. 주색이 어떤 초록이어야 하는지는 ColorBook에서, 본문이 몇 픽셀이어야 하는지는 TypeBook에서 따로 고민했다. 토큰은 그 고민의 결과를 잃어버리지 않게 하고, 다음에 바꿀 때 한 곳만 고치게 한다. 그래서 토큰 표에는 값과 함께 <b>왜</b>를 적어 두는 것이 좋다. "주색은 사다리 600, 흰 글자 대비 4.99 때문" 같은 한 줄이, 반년 뒤 누군가 "조금만 밝게"를 말할 때 무엇을 다시 재야 하는지 알려 준다.</p>
@@ -355,7 +355,7 @@
       <h4>여섯 개의 초록과 사라진 그림자</h4>
       <p>2월 첫 주, 행사 일정 페이지의 반응형 코드를 마친 지후가 다크 모드를 넣어 보자고 했다. "운영체제가 어두운 화면이면 따라가게요. 금방 해요." 지후는 짧은 스크립트로 모든 색의 OKLCH 명도를 뒤집었다. 결과는 금방 나왔다. 흰 바탕은 검정이 되었는데, 책방 초록 버튼은 명도 0.53에서 0.47로 거의 그대로라 검은 바탕 위에서 대비가 3.19로 떨어졌다. 서윤이 보기에는 "탁하게 가라앉은" 초록이었다. 흐린 날짜 줄은 3.06, 흰 카드는 검은 바탕과 똑같은 검정이 되어 경계가 사라졌고 카드의 그림자도 함께 묻혔다. 한도경은 휴대폰을 들여다보다가 "밤에 불 끈 방에서 그림을 보는 것 같네. 액자도 벽도 다 까매" 했다.</p>
       <p>더 큰 문제는 그다음에 보였다. 지후가 다크 모드용 값을 넣으려고 코드에서 초록을 검색했더니 <code>#2f7d5b</code> 말고도 <code>#2e7d5a</code>, <code>#307c5b</code>, <code>#2f7c5a</code>, <code>#2d7b59</code>, <code>#317e5c</code>가 나왔다. 시안에서 스포이트로 찍은 값, 반올림한 값, 다른 페이지에서 복사한 값이었다. 회색도 셋이었고, TypeBook 여름 노트에서 버린 날짜 줄의 연회색 <code>#999999</code>가 신간 목록에 다시 들어와 있었다. 글자 크기는 <code>17px</code>과 <code>1.0625rem</code>이 섞여, 도경의 휴대폰에서는 같은 본문이 페이지마다 다른 크기로 보였다.</p>
-      <p>서윤은 ColorBook 가을 노트의 웹 팔레트 v1과 TypeBook 여름 노트를 펼쳐 놓고 토큰 표를 새로 만들었다. 이름 규칙은 두 층이다. <b>원시 토큰</b>은 색 이름과 단계로 짓는다(<code>--green-50</code> … <code>--green-900</code>, <code>--neutral-50</code> … <code>--neutral-900</code>, 그리고 책방의 색 <code>--ink</code> #22342a, <code>--sage</code> #567666, <code>--cream</code> #ffe2d7, <code>--accent</code> #d24f39). <b>의미 토큰</b>은 <code>--color-</code> 뒤에 쓰임을 적고(<code>bg</code>, <code>surface</code>, <code>text</code>, <code>text-muted</code>, <code>border</code>, <code>action</code>, <code>on-action</code>, <code>band</code>, <code>on-band</code>), 부품은 의미 토큰만 부른다. 컴포넌트 토큰은 버튼처럼 상태가 많은 부품에만 나중에 더하기로 했다. 본문 글자를 ColorBook 표의 중립 900으로 할지 TypeBook 노트의 짙은 색 #22342a로 할지 잠시 망설였는데, 손님들이 이미 서점 소식 글에서 익숙해진 #22342a(바탕 위 12.68)를 택했다.</p>
+      <p>서윤은 ColorBook 가을 노트의 웹 팔레트 v1과 TypeBook 여름 노트를 펼쳐 놓고 토큰 표를 새로 만들었다. 이름 규칙은 두 층이다. <b>원시 토큰</b>은 색 이름과 단계로 짓는다(<code>--green-50</code> … <code>--green-900</code>, <code>--neutral-50</code> … <code>--neutral-900</code>, 그리고 책방의 색 <code>--ink</code> #22342a, <code>--sage</code> #567666, <code>--cream</code> #ffe2d7, <code>--accent</code> #d24f39). <b>의미 토큰</b>은 <code>--color-</code> 뒤에 쓰임을 적고(<code>bg</code>, <code>surface</code>, <code>text</code>, <code>text-muted</code>, <code>border</code>, <code>action</code>, <code>on-action</code>, <code>band</code>, <code>on-band</code>), 부품은 의미 토큰만 부른다. 컴포넌트 토큰은 버튼처럼 상태가 많은 부품에만 나중에 더하기로 했다. 본문 글자를 ColorBook 표의 중립 900으로 할지 TypeBook 노트의 짙은 색 #22342a로 할지 잠시 망설였는데, 손님들이 이미 서점 소식 글에서 익숙해진 #22342a(바탕 위 12.68)를 택했다. 흐린 글자도 같은 이유로 ColorBook 표의 중립 700 대신 TypeBook의 차분한 초록 #567666(4.83)으로 했다. 대비는 낮아지지만 본문 기준 4.5를 넘는다.</p>
       <p>어두운 화면의 값은 따로 지정했다. 바탕은 중립 900 #151917, 카드 표면은 한 단계 밝은 중립 800 #2a2f2d로 띄우고 그림자는 쓰지 않는다. 본문 글자는 중립 100(바탕 위 15.79), 흐린 글자는 중립 400(8.04), 주색은 사다리 400 #5eaa85(6.39)이고, 주색 위 글자는 흰색 대신 중립 900(6.39)이다. 크림 띠는 어두운 화면에서 #402e27이 되고 그 위에는 중립 100만 올린다. 강조색은 밝은 화면에서 바탕 위 4.11이라 큰 글자에만, 어두운 화면에서는 명도를 0.70으로 올린 #ed7761(6.26)을 쓴다. 글자 크기는 모두 rem으로 옮겼다. 작은 글자 0.875rem(14px), 본문은 TypeBook의 clamp 식, 소제목·부제목·제목은 넓은 화면 비율 1.333에서 출발해 반올림한 20 → 24px, 24 → 32px, 그리고 5장의 30 → 40px이다. 3장의 간격 단계도 <code>--space-1</code>(0.25rem)부터 <code>--space-8</code>(4rem)까지 rem으로 옮기되, 휴대폰 화면 가장자리 여백 16px만은 글자를 키운 손님의 화면에서 글 칸을 먹지 않도록 px로 남겼다. 지후가 같은 페이지를 다시 검색하자 hex는 원시 토큰을 적은 파일 하나에만 남았다. 도경은 글자를 가장 크게 한 휴대폰으로 어두운 화면을 열어 보고는 "이번엔 액자가 보이네" 했다.</p>
       <div class="table-wrap"><table>
         <thead><tr><th>의미 토큰</th><th>밝은 화면</th><th>어두운 화면</th><th>대비(밝은 · 어두운)</th></tr></thead>
@@ -424,14 +424,14 @@
         <div class="quiz-exp">rem은 루트(html)의 글자 크기를 기준으로 하고, 디자이너가 루트를 덮어쓰지 않았다면 그 값은 사용자의 기본 글자 크기다. 24 × 1.0625 = 25.5px. 같은 글자를 <code>17px</code>로 적었다면 설정과 상관없이 17px에 머문다. 기본 글자 크기 설정은 화면을 확대하는 기능(Ctrl +)과 다르다.</div>
       </div>
       <div class="quiz-q">
-        <p>4. 본문 17px에 비율 1.333을 그대로 써서 h1을 본문의 세 단계 위(17 × 1.333³)로 두었더니, 360px 휴대폰에서 "2월 행사 일정"이 두 줄로 꺾였다. 이 장에서 다룬 방법으로 가장 알맞은 것은?</p>
+        <p>4. 본문 17px에 비율 1.333을 그대로 써서 h1을 본문의 세 단계 위(17 × 1.333³)로 두었더니, 360px 휴대폰에서 "2월 행사와 모임 일정"이 두 줄로 꺾였다. 이 장에서 다룬 방법으로 가장 알맞은 것은?</p>
         <div class="opts">
           <button class="opt" data-correct>좁은 화면에서는 비율을 1.2 안팎으로 낮추고, 두 화면의 값을 clamp()로 이어 넓은 화면에서만 1.333에 가깝게 한다.</button>
           <button class="opt">h1을 vw만으로 적어(<code>font-size: 8vw</code>) 화면 폭에 정확히 맞춘다.</button>
           <button class="opt">본문을 14px로 줄여 단계 전체를 작게 만든다.</button>
           <button class="opt">제목 글자의 자간을 좁혀 한 줄에 들어가게 한다.</button>
         </div>
-        <div class="quiz-exp">17 × 1.333³ ≈ 40px은 360px 화면에서 일곱 자 제목에도 벅차다. 좁은 화면은 비율을 낮춰 1.2³배, 약 29px로 두고, 넓은 화면의 값과 clamp()로 이으면 사이 화면에서 비율이 서서히 바뀐다. vw만 쓰면 확대가 듣지 않고(5장), 본문을 줄이면 읽기가 나빠지며, 자간을 좁히는 것은 한글 제목을 답답하게 할 뿐 근본 처방이 아니다.</div>
+        <div class="quiz-exp">17 × 1.333³ ≈ 40px이면 360px 화면의 글 칸(양옆 여백 16px을 뺀 328px)에 열 자 남짓한 제목도 한 줄로 들어가지 않는다. 좁은 화면은 비율을 낮춰 1.2³배, 약 29px로 두고, 넓은 화면의 값과 clamp()로 이으면 사이 화면에서 비율이 서서히 바뀐다. vw만 쓰면 확대가 듣지 않고(5장), 본문을 줄이면 읽기가 나빠지며, 자간을 좁히는 것은 한글 제목을 답답하게 할 뿐 근본 처방이 아니다.</div>
       </div>
     </div>
   </section>
@@ -498,7 +498,7 @@
   var NEUT = ["#f6fcf8", "#edf3f0", "#e0e6e3", "#cdd3cf", "#aab0ac", "#828885", "#5f6562", "#444946", "#2a2f2d", "#151917"];
   var INK = "#22342a", SAGE = "#567666", CREAM = "#ffe2d7", ACC = "#d24f39", WHITE = "#ffffff";
   var LIGHT = { bg: NEUT[0], surface: WHITE, text: INK, muted: SAGE, border: NEUT[2], action: GREEN[6], onAction: WHITE, soft: GREEN[1], onSoft: GREEN[8], band: CREAM, onBand: INK, accent: ACC, danger: "#c53732", shadow: true };
-  var DARK = { bg: NEUT[9], surface: NEUT[8], text: NEUT[1], muted: NEUT[4], border: NEUT[7], action: GREEN[4], onAction: NEUT[9], soft: GREEN[8], onSoft: GREEN[2], band: "#402e27", onBand: NEUT[1], accent: "#ed7761", danger: "#ed756a", shadow: false };
+  var DARK = { bg: NEUT[9], surface: NEUT[8], text: NEUT[1], muted: NEUT[4], border: NEUT[7], action: GREEN[4], onAction: NEUT[9], soft: GREEN[8], onSoft: GREEN[2], band: "#402e27", onBand: NEUT[1], accent: "#ed7761", danger: "#f07c72", shadow: false };
   var COLOR_KEYS = ["bg", "surface", "text", "muted", "border", "action", "onAction", "soft", "onSoft", "band", "onBand", "accent", "danger"];
   function flipHex(h) { var l = ART.srgbToOklch(P(h)); return ART.hex(ART.gamutMap([1 - l[0], l[1], l[2]])); }
   function mapTok(T, fn) { var o = {}; COLOR_KEYS.forEach(function (k) { o[k] = fn(T[k]); }); o.shadow = T.shadow; return o; }
@@ -812,14 +812,14 @@
       var Lh = bh / s;
       ctx.fillStyle = NEUT[0]; ctx.fillRect(0, 0, VW, Lh);
       var pad = 16, cw = VW - 32, cp = m === "rem" ? b : 16, gi = m === "rem" ? b : 16;
-      var btnH = m === "rem" ? f * 2.6 : 44, badgeH = m === "rem" ? f * 1.45 : 24, cardH = m === "rem" ? null : 132;
+      var btnH = m === "rem" ? f * 2.6 : 44, badgeH = m === "rem" ? f * 1.45 : 24, cardH = m === "rem" ? null : 172;
       ctx.fillStyle = WHITE; ctx.fillRect(0, 0, VW, f * 3.2); ctx.fillStyle = NEUT[2]; ctx.fillRect(0, f * 3.2 - 1, VW, 1);
       ctx.fillStyle = GREEN[6]; ctx.font = F(f * 1.25, 800); ctx.textBaseline = "middle"; ctx.fillText("책방 E", pad, f * 1.6);
       ctx.fillStyle = INK; ctx.font = F(m === "px" ? 30 : 30 * k, 800); ctx.textBaseline = "alphabetic"; ctx.fillText("2월 행사 일정", pad, f * 3.2 + (m === "px" ? 30 : 30 * k) * 1.3);
       var y = f * 3.2 + (m === "px" ? 30 : 30 * k) * 1.8, chw = 0.76 * f;
       var dW = 8 * f, bW = 9.5 * f, tw = row ? cw - 2 * cp - dW - bW - 2 * gi : cw - 2 * cp;
       var nch = tw / chw;
-      if (row && nch < 12) bad.push("글 칸 " + Math.max(0, Math.round(nch)) + "자");
+      if (row && nch < 12) bad.push("글 칸 " + Math.max(0, Math.floor(nch)) + "자");
       var overflowCard = false, clipBtn = false, clipBadge = false;
       EVS.forEach(function (e) {
         ctx.font = F(f); var dl = wrap(ctx, e[3], Math.max(20, tw));
@@ -835,9 +835,11 @@
         ctx.font = F(f * 0.8, 700); var bwid = ctx.measureText("모집 중").width + f * 0.9;
         rr(ctx, tx, ty, bwid, badgeH, badgeH / 2); ctx.fillStyle = GREEN[1]; ctx.fill();
         ctx.save(); rr(ctx, tx, ty, bwid, badgeH, badgeH / 2); ctx.clip();
-        ctx.fillStyle = GREEN[8]; ctx.textBaseline = "middle"; ctx.fillText("모집 중", tx + f * 0.45, ty + badgeH / 2 + (f * 0.8 * 1.2 > badgeH ? f * 0.25 : 0));
+        ctx.fillStyle = GREEN[8]; ctx.textBaseline = "middle"; ctx.fillText("모집 중", tx + f * 0.45, m !== "rem" && f * 0.96 > badgeH - 4 ? ty + 2 + f * 0.48 : ty + badgeH / 2);
         ctx.restore();
-        if (f * 0.8 * 1.15 > badgeH) clipBadge = true;
+        // 고정 높이 24px 배지(위아래 안쪽 여백 2px)와 44px 버튼(위아래 10px): 줄 상자(글자 × 1.2)가 남은 높이를 넘으면
+        // 글자가 위 여백에서 시작해 아래로 밀린다(CSS의 overflow 기본값처럼 상자 밖으로 흘러나간다고 보고, 그림은 상자 안만 그린다)
+        if (m !== "rem" && f * 0.96 > badgeH - 4) clipBadge = true;
         var yy = ty + badgeBlock;
         ctx.fillStyle = INK; ctx.font = F(f * 1.12, 700); yy += textLines(ctx, tl, tx, yy, f * 1.4);
         ctx.font = F(f); yy += textLines(ctx, dl, tx, yy, f * 1.55);
@@ -845,14 +847,14 @@
         var bxx = row ? pad + cw - cp - bW : tx, byy = row ? y + cp : yy + f * 0.4, bww = row ? bW : Math.min(tw, 12 * f);
         rr(ctx, bxx, byy, bww, btnH, 8); ctx.fillStyle = GREEN[6]; ctx.fill();
         ctx.save(); rr(ctx, bxx, byy, bww, btnH, 8); ctx.clip();
-        ctx.fillStyle = WHITE; ctx.font = F(f * 0.95, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("신청하기", bxx + bww / 2, byy + btnH / 2 + (f * 1.2 > btnH - 8 ? f * 0.3 : 0));
+        ctx.fillStyle = WHITE; ctx.font = F(f * 0.95, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("신청하기", bxx + bww / 2, m !== "rem" && f * 1.14 > btnH - 20 ? byy + 10 + f * 0.57 : byy + btnH / 2);
         ctx.restore(); ctx.textAlign = "left";
-        if (f * 1.25 > btnH - 8) clipBtn = true;
+        if (m !== "rem" && f * 1.14 > btnH - 20) clipBtn = true;
         y += hh + 18;
       });
       ctx.restore();
-      if (clipBadge) bad.push("배지 글자 잘림");
-      if (clipBtn) bad.push("버튼 글자 잘림");
+      if (clipBadge) bad.push("배지 글자 꽉 낌");
+      if (clipBtn) bad.push("버튼 글자 아래로 밀림");
       if (overflowCard) bad.push("카드 밖으로 넘침");
       AB.stat("tr-o-f", m === "px" && b !== 16 ? okSpan(false, "17px (설정 " + b + "px 무시)") : AB.fix(f, 1) + "px");
       AB.stat("tr-o-lay", (row ? "행" : "1단 쌓기") + ' <span style="color:var(--text-dim)">(중단점 ' + (m === "rem" ? "35em = " + 35 * b + "px" : "560px") + ")</span>");
@@ -874,7 +876,7 @@
     function draw(ctx, w, h) {
       if (!ratio || !width || !narrowR) return;
       var Pl = AB.palette(), r = ratio(), W = Number(width()), b = W === 360 ? 17 : 18, rr0 = W === 360 && narrowR() ? 1 + (r - 1) * 0.6 : r;
-      var steps = [["h1", b * Math.pow(rr0, 3), "2월 행사 일정"], ["h2", b * rr0 * rr0, "이달의 모임"], ["h3", b * rr0, "겨울 낭독회"], ["본문", b, "눈 오는 밤에 어울리는 시를 읽는다."], ["작은 글자", 14, "오후 5시 · 2층 · 남은 자리 6"]];
+      var steps = [["h1", b * Math.pow(rr0, 3), "2월 행사와 모임 일정"], ["h2", b * rr0 * rr0, "이달의 모임"], ["h3", b * rr0, "겨울 낭독회"], ["본문", b, "눈 오는 밤에 어울리는 시를 읽는다."], ["작은 글자", 14, "오후 5시 · 2층 · 남은 자리 6"]];
       var colW = W === 360 ? 360 - 32 : 1200, s = Math.min(1, (w - 24) / (W === 360 ? 360 : colW)), x0 = 12;
       if (W === 360) { ctx.strokeStyle = Pl.border; ctx.setLineDash([4, 4]); ctx.strokeRect(x0, 8, 360 * s, h - 16); ctx.setLineDash([]); ctx.fillStyle = Pl.dim; ctx.font = F(10.5, 600); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("360px 화면", x0 + 360 * s - 4, 12); }
       var y = 30, h1Lines = 1, warn = [];
@@ -923,7 +925,7 @@
         "h1           { color: #333333; font-size: 34px; }",
         ".notice      { background: #ffe2d7; color: #317e5c; }",
         ".card        { background: #ffffff; border: 1px solid #e5e5e5;",
-        "               box-shadow: 0 4px 12px rgba(0,0,0,.2); height: 132px; }",
+        "               box-shadow: 0 4px 12px rgba(0,0,0,.2); height: 192px; }",
         ".card .meta  { color: #999999; font-size: 13px; }",
         ".card p      { color: #22342a; font-size: 17px; }",
         ".badge       { background: #c4e7d4; color: #2f7c5a; height: 24px; }",
@@ -939,15 +941,16 @@
         "  --neutral-50: #f6fcf8; --neutral-100: #edf3f0; --neutral-200: #e0e6e3;",
         "  --neutral-400: #aab0ac; --neutral-700: #444946; --neutral-800: #2a2f2d;",
         "  --neutral-900: #151917; --ink: #22342a; --sage: #567666; --cream: #ffe2d7;",
+        "  --white: #ffffff; --cream-900: #402e27;",
         "  --text-sm: 0.875rem;",
         "  --text-body: clamp(1.0625rem, 1.038rem + 0.1087vw, 1.125rem);",
         "  --text-h1: clamp(1.875rem, 1.630rem + 1.087vw, 2.5rem);",
         "}",
         "/* ② 의미 토큰: 밝은 화면 */",
         ":root {",
-        "  --color-bg: var(--neutral-50);      --color-surface: #fff;",
+        "  --color-bg: var(--neutral-50);      --color-surface: var(--white);",
         "  --color-text: var(--ink);           --color-text-muted: var(--sage);",
-        "  --color-action: var(--green-600);   --color-on-action: #fff;",
+        "  --color-action: var(--green-600);   --color-on-action: var(--white);",
         "  --color-band: var(--cream);         --color-on-band: var(--ink);",
         "}",
         "/* ② 의미 토큰: 어두운 화면(반전하지 않고 따로 고른 값) */",
@@ -955,7 +958,7 @@
         "  --color-bg: var(--neutral-900);     --color-surface: var(--neutral-800);",
         "  --color-text: var(--neutral-100);   --color-text-muted: var(--neutral-400);",
         "  --color-action: var(--green-400);   --color-on-action: var(--neutral-900);",
-        "  --color-band: #402e27;              --color-on-band: var(--neutral-100);",
+        "  --color-band: var(--cream-900);     --color-on-band: var(--neutral-100);",
         "} }",
         "/* 부품은 의미 토큰만 부른다 */",
         ".btn { background: var(--color-action); color: var(--color-on-action);",

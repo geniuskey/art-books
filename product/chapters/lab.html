@@ -1,0 +1,478 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "가상 서비스 맡아 두기의 흐름, 퍼널, 사용성 테스트, A/B 테스트 결과, 주인의 일, 장마다 정한 규칙을 한 작업대에 올려 함께 조정하고, 신뢰 구간과 검정력으로 각 결론이 얼마나 확실한지 읽는 제품 실험실."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 13장 전용: 판단표, 일관성 점검 카드, 근거 표 */
+  .pl-board { display: grid; gap: 8px; padding: 14px 16px; border-top: 1px solid var(--border); background: var(--bg-elev); }
+  .pl-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; align-items: center; padding: 8px 10px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface); }
+  .pl-row b { font-size: 14px; }
+  .pl-row small { grid-column: 1 / -1; font-size: 12.5px; color: var(--text-dim); line-height: 1.5; }
+  .pl-chip { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; border: 1px solid currentColor; white-space: nowrap; }
+  .pl-chip.ok { color: var(--ok); }
+  .pl-chip.bad { color: var(--bad); }
+  .pl-chip.warn { color: var(--warn); }
+  .pl-chip.info { color: var(--text-dim); }
+  .pl-verdict { font-size: 14.5px; line-height: 1.55; padding: 4px 2px 0; }
+  .pl-cards { display: grid; gap: 10px; padding: 14px 16px; }
+  .pl-card { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--surface); display: grid; gap: 6px; }
+  .pl-card.done { border-color: var(--ok); }
+  .pl-card.miss { border-color: var(--bad); }
+  .pl-card h4 { margin: 0; font-size: 14.5px; }
+  .pl-card p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--text-dim); }
+  .pl-card .btn-row .btn.on { border-color: var(--accent); background: var(--accent); color: var(--on-accent); font-weight: 600; }
+  .pl-card .pl-res { font-size: 13px; line-height: 1.5; color: var(--text); }
+  .pl-ev td, .pl-ev th { font-size: 13.5px; }
+  .pl-ev td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  #sim-pl-lab .sim-controls { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 18px; align-items: start; }
+  .pl-grp { display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .pl-grp-t { font-size: 12px; font-weight: 700; color: var(--text-dim); letter-spacing: .04em; margin: 0; }
+  .pl-cmp .compare { border-radius: 10px; background: #fbfaf7; }
+  .pl-cmp .cmp-a, .pl-cmp .cmp-b { background: #fbfaf7; }
+</style>
+</head>
+<body data-chapter="lab">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 13</div>
+    <h1>제품 실험실</h1>
+    <p class="lead">열두 장 동안 "맡아 두기"를 한 겹씩 만들었다. 손님의 말과 행동을 듣고, 문제를 한 문장으로 줄이고, 메뉴와 흐름을 짜고, 버튼이 대답하게 하고, 종이로 그려 시험하고, 다섯 명을 지켜보고, 수천 명의 숫자를 세고, 문구와 색과 동의 화면을 정했다. 그런데 이 결정들은 따로 놀지 않는다. 버튼 문구 하나가 누름을 늘리면 주인의 확인이 늦어지고, 맡겨 놓고 오지 않는 손님이 늘면 한 권뿐인 헌책이 서가에서 사흘 동안 사라진다. 그리고 결정마다 근거의 무게가 다르다. 어떤 것은 여섯 사람의 같은 이야기, 어떤 것은 다섯 명의 행동, 어떤 것은 6,440명의 숫자, 어떤 것은 아직 계산뿐이다. 이 장은 그 모두를 한 작업대에 올리는 실험실이다. 실험실은 정답을 알려 주지 않는다. 지금 고른 조합이 손님과 주인에게 무엇을 하는지, 그리고 각 결론을 얼마나 믿어도 되는지를 숫자로 보여 준다.</p>
+    <ul class="objectives">
+      <li>퍼널의 단계별 계속 비율이 곱으로 이어진다는 것을 손님 쪽 다섯 단계와 주인 쪽 두 단계 위에서 다시 확인한다.</li>
+      <li>다섯 명의 사용성 테스트 결과를 수정 왈드 구간으로 읽고, 1차와 2차의 차이가 얼마나 확실한지 따진다.</li>
+      <li>A/B 테스트의 최종 결과를 차이와 95% 신뢰 구간으로 읽고, "이겼다·졌다·같다·모른다"의 네 갈래로 나눈다.</li>
+      <li>검정력과 최소 검출 효과로 "유의하지 않다"와 "효과가 없다"를 구별한다.</li>
+      <li>리틀의 법칙으로 주인 쪽의 숨은 비용(서가 밖에 묶인 책)을 어림하고, 장마다 정한 규칙이 서로 부딪히는 곳을 찾아 고친다.</li>
+    </ul>
+  </header>
+
+  <section id="start">
+    <h2>실험실 사용법</h2>
+    <p>2028년 6월 26일 월요일, 정식 공개를 나흘 앞둔 아침이다. 책방 E 안쪽 탁자에 서윤과 하린, 지후, 네 주인이 모였다. 탁자 위의 질문은 하나다. "금요일에 열어도 되는가?" 그런데 이 질문은 사실 여러 질문의 묶음이다. 손님은 끝까지 가는가. 다섯 명이 막혔던 곳은 고쳐졌는가. 버튼 문구 실험은 무엇을 말해 주는가. 주인들은 늘어난 요청을 감당할 수 있는가. 장마다 따로 정한 규칙은 한 화면 위에서 서로 맞는가.</p>
+    <p>실험실은 이 질문들을 <b>패널</b> 여섯 개로 나눈다. 흐름 패널(퍼널), 테스트 패널(다섯 명의 구간), A/B 패널(14일의 기록), 결론 읽기 패널(네 갈래), 주인 패널(서가 밖의 책), 일관성 패널(규칙끼리의 충돌). 각 패널은 앞 장의 시뮬레이터를 "맡아 두기"의 실제(가상) 자료 위에 다시 올린 것이다. 마지막 절의 <b>공개 판단대</b>가 여섯 패널을 한데 모은다.</p>
+
+    <div class="callout warn">
+      <strong>이 장의 숫자는 모두 가상이다</strong>
+      서비스 "맡아 두기", 네 책방, 손님과 주인, 시범 운영의 방문자 수와 전환 수, 사용성 테스트의 성공과 실패는 모두 이 책이 지어낸 <b>가상의 자료</b>다. 실제 서비스의 결과가 아니며, 어느 서비스에서든 이런 값이 나온다는 뜻도 아니다. 다만 그 자료에서 신뢰 구간, p값, 표본 크기, 검정력을 구하는 계산은 실제로 쓰는 공식(이 페이지 안에서 직접 계산한다)을 따랐다. 정규 근사와 같은 단순화는 그 자리에서 밝힌다.
+    </div>
+
+    <p>먼저 지금까지의 결정을 근거의 종류로 나누어 보자. 아래 그림은 열두 장에서 정한 결론 일곱 개를 다섯 가지 근거의 칸에 놓은 것이다. 같은 "정했다"라도 받치고 있는 것이 다르다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 330" role="img" aria-label="근거 지도. 일곱 개의 결론을 말, 소수의 행동, 다수의 숫자, 모형 계산, 원칙의 다섯 칸에 놓은 표. 헛걸음 문제는 말과 행동 모두에 근거가 있고, 다섯 단계 흐름은 모형 계산뿐이며, 버튼 문구 B는 다수의 숫자로 판정한다.">
+        <g class="lbl-b" style="font-size:11.5px" text-anchor="middle">
+          <text x="210" y="24">말</text><text x="262" y="24">행동</text><text x="314" y="24">숫자</text><text x="366" y="24">모형</text><text x="418" y="24">원칙</text>
+        </g>
+        <g class="lbl-dim" style="font-size:9.5px" text-anchor="middle">
+          <text x="210" y="38">인터뷰</text><text x="262" y="38">소수 관찰</text><text x="314" y="38">수천 명</text><text x="366" y="38">계산</text><text x="418" y="38">가치 판단</text>
+        </g>
+        <path d="M8 46H452" class="s-axis"/>
+        <g class="lbl" style="font-size:12px">
+          <text x="10" y="72">헛걸음이 가장 큰 문제다</text>
+          <text x="10" y="112">검색 하나로 시작한다</text>
+          <text x="10" y="152">다섯 단계 흐름이 낫다</text>
+          <text x="10" y="192">누르면 즉시 대답한다</text>
+          <text x="10" y="232">찜하기를 뺀다</text>
+          <text x="10" y="272">버튼 문구 B가 낫다</text>
+          <text x="10" y="312">동의는 기본 해제</text>
+        </g>
+        <g class="lbl-dim" style="font-size:9.5px">
+          <text x="10" y="84">2·3장</text><text x="10" y="124">4장 카드 소팅·트리 테스트</text><text x="10" y="164">5장 퍼널 모형</text><text x="10" y="204">6장 시험판 두 명</text><text x="10" y="244">8장 다섯 명</text><text x="10" y="284">9장 판정 5월 28일</text><text x="10" y="324">12장</text>
+        </g>
+        <g class="s-line" style="stroke-dasharray:2 4"><path d="M184 46V326M236 46V326M288 46V326M340 46V326M392 46V326"/></g>
+        <!-- 채운 원: 그 칸의 근거가 결론을 받친다 · 빈 원: 약하게 받친다 -->
+        <circle cx="210" cy="72" r="8" class="f-acc"/><circle cx="262" cy="72" r="8" class="f-acc"/><circle cx="314" cy="72" r="7" class="s-acc" fill="none" stroke-width="2"/>
+        <circle cx="262" cy="112" r="8" class="f-acc"/><circle cx="210" cy="112" r="7" class="s-acc" fill="none" stroke-width="2"/>
+        <circle cx="366" cy="152" r="8" class="f-acc2"/>
+        <circle cx="262" cy="192" r="7" class="s-acc" fill="none" stroke-width="2"/><circle cx="418" cy="192" r="8" class="f-acc2"/>
+        <circle cx="262" cy="232" r="8" class="f-acc"/>
+        <circle cx="314" cy="272" r="9" class="f-warn"/><text x="314" y="276" text-anchor="middle" class="lbl-b" style="font-size:10px">?</text>
+        <circle cx="418" cy="312" r="8" class="f-acc2"/><circle cx="314" cy="312" r="7" class="s-acc" fill="none" stroke-width="2"/>
+      </svg>
+      <figcaption><b>그림 1. 근거 지도.</b> 채운 원은 그 칸의 근거가 결론을 받친다는 뜻, 빈 원은 약하게 받친다는 뜻이다. "헛걸음"은 인터뷰(손님 여덟 명 중 여섯)와 관찰(빈손으로 나간 아홉 명), 주인의 전화 기록(일주일 61통)이 같은 쪽을 가리켜 가장 단단하다. "다섯 단계 흐름"은 아직 계산(5장의 퍼널 모형, 상한)뿐이다. "즉시 대답"은 0.1·1·10초 관례라는 원칙과 시험판의 두 사람에 기대고, "동의는 기본 해제"는 숫자가 아니라 원칙으로 정했다(12장에서 동의율을 목표로 쓰지 않기로 했다). 물음표는 이 장에서 처음 열어 볼 결과다.</figcaption>
+    </figure>
+
+    <p>이 지도는 우열표가 아니다. 원칙으로 정하는 것이 옳은 결정도 있고(동의 화면은 실험으로 동의율을 올리는 문제가 아니다), 계산만으로 충분한 결정도 있다. 실험실이 하는 일은 각 결론이 어느 칸에 서 있는지를 잊지 않게 하는 것이다. 다섯 명의 행동으로 정한 것을 수천 명의 숫자처럼 말하거나, 계산으로 정한 것을 측정한 것처럼 말하는 순간 판단이 틀어진다.</p>
+  </section>
+
+  <section id="flow">
+    <h2>흐름 패널: 일곱 칸의 곱</h2>
+    <p><a href="flow.html">5장</a>에서 서윤은 아홉 단계를 다섯 단계로 줄였다. 검색, 결과에서 책과 책방 고르기, "맡아 두기" 누르기, 전화번호 인증, 요청 확인. 그런데 손님이 책을 손에 드는 것은 그다음 두 칸을 더 지나야 한다. 주인이 요청을 확인해야 하고(<a href="interaction.html">6장</a>의 "확인됨"), 손님이 기한 안에 가게에 와야 한다. 앞의 다섯 칸은 화면이 정하고, 뒤의 두 칸은 사람과 가게가 정한다. 퍼널의 곱셈은 이 일곱 칸 전체에 걸린다.</p>
+    <p>아래에서 막대의 윗끝을 위아래로 끌어 단계마다의 계속 비율을 바꿔 본다. 처음 값은 5장의 가정(손님 쪽 다섯 칸)과 시범 운영의 기록(주인 쪽 두 칸: 요청 가운데 주인이 확인한 비율 89%, 확인된 맡김 가운데 찾아간 비율 79%, A 문구 기준)이다.</p>
+
+    <div class="sim" id="sim-pl-fn">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손님 다섯 칸, 주인 두 칸</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pl-fn-cv"></canvas><span class="hint">막대 윗끝을 끌어 올리고 내린다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-fn-pre"><button data-value="five" class="on">5단계(5장)</button><button data-value="nine">9단계(첫 안)</button></div>
+          <label class="ctrl"><span>한 칸 고쳐 볼 크기 <output id="pl-fn-d-out"></output></span><input type="range" id="pl-fn-d" min="1" max="10" step="1" value="5"></label>
+          <button class="btn sm" id="pl-fn-reset" type="button">처음 값으로</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">검색한 1,000명 중 찾아간 사람</span><span class="v" id="pl-fn-o-end">—</span></div>
+        <div class="stat"><span class="k">가장 약한 칸</span><span class="v" id="pl-fn-o-weak" style="font-size:14px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">고치면 가장 크게 오르는 칸</span><span class="v" id="pl-fn-o-best" style="font-size:14px;font-family:inherit">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 값에서 끝까지 가는 사람을 읽는다. 5장의 52.9%는 "요청 확인"까지였고, 주인 쪽 두 칸을 지나면 약 37%로 줄어든다. ② "9단계"를 누른다. 손님 쪽 칸이 늘어나 끝의 숫자가 절반 아래로 떨어진다. ③ 아무 칸이나 0에 가깝게 끌어내린다. 다른 칸이 모두 100%여도 끝은 그 칸에 묶인다. ④ "고치면 가장 크게 오르는 칸"을 보고 그 칸을 끌어올린다. 같은 크기를 고쳐도 계속 비율이 가장 낮은 칸에서 끝의 숫자가 가장 많이 오른다. (단계마다 남는 비율이 서로 독립이라고 둔 곱셈 모형이다. 실제로는 한 단계를 고치면 다른 단계의 사람 구성도 바뀐다.)</div>
+    </div>
+
+    <p>곱셈 모형에서 \(i\)번째 칸의 계속 비율 \(p_i\)를 \(\Delta\)만큼 올리면 끝의 비율은 \(F \cdot \Delta / p_i\)만큼 오른다. 분모에 \(p_i\)가 있으니 낮은 칸일수록 같은 개선이 크게 남는다. 처음 값에서 가장 낮은 칸은 손님 쪽의 "맡아 두기 누르기"(0.80)와 주인 쪽의 "찾아감"(0.79)이다. 화면만 들여다보면 앞의 칸만 보이지만, 뒤의 칸도 같은 무게로 끝을 정한다.</p>
+    <p>패널의 분모도 짚어 둔다. 이 퍼널의 첫 칸은 "맡아 두려는 마음으로 검색을 시작한 사람"이다. 9장의 1차 지표는 분모가 다르다. "결과 화면을 본 모든 방문자"이고, 그 가운데 상당수는 재고만 확인하고 맡기지 않은 채 바로 가게로 간다. 이 사람들은 헛걸음을 피했으니 서비스가 문제를 푼 셈이지만, 찾아간 비율에는 잡히지 않는다. 지표는 서비스가 하는 일의 일부만 센다는 것을 기억해 둔다.</p>
+  </section>
+
+  <section id="test">
+    <h2>테스트 패널: 다섯 명의 구간</h2>
+    <p><a href="usability.html">8장</a>의 1차 사용성 테스트(5월 4~5일, 손님 다섯 명)에서 "맡겨 두기 요청 끝내기"(T2)를 해낸 사람은 다섯 명 중 둘이었다. 서윤은 찜하기(하트)를 빼고, 기한을 날짜로 보여 주고, 번호를 묻는 이유를 적고, 상태마다 할 일을 붙인 고친 판으로 5월 9일 화요일에 2차 테스트를 했다. 1차와 겹치지 않는 손님 다섯 명이었고, 8장의 계획대로 큰 글자 설정을 쓰는 사람 한 명과 헌책방 나무 단골 한 명을 일부러 넣었다. 과업과 성공 기준은 1차와 같았다(가상 자료).</p>
+    <div class="table-wrap">
+      <table class="pl-ev">
+        <thead><tr><th>과업</th><th class="num">1차(5월 4~5일)</th><th class="num">2차(5월 9일)</th></tr></thead>
+        <tbody>
+          <tr><td>T1 책이 있는 책방 찾기</td><td class="num">5/5</td><td class="num">5/5</td></tr>
+          <tr><td>T2 맡겨 두기 요청 끝내기</td><td class="num">2/5</td><td class="num">4/5</td></tr>
+          <tr><td>T3 요청 상태 확인</td><td class="num">3/5</td><td class="num">4/5</td></tr>
+          <tr><td>T4 요청 취소</td><td class="num">4/5</td><td class="num">5/5</td></tr>
+          <tr><td>SUS 평균(다섯 명)</td><td class="num">58.5</td><td class="num">71.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>숫자만 보면 모든 줄이 좋아졌다. 그런데 다섯 명의 2/5와 4/5는 얼마나 다른가? 아래 패널은 과업마다 1차와 2차의 성공률을 8장의 수정 왈드 구간으로, SUS는 \(t\) 분포 구간으로 나란히 그린다. 줄을 눌러 고르면 두 판의 차이에 대한 피셔의 정확 검정 값을 함께 보여 준다.</p>
+
+    <div class="sim" id="sim-pl-ut">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>1차와 2차, 겹치는 구간</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pl-ut-cv"></canvas><span class="hint">줄을 눌러 고른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-ut-cl"><button data-value="80">80%</button><button data-value="90">90%</button><button data-value="95" class="on">95%</button></div>
+          <label class="ctrl"><span>참가자 수(같은 비율로 늘리기) <output id="pl-ut-k-out"></output></span><input type="range" id="pl-ut-k" min="1" max="8" step="1" value="1"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 줄</span><span class="v" id="pl-ut-o-row" style="font-size:14px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">두 구간</span><span class="v" id="pl-ut-o-ci">—</span></div>
+        <div class="stat"><span class="k">차이의 검정(양쪽)</span><span class="v" id="pl-ut-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① T2 줄을 누른다. 1차는 약 12~77%, 2차는 약 36~98%다. 두 구간이 크게 겹치고, 피셔 검정의 p값은 약 0.52다. ② 참가자 수를 늘린다(같은 성공 비율이 유지된다고 가정). 다섯 배인 25명씩이면 10/25와 20/25가 되어 구간이 갈라진다. ③ 신뢰 수준을 80%로 낮춘다. 구간이 좁아지지만, 그만큼 "틀릴 각오"를 더 한 것이다. (성공률은 수정 왈드 구간, SUS는 표본 평균의 t 구간이다. 2차의 참가자는 1차와 다른 사람이라 두 독립 표본으로 비교했다.)</div>
+    </div>
+
+    <p>SUS 줄은 사정이 조금 다르다. 1차 약 48~69, 2차 약 64~79로 구간이 겹치는데도, 두 평균의 차이를 웰치의 \(t\) 검정으로 직접 검정하면 p ≈ 0.02다. 두 구간이 겹친다고 해서 차이가 유의하지 않은 것은 아니다. 차이의 구간은 각 구간보다 좁기 때문이다(각 표준 오차를 그냥 더하지 않고 제곱해 더한 뒤 제곱근을 취한다). 그리고 열 문항 점수는 성공·실패 한 칸보다 한 사람에게서 더 많은 정보를 담는다. 그래도 다섯 명의 평균은 누가 들어왔느냐에 크게 흔들린다. 1차에서 47.5를 준 한 사람이 평균을 2.5점 넘게 끌어내렸다.</p>
+    <p>T2의 "2/5 → 4/5"는 숫자로는 아무것도 증명하지 못한다. 그렇다고 2차 테스트가 쓸모없었던 것은 아니다. 사용성 테스트의 힘은 비율이 아니라 <b>원인</b>에 있다. 1차에서 실패한 세 명은 모두 하트를 누르고 "됐네요"라고 말했다. 2차에는 하트가 없었고, 그 실패는 한 번도 나오지 않았다. 원인을 없앴고 그 원인 때문인 실패가 사라졌다는 것은 성공률 구간보다 강한 근거다.</p>
+    <p>그래도 "0/5"를 "문제율 0"으로 읽어서는 안 된다. 다섯 명 중 아무도 겪지 않은 문제의 95% 수정 왈드 구간은 0~49%다. 2차에서 T2를 실패한 한 명은 새로운 이유였다. 인증 문자가 늦게 와 "다시 보내기"를 세 번 누른 뒤 처음 온 번호를 넣었고, 그 번호는 이미 무효였다. 1차의 다섯 명이 만나지 못한 문제다. T3을 실패한 한 명은 1차의 6위 문제("내 요청"으로 가는 길)를 그대로 겪었다. 고친 판은 나아졌지만, 문제 목록은 줄지 않고 바뀌었다.</p>
+
+    <div class="callout studio">
+      <strong>다섯 명의 결과를 보고서에 쓰는 법</strong>
+      하린이 오래 쓴 방식은 성공률 옆에 반드시 분수와 구간을 같이 적는 것이다. "T2 성공률 80%"가 아니라 "T2 4/5(95% 구간 약 36~98%)". 그리고 숫자 아래에 "왜 실패했는가"를 한 줄씩 붙인다. 숫자는 크기의 감을, 이유는 다음 행동을 준다. 1차와 2차를 비교할 때는 "좋아졌다"보다 "1차의 원인 ①이 2차에서 나오지 않았다, 새 원인 ⑦이 나왔다"처럼 원인 단위로 적는다. 다섯 명으로는 비율의 차이를 보이기 어렵지만, 원인의 사라짐과 나타남은 보일 수 있다.
+    </div>
+  </section>
+
+  <section id="ab">
+    <h2>A/B 패널: 14일의 기록</h2>
+    <p><a href="metrics.html">9장</a>에서 서윤은 버튼 문구 실험의 계획서를 먼저 썼다. A는 "맡아 두기", B는 "3일 동안 맡아 두기". 1차 지표는 결과 화면을 본 방문자 가운데 맡긴 책을 기한 안에 찾아간 비율, 기준 8%, 최소 검출 효과 2%p, 유의 수준 5%(양쪽), 검정력 80%, 한 무리 약 3,200명, 5월 15일 월요일부터 28일 일요일까지 14일. 판정은 14일째 한 번만. 실험은 계획대로 끝났다. 아래는 그 최종 기록이다(가상 자료).</p>
+    <div class="table-wrap">
+      <table class="pl-ev">
+        <thead><tr><th>14일 합계</th><th class="num">A "맡아 두기"</th><th class="num">B "3일 동안 맡아 두기"</th></tr></thead>
+        <tbody>
+          <tr><td>결과 화면 방문자(배정)</td><td class="num">3,236</td><td class="num">3,204</td></tr>
+          <tr><td>맡아 두기 요청(보조 지표)</td><td class="num">372</td><td class="num">486</td></tr>
+          <tr><td>주인이 확인한 맡김</td><td class="num">331</td><td class="num">430</td></tr>
+          <tr><td>기한 안에 찾아감(1차 지표)</td><td class="num">262</td><td class="num">291</td></tr>
+          <tr><td>주인 확인까지 걸린 시간 중앙값(가드레일)</td><td class="num">21분</td><td class="num">24분</td></tr>
+          <tr><td>헛걸음 신고(가드레일)</td><td class="num">2건</td><td class="num">3건</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>먼저 실험이 제대로 돌았는지를 본다. 배정은 반반이어야 하는데 3,236 대 3,204다. 이 정도 차이가 우연으로 나올 확률을 카이제곱 검정으로 구하면 <span id="pl-srm">—</span>이다. 배정 비율의 어긋남(SRM)은 없다고 보고 결과를 읽는다. 두 무리의 차이와 그 95% 신뢰 구간은 9장과 같은 식으로 구한다.</p>
+    <div class="formula">$$\big(\hat p_B-\hat p_A\big)\;\pm\;z_{1-\alpha/2}\sqrt{\frac{\hat p_A(1-\hat p_A)}{n_A}+\frac{\hat p_B(1-\hat p_B)}{n_B}}$$<div class="where">\(\hat p_A, \hat p_B\): 두 무리에서 관측된 비율, \(n_A, n_B\): 두 무리의 방문자 수, \(z_{1-\alpha/2}\): 95% 구간이면 1.96. 정규 근사라서 전환 수가 수십 건 이상일 때 쓸 만하다. p값은 두 무리를 합친 비율로 표준 오차를 구하는 두 비율 \(z\) 검정으로 따로 계산한다(9장과 같다).</div></div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="A/B 테스트 최종 결과. 세 지표의 차이(B 빼기 A)와 95% 신뢰 구간. 찾아간 비율은 구간이 0을 지나고, 요청률과 안 찾아간 맡김은 구간이 0보다 위에 있다.">
+        <g id="pl-f3"></g>
+      </svg>
+      <figcaption><b>그림 2. 14일째의 판정.</b> 가로축은 B에서 A를 뺀 차이(%p), 막대는 95% 신뢰 구간, 점은 관측된 차이다. 1차 지표(찾아간 비율)의 구간은 0을 지나고, 9장에서 정한 최소 검출 효과(2%p) 점선도 지난다. 보조 지표인 요청률은 분명히 올랐다. 맨 아래 줄 "안 찾아간 맡김"(요청했지만 찾아가지 않은 비율)은 계획서에 없던 지표라 따로 표시했다. 값은 이 페이지의 스크립트가 위 표에서 계산했다.</figcaption>
+    </figure>
+
+    <p>이제 그 14일을 하루씩 되돌려 본다. 아래 패널은 날마다 누적한 차이와 95% 구간을 그린다. 타임라인 위의 손잡이를 끌어 "그날 들여다봤다면" 무엇이 보였을지 확인한다. 지표를 바꾸면 같은 14일이 다르게 보인다.</p>
+
+    <div class="sim" id="sim-pl-ab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>날마다 들여다본 14일</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pl-ab-cv"></canvas><span class="hint">손잡이를 끌어 날짜를 옮긴다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-ab-m"><button data-value="pick" class="on">찾아감(1차)</button><button data-value="req">요청(보조)</button><button data-value="nop">안 찾아간 맡김(사후)</button></div>
+          <label class="check"><input type="checkbox" id="pl-ab-mde" checked> 최소 검출 효과(2%p) 선 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 날</span><span class="v" id="pl-ab-o-day">—</span></div>
+        <div class="stat"><span class="k">누적 차이 · 95% 구간</span><span class="v" id="pl-ab-o-d">—</span></div>
+        <div class="stat"><span class="k">p값(두 비율 z검정)</span><span class="v" id="pl-ab-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 손잡이를 14일째에 둔다. 찾아간 비율의 차이는 약 +1.0%p, 구간은 약 −0.4~+2.4%p다. ② 손잡이를 앞으로 끌며 구간이 날마다 좁아지는 모습을 본다. 초반의 넓은 구간은 같은 실험의 같은 진실을 덜 본 것뿐이다. ③ "요청(보조)"을 누른다. 사흘째부터 구간이 0 위에 있다. 9장에서 지후가 본 "B가 이겼다"가 이 줄이었다. ④ "안 찾아간 맡김"을 누른다. 구간이 0보다 위다. 요청이 는 만큼 오지 않는 맡김도 늘었다. (찾아감은 결과 화면을 본 날의 묶음으로 셌다. 날마다의 수는 14일 합계에 맞춰 이 책이 만든 가상 기록이다.)</div>
+    </div>
+
+    <p>1차 지표의 결론은 한 줄로 쓸 수 있다. <b>B는 찾아간 비율을 약 1%p 올렸을 수도, 0.4%p 낮췄을 수도, 2.4%p 올렸을 수도 있다.</b> p값은 약 0.16이다. "유의하지 않다." 그런데 이것을 "B는 효과가 없다"로 읽으면 틀린다. 구간의 위쪽 끝은 서윤이 의미 있다고 정한 2%p보다 크다. 이 실험은 B가 의미 있게 낫다는 것도, 의미 있는 차이가 없다는 것도 보이지 못했다. 다음 절에서 이 "모른다"를 더 정확히 읽는다.</p>
+    <p>보조 지표 쪽은 확실하다. 요청은 약 3.7%p(95% 구간 약 2.0~5.3%p) 늘었다. 그러나 늘어난 요청이 찾아감으로 이어진 비율이 낮았다. 요청 가운데 찾아간 비율은 A 70%, B 60%다. 기한을 버튼에 넣자 "일단 맡겨 둘까" 하는 손님이 늘었다는 해석이 가능하다. 다만 이 해석은 결과를 본 뒤에 세운 것이고, "안 찾아간 맡김"은 계획서에 없던 지표다. 나중에 고른 지표가 유의하다는 것은 미리 정한 지표가 유의하다는 것보다 훨씬 약한 근거다(9장의 여러 지표 문제). 이 결과는 "탐색적 발견"으로 적어 두고, 다음 실험에서 미리 정한 지표로 확인한다.</p>
+  </section>
+
+  <section id="read">
+    <h2>결론 읽기: 네 갈래</h2>
+    <p>신뢰 구간 하나를 놓고 내릴 수 있는 결론은 넷이다. 기준은 두 개의 선이다. 하나는 0(차이 없음), 다른 하나는 미리 정한 <span class="term">최소 의미 차이</span><span class="en">(Smallest effect size of interest)</span>다. 이 서비스에서 "이만큼은 달라야 바꿀 가치가 있다"고 정한 크기로, 9장의 최소 검출 효과 2%p를 그대로 쓴다. 0을 가운데 두고 양쪽으로 그만큼 띠를 그리면, 구간이 어디에 있느냐로 결론이 갈린다.</p>
+    <ul>
+      <li><b>낫다</b>: 구간 전체가 0보다 위. 구간의 아래 끝이 최소 의미 차이도 넘으면 "의미 있게 낫다".</li>
+      <li><b>못하다</b>: 구간 전체가 0보다 아래.</li>
+      <li><b>같다고 봐도 된다</b>: 구간 전체가 띠 안. 차이가 있더라도 의미 있는 크기보다 작다. 이것을 보이는 절차를 <span class="term">동등성 검정</span><span class="en">(Equivalence test)</span>이라고 한다. 양쪽 한계에 대해 한쪽 검정을 두 번 하는 방식(TOST, Schuirmann 1987)이 널리 쓰이고, 90% 구간이 띠 안에 드는지로 판정하는 것과 같다.</li>
+      <li><b>모른다</b>: 구간이 0도 지나고 띠의 바깥 끝도 지난다. 표본이 이 질문에 답하기에 모자란다.</li>
+    </ul>
+    <p>아래 패널에서 구간의 가운데 점을 끌어 옮기고, 한 무리의 사람 수로 구간의 폭을 바꾼다. 띠의 폭(최소 의미 차이)도 바꿔 본다.</p>
+
+    <div class="sim" id="sim-pl-rd">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>구간이 놓인 자리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pl-rd-cv"></canvas><span class="hint">가운데 점을 끌어 옮긴다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>한 무리 사람 수 <output id="pl-rd-n-out"></output></span><input type="range" id="pl-rd-n" min="0" max="10" step="1" value="4"></label>
+          <label class="ctrl"><span>최소 의미 차이 <output id="pl-rd-m-out"></output></span><input type="range" id="pl-rd-m" min="0.5" max="3" step="0.25" value="2"></label>
+          <button class="btn sm" id="pl-rd-real" type="button">서윤의 실험으로</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">결론</span><span class="v" id="pl-rd-o-c" style="font-size:15px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">95% 구간</span><span class="v" id="pl-rd-o-ci">—</span></div>
+        <div class="stat"><span class="k">이 크기로 띠 끝을 잡을 검정력</span><span class="v" id="pl-rd-o-pw">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "서윤의 실험으로"를 누른다. 가운데 +0.99%p, 한 무리 약 3,220명이다. 구간이 0과 +2%p를 모두 지나 "모른다"다. ② 사람 수를 늘린다. 같은 가운데 점이라도 2만 명이면 구간이 0 위로 올라가 "낫다"가 된다. 다만 아래 끝이 2%p에 못 미치니 "의미 있게 낫다"는 아니다. ③ 가운데 점을 0 근처로 끌고 사람 수를 늘린다. 구간이 띠 안에 들어오면 "같다고 봐도 된다"가 된다. 사람이 적으면 같은 점이라도 "모른다"에 머문다. (기준 비율 8.5%, 두 무리의 사람 수가 같다고 둔 정규 근사다. 동등성 판정은 TOST와 같은 90% 구간으로, 나머지는 95% 구간으로 했다.)</div>
+    </div>
+
+    <p>"모른다"가 나왔을 때 할 수 있는 일은 세 가지다. 더 모으거나, 다른 근거로 정하거나, 결정을 미룬다. 더 모으려면 얼마나 필요한지는 9장의 표본 크기 식이 알려 준다. 관측된 크기인 1%p를 잡고 싶다면 기준 8.1%에서 한 무리 약 12,300명, 하루 460명으로 약 54일이 걸린다. 지금의 표본(한 무리 약 3,220명)으로 1%p 차이를 잡을 검정력은 약 30%에 불과하다. 실험은 처음부터 2%p를 잡도록 설계되었고, 2%p에 대해서는 검정력이 약 80%였다. 설계가 틀린 것이 아니라, 진짜 차이가 설계한 크기보다 작았을 가능성이 높다.</p>
+
+    <div class="callout deep">
+      <strong>검정력은 실험 전에 쓰는 숫자다</strong>
+      검정력(Power)은 "진짜 차이가 \(\delta\)라면, 이 실험이 그것을 유의하게 잡을 확률"이다. 정규 근사로는 \(1-\beta \approx \Phi\!\big(|\delta|/SE - z_{1-\alpha/2}\big)\)이고, \(SE = \sqrt{p_A(1-p_A)/n + p_B(1-p_B)/n}\)이다. 이 페이지의 수치는 이 식으로 계산했다. 결과를 본 뒤 관측된 차이를 넣어 계산한 "사후 검정력"은 p값을 다시 쓴 것에 지나지 않는다는 비판이 있다(Hoenig & Heisey 2001, The American Statistician). 그래서 결과 뒤에는 검정력보다 신뢰 구간을 읽는다. 구간이 "얼마까지는 배제했고 얼마부터는 배제하지 못했는지"를 직접 보여 주기 때문이다. 위에서 1%p에 대한 30%를 말한 것은 사후 검정력이 아니라 "다음 실험을 1%p로 설계하면 지금 크기로는 모자란다"는 설계 계산이다.
+    </div>
+  </section>
+
+  <section id="shelf">
+    <h2>주인 패널: 서가 밖의 책</h2>
+    <p>B 문구로 바꾸면 요청이 늘고, 찾아가지 않는 맡김도 는다. 손님 화면만 보면 이것은 비용이 아니다. 맡기고 안 온 손님은 잃은 것이 없다. 비용은 가게에 쌓인다. 주인은 확인 알림을 한 번 더 받고, 책을 서가에서 빼 계산대 뒤에 두고, 기한이 지나면 다시 꽂는다. 그동안 그 책을 찾는 다른 손님에게는 "없음"이 뜬다. 헌책방 나무처럼 재고가 한 권씩인 가게에서는 그대로 다른 손님의 헛걸음이 된다. <a href="problem.html">3장</a>에서 이 서비스가 없애려던 바로 그 일이다.</p>
+    <p>어느 순간 서가 밖에 묶여 있는 책이 평균 몇 권인지는 <span class="term">리틀의 법칙</span><span class="en">(Little's law)</span>으로 어림한다. 대기열 이론의 결과로(Little 1961, Operations Research), 안정된 체계에서 안에 머무는 평균 개수는 들어오는 속도와 평균 머무는 시간의 곱이다.</p>
+    <div class="formula">$$L = \lambda W$$<div class="where">\(L\): 서가 밖에 묶여 있는 책의 평균 권수, \(\lambda\): 하루에 새로 묶이는 맡김 수, \(W\): 한 권이 묶여 있는 평균 일수. 찾아가는 맡김과 찾아가지 않는 맡김은 머무는 시간이 다르므로 따로 곱해 더한다. 찾아가는 손님은 평균 1.2일 뒤에 온다고 두었고(가정), 찾아가지 않는 맡김은 취소하지 않으면 기한(3일)까지 묶인다.</div></div>
+    <p>시범 운영의 14일 기록으로 계산해 보자. 주인이 확인하지 못했거나 재고가 없던 요청은 책을 묶지 않으니 빼고, 확인된 맡김만 센다. 오지 않을 손님이 취소하지 않는다고 두면, A 무리에서는 하루 찾아감 약 18.7건 × 1.2일 + 확인됐지만 오지 않은 맡김 약 4.9건 × 3일로 평균 약 37권, B 무리에서는 약 20.8건 × 1.2일 + 약 9.9건 × 3일로 약 55권이다(네 책방 합계, 각 무리가 방문자의 절반이던 시범 운영 기준). 아래 패널에서 한 책방의 하루를 놓고 값을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-pl-sh">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>계산대 뒤에 쌓이는 책</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pl-sh-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>한 책방의 하루 요청 <output id="pl-sh-r-out"></output></span><input type="range" id="pl-sh-r" min="1" max="30" step="1" value="13"></label>
+          <label class="ctrl"><span>확인된 맡김 가운데 찾아가는 비율 <output id="pl-sh-q-out"></output></span><input type="range" id="pl-sh-q" min="30" max="100" step="1" value="79"></label>
+          <label class="ctrl"><span>맡김 기한 <output id="pl-sh-w-out"></output></span><input type="range" id="pl-sh-w" min="1" max="7" step="1" value="3"></label>
+          <label class="check"><input type="checkbox" id="pl-sh-c" checked> 취소가 쉽다(상태 카드의 버튼)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">서가 밖 평균</span><span class="v" id="pl-sh-o-l">—</span></div>
+        <div class="stat"><span class="k">그중 오지 않을 책</span><span class="v" id="pl-sh-o-n">—</span></div>
+        <div class="stat"><span class="k">하루 확인 알림</span><span class="v" id="pl-sh-o-a">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 값(A 문구로 모두 바꾼 뒤의 한 책방 평균: 하루 방문자 460명 × 요청률 11.5% ÷ 네 책방 ≈ 13건, 확인된 맡김 가운데 찾아감 79%)에서 서가 밖의 책을 읽는다. ② 찾아가는 비율을 68%로, 요청을 17건으로 바꾼다(B 문구로 모두 바꾼 경우에 가까운 값). 계산대 뒤의 회색 띠가 늘어난다. ③ 기한을 7일로 늘린다. 손님에게는 너그러워 보이지만, 오지 않을 책이 서가 밖에 머무는 날도 같이 늘어난다. ④ "취소가 쉽다"를 끈다. 오지 않을 손님이 취소하지 않고 그냥 잊어서, 책이 기한 끝까지 묶인다. (리틀의 법칙은 평균만 말한다. 찾아오는 손님은 평균 1.2일 뒤에 온다고, 오지 않을 손님 가운데 취소하는 비율은 취소가 쉬우면 40%, 어려우면 10%이고 취소는 평균 반나절 뒤라고 둔 가정이다. 요청 가운데 주인이 확인하는 비율은 시범 운영의 89%로 고정했다.)</div>
+    </div>
+
+    <p>패널이 보여 주는 것은 손님 쪽 지표와 주인 쪽 비용이 다른 속도로 움직인다는 사실이다. 요청이 30% 늘면 확인 알림도 30% 늘지만, 오지 않는 비율까지 함께 오르면 서가 밖의 책은 그보다 더 빨리 는다. 그리고 <a href="ethics.html">12장</a>에서 취소 버튼을 상태 카드마다 꺼내 둔 결정이 손님만이 아니라 가게의 서가도 지킨다는 것이 숫자로 보인다. 오지 않을 손님이 쉽게 취소하면 책은 기한보다 일찍 서가로 돌아간다.</p>
+  </section>
+
+  <section id="check">
+    <h2>일관성 패널: 장마다 정한 것이 부딪힐 때</h2>
+    <p>열두 장의 결정은 각자 옳았다. 그런데 한 화면 위에 모아 놓으면 서로 어긋나는 곳이 생긴다. 앞 장에서 정한 이름을 뒤 장이 다르게 쓰기도 하고, 뒤 장의 규칙이 앞 장의 버튼을 금지하기도 한다. 지후가 시험판의 화면 문자열을 10장의 문구 원칙과 11장의 토큰 규칙에 하나씩 대어 보다가 처음 걸린 것이 취소 흐름의 마지막 버튼이었다.</p>
+    <p><a href="ethics.html">12장</a>은 취소를 쉽게 하려고 "내 맡김"의 상태 카드마다 취소 버튼을 꺼내 두었고, 그 흐름의 마지막 탭은 대화상자의 "확인"이었다. 그런데 <a href="writing.html">10장</a>의 문구 원칙 ②는 "버튼은 누르면 일어나는 일을 쓴다. '확인'·'예'는 쓰지 않는다"였다. 12장은 취소를 쉽게 만드는 데 집중하느라, 10장의 원칙이 그 마지막 버튼에도 걸린다는 것을 놓쳤다. 아래 그림의 왼쪽이 그 화면, 오른쪽이 실험실에서 고친 화면이다.</p>
+
+    <figure class="pl-cmp">
+      <div class="compare" id="pl-cmp">
+        <div class="cmp-a"><svg id="pl-cmp-a" class="art" viewBox="0 0 460 300" role="img" aria-label="고치기 전의 취소 화면. 대화상자에 취소하시겠습니까라는 질문과 취소, 확인 두 버튼이 있다."></svg></div>
+        <div class="cmp-b"><svg id="pl-cmp-b" class="art" viewBox="0 0 460 300" role="img" aria-label="고친 취소 화면. 상태 카드의 맡김 취소 버튼을 누르면 대화상자 없이 바로 취소되고, 화면 아래에 맡김을 취소했어요와 되돌리기가 몇 초 동안 뜬다."></svg></div>
+      </div>
+      <figcaption><b>그림 3. "확인"을 지운 취소.</b> 왼쪽(12장의 흐름): 상태 카드의 "맡기기 취소" → 대화상자 "취소하시겠습니까?"의 "취소 / 확인". 버튼 "취소"가 "대화상자를 닫는다"인지 "맡김을 취소한다"인지 읽는 사람이 한 번 더 생각해야 한다. 오른쪽(실험실에서 고친 흐름): 상태 카드의 "맡김 취소"를 누르면 대화상자 없이 바로 취소되고, 화면 아래에 "되돌리기"가 몇 초 뜬다(5장에서 정한 방식). 탭은 "내 맡김"을 여는 것까지 두 번이다. 가운데 막대를 끌어 비교한다.</figcaption>
+    </figure>
+
+    <p>이런 충돌은 하나만이 아니었다. 아래 점검판에는 지후와 서윤이 찾은 여섯 가지가 있다. 카드마다 어긋난 두 결정과 해결안을 보여 준다. 해결안을 하나씩 골라 본다. 어떤 해결안은 다른 장의 원칙을 다시 어긴다. 고른 결과는 마지막 절의 공개 판단대로 넘어간다.</p>
+
+    <div class="sim" id="sim-pl-ck" data-mono="off">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>일관성 점검판</h3></div>
+      <div class="pl-cards" id="pl-ck-cards"></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 카드</span><span class="v" id="pl-ck-o-n">—</span></div>
+        <div class="stat"><span class="k">원칙에 맞게 고친 것</span><span class="v" id="pl-ck-o-ok">—</span></div>
+        <div class="stat"><span class="k">다른 원칙을 어긴 선택</span><span class="v" id="pl-ck-o-bad">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 첫 카드에서 "확인 유지"를 고른다. 10장의 원칙 ②에 걸린다. ② "취소의 모양"에서 대화상자를 고르면 탭이 셋, 되돌리기를 고르면 둘이 된다. 둘 다 12장의 "취소 탭 수는 맡기기 탭 수를 넘지 않는다"는 지키지만, 대화상자를 쓰려면 버튼 이름을 다시 정해야 한다. ③ 여섯 장을 모두 고르고 "원칙에 맞게 고친 것"이 6이 되는 조합을 찾는다. (점검 기준은 10장의 문구 원칙 다섯 줄, 11장의 토큰 규칙, 12장의 윤리 점검 질문이다. 판정은 이 책이 정한 단순 규칙이다.)</div>
+    </div>
+
+    <p>여섯 가지 충돌에는 공통점이 있다. 대부분 <b>뒤 장의 규칙이 앞 장의 결정을 거슬러 올라가 바꿔야 하는데, 그 일을 누구도 맡지 않았던</b> 경우다. 11장이 주 행동 색을 잉크로 바꿨을 때 6장의 주인 화면 수락 버튼(책방 초록)은 저절로 바뀌지 않는다. 10장이 "같은 것은 같은 이름"을 정했을 때 8장 테스트 보고서의 "내 요청"과 12장의 "맡기기 취소"는 그대로 남아 있었다. 디자인 시스템(<a href="system.html">11장</a>)의 문서와 문구 표는 이런 역류를 잡으려고 있는 것이다. 규칙을 새로 정할 때마다 "이 규칙에 걸리는 기존 화면은 무엇인가"를 한 번 찾아보는 절차가 필요하다.</p>
+
+    <div class="callout studio">
+      <strong>결정 기록 한 장</strong>
+      하린은 큰 회사에서 일할 때 결정마다 한 줄짜리 기록을 남겼다고 한다. 날짜, 결정, 근거(그림 1의 어느 칸인가), 다른 선택지, 다시 볼 조건. 예를 들면 이렇다. "6월 26일 · 버튼 문구 A 유지 · A/B 결과 모름(구간 −0.4~+2.4%p) · B 채택, 재실험 · 공개 뒤 하루 방문자가 1,000명을 넘으면 1%p 설계로 재실험." 기록이 있으면 석 달 뒤 누군가 "왜 B가 아니에요?"라고 물을 때 다시 싸우지 않아도 되고, 새 규칙이 생겼을 때 어떤 결정이 그 규칙에 걸리는지 찾을 수 있다. 업계에서는 이런 문서를 흔히 결정 기록(decision log)이라고 부른다.
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>종합 실험실: 공개 판단대</h2>
+    <p>이제 여섯 패널을 한 작업대에 모은다. 왼쪽 조절기에서 서비스의 조합을 고르면, 위 그림은 하루의 퍼널(방문 → 요청 → 주인 확인 → 찾아감)과 한 주 동안 찾아갈 책 수의 분포(같은 조합으로 400주를 돌린 시뮬레이션)를 그리고, 아래 판단표는 지표, 가드레일, 주인 쪽 비용, 윤리 점검, 문구 원칙, 일관성 점검의 결과를 한 줄씩 보여 준다. 판단표의 첫 줄은 지금 고른 조합의 근거가 어느 칸(그림 1)에 서 있는지도 적는다.</p>
+    <p>순서는 이렇게 권한다. ① 지금의 서비스(A 문구, 5단계, 2차 고침 반영, 카드 취소)에서 판단표를 읽는다. ② 버튼 문구를 B로 바꾸고 주인 쪽 줄이 어떻게 변하는지 본다. ③ 하루 방문자를 늘려 가드레일이 언제 무너지는지 찾는다(방문자 수는 공개 뒤에 늘 수 있다). ④ "주인의 부탁" 두 개를 켜 본다. ⑤ 일관성 패널로 돌아가 남은 카드를 고르고 판단표의 마지막 줄을 확인한다.</p>
+
+    <div class="sim" id="sim-pl-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>공개 판단대</h3></div>
+      <div class="sim-body">
+        <div class="sim-view"><canvas id="pl-lab-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="pl-grp"><p class="pl-grp-t">화면</p>
+            <div class="seg" id="pl-lab-v"><button data-value="A" class="on">A 맡아 두기</button><button data-value="B">B 3일 동안 맡아 두기</button></div>
+            <div class="seg" id="pl-lab-f"><button data-value="5" class="on">5단계 흐름</button><button data-value="9">9단계 흐름</button></div>
+            <label class="check"><input type="checkbox" id="pl-lab-fix" checked> 2차 테스트 고침 반영</label>
+          </div>
+          <div class="pl-grp"><p class="pl-grp-t">취소와 주인의 부탁</p>
+            <div class="seg" id="pl-lab-c"><button data-value="card" class="on">카드의 맡김 취소 + 되돌리기</button><button data-value="menu">메뉴 안 + 확인 대화상자</button></div>
+            <label class="check"><input type="checkbox" id="pl-lab-opt"> 신간 알림 동의를 미리 체크</label>
+            <label class="check"><input type="checkbox" id="pl-lab-small"> 기한 규칙을 작은 글씨로</label>
+          </div>
+          <div class="pl-grp"><p class="pl-grp-t">규모</p>
+            <label class="ctrl"><span>하루 결과 화면 방문자 <output id="pl-lab-n-out"></output></span><input type="range" id="pl-lab-n" min="100" max="1500" step="20" value="460"></label>
+            <button class="btn sm" id="pl-lab-reset" type="button">지금의 서비스로</button>
+          </div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 주에 찾아갈 책</span><span class="v" id="pl-lab-o-w">—</span></div>
+        <div class="stat"><span class="k">책방 하나의 하루 확인</span><span class="v" id="pl-lab-o-a">—</span></div>
+        <div class="stat"><span class="k">서가 밖 평균(네 책방)</span><span class="v" id="pl-lab-o-l">—</span></div>
+        <div class="stat"><span class="k">걸린 항목</span><span class="v" id="pl-lab-o-f">—</span></div>
+      </div>
+      <div class="pl-board" id="pl-lab-board"></div>
+      <div class="sim-note">해볼 것: ① 처음 상태에서 걸린 항목을 센다. 일관성 패널을 아직 고르지 않았다면 마지막 줄이 걸린다. ② B를 고른다. 한 주에 찾아갈 책은 조금 늘지만 그 차이는 A/B 결과의 구간 안이고, 서가 밖의 책과 주인 확인이 늘어난다. ③ 방문자를 늘린다. A는 800명 남짓, B는 600명 남짓에서 주인 확인 시간이 30분 가드레일을 넘는다. ④ 9단계 흐름이나 고침 전 화면을 고르면 찾아가는 책이 크게 준다. 이 두 줄의 근거는 "모형"과 "다섯 명의 행동"이라는 것을 판단표에서 확인한다. (요청률·확인률·찾아감 비율은 시범 운영 A/B의 가상 기록에서 가져왔다. 9단계는 5장의 퍼널 모형으로 요청 완료를 0.43배, 고침 전 화면은 요청 0.8배·찾아감 0.95배, 작은 기한 글씨는 찾아감 0.93배로 둔 가정이다. 주인 확인 시간의 중앙값은 시범 운영 전체(책방 하나에 하루 약 15건, 중앙값 약 22.5분)와 요청이 없을 때 8분이라는 가정을 잇는 직선이라, 멀리 늘일수록 믿기 어렵다.)</div>
+    </div>
+
+    <p>공개 판단대는 "열어도 된다"를 출력하지 않는다. 걸린 항목의 수가 0이어도 마찬가지다. 판단표가 하는 일은 두 가지다. 하나는 고른 조합이 손님 말고 다른 사람(주인, 다음 손님)에게 무엇을 넘기는지 보이는 것이고, 다른 하나는 각 줄이 서 있는 근거의 칸을 함께 적어 두는 것이다. "한 주에 찾아갈 책 약 260권"은 시범 운영 14일의 숫자에 기대고, "9단계면 그 절반 아래"는 계산에 기대고, "고침 전 화면이면 줄어든다"는 다섯 명의 행동에 기댄다. 같은 표에 놓인 숫자라도 같은 무게가 아니다.</p>
+
+    <div class="callout try">
+      <strong>결론 카드 쓰기</strong>
+      종이 카드 여섯 장을 준비한다. 최근에 내린 결정 여섯 개(일의 결정이든 생활의 결정이든)를 한 장에 하나씩 적고, 카드 아래에 그 결정의 근거가 그림 1의 다섯 칸(말, 소수의 행동, 다수의 숫자, 모형, 원칙) 가운데 어디인지 표시한다. 그다음 각 카드에 "이 결정을 뒤집을 만한 증거는 무엇인가"를 한 줄씩 쓴다. 마지막으로 여섯 장을 근거의 칸별로 늘어놓는다. 대부분의 사람은 "말" 칸이 생각보다 두껍고, "뒤집을 증거" 줄이 쓰기 어려운 카드가 가장 확신하던 카드라는 것을 발견한다. 둘이 함께 한다면 서로의 카드를 바꿔 읽고 근거의 칸을 다시 매겨 본다.
+    </div>
+
+    <div class="callout studio">
+      <strong>공개 전 회의를 숫자로만 하지 않는다</strong>
+      하린이 공개 전 회의에서 늘 하는 일은 두 개의 목록을 나란히 적는 것이다. 왼쪽은 "확실한 것", 오른쪽은 "아직 모르는 것". 그리고 오른쪽 목록마다 "모르는 채로 열면 무엇이 위험한가"와 "열고 나서 무엇을 보면 알 수 있는가"를 붙인다. 공개를 미루는 이유는 "모르는 것이 있다"가 아니라 "모르는 채로 열면 되돌릴 수 없는 해가 생긴다"여야 한다. 버튼 문구는 공개 뒤에도 바꿀 수 있지만, 동의 없이 보낸 광고 문자는 되돌릴 수 없다. 그래서 문구는 숫자로 미루고, 동의는 원칙으로 먼저 정했다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 봄 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 13장</span></div>
+      <h4>확실한 것, 아직 모르는 것, 그리고 6월 30일</h4>
+      <p>5월 29일 월요일 아침, 지후가 대시보드에서 가려 두었던 1차 지표의 칸을 열었다. 14일 동안 결과 화면 방문자는 A 3,236명, B 3,204명이었다(시범 운영 가상 자료, 이하 같다). 배정 비율의 카이제곱 검정은 p ≈ 0.69로 문제가 없었다. 기한 안에 책을 찾아간 사람은 A 262명(8.1%), B 291명(9.1%). 차이는 +0.99%p, 95% 신뢰 구간은 −0.38~+2.36%p, p ≈ 0.16이었다. 요청은 A 372명(11.5%), B 486명(15.2%)으로 차이 +3.67%p(구간 +2.01~+5.33%p)가 분명했다. 가드레일인 주인 확인 시간의 중앙값은 21분과 24분으로 둘 다 30분 아래였고, 헛걸음 신고는 2건과 3건이었다.</p>
+      <p>지후가 먼저 말했다. "누름은 확실히 늘었고, 찾아간 것도 늘긴 했잖아요." 하린은 구간을 손가락으로 짚었다. "이건 'B가 낫지 않다'가 아니라 '이 크기로는 모른다'예요. 2%p를 잡으려고 설계한 실험인데, 진짜 차이가 있다면 그보다 작은 것 같아요." 헌책방 나무 주인은 다른 줄을 보았다. 요청했지만 찾아가지 않은 맡김이 A 110건, B 195건이었다. 요청 가운데 찾아간 비율로 바꾸면 70%와 60%. 확인된 맡김만 세어 리틀의 법칙으로 계산하자(오지 않을 손님이 취소하지 않는다고 두면) 네 책방의 서가 밖에 묶인 책이 A 무리 몫 평균 약 37권, B 무리 몫 약 55권이었다. "한 권뿐인 책이 사흘씩 계산대 뒤에 있으면, 그걸 찾는 다른 손님한테는 없는 책이에요." 하린은 이 숫자 옆에 "계획서에 없던 지표, 탐색적"이라고 적었다.</p>
+      <p>6월 26일 월요일, 공개 나흘 전의 실험실 회의에는 2차 사용성 테스트(5월 9일, 새 손님 다섯 명)의 결과도 올라왔다. T1 5/5, T2 4/5, T3 4/5, T4 5/5, SUS 평균 71.5(1차 58.5). 하트 혼동은 한 번도 나오지 않았다. 큰 글자 설정을 쓰는 손님은 세로로 쌓인 버튼과 재고 수를 모두 읽었고, 헌책방 나무 단골은 "헌책" 표시를 바로 보았다. 대신 새 문제가 하나 나왔다. 인증 문자가 늦게 오자 "다시 보내기"를 거듭 누른 손님이 처음 온 번호를 넣었다가 막혔다. T3의 실패는 1차의 6위 문제("내 요청"으로 가는 길)가 그대로였다. 일관성 점검판에서는 여섯 가지 충돌이 나왔다. 첫 번째가 12장 취소 흐름의 마지막 버튼 "확인"이었다. 10장의 원칙 ②가 금지한 바로 그 버튼이다.</p>
+      <p>서윤의 선택은 6월 30일에 A 문구로 여는 것이었다. B는 요청을 늘렸지만 1차 지표의 차이는 구간 안에서 0과 구별되지 않았고, 늘어난 요청의 비용은 주인과 다음 손님에게 갔다. 기한은 이미 2차 테스트 때부터 버튼 바로 위에 날짜와 함께 있었다("6월 3일(토)까지 맡아 둘게요. 그 뒤에는 기다리는 다른 손님에게 넘어가요"). 취소는 상태 카드의 "맡김 취소" 한 번으로 바로 처리하고 몇 초 동안 "되돌리기"를 띄우는 5장의 방식으로 정리했다. "내 맡김"을 여는 것까지 두 탭이고, 대화상자와 "확인" 버튼은 없앴다. 이름은 "내 맡김"과 "맡김 취소"로 맞추고, 주인 화면의 수락 버튼은 11장의 주 행동 색(잉크 #22342a)으로 바꿨다. 인증번호는 마지막으로 보낸 것뿐 아니라 5분 안에 보낸 번호를 모두 받기로 했다. 남겨 둔 다른 선택지는 둘이다. B를 채택하는 길(요청 증가는 확실하다), 그리고 공개를 미루고 실험을 이어 가는 길. 1%p를 잡으려면 한 무리 약 12,300명, 지금 방문자로 약 54일이 걸린다.</p>
+      <div class="table-wrap">
+        <table class="pl-ev">
+          <thead><tr><th>결론</th><th>근거(그림 1의 칸)</th><th>하린의 메모</th></tr></thead>
+          <tbody>
+            <tr><td>헛걸음이 가장 큰 문제다</td><td>말 + 행동 + 전화 기록</td><td>세 갈래가 같은 쪽. 가장 단단함</td></tr>
+            <tr><td>찜하기를 뺀 것이 T2 실패를 없앴다</td><td>소수의 행동(3/5 → 0/5)</td><td>원인이 사라짐. 0/5의 구간은 0~49%</td></tr>
+            <tr><td>B 문구가 찾아감을 늘린다</td><td>다수의 숫자</td><td>모른다(−0.38~+2.36%p)</td></tr>
+            <tr><td>B 문구가 요청을 늘린다</td><td>다수의 숫자</td><td>확실(+2.01~+5.33%p). 보조 지표</td></tr>
+            <tr><td>B가 오지 않는 맡김을 늘린다</td><td>다수의 숫자, 사후</td><td>탐색적. 다음 실험의 가드레일로</td></tr>
+            <tr><td>다섯 단계가 아홉 단계보다 낫다</td><td>모형</td><td>측정한 적 없음. 상한</td></tr>
+            <tr><td>동의는 기본 해제</td><td>원칙</td><td>숫자로 뒤집지 않음</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b><strong>공개</strong>: 6월 30일 금요일, 버튼 문구 A "맡아 두기"(B 채택하지 않음). <strong>A/B 최종 결과</strong>(가상): 찾아감 A 262/3,236(8.1%) · B 291/3,204(9.1%), 차이 +0.99%p, 95% 구간 −0.38~+2.36%p, p ≈ 0.16 → "모른다". 요청 +3.67%p(+2.01~+5.33%p). 가드레일 중앙값 21분·24분, 헛걸음 신고 2·3건. <strong>2차 테스트</strong>(가상): T1 5/5, T2 4/5, T3 4/5, T4 5/5, SUS 71.5. <strong>일관성 정리</strong>: 취소는 상태 카드의 "맡김 취소" + 되돌리기(2탭, "확인" 버튼 없음), 이름은 "내 맡김"·"맡김 취소", 주인 수락 버튼은 잉크 #22342a, 기한은 날짜로. 인증번호는 5분 안의 번호를 모두 받는다. <strong>공개 뒤 볼 것</strong>: 매주 1차 지표와 가드레일 두 개에 "안 찾아간 맡김 비율"을 더한다. 방문자가 하루 1,000명을 넘으면 1%p 설계로 B 재실험.</div>
+        <div><b>아직 남은 문제</b>2장에서 만나지 못한 시집 손님과 아이 책을 사는 부모는 여전히 적게 들어 있다. "내 맡김"으로 가는 길은 두 번의 테스트에서 모두 한 명씩 막혔다. 맡김이 끝난 뒤 30일에 전화번호를 지우는 기능이 실제로 도는지는 공개 뒤 첫 달이 지나야 확인할 수 있다.</div>
+        <div><b>다음 단계</b>6월 30일 공개, 7월 첫 주 첫 점검. <a href="glossary.html">14장</a>에서 이 봄의 용어와 서비스 노트를 한 번에 찾아본다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>결정마다 근거의 칸이 다르다(말, 소수의 행동, 다수의 숫자, 모형, 원칙). 결론을 말할 때 그 칸을 함께 말한다. 칸을 바꿔 말하는 순간 판단이 틀어진다.</li>
+      <li>퍼널의 곱은 화면 밖까지 이어진다. 주인 확인과 찾아감처럼 사람과 가게가 정하는 칸도 화면의 칸과 같은 무게로 끝을 정하고, 같은 크기의 개선은 가장 낮은 칸에서 가장 크게 남는다.</li>
+      <li>다섯 명의 비율 차이(2/5 → 4/5)는 구간이 겹쳐 아무것도 증명하지 못하지만, 원인의 사라짐과 새 원인의 나타남은 보여 준다. 0/5는 문제율 0이 아니다.</li>
+      <li>신뢰 구간은 0과 최소 의미 차이라는 두 선으로 읽는다. 낫다, 못하다, 같다고 봐도 된다, 모른다. "유의하지 않다"는 넷째일 때가 많고, 그것은 "효과 없음"이 아니다.</li>
+      <li>검정력은 실험 전에 쓰는 숫자다. 결과 뒤에는 구간을 읽고, 더 작은 차이를 알고 싶으면 그 크기로 다음 실험을 다시 설계한다. 결과를 본 뒤에 고른 지표는 탐색적 발견으로만 적는다.</li>
+      <li>손님 쪽 지표의 개선이 주인과 다음 손님에게 비용을 넘길 수 있다. 리틀의 법칙(\(L = \lambda W\))처럼 단순한 식으로도 그 비용을 어림할 수 있다.</li>
+      <li>장마다 옳았던 결정이 한 화면에서 부딪힌다. 새 규칙을 정할 때마다 그 규칙에 걸리는 기존 화면을 찾아 고치고, 결정 기록에 근거와 다시 볼 조건을 남긴다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 버튼 문구 A/B 테스트의 1차 지표 차이가 +0.99%p, 95% 신뢰 구간 −0.38~+2.36%p였다. 실험 전에 정한 최소 검출 효과는 2%p다. 가장 알맞은 해석은?</p>
+        <div class="opts">
+          <button class="opt">p값이 0.05보다 크므로 B는 효과가 없다고 결론 내린다.</button>
+          <button class="opt">관측된 차이가 양수이므로 B가 낫다고 결론 내린다.</button>
+          <button class="opt" data-correct>구간이 0과 2%p를 모두 지나므로, 이 실험으로는 B가 의미 있게 낫다고도, 의미 있는 차이가 없다고도 말할 수 없다.</button>
+          <button class="opt">구간의 가운데가 2%p보다 작으므로 B가 A보다 못하다고 결론 내린다.</button>
+        </div>
+        <div class="quiz-exp">구간은 "이 범위의 차이는 자료와 어긋나지 않는다"를 보여 준다. 0(차이 없음)도 2%p(의미 있는 차이)도 그 안에 있으니 결론은 "모른다"다. "유의하지 않다"를 "효과 없음"으로 읽으면 틀린다. 효과가 없다고 말하려면 구간 전체가 미리 정한 띠(−2~+2%p) 안에 들어와야 한다(동등성 검정).</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 1차 사용성 테스트에서 다섯 명 중 세 명이 하트(찜하기)를 맡아 두기로 착각했다. 하트를 뺀 2차 테스트에서는 다섯 명 중 아무도 그 문제를 겪지 않았다. 이 결과를 가장 바르게 쓴 문장은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>문제의 원인(하트)을 없앴고 그 원인 때문인 실패가 다섯 명 중 한 번도 나오지 않았다. 다만 0/5의 95% 구간은 0~49%라서 비율로는 "문제율 0"을 말할 수 없다.</button>
+          <button class="opt">0/5이므로 이 문제는 손님의 0%에게 일어난다는 것이 증명되었다.</button>
+          <button class="opt">3/5와 0/5의 차이는 통계적으로 유의하므로 수천 명에게서도 같은 결과가 나온다.</button>
+          <button class="opt">다섯 명은 너무 적어서 2차 테스트에서 얻은 것은 아무것도 없다.</button>
+        </div>
+        <div class="quiz-exp">다섯 명의 비율은 구간이 넓다(피셔 검정으로 3/5 대 0/5의 p ≈ 0.17). 그러나 사용성 테스트의 근거는 비율보다 원인에 있다. 실패의 원인을 화면에서 없앴고 그 실패가 사라졌다는 것은 강한 근거다. 그래도 0/5를 "0%"로 쓰면 과장이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 한 책방에 하루 평균 3건씩 "맡겼지만 오지 않을" 요청이 들어오고, 이 책들은 취소되지 않아 기한인 3일 동안 계산대 뒤에 묶인다. 리틀의 법칙으로 어림하면, 이런 책이 어느 순간 평균 몇 권 서가 밖에 있는가?</p>
+        <div class="opts">
+          <button class="opt">1권(3 ÷ 3)</button>
+          <button class="opt">3권(하루치만 남는다)</button>
+          <button class="opt">6권(3 × 3 ÷ 1.5)</button>
+          <button class="opt" data-correct>9권(3건/일 × 3일)</button>
+        </div>
+        <div class="quiz-exp">\(L = \lambda W\)에서 \(\lambda\) = 하루 3건, \(W\) = 3일이므로 \(L\) = 9권이다. 기한을 7일로 늘리면 21권이 된다. 오지 않을 손님이 쉽게 취소할 수 있으면 \(W\)가 줄어 서가 밖의 책도 준다. 취소를 쉽게 하는 것이 가게에도 이로운 이유다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. A/B 결과를 본 뒤 여러 지표를 살펴보다가, 계획서에 없던 "요청했지만 찾아가지 않은 비율"에서 B가 유의하게 높다는 것을 발견했다. 이 발견을 어떻게 다루는 것이 가장 알맞은가?</p>
+        <div class="opts">
+          <button class="opt">p값이 매우 작으므로 1차 지표 대신 이 지표로 판정을 다시 한다.</button>
+          <button class="opt" data-correct>결과를 본 뒤에 고른 지표이므로 탐색적 발견으로 기록하고, 다음 실험에서는 미리 정한 가드레일로 넣어 확인한다.</button>
+          <button class="opt">계획서에 없던 지표이므로 보고서에서 지운다.</button>
+          <button class="opt">이 지표가 유의하므로 1차 지표의 결과도 유의한 것으로 고친다.</button>
+        </div>
+        <div class="quiz-exp">결과를 본 뒤 여러 지표 가운데 눈에 띄는 것을 고르면 우연한 승리가 섞이기 쉽다(9장의 여러 지표 문제). 그렇다고 지우면 중요한 신호를 잃는다. "탐색적"이라고 밝혀 기록하고, 다음 실험의 계획서에 미리 넣어 확인하는 것이 정직한 처리다. 1차 지표의 판정은 바뀌지 않는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs" data-nonum>
+    <h2>참고 문헌</h2>
+    <ul>
+      <li>Agresti, A., &amp; Coull, B. A. (1998). Approximate is better than "exact" for interval estimation of binomial proportions. <i>The American Statistician</i>, 52(2). 수정 왈드 구간의 출처(8장과 같다).</li>
+      <li>Sauro, J., &amp; Lewis, J. R. (2016). <i>Quantifying the User Experience</i> (2nd ed.). Morgan Kaufmann. 작은 표본의 사용성 지표에 수정 왈드 구간을 권한다.</li>
+      <li>Brooke, J. (1996). SUS: A "quick and dirty" usability scale. In <i>Usability Evaluation in Industry</i>. Taylor &amp; Francis.</li>
+      <li>Kohavi, R., Tang, D., &amp; Xu, Y. (2020). <i>Trustworthy Online Controlled Experiments</i>. Cambridge University Press. 배정 비율 점검(SRM), 가드레일, 미리 정한 판정 기준.</li>
+      <li>Schuirmann, D. J. (1987). A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability. <i>Journal of Pharmacokinetics and Biopharmaceutics</i>, 15(6). 동등성 검정(TOST).</li>
+      <li>Hoenig, J. M., &amp; Heisey, D. M. (2001). The abuse of power: The pervasive fallacy of power calculations for data analysis. <i>The American Statistician</i>, 55(1).</li>
+      <li>Little, J. D. C. (1961). A proof for the queuing formula: L = λW. <i>Operations Research</i>, 9(3).</li>
+      <li>정규 누적 분포는 Abramowitz &amp; Stegun(1964)의 7.1.26 근사, 피셔의 정확 검정은 초기하 분포의 양쪽 합, \(t\) 분포의 임계값(자유도 4)은 표준 표의 값을 썼다.</li>
+    </ul>
+  </section>
+</main>
