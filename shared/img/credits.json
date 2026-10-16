@@ -3613,7 +3613,8 @@
       "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/2500",
       "checked": "2026-10-15",
       "usedIn": [
-        "industrial/chapters/history.html"
+        "industrial/chapters/history.html",
+        "industrial/chapters/lab.html"
       ]
     },
     {
