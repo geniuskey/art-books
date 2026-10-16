@@ -1,0 +1,990 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "웹 화면의 모든 요소는 상자다. 내용·안쪽 여백·테두리·바깥 여백의 네 겹 박스 모델과 box-sizing, 위아래 바깥 여백이 하나로 겹치는 마진 상쇄를 만져 보고, 제각각이던 간격을 4·8 간격 단계와 '안쪽 간격 < 바깥 간격' 규칙으로 다시 짠다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>박스와 간격 · WebBook</title>
+<meta name="description" content="웹 화면의 모든 요소는 상자다. 내용·안쪽 여백·테두리·바깥 여백의 네 겹 박스 모델과 box-sizing, 위아래 바깥 여백이 하나로 겹치는 마진 상쇄를 만져 보고, 제각각이던 간격을 4·8 간격 단계와 '안쪽 간격 < 바깥 간격' 규칙으로 다시 짠다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/box.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="박스와 간격 · WebBook">
+<meta property="og:description" content="웹 화면의 모든 요소는 상자다. 내용·안쪽 여백·테두리·바깥 여백의 네 겹 박스 모델과 box-sizing, 위아래 바깥 여백이 하나로 겹치는 마진 상쇄를 만져 보고, 제각각이던 간격을 4·8 간격 단계와 '안쪽 간격 < 바깥 간격' 규칙으로 다시 짠다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/box.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/box.html#chapter","name":"박스와 간격","headline":"박스와 간격 · WebBook","description":"웹 화면의 모든 요소는 상자다. 내용·안쪽 여백·테두리·바깥 여백의 네 겹 박스 모델과 box-sizing, 위아래 바깥 여백이 하나로 겹치는 마진 상쇄를 만져 보고, 제각각이던 간격을 4·8 간격 단계와 '안쪽 간격 < 바깥 간격' 규칙으로 다시 짠다.","url":"https://artbook.euiyun.com/web/chapters/box.html","position":3,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"3. 박스와 간격","item":"https://artbook.euiyun.com/web/chapters/box.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<style>
+  pre.code { margin: 18px 0; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow-x: auto; font: 13px/1.65 var(--mono); color: var(--text); }
+  pre.code code { background: none; padding: 0; font-size: inherit; }
+  pre.code .cm { color: var(--text-faint); }
+</style>
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="box">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 03</div>
+    <h1>박스와 간격</h1>
+    <p class="lead">웹 화면을 아무리 들여다봐도 동그라미나 비스듬한 선은 드물다. 둥근 버튼도, 동그랗게 자른 얼굴 사진도 브라우저에게는 네모난 상자 하나다. 화면은 상자 안에 상자를, 그 안에 또 상자를 넣어 만든다. 그래서 웹 디자이너가 그리는 "간격"은 결국 상자와 상자 사이, 상자의 벽과 내용 사이의 거리다. 이 장은 그 상자를 네 겹으로 벗겨 보고, 상자의 폭이 어디까지인지, 위아래 간격이 왜 가끔 사라지는지 확인한다. 그리고 13, 17, 22 픽셀처럼 제각각이던 간격을 몇 개의 단계로 묶어, 시안을 그린 사람과 코드를 쓰는 사람이 같은 숫자로 말하게 한다.</p>
+    <ul class="objectives">
+      <li>화면의 요소를 상자로 보고, 상자 안의 상자(중첩)로 페이지를 읽는다.</li>
+      <li>박스 모델의 네 겹(내용, 안쪽 여백, 테두리, 바깥 여백)을 구별하고 상자가 실제로 차지하는 폭을 계산한다.</li>
+      <li><code>box-sizing</code>의 두 방식이 "폭"을 어떻게 다르게 정의하는지 알고, 시안의 폭과 코드의 폭을 맞춘다.</li>
+      <li>위아래 바깥 여백이 하나로 겹치는 마진 상쇄가 언제 일어나고 언제 일어나지 않는지 안다.</li>
+      <li>4·8 간격 단계를 만들고, "안쪽 간격 &lt; 바깥 간격" 규칙으로 정보를 묶는다.</li>
+    </ul>
+  </header>
+
+  <section id="boxes">
+    <h2>모든 것은 상자다</h2>
+    <p>브라우저는 HTML 문서를 받으면 글 한 덩어리, 그림 하나, 버튼 하나마다 직사각형 영역을 하나씩 만든다. 이 영역을 <span class="term">상자</span><span class="en">(Box)</span>라고 부른다. 상자의 크기와 위치를 정하는 일을 <span class="term">레이아웃</span><span class="en">(Layout)</span>이라고 한다. CompositionBook에서 지면 위의 요소를 "놓는" 일을 레이아웃이라고 했는데(<a href="../../composition/chapters/layout.html">지면과 화면 구성</a>), 웹에서는 그 일을 브라우저가 규칙에 따라 계산한다. 디자이너가 할 일은 그 규칙에 맞는 숫자를 주는 것이다.</p>
+    <p>상자는 혼자 있지 않다. 페이지 전체가 하나의 큰 상자이고, 그 안에 머리 띠와 본문과 바닥 띠가, 머리 띠 안에 로고와 메뉴 단추가 들어 있다. 상자 안에 상자가 든 이런 구조를 <span class="term">중첩</span><span class="en">(Nesting)</span>이라고 한다. 아래는 책방 E의 모임 안내 페이지를 휴대폰 폭(360 CSS 픽셀, <a href="viewport.html">2장</a>)으로 그린 가상의 화면이다. "상자 보기"를 켜면 브라우저가 보는 대로 모든 상자의 테두리가 드러난다. 화면을 누르거나 끌면 손끝 아래의 가장 안쪽 상자가 골라진다.</p>
+
+    <div class="sim" id="sim-see">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>화면을 상자로 보기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bx-see-cv" class="art"></canvas><span class="hint">눌러서 상자를 고른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="bx-see-mode"><button data-value="page">화면</button><button data-value="boxes" class="on">상자 보기</button><button data-value="only">상자만</button></div>
+          <label class="check"><input type="checkbox" id="bx-see-dev" checked> 고른 상자의 여백 보기(개발자 도구식)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 상자</span><span class="v" id="bx-see-o-t">—</span></div>
+        <div class="stat"><span class="k">테두리까지의 크기</span><span class="v" id="bx-see-o-s">—</span></div>
+        <div class="stat"><span class="k">안쪽 여백 · 바깥 여백(위 오른 아래 왼)</span><span class="v" id="bx-see-o-mp">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "화면"과 "상자 보기"를 번갈아 누른다. 둥근 단추도 네모난 상자이고, 글 세 줄도 상자 하나다. ② "상자만"으로 바꾼다. 색과 글자를 지우면 이 페이지는 세 겹으로 포개진 직사각형들일 뿐이다. 회색(페이지), 파랑(머리 띠·본문·바닥 띠), 분홍(그 안의 요소). ③ 제목, 그림, 신청 단추를 차례로 눌러 오른쪽 아래 값을 본다. 본문 상자(main)의 안쪽 여백이 위아래 24, 양옆 16이라서 그 안의 요소들이 모두 왼쪽 16에서 시작한다. (가상의 화면이다. 실제 브라우저는 글줄 하나하나에도 상자를 만들지만 여기서는 요소 단위로만 그렸다.)</div>
+    </div>
+
+    <p>"상자만" 화면에서 본 것이 브라우저의 눈이다. 색과 글자를 지워도 페이지의 짜임은 그대로 남는다. 상자는 크게 두 가지로 놓인다. 제목, 문단, 그림처럼 위에서 아래로 한 줄씩 쌓이는 <span class="term">블록 상자</span><span class="en">(Block box)</span>와, 문장 속 굵은 낱말이나 링크처럼 글줄 안에서 옆으로 흐르는 <span class="term">인라인 상자</span><span class="en">(Inline box)</span>다. 블록 상자는 따로 정하지 않으면 부모의 폭을 가득 채우고, 높이는 안에 든 내용만큼 자란다. 위 화면의 요소들이 모두 폭 328로 같은 것도 그 때문이다. 폭은 바깥에서 정해지고, 높이는 안에서 정해진다. 이 비대칭이 웹 레이아웃의 첫 번째 성질이다. 종이 지면에서는 디자이너가 높이까지 정하지만, 웹에서는 글이 늘면 상자가 아래로 늘어난다.</p>
+
+    <div class="callout studio">
+      <strong>실제 사이트의 상자를 보는 법</strong>
+      데스크톱 브라우저(크롬, 엣지, 파이어폭스, 사파리)에는 개발자 도구가 들어 있다. 페이지의 아무 요소에서 오른쪽 단추를 눌러 "검사"를 고르면 그 요소의 상자가 색칠되어 보이고, 옆 창에 내용·안쪽 여백·테두리·바깥 여백의 값이 동심 사각형 그림으로 나온다(사파리는 설정에서 개발자 메뉴를 먼저 켠다). 디자이너에게도 이 그림은 쓸모가 많다. 마음에 드는 사이트의 간격이 왜 편안한지 감으로 짐작하지 말고, 상자를 하나씩 눌러 숫자로 확인해 본다. 위 시뮬레이터의 주황·노랑·초록·파랑도 이 그림의 관례를 따랐다.
+    </div>
+  </section>
+
+  <section id="model">
+    <h2>박스 모델: 네 겹의 상자</h2>
+    <p>상자 하나를 확대하면 네 겹이 있다. 가운데에 글이나 그림이 들어가는 <span class="term">내용 영역</span><span class="en">(Content)</span>이 있고, 그것을 <span class="term">안쪽 여백</span><span class="en">(Padding, 패딩)</span>이 감싼다. 안쪽 여백은 상자의 바탕색이 칠해지는 숨 쉴 자리다. 그 바깥에 <span class="term">테두리</span><span class="en">(Border, 보더)</span>가 있고, 맨 바깥에 이웃한 상자를 밀어내는 투명한 <span class="term">바깥 여백</span><span class="en">(Margin, 마진)</span>이 있다. 이 네 겹으로 상자의 크기와 간격을 정하는 규칙을 <span class="term">박스 모델</span><span class="en">(Box model)</span>이라고 한다. 출처는 W3C의 CSS 명세다(CSS 2.1의 8장, 지금은 CSS Box Model Module Level 3로 이어진다).</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="박스 모델 그림. 가장 바깥에 점선으로 그린 바깥 여백, 그 안에 굵은 테두리, 그 안에 안쪽 여백, 가운데에 내용 영역이 있는 동심 사각형이다. 오른쪽에 바탕색이 칠해지는 범위와 이웃을 밀어내는 범위가 표시되어 있다.">
+        <defs><marker id="bx-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="20" y="20" width="300" height="230" rx="4" class="f-surface s-dash"/>
+        <rect x="50" y="50" width="240" height="170" class="f-acc2-soft"/>
+        <rect x="54" y="54" width="232" height="162" fill="none" class="s-acc2" style="stroke-width:8"/>
+        <rect x="58" y="58" width="224" height="154" class="f-acc-soft"/>
+        <rect x="92" y="92" width="156" height="86" class="f-elev s-line"/>
+        <text x="170" y="130" text-anchor="middle" class="lbl-b">내용</text>
+        <text x="170" y="150" text-anchor="middle" class="lbl-dim">content · width × height</text>
+        <text x="66" y="78" class="lbl-acc">안쪽 여백 padding</text>
+        <text x="58" y="44" class="lbl-acc2">테두리 border</text>
+        <text x="28" y="268" class="lbl-dim">바깥 여백 margin (투명, 이웃을 밀어낸다)</text>
+        <line x1="248" y1="196" x2="282" y2="196" class="s-acc" marker-start="url(#bx-ar)" marker-end="url(#bx-ar)"/>
+        <line x1="290" y1="236" x2="320" y2="236" class="s-line" marker-start="url(#bx-ar)" marker-end="url(#bx-ar)"/>
+        <g transform="translate(336,0)">
+          <line x1="0" y1="50" x2="0" y2="220" class="s-acc" stroke-width="2"/>
+          <text x="8" y="120" class="lbl">바탕색이</text><text x="8" y="138" class="lbl">칠해지는 곳</text>
+          <text x="8" y="156" class="lbl-dim">테두리 안쪽</text>
+          <line x1="104" y1="20" x2="104" y2="250" class="s-line"/>
+          <text x="8" y="40" class="lbl-dim">차지하는 자리:</text><text x="8" y="244" class="lbl-dim">바깥 여백까지</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 박스 모델의 네 겹.</b> 가운데 내용 영역을 안쪽 여백이 감싸고, 그 바깥에 테두리, 맨 바깥에 바깥 여백이 있다. 상자의 바탕색과 바탕 그림은 테두리 안쪽(내용과 안쪽 여백)에 칠해지고, 바깥 여백은 언제나 투명하다. 눈에 보이는 상자는 테두리까지이지만, 이웃 상자를 밀어내는 범위는 바깥 여백까지다.</figcaption>
+    </figure>
+
+    <p>CSS로는 네 겹을 각각 따로 적는다. 아래는 모임 안내 카드 하나를 적은 예다. 값을 하나만 쓰면 위·오른쪽·아래·왼쪽 네 변에 같은 값이 들어가고, 네 개를 쓰면 시계 방향(위, 오른쪽, 아래, 왼쪽)으로 들어간다.</p>
+<pre class="code" data-scroll><code>.event-card {
+  width: 240px;          <span class="cm">/* 내용 영역의 폭(기본 방식에서) */</span>
+  padding: 16px;         <span class="cm">/* 안쪽 여백: 네 변 모두 16 */</span>
+  border: 2px solid #22342a;
+  margin: 0 0 24px;      <span class="cm">/* 바깥 여백: 위 0, 양옆 0, 아래 24 */</span>
+}</code></pre>
+    <p>그렇다면 이 카드는 화면에서 폭을 얼마나 차지할까. 아래 시뮬레이터에서 상자 아래쪽 가장자리의 손잡이 셋을 위아래로 끌면 안쪽 여백(초록), 테두리(노랑), 바깥 여백(주황)의 두께가 바뀐다. 두께는 네 변에 똑같이 들어간다. 슬라이더는 CSS의 <code>width</code> 값이다. 위쪽의 세 치수선이 내용 폭, 눈에 보이는 폭, 차지하는 폭을 보여 준다.</p>
+
+    <div class="sim" id="sim-model">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>네 겹을 끌어 보는 박스 모델</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bx-mo-cv" class="art"></canvas><span class="hint">아래 가장자리 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>CSS width <output id="bx-mo-w-out"></output></span><input type="range" id="bx-mo-w" min="80" max="320" step="4" value="240"></label>
+          <div class="seg" id="bx-mo-sz"><button data-value="content" class="on">content-box(기본)</button><button data-value="border">border-box</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">내용 폭</span><span class="v" id="bx-mo-o-c">—</span></div>
+        <div class="stat"><span class="k">눈에 보이는 폭(테두리까지)</span><span class="v" id="bx-mo-o-b">—</span></div>
+        <div class="stat"><span class="k">차지하는 폭(바깥 여백까지)</span><span class="v" id="bx-mo-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태에서 숫자를 더해 본다. width 240에 안쪽 여백 16을 양쪽으로, 테두리 2를 양쪽으로 더하면 눈에 보이는 폭은 276이다. 바깥 여백 24를 양쪽에 더하면 차지하는 폭은 324다. ② 초록 손잡이를 끌어 안쪽 여백을 48까지 늘린다. width는 그대로인데 상자가 바깥으로 부푼다. ③ "border-box"로 바꾸고 같은 일을 한다. 이번에는 눈에 보이는 폭이 width에 고정되고, 안쪽 여백이 늘어난 만큼 내용 폭이 줄어든다. ④ border-box에서 width를 80으로 줄이고 안쪽 여백을 늘린다. 내용 폭이 0이 되면 더는 줄지 않고 상자가 넘친다. (손잡이는 안쪽 여백과 바깥 여백을 4 단위로, 테두리를 1 단위로 바꾼다. 높이는 글 두 줄로 고정했다.)</div>
+    </div>
+
+    <p>기본 방식에서 <code>width</code>는 상자의 겉 폭이 아니라 <b>내용 영역의 폭</b>이다. 안쪽 여백과 테두리는 그 바깥에 더해진다. 식으로 쓰면 다음과 같다.</p>
+    <div class="formula">$$W_{\text{보이는}} = w + 2p + 2b, \qquad W_{\text{차지하는}} = W_{\text{보이는}} + 2m$$<div class="where">\(w\): CSS <code>width</code>(기본 방식에서 내용 폭), \(p\): 안쪽 여백, \(b\): 테두리 두께, \(m\): 바깥 여백. 네 변의 값이 같다고 둔 식이다. 왼쪽과 오른쪽 값이 다르면 \(2p\) 대신 \(p_{\text{왼}} + p_{\text{오}}\)처럼 더한다.</div></div>
+    <p>바깥 여백은 바탕색이 칠해지지 않으니 눈에 보이지 않는다. 그래서 시안을 보고 "카드 사이가 24"라고 읽은 것이 코드에서는 위 카드의 바깥 여백 24일 수도, 두 카드의 바깥 여백 12씩일 수도, 부모 상자의 간격 속성 24일 수도 있다. 눈에 같은 간격이 코드로는 여러 방법으로 만들어진다는 것, 그리고 방법마다 다르게 행동한다는 것이 이 장 뒷부분의 주제다.</p>
+
+    <div class="callout deep">
+      <strong>자리를 차지하지 않는 선들</strong>
+      상자 둘레에 그려지지만 박스 모델에 들어가지 않는 것도 있다. <code>outline</code>(키보드로 고른 요소의 초점 표시에 자주 쓰는 바깥선)과 <code>box-shadow</code>(그림자)는 테두리 바깥에 그려질 뿐 자리를 차지하지 않는다. 그래서 그림자를 크게 줘도 옆 상자가 밀려나지 않고, 대신 옆 상자 위로 겹쳐 그려질 수 있다. 초점 표시를 테두리 두께로 만들면 초점이 들어올 때마다 상자가 몇 픽셀씩 커져 주변이 흔들리는데, <code>outline</code>은 그런 일이 없다. 7장(<a href="components.html">컴포넌트와 상태</a>)에서 초점 표시를 다시 다룬다. 또 하나, 안쪽 여백과 바깥 여백을 퍼센트로 쓰면 위아래 값도 <b>부모의 폭</b>을 기준으로 계산된다. 높이가 아니다. 이 성질을 이용해 폭에 비례하는 높이를 가진 상자를 만들던 시절이 있었고, 지금은 <code>aspect-ratio</code> 속성이 그 일을 대신한다.
+    </div>
+  </section>
+
+  <section id="sizing">
+    <h2>폭은 어디까지인가: box-sizing</h2>
+    <p>앞 시뮬레이터에서 본 두 방식은 CSS의 <code>box-sizing</code> 속성으로 고른다. 기본값 <code>content-box</code>는 <code>width</code>를 내용 폭으로, <code>border-box</code>는 <code>width</code>를 테두리까지의 폭으로 읽는다. 앞의 것은 CSS 초기 명세의 정의이고, 뒤의 것은 디자이너가 "폭"이라고 말할 때 떠올리는 것에 가깝다. 시안에서 "카드 폭 240"이라고 적으면 대개 눈에 보이는 카드의 바깥 테두리까지를 뜻하기 때문이다. 이 차이가 어떤 사고를 내는지 보자. 폭 344의 상자 안에 카드 두 장을 <code>width: 50%</code>로 나란히 놓았다. 카드에 안쪽 여백과 테두리를 준다.</p>
+
+    <div class="sim" id="sim-sizing">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>50% 두 장이 한 줄에 들어갈까</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bx-sz-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>카드 안쪽 여백 <output id="bx-sz-p-out"></output></span><input type="range" id="bx-sz-p" min="0" max="32" step="4" value="16"></label>
+          <label class="ctrl"><span>카드 테두리 <output id="bx-sz-b-out"></output></span><input type="range" id="bx-sz-b" min="0" max="8" step="1" value="1"></label>
+          <div class="seg" id="bx-sz-m"><button data-value="content" class="on">content-box</button><button data-value="border">border-box</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">카드 한 장의 보이는 폭</span><span class="v" id="bx-sz-o-w">—</span></div>
+        <div class="stat"><span class="k">두 장의 합 / 부모 폭</span><span class="v" id="bx-sz-o-s">—</span></div>
+        <div class="stat"><span class="k">결과</span><span class="v" id="bx-sz-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① content-box에서 처음 상태를 본다. 카드마다 172에 안쪽 여백 32와 테두리 2가 더해져 206이 되고, 두 장의 합 412가 부모 폭 344를 넘어 둘째 카드가 다음 줄로 밀린다. ② 안쪽 여백과 테두리를 모두 0으로 내린다. 그제야 두 장이 나란히 선다. 하지만 카드 안의 글이 테두리에 붙는다. ③ 안쪽 여백을 16으로 되돌리고 border-box로 바꾼다. 카드의 겉 폭이 172로 고정되고 안쪽 여백만큼 내용이 좁아져, 두 장이 한 줄에 선다. (두 카드를 float로 나란히 놓았을 때의 행동이다. 플렉스박스로 놓으면 밀리는 대신 줄어드는데, 4장에서 다룬다.)</div>
+    </div>
+
+    <p>퍼센트 폭과 고정 여백을 섞는 순간 content-box는 계산을 어렵게 만든다. 50%와 32픽셀을 더한 값은 부모 폭이 바뀔 때마다 달라지기 때문이다. 그래서 오늘날 많은 사이트가 스타일시트 맨 앞에 모든 요소를 border-box로 바꾸는 규칙을 둔다. 이 규칙은 널리 퍼진 관례이고, 시안의 숫자와 코드의 숫자를 같은 뜻으로 만든다.</p>
+<pre class="code" data-scroll><code><span class="cm">/* 모든 상자의 width·height를 테두리까지의 크기로 읽는다 */</span>
+*, *::before, *::after {
+  box-sizing: border-box;
+}</code></pre>
+
+    <div class="callout warn">
+      <strong>시안의 "폭"이 무엇을 뜻하는지 먼저 맞춘다</strong>
+      디자인 도구에서 상자를 그리면 그 도구의 폭은 보통 눈에 보이는 상자 전체다. 그런데 테두리 선을 상자 안쪽에 그리는지, 바깥에 그리는지, 가운데에 걸쳐 그리는지는 도구와 설정에 따라 다르다. 바깥에 그린 2픽셀 선은 border-box로 옮기면 상자를 4픽셀 키운다. 시안을 넘기기 전에 "폭은 테두리까지를 잰 값이고, 코드는 border-box로 쓴다"처럼 한 줄로 합의해 두면, 몇 픽셀씩 어긋나는 일을 대부분 막는다. 위 시뮬레이터의 둘째 카드가 밀려난 것도 원인은 단 34픽셀이었다.
+    </div>
+  </section>
+
+  <section id="collapse">
+    <h2>사라지는 간격: 마진 상쇄</h2>
+    <p>지후가 서윤의 시안을 코드로 옮기다 처음 부딪히는 것이 이것이다. 제목 아래에 바깥 여백 24를, 그 아래 문단 위에 바깥 여백 16을 주었다. 둘 사이 간격은 40이어야 할 것 같은데, 화면에서 재면 24다. 16은 어디로 갔을까.</p>
+    <p>일반적인 문서 흐름에서 위아래로 맞닿은 두 블록 상자의 바깥 여백은 더해지지 않고 <b>큰 쪽 하나로 겹친다</b>. 이것을 <span class="term">마진 상쇄</span><span class="en">(Margin collapsing)</span>라고 한다. CSS 2.1 명세(8.3.1절)의 규칙이고, 원래는 글 문서를 위한 배려였다. 문단마다 위아래에 1줄씩 여백을 주더라도, 문단과 문단 사이가 2줄로 벌어지지 않고 1줄로 유지된다. 책의 단락 간격처럼 동작하게 만든 것이다. 아래에서 두 바깥 여백을 바꾸고, 두 상자가 놓인 방식을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-collapse">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>더해질까, 겹칠까</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bx-co-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>위 상자의 아래 바깥 여백 A <output id="bx-co-a-out"></output></span><input type="range" id="bx-co-a" min="0" max="48" step="4" value="24"></label>
+          <label class="ctrl"><span>아래 상자의 위 바깥 여백 B <output id="bx-co-b-out"></output></span><input type="range" id="bx-co-b" min="-16" max="48" step="4" value="16"></label>
+          <div class="seg" id="bx-co-m"><button data-value="block" class="on">일반 블록 흐름</button><button data-value="flex">플렉스·그리드 안</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">실제 간격</span><span class="v" id="bx-co-o-g">—</span></div>
+        <div class="stat"><span class="k">계산</span><span class="v" id="bx-co-o-f">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태에서 주황(A 24)과 보라(B 16)의 띠가 겹쳐 있는 것을 본다. 간격은 24다. ② B를 32로 올린다. 이제 B가 더 크니 간격은 32다. A는 B 안에 숨는다. ③ "플렉스·그리드 안"으로 바꾼다. 같은 값인데 간격이 A + B로 더해진다. 플렉스 상자와 그리드 상자의 자식들은 바깥 여백이 겹치지 않는다. ④ 블록 흐름으로 돌아와 B를 −8로 내린다. 음수 바깥 여백은 겹치지 않고 큰 양수에서 빠진다(24 − 8 = 16). (명세의 규칙: 둘 다 양수면 큰 값, 둘 다 음수면 더 작은 값, 부호가 다르면 합. 가로 방향의 바깥 여백은 겹치지 않는다.)</div>
+    </div>
+
+    <p>마진 상쇄는 형제 사이에서만 일어나지 않는다. 부모 상자에 안쪽 여백도 테두리도 없으면, 첫 자식의 위 바깥 여백이 부모 밖으로 빠져나가 부모의 바깥 여백과 겹친다. 카드 안 첫 제목에 위 여백 24를 주었는데 카드 안쪽이 아니라 카드 위쪽이 벌어지는 일이 그렇게 생긴다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="부모와 자식의 마진 상쇄를 비교한 두 그림. 왼쪽은 부모 카드에 안쪽 여백이 없어서 자식 제목의 위 바깥 여백이 카드 밖으로 빠져나가 카드 위쪽이 벌어진 모습이다. 오른쪽은 부모 카드에 안쪽 여백이 있어서 자식의 바깥 여백이 카드 안에 머문 모습이다.">
+        <defs><marker id="bx-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g transform="translate(20,0)">
+          <text x="0" y="20" class="lbl-b">부모에 안쪽 여백 없음</text>
+          <rect x="0" y="34" width="190" height="20" class="f-surface"/>
+          <text x="6" y="48" class="lbl-dim" font-size="11">앞 요소</text>
+          <rect x="0" y="54" width="190" height="24" class="f-warn-soft" fill-opacity="0.5"/>
+          <text x="196" y="70" class="lbl-dim" font-size="11">24</text>
+          <rect x="0" y="78" width="190" height="130" class="f-elev s-line"/>
+          <rect x="0" y="78" width="190" height="26" class="f-acc-soft"/>
+          <text x="8" y="96" class="lbl" font-size="13">제목(margin-top: 24)</text>
+          <rect x="0" y="112" width="190" height="10" rx="2" class="f-surface"/><rect x="0" y="128" width="170" height="10" rx="2" class="f-surface"/>
+          <text x="95" y="232" text-anchor="middle" class="lbl-bad" font-size="12">여백이 카드 밖으로 샌다</text>
+        </g>
+        <g transform="translate(250,0)">
+          <text x="0" y="20" class="lbl-b">부모에 안쪽 여백 16</text>
+          <rect x="0" y="34" width="190" height="20" class="f-surface"/>
+          <text x="6" y="48" class="lbl-dim" font-size="11">앞 요소</text>
+          <rect x="0" y="54" width="190" height="154" class="f-elev s-line"/>
+          <rect x="1" y="55" width="188" height="16" class="f-ok-soft"/>
+          <rect x="16" y="71" width="158" height="24" class="f-warn-soft" fill-opacity="0.5"/>
+          <rect x="16" y="95" width="158" height="26" class="f-acc-soft"/>
+          <text x="24" y="113" class="lbl" font-size="13">제목</text>
+          <rect x="16" y="129" width="158" height="10" rx="2" class="f-surface"/><rect x="16" y="145" width="140" height="10" rx="2" class="f-surface"/>
+          <line x1="182" y1="55" x2="182" y2="95" class="s-acc" marker-start="url(#bx-ar2)" marker-end="url(#bx-ar2)"/>
+          <text x="186" y="80" class="lbl-dim" font-size="11">40</text>
+          <text x="95" y="232" text-anchor="middle" class="lbl-dim" font-size="12">안쪽 여백이 둑이 된다</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 2. 부모와 자식의 마진 상쇄.</b> 왼쪽 카드에는 안쪽 여백도 테두리도 없어서 첫 자식인 제목의 위 바깥 여백(주황) 24가 카드 밖으로 빠져나가 카드와 앞 요소 사이를 벌린다. 카드의 바탕색은 제목 바로 위에서 시작한다. 오른쪽 카드는 안쪽 여백(초록) 16이 둑 역할을 해서 제목의 바깥 여백이 카드 안에 머물고, 카드 위 가장자리에서 제목까지 16 + 24 = 40이 된다. 테두리 1픽셀이나 <code>display: flow-root</code>로도 같은 둑을 만들 수 있다.</figcaption>
+    </figure>
+
+    <p>마진 상쇄는 버그가 아니라 명세에 적힌 동작이다. 하지만 시안을 그리는 사람에게는 직관에 어긋나고, 상자 하나를 옮기면 이웃 간격이 함께 바뀌어 예측하기 어렵다. 그래서 요즘의 레이아웃은 바깥 여백보다 부모 상자의 <code>gap</code> 속성을 즐겨 쓴다. 플렉스박스와 그리드 상자에서 <code>gap: 24px</code>을 주면 자식들 <b>사이에만</b> 24가 들어가고, 맨 앞과 맨 뒤에는 들어가지 않으며, 겹치지도 않는다. 플렉스박스의 <code>gap</code>은 2021년 무렵부터 주요 브라우저가 모두 지원한다.</p>
+
+    <div class="callout studio">
+      <strong>간격은 한 사람이 준다</strong>
+      위아래 간격을 위 상자의 아래 여백과 아래 상자의 위 여백으로 나눠 주면, 마진 상쇄 때문에 둘 중 큰 값만 남고 어느 쪽이 이겼는지 코드만 봐서는 알기 어렵다. 실무에서는 몇 가지 약속 중 하나를 고른다. 바깥 여백은 아래쪽에만 준다. 또는 형제 사이 간격을 부모가 <code>gap</code>으로 정한다. 또는 "앞에 형제가 있는 요소에만 위 여백을 준다"는 선택자(<code>.stack &gt; * + *</code>)를 쓴다. 마지막 방법은 헤이든 피커링<span class="en">(Heydon Pickering)</span>이 2014년 A List Apart에 쓴 글 「Axiomatic CSS and Lobotomized Owls」로 널리 알려졌다. 어느 쪽이든 핵심은 같다. 두 상자 사이의 간격을 정하는 사람은 한 명이어야 한다.
+    </div>
+  </section>
+
+  <section id="scale">
+    <h2>간격 체계: 4와 8</h2>
+    <p>서윤의 첫 시안에는 간격이 13, 17, 22픽셀처럼 제각각이었다. 서윤에게는 이유가 있었다. 눈으로 보며 조금씩 밀고 당겨 "딱 좋아 보이는" 자리를 찾은 결과다. 하지만 지후에게는 그 숫자들이 재현할 수 없는 소음이었다. 13과 15의 차이가 의도인지 손떨림인지 알 길이 없고, 화면이 하나 늘 때마다 새로운 숫자가 생긴다. 해결책은 미리 정한 몇 개의 값만 쓰는 것이다. 이런 값의 목록을 <span class="term">간격 단계</span><span class="en">(Spacing scale)</span>라고 한다.</p>
+    <p>단계를 만드는 방법은 여러 가지다. 아래에서 네 가지 방법을 비교한다. 막대 하나가 한 단계이고, 오른쪽 숫자는 바로 아래 단계와의 비다. 슬라이더는 "옆 단계와 구별되는 최소 비"라는 이 장의 문턱이다. 비가 문턱보다 작은 쌍은 붉게 칠한다.</p>
+
+    <div class="sim" id="sim-steps">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>간격 단계 만들기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="bx-st-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="bx-st-set"><button data-value="draft" class="on">시안의 간격</button><button data-value="add4">4씩 더하기</button><button data-value="mine">4·8 단계</button><button data-value="double">두 배씩</button></div>
+          <label class="ctrl"><span>구별 문턱(이웃한 두 값의 비) <output id="bx-st-t-out"></output></span><input type="range" id="bx-st-t" min="1.05" max="1.6" step="0.05" value="1.2"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">단계 수</span><span class="v" id="bx-st-o-n">—</span></div>
+        <div class="stat"><span class="k">가장 작은 이웃 비</span><span class="v" id="bx-st-o-r">—</span></div>
+        <div class="stat"><span class="k">구별이 어려운 쌍</span><span class="v" id="bx-st-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "시안의 간격"을 본다. 서윤의 첫 시안에서 잰 열두 값(가상 자료)이다. 9와 10, 20과 22처럼 붙은 쌍이 많아 붉은 칸이 줄줄이 생긴다. ② "4씩 더하기"로 바꾼다. 4, 8, 12까지는 잘 벌어지지만 40, 44, 48, 52처럼 큰 쪽은 비가 1.1 아래로 떨어져 서로 구별되지 않는다. 단계가 16개나 되는데 쓸모 있는 단계는 그보다 적다. ③ "두 배씩"은 모든 비가 2라서 구별은 확실하지만 16과 32 사이에 쓸 값이 없다. ④ "4·8 단계"는 작은 쪽은 4씩, 큰 쪽은 비 1.33~1.5로 벌어진다. 문턱을 1.3, 1.5로 올려 가며 어디서부터 붉은 칸이 생기는지 본다. (구별 문턱은 이 장이 정한 교육용 기준이다. 실제로 구별되는 차이는 거리, 화면, 주변 요소에 따라 다르다.)</div>
+    </div>
+
+    <p>결과에서 원리 하나를 읽을 수 있다. 사람은 길이의 차이를 절대량보다 <b>비율</b>로 느끼는 경향이 있다. 4와 8의 차이는 분명하지만, 44와 48의 차이는 같은 4픽셀인데도 거의 보이지 않는다. 지각 심리학에서 베버의 법칙<span class="en">(Weber's law)</span>이라고 부르는 오래된 근사와 같은 방향이다. 그래서 좋은 간격 단계는 작은 쪽은 촘촘하고 큰 쪽은 성기다. 이 책이 정한 단계는 다음과 같다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>단계</th><th class="num">값(px)</th><th class="num">아래 단계와의 비</th><th>주로 쓰는 곳(서윤의 첫 안)</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="num">4</td><td class="num">—</td><td>아이콘과 글자 사이, 날짜 칩과 제목처럼 붙어 있어야 하는 것</td></tr>
+          <tr><td>2</td><td class="num">8</td><td class="num">2</td><td>제목과 그 아래 한 줄 설명, 입력 칸과 그 라벨</td></tr>
+          <tr><td>3</td><td class="num">12</td><td class="num">1.5</td><td>목록 항목 사이, 작은 단추 안쪽 여백</td></tr>
+          <tr><td>4</td><td class="num">16</td><td class="num">1.33</td><td>카드 안쪽 여백, 화면 양옆 여백, 카드 안 무리 사이</td></tr>
+          <tr><td>5</td><td class="num">24</td><td class="num">1.5</td><td>카드와 카드 사이</td></tr>
+          <tr><td>6</td><td class="num">32</td><td class="num">1.33</td><td>넓은 화면의 바깥 여백, 큰 카드 안쪽 여백</td></tr>
+          <tr><td>7</td><td class="num">48</td><td class="num">1.5</td><td>구획(행사, 신간)과 구획 사이</td></tr>
+          <tr><td>8</td><td class="num">64</td><td class="num">1.33</td><td>넓은 화면의 큰 구획 사이, 첫 화면 위아래</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>왜 하필 4의 배수일까. 여러 이유가 겹친다. 첫째, 나누기 쉽다. 4의 배수는 반으로, 다시 반으로 나눠도 정수가 남는 경우가 많아 가운데 맞추기나 반쪽 여백을 계산할 때 소수점이 덜 생긴다. 둘째, <a href="viewport.html">2장</a>에서 본 기기 픽셀 비율이다. CSS 1픽셀은 기기 픽셀 비율(DPR)이 1.5인 화면에서 1.5기기 픽셀이 된다. 13픽셀 간격은 19.5기기 픽셀이라 경계가 픽셀 사이에 걸려 살짝 흐려질 수 있지만, 짝수 값은 DPR 1.5, 2, 3에서 모두 정수가 된다. 셋째, 관례다. 구글의 머티리얼 디자인 지침을 비롯한 여러 디자인 체계가 8 단위 격자(작은 요소에는 4 단위)를 쓰고, 그 관례를 아는 개발자와 디자이너가 많다. 숫자 자체에 마법이 있는 것은 아니다. 5의 배수나 6의 배수로 만든 단계도 같은 일을 할 수 있다. 중요한 것은 <b>목록이 짧고, 모두가 같은 목록을 쓰는 것</b>이다.</p>
+    <p>단계를 정했으면 시안을 그 단계에 맞춘다. 그런데 기계적으로 가장 가까운 값으로 반올림하면 어떻게 될까. 아래는 서윤의 행사 목록 시안이다. 분홍 띠는 개발자에게 넘기는 시안에 그리는 간격 표시(흔히 "레드라인"이라고 부른다)다.</p>
+
+    <div class="sim" id="sim-snap">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>시안의 간격을 단계에 맞추기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bx-sn-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="bx-sn-mode"><button data-value="draft" class="on">첫 시안</button><button data-value="near">가장 가까운 단계로</button><button data-value="mine">역할로 다시 정하기</button></div>
+          <label class="check"><input type="checkbox" id="bx-sn-red" checked> 간격 표시(레드라인)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">간격 값의 종류</span><span class="v" id="bx-sn-o-n">—</span></div>
+        <div class="stat"><span class="k">DPR 1.5에서 소수가 되는 값</span><span class="v" id="bx-sn-o-d">—</span></div>
+        <div class="stat"><span class="k">묶음 규칙 위반</span><span class="v" id="bx-sn-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "첫 시안"의 간격 표시를 본다. 일곱 가지가 넘는 값이 섞여 있고, 대부분 홀수라 DPR 1.5 화면에서 소수 기기 픽셀이 된다. 날짜·제목·장소와 설명 사이(11)가 제목과 장소 사이(9)와 거의 같아, 카드 안이 한 덩어리로 읽힌다. ② "가장 가까운 단계로"를 누른다. 값은 넷으로 줄었지만, 카드 사이(16)가 카드 안쪽 여백(16)과 같아지고 행사 제목과 첫 카드 사이(24)가 구획 사이(24)와 같아졌다. 반올림이 관계를 망가뜨린다. ③ "역할로 다시 정하기"를 누른다. 값마다 역할(무리 안, 무리 사이, 카드 안쪽, 카드 사이, 구획 사이)을 먼저 정하고 단계를 골랐다. 위반이 0이 된다. (가상의 시안이다. 묶음 규칙은 다음 절의 "안쪽 간격 &lt; 바깥 간격"을 다섯 가지 확인으로 나눈 것이다.)</div>
+    </div>
+
+    <p>간격 단계는 숫자를 줄이는 도구이지 판단을 대신하는 도구가 아니다. 시안의 13을 12로 바꿀지 16으로 바꿀지는 반올림이 아니라 <b>그 간격이 하는 일</b>로 정한다. 같은 일을 하는 간격은 같은 값, 다른 일을 하는 간격은 확실히 다른 값. 그러면 값의 종류가 줄면서 관계는 오히려 분명해진다.</p>
+
+    <div class="callout studio">
+      <strong>단계 밖의 값이 필요할 때</strong>
+      실무에서 단계 밖의 값이 꼭 필요할 때가 있다. 테두리 1픽셀 때문에 정렬이 1픽셀 어긋나거나, 글자의 위아래 빈 공간(행간) 때문에 단추 안쪽 여백이 눈으로는 고르지 않아 보일 때다. 이럴 때 15나 7을 몰래 넣지 말고, 왜 필요한지 시안 옆에 적는다. "글자 상자의 위쪽 공간을 빼서 눈으로 16에 맞춘 값"처럼. 이유가 적힌 예외는 체계의 일부가 되고, 이유 없는 예외는 다음 사람에게 13과 17의 수수께끼로 남는다. 6장(<a href="tokens.html">색과 글자의 체계</a>)에서 간격 단계에 이름을 붙여 토큰으로 만든다.
+    </div>
+  </section>
+
+  <section id="proximity">
+    <h2>간격으로 묶고 떼기</h2>
+    <p>CompositionBook <a href="../../composition/chapters/gestalt.html">4장</a>에서 가까이 있는 것은 한 무리로 보인다는 근접의 원리를 봤고, <a href="../../composition/chapters/layout.html">12장</a>에서 그것을 "무리 안 간격은 좁게, 무리 사이 간격은 확실히 넓게"라는 지면의 규칙으로 옮겼다. 웹의 상자는 이 규칙을 한 겹 더 깊게 만든다. 상자 안에 상자가 있으니, 간격에도 층이 있다. 글자와 글자 사이, 줄과 줄 사이, 무리와 무리 사이, 카드의 테두리와 내용 사이, 카드와 카드 사이, 구획과 구획 사이. 이 층들이 안쪽에서 바깥쪽으로 갈수록 넓어지면 화면은 저절로 읽힌다. 이 장에서는 이것을 <b>"안쪽 간격 &lt; 바깥 간격"</b> 규칙이라고 부른다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 210" role="img" aria-label="간격의 층을 나타낸 그림. 왼쪽부터 무리 안 간격 4와 8, 무리 사이 16, 카드 안쪽 여백 16, 카드 사이 24, 구획 사이 48이 점점 넓어지는 막대로 그려져 있다.">
+        <g transform="translate(20,24)">
+          <text x="0" y="0" class="lbl-b">안에서 바깥으로 갈수록 넓게</text>
+          <g transform="translate(0,22)">
+            <rect x="0" y="0" width="16" height="22" class="f-acc"/><text x="26" y="16" class="lbl">무리 안</text><text x="420" y="16" text-anchor="end" class="t-mono">4 · 8</text>
+            <rect x="0" y="32" width="64" height="22" class="f-acc" fill-opacity="0.85"/><text x="74" y="48" class="lbl">무리 사이</text><text x="420" y="48" text-anchor="end" class="t-mono">16</text>
+            <rect x="0" y="64" width="64" height="22" class="f-ok"/><text x="74" y="80" class="lbl">카드 안쪽 여백(무리 사이 이상)</text><text x="420" y="80" text-anchor="end" class="t-mono">16</text>
+            <rect x="0" y="96" width="96" height="22" class="f-warn"/><text x="106" y="112" class="lbl">카드 사이</text><text x="420" y="112" text-anchor="end" class="t-mono">24</text>
+            <rect x="0" y="128" width="192" height="22" class="f-acc2-soft"/><text x="202" y="144" class="lbl">구획 사이</text><text x="420" y="144" text-anchor="end" class="t-mono">48</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption><b>그림 3. 간격의 층.</b> 서윤이 이 장에서 정한 첫 안을 막대로 그렸다(막대 길이는 값에 비례). 무리 안 간격보다 무리 사이가, 무리 사이보다 카드 안쪽 여백이(같아도 된다), 카드 안쪽 여백보다 카드 사이가, 카드 사이보다 구획 사이가 넓다. 층이 하나 바깥으로 나갈 때마다 단계가 한두 칸씩 올라간다.</figcaption>
+    </figure>
+
+    <p>카드 하나로 확인해 보자. 신간 카드 두 장이 나란히 있고(카드 사이 24로 고정), 카드 안에는 표지, [제목·저자], [가격·재고], 단추가 있다. 대괄호로 묶은 것이 한 무리다. 세 슬라이더로 무리 안 간격, 무리 사이 간격, 카드 안쪽 여백을 바꾼다. 점선 상자는 간격만 보고 눈이 묶을 법한 무리를 CompositionBook 12장과 같은 단순한 규칙으로 찾은 것이다.</p>
+
+    <div class="sim" id="sim-prox">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>안쪽 간격 &lt; 바깥 간격</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bx-px-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>무리 안 간격 <output id="bx-px-in-out"></output></span><input type="range" id="bx-px-in" min="0" max="32" step="2" value="4"></label>
+          <label class="ctrl"><span>무리 사이 간격 <output id="bx-px-out-out"></output></span><input type="range" id="bx-px-out" min="0" max="48" step="2" value="16"></label>
+          <label class="ctrl"><span>카드 안쪽 여백 <output id="bx-px-pad-out"></output></span><input type="range" id="bx-px-pad" min="0" max="48" step="2" value="16"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">간격의 사슬(카드 사이 24)</span><span class="v" id="bx-px-o-c">—</span></div>
+        <div class="stat"><span class="k">눈이 묶는 무리</span><span class="v" id="bx-px-o-g">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="bx-px-o-v">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태(4 &lt; 16 ≤ 16 &lt; 24)에서 점선 상자가 표지, 제목·저자, 가격·재고, 단추의 네 무리로 나뉘는지 본다. ② 무리 안 간격을 무리 사이와 같은 16으로 올린다. 점선 상자가 하나로 합쳐진다. 모든 줄이 같은 간격이라 제목과 저자가 짝이라는 정보가 사라진다. ③ 무리 안을 24로, 무리 사이를 8로 뒤집는다. 저자와 가격이 한 무리로 묶이는, 거짓 무리가 생긴다. ④ 처음 상태로 돌아와 카드 안쪽 여백을 4로 줄인다. 글이 테두리에 붙어 카드 안 무리 사이(16)보다 테두리와 더 가까워진다. 이번엔 안쪽 여백을 40으로 늘린다. 카드 사이(24)보다 넓어져, 카드 두 장이 한 덩어리의 띠처럼 보이기 시작한다. (무리는 이웃한 간격 중 가장 큰 것과 가장 작은 것의 중간보다 넓은 간격에서 끊는다. 가장 큰 간격이 가장 작은 것의 1.3배보다 작으면 나누지 않는다. CompositionBook 12장과 같은 교육용 규칙이다.)</div>
+    </div>
+
+    <p>셋째 실험의 거짓 무리는 반올림 실수에서 흔히 생긴다. 시안에서는 분명 저자 아래가 넓었는데, 값을 옮기다 위아래가 바뀌면 화면이 엉뚱한 이야기를 한다. 넷째 실험의 결과는 조금 미묘하다. 카드 안쪽 여백은 카드 안의 어떤 무리 사이 간격보다 좁으면 안 된다. 그러면 내용이 카드 안의 이웃보다 카드의 벽에 더 가까워져 갇힌 느낌이 든다. 또 카드 안쪽 여백이 카드 사이보다 넓으면, 카드의 경계보다 카드 안의 빈자리가 더 크게 보여 카드들이 한 판으로 붙어 보인다. 바탕색이나 테두리가 있으면 덜하지만 방향은 같다.</p>
+    <p>이 규칙은 카드에만 쓰는 것이 아니다. 입력 칸과 그 라벨은 4~8로 붙이고, 라벨·입력 칸 묶음과 다음 묶음 사이는 16~24로 뗀다(9장 <a href="forms.html">폼</a>). 단추 안의 아이콘과 글자는 4~8로 붙이고, 단추와 단추 사이는 그보다 넓게 뗀다. 화면 어디서든 "이 둘은 한 편인가?"를 묻고, 한 편이면 가깝게, 아니면 확실히 멀게.</p>
+
+    <div class="callout try">
+      <strong>종이 위의 레드라인</strong>
+      자주 쓰는 앱이나 웹사이트의 화면 하나를 갈무리해 A4에 크게 인쇄한다. 자를 대고 간격 열 곳 정도를 잰다. 제목과 부제 사이, 목록 항목 사이, 카드 안쪽 여백, 카드 사이, 화면 가장자리. 잰 값(mm)을 화면 폭으로 나눠 비율로 적고 작은 것부터 큰 것까지 한 줄로 늘어놓는다. 몇 가지 값으로 모이는가? 안쪽 간격이 바깥 간격보다 늘 좁은가? 이번엔 같은 화면을 연필로 따라 그리되, 간격을 모두 똑같이 그려 본다. 무엇이 무엇과 한 편인지 알아보기 어려워지는 순간이 이 절의 규칙이 일하던 자리다.
+    </div>
+  </section>
+
+  <section id="handoff">
+    <h2>간격은 누구의 것인가</h2>
+    <p>시안 속 간격 하나를 코드로 옮길 때, 그 간격을 어느 상자의 어느 속성으로 줄지 정해야 한다. 같은 24를 위 카드의 아래 바깥 여백으로 줄 수도, 아래 카드의 위 바깥 여백으로 줄 수도, 두 카드를 담은 부모의 <code>gap</code>으로 줄 수도 있다. 화면은 같아 보여도, 카드를 다른 페이지로 옮기거나 순서를 바꾸면 결과가 달라진다. 위 카드에 아래 여백을 박아 두면 그 카드는 어디에 놓이든 아래에 24를 끌고 다닌다. 목록의 마지막에 놓여도, 혼자 놓여도.</p>
+    <p>그래서 많은 팀이 이런 약속을 한다. <b>부품(컴포넌트)은 바깥 여백을 갖지 않는다. 부품 사이의 간격은 부품을 놓는 부모가 정한다.</b> 카드는 자기 안쪽 여백만 알고, 카드끼리 얼마나 떨어질지는 목록이 <code>gap</code>으로 정한다. 그러면 같은 카드를 행사 목록에서는 24 간격으로, 첫 화면 배너 옆에서는 16 간격으로 다시 쓸 수 있다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>시안에서 본 간격</th><th>누가 정하나</th><th>CSS</th><th>마진 상쇄</th></tr></thead>
+        <tbody>
+          <tr><td>카드 테두리와 내용 사이</td><td>카드 자신</td><td><code>padding</code></td><td>없음</td></tr>
+          <tr><td>카드 안 무리와 무리 사이</td><td>카드 안의 배치 상자</td><td><code>gap</code>(또는 아래 여백 한쪽만)</td><td><code>gap</code>이면 없음</td></tr>
+          <tr><td>카드와 카드 사이</td><td>목록(부모)</td><td><code>gap</code></td><td>없음</td></tr>
+          <tr><td>구획과 구획 사이</td><td>페이지(부모)</td><td><code>gap</code> 또는 구획의 <code>padding-block</code></td><td>바깥 여백으로 주면 일어날 수 있다</td></tr>
+          <tr><td>화면 가장자리와 내용 사이</td><td>페이지 바탕 상자</td><td><code>padding-inline</code></td><td>없음</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>시안도 이 약속을 따르면 넘기기 쉽다. 간격마다 숫자만 적지 말고 그 간격의 역할을 적는다. "카드 사이 24", "구획 사이 48"처럼. 개발자는 역할을 보고 어느 상자에 줄지 정하고, 다음에 새 화면을 그릴 때 디자이너는 같은 역할에 같은 값을 다시 꺼내 쓴다. 간격이 체계가 되는 것은 숫자가 깔끔해질 때가 아니라 <b>역할에 이름이 붙을 때</b>다.</p>
+
+    <div class="callout deep">
+      <strong>사용자의 글자 크기를 따라 늘어나는 간격</strong>
+      도경처럼 휴대폰 글자 크기를 크게 쓰는 사람에게는 글자만 커지고 간격은 그대로이면 화면이 빽빽해진다. 간격을 <code>rem</code>(뿌리 글자 크기의 배수, 기본 16px이면 1rem = 16px) 단위로 적으면 사용자가 글자 크기를 키울 때 간격도 함께 커진다. 4·8 단계는 rem으로 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4가 된다. 어느 간격을 글자와 함께 키우고 어느 간격을 고정할지는 글자 단계와 함께 정하는 것이 좋아서, 6장에서 토큰을 만들 때 다시 다룬다. 이 장의 값은 기본 글자 크기 16px 기준의 픽셀로 적었다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 3장</span></div>
+      <h4>열아홉 가지 간격을 여덟 단계로</h4>
+      <p>2028년 1월 둘째 주. 서윤이 2장에서 정한 대로 첫 화면을 "다음 모임" 하나만 크게 두고 다시 그렸고, 행사 일정 시안도 휴대폰 폭으로 함께 넘겼다. 이틀 뒤 지후의 답장이 왔다. 시안 두 장에서 간격을 재 보니 서로 다른 값이 열아홉 가지(가상 자료)였다. 13, 15, 17, 22, 27… "13이랑 15가 다른 의도인가요? 아니면 같은 건데 손이 미끄러진 건가요?" 서윤은 대답하지 못했다. 눈으로 보며 하나씩 맞춘 값이라 어느 것이 의도인지 서윤 자신도 기억하지 못했다.</p>
+      <p>지후가 먼저 코드로 옮긴 행사 카드에는 문제가 더 있었다. <code>width: 50%</code>로 두 장을 나란히 놓았더니 둘째 카드가 다음 줄로 떨어졌다. 안쪽 여백 16과 테두리 1이 50% 바깥에 더해졌기 때문이다. 카드 제목의 위 바깥 여백은 카드 밖으로 새어 나가 카드 위쪽을 벌렸다. 두 사람은 이 장의 시뮬레이터로 원인을 하나씩 확인했고, 지후는 스타일시트 맨 앞에 모든 상자를 border-box로 바꾸는 규칙을 넣었다. 시안의 폭은 테두리까지를 잰 값으로 읽기로 했다.</p>
+      <p>간격은 서윤이 단계부터 정했다. 처음에는 4씩 더하는 열여섯 단계를 만들었지만, 40과 44, 44와 48을 나란히 놓고 보니 구별되지 않았다. 작은 쪽은 4씩, 큰 쪽은 비 1.33~1.5로 벌어지는 여덟 단계로 줄였다. 그다음 시안의 간격을 가장 가까운 단계로 반올림해 봤는데, 카드 사이와 카드 안쪽 여백이 둘 다 16이 되고 행사 제목과 첫 카드 사이가 구획 사이와 같은 24가 되어 버렸다. 숫자는 깔끔해졌는데 화면은 더 어수선해졌다. 서윤은 반올림을 버리고 간격마다 역할을 먼저 적은 뒤 값을 골랐다. CompositionBook 4장에서 첫 화면에 정했던 "무리 안 12, 무리 사이 40"도 다시 봤다. 40은 단계에 없다. "무리 사이는 무리 안의 3배 이상"이라는 당시의 기준(12 × 3 = 36)을 지키는 가장 가까운 단계는 48이라, 첫 화면 무리 사이를 48로 올렸다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>간격의 역할</th><th class="num">첫 시안(가상)</th><th class="num">서윤의 선택</th></tr></thead>
+          <tbody>
+            <tr><td>날짜 칩 → 제목, 제목 → 장소(무리 안)</td><td class="num">7, 9</td><td class="num">4, 8</td></tr>
+            <tr><td>카드 안 무리 사이(장소 → 설명 → 단추)</td><td class="num">11, 22</td><td class="num">16</td></tr>
+            <tr><td>카드 안쪽 여백</td><td class="num">15</td><td class="num">16</td></tr>
+            <tr><td>카드 사이</td><td class="num">17</td><td class="num">24</td></tr>
+            <tr><td>구획 제목 → 첫 카드</td><td class="num">22</td><td class="num">16</td></tr>
+            <tr><td>구획 사이(행사 → 신간)</td><td class="num">27</td><td class="num">48</td></tr>
+            <tr><td>화면 양옆 여백(휴대폰)</td><td class="num">13</td><td class="num">16</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>지후는 표를 받자마자 카드에서 바깥 여백을 모두 지우고, 목록과 페이지에 <code>gap</code>을 넣었다. "이제 카드를 어디에 옮겨도 간격이 따라오지 않아요." 서윤은 시안의 레드라인 옆에 숫자 대신 역할 이름을 적기 시작했다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#2f7d5b"></i><b>간격 단계</b><code>4·8·12·16·24·32·48·64</code></span>
+        <span class="chip"><i style="background:#567666"></i><b>카드 안쪽 · 사이</b><code>16 / 24</code></span>
+        <span class="chip"><i style="background:#ffe2d7"></i><b>구획 사이</b><code>48</code></span>
+        <span class="chip"><i style="background:#d24f39"></i><b>상자 폭</b><code>border-box</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>간격 단계는 4의 배수 여덟 개: 4·8·12·16·24·32·48·64(px, 기본 글자 16px 기준). 규칙은 "안쪽 간격 &lt; 바깥 간격": 무리 안 4·8 &lt; 카드 안 무리 사이 16 ≤ 카드 안쪽 여백 16 &lt; 카드 사이 24 &lt; 구획 사이 48. 구획 제목은 자기 목록에 붙인다(16). 휴대폰 화면 양옆 여백 16. 첫 화면의 무리 사이 40은 48로 옮긴다. 모든 상자는 <code>box-sizing: border-box</code>, 시안의 폭은 테두리까지. 부품은 바깥 여백을 갖지 않고 간격은 부모의 <code>gap</code>으로 준다. 단계 밖의 값은 이유를 적은 예외로만.</div>
+        <div><b>아직 남은 문제</b>주인은 신간을 한눈에 많이 보여 주고 싶어 한다. 신간 카드를 넓은 화면에서 한 줄에 몇 권씩, 얼마나 넓게 놓을지 아직 정하지 않았다. 카드 사이 24를 그대로 둘지도 카드 배치와 함께 다시 봐야 한다.</div>
+        <div><b>다음 단계</b><a href="grid.html">4장</a>: 열 그리드 위에 신간 카드를 놓고 단, 거터, 최대 폭을 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>브라우저는 모든 요소를 직사각형 상자로 만들고, 페이지는 상자 안에 상자가 든 중첩 구조다. 블록 상자의 폭은 바깥(부모)에서, 높이는 안(내용)에서 정해진다.</li>
+      <li>박스 모델은 내용, 안쪽 여백(padding), 테두리(border), 바깥 여백(margin)의 네 겹이다. 바탕색은 테두리 안쪽에 칠해지고 바깥 여백은 투명하다. outline과 그림자는 자리를 차지하지 않는다.</li>
+      <li>기본 <code>content-box</code>에서 width는 내용 폭이라 안쪽 여백과 테두리가 바깥에 더해진다. <code>border-box</code>는 width를 테두리까지의 폭으로 읽어 시안의 "폭"과 같은 뜻이 된다.</li>
+      <li>일반 블록 흐름에서 위아래로 맞닿은 바깥 여백은 큰 쪽 하나로 겹친다(마진 상쇄). 부모와 첫 자식 사이에서도 일어나고, 플렉스·그리드 안에서는 일어나지 않는다. 간격은 한 사람(대개 부모의 <code>gap</code>)이 준다.</li>
+      <li>간격 단계는 짧은 목록이다. 작은 쪽은 촘촘하게, 큰 쪽은 비율로 벌어지게(4·8·12·16·24·32·48·64). 시안을 맞출 때는 반올림이 아니라 간격의 역할로 값을 고른다.</li>
+      <li>"안쪽 간격 &lt; 바깥 간격": 무리 안 &lt; 무리 사이 ≤ 카드 안쪽 여백 &lt; 카드 사이 &lt; 구획 사이. 간격이 뒤집히면 거짓 무리가 생긴다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. <code>box-sizing</code>을 바꾸지 않은 상자에 <code>width: 300px; padding: 20px; border: 2px solid; margin: 20px;</code>를 주었다. 이 상자의 눈에 보이는 폭(테두리까지)은?</p>
+        <div class="opts">
+          <button class="opt">300px</button>
+          <button class="opt">322px</button>
+          <button class="opt" data-correct>344px</button>
+          <button class="opt">384px</button>
+        </div>
+        <div class="quiz-exp">기본값 content-box에서 width는 내용 폭이다. 안쪽 여백 20과 테두리 2가 양쪽에 더해져 300 + 40 + 4 = 344가 된다. 384는 바깥 여백까지 더한 "차지하는 폭"이고, 322는 한쪽 변만 더한 값이다. 300은 border-box였다면 맞는 답이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 일반 블록 흐름에서 위 문단에 <code>margin-bottom: 32px</code>, 바로 아래 문단에 <code>margin-top: 24px</code>을 주었다. 두 문단 사이의 간격은?</p>
+        <div class="opts">
+          <button class="opt">56px</button>
+          <button class="opt">24px</button>
+          <button class="opt">8px</button>
+          <button class="opt" data-correct>32px</button>
+        </div>
+        <div class="quiz-exp">위아래로 맞닿은 두 블록 상자의 양수 바깥 여백은 더해지지 않고 큰 쪽 하나로 겹친다(마진 상쇄). 그래서 32다. 56은 두 문단이 플렉스나 그리드 상자의 자식이어서 겹치지 않을 때의 값이고, 8은 차이를 잘못 계산한 값이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 신간 카드의 간격을 정했다. "안쪽 간격 &lt; 바깥 간격" 규칙에 맞는 것은? (무리 안 / 카드 안 무리 사이 / 카드 안쪽 여백 / 카드 사이 순)</p>
+        <div class="opts">
+          <button class="opt" data-correct>8 / 16 / 16 / 24</button>
+          <button class="opt">16 / 16 / 16 / 16</button>
+          <button class="opt">8 / 24 / 12 / 32</button>
+          <button class="opt">8 / 16 / 32 / 24</button>
+        </div>
+        <div class="quiz-exp">안에서 바깥으로 갈수록 같거나 넓어져야 한다. 8 &lt; 16 ≤ 16 &lt; 24가 맞다. 모두 16이면 무리가 구별되지 않는다. 8 / 24 / 12 / 32는 카드 안쪽 여백(12)이 카드 안 무리 사이(24)보다 좁아 내용이 테두리에 갇힌다. 8 / 16 / 32 / 24는 카드 안쪽 여백(32)이 카드 사이(24)보다 넓어 카드들이 한 판으로 붙어 보인다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 간격 단계를 4의 배수로 만드는 까닭으로 이 장의 설명과 맞지 않는 것은?</p>
+        <div class="opts">
+          <button class="opt">반으로 나눠도 정수가 남는 경우가 많아 계산이 쉽다.</button>
+          <button class="opt">DPR 1.5 화면에서도 기기 픽셀이 정수가 되어 경계가 흐려지지 않는다.</button>
+          <button class="opt" data-correct>브라우저가 4의 배수가 아닌 간격은 가장 가까운 4의 배수로 반올림해 그리기 때문이다.</button>
+          <button class="opt">여러 디자인 체계가 4·8 단위를 써서 함께 일하는 사람들이 익숙하다.</button>
+        </div>
+        <div class="quiz-exp">브라우저는 13픽셀 간격도 13픽셀로 그린다(DPR에 따라 소수 기기 픽셀이 되어 살짝 흐려질 수는 있다). 4의 배수에 마법이 있는 것이 아니라 계산, 기기 픽셀, 관례라는 실용적 이유가 있고, 무엇보다 목록이 짧고 모두가 같은 목록을 쓰는 것이 중요하다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" data-nonum>
+    <h2>출처</h2>
+    <ul>
+      <li>W3C, <i>Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</i>, W3C Recommendation, 2011. 8장 Box model, 8.3.1 Collapsing margins.</li>
+      <li>W3C, <i>CSS Box Model Module Level 3</i>, <i>CSS Box Sizing Module Level 3</i>. 박스 모델의 네 영역과 <code>box-sizing</code>의 정의.</li>
+      <li>W3C, <i>CSS Box Alignment Module Level 3</i>. 플렉스·그리드 상자의 <code>gap</code>.</li>
+      <li>Heydon Pickering, "Axiomatic CSS and Lobotomized Owls", <i>A List Apart</i>, 2014. <code>* + *</code> 선택자로 간격을 주는 방법(요약).</li>
+      <li>Google, Material Design 지침의 8dp 격자(작은 요소 4dp) 관례. 이 책의 간격 단계는 그것을 복제한 것이 아니라 같은 관례 위에서 정한 예시다.</li>
+      <li>근접의 원리와 무리 간격 규칙: CompositionBook <a href="../../composition/chapters/gestalt.html">4장</a>, <a href="../../composition/chapters/layout.html">12장</a>.</li>
+      <li>이 장의 시안 값, 간격 개수, 구별 문턱, 무리 찾기 규칙은 교육용으로 만든 가상 자료와 단순 모형이다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  /* ---------- 고정색(예시 그림: 테마와 무관) ---------- */
+  var PAPER = "#fbfaf7", INK = "#2b2a30", DIM = "#6b6874", PAGE = "#f6f3ee", LINE = "#ddd6ca";
+  var BK = { green: "#2f7d5b", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", dark: "#22342a" };   // 책방 E의 색(ColorBook)
+  var C_M = "#f4c28e", C_B = "#f0d27c", C_P = "#b9d59c", C_C = "#a3c6e0", RL = "#d63a6a";              // 개발자 도구식 상자 색 · 레드라인
+  function fam(mono) { return getComputedStyle(document.body).getPropertyValue(mono ? "--mono" : "--font"); }
+  function F(px, w, mono) { return (w || 500) + " " + Math.max(1, px).toFixed(1) + "px " + fam(mono); }
+  function fill(c, x, y, w, h, col) { c.fillStyle = col; c.fillRect(x, y, w, h); }
+  function rr(c, x, y, w, h, r, col, stroke, lw) {
+    c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h);
+    if (col) { c.fillStyle = col; c.fill(); }
+    if (stroke) { c.strokeStyle = stroke; c.lineWidth = lw || 1; c.stroke(); }
+  }
+  function txt(c, s, x, y, o) {
+    o = o || {}; c.font = F(o.size || 12, o.weight || 500, o.mono); c.fillStyle = o.color || INK;
+    c.textAlign = o.align || "left"; c.textBaseline = o.base || "alphabetic"; c.fillText(s, x, y);
+  }
+  // 값 표시 알약(고정색)
+  function pill(c, s, x, y, o) {
+    o = o || {}; c.font = F(o.size || 11, 700, true);
+    var tw = c.measureText(s).width + 8, hh = (o.size || 11) + 6, x0 = o.align === "right" ? x - tw : o.align === "center" ? x - tw / 2 : x;
+    rr(c, x0, y - hh / 2, tw, hh, 4, o.bg || RL);
+    c.fillStyle = o.color || "#ffffff"; c.textAlign = "left"; c.textBaseline = "middle"; c.fillText(s, x0 + 4, y + 0.5);
+    return tw;
+  }
+  function guard(name, fn) { try { fn(); } catch (e) { console.error("[box:" + name + "]", e); } }
+  function pw(id) { var el = document.getElementById(id); return Math.max(200, (el && el.parentElement && el.parentElement.clientWidth) || 600); }
+
+  /* ================= 1. 화면을 상자로 보기 ================= */
+  guard("see", function () {
+    var MW = 360, MH = 566;
+    // x,y,w,h: 테두리 상자(가상 화면의 CSS px). p, m: [위, 오른, 아래, 왼]
+    var B = [
+      { t: "body", x: 0, y: 0, w: 360, h: 566, d: 0, p: [0, 0, 0, 0], m: [0, 0, 0, 0] },
+      { t: "header", x: 0, y: 0, w: 360, h: 56, d: 1, p: [8, 16, 8, 16], m: [0, 0, 0, 0] },
+      { t: "a(로고)", x: 16, y: 16, w: 72, h: 24, d: 2, p: [0, 0, 0, 0], m: [0, 0, 0, 0] },
+      { t: "button(메뉴)", x: 304, y: 8, w: 40, h: 40, d: 2, p: [8, 8, 8, 8], m: [0, 0, 0, 0] },
+      { t: "main", x: 0, y: 56, w: 360, h: 466, d: 1, p: [24, 16, 24, 16], m: [0, 0, 0, 0] },
+      { t: "h1", x: 16, y: 80, w: 328, h: 32, d: 2, p: [0, 0, 0, 0], m: [0, 0, 8, 0] },
+      { t: "p(날짜)", x: 16, y: 120, w: 328, h: 20, d: 2, p: [0, 0, 0, 0], m: [0, 0, 16, 0] },
+      { t: "img", x: 16, y: 156, w: 328, h: 184, d: 2, p: [0, 0, 0, 0], m: [0, 0, 16, 0] },
+      { t: "p(본문)", x: 16, y: 356, w: 328, h: 78, d: 2, p: [0, 0, 0, 0], m: [0, 0, 16, 0] },
+      { t: "button(신청)", x: 16, y: 450, w: 328, h: 48, d: 2, p: [12, 16, 12, 16], m: [0, 0, 0, 0] },
+      { t: "footer", x: 0, y: 522, w: 360, h: 44, d: 1, p: [12, 16, 12, 16], m: [0, 0, 0, 0] },
+    ];
+    var DEP = ["#8a8790", "#2f6fb0", "#d63a6a"];
+    var sel = 5, geo = null;
+    var mode = AB.seg("bx-see-mode", function () { cv.redraw(); });
+    var dev = AB.check("bx-see-dev", function () { cv.redraw(); });
+    function drawPage(c) {
+      fill(c, 0, 0, MW, MH, "#ffffff");
+      fill(c, 0, 0, MW, 56, BK.green);
+      txt(c, "책방 E", 16, 36, { size: 19, weight: 800, color: BK.cream });
+      for (var i = 0; i < 3; i++) fill(c, 314, 19 + i * 8, 20, 2.5, BK.cream);
+      txt(c, "겨울 그림 읽기 모임", 16, 106, { size: 24, weight: 800, color: BK.dark });
+      txt(c, "1월 20일 토 오후 3시 · 책방 E 2층", 16, 135, { size: 14, weight: 500, color: "#5b6b62" });
+      // 그림: 겨울 풍경화 두 점이 걸린 벽
+      fill(c, 16, 156, 328, 184, BK.calm);
+      fill(c, 48, 186, 118, 90, "#f4efe4"); fill(c, 54, 192, 106, 78, "#c9d6dc");
+      c.fillStyle = "#eef2f3"; c.beginPath(); c.moveTo(54, 270); c.lineTo(90, 232); c.lineTo(118, 252); c.lineTo(160, 222); c.lineTo(160, 270); c.closePath(); c.fill();
+      fill(c, 194, 186, 118, 90, "#f4efe4"); fill(c, 200, 192, 106, 78, "#2f4a5e");
+      c.fillStyle = "#e9c46a"; c.beginPath(); c.arc(276, 212, 9, 0, 7); c.fill();
+      fill(c, 200, 252, 106, 18, "#22342a");
+      fill(c, 16, 316, 328, 24, "#4d6a5b");
+      txt(c, "한 달에 한 번, 그림 한 점을", 16, 374, { size: 16, weight: 500, color: INK });
+      txt(c, "함께 오래 들여다보는 모임입니다.", 16, 400, { size: 16, weight: 500, color: INK });
+      txt(c, "이번 달은 겨울 풍경화 두 점.", 16, 426, { size: 16, weight: 500, color: INK });
+      rr(c, 16, 450, 328, 48, 10, BK.green);
+      txt(c, "신청하기", 180, 480, { size: 17, weight: 700, color: "#ffffff", align: "center" });
+      fill(c, 0, 522, 360, 44, "#f3efe8");
+      txt(c, "문의 02-000-0000 · 화요일 휴무", 16, 549, { size: 13, color: DIM });
+    }
+    function drawBoxes(c, s, labels) {
+      B.forEach(function (b) {
+        c.strokeStyle = DEP[b.d]; c.lineWidth = (b.d === 0 ? 2 : 1.5) / s;
+        c.setLineDash(b.d === 0 ? [6 / s, 4 / s] : []);
+        c.strokeRect(b.x + 1 / s, b.y + 1 / s, b.w - 2 / s, b.h - 2 / s);
+      });
+      c.setLineDash([]);
+      if (!labels) return;
+      B.forEach(function (b, i) {
+        if (b.d === 0 || (labels !== true && i !== labels)) return;
+        c.font = F(10 / Math.max(0.7, s), 700, true);
+        var tw = c.measureText(b.t).width + 6 / s, lh = 13 / Math.max(0.7, s);
+        var lx = b.t === "button(메뉴)" ? b.x + b.w - tw : b.x + 2 / s, ly = b.y + 2 / s;
+        fill(c, lx, ly, tw, lh, DEP[b.d]);
+        c.fillStyle = "#ffffff"; c.textBaseline = "top"; c.textAlign = "left"; c.fillText(b.t, lx + 3 / s, ly + 1.5 / s);
+      });
+    }
+    function drawDev(c, b) {
+      var m = b.m, p = b.p;
+      c.globalAlpha = 0.6;
+      fill(c, b.x - m[3], b.y - m[0], b.w + m[1] + m[3], m[0], C_M);
+      fill(c, b.x - m[3], b.y + b.h, b.w + m[1] + m[3], m[2], C_M);
+      fill(c, b.x - m[3], b.y, m[3], b.h, C_M); fill(c, b.x + b.w, b.y, m[1], b.h, C_M);
+      fill(c, b.x, b.y, b.w, p[0], C_P); fill(c, b.x, b.y + b.h - p[2], b.w, p[2], C_P);
+      fill(c, b.x, b.y + p[0], p[3], b.h - p[0] - p[2], C_P); fill(c, b.x + b.w - p[1], b.y + p[0], p[1], b.h - p[0] - p[2], C_P);
+      fill(c, b.x + p[3], b.y + p[0], b.w - p[1] - p[3], b.h - p[0] - p[2], C_C);
+      c.globalAlpha = 1;
+    }
+    var cv = AB.canvas("#bx-see-cv", function (c, w, h) {
+      var s = Math.min(1, (w - 24) / MW), ox = (w - MW * s) / 2, oy = 12, md = mode();
+      geo = { s: s, ox: ox, oy: oy };
+      c.save(); c.translate(ox, oy); c.scale(s, s);
+      c.beginPath(); c.rect(0, 0, MW, MH); c.clip();
+      if (md === "only") fill(c, 0, 0, MW, MH, "#ffffff"); else drawPage(c);
+      if (md !== "page") {
+        if (md === "only") B.forEach(function (b) { c.globalAlpha = 0.08 * (b.d + 1); fill(c, b.x, b.y, b.w, b.h, DEP[b.d]); c.globalAlpha = 1; });
+        drawBoxes(c, s, md === "only" ? true : sel);
+      }
+      var b = B[sel];
+      if (dev() && b) { drawDev(c, b); c.strokeStyle = INK; c.lineWidth = 1.5 / s; c.strokeRect(b.x, b.y, b.w, b.h); }
+      c.restore();
+      c.strokeStyle = LINE; c.lineWidth = 1; c.strokeRect(ox - 0.5, oy - 0.5, MW * s + 1, MH * s + 1);
+      AB.stat("bx-see-o-t", b.t);
+      AB.stat("bx-see-o-s", b.w + " × " + b.h);
+      AB.stat("bx-see-o-mp", b.p.join(" ") + " · " + b.m.join(" "));
+    }, { bg: PAPER, get height() { var W = pw("bx-see-cv"); var s = Math.min(1, (W - 24) / MW); return Math.round(MH * s + 44); } });
+    function pick(x, y) {
+      if (!geo) return;
+      var mx = (x - geo.ox) / geo.s, my = (y - geo.oy) / geo.s, best = -1;
+      B.forEach(function (b, i) { if (mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h && (best < 0 || b.d >= B[best].d)) best = i; });
+      if (best >= 0 && best !== sel) { sel = best; cv.redraw(); }
+    }
+    AB.drag(cv.canvas, { start: pick, move: pick });
+  });
+
+  /* ================= 2. 네 겹을 끌어 보는 박스 모델 ================= */
+  guard("model", function () {
+    var st = { p: 16, b: 2, m: 24 }, CH = 56, geo = null, act = null;
+    var wG = AB.range("bx-mo-w", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var sz = AB.seg("bx-mo-sz", function () { cv.redraw(); });
+    function dimLine(c, x0, x1, y, label, col) {
+      c.strokeStyle = col; c.fillStyle = col; c.lineWidth = 1.2;
+      c.beginPath(); c.moveTo(x0, y); c.lineTo(x1, y); c.moveTo(x0, y - 5); c.lineTo(x0, y + 5); c.moveTo(x1, y - 5); c.lineTo(x1, y + 5); c.stroke();
+      c.font = F(11, 700); var tw = c.measureText(label).width + 8;
+      fill(c, (x0 + x1) / 2 - tw / 2, y - 8, tw, 16, PAPER);
+      c.fillStyle = col; c.textAlign = "center"; c.textBaseline = "middle"; c.fillText(label, (x0 + x1) / 2, y + 0.5);
+    }
+    var cv = AB.canvas("#bx-mo-cv", function (c, w, h) {
+      var W = wG(), bb = sz() === "border", p = st.p, b = st.b, m = st.m;
+      var cw = bb ? Math.max(0, W - 2 * p - 2 * b) : W;
+      var bw = cw + 2 * p + 2 * b, mw = bw + 2 * m, over = bb && W - 2 * p - 2 * b < 0;
+      var mh = CH + 2 * (p + b + m);
+      var s = Math.min(1.1, (w - 28) / 560, (h - 74 - 44) / mh), cx = w / 2, y0 = 74;
+      var X = function (v) { return cx + v * s; };
+      // 바깥 여백 → 테두리 → 안쪽 여백 → 내용
+      fill(c, X(-mw / 2), y0, mw * s, mh * s, C_M);
+      fill(c, X(-bw / 2), y0 + m * s, bw * s, (mh - 2 * m) * s, C_B);
+      c.strokeStyle = BK.dark; c.lineWidth = 1; c.strokeRect(X(-bw / 2) + 0.5, y0 + m * s + 0.5, bw * s - 1, (mh - 2 * m) * s - 1);
+      fill(c, X(-bw / 2 + b), y0 + (m + b) * s, (bw - 2 * b) * s, (mh - 2 * m - 2 * b) * s, C_P);
+      var ctop = y0 + (m + b + p) * s;
+      fill(c, X(-cw / 2), ctop, cw * s, CH * s, C_C);
+      if (cw * s > 70) {
+        c.save(); c.beginPath(); c.rect(X(-cw / 2), ctop, cw * s, CH * s); c.clip();
+        txt(c, "겨울 그림 읽기 모임", X(-cw / 2) + 6, ctop + 22 * s, { size: 14 * s, weight: 700, color: BK.dark });
+        txt(c, "1월 20일 토 오후 3시", X(-cw / 2) + 6, ctop + 44 * s, { size: 12 * s, color: "#3b4a42" });
+        c.restore();
+      }
+      // 겹 이름
+      c.font = F(10.5, 700);
+      if (m * s >= 13) txt(c, "margin " + m, X(-mw / 2) + 5, y0 + 12, { size: 10.5, weight: 700, color: "#7a4a1c" });
+      if (p * s >= 13 && bw * s > 90) txt(c, "padding " + p, X(-bw / 2 + b) + 5, y0 + (m + b) * s + 12, { size: 10.5, weight: 700, color: "#355a22" });
+      // 치수선: 차지하는 폭, 보이는 폭, 내용 폭
+      dimLine(c, X(-mw / 2), X(mw / 2), 14, "차지하는 " + mw, "#a0561b");
+      dimLine(c, X(-bw / 2), X(bw / 2), 36, "보이는 " + bw, BK.dark);
+      dimLine(c, X(-cw / 2), X(cw / 2), 58, "내용 " + cw, "#2f6fb0");
+      if (over) txt(c, "내용 폭이 0: 더 줄일 수 없어 상자가 넘친다", cx, y0 + mh * s + 34, { size: 12, weight: 700, color: "#c0392b", align: "center" });
+      // 손잡이(아래 가장자리)
+      var hy = { p: ctop + (CH + p) * s, b: ctop + (CH + p + b) * s, m: ctop + (CH + p + b + m) * s };
+      var hx = { p: cx - 64, b: cx, m: cx + 64 };
+      geo = { s: s, ctop: ctop, hx: hx, hy: hy };
+      AB.handle(c, hx.p, hy.p, { r: 7, fill: C_P, ring: "#355a22" });
+      AB.handle(c, hx.b, hy.b, { r: 7, fill: C_B, ring: "#7a5a10" });
+      AB.handle(c, hx.m, hy.m, { r: 7, fill: C_M, ring: "#7a4a1c" });
+      txt(c, "padding " + p, hx.p, hy.m + 26, { size: 11, weight: 700, color: "#355a22", align: "center" });
+      txt(c, "border " + b, hx.b, hy.m + 26, { size: 11, weight: 700, color: "#7a5a10", align: "center" });
+      txt(c, "margin " + m, hx.m, hy.m + 26, { size: 11, weight: 700, color: "#7a4a1c", align: "center" });
+      AB.stat("bx-mo-o-c", cw + "<small>px</small>");
+      AB.stat("bx-mo-o-b", bw + "<small>px</small>");
+      AB.stat("bx-mo-o-m", mw + "<small>px</small>");
+    }, { bg: PAPER, get height() { var W = pw("bx-mo-cv"); var s = Math.min(1.1, (W - 28) / 560); return Math.round(74 + 200 * s + 44); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        act = null; if (!geo) return; var best = 24;
+        ["p", "b", "m"].forEach(function (k) { var d = Math.hypot(x - geo.hx[k], y - geo.hy[k]); if (d < best) { best = d; act = k; } });
+      },
+      move: function (x, y) {
+        if (!act || !geo) return;
+        var s = geo.s, base = geo.ctop + CH * s;
+        if (act === "p") st.p = AB.clamp(Math.round((y - base) / s / 4) * 4, 0, 48);
+        else if (act === "b") st.b = AB.clamp(Math.round((y - base) / s - st.p), 0, 16);
+        else st.m = AB.clamp(Math.round(((y - base) / s - st.p - st.b) / 4) * 4, 0, 48);
+        cv.redraw();
+      },
+      end: function () { act = null; },
+    });
+  });
+
+  /* ================= 3. 50% 두 장 ================= */
+  guard("sizing", function () {
+    var CW = 344, CH = 112;
+    var pG = AB.range("bx-sz-p", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var bG = AB.range("bx-sz-b", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var mG = AB.seg("bx-sz-m", function () { cv.redraw(); });
+    function card(c, x, y, w, hh, p, b, k, s) {
+      fill(c, x, y, w, hh, BK.dark);
+      fill(c, x + b * s, y + b * s, w - 2 * b * s, hh - 2 * b * s, "#fffaf5");
+      if (p > 0) { c.globalAlpha = 0.45; fill(c, x + b * s, y + b * s, w - 2 * b * s, p * s, C_P); fill(c, x + b * s, y + hh - (b + p) * s, w - 2 * b * s, p * s, C_P); fill(c, x + b * s, y + (b + p) * s, p * s, hh - 2 * (b + p) * s, C_P); fill(c, x + w - (b + p) * s, y + (b + p) * s, p * s, hh - 2 * (b + p) * s, C_P); c.globalAlpha = 1; }
+      var ix = x + (b + p) * s, iy = y + (b + p) * s, iw = w - 2 * (b + p) * s;
+      c.save(); c.beginPath(); c.rect(ix, iy, Math.max(0, iw), CH * s); c.clip();
+      fill(c, ix, iy, Math.max(0, iw), 64 * s, k ? BK.red : BK.calm);
+      fill(c, ix + iw * 0.18, iy + 14 * s, iw * 0.64, 6 * s, BK.cream);
+      txt(c, k ? "작은 수채화 교실" : "겨울 그림 읽기", ix, iy + 84 * s, { size: 13 * s, weight: 700, color: BK.dark });
+      txt(c, k ? "1월 27일 토" : "1월 20일 토", ix, iy + 104 * s, { size: 11.5 * s, color: "#5b6b62" });
+      c.restore();
+    }
+    var cv = AB.canvas("#bx-sz-cv", function (c, w, h) {
+      var p = pG(), b = bG(), bb = mG() === "border";
+      var cardW = bb ? CW / 2 : CW / 2 + 2 * p + 2 * b, cardH = CH + 2 * p + 2 * b;
+      var fits = 2 * cardW <= CW + 0.01;
+      var rows = fits ? 1 : 2, conH = rows * cardH;
+      var s = Math.min(1.25, (w - 32) / CW, (h - 34 - 14) / Math.max(conH, 296)), ox = (w - CW * s) / 2, oy = 34;
+      // 부모 상자
+      fill(c, ox, oy, CW * s, conH * s, "#efe9df");
+      c.strokeStyle = "#8a8790"; c.setLineDash([5, 4]); c.lineWidth = 1.2; c.strokeRect(ox, oy, CW * s, conH * s); c.setLineDash([]);
+      txt(c, "부모 상자 폭 344", ox, oy - 10, { size: 11.5, weight: 700, color: DIM });
+      card(c, ox, oy, cardW * s, cardH * s, p, b, 0, s);
+      if (fits) card(c, ox + cardW * s, oy, cardW * s, cardH * s, p, b, 1, s);
+      else {
+        // 원래 서려던 자리(넘친 부분)
+        c.strokeStyle = "#c0392b"; c.lineWidth = 1.5; c.setLineDash([6, 4]);
+        c.strokeRect(ox + cardW * s, oy + 1, cardW * s, cardH * s - 2); c.setLineDash([]);
+        var ex = ox + CW * s;
+        c.globalAlpha = 0.18; fill(c, ex, oy, (2 * cardW - CW) * s, cardH * s, "#c0392b"); c.globalAlpha = 1;
+        pill(c, "넘침 " + (2 * cardW - CW), Math.min(w - 6, ex + 4), oy + cardH * s / 2, { align: (ex + 80 > w) ? "right" : "left", bg: "#c0392b" });
+        card(c, ox, oy + cardH * s, cardW * s, cardH * s, p, b, 1, s);
+        txt(c, "둘째 카드가 다음 줄로", ox + cardW * s + 10, oy + cardH * s * 1.5, { size: 12, weight: 700, color: "#c0392b", base: "middle" });
+      }
+      AB.stat("bx-sz-o-w", cardW + "<small>px</small>");
+      AB.stat("bx-sz-o-s", (2 * cardW) + " / 344");
+      AB.stat("bx-sz-o-r", fits ? "나란히 선다" : "둘째가 밀린다");
+    }, { bg: PAPER, get height() { var W = pw("bx-sz-cv"); var s = Math.min(1.25, (W - 32) / 344); return Math.round(34 + 296 * s + 14); } });
+  });
+
+  /* ================= 4. 마진 상쇄 ================= */
+  guard("collapse", function () {
+    var aG = AB.range("bx-co-a", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var bG = AB.range("bx-co-b", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var mG = AB.seg("bx-co-m", function () { cv.redraw(); });
+    function collapse(a, b) { if (a >= 0 && b >= 0) return Math.max(a, b); if (a < 0 && b < 0) return Math.min(a, b); return a + b; }
+    var cv = AB.canvas("#bx-co-cv", function (c, w, h) {
+      var A = aG(), Bv = bG(), flex = mG() === "flex";
+      var gap = flex ? A + Bv : collapse(A, Bv);
+      var MW = 300, s = Math.min(1.3, (w - 90) / MW), ox = Math.max(14, (w - MW * s) / 2 - 24), oy = 26;
+      var top = { y: 0, h: 44 }, bot = { y: 44 + gap, h: 76 };
+      var Y = function (v) { return oy + v * s; };
+      // 부모
+      txt(c, flex ? "display: flex; flex-direction: column" : "일반 블록 흐름", ox, 16, { size: 11.5, weight: 700, color: DIM, mono: flex });
+      // 위 상자
+      fill(c, ox, Y(top.y), MW * s, top.h * s, "#fffaf5"); c.strokeStyle = BK.dark; c.lineWidth = 1; c.strokeRect(ox + 0.5, Y(top.y) + 0.5, MW * s - 1, top.h * s - 1);
+      txt(c, "겨울 그림 읽기 모임", ox + 10, Y(top.y) + 28 * s, { size: 17 * s, weight: 800, color: BK.dark });
+      // 아래 상자
+      fill(c, ox, Y(bot.y), MW * s, bot.h * s, "#fffaf5"); c.strokeRect(ox + 0.5, Y(bot.y) + 0.5, MW * s - 1, bot.h * s - 1);
+      ["한 달에 한 번, 그림 한 점을", "함께 오래 들여다보는 모임입니다.", "이번 달은 겨울 풍경화 두 점."].forEach(function (l, i) { txt(c, l, ox + 10, Y(bot.y) + (22 + i * 22) * s, { size: 13 * s, color: INK }); });
+      // 바깥 여백 띠
+      if (A > 0) { c.globalAlpha = 0.55; fill(c, ox, Y(top.h), MW * s * 0.62, A * s, C_M); c.globalAlpha = 1; pill(c, "A " + A, ox + 4, Y(top.h) + Math.max(9, A * s / 2), { bg: "#a0561b" }); }
+      if (Bv > 0) { c.globalAlpha = 0.45; fill(c, ox + MW * s * 0.38, Y(bot.y - Bv), MW * s * 0.62, Bv * s, "#9b8ad8"); c.globalAlpha = 1; pill(c, "B " + Bv, ox + MW * s - 4, Y(bot.y - Bv / 2), { bg: "#5b48a8", align: "right" }); }
+      if (Bv < 0) { c.strokeStyle = "#5b48a8"; c.setLineDash([4, 3]); c.lineWidth = 1.2; c.strokeRect(ox + MW * s * 0.38, Y(bot.y), MW * s * 0.62, -Bv * s); c.setLineDash([]); pill(c, "B " + Bv, ox + MW * s - 4, Y(bot.y) + Math.max(9, -Bv * s / 2), { bg: "#5b48a8", align: "right" }); }
+      // 실제 간격 괄호
+      var gx = ox + MW * s + 14, g0 = Y(top.h), g1 = Y(bot.y);
+      c.strokeStyle = RL; c.lineWidth = 2;
+      c.beginPath(); c.moveTo(gx - 5, g0); c.lineTo(gx, g0); c.lineTo(gx, g1); c.lineTo(gx - 5, g1); c.stroke();
+      pill(c, String(gap), gx + 4, (g0 + g1) / 2, { bg: RL });
+      if (gap < 0) txt(c, "겹친다", gx + 4, (g0 + g1) / 2 + 20, { size: 11, weight: 700, color: RL });
+      var f = flex ? A + " + " + (Bv < 0 ? "(" + Bv + ")" : Bv) + " = " + gap
+        : (A >= 0 && Bv >= 0) ? "max(" + A + ", " + Bv + ") = " + gap
+        : (A < 0 && Bv < 0) ? "min(" + A + ", " + Bv + ") = " + gap
+        : A + " + (" + Bv + ") = " + gap;
+      AB.stat("bx-co-o-g", gap + "<small>px</small>");
+      AB.stat("bx-co-o-f", f);
+    }, { bg: PAPER, get height() { var W = pw("bx-co-cv"); var s = Math.min(1.3, (W - 90) / 300); return Math.round(26 + (44 + 96 + 76) * s + 22); } });
+  });
+
+  /* ================= 5. 간격 단계 만들기(UI 그림) ================= */
+  guard("steps", function () {
+    var SETS = {
+      draft: [6, 7, 9, 10, 11, 13, 15, 17, 20, 22, 27, 31],
+      add4: [4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64],
+      mine: [4, 8, 12, 16, 24, 32, 48, 64],
+      double: [4, 8, 16, 32, 64],
+    };
+    var setG = AB.seg("bx-st-set", function () { cv.redraw(); });
+    var tG = AB.range("bx-st-t", function (v) { return "×" + v.toFixed(2); }, function () { cv.redraw(); });
+    var cv = AB.canvas("#bx-st-cv", function (c, w, h) {
+      var P = AB.palette(), L = SETS[setG()], T = tG(), n = L.length;
+      var top = 14, rowH = Math.min(26, (h - top - 12) / n), lx = 44, rx = w - 74, k = (rx - lx - 8) / 64;
+      var minR = Infinity, bad = 0;
+      c.font = AB.font(11, true);
+      for (var i = 0; i < n; i++) {
+        var y = top + i * rowH, v = L[i], r = i > 0 ? v / L[i - 1] : null, low = r !== null && r < T;
+        if (r !== null) { minR = Math.min(minR, r); if (low) bad++; }
+        var lowNext = i < n - 1 && L[i + 1] / v < T;
+        c.fillStyle = (low || lowNext) ? P.bad : P.accent;
+        c.globalAlpha = (low || lowNext) ? 0.85 : 0.9;
+        c.fillRect(lx, y + rowH * 0.18, Math.max(1.5, v * k), rowH * 0.64);
+        c.globalAlpha = 1;
+        c.fillStyle = P.text; c.textAlign = "right"; c.textBaseline = "middle"; c.font = AB.font(12, true, 600);
+        c.fillText(String(v), lx - 8, y + rowH / 2);
+        if (r !== null) {
+          c.font = AB.font(11, true); c.textAlign = "left"; c.fillStyle = low ? P.bad : P.dim;
+          c.fillText("×" + r.toFixed(2), rx + 6, y + 1);
+          c.strokeStyle = low ? P.bad : P.grid; c.lineWidth = 1;
+          c.beginPath(); c.moveTo(rx, y - rowH / 2 + 3); c.lineTo(rx + 3, y - rowH / 2 + 3); c.lineTo(rx + 3, y + rowH / 2 - 3); c.lineTo(rx, y + rowH / 2 - 3); c.stroke();
+        }
+      }
+      // 눈금
+      c.strokeStyle = P.grid; c.lineWidth = 1; c.fillStyle = P.faint; c.font = AB.font(10, true); c.textAlign = "center"; c.textBaseline = "top";
+      [0, 16, 32, 48, 64].forEach(function (v) { var x = lx + v * k; c.beginPath(); c.moveTo(x, top - 4); c.lineTo(x, top + n * rowH); c.stroke(); });
+      AB.stat("bx-st-o-n", String(n));
+      AB.stat("bx-st-o-r", "×" + minR.toFixed(2));
+      AB.stat("bx-st-o-p", bad + "<small>쌍</small>");
+    }, { height: 400 });
+  });
+
+  /* ================= 6. 시안의 간격을 단계에 맞추기 ================= */
+  guard("snap", function () {
+    // 간격의 역할별 값: [첫 시안, 가장 가까운 단계, 역할로 다시 정한 값]
+    var R = {
+      side: [13, 12, 16], cardPad: [15, 16, 16], dateTitle: [7, 8, 4], titleMeta: [9, 8, 8],
+      metaDesc: [11, 12, 16], descBtn: [22, 24, 16], cardGap: [17, 16, 24], headCard: [22, 24, 16], section: [27, 24, 48],
+    };
+    var IDX = { draft: 0, near: 1, mine: 2 };
+    var CARDS = [
+      { date: "1.20 토", title: "겨울 그림 읽기 모임", meta: "오후 3시 · 2층 모임방", desc: ["겨울 풍경화 두 점을 나란히 놓고", "무엇이 다른지 이야기합니다."] },
+      { date: "1.27 토", title: "작은 수채화 교실", meta: "오전 11시 · 1층 서가 옆", desc: ["물감 세 가지로 귤 한 알 그리기.", "재료는 책방에서 준비합니다."] },
+    ];
+    var MW = 360, MH = 640;
+    var modeG = AB.seg("bx-sn-mode", function () { cv.redraw(); });
+    var redG = AB.check("bx-sn-red", function () { cv.redraw(); });
+    function V(k) { return R[k][IDX[modeG()]]; }
+    var cv = AB.canvas("#bx-sn-cv", function (c, w, h) {
+      var s = Math.min(0.85, (w - 24) / MW), labW = w - MW * s >= 70 ? 44 : 0, ox = Math.max(8, (w - MW * s - labW) / 2), oy = 8;
+      var side = V("side"), cp = V("cardPad"), reds = [];
+      c.save(); c.translate(ox, oy); c.scale(s, s);
+      c.beginPath(); c.rect(0, 0, MW, MH); c.clip();
+      fill(c, 0, 0, MW, MH, PAGE);
+      var y = 20;
+      txt(c, "이번 달 행사", side, y + 21, { size: 20, weight: 800, color: BK.dark });
+      y += 28; reds.push([y, y + V("headCard"), "headCard"]); y += V("headCard");
+      CARDS.forEach(function (cd, i) {
+        var x0 = side, cw = MW - 2 * side, y0 = y, iy = y0 + cp, ix = x0 + cp;
+        var hh = 2 * cp + 22 + V("dateTitle") + 24 + V("titleMeta") + 20 + V("metaDesc") + 44 + V("descBtn") + 36;
+        rr(c, x0, y0, cw, hh, 10, "#ffffff", "#e3ddd2", 1);
+        rr(c, ix, iy, 58, 22, 11, BK.red);
+        txt(c, cd.date, ix + 29, iy + 15.5, { size: 12, weight: 800, color: "#ffffff", align: "center" });
+        if (i === 0) reds.push([y0, iy, "cardPad"]);
+        iy += 22; if (i === 0) reds.push([iy, iy + V("dateTitle"), "dateTitle"]); iy += V("dateTitle");
+        txt(c, cd.title, ix, iy + 18, { size: 17, weight: 800, color: BK.dark });
+        iy += 24; if (i === 0) reds.push([iy, iy + V("titleMeta"), "titleMeta"]); iy += V("titleMeta");
+        txt(c, cd.meta, ix, iy + 15, { size: 14, color: "#5b6b62" });
+        iy += 20; if (i === 0) reds.push([iy, iy + V("metaDesc"), "metaDesc"]); iy += V("metaDesc");
+        txt(c, cd.desc[0], ix, iy + 16, { size: 14, color: INK }); txt(c, cd.desc[1], ix, iy + 38, { size: 14, color: INK });
+        iy += 44; if (i === 0) reds.push([iy, iy + V("descBtn"), "descBtn"]); iy += V("descBtn");
+        rr(c, ix, iy, 104, 36, 8, null, BK.green, 1.5);
+        txt(c, "신청하기", ix + 52, iy + 23, { size: 14, weight: 700, color: BK.green, align: "center" });
+        y = y0 + hh;
+        if (i === 0) { reds.push([y, y + V("cardGap"), "cardGap"]); y += V("cardGap"); }
+      });
+      reds.push([y, y + V("section"), "section"]); y += V("section");
+      txt(c, "새로 들어온 책", side, y + 21, { size: 20, weight: 800, color: BK.dark });
+      y += 28 + V("headCard");
+      ["#2f4a5e", "#d24f39", "#567666", "#e9c46a"].forEach(function (col, i) { fill(c, side + i * (72 + 12), y, 72, 100, col); });
+      // 레드라인
+      if (redG()) {
+        c.globalAlpha = 0.22; fill(c, 0, 0, side, MH, RL); c.globalAlpha = 1;
+        reds.forEach(function (r) { c.globalAlpha = 0.28; fill(c, r[2] === "cardPad" ? side : 0, r[0], r[2] === "cardPad" ? MW - 2 * side : MW, r[1] - r[0], RL); c.globalAlpha = 1; });
+      }
+      c.restore();
+      c.strokeStyle = LINE; c.lineWidth = 1; c.strokeRect(ox - 0.5, oy - 0.5, MW * s + 1, MH * s + 1);
+      if (redG()) {
+        var lx = labW ? ox + MW * s + 4 : ox + MW * s - 4, al = labW ? "left" : "right", lastY = -99;
+        pill(c, String(side), ox + 2, oy + 10, { size: 10 });
+        reds.forEach(function (r) { var yy = oy + (r[0] + r[1]) / 2 * s; if (yy > oy + MH * s - 6) return; if (yy - lastY < 15) yy = lastY + 15; lastY = yy; pill(c, String(r[1] - r[0]), lx, yy, { size: 10, align: al }); });
+      }
+      // 읽을거리
+      var vals = Object.keys(R).map(function (k) { return V(k); });
+      var uniq = vals.filter(function (v, i) { return vals.indexOf(v) === i; }).sort(function (a, b) { return a - b; });
+      var frac = uniq.filter(function (v) { return (v * 1.5) % 1 !== 0; });
+      var rules = [];
+      if (V("metaDesc") < 1.5 * Math.max(V("dateTitle"), V("titleMeta"))) rules.push("무리 사이≈무리 안");
+      if (V("cardPad") < Math.max(V("metaDesc"), V("descBtn"))) rules.push("안쪽 여백<카드 안 간격");
+      if (V("cardGap") <= V("cardPad")) rules.push("카드 사이≤안쪽 여백");
+      if (V("headCard") >= V("section")) rules.push("제목 간격≥구획 사이");
+      if (V("section") <= V("cardGap")) rules.push("구획 사이≤카드 사이");
+      AB.stat("bx-sn-o-n", uniq.length + "<small>가지 (" + uniq.join(", ") + ")</small>");
+      AB.stat("bx-sn-o-d", frac.length ? frac.length + "<small>개 (" + frac.join(", ") + ")</small>" : "0");
+      AB.stat("bx-sn-o-r", rules.length ? rules.length + "<small>건: " + rules.join(" · ") + "</small>" : "0");
+    }, { bg: PAPER, get height() { var W = pw("bx-sn-cv"); var s = Math.min(0.85, (W - 24) / 360); return Math.round(640 * s + 16); } });
+  });
+
+  /* ================= 7. 안쪽 간격 < 바깥 간격 ================= */
+  guard("prox", function () {
+    var GAP = 24, CW = 168, MW = 2 * CW + GAP, COVER = 96;
+    var inG = AB.range("bx-px-in", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var outG = AB.range("bx-px-out", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var padG = AB.range("bx-px-pad", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var BOOKS = [
+      { cover: "#2f4a5e", band: "#e9c46a", title: "겨울 숲의 지도", author: "김하늘 지음", price: "16,000원", stock: "재고 3권" },
+      { cover: "#d24f39", band: "#ffe2d7", title: "귤과 수채화", author: "이도윤 지음", price: "18,500원", stock: "주문 가능" },
+    ];
+    // 카드 안 요소의 높이와 그 뒤 간격 종류
+    function items(inn, out) {
+      return [
+        { n: "표지", h: COVER, g: out }, { n: "제목", h: 20, g: inn }, { n: "저자", h: 18, g: out },
+        { n: "가격", h: 18, g: inn }, { n: "재고", h: 18, g: out }, { n: "단추", h: 34, g: 0 },
+      ];
+    }
+    function groups(list) {
+      var gaps = list.slice(0, -1).map(function (e) { return e.g; });
+      var mx = Math.max.apply(null, gaps), mn = Math.min.apply(null, gaps), out = [[0]];
+      var cut = (mx >= 1.3 * Math.max(mn, 0.5) && mx > mn) ? (mx + mn) / 2 : Infinity;
+      gaps.forEach(function (g, i) { if (g > cut) out.push([i + 1]); else out[out.length - 1].push(i + 1); });
+      return out;
+    }
+    var cv = AB.canvas("#bx-px-cv", function (c, w, h) {
+      var inn = inG(), out = outG(), pad = padG();
+      var L = items(inn, out), G = groups(L);
+      var tot = 2 * pad + L.reduce(function (a, e) { return a + e.h + e.g; }, 0);
+      var s = Math.min(1.05, (w - 24) / MW, (h - 28) / tot), ox = (w - MW * s) / 2, oy = 14;
+      var expect = "표지 / 제목·저자 / 가격·재고 / 단추";
+      c.save(); c.translate(ox, oy); c.scale(s, s);
+      BOOKS.forEach(function (bk, k) {
+        var x0 = k * (CW + GAP), iw = CW - 2 * pad, y = pad, pos = [];
+        var hh = 2 * pad + L.reduce(function (a, e) { return a + e.h + e.g; }, 0);
+        rr(c, x0, 0, CW, hh, 10, "#ffffff", "#d9d1c4", 1);
+        L.forEach(function (e, i) {
+          pos.push([y, y + e.h]);
+          var ix = x0 + pad;
+          if (iw > 4) {
+            c.save(); c.beginPath(); c.rect(ix, y - 2, iw, e.h + 4); c.clip();
+            if (e.n === "표지") { fill(c, ix, y, iw, e.h, bk.cover); fill(c, ix + iw * 0.2, y + 18, iw * 0.6, 8, bk.band); fill(c, ix + iw * 0.2, y + 32, iw * 0.4, 5, bk.band); }
+            else if (e.n === "제목") txt(c, bk.title, ix, y + 15, { size: 15, weight: 800, color: BK.dark });
+            else if (e.n === "저자") txt(c, bk.author, ix, y + 13, { size: 12.5, color: "#5b6b62" });
+            else if (e.n === "가격") txt(c, bk.price, ix, y + 13, { size: 13, weight: 700, color: INK });
+            else if (e.n === "재고") txt(c, bk.stock, ix, y + 13, { size: 12.5, color: BK.green });
+            else { rr(c, ix, y, iw, e.h, 7, BK.green); txt(c, "담기", ix + iw / 2, y + 22, { size: 13, weight: 700, color: "#ffffff", align: "center" }); }
+            c.restore();
+          }
+          y += e.h + e.g;
+        });
+        // 눈이 묶는 무리
+        G.forEach(function (g) {
+          var a = pos[g[0]][0], b = pos[g[g.length - 1]][1], ok = g.length === 1 || (g.length === 2 && ((g[0] === 1 && g[1] === 2) || (g[0] === 3 && g[1] === 4)));
+          c.strokeStyle = ok ? "#2f6fb0" : "#c0392b"; c.lineWidth = 1.4 / s; c.setLineDash([4 / s, 3 / s]);
+          c.strokeRect(x0 + Math.max(2, pad - 4), a - 3, CW - 2 * Math.max(2, pad - 4), b - a + 6);
+          c.setLineDash([]);
+        });
+      });
+      c.restore();
+      // 읽을거리
+      var chain = [
+        [inn < out, inn + (inn < out ? " < " : " ≥ ") + out],
+        [out <= pad, (out <= pad ? " ≤ " : " > ") + pad],
+        [pad < GAP, (pad < GAP ? " < " : " ≥ ") + GAP],
+      ];
+      AB.stat("bx-px-o-c", chain.map(function (x) { return '<span class="' + (x[0] ? "ok-t" : "bad-t") + '">' + x[1] + "</span>"; }).join(""));
+      var names = G.map(function (g) { return g.map(function (i) { return L[i].n; }).join("·"); }).join(" / ");
+      AB.stat("bx-px-o-g", '<small style="margin:0">' + names + "</small>");
+      var v;
+      if (G.length === 1) v = "한 덩어리: 짝이 안 보인다";
+      else if (names !== expect) v = "거짓 무리가 생겼다";
+      else if (out > pad) v = "내용이 테두리에 갇힌다";
+      else if (pad >= GAP) v = "카드끼리 붙어 보인다";
+      else if (out < 1.5 * Math.max(inn, 1)) v = "무리가 약하게 구별된다";
+      else v = "무리가 분명하다";
+      AB.stat("bx-px-o-v", '<small style="margin:0">' + v + "</small>");
+    }, { bg: PAPER, get height() { var W = pw("bx-px-cv"); var s = Math.min(1.05, (W - 24) / 360); return Math.round((96 + 108 + 64 + 96 + 32) * s + 28); } });
+  });
+})();
+</script>
+</body>
+</html>

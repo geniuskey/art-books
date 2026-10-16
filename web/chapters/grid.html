@@ -1,0 +1,915 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "단·거터·바깥 여백으로 화면을 나누는 열 그리드. 12단 그리드의 산술, 여러 단에 걸친 카드, 남는 공간을 나누는 fr 단위, 한 방향의 플렉스박스와 두 방향의 CSS 그리드를 만져 보고, 그리드를 일부러 깨는 요소와 실수로 어긋난 요소를 구별한 뒤 책방 E의 신간 목록을 짠다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>레이아웃 그리드 · WebBook</title>
+<meta name="description" content="단·거터·바깥 여백으로 화면을 나누는 열 그리드. 12단 그리드의 산술, 여러 단에 걸친 카드, 남는 공간을 나누는 fr 단위, 한 방향의 플렉스박스와 두 방향의 CSS 그리드를 만져 보고, 그리드를 일부러 깨는 요소와 실수로 어긋난 요소를 구별한 뒤 책방 E의 신간 목록을 짠다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/grid.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="레이아웃 그리드 · WebBook">
+<meta property="og:description" content="단·거터·바깥 여백으로 화면을 나누는 열 그리드. 12단 그리드의 산술, 여러 단에 걸친 카드, 남는 공간을 나누는 fr 단위, 한 방향의 플렉스박스와 두 방향의 CSS 그리드를 만져 보고, 그리드를 일부러 깨는 요소와 실수로 어긋난 요소를 구별한 뒤 책방 E의 신간 목록을 짠다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/grid.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/grid.html#chapter","name":"레이아웃 그리드","headline":"레이아웃 그리드 · WebBook","description":"단·거터·바깥 여백으로 화면을 나누는 열 그리드. 12단 그리드의 산술, 여러 단에 걸친 카드, 남는 공간을 나누는 fr 단위, 한 방향의 플렉스박스와 두 방향의 CSS 그리드를 만져 보고, 그리드를 일부러 깨는 요소와 실수로 어긋난 요소를 구별한 뒤 책방 E의 신간 목록을 짠다.","url":"https://artbook.euiyun.com/web/chapters/grid.html","position":4,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"4. 레이아웃 그리드","item":"https://artbook.euiyun.com/web/chapters/grid.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<style>
+  pre.code { margin: 18px 0; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow-x: auto; font: 13px/1.65 var(--mono); color: var(--text); }
+  pre.code code { background: none; padding: 0; font-size: inherit; }
+  pre.code .cm { color: var(--text-faint); }
+</style>
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="grid">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 04</div>
+    <h1>레이아웃 그리드</h1>
+    <p class="lead">책의 그리드는 종이 크기를 알고 짠다. A5라면 148 × 210 mm, 그 안에 여백과 판면과 단을 나누면 끝이다. 웹의 그리드는 종이 크기를 모른 채 짜야 한다. 같은 페이지가 폭 360의 휴대폰에서도, 1,440의 모니터에서도 열린다. 그래서 웹 그리드는 숫자 몇 개가 아니라 <b>규칙</b>이다. 단은 몇 개인가, 단 사이는 얼마인가, 화면 가장자리는 얼마나 비우는가, 화면이 아무리 넓어져도 어디서 멈추는가. 이 장은 그 규칙을 하나씩 세우고, 화면 폭을 끌어 가며 규칙이 버티는지 시험한다. 그리고 규칙을 일부러 깨는 한 가지 요소를 고른다.</p>
+    <ul class="objectives">
+      <li>단, 거터, 바깥 여백, 최대 폭을 구별하고 화면 폭에서 단 폭을 계산한다.</li>
+      <li>12단 그리드가 널리 쓰이는 까닭을 약수로 설명하고, 카드를 여러 단에 걸쳐 놓는다.</li>
+      <li><code>fr</code> 단위가 남는 공간을 나누는 방식과, 긴 낱말이 그것을 깨뜨리는 경우를 안다.</li>
+      <li>한 방향으로 흐르는 플렉스박스와 두 방향으로 맞추는 CSS 그리드의 차이를 마지막 줄에서 확인한다.</li>
+      <li>카드의 최소 폭으로 한 줄의 카드 수가 저절로 바뀌는 그리드를 만들고, 그것이 12단과 맞는 조건을 찾는다.</li>
+      <li>그리드를 의도적으로 깨는 요소와 실수로 어긋난 요소를 구별한다.</li>
+    </ul>
+  </header>
+
+  <section id="anatomy">
+    <h2>단, 거터, 바깥 여백</h2>
+    <p>TypeBook <a href="../../type/chapters/grid.html">9장</a>에서 지면을 여백·판면·단·거터·모듈로 미리 나눈 보이지 않는 격자를 세웠다. 웹 화면의 그리드도 같은 생각에서 나왔다. 화면을 세로로 긴 몇 개의 칸으로 나누고, 모든 요소의 왼쪽 끝과 오른쪽 끝을 그 칸의 경계에 맞춘다. 이렇게 세로 칸으로 나눈 그리드를 <span class="term">열 그리드</span><span class="en">(Column grid)</span>라고 부른다. 세로 칸 하나가 <span class="term">단</span><span class="en">(Column)</span>이고, 단과 단 사이의 빈 띠가 <span class="term">거터</span><span class="en">(Gutter)</span>, 그리드 전체와 화면 가장자리 사이의 빈 자리가 <span class="term">바깥 여백</span><span class="en">(Margin)</span>이다. 3장의 CSS <code>margin</code>과 이름이 같지만, 여기서는 그리드의 양옆 빈 자리를 가리킨다. 실제 코드에서는 페이지 바탕 상자의 <code>padding</code>으로 만드는 경우가 많다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="열 그리드의 해부도. 브라우저 창 안에 양옆 바깥 여백이 있고, 그 사이의 콘텐츠 영역이 열두 개의 단과 열한 개의 거터로 나뉘어 있다. 아래에는 세 단에 걸친 카드 하나가 그려져 있다.">
+        <defs><marker id="gr-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="10" y="20" width="440" height="180" rx="6" class="f-surface s-line"/>
+        <rect x="10" y="20" width="440" height="16" rx="6" class="f-elev"/>
+        <circle cx="22" cy="28" r="3" class="f-acc2-soft"/><circle cx="32" cy="28" r="3" class="f-acc2-soft"/><circle cx="42" cy="28" r="3" class="f-acc2-soft"/>
+        <g class="f-acc-soft" style="stroke-width:0.6">
+          <rect x="34" y="44" width="26" height="148"/><rect x="66" y="44" width="26" height="148"/><rect x="98" y="44" width="26" height="148"/><rect x="130" y="44" width="26" height="148"/>
+          <rect x="162" y="44" width="26" height="148"/><rect x="194" y="44" width="26" height="148"/><rect x="226" y="44" width="26" height="148"/><rect x="258" y="44" width="26" height="148"/>
+          <rect x="290" y="44" width="26" height="148"/><rect x="322" y="44" width="26" height="148"/><rect x="354" y="44" width="26" height="148"/><rect x="386" y="44" width="26" height="148"/>
+        </g>
+        <rect x="66" y="132" width="90" height="52" rx="4" class="f-acc2-soft" style="stroke-width:1.5"/>
+        <text x="111" y="162" text-anchor="middle" class="lbl-b" font-size="12">3단 카드</text>
+        <line x1="10" y1="214" x2="34" y2="214" class="s-line" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
+        <text x="22" y="232" text-anchor="middle" class="lbl-dim" font-size="11">바깥 여백</text>
+        <line x1="66" y1="214" x2="92" y2="214" class="s-acc" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
+        <text x="79" y="232" text-anchor="middle" class="lbl-acc" font-size="12">단</text>
+        <line x1="92" y1="214" x2="98" y2="214" class="s-line"/>
+        <text x="122" y="232" text-anchor="middle" class="lbl-dim" font-size="11">거터</text>
+        <line x1="95" y1="200" x2="112" y2="222" class="s-dash"/>
+        <line x1="34" y1="244" x2="412" y2="244" class="s-line" marker-start="url(#gr-ar)" marker-end="url(#gr-ar)"/>
+        <rect x="178" y="236" width="104" height="14" class="f-surface" style="stroke:none"/>
+        <text x="230" y="248" text-anchor="middle" class="lbl-dim" font-size="11">콘텐츠 폭(최대 폭까지)</text>
+        <text x="412" y="70" text-anchor="end" class="lbl-dim" font-size="11" transform="rotate(0)">12</text>
+      </svg>
+      <figcaption><b>그림 1. 열 그리드의 해부.</b> 브라우저 창 안에서 양옆 바깥 여백을 빼면 콘텐츠 폭이 남고, 그것을 단과 거터로 나눈다. 단 열두 개 사이에는 거터가 열한 개다. 카드는 단 몇 개와 그 사이 거터를 함께 차지한다(그림의 카드는 3단). 화면이 아주 넓을 때 콘텐츠 폭이 끝없이 늘지 않도록 최대 폭을 둔다.</figcaption>
+    </figure>
+
+    <p>종이 그리드와 가장 크게 다른 것은 마지막 줄의 "최대 폭"이다. 종이는 커지지 않지만 화면은 커진다. 1,920 픽셀 모니터에서 본문 글줄이 화면 끝에서 끝까지 이어지면 TypeBook <a href="../../type/chapters/leading.html">6장</a>에서 본 대로 한 줄이 너무 길어 읽기 어렵다. 그래서 웹 그리드는 대개 콘텐츠 폭에 상한을 두고, 그보다 넓은 화면에서는 양옆 바깥 여백이 늘어나도록 한다. 반대로 좁은 화면에서는 바깥 여백이 최솟값까지 줄어들고, 단이 좁아진다. 화면 폭이 바뀔 때 무엇이 늘고 무엇이 고정되는지, 이것이 웹 그리드를 정의하는 질문이다.</p>
+  </section>
+
+  <section id="arith">
+    <h2>12단의 산술</h2>
+    <p>그리드를 숫자로 정하면 단 폭은 계산으로 나온다. 화면 폭에서 양옆 바깥 여백을 빼고, 거터를 모두 빼고, 남은 것을 단 수로 나눈다.</p>
+    <div class="formula">$$c = \frac{V - 2M - (n-1)\,G}{n}, \qquad S_k = k\,c + (k-1)\,G$$<div class="where">\(V\): 화면(뷰포트) 폭, \(M\): 한쪽 바깥 여백, \(G\): 거터, \(n\): 단 수, \(c\): 단 폭, \(S_k\): 단 \(k\)개에 걸친 요소의 폭(사이 거터 \(k-1\)개 포함). 예: \(V = 1280,\ M = 40,\ G = 24,\ n = 12\)이면 \(c = (1280 - 80 - 264)/12 = 78\), 3단에 걸친 카드는 \(3 \times 78 + 2 \times 24 = 282\).</div></div>
+    <p>아래 시뮬레이터에서 가상 브라우저 창의 오른쪽 가장자리 손잡이를 끌어 화면 폭을 바꾸고, 슬라이더로 단 수, 거터, 바깥 여백을 바꾼다. 분홍 칸이 단이다. 아래 줄의 카드는 각각 3단에 걸쳐 있다.</p>
+
+    <div class="sim" id="sim-arith">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>화면 폭을 끌어 보는 열 그리드</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gr-ar-cv" class="art"></canvas><span class="hint">창의 오른쪽 가장자리를 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>단 수 n <output id="gr-ar-n-out"></output></span><input type="range" id="gr-ar-n" min="1" max="16" step="1" value="12"></label>
+          <label class="ctrl"><span>거터 G <output id="gr-ar-g-out"></output></span><input type="range" id="gr-ar-g" min="0" max="48" step="4" value="24"></label>
+          <label class="ctrl"><span>바깥 여백 M <output id="gr-ar-m-out"></output></span><input type="range" id="gr-ar-m" min="0" max="64" step="4" value="40"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">화면 폭 V</span><span class="v" id="gr-ar-o-v">—</span></div>
+        <div class="stat"><span class="k">단 폭 c</span><span class="v" id="gr-ar-o-c">—</span></div>
+        <div class="stat"><span class="k">3단 · 4단 · 6단에 걸친 폭</span><span class="v" id="gr-ar-o-s">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="gr-ar-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태(V 1280, 12단, 거터 24, 바깥 여백 40)에서 단 폭이 정확히 78이 되는 것을 본다. ② 창을 왼쪽으로 끌어 360까지 줄인다. 단 폭이 5 남짓으로 쪼그라들어 거터(24)보다 좁아진다. 이런 그리드에 3단 카드를 놓으면 글 한 줄도 들어가지 않는다. 좁은 화면에 넓은 화면의 12단을 그대로 쓸 수 없다는 뜻이다. ③ 창을 1,600까지 늘린다. 단도 카드도 끝없이 넓어진다. 최대 폭이 없는 그리드다. ④ 단 수를 5나 7로 바꾼다. 3단 카드가 몇 장 들어가는지, 남는 단이 생기는지 본다. (화면 폭은 이 그림 속 가상 창의 폭이다. 단 폭은 소수점까지 계산하고, 브라우저도 소수 픽셀 폭을 그대로 다룬다.)</div>
+    </div>
+
+    <p>왜 하필 12단이 흔할까. 12는 1, 2, 3, 4, 6, 12로 나누어떨어진다. 한 줄에 카드 2장(6단씩), 3장(4단씩), 4장(3단씩), 6장(2단씩)을 남는 단 없이 놓을 수 있고, 8단 본문과 4단 곁글처럼 2:1로 나눌 수도, 9단과 3단처럼 3:1로 나눌 수도 있다. 10단은 3으로 나누어지지 않고, 16단은 3과 6으로 나누어지지 않는다. 12는 이 정도 크기의 수 중에서 약수가 가장 많은 축에 든다. 단 수가 많다고 좋은 것도 아니다. 단이 많으면 선택지가 늘지만 실제로 쓰는 조합은 몇 개뿐이고, 단 폭이 거터보다 좁아지면 그리드는 쓸모를 잃는다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>단 수</th><th>남는 단 없이 나눌 수 있는 한 줄의 카드 수</th><th>흔한 쓰임</th></tr></thead>
+        <tbody>
+          <tr><td class="num">4</td><td>1, 2, 4</td><td>휴대폰 화면(단이 넓고 거터가 좁다)</td></tr>
+          <tr><td class="num">6</td><td>1, 2, 3, 6</td><td>중간 폭 화면, 간단한 페이지</td></tr>
+          <tr><td class="num">8</td><td>1, 2, 4, 8</td><td>태블릿 폭에서 쓰는 체계가 있다</td></tr>
+          <tr><td class="num">12</td><td>1, 2, 3, 4, 6, 12</td><td>넓은 화면 웹의 사실상 관례</td></tr>
+          <tr><td class="num">16</td><td>1, 2, 4, 8, 16</td><td>정보가 아주 많은 관리 화면</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout deep">
+      <strong>960 픽셀의 시대</strong>
+      2000년대 후반 많은 웹사이트는 폭 960 픽셀의 고정된 판 위에 만들어졌다. 당시 흔하던 1,024 픽셀 모니터에서 스크롤 막대와 창 테두리를 빼고도 들어가는 폭이었고, 960은 2, 3, 4, 5, 6, 8, 10, 12, 15, 16으로 나누어떨어져 단을 나누기 좋았다. 네이선 스미스<span class="en">(Nathan Smith)</span>가 2008년 무렵 공개한 960 Grid System은 이 폭을 12단(단 60, 거터 20) 또는 16단으로 나눈 틀을 내려받아 쓰게 했고, 비슷한 그리드 틀이 널리 퍼졌다. 2011년에 처음 공개된 부트스트랩<span class="en">(Bootstrap)</span>도 12단 그리드를 기본으로 삼았다. 오늘날의 12단 관례는 이 흐름에서 이어진 것이다. 다만 그때의 그리드는 판의 폭이 고정이라는 전제 위에 있었다. 휴대폰에서 960 픽셀 판을 열면 화면이 통째로 줄어들어 글자가 깨알처럼 보인다. 책방 E의 옛 사이트가 바로 그 상태다.
+    </div>
+  </section>
+
+  <section id="span">
+    <h2>카드를 단에 걸치기</h2>
+    <p>그리드 위의 요소는 단 하나에 들어가는 경우보다 여러 단에 걸치는 경우가 많다. CSS 그리드에서는 부모에 단을 선언하고, 자식에게 몇 단에 걸칠지 적는다.</p>
+<pre class="code" data-scroll><code>.page {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));  <span class="cm">/* 12단 */</span>
+  column-gap: 24px;                                   <span class="cm">/* 거터 */</span>
+}
+.feature { grid-column: span 8; }   <span class="cm">/* 8단에 걸친다 */</span>
+.aside   { grid-column: span 4; }
+.card    { grid-column: span 4; }   <span class="cm">/* 한 줄에 세 장 */</span></code></pre>
+    <p>그리드의 힘은 <b>줄과 줄 사이</b>에서 나온다. 한 줄만 보면 카드 세 장을 아무 폭으로나 나란히 놓아도 그럴듯하다. 하지만 위 줄의 "추천 도서"(8단)와 "이달의 행사"(4단) 아래에 카드를 놓으면, 카드의 경계가 위 줄의 경계와 맞는지가 드러난다. 아래에서 카드 사이의 경계를 끌어 본다. "단 선에 붙이기"를 끄면 경계가 아무 데나 놓인다.</p>
+
+    <div class="sim" id="sim-span">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>단 선에 맞춰 카드 나누기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gr-sp-cv" class="art"></canvas><span class="hint">카드 사이 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="gr-sp-k"><button data-value="2">2장</button><button data-value="3" class="on">3장</button><button data-value="4">4장</button><button data-value="6">6장</button></div>
+          <label class="check"><input type="checkbox" id="gr-sp-snap" checked> 단 선에 붙이기</label>
+          <label class="check"><input type="checkbox" id="gr-sp-grid" checked> 단 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">카드마다 걸친 단</span><span class="v" id="gr-sp-o-s">—</span></div>
+        <div class="stat"><span class="k">카드 폭(px)</span><span class="v" id="gr-sp-o-w">—</span></div>
+        <div class="stat"><span class="k">단 선에서 벗어난 경계</span><span class="v" id="gr-sp-o-x">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 3장에서 카드 경계가 위 줄의 "추천 도서"와 "이달의 행사" 경계와 맞는지 본다. 첫 카드가 4단, 위의 추천 도서가 8단이라 둘째 카드의 오른쪽 끝이 위 줄의 경계와 같은 선에 선다. ② 손잡이를 끌어 첫 카드를 5단으로 넓힌다. 붙이기가 켜져 있으면 경계가 다음 단 선으로 뛰어간다. 4 · 4 · 4가 5 · 3 · 4가 되어도 모든 경계는 여전히 단 선 위에 있다. ③ "단 선에 붙이기"를 끄고 경계를 조금씩 옮긴다. 카드 폭이 282.4처럼 소수가 되고, 경계가 위 줄의 선과 몇 픽셀 어긋난다. 단을 끄고 보면 더 거슬린다. ④ 4장이나 6장으로 바꿔 본다. 12의 약수라 모두 남는 단 없이 나누어진다. (콘텐츠 폭 1,200, 12단, 거터 24, 단 폭 78. 카드 최소 폭은 40으로 막았다.)</div>
+    </div>
+
+    <p>경계를 붙이지 않고 끈 카드는 그 줄만 보면 문제가 없다. 하지만 "단 보기"를 끄고 화면 전체를 보면, 위 줄과 아래 줄의 경계가 몇 픽셀씩 어긋난 것이 눈에 걸린다. CompositionBook <a href="../../composition/chapters/layout.html">12장</a>의 "아슬아슬한 어긋남"과 같은 현상이다. 단 선은 첫 줄을 위해서가 아니라 <b>둘째 줄을 위해</b> 있다. 줄이 많아질수록, 페이지가 여러 장일수록 그 값이 커진다.</p>
+
+    <div class="callout studio">
+      <strong>그리드는 시안 위에 깔아 두고 그린다</strong>
+      디자인 도구 대부분에는 화면 위에 단과 거터를 반투명 띠로 깔아 두는 기능(레이아웃 그리드, 열 안내선)이 있다. 그리드를 정했으면 모든 시안에 같은 설정을 깔고 그린다. 개발자 쪽도 마찬가지다. 브라우저 개발자 도구는 CSS 그리드 상자 위에 단 번호와 선을 겹쳐 보여 주는 기능을 갖고 있다. 시안의 안내선과 브라우저의 그리드 표시가 같은 자리에 서는지 나란히 놓고 보면, "몇 픽셀 어긋났다"는 대화가 "몇째 단에서 시작하느냐"는 대화로 바뀐다.
+    </div>
+  </section>
+
+  <section id="fr">
+    <h2>fr: 남는 공간을 나누는 단위</h2>
+    <p>앞의 코드에서 12단은 <code>repeat(12, minmax(0, 1fr))</code>로 적었다. <code>fr</code>는 CSS 그리드가 도입한 <span class="term">비율 단위</span><span class="en">(Flexible length, fr)</span>다. 고정된 칸과 거터를 먼저 빼고 <b>남는 공간</b>을 fr의 비로 나눈다. <code>200px 1fr 2fr</code>라면 200픽셀 칸 하나를 먼저 놓고, 남는 공간을 1:2로 나눠 둘째와 셋째 칸에 준다.</p>
+    <div class="formula">$$1\,\text{fr} = \frac{W - \sum(\text{고정 칸}) - (\text{칸 수} - 1)\,g}{\sum(\text{fr 값})}$$<div class="where">\(W\): 그리드 상자의 폭, \(g\): 칸 사이 간격(<code>column-gap</code>). 예: \(W = 800\), <code>200px 1fr 2fr</code>, \(g = 24\)이면 \(1\,\text{fr} = (800 - 200 - 48)/3 = 184\). 칸 폭은 200, 184, 368. 단, 어떤 칸의 내용이 그보다 좁아질 수 없으면 그 칸을 먼저 떼어 내고 다시 나눈다.</div></div>
+    <p>식 아래의 "단,"이 중요하다. <code>1fr</code>는 사실 <code>minmax(auto, 1fr)</code>의 줄임이다. 칸의 최솟값이 "내용이 더 줄어들 수 없는 폭"이라서, 줄바꿈되지 않는 긴 낱말이나 주소가 들어 있으면 그 칸이 다른 칸보다 넓어진다. 아래에서 화면 폭과 칸 정의를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-fr">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>fr이 나누는 남는 공간</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gr-fr-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>그리드 상자 폭 <output id="gr-fr-w-out"></output></span><input type="range" id="gr-fr-w" min="320" max="1200" step="8" value="800"></label>
+          <div class="seg" id="gr-fr-t"><button data-value="a" class="on">200px 1fr 2fr</button><button data-value="b">1fr 1fr 1fr</button><button data-value="c">1fr × 3 + 긴 주소</button><button data-value="d">minmax(0,1fr) × 3 + 긴 주소</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">남는 공간</span><span class="v" id="gr-fr-o-f">—</span></div>
+        <div class="stat"><span class="k">1fr</span><span class="v" id="gr-fr-o-u">—</span></div>
+        <div class="stat"><span class="k">세 칸의 폭</span><span class="v" id="gr-fr-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① <code>200px 1fr 2fr</code>에서 폭을 줄였다 늘린다. 200픽셀 칸은 그대로이고 둘째와 셋째 칸만 1:2를 지키며 늘고 준다. 폭 320에서는 남는 공간이 72뿐이라 fr 칸이 쪼그라든다. ② "1fr 1fr 1fr"는 세 칸이 늘 같다. ③ "1fr × 3 + 긴 주소"로 바꾸고 폭을 줄인다. 가운데 칸에 줄바꿈되지 않는 주소가 들어 있어, 어느 폭 아래에서는 가운데 칸이 더 줄지 않고 양옆 칸만 줄어든다. 세 칸이 같아야 할 그리드가 뒤틀린다. ④ "minmax(0,1fr)"로 바꾼다. 세 칸이 다시 같아지는 대신, 긴 주소가 칸 밖으로 넘쳐 옆 칸을 침범한다(붉은 부분). 이 경우에는 주소를 줄바꿈하도록(<code>overflow-wrap: anywhere</code>) 따로 처리해야 한다. (칸 사이 간격 24. 주소의 폭은 이 그림의 글꼴로 잰 값이고, 그 밖의 칸 내용은 충분히 줄어든다고 가정했다.)</div>
+    </div>
+
+    <p>열 그리드에 <code>repeat(12, 1fr)</code> 대신 <code>repeat(12, minmax(0, 1fr))</code>를 쓰는 이유가 여기 있다. 단 하나에 들어간 긴 낱말 때문에 그리드 전체가 뒤틀리는 것보다, 단 폭은 지키고 넘치는 내용을 따로 다루는 편이 낫다. 반대로 내용에 맞춰 칸이 늘어나야 하는 표나 곁글이라면 <code>auto</code>나 <code>1fr</code>의 성질이 도움이 된다. fr은 "남는 공간을 나눈다"는 한 문장으로 기억하고, 칸의 최솟값을 무엇으로 둘지를 따로 정한다.</p>
+
+    <div class="callout warn">
+      <strong>퍼센트로 나눈 단과 거터는 맞지 않는다</strong>
+      그리드를 퍼센트로 적던 시절에는 단 폭을 <code>25%</code>로 주고 거터를 <code>margin</code>으로 따로 주는 일이 흔했다. 그러면 25% × 4에 거터가 더해져 100%를 넘고, 마지막 단이 다음 줄로 떨어진다(3장의 box-sizing 사고와 같은 산술이다). 계산식으로 25%에서 거터 몫을 빼는 방법(<code>calc(25% - 18px)</code>)도 있지만, 거터가 바뀔 때마다 식을 고쳐야 한다. <code>fr</code>과 <code>gap</code>은 이 산술을 브라우저에게 넘긴다. 거터를 먼저 빼고 남는 것을 나누니, 거터를 바꿔도 단의 합이 넘치지 않는다.
+    </div>
+  </section>
+
+  <section id="axis">
+    <h2>한 방향과 두 방향</h2>
+    <p>CSS에는 상자를 나란히 놓는 도구가 둘 있다. <span class="term">플렉스박스</span><span class="en">(Flexbox, CSS Flexible Box Layout)</span>는 상자들을 <b>한 방향</b>(가로 또는 세로)으로 흘려 보내며, 남는 공간을 어떻게 나눌지와 줄 안에서 어떻게 정렬할지를 정한다. <span class="term">CSS 그리드</span><span class="en">(CSS Grid Layout)</span>는 가로와 세로의 선을 <b>두 방향</b>으로 미리 긋고, 상자를 그 칸에 놓는다. 주요 브라우저가 CSS 그리드를 모두 지원하게 된 것은 2017년이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 220" role="img" aria-label="플렉스박스와 그리드를 비교한 그림. 왼쪽 플렉스박스는 상자들이 한 줄로 흐르다 넘치면 다음 줄로 넘어가며, 줄마다 상자 폭이 다르다. 오른쪽 그리드는 가로세로 선이 먼저 있고 상자들이 그 칸에 맞춰 놓여 마지막 줄도 위 줄과 같은 폭이다.">
+        <defs><marker id="gr-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="20" y="22" class="lbl-b">플렉스박스: 한 방향으로 흐른다</text>
+        <rect x="20" y="34" width="190" height="130" class="f-surface s-line"/>
+        <g class="f-acc-soft" style="stroke-width:1"><rect x="28" y="42" width="54" height="34"/><rect x="88" y="42" width="54" height="34"/><rect x="148" y="42" width="54" height="34"/>
+        <rect x="28" y="82" width="54" height="34"/><rect x="88" y="82" width="54" height="34"/><rect x="148" y="82" width="54" height="34"/>
+        <rect x="28" y="122" width="84" height="34"/><rect x="118" y="122" width="84" height="34"/></g>
+        <path d="M30 59 H196" class="s-acc" marker-end="url(#gr-ar2)" style="stroke-width:1.5"/>
+        <path d="M196 64 C 140 74, 60 70, 34 92" class="s-dash" marker-end="url(#gr-ar2)"/>
+        <text x="20" y="184" class="lbl" font-size="12">줄마다 따로 나눈다</text>
+        <text x="20" y="202" class="lbl-dim" font-size="11">마지막 줄의 두 상자가 넓게 늘어났다</text>
+        <text x="250" y="22" class="lbl-b">그리드: 선을 먼저 긋는다</text>
+        <rect x="250" y="34" width="190" height="130" class="f-surface s-line"/>
+        <g class="s-dash"><line x1="312" y1="34" x2="312" y2="164"/><line x1="318" y1="34" x2="318" y2="164"/><line x1="372" y1="34" x2="372" y2="164"/><line x1="378" y1="34" x2="378" y2="164"/>
+        <line x1="250" y1="78" x2="440" y2="78"/><line x1="250" y1="118" x2="440" y2="118"/></g>
+        <g class="f-acc2-soft" style="stroke-width:1"><rect x="258" y="42" width="54" height="34"/><rect x="318" y="42" width="54" height="34"/><rect x="378" y="42" width="54" height="34"/>
+        <rect x="258" y="82" width="54" height="34"/><rect x="318" y="82" width="54" height="34"/><rect x="378" y="82" width="54" height="34"/>
+        <rect x="258" y="122" width="54" height="34"/><rect x="318" y="122" width="54" height="34"/></g>
+        <text x="250" y="184" class="lbl" font-size="12">가로세로가 함께 맞는다</text>
+        <text x="250" y="202" class="lbl-dim" font-size="11">마지막 줄도 위 줄의 단을 따른다</text>
+      </svg>
+      <figcaption><b>그림 2. 흐름과 칸.</b> 플렉스박스는 상자를 한 줄로 흘리다 넘치면 다음 줄로 넘기고, 줄마다 남는 공간을 따로 나눈다. 그래서 줄이 바뀌면 상자 폭이 달라질 수 있다. 그리드는 가로와 세로의 선을 먼저 그어 두므로 어느 줄의 상자든 같은 단에 선다. 둘 중 하나가 낫다기보다, 한 줄 안의 정렬이면 플렉스박스, 줄과 줄이 함께 맞아야 하면 그리드다.</figcaption>
+    </figure>
+
+    <p>차이는 줄이 넘어갈 때 드러난다. 아래는 책 일곱 권을 카드로 놓은 목록이다. 카드의 기본 폭은 200, 카드 사이는 24다. 세 가지 방식으로 놓고 그리드 상자의 폭을 바꾼다. 점선은 첫 줄 카드의 경계를 아래로 이어 그은 것이다.</p>
+
+    <div class="sim" id="sim-axis">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>마지막 줄이 말해 주는 것</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gr-ax-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>목록 상자 폭 <output id="gr-ax-w-out"></output></span><input type="range" id="gr-ax-w" min="320" max="1200" step="8" value="760"></label>
+          <div class="seg" id="gr-ax-m"><button data-value="grow" class="on">플렉스(늘어남)</button><button data-value="fixed">플렉스(고정 폭)</button><button data-value="grid">그리드(auto-fill)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 줄의 카드 수</span><span class="v" id="gr-ax-o-k">—</span></div>
+        <div class="stat"><span class="k">카드 폭: 위 줄 · 마지막 줄</span><span class="v" id="gr-ax-o-w">—</span></div>
+        <div class="stat"><span class="k">세로 열 맞춤</span><span class="v" id="gr-ax-o-a">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "플렉스(늘어남)"에서 폭 760이면 한 줄에 세 장, 마지막 줄에 한 장이 남는다. 그 한 장이 줄 전체로 늘어나 다른 카드의 세 배 폭이 된다. 표지 그림이 혼자 거대해진다. ② "플렉스(고정 폭)"으로 바꾼다. 카드가 200으로 고정되어 마지막 줄도 같은 폭이지만, 줄 오른쪽에 빈자리가 남아 목록이 왼쪽으로 쏠린다. ③ "그리드(auto-fill)"로 바꾼다. 카드가 줄 폭을 고르게 나누면서도 마지막 줄은 위 줄과 같은 단에 선다. ④ 폭을 천천히 바꾸며 세 방식의 마지막 줄을 비교한다. 플렉스(늘어남)는 남는 카드 수에 따라 마지막 줄이 계속 모양을 바꾼다. (플렉스: <code>flex: 1 1 200px</code> 또는 <code>0 0 200px</code>, 그리드: <code>repeat(auto-fill, minmax(200px, 1fr))</code>, 간격은 모두 <code>gap: 24px</code>.)</div>
+    </div>
+
+    <p>마지막 줄의 거대한 카드는 플렉스박스의 버그가 아니다. 플렉스박스는 줄마다 남는 공간을 그 줄의 상자들에게 나눠 주라는 규칙을 충실히 따랐다. 줄과 줄 사이의 관계는 플렉스박스가 모르는 일이다. 그래서 단추 여러 개를 한 줄에 놓거나, 머리 띠 안에서 로고를 왼쪽에, 메뉴를 오른쪽에 두는 일은 플렉스박스가 잘하고, 카드 목록처럼 줄과 줄이 맞아야 하는 일은 그리드가 잘한다. 한 페이지에 둘을 섞어 쓰는 것이 보통이다. 페이지의 큰 짜임은 그리드로, 카드 안의 단추 줄은 플렉스박스로.</p>
+    <p>셋째 방식에서 쓴 <code>repeat(auto-fill, minmax(200px, 1fr))</code>은 "카드가 200보다 좁아지지 않는 한 한 줄에 최대한 많이 넣고, 남는 폭은 고르게 나눠라"는 뜻이다. 이 한 줄이 화면 폭마다 단 수를 따로 정하는 일을 상당 부분 대신한다. 카드 폭이 화면 폭에 따라 어떻게 바뀌는지 그래프로 보자. 가로축이 목록 상자의 폭, 세로축이 카드 한 장의 폭이다.</p>
+
+    <div class="sim" id="sim-auto">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>카드 최소 폭이 정하는 톱니</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="gr-au-cv"></canvas><span class="hint">세로선을 끌어 폭을 고른다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>카드 최소 폭 <output id="gr-au-m-out"></output></span><input type="range" id="gr-au-m" min="160" max="360" step="8" value="240"></label>
+          <label class="ctrl"><span>카드 사이(gap) <output id="gr-au-g-out"></output></span><input type="range" id="gr-au-g" min="0" max="48" step="4" value="24"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 폭</span><span class="v" id="gr-au-o-w">—</span></div>
+        <div class="stat"><span class="k">한 줄 카드 수 · 카드 폭</span><span class="v" id="gr-au-o-k">—</span></div>
+        <div class="stat"><span class="k">카드 폭이 오가는 범위(2장 이상)</span><span class="v" id="gr-au-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태(최소 폭 240, 간격 24)에서 그래프가 톱니 모양인 것을 본다. 목록이 넓어지면 카드도 넓어지다가, 한 장이 더 들어갈 자리가 생기는 순간 카드 수가 하나 늘며 폭이 뚝 떨어진다. ② 세로선을 1,200에 놓는다. 한 줄에 네 장, 카드 폭 282다. 앞 절의 12단에서 3단에 걸친 카드와 정확히 같은 폭이다. ③ 최소 폭을 220으로 내린다. 1,200에서 다섯 장이 되고, 다섯은 12의 약수가 아니라서 노란 구간(12단과 어긋나는 카드 수)에 들어간다. ④ 최소 폭을 300 이상으로 올린다. 1,200에서 세 장, 카드 폭 384로 4단에 걸친 폭과 같다. (그래프의 카드 폭 = (목록 폭 − (n − 1) × 간격) ÷ n, n = ⌊(목록 폭 + 간격) ÷ (최소 폭 + 간격)⌋. 목록 폭이 최소 폭보다 좁으면 카드가 넘친다.)</div>
+    </div>
+
+    <p>톱니의 이빨 하나하나가 "한 줄에 n장"인 구간이다. 카드 폭은 최소 폭 아래로는 내려가지 않고, 위로는 다음 카드가 들어오기 직전까지 커진다. 두 장 이상인 구간에서는 그 위쪽 끝이 최소 폭의 1.5배를 넘지 않는다. 그래서 최소 폭 하나만 잘 고르면 어떤 화면 폭에서도 카드 폭이 일정한 범위 안에 머문다. 그리고 앞 절의 12단과 함께 쓰려면 한 가지를 더 확인한다. 한 줄의 카드 수가 12의 약수(1, 2, 3, 4, 6)이고 카드 사이가 거터와 같으면, auto-fill로 놓은 카드의 경계는 계산하지 않아도 12단의 단 선 위에 정확히 선다. 식으로 확인하면 카드 \(n\)장의 폭 \((C - (n-1)G)/n\)과 \(12/n\)단에 걸친 폭이 같은 값이 된다.</p>
+
+<pre class="code" data-scroll><code>.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  gap: 24px;
+}
+<span class="cm">/* min(240px, 100%): 목록이 240보다 좁은 화면에서도 카드가 넘치지 않게 */</span></code></pre>
+
+    <div class="callout studio">
+      <strong>auto-fill과 auto-fit</strong>
+      <code>auto-fill</code> 자리에 <code>auto-fit</code>을 쓸 수도 있다. 카드가 한 줄을 다 채울 만큼 많을 때는 둘이 같다. 카드가 적을 때 차이가 난다. 카드가 두 장뿐인 넓은 화면에서 <code>auto-fill</code>은 빈 칸을 남겨 두어 두 장이 원래 폭을 지키고, <code>auto-fit</code>은 빈 칸을 접어 두 장이 줄 전체로 늘어난다. 신간이 두세 권뿐인 주에 표지가 화면만 하게 커지는 것을 막으려면 <code>auto-fill</code>이 안전하다. 반대로 항목 수가 적고 늘 줄을 꽉 채워야 하는 곳(예: 탭 두세 개)에는 <code>auto-fit</code>이 맞다.
+    </div>
+  </section>
+
+  <section id="break">
+    <h2>그리드를 깨는 요소</h2>
+    <p>TypeBook <a href="../../type/chapters/grid.html">9장</a>에서 격자를 깨는 이유는 <b>강조</b>이고, 깨는 것이 효과를 내려면 적어야 하고 분명해야 한다고 했다. 웹도 같다. 모든 것이 단 선에 맞는 화면에서 사진 한 장이 화면 끝에서 끝까지 펼쳐지면, 그것이 가장 먼저 눈에 든다. 이렇게 콘텐츠 폭을 넘어 화면 가장자리까지 채우는 요소를 인쇄의 도련에서 빌려 <span class="term">전체 폭 요소</span><span class="en">(Full-bleed)</span>라고 부른다. 반대로 단 선에서 10픽셀쯤 비켜 선 사진은 깬 것이 아니라 어긋난 것으로 읽힌다.</p>
+    <p>아래는 행사 소개 글 한 편이다. 제목과 본문은 12단 중 가운데 8단(3~10단)에 있다. 그림 하나의 자리를 네 가지로 바꿔 본다.</p>
+
+    <div class="sim" id="sim-break">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>깬 것과 어긋난 것</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="gr-br-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="gr-br-m"><button data-value="text" class="on">본문 폭(8단)</button><button data-value="wide">넓게(10단)</button><button data-value="bleed">화면 끝까지</button><button data-value="off">조금 어긋남</button></div>
+          <label class="check"><input type="checkbox" id="gr-br-grid"> 단 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">그림의 시작 · 끝</span><span class="v" id="gr-br-o-x">—</span></div>
+        <div class="stat"><span class="k">본문과 공유하는 세로선</span><span class="v" id="gr-br-o-l">—</span></div>
+        <div class="stat"><span class="k">읽히는 인상</span><span class="v" id="gr-br-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "본문 폭"에서 그림의 양 끝이 본문의 양 끝과 같은 선에 있다. 조용하고 질서 있다. ② "넓게(10단)"로 바꾼다. 그림이 본문보다 양쪽으로 한 단씩 나왔지만 여전히 단 선 위다. 그리드를 크게 쓴 것이다. ③ "화면 끝까지"로 바꾼다. 그림이 콘텐츠 폭을 벗어나 화면 가장자리까지 간다. 이 페이지에서 가장 먼저 보이는 것이 된다. 깬 것이 분명하다. ④ "조금 어긋남"으로 바꾼다. 그림이 오른쪽으로 10픽셀 밀렸을 뿐인데, 본문과 공유하던 세로선을 모두 잃는다. "단 보기"를 켜면 어긋남이 더 분명해진다. (가상 화면 폭 1,280, 콘텐츠 폭 1,200, 12단, 거터 24. 공유하는 세로선은 본문의 왼쪽 끝, 오른쪽 끝, 가운데 중 그림의 끝·가운데와 3픽셀 안에서 맞는 것을 센다.)</div>
+    </div>
+
+    <p>"화면 끝까지"와 "조금 어긋남"은 둘 다 그리드를 벗어났지만 인상은 정반대다. 앞의 것은 벗어난 정도가 커서 의도가 분명하고, 뒤의 것은 의도인지 실수인지 알 수 없다. 웹에서는 하나가 더 있다. 화면 폭이 바뀌어도 깬 것이 계속 깬 것으로 보여야 한다. 전체 폭 요소는 어떤 화면에서든 화면 끝까지 가니 의도가 유지되지만, "왼쪽으로 40픽셀 내밀기" 같은 깨기는 좁은 화면에서 화면 밖으로 잘려 나가기 쉽다.</p>
+    <p>CSS 그리드에서는 선에 이름을 붙여 전체 폭 요소를 간단히 만든다. 콘텐츠 영역 양옆에 늘었다 줄었다 하는 칸을 하나씩 두고, 보통 요소는 가운데 칸에, 전체 폭 요소는 양 끝 선 사이에 놓는다.</p>
+<pre class="code" data-scroll><code>.article {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(16px, 1fr)
+    [content-start] min(1200px, 100% - 32px) [content-end]
+    minmax(16px, 1fr) [full-end];
+}
+.article > *      { grid-column: content; }   <span class="cm">/* 기본: 콘텐츠 폭 */</span>
+.article > .bleed { grid-column: full; }      <span class="cm">/* 깨는 요소: 화면 끝까지 */</span></code></pre>
+
+    <div class="callout deep">
+      <strong>그리드 안의 그리드: subgrid</strong>
+      카드 안의 제목, 설명, 가격이 이웃 카드의 제목, 설명, 가격과 같은 높이에 서게 하고 싶을 때가 있다. 카드마다 제목 길이가 달라 한 줄짜리와 두 줄짜리가 섞이면, 그 아래 가격의 높이가 카드마다 들쭉날쭉해진다. CSS Grid Layout Module Level 2의 <code>subgrid</code>는 자식 그리드가 부모 그리드의 선을 그대로 물려받게 해서 이 문제를 푼다. 카드들이 부모의 가로줄(제목 줄, 설명 줄, 가격 줄)을 함께 쓰는 것이다. 2023년 무렵에 주요 브라우저가 모두 지원하게 되었다. 종이 그리드의 기준선 격자(TypeBook 9장)가 이웃한 단의 글줄을 맞추던 것을 웹에서 카드 단위로 하는 셈이다.
+    </div>
+  </section>
+
+  <section id="books">
+    <h2>신간 목록 짜기</h2>
+    <p>이 장의 도구를 모아 책방 E의 신간 목록을 짠다. 위쪽에는 "이달의 책" 띠가 있고, 그 아래에 신간 여덟 권이 카드로 놓인다. "옛 사이트"는 지금 쓰는 960 픽셀 고정 템플릿(12단, 단 60, 거터 20)이다. "새 그리드"는 이 장에서 세운 규칙이다. 콘텐츠 폭은 최대 1,200, 양옆 바깥 여백은 최소 16, 12단에 거터 24, 카드는 최소 폭 이상으로 auto-fill. 화면 폭 슬라이더로 가상 브라우저를 늘이고 줄인다.</p>
+
+    <div class="sim" id="sim-books">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>책방 E 신간 목록</h3></div>
+      <div class="sim-body">
+        <div class="sim-view stage"><canvas id="gr-bk-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="gr-bk-mode"><button data-value="old">옛 사이트(960 고정)</button><button data-value="new" class="on">새 그리드</button></div>
+          <label class="ctrl"><span>화면 폭 <output id="gr-bk-v-out"></output></span><input type="range" id="gr-bk-v" min="320" max="1600" step="8" value="1280"></label>
+          <label class="ctrl"><span>카드 최소 폭(새 그리드) <output id="gr-bk-m-out"></output></span><input type="range" id="gr-bk-m" min="160" max="320" step="8" value="240"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">콘텐츠 폭 · 단 폭</span><span class="v" id="gr-bk-o-c">—</span></div>
+        <div class="stat"><span class="k">한 줄 카드 수 · 카드 폭</span><span class="v" id="gr-bk-o-k">—</span></div>
+        <div class="stat"><span class="k">12단과 맞음</span><span class="v" id="gr-bk-o-a">—</span></div>
+        <div class="stat"><span class="k">문제</span><span class="v" id="gr-bk-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "옛 사이트"에서 화면 폭을 1,600까지 늘린다. 960 판이 가운데에 섬처럼 떠 있고 양옆이 텅 빈다. ② 화면 폭을 360으로 줄인다. 판이 화면보다 넓어 오른쪽이 잘리고 가로 스크롤이 생긴다(실제 휴대폰은 대개 판 전체를 줄여서 보여 주므로 글자가 깨알처럼 작아진다). ③ "새 그리드"로 바꾸고 1,280에서 본다. 콘텐츠 폭 1,200, 단 폭 78, 한 줄에 네 권(282)이 3단씩 정확히 선다. "이달의 책" 띠만 화면 끝까지 가서 그리드를 깬다. ④ 화면 폭을 천천히 줄인다. 네 권, 세 권, 두 권, 한 권으로 바뀌는 동안 카드 경계가 계속 12단 선 위에 있다. 360에서는 단 폭이 5 남짓이라 12단 안내선은 의미를 잃지만 카드는 한 줄에 한 권으로 잘 선다. ⑤ 카드 최소 폭을 200이나 216으로 내린다. 1,280에서 다섯 권이 되어 12단과 어긋난다. (가상 화면이다. 카드 높이는 표지 비율 3:4와 글 세 줄로 계산했다. 좁은 화면의 단 수는 이 장에서 정하지 않았다.)</div>
+    </div>
+
+    <p>새 그리드에서 주목할 점은 <b>화면 폭마다 따로 정한 숫자가 하나도 없다</b>는 것이다. 콘텐츠 폭은 <code>min(1200px, 100% - 32px)</code> 한 식으로, 한 줄의 카드 수는 <code>auto-fill</code>과 최소 폭 240으로 정해진다. 화면이 바뀔 때 규칙이 알아서 계산한다. 그래도 남는 것이 있다. 좁은 화면에서 12단 안내선은 단 폭이 거터보다 좁아져 쓸모가 없고, 카드가 아닌 요소들(행사 일정의 날짜와 설명처럼 두 단으로 나란히 서야 하는 것)은 어느 폭에서 한 단으로 바뀌어야 하는지 아직 정하지 않았다. 그것은 다음 장의 일이다.</p>
+
+    <div class="callout try">
+      <strong>모눈종이 위의 12단</strong>
+      5 mm 모눈종이 한 장을 가로로 놓고, 가로 60칸(300 mm)을 콘텐츠 폭이라고 하자. 단 4칸, 거터 1칸으로 하면 12단 × 4칸 + 11 × 1칸 = 59칸이라 한 칸이 남는다. 양옆 바깥 여백을 반 칸씩 두면 맞아떨어진다. 색연필로 단을 칠한 뒤, 다른 종이에 신간 카드(3단 폭)와 행사 카드(4단 폭), 추천 도서 띠(8단 폭)를 오려 위에 놓아 본다. 두 줄, 세 줄로 놓을 때 경계가 맞는지 손으로 확인한다. 마지막으로 카드 하나를 반 칸만 비켜 놓고 한 걸음 물러나 본다. 반 칸이 얼마나 거슬리는지가 단 선의 값이다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 4장</span></div>
+      <h4>네 권씩, 3단씩, 1,200에서 멈추기</h4>
+      <p>2028년 1월 셋째 주. 주인의 바람은 하나였다. "새로 들어온 책을 한눈에 많이 보여 주고 싶어요." 서윤은 1장에서 정한 세 폭(360·768·1,280) 가운데 가장 넓은 1,280 시안부터 열었다. 옛 사이트의 신간 목록은 960 고정 판 위에 카드 네 장(단 60, 거터 20, 카드 220)이었다. 같은 짜임을 1,280 화면에 그대로 키우면 카드가 다섯 장, 여섯 장까지 들어갈 것 같았지만, 지후는 숫자부터 적자고 했다.</p>
+      <p>두 사람은 12단을 기본으로 놓고 거터를 16, 24, 32로 바꿔 가며 카드 세 장(4단씩)과 네 장(3단씩)을 나란히 그려 봤다. 거터 16은 표지와 표지가 붙어 보여 책이 한 줄의 띠처럼 읽혔고, 32는 카드 네 장일 때 표지가 작아졌다. 3장에서 정한 카드 사이 24가 거터로도 자연스러웠다. 거터와 카드 사이가 같으니 단 선과 카드 경계가 한 체계가 된다. 콘텐츠 폭은 1,200에서 멈추기로 했다. 그러면 단 폭이 정확히 78이 되고(12 × 78 + 11 × 24 = 1,200), 그보다 넓은 화면에서는 양옆이 고르게 비어 1,920 모니터에서도 표지가 거인처럼 커지지 않는다. 좁은 쪽은 3장의 휴대폰 양옆 여백 16을 바깥 여백의 최솟값으로 삼았다.</p>
+      <p>카드 수는 서윤이 화면 폭마다 정하려 했다. "1,280에서 네 장, 그 아래로는 세 장…" 지후가 이 장의 톱니 그래프를 보여 주며 말했다. "기기마다 정하지 말고 카드가 얼마나 좁아질 수 있는지만 정해요. 나머진 브라우저가 해요." 서윤은 표지와 두 줄짜리 제목(17px)이 버티는 가장 좁은 카드를 시안에서 찾았고, 그 값이 240이었다. 최소 폭 240이면 1,200에서 네 장(282), 그보다 좁아지면 세 장, 두 장, 한 장이 되는데, 모두 12의 약수라 카드 경계가 늘 12단 선 위에 선다. 220으로 내리면 1,200에서 다섯 장이 되어 단과 어긋났다. 그리드를 깨는 요소는 하나만 두었다. 신간 목록 위의 "이달의 책" 띠다. 책방 초록 바탕이 화면 끝까지 가고, 그 안의 글은 콘텐츠 폭의 왼쪽 단 선에 맞췄다.</p>
+      <p>도경이 휴대폰(글자 크기 최대)으로 첫 시험판을 열어 보더니 한 권씩 크게 나오는 목록이 오히려 좋다고 했다. 다만 서윤이 행사 일정 페이지를 같은 그리드에 올려 보니, 날짜와 설명을 나란히 놓은 두 단이 태블릿 근처의 폭에서 어색하게 눌렸다. 카드가 아닌 요소들은 auto-fill로 해결되지 않았다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#2f7d5b"></i><b>넓은 화면 그리드</b><code>12단 · 거터 24</code></span>
+        <span class="chip"><i style="background:#567666"></i><b>콘텐츠 폭</b><code>최대 1200 · 단 78</code></span>
+        <span class="chip"><i style="background:#ffe2d7"></i><b>바깥 여백</b><code>최소 16</code></span>
+        <span class="chip"><i style="background:#d24f39"></i><b>카드 최소 폭</b><code>240</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>넓은 화면 12단, 거터 24px(3장의 카드 사이와 같은 값), 콘텐츠 최대 폭 1,200px(단 폭 78px), 바깥 여백 최소 16px: 콘텐츠 폭 = <code>min(1200px, 100% - 32px)</code>, 단은 <code>repeat(12, minmax(0, 1fr))</code>. 신간 카드는 <code>repeat(auto-fill, minmax(min(240px, 100%), 1fr))</code>, gap 24px. 카드 최소 폭 240px로 1,200에서 한 줄 네 권(카드 282px = 3단), 좁아지면 3·2·1권(모두 12단 선 위). 카드가 두세 권뿐일 때 커지지 않도록 auto-fit이 아닌 auto-fill. 그리드를 깨는 요소는 "이달의 책" 띠 하나(전체 폭, 안의 글은 콘텐츠 왼쪽 선).</div>
+        <div><b>아직 남은 문제</b>좁은 화면에서 12단은 단 폭이 거터보다 좁아 안내선 구실을 못 한다. 행사 일정 페이지의 날짜·설명 두 단이 768 근처에서 어색하게 눌린다. 화면 폭에 따라 짜임 자체가 바뀌어야 하는 지점과, 제목 크기가 화면에 따라 어떻게 바뀌어야 하는지는 아직 정하지 않았다.</div>
+        <div><b>다음 단계</b><a href="responsive.html">5장</a>: 기기 이름이 아니라 콘텐츠가 깨지는 곳에서 짜임을 바꾼다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>열 그리드는 화면을 단, 거터, 바깥 여백으로 나눈 규칙이다. 화면 폭을 모르기 때문에 숫자가 아니라 "무엇이 늘고 무엇이 고정되는가"로 정하고, 콘텐츠에는 최대 폭을 둔다.</li>
+      <li>단 폭 \(c = (V - 2M - (n-1)G)/n\), \(k\)단에 걸친 폭 \(kc + (k-1)G\). 12는 1, 2, 3, 4, 6, 12로 나누어떨어져 카드 수와 2:1, 3:1 나누기를 모두 받아 준다. 단 폭이 거터보다 좁아지면 그 그리드는 그 화면에 맞지 않는다.</li>
+      <li>단 선은 둘째 줄을 위해 있다. 요소의 경계를 단 선에 맞추면 줄과 줄, 페이지와 페이지가 같은 선을 나눠 갖는다. 몇 픽셀 어긋난 경계는 실수로 읽힌다.</li>
+      <li><code>fr</code>은 고정 칸과 간격을 뺀 남는 공간을 비로 나눈다. <code>1fr</code>의 최솟값은 내용의 최소 폭이라 긴 낱말이 칸을 넓힌다. 열 그리드에는 <code>minmax(0, 1fr)</code>를 쓴다.</li>
+      <li>플렉스박스는 한 방향으로 흘리며 줄마다 공간을 나누고, 그리드는 두 방향의 선을 먼저 긋는다. 줄과 줄이 맞아야 하는 카드 목록은 <code>repeat(auto-fill, minmax(최소 폭, 1fr))</code>. 한 줄의 카드 수가 12의 약수이고 간격이 거터와 같으면 카드는 12단 선에 선다.</li>
+      <li>그리드를 깨는 요소는 적게, 분명하게. 화면 끝까지 가는 전체 폭 요소는 어느 화면에서나 의도가 보이고, 조금 비켜 선 요소는 실수처럼 보인다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 콘텐츠 폭 1,200px(바깥 여백 제외)을 12단, 거터 24px로 나눈다. 단 폭과 3단에 걸친 카드의 폭은?</p>
+        <div class="opts">
+          <button class="opt">단 100, 카드 300</button>
+          <button class="opt">단 76, 카드 228</button>
+          <button class="opt" data-correct>단 78, 카드 282</button>
+          <button class="opt">단 80, 카드 288</button>
+        </div>
+        <div class="quiz-exp">거터는 단 사이에만 있으니 12단이면 11개다. (1,200 − 11 × 24) ÷ 12 = 936 ÷ 12 = 78. 3단 카드는 단 셋과 그 사이 거터 둘을 차지해 3 × 78 + 2 × 24 = 282다. 100은 거터를 빼지 않은 값이고, 76은 거터를 12개로 센 값, 228은 거터를 빼먹은 카드 폭이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 폭 800px인 그리드 상자에 <code>grid-template-columns: 200px 1fr 2fr; column-gap: 24px;</code>를 주었다(칸 내용은 충분히 줄어든다). 셋째 칸의 폭은?</p>
+        <div class="opts">
+          <button class="opt">400px</button>
+          <button class="opt" data-correct>368px</button>
+          <button class="opt">533px</button>
+          <button class="opt">384px</button>
+        </div>
+        <div class="quiz-exp">남는 공간은 800 − 200 − 2 × 24 = 552다. 이것을 1:2로 나누면 1fr = 184, 2fr = 368이다. 400은 간격을 빼지 않은 값((800 − 200) ÷ 3 × 2), 533은 고정 칸까지 fr로 나눈 값(800 ÷ 3 × 2), 384는 간격을 하나만 뺀 값이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 책 일곱 권을 <code>flex: 1 1 200px</code>로 감싼(flex-wrap) 목록에서 한 줄에 세 권씩 놓였다. 마지막 줄의 한 권은 어떻게 되며, 이를 피하는 방법으로 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">마지막 줄의 한 권도 위 줄과 같은 폭이 된다. 플렉스박스는 줄과 줄을 맞추기 때문이다.</button>
+          <button class="opt">마지막 줄의 한 권이 사라진다. 플렉스박스는 꽉 차지 않은 줄을 그리지 않는다.</button>
+          <button class="opt">마지막 줄의 한 권이 줄 전체로 늘어난다. 거터를 넓히면 해결된다.</button>
+          <button class="opt" data-correct>마지막 줄의 한 권이 줄 전체로 늘어난다. 줄과 줄을 함께 맞추는 그리드(<code>repeat(auto-fill, minmax(200px, 1fr))</code>)로 바꾼다.</button>
+        </div>
+        <div class="quiz-exp">플렉스박스는 줄마다 남는 공간을 그 줄의 상자들에게 나눠 준다. 마지막 줄에 한 권만 있으면 그 한 권이 남는 공간을 모두 받아 늘어난다. 거터를 넓혀도 줄마다 따로 나누는 성질은 그대로다. 그리드는 가로세로 선을 먼저 그어 두므로 마지막 줄도 위 줄의 단에 선다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 모든 요소가 12단에 맞춰진 행사 소개 페이지에서 그림 하나의 자리를 고른다. 그리드를 "의도적으로 깬" 것으로 가장 분명하게 읽히는 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>그림이 콘텐츠 폭을 벗어나 화면 양 끝까지 펼쳐진다.</button>
+          <button class="opt">그림이 본문 폭(8단)과 같은 폭으로, 단 선에서 오른쪽으로 10px 밀려 있다.</button>
+          <button class="opt">그림의 왼쪽 끝만 본문보다 6px 안쪽에서 시작한다.</button>
+          <button class="opt">그림이 본문과 정확히 같은 8단 폭에 놓인다.</button>
+        </div>
+        <div class="quiz-exp">깨는 것이 강조가 되려면 적고 분명해야 한다. 화면 끝까지 가는 전체 폭 그림은 벗어난 정도가 커서 의도가 분명하다. 10px, 6px 어긋남은 깬 것이 아니라 실수처럼 보이는 어긋남이다. 8단에 정확히 맞춘 그림은 그리드를 지킨 것이다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" data-nonum>
+    <h2>출처</h2>
+    <ul>
+      <li>W3C, <i>CSS Grid Layout Module Level 1</i>. <code>fr</code> 단위(flexible length), <code>repeat()</code>, <code>auto-fill</code>/<code>auto-fit</code>, <code>minmax()</code>, 이름 붙인 선.</li>
+      <li>W3C, <i>CSS Grid Layout Module Level 2</i>. <code>subgrid</code>.</li>
+      <li>W3C, <i>CSS Flexible Box Layout Module Level 1</i>. 줄 단위로 남는 공간을 나누는 규칙.</li>
+      <li>W3C, <i>CSS Box Alignment Module Level 3</i>. <code>gap</code>, <code>column-gap</code>.</li>
+      <li>Nathan Smith, 960 Grid System(960.gs), 2008 무렵 공개. 12단(단 60, 거터 20)·16단 틀(요약).</li>
+      <li>Bootstrap, 2011년 첫 공개. 12단 그리드(요약). 이 장은 그 코드나 화면을 옮기지 않았다.</li>
+      <li>Josef Müller-Brockmann, <i>Grid Systems in Graphic Design</i>, Niggli, 1981. 종이 그리드는 TypeBook <a href="../../type/chapters/grid.html">9장</a>에서 다룬다.</li>
+      <li>이 장의 화면, 카드, 시안 값은 교육용으로 만든 가상 자료다. "공유하는 세로선"과 "12단과 맞음"의 판정은 이 장이 정한 단순한 규칙이다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  /* ---------- 고정색(예시 그림: 테마와 무관) ---------- */
+  var PAPER = "#fbfaf7", INK = "#2b2a30", DIM = "#6b6874", PAGE = "#ffffff", LINE = "#ddd6ca", CHROME = "#e8e4dd";
+  var BK = { green: "#2f7d5b", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", dark: "#22342a" };
+  var COL = "rgba(214,58,106,0.16)", COL_S = "rgba(214,58,106,0.55)", RL = "#d63a6a", BAD = "#c0392b";
+  var COVERS = [["#2f4a5e", "#e9c46a"], ["#d24f39", "#ffe2d7"], ["#567666", "#ffe2d7"], ["#e9c46a", "#22342a"], ["#22342a", "#d24f39"], ["#8c7a5a", "#fbfaf7"], ["#3a7fb0", "#ffe2d7"], ["#a8643c", "#f6efe4"]];
+  function fam(mono) { return getComputedStyle(document.body).getPropertyValue(mono ? "--mono" : "--font"); }
+  function F(px, w, mono) { return (w || 500) + " " + Math.max(1, px).toFixed(1) + "px " + fam(mono); }
+  function fill(c, x, y, w, h, col) { c.fillStyle = col; c.fillRect(x, y, w, h); }
+  function rr(c, x, y, w, h, r, col, stroke, lw) {
+    c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, Math.max(0, Math.min(r, w / 2, h / 2))); else c.rect(x, y, w, h);
+    if (col) { c.fillStyle = col; c.fill(); }
+    if (stroke) { c.strokeStyle = stroke; c.lineWidth = lw || 1; c.stroke(); }
+  }
+  function txt(c, s, x, y, o) {
+    o = o || {}; c.font = F(o.size || 12, o.weight || 500, o.mono); c.fillStyle = o.color || INK;
+    c.textAlign = o.align || "left"; c.textBaseline = o.base || "alphabetic"; c.fillText(s, x, y);
+  }
+  function pill(c, s, x, y, o) {
+    o = o || {}; c.font = F(o.size || 11, 700, true);
+    var tw = c.measureText(s).width + 8, hh = (o.size || 11) + 6, x0 = o.align === "right" ? x - tw : o.align === "center" ? x - tw / 2 : x;
+    rr(c, x0, y - hh / 2, tw, hh, 4, o.bg || RL);
+    c.fillStyle = o.color || "#ffffff"; c.textAlign = "left"; c.textBaseline = "middle"; c.fillText(s, x0 + 4, y + 0.5);
+    return tw;
+  }
+  function cover(c, x, y, w, h, k) {
+    var cc = COVERS[k % COVERS.length];
+    fill(c, x, y, w, h, cc[0]);
+    if (w > 6 && h > 10) { fill(c, x + w * 0.16, y + h * 0.16, w * 0.68, Math.max(1, h * 0.06), cc[1]); fill(c, x + w * 0.16, y + h * 0.27, w * 0.42, Math.max(1, h * 0.035), cc[1]); }
+  }
+  // 브라우저 창 틀(가상)
+  function chrome(c, x, y, w, h, bar) {
+    rr(c, x, y, w, h, 6, PAGE, "#b9b2a6", 1);
+    c.save(); c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, bar, [6, 6, 0, 0]); else c.rect(x, y, w, bar); c.fillStyle = CHROME; c.fill(); c.restore();
+    if (w > 40) ["#d24f39", "#e9c46a", "#2f7d5b"].forEach(function (col, i) { c.fillStyle = col; c.beginPath(); c.arc(x + 9 + i * 9, y + bar / 2, 2.6, 0, 7); c.fill(); });
+  }
+  function guard(name, fn) { try { fn(); } catch (e) { console.error("[grid:" + name + "]", e); } }
+  function pw(id) { var el = document.getElementById(id); return Math.max(200, (el && el.parentElement && el.parentElement.clientWidth) || 600); }
+  function f1(v) { return Math.abs(v - Math.round(v)) < 0.05 ? String(Math.round(v)) : v.toFixed(1); }
+
+  /* ================= 1. 화면 폭을 끌어 보는 열 그리드 ================= */
+  guard("arith", function () {
+    var V = 1280, VMAX = 1600, geo = null, act = false;
+    var nG = AB.range("gr-ar-n", function (v) { return String(v); }, function () { cv.redraw(); });
+    var gG = AB.range("gr-ar-g", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var mG = AB.range("gr-ar-m", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#gr-ar-cv", function (c, w, h) {
+      var n = nG(), G = gG(), M = mG();
+      var s = (w - 30) / VMAX, ox = 12, oy = 34, bar = 14, wh = h - oy - 58;
+      var C = V - 2 * M, col = (C - (n - 1) * G) / n;
+      geo = { s: s, ox: ox, oy: oy, wh: wh };
+      // 눈금자: 흔한 화면 폭
+      c.strokeStyle = "#b9b2a6"; c.lineWidth = 1;
+      c.beginPath(); c.moveTo(ox, 22); c.lineTo(ox + VMAX * s, 22); c.stroke();
+      [320, 360, 768, 1024, 1280, 1440, 1600].forEach(function (v, i) {
+        var x = ox + v * s; c.beginPath(); c.moveTo(x, 17); c.lineTo(x, 27); c.stroke();
+        if (s * 400 > 90 || [360, 768, 1280].indexOf(v) >= 0) txt(c, String(v), x, 13, { size: 9.5, mono: true, color: DIM, align: "center" });
+      });
+      chrome(c, ox, oy, V * s, wh, bar);
+      var top = oy + bar + 6, x0 = ox + M * s, ch = wh - bar - 12;
+      // 바깥 여백
+      c.globalAlpha = 0.5; fill(c, ox + 1, top - 2, M * s, ch + 4, "#efe6d6"); fill(c, ox + (V - M) * s - 1, top - 2, M * s, ch + 4, "#efe6d6"); c.globalAlpha = 1;
+      if (col > 0) {
+        for (var i = 0; i < n; i++) {
+          var cx = x0 + i * (col + G) * s;
+          fill(c, cx, top, col * s, ch, COL);
+          c.strokeStyle = COL_S; c.lineWidth = 0.6; c.strokeRect(cx + 0.3, top + 0.3, col * s - 0.6, ch - 0.6);
+          if (col * s > 12) txt(c, String(i + 1), cx + col * s / 2, top + 11, { size: 9, mono: true, color: RL, align: "center" });
+        }
+        // 콘텐츠: 머리 띠(전체) + 3단 카드
+        var hy = top + 18;
+        fill(c, x0, hy, C * s, Math.min(16, ch * 0.12), BK.green);
+        var span3 = 3 * col + 2 * G, cnt = Math.floor(n / 3), cy = hy + Math.min(16, ch * 0.12) + 10, chh = Math.max(20, ch - (cy - top) - 8);
+        for (var k = 0; k < cnt; k++) {
+          var kx = x0 + k * 3 * (col + G) * s;
+          rr(c, kx, cy, span3 * s, chh, 3, "#ffffff", BK.dark, 1);
+          cover(c, kx + 2, cy + 2, span3 * s - 4, chh * 0.55, k);
+          if (span3 * s > 34) { fill(c, kx + 4, cy + chh * 0.66, (span3 * s - 8) * 0.8, Math.max(2, chh * 0.07), BK.dark); fill(c, kx + 4, cy + chh * 0.8, (span3 * s - 8) * 0.5, Math.max(1.5, chh * 0.05), "#8a8790"); }
+        }
+      } else {
+        txt(c, "단이 없다: 거터와 여백이 화면보다 넓다", ox + V * s / 2, top + ch / 2, { size: 12, weight: 700, color: BAD, align: "center" });
+      }
+      // 치수: M, 단, G
+      var dy = oy + wh + 18;
+      function dim(a, b, label, colr, row) {
+        var y = dy + row * 18; c.strokeStyle = colr; c.lineWidth = 1.2;
+        c.beginPath(); c.moveTo(a, y); c.lineTo(b, y); c.moveTo(a, y - 4); c.lineTo(a, y + 4); c.moveTo(b, y - 4); c.lineTo(b, y + 4); c.stroke();
+        txt(c, label, Math.max(a, Math.min(b, (a + b) / 2)), y - 4, { size: 10.5, weight: 700, color: colr, align: (b - a) < 40 ? "left" : "center" });
+      }
+      if (M > 0) dim(ox, ox + M * s, "M " + M, "#8a6d3b", 1);
+      if (col > 0) { dim(x0, x0 + col * s, "단 " + f1(col), RL, 0); if (G > 0 && n > 1) dim(x0 + col * s, x0 + (col + G) * s, "G " + G, "#2f6fb0", 1); }
+      // 손잡이
+      AB.handle(c, ox + V * s, oy + wh / 2, { r: 8, fill: "#ffffff", ring: INK });
+      // 읽을거리
+      AB.stat("gr-ar-o-v", V + "<small>px</small>");
+      AB.stat("gr-ar-o-c", col > 0 ? f1(col) + "<small>px</small>" : "—");
+      var S = function (k) { return k <= n && col > 0 ? f1(k * col + (k - 1) * G) : "—"; };
+      AB.stat("gr-ar-o-s", S(3) + " · " + S(4) + " · " + S(6));
+      var j = col <= 0 ? "단이 없다" : col < G ? "단이 거터보다 좁다" : V - 2 * M > 1200 ? "최대 폭이 없다" : Math.abs(col - Math.round(col)) > 0.01 ? "쓸 만하다(소수 단 폭)" : "쓸 만하다";
+      AB.stat("gr-ar-o-j", '<small style="margin:0">' + j + "</small>");
+    }, { bg: PAPER, get height() { var W = pw("gr-ar-cv"); return Math.round(Math.min(340, Math.max(250, W * 0.55))); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { act = !!geo && Math.abs(x - (geo.ox + V * geo.s)) < 26 && y > geo.oy - 6 && y < geo.oy + geo.wh + 6; },
+      move: function (x) { if (!act) return; V = AB.clamp(Math.round((x - geo.ox) / geo.s / 8) * 8, 320, 1600); cv.redraw(); },
+      end: function () { act = false; },
+    });
+  });
+
+  /* ================= 2. 단 선에 맞춰 카드 나누기 ================= */
+  guard("span", function () {
+    var C = 1200, G = 24, N = 12, COLW = (C - (N - 1) * G) / N;   // 78
+    var edges = [];   // 카드의 오른쪽 끝(마지막 카드 제외), 콘텐츠 x(px)
+    var geo = null, act = -1;
+    function colRight(k) { return k * COLW + (k - 1) * G; }
+    function reset(k) { edges = []; for (var i = 1; i < k; i++) edges.push(colRight(i * 12 / k)); }
+    var kG = AB.seg("gr-sp-k", function (v) { reset(+v); cv.redraw(); });
+    var snapG = AB.check("gr-sp-snap", function (on) { if (on) edges = edges.map(snap); fixOrder(); cv.redraw(); });
+    var gridG = AB.check("gr-sp-grid", function () { cv.redraw(); });
+    function snap(x) { var k = Math.round((x + G) / (COLW + G)); return colRight(AB.clamp(k, 1, 11)); }
+    function fixOrder() {
+      for (var i = 0; i < edges.length; i++) {
+        var lo = (i === 0 ? 0 : edges[i - 1] + G) + 40, hi = (i === edges.length - 1 ? C : edges[i + 1] - G) - 40;
+        edges[i] = AB.clamp(edges[i], lo, Math.max(lo, hi));
+      }
+    }
+    reset(3);
+    var cv = AB.canvas("#gr-sp-cv", function (c, w, h) {
+      var s = (w - 24) / C, ox = 12, oy = 14;
+      geo = { s: s, ox: ox };
+      var r1 = { y: oy + 6, h: Math.max(40, h * 0.26) }, r2 = { y: r1.y + r1.h + 14 * Math.max(0.6, s * 3), h: h - (r1.y + r1.h + 14 * Math.max(0.6, s * 3)) - 30 };
+      geo.r2 = r2;
+      if (gridG()) for (var i = 0; i < N; i++) { var x = ox + i * (COLW + G) * s; fill(c, x, oy, COLW * s, h - oy - 22, COL); }
+      // 윗줄: 8단 + 4단
+      var a = colRight(8);
+      rr(c, ox, r1.y, a * s, r1.h, 4, BK.calm);
+      txt(c, "추천 도서", ox + 8, r1.y + 18, { size: Math.max(10, Math.min(14, 30 * s * 3)), weight: 800, color: BK.cream });
+      rr(c, ox + (a + G) * s, r1.y, (C - a - G) * s, r1.h, 4, BK.cream, "#e2c6b8", 1);
+      txt(c, "이달의 행사", ox + (a + G) * s + 8, r1.y + 18, { size: Math.max(10, Math.min(14, 30 * s * 3)), weight: 800, color: BK.dark });
+      // 아랫줄 카드
+      var starts = [0].concat(edges.map(function (e) { return e + G; })), ends = edges.concat([C]);
+      starts.forEach(function (st, k) {
+        var x = ox + st * s, ww = (ends[k] - st) * s;
+        rr(c, x, r2.y, ww, r2.h, 4, "#ffffff", "#cfc6b8", 1);
+        cover(c, x + 4, r2.y + 4, ww - 8, r2.h * 0.58, k + 1);
+        fill(c, x + 6, r2.y + r2.h * 0.7, (ww - 12) * 0.7, Math.max(3, r2.h * 0.06), BK.dark);
+        fill(c, x + 6, r2.y + r2.h * 0.82, (ww - 12) * 0.45, Math.max(2, r2.h * 0.045), "#8a8790");
+      });
+      // 어긋난 경계 표시 + 손잡이
+      var off = 0;
+      edges.forEach(function (e, i) {
+        var bad = Math.abs(snap(e) - e) > 0.5;
+        if (bad) {
+          off++;
+          c.strokeStyle = BAD; c.setLineDash([4, 3]); c.lineWidth = 1.2;
+          c.beginPath(); c.moveTo(ox + e * s, r1.y - 4); c.lineTo(ox + e * s, r2.y + r2.h + 4); c.stroke(); c.setLineDash([]);
+        }
+        AB.handle(c, ox + (e + G / 2) * s, r2.y + r2.h / 2, { r: 7, fill: bad ? "#ffd9d2" : "#ffffff", ring: bad ? BAD : INK });
+      });
+      // 위 줄 경계선(맞춤 확인)
+      c.strokeStyle = BK.dark; c.lineWidth = 1; c.setLineDash([2, 3]);
+      c.beginPath(); c.moveTo(ox + a * s, r1.y + r1.h); c.lineTo(ox + a * s, r2.y); c.stroke(); c.setLineDash([]);
+      txt(c, "콘텐츠 1,200 · 12단 · 거터 24", ox, h - 8, { size: 10.5, color: DIM });
+      var spans = starts.map(function (st, k) { return (ends[k] - st + G) / (COLW + G); });
+      AB.stat("gr-sp-o-s", spans.map(function (v) { return f1(v); }).join(" · "));
+      AB.stat("gr-sp-o-w", '<small style="margin:0">' + starts.map(function (st, k) { return f1(ends[k] - st); }).join(" · ") + "</small>");
+      AB.stat("gr-sp-o-x", off ? '<span class="bad-t">' + off + "</span>" : "0");
+    }, { bg: PAPER, get height() { var W = pw("gr-sp-cv"); return Math.round(Math.min(320, Math.max(220, W * 0.52))); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        act = -1; if (!geo) return; var best = 22;
+        edges.forEach(function (e, i) { var d = Math.hypot(x - (geo.ox + (e + G / 2) * geo.s), y - (geo.r2.y + geo.r2.h / 2)); if (d < best) { best = d; act = i; } });
+      },
+      move: function (x) {
+        if (act < 0) return;
+        var v = (x - geo.ox) / geo.s - G / 2;
+        edges[act] = snapG() ? snap(v) : Math.round(v * 10) / 10;
+        fixOrder(); if (snapG()) edges = edges.map(snap);
+        cv.redraw();
+      },
+      end: function () { act = -1; },
+    });
+  });
+
+  /* ================= 3. fr이 나누는 남는 공간 ================= */
+  guard("fr", function () {
+    var GAP = 24, URL = "chaekbang-e.example/2028/winter", MINC = 48;
+    var wG = AB.range("gr-fr-w", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var tG = AB.seg("gr-fr-t", function () { cv.redraw(); });
+    var LW = 0;
+    function solve(W, t) {
+      var inner = W - 2 * GAP, r = { tracks: [], free: 0, unit: 0, over: false };
+      if (t === "a") { r.free = inner - 200; r.unit = Math.max(0, r.free) / 3; r.tracks = [200, r.unit, 2 * r.unit]; r.def = ["200px", "1fr", "2fr"]; }
+      else if (t === "b" || t === "d") { r.free = inner; r.unit = inner / 3; r.tracks = [r.unit, r.unit, r.unit]; r.def = t === "b" ? ["1fr", "1fr", "1fr"] : ["minmax(0,1fr)", "minmax(0,1fr)", "minmax(0,1fr)"]; r.over = t === "d" && r.unit < LW; }
+      else {
+        r.free = inner; r.unit = inner / 3; r.def = ["1fr", "1fr", "1fr"];
+        if (r.unit < LW) { var rest = Math.max(2 * MINC, inner - LW); r.tracks = [rest / 2, LW, rest / 2]; r.unit = rest / 2; r.pinned = true; }
+        else r.tracks = [r.unit, r.unit, r.unit];
+      }
+      return r;
+    }
+    var cv = AB.canvas("#gr-fr-cv", function (c, w, h) {
+      var W = wG(), t = tG();
+      c.font = F(13, 500, true); LW = Math.ceil(c.measureText(URL).width) + 20;
+      var r = solve(W, t), total = r.tracks.reduce(function (a, b) { return a + b; }, 0) + 2 * GAP;
+      var s = (w - 28) / Math.max(W, total), ox = 14, oy = 44, th = h - oy - 64;
+      // 그리드 상자
+      rr(c, ox - 4, oy - 4, W * s + 8, th + 8, 6, "#efe9df", "#b9b2a6", 1);
+      txt(c, "그리드 상자 " + W + "px", ox, oy - 12, { size: 11, weight: 700, color: DIM });
+      var x = ox, cols = ["#e6efe9", "#fde9e1", "#e7ecf4"];
+      r.tracks.forEach(function (tw, i) {
+        var ww = tw * s;
+        fill(c, x, oy, ww, th, cols[i]);
+        c.strokeStyle = i === 0 && t === "a" ? BK.dark : RL; c.lineWidth = 1.2; c.strokeRect(x + 0.5, oy + 0.5, Math.max(0, ww - 1), th - 1);
+        c.save(); c.beginPath(); c.rect(x, oy, ww, th); c.clip();
+        txt(c, r.def[i], x + 6, oy + 18, { size: 11.5, weight: 700, mono: true, color: i === 0 && t === "a" ? BK.dark : RL });
+        txt(c, f1(tw) + "px", x + 6, oy + 36, { size: 13, weight: 800, color: INK });
+        c.restore();
+        if ((t === "c" || t === "d") && i === 1) {
+          var ty = oy + th - 22;
+          if (t === "d" && r.over) { c.save(); c.beginPath(); c.rect(x + ww, oy, LW * s, th); c.clip(); c.globalAlpha = 0.25; fill(c, x + ww, ty - 14, LW * s, 22, BAD); c.globalAlpha = 1; c.restore(); }
+          c.save(); if (t !== "d") { c.beginPath(); c.rect(x, oy, ww, th); c.clip(); }
+          c.font = F(13 * Math.min(1, s * 1.6), 500, true); c.fillStyle = (t === "d" && r.over) ? BAD : BK.dark; c.textAlign = "left"; c.textBaseline = "alphabetic";
+          c.fillText(URL, x + 10 * s, ty);
+          c.restore();
+        }
+        x += ww;
+        if (i < 2) { c.globalAlpha = 0.5; fill(c, x, oy, GAP * s, th, "#cfc6b8"); c.globalAlpha = 1; x += GAP * s; }
+      });
+      // 남는 공간 괄호
+      var fx0 = t === "a" ? ox + (200 + GAP) * s : ox, fx1 = ox + total * s, by = oy + th + 16;
+      c.strokeStyle = "#2f6fb0"; c.lineWidth = 1.4;
+      c.beginPath(); c.moveTo(fx0, by - 5); c.lineTo(fx0, by); c.lineTo(fx1, by); c.lineTo(fx1, by - 5); c.stroke();
+      txt(c, t === "a" ? "fr로 나누는 남는 공간(간격 포함)" : "남는 공간 = 상자 폭 − 간격 2개", (fx0 + fx1) / 2, by + 16, { size: 11, weight: 700, color: "#2f6fb0", align: "center" });
+      var note = t === "c" && r.pinned ? "가운데 칸이 주소 폭(" + LW + ")에서 멈췄다" : t === "d" && r.over ? "주소가 칸 밖으로 " + Math.round(LW - r.unit) + "px 넘친다" : "";
+      if (note) txt(c, note, ox, h - 10, { size: 12, weight: 700, color: BAD });
+      AB.stat("gr-fr-o-f", f1(r.free) + "<small>px</small>");
+      AB.stat("gr-fr-o-u", f1(r.unit) + "<small>px</small>");
+      AB.stat("gr-fr-o-t", '<small style="margin:0">' + r.tracks.map(f1).join(" · ") + "</small>");
+    }, { bg: PAPER, get height() { var W = pw("gr-fr-cv"); return Math.round(Math.min(260, Math.max(200, W * 0.42))); } });
+  });
+
+  /* ================= 4. 마지막 줄이 말해 주는 것 ================= */
+  guard("axis", function () {
+    var GAP = 24, BASIS = 200, NB = 7;
+    var TITLES = ["겨울 숲의 지도", "귤과 수채화", "골목의 글자", "작은 서점 일기", "눈 오는 날", "빛의 색", "산책자의 노트"];
+    var wG = AB.range("gr-ax-w", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var mG = AB.seg("gr-ax-m", function () { cv.redraw(); });
+    function layout(W, m) {
+      var k = Math.max(1, Math.floor((W + GAP) / (BASIS + GAP))), rows = Math.ceil(NB / k), out = [];
+      for (var i = 0; i < NB; i++) {
+        var row = Math.floor(i / k), idx = i % k, inRow = Math.min(k, NB - row * k), cw;
+        if (m === "grow") cw = (W - (inRow - 1) * GAP) / inRow;
+        else if (m === "fixed") cw = Math.min(BASIS, W);
+        else cw = (W - (k - 1) * GAP) / k;
+        out.push({ row: row, x: idx * (cw + GAP), w: cw });
+      }
+      return { k: k, rows: rows, cards: out };
+    }
+    var cv = AB.canvas("#gr-ax-cv", function (c, w, h) {
+      var W = wG(), m = mG(), L = layout(W, m);
+      var s = (w - 28) / W, ox = 14, oy = 12, avail = h - oy - 14;
+      var rowH = Math.min(118, (avail - (L.rows - 1) * 10) / L.rows), gy = rowH < 40 ? 4 : 10;
+      fill(c, ox - 4, oy - 4, W * s + 8, L.rows * rowH + (L.rows - 1) * gy + 8, "#efe9df");
+      // 첫 줄 경계선
+      var first = L.cards.filter(function (cd) { return cd.row === 0; });
+      c.strokeStyle = "#2f6fb0"; c.lineWidth = 1; c.setLineDash([4, 3]);
+      first.forEach(function (cd) { [cd.x, cd.x + cd.w].forEach(function (xx) { c.beginPath(); c.moveTo(ox + xx * s, oy); c.lineTo(ox + xx * s, oy + L.rows * rowH + (L.rows - 1) * gy); c.stroke(); }); });
+      c.setLineDash([]);
+      L.cards.forEach(function (cd, i) {
+        var x = ox + cd.x * s, y = oy + cd.row * (rowH + gy), ww = cd.w * s, last = cd.row === L.rows - 1;
+        var odd = last && Math.abs(cd.w - first[0].w) > 0.5;
+        rr(c, x, y, ww, rowH, 5, "#ffffff", odd ? BAD : "#cfc6b8", odd ? 2 : 1);
+        var ch = rowH - (rowH > 60 ? 30 : 8);
+        cover(c, x + 4, y + 4, ww - 8, ch - 4, i);
+        if (rowH > 60) {
+          c.save(); c.beginPath(); c.rect(x + 4, y + ch, ww - 8, 26); c.clip();
+          txt(c, TITLES[i], x + 6, y + ch + 17, { size: Math.min(13, Math.max(9, ww / 10)), weight: 700, color: BK.dark });
+          c.restore();
+        }
+      });
+      var lastRow = L.cards.filter(function (cd) { return cd.row === L.rows - 1; });
+      var aligned = lastRow.every(function (cd, i) { return Math.abs(cd.x - first[i].x) < 0.5 && Math.abs(cd.w - first[i].w) < 0.5; });
+      var right = m === "fixed" ? W - (first.length * BASIS + (first.length - 1) * GAP) : 0;
+      AB.stat("gr-ax-o-k", L.k + "<small>장 · " + L.rows + "줄</small>");
+      AB.stat("gr-ax-o-w", f1(first[0].w) + " · " + f1(lastRow[0].w));
+      AB.stat("gr-ax-o-a", aligned ? (right > 4 ? '맞음<small>오른쪽 빈자리 ' + f1(right) + '</small>' : '<span class="ok-t">맞음</span>') : '<span class="bad-t">어긋남</span>');
+    }, { bg: PAPER, get height() { var W = pw("gr-ax-cv"); return Math.round(Math.min(400, Math.max(300, W * 0.62))); } });
+  });
+
+  /* ================= 5. 카드 최소 폭이 정하는 톱니(UI 그래프) ================= */
+  guard("auto", function () {
+    var X0 = 300, X1 = 1400, cur = 1200, ch = null, act = false;
+    var mG = AB.range("gr-au-m", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var gG = AB.range("gr-au-g", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    function kOf(W, m, g) { return Math.max(1, Math.floor((W + g) / (m + g))); }
+    function cardW(W, m, g) { var k = kOf(W, m, g); return (W - (k - 1) * g) / k; }
+    var cv = AB.canvas("#gr-au-cv", function (c, w, h) {
+      var P = AB.palette(), m = mG(), g = gG(), data = [], bands = [], prevK = null, bandStart = X0;
+      for (var W = X0; W <= X1; W += 2) {
+        var k = kOf(W, m, g);
+        if (k !== prevK) {
+          if (prevK !== null) data.push([W - 0.01, NaN]);
+          if (prevK !== null && 12 % prevK !== 0) bands.push({ x0: bandStart, x1: W, color: "rgba(230,170,40,0.16)" });
+          bandStart = W; prevK = k;
+        }
+        data.push([W, W < m ? W : cardW(W, m, g)]);
+      }
+      if (12 % prevK !== 0) bands.push({ x0: bandStart, x1: X1, color: "rgba(230,170,40,0.16)" });
+      var box = { x: 54, y: 16, w: w - 54 - 16, h: h - 16 - 46 };
+      ch = AB.chart(c, box, {
+        x: [X0, X1], y: [0, 800], xLabel: "목록 상자의 폭(px)", yLabel: "카드 한 장의 폭(px)",
+        xTicks: [400, 600, 800, 1000, 1200, 1400], yTicks: [0, 200, 400, 600, 800],
+        bands: bands,
+        series: [{ data: data, color: P.accent, width: 2.2 }],
+        hlines: [{ y: m, color: P.dim, label: "최소 폭 " + m }],
+        vlines: [{ x: cur, color: P.text, dash: [], width: 1.6 }],
+      });
+      var k = kOf(cur, m, g), cw = cur < m ? cur : cardW(cur, m, g);
+      AB.handle(c, ch.X(cur), ch.Y(Math.min(800, cw)), { r: 7, fill: P.surface, ring: P.text });
+      // 카드 수 표기
+      c.font = AB.font(11, true, 600); c.fillStyle = P.dim; c.textAlign = "center"; c.textBaseline = "bottom";
+      for (var n = 1; n <= 8; n++) {
+        var a = n === 1 ? m : n * (m + g) - g, b = (n + 1) * (m + g) - g;
+        if (a > X1 || b < X0) continue;
+        var mid = (Math.max(a, X0) + Math.min(b, X1)) / 2;
+        if (ch.X(Math.min(b, X1)) - ch.X(Math.max(a, X0)) > 18) c.fillText(n + "장", ch.X(mid), box.y + 14);
+      }
+      var lo = 2 * (m + g) - g, hiMax = m;
+      for (var n2 = 2; n2 <= 8; n2++) hiMax = Math.max(hiMax, ((n2 + 1) * (m + g) - g - (n2 - 1) * g) / n2);
+      AB.stat("gr-au-o-w", cur + "<small>px</small>");
+      AB.stat("gr-au-o-k", k + "<small>장</small> · " + f1(cw) + (12 % k ? ' <small class="warn-t">12단과 어긋남</small>' : ""));
+      AB.stat("gr-au-o-r", m + " ~ " + f1(hiMax - 0.01) + "<small>px</small>");
+    }, { get height() { var W = pw("gr-au-cv"); return Math.round(Math.min(360, Math.max(260, W * 0.6))); } });
+    function setX(x) { if (!ch) return; var v = X0 + (x - ch.box.x) / ch.box.w * (X1 - X0); cur = AB.clamp(Math.round(v / 8) * 8, 320, X1); cv.redraw(); }
+    AB.drag(cv.canvas, { start: function () { act = true; }, move: function (x) { if (act) setX(x); }, end: function () { act = false; } });
+  });
+
+  /* ================= 6. 깬 것과 어긋난 것 ================= */
+  guard("break", function () {
+    var V = 1280, C = 1200, M = 40, G = 24, CW = 78, MH = 820;
+    var mG = AB.seg("gr-br-m", function () { cv.redraw(); });
+    var gridG = AB.check("gr-br-grid", function () { cv.redraw(); });
+    function colX(k) { return M + (k - 1) * (CW + G); }        // k단의 왼쪽 끝(1부터)
+    function colR(k) { return colX(k) + CW; }
+    var cv = AB.canvas("#gr-br-cv", function (c, w, h) {
+      var md = mG(), s = Math.min((w - 20) / V, (h - 16) / MH), ox = (w - V * s) / 2, oy = 8;
+      var tx0 = colX(3), tx1 = colR(10), img;
+      if (md === "text") img = [tx0, tx1];
+      else if (md === "wide") img = [colX(2), colR(11)];
+      else if (md === "bleed") img = [0, V];
+      else img = [tx0 + 10, tx1 + 10];
+      c.save(); c.translate(ox, oy); c.scale(s, s);
+      c.beginPath(); c.rect(0, 0, V, MH); c.clip();
+      fill(c, 0, 0, V, MH, PAGE);
+      // 머리 띠
+      fill(c, 0, 0, V, 72, BK.green);
+      txt(c, "책방 E", M, 46, { size: 26, weight: 800, color: BK.cream });
+      ["행사", "신간", "모임 신청", "소개"].forEach(function (t, i) { txt(c, t, colX(8) + i * 110, 44, { size: 18, weight: 600, color: BK.cream }); });
+      if (gridG()) for (var k = 1; k <= 12; k++) fill(c, colX(k), 72, CW, MH - 72, COL);
+      // 제목과 본문(3~10단)
+      txt(c, "겨울 그림 읽기 모임", tx0, 150, { size: 44, weight: 800, color: BK.dark });
+      txt(c, "1월 20일 토요일 오후 3시 · 책방 E 2층", tx0, 192, { size: 20, color: "#5b6b62" });
+      for (var i = 0; i < 4; i++) fill(c, tx0, 224 + i * 30, (tx1 - tx0) * (i === 3 ? 0.6 : 1), 12, "#c9c3b8");
+      // 그림
+      var iy = 360, ih = 260;
+      fill(c, img[0], iy, img[1] - img[0], ih, BK.calm);
+      fill(c, img[0] + (img[1] - img[0]) * 0.12, iy + 40, (img[1] - img[0]) * 0.3, ih - 90, "#f4efe4");
+      fill(c, img[0] + (img[1] - img[0]) * 0.12 + 10, iy + 50, (img[1] - img[0]) * 0.3 - 20, ih - 110, "#c9d6dc");
+      fill(c, img[0] + (img[1] - img[0]) * 0.56, iy + 40, (img[1] - img[0]) * 0.3, ih - 90, "#f4efe4");
+      fill(c, img[0] + (img[1] - img[0]) * 0.56 + 10, iy + 50, (img[1] - img[0]) * 0.3 - 20, ih - 110, "#2f4a5e");
+      c.fillStyle = "#e9c46a"; c.beginPath(); c.arc(img[0] + (img[1] - img[0]) * 0.78, iy + 90, 16, 0, 7); c.fill();
+      // 이어지는 본문
+      for (var j = 0; j < 5; j++) fill(c, tx0, iy + ih + 40 + j * 30, (tx1 - tx0) * (j === 4 ? 0.45 : 1), 12, "#c9c3b8");
+      c.restore();
+      c.strokeStyle = LINE; c.lineWidth = 1; c.strokeRect(ox - 0.5, oy - 0.5, V * s + 1, MH * s + 1);
+      // 본문 선과 비교
+      var lines = [["왼쪽 끝", tx0, img[0]], ["오른쪽 끝", tx1, img[1]], ["가운데", (tx0 + tx1) / 2, (img[0] + img[1]) / 2]];
+      var shared = lines.filter(function (L) { return Math.abs(L[1] - L[2]) <= 3; });
+      var onCol = function (x) { for (var k2 = 1; k2 <= 12; k2++) if (Math.abs(x - colX(k2)) <= 1 || Math.abs(x - colR(k2)) <= 1) return true; return x <= 0 || x >= V; };
+      var near = img.some(function (x) { return !onCol(x) && lines.some(function (L) { return Math.abs(L[1] - x) > 3 && Math.abs(L[1] - x) <= 16; }); });
+      var verdict = md === "bleed" ? "의도한 강조" : near ? "실수처럼 보인다" : shared.length >= 2 ? "질서 있다" : "그리드를 크게 썼다";
+      AB.stat("gr-br-o-x", img[0] + " · " + img[1]);
+      AB.stat("gr-br-o-l", shared.length + '<small>개 ' + (shared.length ? "(" + shared.map(function (L) { return L[0]; }).join(", ") + ")" : "") + "</small>");
+      AB.stat("gr-br-o-r", '<small style="margin:0">' + verdict + "</small>");
+    }, { bg: PAPER, get height() { var W = pw("gr-br-cv"); return Math.round(Math.min(560, (W - 20) / 1280 * 820 + 16)); } });
+  });
+
+  /* ================= 7. 책방 E 신간 목록 ================= */
+  guard("books", function () {
+    var NB = 8, TITLES = ["겨울 숲의 지도", "귤과 수채화", "골목의 글자", "작은 서점 일기", "눈 오는 날", "빛의 색", "산책자의 노트", "종이와 연필"];
+    var modeG = AB.seg("gr-bk-mode", function () { cv.redraw(); });
+    var vG = AB.range("gr-bk-v", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var mG = AB.range("gr-bk-m", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#gr-bk-cv", function (c, w, h) {
+      var V = vG(), old = modeG() === "old", minW = mG();
+      var REF = 900, s = Math.min((w - 24) / Math.max(V, REF), 1), MHc = h - 20, MH = MHc / s, ox = (w - V * s) / 2, oy = 10;
+      var C, M0, G, n = 12, col, k, cw, scroll = false;
+      if (old) { C = 940; G = 20; M0 = (V - 960) / 2 + 10; col = 60; k = 4; cw = 220; scroll = V < 960; if (scroll) M0 = 10; }
+      else { C = Math.min(1200, V - 32); G = 24; M0 = (V - C) / 2; col = (C - 11 * G) / 12; k = Math.max(1, Math.floor((C + G) / (minW + G))); cw = Math.max(C < minW ? minW : 0, (C - (k - 1) * G) / k); if (C < minW) { k = 1; cw = minW; } }
+      // 화면 바깥(무대) + 창
+      c.save();
+      chrome(c, ox, oy, V * s, MHc, 12);
+      c.beginPath(); c.rect(ox, oy + 12, V * s, MHc - 12); c.clip();
+      c.translate(ox, oy + 12); c.scale(s, s);
+      var Hm = MH - 12 / s;
+      fill(c, 0, 0, V, Hm, PAGE);
+      // 머리 띠
+      var hb = old ? { x: M0 - 10, w: 960 } : { x: 0, w: V };
+      fill(c, hb.x, 0, hb.w, 64, BK.green);
+      txt(c, "책방 E", M0, 41, { size: 24, weight: 800, color: BK.cream });
+      if (!old && C >= 700) ["행사", "신간", "모임 신청", "소개"].forEach(function (t, i) { txt(c, t, M0 + C - 420 + i * 108, 40, { size: 17, weight: 600, color: BK.cream }); });
+      else if (old) ["행사", "신간", "모임 신청", "소개"].forEach(function (t, i) { txt(c, t, M0 + 520 + i * 100, 40, { size: 15, weight: 600, color: BK.cream }); });
+      else for (var q = 0; q < 3; q++) fill(c, M0 + C - 26, 22 + q * 8, 24, 3, BK.cream);
+      // 12단 안내선
+      if (col > 0) for (var i = 0; i < 12; i++) fill(c, M0 + i * (col + G), 64, col, Hm - 64, COL);
+      // 이달의 책 띠(새 그리드: 전체 폭 / 옛: 960 판 안)
+      var by = 64, bh = 150, band = old ? { x: M0 - 10, w: 960 } : { x: 0, w: V };
+      fill(c, band.x, by, band.w, bh, BK.calm);
+      cover(c, M0, by + 22, 80, 106, 4);
+      txt(c, "이달의 책", M0 + 100, by + 50, { size: 15, weight: 700, color: BK.cream });
+      txt(c, "겨울 숲의 지도", M0 + 100, by + 86, { size: 30, weight: 800, color: "#ffffff" });
+      // 신간 제목
+      var y = by + bh + 32;
+      txt(c, "새로 들어온 책", M0, y + 24, { size: 26, weight: 800, color: BK.dark });
+      y += 48;
+      var cardH = cw * 4 / 3 + 76;
+      for (var b = 0; b < NB; b++) {
+        var row = Math.floor(b / k), idx = b % k, x = M0 + idx * (cw + G), yy = y + row * (cardH + G);
+        if (yy > Hm) break;
+        rr(c, x, yy, cw, cardH, 8, "#ffffff", "#ddd6ca", 1.5);
+        cover(c, x + 12, yy + 12, cw - 24, cw * 4 / 3 - 24, b);
+        txt(c, TITLES[b], x + 12, yy + cw * 4 / 3 + 16, { size: 17, weight: 800, color: BK.dark });
+        txt(c, (14 + b) + ",000원", x + 12, yy + cw * 4 / 3 + 44, { size: 15, color: "#5b6b62" });
+      }
+      c.restore();
+      // 넘침 표시
+      var probs = [];
+      if (old && V < 960) { probs.push("가로 스크롤"); c.globalAlpha = 0.2; fill(c, ox + V * s - 8, oy + 12, 8, MHc - 12, BAD); c.globalAlpha = 1; pill(c, "→ 960 판이 잘림", ox + V * s - 10, oy + MHc / 2, { align: "right", bg: BAD }); }
+      if (old && V > 1200) probs.push("양옆이 텅 빔");
+      if (!old && C < minW) probs.push("카드가 넘침");
+      if (!old && col < G) probs.push("12단 안내선 무의미");
+      if (!old && V - 32 > 1200 && false) probs.push("");
+      var aligned = old ? (k && 12 % k === 0) : (12 % k === 0 && C >= minW);
+      AB.stat("gr-bk-o-c", f1(C) + " · " + (col > 0 ? f1(col) : "—"));
+      AB.stat("gr-bk-o-k", k + "<small>권</small> · " + f1(cw));
+      AB.stat("gr-bk-o-a", aligned ? '<span class="ok-t">맞음</span>' : '<span class="bad-t">어긋남</span>');
+      AB.stat("gr-bk-o-p", '<small style="margin:0">' + (probs.length ? probs.join(" · ") : "없음") + "</small>");
+    }, { bg: "#e9e7e3", get height() { var W = pw("gr-bk-cv"); return Math.round(Math.min(520, Math.max(300, W * 0.6))); } });
+  });
+})();
+</script>
+</body>
+</html>

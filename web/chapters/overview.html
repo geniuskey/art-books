@@ -1,0 +1,925 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "포스터는 종이 크기가 정해져 있지만 웹 페이지는 손바닥만 한 휴대폰에서도, 넓은 모니터에서도, 글자를 두 배로 키운 화면에서도 열린다. 같은 페이지의 세 화면, 고정과 흐름, 사용자가 바꾸는 설정, 손가락과 속도를 시뮬레이터로 둘러보고 화면·배치·상호작용·쓰임의 네 갈래로 WebBook의 지도를 그린다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>웹 디자인의 지도 · WebBook</title>
+<meta name="description" content="포스터는 종이 크기가 정해져 있지만 웹 페이지는 손바닥만 한 휴대폰에서도, 넓은 모니터에서도, 글자를 두 배로 키운 화면에서도 열린다. 같은 페이지의 세 화면, 고정과 흐름, 사용자가 바꾸는 설정, 손가락과 속도를 시뮬레이터로 둘러보고 화면·배치·상호작용·쓰임의 네 갈래로 WebBook의 지도를 그린다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/overview.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="웹 디자인의 지도 · WebBook">
+<meta property="og:description" content="포스터는 종이 크기가 정해져 있지만 웹 페이지는 손바닥만 한 휴대폰에서도, 넓은 모니터에서도, 글자를 두 배로 키운 화면에서도 열린다. 같은 페이지의 세 화면, 고정과 흐름, 사용자가 바꾸는 설정, 손가락과 속도를 시뮬레이터로 둘러보고 화면·배치·상호작용·쓰임의 네 갈래로 WebBook의 지도를 그린다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/overview.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/overview.html#chapter","name":"웹 디자인의 지도","headline":"웹 디자인의 지도 · WebBook","description":"포스터는 종이 크기가 정해져 있지만 웹 페이지는 손바닥만 한 휴대폰에서도, 넓은 모니터에서도, 글자를 두 배로 키운 화면에서도 열린다. 같은 페이지의 세 화면, 고정과 흐름, 사용자가 바꾸는 설정, 손가락과 속도를 시뮬레이터로 둘러보고 화면·배치·상호작용·쓰임의 네 갈래로 WebBook의 지도를 그린다.","url":"https://artbook.euiyun.com/web/chapters/overview.html","position":1,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"1. 웹 디자인의 지도","item":"https://artbook.euiyun.com/web/chapters/overview.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="overview">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 01</div>
+    <h1>웹 디자인의 지도</h1>
+    <p class="lead">포스터를 만드는 사람은 먼저 종이 크기를 정한다. A2라면 A2 안에서 모든 것을 짜고, 인쇄된 포스터는 누가 보든 같은 크기다. 웹 페이지는 그렇지 않다. 같은 주소가 손바닥만 한 휴대폰에서도, 책상 위의 넓은 모니터에서도, 글자를 두 배로 키워 둔 할머니의 휴대폰에서도 열린다. 디자이너는 그 화면을 고를 수 없다. 이 장은 크기를 정할 수 없는 캔버스 위에서 디자인한다는 것이 무엇인지 몇 개의 시뮬레이터로 둘러보고, 앞으로 열두 장에서 풀어 갈 질문을 화면·배치·상호작용·쓰임의 네 갈래로 나누어 한 장의 지도 위에 펼친다.</p>
+    <ul class="objectives">
+      <li>웹 페이지가 종이와 달리 "크기를 정할 수 없는 캔버스"라는 것을 같은 페이지의 세 화면으로 확인한다.</li>
+      <li>고정폭 레이아웃과 흐르는 레이아웃이 좁은 화면과 넓은 화면에서 각각 어떻게 무너지는지 창 폭을 끌며 본다.</li>
+      <li>글자 크기 설정, 확대, 손가락과 키보드처럼 화면을 바꾸는 것이 디자이너가 아니라 사용자라는 것을 설명한다.</li>
+      <li>페이지의 무게가 첫 화면이 뜨는 시간을 정한다는 것을 단순한 모형으로 본다.</li>
+      <li>웹 디자인의 통설 가운데 근거가 약한 것을 가려내고, 화면·배치·상호작용·쓰임의 네 갈래로 이 책의 지도를 그린다.</li>
+    </ul>
+  </header>
+
+  <section id="canvas">
+    <h2>크기를 정할 수 없는 캔버스</h2>
+    <p>책방의 행사 포스터와 책방의 웹사이트를 나란히 놓고 생각해 본다. 포스터는 종이 한 장이다. 디자이너는 종이의 가로세로를 알고, 제목이 어디에 몇 밀리미터로 들어가는지 정할 수 있다. 인쇄가 끝나면 그 배치는 바뀌지 않는다. 웹사이트는 같은 내용이 어떤 크기의 창에 담길지 모르는 채로 만든다. 지하철에서 휴대폰으로 행사 일정을 보는 사람, 회사 모니터에서 창을 반만 열어 둔 사람, 태블릿을 가로로 눕힌 사람이 모두 같은 주소를 연다.</p>
+    <p>웹 페이지가 놓이는 이 창 안의 영역을 <span class="term">뷰포트</span><span class="en">(Viewport)</span>라고 한다. 브라우저 창에서 주소창과 도구 막대를 뺀, 페이지가 실제로 그려지는 사각형이다. 뷰포트의 폭은 기기와 창 크기, 화면을 세웠는지 눕혔는지, 사용자가 확대했는지에 따라 달라진다. 웹 디자인의 거의 모든 문제는 이 사실 하나에서 출발한다. 뷰포트를 어떻게 재는지는 <a href="viewport.html">2장</a>에서 자세히 다룬다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="포스터는 크기가 정해진 종이 한 장이고, 웹 페이지는 폭이 다른 여러 창에 같은 내용이 다시 배치된다">
+        <defs><marker id="ov-ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="80" y="22" text-anchor="middle" class="lbl-b">포스터: 정해진 종이</text>
+        <rect x="24" y="36" width="112" height="158" rx="3" class="f-surface s-line"/>
+        <rect x="36" y="50" width="88" height="14" rx="2" class="f-acc"/>
+        <rect x="36" y="72" width="88" height="66" rx="2" class="f-acc2-soft"/>
+        <rect x="36" y="146" width="56" height="7" rx="2" class="f-acc2"/>
+        <rect x="36" y="158" width="40" height="5" rx="2" class="f-acc2"/>
+        <rect x="100" y="170" width="24" height="12" rx="2" class="f-warn"/>
+        <path d="M24 206 H136" class="s-line" marker-start="url(#ov-ar1)" marker-end="url(#ov-ar1)"/>
+        <text x="80" y="224" text-anchor="middle" class="lbl-dim">420 × 594 mm, 늘 같다</text>
+        <text x="320" y="22" text-anchor="middle" class="lbl-b">웹: 폭이 정해지지 않은 창</text>
+        <rect x="178" y="36" width="54" height="104" rx="7" class="f-surface s-line"/>
+        <rect x="184" y="44" width="42" height="8" rx="2" class="f-acc"/>
+        <rect x="184" y="56" width="42" height="28" rx="2" class="f-acc2-soft"/>
+        <rect x="184" y="88" width="34" height="4" rx="1" class="f-acc2"/>
+        <rect x="184" y="96" width="42" height="4" rx="1" class="f-acc2"/>
+        <rect x="184" y="104" width="30" height="4" rx="1" class="f-acc2"/>
+        <rect x="184" y="114" width="18" height="10" rx="2" class="f-warn"/>
+        <rect x="246" y="36" width="200" height="124" rx="6" class="f-surface s-line"/>
+        <rect x="246" y="36" width="200" height="12" rx="6" class="f-acc-soft"/>
+        <rect x="256" y="56" width="70" height="12" rx="2" class="f-acc"/>
+        <rect x="336" y="56" width="100" height="60" rx="2" class="f-acc2-soft"/>
+        <rect x="256" y="76" width="70" height="4" rx="1" class="f-acc2"/>
+        <rect x="256" y="84" width="60" height="4" rx="1" class="f-acc2"/>
+        <rect x="256" y="92" width="66" height="4" rx="1" class="f-acc2"/>
+        <rect x="256" y="104" width="26" height="12" rx="2" class="f-warn"/>
+        <rect x="256" y="126" width="40" height="24" rx="2" class="f-acc2-soft"/>
+        <rect x="302" y="126" width="40" height="24" rx="2" class="f-acc2-soft"/>
+        <rect x="348" y="126" width="40" height="24" rx="2" class="f-acc2-soft"/>
+        <rect x="394" y="126" width="40" height="24" rx="2" class="f-acc2-soft"/>
+        <path d="M178 176 H446" class="s-line" marker-start="url(#ov-ar1)" marker-end="url(#ov-ar1)"/>
+        <text x="312" y="194" text-anchor="middle" class="lbl-dim">320 … 2,560 CSS px, 사람마다 다르다</text>
+        <text x="205" y="156" text-anchor="middle" class="lbl-dim">휴대폰</text>
+        <text x="346" y="214" text-anchor="middle" class="lbl-dim">넓으면 나란히, 좁으면 위아래로</text>
+        <path d="M24 248 H446" class="s-dash"/>
+        <text x="230" y="270" text-anchor="middle" class="lbl">포스터는 배치를 하나 정하고, 웹은 배치가 바뀌는 규칙을 정한다</text>
+      </svg>
+      <figcaption><b>그림 1. 정해진 종이와 정해지지 않은 창.</b> 포스터 디자이너는 한 가지 배치를 완성한다. 웹 디자이너는 폭이 좁을 때와 넓을 때 같은 내용이 어떻게 다시 놓일지, 곧 배치가 바뀌는 <b>규칙</b>을 정한다. 색은 내용의 순서(제목, 그림, 본문, 버튼)를 나타낸다.</figcaption>
+    </figure>
+
+    <p>이 생각은 웹이 생길 때부터 있었다. 웹을 처음 만든 팀 버너스리<span class="en">(Tim Berners-Lee)</span>의 첫 웹 페이지(1991)는 글과 링크뿐이었고, 글줄은 창 폭에 따라 저절로 다시 흘렀다. 그 뒤 디자이너들이 인쇄물처럼 정확한 배치를 원하면서 페이지 폭을 픽셀 수로 못 박는 방식이 퍼졌다. 웹 디자이너 존 올솝<span class="en">(John Allsopp)</span>은 글 「웹 디자인의 도」<span class="en">(A Dao of Web Design, A List Apart, 2000)</span>에서, 웹을 종이처럼 통제하려 하지 말고 통제할 수 없다는 성질을 받아들이자고 주장했다. 10년 뒤 이선 마콧<span class="en">(Ethan Marcotte)</span>이 같은 잡지에 쓴 「반응형 웹 디자인」<span class="en">(Responsive Web Design, 2010)</span>은 흐르는 그리드, 늘었다 줄었다 하는 이미지, 창 폭에 따라 규칙을 바꾸는 미디어 쿼리를 묶어 이름을 붙였고, 이 말은 곧 업계의 기본어가 되었다(<a href="responsive.html">5장</a>).</p>
+    <p>아래 시뮬레이터는 책방 E의 가상 첫 화면을 세 가지 폭에 띄운다. 휴대폰(360), 태블릿(768), 노트북(1280)이다. 숫자는 CSS 픽셀로 잰 뷰포트 폭이다. "흐르는 레이아웃"은 폭마다 배치를 다시 짠 페이지, "1440 시안 그림 그대로"는 넓은 노트북 화면(1440)에서 한 장의 그림으로 완성한 시안을 화면 폭에 맞춰 줄이거나 늘려 넣은 것이다.</p>
+
+    <div class="sim" id="sim-ov-three">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 페이지, 세 화면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ov-th-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-th-mode"><button data-value="fluid" class="on">흐르는 레이아웃</button><button data-value="pic">1440 시안 그림 그대로</button></div>
+          <label class="check"><input type="checkbox" id="ov-th-same" checked> 실제 비율대로(같은 배율로) 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">휴대폰 360: 본문 17px이 보이는 크기</span><span class="v" id="ov-th-o-a">—</span></div>
+        <div class="stat"><span class="k">태블릿 768</span><span class="v" id="ov-th-o-b">—</span></div>
+        <div class="stat"><span class="k">노트북 1280</span><span class="v" id="ov-th-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(흐르는 레이아웃)에서 세 화면을 비교한다. 휴대폰에서는 메뉴가 로고 아래로 내려가고 신간 표지가 두 단으로, 노트북에서는 메뉴가 한 줄에 서고 사진이 글 옆에 나란히 선다. 본문 글자는 세 화면 모두 17px이다. ② "1440 시안 그림 그대로"로 바꾼다. 휴대폰에서는 모든 것이 4분의 1로 줄어 본문이 4px 남짓이 된다. 손가락으로 벌려 확대하지 않으면 읽을 수 없다. ③ "실제 비율대로"를 끈다. 세 화면을 같은 폭으로 늘어놓으면, 흐르는 레이아웃의 휴대폰 화면은 길고 좁은 두루마리이고 노트북 화면은 가로로 넓은 한 장이라는 것이 더 잘 보인다. (가상의 책방 E 페이지다. 기기의 보이는 높이는 휴대폰 640, 태블릿 1024, 노트북 800 CSS px로 가정했다.)</div>
+    </div>
+
+    <p>흐르는 레이아웃의 세 화면은 서로 다르게 생겼지만 같은 페이지다. 내용과 순서(다음 모임 → 소개 → 행사 일정 → 신간)는 같고, 놓이는 방식만 폭에 맞춰 바뀐다. 반대로 한 장의 그림으로 완성한 시안은 어느 한 폭에서만 맞는다. 줄여 넣으면 글자가 깨알이 되고, 늘리면 흐려진다. 웹 디자이너가 만드는 것은 한 장의 그림이 아니라 <b>폭이 바뀔 때 무엇이 함께 바뀌어야 하는지에 대한 약속</b>이다. 이 책은 그 약속을 하나씩 만들어 간다.</p>
+  </section>
+
+  <section id="fluid">
+    <h2>고정과 흐름</h2>
+    <p>2010년대 초까지 많은 웹사이트는 페이지 폭을 960픽셀 같은 값으로 못 박았다. 그 무렵 사무실 모니터의 흔한 폭(1024)에 여백을 조금 남기면 960 안팎이 되었고, 960은 2, 3, 4, 5, 6, 8, 10, 12로 나누어떨어져 단을 나누기도 편했다. 이런 페이지를 <span class="term">고정폭 레이아웃</span><span class="en">(Fixed-width layout)</span>이라고 한다. 창이 넓으면 페이지는 가운데 서고 양옆이 빈다. 창이 좁으면 페이지가 잘려 옆으로 밀어야 하거나, 휴대폰 브라우저가 페이지 전체를 작게 줄여 보여 준다.</p>
+    <p>그 반대가 <span class="term">흐르는 레이아웃</span><span class="en">(Fluid layout)</span>이다. 폭을 픽셀 수가 아니라 창에 대한 비율이나 남는 공간으로 정해서, 창이 바뀌면 내용이 그 안을 채우며 다시 흐른다. 흐르는 레이아웃에도 약점이 있다. 아주 넓은 창에서는 글줄이 끝없이 길어진다. 그래서 흔히 흐르게 하되 <b>최대 폭</b>을 두어 일정 폭 이상에서는 더 넓어지지 않게 한다.</p>
+    <p>아래 시뮬레이터의 오른쪽 손잡이를 끌어 창 폭을 320에서 1600까지 바꿔 본다. 위의 눈금은 CSS 픽셀이다. 세 가지 방식을 바꿔 가며 좁은 쪽과 넓은 쪽에서 각각 무엇이 무너지는지 본다.</p>
+
+    <div class="sim" id="sim-ov-fluid">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>창 폭을 끌어 보기: 고정 960과 흐름</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ov-fx-cv" class="art"></canvas><span class="hint">끌어서 창 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-fx-mode"><button data-value="fixed" class="on">옛 사이트: 고정 960</button><button data-value="fluid">흐름</button><button data-value="max">흐름 + 최대 폭 1200</button></div>
+          <label class="check"><input type="checkbox" id="ov-fx-shrink" checked> 좁은 창에서는 페이지를 줄여 맞추기(휴대폰 브라우저의 방식)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">창 폭</span><span class="v" id="ov-fx-o-w">—</span></div>
+        <div class="stat"><span class="k">본문 글자가 보이는 크기</span><span class="v" id="ov-fx-o-t">—</span></div>
+        <div class="stat"><span class="k">옆으로 밀어야 하는 양</span><span class="v" id="ov-fx-o-s">—</span></div>
+        <div class="stat"><span class="k">창에서 빈 여백의 몫</span><span class="v" id="ov-fx-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(고정 960)에서 손잡이를 왼쪽 끝 360 근처로 끈다. 페이지가 통째로 줄어 본문 14px이 5px 남짓으로 보인다. 서윤이 말한 "휴대폰에서 글자가 깨알 같은" 옛 사이트다. ② "줄여 맞추기"를 끈다. 이번에는 글자 크기는 그대로지만 페이지 오른쪽이 잘려, 600픽셀쯤을 옆으로 밀어야 한다. ③ 손잡이를 오른쪽 끝 1600으로 끈다. 고정 960은 창의 40%가 빈 여백이고, "흐름"은 소개 글 한 줄이 아주 길어진다. "흐름 + 최대 폭"이 두 문제를 함께 누그러뜨린다. (가상의 페이지다. 옛 사이트의 본문은 14px, 새 페이지는 17px로 두었다. 최대 폭은 흐름 방식의 한 예이며 값은 나중 장에서 정한다.)</div>
+    </div>
+
+    <p>좁은 창에서 고정폭 페이지가 보이는 두 가지 모습, 곧 통째로 줄어드는 것과 옆이 잘리는 것은 둘 다 실패다. 줄어든 페이지는 손가락으로 벌려 확대한 뒤 글줄마다 좌우로 끌며 읽어야 하고, 잘린 페이지는 중요한 버튼이 화면 밖에 있다는 것조차 모를 수 있다. 넓은 창의 빈 여백은 그보다 덜 해롭지만, 넓은 모니터를 가진 사람에게 페이지가 손바닥만 하게 보이는 것도 좋은 경험은 아니다. 흐르는 레이아웃은 이 두 끝을 모두 다루려는 방식이고, 최대 폭과 중단점(창 폭에 따라 배치 규칙을 바꾸는 지점)이 그 세부다. 단과 거터는 <a href="grid.html">4장</a>, 중단점은 <a href="responsive.html">5장</a>에서 다룬다.</p>
+
+    <div class="callout studio">
+      <strong>시안은 한 장이 아니라 세 장으로</strong>
+      개발자와 오래 일한 웹 디자이너들은 시안을 처음부터 여러 폭으로 그린다. 흔히 휴대폰, 태블릿, 넓은 화면의 세 폭을 고르고, 같은 내용을 세 번 배치해 보며 "어디서부터 메뉴가 한 줄에 서는가", "신간 표지는 몇 단인가"를 함께 정한다. 세 장 사이의 폭에서 어떻게 될지는 그림으로 다 그릴 수 없으니 글로 적어 둔다. "카드는 최소 140픽셀, 남는 폭은 나눠 갖는다"처럼. 개발자에게 넘기는 것은 그림 세 장과 이 문장들이다. 그림은 예시이고, 문장이 규칙이다.
+    </div>
+  </section>
+
+  <section id="people">
+    <h2>화면을 정하는 것은 사람이다</h2>
+    <p>창 폭만이 아니다. 웹 페이지를 보는 사람은 디자이너가 모르는 사이에 화면을 바꾼다. 휴대폰의 글자 크기 설정을 키우고, 브라우저에서 페이지를 확대하고, 운영체제를 어두운 화면 모드로 쓰고, 움직임을 줄이는 설정을 켜 둔다. 화면 낭독기로 페이지를 귀로 듣는 사람도 있고, 마우스 없이 키보드만 쓰는 사람도 있다. 이런 설정은 대개 그 사람에게 꼭 필요해서 켠 것이다. 웹 페이지가 존중해야 하는 것은 디자이너의 시안이 아니라 이 설정들이다.</p>
+    <p>특히 글자 크기 설정은 레이아웃을 가장 자주 무너뜨린다. 시안을 기본 글자 크기로만 그리면, 글자가 커졌을 때 넘칠 자리가 없다. 아래 시뮬레이터는 휴대폰(360) 또는 태블릿(768) 폭의 첫 화면을 두 개 나란히 놓는다. 왼쪽은 기본 글자 크기, 오른쪽은 슬라이더로 키운 글자 크기다. "헤더 높이 고정"은 시안에서 잰 머리 부분의 높이를 그대로 못 박은 경우다.</p>
+
+    <div class="sim" id="sim-ov-text">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글자를 키우면 메뉴는 어디로 가나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ov-tx-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 크기 설정 <output id="ov-tx-s-out"></output></span><input type="range" id="ov-tx-s" min="100" max="200" step="10" value="160"></label>
+          <div class="seg" id="ov-tx-w"><button data-value="360" class="on">휴대폰 360</button><button data-value="768">태블릿 768</button></div>
+          <label class="check"><input type="checkbox" id="ov-tx-fix" checked> 헤더 높이 고정(시안에서 잰 값 그대로)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">메뉴 줄 수</span><span class="v" id="ov-tx-o-l">—</span></div>
+        <div class="stat"><span class="k">헤더 밖으로 넘친 높이</span><span class="v" id="ov-tx-o-o">—</span></div>
+        <div class="stat"><span class="k">"신청하기"가 첫 화면에</span><span class="v" id="ov-tx-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(160%, 헤더 고정)에서 오른쪽 화면을 본다. 메뉴가 두 줄로 꺾였는데 헤더 높이는 그대로라서, 둘째 줄이 "다음 모임" 카드 위로 넘쳐 제목과 겹친다. ② "헤더 높이 고정"을 끈다. 헤더가 내용에 맞춰 늘어나고 겹침이 사라진다. 대신 카드와 버튼이 아래로 밀린다. 글자가 커지면 한 화면에 들어가는 내용이 줄어드는 것은 자연스러운 일이다. ③ 글자 크기를 200%로 올리고 태블릿 768로 바꾼다. 넓은 화면에서도 메뉴가 로고 옆 한 줄에 서지 못하고 아래로 내려간다. (가상의 페이지다. 글자 크기 설정은 모든 글자를 같은 배율로 키우는 것으로 단순화했다. 실제로 이 설정이 웹 페이지에 어떻게 반영되는지는 기기와 브라우저마다 다르다. <a href="viewport.html">2장</a>.)</div>
+    </div>
+
+    <p>겹친 메뉴는 버그처럼 보이지만, 원인은 코드보다 시안에 있다. 시안은 "메뉴는 한 줄"이라는 가정을 그림으로 굳혔고, 개발자는 그 그림의 높이를 숫자로 옮겼다. 글자 크기를 키운 사람에게는 그 가정이 맞지 않는다. 흐르는 레이아웃이 폭을 정하지 않는 것처럼, 높이도 될 수 있으면 정하지 않고 내용에 맞춰 늘어나게 두는 것이 웹의 기본이다. 상자의 크기를 어떻게 정하는지는 <a href="box.html">3장</a>, 글자 크기를 사용자 설정에 맞춰 늘어나는 단위(<code>rem</code>)로 정하는 법은 <a href="tokens.html">6장</a>에서 다룬다.</p>
+
+    <div class="callout try">
+      <strong>내 휴대폰의 글자를 가장 크게</strong>
+      휴대폰의 화면 설정에서 글자 크기를 가장 크게 바꾼다(어디에 있는지는 기기마다 다르다). 그 상태로 자주 쓰는 웹사이트 세 곳(은행, 동네 가게, 뉴스 등)을 브라우저로 열어 본다. 각 사이트에서 ① 메뉴가 두 줄로 꺾이거나 글자가 잘리는 곳, ② 글자는 커졌는데 버튼이나 칸이 그대로라 넘치는 곳, ③ 글자가 전혀 커지지 않은 곳을 찾아 화면을 캡처하고 종이에 한 줄씩 적는다. 다 보면 설정을 원래대로 돌린다. 이 목록은 <a href="access.html">11장</a>에서 다시 쓴다.
+    </div>
+  </section>
+
+  <section id="hands">
+    <h2>손가락, 커서, 키보드</h2>
+    <p>화면의 크기만큼 다른 것이 화면을 다루는 손이다. 마우스 커서는 한 점을 정확히 가리키고, 누르기 전에 위에 올려 둘 수 있다(호버). 손가락은 커서보다 훨씬 뭉툭하고, 누르기 전에 올려 둘 수 없으며, 누르는 동안 자기 손가락이 목표를 가린다. 키보드만 쓰는 사람은 Tab 키로 링크와 버튼을 하나씩 옮겨 다니므로, 지금 어디에 있는지 보여 주는 표시(포커스 표시)가 없으면 길을 잃는다.</p>
+    <p>아래 시뮬레이터는 행사 일정 페이지에서 날짜를 고르는 칩 다섯 개를 확대해 보여 준다. 칩을 누르면 그 칩을 노리고 누른 손길 80번이 어디에 떨어지는지 점으로 찍힌다. 마우스와 손가락을 바꾸고, 칩 크기를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-ov-finger">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>커서는 점, 손가락은 얼룩</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ov-fg-cv" class="art"></canvas><span class="hint">칩을 눌러 목표를 고른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-fg-in"><button data-value="mouse">마우스 커서</button><button data-value="finger" class="on">손가락</button></div>
+          <label class="ctrl"><span>칩 크기(높이) <output id="ov-fg-h-out"></output></span><input type="range" id="ov-fg-h" min="16" max="56" step="2" value="24"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">노린 칩을 누름</span><span class="v" id="ov-fg-o-hit">—</span></div>
+        <div class="stat"><span class="k">옆 칩을 누름</span><span class="v" id="ov-fg-o-near">—</span></div>
+        <div class="stat"><span class="k">칩 높이(휴대폰 실제 크기)</span><span class="v" id="ov-fg-o-mm">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(손가락, 칩 크기 24)에서 가운데 칩을 누른다. 점의 얼룩이 칩보다 넓게 퍼져, 노린 칩을 누르는 것은 절반쯤이고 열에 한 번꼴로 옆 날짜를 누른다. 나머지는 빈 곳에 떨어진다. ② 마우스 커서로 바꾼다. 같은 칩인데 거의 모든 점이 칩 안에 모인다. 시안을 마우스로 확인하는 디자이너가 이 문제를 놓치기 쉬운 이유다. ③ 다시 손가락으로 돌아가 칩 크기를 44 이상으로 키운다. 칩이 커질수록 노린 칩을 누르는 비율이 올라가지만, 한 줄에 들어가는 칩 수는 줄어든다. (교육용 가정: 누른 점은 노린 곳을 중심으로 정규분포로 흩어지고, 표준편차는 손가락 약 2 mm, 마우스 약 0.2 mm로 두었다. 휴대폰의 1 CSS px은 약 0.16 mm로 가정했다. 실제 흩어짐은 사람, 손의 떨림, 자세, 한 손 사용 여부에 따라 크게 다르다.)</div>
+    </div>
+
+    <p>손가락의 흩어짐은 칩의 크기와 간격 둘 다로 줄일 수 있다. 칩이 크면 노린 칩 안에 떨어지는 점이 늘고, 칩 사이가 벌어지면 빗나간 점이 옆 칩 대신 빈 곳에 떨어진다. 빈 곳을 누르면 아무 일도 일어나지 않으니 다시 누르면 되지만, 옆 날짜를 누르면 엉뚱한 행사 페이지가 열린다. 웹 접근성 표준 WCAG 2.2는 누를 대상의 최소 크기를 하나의 성공 기준(2.5.8)으로 두었고, 휴대폰 플랫폼의 디자인 지침들은 그보다 큰 값을 권한다. 그 수치와 출처, 그리고 크기와 거리로 누르는 시간을 설명하는 피츠의 법칙은 <a href="components.html">7장</a>에서 다룬다.</p>
+    <p>호버가 없는 기기라는 것도 기억해 둔다. 마우스를 올려야만 나타나는 설명이나 메뉴는 손가락으로는 볼 수 없다. 키보드로 쓰는 사람에게는 포커스가 지금 어디 있는지가 마우스 커서와 같은 구실을 한다. 상태를 어떻게 보여 줄지는 <a href="components.html">7장</a>, 메뉴를 어떻게 펼치고 숨길지는 <a href="navigation.html">8장</a>, 손가락으로 칸을 채우는 폼은 <a href="forms.html">9장</a>의 주제다.</p>
+  </section>
+
+  <section id="reach">
+    <h2>모두에게, 빨리</h2>
+    <p>웹 페이지는 내려받아야 보인다. 포스터는 붙이는 순간 다 보이지만, 웹 페이지는 글과 그림, 글꼴 파일이 통신망을 타고 도착하는 만큼만 보인다. 사진 한 장이 몇 메가바이트이면 빠른 와이파이에서는 눈치채지 못해도, 붐비는 지하철의 휴대폰 데이터에서는 몇 초씩 빈 화면을 보게 된다. 페이지의 무게는 개발자의 일처럼 보이지만, 무거운 사진과 글꼴을 고르는 것은 대개 디자이너다.</p>
+    <p>아래 시뮬레이터는 첫 화면을 띄우는 데 필요한 파일들이 도착하는 순서를 시간 막대로 그린다. 첫 화면 사진의 용량과 통신 환경을 바꾸고, 한글 웹폰트 전체 파일을 쓰는지 켜고 끈다.</p>
+
+    <div class="sim" id="sim-ov-speed">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>첫 화면이 뜨기까지</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ov-sp-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-sp-net"><button data-value="fast">빠른 와이파이</button><button data-value="lte" class="on">휴대폰 데이터</button><button data-value="slow">붐비는 지하철</button></div>
+          <label class="ctrl"><span>첫 화면 사진 용량 <output id="ov-sp-img-out"></output></span><input type="range" id="ov-sp-img" min="0.1" max="5" step="0.1" value="4"></label>
+          <label class="check"><input type="checkbox" id="ov-sp-font" checked> 한글 웹폰트 전체 파일(약 2 MB) 내려받기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자가 처음 보임</span><span class="v" id="ov-sp-o-t">—</span></div>
+        <div class="stat"><span class="k">사진까지 다 보임</span><span class="v" id="ov-sp-o-i">—</span></div>
+        <div class="stat"><span class="k">페이지 무게</span><span class="v" id="ov-sp-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 모습(휴대폰 데이터, 사진 4 MB, 웹폰트 켬)에서 사진까지 다 보이는 데 걸리는 시간을 본다. 막대 대부분이 사진과 글꼴이다. ② "붐비는 지하철"로 바꾼다. 글자는 1.5초쯤에 보이지만, 사진이 다 오기까지 30초 넘게 걸린다. ③ 사진을 0.3 MB로 줄이고 웹폰트를 끈다. 같은 망에서 기다리는 시간이 몇 분의 일로 준다. 사진을 얼마나 줄일 수 있는지, 웹폰트를 버리지 않고 가볍게 하는 법은 <a href="performance.html">12장</a>에서 다룬다. (교육용 단순 모형: 망의 속도와 왕복 시간은 대표값으로 정했고, 연결 준비를 왕복 3번, HTML 30 KB와 CSS 20 KB를 차례로 받은 뒤 사진과 글꼴이 대역을 나눠 쓴다고 가정했다. 실제 페이지는 압축, 캐시, 동시 요청, 우선순위에 따라 크게 다르다. 글자는 웹폰트가 오기 전에도 기기의 글꼴로 먼저 보인다고 가정했다.)</div>
+    </div>
+
+    <p>페이지가 빨리 뜨는 것과 모두가 쓸 수 있는 것은 같은 질문의 두 얼굴이다. 느린 망을 쓰는 사람, 오래된 휴대폰을 쓰는 사람, 화면을 귀로 듣는 사람, 손이 떨리는 사람, 글자를 크게 키운 사람에게 페이지가 닿는가. 웹에는 이 질문을 점검하는 공개 기준이 있다. 웹 접근성은 W3C의 <span class="term">WCAG</span><span class="en">(Web Content Accessibility Guidelines)</span> 2.2와 이를 바탕으로 한 한국형 웹 콘텐츠 접근성 지침(KWCAG 2.2)이 기준이 되고(<a href="access.html">11장</a>), 속도는 구글의 web.dev가 제안한 <span class="term">핵심 웹 지표</span><span class="en">(Core Web Vitals)</span>가 널리 쓰인다(<a href="performance.html">12장</a>). 이 책은 이런 기준의 수치를 출처와 함께 쓰고, 기준이 없는 것은 그렇다고 밝힌다.</p>
+
+    <div class="callout warn">
+      <strong>내 화면은 대표가 아니다</strong>
+      디자이너와 개발자의 장비는 대개 평균보다 좋다. 넓고 촘촘한 화면, 빠른 회사 와이파이, 최신 휴대폰, 기본 글자 크기, 마우스. 그 장비에서 완벽해 보이는 페이지가 손님의 화면에서는 전혀 다르게 보일 수 있다. 시안을 확인할 때는 적어도 한 번은 오래된 휴대폰, 휴대폰 데이터, 가장 큰 글자 크기, 키보드만으로 열어 본다. 이 책의 시뮬레이터들이 그 대신이 될 수는 없다. 시뮬레이터는 원리를 보여 주는 단순 모형이고, 마지막 확인은 실제 기기에서 한다.
+    </div>
+  </section>
+
+  <section id="evidence">
+    <h2>통설과 근거</h2>
+    <p>웹 디자인에도 규칙처럼 도는 말이 많다. 일부는 특정 시기의 기술이나 특정 사이트의 관찰에서 나와 조건을 잃은 채 퍼졌고, 일부는 근거가 확인된 표준이다. 이 책은 둘을 구별해 쓴다. 표준은 출처와 수치를 밝히고, 통설은 근거의 수준을 밝힌다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>흔히 듣는 말</th><th>근거의 수준(이 책의 판단)</th><th>다루는 장</th></tr></thead>
+        <tbody>
+          <tr><td>첫 화면(접힘선) 아래는 아무도 보지 않는다</td><td>통설. 사람들은 내용이 이어진다는 단서가 있으면 스크롤한다는 관찰이 많다. 다만 시선과 주의가 위쪽에 더 몰린다는 보고도 있다. "아무도"는 틀렸고 "위쪽이 더 많이 보인다"는 대체로 맞다.</td><td><a href="viewport.html">2장</a></td></tr>
+          <tr><td>무엇이든 세 번 클릭 안에 닿아야 한다</td><td>통설. 클릭 수 자체보다 단계마다 다음에 무엇을 누를지 분명한지가 중요하다는 관찰이 있다. 수치 규칙으로 쓰지 않는다.</td><td><a href="navigation.html">8장</a></td></tr>
+          <tr><td>햄버거 메뉴(≡)는 이제 누구나 안다</td><td>근거가 엇갈린다. 익숙한 사람이 늘었지만, 숨긴 메뉴는 펼쳐 둔 메뉴보다 덜 쓰인다는 사용성 관찰이 꾸준히 보고된다. 누가 쓰는 사이트인지로 판단한다.</td><td><a href="navigation.html">8장</a></td></tr>
+          <tr><td>누를 대상은 최소 24×24 CSS px</td><td>표준. W3C WCAG 2.2 성공 기준 2.5.8 대상 크기(최소), AA 등급. 예외 조건이 있다. 플랫폼 지침의 더 큰 값은 출처와 함께 따로 다룬다.</td><td><a href="components.html">7장</a></td></tr>
+          <tr><td>글자는 200%까지 키워도 깨지지 않아야 한다</td><td>표준. WCAG 2.2 성공 기준 1.4.4 글자 크기 조정, AA 등급.</td><td><a href="viewport.html">2장</a>, <a href="access.html">11장</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout deep">
+      <strong>표준, 지침, 통설</strong>
+      이 책에서 <b>표준</b>은 W3C 권고안(WCAG, CSS 명세)처럼 공개 절차를 거쳐 정해진 문서를 말한다. 수치가 분명하고 출처를 댈 수 있다. <b>지침</b>은 운영체제를 만드는 회사나 디자인 시스템이 자기 플랫폼을 위해 낸 권고다. 근거가 있지만 그 플랫폼의 사정에 맞춘 값이다. <b>통설</b>은 출처가 분명하지 않거나, 한 연구의 결과가 조건을 잃고 퍼진 말이다. 같은 "44"라도 어디서 온 숫자인지에 따라 무게가 다르다. 숫자를 들으면 먼저 "누가, 무엇을 위해 정한 값인가"를 묻는다.
+    </div>
+  </section>
+
+  <section id="map">
+    <h2>이 책의 지도</h2>
+    <p>지금까지 만난 질문은 네 갈래로 모인다. <b>화면</b>은 크기를 정할 수 없는 캔버스와 그 위의 상자다(뷰포트와 픽셀, 박스와 간격). <b>배치</b>는 그 캔버스 위에 내용을 놓고 늘이는 규칙이다(레이아웃 그리드, 반응형, 색과 글자의 체계). <b>상호작용</b>은 사람이 화면과 주고받는 방식이다(컴포넌트와 상태, 내비게이션, 폼, 모션). <b>쓰임</b>은 그 결과가 모두에게, 빨리 닿는지다(접근성, 속도). 이 책의 네 부가 이 네 갈래다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="웹 디자인의 네 갈래: 화면, 배치, 상호작용, 쓰임">
+        <defs><marker id="ov-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="8" y="20" width="100" height="176" rx="10" class="f-acc-soft"/>
+        <rect x="124" y="20" width="100" height="176" rx="10" class="f-acc2-soft"/>
+        <rect x="240" y="20" width="100" height="176" rx="10" class="f-warn-soft"/>
+        <rect x="356" y="20" width="96" height="176" rx="10" class="f-ok-soft"/>
+        <text x="58" y="44" text-anchor="middle" class="lbl-b">① 화면</text>
+        <text x="174" y="44" text-anchor="middle" class="lbl-b">② 배치</text>
+        <text x="290" y="44" text-anchor="middle" class="lbl-b">③ 상호작용</text>
+        <text x="404" y="44" text-anchor="middle" class="lbl-b">④ 쓰임</text>
+        <rect x="28" y="62" width="60" height="50" rx="4" class="f-surface s-line"/>
+        <rect x="36" y="70" width="44" height="34" rx="2" class="s-dash" fill="none"/>
+        <rect x="44" y="78" width="28" height="18" rx="2" class="f-acc"/>
+        <text x="58" y="134" text-anchor="middle" class="lbl-dim">뷰포트 · 박스</text>
+        <rect x="140" y="62" width="68" height="50" rx="4" class="f-surface s-line"/>
+        <rect x="146" y="68" width="16" height="38" rx="2" class="f-acc2"/><rect x="166" y="68" width="16" height="38" rx="2" class="f-acc2"/><rect x="186" y="68" width="16" height="38" rx="2" class="f-acc2"/>
+        <text x="174" y="134" text-anchor="middle" class="lbl-dim">그리드 · 반응형</text>
+        <rect x="258" y="70" width="64" height="22" rx="11" class="f-warn"/>
+        <circle cx="306" cy="98" r="9" class="f-warn-soft s-line"/>
+        <rect x="258" y="100" width="34" height="10" rx="3" class="f-surface s-line"/>
+        <text x="290" y="134" text-anchor="middle" class="lbl-dim">상태 · 폼 · 모션</text>
+        <circle cx="390" cy="86" r="18" class="f-surface s-line"/>
+        <path d="M390 86 L390 72 M390 86 L401 92" class="s-line"/>
+        <rect x="414" y="70" width="26" height="34" rx="3" class="f-surface s-line"/>
+        <path d="M419 80 h16 M419 87 h16 M419 94 h10" class="s-line"/>
+        <text x="404" y="134" text-anchor="middle" class="lbl-dim">접근성 · 속도</text>
+        <path d="M108 100 L122 100" class="s-line" marker-end="url(#ov-ar2)"/>
+        <path d="M224 100 L238 100" class="s-line" marker-end="url(#ov-ar2)"/>
+        <path d="M340 100 L354 100" class="s-line" marker-end="url(#ov-ar2)"/>
+        <text x="58" y="180" text-anchor="middle" class="lbl-dim">2·3장</text>
+        <text x="174" y="180" text-anchor="middle" class="lbl-dim">4·5·6장</text>
+        <text x="290" y="180" text-anchor="middle" class="lbl-dim">7·8·9·10장</text>
+        <text x="404" y="180" text-anchor="middle" class="lbl-dim">11·12장</text>
+        <path d="M404 208 C404 254 58 254 58 208" class="s-dash" marker-end="url(#ov-ar2)"/>
+        <text x="230" y="272" text-anchor="middle" class="lbl-dim">쓰임에서 찾은 문제는 화면과 배치로 돌아가 고친다</text>
+        <text x="230" y="292" text-anchor="middle" class="lbl-dim">13장 웹 실험실에서 네 갈래를 한꺼번에 점검한다</text>
+      </svg>
+      <figcaption><b>그림 2. 웹 디자인의 네 갈래.</b> 화면의 성질(①)을 알면 그 위에 배치의 규칙을 세우고(②), 사람이 누르고 고르고 적는 방식을 설계한다(③). 그 결과가 모두에게 빨리 닿는지 점검하고(④), 문제가 보이면 다시 앞 갈래로 돌아간다. 아래 숫자는 각 갈래를 다루는 장이다.</figcaption>
+    </figure>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 470" role="img" aria-label="WebBook의 지도: 1장을 가운데 두고 네 부의 장들이 둘러싼다">
+        <defs><marker id="ov-ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <circle cx="230" cy="205" r="128" class="s-dash" fill="none"/>
+        <circle cx="230" cy="205" r="44" class="f-acc-soft"/>
+        <text x="230" y="201" text-anchor="middle" class="lbl-acc">01</text>
+        <text x="230" y="220" text-anchor="middle" class="lbl-dim">지도</text>
+        <g id="ov-ring"></g>
+        <path d="M230 384 L230 404" class="s-line" marker-end="url(#ov-ar3)"/>
+        <rect x="118" y="410" width="104" height="40" rx="8" class="f-surface"/>
+        <rect x="238" y="410" width="104" height="40" rx="8" class="f-surface"/>
+        <text x="170" y="435" text-anchor="middle" class="lbl-b">13 실험실</text>
+        <text x="290" y="435" text-anchor="middle" class="lbl-b">14 용어집</text>
+        <rect x="8" y="8" width="12" height="12" rx="3" class="f-acc-soft"/><text x="26" y="19" class="lbl-dim">화면</text>
+        <rect x="100" y="8" width="12" height="12" rx="3" class="f-acc2-soft"/><text x="118" y="19" class="lbl-dim">배치</text>
+        <rect x="8" y="30" width="12" height="12" rx="3" class="f-warn-soft"/><text x="26" y="41" class="lbl-dim">상호작용</text>
+        <rect x="100" y="30" width="12" height="12" rx="3" class="f-ok-soft"/><text x="118" y="41" class="lbl-dim">쓰임</text>
+      </svg>
+      <figcaption><b>그림 3. WebBook의 지도.</b> 1장을 가운데 두고 2~12장이 둘레를 돈다. 칸의 색은 부를 나타낸다. 화면에서 시작해 배치, 상호작용, 쓰임으로 갈수록 다루는 범위가 한 픽셀에서 한 페이지, 한 사람의 하루로 넓어진다. 둘레를 다 돌면 13장 실험실에서 모든 도구를 한꺼번에 쓴다. 칸을 누르면 그 장으로 간다.</figcaption>
+    </figure>
+
+    <p>마지막 시뮬레이터는 이 지도를 한 페이지 위에 겹쳐 본다. 책방 E의 가상 페이지 하나를 놓고, 창 폭(오른쪽 손잡이), 글자 크기, 레이아웃 방식, 첫 화면 사진을 바꾼다. 아래 읽기 판의 네 칸이 네 갈래의 질문에 하나씩 답한다.</p>
+
+    <div class="sim" id="sim-ov-map">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>한 페이지, 네 가지 질문</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ov-mp-cv" class="art"></canvas><span class="hint">끌어서 창 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ov-mp-lay"><button data-value="fixed">고정 960</button><button data-value="fluid" class="on">흐름 + 최대 폭</button></div>
+          <label class="ctrl"><span>글자 크기 설정 <output id="ov-mp-ts-out"></output></span><input type="range" id="ov-mp-ts" min="100" max="200" step="10" value="100"></label>
+          <label class="check"><input type="checkbox" id="ov-mp-photo" checked> 첫 화면 사진을 원본 그대로(4 MB)</label>
+          <label class="check"><input type="checkbox" id="ov-mp-fix"> 헤더 높이 고정</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">① 화면: 본문이 보이는 크기</span><span class="v" id="ov-mp-o-1">—</span></div>
+        <div class="stat"><span class="k">② 배치: 신간 단 수 · 소개 글 한 줄</span><span class="v" id="ov-mp-o-2">—</span></div>
+        <div class="stat"><span class="k">③ 상호작용: 메뉴</span><span class="v" id="ov-mp-o-3">—</span></div>
+        <div class="stat"><span class="k">④ 쓰임: 휴대폰 데이터로 사진까지</span><span class="v" id="ov-mp-o-4">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 손잡이를 끌어 창 폭을 360 근처로 줄인다. 흐르는 페이지는 메뉴가 로고 아래로 내려가고 신간이 두 단이 된다. 읽기 판 ①과 ②가 바뀌는 것을 본다. ② "고정 960"으로 바꾼다. 같은 폭에서 본문이 5px 남짓으로 줄고(①), 신간은 좁은 화면에서도 네 단 그대로다(②). ③ 다시 "흐름"으로 돌아와 "헤더 높이 고정"을 켜고 글자 크기를 170% 이상으로 올린다. 메뉴가 넘쳐 카드와 겹친다(③). ④ 첫 화면 사진을 원본 그대로 두었을 때와 끄고(약 0.3 MB로 줄였을 때) 읽기 판 ④를 비교한다. 네 칸이 모두 괜찮은 조합을 찾는 것이 이 책 전체의 일이다. (가상의 페이지와 단순 모형이다. ④는 앞 시뮬레이터의 "휴대폰 데이터" 모형으로 계산했고 웹폰트는 뺐다.)</div>
+    </div>
+
+    <p>네 칸은 서로 맞물려 있다. 창 폭을 줄이면 단 수가 바뀌고, 글자를 키우면 메뉴가 꺾이며, 메뉴가 꺾이면 첫 화면에 들어가는 내용이 준다. 첫 화면에 사진을 크게 넣으면 인상은 강해지지만 무게가 늘어난다. 그래서 웹 디자인에는 하나만 고쳐서 끝나는 일이 드물다. 이 책은 손잡이를 하나씩 따로 익힌 다음, 마지막 실험실(<a href="lab.html">13장</a>)에서 다시 한꺼번에 맞춘다. 어느 조합이 정답이라고 말하지 않는다. 동네 책방의 사이트와 은행의 사이트, 매일 쓰는 도구와 한 번 보는 행사 페이지에는 서로 다른 조합이 맞는다.</p>
+
+    <div class="callout try">
+      <strong>종이 세 장으로 그리는 시안</strong>
+      A4 종이 세 장을 준비해 휴대폰, 태블릿, 넓은 화면의 비율로 틀을 그린다. 폭을 9 cm, 19 cm, 그리고 종이를 가로로 눕혀 27 cm쯤으로 잡으면 360·768·1280의 비율과 비슷하다(높이는 자유롭게). 자주 가는 동네 가게나 단체의 첫 화면을 하나 골라, 그 안의 내용(이름, 메뉴, 가장 중요한 소식, 버튼, 사진)을 세 틀에 연필로 각각 배치한다. 그린 뒤 세 장을 나란히 놓고 ① 세 장에서 순서가 같은가, ② 좁은 틀에서 무엇을 아래로 내렸는가, ③ 넓은 틀에서 빈 곳을 무엇으로 채웠는가를 적는다. 그 답이 반응형의 규칙이 된다.
+    </div>
+
+    <div class="callout try">
+      <strong>창 폭 일지</strong>
+      컴퓨터의 브라우저에서 아무 웹사이트나 열고, 창의 오른쪽 끝을 마우스로 잡아 천천히 좁혀 본다(개발자 도구의 "반응형 디자인 모드"를 쓰면 폭이 숫자로 보인다). 메뉴가 바뀌는 순간, 사진이 위아래로 쌓이는 순간, 글자가 잘리거나 옆으로 밀어야 하는 순간마다 멈추고 그 폭을 적는다. 세 사이트를 해 보면 사이트마다 바뀌는 폭이 다르다는 것을 알게 된다. 그 숫자들이 왜 거기에 있는지는 <a href="responsive.html">5장</a>에서 다시 묻는다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 1장</span></div>
+      <h4>이건 그림이지 웹이 아니에요</h4>
+      <p>책방 E의 색을 정하고(2026년 가을), 진열과 포스터를 짜고, 안내 책자의 드로잉을 그리고, 간판과 소식 글을 조판하고, 그림 읽기 모임을 꾸리고, 겨울 내내 사진을 찍은 윤서윤에게 2028년 1월 첫 주, 주인이 다시 부탁을 했다. "모임 신청을 전화로 받느라 하루가 다 가요." 책방의 웹사이트는 2019년쯤 산 템플릿 그대로였다. 페이지 폭이 960픽셀로 고정되어 있어서 휴대폰으로 열면 페이지가 통째로 줄어 글자가 깨알 같았다. 모임 신청은 아예 받을 수 없어 "전화 주세요"라는 문장만 있었다. 서윤은 사이트를 처음부터 다시 만들기로 했다. 목표는 3월 첫 주 공개다.</p>
+      <p>서윤은 주말 이틀 동안 노트북(창 폭 1440)에서 디자인 도구를 열고 첫 화면을 공들여 그렸다. 왼쪽에 다음 모임의 제목과 날짜, 오른쪽에 겨울에 찍은 쇼윈도 사진, 아래에 행사 일정과 신간 표지 네 권. 회사 동료인 프런트엔드 개발자 오지후가 퇴근 뒤 코드를 맡아 주기로 했다. 지후는 서윤이 보낸 시안 그림을 자기 휴대폰(창 폭 360)에서 열었다. 그림은 화면 폭에 맞춰 4분의 1로 줄었고, 서윤이 17px로 정한 본문은 4px 남짓이 되었다. 회사의 넓은 모니터(창 폭 1920)에서는 그림이 가운데에 떠서 양옆이 비었다. 지후가 말했다. "이건 그림이지 웹이 아니에요. 화면 크기는 우리가 정할 수 없어요."</p>
+      <p>지후는 그 자리에서 시안의 첫 화면만 대충 코드로 옮겨, 서윤의 멘토인 화가 한도경에게 링크를 보냈다. 도경은 휴대폰의 글자 크기를 가장 크게 해 두고 쓴다. 답장으로 온 화면 캡처에서는 메뉴 다섯 개가 두 줄로 꺾여, 둘째 줄의 "소개"와 "오시는 길"이 "1월 그림책 낭독 모임" 제목 위에 겹쳐 있었다. 지후가 시안에서 잰 헤더 높이를 그대로 못 박았기 때문이다. 도경은 "글자가 큰 건 좋은데 메뉴가 제목을 가렸다"고 적었다. 서윤은 이 장의 시뮬레이터로 같은 일을 다시 해 보고, 그림 한 장을 완성하는 방식으로는 이 문제를 미리 볼 수 없다는 것을 받아들였다.</p>
+      <p>서윤의 선택은 시안을 다시 그리기 전에 두 가지를 먼저 정하는 것이었다. 하나는 새 사이트에 들어갈 페이지 목록이다. 주인과 이야기해 꼭 필요한 다섯 페이지만 남겼다. 다른 하나는 시안을 그리는 방식이다. 한 폭의 완성 그림 대신, 처음부터 세 폭에 같은 내용을 나란히 그리고, 그 사이의 폭에서 일어날 일은 문장으로 적기로 했다. 지후는 세 폭이 "기기 이름"이 아니라 폭의 견본일 뿐이라는 조건을 달았다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>새 사이트의 페이지 다섯: ① 첫 화면 ② 행사 일정 ③ 모임 신청 폼 ④ 신간 목록 ⑤ 서점 소개·오시는 길. 시안은 처음부터 세 폭 <b>360 · 768 · 1280</b>(CSS px)으로 같은 내용을 나란히 그리고, 세 폭 사이에서 일어날 일은 문장(규칙)으로 적는다. 세 폭은 기기의 이름이 아니라 폭의 견본이다. 공개 목표는 2028년 3월 첫 주. 책방 E의 색(책방 초록 <code>#2f7d5b</code>, 크림 <code>#ffe2d7</code>, 차분한 초록 <code>#567666</code>, 강조 <code>#d24f39</code>, 짙은 색 <code>#22342a</code>)과 TypeBook에서 정한 본문 글자(Pretendard 계열 고딕, 본문 17px 안팎)를 이어 쓴다.</div>
+        <div><b>아직 남은 문제</b>책방 E의 손님들은 실제로 어떤 화면으로 사이트를 여는가. 서윤의 휴대폰에서는 1픽셀 선이 왜 노트북에서보다 가늘고 또렷해 보이는가. 주인은 "첫 화면에 다 보여야 한다"고 한다.</div>
+        <div><b>다음 단계</b><a href="viewport.html">2장</a>: 지후가 옛 사이트의 지난달 방문 기록을 꺼내 화면 폭의 분포를 본다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>웹 페이지는 크기를 정할 수 없는 캔버스 위에 놓인다. 페이지가 그려지는 창 안의 영역(뷰포트)은 기기, 창 크기, 방향, 확대에 따라 사람마다 다르다.</li>
+      <li>웹 디자이너가 만드는 것은 한 장의 완성 그림이 아니라 폭이 바뀔 때 배치가 어떻게 바뀔지에 대한 규칙이다. 한 폭에서 완성한 그림은 다른 폭에서 줄어들어 읽을 수 없거나 비어 보인다.</li>
+      <li>고정폭 레이아웃은 좁은 창에서 줄어들거나 잘리고 넓은 창에서 빈다. 흐르는 레이아웃은 창을 채우며 다시 흐르고, 최대 폭을 두어 넓은 창의 긴 글줄을 막는다.</li>
+      <li>화면을 정하는 것은 사람이다. 글자 크기 설정, 확대, 어두운 화면, 움직임 줄이기, 키보드와 화면 낭독기. 높이와 폭을 못 박지 않고 내용에 맞춰 늘어나게 두면 이 설정들을 견딘다.</li>
+      <li>손가락은 커서보다 뭉툭하고 호버가 없다. 누를 대상의 크기와 간격이 잘못 누르는 비율을 바꾼다.</li>
+      <li>페이지의 무게는 첫 화면이 뜨는 시간을 정하고, 무거운 사진과 글꼴은 대개 디자이너가 고른다. 접근성과 속도에는 공개 기준(WCAG 2.2, KWCAG 2.2, 핵심 웹 지표)이 있고, "접힘선 아래는 아무도 안 본다" 같은 통설은 근거의 수준을 밝혀 다룬다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 창 폭 1440의 노트북에서 한 장의 그림으로 완성한 시안을 창 폭 360의 휴대폰에서 화면 폭에 맞춰 줄여 보면 무슨 일이 생기는가?</p>
+        <div class="opts">
+          <button class="opt">휴대폰이 알아서 메뉴를 로고 아래로 내리고 사진을 위아래로 쌓아 준다.</button>
+          <button class="opt">글자 크기는 그대로이고 양옆의 여백만 줄어든다.</button>
+          <button class="opt" data-correct>모든 것이 360/1440, 곧 4분의 1로 줄어 17px 본문이 4px 남짓으로 보인다.</button>
+          <button class="opt">휴대폰 화면이 더 촘촘하므로 오히려 더 선명하게 보인다.</button>
+        </div>
+        <div class="quiz-exp">그림은 배치의 규칙을 담고 있지 않으므로, 좁은 화면에 넣으려면 통째로 줄이는 수밖에 없다. 17 × 360 ÷ 1440 ≈ 4.3px이다. 메뉴를 내리고 사진을 쌓는 일은 흐르는 레이아웃이 규칙에 따라 해 주는 일이지 그림이 저절로 하지 않는다. 화면이 촘촘해도 글자가 4분의 1로 작아진 것은 바뀌지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 도경의 휴대폰(글자 크기 최대)에서 메뉴의 둘째 줄이 "다음 모임" 제목 위에 겹쳐 보였다. 가장 알맞은 원인과 고칠 방향은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>시안에서 잰 헤더 높이를 고정해 두었기 때문이다. 높이를 정하지 않고 내용에 맞춰 늘어나게 둔다.</button>
+          <button class="opt">도경이 글자 크기를 너무 키웠기 때문이다. 사용자 설정을 무시하도록 글자 크기를 고정한다.</button>
+          <button class="opt">메뉴가 다섯 개라서다. 메뉴를 세 개로 줄이면 어떤 설정에서도 겹치지 않는다.</button>
+          <button class="opt">휴대폰 브라우저의 오류다. 다른 브라우저를 쓰라고 안내한다.</button>
+        </div>
+        <div class="quiz-exp">글자가 커지면 메뉴가 꺾이는 것은 자연스럽다. 문제는 꺾인 메뉴가 들어갈 자리를 막은 고정 높이다. 높이를 내용에 맞춰 늘어나게 두면 헤더가 커지고 겹침이 사라진다. 사용자 설정을 무시하는 것은 그 설정이 꼭 필요한 사람을 내쫓는 일이고, 메뉴를 줄여도 글자가 더 커지면 같은 일이 생긴다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 페이지 폭이 960픽셀로 고정된 옛 사이트를 창 폭 1600의 넓은 모니터와 창 폭 360의 휴대폰에서 연다. 옳은 설명은?</p>
+        <div class="opts">
+          <button class="opt">넓은 모니터에서는 페이지가 1600으로 늘어나고, 휴대폰에서는 360으로 다시 흐른다.</button>
+          <button class="opt">두 화면 모두 아무 문제 없이 같은 모습으로 보인다.</button>
+          <button class="opt">넓은 모니터에서만 문제가 생기고 휴대폰에서는 잘 보인다.</button>
+          <button class="opt" data-correct>넓은 모니터에서는 창의 40%가 빈 여백이 되고, 휴대폰에서는 페이지가 줄어 글자가 작아지거나 옆으로 밀어야 한다.</button>
+        </div>
+        <div class="quiz-exp">고정폭 페이지는 창 폭과 상관없이 960으로 그려진다. 1600 창에서는 (1600 − 960) ÷ 1600 = 40%가 비고, 360 창에서는 휴대폰 브라우저가 페이지를 줄여 맞추거나(글자가 깨알) 잘린 오른쪽을 옆으로 밀어 봐야 한다. 창에 맞춰 다시 흐르는 것은 흐르는 레이아웃이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. "첫 화면(접힘선) 아래는 아무도 보지 않는다"는 말에 대해 이 책이 취하는 태도는?</p>
+        <div class="opts">
+          <button class="opt">웹 표준이 정한 규칙이므로 중요한 내용은 모두 첫 화면에 넣는다.</button>
+          <button class="opt" data-correct>통설로 본다. 사람들은 이어진다는 단서가 있으면 스크롤하지만 위쪽이 더 많이 보인다는 보고도 있으므로, 가장 중요한 것을 위에 두되 첫 화면에 모든 것을 우겨넣지는 않는다.</button>
+          <button class="opt">완전히 틀린 말이므로 첫 화면의 배치는 신경 쓰지 않는다.</button>
+          <button class="opt">휴대폰에는 맞지만 넓은 모니터에는 맞지 않는 과학적 사실이다.</button>
+        </div>
+        <div class="quiz-exp">접힘선에 관한 규칙은 어떤 표준에도 없다. 스크롤을 하지 않는다는 믿음은 여러 관찰로 반박되었지만, 주의가 위쪽에 더 몰린다는 보고도 있어 "아무도 안 본다"도 "상관없다"도 맞지 않는다. 게다가 첫 화면의 높이는 기기마다 달라 접힘선은 한 줄이 아니다. 자세한 것은 <a href="viewport.html">2장</a>에서 다룬다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs" data-nonum>
+    <h2>출처</h2>
+    <ul>
+      <li>John Allsopp, "A Dao of Web Design", <i>A List Apart</i>, 2000. — 내용을 요약했다.</li>
+      <li>Ethan Marcotte, "Responsive Web Design", <i>A List Apart</i>, 2010. — 흐르는 그리드, 유연한 이미지, 미디어 쿼리의 묶음으로서의 반응형 웹 디자인.</li>
+      <li>W3C, <i>Web Content Accessibility Guidelines (WCAG) 2.2</i>, 2023. 성공 기준 1.4.4 글자 크기 조정(AA), 2.5.8 대상 크기(최소)(AA).</li>
+      <li>한국형 웹 콘텐츠 접근성 지침(KWCAG) 2.2. — 자세한 출처와 내용은 <a href="access.html">11장</a>에서 다룬다.</li>
+      <li>web.dev(Google), Core Web Vitals. — 기준값은 <a href="performance.html">12장</a>에서 출처와 함께 다룬다.</li>
+      <li>시뮬레이터의 책방 E 페이지, 방문 환경, 손가락 흩어짐, 통신 속도는 모두 가상의 예시이거나 교육용 대표값이다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  /* ================= 책방 E 가상 웹 페이지(목업) 그리기 =================
+     buildPage(폭, 설정)가 CSS px 좌표로 배치를 계산해 그리기 목록(ops)과 측정값을 돌려주고,
+     paint()가 그 목록을 캔버스의 정해진 칸 안에 배율을 주어 그린다. 칸 밖으로는 절대 그리지 않는다(clip).
+     색은 모두 책방 E의 고정색이다(예시 그림이므로 다크 모드에서도 바뀌지 않는다). */
+  var E = { green: "#2f7d5b", cream: "#ffe2d7", sage: "#567666", red: "#d24f39", dark: "#22342a", page: "#fffdf9", dim: "#5b6760", line: "#e6e0d6", white: "#ffffff", chip: "#f3ece2" };
+  var FAMILY = (getComputedStyle(document.body).getPropertyValue("--font") || "sans-serif").trim();
+  function fnt(px, wt) { return (wt || 400) + " " + (Math.round(px * 100) / 100) + "px " + FAMILY; }
+  var MC = document.createElement("canvas").getContext("2d");
+  var MEAS = {};
+  // 웹 글꼴이 도착하면 측정값을 비우고 이 장의 캔버스를 다시 그린다(AB.canvas의 자동 다시 그리기보다 뒤에 한 번 더)
+  var MINE = [];
+  function canvas(el, draw, opts) { var c = AB.canvas(el, draw, opts); MINE.push(c); return c; }
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { MEAS = {}; MINE.forEach(function (c) { c.redraw(); }); });
+  function tw(txt, px, wt) {
+    var key = (wt || 400) + "|" + px + "|" + txt;
+    if (MEAS[key] == null) { MC.font = fnt(px, wt); MEAS[key] = MC.measureText(txt).width; }
+    return MEAS[key];
+  }
+  function wrap(txt, px, wt, maxW) {
+    var words = txt.split(" "), lines = [], cur = "";
+    words.forEach(function (wd) {
+      var t = cur ? cur + " " + wd : wd;
+      if (!cur || tw(t, px, wt) <= maxW) cur = t; else { lines.push(cur); cur = wd; }
+    });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  function rr(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(x, y, w, h, Math.max(0, Math.min(r, w / 2, h / 2))); else ctx.rect(x, y, w, h);
+  }
+  var NAV = ["행사", "모임 신청", "신간", "소개", "오시는 길"];
+  var EVENTS = [["1.22", "토", "그림책 낭독 모임"], ["1.29", "토", "겨울 수채 스케치"], ["2.05", "토", "동네 작가와 차 한잔"]];
+  var BOOKS = [["겨울 정원", "#2f7d5b"], ["골목의 오후", "#d24f39"], ["작은 수채 수업", "#567666"], ["밤의 서점", "#22342a"]];
+  var INTRO = "골목 끝 책방 E는 한 달에 두 번 모임을 연다. 그림책을 소리 내어 읽고, 마음에 남은 장면을 수채로 그려 본다. 처음 오는 사람도 빈손으로 오면 된다.";
+
+  function header(L, inner, x0, ts) {
+    var lp = 18 * ts, np = 15 * ts, g = 18 * ts, mark = 28 * ts, top = 14;
+    var logoW = mark + 8 * ts + tw("책방 E", lp, 700);
+    var items = NAV.map(function (t) { return { t: t, w: tw(t, np, 500) }; });
+    var navW = items.reduce(function (a, b) { return a + b.w; }, 0) + g * (items.length - 1);
+    var rowH = Math.max(mark, np * 1.5);
+    var out = { lp: lp, np: np, mark: mark, logoY: top + rowH / 2, rows: [] };
+    if (logoW + 32 + navW <= inner) {
+      var x = x0 + inner - navW, row = [];
+      items.forEach(function (it) { row.push({ t: it.t, x: x, w: it.w }); x += it.w + g; });
+      out.rows.push({ y: top + rowH / 2, items: row });
+      out.h = top * 2 + rowH; out.oneRow = true;
+      return out;
+    }
+    var y = top + rowH + 8 + np * 0.8, cur = [], cx = x0, rowStep = np * 1.9;
+    items.forEach(function (it) {
+      if (cur.length && cx + it.w > x0 + inner) { out.rows.push({ y: y, items: cur }); cur = []; cx = x0; y += rowStep; }
+      cur.push({ t: it.t, x: cx, w: it.w }); cx += it.w + g;
+    });
+    if (cur.length) out.rows.push({ y: y, items: cur });
+    out.h = y + np * 0.8 + 12; out.oneRow = false;
+    return out;
+  }
+
+  // o: { ts 글자 배율, layoutW 고정 배치 폭, maxW 내용 최대 폭, fixedHeader 헤더 높이 고정, hero "next"|"photo", old 옛 사이트 }
+  function buildPage(vw, o) {
+    o = o || {};
+    var ts = o.ts || 1, L = o.layoutW || vw, ops = [], late = [];
+    function R(x, y, w, h, c, r) { ops.push({ k: "r", x: x, y: y, w: w, h: h, c: c, r: r || 0 }); }
+    function T(x, y, s, px, c, wt, al, arr) { (arr || ops).push({ k: "t", x: x, y: y, s: s, px: px, c: c, wt: wt || 400, al: al || "left", w: tw(s, px, wt) }); }
+    var pad = L < 600 ? 16 : 32;
+    var inner = Math.min(L - 2 * pad, o.maxW || 1e9), x0 = (L - inner) / 2;
+    var m = { L: L, ts: ts };
+    // 머리(헤더)
+    var hd = header(L, inner, x0, ts), hd1 = header(L, inner, x0, 1);
+    var hH = o.fixedHeader ? hd1.h : hd.h;
+    R(0, 0, L, hH, o.old ? E.dark : E.white); R(0, hH - 1, L, 1, E.line);
+    m.navLines = hd.rows.length; m.overflow = Math.max(0, hd.h - hH); m.headerH = hH;
+    var lc = o.old ? E.white : E.dark, nc = o.old ? "#dfe8e2" : E.dark;
+    late.push({ k: "r", x: x0, y: hd.logoY - hd.mark / 2, w: hd.mark, h: hd.mark, c: o.old ? E.cream : E.green, r: 6 * ts });
+    T(x0 + hd.mark / 2, hd.logoY + hd.lp * 0.36, "E", hd.lp, o.old ? E.dark : E.white, 700, "center", late);
+    T(x0 + hd.mark + 8 * ts, hd.logoY + hd.lp * 0.36, "책방 E", hd.lp, lc, 700, "left", late);
+    hd.rows.forEach(function (row) { row.items.forEach(function (it, i) { T(it.x, row.y + hd.np * 0.36, it.t, hd.np, i === 1 && !o.old ? E.green : nc, 500, "left", late); }); });
+    // 첫 화면: 다음 모임
+    var y = hH + (L < 600 ? 16 : 28);
+    var wide = L >= 900, cp = L < 600 ? 18 : 28;
+    if (o.hero === "photo" && !wide) { var ph = Math.round(inner * 0.92); ops.push({ k: "ph", x: x0, y: y, w: inner, h: ph }); y += ph + 14; }
+    var tcol = wide ? inner * 0.56 - cp * 2 : inner - cp * 2;
+    var lab = 13 * ts, tp = (L < 600 ? 24 : L < 900 ? 28 : 34) * ts, mp = 15 * ts, bp = 16 * ts;
+    var tl = wrap("1월 그림책 낭독 모임", tp, 700, tcol), ml = wrap("1월 22일 토요일 오후 3시 · 책방 E 2층", mp, 400, tcol);
+    var btnH = bp * 1.25 + 24, btnW = tw("신청하기", bp, 700) + 44;
+    var textH = cp + lab * 1.3 + 8 + tl.length * tp * 1.28 + 8 + ml.length * mp * 1.5 + 18 + btnH + cp;
+    var photoH = wide ? (inner * 0.44) * 0.68 : 0;
+    var cardH = Math.max(textH, photoH + cp * 2);
+    R(x0, y, inner, cardH, o.old ? "#f1efe9" : E.cream, o.old ? 0 : 14);
+    if (wide) ops.push({ k: "ph", x: x0 + inner * 0.56, y: y + cp, w: inner * 0.44 - cp, h: cardH - cp * 2 });
+    var ty = y + cp + lab;
+    T(x0 + cp, ty, "다음 모임", lab, E.red, 700);
+    ty += lab * 0.3 + 8;
+    tl.forEach(function (s) { ty += tp * 1.28; T(x0 + cp, ty - tp * 0.28, s, tp, E.dark, 700); });
+    ty += 8;
+    ml.forEach(function (s) { ty += mp * 1.5; T(x0 + cp, ty - mp * 0.45, s, mp, E.dim, 400); });
+    ty += 18;
+    R(x0 + cp, ty, btnW, btnH, E.green, 10);
+    T(x0 + cp + btnW / 2, ty + btnH / 2 + bp * 0.36, "신청하기", bp, E.white, 700, "center");
+    m.btnTop = ty; m.btnBottom = ty + btnH; m.cardBottom = y + cardH;
+    y += cardH + 28;
+    // 소개 글(본문)
+    var bpx = (o.old ? 14 : 17) * ts, bl = wrap(INTRO, bpx, 400, inner);
+    m.bodyPx = bpx;
+    var cs = 0; bl.forEach(function (s, i) { if (i < bl.length - 1) cs += s.length; });
+    m.cpl = bl.length > 1 ? cs / (bl.length - 1) : INTRO.length;
+    bl.forEach(function (s) { y += bpx * 1.6; T(x0, y - bpx * 0.5, s, bpx, E.dark, 400); });
+    y += 28;
+    // 행사 일정
+    var hp = 20 * ts; m.nextTop = y;
+    y += hp * 1.3; T(x0, y - hp * 0.3, "행사 일정", hp, E.dark, 700); y += 10;
+    var rp = 16 * ts, rowH = Math.max(48, rp * 1.5 + 22);
+    EVENTS.forEach(function (ev) {
+      R(x0, y, inner, 1, E.line);
+      var cw = tw(ev[0] + " " + ev[1], 14 * ts, 700) + 18;
+      R(x0, y + (rowH - 14 * ts * 1.6 - 6) / 2, cw, 14 * ts * 1.6 + 6, E.chip, 8);
+      T(x0 + 9, y + rowH / 2 + 14 * ts * 0.36, ev[0] + " " + ev[1], 14 * ts, E.green, 700);
+      var tx = x0 + cw + 14, tl2 = wrap(ev[2], rp, 500, inner - cw - 14);
+      tl2.forEach(function (s, i) { T(tx, y + rowH / 2 + rp * 0.36 + (i - (tl2.length - 1) / 2) * rp * 1.3, s, rp, E.dark, 500); });
+      y += Math.max(rowH, tl2.length * rp * 1.3 + 16);
+    });
+    R(x0, y, inner, 1, E.line); y += 30;
+    // 신간
+    y += hp * 1.3; T(x0, y - hp * 0.3, "신간", hp, E.dark, 700); y += 12;
+    var g = L < 600 ? 12 : 20, cols = Math.max(1, Math.min(4, Math.floor((inner + g) / (140 + g))));
+    if (o.old) cols = 4;
+    m.cols = cols;
+    var cwid = (inner - g * (cols - 1)) / cols, ch = cwid * 1.42, tpx = 14 * ts, rowY = y, maxB = y;
+    BOOKS.forEach(function (b, i) {
+      var c = i % cols, r = Math.floor(i / cols);
+      if (c === 0 && r > 0) rowY = maxB + 18;
+      var bx = x0 + c * (cwid + g);
+      R(bx, rowY, cwid, ch, b[1], 6);
+      R(bx + cwid * 0.12, rowY + ch * 0.16, cwid * 0.76, Math.max(2, ch * 0.05), "rgba(255,255,255,0.75)", 2);
+      R(bx + cwid * 0.12, rowY + ch * 0.25, cwid * 0.5, Math.max(2, ch * 0.03), "rgba(255,255,255,0.55)", 2);
+      var bl2 = wrap(b[0], tpx, 500, cwid), by = rowY + ch + 6;
+      bl2.forEach(function (s) { by += tpx * 1.4; T(bx, by - tpx * 0.35, s, tpx, E.dark, 500); });
+      maxB = Math.max(maxB, by);
+    });
+    y = maxB + 32;
+    // 바닥
+    var fp = 13 * ts, fl = wrap("책방 E · 골목 끝 2층 · 화요일은 쉽니다", fp, 400, inner);
+    var fh = fl.length * fp * 1.6 + 36;
+    R(0, y, L, fh, E.dark);
+    fl.forEach(function (s, i) { T(x0, y + 18 + (i + 1) * fp * 1.6 - fp * 0.5, s, fp, E.cream, 400); });
+    y += fh;
+    m.H = y;
+    m.ops = ops.concat(late);
+    return m;
+  }
+  function drawPhoto(ctx, o) {
+    ctx.fillStyle = E.sage; ctx.fillRect(o.x, o.y, o.w, o.h);
+    var wx = o.x + o.w * 0.14, wy = o.y + o.h * 0.14, ww = o.w * 0.72, wh = o.h * 0.72;
+    ctx.fillStyle = "#f2dfae"; ctx.fillRect(wx, wy, ww, wh);
+    var cols = ["#2f7d5b", "#d24f39", "#22342a", "#e8b04b", "#7d5a8c", "#3d6f8f"];
+    for (var s = 0; s < 3; s++) {
+      var sy = wy + wh * (0.3 + s * 0.3);
+      ctx.fillStyle = "#8a6a46"; ctx.fillRect(wx, sy, ww, Math.max(1, wh * 0.025));
+      for (var i = 0; i < 9; i++) { ctx.fillStyle = cols[(i + s * 2) % cols.length]; ctx.fillRect(wx + ww * (0.04 + i * 0.105), sy - wh * 0.2, ww * 0.08, wh * 0.2); }
+    }
+    ctx.fillStyle = E.dark;
+    ctx.fillRect(wx + ww / 2 - Math.max(1, ww * 0.012), wy, Math.max(2, ww * 0.024), wh);
+    ctx.lineWidth = Math.max(1, ww * 0.02); ctx.strokeStyle = E.dark; ctx.strokeRect(wx, wy, ww, wh);
+  }
+  // P를 화면 (ox, oy)에서 배율 s로, 보이는 범위 vw×vh(배치 좌표)만큼 그린다. sy: 내려 본 거리, sx: 옆으로 민 거리
+  function paint(ctx, P, ox, oy, s, vw, vh, sy, sx) {
+    sy = sy || 0; sx = sx || 0;
+    ctx.save();
+    ctx.beginPath(); ctx.rect(ox, oy, vw * s, vh * s); ctx.clip();
+    ctx.fillStyle = E.page; ctx.fillRect(ox, oy, vw * s, vh * s);
+    ctx.translate(ox - sx * s, oy - sy * s); ctx.scale(s, s);
+    var y0 = sy - 40, y1 = sy + vh + 40;
+    ctx.textBaseline = "alphabetic";
+    P.ops.forEach(function (q) {
+      if (q.k === "r") {
+        if (q.y > y1 || q.y + q.h < y0) return;
+        ctx.fillStyle = q.c;
+        if (q.r) { rr(ctx, q.x, q.y, q.w, q.h, q.r); ctx.fill(); } else ctx.fillRect(q.x, q.y, q.w, q.h);
+      } else if (q.k === "t") {
+        if (q.y - q.px * 1.2 > y1 || q.y + q.px < y0) return;
+        var bx = q.al === "center" ? q.x - q.w / 2 : q.x;
+        if (q.px * s < 3.4) { ctx.globalAlpha = 0.5; ctx.fillStyle = q.c; ctx.fillRect(bx, q.y - q.px * 0.66, q.w, q.px * 0.56); ctx.globalAlpha = 1; }
+        else { ctx.font = fnt(q.px, q.wt); ctx.fillStyle = q.c; ctx.textAlign = q.al; ctx.fillText(q.s, q.x, q.y); }
+      } else if (q.k === "ph") {
+        if (q.y > y1 || q.y + q.h < y0) return;
+        drawPhoto(ctx, q);
+      }
+    });
+    ctx.restore();
+  }
+  function bezel(ctx, x, y, w, h, r) { ctx.fillStyle = "#2b2f2d"; rr(ctx, x - 4, y - 4, w + 8, h + 8, r || 6); ctx.fill(); }
+
+  var BG = "#ece8e0", LBL = "#3d3b36", LBL_DIM = "#6f6c64", BAD = "#c4432f", OK = "#2f7d5b", MARGIN = "#d6d0c4";
+  function sim(name, fn) { try { fn(); } catch (e) { if (window.console) console.error("[" + name + "]", e); } }
+  function ruler(ctx, x0, y, s, ticks, maxV) {
+    ctx.strokeStyle = "#b9b3a7"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x0 + maxV * s, y); ctx.stroke();
+    ctx.font = AB.font(10, true); ctx.fillStyle = LBL_DIM; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+    var lastX = -99;
+    ticks.forEach(function (t) {
+      var x = x0 + t * s;
+      ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x, y + 4); ctx.stroke();
+      if (x - lastX > 26) { ctx.fillText(String(t), Math.min(x, x0 + maxV * s - 10), y - 5); lastX = x; }
+    });
+  }
+  // 교육용 통신 모형: 대역폭(Mbps)과 왕복 시간(초)은 대표값
+  var NET = { fast: { bw: 50, rtt: 0.02, n: "빠른 와이파이" }, lte: { bw: 8, rtt: 0.07, n: "휴대폰 데이터" }, slow: { bw: 1.5, rtt: 0.25, n: "붐비는 지하철" } };
+  function timeline(key, imgMB, font) {
+    var n = NET[key], bps = n.bw * 1e6 / 8, t = 0, rows = [];
+    rows.push({ k: "연결 준비", a: 0, b: 3 * n.rtt }); t = 3 * n.rtt;
+    var hh = n.rtt + 30e3 / bps; rows.push({ k: "HTML", a: t, b: t + hh }); t += hh;
+    var cc = n.rtt + 20e3 / bps; rows.push({ k: "CSS", a: t, b: t + cc }); t += cc;
+    var textT = t, start = t + n.rtt, img = imgMB * 1e6, f = font ? 2e6 : 0;
+    var small = Math.min(img, f), large = Math.max(img, f);
+    var tSmall = start + 2 * small / bps, tLarge = start + (small + large) / bps;
+    var imgEnd = img <= f ? tSmall : tLarge, fontEnd = font ? (f < img ? tSmall : tLarge) : null;
+    if (font) rows.push({ k: "웹폰트", a: start, b: fontEnd });
+    rows.push({ k: "첫 화면 사진", a: start, b: imgEnd });
+    return { rows: rows, textT: textT, imgEnd: imgEnd, fontEnd: fontEnd, bytes: 50e3 + img + f };
+  }
+  function secs(t) { return t < 10 ? AB.fix(t, 1) + "초" : Math.round(t) + "초"; }
+
+  /* ---------------- 그림 3: 장 고리 ---------------- */
+  sim("ring", function () {
+    var g = document.getElementById("ov-ring");
+    var SHORT = { viewport: "뷰포트", box: "박스·간격", grid: "그리드", responsive: "반응형", tokens: "색·글자 체계", components: "컴포넌트", navigation: "내비게이션", forms: "폼", motion: "모션", access: "접근성", performance: "속도" };
+    var chs = AB.CHAPTERS.filter(function (c) { return +c.num >= 2 && +c.num <= 12; });
+    var cls = ["f-acc-soft", "f-acc2-soft", "f-warn-soft", "f-ok-soft"];
+    var html = "";
+    chs.forEach(function (c, i) {
+      var a = -Math.PI / 2 + (i / chs.length) * Math.PI * 2, cs = Math.cos(a), sn = Math.sin(a);
+      var x = 230 + 128 * cs, y = 205 + 128 * sn, lx = 230 + 166 * cs, ly = 205 + 166 * sn + 5;
+      var anchor = Math.abs(cs) < 0.3 ? "middle" : cs > 0 ? "start" : "end";
+      var ready = c.ready !== false;
+      var node = '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="21" class="f-elev"/>' +
+        '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="21" class="' + (cls[c.part] || "f-acc-soft") + '"' + (ready ? "" : ' opacity=".5"') + '/>' +
+        '<text x="' + x.toFixed(1) + '" y="' + (y + 5).toFixed(1) + '" text-anchor="middle" class="lbl-b">' + c.num + "</text>" +
+        '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="' + anchor + '" class="lbl-dim">' + (SHORT[c.slug] || c.title) + "</text>";
+      html += ready ? '<a href="' + c.slug + '.html">' + node + "</a>" : "<g><title>" + c.title + " (준비 중)</title>" + node + "</g>";
+    });
+    g.innerHTML = html;
+  });
+
+  /* ---------------- 시뮬레이터 1: 같은 페이지, 세 화면 ---------------- */
+  sim("three", function () {
+    var DEV = [{ w: 360, h: 640, n: "휴대폰" }, { w: 768, h: 1024, n: "태블릿" }, { w: 1280, h: 800, n: "노트북" }];
+    var modeG = AB.seg("ov-th-mode", function () { cv.redraw(); });
+    var sameG = AB.check("ov-th-same", function () { cv.redraw(); });
+    var cv = canvas("#ov-th-cv", function (ctx, w, h) {
+      var pad = 16, gap = 16, lab = 40, avW = w - 2 * pad - 2 * gap, avH = h - pad - lab - 8, sc;
+      if (sameG()) { var s0 = Math.min(avW / 2408, avH / 1024); sc = [s0, s0, s0]; }
+      else { var slot = avW / 3; sc = DEV.map(function (d) { return Math.min(slot / d.w, avH / d.h); }); }
+      var totW = DEV.reduce(function (a, d, i) { return a + d.w * sc[i]; }, 0) + 2 * gap;
+      var x = (w - totW) / 2, base = pad + 4 + avH, pic = modeG() === "pic";
+      var PIC = pic ? buildPage(1440, { maxW: 1200 }) : null;
+      var ids = ["ov-th-o-a", "ov-th-o-b", "ov-th-o-c"];
+      DEV.forEach(function (d, i) {
+        var s = sc[i], fw = d.w * s, fh = d.h * s, fy = base - fh, body;
+        bezel(ctx, x, fy, fw, fh, 5);
+        if (pic) { var k = d.w / 1440; paint(ctx, PIC, x, fy, s * k, 1440, d.h / k); body = 17 * k; }
+        else { paint(ctx, buildPage(d.w, { maxW: 1200 }), x, fy, s, d.w, d.h); body = 17; }
+        ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+        ctx.font = AB.font(11, false, 700); ctx.fillStyle = LBL;
+        ctx.fillText(d.w + " " + d.n, x + fw / 2, base + 20);
+        ctx.font = AB.font(11); ctx.fillStyle = body < 12 ? BAD : LBL_DIM;
+        ctx.fillText("본문 " + AB.fix(body, 1) + "px", x + fw / 2, base + 35);
+        AB.stat(ids[i], AB.fix(body, 1) + " px" + (body < 12 ? " · 읽기 어려움" : ""));
+        x += fw + gap;
+      });
+    }, { aspect: 0.56, minHeight: 280, maxHeight: 430, bg: BG });
+  });
+
+  /* ---------------- 시뮬레이터 2: 고정 960과 흐름 ---------------- */
+  sim("fluid", function () {
+    var vw = 1280, G = { fx: 0, s: 1 };
+    var modeG = AB.seg("ov-fx-mode", function () { cv.redraw(); });
+    var shrinkG = AB.check("ov-fx-shrink", function () { cv.redraw(); });
+    var cv = canvas("#ov-fx-cv", function (ctx, w, h) {
+      var pad = 16, top = 34, s = (w - 2 * pad - 12) / 1600, fx = pad, fy = top, vhPx = h - top - pad, vh = vhPx / s;
+      G.fx = fx; G.s = s;
+      ruler(ctx, fx, 22, s, [320, 768, 960, 1280, 1600], 1600);
+      var md = modeG(), body, scroll = 0, empty = 0, fwPx = vw * s;
+      if (md === "fixed") {
+        var P = buildPage(960, { layoutW: 960, old: true });
+        if (vw >= 960) {
+          ctx.fillStyle = MARGIN; ctx.fillRect(fx, fy, fwPx, vhPx);
+          paint(ctx, P, fx + (vw - 960) / 2 * s, fy, s, 960, vh);
+          body = 14; empty = (vw - 960) / vw;
+        } else if (shrinkG()) {
+          var k = vw / 960; paint(ctx, P, fx, fy, s * k, 960, vh / k); body = 14 * k;
+        } else {
+          paint(ctx, P, fx, fy, s, vw, vh); body = 14; scroll = 960 - vw;
+          ctx.fillStyle = "rgba(34,52,42,0.18)"; ctx.fillRect(fx, fy + vhPx - 6, fwPx, 6);
+          ctx.fillStyle = "rgba(34,52,42,0.6)"; ctx.fillRect(fx, fy + vhPx - 6, fwPx * vw / 960, 6);
+        }
+      } else {
+        var P2 = buildPage(vw, { maxW: md === "max" ? 1200 : null });
+        paint(ctx, P2, fx, fy, s, vw, vh); body = 17;
+        if (md === "max") empty = Math.max(0, vw - 64 - 1200) / vw;
+      }
+      ctx.strokeStyle = "#2b2f2d"; ctx.lineWidth = 2; ctx.strokeRect(fx, fy, fwPx, vhPx);
+      AB.handle(ctx, fx + fwPx, fy + vhPx / 2, { r: 8, fill: "#ffffff", ring: "#22342a" });
+      AB.stat("ov-fx-o-w", vw + " px");
+      AB.stat("ov-fx-o-t", AB.fix(body, 1) + " px" + (body < 12 ? " · 깨알" : ""));
+      AB.stat("ov-fx-o-s", scroll > 0 ? scroll + " px" : "없음");
+      AB.stat("ov-fx-o-e", AB.pct(empty, 0));
+    }, { aspect: 0.52, minHeight: 260, maxHeight: 420, bg: BG });
+    AB.drag(cv.canvas, { move: function (x) { vw = Math.round(AB.clamp((x - G.fx) / G.s, 320, 1600)); cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 3: 글자 크기와 메뉴 ---------------- */
+  sim("text", function () {
+    var tsG = AB.range("ov-tx-s", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var wG = AB.seg("ov-tx-w", function () { cv.redraw(); });
+    var fixG = AB.check("ov-tx-fix", function () { cv.redraw(); });
+    var cv = canvas("#ov-tx-cv", function (ctx, w, h) {
+      var vw = +wG(), vh = 640, pad = 16, gap = 18, lab = 26;
+      var s = Math.min((w - 2 * pad - gap) / 2 / vw, (h - pad - lab - 8) / vh);
+      var fw = vw * s, fh = vh * s, x0 = (w - (2 * fw + gap)) / 2, y0 = lab + 6;
+      var tss = [1, tsG() / 100], Pr = null;
+      tss.forEach(function (ts, i) {
+        var P = buildPage(vw, { ts: ts, fixedHeader: fixG(), maxW: 1200 }), x = x0 + i * (fw + gap);
+        bezel(ctx, x, y0, fw, fh, 6);
+        paint(ctx, P, x, y0, s, vw, vh);
+        if (P.overflow > 0) {
+          ctx.strokeStyle = BAD; ctx.lineWidth = 2; ctx.setLineDash([5, 4]);
+          ctx.beginPath(); ctx.moveTo(x, y0 + P.headerH * s); ctx.lineTo(x + fw, y0 + P.headerH * s); ctx.stroke(); ctx.setLineDash([]);
+        }
+        ctx.font = AB.font(12, false, 700); ctx.fillStyle = LBL; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+        ctx.fillText(i ? "글자 크기 " + Math.round(ts * 100) + "%" : "기본 100%", x + fw / 2, lab - 2);
+        if (i) Pr = P;
+      });
+      AB.stat("ov-tx-o-l", Pr.navLines + "줄" + (Pr.oneRow ? " (로고 옆)" : " (로고 아래)"));
+      AB.stat("ov-tx-o-o", Pr.overflow > 0 ? Math.round(Pr.overflow) + " px · 제목과 겹침" : "없음");
+      AB.stat("ov-tx-o-b", Pr.btnBottom <= vh ? "보임" : "아래로 밀림(" + Math.round(Pr.btnBottom) + " &gt; " + vh + ")");
+    }, { get height() { var W = Math.max(200, (document.getElementById("ov-tx-cv").parentElement.clientWidth || 600)); return Math.round(Math.min(560, Math.max(320, W * 0.78))); }, bg: BG });
+  });
+
+  /* ---------------- 시뮬레이터 4: 커서와 손가락 ---------------- */
+  sim("finger", function () {
+    var LABS = ["20", "21", "22", "23", "24"], GAP = 4, tgt = 2, G = { chips: [] };
+    var r = AB.rng(20280105), S = [];
+    for (var i = 0; i < 80; i++) { var u = Math.max(1e-9, r()), v = r(), m = Math.sqrt(-2 * Math.log(u)); S.push([m * Math.cos(2 * Math.PI * v), m * Math.sin(2 * Math.PI * v)]); }
+    function Phi(z) { var t = 1 / (1 + 0.3275911 * Math.abs(z) / Math.SQRT2), y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-z * z / 2); return z >= 0 ? 0.5 * (1 + y) : 0.5 * (1 - y); }
+    var inG = AB.seg("ov-fg-in", function () { cv.redraw(); });
+    var hG = AB.range("ov-fg-h", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var cv = canvas("#ov-fg-cv", function (ctx, w, h) {
+      var hh = hG(), fpx = Math.min(14, hh * 0.58), sd = inG() === "finger" ? 2 / 0.16 : 0.2 / 0.16;
+      var chips = [], x = 0;
+      LABS.forEach(function (t) { var cw = Math.max(hh, tw(t, fpx, 700) + 12); chips.push({ t: t, x: x, w: cw }); x += cw + GAP; });
+      var rowW = x - GAP, z = Math.min((w - 40) / rowW, (h - 110) / (hh * 2.2), 6);
+      var ox = (w - rowW * z) / 2, oy = h / 2 - hh * z / 2 + 6;
+      G.chips = chips; G.z = z; G.ox = ox;
+      // 휴대폰 화면 조각
+      ctx.fillStyle = E.page; ctx.fillRect(10, 30, w - 20, h - 40);
+      ctx.font = AB.font(12, false, 700); ctx.fillStyle = E.dark; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      ctx.fillText("1월 · 날짜를 고르세요", 22, 52);
+      var LG = [["노린 칩", "#1d5a40"], ["옆 칩", BAD], ["빈 곳", "#8b877d"]], lx = 22;
+      ctx.font = AB.font(11);
+      LG.forEach(function (q) { ctx.fillStyle = q[1]; ctx.beginPath(); ctx.arc(lx + 4, 70, 4, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = LBL_DIM; ctx.fillText(q[0], lx + 12, 74); lx += 20 + tw(q[0], 11, 400) + 8; });
+      ctx.fillText(AB.fix(z, 1) + "배 확대", lx + 4, 74);
+      chips.forEach(function (c, i) {
+        rr(ctx, ox + c.x * z, oy, c.w * z, hh * z, 8 * z / 2); ctx.fillStyle = i === tgt ? E.green : E.chip; ctx.fill();
+        ctx.font = fnt(fpx * z, 700); ctx.fillStyle = i === tgt ? E.white : E.green; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText(c.t, ox + (c.x + c.w / 2) * z, oy + hh * z / 2 + 1);
+      });
+      var tc = chips[tgt], cx = tc.x + tc.w / 2, cy = hh / 2;
+      var py = Phi(hh / 2 / sd) - Phi(-hh / 2 / sd), hit = 0, near = 0;
+      chips.forEach(function (c, i) { var px = Phi((c.x + c.w - cx) / sd) - Phi((c.x - cx) / sd); if (i === tgt) hit = px * py; else near += px * py; });
+      S.forEach(function (p) {
+        var X = cx + p[0] * sd, Y = cy + p[1] * sd, inside = -1;
+        if (Y >= 0 && Y <= hh) chips.forEach(function (c, i) { if (X >= c.x && X <= c.x + c.w) inside = i; });
+        ctx.beginPath(); ctx.arc(ox + X * z, oy + Y * z, 3.2, 0, Math.PI * 2);
+        ctx.fillStyle = inside === tgt ? "#1d5a40" : inside >= 0 ? BAD : "#8b877d"; ctx.fill();
+        ctx.lineWidth = 1; ctx.strokeStyle = "#ffffff"; ctx.stroke();
+      });
+      AB.stat("ov-fg-o-hit", AB.pct(hit, 0));
+      AB.stat("ov-fg-o-near", AB.pct(near, 0));
+      AB.stat("ov-fg-o-mm", hh + " px ≈ " + AB.fix(hh * 0.16, 1) + " mm");
+    }, { aspect: 0.55, minHeight: 240, maxHeight: 340, bg: BG });
+    AB.drag(cv.canvas, { start: function (x) {
+      if (!G.chips.length) return;
+      var X = (x - G.ox) / G.z, best = 0, bd = 1e9;
+      G.chips.forEach(function (c, i) { var d = Math.abs(X - (c.x + c.w / 2)); if (d < bd) { bd = d; best = i; } });
+      tgt = best; cv.redraw();
+    } });
+  });
+
+  /* ---------------- 시뮬레이터 5: 첫 화면이 뜨기까지 ---------------- */
+  sim("speed", function () {
+    var netG = AB.seg("ov-sp-net", function () { cv.redraw(); });
+    var imgG = AB.range("ov-sp-img", function (v) { return AB.fix(v, 1) + " MB"; }, function () { cv.redraw(); });
+    var fontG = AB.check("ov-sp-font", function () { cv.redraw(); });
+    var cv = canvas("#ov-sp-cv", function (ctx, w, h) {
+      var P = AB.palette(), T = timeline(netG(), imgG(), fontG());
+      var left = Math.min(96, w * 0.26), right = 16, top = 30, bottom = 44;
+      var tMax = Math.max(1, T.imgEnd * 1.08), bw = w - left - right;
+      var X = function (t) { return left + t / tMax * bw; };
+      var step = [0.1, 0.2, 0.5, 1, 2, 5, 10, 20].find(function (s) { return tMax / s <= 6; }) || 20;
+      ctx.font = AB.font(11, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      for (var t = 0; t <= tMax + 1e-9; t += step) {
+        ctx.strokeStyle = P.grid; ctx.beginPath(); ctx.moveTo(X(t), top); ctx.lineTo(X(t), h - bottom); ctx.stroke();
+        ctx.fillStyle = P.dim; ctx.fillText(AB.fix(t, step < 1 ? 1 : 0) + "s", X(t), h - bottom + 6);
+      }
+      var rowH = (h - top - bottom) / T.rows.length;
+      T.rows.forEach(function (rw, i) {
+        var y = top + i * rowH + rowH * 0.22, bh = rowH * 0.56;
+        ctx.fillStyle = rw.k === "웹폰트" ? P.warn : rw.k === "첫 화면 사진" ? P.accent : i === 0 ? P.faint : P.accent2;
+        ctx.fillRect(X(rw.a), y, Math.max(2, X(rw.b) - X(rw.a)), bh);
+        ctx.fillStyle = P.text; ctx.font = AB.font(12); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+        ctx.fillText(rw.k, left - 8, y + bh / 2);
+      });
+      [[T.textT, "글자 보임", P.ok], [T.imgEnd, "사진까지", P.bad]].forEach(function (v, i) {
+        ctx.strokeStyle = v[2]; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(X(v[0]), top - 4); ctx.lineTo(X(v[0]), h - bottom); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = v[2]; ctx.font = AB.font(11, false, 700); ctx.textBaseline = "bottom";
+        var lx = X(v[0]); ctx.textAlign = i === 0 ? (lx < left + 40 ? "left" : "center") : "right";
+        ctx.fillText(v[1], i === 0 ? Math.max(lx, left) : Math.min(w - 4, lx), top - 6);
+      });
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.fillText("시간(초) · " + NET[netG()].n + " " + NET[netG()].bw + " Mbps, 왕복 " + Math.round(NET[netG()].rtt * 1000) + " ms(가정)", left + bw / 2, h - 4);
+      AB.stat("ov-sp-o-t", secs(T.textT));
+      AB.stat("ov-sp-o-i", secs(T.imgEnd));
+      AB.stat("ov-sp-o-w", AB.fix(T.bytes / 1e6, 2) + " MB");
+    }, { aspect: 0.5, minHeight: 240, maxHeight: 330 });
+  });
+
+  /* ---------------- 시뮬레이터 6: 한 페이지, 네 가지 질문 ---------------- */
+  sim("map", function () {
+    var vw = 1100, G = { fx: 0, s: 1 };
+    var layG = AB.seg("ov-mp-lay", function () { cv.redraw(); });
+    var tsG = AB.range("ov-mp-ts", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var phG = AB.check("ov-mp-photo", function () { cv.redraw(); });
+    var fixG = AB.check("ov-mp-fix", function () { cv.redraw(); });
+    var cv = canvas("#ov-mp-cv", function (ctx, w, h) {
+      var pad = 16, top = 34, s = (w - 2 * pad - 12) / 1440, fx = pad, fy = top, vhPx = h - top - pad, vh = vhPx / s;
+      G.fx = fx; G.s = s;
+      ruler(ctx, fx, 22, s, [320, 768, 1280, 1440], 1440);
+      var ts = tsG() / 100, P, body, k = 1, fwPx = vw * s;
+      if (layG() === "fixed") {
+        P = buildPage(960, { layoutW: 960, old: true, ts: ts, fixedHeader: fixG() });
+        if (vw >= 960) { ctx.fillStyle = MARGIN; ctx.fillRect(fx, fy, fwPx, vhPx); paint(ctx, P, fx + (vw - 960) / 2 * s, fy, s, 960, vh); }
+        else { k = vw / 960; paint(ctx, P, fx, fy, s * k, 960, vh / k); }
+      } else {
+        P = buildPage(vw, { maxW: 1200, ts: ts, fixedHeader: fixG() });
+        paint(ctx, P, fx, fy, s, vw, vh);
+      }
+      body = P.bodyPx * k;
+      ctx.strokeStyle = "#2b2f2d"; ctx.lineWidth = 2; ctx.strokeRect(fx, fy, fwPx, vhPx);
+      AB.handle(ctx, fx + fwPx, fy + vhPx / 2, { r: 8, fill: "#ffffff", ring: "#22342a" });
+      var lab = vw + " px", lw = tw(lab, 11, 700) + 14, lx = fx + fwPx + 14 + lw < w ? fx + fwPx + 14 : fx + fwPx - 14 - lw, ly = fy + vhPx / 2 + 16;
+      ctx.fillStyle = "#22342a"; rr(ctx, lx, ly, lw, 20, 10); ctx.fill();
+      ctx.font = AB.font(11, false, 700); ctx.fillStyle = "#ffffff"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(lab, lx + lw / 2, ly + 10);
+      var T = timeline("lte", phG() ? 4 : 0.3, false);
+      AB.stat("ov-mp-o-1", AB.fix(body, 1) + " px" + (k < 1 ? " (줄여 맞춤)" : "") + (body < 12 ? " · 깨알" : ""));
+      AB.stat("ov-mp-o-2", P.cols + "단 · " + Math.round(P.cpl) + "자");
+      AB.stat("ov-mp-o-3", (P.navLines > 1 ? P.navLines + "줄로 꺾임" : "한 줄") + (P.overflow > 0 ? " · " + Math.round(P.overflow) + " px 넘침" : ""));
+      AB.stat("ov-mp-o-4", "약 " + secs(T.imgEnd));
+    }, { aspect: 0.56, minHeight: 280, maxHeight: 440, bg: BG });
+    AB.drag(cv.canvas, { move: function (x) { vw = Math.round(AB.clamp((x - G.fx) / G.s, 320, 1440)); cv.redraw(); } });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1158 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "고정폭과 유동 레이아웃, 기기 이름이 아니라 콘텐츠가 깨지는 곳에 두는 중단점, 모바일 우선, clamp()로 짜는 유동 크기, 글줄 길이 상한, 컨테이너 쿼리, srcset과 sizes를 가상 웹 화면의 폭을 끌어 보며 익히고, 책방 E 행사 일정 페이지의 중단점을 정한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>반응형 · WebBook</title>
+<meta name="description" content="고정폭과 유동 레이아웃, 기기 이름이 아니라 콘텐츠가 깨지는 곳에 두는 중단점, 모바일 우선, clamp()로 짜는 유동 크기, 글줄 길이 상한, 컨테이너 쿼리, srcset과 sizes를 가상 웹 화면의 폭을 끌어 보며 익히고, 책방 E 행사 일정 페이지의 중단점을 정한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/responsive.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="반응형 · WebBook">
+<meta property="og:description" content="고정폭과 유동 레이아웃, 기기 이름이 아니라 콘텐츠가 깨지는 곳에 두는 중단점, 모바일 우선, clamp()로 짜는 유동 크기, 글줄 길이 상한, 컨테이너 쿼리, srcset과 sizes를 가상 웹 화면의 폭을 끌어 보며 익히고, 책방 E 행사 일정 페이지의 중단점을 정한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/responsive.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/responsive.html#chapter","name":"반응형","headline":"반응형 · WebBook","description":"고정폭과 유동 레이아웃, 기기 이름이 아니라 콘텐츠가 깨지는 곳에 두는 중단점, 모바일 우선, clamp()로 짜는 유동 크기, 글줄 길이 상한, 컨테이너 쿼리, srcset과 sizes를 가상 웹 화면의 폭을 끌어 보며 익히고, 책방 E 행사 일정 페이지의 중단점을 정한다.","url":"https://artbook.euiyun.com/web/chapters/responsive.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"5. 반응형","item":"https://artbook.euiyun.com/web/chapters/responsive.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .rs-code { font-family: var(--mono); font-size: 12.5px; line-height: 1.65; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin: 16px 0; overflow-x: auto; white-space: pre; color: var(--text); }
+  .rs-css { font-family: var(--mono); font-size: 12px; word-break: break-all; }
+</style>
+</head>
+<body data-chapter="responsive">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 05</div>
+    <h1>반응형</h1>
+    <p class="lead">책방 E의 새 행사 일정 페이지는 휴대폰에서도, 회사 모니터에서도 멀쩡했다. 그런데 지후가 브라우저 창의 오른쪽 끝을 잡고 천천히 줄이자, 폭이 700픽셀을 조금 넘는 곳에서 행사 카드가 화면 끝까지 늘어나 한 줄이 마흔 자를 넘겼고, "신청하기" 버튼은 손바닥보다 길어졌다. 768픽셀이 되는 순간 화면이 갑자기 다른 모습으로 바뀌었다. 세 폭(360·768·1280)으로 그린 시안 어디에도 700픽셀은 없었다. 반응형 디자인은 그 몇 개의 폭이 아니라 그 사이의 모든 폭을 설계하는 일이다.</p>
+    <ul class="objectives">
+      <li>고정폭 레이아웃과 유동 레이아웃, 최대 폭을 둔 유동 레이아웃이 화면 폭에 따라 어떻게 달라지는지 설명한다.</li>
+      <li>중단점을 기기 이름이 아니라 콘텐츠가 깨지는 곳에 두고, 그것을 <code>em</code>으로 적는 이유를 안다.</li>
+      <li>모바일 우선(<code>min-width</code>) 방식으로 화면을 쌓아 올리는 순서를 이해한다.</li>
+      <li><code>clamp()</code>로 제목 크기와 간격을 화면 폭에 따라 매끄럽게 바꾸고, 글줄 길이에 상한을 둔다.</li>
+      <li>컨테이너 쿼리와 <code>srcset</code>·<code>sizes</code>로, 부품과 이미지가 놓인 자리에 맞게 바뀌게 한다.</li>
+    </ul>
+  </header>
+
+  <section id="fluid">
+    <h2>고정, 유동, 그리고 그 사이</h2>
+    <p>책방 E의 지금 웹사이트는 2019년쯤 만든 <span class="term">고정폭 레이아웃</span><span class="en">(Fixed-width layout)</span>이다. 페이지 전체의 폭을 960픽셀로 못 박은 디자인이다. 2000년대 후반부터 한동안 웹 디자인의 표준처럼 쓰였다. 당시 흔한 모니터 해상도가 1024×768이었고, 960은 2·3·4·5·6·8·10·12로 나누어떨어져 단을 나누기 좋았다. 화면이 960보다 넓으면 양옆이 비고, 좁으면 넘친다. 종이 포스터처럼 크기를 먼저 정하고 그 안에 그리는 방식이다.</p>
+    <p>휴대폰이 나오자 고정폭 페이지는 두 가지 방식으로 망가졌다. <a href="viewport.html">2장</a>에서 본 대로, 뷰포트를 알려 주는 메타 태그가 없는 페이지를 휴대폰 브라우저는 폭 980픽셀 안팎의 가상 화면에 그린 뒤 통째로 줄여 보여 준다. 글자가 깨알처럼 작아진다. 메타 태그를 넣으면 이번에는 360픽셀 화면에 960픽셀 페이지가 들어가 가로로 넘친다. 독자는 한 줄을 읽을 때마다 화면을 좌우로 밀어야 한다.</p>
+    <p>반대쪽 끝은 <span class="term">유동 레이아웃</span><span class="en">(Fluid layout)</span>이다. 폭을 픽셀이 아니라 화면 폭의 비율(%)이나 <code>fr</code>로 적어, 화면이 넓어지면 함께 넓어지고 좁아지면 함께 좁아진다. 넘치지는 않지만 끝까지 밀면 다른 문제가 생긴다. 좁은 화면에서는 옆 칸까지 같은 비율로 줄어 글 칸이 손가락 폭만 해지고, 넓은 모니터에서는 한 줄이 백 자를 넘는다. 그래서 실무에서는 유동 레이아웃에 <span class="term">최대 폭</span><span class="en">(max-width)</span>을 함께 둔다. <a href="grid.html">4장</a>에서 정한 1,200픽셀이 그 값이다. 그보다 넓은 화면에서는 내용이 가운데에 멈추고 양옆 여백만 늘어난다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="고정폭, 유동, 최대 폭을 둔 유동 레이아웃을 360, 768, 1440픽셀 화면에서 비교한 그림. 고정폭은 좁은 화면에서 넘치고, 유동은 좁은 화면에서 옆 칸이 비좁아지고 넓은 화면에서 글줄이 길어지며, 최대 폭을 둔 유동은 넓은 화면에서 내용이 가운데에 멈춘다.">
+<text x="114.0" y="30.0" text-anchor="middle" class="lbl-dim" style="font-size:12px">360px</text>
+<text x="238.4" y="30.0" text-anchor="middle" class="lbl-dim" style="font-size:12px">768px</text>
+<text x="376.0" y="30.0" text-anchor="middle" class="lbl-dim" style="font-size:12px">1440px</text>
+<text x="8.0" y="72.0" text-anchor="start" class="lbl-b" style="font-size:13px">고정 960</text>
+<text x="8.0" y="156.0" text-anchor="start" class="lbl-b" style="font-size:13px">유동</text>
+<text x="8.0" y="232.0" text-anchor="start" class="lbl-b" style="font-size:13px">유동 +</text>
+<text x="8.0" y="248.0" text-anchor="start" class="lbl-b" style="font-size:13px">최대 폭</text>
+<rect x="96.0" y="44.0" width="36.0" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1"><rect x="98.0" y="51.0" width="92.0" height="5.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="60.0" width="26.0" height="4.0" rx="0" class="f-acc"/><rect x="98.0" y="68.0" width="88.3" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="72.0" width="88.3" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="76.0" width="55.2" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="84.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="92.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="100.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="163.4" y="84.0" width="26.6" height="22.0" rx="0" class="f-warn-soft"/></g>
+<rect x="132.0" y="44.0" width="60.0" height="60.0" rx="0" class="f-bad-soft s-bad" stroke-dasharray="3 2"/>
+<text x="114.0" y="116.0" text-anchor="middle" class="lbl-bad" style="font-size:10.5px">600px 넘침</text>
+<rect x="200.0" y="44.0" width="76.8" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1"><rect x="202.0" y="51.0" width="92.0" height="5.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="60.0" width="26.0" height="4.0" rx="0" class="f-acc"/><rect x="202.0" y="68.0" width="88.3" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="72.0" width="88.3" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="76.0" width="55.2" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="84.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="92.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="100.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="267.4" y="84.0" width="26.6" height="22.0" rx="0" class="f-warn-soft"/></g>
+<rect x="276.8" y="44.0" width="19.2" height="60.0" rx="0" class="f-bad-soft s-bad" stroke-dasharray="3 2"/>
+<text x="238.4" y="116.0" text-anchor="middle" class="lbl-bad" style="font-size:10.5px">192px 넘침</text>
+<rect x="304.0" y="44.0" width="144.0" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1.0"><rect x="330.0" y="51.0" width="92.0" height="5.0" rx="0" class="f-acc-soft"/><rect x="330.0" y="60.0" width="26.0" height="4.0" rx="0" class="f-acc"/><rect x="330.0" y="68.0" width="88.3" height="2.0" rx="0" class="f-acc2"/><rect x="330.0" y="72.0" width="88.3" height="2.0" rx="0" class="f-acc2"/><rect x="330.0" y="76.0" width="55.2" height="2.0" rx="0" class="f-acc2"/><rect x="330.0" y="84.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="330.0" y="92.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="330.0" y="100.0" width="63.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="395.4" y="84.0" width="26.6" height="22.0" rx="0" class="f-warn-soft"/></g>
+<text x="376.0" y="116.0" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">양옆이 빈다</text>
+<rect x="96.0" y="128.0" width="36.0" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1.0"><rect x="98.0" y="135.0" width="32.0" height="5.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="144.0" width="16.0" height="4.0" rx="0" class="f-acc"/><rect x="98.0" y="152.0" width="30.7" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="156.0" width="30.7" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="160.0" width="19.2" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="168.0" width="21.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="176.0" width="21.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="184.0" width="21.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="121.4" y="168.0" width="8.6" height="22.0" rx="0" class="f-warn-soft"/></g>
+<text x="114.0" y="200.0" text-anchor="middle" class="lbl-bad" style="font-size:10.5px">옆 칸이 비좁다</text>
+<rect x="200.0" y="128.0" width="76.8" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1.0"><rect x="202.0" y="135.0" width="72.8" height="5.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="144.0" width="26.0" height="4.0" rx="0" class="f-acc"/><rect x="202.0" y="152.0" width="69.9" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="156.0" width="69.9" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="160.0" width="43.7" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="168.0" width="50.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="176.0" width="50.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="184.0" width="50.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="254.0" y="168.0" width="20.8" height="22.0" rx="0" class="f-warn-soft"/></g>
+<text x="238.4" y="200.0" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">그런대로</text>
+<rect x="304.0" y="128.0" width="144.0" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1.0"><rect x="306.0" y="135.0" width="140.0" height="5.0" rx="0" class="f-acc-soft"/><rect x="306.0" y="144.0" width="26.0" height="4.0" rx="0" class="f-acc"/><rect x="306.0" y="152.0" width="134.4" height="2.0" rx="0" class="f-acc2"/><rect x="306.0" y="156.0" width="134.4" height="2.0" rx="0" class="f-acc2"/><rect x="306.0" y="160.0" width="84.0" height="2.0" rx="0" class="f-acc2"/><rect x="306.0" y="168.0" width="97.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="306.0" y="176.0" width="97.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="306.0" y="184.0" width="97.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="405.0" y="168.0" width="41.0" height="22.0" rx="0" class="f-warn-soft"/></g>
+<text x="376.0" y="200.0" text-anchor="middle" class="lbl-bad" style="font-size:10.5px">글줄이 너무 길다</text>
+<rect x="96.0" y="212.0" width="36.0" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1.0"><rect x="98.0" y="219.0" width="32.0" height="5.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="228.0" width="16.0" height="4.0" rx="0" class="f-acc"/><rect x="98.0" y="236.0" width="30.7" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="240.0" width="30.7" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="244.0" width="19.2" height="2.0" rx="0" class="f-acc2"/><rect x="98.0" y="252.0" width="21.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="260.0" width="21.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="98.0" y="268.0" width="21.4" height="6.0" rx="0" class="f-acc-soft"/><rect x="121.4" y="252.0" width="8.6" height="22.0" rx="0" class="f-warn-soft"/></g>
+<text x="114.0" y="284.0" text-anchor="middle" class="lbl-bad" style="font-size:10.5px">여전히 비좁다</text>
+<rect x="200.0" y="212.0" width="76.8" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1.0"><rect x="202.0" y="219.0" width="72.8" height="5.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="228.0" width="26.0" height="4.0" rx="0" class="f-acc"/><rect x="202.0" y="236.0" width="45.7" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="240.0" width="45.7" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="244.0" width="28.6" height="2.0" rx="0" class="f-acc2"/><rect x="202.0" y="252.0" width="50.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="260.0" width="50.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="202.0" y="268.0" width="50.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="254.0" y="252.0" width="20.8" height="22.0" rx="0" class="f-warn-soft"/></g>
+<text x="238.4" y="284.0" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">그런대로</text>
+<rect x="304.0" y="212.0" width="144.0" height="60.0" rx="3" class="f-surface s-line"/>
+<g opacity="1.0"><rect x="316.0" y="219.0" width="120.0" height="5.0" rx="0" class="f-acc-soft"/><rect x="316.0" y="228.0" width="26.0" height="4.0" rx="0" class="f-acc"/><rect x="316.0" y="236.0" width="45.7" height="2.0" rx="0" class="f-acc2"/><rect x="316.0" y="240.0" width="45.7" height="2.0" rx="0" class="f-acc2"/><rect x="316.0" y="244.0" width="28.6" height="2.0" rx="0" class="f-acc2"/><rect x="316.0" y="252.0" width="83.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="316.0" y="260.0" width="83.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="316.0" y="268.0" width="83.0" height="6.0" rx="0" class="f-acc-soft"/><rect x="401.0" y="252.0" width="35.0" height="22.0" rx="0" class="f-warn-soft"/></g>
+<text x="376.0" y="284.0" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">가운데에 멈춘다</text>
+</svg>
+      <figcaption><b>그림 1. 세 가지 폭 전략.</b> 같은 페이지를 세 화면 폭(360·768·1440픽셀)에서 본 모습을 10분의 1로 줄여 그렸다. 고정폭(위)은 좁은 화면에서 붉은 점선만큼 넘친다. 유동(가운데)은 넘치지 않지만 좁은 화면에서는 옆 칸까지 함께 쪼그라들고 넓은 화면에서는 글줄이 끝없이 길어진다. 최대 폭을 둔 유동(아래)은 넓은 화면 문제를 푼다. 좁은 화면 문제는 아직 남아 있다.</figcaption>
+    </figure>
+
+    <p>아래는 책방 E 행사 일정 페이지의 가상 화면이다. 맨 위 눈금자를 끌어 화면 폭을 320에서 1,600픽셀까지 바꾸고, 세 전략을 번갈아 본다. 폭이 넓을 때는 가상 화면을 줄여서 그린다. "viewport 메타 태그 없이"를 켜면 메타 태그가 없던 시절의 휴대폰 화면이 된다.</p>
+
+    <div class="sim" id="sim-rs-fluid">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>고정폭·유동·최대 폭</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rf-cv" class="art"></canvas><span class="hint">좌우로 끌어 화면 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="rf-mode"><button data-value="fixed" class="on">고정 960</button><button data-value="fluid">유동</button><button data-value="max">유동 + 최대 폭</button></div>
+          <label class="check"><input type="checkbox" id="rf-meta"> viewport 메타 태그 없이</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">화면 폭</span><span class="v" id="rf-o-w">—</span></div>
+        <div class="stat"><span class="k">가로로 넘친 폭</span><span class="v" id="rf-o-over">—</span></div>
+        <div class="stat"><span class="k">소개 글 한 줄 글자 수</span><span class="v" id="rf-o-ch">—</span></div>
+        <div class="stat"><span class="k">본문 17px이 보이는 크기</span><span class="v" id="rf-o-px">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "고정 960"에서 폭을 360으로 줄인다. 600픽셀이 화면 밖으로 넘치고, 아래에 가로 스크롤 막대가 생긴다. ② "viewport 메타 태그 없이"를 켠다. 넘침은 사라지지만 페이지 전체가 980픽셀 기준으로 줄어 17픽셀 본문이 6픽셀 남짓으로 보인다. 끄고 ③ "유동"으로 바꾼 뒤 폭을 1,600까지 넓힌다. 소개 글이 한 줄 100자를 넘는다. 다시 360으로 줄이면 옆 칸(달력)까지 30%로 줄어 목록이 비좁다. ④ "유동 + 최대 폭"(콘텐츠 1,200px, 글 28em)은 넓은 쪽 문제만 푼다. (가상 화면은 이 책의 단순 모형이다. 한 줄 글자 수는 한 글자를 평균 0.76em으로 친 어림으로, TypeBook <a href="../../type/chapters/leading.html">6장</a>의 "28em에 약 37자"와 같은 비율이다.)</div>
+    </div>
+
+    <p>세 전략 가운데 어느 것도 360픽셀과 1,600픽셀에서 동시에 좋지는 않았다. 고정폭은 한 폭만 책임지고, 유동은 모든 폭을 같은 모양으로 늘인다. 필요한 것은 폭에 따라 <b>모양 자체를 바꾸는</b> 장치다. 웹 디자이너 이선 마콧<span class="en">(Ethan Marcotte)</span>은 2010년 A List Apart에 실은 글 「Responsive Web Design」에서 유동 그리드, 유연한 이미지, 미디어 쿼리 세 가지를 묶어 <span class="term">반응형 웹 디자인</span><span class="en">(Responsive web design)</span>이라고 불렀다. 화면 폭에 반응해 배치가 바뀌는 페이지라는 뜻이다. 이 장은 그 세 재료가 지금 어떻게 쓰이는지, 그리고 그 뒤에 더해진 재료(<code>clamp()</code>, 컨테이너 쿼리, <code>srcset</code>)를 차례로 본다.</p>
+
+    <div class="callout warn">
+      <strong>확대를 막지 않는다</strong>
+      휴대폰에서 레이아웃이 흔들리는 것을 막으려고 viewport 메타 태그에 <code>user-scalable=no</code>나 <code>maximum-scale=1</code>을 넣는 일이 있다. 손가락 두 개로 화면을 키우는 확대를 막는 설정이다. 글자를 키워야 읽을 수 있는 사람에게 이 설정은 페이지를 닫으라는 말과 같다. 웹 콘텐츠 접근성 지침 WCAG 2.2의 성공 기준 1.4.4(글자 크기 조정)는 글자를 200%까지 키워도 내용과 기능을 잃지 않을 것을 요구한다. 메타 태그는 <code>width=device-width, initial-scale=1</code>까지만 쓴다.
+    </div>
+  </section>
+
+  <section id="breakpoints">
+    <h2>중단점은 콘텐츠가 정한다</h2>
+    <p>폭에 따라 모양을 바꾸는 지점을 <span class="term">중단점</span><span class="en">(Breakpoint)</span>이라고 한다. 중단점은 CSS의 <span class="term">미디어 쿼리</span><span class="en">(Media query)</span>로 적는다. "화면 폭이 얼마 이상이면 이 규칙을 쓴다"는 조건문이다.</p>
+    <pre class="rs-code" data-scroll>/* 기본: 행사 카드를 한 줄에 하나씩 쌓는다 */
+.events { display: grid; gap: 1rem; }
+
+/* 화면 폭이 35em 이상이면 날짜·글·버튼을 한 행으로 */
+@media (min-width: 35em) {
+  .event { grid-template-columns: 8em 1fr 9.5em; }
+}</pre>
+    <p>중단점을 어디에 둘까. 오랫동안 쓰인 답은 기기 이름이었다. 아이폰의 320, 아이패드 세로의 768, 아이패드 가로의 1024. 지금도 많은 템플릿과 디자인 도구가 "모바일·태블릿·데스크톱" 세 칸에 이 숫자를 넣어 둔다. 문제는 <a href="viewport.html">2장</a>에서 본 대로 실제 화면 폭이 그 몇 개의 숫자에 모여 있지 않다는 것이다. 휴대폰만 해도 폭이 제각각이고, 태블릿을 가로로 돌리고 노트북 창을 반으로 나누고 글자 크기를 키우면 그 사이의 모든 폭이 나온다. 기기 이름의 중단점은 그 기기들의 폭에서만 맞고, 사이에서는 운에 맡긴다.</p>
+    <p>그래서 지금 널리 쓰는 요령은 순서를 뒤집는 것이다. <b>가장 좁은 화면에서 시작해 창을 천천히 넓혀 가다가, 콘텐츠가 어색해지는 곳에 중단점을 둔다.</b> 기준은 기기가 아니라 내용이다. 글줄이 너무 길어지는가, 글 칸이 너무 좁아져 제목이 세 줄로 꺾이는가, 버튼이 쓸데없이 길어지는가. 그런 곳이 콘텐츠가 "모양을 바꿔 달라"고 말하는 폭이다.</p>
+    <p>아래 시뮬레이터에서 행사 일정 페이지는 세 가지 모양을 가진다. 좁을 때는 카드를 한 줄에 하나씩 쌓고(1단), 넓어지면 날짜·글·버튼을 한 행에 놓고(행), 더 넓어지면 옆에 이달의 달력 칸을 붙인다(행 + 옆 칸). 눈금자 아래의 띠는 320~1,600픽셀의 모든 폭에서 그 폭의 모양이 깨지는지(붉은색) 괜찮은지(초록색)를 미리 계산해 칠한 것이다. "직접 끌기"를 고르면 눈금자의 삼각형 중단점 두 개를 끌어 옮길 수 있다.</p>
+
+    <div class="sim" id="sim-rs-break">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>깨지는 곳을 찾아 중단점 두기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rb-cv" class="art"></canvas><span class="hint">화면을 끌어 폭을, 삼각형을 끌어 중단점을 옮긴다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="rb-mode"><button data-value="device" class="on">기기 이름 768·1024</button><button data-value="content">콘텐츠 35em·56em</button><button data-value="custom">직접 끌기</button></div>
+          <label class="check"><input type="checkbox" id="rb-big"> 글자 크기 150%(도경의 설정)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">지금 폭 · 모양</span><span class="v" id="rb-o-now">—</span></div>
+        <div class="stat"><span class="k">이 폭의 판정</span><span class="v" id="rb-o-ok">—</span></div>
+        <div class="stat"><span class="k">깨지는 폭(320~1,600 중)</span><span class="v" id="rb-o-bad">—</span></div>
+        <div class="stat"><span class="k">중단점</span><span class="v rs-css" id="rb-o-bp">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "기기 이름"에서 띠를 본다. 580~768 사이와 910~1,024 사이가 붉다. 화면을 700으로 끌면 카드의 설명이 한 줄 40자를 넘는다. 1단을 너무 오래 끌고 간 것이다. ② "콘텐츠"로 바꾼다. 띠가 모두 초록이 된다. 35em(560px)은 "행이 처음 가능해지는 폭"과 "1단이 깨지기 시작하는 폭" 사이에 있다. ③ "글자 크기 150%"를 켠다. 글자와 카드 안쪽 간격이 1.5배가 되자 기기 이름 중단점에서는 768 바로 위와 1,024 위쪽에 새 붉은 구간이 생긴다. em으로 적은 콘텐츠 중단점은 840·1,344픽셀로 함께 밀려 여전히 초록이다. ④ "직접 끌기"로 두 삼각형을 옮겨 띠를 모두 초록으로 만들어 본다. 들어갈 수 있는 구간이 생각보다 좁다. (판정 기준: 설명 글 한 줄 40자 초과, 또는 행 모양에서 글 칸이 12자 미만이면 깨짐. 한 글자를 0.76em, 날짜 칸 8em·버튼 칸 9.5em, 카드 안쪽 여백과 칸 사이 1rem, 목록과 옆 칸 사이 24px, 화면 가장자리 16px, 옆 칸은 280px과 콘텐츠 폭의 30% 중 큰 쪽, 최대 폭 1,200px로 놓은 가상 모형이다. 직접 끈 중단점은 px로 적은 셈이라 글자 크기를 따라 움직이지 않는다.)</div>
+    </div>
+
+    <p>기기 이름의 중단점은 틀린 숫자라서가 아니라 <b>질문이 틀려서</b> 깨진다. "어떤 기기가 있나"를 물으면 768이 나오지만, "이 카드는 몇 픽셀부터 한 행에 들어가나"를 물으면 이 모형에서는 560 안팎이 나온다. 그리고 그 답은 카드에 무엇이 들어 있는지에 달려 있다. 날짜 칸을 넓히거나 버튼 문구를 바꾸면 중단점도 움직인다. 중단점은 레이아웃의 설정값이 아니라 콘텐츠의 성질이다.</p>
+    <p>중단점을 <code>em</code>으로 적은 까닭도 여기서 나온다. 미디어 쿼리 안의 <code>em</code>은 부모 요소가 아니라 브라우저의 기본 글자 크기(대개 16px)를 기준으로 한다(Media Queries Level 4). 사용자가 기본 글자 크기를 키우면 35em은 560픽셀에서 840픽셀로 따라 커진다. 글자가 커지면 같은 카드가 한 행에 들어가는 데 더 넓은 폭이 필요하니, 중단점이 함께 움직이는 쪽이 맞다. 픽셀로 적은 768은 그대로 남아, 글자를 키운 사람에게만 깨진 화면을 보여 준다. 다만 휴대폰 운영체제의 글자 크기 설정이 웹 페이지에 어떻게 전해지는지는 운영체제와 브라우저마다 다르므로 실제 기기에서 따로 확인한다.</p>
+
+    <div class="callout studio">
+      <strong>중단점 이름은 기기가 아니라 순서로</strong>
+      디자인 시스템에서 중단점에 <code>mobile</code>, <code>tablet</code>, <code>desktop</code> 같은 이름을 붙이면 머지않아 "태블릿인데 왜 모바일 레이아웃이냐"는 질문을 받는다. 폴더형 휴대폰을 펼치면 태블릿만 해지고, 노트북 창을 반으로 나누면 태블릿보다 좁아진다. 이름은 <code>bp-1</code>, <code>bp-2</code>나 <code>narrow</code>, <code>wide</code>처럼 순서와 성질만 말하게 짓고, 문서에는 "그 폭에서 무엇이 바뀌는지(카드가 한 행이 된다)"를 적는다. 그래야 콘텐츠가 바뀌어 중단점을 옮길 때 이름이 거짓말이 되지 않는다.
+    </div>
+  </section>
+
+  <section id="mobile-first">
+    <h2>모바일 우선: 작은 화면부터 쌓기</h2>
+    <p>미디어 쿼리는 두 방향으로 쓸 수 있다. 넓은 화면의 레이아웃을 기본으로 두고 <code>max-width</code>로 좁은 화면에서 하나씩 덮어쓰는 방식과, 좁은 화면의 레이아웃을 기본으로 두고 <code>min-width</code>로 넓은 화면에서 하나씩 더하는 방식이다. 뒤의 방식을 <span class="term">모바일 우선</span><span class="en">(Mobile first)</span>이라고 부른다. 디자이너 루크 로블르스키<span class="en">(Luke Wroblewski)</span>가 2011년 책 『Mobile First』에서 이름 붙여 널리 알렸다. 그가 강조한 것은 CSS의 순서보다 생각의 순서였다. 작은 화면에서 먼저 설계하면 무엇이 정말 필요한지부터 정하게 된다는 것이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="모바일 우선과 넓은 화면 우선 방식의 미디어 쿼리를 화면 폭 축 위의 막대로 비교한 그림. 모바일 우선에서는 기본 규칙 위에 35em과 56em 이상에서 규칙이 더해지고, 넓은 화면 우선에서는 기본 규칙을 55.99em과 34.99em 이하에서 지운다.">
+<line x1="115.0" y1="26" x2="115.0" y2="206" class="s-dash"/>
+<line x1="220.0" y1="26" x2="220.0" y2="206" class="s-dash"/>
+<text x="40.0" y="18.0" text-anchor="start" class="lbl-b" style="font-size:13px">모바일 우선(min-width): 더해 간다</text>
+<rect x="40.0" y="28.0" width="400.0" height="20.0" rx="4" class="f-acc-soft"/>
+<text x="46.0" y="42.0" text-anchor="start" class="lbl" style="font-size:12px">기본: 1단 쌓기</text>
+<rect x="115.0" y="52.0" width="325.0" height="20.0" rx="4" class="f-acc2-soft"/>
+<text x="121.0" y="66.0" text-anchor="start" class="lbl" style="font-size:12px">min-width: 35em → 행</text>
+<rect x="220.0" y="76.0" width="220.0" height="20.0" rx="4" class="f-ok-soft"/>
+<text x="226.0" y="90.0" text-anchor="start" class="lbl" style="font-size:12px">min-width: 56em → 옆 칸</text>
+<text x="40.0" y="118.0" text-anchor="start" class="lbl-b" style="font-size:13px">넓은 화면 우선(max-width): 지워 간다</text>
+<rect x="40.0" y="128.0" width="400.0" height="20.0" rx="4" class="f-acc-soft"/>
+<text x="46.0" y="142.0" text-anchor="start" class="lbl" style="font-size:12px">기본: 행 + 옆 칸</text>
+<rect x="40.0" y="152.0" width="180.0" height="20.0" rx="4" class="f-warn-soft"/>
+<text x="226.0" y="166.0" text-anchor="start" class="lbl" style="font-size:12px">max-width: 55.99em → 옆 칸 지우기</text>
+<rect x="40.0" y="176.0" width="75.0" height="20.0" rx="4" class="f-warn-soft"/>
+<text x="121.0" y="190.0" text-anchor="start" class="lbl" style="font-size:12px">max-width: 34.99em → 행 지우기</text>
+<line x1="40" y1="214" x2="440" y2="214" class="s-axis"/>
+<line x1="40.0" y1="214" x2="40.0" y2="219" class="s-axis"/>
+<text x="40.0" y="232.0" text-anchor="middle" class="lbl-dim t-mono" style="font-size:10.5px">320</text>
+<line x1="115.0" y1="214" x2="115.0" y2="219" class="s-axis"/>
+<text x="115.0" y="232.0" text-anchor="middle" class="lbl-dim t-mono" style="font-size:10.5px">560</text>
+<line x1="220.0" y1="214" x2="220.0" y2="219" class="s-axis"/>
+<text x="220.0" y="232.0" text-anchor="middle" class="lbl-dim t-mono" style="font-size:10.5px">896</text>
+<line x1="340.0" y1="214" x2="340.0" y2="219" class="s-axis"/>
+<text x="340.0" y="232.0" text-anchor="middle" class="lbl-dim t-mono" style="font-size:10.5px">1280</text>
+<line x1="440.0" y1="214" x2="440.0" y2="219" class="s-axis"/>
+<text x="440.0" y="232.0" text-anchor="middle" class="lbl-dim t-mono" style="font-size:10.5px">1600</text>
+<text x="240.0" y="247.0" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">화면 폭(px, 기본 글자 크기 16px일 때)</text>
+</svg>
+      <figcaption><b>그림 2. 같은 세 모양을 두 방향으로 적기.</b> 위는 모바일 우선이다. 기본 규칙이 모든 폭에 깔리고, <code>min-width</code> 규칙이 넓은 쪽에 한 겹씩 더해진다. 아래는 넓은 화면을 기본으로 두고 <code>max-width</code>로 좁은 쪽을 덮어쓰는 방식이다. 결과는 같아도, 아래 방식에서는 휴대폰이 넓은 화면의 규칙을 다 읽은 뒤 그것을 하나씩 지워야 한다.</figcaption>
+    </figure>
+
+    <p>모바일 우선이 CSS에서 유리한 까닭은 단순하다. 1단 쌓기는 블록 요소의 기본 동작이라 거의 아무것도 적지 않아도 된다. 넓은 화면의 복잡한 규칙(단 나누기, 옆 칸, 행 배치)은 그것이 필요한 폭에서만 더한다. 반대로 넓은 화면을 기본으로 두면 좁은 화면에서 그 규칙을 하나하나 되돌려야 하고, 되돌리는 것을 잊은 규칙이 휴대폰에 남는다. 그리고 지금 대부분의 방문은 휴대폰에서 온다. <a href="viewport.html">2장</a>에서 본 책방 E의 방문 기록(가상)도 그랬다. 가장 많은 손님이 보는 화면을 "덮어쓴 결과"가 아니라 "기본"으로 두는 편이 안전하다.</p>
+    <p>모바일 우선은 "휴대폰 화면만 먼저 예쁘게 그린다"는 뜻이 아니다. 시안 순서로는 오히려 내용의 순위표부터다. CompositionBook <a href="../../composition/chapters/layout.html">12장</a>에서 서윤이 웹 첫 화면을 짤 때 그랬듯, 무엇이 먼저 읽혀야 하는지를 정한 순서가 1단에서는 그대로 위에서 아래로의 순서가 된다. 넓은 화면은 그 순서를 옆으로 펼치는 일이다. 순서가 정해져 있으면 넓은 화면에서 옆 칸으로 빠지는 것(이달의 달력)과 본문에 남는 것(행사 목록)도 쉽게 갈린다.</p>
+
+    <div class="callout try">
+      <strong>종이 띠로 중단점 찾기</strong>
+      A4 종이를 세로로 길게 잘라 폭 6 cm 띠를 만든다. 띠 위에 행사 카드 하나(날짜, 제목, 두 줄 설명, "신청하기" 버튼)를 연필로 그린다. 같은 카드를 폭 10 cm, 14 cm, 20 cm 띠에도 그리되, 설명 글은 띠 폭을 다 채워 쓴다. 그다음 각 띠를 보며 "이 폭에서는 날짜를 옆으로 빼는 편이 낫다", "이 폭에서는 줄이 너무 길다"를 적는다. 모양을 바꾸고 싶어진 첫 폭이 그 카드의 중단점이다. 자로 재서 cm를 적고, 글자 크기(손글씨 한 글자의 폭)로 나누어 "몇 글자 폭"인지도 적어 둔다. 그 숫자가 em으로 적은 중단점이다. 마지막으로 자기 브라우저 창의 오른쪽 끝을 잡고 천천히 줄이며, 즐겨 찾는 웹사이트 하나가 어디에서 모양을 바꾸는지 찾아본다. 그 폭이 기기 이름의 숫자(768, 1024)와 같은지도 본다.
+    </div>
+  </section>
+
+  <section id="fluid-type">
+    <h2>clamp(): 계단 대신 비탈</h2>
+    <p>중단점은 모양을 바꾸는 장치다. 그런데 모든 것이 모양을 바꿔야 하는 것은 아니다. 제목 크기, 구역 사이의 간격처럼 "조금 더 크게, 조금 더 넓게"만 바뀌면 되는 값도 있다. 이런 값을 중단점마다 하나씩 정하면 계단이 된다. 559픽셀에서 30픽셀이던 제목이 560픽셀에서 갑자기 35픽셀로 뛴다. 창을 끄는 사람만 보는 어색함이지만, 계단이 많을수록 사이의 폭에서 비례가 어긋나는 곳도 많아진다.</p>
+    <p>CSS의 <code>clamp(최솟값, 선호값, 최댓값)</code>은 이 계단을 비탈로 바꾼다. 선호값을 화면 폭에 비례하는 식으로 적고, 그 값이 최솟값과 최댓값 사이를 벗어나지 않게 묶는다. 좁은 화면 폭 \(W_1\)에서 \(s_1\), 넓은 화면 폭 \(W_2\)에서 \(s_2\)가 되게 하려면 두 점을 잇는 직선을 쓴다.</p>
+    <div class="formula">$$s(W) = \mathrm{clamp}\!\left(s_1,\; s_1 + (s_2 - s_1)\,\frac{W - W_1}{W_2 - W_1},\; s_2\right)$$<div class="where">\(W\): 화면(뷰포트) 폭(CSS 픽셀). 가운데 식을 "고정 부분 + 기울기 × 화면 폭"으로 풀면 기울기는 \(100\,(s_2 - s_1)/(W_2 - W_1)\) vw, 고정 부분은 \(s_1 - W_1 (s_2 - s_1)/(W_2 - W_1)\)이다. 고정 부분과 양 끝은 rem으로 적는다(1rem = 사용자의 기본 글자 크기, 대개 16px).</div></div>
+    <p>TypeBook <a href="../../type/chapters/screen.html">11장</a>에서 서윤은 이 식으로 본문 크기(17 → 18픽셀)를 이었다. 본문은 폭이 1픽셀밖에 변하지 않는 얌전한 경우다. 제목과 간격은 폭이 훨씬 크다. 아래 그래프의 두 손잡이를 끌어 \((W_1, s_1)\)과 \((W_2, s_2)\)를 바꾸면 그 식이 CSS로 적힌다. 그래프 위에서 마우스를 움직이면(휴대폰에서는 누르면) 그 폭에서의 크기로 "행사 일정"을 그려 보인다.</p>
+
+    <div class="sim" id="sim-rs-clamp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>clamp()로 잇는 제목 크기와 간격</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="rc-cv"></canvas><span class="hint">두 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="rc-what"><button data-value="h1" class="on">페이지 제목</button><button data-value="gap">구역 사이 간격</button></div>
+          <label class="check"><input type="checkbox" id="rc-step" checked> 중단점 계단과 비교</label>
+          <label class="check"><input type="checkbox" id="rc-big"> 기본 글자 크기 24px</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">CSS</span><span class="v rs-css" id="rc-o-css">—</span></div>
+        <div class="stat"><span class="k">폭 360 · 768 · 1,280에서</span><span class="v" id="rc-o-at">—</span></div>
+        <div class="stat"><span class="k">최댓값 ÷ 최솟값</span><span class="v" id="rc-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태는 360픽셀에서 30, 1,280픽셀에서 40픽셀인 페이지 제목이다. 회색 계단(중단점 35em·56em에서만 바뀌는 값)과 비교하면, 계단은 560과 896에서 뛰고 그 사이에서는 평평하다. ② "구역 사이 간격"으로 바꾼다. 간격은 32 → 64픽셀로 두 배가 된다. 휴대폰에서 64픽셀 간격은 한 화면의 6분의 1을 비우는 셈이라, 간격도 화면에 비례해 줄어드는 편이 낫다. ③ "기본 글자 크기 24px"를 켠다. 식 전체가 1.5배로 올라간다. 오른쪽 손잡이를 끌어 최댓값을 최솟값의 2.5배 넘게 키우면 읽음값이 붉어진다. (그래프의 크기는 확대 전 CSS 픽셀. 2.5배 기준은 TypeBook 11장에서 소개한 확대 접근성 계산을 따른다.)</div>
+    </div>
+
+    <p>제목 크기의 비탈에는 지켜야 할 선이 있다. 선호값을 <code>vw</code>만으로 적으면(<code>font-size: 4vw</code>) 브라우저 확대가 듣지 않는다. 확대하면 CSS 픽셀로 잰 화면 폭이 줄어 vw 값도 함께 줄기 때문이다. 고정 부분을 rem으로 섞고, 최댓값을 최솟값의 2.5배 안쪽으로 두면 200% 확대에서도 글자가 충분히 커진다(TypeBook <a href="../../type/chapters/screen.html">11장</a>). 간격은 글자보다 너그럽다. 다만 간격이 화면 폭만 따라 커지고 글자 크기를 따르지 않으면, 글자를 키운 사람의 화면에서는 글자에 비해 간격이 좁아진다. 간격의 비탈도 rem을 섞어 적는다.</p>
+
+    <div class="callout deep">
+      <strong>vw는 무엇의 1%인가</strong>
+      <code>1vw</code>는 뷰포트 폭의 1%다. 휴대폰 브라우저에서는 주소창이 나타났다 사라지면 뷰포트의 높이가 바뀌므로, 높이 단위 <code>vh</code>는 스크롤할 때 값이 흔들린다. 그래서 CSS에는 주소창이 가장 클 때 기준인 <code>svh</code>, 가장 작을 때 기준인 <code>lvh</code>, 지금 기준인 <code>dvh</code>가 더해졌다(CSS Values and Units Level 4). 폭 단위 vw도 데스크톱에서는 세로 스크롤 막대의 폭까지 포함해 재므로, <code>100vw</code>로 폭을 정한 요소는 스크롤 막대만큼 넘쳐 가로 스크롤을 만든다. 화면 폭에 맞추려면 <code>100%</code>를, 글자와 간격의 비탈에는 vw를 쓰는 식으로 나누어 쓴다.
+    </div>
+  </section>
+
+  <section id="measure">
+    <h2>글줄 길이를 지키는 상한</h2>
+    <p>유동 레이아웃이 넓은 화면에서 가장 먼저 망가뜨리는 것은 글줄 길이다. TypeBook <a href="../../type/chapters/leading.html">6장</a>에서 본 것처럼 한 줄이 너무 길면 눈이 다음 줄의 시작으로 돌아가다 길을 잃는다. 웹 콘텐츠 접근성 지침의 성공 기준 1.4.8(시각적 표현, AAA 등급)은 글 덩어리의 폭을 한 줄 80자, 한중일 문자는 40자 이하로 둘 수 있게 하라고 적는다. 서윤은 지난여름 서점 소식 글의 최대 글줄 폭을 28em, 한 줄 37자 안팎으로 정했다.</p>
+    <p>이 상한을 무엇으로 적느냐가 반응형에서 중요하다. 픽셀로 <code>max-width: 504px</code>라고 적으면 기본 글자 크기에서는 28em과 같다. 그런데 글자를 키운 사람에게는 504픽셀이 그대로라 한 줄 글자 수가 줄어든다. 글자가 두 배가 되면 한 줄이 열여덟 자로 꺾인다. <code>max-width: 28em</code>으로 적으면 글자와 함께 폭도 커져 한 줄 글자 수가 그대로 남는다. 물론 화면 폭이 그보다 좁으면 화면 폭이 먼저 상한이 된다.</p>
+
+    <div class="sim" id="sim-rs-measure">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글줄 길이 상한: px로, em으로</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rm-cv" class="art"></canvas><span class="hint">좌우로 끌어 화면 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="rm-max"><button data-value="none">상한 없음</button><button data-value="px">max-width: 504px</button><button data-value="em" class="on">max-width: 28em</button></div>
+          <label class="ctrl"><span>사용자 기본 글자 크기 <output id="rm-fs-out"></output></span><input type="range" id="rm-fs" min="16" max="32" step="1" value="16"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">본문 크기 · 글줄 폭</span><span class="v" id="rm-o-w">—</span></div>
+        <div class="stat"><span class="k">한 줄 글자 수(어림)</span><span class="v" id="rm-o-ch">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="rm-o-ok">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "상한 없음"에서 폭을 1,600까지 넓힌다. 한 줄이 80자를 넘는다. ② "28em"으로 바꾼다. 한 줄 30자대 후반에 멈추고 남는 폭은 오른쪽 여백이 된다. ③ 기본 글자 크기를 32px(두 배)로 올린다. "28em"은 글줄 폭이 두 배로 커져 한 줄 글자 수가 거의 그대로다. "504px"로 바꾸면 같은 상황에서 한 줄이 열여덟 자 남짓으로 줄어든다. 넓은 화면에서 글을 키운 독자에게 짧은 줄은 잦은 줄바꿈이 된다. (본문은 기본 글자 크기의 1.125배, 곧 기본 설정에서 넓은 화면의 18px이고 줄 높이는 1.7이다. 한 줄 글자 수는 한 글자를 0.76em으로 친 어림으로 TypeBook 6장의 "28em ≈ 37자"와 같은 비율이다. 그림의 줄나눔은 화면 글꼴로 실제로 나눈 것이라 한두 자 다를 수 있다. 화면 가장자리 여백 16px.)</div>
+    </div>
+
+    <p>상한은 글 덩어리에만 둔다. 페이지 전체를 28em으로 묶으면 넓은 화면에서 사진과 표, 달력까지 좁은 기둥에 갇힌다. 반응형 페이지에는 보통 폭의 층이 셋 있다. 화면 폭, 콘텐츠의 최대 폭(책방 E에서는 1,200픽셀), 그리고 글 덩어리의 최대 글줄 폭(28em). 사진과 그리드는 둘째 층까지, 글은 셋째 층까지 늘어난다. 이 셋을 구분해 두면 "넓은 화면을 어떻게 채울까"라는 질문이 "무엇을 넓게, 무엇을 좁게 둘까"로 바뀐다.</p>
+  </section>
+
+  <section id="container">
+    <h2>컨테이너 쿼리: 놓인 자리를 보고 바뀐다</h2>
+    <p>미디어 쿼리는 화면 전체의 폭만 본다. 그런데 웹 페이지의 부품은 화면 폭이 아니라 자기가 놓인 칸의 폭 안에서 산다. 같은 "신간 카드"가 넓은 본문 칸에도, 좁은 옆 칸에도 들어간다. 넓은 화면에서 카드를 가로형(표지 왼쪽, 글 오른쪽)으로 바꾸는 규칙을 미디어 쿼리로 적으면, 넓은 화면의 좁은 옆 칸에 들어간 카드도 가로형이 되어 글 칸이 손가락 하나만 해진다.</p>
+    <p><span class="term">컨테이너 쿼리</span><span class="en">(Container query)</span>는 질문의 대상을 화면에서 부품을 담은 칸으로 바꾼다. 칸에 <code>container-type: inline-size</code>를 적어 두면, 그 안의 부품은 <code>@container (min-width: 25em)</code>처럼 "나를 담은 칸이 25em 이상이면"이라는 조건을 쓸 수 있다. CSS Containment Module Level 3에 정의되어 있고, 2023년 초부터 주요 브라우저가 모두 지원한다.</p>
+    <pre class="rs-code" data-scroll>.book-slot { container-type: inline-size; }
+
+/* 기본은 세로형: 표지 위, 글 아래 */
+.book-card { display: grid; gap: 0.75rem; }
+
+/* 담은 칸이 25em 이상이면 가로형 */
+@container (min-width: 25em) {
+  .book-card { grid-template-columns: 9em 1fr; }
+}</pre>
+    <p>아래 시뮬레이터에는 신간 카드가 두 자리에 놓여 있다. 본문 칸의 "이달의 신간"과, 넓은 화면에서는 오른쪽 옆 칸에 붙고 좁은 화면에서는 본문 아래로 내려오는 "주인의 추천"이다. 미디어 쿼리 판은 "화면 폭 56em 이상이면 가로형", 컨테이너 쿼리 판은 "담은 칸이 25em 이상이면 가로형"이다.</p>
+
+    <div class="sim" id="sim-rs-cq">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 카드, 다른 자리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rq-cv" class="art"></canvas><span class="hint">좌우로 끌어 화면 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="rq-mode"><button data-value="media" class="on">미디어 쿼리(화면 폭)</button><button data-value="container">컨테이너 쿼리(칸 폭)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">본문 칸의 카드</span><span class="v" id="rq-o-a">—</span></div>
+        <div class="stat"><span class="k">추천 칸의 카드</span><span class="v" id="rq-o-b">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="rq-o-ok">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "미디어 쿼리"에서 폭을 1,200으로 둔다. 옆 칸의 추천 카드도 가로형이 되어 글 칸이 열 자 남짓으로 쪼그라든다. ② 폭을 850으로 줄인다. 이번에는 추천 카드가 본문 아래 넓은 자리로 내려왔는데 화면 폭이 56em보다 좁으니 세로형이다. 표지 띠가 카드 폭만큼 커져 높이가 400픽셀을 넘는다. ③ "컨테이너 쿼리"로 바꾸고 폭을 끝에서 끝까지 끈다. 두 카드가 각자 자기 칸의 폭을 보고 모양을 고른다. 같은 폭에서 두 카드의 모양이 다를 수 있다. (카드 기준: 가로형은 글 칸이 12자 이상일 때, 세로형은 카드 폭이 34em(578px) 이하라 표지 띠(카드 폭의 절반 높이)가 290픽셀을 넘지 않을 때 괜찮다. 가로형의 글 칸은 28em에서 멈춘다. 한 글자 0.76em, 본문 17px, 표지 폭 9em으로 놓은 가상 모형이다. 25em은 본문 크기 기준 425px다.)</div>
+    </div>
+
+    <p>컨테이너 쿼리가 생기면서 반응형의 일이 둘로 나뉘었다. 페이지 전체의 뼈대(몇 단인가, 옆 칸이 있는가)는 여전히 미디어 쿼리가 화면 폭을 보고 정한다. 부품의 모양(카드가 가로형인가 세로형인가)은 부품이 스스로 자기 칸을 보고 정한다. 부품을 만드는 사람은 "이 카드가 어느 페이지 어느 칸에 들어갈지" 몰라도 되고, 페이지를 짜는 사람은 "이 칸에 들어갈 카드가 어떤 규칙을 가졌는지" 몰라도 된다. <a href="components.html">7장</a>에서 다룰 컴포넌트가 이 성질 덕분에 어디에나 옮겨 놓을 수 있게 된다.</p>
+  </section>
+
+  <section id="images">
+    <h2>반응형 이미지: srcset과 sizes</h2>
+    <p>이미지에도 폭의 문제가 있다. 서윤이 ImageBook <a href="../../image/chapters/compression.html">10장</a>에서 정한 웹용 사진은 가로 1,600픽셀이다. 넓은 화면의 큰 사진 자리에는 맞지만, 휴대폰의 작은 썸네일 칸에 1,600픽셀 파일을 보내면 받은 픽셀 대부분을 버린다. 반대로 작은 파일 하나만 보내면 큰 화면과 고해상도 화면에서 흐릿하다. 마콧이 말한 "유연한 이미지"의 첫 단계는 <code>max-width: 100%</code>로 이미지를 칸보다 커지지 않게 하는 것이었다. 지금은 여기에 더해 <b>칸에 맞는 크기의 파일을 고르게</b> 한다.</p>
+    <pre class="rs-code" data-scroll>&lt;img src="reading-1600.webp"
+     srcset="reading-480.webp 480w, reading-800.webp 800w,
+             reading-1200.webp 1200w, reading-1600.webp 1600w"
+     sizes="(min-width: 56em) 384px,
+            (min-width: 35em) calc(50vw - 28px),
+            calc(100vw - 32px)"
+     width="1600" height="1067" alt="…"&gt;</pre>
+    <p><code>srcset</code>은 같은 사진을 크기별로 내보낸 파일 목록이고, 뒤의 <code>480w</code>는 그 파일의 가로 픽셀 수다. <code>sizes</code>는 "이 사진이 화면에서 차지할 폭"을 미디어 조건별로 알려 준다. 위의 예는 넓은 화면에서 사진이 세 칸 그리드의 한 칸(384픽셀), 중간 폭에서 두 칸 중 하나, 좁은 화면에서 화면 폭에서 양옆 여백을 뺀 폭이라는 뜻이다. 브라우저는 페이지의 CSS를 다 읽기 전에 이미지를 받기 시작하므로, 사진이 얼마나 크게 놓일지를 이렇게 미리 귀띔해 주어야 한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="브라우저가 srcset과 sizes로 파일을 고르는 네 단계. sizes에서 칸 폭 328픽셀을 얻고, 기기 픽셀 비율 3을 곱해 984픽셀이 필요하다고 계산하고, 984 이상인 가장 작은 후보 1200w를 골라 내려받는다.">
+<defs><marker id="rs3-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+<rect x="8.0" y="14.0" width="100.0" height="104.0" rx="8" class="f-elev s-line"/>
+<text x="58.0" y="36.0" text-anchor="middle" class="lbl-b" style="font-size:12.5px">① sizes 읽기</text>
+<text x="58.0" y="60.0" text-anchor="middle" class="lbl" style="font-size:12px">화면 360px</text>
+<text x="58.0" y="78.0" text-anchor="middle" class="lbl" style="font-size:12px">→ 100vw − 32px</text>
+<text x="58.0" y="96.0" text-anchor="middle" class="lbl-acc" style="font-size:12px">= 칸 328px</text>
+<line x1="110" y1="66" x2="128" y2="66" class="s-acc" marker-end="url(#rs3-ar)"/>
+<rect x="122.0" y="14.0" width="100.0" height="104.0" rx="8" class="f-elev s-line"/>
+<text x="172.0" y="36.0" text-anchor="middle" class="lbl-b" style="font-size:12.5px">② DPR 곱하기</text>
+<text x="172.0" y="60.0" text-anchor="middle" class="lbl" style="font-size:12px">칸 328px</text>
+<text x="172.0" y="78.0" text-anchor="middle" class="lbl" style="font-size:12px">× DPR 3</text>
+<text x="172.0" y="96.0" text-anchor="middle" class="lbl-acc" style="font-size:12px">= 984픽셀 필요</text>
+<line x1="224" y1="66" x2="242" y2="66" class="s-acc" marker-end="url(#rs3-ar)"/>
+<rect x="236.0" y="14.0" width="100.0" height="104.0" rx="8" class="f-elev s-line"/>
+<text x="286.0" y="36.0" text-anchor="middle" class="lbl-b" style="font-size:12.5px">③ 후보 고르기</text>
+<text x="286.0" y="60.0" text-anchor="middle" class="lbl" style="font-size:12px">srcset에서</text>
+<text x="286.0" y="78.0" text-anchor="middle" class="lbl" style="font-size:12px">984 이상인</text>
+<text x="286.0" y="96.0" text-anchor="middle" class="lbl-acc" style="font-size:12px">가장 작은 것</text>
+<line x1="338" y1="66" x2="356" y2="66" class="s-acc" marker-end="url(#rs3-ar)"/>
+<rect x="350.0" y="14.0" width="100.0" height="104.0" rx="8" class="f-elev s-line"/>
+<text x="400.0" y="36.0" text-anchor="middle" class="lbl-b" style="font-size:12.5px">④ 내려받기</text>
+<text x="400.0" y="60.0" text-anchor="middle" class="lbl" style="font-size:12px">1200w</text>
+<text x="400.0" y="78.0" text-anchor="middle" class="lbl" style="font-size:12px">약 124 KB</text>
+<text x="400.0" y="96.0" text-anchor="middle" class="lbl-acc" style="font-size:12px">(가상 용량)</text>
+<text x="8.0" y="150.0" text-anchor="start" class="lbl-dim" style="font-size:12px">srcset 후보</text>
+<rect x="8.0" y="160.0" width="100.0" height="28.0" rx="6" class="f-surface s-line"/>
+<text x="58.0" y="179.0" text-anchor="middle" class="lbl-dim" style="font-size:12.5px">480w</text>
+<rect x="122.0" y="160.0" width="100.0" height="28.0" rx="6" class="f-surface s-line"/>
+<text x="172.0" y="179.0" text-anchor="middle" class="lbl-dim" style="font-size:12.5px">800w</text>
+<rect x="236.0" y="160.0" width="100.0" height="28.0" rx="6" class="f-acc s-acc"/>
+<text x="286.0" y="179.0" text-anchor="middle" class="lbl-b" style="font-size:12.5px">1200w</text>
+<rect x="350.0" y="160.0" width="100.0" height="28.0" rx="6" class="f-surface s-line"/>
+<text x="400.0" y="179.0" text-anchor="middle" class="lbl-dim" style="font-size:12.5px">1600w</text>
+<text x="8.0" y="210.0" text-anchor="start" class="lbl-dim" style="font-size:11.5px">480w·800w는 984보다 작아 흐리고, 1600w는 필요보다 2.6배 많은 픽셀이다.</text>
+</svg>
+      <figcaption><b>그림 3. 브라우저가 파일을 고르는 길.</b> <code>sizes</code>에서 지금 화면 폭에 맞는 조건을 찾아 사진이 놓일 폭(CSS 픽셀)을 얻고, 거기에 기기 픽셀 비율(DPR)을 곱해 필요한 실제 픽셀 수를 낸 뒤, 목록에서 그 이상인 파일 하나를 고른다. 마지막 단계의 정확한 방식은 명세가 브라우저에 맡겨 두어서, 이미 받아 둔 큰 파일이 있거나 통신이 느리면 다른 파일을 고를 수도 있다.</figcaption>
+    </figure>
+
+    <p>아래 시뮬레이터는 행사 사진 아홉 장이 들어가는 사진첩 페이지다. 화면 폭과 기기 픽셀 비율을 바꾸며 세 가지 적기 방식을 비교한다. <code>sizes</code>를 빠뜨리면 브라우저는 사진이 화면 폭 전체(100vw)를 차지한다고 가정한다.</p>
+
+    <div class="sim" id="sim-rs-srcset">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>srcset·sizes: 어느 파일이 내려오나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ri-cv"></canvas><span class="hint">좌우로 끌어 화면 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ri-mode"><button data-value="src">src 하나(1600)</button><button data-value="nosizes">srcset만</button><button data-value="full" class="on">srcset + sizes</button></div>
+          <div class="seg" id="ri-dpr"><button data-value="1">DPR 1</button><button data-value="2">DPR 2</button><button data-value="3" class="on">DPR 3</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">사진 한 장의 칸 폭</span><span class="v" id="ri-o-slot">—</span></div>
+        <div class="stat"><span class="k">필요한 픽셀 → 고른 파일</span><span class="v" id="ri-o-pick">—</span></div>
+        <div class="stat"><span class="k">사진 9장 합계</span><span class="v" id="ri-o-kb">—</span></div>
+        <div class="stat"><span class="k">받은 픽셀 중 버린 비율</span><span class="v" id="ri-o-waste">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "src 하나"에 DPR 3, 폭 360으로 둔다. 칸은 328픽셀, 필요한 픽셀은 984인데 1,600픽셀 파일이 내려와 받은 픽셀의 62%를 버린다(가로세로 모두 줄이므로 넓이로 센다). ② "srcset + sizes"로 바꾼다. 1,200w 파일이 골라져 버리는 비율이 33%로 준다. DPR 1로 바꾸면 480w로 내려간다. ③ DPR 2로 바꾸고 폭을 1,280으로 넓힌 뒤 "srcset만"을 고른다. 사진은 세 칸 그리드의 한 칸(384픽셀)인데 브라우저는 화면 폭 전체를 가정해 가장 큰 파일을 고른다. "srcset + sizes"의 800w와 비교하면 아홉 장에서 1 MB 넘게 차이 난다. (용량은 ImageBook 10장에서 잰 "가로 1,600 WebP 품질 80 ≈ 220 KB"를 픽셀 수에 비례해 줄인 가상 값이다. 파일 고르기는 "필요한 픽셀 이상인 가장 작은 파일" 규칙으로 계산했다. 실제 브라우저는 캐시와 통신 상태에 따라 달리 고를 수 있다.)</div>
+    </div>
+
+    <p>사진의 <b>내용</b>을 화면에 따라 바꾸고 싶을 때도 있다. 넓은 화면에서는 서점 전경을, 휴대폰에서는 같은 사진의 가운데 낭독자만 잘라 보이고 싶다면 <code>&lt;picture&gt;</code> 요소에 <code>&lt;source media="…"&gt;</code>를 여러 개 두어 화면 조건마다 다른 사진을 지정한다. 이것을 <span class="term">아트 디렉션</span><span class="en">(Art direction)</span>이라고 부른다. 같은 사진의 크기만 고르는 <code>srcset</code>과 달리, 어떻게 자를지를 디자이너가 정하는 일이다. 어느 경우든 <code>width</code>와 <code>height</code> 속성으로 사진의 비율을 알려 두어야 사진이 도착하기 전에 자리가 잡혀 글이 밀리지 않는다. 이 이야기는 <a href="performance.html">12장</a>에서 이어진다.</p>
+  </section>
+
+  <section id="workbench">
+    <h2>행사 일정 페이지 반응형 작업대</h2>
+    <p>이 장의 재료를 한 페이지에 모은다. 행사 일정 페이지의 "첫 시안"은 기기 이름 중단점(768·1024px), 픽셀로 박은 40픽셀 제목, 상한 없는 소개 글, 언제나 펼친 메뉴를 썼다. "서윤의 선택"은 콘텐츠 중단점(35em·56em), <code>clamp()</code>로 잇는 제목, 28em 소개 글, 좁은 화면에서 접히는 메뉴를 쓴다. 눈금자를 끌어 폭을 바꾸고, 도경처럼 글자 크기를 키워 본다.</p>
+
+    <div class="sim" id="sim-rs-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>행사 일정 페이지: 첫 시안과 서윤의 선택</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="rl-cv" class="art"></canvas><span class="hint">좌우로 끌어 화면 폭을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="rl-plan"><button data-value="draft">첫 시안</button><button data-value="final" class="on">서윤의 선택</button></div>
+          <div class="seg" id="rl-fs"><button data-value="1" class="on">글자 100%</button><button data-value="1.5">150%</button><button data-value="2">200%</button></div>
+          <label class="check"><input type="checkbox" id="rl-mark" checked> 깨진 곳 표시</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">모양 · 적용된 중단점</span><span class="v" id="rl-o-lay">—</span></div>
+        <div class="stat"><span class="k">제목 ÷ 본문</span><span class="v" id="rl-o-h">—</span></div>
+        <div class="stat"><span class="k">소개 글 한 줄</span><span class="v" id="rl-o-ch">—</span></div>
+        <div class="stat"><span class="k">깨진 곳</span><span class="v" id="rl-o-bad">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "첫 시안"에서 폭을 700에 둔다. 1단 카드의 설명이 40자를 넘고, 소개 글도 길다. 지후가 창을 줄이다 본 화면이다. ② 폭을 360으로 줄이고 "글자 200%"를 고른다. 펼친 메뉴가 두 줄로 꺾이고 화면 밖으로 밀린다. 픽셀로 박은 40픽셀 제목은 34픽셀이 된 본문과 거의 같아 위계가 사라진다(1.2배 미만이면 표시). ③ "서윤의 선택"으로 바꾸고 같은 조건을 본다. 메뉴는 "메뉴" 단추로 접히고, 제목은 rem을 따라 커지고, 중단점은 글자 크기만큼 밀린다. 폭과 글자 크기를 바꿔 가며 깨진 곳이 남는 조합을 찾아본다. (앞 시뮬레이터들의 모형을 합친 것이다. 첫 시안의 제목은 40px 고정, 서윤의 선택은 <code>clamp(1.875rem, 1.630rem + 1.087vw, 2.5rem)</code>. 메뉴는 메뉴 항목 너비의 합이 머리 띠에 들어가지 않으면 깨짐으로 친다.)</div>
+    </div>
+
+    <p>작업대에서 서윤의 선택도 모든 조합에서 완벽하지는 않다. 글자를 200%로 키우고 폭을 아주 좁히면 행사 제목 한 줄에 몇 글자 들어가지 않는다. 반응형 디자인의 목표는 깨짐이 없는 상태가 아니라, <b>깨질 때 덜 아프게 깨지는</b> 상태다. 가로로 넘치는 대신 아래로 길어지고, 겹치는 대신 줄을 바꾸고, 사라지는 대신 접힌다. WCAG 2.2의 성공 기준 1.4.10(리플로)이 요구하는 것도 같은 방향이다. 폭 320 CSS 픽셀(데스크톱에서 1,280픽셀 화면을 400%로 확대한 것과 같다)에서 세로 스크롤만으로 내용을 다 읽을 수 있어야 한다.</p>
+
+    <div class="callout studio">
+      <strong>시안에 "사이"를 적어 넘긴다</strong>
+      세 폭(360·768·1280)으로 그린 시안만 넘기면 개발자는 그 사이를 짐작으로 채운다. 지후가 서윤에게 부탁한 것은 그림을 더 그리는 것이 아니라 메모를 다는 것이었다. 각 요소 옆에 "이 칸은 늘어난다(1fr)", "이 글은 28em에서 멈춘다", "이 제목은 30에서 40픽셀로 비탈", "이 카드는 칸이 25em을 넘으면 가로형"처럼 <b>늘어나는 규칙</b>을 적는다. 그리고 시안 파일 안에서 프레임 폭을 직접 끌어 보며(대부분의 디자인 도구가 자동 레이아웃으로 지원한다) 사이 폭에서 깨지는 곳을 먼저 찾는다. 고정 그림 세 장보다 규칙 다섯 줄이 화면에 더 가깝다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 5장</span></div>
+      <h4>700픽셀에서 늘어난 카드</h4>
+      <p>1월 말, 지후가 행사 일정 페이지의 첫 코드를 올렸다. 서윤의 세 폭 시안(360·768·1280)을 그대로 옮기고, 중단점은 디자인 도구의 기본 프리셋대로 768과 1024픽셀에 두었다. 세 폭에서는 시안과 똑같았다. 회의실에서 지후가 노트북의 브라우저 창 오른쪽 끝을 잡고 천천히 줄였다. 1,024 아래로 내려오자 행 모양 카드의 설명이 다시 한 줄 40자를 넘기더니, 768 바로 위에서는 1단으로 쌓인 카드가 화면 끝까지 늘어나 설명 한 줄이 마흔 자를 훌쩍 넘었다. 버튼은 손바닥보다 길었다. "시안에는 700이 없잖아요. 그런데 접는 휴대폰을 펼치면 딱 이쯤이에요."</p>
+      <p>서윤은 이 장의 방식대로 가장 좁은 폭에서 출발해 창을 넓혀 가며 콘텐츠가 어색해지는 곳을 적었다. 이 장의 모형으로 계산하면, 1단 카드는 화면 폭 580픽셀을 넘으면 설명이 40자를 넘고, 행 모양은 549픽셀부터 글 칸이 12자를 넘어 들어간다. 첫 중단점은 그 사이, <b>35em(560픽셀)</b>으로 정했다. 행 모양은 910픽셀을 넘으면 다시 설명이 길어지고, 옆에 달력 칸을 붙인 모양은 853픽셀부터 가능하다. 둘째 중단점은 <b>56em(896픽셀)</b>이다. 둘 다 em으로 적었다. 한도경이 글자 크기를 가장 크게 해 둔 휴대폰과, 글자 크기를 150%로 맞춘 서윤의 노트북 브라우저로 확인해 보니 기기 이름 중단점에서는 768 바로 위와 1,024 위쪽에 새로 깨지는 구간이 생겼고, em 중단점은 840·1,344픽셀로 함께 밀려 깨지지 않았다. 도경은 "글자를 키우면 화면이 아예 다른 모양이 되는 게 오히려 편하네. 옛날 사이트는 그냥 다 겹쳤거든" 했다.</p>
+      <p>제목 크기는 중단점마다 정하던 30·35·40픽셀의 계단을 버리고, 화면 폭 360~1,280픽셀 사이를 잇는 비탈로 바꿨다. 기울기는 10px ÷ 920px = 1.087vw, 고정 부분은 30 − 360 × 10/920 ≈ 26.09px = 1.630rem이다. 최댓값이 최솟값의 1.33배라 확대에도 안전하다. 행사 설명과 서점 소개 같은 글 덩어리는 TypeBook 여름 노트의 28em 상한을 그대로 가져왔다. 상한을 504px이 아니라 28em으로 적은 까닭을, 서윤은 도경의 휴대폰 화면을 캡처해 노트에 붙였다. 신간 카드는 본문과 옆 칸 두 곳에 들어가므로 화면 폭이 아니라 담은 칸의 폭(25em)으로 가로형과 세로형을 가르기로 했다. 지후는 "이제 시안에 숫자 대신 규칙이 적혀 있어서 좋네요" 했다.</p>
+      <div class="chips">
+        <span class="chip"><i style="background:#2f7d5b"></i><b>중단점 1</b><code>35em (560px)</code></span>
+        <span class="chip"><i style="background:#567666"></i><b>중단점 2</b><code>56em (896px)</code></span>
+        <span class="chip"><i style="background:#d24f39"></i><b>페이지 제목</b><code>30 → 40px</code></span>
+        <span class="chip"><i style="background:#22342a"></i><b>글줄 상한</b><code>28em</code></span>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>중단점 둘: <code>35em</code>(기본 글자 크기에서 560px, 1단 → 행)과 <code>56em</code>(896px, 행 → 행 + 옆 칸). 모바일 우선(<code>min-width</code>)으로 적고 이름은 기기가 아니라 순서로 짓는다. 페이지 제목: 화면 폭 360~1,280px에서 30 → 40px, <code>clamp(1.875rem, 1.630rem + 1.087vw, 2.5rem)</code>. 본문 글 덩어리의 최대 글줄 폭 <code>28em</code>(약 37자, TypeBook 6장 값). 콘텐츠 최대 폭은 4장의 1,200px, 화면 가장자리 여백은 3장의 16px. 신간 카드는 컨테이너 쿼리로, 담은 칸이 <code>25em</code> 이상이면 가로형.</div>
+        <div><b>아직 남은 문제</b>시안 파일과 코드에 같은 초록이 몇 가지 다른 hex로 적혀 있고, 글자 크기도 px와 rem이 섞여 있다. 지후가 다크 모드를 넣어 보자고 했는데, 색을 어디서부터 바꿔야 할지 모르겠다.</div>
+        <div><b>다음 단계</b><a href="tokens.html">6장</a>: 색과 글자 크기를 이름 붙은 토큰으로 옮겨 한 곳에서 관리한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>고정폭 레이아웃은 한 폭만 책임지고, 유동 레이아웃은 모든 폭을 같은 모양으로 늘인다. 유동에 최대 폭을 더하면 넓은 화면 문제가, 중단점을 더하면 좁은 화면 문제가 풀린다.</li>
+      <li>중단점은 기기 이름(768, 1024)이 아니라 콘텐츠가 어색해지는 곳에 둔다. 가장 좁은 폭에서 시작해 창을 넓히며 글줄이 길어지거나 칸이 좁아지는 곳을 찾는다.</li>
+      <li>미디어 쿼리의 em은 브라우저 기본 글자 크기를 기준으로 하므로, em으로 적은 중단점은 사용자가 글자를 키우면 함께 밀린다. px 중단점은 그대로 남아 글자를 키운 사람에게 깨진 화면을 보인다.</li>
+      <li>모바일 우선은 1단을 기본으로 두고 <code>min-width</code>로 넓은 화면의 규칙을 더하는 방식이다. 내용의 순위표가 1단의 순서가 된다.</li>
+      <li>모양은 그대로 두고 크기만 바뀌어야 하는 값(제목, 간격)은 <code>clamp(최솟값, rem + vw, 최댓값)</code>로 계단 대신 비탈을 만든다. vw만 쓰면 확대가 듣지 않는다.</li>
+      <li>글 덩어리에는 em으로 적은 최대 글줄 폭(예: 28em)을 둔다. 화면 폭, 콘텐츠 최대 폭, 글줄 폭의 세 층을 나눈다(WCAG 1.4.8: 한중일 문자 40자).</li>
+      <li>컨테이너 쿼리는 부품이 놓인 칸의 폭을 보고 모양을 바꾼다. <code>srcset</code>·<code>sizes</code>는 사진이 놓일 폭과 DPR에 맞는 파일을 고르게 한다. <code>sizes</code>를 빠뜨리면 브라우저는 화면 폭 전체를 가정한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 1단으로 쌓은 행사 카드는 화면 폭 610픽셀부터 설명이 한 줄 40자를 넘고, 날짜를 옆으로 뺀 행 모양은 540픽셀부터 들어간다. 중단점을 두기에 가장 알맞은 곳은?</p>
+        <div class="opts">
+          <button class="opt">768픽셀. 태블릿 세로 폭이라 가장 많은 기기를 포괄한다.</button>
+          <button class="opt" data-correct>540~610픽셀 사이의 폭(예: 35em = 560px). 콘텐츠가 두 모양 모두에서 괜찮은 구간이다.</button>
+          <button class="opt">320픽셀. 가장 좁은 화면부터 행 모양을 쓰면 중단점이 필요 없다.</button>
+          <button class="opt">1,024픽셀. 넓은 화면에서 바꾸는 편이 휴대폰 사용자에게 영향이 적다.</button>
+        </div>
+        <div class="quiz-exp">중단점은 "이 폭 아래에서는 앞 모양, 위에서는 뒤 모양"을 뜻하므로, 두 모양이 모두 괜찮은 구간(540~610) 안에 두어야 한다. 768에 두면 610~768 사이에서 1단 카드의 줄이 너무 길어진다. 320에서 행 모양을 쓰면 글 칸이 너무 좁아 제목이 여러 줄로 꺾인다. 기기 이름은 콘텐츠가 깨지는 곳과 상관이 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 페이지 제목을 <code>clamp()</code>로 화면 폭 360픽셀에서 30픽셀, 1,280픽셀에서 40픽셀이 되게 이었다. 화면 폭 820픽셀에서 제목 크기는?</p>
+        <div class="opts">
+          <button class="opt">30픽셀. 중단점 사이에서는 최솟값을 쓴다.</button>
+          <button class="opt">약 32.6픽셀. 820은 1,280의 64%이므로 40의 64%다.</button>
+          <button class="opt" data-correct>35픽셀. 820은 360과 1,280의 정확히 가운데이므로 30과 40의 가운데다.</button>
+          <button class="opt">40픽셀. 768을 넘으면 최댓값이 된다.</button>
+        </div>
+        <div class="quiz-exp">clamp의 선호값은 두 점 (360, 30)과 (1,280, 40)을 잇는 직선이다. 820 − 360 = 460은 920의 절반이므로 크기도 30 + 10 × 0.5 = 35픽셀이다. 최솟값과 최댓값은 360보다 좁거나 1,280보다 넓을 때만 쓰인다. 직선은 원점을 지나지 않으므로 화면 폭에 단순 비례하지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 넓은 화면에서만 가로형이 되도록 신간 카드를 <code>@media (min-width: 56em)</code>으로 바꿨더니, 넓은 화면의 좁은 옆 칸에 들어간 같은 카드의 글 칸이 쪼그라들었다. 가장 알맞은 처방은?</p>
+        <div class="opts">
+          <button class="opt">옆 칸에 들어가는 카드만 이름을 바꿔 별도의 미디어 쿼리를 만든다.</button>
+          <button class="opt">중단점을 1,600픽셀로 올려 넓은 화면에서도 세로형을 쓴다.</button>
+          <button class="opt">카드의 글자 크기를 vw로 적어 칸이 좁으면 글자도 작아지게 한다.</button>
+          <button class="opt" data-correct>카드를 담은 칸에 <code>container-type</code>을 주고, 카드가 <code>@container</code>로 자기 칸의 폭을 보고 모양을 고르게 한다.</button>
+        </div>
+        <div class="quiz-exp">미디어 쿼리는 화면 전체의 폭만 알아서, 같은 폭의 화면 안에서 넓은 칸과 좁은 칸을 구별하지 못한다. 컨테이너 쿼리를 쓰면 카드가 놓인 칸의 폭으로 판단하므로 같은 카드가 본문 칸에서는 가로형, 옆 칸에서는 세로형이 된다. 카드를 자리마다 복제하면 부품이 갈라지고, vw 글자는 확대가 듣지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 사진의 칸 폭이 400 CSS 픽셀이고 기기 픽셀 비율이 2인 휴대폰에서, <code>srcset="a.webp 480w, b.webp 800w, c.webp 1200w"</code>와 알맞은 <code>sizes</code>를 적었다. 브라우저가 고를 가능성이 가장 큰 파일은?</p>
+        <div class="opts">
+          <button class="opt">a.webp. 칸 폭 400에 가장 가까운 파일이다.</button>
+          <button class="opt" data-correct>b.webp. 400 × 2 = 800픽셀이 필요하고, 그 이상인 가장 작은 파일이다.</button>
+          <button class="opt">c.webp. 고해상도 화면에서는 언제나 가장 큰 파일을 받는다.</button>
+          <button class="opt">세 파일을 모두 받아 가장 선명한 것을 보인다.</button>
+        </div>
+        <div class="quiz-exp">브라우저는 <code>sizes</code>로 칸 폭(400 CSS 픽셀)을 알고, 여기에 DPR 2를 곱해 실제 픽셀 800이 필요하다고 계산한다. 그 이상인 파일 중 가장 작은 800w가 맞다. 480w는 흐리게 보이고, 1,200w는 필요보다 2.25배 많은 픽셀을 받는다. 명세는 마지막 고르기를 브라우저에 맡기므로 캐시나 통신 상태에 따라 달라질 수는 있지만, 여러 파일을 다 받지는 않는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs" data-nonum>
+    <h2>출처</h2>
+    <ul>
+      <li>Ethan Marcotte, "Responsive Web Design", <i>A List Apart</i>, 2010 — 유동 그리드·유연한 이미지·미디어 쿼리의 조합(요약).</li>
+      <li>Luke Wroblewski, <i>Mobile First</i>, A Book Apart, 2011(요약).</li>
+      <li>W3C, <i>Media Queries Level 4</i> — 미디어 쿼리 안의 상대 단위(em)는 초깃값(사용자 기본 글자 크기)을 기준으로 한다.</li>
+      <li>W3C, <i>CSS Values and Units Module Level 4</i> — <code>clamp()</code>, vw와 작은·큰·동적 뷰포트 단위(svh·lvh·dvh).</li>
+      <li>W3C, <i>CSS Containment Module Level 3</i> — <code>container-type</code>과 <code>@container</code>.</li>
+      <li>WHATWG, <i>HTML Living Standard</i> — <code>img</code>의 <code>srcset</code>(w 서술자)·<code>sizes</code>, <code>picture</code>와 <code>source</code>. 후보 중 무엇을 고를지는 사용자 에이전트에 맡긴다.</li>
+      <li>W3C, <i>Web Content Accessibility Guidelines (WCAG) 2.2</i>, 성공 기준 1.4.4 Resize Text(AA), 1.4.8 Visual Presentation(AAA), 1.4.10 Reflow(AA).</li>
+      <li>시뮬레이터의 레이아웃 판정 기준(한 줄 40자, 글 칸 12자)과 화면 폭 모형, 사진 용량은 이 책이 정한 교육용 가상 값이다.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  /* 고정색: 종이 바탕 위의 도구 글자, 책방 E의 웹 색(ColorBook 14장 웹 팔레트 v1) */
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874", RULE = "#d6d2c8";
+  var GREEN = "#2f7d5b", CREAM = "#ffe2d7", SAGE = "#567666", ACC = "#d24f39", DARK = "#22342a";
+  var N50 = "#f6fcf8", N200 = "#e0e6e3", WHITE = "#ffffff", BAD = "#c53732", OKC = "#38853e";
+  var FF = (getComputedStyle(document.body).getPropertyValue("--font") || "").trim() || "sans-serif";
+  function F(px, w) { return (w ? w + " " : "") + (Math.round(px * 100) / 100) + "px " + FF; }
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, Math.max(0, Math.min(r, w / 2, h / 2))); else ctx.rect(x, y, w, h); }
+  function safe(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  function num(x) { return Math.round(x).toLocaleString("ko-KR"); }
+  function okSpan(ok, t) { return '<span style="color:var(--' + (ok ? "ok" : "bad") + ')">' + t + "</span>"; }
+
+  /** 어절 단위 줄 나누기(넘치는 어절만 글자 단위로 자른다) */
+  function wrap(ctx, text, maxW) {
+    var words = text.split(" "), lines = [], line = "";
+    for (var i = 0; i < words.length; i++) {
+      var wd = words[i], test = line ? line + " " + wd : wd;
+      if (ctx.measureText(test).width <= maxW || !line && ctx.measureText(wd).width <= maxW) { line = test; continue; }
+      if (line) lines.push(line);
+      line = "";
+      if (ctx.measureText(wd).width > maxW) {
+        var part = "";
+        for (var j = 0; j < wd.length; j++) { if (ctx.measureText(part + wd[j]).width > maxW && part) { lines.push(part); part = ""; } part += wd[j]; }
+        line = part;
+      } else line = wd;
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+
+  /* ---------------- 공통: 화면 폭 눈금자 (320 ~ 1,600 CSS px) ---------------- */
+  var RMIN = 320, RMAX = 1600;
+  function rg(w) { return { x0: 18, x1: w - 18 }; }
+  function wToX(W, g) { return g.x0 + ((W - RMIN) / (RMAX - RMIN)) * (g.x1 - g.x0); }
+  function xToW(x, g) { return AB.clamp(Math.round((RMIN + ((x - g.x0) / (g.x1 - g.x0)) * (RMAX - RMIN)) / 10) * 10, RMIN, RMAX); }
+  function drawRuler(ctx, w, W, marks) {
+    var g = rg(w), y = 22;
+    ctx.strokeStyle = INK_DIM; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(g.x0, y); ctx.lineTo(g.x1, y); ctx.stroke();
+    ctx.font = F(10, 500); ctx.fillStyle = INK_DIM; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+    for (var v = 320; v <= 1600; v += 160) {
+      var x = wToX(v, g), major = (v - 320) % 320 === 0;
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - (major ? 7 : 4)); ctx.stroke();
+      if (major && (w > 420 || v % 640 === 0 || v === 320)) ctx.fillText(String(v), AB.clamp(x, g.x0 + 8, g.x1 - 10), y - 8);
+    }
+    (marks || []).forEach(function (m) {
+      if (m.W < RMIN || m.W > RMAX) return;
+      var x = wToX(m.W, g);
+      ctx.fillStyle = m.color || INK; ctx.beginPath(); ctx.moveTo(x, y + 2); ctx.lineTo(x - 6, y + 12); ctx.lineTo(x + 6, y + 12); ctx.closePath(); ctx.fill();
+    });
+    var hx = wToX(W, g);
+    AB.handle(ctx, hx, y, { r: 7, fill: GREEN, ring: INK });
+    return g;
+  }
+
+  /** 가상 브라우저 틀. 반환: 내용 영역 {x, y, w, h} (캔버스 px) */
+  function drawFrame(ctx, x, y, fw, fh) {
+    rr(ctx, x, y, fw, fh, 8); ctx.fillStyle = "#ece8de"; ctx.fill();
+    ctx.strokeStyle = "#b9b3a6"; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = "#cfc9bc"; [0, 1, 2].forEach(function (i) { ctx.beginPath(); ctx.arc(x + 10 + i * 9, y + 7, 2.5, 0, 7); ctx.fill(); });
+    return { x: x + 1, y: y + 14, w: fw - 2, h: fh - 15 };
+  }
+
+  /* ---------------- 행사 일정 페이지 모형 ---------------- */
+  // 모든 판정은 이 기하로 계산한다(본문·시뮬레이터 노트와 같은 값).
+  var GEO = { pad: 16, g: 24, gi: 16 / 17, cp: 16 / 17, dW: 8, bW: 9.5, ch: 0.76, side: 280, sideK: 0.3, maxW: 1200, lim: 40, minCh: 12 };
+  function cwOf(W) { return Math.min(W - 2 * GEO.pad, GEO.maxW); }
+  function sideOf(cw) { return Math.max(GEO.side, GEO.sideK * cw); }
+  /** 행사 설명 글 칸의 한 줄 글자 수(어림) */
+  function evChars(cw, f, mode, side) {
+    var cp = GEO.cp * f, chw = GEO.ch * f;
+    if (mode === "A") return (cw - 2 * cp) / chw;
+    var lc = mode === "C" ? cw - (side == null ? sideOf(cw) : side) - GEO.g : cw;
+    return (lc - 2 * cp - GEO.dW * f - GEO.bW * f - 2 * GEO.gi * f) / chw;
+  }
+  function evOk(n, mode) { return mode === "A" ? n <= GEO.lim : n >= GEO.minCh && n <= GEO.lim; }
+  function modeAt(W, bps) { return W >= bps[1] ? "C" : W >= bps[0] ? "B" : "A"; }
+  var MODE_NAME = { A: "1단 쌓기", B: "행", C: "행 + 옆 칸" };
+
+  var EV = [
+    { d: "5", m: "2월 · 토", date: "2월 5일 토요일", t: "겨울 낭독회: 눈 오는 밤의 시", s: "눈 오는 밤에 어울리는 시 열 편을 돌아가며 소리 내어 읽는다. 시집은 책방에 준비되어 있다.", meta: "오후 5시 · 2층 · 남은 자리 6" },
+    { d: "12", m: "2월 · 토", date: "2월 12일 토요일", t: "그림책 읽어 주는 토요일 오전", s: "다섯 살부터 아홉 살 어린이와 보호자가 함께 그림책 세 권을 읽고 한 장면을 그려 본다.", meta: "오전 11시 · 1층 · 남은 자리 12" },
+    { d: "17", m: "2월 · 목", date: "2월 17일 목요일", t: "동네 작가 북토크", s: "골목 산책 이야기를 쓴 동네 작가에게 책이 만들어진 과정을 듣고 묻는다.", meta: "저녁 7시 30분 · 2층 · 남은 자리 3" },
+    { d: "24", m: "2월 · 목", date: "2월 24일 목요일", t: "필사 모임: 좋아하는 문장 한 쪽", s: "각자 고른 책에서 좋아하는 문장 한 쪽을 옮겨 적고, 왜 그 문장인지 짧게 이야기한다.", meta: "저녁 7시 · 1층 · 남은 자리 8" },
+  ];
+  var INTRO = "낭독회, 북토크, 그림책 시간, 필사 모임까지 이달 책방 E에서 열리는 모임을 한곳에 모았다. 날짜와 남은 자리를 확인하고 신청하기를 누르면 신청 폼으로 넘어간다. 모든 모임은 무료이며 읽을 책은 책방에 준비되어 있다.";
+  var NAV = ["행사", "신간", "모임 신청", "소개"];
+
+  function badBox(ctx, x, y, w, h, label, f) {
+    ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = BAD; ctx.lineWidth = Math.max(1.5, f * 0.12);
+    ctx.strokeRect(x, y, w, h); ctx.setLineDash([]);
+    ctx.font = F(Math.max(11, f * 0.75), 700);
+    var tw = ctx.measureText(label).width + f * 0.6, th = f * 1.2;
+    var lx = Math.min(x + w - tw, x + Math.max(0, w - tw)), ly = y - th * 0.5;
+    ctx.fillStyle = BAD; rr(ctx, lx, ly, tw, th, 4); ctx.fill();
+    ctx.fillStyle = WHITE; ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(label, lx + f * 0.3, ly + th / 2);
+    ctx.restore();
+  }
+  function button(ctx, x, y, w, h, f) {
+    rr(ctx, x, y, w, h, f * 0.35); ctx.fillStyle = GREEN; ctx.fill();
+    ctx.fillStyle = WHITE; ctx.font = F(f * 0.9, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("신청하기", x + w / 2, y + h / 2 + 0.5);
+    ctx.textAlign = "left";
+  }
+  function textLines(ctx, lines, x, y, lh) { ctx.textBaseline = "alphabetic"; lines.forEach(function (l, i) { ctx.fillText(l, x, y + lh * (i + 0.78)); }); return lines.length * lh; }
+
+  /**
+   * 페이지를 레이아웃 좌표(CSS px)로 그린다.
+   * c: { L, f, cw, cx, mode, side, h1, introMax, nav: "full"|"menu", mark, maxY }
+   * 반환: { introCh, evCh, bad: [이유…], navBad, h }
+   */
+  function drawPage(ctx, c) {
+    var f = c.f, cx = c.cx, cw = c.cw, out = { bad: [], navBad: false };
+    ctx.fillStyle = N50; ctx.fillRect(0, 0, c.L, c.maxY + 10);
+    // 머리 띠
+    var navF = f * 0.82, gap = f * 0.9;
+    ctx.font = F(f * 1.25, 800); var logoW = ctx.measureText("책방 E").width;
+    ctx.font = F(navF, 600);
+    var widths = NAV.map(function (t) { return ctx.measureText(t).width; });
+    var navW = widths.reduce(function (a, b) { return a + b; }, 0) + gap * (NAV.length - 1);
+    var avail = cw - logoW - f * 1.2, hh = f * 3.2, lines = [[]], lw = 0;
+    var collapse = c.nav === "menu" && navW > avail;
+    if (!collapse) {
+      NAV.forEach(function (t, i) { var add = (lw ? gap : 0) + widths[i]; if (lw && lw + add > avail) { lines.push([]); lw = 0; add = widths[i]; } lines[lines.length - 1].push(i); lw += add; });
+      hh = Math.max(hh, lines.length * navF * 1.6 + f * 1.4);
+    }
+    ctx.fillStyle = WHITE; ctx.fillRect(0, 0, c.L, hh);
+    ctx.fillStyle = N200; ctx.fillRect(0, hh - 1, c.L, 1);
+    ctx.fillStyle = GREEN; ctx.font = F(f * 1.25, 800); ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    ctx.fillText("책방 E", cx, hh / 2);
+    if (collapse) {
+      ctx.font = F(navF, 700); var mw = ctx.measureText("메뉴").width, bx = cx + cw - mw - f * 1.9;
+      rr(ctx, bx - f * 0.5, hh / 2 - f * 0.9, mw + f * 2.4, f * 1.8, f * 0.3); ctx.strokeStyle = SAGE; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = DARK; for (var k = -1; k <= 1; k++) ctx.fillRect(bx, hh / 2 + k * f * 0.3 - 0.75, f * 0.8, 1.5);
+      ctx.fillText("메뉴", bx + f * 1.1, hh / 2);
+    } else {
+      ctx.font = F(navF, 600); ctx.fillStyle = SAGE;
+      lines.forEach(function (ln, li) {
+        var tw = ln.reduce(function (a, i) { return a + widths[i]; }, 0) + gap * (ln.length - 1);
+        var x = cx + cw - tw, y = hh / 2 + (li - (lines.length - 1) / 2) * navF * 1.6;
+        ln.forEach(function (i) { ctx.fillText(NAV[i], x, y); x += widths[i] + gap; });
+      });
+      if (lines.length > 1) {
+        out.navBad = true; out.bad.push("메뉴가 " + lines.length + "줄로 꺾임");
+        if (c.mark) badBox(ctx, cx + logoW + f * 0.6, f * 0.4, cw - logoW - f * 0.6, hh - f * 0.8, "메뉴 " + lines.length + "줄", f);
+      }
+    }
+    // 제목과 소개 글
+    var y = hh + f * 1.6;
+    ctx.fillStyle = DARK; ctx.font = F(c.h1, 800);
+    var hl = wrap(ctx, "2월 행사 일정", cw);
+    y += textLines(ctx, hl, cx, y, c.h1 * 1.25) + f * 0.6;
+    var iw = Math.min(cw, c.introMax || Infinity);
+    out.introCh = iw / (GEO.ch * f);
+    ctx.font = F(f); ctx.fillStyle = DARK;
+    var il = wrap(ctx, INTRO, iw);
+    var ih = textLines(ctx, il, cx, y, f * 1.7);
+    if (c.mark && out.introCh > GEO.lim) { badBox(ctx, cx - 2, y - 2, iw + 4, ih + 4, "소개 글 한 줄 " + Math.round(out.introCh) + "자", f); }
+    if (out.introCh > GEO.lim) out.bad.push("소개 글 한 줄 " + Math.round(out.introCh) + "자");
+    y += ih + f * 1.6;
+    // 목록 + 옆 칸
+    var mode = c.mode, side = mode === "C" ? (c.side == null ? sideOf(cw) : c.side) : 0;
+    var lc = mode === "C" ? cw - side - GEO.g : cw;
+    var n = evChars(cw, f, mode, side);
+    out.evCh = n;
+    var evOK = evOk(n, mode);
+    if (!evOK) out.bad.push(mode === "A" || n > GEO.lim ? "카드 설명 한 줄 " + Math.round(n) + "자" : "글 칸 " + Math.max(0, Math.round(n)) + "자");
+    var cp = GEO.cp * f, top = y;
+    if (mode === "C") drawSide(ctx, cx + lc + GEO.g, top, side, f);
+    for (var e = 0; e < EV.length && y < c.maxY; e++) {
+      var ev = EV[e];
+      if (mode === "A") {
+        var tw = lc - 2 * cp;
+        ctx.font = F(f); var sl = wrap(ctx, ev.s, Math.max(10, tw));
+        ctx.font = F(f * 1.12, 700); var tl = wrap(ctx, ev.t, Math.max(10, tw));
+        var hgt = cp * 2 + f * 1.4 + tl.length * f * 1.45 + sl.length * f * 1.6 + f * 1.5 + f * 2.7 + f * 0.6;
+        rr(ctx, cx, y, lc, hgt, f * 0.5); ctx.fillStyle = WHITE; ctx.fill(); ctx.strokeStyle = N200; ctx.lineWidth = 1; ctx.stroke();
+        var yy = y + cp;
+        ctx.fillStyle = GREEN; ctx.font = F(f * 0.85, 700); ctx.textBaseline = "alphabetic"; ctx.fillText(ev.date, cx + cp, yy + f * 0.9); yy += f * 1.4;
+        ctx.fillStyle = DARK; ctx.font = F(f * 1.12, 700); yy += textLines(ctx, tl, cx + cp, yy, f * 1.45);
+        ctx.font = F(f); var sy = yy; yy += textLines(ctx, sl, cx + cp, yy, f * 1.6);
+        if (c.mark && !evOK) badBox(ctx, cx + cp - 3, sy - 2, tw + 6, yy - sy + 4, "한 줄 " + Math.round(n) + "자", f);
+        ctx.fillStyle = SAGE; ctx.font = F(f * 0.82); ctx.fillText(ev.meta, cx + cp, yy + f * 1.0); yy += f * 1.5;
+        button(ctx, cx + cp, yy, tw, f * 2.7, f);
+        y += hgt + f;
+      } else {
+        var dW = GEO.dW * f, bW = GEO.bW * f, gi = GEO.gi * f, tx = cx + cp + dW + gi, tw2 = lc - 2 * cp - dW - bW - 2 * gi;
+        ctx.font = F(f); var sl2 = tw2 > 8 ? wrap(ctx, ev.s, tw2) : [];
+        ctx.font = F(f * 1.12, 700); var tl2 = tw2 > 8 ? wrap(ctx, ev.t, tw2) : [];
+        var th = tl2.length * f * 1.45 + sl2.length * f * 1.6 + f * 1.5;
+        var hgt2 = Math.max(th, f * 3.4) + 2 * cp;
+        rr(ctx, cx, y, lc, hgt2, f * 0.5); ctx.fillStyle = WHITE; ctx.fill(); ctx.strokeStyle = N200; ctx.lineWidth = 1; ctx.stroke();
+        ctx.fillStyle = GREEN; ctx.font = F(f * 1.9, 800); ctx.textBaseline = "alphabetic"; ctx.fillText(ev.d, cx + cp, y + cp + f * 1.7);
+        ctx.fillStyle = SAGE; ctx.font = F(f * 0.8, 600); ctx.fillText(ev.m, cx + cp, y + cp + f * 3.0);
+        var yy2 = y + cp;
+        ctx.save(); ctx.beginPath(); ctx.rect(tx, y, Math.max(0, tw2), hgt2); ctx.clip();
+        ctx.fillStyle = DARK; ctx.font = F(f * 1.12, 700); yy2 += textLines(ctx, tl2, tx, yy2, f * 1.45);
+        ctx.font = F(f); yy2 += textLines(ctx, sl2, tx, yy2, f * 1.6);
+        ctx.fillStyle = SAGE; ctx.font = F(f * 0.82); ctx.fillText(ev.meta, tx, yy2 + f * 1.0);
+        ctx.restore();
+        button(ctx, cx + lc - cp - bW, y + cp, bW, f * 2.7, f);
+        if (c.mark && !evOK) badBox(ctx, tx - 3, y + cp - 4, Math.max(20, tw2) + 6, hgt2 - 2 * cp + 8, n > GEO.lim ? "한 줄 " + Math.round(n) + "자" : "글 칸 " + Math.max(0, Math.round(n)) + "자", f);
+        y += hgt2 + f;
+      }
+    }
+    out.h = y;
+    return out;
+  }
+  function drawSide(ctx, x, y, w, f) {
+    var p = f * 1.1, cell = (w - 2 * p) / 7, h = p * 2 + f * 2.2 + cell * 6 + f * 4.6;
+    rr(ctx, x, y, w, h, f * 0.5); ctx.fillStyle = WHITE; ctx.fill(); ctx.strokeStyle = N200; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = DARK; ctx.font = F(f * 1.05, 700); ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
+    ctx.fillText("2028년 2월", x + p, y + p + f);
+    var gy = y + p + f * 2.2, days = { 5: 1, 12: 1, 17: 1, 24: 1 };
+    ctx.font = F(Math.min(f * 0.78, cell * 0.5), 600); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    "일월화수목금토".split("").forEach(function (d, i) { ctx.fillStyle = SAGE; ctx.fillText(d, x + p + cell * (i + 0.5), gy + cell * 0.4); });
+    for (var d = 1; d <= 29; d++) {
+      var k = d + 1, col = k % 7, row = Math.floor(k / 7) + 1, cx = x + p + cell * (col + 0.5), cy = gy + cell * (row + 0.4);
+      if (days[d]) { ctx.fillStyle = GREEN; ctx.beginPath(); ctx.arc(cx, cy, cell * 0.4, 0, 7); ctx.fill(); ctx.fillStyle = WHITE; }
+      else ctx.fillStyle = DARK;
+      ctx.fillText(String(d), cx, cy);
+    }
+    var cy2 = gy + cell * 6 + f * 0.6, xx = x + p;
+    ctx.textAlign = "left"; ctx.font = F(f * 0.78, 600);
+    ["낭독회", "북토크", "그림책", "필사"].forEach(function (t) {
+      var tw = ctx.measureText(t).width + f * 1.2;
+      if (xx + tw > x + w - p) { xx = x + p; cy2 += f * 1.9; }
+      rr(ctx, xx, cy2, tw, f * 1.6, f * 0.8); ctx.fillStyle = CREAM; ctx.fill();
+      ctx.fillStyle = DARK; ctx.fillText(t, xx + f * 0.6, cy2 + f * 0.8); xx += tw + f * 0.4;
+    });
+    ctx.textAlign = "left";
+  }
+
+  /** 눈금자 + 틀 + 페이지를 그리는 공통 무대. layout(Wv) → { L: 레이아웃 폭, view: 보이는 배율, total: 그릴 폭 } */
+  function hFor(el) { return function () { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.66, 330, 460)); }; }
+
+  /* =========================== 1. 고정폭·유동·최대 폭 =========================== */
+  safe("fluid", function () {
+    var el = document.getElementById("rf-cv"); if (!el) return;
+    var st = { W: 360 }, mode, meta;
+    var hf = hFor(el);
+    var cv = AB.canvas(el, draw, { get height() { return hf(); }, bg: PAPER });
+    mode = AB.seg("rf-mode", function () { cv.redraw(); });
+    meta = AB.check("rf-meta", function () { cv.redraw(); });
+    cv.redraw();
+    function draw(ctx, w, h) {
+      if (!mode) return;
+      var W = st.W, m = mode(), noMeta = meta(), L = noMeta && W < 980 ? 980 : W, vs = W / L;
+      var pageW = m === "fixed" ? Math.max(L, 960) : L;     // 실제 그려지는 페이지 폭
+      var over = m === "fixed" && !noMeta ? Math.max(0, 960 - W) : 0;
+      drawRuler(ctx, w, W);
+      var avail = w - 24, s = Math.min(1, avail / (W + over));
+      var fw = W * s, fx = 12, fy = 44, fh = h - fy - 10;
+      var box = drawFrame(ctx, fx, fy, fw, fh);
+      if (over > 0) { ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = BAD; ctx.lineWidth = 1.5; ctx.strokeRect(fx + fw, box.y, over * s, box.h); ctx.setLineDash([]); ctx.fillStyle = "rgba(197,55,50,0.08)"; ctx.fillRect(fx + fw, box.y, over * s, box.h); ctx.fillStyle = BAD; ctx.font = F(11, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; if (over * s > 60) ctx.fillText("화면 밖 " + over + "px", fx + fw + over * s / 2, box.y + box.h / 2); ctx.restore(); }
+      var sc = s * vs, f = 17;
+      var cfg = { L: pageW, f: f, h1: 34, nav: "full", mark: false, maxY: box.h / sc, mode: "C" };
+      if (m === "fixed") { cfg.cx = Math.max(0, (pageW - 960) / 2) + 16; cfg.cw = 928; cfg.side = 280; }
+      else if (m === "fluid") { cfg.cx = 16; cfg.cw = L - 32; cfg.side = 0.3 * cfg.cw; }
+      else { cfg.cw = Math.min(L - 32, 1200); cfg.cx = (L - cfg.cw) / 2; cfg.side = 0.3 * cfg.cw; cfg.introMax = 28 * f; }
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
+      ctx.translate(box.x, box.y); ctx.scale(sc, sc);
+      var r = drawPage(ctx, cfg);
+      ctx.restore();
+      // 남은 부분(넘친 페이지)을 흐리게
+      if (over > 0) { ctx.save(); ctx.beginPath(); ctx.rect(fx + fw, box.y, over * s, box.h); ctx.clip(); ctx.globalAlpha = 0.28; ctx.translate(box.x, box.y); ctx.scale(sc, sc); drawPage(ctx, cfg); ctx.restore(); }
+      if (over > 0) { var th = 5, ty = box.y + box.h - th - 2; ctx.fillStyle = "#d9d4c8"; ctx.fillRect(box.x + 2, ty, box.w - 4, th); ctx.fillStyle = "#8a8478"; rr(ctx, box.x + 2, ty, (box.w - 4) * (W / 960), th, 2.5); ctx.fill(); }
+      AB.stat("rf-o-w", num(W) + "px" + (noMeta && W < 980 ? " (980px로 그려 줄임)" : ""));
+      AB.stat("rf-o-over", over > 0 ? okSpan(false, num(over) + "px") : "0");
+      AB.stat("rf-o-ch", okSpan(r.introCh <= GEO.lim, Math.round(r.introCh) + "자"));
+      var vis = f * vs;
+      AB.stat("rf-o-px", okSpan(vis >= 12, AB.fix(vis, 1) + "px"));
+    }
+    AB.drag(el, { move: function (x) { st.W = xToW(x, rg(cv.w)); cv.redraw(); } });
+  });
+
+  /* =========================== 2. 중단점 찾기 =========================== */
+  safe("break", function () {
+    var el = document.getElementById("rb-cv"); if (!el) return;
+    var st = { W: 700, custom: [700, 1100], drag: null }, mode, big;
+    var hf = hFor(el);
+    var cv = AB.canvas(el, draw, { get height() { return hf() + 12; }, bg: PAPER });
+    mode = AB.seg("rb-mode", function () { cv.redraw(); });
+    big = AB.check("rb-big", function () { cv.redraw(); });
+    cv.redraw();
+    function bpsNow(k) { var m = mode(); return m === "device" ? [768, 1024] : m === "content" ? [560 * k, 896 * k] : st.custom.slice().sort(function (a, b) { return a - b; }); }
+    function judge(W, k, bps) { var md = modeAt(W, bps), n = evChars(cwOf(W), 17 * k, md); return { mode: md, n: n, ok: evOk(n, md) }; }
+    function draw(ctx, w, h) {
+      if (!mode) return;
+      var k = big() ? 1.5 : 1, bps = bpsNow(k), W = st.W, g = rg(w);
+      drawRuler(ctx, w, W, bps.map(function (b) { return { W: b, color: mode() === "custom" ? ACC : INK }; }));
+      // 깨짐 띠
+      var sy = 38, sh = 10, badPx = 0;
+      for (var v = RMIN; v <= RMAX; v++) if (!judge(v, k, bps).ok) badPx++;
+      for (var x = g.x0; x < g.x1; x += 2) { var Wx = RMIN + ((x - g.x0) / (g.x1 - g.x0)) * (RMAX - RMIN); ctx.fillStyle = judge(Wx, k, bps).ok ? "#8fc4a3" : "#e3836f"; ctx.fillRect(x, sy, 2.2, sh); }
+      ctx.strokeStyle = INK_DIM; ctx.lineWidth = 1; ctx.strokeRect(g.x0, sy, g.x1 - g.x0, sh);
+      if (mode() === "custom") st.custom.forEach(function (b) { AB.handle(ctx, wToX(b, g), 28, { r: 6, fill: ACC, ring: INK }); });
+      // 가상 화면
+      var s = Math.min(1, (w - 24) / W), fw = W * s, fx = (w - fw) / 2, fy = 58, fh = h - fy - 8;
+      var box = drawFrame(ctx, fx, fy, fw, fh), f = 17 * k, md = modeAt(W, bps);
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip(); ctx.translate(box.x, box.y); ctx.scale(s, s);
+      drawPage(ctx, { L: W, f: f, cw: cwOf(W), cx: (W - cwOf(W)) / 2, mode: md, h1: 30 * k, introMax: 28 * f, nav: "menu", mark: true, maxY: box.h / s });
+      ctx.restore();
+      var j = judge(W, k, bps);
+      AB.stat("rb-o-now", num(W) + "px · " + MODE_NAME[md]);
+      AB.stat("rb-o-ok", j.ok ? okSpan(true, "괜찮음") : okSpan(false, md === "A" || j.n > GEO.lim ? "설명 한 줄 " + Math.round(j.n) + "자" : "글 칸 " + Math.max(0, Math.round(j.n)) + "자"));
+      AB.stat("rb-o-bad", okSpan(badPx === 0, num(badPx) + "px (" + Math.round((badPx / (RMAX - RMIN + 1)) * 100) + "%)"));
+      var mm = mode();
+      AB.stat("rb-o-bp", mm === "device" ? "768px · 1024px" : mm === "content" ? "35em · 56em <span style=\"color:var(--text-dim)\">(" + num(bps[0]) + " · " + num(bps[1]) + "px)</span>" : num(bps[0]) + "px · " + num(bps[1]) + "px");
+    }
+    AB.drag(el, {
+      start: function (x, y) {
+        st.drag = null;
+        if (mode() === "custom" && y < 54) {
+          var g = rg(cv.w), best = -1, bd = 22;
+          st.custom.forEach(function (b, i) { var d = Math.abs(wToX(b, g) - x); if (d < bd) { bd = d; best = i; } });
+          if (best >= 0) st.drag = best;
+        }
+      },
+      move: function (x) {
+        var v = xToW(x, rg(cv.w));
+        if (st.drag != null) st.custom[st.drag] = v; else st.W = v;
+        cv.redraw();
+      },
+      end: function () { st.drag = null; },
+    });
+  });
+
+  /* =========================== 3. clamp() =========================== */
+  safe("clamp", function () {
+    var el = document.getElementById("rc-cv"); if (!el) return;
+    var S = { h1: { W1: 360, s1: 30, W2: 1280, s2: 40, steps: null, ymax: 80 }, gap: { W1: 360, s1: 32, W2: 1280, s2: 64, ymax: 120 } };
+    var st = { hover: null, drag: -1 }, what, step, big;
+    var cv = AB.canvas(el, draw, { get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(AB.clamp(w * 0.62, 300, 400)); } });
+    what = AB.seg("rc-what", function () { cv.redraw(); });
+    step = AB.check("rc-step", function () { cv.redraw(); });
+    big = AB.check("rc-big", function () { cv.redraw(); });
+    cv.redraw();
+    function val(p, W, r) { var lo = Math.min(p.s1, p.s2), hi = Math.max(p.s1, p.s2), v = p.s1 + ((p.s2 - p.s1) * (W - p.W1)) / (p.W2 - p.W1); return AB.clamp(v, lo, hi) * r; }
+    function stepVal(p, W, r) { var b1 = 560 * r, b2 = 896 * r, mid = Math.round((p.s1 + p.s2) / 2); return (W >= b2 ? p.s2 : W >= b1 ? mid : p.s1) * r; }
+    function remS(px) { var v = px / 16; return (Math.round(v * 1000) / 1000).toString() + "rem"; }
+    function geo(w, h) { return { x: 50, y: 14, w: w - 50 - 16, h: h - 14 - 46 }; }
+    function draw(ctx, w, h) {
+      if (!what) return;
+      var P = AB.palette(), key = what(), p = S[key], r = big() ? 1.5 : 1, box = geo(w, h);
+      var ymax = p.ymax * (r > 1 ? 1.5 : 1);
+      var data = [], sdata = [];
+      for (var W = 320; W <= 1600; W += 4) { data.push([W, val(p, W, r)]); sdata.push([W, stepVal(p, W, r)]); }
+      var series = [];
+      if (step()) series.push({ data: sdata, color: P.faint, width: 2, dash: [5, 4] });
+      series.push({ data: data, color: P.accent, width: 3 });
+      var ch = AB.chart(ctx, box, { x: [320, 1600], y: [0, ymax], xLabel: "화면 폭(CSS px)", yLabel: key === "h1" ? "제목 크기(px)" : "간격(px)", xTicks: [320, 640, 960, 1280, 1600], series: series });
+      if (step()) { [560 * r, 896 * r].forEach(function (b) { if (b <= 1600) { ctx.strokeStyle = P.grid; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(ch.X(b), box.y); ctx.lineTo(ch.X(b), box.y + box.h); ctx.stroke(); ctx.setLineDash([]); } }); }
+      // 손잡이
+      [[p.W1, p.s1], [p.W2, p.s2]].forEach(function (q) { AB.handle(ctx, ch.X(q[0]), ch.Y(q[1] * r), { r: 8, fill: P.accent, ring: P.text }); });
+      // 미리보기
+      var Wh = st.hover != null ? st.hover : 768, vh = val(p, Wh, r);
+      ctx.strokeStyle = P.dim; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(ch.X(Wh), box.y); ctx.lineTo(ch.X(Wh), box.y + box.h); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = P.text; ctx.font = F(11, 600); ctx.textAlign = Wh > 1300 ? "right" : "left"; ctx.textBaseline = "bottom";
+      ctx.fillText(num(Wh) + "px → " + AB.fix(vh, 1) + "px", ch.X(Wh) + (Wh > 1300 ? -5 : 5), ch.Y(vh) - 6);
+      var px0 = box.x + 10, py0 = box.y + 8;
+      ctx.save();
+      ctx.beginPath(); ctx.rect(box.x + 1, box.y + 1, box.w - 2, box.h * 0.42); ctx.clip();
+      if (key === "h1") {
+        ctx.fillStyle = P.text; ctx.font = F(vh, 800); ctx.textAlign = "left"; ctx.textBaseline = "top";
+        ctx.fillText("행사 일정", px0, py0);
+      } else {
+        var bh = 14; ctx.fillStyle = P.faint;
+        ctx.fillRect(px0, py0, 90, bh); ctx.fillRect(px0, py0 + bh + vh, 90, bh);
+        ctx.strokeStyle = P.accent; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(px0 + 100, py0 + bh); ctx.lineTo(px0 + 100, py0 + bh + vh); ctx.stroke();
+        ctx.fillStyle = P.accent; ctx.font = F(11, 700); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(AB.fix(vh, 0) + "px", px0 + 106, py0 + bh + vh / 2);
+      }
+      ctx.restore();
+      // 읽음값
+      var lo = Math.min(p.s1, p.s2), hi = Math.max(p.s1, p.s2), slope = (p.s2 - p.s1) / (p.W2 - p.W1), icpt = p.s1 - p.W1 * slope;
+      var css = "clamp(" + remS(lo) + ", " + remS(icpt) + " " + (slope < 0 ? "- " : "+ ") + AB.fix(Math.abs(slope) * 100, 3) + "vw, " + remS(hi) + ")";
+      AB.stat("rc-o-css", css);
+      AB.stat("rc-o-at", [360, 768, 1280].map(function (Wx) { return AB.fix(val(p, Wx, r), 1); }).join(" · ") + "px");
+      var ratio = hi / lo;
+      AB.stat("rc-o-r", okSpan(ratio <= 2.5, AB.fix(ratio, 2) + "배" + (ratio > 2.5 ? " (2.5배 초과)" : "")));
+    }
+    AB.drag(el, {
+      start: function (x, y) {
+        var p = S[what()], r = big() ? 1.5 : 1, box = geo(cv.w, cv.h), ymax = p.ymax * (r > 1 ? 1.5 : 1);
+        var X = function (v) { return box.x + ((v - 320) / 1280) * box.w; }, Y = function (v) { return box.y + box.h - (v / ymax) * box.h; };
+        var d1 = Math.hypot(x - X(p.W1), y - Y(p.s1 * r)), d2 = Math.hypot(x - X(p.W2), y - Y(p.s2 * r));
+        st.drag = d1 < 40 || d2 < 40 ? (d1 <= d2 ? 0 : 1) : -1;
+      },
+      move: function (x, y) {
+        var p = S[what()], r = big() ? 1.5 : 1, box = geo(cv.w, cv.h), ymax = p.ymax * (r > 1 ? 1.5 : 1);
+        var Wv = AB.clamp(Math.round((320 + ((x - box.x) / box.w) * 1280) / 10) * 10, 320, 1600);
+        var sv = AB.clamp(Math.round(((box.y + box.h - y) / box.h) * ymax / r), 6, Math.round(p.ymax));
+        if (st.drag === 0) { p.W1 = Math.min(Wv, p.W2 - 80); p.s1 = sv; }
+        else if (st.drag === 1) { p.W2 = Math.max(Wv, p.W1 + 80); p.s2 = sv; }
+        st.hover = Wv;
+        cv.redraw();
+      },
+      end: function () { st.drag = -1; },
+      hover: function (x) { var box = geo(cv.w, cv.h); st.hover = AB.clamp(Math.round((320 + ((x - box.x) / box.w) * 1280) / 10) * 10, 320, 1600); cv.redraw(); },
+    });
+  });
+
+  /* =========================== 4. 글줄 길이 상한 =========================== */
+  safe("measure", function () {
+    var el = document.getElementById("rm-cv"); if (!el) return;
+    var TXT = [
+      "지난 토요일 저녁, 책방 E 2층에서 겨울 낭독회가 열렸다. 창밖으로 눈이 조금씩 내리기 시작할 무렵 열두 명의 손님이 둥글게 앉아 시집 한 권을 돌려 읽었다. 처음 오신 분도 두 번째 시부터는 목소리가 한결 편안해졌다.",
+      "낭독이 끝난 뒤에는 각자 가장 오래 남은 한 줄을 종이에 적어 서가 옆 게시판에 붙였다. 다음 달에는 같은 자리에서 그림책 읽기 모임이 이어진다. 신청은 행사 일정 페이지에서 받는다.",
+    ];
+    var st = { W: 1280 }, mx, fs;
+    var hf = hFor(el);
+    var cv = AB.canvas(el, draw, { get height() { return hf() + 20; }, bg: PAPER });
+    mx = AB.seg("rm-max", function () { cv.redraw(); });
+    fs = AB.range("rm-fs", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    cv.redraw();
+    function draw(ctx, w, h) {
+      if (!mx || !fs) return;
+      var W = st.W, base = fs(), f = base * 1.125, m = mx();
+      drawRuler(ctx, w, W);
+      var s = Math.min(1, (w - 24) / W), fw = W * s, fx = (w - fw) / 2, fy = 44, fh = h - fy - 10;
+      var box = drawFrame(ctx, fx, fy, fw, fh);
+      var cw = W - 32, lim = m === "none" ? Infinity : m === "px" ? 504 : 28 * f, tw = Math.min(cw, lim);
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip(); ctx.translate(box.x, box.y); ctx.scale(s, s);
+      var Lh = box.h / s;
+      ctx.fillStyle = WHITE; ctx.fillRect(0, 0, W, Lh);
+      ctx.fillStyle = GREEN; ctx.font = F(base * 1.1, 800); ctx.textBaseline = "alphabetic"; ctx.textAlign = "left"; ctx.fillText("책방 E 소식", 16, base * 2);
+      ctx.fillStyle = N200; ctx.fillRect(0, base * 3, W, 1);
+      var y = base * 5;
+      ctx.fillStyle = DARK; ctx.font = F(f * 1.6, 800);
+      var tl = wrap(ctx, "겨울 낭독회를 마치고", tw); y += textLines(ctx, tl, 16, y, f * 2.0);
+      ctx.fillStyle = SAGE; ctx.font = F(base * 0.875); ctx.fillText("2028년 1월 24일 · 서윤", 16, y + base * 0.9); y += base * 2.2;
+      ctx.font = F(f); ctx.fillStyle = DARK;
+      var maxCh = 0, lines = 0;
+      TXT.forEach(function (p) {
+        var ls = wrap(ctx, p, tw);
+        ls.forEach(function (l, i) { if (i < ls.length - 1) maxCh = Math.max(maxCh, l.length); });
+        lines += ls.length;
+        y += textLines(ctx, ls, 16, y, f * 1.7) + f * 0.9;
+      });
+      if (lim < cw) { ctx.save(); ctx.setLineDash([4, 4]); ctx.strokeStyle = ACC; ctx.lineWidth = 1.5 / s; ctx.beginPath(); ctx.moveTo(16 + tw, base * 4); ctx.lineTo(16 + tw, Math.min(y, Lh)); ctx.stroke(); ctx.restore(); }
+      ctx.restore();
+      AB.stat("rm-o-w", AB.fix(f, 1) + "px · " + num(tw) + "px" + (tw < lim && lim !== Infinity ? " (화면 폭이 먼저)" : ""));
+      maxCh = Math.round(tw / (GEO.ch * f));
+      AB.stat("rm-o-ch", maxCh + "자");
+      AB.stat("rm-o-ok", maxCh > GEO.lim ? okSpan(false, "40자 초과(WCAG 1.4.8)") : maxCh < 20 ? okSpan(false, "줄바꿈이 잦다(20자 미만)") : okSpan(true, "40자 이하"));
+    }
+    AB.drag(el, { move: function (x) { st.W = xToW(x, rg(cv.w)); cv.redraw(); } });
+  });
+
+  /* =========================== 5. 컨테이너 쿼리 =========================== */
+  safe("cq", function () {
+    var el = document.getElementById("rq-cv"); if (!el) return;
+    var B1 = { title: "겨울 정원 일기", by: "동네 작가 지음 · 책방 E 펴냄(가상)", blurb: "눈 덮인 마당에서 봄 씨앗을 고르는 열두 주의 기록. 손글씨와 연필 드로잉이 함께 실렸다.", cover: "겨울 정원" };
+    var B2 = { title: "골목 산책", by: "윤서윤 그림 · 책방 E(가상)", blurb: "책방에서 출발해 동네 골목 다섯 곳을 걷는 안내 책자. 주인이 이번 달 손님들에게 가장 먼저 권한다.", cover: "골목 산책" };
+    var st = { W: 1200 }, mode;
+    var hf = hFor(el);
+    var cv = AB.canvas(el, draw, { get height() { return hf() + 30; }, bg: PAPER });
+    mode = AB.seg("rq-mode", function () { cv.redraw(); });
+    cv.redraw();
+    var f = 17, cp = 16, cover = 9 * f, CQ = 25 * f;
+    function judgeCard(cw, hor) {
+      if (hor) { var t = Math.min(cw - 2 * cp - cover - 16, 28 * f) / (GEO.ch * f); return { ok: t >= GEO.minCh, why: "글 칸 " + Math.max(0, Math.round(t)) + "자" }; }
+      return { ok: cw <= 34 * f, why: "표지 띠 " + num(cw / 2) + "px" };
+    }
+    function drawCover(ctx, x, y, w, hgt, title) {
+      ctx.fillStyle = SAGE; ctx.fillRect(x, y, w, hgt);
+      ctx.fillStyle = CREAM; ctx.fillRect(x + w * 0.1, y + hgt * 0.1, w * 0.8, hgt * 0.42);
+      ctx.fillStyle = GREEN; ctx.beginPath(); ctx.arc(x + w * 0.5, y + hgt * 0.32, Math.min(w, hgt) * 0.13, 0, 7); ctx.fill();
+      ctx.fillStyle = CREAM; ctx.font = F(Math.max(6, w * 0.1), 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(title, x + w / 2, y + hgt * 0.7); ctx.textAlign = "left";
+    }
+    function card(ctx, x, y, cw, hor, b, label, mark) {
+      var jj = judgeCard(cw, hor), hgt;
+      ctx.font = F(f);
+      if (hor) {
+        var tw = Math.max(10, Math.min(cw - 2 * cp - cover - 16, 28 * f));
+        var bl = wrap(ctx, b.blurb, tw);
+        ctx.font = F(f * 1.1, 700); var tl = wrap(ctx, b.title, tw);
+        var ch = cover * 1.4;
+        hgt = Math.max(ch, tl.length * f * 1.4 + f * 1.6 + bl.length * f * 1.6 + f * 1.6) + 2 * cp;
+        rr(ctx, x, y, cw, hgt, f * 0.5); ctx.fillStyle = WHITE; ctx.fill(); ctx.strokeStyle = N200; ctx.lineWidth = 1; ctx.stroke();
+        drawCover(ctx, x + cp, y + cp, cover, ch, b.cover);
+        var tx = x + cp + cover + 16, yy = y + cp;
+        ctx.save(); ctx.beginPath(); ctx.rect(tx, y, Math.max(0, cw - (tx - x) - cp + 2), hgt); ctx.clip();
+        ctx.fillStyle = DARK; ctx.font = F(f * 1.1, 700); yy += textLines(ctx, tl, tx, yy, f * 1.4);
+        ctx.fillStyle = SAGE; ctx.font = F(f * 0.82); ctx.fillText(b.by, tx, yy + f * 1.0); yy += f * 1.6;
+        ctx.fillStyle = DARK; ctx.font = F(f); yy += textLines(ctx, bl, tx, yy, f * 1.6);
+        ctx.fillStyle = GREEN; ctx.font = F(f * 0.85, 700); ctx.fillText("자세히 보기", tx, yy + f * 1.1);
+        ctx.restore();
+        if (mark && !jj.ok) badBox(ctx, tx - 3, y + cp - 3, Math.max(24, cw - (tx - x) - cp) + 6, hgt - 2 * cp + 6, jj.why, f);
+      } else {
+        var tw2 = cw - 2 * cp;
+        var bl2 = wrap(ctx, b.blurb, Math.max(10, tw2));
+        ctx.font = F(f * 1.1, 700); var tl2 = wrap(ctx, b.title, Math.max(10, tw2));
+        var band = cw / 2;
+        hgt = band + cp * 2 + tl2.length * f * 1.4 + f * 1.6 + bl2.length * f * 1.6 + f * 1.6;
+        rr(ctx, x, y, cw, hgt, f * 0.5); ctx.fillStyle = WHITE; ctx.fill(); ctx.strokeStyle = N200; ctx.lineWidth = 1; ctx.stroke();
+        ctx.save(); rr(ctx, x, y, cw, band, f * 0.5); ctx.clip(); ctx.fillStyle = CREAM; ctx.fillRect(x, y, cw, band);
+        var bh = band * 0.8, bw = bh / 1.4; drawCover(ctx, x + (cw - bw) / 2, y + band * 0.1, bw, bh, b.cover); ctx.restore();
+        var yy2 = y + band + cp;
+        ctx.fillStyle = DARK; ctx.font = F(f * 1.1, 700); yy2 += textLines(ctx, tl2, x + cp, yy2, f * 1.4);
+        ctx.fillStyle = SAGE; ctx.font = F(f * 0.82); ctx.fillText(b.by, x + cp, yy2 + f * 1.0); yy2 += f * 1.6;
+        ctx.fillStyle = DARK; ctx.font = F(f); yy2 += textLines(ctx, bl2, x + cp, yy2, f * 1.6);
+        ctx.fillStyle = GREEN; ctx.font = F(f * 0.85, 700); ctx.fillText("자세히 보기", x + cp, yy2 + f * 1.1);
+        if (mark && !jj.ok) badBox(ctx, x + 2, y + 2, cw - 4, band - 4, jj.why, f);
+      }
+      ctx.fillStyle = INK_DIM; ctx.font = F(f * 0.8, 700); ctx.textBaseline = "alphabetic"; ctx.fillText(label, x, y - f * 0.45);
+      return hgt;
+    }
+    function draw(ctx, w, h) {
+      if (!mode) return;
+      var W = st.W, m = mode();
+      drawRuler(ctx, w, W, [{ W: 896, color: INK }]);
+      var s = Math.min(1, (w - 24) / W), fw = W * s, fx = (w - fw) / 2, fy = 44, fh = h - fy - 10;
+      var box = drawFrame(ctx, fx, fy, fw, fh);
+      var cw = cwOf(W), cx = (W - cw) / 2, wide = W >= 896, side = wide ? sideOf(cw) : 0, main = wide ? cw - side - GEO.g : cw;
+      var horA = m === "media" ? wide : main >= CQ, horB = m === "media" ? wide : (wide ? side : cw) >= CQ;
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip(); ctx.translate(box.x, box.y); ctx.scale(s, s);
+      ctx.fillStyle = N50; ctx.fillRect(0, 0, W, box.h / s);
+      ctx.fillStyle = WHITE; ctx.fillRect(0, 0, W, f * 3.2); ctx.fillStyle = N200; ctx.fillRect(0, f * 3.2 - 1, W, 1);
+      ctx.fillStyle = GREEN; ctx.font = F(f * 1.25, 800); ctx.textBaseline = "middle"; ctx.textAlign = "left"; ctx.fillText("책방 E", cx, f * 1.6);
+      ctx.fillStyle = DARK; ctx.font = F(f * 1.7, 800); ctx.textBaseline = "alphabetic"; ctx.fillText("신간", cx, f * 6.2);
+      var y0 = f * 8.4;
+      var hA = card(ctx, cx, y0, main, horA, B1, "이달의 신간 · 칸 " + num(main) + "px", true);
+      if (wide) card(ctx, cx + main + GEO.g, y0, side, horB, B2, "주인의 추천 · 칸 " + num(side) + "px", true);
+      else card(ctx, cx, y0 + hA + f * 2.4, cw, horB, B2, "주인의 추천 · 칸 " + num(cw) + "px", true);
+      ctx.restore();
+      var jA = judgeCard(main, horA), jB = judgeCard(wide ? side : cw, horB);
+      AB.stat("rq-o-a", num(main) + "px · " + (horA ? "가로형" : "세로형") + " " + okSpan(jA.ok, jA.ok ? "✓" : jA.why));
+      AB.stat("rq-o-b", num(wide ? side : cw) + "px · " + (horB ? "가로형" : "세로형") + " " + okSpan(jB.ok, jB.ok ? "✓" : jB.why));
+      AB.stat("rq-o-ok", jA.ok && jB.ok ? okSpan(true, "두 카드 모두 괜찮음") : okSpan(false, "깨진 카드 " + ((jA.ok ? 0 : 1) + (jB.ok ? 0 : 1)) + "개"));
+    }
+    AB.drag(el, { move: function (x) { st.W = xToW(x, rg(cv.w)); cv.redraw(); } });
+  });
+
+  /* =========================== 6. srcset·sizes =========================== */
+  safe("srcset", function () {
+    var el = document.getElementById("ri-cv"); if (!el) return;
+    var CAND = [480, 800, 1200, 1600];
+    function kb(wd) { return 220 * Math.pow(wd / 1600, 2); }      // ImageBook 10장: 1600 WebP 80 ≈ 220 KB, 픽셀 수에 비례(가상)
+    var st = { W: 360 }, mode, dpr;
+    var cv = AB.canvas(el, draw, { get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return w < 520 ? 470 : 330; } });
+    mode = AB.seg("ri-mode", function () { cv.redraw(); });
+    dpr = AB.seg("ri-dpr", function () { cv.redraw(); });
+    cv.redraw();
+    function cols(W) { return W >= 896 ? 3 : W >= 560 ? 2 : 1; }
+    function slotTrue(W) { var c = cols(W), cw = cwOf(W); return (cw - (c - 1) * GEO.g) / c; }
+    function slotSizes(W) { return W >= 896 ? 384 : W >= 560 ? W / 2 - 28 : W - 32; }
+    function pick(need) { for (var i = 0; i < CAND.length; i++) if (CAND[i] >= need) return CAND[i]; return CAND[CAND.length - 1]; }
+    function photo(ctx, x, y, w, hh, seed) {
+      var R = AB.rng(seed);
+      ctx.fillStyle = "#5a3f2a"; ctx.fillRect(x, y, w, hh);
+      ctx.fillStyle = "#f3d9a4"; ctx.fillRect(x, y, w, hh * 0.35);
+      var pal = ["#8c2f2a", "#2f4f6f", "#c9a24a", "#3f6b4a", "#e0d6c2", "#d87a3a"];
+      for (var i = 0; i < 6; i++) { ctx.fillStyle = pal[Math.floor(R() * pal.length)]; ctx.fillRect(x + w * (0.05 + i * 0.15), y + hh * 0.12, w * 0.08, hh * 0.22); }
+      ctx.fillStyle = "#2b2420"; for (var j = 0; j < 3; j++) { ctx.beginPath(); ctx.arc(x + w * (0.25 + j * 0.25 + (R() - 0.5) * 0.08), y + hh * 0.58, Math.min(w, hh) * 0.09, 0, 7); ctx.fill(); }
+      ctx.fillStyle = "#7b5534"; ctx.fillRect(x, y + hh * 0.78, w, hh * 0.22);
+    }
+    function draw(ctx, w, h) {
+      if (!mode || !dpr) return;
+      var P = AB.palette(), W = st.W, d = Number(dpr()), m = mode(), g = rg(w), y = 22;
+      // 눈금자(UI 색)
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(g.x0, y); ctx.lineTo(g.x1, y); ctx.stroke();
+      ctx.font = F(10, 500); ctx.fillStyle = P.dim; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      for (var v = 320; v <= 1600; v += 320) { var x = wToX(v, g); ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - 6); ctx.stroke(); if (w > 420 || v % 640 === 0 || v === 320) ctx.fillText(String(v), AB.clamp(x, g.x0 + 8, g.x1 - 10), y - 8); }
+      AB.handle(ctx, wToX(W, g), y, { r: 7, fill: P.accent, ring: P.text });
+      var stack = w < 520, pw = stack ? w - 24 : Math.round((w - 36) * 0.44), ph = stack ? 190 : h - 56, px = 12, py = 40;
+      // 가상 사진첩 페이지
+      var s = Math.min(pw / W, 1), fw = W * s, fh = Math.min(ph, 220 + 0), fx = px + (pw - fw) / 2;
+      var box = drawFrame(ctx, fx, py, fw, ph);
+      var c = cols(W), cw = cwOf(W), sl = slotTrue(W), hh = sl * 2 / 3;
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip(); ctx.translate(box.x, box.y); ctx.scale(s, s);
+      ctx.fillStyle = N50; ctx.fillRect(0, 0, W, box.h / s);
+      ctx.fillStyle = DARK; ctx.font = F(26, 800); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; ctx.fillText("행사 사진첩", (W - cw) / 2, 44);
+      for (var i = 0; i < 9; i++) { var col = i % c, row = Math.floor(i / c); photo(ctx, (W - cw) / 2 + col * (sl + GEO.g), 64 + row * (hh + GEO.g), sl, hh, 11 + i); }
+      ctx.restore();
+      void fh;
+      // 후보 막대
+      var need = m === "src" ? null : (m === "nosizes" ? W : slotSizes(W)) * d;
+      var chosen = m === "src" ? 1600 : pick(need), needTrue = sl * d;
+      var bx = stack ? 12 : px + pw + 22, by = stack ? py + ph + 26 : py + 18, bw = stack ? w - 24 - 110 : w - bx - 112, rowH = stack ? 36 : Math.min(46, (h - by - 30) / 4.6);
+      ctx.fillStyle = P.dim; ctx.font = F(11.5, 600); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText(m === "src" ? "src 하나: 언제나 1600" : "srcset 후보(가로 픽셀)", bx, by - 4);
+      var maxW = 1600, scale = bw / maxW;
+      CAND.forEach(function (cw2, i) {
+        var yy = by + i * rowH, on = cw2 === chosen, avail = m !== "src" || cw2 === 1600;
+        ctx.fillStyle = on ? P.accent : P.grid; ctx.globalAlpha = avail ? 1 : 0.35;
+        rr(ctx, bx, yy + 4, Math.max(4, cw2 * scale), rowH - 12, 4); ctx.fill(); ctx.globalAlpha = 1;
+        ctx.fillStyle = on ? P.text : P.dim; ctx.font = F(11.5, on ? 700 : 500); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+        ctx.fillText(cw2 + "w · " + AB.fix(kb(cw2), kb(cw2) < 100 ? 1 : 0) + " KB", bx + Math.max(4, cw2 * scale) + 6, yy + rowH / 2 - 2);
+      });
+      var lx = bx + Math.min(needTrue, maxW) * scale;
+      ctx.strokeStyle = P.ok; ctx.lineWidth = 2; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(lx, by); ctx.lineTo(lx, by + rowH * 4 - 4); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = P.ok; ctx.font = F(11, 700); ctx.textAlign = lx > bx + bw * 0.6 ? "right" : "left"; ctx.textBaseline = "top";
+      ctx.fillText("화면에 필요한 픽셀 " + num(needTrue), lx + (lx > bx + bw * 0.6 ? -4 : 4), by + rowH * 4);
+      var waste = chosen > needTrue ? 1 - Math.pow(needTrue / chosen, 2) : 0;
+      AB.stat("ri-o-slot", num(sl) + "px" + (m === "full" ? ' <span style="color:var(--text-dim)">(sizes ' + num(slotSizes(W)) + "px)</span>" : ""));
+      AB.stat("ri-o-pick", (need == null ? "—" : num(need)) + " → " + chosen + "w" + (chosen < needTrue ? " " + okSpan(false, "흐림") : ""));
+      AB.stat("ri-o-kb", num(kb(chosen) * 9) + " KB");
+      AB.stat("ri-o-waste", okSpan(waste < 0.5, Math.round(waste * 100) + "%"));
+    }
+    AB.drag(el, { move: function (x) { st.W = xToW(x, rg(cv.w)); cv.redraw(); } });
+  });
+
+  /* =========================== 7. 작업대 =========================== */
+  safe("lab", function () {
+    var el = document.getElementById("rl-cv"); if (!el) return;
+    var st = { W: 700 }, plan, fsz, mark;
+    var hf = hFor(el);
+    var cv = AB.canvas(el, draw, { get height() { return hf() + 40; }, bg: PAPER });
+    plan = AB.seg("rl-plan", function () { cv.redraw(); });
+    fsz = AB.seg("rl-fs", function () { cv.redraw(); });
+    mark = AB.check("rl-mark", function () { cv.redraw(); });
+    cv.redraw();
+    function h1Final(W, root) { var v = 1.630 * root + 0.01087 * W; return AB.clamp(v, 1.875 * root, 2.5 * root); }
+    function draw(ctx, w, h) {
+      if (!plan || !fsz || !mark) return;
+      var W = st.W, k = Number(fsz()), draft = plan() === "draft", f = 17 * k, root = 16 * k;
+      var bps = draft ? [768, 1024] : [560 * k, 896 * k];
+      drawRuler(ctx, w, W, bps.map(function (b) { return { W: b, color: INK }; }));
+      var s = Math.min(1, (w - 24) / W), fw = W * s, fx = (w - fw) / 2, fy = 44, fh = h - fy - 10;
+      var box = drawFrame(ctx, fx, fy, fw, fh), md = modeAt(W, bps), cw = cwOf(W);
+      var h1 = draft ? 40 : h1Final(W, root);
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip(); ctx.translate(box.x, box.y); ctx.scale(s, s);
+      var r = drawPage(ctx, { L: W, f: f, cw: cw, cx: (W - cw) / 2, mode: md, h1: h1, introMax: draft ? Infinity : 28 * f, nav: draft ? "full" : "menu", mark: mark(), maxY: box.h / s });
+      ctx.restore();
+      var ratio = h1 / f, bad = r.bad.slice();
+      if (ratio < 1.2) bad.push("제목이 본문의 " + AB.fix(ratio, 2) + "배");
+      var bi = W >= bps[1] ? 1 : W >= bps[0] ? 0 : -1;
+      AB.stat("rl-o-lay", MODE_NAME[md] + " · " + (bi < 0 ? "중단점 아래" : (draft ? num(bps[bi]) + "px" : (bi ? "56em" : "35em") + "(" + num(bps[bi]) + "px)") + " 적용"));
+      AB.stat("rl-o-h", okSpan(ratio >= 1.2, AB.fix(h1, 1) + " ÷ " + AB.fix(f, 1) + " = " + AB.fix(ratio, 2) + "배"));
+      AB.stat("rl-o-ch", okSpan(r.introCh <= GEO.lim, Math.round(r.introCh) + "자"));
+      AB.stat("rl-o-bad", bad.length ? okSpan(false, bad.length + "곳: " + bad.join(", ")) : okSpan(true, "없음"));
+    }
+    AB.drag(el, { move: function (x) { st.W = xToW(x, rg(cv.w)); cv.redraw(); } });
+  });
+})();
+
+</script>
+</body>
+</html>

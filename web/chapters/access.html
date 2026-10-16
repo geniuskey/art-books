@@ -1,0 +1,1077 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "보이는 화면이 같아도 화면 낭독기와 키보드가 만나는 웹은 다르다. 의미 있는 HTML과 제목 구조, 키보드와 포커스, 대체 텍스트, 들리는 폼 오류, 대비, 200% 확대와 리플로를 WCAG 2.2 성공 기준 번호와 함께 책방 E의 가상 화면으로 점검한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>웹 접근성 · WebBook</title>
+<meta name="description" content="보이는 화면이 같아도 화면 낭독기와 키보드가 만나는 웹은 다르다. 의미 있는 HTML과 제목 구조, 키보드와 포커스, 대체 텍스트, 들리는 폼 오류, 대비, 200% 확대와 리플로를 WCAG 2.2 성공 기준 번호와 함께 책방 E의 가상 화면으로 점검한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/access.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="웹 접근성 · WebBook">
+<meta property="og:description" content="보이는 화면이 같아도 화면 낭독기와 키보드가 만나는 웹은 다르다. 의미 있는 HTML과 제목 구조, 키보드와 포커스, 대체 텍스트, 들리는 폼 오류, 대비, 200% 확대와 리플로를 WCAG 2.2 성공 기준 번호와 함께 책방 E의 가상 화면으로 점검한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/access.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/access.html#chapter","name":"웹 접근성","headline":"웹 접근성 · WebBook","description":"보이는 화면이 같아도 화면 낭독기와 키보드가 만나는 웹은 다르다. 의미 있는 HTML과 제목 구조, 키보드와 포커스, 대체 텍스트, 들리는 폼 오류, 대비, 200% 확대와 리플로를 WCAG 2.2 성공 기준 번호와 함께 책방 E의 가상 화면으로 점검한다.","url":"https://artbook.euiyun.com/web/chapters/access.html","position":11,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"11. 웹 접근성","item":"https://artbook.euiyun.com/web/chapters/access.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .ac-panel { background: var(--bg-elev); border-top: 1px solid var(--border); padding: 10px 14px 12px; font-size: 14px; line-height: 1.55; color: var(--text); }
+  .ac-panel h4 { margin: 0 0 6px; font-size: 12.5px; font-weight: 600; color: var(--text-dim); letter-spacing: .02em; }
+  .ac-panel ol { margin: 0; padding-left: 1.7em; display: grid; gap: 1px; }
+  .ac-panel li { padding-left: 2px; }
+  .ac-item { font: inherit; text-align: left; background: none; border: 0; color: inherit; padding: 2px 6px; border-radius: 6px; cursor: pointer; width: 100%; }
+  .ac-item:hover, .ac-item.on { background: var(--accent-soft); }
+  .ac-empty { margin: 0; color: var(--text-dim); }
+  .ac-badge { display: inline-block; font-size: 11px; font-weight: 700; line-height: 1.5; padding: 0 7px; border-radius: 999px; margin-right: 6px; white-space: nowrap; }
+  .ac-badge.ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 15%, transparent); }
+  .ac-badge.bad { color: var(--bad); background: color-mix(in srgb, var(--bad) 15%, transparent); }
+  .ac-badge.warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 18%, transparent); }
+  .ac-badge.dim { color: var(--text-dim); background: var(--surface); }
+  .ac-skip { color: var(--text-faint); }
+  pre.code { margin: 18px 0; padding: 12px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow-x: auto; font: 13px/1.6 var(--mono); color: var(--text); }
+  pre.code code { background: none; padding: 0; font-size: inherit; white-space: pre; }
+  .sim-controls .ctrl-row .btn { min-width: 64px; }
+</style>
+</head>
+<body data-chapter="access">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 11</div>
+    <h1>웹 접근성</h1>
+    <p class="lead">눈으로 보면 멀쩡한 페이지가 있다. 제목은 크고 굵고, 사진은 선명하고, 신청 버튼은 초록색으로 눈에 띈다. 그런데 같은 페이지를 화면 낭독기로 들으면 "img_0231 점 jpg, 이미지"가 먼저 나오고, 제목으로 건너뛰는 단축키를 누르면 "제목 없음"이라는 대답이 돌아온다. 마우스 없이 Tab 키로 옮겨 가면 포커스가 어디 있는지 보이지 않는다. 보이는 화면과 기계가 읽는 화면은 서로 다른 두 화면이다. 이 장은 그 두 번째 화면을 디자인하는 법을 본다.</p>
+    <ul class="objectives">
+      <li>웹 접근성이 장애가 있는 사람뿐 아니라 나이, 상황, 기기의 제약을 가진 모두의 문제라는 것과 WCAG 2.2·KWCAG 2.2의 관계를 안다.</li>
+      <li>의미 있는 HTML이 접근성 트리를 거쳐 화면 낭독기의 제목·랜드마크·링크 목록이 되는 과정을 설명한다.</li>
+      <li>키보드만으로 페이지를 쓸 때의 포커스 순서, 포커스 표시, 가려진 포커스를 점검한다(2.1.1, 2.4.3, 2.4.7, 2.4.11).</li>
+      <li>그림의 역할에 따라 대체 텍스트를 쓰거나 비운다(1.1.1).</li>
+      <li>폼 오류를 색이 아니라 글자로, 칸에 연결해 알린다(1.4.1, 3.3.1).</li>
+      <li>글자와 UI의 대비(1.4.3, 1.4.11), 200% 확대(1.4.4)와 320px 리플로(1.4.10)를 직접 재 본다.</li>
+    </ul>
+  </header>
+
+  <section id="who">
+    <h2>접근성은 누구를 위한가</h2>
+    <p><span class="term">웹 접근성</span><span class="en">(Web accessibility)</span>은 장애가 있든 없든, 어떤 기기와 방법으로 접속하든 웹의 정보와 기능을 쓸 수 있게 하는 것이다. "장애인을 위한 추가 기능"으로 생각하기 쉽지만, 실제로 접근성의 덕을 보는 사람은 훨씬 넓다.</p>
+    <ul>
+      <li><b>보지 않고 듣는 사람.</b> 시각장애가 있는 사람은 <span class="term">화면 낭독기</span><span class="en">(Screen reader)</span>로 웹을 듣는다. 화면 낭독기는 페이지의 글자와 구조를 소리(또는 점자 디스플레이)로 바꾸는 프로그램이다. 윈도의 NVDA와 JAWS, 애플 기기의 VoiceOver, 안드로이드의 TalkBack이 널리 쓰이고, 국내에서는 한국어에 맞춘 센스리더도 많이 쓴다.</li>
+      <li><b>마우스를 쓰지 않는 사람.</b> 손 떨림이나 마비가 있는 사람, 화면 낭독기 사용자, 키보드가 빠른 숙련자는 Tab과 화살표, Enter로 페이지를 옮겨 다닌다. 머리 움직임이나 스위치 하나로 키보드 입력을 흉내 내는 장치도 같은 길을 쓴다.</li>
+      <li><b>크게 키워 보는 사람.</b> 저시력인 사람, 그리고 한도경처럼 나이가 들어 휴대폰 글자를 가장 크게 해 둔 사람은 화면을 200%, 400%로 키운다(<a href="viewport.html">2장</a>).</li>
+      <li><b>잠시 제약이 생긴 사람.</b> 한 손에 아이를 안은 사람, 한낮의 햇빛 아래에서 화면을 보는 사람, 손목을 다친 사람, 시끄러운 지하철에서 소리 없이 영상을 보는 사람.</li>
+    </ul>
+    <p>그래서 접근성을 지키면 가장 어려운 조건의 사람을 위해 고친 것이 모두를 편하게 하는 일이 자주 생긴다. 큰 터치 타깃(<a href="components.html">7장</a>), 칸 위에 붙은 라벨(<a href="forms.html">9장</a>), 줄인 움직임(<a href="motion.html">10장</a>)이 그랬다. 이 장은 그 가운데 아직 다루지 않은 것, 곧 <b>보이지 않는 구조</b>를 본다.</p>
+
+    <h3>기준: WCAG 2.2와 KWCAG 2.2</h3>
+    <p>웹 접근성의 국제 기준은 W3C의 <span class="term">WCAG</span><span class="en">(Web Content Accessibility Guidelines)</span>다. 최신판인 WCAG 2.2는 2023년 10월 W3C 권고안이 되었다. WCAG는 네 가지 원칙, 곧 <b>인식할 수 있어야 하고</b>(Perceivable), <b>조작할 수 있어야 하고</b>(Operable), <b>이해할 수 있어야 하고</b>(Understandable), <b>견고해야 한다</b>(Robust)는 원칙 아래 검사할 수 있는 <span class="term">성공 기준</span><span class="en">(Success criterion, SC)</span>을 번호로 둔다. 번호의 첫 자리가 원칙이다. 예를 들어 1.4.3은 원칙 1(인식)의 지침 4(구별)의 셋째 기준인 "대비(최소)"다. 기준마다 A, AA, AAA 세 수준이 있고, 법과 조달 규정은 대개 AA까지를 요구한다.</p>
+    <p>국내에는 WCAG를 바탕으로 우리 실정에 맞게 만든 <span class="term">한국형 웹 콘텐츠 접근성 지침</span><span class="en">(KWCAG)</span> 2.2가 있다. 공공기관 웹사이트와 국내 웹 접근성 품질인증 심사가 이 지침을 기준으로 삼고, 「장애인차별금지 및 권리구제 등에 관한 법률」은 웹사이트 같은 전자정보에 대한 접근성 보장을 요구한다. 두 지침은 다루는 내용이 대부분 겹치지만 항목의 묶음과 번호는 다르다. 이 장은 국제 기준인 WCAG 2.2의 번호로 설명한다. 국내 사이트를 만든다면 KWCAG 2.2의 검사 항목에서 같은 내용을 찾아 함께 확인한다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>번호</th><th>성공 기준(WCAG 2.2)</th><th>수준</th><th>이 장의 절</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1.1.1</td><td>텍스트 아닌 콘텐츠(Non-text Content)</td><td>A</td><td>대체 텍스트</td></tr>
+          <tr><td class="num">1.3.1</td><td>정보와 관계(Info and Relationships)</td><td>A</td><td>의미 있는 HTML, 들리는 폼</td></tr>
+          <tr><td class="num">1.4.1</td><td>색의 사용(Use of Color)</td><td>A</td><td>들리는 폼, 대비</td></tr>
+          <tr><td class="num">1.4.3</td><td>대비(최소)(Contrast (Minimum))</td><td>AA</td><td>대비</td></tr>
+          <tr><td class="num">1.4.4</td><td>글자 크기 조정(Resize Text)</td><td>AA</td><td>확대와 리플로</td></tr>
+          <tr><td class="num">1.4.10</td><td>리플로(Reflow)</td><td>AA</td><td>확대와 리플로</td></tr>
+          <tr><td class="num">1.4.11</td><td>텍스트 아닌 대비(Non-text Contrast)</td><td>AA</td><td>대비</td></tr>
+          <tr><td class="num">2.1.1</td><td>키보드(Keyboard)</td><td>A</td><td>키보드와 포커스</td></tr>
+          <tr><td class="num">2.4.1</td><td>블록 건너뛰기(Bypass Blocks)</td><td>A</td><td>키보드와 포커스</td></tr>
+          <tr><td class="num">2.4.3</td><td>포커스 순서(Focus Order)</td><td>A</td><td>키보드와 포커스</td></tr>
+          <tr><td class="num">2.4.4</td><td>링크 목적(문맥 안에서)(Link Purpose (In Context))</td><td>A</td><td>의미 있는 HTML</td></tr>
+          <tr><td class="num">2.4.7</td><td>포커스 표시(Focus Visible)</td><td>AA</td><td>키보드와 포커스</td></tr>
+          <tr><td class="num">2.4.11</td><td>가려지지 않는 포커스(최소)(Focus Not Obscured (Minimum))</td><td>AA</td><td>키보드와 포커스</td></tr>
+          <tr><td class="num">2.5.8</td><td>타깃 크기(최소)(Target Size (Minimum))</td><td>AA</td><td><a href="components.html">7장</a></td></tr>
+          <tr><td class="num">3.3.1</td><td>오류 식별(Error Identification)</td><td>A</td><td>들리는 폼</td></tr>
+          <tr><td class="num">4.1.2</td><td>이름, 역할, 값(Name, Role, Value)</td><td>A</td><td>의미 있는 HTML</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>표의 한국어 이름은 이 책이 뜻을 옮긴 것이다. 2.4.11과 2.5.8은 WCAG 2.2에서 새로 생긴 기준이다. 기준의 정확한 문장과 예외는 W3C의 원문(Web Content Accessibility Guidelines 2.2)과 각 기준의 해설 문서(Understanding WCAG 2.2)에서 확인한다.</p>
+  </section>
+
+  <section id="semantics">
+    <h2>의미 있는 HTML과 제목 구조</h2>
+    <p>브라우저는 HTML을 읽어 화면을 그리는 동시에 <span class="term">접근성 트리</span><span class="en">(Accessibility tree)</span>를 만든다. 접근성 트리는 페이지의 요소마다 <b>역할</b>(버튼인가, 링크인가, 제목인가), <b>이름</b>(무엇이라고 부르는가), <b>상태</b>(눌렸는가, 펼쳐졌는가, 잘못 입력되었는가)를 적은 목록이다. 화면 낭독기 같은 <span class="term">보조 기술</span><span class="en">(Assistive technology)</span>은 픽셀이 아니라 이 트리를 읽는다. 그래서 눈에 똑같이 보이는 두 버튼이 보조 기술에는 전혀 다르게 전해질 수 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="HTML이 브라우저의 접근성 트리를 거쳐 화면 낭독기에 전해지는 과정. button 요소는 역할 버튼과 이름이 전해지지만 div는 역할도 키보드 접근도 없다.">
+        <defs><marker id="wac-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="70" y="22" text-anchor="middle" class="lbl-b">HTML</text>
+        <text x="230" y="22" text-anchor="middle" class="lbl-b">접근성 트리</text>
+        <text x="392" y="22" text-anchor="middle" class="lbl-b">화면 낭독기</text>
+        <rect x="8" y="38" width="124" height="96" rx="8" class="f-surface"/><rect x="8" y="38" width="124" height="96" rx="8" fill="none" class="s-line"/>
+        <text x="18" y="64" class="t-mono lbl-acc" style="font-size:11px">&lt;button&gt;</text>
+        <text x="30" y="84" class="lbl" style="font-size:12px">신청하기</text>
+        <text x="18" y="104" class="t-mono lbl-acc" style="font-size:11px">&lt;/button&gt;</text>
+        <rect x="166" y="38" width="128" height="96" rx="8" class="f-ok-soft"/>
+        <text x="176" y="62" class="lbl" style="font-size:12px">역할: 버튼</text>
+        <text x="176" y="82" class="lbl" style="font-size:12px">이름: 신청하기</text>
+        <text x="176" y="102" class="lbl" style="font-size:12px">Tab으로 갈 수 있음</text>
+        <text x="176" y="122" class="lbl" style="font-size:12px">Enter·Space로 누름</text>
+        <rect x="326" y="52" width="128" height="68" rx="8" class="f-elev"/><rect x="326" y="52" width="128" height="68" rx="8" fill="none" class="s-ok"/>
+        <text x="390" y="82" text-anchor="middle" class="lbl-b" style="font-size:12.5px">"신청하기,</text>
+        <text x="390" y="100" text-anchor="middle" class="lbl-b" style="font-size:12.5px">버튼"</text>
+        <path d="M134 86 L162 86" class="s-line" marker-end="url(#wac-ar)"/>
+        <path d="M296 86 L322 86" class="s-line" marker-end="url(#wac-ar)"/>
+        <rect x="8" y="160" width="124" height="96" rx="8" class="f-surface"/><rect x="8" y="160" width="124" height="96" rx="8" fill="none" class="s-line"/>
+        <text x="18" y="186" class="t-mono lbl-bad" style="font-size:11px">&lt;div onclick&gt;</text>
+        <text x="30" y="206" class="lbl" style="font-size:12px">신청하기</text>
+        <text x="18" y="226" class="t-mono lbl-bad" style="font-size:11px">&lt;/div&gt;</text>
+        <rect x="166" y="160" width="128" height="96" rx="8" class="f-bad-soft"/>
+        <text x="176" y="184" class="lbl" style="font-size:12px">역할: 없음(묶음)</text>
+        <text x="176" y="204" class="lbl" style="font-size:12px">이름: 글자뿐</text>
+        <text x="176" y="224" class="lbl" style="font-size:12px">Tab으로 못 감</text>
+        <text x="176" y="244" class="lbl" style="font-size:12px">키로 누를 수 없음</text>
+        <rect x="326" y="174" width="128" height="68" rx="8" class="f-elev"/><rect x="326" y="174" width="128" height="68" rx="8" fill="none" class="s-bad"/>
+        <text x="390" y="204" text-anchor="middle" class="lbl-b" style="font-size:12.5px">"신청하기"</text>
+        <text x="390" y="222" text-anchor="middle" class="lbl-dim" style="font-size:11px">(누를 수 있는지 모름)</text>
+        <path d="M134 208 L162 208" class="s-line" marker-end="url(#wac-ar)"/>
+        <path d="M296 208 L322 208" class="s-line" marker-end="url(#wac-ar)"/>
+        <text x="230" y="288" text-anchor="middle" class="lbl-dim" style="font-size:11.5px">두 버튼은 화면에서 똑같이 보이도록 꾸밀 수 있다. 트리에서는 다르다.</text>
+      </svg>
+      <figcaption><b>그림 1. HTML에서 접근성 트리를 거쳐 귀까지.</b> <code>button</code> 요소는 역할, 이름, 키보드 조작을 브라우저가 공짜로 붙여 준다(4.1.2). <code>div</code>에 클릭 처리만 붙인 "가짜 버튼"은 마우스로는 눌리지만, 보조 기술에는 그냥 글자이고 키보드로는 갈 수도 없다(2.1.1). 실제 화면 낭독기의 말은 제품과 설정에 따라 조금씩 다르다.</figcaption>
+    </figure>
+
+    <p>그림 1의 교훈은 단순하다. <b>그 일을 하는 HTML 요소가 있으면 그것을 쓴다.</b> 누르면 무언가 일어나는 것은 <code>button</code>, 다른 곳으로 가는 것은 <code>a</code>, 칸의 이름은 <code>label</code>이다. 페이지의 큰 덩어리에도 이름표가 있다. 머리글은 <code>header</code>, 메뉴는 <code>nav</code>, 본문은 <code>main</code>, 바닥글은 <code>footer</code>이고, 보조 기술은 이것을 <span class="term">랜드마크</span><span class="en">(Landmark)</span>로 모아 "본문으로 바로 가기" 같은 이동을 돕는다. 글의 뼈대는 제목 요소 <code>h1</code>~<code>h6</code>가 만든다.</p>
+    <p>화면 낭독기 사용자는 긴 페이지를 처음부터 끝까지 듣지 않는다. 눈으로 보는 사람이 제목만 훑으며 내려가듯, 단축키 하나로 다음 제목으로 건너뛰거나 페이지의 제목·랜드마크·링크만 뽑은 목록을 열어 고른다. WebAIM이 여러 차례 실시한 화면 낭독기 사용자 설문에서도, 긴 페이지에서 정보를 찾을 때 제목으로 건너뛰는 방법이 가장 흔한 답으로 나왔다. 아래는 책방 E의 행사 일정 페이지를 두 가지 HTML로 짠 것이다. 화면은 거의 같다. 낭독기가 뽑아 보는 목록을 바꿔 가며 비교한다.</p>
+
+    <div class="sim" id="sim-rotor">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>화면 낭독기가 뽑아 보는 목록</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <canvas id="ro-cv" class="art"></canvas>
+          <div class="ac-panel" id="ro-list"></div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="ro-ver"><button data-value="before" class="on">고치기 전(div 덩어리)</button><button data-value="after">고친 뒤(의미 있는 HTML)</button></div>
+          <div class="seg" id="ro-kind"><button data-value="h" class="on">제목</button><button data-value="lm">랜드마크</button><button data-value="ln">링크</button></div>
+          <label class="check"><input type="checkbox" id="ro-tags"> 태그 이름 겹쳐 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">목록 항목</span><span class="v" id="ro-o-n">—</span></div>
+        <div class="stat"><span class="k">눈에 띄는 문제</span><span class="v" id="ro-o-p">—</span></div>
+        <div class="stat"><span class="k">세 번째 모임까지 넘기는 횟수</span><span class="v" id="ro-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "고치기 전"에서 제목 목록을 연다. 화면에는 큰 제목이 일곱 개나 보이지만 목록은 비어 있다. 모두 굵게 꾸민 <code>div</code>라서다. ② 링크 목록으로 바꾼다. "자세히 보기"가 세 번, 파일 이름 하나, "여기"가 하나 있다. 목록만 들어서는 어디로 가는지 알 수 없다(2.4.4). ③ "고친 뒤"로 바꾸고 목록의 항목을 눌러 본다. 화면의 어느 부분인지 빨간 틀로 표시된다. 제목 단계가 1 → 2 → 3으로 건너뛰지 않는다. ④ "태그 이름 겹쳐 보기"로 두 판의 차이가 화면이 아니라 태그에 있다는 것을 확인한다. (가상 페이지다. 낭독기마다 목록 이름과 읽는 말이 조금씩 다르다. 넘기는 횟수는 한 항목씩 읽어 내려갈 때와 제목 단위로 건너뛸 때를 단순히 센 것이다.)</div>
+    </div>
+
+    <p>"고치기 전" 페이지에서 화면 낭독기 사용자가 세 번째 모임을 찾으려면 로고와 메뉴, 소개 글, 앞의 두 모임을 차례로 다 들어야 한다. 제목이 있으면 다섯 번 만에 닿는다. 눈으로 보는 사람에게 글자 크기와 굵기가 하는 일을 화면 낭독기 사용자에게는 제목 요소가 한다. 그래서 제목 요소는 <b>크기를 고르는 도구가 아니라 구조를 적는 도구</b>다. "이 글자는 작게 보이고 싶으니 <code>h4</code>를 쓴다"가 아니라, 구조상 셋째 단계면 <code>h3</code>을 쓰고 크기는 CSS로 정한다(<a href="tokens.html">6장</a>의 글자 크기 단계).</p>
+    <ul>
+      <li>페이지마다 그 페이지의 주제를 말하는 <code>h1</code>을 하나 둔다. 로고에 <code>h1</code>을 쓰면 모든 페이지의 첫 제목이 "책방 E"가 된다.</li>
+      <li>단계를 건너뛰지 않는다. <code>h2</code> 아래에 바로 <code>h4</code>가 오면 듣는 사람은 중간에 무엇이 빠졌는지 헷갈린다.</li>
+      <li>링크 문구는 그것만 들어도 목적지를 알게 쓴다(2.4.4). "자세히 보기" 대신 "겨울 낭독회 자세히 보기". 눈으로 보이는 글자를 짧게 두고 싶다면 보이지 않는 글자를 덧붙이는 방법도 있지만, 보이는 글자 자체를 구체적으로 쓰는 것이 모두에게 낫다.</li>
+      <li>페이지의 언어를 <code>&lt;html lang="ko"&gt;</code>로 적는다(3.1.1). 그래야 낭독기가 한국어 음성으로 읽는다.</li>
+    </ul>
+
+    <div class="callout studio">
+      <strong>내 화면 낭독기를 5분만 켜 본다</strong>
+      접근성 점검에서 가장 값진 5분은 직접 들어 보는 시간이다. 아이폰은 설정의 손쉬운 사용에서 VoiceOver를 켜고, 안드로이드는 접근성 설정에서 TalkBack을 켠다. 맥은 Command + F5로 VoiceOver가 켜지고 꺼진다. 윈도에서는 무료 낭독기 NVDA를 설치할 수 있다. 처음에는 조작법이 낯설어 당황하기 쉬우니, 켜기 전에 끄는 법부터 확인해 둔다. 숙련된 사용자처럼 빠르게 쓰려는 것이 아니다. 제목이 있는지, 버튼이 "버튼"이라고 불리는지, 사진이 무엇이라고 읽히는지만 들어도 고칠 거리가 한 페이지 나온다. 다만 서툰 사용자의 경험이 실제 사용자의 경험과 같지는 않으므로, 가능하면 실제 사용자에게 써 봐 달라고 부탁한다.
+    </div>
+  </section>
+
+  <section id="keyboard">
+    <h2>키보드와 포커스</h2>
+    <p>키보드로 웹을 쓰는 방법은 단순하다. Tab은 다음 조작할 수 있는 요소로, Shift + Tab은 이전 요소로 옮긴다. Enter는 링크와 버튼을, Space는 버튼과 체크 상자를 누른다. 지금 키 입력을 받는 요소에 <span class="term">포커스</span><span class="en">(Focus)</span>가 있다고 하고, 그 위치를 보여 주는 테두리를 <span class="term">포커스 표시</span><span class="en">(Focus indicator)</span>, 흔히 포커스 링이라고 부른다. 마우스 사용자의 커서와 같은 것이다. 커서가 보이지 않는 마우스를 상상해 보면 포커스 표시를 지우는 일이 얼마나 큰 일인지 알 수 있다.</p>
+    <p>키보드 접근성에 걸린 WCAG 기준은 네 가지가 핵심이다.</p>
+    <ul>
+      <li><b>2.1.1 키보드(A).</b> 마우스로 할 수 있는 모든 기능을 키보드로도 할 수 있어야 한다. 그림 1의 가짜 버튼이 대표적인 실패다.</li>
+      <li><b>2.4.3 포커스 순서(A).</b> 포커스가 옮겨 가는 순서가 의미와 조작의 흐름을 지켜야 한다. 대개는 HTML에 적힌 순서이며, 화면에 보이는 읽는 순서와 맞아야 한다.</li>
+      <li><b>2.4.7 포커스 표시(AA).</b> 키보드로 조작할 때 포커스가 어디 있는지 보여야 한다.</li>
+      <li><b>2.4.11 가려지지 않는 포커스(최소)(AA).</b> 포커스를 받은 요소가 페이지가 만든 다른 콘텐츠(고정 머리글, 하단 띠, 쿠키 안내 같은 것)에 <b>완전히</b> 가려져서는 안 된다. 일부라도 보이지 않게 하라는 더 엄격한 기준은 2.4.12(AAA)다.</li>
+    </ul>
+    <p>아래는 책방 E의 모임 신청 페이지다. 마우스로는 아무 문제가 없다. Tab 단추를 눌러 키보드 사용자처럼 옮겨 가 본다. 지나온 순서가 번호로 남는다.</p>
+
+    <div class="sim" id="sim-kb">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>키보드만으로 모임 신청하기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="kb-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="ctrl-row"><button class="btn primary" id="kb-tab" type="button">Tab</button><button class="btn" id="kb-stab" type="button">Shift+Tab</button><button class="btn" id="kb-reset" type="button">처음으로</button></div>
+          <div class="seg" id="kb-ver"><button data-value="before" class="on">고치기 전</button><button data-value="after">고친 뒤</button></div>
+          <label class="check"><input type="checkbox" id="kb-bar" checked> 화면 아래 고정 안내 띠</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">지금 포커스</span><span class="v" id="kb-o-at">—</span></div>
+        <div class="stat"><span class="k">Tab 누른 횟수</span><span class="v" id="kb-o-n">0</span></div>
+        <div class="stat"><span class="k">문제</span><span class="v" id="kb-o-issue">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "고치기 전"에서 Tab을 한 번 누른다. 화면에 아무 변화가 없다. 포커스는 맨 아래 "신청하기"로 뛰어갔는데(<code>tabindex="1"</code>을 준 탓, 2.4.3), 포커스 표시를 지웠고(<code>outline: none</code>, 2.4.7) 그 버튼은 고정 띠에 완전히 가려졌다(2.4.11). ② 계속 눌러 끝까지 간다. 날짜 칩 세 개는 <code>div</code>라 한 번도 들르지 않는다(2.1.1). 입력 칸은 깜박이는 커서로만 겨우 알 수 있다. ③ "고친 뒤"로 바꿔 처음부터 다시 한다. 첫 Tab에서 "본문 바로가기" 링크가 나타나고(2.4.1), 순서는 화면을 읽는 순서와 같으며, 굵은 초록 테두리가 따라온다. 신청하기에 오면 페이지가 띠 높이만큼 더 올라가 버튼이 띠 위에 보인다. (가상 페이지다. 실제 브라우저는 포커스를 받은 요소가 보이도록 스스로 스크롤하지만, 고정된 띠의 높이는 모른다. "고친 뒤"는 CSS의 <code>scroll-padding-bottom</code>으로 띠 높이를 알려 준 경우다.)</div>
+    </div>
+
+    <p>"고치기 전"의 문제들은 대부분 누군가 좋은 뜻으로 넣은 코드에서 생겼다. 클릭할 때 생기는 테두리가 보기 싫어 <code>outline: none</code>을 넣었고, 중요한 버튼에 먼저 가게 하려고 <code>tabindex="1"</code>을 넣었고, 모양을 자유롭게 꾸미려고 칩을 <code>div</code>로 만들었다. 고치는 방법도 거의 정해져 있다.</p>
+<pre class="code" data-scroll><code>/* 마우스 클릭에는 표시하지 않고, 키보드 조작에는 뚜렷하게 */
+:focus-visible {
+  outline: 3px solid #2f7d5b;   /* 책방 초록: 흰 바탕과 4.99:1 */
+  outline-offset: 2px;
+}
+/* 고정 머리글·띠의 높이만큼 포커스 이동 때 여유를 둔다 */
+html { scroll-padding-top: 64px; scroll-padding-bottom: 64px; }</code></pre>
+    <p><code>:focus-visible</code>은 브라우저가 "이 포커스는 표시가 필요하다"고 판단할 때만 걸리는 선택자다. 대개 마우스로 버튼을 누를 때는 걸리지 않고 키보드로 옮길 때는 걸리므로, 테두리가 보기 싫다는 이유로 포커스 표시를 통째로 지울 필요가 없다. 순서는 <code>tabindex</code>의 양수 값으로 바꾸지 말고 HTML의 순서 자체를 화면 순서에 맞춘다. <code>tabindex="0"</code>(제 순서대로 포커스 받기)과 <code>tabindex="-1"</code>(스크립트로만 포커스 주기)은 쓸모가 있지만, 1 이상의 값은 페이지 전체의 순서를 흔든다. 날짜 칩은 <code>button</code>이나 라디오 단추로 만들면 키보드 조작이 저절로 따라온다.</p>
+    <p>포커스 표시가 얼마나 뚜렷해야 하는지는 2.4.13 포커스 모양(AAA)이 크기와 대비를 정해 두었다. AA 수준에서 구체적인 수치를 요구하지는 않지만, 표시도 결국 UI 요소이므로 바탕과 3:1 이상 대비(1.4.11, 아래 "대비" 절)를 주는 것이 안전하다. 버튼 색과 같은 색의 얇은 테두리는 버튼에 붙어 버려 잘 보이지 않는다. 그래서 위 코드처럼 테두리를 조금 띄운다(<code>outline-offset</code>).</p>
+
+    <div class="callout warn">
+      <strong>키보드 함정</strong>
+      Tab으로 들어간 곳에서 Tab으로 빠져나올 수 없으면 키보드 사용자는 그 페이지에 갇힌다. 2.1.2 키보드 함정 없음(A)이 이것을 금지한다. 직접 만든 팝업, 지도나 영상 같은 끼워 넣은 콘텐츠, 스스로 키 입력을 가로채는 편집기에서 흔하다. 팝업을 열면 포커스를 팝업 안으로 옮기고, 닫으면(Esc 키도 받는다) 연 단추로 되돌린다. 페이지 안의 이 책 시뮬레이터가 실제 Tab 키를 가로채지 않고 화면의 단추로 Tab을 흉내 내는 것도 같은 이유다.
+    </div>
+  </section>
+
+  <section id="alt">
+    <h2>대체 텍스트</h2>
+    <p>화면 낭독기는 그림을 볼 수 없다. 그림 대신 읽어 줄 글을 <span class="term">대체 텍스트</span><span class="en">(Alternative text, alt text)</span>라고 하고, HTML에서는 <code>img</code> 요소의 <code>alt</code> 속성에 쓴다. 1.1.1 텍스트 아닌 콘텐츠(A)는 정보를 전하는 그림에 같은 목적의 글을 붙이라고 하고, 꾸밈뿐인 그림은 보조 기술이 무시하도록 하라고 한다. 대체 텍스트는 그림을 볼 수 없는 사람뿐 아니라 통신이 느려 그림이 오지 않은 사람, 검색 엔진에도 전해진다.</p>
+    <p>좋은 대체 텍스트는 "이 그림이 무엇처럼 생겼나"보다 "이 그림이 이 자리에서 무슨 일을 하나"를 쓴다. 같은 사진도 자리에 따라 대체 텍스트가 달라진다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 330" role="img" aria-label="대체 텍스트를 정하는 질문 순서. 꾸밈이면 비우고, 링크나 버튼 안이면 목적지를, 글자가 든 그림이면 그 글자를, 정보를 담은 사진이면 짧은 설명을, 복잡한 그림이면 본문에 자세한 설명을 둔다.">
+        <defs><marker id="wac-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g id="wac-tree"></g>
+      </svg>
+      <figcaption><b>그림 2. 대체 텍스트를 정하는 질문.</b> 위에서부터 차례로 묻고 처음 "예"가 나오는 곳에서 멈춘다. W3C 웹 접근성 이니셔티브(WAI)의 이미지 길잡이(Images Tutorial)에 있는 결정 나무(An alt Decision Tree)를 참고해 이 책이 순서를 줄여 정리한 것이다. 꾸밈 그림의 <code>alt=""</code>는 "대체 텍스트 없음"이 아니라 "읽지 말 것"이라는 분명한 표시다. <code>alt</code> 속성 자체를 빼면 많은 낭독기가 대신 파일 이름을 읽는다.</figcaption>
+    </figure>
+
+    <p>아래 행사 소개 페이지에는 그림이 넷 있다. 로고 링크, 낭독회 사진, 꽃잎 모양 구분선, 일정이 적힌 포스터. 대체 텍스트를 네 가지 방식으로 붙여 보고 화면 낭독기가 위에서부터 읽어 주는 말을 듣는다(아래 목록).</p>
+
+    <div class="sim" id="sim-alt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>대체 텍스트를 귀로 듣기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <canvas id="al-cv" class="art"></canvas>
+          <div class="ac-panel" id="al-list"></div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="al-ver"><button data-value="none" class="on">alt 없음</button><button data-value="empty">모두 비움</button><button data-value="generic">모두 "사진"</button><button data-value="good">역할에 맞게</button></div>
+          <label class="check"><input type="checkbox" id="al-off"> 그림이 오지 않았을 때 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">잃은 정보</span><span class="v" id="al-o-lost">—</span></div>
+        <div class="stat"><span class="k">쓸모없는 소리</span><span class="v" id="al-o-noise">—</span></div>
+        <div class="stat"><span class="k">읽는 줄 수</span><span class="v" id="al-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "alt 없음"을 듣는다. 파일 이름이 세 번, 로고 링크는 파일 이름으로 불린다. 정보는 그림 속에 갇혀 있다. ② "모두 비움"으로 바꾼다. 소음은 사라졌지만 로고 링크는 이름 없는 "링크"가 되고, 낭독회 사진과 포스터의 정보가 통째로 사라진다. ③ "모두 '사진'"은 소리만 늘린다. ④ "역할에 맞게"를 고른다. 로고는 목적지("책방 E 첫 화면"), 사진은 짧은 설명, 구분선은 비움, 포스터는 짧은 이름만 두고 날짜와 시간은 본문 글로 옮겼다. "그림이 오지 않았을 때 보기"를 켜면 같은 대체 텍스트가 눈으로 보는 사람에게도 쓰인다. (가상 페이지다. 낭독기가 파일 이름을 읽을지, 무엇이라고 부를지는 제품과 설정에 따라 다르다.)</div>
+    </div>
+
+    <p>"역할에 맞게"에서 포스터를 다룬 방식을 눈여겨본다. 포스터의 글자(날짜, 시간, 장소)를 대체 텍스트에 다 몰아넣는 대신, 짧은 이름만 남기고 정보는 본문 글자로 옮겼다. 그림 속 글자는 확대하면 흐려지고, 검색되지 않고, 번역되지 않고, 낭독기 사용자가 단어 단위로 되짚어 듣기도 어렵다. 그림 속에만 있는 정보는 대개 HTML 글자로도 있어야 한다. 차트나 지도처럼 짧은 글로 요약하기 어려운 그림은 그림 가까이에 자세한 설명이나 표를 둔다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>그림</th><th>나쁜 예</th><th>좋은 예</th></tr></thead>
+        <tbody>
+          <tr><td>로고(첫 화면으로 가는 링크)</td><td><code>alt="logo"</code></td><td><code>alt="책방 E 첫 화면"</code></td></tr>
+          <tr><td>행사 사진</td><td><code>alt="img_0231"</code>, <code>alt="사진"</code></td><td><code>alt="서가 앞에 둥글게 앉은 손님들이 낭독을 듣고 있다"</code></td></tr>
+          <tr><td>꾸밈 무늬, 구분선</td><td><code>alt="꽃잎 장식"</code></td><td><code>alt=""</code> 또는 CSS 배경으로</td></tr>
+          <tr><td>돋보기 아이콘만 있는 검색 단추</td><td><code>alt="돋보기"</code></td><td><code>alt="검색"</code>(동작을 쓴다)</td></tr>
+          <tr><td>신간 표지(목록 안, 옆에 책 제목 글자가 있음)</td><td>책 제목을 한 번 더</td><td><code>alt=""</code>(같은 말을 두 번 듣지 않게)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>"사진", "이미지", "그림"이라는 말은 대체 텍스트에 넣지 않는다. 낭독기가 이미 "이미지"라고 알려 준다. 길이에 정해진 상한은 없지만, 한두 문장 안에서 이 자리의 목적에 필요한 것만 고른다. 서윤은 수채화가답게 처음에 사진마다 빛과 색을 길게 묘사했다가, 낭독회 안내 페이지에서 필요한 것은 "어떤 분위기의 모임인가"뿐이라는 것을 알고 줄였다.</p>
+  </section>
+
+  <section id="errors">
+    <h2>들리는 폼</h2>
+    <p><a href="forms.html">9장</a>에서 모임 신청 폼의 라벨을 칸 위에 붙이고, 칸을 떠날 때 검증해서 오류를 칸 바로 아래에 보여 주기로 했다. 눈으로 보는 사람에게는 충분하다. 화면 낭독기 사용자에게는 두 가지가 더 필요하다. 오류가 <b>글자로</b> 있어야 하고(색과 테두리만으로는 들리지 않는다), 그 글자가 <b>칸에 연결되어</b> 있어야 한다. 낭독기 사용자는 칸에 포커스가 왔을 때 그 칸의 이름과 상태를 듣는다. 칸 아래에 적힌 글자는 화면에서는 바로 옆이지만, 연결이 없으면 낭독기는 그 칸을 떠나 계속 읽어 내려가야 만난다.</p>
+
+    <div class="sim" id="sim-err">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>오류를 보고, 듣기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <canvas id="er-cv" class="art"></canvas>
+          <div class="ac-panel" id="er-list"></div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="er-ver"><button data-value="color" class="on">빨간 테두리만</button><button data-value="text">칸 아래 글자</button><button data-value="linked">글자 + 칸에 연결</button></div>
+          <label class="check"><input type="checkbox" id="er-blind"> 화면을 가리고 듣기만</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">눈으로</span><span class="v" id="er-o-eye">—</span></div>
+        <div class="stat"><span class="k">귀로(칸에 왔을 때)</span><span class="v" id="er-o-ear">—</span></div>
+        <div class="stat"><span class="k">관련 기준</span><span class="v" id="er-o-sc">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "빨간 테두리만"에서 시뮬레이터 머리의 흑백 단추를 눌러 본다. 빨간 테두리가 다른 칸의 회색 테두리와 거의 같아진다. 색으로만 전한 정보다(1.4.1). ② "화면을 가리고 듣기만"을 켠다. 연락처 칸에 와도 "010-12"까지만 들린다. ③ "칸 아래 글자"는 눈에는 충분하지만 칸에서 듣는 말은 그대로다. ④ "글자 + 칸에 연결"에서는 칸에 오자마자 "잘못된 입력"과 고칠 방법이 들린다. (가상 화면이다. 낭독기와 브라우저마다 읽는 순서와 말이 조금씩 다르다.)</div>
+    </div>
+
+    <p>연결은 HTML 속성 몇 개로 한다. <code>aria-invalid</code>는 "이 칸의 값이 잘못되었다"는 상태를, <code>aria-describedby</code>는 "이 칸의 설명은 저 요소다"라는 관계를 접근성 트리에 적는다.</p>
+<pre class="code" data-scroll><code>&lt;label for="phone"&gt;연락처&lt;/label&gt;
+&lt;input id="phone" type="tel" autocomplete="tel"
+       aria-invalid="true" aria-describedby="phone-err"&gt;
+&lt;p id="phone-err"&gt;오류: 숫자 10~11자리로 적어 주세요. 예: 010-1234-5678&lt;/p&gt;</code></pre>
+    <p>3.3.1 오류 식별(A)은 오류가 난 항목을 알려 주고 그 오류를 글자로 설명하라고 한다. 오류 문구는 무엇이 잘못되었는지와 어떻게 고치는지를 함께 쓴다. "형식이 올바르지 않습니다"보다 "숫자 10~11자리로 적어 주세요"가 낫다. 신청하기를 눌렀을 때 오류가 여러 개라면 포커스를 첫 오류 칸으로 옮겨, 낭독기 사용자가 페이지의 어디서 무엇을 고쳐야 하는지 찾아 헤매지 않게 한다. "신청이 접수되었습니다" 같은 결과 알림처럼 포커스를 옮기지 않고 나타나는 메시지는 <code>role="status"</code> 같은 상태 영역에 넣어 낭독기가 읽게 한다(4.1.3 상태 메시지, AA).</p>
+
+    <div class="callout warn">
+      <strong>ARIA는 HTML 다음이다</strong>
+      <code>aria-*</code> 속성(ARIA)은 HTML만으로 표현할 수 없는 역할과 상태를 접근성 트리에 적는 도구다. 강력한 만큼 잘못 쓰면 오히려 망친다. <code>div</code>에 <code>role="button"</code>을 붙이면 낭독기는 "버튼"이라고 읽지만, 키보드로 포커스를 받고 Enter와 Space로 눌리는 동작은 여전히 직접 만들어야 한다. W3C의 ARIA 사용 안내(Using ARIA)가 첫 규칙으로 "같은 일을 하는 HTML 요소나 속성이 있으면 그것을 쓰라"고 하는 이유다. 위 예처럼 HTML 요소로 뼈대를 세우고, 모자란 관계와 상태만 ARIA로 보탠다.
+    </div>
+  </section>
+
+  <section id="contrast">
+    <h2>대비와 색</h2>
+    <p>글자와 바탕의 밝기 차이는 ColorBook <a href="../../color/chapters/access.html">13장</a>에서 WCAG 대비비로 쟀다. 대비비는 두 색의 상대 휘도 가운데 큰 값을 \(L_1\), 작은 값을 \(L_2\)라 할 때 \((L_1 + 0.05) / (L_2 + 0.05)\)이며 1에서 21까지다. 웹 화면에서 다시 짚을 것은 세 가지다.</p>
+    <ul>
+      <li><b>1.4.3 대비(최소)(AA).</b> 본문 글자는 바탕과 4.5:1 이상, 큰 글자는 3:1 이상. 큰 글자는 18포인트(약 24 CSS px) 이상, 또는 굵게 14포인트(약 18.66 CSS px) 이상이다. 입력 칸의 안내 글자나 회색 보조 설명처럼 <b>일부러 흐리게 만든 글자</b>도 정보를 담으면 이 기준을 지킨다.</li>
+      <li><b>1.4.11 텍스트 아닌 대비(AA).</b> 입력 칸의 테두리, 체크 상자, 아이콘, 포커스 표시처럼 "이것이 무엇이고 어떤 상태인지 알아보는 데 필요한" UI 요소와 그래픽은 이웃한 색과 3:1 이상. 흰 바탕 위 연회색 테두리만 있는 입력 칸이 흔한 실패다.</li>
+      <li><b>1.4.1 색의 사용(A).</b> 색만으로 정보를 전하지 않는다. 앞 절의 빨간 테두리, 밑줄 없이 색만 다른 본문 속 링크가 그 예다.</li>
+    </ul>
+    <p>아래 신청 카드에서 세 요소의 색을 하나씩 골라 오른쪽 띠의 손잡이를 끌어 밝기를 바꾼다. 띠 위의 눈금이 기준이 넘어가는 자리다.</p>
+
+    <div class="sim" id="sim-con">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>안내 글자와 테두리의 대비</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cn-cv" class="art"></canvas><span class="hint">오른쪽 띠의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="cn-el"><button data-value="hint" class="on">안내 글자</button><button data-value="border">입력 칸 테두리</button><button data-value="title">큰 제목</button></div>
+          <div class="seg" id="cn-bg"><button data-value="#ffffff" class="on">흰 바탕</button><button data-value="#ffe2d7">크림 바탕</button></div>
+          <label class="check"><input type="checkbox" id="cn-cvd"> 제2색각 시뮬레이션</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 요소의 색</span><span class="v" id="cn-o-hex">—</span></div>
+        <div class="stat"><span class="k">바탕과의 대비</span><span class="v" id="cn-o-r">—</span></div>
+        <div class="stat"><span class="k">기준</span><span class="v" id="cn-o-req">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "안내 글자"의 처음 색은 흔히 보는 연한 회색이다. 대비가 2.5쯤으로 4.5에 한참 못 미친다. 손잡이를 위로 끌어 4.5 눈금을 넘긴다. ② "입력 칸 테두리"는 1.5쯤에서 시작한다. 칸이 어디 있는지 보이게 하려면 3 눈금까지 올려야 한다. ③ "큰 제목"은 24px 굵은 글자라 3:1이면 된다. 같은 초록이라도 작은 본문이라면 모자랄 밝기다. ④ "크림 바탕"으로 바꾸면 같은 색의 대비가 떨어진다. ⑤ "제2색각 시뮬레이션"을 켜도 대비 수치는 거의 그대로다. 대비는 색상이 아니라 밝기의 차이를 재기 때문이다. (색은 OKLCH에서 색상과 채도를 고정하고 밝기만 바꾼다. 대비는 이 책의 엔진 <code>ART.contrast</code>로, 색각 시뮬레이션은 <code>ART.simulateCVD</code>(Machado 외 2009)로 계산했다.)</div>
+    </div>
+
+    <p>대비 기준을 지키면 디자인이 칙칙해진다는 걱정을 자주 듣는다. 실제로는 기준선 근처의 색을 고르는 법을 익히면 된다. 연회색 안내 글자는 4.5 눈금 바로 위의 회색으로, 테두리는 3 눈금 바로 위로 옮기면 화면의 인상은 크게 바뀌지 않는다. 다크 모드의 색도 따로 재야 한다(<a href="tokens.html">6장</a>). 대비비 공식은 사람의 지각과 어긋나는 구석이 있어 WCAG 3 초안에서 새 방식(APCA)이 검토되고 있지만, 아직 표준이 아니므로 이 책은 WCAG 2의 대비비를 기준으로 쓴다.</p>
+  </section>
+
+  <section id="zoom">
+    <h2>확대와 리플로</h2>
+    <p>저시력인 사람은 브라우저 확대(Ctrl 또는 Command와 +)로 페이지 전체를 키운다. 확대하면 CSS 픽셀 하나가 기기 픽셀 여러 개가 되므로, 같은 화면에 들어가는 CSS 폭이 줄어든다(<a href="viewport.html">2장</a>). 폭 1,280px 화면을 200%로 키우면 페이지가 받는 폭은 640px, 400%로 키우면 320px다. 확대는 결국 <b>좁은 화면</b>과 같은 문제다.</p>
+    <ul>
+      <li><b>1.4.4 글자 크기 조정(AA).</b> 보조 기술 없이 글자를 200%까지 키워도 내용이나 기능을 잃지 않아야 한다. 글자가 잘리거나 겹치거나, 높이를 고정한 상자 밖으로 넘쳐 사라지면 실패다.</li>
+      <li><b>1.4.10 리플로(AA).</b> 세로로 읽는 콘텐츠는 폭 320 CSS px(1,280px 화면을 400%로 확대한 것과 같은 폭)에서 가로와 세로 두 방향으로 스크롤하지 않고 읽을 수 있어야 한다. 지도, 표, 도표처럼 2차원 배치가 의미의 일부인 것은 예외다.</li>
+      <li><b>1.4.12 글자 간격(AA).</b> 사용자가 행간을 글자 크기의 1.5배, 문단 간격을 2배, 자간을 0.12배, 낱말 간격을 0.16배로 늘려도 내용이 잘리지 않아야 한다. 높이를 px로 못 박은 상자가 주로 문제를 일으킨다.</li>
+    </ul>
+    <p>아래는 노트북 화면(폭 1,280px)에서 연 책방 E의 옛 사이트(폭 960px 고정 템플릿)와 새 사이트(유동 레이아웃)다. 확대 배율을 올려 본다.</p>
+
+    <div class="sim" id="sim-zoom">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>400%까지 키워 보기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="zm-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>확대 배율 <output id="zm-z-out"></output></span><input type="range" id="zm-z" min="0" max="8" step="1" value="0"></label>
+          <div class="seg" id="zm-lay"><button data-value="fixed" class="on">옛 사이트(960px 고정)</button><button data-value="fluid">새 사이트(유동)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">페이지가 받는 CSS 폭</span><span class="v" id="zm-o-w">—</span></div>
+        <div class="stat"><span class="k">가로 스크롤</span><span class="v" id="zm-o-s">—</span></div>
+        <div class="stat"><span class="k">1.4.10 리플로(400%)</span><span class="v" id="zm-o-sc">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "옛 사이트"를 150%로 키운다. 받는 폭이 853px로 960px보다 좁아져 오른쪽이 잘리고 가로 스크롤 막대가 생긴다. ② 400%까지 올린다. 화면에 페이지 폭의 3분의 1만 보인다. 한 줄을 읽을 때마다 좌우로 밀어야 한다. ③ "새 사이트"로 바꾼다. 같은 배율에서 카드가 세 줄 → 두 줄 → 한 줄로 다시 흐르고, 메뉴는 줄을 바꾼다. 가로 스크롤은 끝까지 생기지 않는다. (가상 화면이다. 실제 브라우저의 확대 단계와 같은 값을 썼고, 새 사이트의 중단점은 이 모형이 고른 960px·560px이다. 화면 높이는 보이는 첫 화면만 그렸다.)</div>
+    </div>
+
+    <p>리플로를 지키는 방법은 <a href="responsive.html">5장</a>의 반응형 레이아웃 그 자체다. 폭을 px로 못 박지 않고, 좁아지면 단을 줄이고, 글자 크기는 <code>rem</code>으로 적어 사용자의 글자 크기 설정을 따른다. 그래서 반응형으로 잘 만든 사이트는 리플로 기준을 거의 저절로 통과한다. 남는 함정은 높이다. 행 높이나 카드 높이를 px로 고정하면 확대나 글자 간격 조정 때 글자가 상자 밖으로 넘친다. 높이는 내용이 정하게 둔다.</p>
+
+    <div class="callout try">
+      <strong>키보드만으로 하루, 400%로 한 페이지</strong>
+      자주 쓰는 사이트 하나를 골라 마우스(또는 트랙패드)를 치워 두고 Tab, Shift + Tab, Enter, Space, 화살표만으로 회원 가입이나 장바구니 담기 같은 일을 끝까지 해 본다. 포커스를 잃은 곳, 갈 수 없었던 곳, 순서가 이상했던 곳을 종이에 적는다. 다음에는 같은 사이트를 브라우저 확대 400%로 열고(노트북이라면 창을 화면 가득 채운 뒤) 가로 스크롤이 생기는 곳, 잘리거나 겹친 글자를 찾는다. 마지막으로 자기가 만든 페이지에 똑같이 해 보고 두 목록을 비교한다. 대개 남의 사이트에서 투덜댔던 것을 자기 페이지에서도 발견한다.
+    </div>
+  </section>
+
+  <section id="check">
+    <h2>점검하는 법</h2>
+    <p>접근성은 마지막에 한 번 "검사"하는 것이 아니라 디자인 단계부터 정하는 것이다. 시안에 제목 단계를 적어 두고, 포커스 상태를 그리고, 사진마다 대체 텍스트를 함께 쓰고, 색을 고를 때 대비를 잰다. 개발자에게 넘길 때 이것들이 빠져 있으면 개발자가 추측으로 채우거나 빼먹는다.</p>
+    <p>만든 뒤의 점검은 세 겹으로 한다.</p>
+    <ol>
+      <li><b>자동 검사.</b> 브라우저 개발자 도구의 Lighthouse, axe 같은 검사기는 대비 부족, alt 속성 누락, 라벨 없는 칸, 언어 미지정처럼 기계가 판정할 수 있는 문제를 빠르게 찾는다. 하지만 대체 텍스트가 <b>알맞은지</b>, 포커스 순서가 <b>말이 되는지</b>, 제목이 <b>내용을 잘 요약하는지</b>는 판정하지 못한다. 자동 검사로 찾을 수 있는 것은 전체 문제의 일부라는 것이 실무자들 사이의 통설이다. 점수가 만점이어도 쓸 수 없는 페이지가 있다.</li>
+      <li><b>사람의 점검.</b> 키보드만으로 핵심 일을 끝까지 해 보기, 화면 낭독기로 제목·링크 목록 듣기, 200%·400% 확대, 흑백으로 보기. 이 장의 시뮬레이터가 각각 하나씩이다.</li>
+      <li><b>사용자에게 묻기.</b> 실제로 보조 기술을 쓰는 사람이 써 보는 것만큼 정확한 점검은 없다. 한 사람이라도 좋다.</li>
+    </ol>
+
+    <div class="callout studio">
+      <strong>"한 줄로 접근성 해결" 도구에 대하여</strong>
+      스크립트 한 줄을 넣으면 접근성을 자동으로 맞춰 준다는 상품을 만날 수 있다. 화면 위에 글자 키우기, 대비 바꾸기 단추를 띄워 주는 것들이다. 이런 도구는 이 장에서 본 근본 문제, 곧 제목 구조가 없는 HTML, 키보드로 갈 수 없는 가짜 버튼, 내용이 없는 대체 텍스트를 고치지 못한다. 대체 텍스트가 무엇이어야 하는지는 그 페이지를 만든 사람만 알기 때문이다. 오히려 보조 기술 사용자가 이미 자기 기기에 맞춰 둔 설정과 부딪치기도 한다. 접근성은 덧붙이는 장치가 아니라 페이지의 재료다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 11장</span></div>
+      <h4>"사이트는 예쁜데, 저한테는 비어 있었어요"</h4>
+      <p>2월 셋째 주, 시험 주소로 새 사이트를 열어 둔 지 일주일이 지났다. 책방 E 주인이 낭독회 단골 손님 한 분의 말을 전했다. 시각장애가 있어 휴대폰의 화면 낭독기로 웹을 쓰는 손님이었다. 낭독회 모임을 직접 신청해 보려다 그만두었다고 했다. 서윤과 지후는 손님에게 양해를 구하고, 토요일 오후 서점 2층에서 손님이 신청하는 과정을 옆에서 들었다.</p>
+      <p>첫 화면에서 손님은 제목으로 건너뛰는 동작부터 했다. 낭독기는 "제목 없음"이라고 답했다. 지후가 시안의 큰 글자를 모두 굵은 <code>div</code>로 짜 두었기 때문이다. 다음 모임 사진은 "img_0231 점 jpg"로, 로고 링크는 파일 이름으로 읽혔다. 신청 폼에 들어가서는 날짜를 고를 수 없었다. 날짜 칩이 <code>div</code>라 낭독기의 이동에도, 키보드에도 걸리지 않았다. 손님이 일부러 연락처를 짧게 넣고 신청하기를 눌러 보았지만, 칸 테두리가 빨갛게 바뀐 것 말고는 아무 소리도 나지 않았다. "사이트는 예쁘다고 들었는데, 저한테는 비어 있었어요."</p>
+      <p>그날 밤 지후는 노트북의 키보드만으로 같은 신청을 해 보았다. 7장에서 정한 버튼 포커스 상태는 있었지만, 칩과 링크에는 누군가 넣은 <code>outline: none</code>이 그대로 남아 있었고, 하단의 "3월 1일 휴무" 안내 띠가 신청하기 버튼을 덮었다. 한도경은 휴대폰 글자를 가장 크게 한 채 노트북 브라우저도 200%로 키워 보더니, 행사 카드의 날짜 줄이 상자 밖으로 잘린다고 사진을 찍어 보냈다. 카드 높이를 px로 고정해 둔 탓이었다.</p>
+      <p>서윤의 선택은 "고치기"가 아니라 "점검표 만들기"였다. 한 번 고치고 끝내면 다음 페이지에서 같은 일이 생긴다. 시안 단계에서 채울 칸과 공개 전에 확인할 칸을 나누어, 이후 모든 페이지가 이 표를 통과하게 했다. 손님은 공개 전 마지막 점검에 한 번 더 와 주기로 했다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>점검 항목</th><th>서윤의 기준</th><th>관련 기준</th></tr></thead>
+          <tbody>
+            <tr><td>제목 구조</td><td>페이지마다 주제를 말하는 <code>h1</code> 하나, 단계 건너뛰지 않기, <code>header</code>·<code>nav</code>·<code>main</code>·<code>footer</code> 랜드마크, 첫 Tab에 "본문 바로가기"</td><td>1.3.1, 2.4.1, 2.4.6</td></tr>
+            <tr><td>대체 텍스트</td><td>정보 사진은 한두 문장으로 "무엇이, 왜", 링크·단추 그림은 목적지·동작, 꾸밈은 <code>alt=""</code>, 포스터 속 날짜·시간은 본문 글자로도</td><td>1.1.1</td></tr>
+            <tr><td>키보드만으로 신청</td><td>모든 조작 요소는 <code>button</code>·<code>a</code>·폼 요소로, 양수 <code>tabindex</code> 금지, 포커스 순서 = 읽는 순서, <code>:focus-visible</code>에 3px 책방 초록(<code>#2f7d5b</code>) 테두리와 2px 띄우기, 고정 띠 높이만큼 <code>scroll-padding</code></td><td>2.1.1, 2.4.3, 2.4.7, 2.4.11</td></tr>
+            <tr><td>폼 오류</td><td>오류는 글자로("오류:"로 시작, 고칠 방법 포함), <code>aria-invalid</code>·<code>aria-describedby</code>로 칸에 연결, 제출 때 첫 오류 칸으로 포커스, 접수 알림은 상태 영역에</td><td>1.4.1, 3.3.1, 4.1.3</td></tr>
+            <tr><td>대비</td><td>글자 4.5:1, 큰 글자·입력 칸 테두리·포커스 표시 3:1 이상. 안내 글자는 회색 <code>#5d6b63</code>(흰 바탕 5.95:1), 입력 칸 테두리는 <code>#567666</code>(5.03:1)</td><td>1.4.3, 1.4.11</td></tr>
+            <tr><td>200% 확대</td><td>카드·버튼 높이를 px로 고정하지 않기, 200%와 320px 폭에서 가로 스크롤 없음</td><td>1.4.4, 1.4.10</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>위 점검표 여섯 줄. 포커스 표시는 <code>outline: 3px solid #2f7d5b; outline-offset: 2px</code>(흰 바탕 4.99:1, 크림 <code>#ffe2d7</code> 바탕 4.07:1). 안내 글자 <code>#5d6b63</code>, 입력 칸 테두리 <code>#567666</code>. 공개 전에는 키보드만으로 신청 한 번, 휴대폰 낭독기로 제목·링크 목록 듣기 한 번, 200% 확대 한 번을 반드시 하고, 자동 검사 점수는 참고로만 본다.</div>
+        <div><b>아직 남은 문제</b>2월 마지막 주, 주인이 출근길 지하철에서 시험 주소를 열었다가 첫 화면이 한참 하얗다고 했다. 사진이 늦게 뜨고, 글자가 다 나온 뒤에 줄이 한 번 밀린다고 했다.</div>
+        <div><b>다음 단계</b><a href="performance.html">12장</a>: 첫 화면의 무게와 늦게 오는 사진·웹폰트를 잰다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>웹 접근성은 보지 않고 듣는 사람, 마우스 없이 쓰는 사람, 크게 키워 보는 사람, 잠시 제약이 생긴 사람 모두가 웹을 쓸 수 있게 하는 것이다. 국제 기준은 WCAG 2.2(2023), 국내 기준은 KWCAG 2.2이며 항목 번호는 서로 다르다.</li>
+      <li>보조 기술은 픽셀이 아니라 접근성 트리(역할·이름·상태)를 읽는다. 그 일을 하는 HTML 요소(<code>button</code>, <code>a</code>, <code>label</code>, 제목, 랜드마크)를 쓰면 트리가 저절로 바르게 선다. ARIA는 HTML로 안 될 때만 보탠다.</li>
+      <li>제목 요소는 크기가 아니라 구조를 적는다. 페이지마다 <code>h1</code> 하나, 단계 건너뛰지 않기. 링크 문구는 그것만 들어도 목적지를 알게 쓴다(2.4.4).</li>
+      <li>키보드로 모든 기능을 쓸 수 있어야 하고(2.1.1), 순서는 읽는 순서를 따르며(2.4.3), 포커스는 보여야 하고(2.4.7), 고정된 띠에 완전히 가려져서는 안 된다(2.4.11). <code>outline: none</code>과 양수 <code>tabindex</code>가 흔한 원인이다.</li>
+      <li>대체 텍스트는 그림이 그 자리에서 하는 일을 쓴다. 꾸밈은 <code>alt=""</code>, 링크 안의 그림은 목적지, 그림 속 글자 정보는 본문 글자로도 둔다(1.1.1).</li>
+      <li>폼 오류는 색이 아니라 글자로, 칸에 연결해 알린다(1.4.1, 3.3.1). 본문 글자 4.5:1, 큰 글자와 UI 요소 3:1 대비(1.4.3, 1.4.11).</li>
+      <li>확대는 좁은 화면과 같다. 200%에서 잃는 것이 없고(1.4.4), 320 CSS px 폭에서 가로 스크롤 없이 읽혀야 한다(1.4.10). 반응형 레이아웃과 높이를 고정하지 않는 습관이 답이다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. WCAG 2.2에서 새로 생긴 2.4.11 가려지지 않는 포커스(최소)가 요구하는 것은?</p>
+        <div class="opts">
+          <button class="opt">포커스 표시의 테두리가 2px 이상이고 바탕과 3:1 이상 대비가 나야 한다.</button>
+          <button class="opt">포커스 순서가 화면에 보이는 읽는 순서와 같아야 한다.</button>
+          <button class="opt" data-correct>키보드 포커스를 받은 요소가 고정 머리글이나 하단 띠 같은 페이지 콘텐츠에 완전히 가려지지 않아야 한다.</button>
+          <button class="opt">마우스로 할 수 있는 모든 기능을 키보드로도 할 수 있어야 한다.</button>
+        </div>
+        <div class="quiz-exp">2.4.11(AA)은 포커스를 받은 요소가 작성자가 만든 콘텐츠에 "완전히" 가려지지 않을 것을 요구한다. 일부도 가려지지 않게 하라는 더 엄격한 판은 2.4.12(AAA)다. 테두리 두께와 대비는 2.4.13 포커스 모양(AAA), 순서는 2.4.3, 키보드로 모든 기능은 2.1.1이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 행사 소개 글 사이에 놓인 꽃잎 모양 구분선 그림의 대체 텍스트로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct><code>alt=""</code>로 비워 화면 낭독기가 건너뛰게 한다.</button>
+          <button class="opt"><code>alt="꽃잎 장식 이미지"</code>로 무엇인지 알려 준다.</button>
+          <button class="opt"><code>alt</code> 속성을 아예 넣지 않는다.</button>
+          <button class="opt"><code>alt="구분선"</code>으로 쓰고 <code>title</code>에 자세한 모양을 적는다.</button>
+        </div>
+        <div class="quiz-exp">정보 없이 꾸밈만 하는 그림은 <code>alt=""</code>로 비워 보조 기술이 무시하게 한다(1.1.1). 이름을 붙이면 듣는 사람에게 쓸모없는 소리가 늘고, <code>alt</code> 속성을 빼면 많은 낭독기가 대신 파일 이름을 읽는다. CSS 배경으로 넣는 것도 방법이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 시안의 큰 제목을 모두 <code>&lt;div class="title"&gt;</code>로 짜고 CSS로 크고 굵게 꾸몄다. 눈으로 보면 문제가 없다. 화면 낭독기 사용자에게 생기는 가장 직접적인 문제는?</p>
+        <div class="opts">
+          <button class="opt">글자 대비가 낮아져 낭독기가 글자를 읽지 못한다.</button>
+          <button class="opt">제목 글자가 낭독기에서 아예 읽히지 않는다.</button>
+          <button class="opt">키보드 포커스가 제목에 멈추지 않아 2.1.1을 어긴다.</button>
+          <button class="opt" data-correct>제목 목록이 비고 제목 단위로 건너뛸 수 없어, 원하는 부분을 찾으려면 처음부터 차례로 들어야 한다.</button>
+        </div>
+        <div class="quiz-exp"><code>div</code> 안의 글자는 그냥 글로 읽히지만, 제목이라는 역할이 접근성 트리에 없다. 그래서 제목 목록에 나오지 않고 "다음 제목" 이동에도 걸리지 않는다(1.3.1). 대비는 화면 낭독기와 상관이 없고, 제목은 원래 키보드 포커스를 받는 요소가 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 1.4.10 리플로 기준을 가장 정확하게 설명한 것은?</p>
+        <div class="opts">
+          <button class="opt">글자만 200%로 키워도 내용이 잘리지 않아야 한다.</button>
+          <button class="opt" data-correct>폭 320 CSS px(1,280px 화면을 400%로 확대한 폭)에서 세로로 읽는 콘텐츠를 가로·세로 두 방향 스크롤 없이 읽을 수 있어야 한다.</button>
+          <button class="opt">모든 화면 폭에서 레이아웃이 한 단으로 바뀌어야 한다.</button>
+          <button class="opt">페이지를 확대하면 가로 스크롤 막대가 반드시 보여야 한다.</button>
+        </div>
+        <div class="quiz-exp">리플로(AA)는 좁은 폭(320 CSS px)에서 콘텐츠가 다시 흘러 한 방향 스크롤만으로 읽히기를 요구한다. 지도나 큰 표처럼 2차원 배치가 필요한 콘텐츠는 예외다. 글자 200%는 1.4.4 글자 크기 조정이고, 넓은 화면에서까지 한 단일 필요는 없다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(fn) { try { fn(); } catch (e) { if (window.console) console.warn("sim:", e); } }
+  var C = { paper: "#fbfaf7", white: "#ffffff", green: "#2f7d5b", dark: "#22342a", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", errRed: "#b4402c", gray: "#5d6b63", line: "#d9ded9", card: "#f6f3ec", cardLine: "#e3ded3" };
+  function F(px, w) { return AB.font(px, false, w || 400); }
+  function rr(ctx, x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath();
+  }
+  function wrap(ctx, text, maxW) {
+    var words = String(text).split(" "), lines = [], cur = "";
+    words.forEach(function (w) {
+      var t = cur ? cur + " " + w : w;
+      if (ctx.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t;
+    });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function H(id, ratio, cap) { return { get height() { var el = document.getElementById(id); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(cap || 9999, w * ratio)); } }; }
+
+  /* ---------------- 그림 2: 대체 텍스트 결정 나무 ---------------- */
+  safe(function () {
+    var g = document.getElementById("wac-tree"); if (!g) return;
+    var Q = [["꾸밈뿐이고 정보가 없나?", 'alt="" (읽지 않게)'], ["링크·단추 안의 그림인가?", "목적지나 동작"], ["글자가 든 그림인가?", "그 글자(+ 본문에도)"], ["정보를 담은 사진·그림인가?", "한두 문장의 짧은 설명"], ["차트·지도처럼 복잡한가?", "짧은 이름 + 본문에 자세히"]];
+    var s = "";
+    Q.forEach(function (q, i) {
+      var y = 14 + i * 62;
+      s += '<rect x="10" y="' + y + '" width="210" height="40" rx="8" class="f-surface"/><rect x="10" y="' + y + '" width="210" height="40" rx="8" fill="none" class="s-line"/>';
+      s += '<text x="115" y="' + (y + 25) + '" text-anchor="middle" class="lbl" style="font-size:12.5px">' + q[0] + "</text>";
+      s += '<path d="M222 ' + (y + 20) + ' L262 ' + (y + 20) + '" class="s-acc" marker-end="url(#wac-ar2)"/>';
+      s += '<text x="242" y="' + (y + 14) + '" text-anchor="middle" class="lbl-acc" style="font-size:10.5px">예</text>';
+      s += '<rect x="266" y="' + y + '" width="186" height="40" rx="8" class="f-acc-soft"/>';
+      s += '<text x="359" y="' + (y + 25) + '" text-anchor="middle" class="lbl-b" style="font-size:12px">' + q[1].replace(/"/g, "&quot;") + "</text>";
+      if (i < Q.length - 1) {
+        s += '<path d="M115 ' + (y + 42) + ' L115 ' + (y + 60) + '" class="s-line" marker-end="url(#wac-ar2)"/>';
+        s += '<text x="124" y="' + (y + 55) + '" class="lbl-dim" style="font-size:10.5px">아니요</text>';
+      }
+    });
+    g.innerHTML = s;
+  });
+
+  /* ---------------- 시뮬레이터 1: 화면 낭독기가 뽑아 보는 목록 ---------------- */
+  safe(function () {
+    var W = 400, HH = 512;
+    var R = {
+      header: [0, 0, 400, 84], skip: [8, 4, 118, 22], logo: [14, 12, 92, 28], nav: [6, 46, 388, 32],
+      nav0: [14, 50, 36, 24], nav1: [58, 50, 40, 24], nav2: [106, 50, 70, 24], nav3: [184, 50, 40, 24], nav4: [232, 50, 40, 24],
+      main: [0, 86, 400, 378], h1: [14, 96, 150, 34], intro: [14, 134, 372, 20], h2a: [14, 166, 160, 26],
+      card0: [14, 198, 372, 64], card1: [14, 270, 372, 64], card2: [14, 342, 372, 64],
+      more0: [262, 234, 118, 22], more1: [262, 306, 118, 22], more2: [262, 378, 118, 22],
+      h2b: [14, 416, 120, 22], past: [14, 440, 372, 18], footer: [0, 466, 400, 46], map: [300, 480, 86, 22]
+    };
+    var CARDS = [["겨울 낭독회", "2월 26일(토) 저녁 7시 · 2층", "겨울 낭독회"], ["수채 드로잉 모임", "3월 4일(토) 오후 2시 · 1층 작업대", "수채 드로잉 모임"], ["그림책 북토크", "3월 11일(토) 오후 4시 · 2층", "그림책 북토크"]];
+    var NAV = ["홈", "행사", "모임 신청", "신간", "소개"];
+    var LISTS = {
+      before: {
+        h: [], lm: [],
+        ln: [["logo", "logo_final.png"], ["nav0", "홈"], ["nav1", "행사"], ["nav2", "모임 신청"], ["nav3", "신간"], ["nav4", "소개"], ["more0", "자세히 보기"], ["more1", "자세히 보기"], ["more2", "자세히 보기"], ["map", "여기"]]
+      },
+      after: {
+        h: [["h1", "제목 1 · 행사 일정"], ["h2a", "제목 2 · 다가오는 모임"], ["card0", "제목 3 · 겨울 낭독회"], ["card1", "제목 3 · 수채 드로잉 모임"], ["card2", "제목 3 · 그림책 북토크"], ["h2b", "제목 2 · 지난 모임"], ["footer", "제목 2 · 오시는 길"]],
+        lm: [["header", "배너"], ["nav", "내비게이션 · 주 메뉴"], ["main", "본문"], ["footer", "콘텐츠 정보"]],
+        ln: [["skip", "본문 바로가기"], ["logo", "책방 E 첫 화면"], ["nav0", "홈"], ["nav1", "행사 · 현재 페이지"], ["nav2", "모임 신청"], ["nav3", "신간"], ["nav4", "소개"], ["more0", "겨울 낭독회 자세히 보기"], ["more1", "수채 드로잉 모임 자세히 보기"], ["more2", "그림책 북토크 자세히 보기"], ["map", "오시는 길 지도 보기"]]
+      }
+    };
+    var TAGS = {
+      before: { header: "div", nav: "div", h1: "div.big", intro: "div", h2a: "div.mid", card0: "div", card1: "div", card2: "div", h2b: "div.mid", footer: "div" },
+      after: { header: "header", nav: "nav", h1: "h1", intro: "p", h2a: "h2", card0: "article > h3", card1: "article > h3", card2: "article > h3", h2b: "h2", footer: "footer > h2" }
+    };
+    var NAMES = { h: "제목", lm: "랜드마크", ln: "링크" };
+    var sel = null;
+    var ver = AB.seg("ro-ver", function () { sel = null; update(); });
+    var kind = AB.seg("ro-kind", function () { sel = null; update(); });
+    var tags = AB.check("ro-tags", function () { cv.redraw(); });
+    var panel = document.getElementById("ro-list");
+
+    function draw(ctx, w, h) {
+      var s = w / W; ctx.save(); ctx.scale(s, s);
+      var v = ver();
+      ctx.fillStyle = C.white; ctx.fillRect(0, 0, W, HH);
+      // 머리글
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, 84.5); ctx.lineTo(W, 84.5); ctx.stroke();
+      rr(ctx, R.logo[0], R.logo[1], R.logo[2], R.logo[3], 6); ctx.fillStyle = C.green; ctx.fill();
+      ctx.fillStyle = C.white; ctx.font = F(15, 800); ctx.textBaseline = "middle"; ctx.textAlign = "center"; ctx.fillText("책방 E", R.logo[0] + R.logo[2] / 2, R.logo[1] + R.logo[3] / 2 + 1);
+      ctx.textAlign = "left";
+      NAV.forEach(function (n, i) {
+        var r = R["nav" + i]; ctx.fillStyle = C.dark; ctx.font = F(13.5, i === 1 ? 700 : 500); ctx.fillText(n, r[0], r[1] + 12);
+        if (i === 1) { ctx.fillStyle = C.green; ctx.fillRect(r[0], r[1] + 21, ctx.measureText(n).width, 2.5); }
+      });
+      if (v === "after" && sel === "skip") { rr(ctx, R.skip[0], R.skip[1], R.skip[2], R.skip[3], 4); ctx.fillStyle = C.dark; ctx.fill(); ctx.fillStyle = C.white; ctx.font = F(12, 700); ctx.fillText("본문 바로가기", R.skip[0] + 10, R.skip[1] + 12); }
+      // 본문
+      ctx.fillStyle = C.dark; ctx.font = F(25, 800); ctx.fillText("행사 일정", 14, 113);
+      ctx.fillStyle = C.gray; ctx.font = F(13); ctx.fillText("책방 E에서 열리는 모임과 행사를 알려 드립니다.", 14, 145);
+      ctx.fillStyle = C.dark; ctx.font = F(17, 800); ctx.fillText("다가오는 모임", 14, 180);
+      CARDS.forEach(function (c, i) {
+        var r = R["card" + i]; rr(ctx, r[0], r[1], r[2], r[3], 8); ctx.fillStyle = C.card; ctx.fill(); ctx.strokeStyle = C.cardLine; ctx.stroke();
+        ctx.fillStyle = C.dark; ctx.font = F(15.5, 700); ctx.fillText(c[0], r[0] + 12, r[1] + 18);
+        ctx.fillStyle = C.gray; ctx.font = F(12.5); ctx.fillText(c[1], r[0] + 12, r[1] + 40);
+        var m = R["more" + i]; ctx.fillStyle = C.green; ctx.font = F(12.5, 700); ctx.textAlign = "right"; ctx.fillText("자세히 보기 →", m[0] + m[2] - 4, m[1] + 12); ctx.textAlign = "left";
+      });
+      ctx.fillStyle = C.dark; ctx.font = F(14.5, 800); ctx.fillText("지난 모임", 14, 428);
+      ctx.fillStyle = C.gray; ctx.font = F(12.5); ctx.fillText("1월 그림책 읽기 · 12월 연말 낭독회", 14, 450);
+      // 바닥글
+      ctx.fillStyle = C.dark; ctx.fillRect(R.footer[0], R.footer[1], R.footer[2], R.footer[3]);
+      ctx.fillStyle = C.cream; ctx.font = F(13, 700); ctx.fillText("오시는 길", 14, 482);
+      ctx.font = F(12); ctx.fillText("버스 정류장에서 걸어서 3분", 14, 499);
+      ctx.font = F(12.5, 700); ctx.textAlign = "right";
+      var mapTxt = v === "after" ? "지도 보기 →" : "지도는 여기";
+      ctx.fillText(mapTxt, R.map[0] + R.map[2] - 2, R.map[1] + 11);
+      if (v !== "after") { var mw = ctx.measureText("여기").width; ctx.fillRect(R.map[0] + R.map[2] - 2 - mw, R.map[1] + 19, mw, 1.5); }
+      ctx.textAlign = "left";
+      // 태그 이름
+      if (tags()) {
+        var T = TAGS[v];
+        Object.keys(T).forEach(function (k) {
+          var r = R[k], t = T[k]; ctx.font = AB.font(10, true, 700);
+          var tw = ctx.measureText(t).width + 8, x = k === "footer" ? r[0] + r[2] - tw - 4 : (k === "header" || k === "nav") ? r[0] + r[2] - tw - 4 : r[0] + r[2] - tw - 2, y = k === "header" ? r[1] + 4 : r[1] + 2;
+          if (k === "intro") y = r[1] + 3;
+          ctx.fillStyle = v === "after" ? "rgba(47,125,91,.92)" : "rgba(34,52,42,.78)"; rr(ctx, x, y, tw, 15, 3); ctx.fill();
+          ctx.fillStyle = "#ffffff"; ctx.textBaseline = "middle"; ctx.fillText(t, x + 4, y + 8);
+        });
+      }
+      // 선택한 항목
+      if (sel && R[sel]) {
+        var q = R[sel]; ctx.strokeStyle = C.red; ctx.lineWidth = 3; rr(ctx, q[0] + 1.5, q[1] + 1.5, q[2] - 3, q[3] - 3, 5); ctx.stroke();
+        ctx.fillStyle = "rgba(210,79,57,0.10)"; ctx.fill();
+      }
+      ctx.restore();
+    }
+    var cv = AB.canvas("#ro-cv", draw, { get height() { var el = document.getElementById("ro-cv"); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(w * HH / W); }, bg: C.white });
+
+    function update() {
+      var v = ver(), k = kind(), L = LISTS[v][k];
+      var html = "<h4>" + NAMES[k] + " 목록" + (L.length ? " (" + L.length + ")" : "") + "</h4>";
+      if (!L.length) html += '<p class="ac-empty">목록이 비어 있다. 낭독기는 "' + NAMES[k] + ' 없음"이라고 알린다.</p>';
+      else {
+        html += "<ol>";
+        L.forEach(function (it) { html += '<li><button type="button" class="ac-item' + (sel === it[0] ? " on" : "") + '" data-k="' + it[0] + '">' + esc(it[1]) + "</button></li>"; });
+        html += "</ol>";
+      }
+      panel.innerHTML = html;
+      [].forEach.call(panel.querySelectorAll(".ac-item"), function (b) {
+        b.addEventListener("click", function () { sel = b.getAttribute("data-k"); update(); });
+      });
+      AB.stat("ro-o-n", L.length ? L.length + "개" : "0개 <small>없음</small>");
+      var p;
+      if (v === "before") p = k === "h" ? "제목이 하나도 없다" : k === "lm" ? "영역 구분이 없다" : "같은 문구 3개, 파일 이름, “여기”";
+      else p = k === "h" ? "1 → 2 → 3, 건너뛰지 않음" : k === "lm" ? "4개 영역으로 이동" : "문구만으로 목적지를 안다";
+      AB.stat("ro-o-p", '<span style="font-size:14px">' + p + "</span>");
+      AB.stat("ro-o-j", v === "before" ? "16번 <small>한 줄씩</small>" : "5번 <small>제목 단위</small>");
+      cv.redraw();
+    }
+    update();
+  });
+
+  /* ---------------- 시뮬레이터 2: 키보드만으로 모임 신청하기 ---------------- */
+  safe(function () {
+    var W = 360, VH = 440, PH = 820, BAR = 64;
+    var E = {
+      skip: { r: [12, 8, 128, 28], n: "본문 바로가기", role: "링크" },
+      logo: { r: [16, 12, 84, 28], n: "책방 E 첫 화면", role: "링크" },
+      nav0: { r: [16, 52, 40, 24], n: "행사", role: "링크" }, nav1: { r: [64, 52, 72, 24], n: "모임 신청", role: "링크, 현재 페이지" },
+      nav2: { r: [144, 52, 40, 24], n: "신간", role: "링크" }, nav3: { r: [192, 52, 40, 24], n: "소개", role: "링크" },
+      name: { r: [16, 166, 328, 40], n: "이름", role: "편집 텍스트", input: true, val: "윤서윤" },
+      phone: { r: [16, 240, 328, 40], n: "연락처", role: "편집 텍스트", input: true, val: "010-" },
+      chip0: { r: [16, 314, 100, 40], n: "2월 26일 낭독회", role: "토글 버튼" }, chip1: { r: [124, 314, 100, 40], n: "3월 4일 드로잉", role: "토글 버튼" }, chip2: { r: [232, 314, 100, 40], n: "3월 11일 북토크", role: "토글 버튼" },
+      memo: { r: [16, 390, 328, 72], n: "남길 말", role: "편집 텍스트, 여러 줄", input: true, val: "" },
+      submit: { r: [16, 482, 328, 48], n: "신청하기", role: "버튼" },
+      foot: { r: [16, 652, 150, 22], n: "개인정보 처리 방침", role: "링크" }
+    };
+    var ORD = {
+      before: ["submit", "logo", "nav0", "nav1", "nav2", "nav3", "name", "phone", "memo", "foot"],
+      after: ["skip", "logo", "nav0", "nav1", "nav2", "nav3", "name", "phone", "chip0", "chip1", "chip2", "memo", "submit", "foot"]
+    };
+    var st = { cur: -1, out: false, visited: [], presses: 0, scroll: 0 };
+    var ver = AB.seg("kb-ver", function () { reset(); });
+    var bar = AB.check("kb-bar", function () { if (st.cur >= 0 && !st.out) ensure(ORD[ver()][st.cur]); cv.redraw(); report(); });
+    function reset() { st.cur = -1; st.out = false; st.visited = []; st.presses = 0; st.scroll = 0; cv.redraw(); report(); }
+    function ensure(k) {
+      var r = E[k].r, pad = (ver() === "after" && bar()) ? BAR : 0, top = r[1] - 10, bot = r[1] + r[3] + 10;
+      if (top < st.scroll) st.scroll = Math.max(0, top);
+      else if (bot > st.scroll + VH - pad) st.scroll = Math.min(PH - VH, bot - (VH - pad));
+    }
+    function move(d) {
+      var o = ORD[ver()], n = o.length;
+      st.presses++;
+      if (st.out) { st.out = false; st.visited = []; st.cur = d > 0 ? 0 : n - 1; }
+      else {
+        var c = st.cur + d;
+        if (st.cur === -1 && d < 0) c = n - 1;
+        if (c >= n || c < 0) { st.out = true; st.cur = -1; cv.redraw(); report(); return; }
+        st.cur = c;
+      }
+      var k = o[st.cur];
+      if (st.visited.indexOf(k) < 0) st.visited.push(k);
+      ensure(k); cv.redraw(); report();
+    }
+    document.getElementById("kb-tab").addEventListener("click", function () { move(1); });
+    document.getElementById("kb-stab").addEventListener("click", function () { move(-1); });
+    document.getElementById("kb-reset").addEventListener("click", reset);
+    function curKey() { return (st.cur >= 0 && !st.out) ? ORD[ver()][st.cur] : null; }
+    function obscured(k) {
+      if (!bar() || !k) return 0;
+      var r = E[k].r, y0 = r[1] - st.scroll, y1 = y0 + r[3], b0 = VH - BAR;
+      if (y0 >= b0) return 2; if (y1 > b0) return 1; return 0;
+    }
+    function draw(ctx, w, h) {
+      var s = Math.min(w / (W + 24), 1.2), ox = (w - W * s) / 2, oy = 10;
+      ctx.save(); ctx.translate(ox, oy); ctx.scale(s, s);
+      // 휴대폰 틀
+      rr(ctx, -8, -6, W + 16, VH + 12, 16); ctx.fillStyle = "#2b2f2d"; ctx.fill();
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, VH); ctx.clip();
+      ctx.fillStyle = C.white; ctx.fillRect(0, 0, W, VH);
+      ctx.translate(0, -st.scroll);
+      var v = ver(), k = curKey();
+      ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      // 머리글
+      rr(ctx, E.logo.r[0], E.logo.r[1], E.logo.r[2], E.logo.r[3], 6); ctx.fillStyle = C.green; ctx.fill();
+      ctx.fillStyle = C.white; ctx.font = F(14, 800); ctx.textAlign = "center"; ctx.fillText("책방 E", E.logo.r[0] + E.logo.r[2] / 2, E.logo.r[1] + 15); ctx.textAlign = "left";
+      ["nav0", "nav1", "nav2", "nav3"].forEach(function (q) { var r = E[q].r; ctx.fillStyle = C.dark; ctx.font = F(13, q === "nav1" ? 700 : 500); ctx.fillText(E[q].n, r[0] + 2, r[1] + 12); if (q === "nav1") { ctx.fillStyle = C.green; ctx.fillRect(r[0] + 2, r[1] + 21, ctx.measureText(E[q].n).width, 2.5); } });
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, 86.5); ctx.lineTo(W, 86.5); ctx.stroke();
+      if (v === "after" && k === "skip") { rr(ctx, E.skip.r[0], E.skip.r[1], E.skip.r[2], E.skip.r[3], 5); ctx.fillStyle = C.dark; ctx.fill(); ctx.fillStyle = C.white; ctx.font = F(13, 700); ctx.fillText("본문 바로가기", E.skip.r[0] + 12, E.skip.r[1] + 14); }
+      ctx.fillStyle = C.dark; ctx.font = F(24, 800); ctx.fillText("모임 신청", 16, 118);
+      var lab = [["이름", 148], ["연락처", 222], ["참가할 날짜", 296], ["남길 말(선택)", 372]];
+      lab.forEach(function (l) { ctx.fillStyle = C.dark; ctx.font = F(13.5, 700); ctx.fillText(l[0], 16, l[1]); });
+      ["name", "phone", "memo"].forEach(function (q) {
+        var r = E[q].r; rr(ctx, r[0], r[1], r[2], r[3], 6); ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.calm; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.fillStyle = C.dark; ctx.font = F(14.5); if (E[q].val) ctx.fillText(E[q].val, r[0] + 12, r[1] + 20);
+        if (k === q) { var tx = r[0] + 12 + (E[q].val ? ctx.measureText(E[q].val).width + 2 : 0); ctx.fillStyle = C.dark; ctx.fillRect(tx, r[1] + 11, 1.5, 18); }
+      });
+      ["chip0", "chip1", "chip2"].forEach(function (q, i) {
+        var r = E[q].r, on = i === 0; rr(ctx, r[0], r[1], r[2], r[3], 20); ctx.fillStyle = on ? C.green : C.white; ctx.fill(); ctx.strokeStyle = on ? C.green : C.calm; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.fillStyle = on ? C.white : C.dark; ctx.font = F(12.5, 700); ctx.textAlign = "center"; ctx.fillText(["2/26 낭독회", "3/4 드로잉", "3/11 북토크"][i], r[0] + r[2] / 2, r[1] + 21); ctx.textAlign = "left";
+      });
+      var sb = E.submit.r; rr(ctx, sb[0], sb[1], sb[2], sb[3], 8); ctx.fillStyle = C.green; ctx.fill(); ctx.fillStyle = C.white; ctx.font = F(16, 800); ctx.textAlign = "center"; ctx.fillText("신청하기", sb[0] + sb[2] / 2, sb[1] + 25); ctx.textAlign = "left";
+      // 바닥글
+      ctx.fillStyle = C.dark; ctx.fillRect(0, 568, W, PH - 568);
+      ctx.fillStyle = C.cream; ctx.font = F(14, 700); ctx.fillText("책방 E", 16, 600);
+      ctx.font = F(12.5); ctx.fillText("화–일 오전 11시 – 오후 8시 · 월요일 쉼", 16, 624);
+      ctx.font = F(12.5, 700); ctx.fillText(E.foot.n, E.foot.r[0] + 2, E.foot.r[1] + 11); ctx.fillRect(E.foot.r[0] + 2, E.foot.r[1] + 19, ctx.measureText(E.foot.n).width, 1.2);
+      ctx.font = F(12); ctx.fillStyle = "#b9c7bf"; ctx.fillText("© 책방 E (가상의 서점)", 16, 700);
+      // 포커스 표시(고친 뒤만)
+      if (k && v === "after") {
+        var r = E[k].r, rad = k.indexOf("chip") === 0 ? 22 : 8; ctx.strokeStyle = C.green; ctx.lineWidth = 3; rr(ctx, r[0] - 4.5, r[1] - 4.5, r[2] + 9, r[3] + 9, rad); ctx.stroke();
+      }
+      // 지나온 순서
+      st.visited.forEach(function (q, i) {
+        var r = E[q].r, x = Math.min(W - 12, r[0] + r[2] - 2), y = r[1] + 2;
+        ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.fillStyle = q === k ? C.red : "rgba(210,79,57,.7)"; ctx.fill();
+        ctx.fillStyle = "#ffffff"; ctx.font = AB.font(10, true, 700); ctx.textAlign = "center"; ctx.fillText(String(i + 1), x, y + 0.5); ctx.textAlign = "left";
+      });
+      ctx.restore();
+      // 고정 띠
+      if (bar()) {
+        ctx.fillStyle = "#22342a"; ctx.fillRect(0, VH - BAR, W, BAR);
+        ctx.fillStyle = C.cream; ctx.font = F(13.5, 700); ctx.textBaseline = "middle"; ctx.fillText("알림 · 3월 1일(수)은 쉽니다", 16, VH - BAR / 2);
+        ctx.font = F(12, 700); ctx.textAlign = "right"; ctx.fillText("닫기 ✕", W - 14, VH - BAR / 2); ctx.textAlign = "left";
+      }
+      // 스크롤 위치
+      ctx.fillStyle = "rgba(0,0,0,.25)"; ctx.fillRect(W - 4, (st.scroll / PH) * VH, 3, (VH / PH) * VH);
+      if (st.out) { ctx.fillStyle = "rgba(34,52,42,.86)"; rr(ctx, 40, 12, W - 80, 34, 8); ctx.fill(); ctx.fillStyle = "#ffffff"; ctx.font = F(13, 700); ctx.textAlign = "center"; ctx.fillText("포커스가 페이지 밖(주소창)으로 나갔다", W / 2, 29); ctx.textAlign = "left"; }
+      ctx.restore();
+    }
+    var cv = AB.canvas("#kb-cv", draw, { get height() { var el = document.getElementById("kb-cv"); var w = Math.max(200, el.parentElement.clientWidth || 600); var s = Math.min(w / (W + 24), 1.2); return Math.round((VH + 20) * s + 10); }, bg: "#e9e6df" });
+    function report() {
+      var k = curKey(), v = ver();
+      AB.stat("kb-o-at", st.out ? "페이지 밖" : k ? esc(E[k].n) + " <small>" + E[k].role + "</small>" : "— <small>아직 없음</small>");
+      AB.stat("kb-o-n", String(st.presses));
+      var iss = [];
+      var ob = obscured(k);
+      if (k && ob === 2) iss.push("띠에 완전히 가려짐 <small>2.4.11</small>");
+      else if (k && ob === 1) iss.push("일부 가려짐 <small>2.4.12(AAA)</small>");
+      if (v === "before") {
+        if (k === "submit" && st.cur === 0) iss.push("첫 Tab이 맨 아래로 <small>2.4.3</small>");
+        if (k && !E[k].input) iss.push("포커스 표시 없음 <small>2.4.7</small>");
+        if (k && E[k].input) iss.push("커서만 깜박 <small>2.4.7</small>");
+        if (st.out || st.visited.length > 8) iss.push("날짜 칩에 못 감 <small>2.1.1</small>");
+      }
+      AB.stat("kb-o-issue", iss.length ? '<span style="font-size:14px">' + iss.slice(0, 2).join("<br>") + "</span>" : '<span style="font-size:14px">없음</span>');
+    }
+    report();
+  });
+
+  /* ---------------- 시뮬레이터 3: 대체 텍스트를 귀로 듣기 ---------------- */
+  safe(function () {
+    var W = 400, HH = 556;
+    var IMG = { logo: [16, 10, 84, 30], hero: [16, 104, 368, 176], leaf: [170, 344, 60, 20], poster: [16, 376, 176, 168] };
+    var ALT = {
+      none: { logo: null, hero: null, leaf: null, poster: null },
+      empty: { logo: "", hero: "", leaf: "", poster: "" },
+      generic: { logo: "사진", hero: "사진", leaf: "사진", poster: "사진" },
+      good: { logo: "책방 E 첫 화면", hero: "서가 앞에 둥글게 앉은 손님들이 한 사람의 낭독을 듣고 있다", leaf: "", poster: "겨울 낭독회 포스터" }
+    };
+    var FILE = { logo: "logo_final.png", hero: "img_0231.jpg", leaf: "deco_leaf.png", poster: "poster_feb_v3.jpg" };
+    var INFO = { logo: true, hero: true, leaf: false, poster: true };
+    var ver = AB.seg("al-ver", function () { update(); });
+    var off = AB.check("al-off", function () { cv.redraw(); });
+    var panel = document.getElementById("al-list");
+    function bodyLines(v) { return v === "good" ? ["일시: 2월 26일(토) 저녁 7시", "장소: 책방 E 2층 · 참가비 없음"] : ["자세한 시간과 장소는", "포스터를 보세요."]; }
+    function drawHero(ctx, r) {
+      var x = r[0], y = r[1], w = r[2], h = r[3];
+      ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+      ctx.fillStyle = "#5a3f2a"; ctx.fillRect(x, y, w, h);
+      var pal = ["#8c2f2a", "#2f4f6f", "#c9a24a", "#3f6b4a", "#e0d6c2", "#6b3f5a", "#d87a3a", "#a8b8c4"], R = AB.rng(11);
+      for (var row = 0; row < 3; row++) { var yy = y + 8 + row * 34, xx = x + 6; while (xx < x + w - 10) { var bw = 6 + R() * 9; ctx.fillStyle = pal[Math.floor(R() * pal.length)]; ctx.fillRect(xx, yy + 4 + R() * 6, bw - 1, 24); xx += bw; } ctx.fillStyle = "#3b2a1c"; ctx.fillRect(x, yy + 30, w, 4); }
+      ctx.fillStyle = "#b08a62"; ctx.fillRect(x, y + h * 0.62, w, h * 0.38);
+      var people = [[0.2, "#2f4f6f"], [0.32, "#8c2f2a"], [0.44, "#3f6b4a"], [0.56, "#c9a24a"], [0.68, "#6b3f5a"], [0.8, "#2f7d5b"]];
+      people.forEach(function (p, i) { var px = x + w * p[0], py = y + h * (0.74 + (i % 2) * 0.06); ctx.fillStyle = p[1]; rr(ctx, px - 13, py - 6, 26, 34, 10); ctx.fill(); ctx.fillStyle = "#e9c9a8"; ctx.beginPath(); ctx.arc(px, py - 14, 8, 0, 7); ctx.fill(); ctx.fillStyle = "#2b2420"; ctx.beginPath(); ctx.arc(px, py - 17, 8, Math.PI, 2 * Math.PI); ctx.fill(); });
+      ctx.fillStyle = "#d24f39"; rr(ctx, x + w * 0.5 - 12, y + h * 0.44, 24, 46, 10); ctx.fill(); ctx.fillStyle = "#e9c9a8"; ctx.beginPath(); ctx.arc(x + w * 0.5, y + h * 0.4, 9, 0, 7); ctx.fill();
+      ctx.fillStyle = "#ffe2d7"; ctx.fillRect(x + w * 0.5 + 6, y + h * 0.5, 14, 10);
+      ctx.restore();
+    }
+    function drawPoster(ctx, r) {
+      var x = r[0], y = r[1], w = r[2], h = r[3];
+      ctx.fillStyle = C.cream; ctx.fillRect(x, y, w, h);
+      ctx.strokeStyle = "#f0c3b2"; ctx.lineWidth = 1.2; for (var i = 0; i < 6; i++) { var cx = x + 20 + i * 28, cy = y + 16 + (i % 2) * 8; ctx.beginPath(); for (var k = 0; k < 3; k++) { var a = k * Math.PI / 3; ctx.moveTo(cx - 5 * Math.cos(a), cy - 5 * Math.sin(a)); ctx.lineTo(cx + 5 * Math.cos(a), cy + 5 * Math.sin(a)); } ctx.stroke(); }
+      ctx.fillStyle = C.green; ctx.font = F(21, 900); ctx.textBaseline = "middle"; ctx.fillText("겨울 낭독회", x + 14, y + 52);
+      ctx.fillStyle = C.red; ctx.font = F(17, 800); ctx.fillText("2.26 토 저녁 7시", x + 14, y + 88);
+      ctx.fillStyle = C.dark; ctx.font = F(13, 600); ctx.fillText("책방 E 2층 · 참가비 없음", x + 14, y + 118);
+      ctx.fillStyle = C.calm; ctx.font = F(11); ctx.fillText("짧은 겨울 글을 함께 읽어요", x + 14, y + 146);
+    }
+    function drawLeaf(ctx, r) {
+      ctx.fillStyle = C.calm; for (var i = 0; i < 3; i++) { ctx.beginPath(); ctx.ellipse(r[0] + 12 + i * 18, r[1] + 10, 7, 3.5, i % 2 ? 0.6 : -0.6, 0, 7); ctx.fill(); }
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(40, r[1] + 10); ctx.lineTo(r[0] - 6, r[1] + 10); ctx.moveTo(r[0] + r[2] + 6, r[1] + 10); ctx.lineTo(360, r[1] + 10); ctx.stroke();
+    }
+    function drawAltBox(ctx, key, r, alt) {
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(r[0], r[1], r[2], r[3]);
+      if (alt === "") return;
+      ctx.strokeStyle = "#b9c2bd"; ctx.lineWidth = 1; ctx.strokeRect(r[0] + 0.5, r[1] + 0.5, r[2] - 1, r[3] - 1);
+      // 깨진 그림 표시
+      ctx.strokeStyle = "#8a948e"; ctx.lineWidth = 1.2; ctx.strokeRect(r[0] + 5, r[1] + 5, 12, 10); ctx.beginPath(); ctx.moveTo(r[0] + 6, r[1] + 14); ctx.lineTo(r[0] + 10, r[1] + 9); ctx.lineTo(r[0] + 16, r[1] + 14); ctx.stroke();
+      if (alt == null) return;
+      ctx.fillStyle = "#3d4741"; ctx.font = F(key === "leaf" ? 9 : 12.5); ctx.textBaseline = "top";
+      var lines = wrap(ctx, alt, r[2] - 28); lines.slice(0, 4).forEach(function (l, i) { ctx.fillText(l, r[0] + 22, r[1] + 5 + i * 17); }); ctx.textBaseline = "middle";
+    }
+    function draw(ctx, w, h) {
+      var s = w / W; ctx.save(); ctx.scale(s, s);
+      var v = ver(), A = ALT[v], o = off();
+      ctx.fillStyle = C.white; ctx.fillRect(0, 0, W, HH);
+      ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(0, 50.5); ctx.lineTo(W, 50.5); ctx.stroke();
+      if (o) drawAltBox(ctx, "logo", IMG.logo, A.logo); else { rr(ctx, IMG.logo[0], IMG.logo[1], IMG.logo[2], IMG.logo[3], 6); ctx.fillStyle = C.green; ctx.fill(); ctx.fillStyle = C.white; ctx.font = F(14, 800); ctx.textAlign = "center"; ctx.fillText("책방 E", IMG.logo[0] + IMG.logo[2] / 2, IMG.logo[1] + 16); ctx.textAlign = "left"; }
+      ctx.fillStyle = C.dark; ctx.font = F(13, 500); ctx.textAlign = "right"; ctx.fillText("행사   모임 신청   신간   소개", 384, 26); ctx.textAlign = "left";
+      ctx.fillStyle = C.dark; ctx.font = F(25, 800); ctx.fillText("겨울 낭독회", 16, 80);
+      if (o) drawAltBox(ctx, "hero", IMG.hero, A.hero); else drawHero(ctx, IMG.hero);
+      ctx.fillStyle = C.dark; ctx.font = F(14); ctx.fillText("2월 마지막 토요일, 겨울을 주제로 한 짧은 글들을", 16, 300); ctx.fillText("함께 읽습니다. 읽을 글은 서점이 준비합니다.", 16, 322);
+      if (o) drawAltBox(ctx, "leaf", IMG.leaf, A.leaf); else drawLeaf(ctx, IMG.leaf);
+      if (o) drawAltBox(ctx, "poster", IMG.poster, A.poster); else drawPoster(ctx, IMG.poster);
+      var bl = bodyLines(v); ctx.fillStyle = C.dark; ctx.font = F(13.5, v === "good" ? 600 : 400); bl.forEach(function (l, i) { ctx.fillText(l, 206, 400 + i * 22); });
+      ctx.restore();
+    }
+    var cv = AB.canvas("#al-cv", draw, { get height() { var el = document.getElementById("al-cv"); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(w * HH / W); }, bg: C.white });
+    function lines(v) {
+      var A = ALT[v], out = [];
+      function img(k, link) {
+        var a = A[k];
+        if (a === null) out.push([link ? "링크, " + FILE[k] : FILE[k] + ", 이미지", INFO[k] ? "lost" : "noise", INFO[k] ? "정보 잃음" : "소음"]);
+        else if (a === "") { if (link) out.push(["링크", "lost", "이름 없음"]); else out.push(["(건너뜀)", INFO[k] ? "lost" : "skip", INFO[k] ? "정보 잃음" : "알맞음"]); }
+        else if (a === "사진") out.push([link ? "링크, 사진" : "사진, 이미지", INFO[k] ? "lost" : "noise", INFO[k] ? "정보 잃음" : "소음"]);
+        else out.push([link ? "링크, " + a : a + ", 이미지", "ok", "알맞음"]);
+      }
+      img("logo", true);
+      out.push(["링크 4개: 행사, 모임 신청, 신간, 소개", "text", ""]);
+      out.push(["제목 수준 1, 겨울 낭독회", "text", ""]);
+      img("hero", false);
+      out.push(["2월 마지막 토요일, 겨울을 주제로 한 짧은 글들을 함께 읽습니다. …", "text", ""]);
+      img("leaf", false);
+      img("poster", false);
+      bodyLines(v).forEach(function (l) { out.push([l, v === "good" ? "ok" : "text", v === "good" ? "본문 글자" : ""]); });
+      return out;
+    }
+    function update() {
+      var v = ver(), L = lines(v), lost = 0, noise = 0, n = 0;
+      var html = "<h4>화면 낭독기가 위에서부터 읽는 말</h4><ol>";
+      L.forEach(function (l) {
+        var cls = l[1] === "lost" ? "bad" : l[1] === "noise" ? "warn" : l[1] === "ok" || l[1] === "skip" ? "ok" : "";
+        if (l[1] === "lost") lost++; if (l[1] === "noise") noise++; if (l[0] !== "(건너뜀)") n++;
+        html += "<li>" + (cls ? '<span class="ac-badge ' + cls + '">' + l[2] + "</span>" : "") + (l[0] === "(건너뜀)" ? '<span class="ac-skip">(그림을 건너뜀)</span>' : "“" + esc(l[0]) + "”") + "</li>";
+      });
+      html += "</ol>";
+      panel.innerHTML = html;
+      AB.stat("al-o-lost", lost + "곳");
+      AB.stat("al-o-noise", noise + "곳");
+      AB.stat("al-o-n", n + "줄");
+      cv.redraw();
+    }
+    update();
+  });
+
+  /* ---------------- 시뮬레이터 4: 오류를 보고, 듣기 ---------------- */
+  safe(function () {
+    var W = 400, HH = 292;
+    var ver = AB.seg("er-ver", function () { update(); });
+    var blind = AB.check("er-blind", function () { cv.redraw(); });
+    var panel = document.getElementById("er-list");
+    function draw(ctx, w, h) {
+      var s = w / W; ctx.save(); ctx.scale(s, s);
+      var v = ver();
+      ctx.fillStyle = C.white; ctx.fillRect(0, 0, W, HH);
+      ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      ctx.fillStyle = C.dark; ctx.font = F(13.5, 700); ctx.fillText("이름", 16, 20);
+      rr(ctx, 16, 34, 368, 42, 6); ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.calm; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = C.dark; ctx.font = F(15); ctx.fillText("윤서윤", 28, 55);
+      ctx.fillStyle = C.dark; ctx.font = F(13.5, 700); ctx.fillText("연락처", 16, 100);
+      rr(ctx, 16, 114, 368, 42, 6); ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.red; ctx.lineWidth = v === "linked" ? 2.5 : 1.5; ctx.stroke();
+      ctx.fillStyle = C.dark; ctx.font = F(15); ctx.fillText("010-12", 28, 135);
+      var y = 172;
+      if (v === "text") { ctx.fillStyle = C.errRed; ctx.font = F(13); ctx.fillText("숫자 10~11자리로 적어 주세요.", 16, y); }
+      if (v === "linked") {
+        ctx.fillStyle = C.errRed; ctx.beginPath(); ctx.arc(25, y, 8, 0, 7); ctx.fill(); ctx.fillStyle = "#ffffff"; ctx.font = F(12, 900); ctx.textAlign = "center"; ctx.fillText("!", 25, y + 0.5); ctx.textAlign = "left";
+        ctx.fillStyle = C.errRed; ctx.font = F(13, 700); ctx.fillText("오류: 숫자 10~11자리로 적어 주세요.", 40, y);
+        ctx.font = F(12.5); ctx.fillText("예: 010-1234-5678", 40, y + 20);
+      }
+      rr(ctx, 16, 222, 368, 46, 8); ctx.fillStyle = C.green; ctx.fill(); ctx.fillStyle = C.white; ctx.font = F(16, 800); ctx.textAlign = "center"; ctx.fillText("신청하기", 200, 246); ctx.textAlign = "left";
+      if (blind()) {
+        ctx.fillStyle = "#1d2420"; ctx.fillRect(0, 0, W, HH);
+        ctx.fillStyle = "#e8e2d6"; ctx.font = F(15, 700); ctx.textAlign = "center"; ctx.fillText("화면을 가렸다. 아래 목록의 말만 들린다.", W / 2, HH / 2); ctx.textAlign = "left";
+      }
+      ctx.restore();
+    }
+    var cv = AB.canvas("#er-cv", draw, { get height() { var el = document.getElementById("er-cv"); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(w * HH / W); }, bg: C.white });
+    function update() {
+      var v = ver(), say = [];
+      say.push(["“이름, 편집 텍스트, 윤서윤”", ""]);
+      if (v === "linked") { say.push(["“연락처, 잘못된 입력, 편집 텍스트, 010-12”", "ok"]); say.push(["“오류: 숫자 10~11자리로 적어 주세요. 예: 010-1234-5678”", "ok"]); }
+      else say.push(["“연락처, 편집 텍스트, 010-12”", "bad"]);
+      if (v === "text") say.push(["(칸을 떠나 계속 읽어 내려가면) “숫자 10~11자리로 적어 주세요.”", "warn"]);
+      say.push(["“신청하기, 버튼”", ""]);
+      var html = "<h4>Tab으로 칸을 차례로 옮길 때 들리는 말</h4><ol>";
+      say.forEach(function (q) { var b = q[1] === "ok" ? '<span class="ac-badge ok">오류를 앎</span>' : q[1] === "bad" ? '<span class="ac-badge bad">오류 모름</span>' : q[1] === "warn" ? '<span class="ac-badge warn">늦게 앎</span>' : ""; html += "<li>" + b + esc(q[0]) + "</li>"; });
+      html += "</ol>";
+      panel.innerHTML = html;
+      AB.stat("er-o-eye", v === "color" ? "색으로만 <small>흑백에서 사라짐</small>" : v === "text" ? "글자로 보임" : "글자 + 기호");
+      AB.stat("er-o-ear", v === "color" ? "알 수 없음" : v === "text" ? "모름 <small>읽어 내려가야</small>" : "바로 들림");
+      AB.stat("er-o-sc", '<span style="font-size:14px">' + (v === "color" ? "1.4.1·3.3.1 미달" : v === "text" ? "3.3.1 충족 · 연결 없음" : "1.3.1·3.3.1 충족") + "</span>");
+      cv.redraw();
+    }
+    update();
+  });
+
+  /* ---------------- 시뮬레이터 5: 안내 글자와 테두리의 대비 ---------------- */
+  safe(function () {
+    var W = 460, HH = 300;
+    var EL = { hint: { L: 0.72, C: 0.015, h: 160, req: 4.5, sc: "1.4.3 본문 글자", name: "안내 글자" }, border: { L: 0.86, C: 0.015, h: 160, req: 3, sc: "1.4.11 UI 요소", name: "입력 칸 테두리" }, title: { L: 0.70, C: 0.10, h: 160, req: 3, sc: "1.4.3 큰 글자(24px 굵게)", name: "큰 제목" } };
+    var LMIN = 0.25, LMAX = 0.97, geo = null;
+    var elG = AB.seg("cn-el", function () { cv.redraw(); });
+    var bgG = AB.seg("cn-bg", function () { cv.redraw(); });
+    var cvd = AB.check("cn-cvd", function () { cv.redraw(); });
+    function colOf(e) { return ART.fit(ART.oklchToSrgb([EL[e].L, EL[e].C, EL[e].h])); }
+    function view(rgb) { return cvd() ? ART.clip(ART.simulateCVD(rgb, "deutan", 1)) : rgb; }
+    function css(rgb) { return ART.hex(view(rgb)); }
+    function draw(ctx, w, h) {
+      var s = w / W; ctx.save(); ctx.scale(s, s);
+      var bg = ART.parse(bgG()), e = elG(), cur = EL[e];
+      ctx.fillStyle = "#ece8df"; ctx.fillRect(0, 0, W, HH);
+      rr(ctx, 12, 12, 380, 276, 12); ctx.fillStyle = css(bg); ctx.fill();
+      ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      ctx.fillStyle = css(colOf("title")); ctx.font = F(24, 800); ctx.fillText("겨울 낭독회 신청", 30, 46);
+      ctx.fillStyle = css(ART.parse(C.dark)); ctx.font = F(15); ctx.fillText("이름과 연락처를 적어 주시면 자리를 잡아 둡니다.", 30, 82);
+      ctx.font = F(14, 700); ctx.fillText("연락처", 30, 120);
+      rr(ctx, 30, 136, 344, 46, 6); ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.strokeStyle = css(colOf("border")); ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = css(colOf("hint")); ctx.font = F(16); ctx.fillText("예: 010-1234-5678", 44, 159);
+      rr(ctx, 30, 206, 344, 50, 8); ctx.fillStyle = css(ART.parse(C.green)); ctx.fill(); ctx.fillStyle = css([1, 1, 1]); ctx.font = F(17, 800); ctx.textAlign = "center"; ctx.fillText("신청하기", 202, 231); ctx.textAlign = "left";
+      // 고른 요소 표시
+      ctx.strokeStyle = "#d24f39"; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.5;
+      if (e === "title") ctx.strokeRect(24, 28, 220, 36); else if (e === "border") ctx.strokeRect(25, 131, 354, 56); else ctx.strokeRect(38, 146, 150, 26);
+      ctx.setLineDash([]);
+      // 밝기 띠
+      var sx = 408, sw = 30, y0 = 18, y1 = HH - 18;
+      // 안내 글자는 입력 칸(흰색) 안에 있으므로 바탕은 흰색이다. 테두리는 카드 바탕과 견준다.
+      var against = e === "hint" ? [1, 1, 1] : bg;
+      for (var yy = y0; yy < y1; yy += 2) { var L = LMIN + (yy - y0) / (y1 - y0) * (LMAX - LMIN); ctx.fillStyle = css(ART.fit(ART.oklchToSrgb([L, cur.C, cur.h]))); ctx.fillRect(sx, yy, sw, 2.5); }
+      ctx.strokeStyle = "#8a8f8b"; ctx.lineWidth = 1; ctx.strokeRect(sx + 0.5, y0 + 0.5, sw - 1, y1 - y0 - 1);
+      // 기준 눈금: 대비가 req가 되는 밝기
+      var Lc = null; for (var t = 0; t <= 400; t++) { var LL = LMIN + t / 400 * (LMAX - LMIN); if (ART.contrast(ART.fit(ART.oklchToSrgb([LL, cur.C, cur.h])), against) < cur.req) { Lc = LL; break; } }
+      if (Lc != null) { var yc = y0 + (Lc - LMIN) / (LMAX - LMIN) * (y1 - y0); ctx.strokeStyle = "#22342a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(sx - 6, yc); ctx.lineTo(sx + sw + 6, yc); ctx.stroke(); ctx.fillStyle = "#ffffff"; rr(ctx, sx - 3, yc - 18, sw + 6, 14, 4); ctx.fill(); ctx.fillStyle = "#22342a"; ctx.font = AB.font(10.5, true, 700); ctx.textAlign = "center"; ctx.fillText(cur.req + ":1", sx + sw / 2, yc - 11); ctx.textAlign = "left"; }
+      var yh = y0 + (cur.L - LMIN) / (LMAX - LMIN) * (y1 - y0);
+      AB.handle(ctx, sx + sw / 2, yh, { r: 9, fill: "#ffffff", ring: "#22342a" });
+      geo = { s: s, sx: sx, y0: y0, y1: y1 };
+      ctx.restore();
+      // 판독
+      var rgb = colOf(e), r0 = ART.contrast(rgb, against), r1 = ART.contrast(ART.clip(ART.simulateCVD(rgb, "deutan", 1)), ART.clip(ART.simulateCVD(against, "deutan", 1)));
+      AB.stat("cn-o-hex", ART.hex(rgb) + " <small>" + (e === "hint" ? "흰 칸 위" : "카드 위") + "</small>");
+      AB.stat("cn-o-r", AB.fix(r0, 2) + ":1" + (cvd() ? " <small>제2색각 " + AB.fix(r1, 2) + "</small>" : ""));
+      var ok = r0 >= cur.req;
+      AB.stat("cn-o-req", cur.req + ":1 " + (ok ? '<small style="color:var(--ok)">통과</small>' : '<small style="color:var(--bad)">미달</small>') + '<br><small>' + cur.sc + "</small>");
+    }
+    var cv = AB.canvas("#cn-cv", draw, { get height() { var el = document.getElementById("cn-cv"); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(w * HH / W); }, bg: "#ece8df" });
+    AB.drag(cv.canvas, { move: function (x, y) { if (!geo) return; var my = y / geo.s; var L = LMIN + (my - geo.y0) / (geo.y1 - geo.y0) * (LMAX - LMIN); EL[elG()].L = AB.clamp(L, LMIN, LMAX); cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 6: 400%까지 키워 보기 ---------------- */
+  safe(function () {
+    var ZS = [1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4];
+    var zG = AB.range("zm-z", function (i) { return Math.round(ZS[i] * 100) + "%"; }, function () { cv.redraw(); });
+    var lay = AB.seg("zm-lay", function () { cv.redraw(); });
+    var CARDS = [["겨울 낭독회", "2월 26일(토) 저녁 7시. 겨울을 주제로 한 짧은 글을 함께 읽는다."], ["수채 드로잉 모임", "3월 4일(토) 오후 2시. 서가 풍경을 물감으로 그려 본다."], ["그림책 북토크", "3월 11일(토) 오후 4시. 그림책 작가와 이야기한다."]];
+    function txt(ctx, t, x, y, px, k, weight, color, maxW) {
+      ctx.font = F(px, weight); ctx.fillStyle = color;
+      var lines = maxW ? wrap(ctx, t, maxW) : [t];
+      lines.forEach(function (l, i) {
+        if (px * k < 5.5) { ctx.globalAlpha = 0.35; ctx.fillRect(x, y + i * px * 1.5 - px * 0.32, Math.min(ctx.measureText(l).width, maxW || 9999), px * 0.62); ctx.globalAlpha = 1; }
+        else ctx.fillText(l, x, y + i * px * 1.5);
+      });
+      return lines.length;
+    }
+    function draw(ctx, w, h) {
+      var z = ZS[zG()], fixed = lay() === "fixed";
+      var fx = 8, fy = 8, fw = w - 16, fh = h - 16, k = fw / 1280 * z;   // CSS px → 캔버스 px
+      var vw = 1280 / z, vh = 800 / z, pageW = fixed ? 960 : vw;
+      // 모니터 틀
+      ctx.fillStyle = "#2b2f2d"; rr(ctx, fx - 6, fy - 6, fw + 12, fh + 12, 10); ctx.fill();
+      ctx.save(); ctx.beginPath(); ctx.rect(fx, fy, fw, fh); ctx.clip();
+      ctx.fillStyle = "#ece8df"; ctx.fillRect(fx, fy, fw, fh);
+      ctx.translate(fx, fy); ctx.scale(k, k);
+      ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      var ox = fixed ? Math.max(0, (vw - 960) / 2) : 0;
+      if (fixed) {
+        ctx.fillStyle = "#ffffff"; ctx.fillRect(ox, 0, 960, vh + 2000);
+        ctx.fillStyle = C.green; rr(ctx, ox + 20, 16, 96, 32, 6); ctx.fill(); txt(ctx, "책방 E", ox + 38, 33, 16, k, 800, "#ffffff");
+        ["행사", "모임 신청", "신간", "소개"].forEach(function (n, i) { txt(ctx, n, ox + 600 + i * 84, 33, 15, k, 600, C.dark); });
+        ctx.fillStyle = C.cream; ctx.fillRect(ox, 64, 960, 200);
+        txt(ctx, "다음 모임: 겨울 낭독회", ox + 40, 140, 36, k, 800, C.dark);
+        txt(ctx, "2월 26일(토) 저녁 7시 · 책방 E 2층", ox + 40, 190, 18, k, 500, C.gray);
+        CARDS.forEach(function (c, i) {
+          var x = ox + 20 + i * 316, y = 290; ctx.fillStyle = C.card; rr(ctx, x, y, 290, 190, 8); ctx.fill();
+          txt(ctx, c[0], x + 18, y + 30, 19, k, 800, C.dark);
+          txt(ctx, c[1], x + 18, y + 66, 15, k, 400, C.gray, 254);
+        });
+      } else {
+        var pad = vw < 560 ? 16 : 24, cw = Math.min(1200, vw) - pad * 2, x0 = Math.max(0, (vw - 1200) / 2) + pad;
+        ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, vw, vh + 2000);
+        ctx.fillStyle = C.green; rr(ctx, x0, 16, 96, 32, 6); ctx.fill(); txt(ctx, "책방 E", x0 + 18, 33, 16, k, 800, "#ffffff");
+        var navY = 33, navX = x0 + 120, items = ["행사", "모임 신청", "신간", "소개"], y = 64;
+        ctx.font = F(15, 600);
+        var navW = items.reduce(function (a, n) { return a + ctx.measureText(n).width + 24; }, 0);
+        if (navX + navW > x0 + cw) { navX = x0; navY = 70; y = 100; }
+        var nx = navX; items.forEach(function (n) { var tw = ctx.measureText(n).width; if (nx + tw > x0 + cw) { nx = x0; navY += 28; y += 28; } txt(ctx, n, nx, navY, 15, k, 600, C.dark); ctx.font = F(15, 600); nx += tw + 24; });
+        var tsize = Math.max(26, Math.min(36, 26 + (vw - 320) * 10 / 880));
+        ctx.font = F(tsize, 800);
+        var tl = wrap(ctx, "다음 모임: 겨울 낭독회", cw - 32).length;
+        var heroH = 60 + tl * tsize * 1.5 + 40;
+        ctx.fillStyle = C.cream; ctx.fillRect(0, y, vw, heroH);
+        txt(ctx, "다음 모임: 겨울 낭독회", x0 + 16, y + 44, tsize, k, 800, C.dark, cw - 32);
+        txt(ctx, "2월 26일(토) 저녁 7시 · 책방 E 2층", x0 + 16, y + 44 + tl * tsize * 1.5, 18, k, 500, C.gray, cw - 32);
+        y += heroH + 24;
+        var cols = vw >= 960 ? 3 : vw >= 560 ? 2 : 1, gap = 24, cwid = (cw - gap * (cols - 1)) / cols;
+        var rowH = 0;
+        CARDS.forEach(function (c, i) {
+          var col = i % cols; if (col === 0 && i > 0) { y += rowH + gap; rowH = 0; }
+          var x = x0 + col * (cwid + gap); ctx.font = F(15); var n = wrap(ctx, c[1], cwid - 36).length; var ch = 60 + n * 22.5 + 16;
+          ctx.fillStyle = C.card; rr(ctx, x, y, cwid, ch, 8); ctx.fill();
+          txt(ctx, c[0], x + 18, y + 30, 19, k, 800, C.dark, cwid - 36);
+          txt(ctx, c[1], x + 18, y + 66, 15, k, 400, C.gray, cwid - 36);
+          rowH = Math.max(rowH, ch);
+        });
+      }
+      ctx.restore();
+      // 가로 스크롤 막대
+      var over = pageW > vw + 0.5;
+      if (over) { var frac = vw / pageW; ctx.fillStyle = "rgba(0,0,0,.18)"; ctx.fillRect(fx, fy + fh - 9, fw, 9); ctx.fillStyle = "rgba(0,0,0,.55)"; rr(ctx, fx + 2, fy + fh - 7.5, fw * frac - 4, 6, 3); ctx.fill(); }
+      AB.stat("zm-o-w", Math.round(vw) + " px");
+      AB.stat("zm-o-s", over ? "있음 <small>페이지 폭의 " + Math.round(vw / pageW * 100) + "%만 보임</small>" : "없음");
+      AB.stat("zm-o-sc", fixed ? '미달 <small>320px에서 960px 고정</small>' : '충족 <small>한 단으로 흐름</small>');
+    }
+    var cv = AB.canvas("#zm-cv", draw, { get height() { var el = document.getElementById("zm-cv"); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round((w - 16) * 800 / 1280 + 16); }, bg: C.paper });
+  });
+})();
+</script>
+</body>
+</html>

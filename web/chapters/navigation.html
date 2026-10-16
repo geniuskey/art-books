@@ -1,0 +1,729 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "웹 페이지에서 길을 잃지 않게 하는 화면. 휴대폰의 메뉴 패턴(위 링크 줄, 아래 탭 바, 햄버거), 숨긴 메뉴의 발견성과 그 근거 수준, 현재 위치 표시, 빵부스러기, 어디로 가는지 알려 주는 링크 문구, 검색과 둘러보기를 휴대폰 목업으로 직접 바꿔 보며 배운다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>내비게이션 · WebBook</title>
+<meta name="description" content="웹 페이지에서 길을 잃지 않게 하는 화면. 휴대폰의 메뉴 패턴(위 링크 줄, 아래 탭 바, 햄버거), 숨긴 메뉴의 발견성과 그 근거 수준, 현재 위치 표시, 빵부스러기, 어디로 가는지 알려 주는 링크 문구, 검색과 둘러보기를 휴대폰 목업으로 직접 바꿔 보며 배운다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/navigation.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="내비게이션 · WebBook">
+<meta property="og:description" content="웹 페이지에서 길을 잃지 않게 하는 화면. 휴대폰의 메뉴 패턴(위 링크 줄, 아래 탭 바, 햄버거), 숨긴 메뉴의 발견성과 그 근거 수준, 현재 위치 표시, 빵부스러기, 어디로 가는지 알려 주는 링크 문구, 검색과 둘러보기를 휴대폰 목업으로 직접 바꿔 보며 배운다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/navigation.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/navigation.html#chapter","name":"내비게이션","headline":"내비게이션 · WebBook","description":"웹 페이지에서 길을 잃지 않게 하는 화면. 휴대폰의 메뉴 패턴(위 링크 줄, 아래 탭 바, 햄버거), 숨긴 메뉴의 발견성과 그 근거 수준, 현재 위치 표시, 빵부스러기, 어디로 가는지 알려 주는 링크 문구, 검색과 둘러보기를 휴대폰 목업으로 직접 바꿔 보며 배운다.","url":"https://artbook.euiyun.com/web/chapters/navigation.html","position":8,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"8. 내비게이션","item":"https://artbook.euiyun.com/web/chapters/navigation.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .nv-code { font-family: var(--mono); font-size: 12.5px; line-height: 1.65; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin: 16px 0; overflow-x: auto; white-space: pre; color: var(--text); }
+</style>
+</head>
+<body data-chapter="navigation">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 08</div>
+    <h1>내비게이션</h1>
+    <p class="lead">처음 가 보는 큰 병원에서 사람들이 가장 먼저 찾는 것은 진료실이 아니라 안내판이다. "지금 여기", 가려는 곳의 방향, 돌아 나가는 길. 웹사이트도 건물과 같다. 첫 화면으로 들어오는 사람보다 검색 결과나 메시지 속 링크를 눌러 어느 방 한가운데로 곧장 떨어지는 사람이 더 많다. 그 사람에게 화면은 세 가지를 알려 줘야 한다. 지금 어디에 있는지, 어디로 갈 수 있는지, 어떻게 돌아가는지. 이 장은 그 안내판을 휴대폰 크기의 화면에 세우는 방법을 다룬다. 메뉴를 펼쳐 둘지 숨길지, 현재 위치를 어떻게 표시할지, 링크에 무엇이라고 적을지, 검색 칸이 꼭 필요한지.</p>
+    <ul class="objectives">
+      <li>길 찾기의 세 질문(어디에 있나, 어디로 갈 수 있나, 어떻게 돌아가나)으로 사이트의 정보 구조와 메뉴를 점검한다.</li>
+      <li>휴대폰의 메뉴 패턴(위 링크 줄, 아래 탭 바, 햄버거)의 장단점을 화면 폭과 글자 크기에 따라 비교한다.</li>
+      <li>숨긴 메뉴의 발견성에 관한 연구가 무엇을 보여 주었는지, 그리고 그 근거의 한계를 구별한다.</li>
+      <li>현재 위치를 색 말고도 굵기·막대·<code>aria-current</code>로 알리고, 빵부스러기를 화면 폭에 맞게 줄인다.</li>
+      <li>링크만 떼어 읽어도 목적지를 알 수 있는 문구를 쓰고(WCAG 2.4.4), 검색과 둘러보기 중 무엇이 필요한지 사이트 규모로 판단한다.</li>
+    </ul>
+  </header>
+
+  <section id="wayfinding">
+    <h2>길 찾기의 세 질문</h2>
+    <p>건축과 도시 설계에는 <span class="term">길 찾기</span><span class="en">(Wayfinding)</span>라는 분야가 있다. 사람이 낯선 공간에서 자기 위치를 알고 목적지까지 가는 과정을 돕는 안내판, 지도, 색, 조명의 설계다. 웹사이트의 <span class="term">내비게이션</span><span class="en">(Navigation)</span>은 같은 일을 화면에서 한다. 사이트 안에서 페이지와 페이지를 오가게 하는 메뉴, 링크, 빵부스러기, 검색을 모두 이르는 말이다. 좋은 내비게이션은 누가 어느 페이지로 떨어져도 다음 세 질문에 답한다.</p>
+    <ol>
+      <li><b>지금 어디에 있나.</b> 이 페이지의 이름과, 사이트 안에서 이 페이지가 속한 갈래.</li>
+      <li><b>어디로 갈 수 있나.</b> 사이트의 큰 갈래들과, 지금 여기서 이어지는 곳.</li>
+      <li><b>어떻게 돌아가나.</b> 한 단계 위로, 첫 화면으로.</li>
+    </ol>
+    <p>세 질문에 답하려면 먼저 사이트의 지도가 있어야 한다. 페이지를 어떤 갈래로 묶고 어떤 이름을 붙여 어떤 순서로 놓을지 정하는 일을 <span class="term">정보 구조</span><span class="en">(Information architecture)</span>라고 한다. 메뉴는 그 지도의 맨 윗층을 화면에 꺼내 놓은 것이다. 책방 E의 새 사이트는 작아서 지도도 단순하다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="책방 E 웹사이트의 사이트맵. 맨 위에 첫 화면, 그 아래 행사 일정, 모임 신청, 신간, 책방 소개 네 갈래가 있다. 행사 일정 아래에는 행사 상세 페이지들과 지난 행사, 신간 아래에는 책 상세, 책방 소개 아래에는 오시는 길이 있다. 왼쪽에 깊이 0, 1, 2, 3이 표시되어 있다.">
+        <g class="lbl-dim"><text x="10" y="34">깊이 0</text><text x="10" y="104">깊이 1</text><text x="10" y="184">깊이 2</text><text x="10" y="254">깊이 3</text></g>
+        <g class="s-line" fill="none">
+          <path d="M255 42 V62 H110 V82"/><path d="M255 62 H210 V82"/><path d="M255 62 H310 V82"/><path d="M255 62 H410 V82"/>
+          <path d="M110 112 V140 H80 V160"/><path d="M110 140 H160 V160"/><path d="M110 140 H230 V160"/>
+          <path d="M230 190 V230"/><path d="M310 112 V160"/><path d="M410 112 V160"/>
+        </g>
+        <rect x="205" y="16" width="100" height="26" rx="6" class="f-elev s-line"/><text x="255" y="34" text-anchor="middle" class="lbl-b">첫 화면</text>
+        <g class="f-acc-soft">
+          <rect x="70" y="82" width="80" height="30" rx="6"/><rect x="170" y="82" width="80" height="30" rx="6"/><rect x="270" y="82" width="80" height="30" rx="6"/><rect x="370" y="82" width="80" height="30" rx="6"/>
+        </g>
+        <text x="110" y="102" text-anchor="middle" class="lbl-b">행사 일정</text><text x="210" y="102" text-anchor="middle" class="lbl-b">모임 신청</text>
+        <text x="310" y="102" text-anchor="middle" class="lbl-b">신간</text><text x="410" y="102" text-anchor="middle" class="lbl-b">책방 소개</text>
+        <g class="f-surface s-line">
+          <rect x="44" y="160" width="72" height="30" rx="6"/><rect x="124" y="160" width="72" height="30" rx="6"/><rect x="194" y="160" width="72" height="30" rx="6"/>
+          <rect x="278" y="160" width="68" height="30" rx="6"/><rect x="374" y="160" width="72" height="30" rx="6"/><rect x="184" y="230" width="92" height="30" rx="6"/>
+        </g>
+        <text x="80" y="180" text-anchor="middle" class="lbl">행사 상세</text><text x="160" y="180" text-anchor="middle" class="lbl">행사 상세</text>
+        <text x="230" y="180" text-anchor="middle" class="lbl">지난 행사</text><text x="312" y="180" text-anchor="middle" class="lbl">책 상세</text>
+        <text x="410" y="180" text-anchor="middle" class="lbl">오시는 길</text><text x="230" y="250" text-anchor="middle" class="lbl">지난 행사 기록</text>
+        <text x="300" y="222" class="lbl-dim">맨 윗층 네 갈래가 메뉴가 된다</text>
+        <text x="10" y="282" class="lbl-dim">진한 칸은 메뉴에 꺼내 놓는 갈래. 다섯 번째 후보 "오시는 길"은 깊이 2에 둔다.</text>
+      </svg>
+      <figcaption><b>그림 1. 책방 E 새 사이트의 지도(정보 구조).</b> 페이지가 스무 개 남짓인 작은 사이트라 깊이는 많아야 3이다. 깊이가 얕을수록 길을 잃을 일이 적지만, 맨 윗층의 갈래가 너무 많아지면 메뉴가 길어진다. 넓이와 깊이는 서로 맞바꾸는 관계다. 이 그림은 이 장의 케이스에서 서윤이 정한 지도이며, 오시는 길을 어디에 둘지는 이 장에서 따져 본다.</figcaption>
+    </figure>
+
+    <p>메뉴는 모든 페이지에서 <b>같은 자리, 같은 순서, 같은 이름</b>으로 나와야 한다. 페이지마다 메뉴 순서가 바뀌면 사람은 메뉴를 다시 읽어야 하고, 자리를 외워 둔 사람은 엉뚱한 곳을 누른다. WCAG 2.2는 이것을 성공 기준 3.2.3(일관된 내비게이션, AA)과 3.2.4(일관된 식별, AA)로 요구한다. 키보드나 화면 낭독기로 쓰는 사람에게는 반대 문제도 있다. 페이지마다 같은 메뉴를 처음부터 다시 지나가야 본문에 닿는다. 그래서 페이지 맨 앞에 "본문 바로 가기" 링크를 두어 되풀이되는 덩어리를 건너뛰게 한다(성공 기준 2.4.1, 블록 건너뛰기, A).</p>
+  </section>
+
+  <section id="patterns">
+    <h2>휴대폰의 메뉴 패턴</h2>
+    <p>넓은 화면에서 메뉴는 대개 문제가 아니다. 화면 위쪽에 링크 다섯 개를 한 줄로 놓으면 된다. 문제는 폭 360 안팎의 휴대폰이다. 링크 다섯 개가 한 줄에 들어가지 않거나, 들어가더라도 사용자가 글자를 키우면 두 줄 세 줄로 깨진다. 휴대폰에서 자주 쓰는 메뉴 패턴은 세 가지다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>패턴</th><th>모습</th><th>얻는 것</th><th>잃는 것</th></tr></thead>
+        <tbody>
+          <tr><td>위 링크 줄</td><td>머리 띠 아래에 링크를 한두 줄로 펼친다</td><td>모든 갈래가 보인다. 구현이 가장 단순하다</td><td>항목이 많거나 글자가 크면 여러 줄로 깨지고 첫 화면의 높이를 먹는다</td></tr>
+          <tr><td>아래 탭 바</td><td>화면 아래에 3~5개의 탭을 아이콘과 글자로 고정한다</td><td>늘 보이고, 엄지가 닿기 쉽다는 설명이 많다. 현재 위치를 표시하기 좋다</td><td>칸이 다섯 개를 넘기 어렵다. 화면 아래쪽 높이를 늘 차지한다</td></tr>
+          <tr><td>햄버거 메뉴</td><td>세 줄 아이콘(☰) 하나 뒤에 메뉴 전체를 숨긴다</td><td>항목 수에 제한이 없고 화면이 깔끔하다</td><td>메뉴가 있다는 것, 무엇이 있는지가 보이지 않는다. 누르는 횟수가 하나 는다</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>아래 시뮬레이터는 책방 E의 메뉴 다섯 개(행사 일정, 모임 신청, 신간, 책방 소개, 오시는 길)를 세 패턴으로 휴대폰 목업에 올린 것이다. 목업의 폭과 사용자의 글자 크기 설정을 바꿔 본다. 실제 창 폭은 바뀌지 않는다.</p>
+
+    <div class="sim" id="sim-nv-patterns">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 메뉴, 세 가지 패턴</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="nv-mp-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="nv-mp-pat"><button data-value="top" class="on">위 링크 줄</button><button data-value="tab">아래 탭 바</button><button data-value="burger">햄버거</button></div>
+          <label class="ctrl"><span>목업 화면 폭 <output id="nv-mp-w-out"></output></span><input type="range" id="nv-mp-w" min="320" max="430" step="10" value="360"></label>
+          <label class="ctrl"><span>사용자의 글자 크기 설정 <output id="nv-mp-f-out"></output></span><input type="range" id="nv-mp-f" min="100" max="200" step="10" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">보이는 메뉴</span><span class="v" id="nv-mp-o-v">—</span></div>
+        <div class="stat"><span class="k">메뉴가 차지한 높이</span><span class="v" id="nv-mp-o-h">—</span></div>
+        <div class="stat"><span class="k">가장 좁은 누르는 면</span><span class="v" id="nv-mp-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 위 링크 줄에서 폭 360, 글자 100%로 본다. 다섯 링크가 두 줄에 들어간다. ② 글자를 160% 이상으로 올린다. 링크가 서너 줄로 늘어 "다음 모임" 카드가 아래로 밀려난다. 1장에서 도경의 휴대폰에 메뉴가 깨진 모습이다. ③ 아래 탭 바로 바꾼다. 네 칸은 글자가 커져도 칸 폭이 그대로이고, 글자가 길면 두 줄이 된다. 다섯 번째 "오시는 길"은 들어갈 자리가 없다. ④ 햄버거로 바꾼다. 화면은 가장 넓게 쓰지만 보이는 메뉴는 0개다. ⑤ 폭을 320으로 줄이고 세 패턴을 다시 본다. (목업의 보이는 높이는 600으로 두었다. 메뉴 글자 15 px, 탭 글자 12 px을 기준으로 설정 비율만큼 키우고, 누르는 면은 7장에서 정한 최소 44 px을 지키도록 그렸다. 탭 바는 기기 아래쪽의 안전 영역을 빼고 그렸다.)</div>
+    </div>
+
+    <p>세 패턴은 한 가지를 서로 맞바꾼다. <b>화면 면적</b>과 <b>보이는 메뉴</b>다. 위 링크 줄은 모든 메뉴를 보여 주는 대신 글자가 커질수록 첫 화면을 크게 먹는다. 아래 탭 바는 늘 같은 높이로 네댓 개를 보여 주지만 그 이상은 담지 못한다. 햄버거는 면적을 가장 아끼지만 메뉴를 하나도 보여 주지 않는다. 어느 쪽이 옳은지는 메뉴의 수와, 사이트를 쓰는 사람이 가장 자주 가는 곳이 몇 군데인지에 달려 있다. 자주 가는 곳이 네 군데 안쪽이면 그 넷은 보이게 두고, 나머지만 다른 자리로 보내는 설계가 많다.</p>
+
+    <div class="callout warn">
+      <strong>붙박이 탭 바가 가리는 것</strong>
+      화면 아래에 고정한 탭 바나 위에 고정한 머리 띠는 그 아래의 본문을 늘 가린다. 키보드로 Tab을 누르며 내려가다가 포커스 받은 링크가 탭 바 뒤에 숨으면 사람은 지금 어디 있는지 모른다. WCAG 2.2는 이것을 성공 기준 2.4.11(포커스 가려지지 않음 최소, AA)로 새로 넣었다. CSS의 <code>scroll-padding-bottom</code>에 탭 바 높이를 주면 브라우저가 포커스 받은 요소를 탭 바 위로 스크롤해 준다. 화면을 200%로 확대한 사람에게는 고정된 띠가 화면의 절반을 차지할 수도 있으니, 확대한 상태에서도 한 번 확인한다(<a href="access.html">11장</a>).
+    </div>
+  </section>
+
+  <section id="hidden">
+    <h2>숨긴 메뉴의 대가</h2>
+    <p>햄버거 메뉴는 2010년대에 휴대폰 웹과 앱에서 빠르게 퍼졌다. 그만큼 "햄버거 메뉴는 나쁘다"와 "이제 모두 세 줄 아이콘을 안다"는 주장도 함께 돌았다. 근거는 어디까지 있을까.</p>
+    <p>자주 인용되는 연구는 사용성 연구 회사 닐센 노먼 그룹의 Kara Pernice와 Raluca Budiu가 2016년에 발표한 보고(「Hamburger Menus and Hidden Navigation Hurt UX Metrics」)다. 같은 사이트를 메뉴가 보이는 판, 일부만 보이는 판, 숨긴 판으로 만들어 사용자 과제를 비교했다. 보고의 요지는, 메뉴를 숨기면 사람들이 메뉴를 덜 쓰고 과제가 더 오래 걸리고 더 어렵게 느꼈으며, 그 차이는 넓은 화면에서 더 컸다는 것이다. 휴대폰에서도 숨긴 메뉴는 덜 쓰였다. 이 결과는 그 시점, 그 사이트들, 그 과제에 대한 것이다. 세 줄 아이콘이 무엇인지 아는 사람이 그 뒤로 더 늘었을 수 있고, 사이트와 사람에 따라 결과가 달라질 수 있다. 하지만 원리는 단순하고 오래 간다. <b>보이지 않는 것은 쓰이지 않는다.</b> 숨긴 메뉴를 쓰려면 사람이 먼저 "여기에 메뉴가 있을 것"이라고 짐작하고, 아이콘을 알아보고, 열어 봐야 한다.</p>
+    <p>아래는 이 짐작의 단계를 곱셈으로 적은 단순한 모형이다. <b>실험 자료가 아니라 교육용 가정</b>이다. 책방 E 사이트에 처음 온 손님 100명이 "모임 신청" 또는 "오시는 길"을 찾는다.</p>
+    <div class="formula">$$P(\text{찾음}) = P(\text{메뉴가 있다고 알아챔}) \times P(\text{메뉴 안에서 알아봄})$$<div class="where">보이는 탭 바에서는 첫 항이 거의 1이다. 햄버거에서는 첫 항이 "세 줄 아이콘을 메뉴로 알아보고 열어 볼 확률"이 된다. 두 번째 항은 메뉴 이름이 찾는 것과 얼마나 잘 맞는지에 달려 있다. 이 장의 모형은 두 항 모두 가정한 값을 쓴다.</div></div>
+
+    <div class="sim" id="sim-nv-discover">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손님 100명의 길 찾기(교육용 가정)</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="nv-ds-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="nv-ds-pat"><button data-value="tab" class="on">탭 바 넷</button><button data-value="icon">햄버거(아이콘만)</button><button data-value="label">햄버거 + "메뉴" 글자</button></div>
+          <label class="ctrl"><span>아이콘만 보고 메뉴를 열어 볼 확률(가정) <output id="nv-ds-p-out"></output></span><input type="range" id="nv-ds-p" min="0.1" max="0.95" step="0.05" value="0.5"></label>
+          <div class="seg" id="nv-ds-t"><button data-value="apply" class="on">"모임 신청"을 찾는다</button><button data-value="map">"오시는 길"을 찾는다</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">찾은 손님</span><span class="v" id="nv-ds-o-f">—</span></div>
+        <div class="stat"><span class="k">포기하고 전화로</span><span class="v" id="nv-ds-o-c">—</span></div>
+        <div class="stat"><span class="k">찾기까지 누름</span><span class="v" id="nv-ds-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 탭 바 넷에서 "모임 신청"을 찾는다. 열에 아홉이 한 번에 찾는다. ② 햄버거(아이콘만)로 바꾸고 확률 슬라이더를 0.9에서 0.3까지 내린다. 찾는 사람의 수가 그 확률을 그대로 따라 내려간다. ③ "메뉴" 글자를 붙인 햄버거로 바꾼다. 모형은 글자가 열어 보지 않던 사람의 절반을 더 열게 한다고 가정했다. ④ "오시는 길"을 찾는다. 탭 바에 자리가 없어 "책방 소개" 안에 넣었으므로, 탭 바 설계도 이번에는 완벽하지 않다. 넷을 펼치고 하나를 안으로 보내는 결정에도 대가가 있다. (모형의 가정: 보이는 메뉴를 알아챌 확률 0.95, 메뉴 안에서 맞는 이름을 알아볼 확률 0.95, "오시는 길"이 "책방 소개" 안에 있으리라 짐작할 확률 0.7, 짐작하지 못한 사람이 바닥글에서 찾을 확률 0.4. 모두 이 장이 정한 교육용 가정이며 실제 값은 사이트와 사람에 따라 다르다. 점 100개는 같은 확률로 시드를 고정해 뽑았다.)</div>
+    </div>
+
+    <p>모형의 숫자는 가정이지만 구조는 분명하다. 햄버거 메뉴의 성적은 거의 전부 "열어 볼 확률" 하나에 달려 있고, 그 값은 디자이너가 정할 수 없다. 사이트를 쓰는 사람들이 정한다. 아이콘 옆에 "메뉴"라는 글자를 붙이는 것은 그 값을 조금이라도 끌어올리려는 흔한 방법이다. 반대로 메뉴를 펼쳐 두면 자리가 모자라 일부를 다른 곳으로 보내야 하고, 보낸 곳을 찾는 데 또 다른 짐작이 든다. 결정은 "무엇을 숨기면 덜 아픈가"의 문제다. 가장 자주 찾는 것은 보이게, 가끔 찾는 것은 한 단계 안쪽에.</p>
+
+    <div class="callout warn">
+      <strong>"메뉴는 일곱 개까지"는 근거가 아니다</strong>
+      메뉴 항목 수를 말할 때 조지 밀러<span class="en">(George A. Miller)</span>의 1956년 논문(「The magical number seven, plus or minus two」, <i>Psychological Review</i>)이 자주 인용된다. 그러나 그 논문은 사람이 짧은 시간 <b>기억에 붙잡아 둘 수 있는</b> 덩어리의 수를 다룬 것이다. 메뉴는 외우는 것이 아니라 눈앞에 보면서 고르는 것이라, 그 숫자를 메뉴 항목의 한도로 쓰는 것은 잘못 옮긴 것이다. 항목 수를 정하는 실제 기준은 화면에 들어가는가, 이름이 서로 겹치지 않는가, 사람들이 찾는 것과 맞는가다. "세 번 클릭 안에 모든 페이지에 닿아야 한다"는 규칙도 근거가 확인되지 않은 통설이다. 누르는 횟수보다 각 단계에서 "이 길이 맞다"는 확신이 이어지는지가 더 중요하다는 관찰이 많다(아래 링크 문구 절).
+    </div>
+
+    <div class="callout studio">
+      <strong>메뉴 이름은 손님의 말로</strong>
+      메뉴의 갈래와 이름은 사이트를 만드는 사람의 말이 아니라 쓰는 사람의 말로 지어야 한다. 이를 확인하는 간단한 방법이 <b>카드 분류</b><span class="en">(Card sorting)</span>다. 페이지 이름을 카드에 하나씩 적어 손님 몇 사람에게 주고 비슷한 것끼리 묶은 다음 묶음에 이름을 붙여 달라고 한다. 서점 사람에게는 "프로그램"이 자연스러워도 손님은 "행사"나 "모임"이라고 부를 수 있다. 다섯 명만 해 봐도 이름이 갈리는 카드가 드러난다. 결과는 통계가 아니라 대화의 재료로 쓴다.
+    </div>
+  </section>
+
+  <section id="here">
+    <h2>"지금 여기" 표시</h2>
+    <p>지하철 노선도의 "현재 역" 표시처럼, 메뉴에는 지금 보고 있는 페이지가 어느 갈래에 속하는지 표시한다. 이것을 <span class="term">현재 위치 표시</span><span class="en">(Current location indicator)</span>라고 한다. 검색에서 행사 상세 페이지로 곧장 떨어진 사람도 메뉴의 "행사 일정"이 켜져 있으면 자기가 어느 갈래에 있는지 안다. WCAG 2.2의 성공 기준 2.4.8(위치, AAA)은 사이트 안에서 사용자의 위치 정보를 알 수 있게 하라고 권한다.</p>
+    <p>현재 위치를 색 하나로만 표시하면 7장의 버튼 상태와 같은 문제가 생긴다. 색을 구별하기 어려운 사람과 햇빛 아래의 화면에서 표시가 사라진다(성공 기준 1.4.1). 화면 낭독기 사용자에게는 색도 굵기도 전해지지 않는다. 그래서 눈에 보이는 단서를 둘 이상 겹치고, 기계가 읽는 표시를 따로 단다.</p>
+<pre class="nv-code" data-scroll>&lt;nav aria-label="주 메뉴"&gt;
+  &lt;a href="/events/" aria-current="page"&gt;행사 일정&lt;/a&gt;
+  &lt;a href="/join/"&gt;모임 신청&lt;/a&gt;
+  …
+&lt;/nav&gt;</pre>
+    <p><code>aria-current="page"</code>는 WAI-ARIA의 속성으로, 화면 낭독기가 그 링크를 "현재 페이지"라고 읽게 한다. CSS에서도 <code>[aria-current="page"]</code>로 같은 표시를 칠할 수 있어, 보이는 표시와 읽히는 표시가 한 곳에서 함께 바뀐다. 아래에서 메뉴 항목이나 탭을 눌러 현재 페이지를 바꾸고 표시 방식을 비교한다.</p>
+
+    <div class="sim" id="sim-nv-here">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>현재 위치를 알리는 단서</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="nv-yh-cv" class="art"></canvas><span class="hint">메뉴를 눌러 페이지를 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="nv-yh-sty"><button data-value="none">표시 없음</button><button data-value="color" class="on">색만</button><button data-value="weight">색 + 굵기</button><button data-value="bar">색 + 굵기 + 막대</button></div>
+          <label class="check"><input type="checkbox" id="nv-yh-cvd"> 제2색각으로 보기</label>
+          <label class="check"><input type="checkbox" id="nv-yh-aria"> aria-current 달기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">현재 항목의 단서</span><span class="v" id="nv-yh-o-c">—</span></div>
+        <div class="stat"><span class="k">현재와 다른 항목의 글자색 대비</span><span class="v" id="nv-yh-o-r">—</span></div>
+        <div class="stat"><span class="k">화면 낭독기가 읽는 것</span><span class="v" id="nv-yh-o-a">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "색만"에서 넓은 화면 메뉴와 휴대폰 탭 바를 본다. 초록과 회색의 차이는 보이지만 두 글자색 사이의 대비는 2:1 안쪽이다. ② 제2색각으로 보기를 켠다. 초록과 회색이 비슷한 탁한 색이 되어 현재 위치가 거의 사라진다. ③ "색 + 굵기 + 막대"로 바꾼다. 색이 사라져도 굵기와 막대가 남는다. 흑백 보기를 켜도 마찬가지다. ④ 메뉴에서 "오시는 길"을 누른다. 탭 바에는 오시는 길이 없으므로 그것을 품은 "책방 소개" 탭이 켜진다. 현재 위치 표시는 페이지가 아니라 갈래를 가리킨다. ⑤ aria-current를 켜고 꺼 본다. 눈에 보이는 표시와 상관없이 화면 낭독기가 읽는 내용이 바뀐다. (대비는 현재 항목과 다른 항목의 글자색끼리 잰 WCAG 대비비다. 제2색각 보기는 Machado 외 2009 모형의 근사다.)</div>
+    </div>
+
+    <p>현재 위치 표시는 "색 + 굵기 + 막대"처럼 서로 다른 성질의 단서를 겹칠 때 튼튼해진다. 막대나 밑줄 같은 모양 단서는 색과 상관없이 남고, 굵기는 흑백에서도 남는다. 탭 바에서는 아이콘을 속이 빈 모양에서 꽉 찬 모양으로 바꾸는 방법도 흔하다. 단서를 겹치되 위계는 지킨다. 현재 위치 표시가 페이지 제목보다 더 크게 외치면 안 된다.</p>
+  </section>
+
+  <section id="breadcrumb">
+    <h2>빵부스러기</h2>
+    <p>동화 「헨젤과 그레텔」에서 남매는 돌아올 길을 찾으려고 숲길에 빵부스러기를 떨어뜨린다. 웹에서는 페이지 위쪽에 "홈 › 행사 일정 › 그림책 함께 읽기"처럼 지금 페이지까지 이르는 위층들을 차례로 늘어놓은 링크 줄을 <span class="term">빵부스러기</span><span class="en">(Breadcrumb)</span>라고 부른다. 길 찾기의 첫 질문(어디에 있나)과 세 번째 질문(어떻게 돌아가나)에 한 줄로 답한다.</p>
+    <p>이름 때문에 오해가 생기기도 한다. 동화의 빵부스러기는 <b>걸어온 길</b>이지만, 웹의 빵부스러기는 대개 사용자가 실제로 지나온 길이 아니라 <b>사이트의 지도에서 이 페이지의 위치</b>를 보여 준다. 검색으로 행사 상세에 곧장 들어온 사람에게도 "홈 › 행사 일정"이 보여야 한다. 지나온 길은 브라우저의 뒤로 가기 버튼이 이미 맡고 있다.</p>
+    <p>빵부스러기는 깊이가 있는 사이트에서 쓸모가 있다. 메뉴만으로 모든 페이지에 닿는 얕은 사이트의 첫 화면과 맨 윗층 페이지에는 필요 없다. 문제는 휴대폰이다. 깊이가 깊거나 페이지 이름이 길거나 사용자가 글자를 키우면 한 줄을 넘는다. 아래에서 사이트 지도의 페이지를 눌러 고르고, 빵부스러기를 줄이는 방식과 목업 폭을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-nv-crumb">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>빵부스러기 줄이기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="nv-bc-cv" class="art"></canvas><span class="hint">지도에서 페이지를 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="nv-bc-mode"><button data-value="full" class="on">모두 보이기</button><button data-value="mid">가운데 줄이기</button><button data-value="up">한 단계 위만</button></div>
+          <label class="ctrl"><span>목업 화면 폭 <output id="nv-bc-w-out"></output></span><input type="range" id="nv-bc-w" min="320" max="760" step="20" value="360"></label>
+          <label class="check"><input type="checkbox" id="nv-bc-big"> 사용자 글자 크기 160%</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이 페이지의 깊이</span><span class="v" id="nv-bc-o-d">—</span></div>
+        <div class="stat"><span class="k">빵부스러기</span><span class="v" id="nv-bc-o-l">—</span></div>
+        <div class="stat"><span class="k">바로 누를 수 있는 위층</span><span class="v" id="nv-bc-o-u">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태("2027 연말 낭독회", 깊이 3)를 본다. 책방 E의 페이지 이름은 짧아서 폭 360에서도 "모두 보이기"가 한 줄에 들어간다. ② "사용자 글자 크기 160%"를 켠다. 같은 빵부스러기가 두 줄이 되고 제목이 아래로 밀린다. 폭을 760으로 늘리면 다시 한 줄이다. ③ 폭 360, 글자 160%에서 "가운데 줄이기"로 바꾼다. 홈과 바로 위층만 남고 가운데는 "…"이 된다. ④ "한 단계 위만"으로 바꾼다. "‹ 지난 행사" 하나만 남아 가장 짧지만, 홈으로 가는 길은 로고나 메뉴가 맡아야 한다. ⑤ "모임 신청"(깊이 1)을 누른다. 맨 윗층 페이지에서는 빵부스러기가 "홈 ›" 하나뿐이라 메뉴와 같은 말을 되풀이한다. (빵부스러기 글자는 14 px(160%에서 22.4 px), 구분 기호는 ›로 그렸다. "…"을 누르면 가운데 위층들을 펼쳐 보이는 방식도 흔하지만 이 목업에서는 생략했다.)</div>
+    </div>
+
+    <p>넓은 화면에서는 위층을 모두 보여 주는 빵부스러기가 가장 많은 것을 알려 준다. 휴대폰에서는 줄이는 것이 보통이고, 가장 흔한 형태가 "한 단계 위만"이다. 바로 위층 하나를 "‹ 행사 일정"처럼 뒤로 가는 링크 모양으로 보여 주는 것이다. 이때 이것이 브라우저의 뒤로 가기와 다르다는 점을 기억한다. 검색에서 들어온 사람이 이 링크를 누르면 검색 결과가 아니라 사이트의 "행사 일정"으로 간다. 그래서 문구는 "뒤로"가 아니라 갈 곳의 이름을 쓴다.</p>
+    <p>빵부스러기의 HTML 구조는 WAI-ARIA 작성 지침(APG)의 빵부스러기 패턴이 본보기를 보여 준다. <code>&lt;nav aria-label="현재 위치"&gt;</code> 안에 순서 있는 목록으로 링크를 늘어놓고, 마지막 항목(현재 페이지)에 <code>aria-current="page"</code>를 단다. 구분 기호 ›는 화면 낭독기가 하나하나 읽지 않도록 CSS로 그린다.</p>
+  </section>
+
+  <section id="links">
+    <h2>링크 문구: 어디로 가는지 말하기</h2>
+    <p>사람은 웹 페이지를 글자 하나하나 읽지 않고 훑는다. 훑는 눈에 걸리는 것은 굵은 글씨, 제목, 그리고 링크다. 링크 문구는 사람이 "이걸 누르면 내가 찾는 것에 가까워질까"를 판단하는 단서다. Peter Pirolli와 Stuart Card는 사람이 정보를 찾는 행동을 동물이 먹이를 찾는 행동에 빗대어 설명했다(「Information foraging」, <i>Psychological Review</i>, 1999). 동물이 냄새를 따라가듯 사람은 링크 문구와 주변 글이 풍기는 단서를 따라가고, 단서가 약해지면 그 길을 포기한다는 것이다. 이 단서를 <span class="term">정보 냄새</span><span class="en">(Information scent)</span>라고 부른다.</p>
+    <p>"여기를 클릭하세요"와 "자세히 보기"는 냄새가 없는 링크의 대표다. 문장 전체를 읽어야 링크가 어디로 가는지 알 수 있고, 같은 문구가 여러 번 나오면 서로 구별되지 않는다. 화면 낭독기 사용자에게는 이 문제가 훨씬 크다. 화면 낭독기는 페이지의 링크만 모아 목록으로 보여 주는 기능이 있어, 많은 사용자가 그 목록으로 페이지를 훑는다. 그 목록에 "자세히 보기"가 다섯 번 나오면 아무것도 고를 수 없다. WCAG 2.2의 성공 기준 2.4.4(맥락 속 링크 목적, A)는 링크의 목적을 링크 문구나 그 링크가 든 문장 등의 맥락으로 알 수 있어야 한다고 요구하고, 2.4.9(링크만으로 링크 목적, AAA)는 링크 문구만으로 알 수 있게 하라고 권한다.</p>
+
+    <div class="sim" id="sim-nv-links">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>링크만 떼어 읽기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="nv-lk-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="nv-lk-v"><button data-value="here" class="on">"여기를 클릭"</button><button data-value="more">"자세히 보기"</button><button data-value="desc">갈 곳의 이름</button></div>
+          <label class="check"><input type="checkbox" id="nv-lk-scan"> 훑어보기(링크 말고는 흐리게)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">서로 다른 링크 문구</span><span class="v" id="nv-lk-o-d">—</span></div>
+        <div class="stat"><span class="k">링크만 보고 갈 곳을 아는 것</span><span class="v" id="nv-lk-o-p">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="nv-lk-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "여기를 클릭"에서 오른쪽(좁은 화면에서는 아래)의 링크 목록을 본다. 화면 낭독기의 링크 목록이 이런 모습이다. 다섯 항목 중 어느 것이 신간인지 알 수 없다. ② 훑어보기를 켠다. 링크만 남은 화면에서 "여기"는 아무 말도 하지 않는다. ③ "자세히 보기"로 바꾼다. 문장 속 맥락으로는 2.4.4를 겨우 통과할 수 있지만, 목록에서는 다섯 개가 똑같다. ④ "갈 곳의 이름"으로 바꾼다. 링크가 곧 제목이라 훑어보기에서도, 목록에서도 갈 곳이 보인다. (판정은 이 장의 단순 판정이다: 링크 문구가 갈 곳의 이름을 담으면 "링크만으로 앎", 같은 문구가 둘 이상이면 "목록에서 구별 불가"로 센다.)</div>
+    </div>
+
+    <p>좋은 링크 문구는 대개 <b>갈 곳의 이름</b>이다. 행사 카드라면 행사 이름 자체를 링크로 만들고, 문장 안의 링크라면 "모임 신청 방법은 <u>신청 안내</u>에 있다"처럼 명사구에 건다. 링크를 문장 맨 앞에 두면 훑는 눈에 먼저 걸린다. 같은 페이지로 가는 링크는 같은 문구로, 다른 페이지로 가는 링크는 다른 문구로 쓴다(성공 기준 3.2.4의 정신). 파일을 내려받는 링크라면 "행사 안내문(PDF, 1.2 MB)"처럼 형식과 크기를 적어 누르기 전에 무엇이 일어날지 알린다.</p>
+
+    <div class="callout try">
+      <strong>링크 목록만 들어 보기</strong>
+      내 휴대폰이나 컴퓨터의 화면 낭독기를 켜고 자주 가는 웹사이트를 하나 연다. 맥에서는 VoiceOver를 켜고 VO+U로 로터를 열면 링크 목록을 볼 수 있고, 윈도의 무료 화면 낭독기 NVDA에서는 NVDA+F7로 요소 목록을 연다. 링크 목록만 위에서부터 훑어 보며 "이 목록만으로 내가 원하는 곳을 고를 수 있는가"를 확인한다. "더보기", "바로가기", "클릭"이 몇 번 나오는지 세어 본다. 그다음 종이에 그 사이트의 링크 문구를 고쳐 적어 본다. 화면 낭독기를 처음 쓰면 낯설어서 몇 분 걸리지만, 링크 문구에 대한 생각은 이 한 번으로 크게 바뀐다.
+    </div>
+  </section>
+
+  <section id="search">
+    <h2>검색과 둘러보기</h2>
+    <p>사이트 안에서 무언가를 찾는 방법은 크게 둘이다. 메뉴와 분류를 따라 내려가는 <span class="term">둘러보기</span><span class="en">(Browsing)</span>와, 찾는 것의 이름을 칸에 적는 <span class="term">검색</span><span class="en">(Search)</span>이다. 큰 쇼핑몰은 둘 다 두고, 작은 가게의 사이트는 검색 칸 없이 둘러보기만으로 충분한 경우가 많다. WCAG 2.2의 성공 기준 2.4.5(여러 방법, AA)는 한 페이지에 닿는 방법이 두 가지 이상 있어야 한다고 요구한다. 메뉴와 검색일 수도, 메뉴와 사이트맵 페이지일 수도, 메뉴와 관련 링크일 수도 있다. 검색이 꼭 있어야 한다는 뜻은 아니다.</p>
+    <p>검색이 언제 이기는지는 두 가지에 달려 있다. 찾을 대상이 <b>얼마나 많은가</b>, 그리고 찾는 사람이 그 <b>이름을 아는가</b>. 아래는 책방 E의 신간 목록에서 책 한 권을 찾는 시간을 세 가지 길로 어림한 모형이다. 이것도 교육용 가정이다.</p>
+
+    <div class="sim" id="sim-nv-search">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>책 한 권을 찾는 세 가지 길(교육용 가정)</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="nv-sb-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>목록에 있는 책 <output id="nv-sb-n-out"></output></span><input type="range" id="nv-sb-n" min="1" max="3.5" step="0.05" value="1.6"></label>
+          <div class="seg" id="nv-sb-k"><button data-value="title" class="on">제목을 정확히 안다</button><button data-value="topic">주제만 안다</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 줄 목록 훑기</span><span class="v" id="nv-sb-o-a">—</span></div>
+        <div class="stat"><span class="k">분류로 둘러보기</span><span class="v" id="nv-sb-o-b">—</span></div>
+        <div class="stat"><span class="k">검색</span><span class="v" id="nv-sb-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 값(책 40권 안팎)에서 세 길의 시간을 본다. 분류로 둘러보기가 가장 빠르고, 검색은 검색어를 적는 시간 때문에 오히려 느리다. ② 책을 1,000권 이상으로 늘린다. 한 줄 목록은 그래프 밖으로 나가고, 분류도 느려지며, 검색이 앞선다. ③ "주제만 안다"로 바꾼다. 검색어가 막연해 결과가 많아지고 검색이 실패하는 일도 늘어, 책이 1,000권이어도 검색이 분류보다 느려진다. (모형의 가정: 책 한 권을 훑는 데 0.5초, 누르고 페이지가 뜨는 데 1.5초, 휴대폰에서 검색어를 적는 데 8초, 분류 8개. 찾는 책은 평균적으로 목록의 중간에 있다. 검색 성공 확률은 제목을 알 때 0.9, 주제만 알 때 0.5이며, 실패하면 분류로 둘러보기로 넘어간다. 주제 검색의 결과 수는 전체의 8%(최소 5권)로 두었다. 모두 이 장이 정한 값이다.)</div>
+    </div>
+
+    <p>모형이 보여 주는 것은 숫자보다 모양이다. 대상이 수십 개면 잘 짠 분류가 검색만큼 빠르고, 검색 칸을 만들고 관리하는 비용(검색어 오타, 결과 0건, 결과의 순서)을 생각하면 둘러보기만으로 충분하다. 대상이 수천 개면 분류는 깊어지고 넓어져서 검색이 필요해진다. 그리고 사람이 이름을 모를 때는 검색이 약하다. 그래서 검색을 둔 사이트도 둘러보기를 버리지 않는다.</p>
+
+    <div class="callout studio">
+      <strong>"결과 없음" 페이지를 설계한다</strong>
+      검색 칸을 둔다면 가장 먼저 그려야 할 화면은 검색 결과가 아니라 결과가 0건인 화면이다. 사람들이 가장 막막해지는 곳이기 때문이다. 오타를 바로잡은 검색어를 제안하고, 비슷한 결과나 인기 있는 분류를 보여 주고, 사람에게 물어볼 길(전화, 메시지)을 적는다. 사이트 안 검색어 기록(개인 정보는 빼고)을 가끔 읽어 보면 사람들이 어떤 말로 찾는지, 메뉴 이름이 사람들의 말과 어긋나는지도 알 수 있다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 8장</span></div>
+      <h4>세 줄 아이콘 대신 펼친 네 칸</h4>
+      <p>7장 끝에서 도경이 던진 질문("신청 페이지로 가는 길은 어디 있니?")이 이 장의 출발이었다. 서윤의 휴대폰 시안은 오른쪽 위의 세 줄 아이콘 뒤에 메뉴 다섯 개를 모두 숨겨 두었다. 서윤과 지후에게 그 아이콘은 너무 익숙해서 아무도 의심하지 않았다. 도경은 화면을 한참 내려 보다가 결국 주인에게 전화를 걸었다. 주인이 "모임 신청을 전화로 받느라 하루가 다 간다"고 했던, 바로 그 전화였다.</p>
+      <p>서윤은 이 장의 첫 시뮬레이터로 세 패턴을 비교했다. 메뉴 다섯 개를 위 링크 줄로 펼치면 폭 360에서는 두 줄이었지만, 도경처럼 글자를 크게 키우면 서너 줄로 깨져 "다음 모임"이 첫 화면 아래로 밀렸다. 2장에서 정한 "첫 화면에는 다음 모임 하나만"을 지킬 수 없었다. 아래 탭 바는 네 칸까지는 글자가 커져도 버텼다. 문제는 다섯 번째였다. 서윤은 주인과 지난달 전화 문의를 함께 떠올려 보았다. 가장 많은 것은 모임 신청, 다음이 행사 날짜, 신간 입고였다. "오시는 길"은 처음 오는 손님 몇 사람이 묻는 정도였다(가상, 주인의 기억에 기댄 어림). 그래서 오시는 길을 탭 바에서 빼서 "책방 소개" 페이지 맨 위와 모든 페이지의 바닥글에 두기로 했다.</p>
+      <p>지후는 넓은 화면에서도 탭 바를 쓰자고 했지만, 서윤은 넓은 화면에서는 다섯 개를 모두 머리 띠에 펼치는 쪽을 골랐다. 자리가 넉넉한데 숨길 이유가 없었다. 현재 위치 표시는 시뮬레이터에서 제2색각 보기를 켜자 초록 글자만으로는 사라지는 것을 보고 굵기와 막대를 더했다. 지후는 같은 표시를 <code>[aria-current="page"]</code> 선택자로 칠하기로 했다. 그러면 표시를 다는 것을 잊을 수 없다. 행사 상세 페이지에는 빵부스러기를 넣었다. 넓은 화면에서는 "홈 › 행사 일정 › 그림책 함께 읽기", 휴대폰에서는 "‹ 행사 일정" 한 단계만 보인다. 행사 카드의 "자세히 보기"는 모두 행사 이름 링크로 바꿨다. 신간은 지금 40권 안팎이라 검색 칸은 만들지 않고 분류(그림책, 소설, 시, 에세이, 인문) 둘러보기로 시작한다.</p>
+      <p>시안을 바꾼 다음 주, 도경은 탭 바의 "모임 신청"을 첫 화면에서 바로 눌렀다. 서윤은 그 장면을 시험 기록이 아니라 "한 사람의 한 번"으로 적었다. 같은 시험을 화면 낭독기를 쓰는 사람과도 해 봐야 한다는 메모도 남겼다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>항목</th><th>서윤의 선택</th><th>확인한 것</th></tr></thead>
+          <tbody>
+            <tr><td>휴대폰 메뉴</td><td>아래 탭 바 넷: 행사 일정 · 모임 신청 · 신간 · 책방 소개(아이콘 + 글자, 글자는 두 줄까지)</td><td>폭 320·글자 200%에서도 칸 폭 80 px, 높이 56 px 이상(기기 안전 영역 별도)</td></tr>
+            <tr><td>다섯 번째 메뉴</td><td>오시는 길은 "책방 소개" 맨 위와 모든 페이지의 바닥글</td><td>모형에서 찾는 비율이 줄어드는 대가를 알고 고름</td></tr>
+            <tr><td>넓은 화면 메뉴</td><td>머리 띠에 다섯 개 모두 펼침, 햄버거 없음</td><td>모든 페이지에서 같은 자리·순서·이름(3.2.3)</td></tr>
+            <tr><td>현재 위치</td><td>책방 초록 + 굵게(800) + 막대 3 px(탭 바는 위, 넓은 화면은 밑줄), <code>aria-current="page"</code></td><td>제2색각·흑백에서도 막대와 굵기가 남음</td></tr>
+            <tr><td>빵부스러기</td><td>깊이 2 이상 페이지에만. 넓은 화면은 전체, 휴대폰은 "‹ 바로 위 갈래" 하나</td><td><code>nav aria-label="현재 위치"</code>, 구분 기호는 CSS</td></tr>
+            <tr><td>링크 문구</td><td>"자세히 보기" 쓰지 않음. 행사 이름·책 제목을 링크로</td><td>링크 목록만으로 다섯 곳 구별</td></tr>
+            <tr><td>찾기</td><td>검색 칸 없이 신간 분류 다섯 갈래로 둘러보기. 신간이 수백 권으로 늘면 다시 검토</td><td>2.4.5는 메뉴 + 바닥글의 사이트맵 링크로</td></tr>
+            <tr><td>붙박이 탭 바</td><td><code>scroll-padding-bottom</code>을 탭 바 높이만큼</td><td>Tab으로 내려가도 포커스가 탭 바 뒤에 숨지 않음(2.4.11)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>휴대폰은 메뉴 다섯 개 중 넷(행사 일정, 모임 신청, 신간, 책방 소개)을 아래 탭 바로 펼쳐 두고, 오시는 길은 책방 소개 안과 바닥글로 보낸다. 넓은 화면은 다섯 개 모두 펼친다. 현재 위치는 색·굵기·막대 세 단서와 <code>aria-current</code>로 표시한다. 행사 상세에는 빵부스러기(휴대폰은 한 단계 위만)를 둔다. 링크 문구는 갈 곳의 이름으로 쓴다. 이 장의 발견성·검색 모형은 교육용 가정이라, 숫자가 아니라 구조만 근거로 썼다.</div>
+        <div><b>아직 남은 문제</b>도경이 탭 바로 모임 신청 페이지에 닿았지만, 그 다음 화면에서 다시 멈췄다. 칸마다 회색 글씨만 있고 이름표가 없는 신청서, 전화번호를 적는 방식이 정해져 있는 칸, 다 적고 보내자 맨 위에 한꺼번에 뜨는 빨간 글씨.</div>
+        <div><b>다음 단계</b><a href="forms.html">9장</a>: 모임 신청 폼을 다시 짠다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>내비게이션은 어느 페이지로 떨어진 사람에게도 세 질문에 답해야 한다. 지금 어디에 있나, 어디로 갈 수 있나, 어떻게 돌아가나. 메뉴는 모든 페이지에서 같은 자리·순서·이름으로(WCAG 3.2.3).</li>
+      <li>휴대폰의 메뉴 패턴(위 링크 줄, 아래 탭 바, 햄버거)은 화면 면적과 보이는 메뉴를 맞바꾼다. 가장 자주 가는 곳은 보이게, 가끔 가는 곳은 한 단계 안쪽에.</li>
+      <li>숨긴 메뉴는 덜 쓰인다는 보고가 있다(닐센 노먼 그룹, 2016). 결과는 조건에 따라 다를 수 있지만, 숨긴 메뉴의 성적은 "열어 볼 확률"에 달려 있고 그 값은 디자이너가 정할 수 없다. "메뉴 일곱 개", "세 번 클릭"은 근거가 아니다.</li>
+      <li>현재 위치는 색만이 아니라 굵기·막대 같은 단서를 겹쳐 표시하고 <code>aria-current="page"</code>를 단다. 표시는 페이지가 아니라 갈래를 가리킬 수 있다.</li>
+      <li>빵부스러기는 걸어온 길이 아니라 지도에서의 위치다. 휴대폰에서는 가운데를 줄이거나 한 단계 위만 보이게 줄인다.</li>
+      <li>링크 문구는 갈 곳의 이름으로 쓴다(WCAG 2.4.4, 2.4.9). 검색은 대상이 많고 이름을 알 때 이긴다. 작은 사이트는 잘 짠 둘러보기로 충분할 수 있고, 닿는 방법은 두 가지 이상 둔다(2.4.5).</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 닐센 노먼 그룹의 2016년 보고(Pernice, Budiu)가 숨긴 내비게이션에 대해 보고한 내용과 그 해석으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">숨긴 메뉴와 보이는 메뉴 사이에 차이가 없었으므로 어느 쪽을 써도 된다.</button>
+          <button class="opt">휴대폰에서만 문제가 있었고 넓은 화면에서는 숨긴 메뉴가 더 나았다.</button>
+          <button class="opt" data-correct>숨기면 메뉴가 덜 쓰이고 과제가 더 오래 걸렸으며 넓은 화면에서 차이가 더 컸다. 조건에 따라 다를 수 있지만 "보이지 않는 것은 덜 쓰인다"는 원리는 설계에 쓸 만하다.</button>
+          <button class="opt">이 연구로 세 줄 아이콘은 모든 사람이 안다는 것이 증명되었다.</button>
+        </div>
+        <div class="quiz-exp">보고는 숨긴 내비게이션이 쓰임과 과제 지표를 낮췄고 그 차이가 넓은 화면에서 더 컸다고 했다. 그 시점, 그 사이트, 그 과제의 결과라 일반화에는 주의가 필요하지만, 숨긴 것을 쓰려면 먼저 알아채고 열어야 한다는 구조는 남는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 메뉴의 현재 위치를 표시하는 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>현재 항목을 책방 초록으로 칠하고 굵게 하고 막대를 더하며, 링크에 <code>aria-current="page"</code>를 단다.</button>
+          <button class="opt">현재 항목만 책방 초록으로 칠한다. 색이 가장 눈에 잘 띄는 단서이기 때문이다.</button>
+          <button class="opt">현재 항목을 메뉴에서 빼서 남은 항목만 보이게 한다.</button>
+          <button class="opt">현재 항목의 글자를 다른 항목보다 아주 크게 해서 페이지 제목처럼 보이게 한다.</button>
+        </div>
+        <div class="quiz-exp">색 하나로만 알리면 색을 구별하기 어려운 사람과 흑백에서는 표시가 사라진다(1.4.1). 굵기·막대 같은 다른 성질의 단서를 겹치고, 화면 낭독기를 위해 <code>aria-current</code>를 단다. 항목을 빼면 메뉴의 자리와 순서가 페이지마다 바뀌고(3.2.3), 지나치게 크게 하면 위계가 무너진다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 행사 카드 다섯 개에 모두 "자세히 보기" 링크가 있다. 화면 낭독기의 링크 목록으로 페이지를 훑는 사람을 생각할 때 가장 알맞은 고침은?</p>
+        <div class="opts">
+          <button class="opt">"자세히 보기"를 "여기를 클릭하세요"로 바꿔 누를 수 있다는 것을 더 분명히 한다.</button>
+          <button class="opt">링크 색을 더 진하게 하고 밑줄을 굵게 한다.</button>
+          <button class="opt">"자세히 보기"를 다섯 번 쓰되 카드 사이 간격을 넓힌다.</button>
+          <button class="opt" data-correct>행사 이름 자체를 링크로 만들어, 링크만 떼어 읽어도 어느 행사로 가는지 알 수 있게 한다.</button>
+        </div>
+        <div class="quiz-exp">링크 목록에서는 주변 글 없이 링크 문구만 보인다. 같은 문구 다섯 개는 서로 구별되지 않는다. 갈 곳의 이름을 링크 문구로 쓰면 2.4.4와 2.4.9를 함께 만족하고, 눈으로 훑는 사람에게도 정보 냄새가 강해진다. 색, 밑줄, 간격은 문구의 뜻을 바꾸지 못한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 검색에서 행사 상세 페이지로 곧장 들어온 사람에게 "홈 › 행사 일정 › 그림책 함께 읽기"라는 빵부스러기가 보인다. 이 빵부스러기에 대한 설명으로 옳은 것은?</p>
+        <div class="opts">
+          <button class="opt">그 사람이 실제로 지나온 페이지의 기록이므로, 검색으로 들어온 사람에게는 비어 있어야 한다.</button>
+          <button class="opt" data-correct>사이트 지도에서 이 페이지의 위치를 보여 주므로, 어디로 들어왔든 같은 줄이 보이고 "행사 일정"을 누르면 그 갈래 페이지로 간다.</button>
+          <button class="opt">브라우저의 뒤로 가기와 같은 일을 하므로 "행사 일정"을 누르면 검색 결과로 돌아간다.</button>
+          <button class="opt">깊이와 상관없이 모든 페이지에 반드시 있어야 하는 WCAG의 A 등급 요구다.</button>
+        </div>
+        <div class="quiz-exp">웹의 빵부스러기는 대개 지나온 길이 아니라 사이트 구조 속의 위치를 보여 준다. 그래서 검색으로 들어온 사람에게도 같은 줄이 보이고, 링크는 사이트의 위층 페이지로 간다. 지나온 길은 뒤로 가기가 맡는다. 빵부스러기는 위치를 알리는 여러 방법 중 하나이며(2.4.8은 AAA 권고), 얕은 페이지에는 필요 없을 수 있다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#2b2a30", DIM = "#6b6874", PAPER = "#fbfaf7", GRAY = "#4a4a50";   // 고정된 종이 바탕 위의 글자색
+  var BK = { green: "#2f7d5b", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", dark: "#22342a" };   // 책방 E의 색(ColorBook에서 정한 값)
+  function sim(fn) { try { fn(); } catch (e) { if (window.console) console.error(e); } }   // 한 시뮬레이터의 오류가 다른 것을 멈추지 않게
+  function rrect(c, x, y, w, h, r) { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); }
+  function T(c, s, x, y, o) {
+    o = o || {}; c.fillStyle = o.color || INK; c.font = AB.font(o.size || 12, !!o.mono, o.weight || 600);
+    c.textAlign = o.align || "left"; c.textBaseline = o.base || "top"; c.fillText(s, x, y);
+  }
+  function con(a, b) { return ART.contrast(ART.parse(a), ART.parse(b)); }
+  // 탭 아이콘(선 그림): 0 행사(달력) 1 신청(연필) 2 신간(책) 3 소개(집)
+  function icon(c, kind, x, y, s, col, filled) {
+    c.strokeStyle = col; c.fillStyle = col; c.lineWidth = Math.max(1.4, s * 0.09); c.lineJoin = "round";
+    var h = s / 2;
+    c.beginPath();
+    if (kind === 0) { c.rect(x - h * 0.8, y - h * 0.7, s * 0.8, s * 0.75); }
+    else if (kind === 1) { c.moveTo(x - h * 0.7, y + h * 0.7); c.lineTo(x - h * 0.5, y + h * 0.1); c.lineTo(x + h * 0.4, y - h * 0.8); c.lineTo(x + h * 0.8, y - h * 0.4); c.lineTo(x - h * 0.1, y + h * 0.5); c.closePath(); }
+    else if (kind === 2) { c.moveTo(x, y - h * 0.5); c.lineTo(x - h * 0.85, y - h * 0.75); c.lineTo(x - h * 0.85, y + h * 0.6); c.lineTo(x, y + h * 0.8); c.lineTo(x + h * 0.85, y + h * 0.6); c.lineTo(x + h * 0.85, y - h * 0.75); c.closePath(); }
+    else { c.moveTo(x - h * 0.8, y - h * 0.05); c.lineTo(x, y - h * 0.8); c.lineTo(x + h * 0.8, y - h * 0.05); c.lineTo(x + h * 0.6, y - h * 0.05); c.lineTo(x + h * 0.6, y + h * 0.75); c.lineTo(x - h * 0.6, y + h * 0.75); c.lineTo(x - h * 0.6, y - h * 0.05); c.closePath(); }
+    if (filled) c.fill(); else c.stroke();
+    if (kind === 0 && !filled) { c.beginPath(); c.moveTo(x - h * 0.8, y - h * 0.3); c.lineTo(x + h * 0.8, y - h * 0.3); c.stroke(); }
+    if (kind === 2) { c.strokeStyle = filled ? "#ffffff" : col; c.beginPath(); c.moveTo(x, y - h * 0.5); c.lineTo(x, y + h * 0.8); c.stroke(); }
+  }
+  function burger(c, x, y, col) { c.fillStyle = col; for (var i = 0; i < 3; i++) c.fillRect(x, y + i * 7, 22, 2.6); }
+  // 다음 모임 카드(본문 자리 채우기)
+  function heroCard(c, x, y, w, f) {
+    c.fillStyle = BK.calm; rrect(c, x, y, w, 150, 10); c.fill();
+    ["#ffe2d7", "#d24f39", "#22342a"].forEach(function (col, b) { c.fillStyle = col; c.fillRect(x + w * (0.3 + b * 0.13), y + 40 + b * 6, w * 0.09, 90 - b * 6); });
+    T(c, "다음 모임", x, y + 162, { size: 13 * f, weight: 700, color: BK.red });
+    T(c, "그림책 함께 읽기", x, y + 162 + 20 * f, { size: 20 * f, weight: 800, color: BK.dark });
+    T(c, "2월 5일 토 오전 11시", x, y + 162 + 50 * f, { size: 15 * f, weight: 500, color: GRAY });
+    for (var i = 0; i < 4; i++) { c.fillStyle = "#e3e0d9"; c.fillRect(x, y + 162 + 82 * f + i * 18, w * (0.9 - (i % 2) * 0.2), 9); }
+  }
+
+  /* ---------------- 시뮬레이터 1: 같은 메뉴, 세 가지 패턴 ---------------- */
+  sim(function () {
+    var ITEMS = ["행사 일정", "모임 신청", "신간", "책방 소개", "오시는 길"], TABS = ["행사 일정", "모임 신청", "신간", "책방 소개"], SH = 600;
+    var pat = AB.seg("nv-mp-pat", function () { cv.redraw(); });
+    var wG = AB.range("nv-mp-w", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var fG = AB.range("nv-mp-f", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    function scaleFor(w, h) { return Math.min(1, (w - 24) / 430, (h - 24) / SH); }
+    var cv = AB.canvas("#nv-mp-cv", function (ctx, w, h) {
+      var MW = wG(), f = fG() / 100, p = pat(), k = scaleFor(w, h), mx = (w - MW * k) / 2, my = (h - SH * k) / 2;
+      ctx.save(); ctx.translate(mx, my); ctx.scale(k, k);
+      ctx.beginPath(); ctx.rect(0, 0, MW, SH); ctx.clip();
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, MW, SH);
+      T(ctx, "책방 E", 16, 28, { size: 20, weight: 800, color: BK.green, base: "middle" });
+      var menuH = 56, visible = 0, minT = Infinity, note = "", contentY = 56;
+      if (p === "burger") {
+        burger(ctx, MW - 38, 20, BK.dark); minT = 44; note = "다섯 개 모두 ☰ 안에";
+        ctx.fillStyle = "#e6e3dc"; ctx.fillRect(0, 55, MW, 1);
+      } else if (p === "top") {
+        ctx.fillStyle = "#e6e3dc"; ctx.fillRect(0, 55, MW, 1);
+        var fs = 15 * f, lh = Math.max(44, fs * 1.3 + 12), x = 12, y = 56, rows = 1;
+        ctx.font = AB.font(fs, false, 600);
+        ITEMS.forEach(function (it) {
+          var iw = Math.max(44, ctx.measureText(it).width + 16);
+          if (x + iw > MW - 12 && x > 12) { x = 12; y += lh; rows++; }
+          T(ctx, it, x + 8, y + lh / 2, { size: fs, weight: 600, color: BK.dark, base: "middle" });
+          minT = Math.min(minT, iw, lh); x += iw + 4;
+        });
+        menuH = 56 + rows * lh; visible = 5; contentY = menuH;
+        ctx.fillStyle = "#e6e3dc"; ctx.fillRect(0, menuH - 1, MW, 1);
+      } else {
+        ctx.fillStyle = "#e6e3dc"; ctx.fillRect(0, 55, MW, 1);
+      }
+      heroCard(ctx, 16, contentY + 16, MW - 32, f);
+      if (p === "tab") {
+        var tw = MW / 4, fz = 12 * f, lineH = fz * 1.25, cut = 0, labels = [];
+        ctx.font = AB.font(fz, false, 600);
+        TABS.forEach(function (t) {
+          var L = [t];
+          if (ctx.measureText(t).width > tw - 8) {
+            L = t.split(" ");
+            L = L.map(function (s) { if (ctx.measureText(s).width <= tw - 8) return s; cut++; while (s.length > 1 && ctx.measureText(s + "…").width > tw - 8) s = s.slice(0, -1); return s + "…"; });
+          }
+          labels.push(L);
+        });
+        var nL = Math.max.apply(null, labels.map(function (L) { return L.length; })), barH = Math.max(56, 8 + 24 + 4 + nL * lineH + 8), by = SH - barH;
+        ctx.fillStyle = "#ffffff"; ctx.fillRect(0, by, MW, barH); ctx.fillStyle = "#e6e3dc"; ctx.fillRect(0, by, MW, 1);
+        labels.forEach(function (L, i) {
+          var cx = tw * i + tw / 2, col = i === 1 ? BK.green : GRAY;
+          icon(ctx, i, cx, by + 20, 20, col, false);
+          L.forEach(function (s, j) { T(ctx, s, cx, by + 36 + j * lineH, { size: fz, weight: i === 1 ? 800 : 600, color: col, align: "center" }); });
+          if (i) { ctx.fillStyle = "#f0eee9"; ctx.fillRect(tw * i, by + 10, 1, barH - 20); }
+        });
+        menuH = 56 + barH; visible = 4; minT = Math.min(tw, barH); note = cut ? "글자 " + cut + "개 잘림" : "오시는 길은 자리 없음";
+      }
+      ctx.restore();
+      ctx.strokeStyle = "#1e1e20"; ctx.lineWidth = 2; rrect(ctx, mx - 1, my - 1, MW * k + 2, SH * k + 2, 6); ctx.stroke();
+      AB.stat("nv-mp-o-v", visible + " / 5" + (note ? " <small>" + note + "</small>" : ""));
+      AB.stat("nv-mp-o-h", Math.round(menuH) + " px <small>보이는 높이 600의 " + AB.pct(menuH / SH, 0) + "</small>");
+      AB.stat("nv-mp-o-t", Math.round(minT) + " px" + (minT >= 44 ? "" : " <small>44 미만</small>"));
+    }, { get height() { var el = document.getElementById("nv-mp-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(1, (W - 24) / 430) * SH + 24); }, bg: "#808080" });
+  });
+
+  /* ---------------- 시뮬레이터 2: 손님 100명의 길 찾기(교육용 가정) ---------------- */
+  sim(function () {
+    var SEE = 0.95, FIND = 0.95, SCENT = 0.7, FOOT = 0.4;   // 교육용 가정
+    var pat = AB.seg("nv-ds-pat", function () { cv.redraw(); });
+    var pG = AB.range("nv-ds-p", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var tgt = AB.seg("nv-ds-t", function () { cv.redraw(); });
+    function model() {
+      var p = pat(), t = tgt(), open = p === "tab" ? SEE : p === "icon" ? pG() : pG() + (1 - pG()) * 0.5;
+      if (p === "tab") return t === "apply" ? { p: SEE * FIND, taps: "1번" } : { p: SEE * (SCENT * FIND + (1 - SCENT) * FOOT), taps: "2번 <small>책방 소개 → 오시는 길</small>" };
+      return { p: open * FIND, taps: "2번 <small>☰ → 항목</small>" };
+    }
+    var cv = AB.canvas("#nv-ds-cv", function (ctx, w, h) {
+      var M = model(), side = w >= 480, pw = 120, ph = 220, px = side ? 18 : (w - pw) / 2, py = side ? (h - ph) / 2 : 12;
+      // 작은 휴대폰
+      ctx.fillStyle = "#1e1e20"; rrect(ctx, px - 5, py - 5, pw + 10, ph + 10, 14); ctx.fill();
+      ctx.fillStyle = "#ffffff"; rrect(ctx, px, py, pw, ph, 9); ctx.fill();
+      T(ctx, "책방 E", px + 8, py + 10, { size: 11, weight: 800, color: BK.green });
+      var p = pat(), t = tgt();
+      if (p !== "tab") {
+        burger(ctx, px + pw - 30, py + 9, BK.dark);
+        if (p === "label") T(ctx, "메뉴", px + pw - 44, py + 13, { size: 9, weight: 700, color: BK.dark, align: "right" });
+      }
+      ctx.fillStyle = BK.calm; rrect(ctx, px + 8, py + 32, pw - 16, 70, 6); ctx.fill();
+      for (var i = 0; i < 5; i++) { ctx.fillStyle = "#e3e0d9"; ctx.fillRect(px + 8, py + 112 + i * 12, (pw - 16) * (0.9 - (i % 2) * 0.25), 6); }
+      if (p === "tab") {
+        var by = py + ph - 34, tw = pw / 4;
+        ctx.fillStyle = "#e6e3dc"; ctx.fillRect(px, by, pw, 1);
+        ["행사", "신청", "신간", "소개"].forEach(function (s, j) {
+          var hl = (t === "apply" && j === 1) || (t === "map" && j === 3);
+          icon(ctx, j, px + tw * j + tw / 2, by + 11, 11, hl ? BK.red : GRAY, false);
+          T(ctx, s, px + tw * j + tw / 2, by + 20, { size: 8.5, weight: 700, color: hl ? BK.red : GRAY, align: "center" });
+        });
+      }
+      T(ctx, t === "apply" ? "찾는 것: 모임 신청" : "찾는 것: 오시는 길", px + pw / 2, py + ph + 12, { size: 11, weight: 700, color: INK, align: "center" });
+      // 손님 100명
+      var gx0 = side ? px + pw + 40 : 16, gy0 = side ? 24 : py + ph + 40, gw = (side ? w - gx0 - 18 : w - 32), cell = Math.min(gw / 10, side ? (h - 70) / 10 : 26), r = cell * 0.32;
+      var rng = AB.rng(17), found = 0;
+      for (var n = 0; n < 100; n++) {
+        var ok = rng() < M.p; if (ok) found++;
+        var cx = gx0 + (n % 10) * cell + cell / 2, cy = gy0 + Math.floor(n / 10) * cell + cell / 2;
+        ctx.fillStyle = ok ? BK.green : "#ffffff"; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill();
+        if (!ok) { ctx.strokeStyle = BK.red; ctx.lineWidth = 2; ctx.stroke(); }
+      }
+      var ly = gy0 + cell * 10 + 10;
+      ctx.fillStyle = BK.green; ctx.beginPath(); ctx.arc(gx0 + 6, ly + 7, 5, 0, 7); ctx.fill();
+      T(ctx, "찾음", gx0 + 16, ly, { size: 11, color: INK, weight: 600 });
+      ctx.strokeStyle = BK.red; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(gx0 + 70, ly + 7, 5, 0, 7); ctx.stroke();
+      T(ctx, "포기(전화)", gx0 + 80, ly, { size: 11, color: INK, weight: 600 });
+      AB.stat("nv-ds-o-f", found + "명 <small>/ 100 · 기대값 " + Math.round(M.p * 100) + "</small>");
+      AB.stat("nv-ds-o-c", (100 - found) + "명");
+      AB.stat("nv-ds-o-t", M.taps);
+    }, { get height() { var el = document.getElementById("nv-ds-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W >= 480 ? 290 : Math.round(12 + 220 + 40 + Math.min((W - 32) / 10, 26) * 10 + 34); }, bg: PAPER });
+  });
+
+  /* ---------------- 시뮬레이터 3: 현재 위치를 알리는 단서 ---------------- */
+  sim(function () {
+    var ITEMS = ["행사 일정", "모임 신청", "신간", "책방 소개", "오시는 길"], TABMAP = [0, 1, 2, 3, 3];
+    var cur = 0, hits = [];
+    var sty = AB.seg("nv-yh-sty", function () { cv.redraw(); });
+    var cvd = AB.check("nv-yh-cvd", function () { cv.redraw(); });
+    var aria = AB.check("nv-yh-aria", function () { cv.redraw(); });
+    function C(hex) { return cvd() ? ART.hex(ART.clip(ART.simulateCVD(ART.parse(hex), "deutan", 1))) : hex; }
+    var cv = AB.canvas("#nv-yh-cv", function (ctx, w, h) {
+      var s = sty(), onCol = s === "none" ? GRAY : BK.green, bold = s === "weight" || s === "bar", bar = s === "bar";
+      hits = [];
+      // 넓은 화면 머리 띠
+      var dx = 12, dw = w - 24, dh = 64;
+      ctx.fillStyle = "#ffffff"; rrect(ctx, dx, 12, dw, dh, 8); ctx.fill(); ctx.strokeStyle = "#e0dcd3"; ctx.lineWidth = 1; ctx.stroke();
+      var narrow = dw < 520, fs = narrow ? 12 : 14;
+      if (!narrow) T(ctx, "책방 E", dx + 16, 12 + dh / 2, { size: 18, weight: 800, color: C(BK.green), base: "middle" });
+      ctx.font = AB.font(fs, false, 800);
+      var widths = ITEMS.map(function (t) { return ctx.measureText(t).width; }), gap = narrow ? 10 : 22, total = widths.reduce(function (a, b) { return a + b; }, 0) + gap * 4;
+      var x = narrow ? dx + (dw - total) / 2 : dx + dw - 16 - total;
+      ITEMS.forEach(function (t, i) {
+        var on = i === cur, col = C(on ? onCol : GRAY);
+        T(ctx, t, x, 12 + dh / 2, { size: fs, weight: on && bold ? 800 : 500, color: col, base: "middle" });
+        if (on && bar) { ctx.fillStyle = col; ctx.fillRect(x, 12 + dh / 2 + fs * 0.8, widths[i], 3); }
+        hits.push({ x: x - 4, y: 12, w: widths[i] + 8, h: dh, i: i });
+        x += widths[i] + gap;
+      });
+      T(ctx, "넓은 화면", dx, 12 + dh + 6, { size: 10.5, color: DIM, weight: 500 });
+      // 휴대폰 탭 바
+      var pw = Math.min(360, w - 24), px = (w - pw) / 2, py = 12 + dh + 44, ph = h - py - 34, tbH = 60, tb = py + ph - tbH, tw = pw / 4;
+      ctx.fillStyle = "#ffffff"; rrect(ctx, px, py, pw, ph, 10); ctx.fill(); ctx.strokeStyle = "#e0dcd3"; ctx.lineWidth = 1; ctx.stroke();
+      T(ctx, ITEMS[cur], px + 16, py + 14, { size: 17, weight: 800, color: BK.dark });
+      for (var l = 0; l < 3; l++) { ctx.fillStyle = "#e3e0d9"; ctx.fillRect(px + 16, py + 44 + l * 14, (pw - 32) * (0.85 - l * 0.15), 7); }
+      ctx.fillStyle = "#e6e3dc"; ctx.fillRect(px, tb, pw, 1);
+      ["행사 일정", "모임 신청", "신간", "책방 소개"].forEach(function (t, j) {
+        var on = TABMAP[cur] === j, col = C(on ? onCol : GRAY), cx = px + tw * j + tw / 2;
+        if (on && bar) { ctx.fillStyle = col; ctx.fillRect(px + tw * j + tw * 0.2, tb + 1, tw * 0.6, 3); }
+        icon(ctx, j, cx, tb + 21, 20, col, on && bar);
+        T(ctx, t, cx, tb + 38, { size: 11.5, weight: on && bold ? 800 : 500, color: col, align: "center" });
+        hits.push({ x: px + tw * j, y: tb, w: tw, h: tbH, i: j });
+      });
+      T(ctx, "휴대폰 탭 바", px, py - 15, { size: 10.5, color: DIM, weight: 500 });
+      var cues = [];
+      if (s !== "none") cues.push("색"); if (bold) cues.push("굵기"); if (bar) cues.push("막대·꽉 찬 아이콘");
+      AB.stat("nv-yh-o-c", cues.length ? cues.join(" + ") + (cues.length === 1 ? " <small>색에만 의존(1.4.1)</small>" : "") : "없음");
+      AB.stat("nv-yh-o-r", s === "none" ? "1.00" : con(C(BK.green), C(GRAY)).toFixed(2) + " <small>" + (cvd() ? "제2색각 근사" : "원래 색") + "</small>");
+      AB.stat("nv-yh-o-a", aria() ? "「" + ITEMS[cur] + ", 현재 페이지」" : "「" + ITEMS[cur] + "」 <small>현재인지 모름</small>");
+    }, { aspect: 0.66, minHeight: 340, maxHeight: 390, bg: PAPER });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        for (var i = 0; i < hits.length; i++) { var r = hits[i]; if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) { cur = r.i; cv.redraw(); return; } }
+      },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 4: 빵부스러기 줄이기 ---------------- */
+  sim(function () {
+    var NODES = [["홈", -1], ["행사 일정", 0], ["그림책 함께 읽기", 1], ["필사의 밤", 1], ["지난 행사", 1], ["2027 연말 낭독회", 4], ["모임 신청", 0], ["신간", 0], ["「겨울 숲 산책」", 7], ["책방 소개", 0], ["오시는 길", 9]];
+    var sel = 5, rows = [];
+    var mode = AB.seg("nv-bc-mode", function () { cv.redraw(); });
+    var wG = AB.range("nv-bc-w", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var big = AB.check("nv-bc-big", function () { cv.redraw(); });
+    function depth(i) { var d = 0; while (NODES[i][1] >= 0) { i = NODES[i][1]; d++; } return d; }
+    function path(i) { var p = [i]; while (NODES[i][1] >= 0) { i = NODES[i][1]; p.unshift(i); } return p; }
+    var cv = AB.canvas("#nv-bc-cv", function (ctx, w, h) {
+      var P = path(sel), RH = 23, tx = 16, ty = 12;
+      rows = [];
+      T(ctx, "사이트 지도", tx, ty, { size: 11, weight: 700, color: DIM });
+      NODES.forEach(function (n, i) {
+        var d = depth(i), y = ty + 20 + i * RH, x = tx + d * 18, on = i === sel, inPath = P.indexOf(i) >= 0;
+        if (d) { ctx.strokeStyle = "#c9c4ba"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x - 10, y + RH / 2 - 9); ctx.lineTo(x - 10, y + RH / 2); ctx.lineTo(x - 3, y + RH / 2); ctx.stroke(); }
+        ctx.font = AB.font(12.5, false, on ? 800 : 600); var tw = ctx.measureText(n[0]).width;
+        if (on) { ctx.fillStyle = BK.green; rrect(ctx, x - 4, y + 2, tw + 8, RH - 4, 5); ctx.fill(); }
+        else if (inPath) { ctx.fillStyle = "#dcebe3"; rrect(ctx, x - 4, y + 2, tw + 8, RH - 4, 5); ctx.fill(); }
+        T(ctx, n[0], x, y + RH / 2, { size: 12.5, weight: on ? 800 : 600, color: on ? "#ffffff" : BK.dark, base: "middle" });
+        rows.push({ x: x - 6, y: y, w: tw + 12, h: RH, i: i });
+      });
+      T(ctx, "깊이 " + depth(sel), tx + 210 < w - 60 ? tx + 210 : w - 60, ty + 20 + sel * RH + 5, { size: 10.5, color: DIM, weight: 500 });
+      // 휴대폰/화면 목업
+      var MW = wG(), my = ty + 20 + NODES.length * RH + 16, k = Math.min(1, (w - 24) / MW), mx = (w - MW * k) / 2, mh = (h - my - 34) / k;
+      ctx.save(); ctx.translate(mx, my); ctx.scale(k, k);
+      ctx.beginPath(); ctx.rect(0, 0, MW, mh); ctx.clip();
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, MW, mh);
+      T(ctx, "책방 E", 16, 22, { size: 17, weight: 800, color: BK.green, base: "middle" });
+      ctx.fillStyle = "#e6e3dc"; ctx.fillRect(0, 44, MW, 1);
+      var m = mode(), items = P.map(function (i) { return { t: NODES[i][0], link: i !== sel }; });
+      if (m === "mid" && items.length > 3) items = [items[0], { t: "…", link: true }, items[items.length - 2], items[items.length - 1]];
+      if (m === "up") items = P.length > 1 ? [{ t: "‹ " + NODES[P[P.length - 2]][0], link: true }] : [];
+      var fs = big() ? 22.4 : 14, x = 16, y = 56, lines = items.length ? 1 : 0, avail = MW - 16, upCount = 0;
+      ctx.font = AB.font(fs, false, 600);
+      items.forEach(function (it, j) {
+        var sep = j < items.length - 1 ? "  ›  " : "", tw = ctx.measureText(it.t).width, sw = ctx.measureText(sep).width;
+        if (x + tw > avail && x > 16) { x = 16; y += fs * 1.7; lines++; }
+        T(ctx, it.t, x, y, { size: fs, weight: it.link ? 600 : 500, color: it.link ? BK.green : GRAY });
+        if (it.link) { ctx.fillStyle = BK.green; ctx.fillRect(x, y + fs + 2, tw, 1.2); if (it.t !== "…") upCount++; }
+        x += tw; if (sep) { T(ctx, sep, x, y, { size: fs, weight: 500, color: "#9a9aa0" }); x += sw; }
+      });
+      var titleY = y + (items.length ? fs * 2.4 : 4);
+      T(ctx, NODES[sel][0], 16, titleY, { size: 22, weight: 800, color: BK.dark });
+      for (var l = 0; l < 3; l++) { ctx.fillStyle = "#e3e0d9"; ctx.fillRect(16, titleY + 40 + l * 14, (MW - 32) * (0.85 - l * 0.15), 7); }
+      ctx.restore();
+      ctx.strokeStyle = "#cfcac0"; ctx.lineWidth = 1; ctx.strokeRect(mx - 0.5, my - 0.5, MW * k + 1, h - my - 33);
+      AB.stat("nv-bc-o-d", depth(sel) + (depth(sel) <= 1 ? " <small>메뉴만으로 닿는다</small>" : ""));
+      AB.stat("nv-bc-o-l", !items.length ? "없음 <small>첫 화면</small>" : lines + "줄" + (lines > 1 ? " <small>줄이 넘친다</small>" : ""));
+      AB.stat("nv-bc-o-u", upCount + "개" + (m === "mid" && P.length > 3 ? " <small>…은 펼치기</small>" : ""));
+    }, { get height() { var el = document.getElementById("nv-bc-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(12 + 20 + 11 * 23 + 16 + 170 * Math.min(1, (W - 24) / 360) + 34); }, bg: PAPER });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { for (var i = 0; i < rows.length; i++) { var r = rows[i]; if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) { sel = r.i; cv.redraw(); return; } } },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 5: 링크만 떼어 읽기 ---------------- */
+  sim(function () {
+    var V = {
+      here: [["그림책 함께 읽기 · 2월 5일. 안내를 보려면 ", "여기를 클릭", "하세요."], ["필사의 밤 · 2월 17일. 안내는 ", "여기를 클릭", "하세요."], ["겨울 시 낭독 · 2월 26일. 신청은 ", "여기를 클릭", "하세요."], ["2월에 들어온 신간은 ", "여기", "에 있습니다."], ["책방까지 오는 길은 ", "여기를 클릭", "하세요."]],
+      more: [["그림책 함께 읽기 · 2월 5일 토 오전 11시 ", "자세히 보기", ""], ["필사의 밤 · 2월 17일 목 저녁 7시 ", "자세히 보기", ""], ["겨울 시 낭독 · 2월 26일 토 저녁 7시 ", "자세히 보기", ""], ["2월에 들어온 신간 12권 ", "자세히 보기", ""], ["책방까지 오는 길 ", "자세히 보기", ""]],
+      desc: [["", "그림책 함께 읽기", " · 2월 5일 토 오전 11시"], ["", "필사의 밤", " · 2월 17일 목 저녁 7시"], ["", "겨울 시 낭독", " · 2월 26일 토 저녁 7시"], ["", "2월 신간 12권 보기", ""], ["", "오시는 길과 지도", ""]],
+    };
+    var v = AB.seg("nv-lk-v", function () { cv.redraw(); });
+    var scan = AB.check("nv-lk-scan", function () { cv.redraw(); });
+    function words(ctx, text) { return text ? text.split(/(\s+)/).filter(function (s) { return s.length; }) : []; }
+    var cv = AB.canvas("#nv-lk-cv", function (ctx, w, h) {
+      var L = V[v()], side = w >= 560, pw = side ? w * 0.58 : w - 24, px = 12, py = 12, fs = 13.5, lh = 22, sc = scan();
+      ctx.fillStyle = "#ffffff"; rrect(ctx, px, py, pw, side ? h - 24 : 0, 8);
+      var y = py + 14, xMax = px + pw - 14;
+      T(ctx, "이번 달 소식", px + 14, y, { size: 15, weight: 800, color: sc ? "#d8d5ce" : BK.dark }); y += 30;
+      var pageTop = py;
+      L.forEach(function (row) {
+        var x = px + 14;
+        [[row[0], false], [row[1], true], [row[2], false]].forEach(function (part) {
+          words(ctx, part[0]).forEach(function (wd) {
+            ctx.font = AB.font(fs, false, part[1] ? 700 : 500); var ww = ctx.measureText(wd).width;
+            if (x + ww > xMax && x > px + 14 && wd.trim()) { x = px + 14; y += lh; }
+            if (!wd.trim()) { x += ww; return; }
+            if (part[1]) { T(ctx, wd, x, y, { size: fs, weight: 700, color: BK.green }); ctx.fillStyle = BK.green; ctx.fillRect(x, y + fs + 2, ww, 1.3); }
+            else if (sc) { ctx.fillStyle = "#e6e3dc"; ctx.fillRect(x, y + 4, ww, fs - 6); }
+            else T(ctx, wd, x, y, { size: fs, weight: 500, color: GRAY });
+            x += ww;
+          });
+        });
+        y += lh + 12;
+      });
+      var pageBottom = y;
+      ctx.strokeStyle = "#e0dcd3"; ctx.lineWidth = 1; rrect(ctx, px + 0.5, pageTop + 0.5, pw - 1, pageBottom - pageTop, 8); ctx.stroke();
+      // 화면 낭독기의 링크 목록
+      var lx = side ? px + pw + 14 : 12, lyy = side ? 12 : pageBottom + 16, lw = side ? w - lx - 12 : w - 24, lhh = 34 + L.length * 26 + 10;
+      ctx.fillStyle = BK.dark; rrect(ctx, lx, lyy, lw, lhh, 8); ctx.fill();
+      T(ctx, "링크 목록(화면 낭독기)", lx + 12, lyy + 12, { size: 11.5, weight: 700, color: "#b9c9bf" });
+      L.forEach(function (row, i) {
+        var yy = lyy + 36 + i * 26;
+        if (i === 0) { ctx.fillStyle = "rgba(255,226,215,0.16)"; ctx.fillRect(lx + 6, yy - 4, lw - 12, 24); }
+        T(ctx, row[1], lx + 14, yy, { size: 13, weight: 600, color: BK.cream });
+      });
+      var set = {}; L.forEach(function (row) { set[row[1]] = 1; });
+      var distinct = Object.keys(set).length, purpose = v() === "desc" ? 5 : 0;
+      AB.stat("nv-lk-o-d", distinct + " / 5");
+      AB.stat("nv-lk-o-p", purpose + " / 5");
+      AB.stat("nv-lk-o-j", v() === "desc" ? "링크만으로 앎 <small>2.4.4 · 2.4.9</small>" : v() === "more" ? "문장 맥락으로만 <small>목록에서 구별 불가</small>" : "맥락을 다 읽어야 <small>목록에서 구별 불가</small>");
+    }, { get height() { var el = document.getElementById("nv-lk-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W >= 560 ? 330 : 560; }, bg: PAPER });
+  });
+
+  /* ---------------- 시뮬레이터 6: 책 한 권을 찾는 세 가지 길(교육용 가정) ---------------- */
+  sim(function () {
+    var SCAN = 0.5, TAP = 1.5, TYPE = 8, K = 8;   // 교육용 가정(초)
+    var nG = AB.range("nv-sb-n", function (v) { return Math.round(Math.pow(10, v)).toLocaleString("en-US") + "권"; }, function () { cv.redraw(); });
+    var know = AB.seg("nv-sb-k", function () { cv.redraw(); });
+    function times(N, kn) {
+      var flat = 2 + SCAN * N / 2;
+      var cat = 2 + SCAN * K / 2 + TAP + SCAN * (N / K) / 2;
+      var R = kn === "title" ? 3 : Math.max(5, N * 0.08), ps = kn === "title" ? 0.9 : 0.5;
+      var srch = TYPE + TAP + SCAN * Math.min(N, R) / 2 + (1 - ps) * cat;
+      return [flat, cat, srch];
+    }
+    function fmt(t) { return t >= 120 ? Math.round(t / 60) + "분" : t.toFixed(1) + "초"; }
+    var cv = AB.canvas("#nv-sb-cv", function (ctx, w, h) {
+      var P = AB.palette(), kn = know(), lv = nG(), N = Math.pow(10, lv), s = [[], [], []];
+      for (var x = 1; x <= 3.5001; x += 0.05) { var t = times(Math.pow(10, x), kn); for (var j = 0; j < 3; j++) s[j].push([x, t[j]]); }
+      var cur = times(N, kn), cols = [P.faint, P.accent2, P.accent];
+      var ch = AB.chart(ctx, null, { x: [1, 3.5], y: [0, 90], xLabel: "목록에 있는 책(권, 로그 눈금)", yLabel: "찾는 데 걸리는 시간(초)", xTicks: [1, 2, 3], xFmt: function (v) { return Math.round(Math.pow(10, v)).toLocaleString("en-US"); }, series: s.map(function (d, j) { return { data: d, color: cols[j], width: j === 2 ? 2.4 : 2 }; }), vlines: [{ x: lv, color: P.dim }], points: cur.map(function (t, j) { return { x: lv, y: Math.min(t, 90), color: cols[j], r: 5 }; }) });
+      var names = ["한 줄 목록", "분류", "검색"], lx = ch.box.x + 10, ly = ch.box.y + 6;
+      ctx.font = AB.font(11.5, false, 600); ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      names.forEach(function (n, j) { ctx.fillStyle = cols[j]; ctx.fillRect(lx, ly + j * 17 + 4, 14, 3); ctx.fillStyle = P.text; ctx.fillText(n, lx + 20, ly + j * 17 + 5); });
+      var best = cur.indexOf(Math.min.apply(null, cur));
+      ["nv-sb-o-a", "nv-sb-o-b", "nv-sb-o-c"].forEach(function (id, j) { AB.stat(id, fmt(cur[j]) + (j === best ? " <small>가장 빠름</small>" : "")); });
+    }, { aspect: 0.62, minHeight: 280, maxHeight: 380 });
+  });
+})();
+</script>
+</body>
+</html>

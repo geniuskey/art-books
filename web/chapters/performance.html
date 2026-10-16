@@ -1,0 +1,836 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "느린 페이지는 디자인의 실패다. 페이지 무게와 내려받는 시간, Core Web Vitals의 LCP·INP·CLS 기준값(web.dev), 첫 화면 사진과 한글 웹폰트의 용량, 늦게 온 그림이 글을 밀어내는 레이아웃 이동, 스켈레톤과 체감 속도를 책방 E의 가상 첫 화면으로 재 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>속도도 디자인이다 · WebBook</title>
+<meta name="description" content="느린 페이지는 디자인의 실패다. 페이지 무게와 내려받는 시간, Core Web Vitals의 LCP·INP·CLS 기준값(web.dev), 첫 화면 사진과 한글 웹폰트의 용량, 늦게 온 그림이 글을 밀어내는 레이아웃 이동, 스켈레톤과 체감 속도를 책방 E의 가상 첫 화면으로 재 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/performance.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="속도도 디자인이다 · WebBook">
+<meta property="og:description" content="느린 페이지는 디자인의 실패다. 페이지 무게와 내려받는 시간, Core Web Vitals의 LCP·INP·CLS 기준값(web.dev), 첫 화면 사진과 한글 웹폰트의 용량, 늦게 온 그림이 글을 밀어내는 레이아웃 이동, 스켈레톤과 체감 속도를 책방 E의 가상 첫 화면으로 재 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/performance.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/performance.html#chapter","name":"속도도 디자인이다","headline":"속도도 디자인이다 · WebBook","description":"느린 페이지는 디자인의 실패다. 페이지 무게와 내려받는 시간, Core Web Vitals의 LCP·INP·CLS 기준값(web.dev), 첫 화면 사진과 한글 웹폰트의 용량, 늦게 온 그림이 글을 밀어내는 레이아웃 이동, 스켈레톤과 체감 속도를 책방 E의 가상 첫 화면으로 재 본다.","url":"https://artbook.euiyun.com/web/chapters/performance.html","position":12,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"12. 속도도 디자인이다","item":"https://artbook.euiyun.com/web/chapters/performance.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  pre.code { margin: 18px 0; padding: 12px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow-x: auto; font: 13px/1.6 var(--mono); color: var(--text); }
+  pre.code code { background: none; padding: 0; font-size: inherit; white-space: pre; }
+  .pf-tl { display: block; width: 100%; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body data-chapter="performance">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 12</div>
+    <h1>속도도 디자인이다</h1>
+    <p class="lead">출근길 지하철에서 서점 사이트를 연다. 주소를 누르고 나서 화면은 한참 하얗다. 겨우 글자가 나오는가 싶더니 사진 자리가 비어 있고, 그 사이 "신청하기"를 누르려는 순간 사진이 도착해 버튼이 아래로 밀려난다. 엉뚱한 곳을 누른다. 이 모든 일은 코드의 문제처럼 보이지만, 시작은 디자인의 결정이었다. 첫 화면에 어떤 크기의 사진을 몇 장 둘지, 글꼴을 몇 벌 쓸지, 사진이 올 자리를 미리 잡아 둘지. 이 장은 속도를 숫자로 재고, 그 숫자를 움직이는 디자인의 손잡이를 찾는다.</p>
+    <ul class="objectives">
+      <li>페이지 무게와 통신 속도, 왕복 지연으로 내려받는 시간을 어림하고, 첫 화면 무게 예산을 세운다.</li>
+      <li>Core Web Vitals의 세 지표 LCP·INP·CLS가 각각 무엇을 재는지, "좋음" 기준값(2.5초, 200밀리초, 0.1)과 75번째 백분위의 뜻을 안다.</li>
+      <li>가장 큰 콘텐츠(대개 첫 화면 사진)가 늦게 그려지는 원인을 폭포 그림으로 읽고, 사진 크기·형식·불러오기 우선순위로 고친다.</li>
+      <li>한글 웹폰트의 용량을 서브셋과 조각 나누기로 줄이는 효과를 잰다.</li>
+      <li>레이아웃 이동 점수(영향 비율 × 거리 비율)를 계산하고, 자리 잡기와 대체 글꼴 크기 맞추기로 줄인다.</li>
+      <li>스켈레톤과 스피너, 즉각적인 눌림 반응이 체감 속도에 하는 일과 그 근거의 수준을 안다.</li>
+    </ul>
+  </header>
+
+  <section id="weight">
+    <h2>페이지의 무게</h2>
+    <p>웹 페이지는 한 장의 그림이 아니라 여러 파일의 묶음이다. 브라우저는 먼저 HTML을 받고, 그 안에 적힌 CSS, 자바스크립트, 글꼴, 사진을 다시 요청한다. 이 파일들을 통신망으로 받은 양을 합한 것을 흔히 <span class="term">페이지 무게</span><span class="en">(Page weight)</span>라고 부른다. 압축해서 보낸 실제 전송량으로 센다.</p>
+    <p>내려받는 시간은 두 가지로 정해진다. 하나는 <span class="term">대역폭</span><span class="en">(Bandwidth)</span>, 곧 1초에 흘려보낼 수 있는 양이다. 다른 하나는 <span class="term">왕복 지연</span><span class="en">(Round-trip time, RTT)</span>, 곧 요청이 서버에 갔다가 첫 응답이 돌아오기까지의 시간이다. 처음 서버에 접속할 때는 주소 찾기, 연결, 암호화 약속에 왕복이 여러 번 들고, 파일을 요청할 때마다 다시 한 번씩 든다.</p>
+    <div class="formula">$$t \;\approx\; n \cdot \mathrm{RTT} \;+\; \frac{8\,B}{\text{대역폭}}$$<div class="where">\(t\): 내려받는 시간(초), \(n\): 기다려야 하는 왕복 횟수, RTT: 왕복 지연(초), \(B\): 전송량(바이트, 8을 곱해 비트로), 대역폭: 초당 비트 수. 이 책의 시뮬레이터는 이 식을 쓰는 <b>교육용 근사</b>다. 실제 통신은 속도가 들쭉날쭉하고, 처음에는 천천히 시작해 점점 빨라지며(TCP 느린 시작), 여러 파일을 동시에 받는다.</div></div>
+    <p>식의 두 항은 서로 다른 디자인 결정과 이어진다. 둘째 항은 <b>무게</b>다. 사진 한 장을 4 MB에서 150 KB로 줄이면 느린 통신에서 수십 초가 1초 안쪽이 된다. 첫째 항은 <b>단계</b>다. HTML을 받아야 CSS를 알고, CSS를 받아야 글꼴을 알고, 자바스크립트가 돌아야 사진을 아는 식으로 발견이 늦어질수록 왕복이 쌓인다. 통신이 느린 곳일수록 왕복 지연도 길어서, 무게가 같아도 단계가 많은 페이지가 더 늦다.</p>
+    <p>아래 막대는 책방 E 새 사이트의 첫 화면을 이루는 파일의 무게다. 처음 값은 지후가 2월에 올린 시험판(가상 자료)이다. 막대의 경계를 끌어 각 갈래의 무게를 바꾸고, 네 가지 통신에서 다 받는 데 걸리는 시간을 본다.</p>
+
+    <div class="sim" id="sim-budget">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>첫 화면 무게 예산</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="bg-cv"></canvas><span class="hint">막대의 경계를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="bg-pre"><button data-value="before" class="on">개편 시험판(2월)</button><button data-value="budget">예산 안</button></div>
+          <label class="check"><input type="checkbox" id="bg-log"> 로그 눈금으로 시간 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">첫 화면 무게</span><span class="v" id="bg-o-w">—</span></div>
+        <div class="stat"><span class="k">예산 500 KB 대비</span><span class="v" id="bg-o-b">—</span></div>
+        <div class="stat"><span class="k">느린 모바일에서 다 받기</span><span class="v" id="bg-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "개편 시험판"에서 가장 긴 갈래를 찾는다. 사진 한 장(4 MB)과 통짜 한글 글꼴(1.87 MB)이 무게의 90%를 넘는다. 느린 모바일에서 다 받는 데 30초가 넘는다. ② 사진 갈래의 오른쪽 경계를 왼쪽으로 끌어 150 KB 근처로 줄인다. 다른 갈래를 아무리 다듬어도 이만큼 줄지 않는다. ③ "예산 안"을 누르고 "지하철 터널 근처" 줄을 본다. 500 KB도 여기서는 10초 넘게 걸린다. 무게만이 아니라 순서, 곧 무엇을 먼저 보여 줄지가 중요한 이유다(다음 절). (통신 조건은 교육용 대표값이다. 느린 모바일 1.6 Mbps·왕복 150 ms는 Lighthouse의 모바일 기본 측정 조건과 비슷하게 잡았다. 시간은 왕복 4번에 전송량 ÷ 대역폭을 더한 단순 계산이고, 시험판의 무게는 가상 자료다.)</div>
+    </div>
+
+    <p>이렇게 페이지가 넘지 말아야 할 무게나 시간을 미리 정해 두는 것을 <span class="term">성능 예산</span><span class="en">(Performance budget)</span>이라고 한다. 예산은 디자인 회의의 언어가 된다. "첫 화면에 사진을 한 장 더 넣고 싶다"는 말은 "사진 갈래의 150 KB를 둘로 나누거나, 다른 갈래에서 빼 오자"는 말이 된다. 자동 재생 영상, 사진이 넘어가는 큰 슬라이더, 장식용 글꼴 한 벌은 모두 예산표 위에서 다른 무엇과 맞바꾸는 물건이다.</p>
+  </section>
+
+  <section id="vitals">
+    <h2>세 가지 지표: LCP·INP·CLS</h2>
+    <p>"빠르다"는 느낌은 숫자 하나로 잡히지 않는다. 첫 글자가 빨리 떠도 주인공 사진이 늦게 뜨면 느리고, 다 떴어도 누를 때마다 반응이 굼뜨면 느리고, 빨리 떴어도 화면이 들썩이면 불안하다. 구글이 제안하고 web.dev에서 설명하는 <span class="term">Core Web Vitals</span><span class="en">(핵심 웹 지표)</span>는 이 경험을 세 지표로 나눈다.</p>
+    <ul>
+      <li><span class="term">LCP</span><span class="en">(Largest Contentful Paint)</span>: 페이지를 열기 시작한 때부터 첫 화면에서 <b>가장 큰 그림이나 글 덩어리</b>가 그려질 때까지의 시간. "주인공이 언제 나타났나"를 잰다.</li>
+      <li><span class="term">INP</span><span class="en">(Interaction to Next Paint)</span>: 누르거나 탭하거나 키를 쳤을 때부터 그 결과가 <b>다음 화면에 그려질</b> 때까지의 시간. 한 번 방문 동안의 상호작용 가운데 가장 느린 축(상호작용이 아주 많으면 극단값 몇 개는 뺀다)을 대표값으로 쓴다. 2024년 3월부터 이전 지표 FID를 대신한다.</li>
+      <li><span class="term">CLS</span><span class="en">(Cumulative Layout Shift)</span>: 사용자가 건드리지 않았는데 화면의 요소가 <b>밀려 움직인 정도</b>를 점수로 모은 것. 단위가 없다.</li>
+    </ul>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="Core Web Vitals의 기준값. LCP는 2.5초 이하 좋음, 4초 초과 나쁨. INP는 200밀리초 이하 좋음, 500밀리초 초과 나쁨. CLS는 0.1 이하 좋음, 0.25 초과 나쁨.">
+        <g id="pf-cwv"></g>
+        <rect x="70" y="196" width="12" height="12" rx="2" class="f-ok-soft"/><text x="88" y="206" class="lbl" style="font-size:11.5px">좋음</text>
+        <rect x="140" y="196" width="12" height="12" rx="2" class="f-warn-soft"/><text x="158" y="206" class="lbl" style="font-size:11.5px">개선 필요</text>
+        <rect x="236" y="196" width="12" height="12" rx="2" class="f-bad-soft"/><text x="254" y="206" class="lbl" style="font-size:11.5px">나쁨</text>
+        <text x="70" y="224" class="lbl-dim" style="font-size:11px">방문의 75번째 백분위가 "좋음" 칸에 들어야 한다</text>
+      </svg>
+      <figcaption><b>그림 1. Core Web Vitals의 기준값.</b> web.dev의 설명(Web Vitals, 2024년 INP 반영)을 옮겼다. LCP 2.5초·INP 200밀리초·CLS 0.1 이하가 "좋음", LCP 4초·INP 500밀리초·CLS 0.25를 넘으면 "나쁨"이다. 판정은 실제 방문의 75번째 백분위로 한다. 휴대폰과 데스크톱은 따로 본다. 막대의 길이는 이 그림을 위해 고른 눈금이다.</figcaption>
+    </figure>
+
+    <p>"75번째 백분위"는 방문 100번을 느린 순서로 줄 세웠을 때 빠른 쪽에서 75번째 방문의 값이다. 평균이 아니라 이 값을 쓰는 것은, 느린 기기나 나쁜 통신으로 들어온 사람들까지 꽤 많이 품으라는 뜻이다. 회사 노트북과 와이파이로 잰 한 번의 숫자는 이 값보다 대개 훨씬 좋다.</p>
+
+    <div class="callout warn">
+      <strong>실험실 숫자와 현장 숫자</strong>
+      개발자 도구의 Lighthouse처럼 정해진 조건에서 한 번 재는 값을 <b>실험실 자료</b>(Lab data), 실제 방문자의 브라우저가 보고한 값을 모은 것을 <b>현장 자료</b>(Field data)라고 한다. Core Web Vitals의 판정은 현장 자료로 한다. 실험실 자료는 원인을 찾고 고친 효과를 비교하는 데 좋지만, 그 숫자가 곧 손님의 경험은 아니다. 특히 INP는 사람이 실제로 눌러야 생기므로 실험실에서는 그대로 잴 수 없다. 이 장의 시뮬레이터도 단순한 실험실 모형이다.
+    </div>
+  </section>
+
+  <section id="images">
+    <h2>사진: 가장 무거운 짐</h2>
+    <p>대부분의 페이지에서 가장 무거운 것은 사진이고, 첫 화면의 큰 사진은 대개 LCP 요소다. 사진의 무게는 ImageBook <a href="../../image/chapters/compression.html">10장</a>에서 쟀다. 같은 사진도 화소 수와 형식, 압축 품질에 따라 수십 배가 달라진다. 웹 화면에 필요한 화소 수는 <b>그 사진이 화면에 그려지는 CSS 폭 × 기기 픽셀 비율</b>이면 충분하다(<a href="viewport.html">2장</a>). 360px 폭 휴대폰에서 화면 가득 보이는 사진은 기기 픽셀 비율 2에서 가로 720화소, 3에서 1,080화소면 된다. 4,000화소 원본을 그대로 올리면 쓰지도 않을 화소를 보내는 셈이다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>첫 화면 사진(같은 장면)</th><th class="num">대략의 무게</th><th class="num">느린 모바일에서 전송만</th><th>근거</th></tr></thead>
+        <tbody>
+          <tr><td>휴대폰 카메라 원본 JPEG(가로 4,000화소)</td><td class="num">4,000 KB</td><td class="num">약 20초</td><td>가상 자료</td></tr>
+          <tr><td>가로 1,600화소 JPEG 품질 85</td><td class="num">365 KB</td><td class="num">약 1.8초</td><td>ImageBook 10장의 측정</td></tr>
+          <tr><td>가로 1,600화소 WebP 품질 80</td><td class="num">220 KB</td><td class="num">약 1.1초</td><td>ImageBook 10장의 측정</td></tr>
+          <tr><td>가로 800화소 WebP 품질 80</td><td class="num">75 KB</td><td class="num">약 0.4초</td><td>가상 어림(면적이 4분의 1)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>ImageBook 10장의 숫자는 수채화 한 점을 크롬 인코더로 저장해 잰 것이고, 사진마다 다르다. 가로 800화소의 값은 화소 수가 4분의 1이 될 때 무게가 대략 3분의 1쯤 된다고 본 이 책의 어림이다. 전송 시간은 1.6 Mbps에서 전송량만 나눈 것이라 왕복 지연은 빠져 있다. AVIF 같은 더 새로운 형식은 같은 품질에서 더 가벼운 경우가 많지만, 인코딩이 느리고 지원 범위를 확인해야 한다.</p>
+    <p>한 장의 사진을 여러 폭으로 만들어 두고 브라우저가 고르게 하는 방법은 <a href="responsive.html">5장</a>의 <code>srcset</code>과 <code>sizes</code>다. 여기에 속도를 위해 세 가지를 더 적는다.</p>
+<pre class="code" data-scroll><code>&lt;img src="reading-800.webp"
+     srcset="reading-480.webp 480w, reading-800.webp 800w, reading-1600.webp 1600w"
+     sizes="(min-width: 960px) 600px, 100vw"
+     width="1600" height="900"         &lt;!-- 비율을 알려 자리를 미리 잡는다 --&gt;
+     fetchpriority="high"              &lt;!-- 첫 화면의 주인공은 먼저 받는다 --&gt;
+     alt="서가 앞에 둥글게 앉은 손님들이 낭독을 듣고 있다"&gt;
+
+&lt;!-- 첫 화면 밖의 사진은 보일 때가 가까워지면 받는다 --&gt;
+&lt;img src="shelf-800.webp" loading="lazy" width="800" height="600" alt="…"&gt;</code></pre>
+    <p><code>width</code>와 <code>height</code>는 사진을 그 크기로 늘리라는 말이 아니다. CSS로 폭을 100%로 두어도 브라우저는 두 숫자의 비율로 사진이 오기 전에 높이를 계산해 자리를 비워 둔다(아래 "밀리는 화면" 절). <code>fetchpriority="high"</code>는 이 사진을 다른 사진보다 먼저 받으라는 힌트이고, <code>loading="lazy"</code>는 화면에 보일 때가 가까워질 때까지 받지 말라는 지시다. 그래서 lazy는 <b>첫 화면 밖</b>의 사진에만 쓴다. 첫 화면 사진에 lazy를 붙이면 브라우저가 레이아웃을 마친 뒤에야 요청을 시작해 LCP가 늦어진다.</p>
+  </section>
+
+  <section id="lcp">
+    <h2>가장 큰 콘텐츠가 그려질 때</h2>
+    <p>LCP 시간은 네 구간의 합으로 나누어 볼 수 있다. web.dev의 LCP 최적화 안내(Optimize Largest Contentful Paint)가 쓰는 구분이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 170" role="img" aria-label="LCP 시간의 네 구간: 첫 바이트까지, 리소스 로드 지연, 리소스 로드 시간, 요소 렌더 지연.">
+        <defs><marker id="pf-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="14" y="40" width="96" height="40" rx="6" class="f-acc2-soft"/><text x="62" y="58" text-anchor="middle" class="lbl-b" style="font-size:12px">① 첫 바이트</text><text x="62" y="73" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">TTFB</text>
+        <rect x="112" y="40" width="96" height="40" rx="6" class="f-warn-soft"/><text x="160" y="58" text-anchor="middle" class="lbl-b" style="font-size:12px">② 로드 지연</text><text x="160" y="73" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">발견·요청까지</text>
+        <rect x="210" y="40" width="150" height="40" rx="6" class="f-acc-soft"/><text x="285" y="58" text-anchor="middle" class="lbl-b" style="font-size:12px">③ 로드 시간</text><text x="285" y="73" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">사진 파일을 받는 시간</text>
+        <rect x="362" y="40" width="84" height="40" rx="6" class="f-ok-soft"/><text x="404" y="58" text-anchor="middle" class="lbl-b" style="font-size:12px">④ 렌더 지연</text><text x="404" y="73" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">그려질 때까지</text>
+        <path d="M14 24 L446 24" class="s-line" marker-end="url(#pf-ar)"/>
+        <text x="14" y="16" class="lbl-dim" style="font-size:11px">페이지 열기 시작</text>
+        <text x="446" y="16" text-anchor="end" class="lbl-acc" style="font-size:11px">LCP</text>
+        <text x="62" y="104" text-anchor="middle" class="lbl" style="font-size:11px">서버·통신</text>
+        <text x="160" y="104" text-anchor="middle" class="lbl" style="font-size:11px">lazy, 늦은 발견</text>
+        <text x="285" y="104" text-anchor="middle" class="lbl" style="font-size:11px">사진의 무게·우선순위</text>
+        <text x="404" y="104" text-anchor="middle" class="lbl" style="font-size:11px">CSS·글꼴 대기</text>
+        <text x="230" y="140" text-anchor="middle" class="lbl-dim" style="font-size:11px">디자인이 직접 움직이는 것은 ②와 ③이다: 무엇을, 얼마나 무겁게, 언제 부를지.</text>
+      </svg>
+      <figcaption><b>그림 2. LCP의 네 구간.</b> ① 서버가 HTML의 첫 바이트를 보내기까지, ② 그 뒤 브라우저가 LCP 사진을 발견해 요청을 시작하기까지, ③ 사진 파일을 다 받기까지, ④ 받은 뒤 화면에 실제로 그려지기까지. 구간의 너비는 예시다.</figcaption>
+    </figure>
+
+    <p>아래는 책방 E 첫 화면을 여는 과정의 <span class="term">폭포 그림</span><span class="en">(Waterfall chart)</span>이다. 줄마다 파일 하나이고, 가는 선은 응답을 기다리는 시간, 굵은 막대는 받는 시간이다. 아래 필름 띠는 그 시각의 화면이다. 사진의 크기, 불러오는 방식, 통신을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-lcp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>첫 화면 사진과 LCP</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view">
+          <canvas id="lc-cv"></canvas>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="lc-img"><button data-value="4000" class="on">원본 4 MB</button><button data-value="220">1600 WebP</button><button data-value="75">800 WebP</button></div>
+          <div class="seg" id="lc-mode"><button data-value="lazy">lazy(실수)</button><button data-value="auto" class="on">기본</button><button data-value="high">fetchpriority=high</button></div>
+          <div class="seg" id="lc-net"><button data-value="tunnel">터널 근처</button><button data-value="slow" class="on">느린 모바일</button><button data-value="lte">LTE</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">LCP(첫 화면 사진)</span><span class="v" id="lc-o-lcp">—</span></div>
+        <div class="stat"><span class="k">첫 글자(FCP)</span><span class="v" id="lc-o-fcp">—</span></div>
+        <div class="stat"><span class="k">사진 요청 시작</span><span class="v" id="lc-o-req">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "원본 4 MB", 느린 모바일. 글자는 1초 남짓에 뜨지만 사진은 20초를 넘긴다. 필름 띠의 대부분이 빈 사진 자리다. ② "800 WebP"로 바꾼다. 같은 장면, 같은 통신에서 LCP가 2.5초 안쪽으로 들어온다. ③ "lazy(실수)"를 누른다. 사진 요청이 CSS를 받고 레이아웃을 마친 뒤로 밀려 ② 구간이 늘어난다. "fetchpriority=high"는 다른 파일과 대역폭을 나눌 때 사진에 더 많은 몫을 준다. ④ "터널 근처"로 바꾼다. 가벼운 사진도 왕복 지연이 쌓여 늦다. (교육용 모형: HTML 15 KB, CSS 25 KB, 자바스크립트 50 KB(defer), 웹폰트 조각 160 KB. 첫 접속에 왕복 3번, 파일마다 왕복 1번. 동시에 받는 파일은 대역폭을 우선순위 비율로 나눈다(CSS 4, 글꼴 3, 스크립트 2, 사진 1, high는 4). lazy 사진은 CSS를 받고 0.25초(레이아웃과 위치 판단) 뒤에 요청하며, 글꼴은 CSS를 받은 뒤 발견하고, 글자는 대체 글꼴로 먼저 그린다(swap). 그리는 데 50 ms, 4 MB 사진은 풀어 그리는 데 150 ms를 더 잡았다.)</div>
+    </div>
+
+    <p>모형이 보여 주는 순서대로 고치면 된다. 먼저 <b>무게</b>(③): 화면에 필요한 화소만, 가벼운 형식으로. 다음은 <b>발견</b>(②): LCP 사진은 HTML 안에 <code>img</code>로 적어 브라우저가 HTML을 읽는 즉시 찾게 하고, lazy를 붙이지 않는다. 자바스크립트가 나중에 끼워 넣는 사진이나 CSS 배경 사진은 발견이 늦다. 마지막이 <b>우선순위</b>: <code>fetchpriority="high"</code>나 <code>&lt;link rel="preload"&gt;</code>로 주인공을 앞줄에 세운다. 첫 화면에 큰 사진 대신 글자 제목을 주인공으로 두는 것도 진지한 선택지다. 글자는 HTML과 함께 오므로 대개 가장 빨리 그려진다.</p>
+  </section>
+
+  <section id="fonts">
+    <h2>한글 웹폰트의 무게</h2>
+    <p>TypeBook <a href="../../type/chapters/screen.html">11장</a>에서 한글 웹폰트가 왜 무거운지 쟀다. 현대 한글 음절만 11,172자이고, 한자와 기호까지 담은 글꼴은 1만 7천 자가 넘는다. 그 책이 2026년 10월에 잰 Noto Sans KR 보통 굵기 하나는 조각을 모두 합해 약 1.87 MB였다. 라틴 글꼴 한 굵기(약 24 KB)의 80배쯤이다.</p>
+    <p>무게를 줄이는 길은 두 가지다. <span class="term">서브셋</span><span class="en">(Subset)</span>은 쓰지 않을 글자를 글꼴 파일에서 지우는 것이고, <span class="term">조각 나누기</span><span class="en">(unicode-range)</span>는 글꼴을 여러 파일로 나눠 페이지에 나온 글자가 든 조각만 받게 하는 것이다. 조각 나누기의 실제 모습은 TypeBook 11장의 시뮬레이터에서 볼 수 있다. 여기서는 서브셋의 무게가 글자 수에 따라 어떻게 변하는지, 그리고 그것이 첫 화면 예산에서 무엇을 뜻하는지 본다.</p>
+
+    <div class="sim" id="sim-font">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글자 수와 웹폰트의 무게</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ft-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>페이지에 쓰인 서로 다른 한글 <output id="ft-n-out"></output></span><input type="range" id="ft-n" min="0" max="100" step="1" value="32"></label>
+          <div class="seg" id="ft-w"><button data-value="1">굵기 1벌</button><button data-value="2" class="on">굵기 2벌</button></div>
+          <div class="seg" id="ft-net"><button data-value="tunnel">터널 근처</button><button data-value="slow" class="on">느린 모바일</button><button data-value="lte">LTE</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이 페이지 글자만 서브셋</span><span class="v" id="ft-o-sub">—</span></div>
+        <div class="stat"><span class="k">통짜 파일과 비교</span><span class="v" id="ft-o-ratio">—</span></div>
+        <div class="stat"><span class="k">글꼴 예산 200 KB</span><span class="v" id="ft-o-bud">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 값은 서로 다른 한글 약 150자, 첫 화면 정도의 글이다. 페이지 글자만 남긴 서브셋은 통짜 파일의 수십 분의 1이다. ② 글자 수를 끝까지(11,172자) 올린다. 서브셋의 이점이 사라진다. 글이 길고 자주 바뀌는 페이지에 조각 나누기를 쓰는 이유다. ③ 2,350자(옛 완성형 규격 KS X 1001의 한글 수) 근처에 둔다. 흔히 쓰는 "2,350자 서브셋"도 두 벌이면 글꼴 예산을 넘는다. (교육용 근사: 서브셋 무게 = 3 KB + 글자 수 × 0.105 KB. 한 자당 0.105 KB는 TypeBook 11장이 잰 Noto Sans KR 한 굵기 1,868 KB를 담긴 글자 17,648자로 나눈 평균이고, 3 KB는 글자와 상관없이 드는 몫으로 잡았다. 통짜 파일은 그 측정값 그대로다. 굵은 굵기의 무게도 같다고 보았다. 시간은 왕복 1번에 전송량 ÷ 대역폭을 더했다.)</div>
+    </div>
+
+    <p>서브셋은 가장 가볍지만 함정이 있다. 나중에 글을 고치다 서브셋에 없는 글자가 들어가면 그 글자만 다른 글꼴로 튀어나온다. 그래서 내용이 바뀌는 본문은 조각 나누기로, 글자가 고정된 로고와 장식 제목은 서브셋이나 SVG 그림으로 나누는 것이 흔한 분업이다. 기기에 이미 있는 <span class="term">시스템 글꼴</span><span class="en">(System font)</span>만 쓰면 글꼴 전송량은 0이다. 대신 기기마다 다른 글꼴로 보인다는 것을 받아들인다. 무엇을 고르든, 굵기 한 벌이 곧 무게 한 벌이라는 것을 디자인 단계에서 기억한다. 시안에 굵기를 다섯 단계 쓰면 그만큼 받는다.</p>
+  </section>
+
+  <section id="cls">
+    <h2>밀리는 화면: 레이아웃 이동</h2>
+    <p>읽던 글줄이 갑자기 아래로 내려가고, 누르려던 버튼 자리에 다른 것이 들어오는 일. 늦게 도착한 무언가가 자리를 차지하며 이미 그려진 요소를 밀어낼 때 생긴다. 흔한 원인은 세 가지다. 크기를 모르는 사진(<code>width</code>·<code>height</code>가 없는 <code>img</code>), 늦게 도착해 글줄의 길이를 바꾸는 웹폰트, 나중에 끼워 넣는 띠 배너와 광고.</p>
+    <p>CLS는 이런 이동마다 점수를 매겨 더한다. 한 번의 이동 점수는 두 비율의 곱이다.</p>
+    <div class="formula">$$\text{이동 점수} \;=\; \text{영향 비율} \times \text{거리 비율}$$<div class="where">영향 비율(impact fraction): 움직인 요소들이 이동 전과 이동 후에 차지한 자리를 합친 넓이가 화면(뷰포트) 넓이에서 차지하는 비율. 거리 비율(distance fraction): 움직인 요소 가운데 가장 멀리 움직인 거리를 화면의 긴 변(가로와 세로 중 큰 쪽)으로 나눈 값. web.dev의 CLS 설명(Cumulative Layout Shift)을 따랐다.</div></div>
+    <p>예를 들어 화면의 아래쪽 절반을 차지하던 글 덩어리가 화면 높이의 4분의 1만큼 내려가면, 이동 전후의 자리를 합친 넓이는 화면의 4분의 3이고(0.75), 거리 비율은 0.25이니 점수는 약 0.19다. 이동이 1초 안쪽 간격으로 이어지면 한 묶음(세션 창, 최대 5초)으로 더하고, CLS는 페이지가 열려 있는 동안 가장 큰 묶음의 합이다. 사용자가 누른 뒤 0.5초 안의 이동은 "예상한 이동"이라 세지 않는다. 메뉴를 열었더니 아래가 밀린 것은 사용자가 원한 일이기 때문이다.</p>
+
+    <div class="sim" id="sim-cls">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>늦게 온 사진과 글꼴이 밀어내는 화면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <canvas id="cl-cv" class="art"></canvas>
+          <canvas id="cl-tl" class="pf-tl"></canvas>
+        </div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>시각 <output id="cl-t-out"></output></span><input type="range" id="cl-t" min="0" max="3" step="0.05" value="0.5"></label>
+          <label class="check"><input type="checkbox" id="cl-img"> 사진 자리 미리 잡기(width·height)</label>
+          <label class="check"><input type="checkbox" id="cl-font"> 대체 글꼴 크기를 웹폰트에 맞추기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이동 점수</span><span class="v" id="cl-o-list">—</span></div>
+        <div class="stat"><span class="k">CLS(지금까지)</span><span class="v" id="cl-o-cls">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="cl-o-v">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 시각을 0.5초에서 1초로 민다. 0.8초에 웹폰트가 도착해 본문이 여섯 줄에서 다섯 줄로 줄고, 그 아래 버튼과 카드가 한 줄만큼 올라간다. 빨간 점선이 직전 자리다. ② 1.5초로 민다. 1.4초에 사진이 도착해 그 아래 모든 것이 202px 밀려난다. 점수가 한 번에 0.25 가까이 오른다. ③ "사진 자리 미리 잡기"를 켠다. 처음부터 회색 자리가 있어 사진이 와도 아무것도 움직이지 않는다. ④ "대체 글꼴 크기 맞추기"까지 켜면 CLS가 0이 된다. (가상 화면: 뷰포트 360×640 CSS px, 요소의 폭은 328px로 같다고 보았다. 두 이동은 0.6초 간격이라 한 세션 창에 묶여 더해진다.)</div>
+    </div>
+
+    <p>사진의 이동은 앞 절의 <code>width</code>·<code>height</code>, 또는 CSS의 <code>aspect-ratio</code>로 막는다. 웹폰트의 이동은 두 가지로 줄인다. 하나는 웹폰트를 빨리 받는 것(가볍게, 일찍)이고, 다른 하나는 웹폰트가 오기 전에 쓰는 대체 글꼴의 크기와 줄 높이를 웹폰트에 맞추는 것이다. CSS의 <code>@font-face</code>에는 이를 위한 서술자가 있다.</p>
+<pre class="code" data-scroll><code>/* 기기의 기본 고딕을 웹폰트와 같은 크기로 보이게 맞춘 대체 글꼴 */
+@font-face {
+  font-family: "본문 대체";
+  src: local("Apple SD Gothic Neo"), local("Malgun Gothic"), local("Noto Sans KR");
+  size-adjust: 97%;        /* 글자 너비를 웹폰트에 맞춘다(값은 직접 재서 정한다) */
+  ascent-override: 92%;    /* 줄 높이 안에서 글자가 앉는 자리 */
+  descent-override: 24%;
+}
+body { font-family: "책방 본문", "본문 대체", sans-serif; }</code></pre>
+    <p>위의 퍼센트 값은 예시다. 실제 값은 두 글꼴로 같은 글을 조판해 겹쳐 보며 맞춘다. 늦게 끼워 넣는 공지 띠나 광고는 처음부터 그 높이의 자리를 비워 두거나, 화면 위가 아니라 아래에 겹쳐 띄운다. 스켈레톤(마지막 절)도 실제 콘텐츠와 같은 크기여야 이동을 만들지 않는다.</p>
+  </section>
+
+  <section id="inp">
+    <h2>누르면 바로: INP</h2>
+    <p>페이지가 다 떴어도 "신청하기"를 눌렀는데 반 초 동안 아무 반응이 없으면 손님은 한 번 더 누른다. 그러면 신청이 두 번 들어가기도 한다. INP는 이 반응의 굼뜸을 잰다. 한 번의 상호작용 시간은 세 부분의 합이다. 브라우저의 일꾼(메인 스레드)이 다른 일을 하느라 입력을 받지 못한 <b>입력 지연</b>, 누름을 처리하는 코드가 도는 <b>처리 시간</b>, 처리가 끝난 뒤 다음 화면을 그려 내보내기까지의 <b>표시 지연</b>이다.</p>
+    <p>디자인이 할 수 있는 일은 생각보다 크다. 누른 순간 버튼이 눌린 모양으로 바뀌고 "신청 중…"이라고 말해 주면, 서버의 응답이 1초 걸리더라도 "다음 화면"은 바로 그려진다. 그러려면 개발에서 무거운 일을 잘게 나누고, 화면을 먼저 바꾼 뒤 나머지를 하게 짜야 한다.</p>
+
+    <div class="sim" id="sim-inp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>탭에서 다음 화면까지</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ip-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>누름을 처리하는 코드 <output id="ip-p-out"></output></span><input type="range" id="ip-p" min="20" max="600" step="10" value="320"></label>
+          <label class="check"><input type="checkbox" id="ip-bg" checked> 다른 스크립트가 긴 작업 중(250 ms)</label>
+          <label class="check"><input type="checkbox" id="ip-split"> 먼저 눌린 모양을 그리고 나머지는 나중에</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">입력 지연</span><span class="v" id="ip-o-d">—</span></div>
+        <div class="stat"><span class="k">다음 화면까지</span><span class="v" id="ip-o-t">—</span></div>
+        <div class="stat"><span class="k">판정(INP 기준)</span><span class="v" id="ip-o-v">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 설정에서 탭은 다른 스크립트의 긴 작업 한가운데 떨어진다. 그 작업이 끝날 때까지 150 ms를 기다리고, 처리 320 ms를 마친 뒤에야 화면이 바뀐다. ② "다른 스크립트"를 끈다. 입력 지연은 사라지지만 여전히 200 ms를 넘는다. ③ "먼저 눌린 모양을 그리고"를 켠다. 처리 코드의 첫 30 ms에 버튼 모양만 바꾸고 일꾼을 잠시 놓아주어, 다음 화면이 그 직후에 그려진다. 나머지 일은 그 뒤에 한다. (교육용 모형: 표시 지연은 24 ms로 고정했고, 다른 스크립트의 긴 작업은 탭 100 ms 전에 시작한다고 두었다. 실제 INP는 한 방문의 여러 상호작용 가운데 가장 느린 축의 값이다.)</div>
+    </div>
+  </section>
+
+  <section id="perceived">
+    <h2>체감 속도: 스켈레톤과 스피너</h2>
+    <p>숫자로 잰 시간과 사람이 느끼는 기다림은 같지 않다. 오래 쓰여 온 기준으로 Jakob Nielsen이 『Usability Engineering』(1993)에서 정리한 세 경계가 있다. 0.1초 안의 반응은 "즉각"으로 느끼고, 1초 안이면 생각의 흐름이 끊기지 않으며, 10초를 넘으면 주의가 다른 데로 떠난다. 더 앞선 연구들을 바탕으로 한 경험칙이지만, 지금도 기다림을 설계하는 출발점으로 쓰인다.</p>
+    <p>기다림이 1초를 넘을 수 있는 곳에는 무언가를 보여 준다. 흔한 방법은 둘이다. 빙글 도는 <span class="term">스피너</span><span class="en">(Spinner)</span>는 "일하는 중"이라는 것만 알린다. <span class="term">스켈레톤</span><span class="en">(Skeleton screen)</span>은 콘텐츠가 들어갈 자리를 회색 덩어리로 먼저 그려 "무엇이 어디에 올지"를 보여 준다. 스켈레톤이 더 빠르게 느껴진다는 주장이 널리 퍼져 있지만, 몇몇 실험의 결과는 엇갈리고 기다림의 길이와 디자인에 따라 달라진다. 근거가 더 분명한 것은 두 가지다. 받는 대로 차례로 보여 주면 사람은 그 사이에 읽기 시작할 수 있고, 스켈레톤이 실제 배치와 같은 크기면 콘텐츠가 와도 화면이 밀리지 않는다.</p>
+
+    <div class="sim" id="sim-skel">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 기다림, 다른 화면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sk-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>실제 기다림 <output id="sk-w-out"></output></span><input type="range" id="sk-w" min="0.5" max="8" step="0.5" value="3"></label>
+          <label class="check"><input type="checkbox" id="sk-prog"> 받는 대로 차례로 보여 주기</label>
+          <div class="ctrl-row"><button class="btn primary" id="sk-play" type="button">다시 재생</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">기다림</span><span class="v" id="sk-o-w">—</span></div>
+        <div class="stat"><span class="k">Nielsen의 경계</span><span class="v" id="sk-o-n">—</span></div>
+        <div class="stat"><span class="k">첫 글이 보인 때(차례로)</span><span class="v" id="sk-o-f">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 3초로 두고 "다시 재생"을 누른다. 세 화면은 정확히 같은 때 내용을 받는다. 빈 화면은 고장 난 것처럼 보이고, 스피너는 일하는 중이라는 것만, 스켈레톤은 무엇이 어디에 올지를 알린다. ② "받는 대로 차례로 보여 주기"를 켠다. 제목과 날짜가 먼저 오고 사진이 나중에 온다. 스켈레톤 화면에서는 먼저 온 것부터 제자리에 채워지고, 아무것도 밀리지 않는다. ③ 0.5초로 줄인다. 이 정도 기다림에서는 스피너나 스켈레톤이 오히려 깜박임처럼 보인다. 아주 짧은 기다림에는 아무것도 보이지 않는 편이 낫다는 실무 의견도 있다. (가상 화면이다. 세 화면 가운데 어느 쪽이 더 빠르게 "느껴지는지"는 이 모형이 재지 않는다. 차례로 보여 줄 때 제목은 기다림의 30%, 목록 글은 60%, 사진은 100% 시점에 온다고 두었다.)</div>
+    </div>
+
+    <p>체감 속도를 다루는 디자인 요령을 모으면 이렇다. 누르면 0.1초 안에 무언가 바뀌게 한다(눌린 모양, "신청 중"). 1초를 넘을 수 있는 곳에는 진행을 보여 주고, 10초를 넘을 수 있는 곳에는 얼마나 남았는지(퍼센트, 단계)와 그만두는 길을 보여 준다. 받는 대로 차례로 보여 주고, 먼저 올 것을 디자인으로 정한다. 그리고 무엇보다, 실제로 빠르게 만든다. 스켈레톤은 느린 페이지의 화장이 아니라 빠른 페이지의 마지막 손질이다.</p>
+
+    <div class="callout studio">
+      <strong>개발자 도구로 느린 통신을 흉내 낸다</strong>
+      크롬, 엣지, 파이어폭스의 개발자 도구에는 네트워크 패널이 있고, 통신 속도를 느린 모바일 수준으로 늦추는 설정(스로틀링)이 있다. 캐시 사용을 끄고 페이지를 새로 고치면 파일마다 무게와 받는 순서가 폭포 그림으로 나온다. 성능(Performance) 패널은 시간에 따른 화면 띠와 레이아웃 이동을 보여 준다. 디자이너가 직접 해 볼 만한 것은 둘이다. 시안의 첫 화면 사진이 실제로 몇 KB로 나가는지, 그리고 느린 통신에서 첫 화면이 어떤 순서로 채워지는지. 이것만 보아도 "사진을 한 장 더"라는 말을 다시 생각하게 된다. 실제 방문자의 현장 자료는 PageSpeed Insights 같은 도구에서 Chrome 사용자 경험 보고서(CrUX)를 바탕으로 볼 수 있다(방문이 충분히 많은 사이트만).
+    </div>
+
+    <div class="callout try">
+      <strong>내 페이지의 무게를 재고 예산표를 그린다</strong>
+      자주 가는 가게나 단체의 웹사이트 첫 화면 하나를 고른다. 노트북 브라우저의 개발자 도구에서 네트워크 패널을 열고, 캐시 사용 끄기를 켠 뒤 새로 고친다. 패널 아래쪽에 나오는 전송량 합계를 적고, 종류별(문서, CSS, JS, 글꼴, 이미지)로 걸러 각각의 합을 적는다. 종이에 가로 막대 하나를 그려 다섯 갈래로 나누어 칠하고, 옆에 500 KB 예산 막대를 그린다. 가장 긴 갈래가 무엇인지, 첫 화면에 보이지도 않는 것이 섞여 있는지 표시한다. 마지막으로 통신을 느린 모바일로 늦춰 다시 열고, 첫 화면이 다 채워질 때까지 몇 초인지 휴대폰 초시계로 잰다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 12장</span></div>
+      <h4>지하철에서 20초, 그리고 밀려난 버튼</h4>
+      <p>2월 마지막 주 월요일, 책방 E 주인이 출근길 지하철에서 보낸 메시지가 왔다. "사이트를 열었는데 한참 하얗다가 글자만 나오고, 사진은 역 두 개를 지나서야 나왔어요. 신청하기를 누르려는데 사진이 들어오면서 버튼이 내려가서 다른 데를 눌렀고요."</p>
+      <p>지후가 개발자 도구로 시험판의 첫 화면을 다시 쟀다(가상 자료). 첫 화면 사진은 서윤이 휴대폰 카메라로 찍은 낭독회 원본 JPEG를 그대로 올린 것이라 4.0 MB였다. 글꼴은 TypeBook 11장에서 정한 조각 방식 대신, 지후가 시험 삼아 내려받은 한글 글꼴 통짜 파일 한 굵기(1.87 MB)가 그대로 들어가 있었다. 둘이 첫 화면 6.4 MB의 90%를 넘었다. 이 장의 모형으로 느린 모바일(1.6 Mbps·왕복 150 ms)에서 사진이 그려지기까지 20초가 넘었다. 사진에는 <code>width</code>·<code>height</code>가 없었고, 웹폰트는 대체 글꼴과 글자 너비가 달라 본문이 한 줄 줄어들었다. 모형으로 센 레이아웃 이동은 두 번, 합 0.25로 "나쁨" 경계를 넘었다(0.253).</p>
+      <p>서윤은 처음에 사진을 첫 화면에서 빼자고 했다. 한도경이 반대했다. "낭독회는 분위기를 보고 오는 거야. 사진은 남기고 무게를 덜어." 서윤은 ImageBook 10장의 표를 다시 꺼냈다. 웹용 사진은 가로 1,600화소 WebP 품질 80, 장당 400 KB 이하. 여기에 휴대폰용으로 480·800화소 두 폭을 더 뽑아 <code>srcset</code>으로 고르게 하면, 360px 휴대폰은 800화소(약 75 KB)를 받는다. 그리고 회의 탁자에 막대 하나를 그렸다. 첫 화면에 들어갈 모든 것을 500 KB 안에 나눠 담는 예산표였다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>첫 화면(휴대폰) 갈래</th><th class="num">개편 시험판(가상)</th><th class="num">예산</th><th>방법</th></tr></thead>
+          <tbody>
+            <tr><td>HTML·CSS</td><td class="num">90 KB</td><td class="num">50 KB</td><td>쓰지 않는 CSS 덜기</td></tr>
+            <tr><td>자바스크립트</td><td class="num">380 KB</td><td class="num">50 KB</td><td>사진 슬라이더 빼기, <code>defer</code></td></tr>
+            <tr><td>웹폰트</td><td class="num">1,868 KB</td><td class="num">200 KB</td><td>TypeBook 11장의 조각 방식, 두 굵기, <code>swap</code></td></tr>
+            <tr><td>첫 화면 사진</td><td class="num">4,000 KB</td><td class="num">150 KB</td><td>480·800·1600 WebP 80, <code>srcset</code></td></tr>
+            <tr><td>기타(로고 SVG, 아이콘)</td><td class="num">60 KB</td><td class="num">50 KB</td><td>"책방 E" 로고는 SVG</td></tr>
+            <tr><td><b>합</b></td><td class="num"><b>6,398 KB</b></td><td class="num"><b>500 KB</b></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>예산대로 고친 판을 같은 모형으로 다시 재니, 느린 모바일에서 첫 화면 사진(800화소, fetchpriority high)의 LCP는 약 1.7초, 레이아웃 이동은 사진 자리를 잡고 대체 글꼴 크기를 맞춰 0이 되었다. 지후는 "신청하기"를 누르면 바로 눌린 모양과 "신청 중…"이 보이게 바꾸었다. 행사 목록처럼 서버에서 받아 오는 데 1초가 넘을 수 있는 곳에만, 실제 카드와 같은 크기의 스켈레톤을 두었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>첫 화면(휴대폰) 무게 예산 <b>500 KB</b>: HTML·CSS 50, JS 50, 웹폰트 200(TypeBook 11장의 글꼴 예산 그대로), 첫 사진 150, 기타 50. 목표는 Core Web Vitals "좋음"(LCP ≤ 2.5초, INP ≤ 200 ms, CLS ≤ 0.1, 75번째 백분위), 공개 전 점검은 느린 모바일 모형(1.6 Mbps·150 ms)에서 LCP 2.5초 안. 사진: 원본에서 480·800·1600 세 폭 WebP 품질 80(대체 JPEG 85), 장당 400 KB 이하, <code>width</code>·<code>height</code> 필수, 첫 사진은 <code>fetchpriority="high"</code>이고 lazy 금지, 첫 화면 밖 사진은 <code>loading="lazy"</code>. 웹폰트: 조각(unicode-range) 두 굵기, <code>font-display: swap</code>, 크기를 맞춘 대체 글꼴. 누르면 0.1초 안에 눌린 모양, 1초 넘는 곳에만 같은 크기의 스켈레톤.</div>
+        <div><b>아직 남은 문제</b>11장의 접근성 점검표와 이 장의 예산표, 그리고 앞 장들에서 정한 중단점·토큰·터치 타깃이 한 페이지에서 서로 부딪치지 않는지는 아직 한꺼번에 본 적이 없다. 공개는 3월 첫 주다.</div>
+        <div><b>다음 단계</b><a href="lab.html">13장</a>: 첫 화면, 행사 일정, 신청 폼을 실험실에서 창 폭·대비·터치 타깃·용량으로 한꺼번에 점검한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>내려받는 시간 ≈ 왕복 횟수 × 왕복 지연 + 전송량 ÷ 대역폭. 디자인은 무게(사진, 글꼴, 스크립트)와 단계(무엇을 언제 발견하는가)를 함께 정한다.</li>
+      <li>성능 예산은 페이지가 넘지 말아야 할 무게나 시간이다. 첫 화면에 무엇을 더할지는 예산표 위에서 다른 무엇과 맞바꾸는 결정이 된다.</li>
+      <li>Core Web Vitals(web.dev): LCP는 가장 큰 콘텐츠가 그려질 때(≤ 2.5초 좋음, > 4초 나쁨), INP는 상호작용에서 다음 화면까지(≤ 200 ms, > 500 ms), CLS는 예상하지 못한 이동의 점수(≤ 0.1, > 0.25). 판정은 실제 방문의 75번째 백분위로 한다.</li>
+      <li>첫 화면 사진은 화면에 필요한 화소만, 가벼운 형식으로 만들고 <code>srcset</code>으로 고르게 한다. HTML에 <code>img</code>로 적고 lazy를 붙이지 않으며 <code>fetchpriority="high"</code>로 앞줄에 세운다. 첫 화면 밖 사진에만 <code>loading="lazy"</code>.</li>
+      <li>한글 웹폰트 한 굵기 통짜 파일은 MB 단위다. 고정된 글자는 서브셋·SVG로, 바뀌는 본문은 조각 나누기로, 굵기는 꼭 필요한 만큼만.</li>
+      <li>이동 점수 = 영향 비율 × 거리 비율. 사진에 <code>width</code>·<code>height</code>(또는 <code>aspect-ratio</code>), 대체 글꼴 크기 맞추기, 늦게 오는 띠의 자리 잡기로 막는다.</li>
+      <li>체감 속도: 0.1초 안에 반응, 1초 넘으면 진행 표시, 받는 대로 차례로 보여 주기. 스켈레톤의 체감 효과는 연구 결과가 엇갈리며, 실제 배치와 같은 크기일 때 이동을 만들지 않는다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. web.dev가 설명하는 Core Web Vitals의 "좋음" 기준을 바르게 짝지은 것은?</p>
+        <div class="opts">
+          <button class="opt">LCP 1초 이하, INP 100 ms 이하, CLS 0 — 모든 방문의 평균으로 판정</button>
+          <button class="opt">LCP 4초 이하, INP 500 ms 이하, CLS 0.25 이하 — 가장 빠른 방문으로 판정</button>
+          <button class="opt" data-correct>LCP 2.5초 이하, INP 200 ms 이하, CLS 0.1 이하 — 실제 방문의 75번째 백분위로 판정</button>
+          <button class="opt">LCP 2.5초 이하, INP 200 ms 이하, CLS 0.1 이하 — 개발자 노트북에서 Lighthouse로 한 번 잰 값으로 판정</button>
+        </div>
+        <div class="quiz-exp">"좋음"은 LCP 2.5초·INP 200 ms·CLS 0.1 이하이고, 4초·500 ms·0.25를 넘으면 "나쁨"이다. 판정은 실제 방문자에게서 모은 현장 자료의 75번째 백분위로 한다. 실험실에서 한 번 잰 값은 원인을 찾는 데 쓰지만 판정 기준은 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 늦게 도착한 사진이 글 덩어리를 밀어냈다. 움직인 요소들이 이동 전후에 차지한 자리를 합친 넓이가 화면의 50%이고, 가장 멀리 움직인 거리가 화면 긴 변의 25%다. 이 이동의 점수는?</p>
+        <div class="opts">
+          <button class="opt" data-correct>0.125</button>
+          <button class="opt">0.75</button>
+          <button class="opt">0.25</button>
+          <button class="opt">0.5</button>
+        </div>
+        <div class="quiz-exp">이동 점수 = 영향 비율 × 거리 비율 = 0.5 × 0.25 = 0.125. 이것 하나로 이미 "좋음" 기준 0.1을 넘는다. 두 비율을 더하는 것(0.75)이 아니라 곱한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 첫 화면 사진의 LCP가 늦다. 폭포 그림을 보니 사진 요청이 CSS를 다 받은 뒤에야 시작된다. 사진 무게는 이미 80 KB로 가볍다. 먼저 의심할 것은?</p>
+        <div class="opts">
+          <button class="opt">사진을 PNG로 바꿔 화질을 높인다.</button>
+          <button class="opt">사진에 <code>width</code>와 <code>height</code>를 지운다.</button>
+          <button class="opt">웹폰트를 한 굵기 더 추가한다.</button>
+          <button class="opt" data-correct>첫 화면 사진에 <code>loading="lazy"</code>가 붙어 있거나 스크립트·CSS 배경으로 넣어 발견이 늦어졌다. lazy를 빼고 HTML의 <code>img</code>에 <code>fetchpriority="high"</code>를 준다.</button>
+        </div>
+        <div class="quiz-exp">무게가 가벼운데도 요청 시작이 늦다면 문제는 LCP의 ② 구간, 곧 발견과 요청 지연이다. lazy는 레이아웃이 끝나 보일 위치를 알 때까지 요청을 미루고, 스크립트나 CSS 배경의 사진은 HTML을 읽을 때 발견되지 않는다. <code>width</code>·<code>height</code>를 지우면 레이아웃 이동만 늘어난다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 스켈레톤 화면에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">스켈레톤을 쓰면 실제 로딩 시간이 줄어든다.</button>
+          <button class="opt" data-correct>스켈레톤이 더 빠르게 느껴진다는 연구 결과는 엇갈린다. 다만 실제 콘텐츠와 같은 크기로 자리를 잡으면 콘텐츠가 와도 화면이 밀리지 않는다.</button>
+          <button class="opt">스켈레톤은 0.1초보다 짧은 기다림에 쓸수록 효과가 크다.</button>
+          <button class="opt">스켈레톤은 크기와 상관없이 CLS를 언제나 0으로 만든다.</button>
+        </div>
+        <div class="quiz-exp">스켈레톤은 받는 시간을 줄이지 않는다. 체감 효과에 대한 실험 결과는 조건에 따라 엇갈린다. 분명한 이점은 무엇이 어디에 올지 미리 보여 주고, 같은 크기라면 레이아웃 이동을 만들지 않는다는 것이다. 크기가 다르면 스켈레톤 자체가 이동을 만든다. 아주 짧은 기다림에는 오히려 깜박임이 된다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(fn) { try { fn(); } catch (e) { if (window.console) console.warn("sim:", e); } }
+  var C = { paper: "#fbfaf7", white: "#ffffff", green: "#2f7d5b", dark: "#22342a", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", gray: "#5d6b63", line: "#d9ded9", card: "#f6f3ec", ph: "#e6e1d7" };
+  var NET = { tunnel: { n: "지하철 터널 근처", bw: 0.4, rtt: 0.4 }, slow: { n: "느린 모바일", bw: 1.6, rtt: 0.15 }, lte: { n: "보통 LTE", bw: 10, rtt: 0.06 }, wifi: { n: "가정 와이파이", bw: 50, rtt: 0.02 } };
+  function F(px, w) { return AB.font(px, false, w || 400); }
+  function rr(ctx, x, y, w, h, r) {
+    r = Math.max(0, Math.min(r, w / 2, h / 2));
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath();
+  }
+  function kb(v) { return v >= 1000 ? (v / 1000).toFixed(v >= 10000 ? 0 : 2) + " MB" : Math.round(v) + " KB"; }
+  function sec(t) { return t >= 10 ? t.toFixed(0) + "초" : t >= 1 ? t.toFixed(1) + "초" : Math.round(t * 1000) + " ms"; }
+  function W0(id) { var el = document.getElementById(id); return Math.max(200, el.parentElement.clientWidth || 600); }
+
+  /* ---------------- 그림 1: CWV 기준값 ---------------- */
+  safe(function () {
+    var g = document.getElementById("pf-cwv"); if (!g) return;
+    var rows = [["LCP", 2.5, 4.0, 6, function (v) { return v + "초"; }], ["INP", 200, 500, 800, function (v) { return v + " ms"; }], ["CLS", 0.1, 0.25, 0.4, function (v) { return String(v); }]];
+    var s = "", x0 = 70, x1 = 446;
+    rows.forEach(function (r, i) {
+      var y = 14 + i * 58, X = function (v) { return x0 + v / r[3] * (x1 - x0); };
+      s += '<text x="10" y="' + (y + 22) + '" class="lbl-b" style="font-size:14px">' + r[0] + "</text>";
+      s += '<rect x="' + x0 + '" y="' + y + '" width="' + (X(r[1]) - x0) + '" height="30" class="f-ok-soft"/>';
+      s += '<rect x="' + X(r[1]) + '" y="' + y + '" width="' + (X(r[2]) - X(r[1])) + '" height="30" class="f-warn-soft"/>';
+      s += '<rect x="' + X(r[2]) + '" y="' + y + '" width="' + (x1 - X(r[2])) + '" height="30" class="f-bad-soft"/>';
+      [r[1], r[2]].forEach(function (v) { s += '<path d="M' + X(v) + " " + (y - 3) + " L" + X(v) + " " + (y + 33) + '" class="s-line"/><text x="' + X(v) + '" y="' + (y + 46) + '" text-anchor="middle" class="t-mono lbl" style="font-size:11px">' + r[4](v) + "</text>"; });
+    });
+    g.innerHTML = s;
+  });
+
+  /* ---------------- 시뮬레이터 1: 첫 화면 무게 예산 ---------------- */
+  safe(function () {
+    var CAT = ["HTML·CSS", "자바스크립트", "웹폰트", "사진", "기타"];
+    var PRE = { before: [90, 380, 1868, 4000, 60], budget: [50, 50, 200, 150, 50] };
+    var val = PRE.before.slice(), BUDGET = 500, frozen = null, geo = null, dragI = -1;
+    var pre = AB.seg("bg-pre", function (v) { val = PRE[v].slice(); cv.redraw(); });
+    var logc = AB.check("bg-log", function () { cv.redraw(); });
+    function total() { return val.reduce(function (a, b) { return a + b; }, 0); }
+    function tDown(net, B) { return 4 * net.rtt + 8 * B * 1000 / (net.bw * 1e6); }
+    var cv = AB.canvas("#bg-cv", function (ctx, w, h) {
+      var p = AB.palette(), cols = [p.accent2, p.warn, p.accent, p.bad, p.dim], T = total();
+      var maxKB = frozen || Math.max(T, BUDGET) * 1.08;
+      var x0 = 16, x1 = w - 16, X = function (v) { return x0 + v / maxKB * (x1 - x0); };
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = p.text; ctx.font = F(13, 700); ctx.textAlign = "left"; ctx.fillText("첫 화면 전송량", x0, 18);
+      ctx.fillStyle = p.dim; ctx.font = F(12); ctx.textAlign = "right"; ctx.fillText("합 " + kb(T), x1, 18);
+      var by = 34, bh = 38, acc = 0, bounds = [];
+      val.forEach(function (v, i) {
+        var a = X(acc), b = X(acc + v); ctx.fillStyle = cols[i]; ctx.globalAlpha = 0.85; ctx.fillRect(a, by, Math.max(0.5, b - a), bh); ctx.globalAlpha = 1;
+        acc += v; bounds.push(b);
+      });
+      ctx.strokeStyle = p.bg; ctx.lineWidth = 1.5; bounds.forEach(function (b) { ctx.beginPath(); ctx.moveTo(b, by); ctx.lineTo(b, by + bh); ctx.stroke(); });
+      // 예산선
+      var bx = X(BUDGET); ctx.strokeStyle = p.text; ctx.setLineDash([5, 4]); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(bx, by - 6); ctx.lineTo(bx, by + bh + 8); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = p.text; ctx.font = F(11, 700); ctx.textAlign = bx > x1 - 60 ? "right" : "left"; ctx.fillText("예산 500 KB", bx + (bx > x1 - 60 ? -4 : 4), by + bh + 14);
+      // 손잡이
+      bounds.forEach(function (b, i) { AB.handle(ctx, b, by + bh / 2, { r: 6, fill: cols[i], ring: p.text }); });
+      // 범례
+      var ly = by + bh + 34, lx = x0;
+      ctx.font = F(11.5); ctx.textAlign = "left";
+      val.forEach(function (v, i) {
+        var t = CAT[i] + " " + kb(v), tw = ctx.measureText(t).width + 26;
+        if (lx + tw > x1) { lx = x0; ly += 18; }
+        ctx.fillStyle = cols[i]; ctx.fillRect(lx, ly - 5, 11, 11); ctx.fillStyle = p.dim; ctx.fillText(t, lx + 15, ly); lx += tw;
+      });
+      // 통신별 시간
+      var ty = ly + 30, nets = ["tunnel", "slow", "lte", "wifi"], times = nets.map(function (k) { return tDown(NET[k], T); });
+      var lg = logc(), tmax = lg ? 100 : Math.max(3, Math.max.apply(null, times) * 1.05), labW = Math.min(118, w * 0.3);
+      var tx0 = x0 + labW, tx1 = x1 - 52, TX = function (t) { return lg ? tx0 + Math.log10(Math.max(0.1, t) / 0.1) / 3 * (tx1 - tx0) : tx0 + t / tmax * (tx1 - tx0); };
+      ctx.fillStyle = p.text; ctx.font = F(13, 700); ctx.fillText("다 받는 데 걸리는 시간(대략)", x0, ty); ty += 20;
+      var rowH = 24;
+      // 눈금
+      var ticks = lg ? [0.1, 1, 10, 100] : [0, 2.5, 5, 10, 20, 30, 40, 60].filter(function (t) { return t <= tmax; });
+      ctx.font = AB.font(10, true); ctx.textAlign = "center";
+      ticks.forEach(function (t) { var x = TX(t); ctx.strokeStyle = p.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, ty - 4); ctx.lineTo(x, ty + rowH * 4); ctx.stroke(); ctx.fillStyle = p.faint; ctx.fillText(t + "s", x, ty + rowH * 4 + 9); });
+      var x25 = TX(2.5); ctx.strokeStyle = p.ok; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(x25, ty - 6); ctx.lineTo(x25, ty + rowH * 4); ctx.stroke(); ctx.setLineDash([]);
+      nets.forEach(function (k, i) {
+        var y = ty + i * rowH + rowH / 2, t = times[i];
+        ctx.fillStyle = p.dim; ctx.font = F(11.5); ctx.textAlign = "left"; ctx.fillText(NET[k].n, x0, y);
+        ctx.fillStyle = t <= 2.5 ? p.ok : t <= 4 ? p.warn : p.bad; ctx.fillRect(tx0, y - 7, Math.max(2, TX(Math.min(t, lg ? 100 : tmax)) - tx0), 14);
+        ctx.fillStyle = p.text; ctx.font = AB.font(11, true, 700); ctx.fillText(sec(t), Math.min(TX(Math.min(t, lg ? 100 : tmax)) + 5, x1 - 46), y);
+      });
+      geo = { X: X, x0: x0, x1: x1, by: by, bh: bh, maxKB: maxKB, bounds: bounds };
+      AB.stat("bg-o-w", kb(T));
+      AB.stat("bg-o-b", T <= BUDGET ? "안 <small>" + Math.round(T / BUDGET * 100) + "%</small>" : "초과 <small>" + (T / BUDGET).toFixed(1) + "배</small>");
+      AB.stat("bg-o-t", sec(times[1]));
+    }, { get height() { var w = W0("bg-cv"); return w < 420 ? 330 : 300; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!geo) return; dragI = -1;
+        if (y < geo.by - 14 || y > geo.by + geo.bh + 14) return;
+        var best = 1e9; geo.bounds.forEach(function (b, i) { var d = Math.abs(b - x); if (d < best && d < 24) { best = d; dragI = i; } });
+        frozen = geo.maxKB;
+      },
+      move: function (x) {
+        if (dragI < 0 || !geo) return;
+        var before = 0; for (var i = 0; i < dragI; i++) before += val[i];
+        var kbAt = (x - geo.x0) / (geo.x1 - geo.x0) * geo.maxKB;
+        val[dragI] = Math.max(0, Math.round(kbAt - before));
+        cv.redraw();
+      },
+      end: function () { dragI = -1; frozen = null; cv.redraw(); }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 2: 첫 화면 사진과 LCP ---------------- */
+  safe(function () {
+    var imgG = AB.seg("lc-img", function () { cv.redraw(); });
+    var modeG = AB.seg("lc-mode", function () { cv.redraw(); });
+    var netG = AB.seg("lc-net", function () { cv.redraw(); });
+    function simulate(imgKB, mode, net) {
+      var R = [
+        { k: "html", n: "HTML", kb: 15, w: 4, dep: null },
+        { k: "css", n: "CSS", kb: 25, w: 4, dep: "html" },
+        { k: "js", n: "JS(defer)", kb: 50, w: 2, dep: "html" },
+        { k: "font", n: "웹폰트", kb: 160, w: 3, dep: "css" },
+        { k: "img", n: "첫 사진", kb: imgKB, w: mode === "high" ? 4 : 1, dep: mode === "lazy" ? "css" : "html" }
+      ];
+      var by = {}; R.forEach(function (r) { by[r.k] = r; r.left = r.kb * 1000 * 8; r.disc = null; r.flow = null; r.done = null; });
+      by.html.disc = 0; by.html.flow = 3 * net.rtt + net.rtt;
+      var t = 0, dt = 0.005, bw = net.bw * 1e6, guard = 0;
+      while (guard++ < 200000) {
+        R.forEach(function (r) {
+          if (r.disc == null && r.dep && by[r.dep].done != null) { r.disc = by[r.dep].done + (r.k === "img" && mode === "lazy" ? 0.25 : 0); r.flow = r.disc + net.rtt; }
+        });
+        var act = R.filter(function (r) { return r.flow != null && r.flow <= t && r.done == null; });
+        var wsum = act.reduce(function (a, r) { return a + r.w; }, 0);
+        act.forEach(function (r) { r.left -= bw * dt * r.w / wsum; if (r.left <= 0) r.done = t + dt; });
+        t += dt;
+        if (R.every(function (r) { return r.done != null; })) break;
+      }
+      var fcp = Math.max(by.html.done, by.css.done) + 0.05;
+      var lcp = Math.max(by.img.done + 0.05 + (imgKB > 1000 ? 0.15 : 0), fcp);
+      return { R: R, fcp: fcp, lcp: lcp, font: by.font.done, img: by.img };
+    }
+    var cv = AB.canvas("#lc-cv", function (ctx, w, h) {
+      var p = AB.palette(), imgKB = +imgG(), net = NET[netG()], S = simulate(imgKB, modeG(), net);
+      var T = Math.max(3, S.lcp * 1.12), lab = Math.min(84, w * 0.2), x0 = 10 + lab, x1 = w - 14, X = function (t) { return x0 + t / T * (x1 - x0); };
+      var y0 = 14, rowH = 24;
+      // 2.5초 구간
+      ctx.fillStyle = p.ok; ctx.globalAlpha = 0.08; ctx.fillRect(x0, y0 - 4, X(Math.min(2.5, T)) - x0, rowH * 5 + 8); ctx.globalAlpha = 1;
+      // 눈금
+      var step = T > 30 ? 10 : T > 12 ? 5 : T > 6 ? 2 : 1;
+      ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      for (var s = 0; s <= T + 1e-6; s += step) { var x = X(s); ctx.strokeStyle = p.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, y0 - 4); ctx.lineTo(x, y0 + rowH * 5 + 4); ctx.stroke(); ctx.fillStyle = p.faint; ctx.fillText(s + "s", x, y0 + rowH * 5 + 6); }
+      ctx.textBaseline = "middle";
+      S.R.forEach(function (r, i) {
+        var y = y0 + i * rowH + rowH / 2;
+        ctx.fillStyle = p.dim; ctx.font = F(11.5); ctx.textAlign = "left"; ctx.fillText(r.n, 10, y);
+        if (r.disc == null) return;
+        ctx.strokeStyle = p.faint; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(r.disc), y); ctx.lineTo(X(r.flow), y); ctx.stroke();
+        ctx.fillStyle = r.k === "img" ? p.accent : p.accent2; ctx.globalAlpha = r.k === "img" ? 1 : 0.75; ctx.fillRect(X(r.flow), y - 7, Math.max(2, X(r.done) - X(r.flow)), 14); ctx.globalAlpha = 1;
+      });
+      // 세로선
+      function vl(t, col, label, top) { var x = X(t); ctx.strokeStyle = col; ctx.lineWidth = 1.6; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(x, y0 - 6); ctx.lineTo(x, y0 + rowH * 5 + 2); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = col; ctx.font = F(11, 700); ctx.textAlign = x > x1 - 50 ? "right" : "left"; ctx.fillText(label, x + (x > x1 - 50 ? -3 : 3), top); }
+      vl(S.fcp, p.dim, "FCP", y0 + rowH * 5 - 6);
+      vl(S.lcp, S.lcp <= 2.5 ? p.ok : S.lcp <= 4 ? p.warn : p.bad, "LCP", y0 + 2);
+      // 필름 띠(고정색 예시 화면)
+      var fy = y0 + rowH * 5 + 26, n = w < 420 ? 4 : 6, gap = 6, fw = (w - 20 - gap * (n - 1)) / n, fh = Math.min(fw * 1.5, h - fy - 22);
+      fw = Math.min(fw, fh / 1.5);
+      var fx0 = (w - (fw * n + gap * (n - 1))) / 2;
+      for (var i = 0; i < n; i++) {
+        var tt = T * (i + 1) / n, fx = fx0 + i * (fw + gap), sc = fw / 120;
+        ctx.save(); ctx.translate(fx, fy); ctx.scale(sc, sc);
+        rr(ctx, 0, 0, 120, 180, 8); ctx.fillStyle = "#2b2f2d"; ctx.fill();
+        ctx.fillStyle = C.white; ctx.fillRect(4, 4, 112, 172);
+        if (tt >= S.fcp) {
+          ctx.fillStyle = C.green; ctx.fillRect(10, 10, 34, 10);
+          ctx.fillStyle = tt >= S.lcp ? "#7b5534" : C.ph; ctx.fillRect(4, 26, 112, 63);
+          if (tt >= S.lcp) { var pal = ["#8c2f2a", "#2f4f6f", "#c9a24a", "#3f6b4a", "#d87a3a"]; for (var b = 0; b < 14; b++) { ctx.fillStyle = pal[b % 5]; ctx.fillRect(8 + b * 7.6, 30 + (b % 3) * 2, 5.5, 24); } ctx.fillStyle = "#d24f39"; ctx.beginPath(); ctx.arc(60, 72, 7, 0, 7); ctx.fill(); }
+          ctx.fillStyle = C.dark; ctx.fillRect(10, 98, 80, 9);
+          ctx.fillStyle = "#9aa39d"; for (var l = 0; l < 4; l++) ctx.fillRect(10, 116 + l * 10, l === 3 ? 60 : 98, 5);
+          ctx.fillStyle = C.green; rr(ctx, 10, 158, 100, 14, 4); ctx.fill();
+        }
+        ctx.restore();
+        ctx.fillStyle = p.dim; ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(sec(tt), fx + fw / 2, fy + fw * 1.5 + 4); ctx.textBaseline = "middle";
+      }
+      AB.stat("lc-o-lcp", sec(S.lcp) + " <small>" + (S.lcp <= 2.5 ? "좋음" : S.lcp <= 4 ? "개선 필요" : "나쁨") + "</small>");
+      AB.stat("lc-o-fcp", sec(S.fcp));
+      AB.stat("lc-o-req", sec(S.img.disc) + " <small>받기 " + sec(S.img.done - S.img.flow) + "</small>");
+    }, { get height() { var w = W0("lc-cv"); var n = w < 420 ? 4 : 6, fw = (w - 20 - 6 * (n - 1)) / n; return Math.round(14 + 24 * 5 + 26 + Math.min(fw * 1.5, 200) + 22); } });
+  });
+
+  /* ---------------- 시뮬레이터 3: 글자 수와 웹폰트의 무게 ---------------- */
+  safe(function () {
+    var NMAX = 11172, FULL = 1868;
+    function nOf(s) { return Math.round(Math.exp(Math.log(20) + s / 100 * (Math.log(NMAX) - Math.log(20)))); }
+    function sub(n) { return 3 + 0.105 * n; }
+    var nG = AB.range("ft-n", function (s) { return nOf(s).toLocaleString("ko-KR") + "자"; }, function () { cv.redraw(); });
+    var wG = AB.seg("ft-w", function () { cv.redraw(); });
+    var netG = AB.seg("ft-net", function () { cv.redraw(); });
+    var cv = AB.canvas("#ft-cv", function (ctx, w, h) {
+      var p = AB.palette(), n = nOf(nG()), k = +wG(), net = NET[netG()];
+      var rows = [["통짜 파일(17,648자)", FULL * k, p.bad], ["2,350자 서브셋", sub(2350) * k, p.warn], ["이 페이지 글자만", sub(n) * k, p.accent], ["시스템 글꼴", 0, p.ok]];
+      var lab = Math.min(132, w * 0.36), x0 = 12 + lab, x1 = w - 70, lo = 1, hi = 4000;
+      var X = function (v) { return x0 + Math.log10(Math.max(lo, v) / lo) / Math.log10(hi / lo) * (x1 - x0); };
+      var y0 = 26, rowH = 46;
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = p.text; ctx.font = F(12.5, 700); ctx.textAlign = "left"; ctx.fillText("전송량(KB, 로그 눈금) · " + k + "벌", 12, 12);
+      [1, 10, 100, 1000].forEach(function (t) { var x = X(t); ctx.strokeStyle = p.grid; ctx.beginPath(); ctx.moveTo(x, y0); ctx.lineTo(x, y0 + rowH * 4); ctx.stroke(); ctx.fillStyle = p.faint; ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.fillText(t >= 1000 ? "1 MB" : t + " KB", x, y0 + rowH * 4 + 10); });
+      var xb = X(200); ctx.strokeStyle = p.text; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(xb, y0 - 4); ctx.lineTo(xb, y0 + rowH * 4); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = p.text; ctx.font = F(10.5, 700); ctx.textAlign = "center"; ctx.fillText("예산 200 KB", xb, y0 - 9 + 0);
+      rows.forEach(function (r, i) {
+        var y = y0 + i * rowH + rowH / 2;
+        ctx.fillStyle = p.dim; ctx.font = F(11.5); ctx.textAlign = "left"; ctx.fillText(r[0], 12, y - 6);
+        var t = r[1] > 0 ? net.rtt + 8 * r[1] * 1000 / (net.bw * 1e6) : 0;
+        ctx.fillStyle = p.faint; ctx.font = F(10.5); ctx.fillText(r[1] > 0 ? "받기 " + sec(t) : "받을 것 없음", 12, y + 9);
+        if (r[1] > 0) { ctx.fillStyle = r[2]; ctx.globalAlpha = 0.85; ctx.fillRect(x0, y - 9, Math.max(2, X(r[1]) - x0), 18); ctx.globalAlpha = 1; }
+        ctx.fillStyle = p.text; ctx.font = AB.font(11, true, 700); ctx.textAlign = "left"; ctx.fillText(r[1] > 0 ? kb(r[1]) : "0 KB", r[1] > 0 ? X(r[1]) + 5 : x0 + 4, y);
+      });
+      var s = sub(n) * k;
+      AB.stat("ft-o-sub", kb(s));
+      AB.stat("ft-o-ratio", "1/" + Math.max(1, Math.round(FULL * k / s)));
+      AB.stat("ft-o-bud", s <= 200 ? "안 <small>" + Math.round(s / 2) + "%</small>" : "초과 <small>" + (s / 200).toFixed(1) + "배</small>");
+    }, { get height() { return 26 + 46 * 4 + 24; } });
+  });
+
+  /* ---------------- 시뮬레이터 4: 레이아웃 이동 ---------------- */
+  safe(function () {
+    var VW = 360, VH = 640, IMG_H = 202, LINE = 26, T_FONT = 0.8, T_IMG = 1.4, XW = 328 / 360;
+    var tG = AB.range("cl-t", function (v) { return v.toFixed(2) + "초"; }, function () { redraw(); });
+    var imgC = AB.check("cl-img", function () { redraw(); });
+    var fontC = AB.check("cl-font", function () { redraw(); });
+    var WEB = ["2월 마지막 토요일 저녁, 겨울을 주제로 한", "짧은 글들을 함께 읽습니다. 읽을 글은", "서점이 준비하고, 따뜻한 차를 드립니다.", "자리는 열두 개이며 참가비는 없습니다.", "늦게 오셔도 괜찮습니다."];
+    var FB = ["2월 마지막 토요일 저녁, 겨울을 주제로", "한 짧은 글들을 함께 읽습니다. 읽을", "글은 서점이 준비하고, 따뜻한 차를", "드립니다. 자리는 열두 개이며 참가비는", "없습니다. 늦게 오셔도 괜찮습니다.", ""];
+    function layout(t) {
+      var reserve = imgC(), match = fontC();
+      var imgH = (reserve || t >= T_IMG) ? IMG_H : 0;
+      var webfont = t >= T_FONT, nLines = (webfont || match) ? 5 : 6;
+      var y = 56, L = {};
+      L.hero = [y, imgH]; y += imgH + 18;
+      L.title = [y, 30]; y += 44;
+      L.para = [y, nLines * LINE]; y += nLines * LINE + 16;
+      L.btn = [y, 48]; y += 64;
+      L.card = [y, 120]; y += 136;
+      L.rest = [y, 2000];
+      return { L: L, imgH: imgH, webfont: webfont, nLines: nLines, imgLoaded: t >= T_IMG };
+    }
+    function shiftScore(a, b) {
+      var ks = ["hero", "title", "para", "btn", "card", "rest"], ints = [], dmax = 0;
+      ks.forEach(function (k) {
+        var d = b.L[k][0] - a.L[k][0]; if (Math.abs(d) < 0.5) return; if (k === "hero") return;
+        dmax = Math.max(dmax, Math.abs(d));
+        [[a.L[k][0], a.L[k][0] + a.L[k][1]], [b.L[k][0], b.L[k][0] + b.L[k][1]]].forEach(function (iv) { var s = Math.max(0, iv[0]), e = Math.min(VH, iv[1]); if (e > s) ints.push([s, e]); });
+      });
+      if (!ints.length) return 0;
+      ints.sort(function (p, q) { return p[0] - q[0]; });
+      var tot = 0, cs = ints[0][0], ce = ints[0][1];
+      for (var i = 1; i < ints.length; i++) { if (ints[i][0] <= ce) ce = Math.max(ce, ints[i][1]); else { tot += ce - cs; cs = ints[i][0]; ce = ints[i][1]; } }
+      tot += ce - cs;
+      return (tot / VH) * XW * (dmax / Math.max(VW, VH));
+    }
+    function events() {
+      var ev = [];
+      [T_FONT, T_IMG].forEach(function (te) { var sc = shiftScore(layout(te - 0.001), layout(te)); if (sc > 0) ev.push([te, sc, te === T_FONT ? "글꼴" : "사진"]); });
+      return ev;
+    }
+    function drawPhone(ctx, w, h) {
+      var t = tG(), st = layout(t), L = st.L, s = Math.min((w - 20) / VW, (h - 16) / VH), ox = (w - VW * s) / 2, oy = 8;
+      ctx.save(); ctx.translate(ox, oy); ctx.scale(s, s);
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, VW, VH); ctx.clip();
+      ctx.fillStyle = C.white; ctx.fillRect(0, 0, VW, VH);
+      ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      ctx.fillStyle = C.green; rr(ctx, 16, 14, 84, 28, 6); ctx.fill(); ctx.fillStyle = C.white; ctx.font = F(14, 800); ctx.textAlign = "center"; ctx.fillText("책방 E", 58, 29); ctx.textAlign = "left";
+      ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(0, 55.5); ctx.lineTo(VW, 55.5); ctx.stroke();
+      if (L.hero[1] > 0) {
+        if (st.imgLoaded) {
+          ctx.fillStyle = "#5a3f2a"; ctx.fillRect(0, L.hero[0], VW, IMG_H);
+          var pal = ["#8c2f2a", "#2f4f6f", "#c9a24a", "#3f6b4a", "#e0d6c2", "#d87a3a"], R = AB.rng(4);
+          for (var row = 0; row < 3; row++) { var xx = 6; while (xx < VW - 8) { var bw = 7 + R() * 9; ctx.fillStyle = pal[Math.floor(R() * 6)]; ctx.fillRect(xx, L.hero[0] + 10 + row * 40, bw - 1, 30); xx += bw; } }
+          ctx.fillStyle = "#b08a62"; ctx.fillRect(0, L.hero[0] + 132, VW, 70);
+          [70, 130, 190, 250, 300].forEach(function (px, i) { ctx.fillStyle = ["#2f4f6f", "#8c2f2a", "#3f6b4a", "#c9a24a", "#6b3f5a"][i]; rr(ctx, px - 14, L.hero[0] + 150, 28, 40, 10); ctx.fill(); ctx.fillStyle = "#e9c9a8"; ctx.beginPath(); ctx.arc(px, L.hero[0] + 140, 9, 0, 7); ctx.fill(); });
+        } else { ctx.fillStyle = C.ph; ctx.fillRect(0, L.hero[0], VW, IMG_H); ctx.fillStyle = "#9a958b"; ctx.font = F(13); ctx.textAlign = "center"; ctx.fillText("사진 자리(1600×900 비율)", VW / 2, L.hero[0] + IMG_H / 2); ctx.textAlign = "left"; }
+      }
+      var fam = st.webfont ? 400 : 400;
+      ctx.fillStyle = C.dark; ctx.font = F(st.webfont || fontC() ? 22 : 23, 800); ctx.fillText("다음 모임: 겨울 낭독회", 16, L.title[0] + 15);
+      var lines = (st.webfont || fontC()) ? WEB : FB;
+      ctx.fillStyle = C.gray; ctx.font = F(st.webfont || fontC() ? 15 : 15.6, fam);
+      for (var i = 0; i < st.nLines; i++) ctx.fillText(lines[i] || "", 16, L.para[0] + i * LINE + LINE / 2);
+      ctx.fillStyle = C.green; rr(ctx, 16, L.btn[0], 328, 48, 8); ctx.fill(); ctx.fillStyle = C.white; ctx.font = F(16, 800); ctx.textAlign = "center"; ctx.fillText("신청하기", VW / 2, L.btn[0] + 25); ctx.textAlign = "left";
+      ctx.fillStyle = C.card; rr(ctx, 16, L.card[0], 328, 120, 8); ctx.fill();
+      ctx.fillStyle = C.dark; ctx.font = F(15, 700); ctx.fillText("수채 드로잉 모임", 30, L.card[0] + 26); ctx.fillStyle = C.gray; ctx.font = F(13); ctx.fillText("3월 4일(토) 오후 2시 · 1층 작업대", 30, L.card[0] + 52);
+      // 직전 자리(이동 직후 0.35초 동안)
+      events().forEach(function (e) {
+        if (t >= e[0] && t < e[0] + 0.35) {
+          var prev = layout(e[0] - 0.001).L; ctx.strokeStyle = C.red; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+          ["btn", "card"].forEach(function (k) { rr(ctx, 16, prev[k][0], 328, prev[k][1], 8); ctx.stroke(); });
+          ctx.setLineDash([]);
+        }
+      });
+      ctx.restore();
+      ctx.strokeStyle = "#2b2f2d"; ctx.lineWidth = 6; rr(ctx, -3, -3, VW + 6, VH + 6, 14); ctx.stroke();
+      ctx.restore();
+    }
+    var cv = AB.canvas("#cl-cv", drawPhone, { get height() { var w = W0("cl-cv"); return Math.round(Math.min(560, Math.max(380, w * 0.95))); }, bg: C.paper });
+    var tl = AB.canvas("#cl-tl", function (ctx, w, h) {
+      var p = AB.palette(), ev = events(), t = tG();
+      var box = { x: 46, y: 12, w: w - 62, h: h - 40 };
+      var ymax = 0.35;
+      var data = [], acc = 0, pts = [[0, 0]];
+      ev.forEach(function (e) { pts.push([e[0], acc]); acc += e[1]; pts.push([e[0], acc]); });
+      pts.push([3, acc]);
+      var c = AB.chart(ctx, box, { x: [0, 3], y: [0, ymax], xTicks: [0, 0.5, 1, 1.5, 2, 2.5, 3], yTicks: [0, 0.1, 0.25], xFmt: function (v) { return v + "s"; }, yFmt: function (v) { return String(v); }, series: [{ data: pts.filter(function (q) { return q[0] <= t; }).concat([[t, ev.filter(function (e) { return e[0] <= t; }).reduce(function (a, e) { return a + e[1]; }, 0)]]), color: p.accent, width: 2.5 }], hlines: [{ y: 0.1, color: p.ok }, { y: 0.25, color: p.bad }], vlines: [{ x: t, color: p.dim, dash: [2, 3] }] });
+      ctx.fillStyle = p.dim; ctx.font = F(11); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("누적 이동 점수", box.x + 6, box.y + 2);
+    }, { height: 130 });
+    function redraw() {
+      cv.redraw(); tl.redraw();
+      var t = tG(), ev = events().filter(function (e) { return e[0] <= t; }), cls = ev.reduce(function (a, e) { return a + e[1]; }, 0);
+      AB.stat("cl-o-list", ev.length ? '<span style="font-size:14px">' + ev.map(function (e) { return e[2] + " " + e[1].toFixed(3); }).join(" + ") + "</span>" : "없음");
+      AB.stat("cl-o-cls", cls.toFixed(3));
+      AB.stat("cl-o-v", cls <= 0.1 ? "좋음" : cls <= 0.25 ? "개선 필요" : "나쁨");
+    }
+    redraw();
+  });
+
+  /* ---------------- 시뮬레이터 5: 탭에서 다음 화면까지 ---------------- */
+  safe(function () {
+    var pG = AB.range("ip-p", function (v) { return v + " ms"; }, function () { cv.redraw(); });
+    var bgC = AB.check("ip-bg", function () { cv.redraw(); });
+    var spC = AB.check("ip-split", function () { cv.redraw(); });
+    var PRES = 24, CHUNK = 30;
+    var cv = AB.canvas("#ip-cv", function (ctx, w, h) {
+      var p = AB.palette(), proc = pG(), bg = bgC(), split = spC();
+      var bgS = -100, bgE = 150, start = bg ? bgE : 0, delay = start;
+      var paint = split ? start + Math.min(CHUNK, proc) + PRES : start + proc + PRES;
+      var procEnd = start + proc + (split ? 10 : 0);
+      var tmin = -150, tmax = Math.max(900, procEnd + 80), x0 = 16, x1 = w - 16, X = function (t) { return x0 + (t - tmin) / (tmax - tmin) * (x1 - x0); };
+      var y = 44, bh = 26;
+      ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      ctx.fillStyle = p.dim; ctx.font = F(11.5); ctx.fillText("브라우저 일꾼(메인 스레드)", x0, 20);
+      ctx.fillStyle = p.surface; ctx.fillRect(x0, y, x1 - x0, bh);
+      if (bg) { ctx.fillStyle = p.faint; ctx.globalAlpha = 0.6; ctx.fillRect(X(bgS), y, X(bgE) - X(bgS), bh); ctx.globalAlpha = 1; ctx.fillStyle = p.text; ctx.font = F(10.5); if (X(bgE) - X(bgS) > 60) ctx.fillText("다른 스크립트", X(bgS) + 4, y + bh / 2); }
+      if (split) {
+        ctx.fillStyle = p.accent; ctx.fillRect(X(start), y, X(start + Math.min(CHUNK, proc)) - X(start), bh);
+        ctx.fillStyle = p.accent2; ctx.globalAlpha = 0.7; ctx.fillRect(X(paint + 10), y, X(paint + 10 + Math.max(0, proc - CHUNK)) - X(paint + 10), bh); ctx.globalAlpha = 1;
+        if (proc > CHUNK) { ctx.fillStyle = p.text; ctx.font = F(10.5); if (X(paint + 10 + proc - CHUNK) - X(paint + 10) > 50) ctx.fillText("나머지 일", X(paint + 10) + 4, y + bh / 2); }
+      } else {
+        ctx.fillStyle = p.accent; ctx.fillRect(X(start), y, X(start + proc) - X(start), bh);
+        ctx.fillStyle = "#ffffff"; ctx.font = F(10.5, 700); if (X(start + proc) - X(start) > 50) ctx.fillText("누름 처리", X(start) + 4, y + bh / 2);
+      }
+      // 탭과 다음 화면
+      function mark(t, col, lab, yy) { var x = X(t); ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y - 8); ctx.lineTo(x, y + bh + 30); ctx.stroke(); ctx.fillStyle = col; ctx.font = F(11, 700); ctx.textAlign = x > x1 - 70 ? "right" : "left"; ctx.fillText(lab, x + (x > x1 - 70 ? -4 : 4), yy); ctx.textAlign = "left"; }
+      mark(0, p.text, "탭", y + bh + 22);
+      var lat = paint, col = lat <= 200 ? p.ok : lat <= 500 ? p.warn : p.bad;
+      mark(paint, col, "다음 화면 " + Math.round(lat) + " ms", y + bh + 22);
+      // 200/500 눈금 막대
+      var gy = y + bh + 48;
+      ctx.fillStyle = p.ok; ctx.globalAlpha = 0.25; ctx.fillRect(X(0), gy, X(200) - X(0), 8); ctx.fillStyle = p.warn; ctx.fillRect(X(200), gy, X(500) - X(200), 8); ctx.fillStyle = p.bad; ctx.fillRect(X(500), gy, x1 - X(500), 8); ctx.globalAlpha = 1;
+      ctx.fillStyle = p.faint; ctx.font = AB.font(10, true); ctx.textAlign = "center"; [0, 200, 500].forEach(function (t) { ctx.fillText(t + "ms", X(t), gy + 18); });
+      // 버튼 모습(고정색)
+      var by = gy + 34, bw = Math.min(150, (x1 - x0) / 3 - 8);
+      [["탭 직후", "신청하기", false], ["다음 화면", split ? "신청 중…" : "신청 완료", true]].forEach(function (b, i) {
+        var bx = x0 + i * (bw + 16);
+        ctx.fillStyle = p.dim; ctx.font = F(10.5); ctx.textAlign = "left"; ctx.fillText(b[0], bx, by);
+        rr(ctx, bx, by + 10, bw, 34, 7); ctx.fillStyle = b[2] ? "#22342a" : "#2f7d5b"; ctx.fill(); ctx.fillStyle = "#ffffff"; ctx.font = F(13, 800); ctx.textAlign = "center"; ctx.fillText(b[1], bx + bw / 2, by + 27);
+      });
+      ctx.textAlign = "left";
+      AB.stat("ip-o-d", Math.round(delay) + " ms");
+      AB.stat("ip-o-t", Math.round(lat) + " ms");
+      AB.stat("ip-o-v", lat <= 200 ? "좋음" : lat <= 500 ? "개선 필요" : "나쁨");
+    }, { height: 210 });
+  });
+
+  /* ---------------- 시뮬레이터 6: 같은 기다림, 다른 화면 ---------------- */
+  safe(function () {
+    var wG = AB.range("sk-w", function (v) { return v.toFixed(1) + "초"; }, function () { play(); });
+    var prog = AB.check("sk-prog", function () { play(); });
+    var t = 0, running = false;
+    function arrive(kind) { var W = wG(); if (!prog()) return W; return kind === "title" ? 0.3 * W : kind === "text" ? 0.6 * W : W; }
+    function drawContent(ctx, x, y, w, h, mode, tt) {
+      var s = w / 120;
+      ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+      rr(ctx, 0, 0, 120, 200, 9); ctx.fillStyle = "#2b2f2d"; ctx.fill();
+      ctx.save(); ctx.beginPath(); ctx.rect(4, 4, 112, 192); ctx.clip();
+      ctx.fillStyle = C.white; ctx.fillRect(4, 4, 112, 192);
+      ctx.fillStyle = C.green; ctx.fillRect(10, 10, 34, 10);
+      var aT = tt >= arrive("title"), aX = tt >= arrive("text"), aI = tt >= arrive("img"), all = aT && aX && aI;
+      var shimmer = 0.75 + 0.25 * Math.sin(tt * 6);
+      // 제목 + 날짜
+      function sk(xx, yy, ww, hh) { ctx.fillStyle = "rgba(200,196,188," + shimmer + ")"; rr(ctx, xx, yy, ww, hh, 3); ctx.fill(); }
+      var show = function (a) { return mode === "skeleton" ? a : all; };
+      if (show(aT)) { ctx.fillStyle = C.dark; ctx.fillRect(10, 30, 78, 9); ctx.fillStyle = C.red; ctx.fillRect(10, 45, 50, 6); } else if (mode === "skeleton") { sk(10, 30, 78, 9); sk(10, 45, 50, 6); }
+      if (show(aI)) { ctx.fillStyle = "#7b5534"; ctx.fillRect(10, 58, 100, 56); var pal = ["#8c2f2a", "#2f4f6f", "#c9a24a", "#3f6b4a"]; for (var b = 0; b < 12; b++) { ctx.fillStyle = pal[b % 4]; ctx.fillRect(13 + b * 8, 62, 6, 24); } } else if (mode === "skeleton") sk(10, 58, 100, 56);
+      for (var l = 0; l < 4; l++) { if (show(aX)) { ctx.fillStyle = "#9aa39d"; ctx.fillRect(10, 124 + l * 11, l === 3 ? 60 : 100, 5); } else if (mode === "skeleton") sk(10, 124 + l * 11, l === 3 ? 60 : 100, 5); }
+      if (show(aX)) { ctx.fillStyle = C.green; rr(ctx, 10, 172, 100, 16, 4); ctx.fill(); } else if (mode === "skeleton") sk(10, 172, 100, 16);
+      if (mode === "spinner" && !all) { ctx.strokeStyle = "#e1ddd5"; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(60, 100, 14, 0, 7); ctx.stroke(); ctx.strokeStyle = C.green; ctx.beginPath(); ctx.arc(60, 100, 14, tt * 6, tt * 6 + 1.6); ctx.stroke(); }
+      ctx.restore(); ctx.restore();
+    }
+    var cv = AB.canvas("#sk-cv", function (ctx, w, h) {
+      var n = 3, gap = 12, fw = Math.min(150, (w - 24 - gap * 2) / 3), fx0 = (w - (fw * 3 + gap * 2)) / 2, fy = 30;
+      ["empty", "spinner", "skeleton"].forEach(function (m, i) {
+        var x = fx0 + i * (fw + gap);
+        ctx.fillStyle = "#3d4741"; ctx.font = F(12.5, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText(["빈 화면", "스피너", "스켈레톤"][i], x + fw / 2, 15);
+        drawContent(ctx, x, fy, fw, fw * 200 / 120, m, t);
+      });
+      // 시간 막대
+      var W = wG(), by = fy + fw * 200 / 120 + 16, bx0 = fx0, bx1 = fx0 + fw * 3 + gap * 2, frac = Math.min(1, t / (W + 0.6));
+      ctx.fillStyle = "#e1ddd5"; ctx.fillRect(bx0, by, bx1 - bx0, 6); ctx.fillStyle = "#567666"; ctx.fillRect(bx0, by, (bx1 - bx0) * frac, 6);
+      ctx.fillStyle = "#3d4741"; ctx.font = AB.font(11, true); ctx.textAlign = "left"; ctx.fillText(Math.min(t, W + 0.6).toFixed(1) + "초", bx0, by + 18);
+      ctx.textAlign = "right"; ctx.fillText("받기 완료 " + W.toFixed(1) + "초", bx1, by + 18);
+    }, { get height() { var w = W0("sk-cv"); var fw = Math.min(150, (w - 48) / 3); return Math.round(30 + fw * 200 / 120 + 44); }, bg: C.paper });
+    var loop = AB.loop(cv.canvas, function (dt) {
+      if (!running) return;
+      t += dt;
+      if (t >= wG() + 0.6) { t = wG() + 0.6; running = false; loop.stop(); }
+      cv.redraw();
+    });
+    function play() {
+      t = 0; running = true; loop.start(); cv.redraw();
+      var W = wG();
+      AB.stat("sk-o-w", W.toFixed(1) + "초");
+      AB.stat("sk-o-n", W < 1 ? "1초 안 <small>흐름 유지</small>" : W <= 10 ? "1~10초 <small>진행 표시 필요</small>" : "10초 넘음");
+      AB.stat("sk-o-f", prog() ? (0.3 * W).toFixed(1) + "초 <small>제목</small>" : W.toFixed(1) + "초 <small>한꺼번에</small>");
+    }
+    document.getElementById("sk-play").addEventListener("click", play);
+    // 처음에는 다 받은 뒤의 모습으로 둔다(정지 화면)
+    t = wG() + 0.6; running = false; loop.stop(); cv.redraw();
+    AB.stat("sk-o-w", wG().toFixed(1) + "초"); AB.stat("sk-o-n", "1~10초 <small>진행 표시 필요</small>"); AB.stat("sk-o-f", wG().toFixed(1) + "초 <small>한꺼번에</small>");
+  });
+})();
+</script>
+</body>
+</html>

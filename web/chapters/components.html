@@ -1,0 +1,862 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>컴포넌트와 상태 · WebBook</title>
+<meta name="description" content="버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/components.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="컴포넌트와 상태 · WebBook">
+<meta property="og:description" content="버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/components.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/components.html#chapter","name":"컴포넌트와 상태","headline":"컴포넌트와 상태 · WebBook","description":"버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다.","url":"https://artbook.euiyun.com/web/chapters/components.html","position":7,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"7. 컴포넌트와 상태","item":"https://artbook.euiyun.com/web/chapters/components.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .cp-code { font-family: var(--mono); font-size: 12.5px; line-height: 1.65; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin: 16px 0; overflow-x: auto; white-space: pre; color: var(--text); }
+  /* 시뮬레이터 1의 진짜 버튼 목업: 가상 웹 화면이므로 색은 책방 E의 고정색 */
+  .cp-live { background: #fbfaf7; border-top: 1px solid #e6e3dc; padding: 14px 14px 16px; color: #2b2a30; font-size: 14px; overflow: hidden; }
+  .cp-live .cp-card { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; background: #ffffff; border: 1px solid #e6e3dc; border-radius: 12px; padding: 12px 14px; }
+  .cp-live .cp-info { flex: 1 1 160px; min-width: 0; }
+  .cp-live .cp-info b { display: block; color: #22342a; font-size: 15px; }
+  .cp-live .cp-info small { color: #6b6874; font-size: 13px; }
+  .cp-btn { font: inherit; font-size: 15px; font-weight: 700; color: #ffffff; background: #2f7d5b; border: 0; border-radius: 8px; padding: 10px 20px; min-height: 44px; cursor: pointer; }
+  .cp-live.v1 .cp-btn:hover { background: #186b4a; }
+  .cp-live.v1 .cp-btn:focus { outline: none; }
+  .cp-live.v2 .cp-btn { box-shadow: 0 2px 0 #1d4d38; }
+  .cp-live.v2 .cp-btn:hover { background: #186b4a; }
+  .cp-live.v2 .cp-btn:focus { outline: none; }
+  .cp-live.v2 .cp-btn:focus-visible { outline: 3px solid #22342a; outline-offset: 2px; }
+  .cp-live.v2 .cp-btn:active { background: #025f3f; transform: translateY(2px); box-shadow: none; }
+  .cp-live.v2 .cp-btn[aria-disabled="true"] { background: #d9dfdb; color: #5f6b65; box-shadow: none; cursor: not-allowed; transform: none; }
+  .cp-live.v2 .cp-btn[aria-busy="true"] { cursor: progress; }
+  .cp-live .cp-now { margin-top: 10px; font-size: 13px; color: #6b6874; }
+  .cp-live .cp-now b { color: #22342a; }
+</style>
+</head>
+<body data-chapter="components">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 07</div>
+    <h1>컴포넌트와 상태</h1>
+    <p class="lead">엘리베이터 버튼을 눌렀는데 불이 들어오지 않으면 사람들은 한 번 더, 또 한 번 더 누른다. 버튼이 "알아들었다"고 대답하지 않았기 때문이다. 웹 화면의 버튼도 같다. 마우스를 올렸을 때, 키보드로 다가왔을 때, 누르는 순간, 누를 수 없을 때, 누른 뒤 처리하는 동안, 화면은 매번 다르게 대답해야 한다. 그리고 그 버튼은 손가락 끝으로도 눌린다. 손가락은 마우스 포인터보다 훨씬 굵고, 걸으면서 누르면 더 흔들린다. 이 장은 웹 화면의 부품들이 상태로 말하는 법과, 손과 포인터가 실제로 닿을 수 있는 크기를 다룬다.</p>
+    <ul class="objectives">
+      <li>버튼·링크·입력 칸·카드를 하는 일로 구별하고, 가는 곳(링크)과 하는 일(버튼)에 맞는 HTML 요소를 고른다.</li>
+      <li>기본·호버·포커스·눌림·비활성·로딩 상태를 표로 설계하고, 상태마다 색 말고도 모양이나 글자로 다름을 알린다.</li>
+      <li>키보드 사용자에게 포커스 표시가 왜 필요한지 알고, 어떤 바탕에서도 보이는 포커스 링을 만든다(WCAG 2.2의 2.4.7, 1.4.11, 2.4.13).</li>
+      <li>고정 크기 대신 안쪽 여백과 최소 크기로 버튼을 짜서 사용자가 글자를 키워도 깨지지 않게 한다.</li>
+      <li>손가락 터치의 흩어짐으로 타깃 크기와 간격이 잘못 누르기에 미치는 영향을 보고, 24 CSS px(WCAG 2.5.8)와 44·48 같은 플랫폼 지침을 구별한다.</li>
+      <li>피츠의 법칙(섀넌 형식)으로 거리와 크기가 누르는 시간에 미치는 영향을 계산하고, 호버가 없는 기기를 위해 설계한다.</li>
+    </ul>
+  </header>
+
+  <section id="parts">
+    <h2>화면의 부품</h2>
+    <p>웹 페이지는 수많은 작은 부품으로 이루어진다. 버튼, 링크, 입력 칸, 체크 상자, 카드, 탭, 알림 띠. 이렇게 한 번 설계해 두고 여러 화면에서 되풀이해 쓰는 화면의 부품을 <span class="term">컴포넌트</span><span class="en">(Component)</span>라고 한다. 같은 버튼을 행사 페이지에서도, 신청 폼에서도, 신간 목록에서도 쓰므로, 버튼 하나를 잘 만들면 사이트 전체가 좋아지고 하나를 잘못 만들면 그 실수가 사이트 전체에 퍼진다. <a href="tokens.html">6장</a>에서 색과 글자를 토큰으로 정리한 것은 이 부품들을 만들 재료를 마련한 일이었다. 이 장은 그 재료로 부품을 조립한다.</p>
+    <p>부품을 고를 때 가장 먼저 물을 것은 생김새가 아니라 <b>하는 일</b>이다. 웹에서 가장 흔히 헷갈리는 두 부품이 링크와 버튼이다. <span class="term">링크</span><span class="en">(Link)</span>는 다른 곳으로 <b>데려간다</b>. 다른 페이지, 같은 페이지의 다른 자리, 내려받을 파일. <span class="term">버튼</span><span class="en">(Button)</span>은 지금 이 자리에서 무언가를 <b>한다</b>. 신청서를 보내고, 메뉴를 열고, 장바구니에 담는다. 생김새는 바꿀 수 있다. 버튼처럼 생긴 링크("행사 전체 보기")도, 링크처럼 생긴 버튼("더 불러오기")도 있다. 하지만 HTML에서는 하는 일에 맞는 요소를 써야 한다. 링크는 <code>&lt;a href&gt;</code>, 버튼은 <code>&lt;button&gt;</code>이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="버튼 하나의 해부도. 가운데에 책방 초록색 버튼 '모임 신청하기'가 있고, 글자 둘레의 안쪽 여백, 최소 높이 44, 모서리 반지름, 버튼 밖으로 2만큼 띄운 3 두께의 포커스 링이 치수선으로 표시되어 있다.">
+        <defs><marker id="cp-ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="128" y="86" width="204" height="72" rx="17" fill="none" class="s-acc" stroke-width="3" stroke-dasharray="6 4"/>
+        <rect x="136" y="94" width="188" height="56" rx="10" fill="#2f7d5b"/>
+        <text x="230" y="128" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">모임 신청하기</text>
+        <rect x="160" y="108" width="140" height="28" fill="none" class="s-dash"/>
+        <line x1="136" y1="176" x2="160" y2="176" class="s-line" marker-start="url(#cp-ar)" marker-end="url(#cp-ar)"/>
+        <text x="148" y="194" text-anchor="middle" class="lbl-dim">안쪽 여백</text>
+        <line x1="160" y1="176" x2="300" y2="176" class="s-line" marker-start="url(#cp-ar)" marker-end="url(#cp-ar)"/>
+        <text x="230" y="194" text-anchor="middle" class="lbl-dim">글자 폭이 정한다</text>
+        <line x1="342" y1="94" x2="342" y2="150" class="s-line" marker-start="url(#cp-ar)" marker-end="url(#cp-ar)"/>
+        <text x="350" y="118" class="lbl">높이: 최소 44</text>
+        <text x="350" y="134" class="lbl-dim">글자 따라 자람</text>
+        <line x1="114" y1="94" x2="114" y2="150" class="s-line" marker-start="url(#cp-ar)" marker-end="url(#cp-ar)"/>
+        <text x="20" y="118" class="lbl">글자 둘레</text>
+        <text x="20" y="134" class="lbl-dim">위아래 여백</text>
+        <text x="230" y="40" text-anchor="middle" class="lbl-acc">포커스 링: 3 두께, 2 띄움</text>
+        <line x1="230" y1="48" x2="230" y2="84" class="s-acc" marker-end="url(#cp-ar)"/>
+        <text x="324" y="70" class="lbl-dim">모서리 반지름 8~10</text>
+        <path d="M322 74 Q320 88 318 96" class="s-line" fill="none" marker-end="url(#cp-ar)"/>
+        <text x="230" y="230" text-anchor="middle" class="lbl-dim">단위는 CSS px. 크기를 정하는 것은 고정값이 아니라 글자 + 여백 + 최소값이다.</text>
+      </svg>
+      <figcaption><b>그림 1. 버튼 하나의 해부.</b> 버튼의 크기는 디자이너가 그린 사각형이 아니라 글자, 안쪽 여백(<a href="box.html">3장</a>의 패딩), 최소 높이가 함께 정한다. 바깥의 점선은 키보드로 다가왔을 때만 나타나는 포커스 링이다. 버튼에서 조금 띄워 두면 버튼 색과 상관없이 바탕 위에서 보인다.</figcaption>
+    </figure>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>부품</th><th>하는 일</th><th>HTML 요소</th><th>흔한 실수</th></tr></thead>
+        <tbody>
+          <tr><td>링크</td><td>다른 곳으로 데려간다</td><td><code>&lt;a href="…"&gt;</code></td><td>"여기를 클릭"처럼 어디로 가는지 모르는 문구(<a href="navigation.html">8장</a>)</td></tr>
+          <tr><td>버튼</td><td>이 자리에서 무언가를 한다</td><td><code>&lt;button&gt;</code></td><td><code>&lt;div&gt;</code>에 누르기만 붙여 키보드로 닿지 않는다</td></tr>
+          <tr><td>입력 칸</td><td>사람에게서 값을 받는다</td><td><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;label&gt;</code></td><td>라벨 없이 자리표시자만 둔다(<a href="forms.html">9장</a>)</td></tr>
+          <tr><td>카드</td><td>한 대상(행사, 책)의 요약을 묶는다</td><td><code>&lt;article&gt;</code> 안의 제목 링크</td><td>카드 안의 모든 글자를 링크로 감싸 화면 낭독기가 긴 문장을 통째로 읽는다</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><code>&lt;div&gt;</code>에 누르기 동작만 붙인 "가짜 버튼"은 마우스로는 잘 눌린다. 그래서 디자이너도 개발자도 문제를 모르고 지나간다. 그런데 키보드의 Tab 키로는 그 자리에 갈 수 없고, Enter나 스페이스로 누를 수도 없으며, 화면 낭독기는 그것이 버튼인 줄 모른다. 진짜 <code>&lt;button&gt;</code>은 이 모든 것을 브라우저가 공짜로 해 준다. 웹 표준은 이것을 부품의 이름, 역할, 값이 기계에 전달되어야 한다는 요구로 적어 둔다(WCAG 2.2 성공 기준 4.1.2, 이름·역할·값). 접근성 전체는 <a href="access.html">11장</a>에서 다루고, 이 장에서는 부품이 사람에게 대답하는 방식, 곧 상태에 집중한다.</p>
+  </section>
+
+  <section id="states">
+    <h2>상태: 부품이 대답하는 방식</h2>
+    <p>같은 버튼도 때에 따라 다른 얼굴을 한다. 부품이 지금 어떤 처지에 있는지를 <span class="term">상태</span><span class="en">(State)</span>라고 한다. 버튼의 상태는 대개 여섯 가지로 정리한다. 아무 일도 없을 때의 <b>기본</b>, 마우스 포인터를 올렸을 때의 <span class="term">호버</span><span class="en">(Hover)</span>, 키보드로 다가와 지금 입력을 받을 차례가 되었을 때의 <span class="term">포커스</span><span class="en">(Focus)</span>, 누르고 있는 순간의 <b>눌림</b><span class="en">(Active, Pressed)</span>, 지금은 누를 수 없을 때의 <b>비활성</b><span class="en">(Disabled)</span>, 누른 뒤 처리를 기다리는 <b>로딩</b><span class="en">(Loading)</span>.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>상태</th><th>언제</th><th>CSS에서</th><th>사람에게 알려야 할 것</th></tr></thead>
+        <tbody>
+          <tr><td>기본</td><td>아무 일도 없을 때</td><td>기본 규칙</td><td>"나는 누를 수 있다"(버튼다운 모양)</td></tr>
+          <tr><td>호버</td><td>마우스 포인터가 위에 있을 때</td><td><code>:hover</code></td><td>"지금 누르면 내가 눌린다"</td></tr>
+          <tr><td>포커스</td><td>Tab 키 등으로 차례가 왔을 때</td><td><code>:focus-visible</code></td><td>"키보드 입력은 지금 여기로 온다"</td></tr>
+          <tr><td>눌림</td><td>누르고 있는 동안</td><td><code>:active</code></td><td>"알아들었다"</td></tr>
+          <tr><td>비활성</td><td>조건이 맞지 않아 누를 수 없을 때</td><td><code>:disabled</code>, <code>[aria-disabled="true"]</code></td><td>"지금은 안 된다, 그리고 그 이유"</td></tr>
+          <tr><td>로딩</td><td>누른 뒤 서버의 대답을 기다릴 때</td><td>클래스, <code>[aria-busy="true"]</code></td><td>"처리하는 중이다, 다시 누르지 않아도 된다"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>디자인 시안이 기본 상태 하나만 그려져 있으면, 나머지 다섯 상태는 개발자가 짐작으로 채우거나 브라우저의 기본값으로 남는다. 아래 시뮬레이터의 위쪽은 버튼 하나의 여섯 상태를 나란히 놓은 <span class="term">상태 표</span><span class="en">(State matrix)</span>다. "첫 시안"은 호버 색만 정해 둔 버튼, "다섯 상태 + 로딩"은 상태마다 다른 단서를 준 버튼이다. 아래쪽에는 같은 두 설계로 만든 <b>진짜 버튼</b>이 있다. 마우스를 올려 보고, 페이지를 누른 다음 Tab 키로 다가가 보고, 눌러 본다.</p>
+
+    <div class="sim" id="sim-cp-states">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>버튼의 상태 표</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper">
+          <canvas id="cp-st-cv" class="art"></canvas>
+          <div class="cp-live v1" id="cp-live">
+            <div class="cp-card">
+              <div class="cp-info"><b>그림책 함께 읽기</b><small>2월 5일 토 오전 11시 · 남은 자리 4</small></div>
+              <button type="button" class="cp-btn" id="cp-live-btn">신청하기</button>
+            </div>
+            <div class="cp-now">진짜 버튼의 지금 상태: <b id="cp-live-st">기본</b></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="seg" id="cp-st-design"><button data-value="v1" class="on">첫 시안(호버만)</button><button data-value="v2">다섯 상태 + 로딩</button></div>
+          <label class="check"><input type="checkbox" id="cp-st-cvd"> 제2색각으로 보기</label>
+          <div class="btn-row"><button type="button" class="btn" id="cp-st-dis">진짜 버튼을 비활성으로</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">기본과 구별되지 않는 상태</span><span class="v" id="cp-st-o-same">—</span></div>
+        <div class="stat"><span class="k">색으로만 구별되는 상태</span><span class="v" id="cp-st-o-color">—</span></div>
+        <div class="stat"><span class="k">진짜 버튼으로 접수된 신청</span><span class="v" id="cp-st-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 첫 시안에서 상태 표를 본다. 포커스·비활성·로딩이 기본과 똑같다. 진짜 버튼에 Tab 키로 다가가면 상태 글자는 "포커스"로 바뀌는데 버튼에는 아무 표시가 없다. ② 첫 시안의 진짜 버튼을 빠르게 세 번 누른다. 버튼이 대답하지 않으니 신청이 세 건 접수된다. "다섯 상태 + 로딩"으로 바꿔 다시 누르면 첫 번째 누름 뒤 "신청 중…"이 되고 나머지 누름은 무시된다. ③ "진짜 버튼을 비활성으로"를 누른다. 첫 시안에서는 겉모습이 그대로라 눌러도 아무 일이 없는 이유를 알 수 없다. ④ 제2색각으로 보기를 켠다. 호버와 눌림처럼 색으로만 다른 상태는 차이가 줄지만, 링·내려앉음·글자 같은 단서는 남는다. (구별 판정은 이 장의 단순 규칙이다: 바탕색의 ΔE2000이 5 이상이면 색 단서, 링·위치·글자·아이콘이 다르면 모양 단서로 센다. 색 값은 책방 E의 초록에서 OKLCH 명도만 낮춘 것이다.)</div>
+    </div>
+
+    <p>첫 시안의 문제는 색이 아니라 <b>침묵</b>이다. 포커스가 왔는데 말하지 않고, 누를 수 없는데 말하지 않고, 처리 중인데 말하지 않는다. 사람은 대답이 없으면 다시 누른다. 그래서 로딩 상태가 없는 신청 버튼은 같은 신청을 두세 번 보내게 만든다. 서버에서 중복을 막는 일은 개발자의 몫이지만, "처리 중"이라고 말하는 일은 디자인의 몫이다.</p>
+    <p>개선안이 상태마다 쓴 단서를 다시 보자. 호버는 색만 조금 어둡게 했다. 호버는 포인터가 바로 그 자리에 있을 때만 생기므로 작은 변화로 충분하다. 포커스는 색이 아니라 <b>링</b>이다. 눌림은 더 어두운 색에 더해 버튼이 2 px 내려앉고 아래 그림자가 사라진다. 비활성은 회색으로 바뀌면서 글자도 "신청 마감"으로 바뀐다. 로딩은 돌아가는 표시와 "신청 중…"이다. 상태를 <b>색 하나로만</b> 알리면 색을 구별하기 어려운 사람(<a href="../../color/chapters/access.html">ColorBook 13장</a>), 햇빛 아래의 휴대폰 화면, 흑백으로 보는 사람에게는 상태가 사라진다(WCAG 2.2 성공 기준 1.4.1, 색의 사용).</p>
+
+    <div class="callout warn">
+      <strong>비활성 버튼은 이유를 삼킨다</strong>
+      제출 버튼을 미리 비활성으로 두고 "칸을 다 채우면 켜진다"는 방식은 흔하지만, 왜 눌리지 않는지 알려 주지 않으면 사람은 막힌 채로 화면을 뒤진다. 게다가 HTML의 <code>disabled</code> 속성을 단 버튼은 키보드 포커스도 받지 않아서, 화면 낭독기 사용자는 버튼이 있다는 것조차 모를 수 있다. WCAG는 비활성 부품의 글자를 대비 요구에서 빼 주지만(성공 기준 1.4.3의 예외), 그렇다고 읽을 수 없게 흐리게 만들라는 뜻은 아니다. 대안은 둘이다. 버튼은 늘 눌리게 두고 누르면 무엇이 빠졌는지 알려 주거나(<a href="forms.html">9장</a>), 비활성으로 둔다면 바로 옆에 이유를 글자로 적는다("모집이 끝났습니다"). 이 장의 개선안이 비활성 버튼의 글자를 "신청 마감"으로 바꾼 것도 그 때문이다.
+    </div>
+
+    <div class="callout studio">
+      <strong>시안에 상태 표를 붙여 넘긴다</strong>
+      개발자에게 넘기는 시안에는 화면 그림과 함께 부품마다 상태 표를 붙이는 디자이너가 많다. 가로로 상태(기본·호버·포커스·눌림·비활성·로딩), 세로로 변형(주 버튼·보조 버튼·글자 버튼, 큰 것·작은 것)을 놓고 칸마다 색 토큰 이름과 바뀌는 속성을 적는다. 빈칸이 보이면 그 상태를 아직 설계하지 않았다는 뜻이다. 표를 만들다 보면 "로딩 중에 버튼 폭이 줄어들면 옆의 글이 출렁이지 않을까" 같은 질문이 저절로 나온다. 그런 질문이 개발 중에 나오면 비싸고, 시안 단계에서 나오면 싸다.
+    </div>
+  </section>
+
+  <section id="focus">
+    <h2>포커스: 키보드의 커서</h2>
+    <p>모든 사람이 마우스나 손가락으로 웹을 쓰지는 않는다. 손을 정밀하게 움직이기 어려운 사람, 화면을 보지 않고 화면 낭독기로 쓰는 사람, 빠른 입력을 좋아하는 사람은 키보드로 페이지를 돌아다닌다. Tab 키를 누르면 다음 링크나 버튼으로, Shift+Tab을 누르면 이전으로 간다. 이때 지금 입력을 받을 부품이 어디인지 보여 주는 표시가 <span class="term">포커스 표시</span><span class="en">(Focus indicator)</span>다. 글을 쓸 때 깜빡이는 커서와 같은 일을 한다. 커서가 보이지 않는 문서 편집기를 상상해 보면 포커스 표시가 없는 웹 페이지가 어떤지 알 수 있다.</p>
+    <p>브라우저는 포커스 받은 부품에 기본 링을 그려 준다. 그런데 이 링이 시안과 어울리지 않는다며 CSS 한 줄 <code>outline: none</code>으로 지워 버리는 일이 아주 흔하다. 마우스로 누를 때도 링이 생겨 보기 싫다는 이유다. 그 문제는 이제 <code>:focus-visible</code>이라는 선택자로 풀 수 있다. 브라우저가 "이 포커스는 키보드로 온 것이라 표시가 필요하다"고 판단할 때만 해당하는 상태라, 마우스로 누를 때는 링이 생기지 않고 키보드로 올 때만 생긴다.</p>
+<pre class="cp-code" data-scroll>.btn:focus-visible {
+  outline: 3px solid #22342a;   /* 짙은 색 링 */
+  outline-offset: 2px;          /* 버튼에서 2px 띄운다 */
+}</pre>
+    <p>포커스 표시에 관한 WCAG 2.2의 성공 기준은 여럿이다. 2.4.7(포커스 보임, AA)은 키보드로 조작할 수 있는 화면에서 포커스 표시가 보여야 한다고 요구한다. 1.4.11(텍스트가 아닌 콘텐츠의 대비, AA)은 부품의 상태를 알아보는 데 필요한 시각 정보가 이웃한 색과 3:1 이상 대비되어야 한다고 요구하고, 포커스 링도 여기에 든다. 2.2에서 새로 생긴 2.4.11(포커스 가려지지 않음 최소, AA)은 포커스 받은 부품이 고정된 머리 띠나 쿠키 알림에 완전히 가려지지 않아야 한다고 하고, 2.4.13(포커스 모양, AAA)은 링의 면적이 부품 둘레에 2 CSS px 두께로 두른 것 이상이고 포커스 전후의 같은 화소가 3:1 이상 달라져야 한다고 더 엄격하게 정한다.</p>
+    <p>포커스 링이 어려운 이유는 버튼이 늘 같은 바탕 위에 있지 않기 때문이다. 흰 본문 위의 버튼, 크림색 알림 띠 위의 버튼, 짙은 바닥글 위의 버튼에 같은 링을 쓰면 어딘가에서는 링이 바탕에 녹는다. 아래에서 버튼을 끌어 바탕을 바꿔 가며 링 스타일을 비교한다.</p>
+
+    <div class="sim" id="sim-cp-focus">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>어떤 바탕에서도 보이는 포커스 링</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cp-fr-cv" class="art"></canvas><span class="hint">버튼을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="cp-fr-style"><button data-value="none">링 없음</button><button data-value="thin">얇은 초록 1px</button><button data-value="dark" class="on">짙은 3px</button><button data-value="double">이중 링</button></div>
+          <label class="check"><input type="checkbox" id="cp-fr-swap"> 어두운 바탕에서는 크림색 링으로</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">링과 바탕의 대비(가장 잘 보이는 켜)</span><span class="v" id="cp-fr-o-c">—</span></div>
+        <div class="stat"><span class="k">버튼과 바탕의 대비</span><span class="v" id="cp-fr-o-b">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="cp-fr-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "링 없음"으로 바꾼다. 어느 바탕에서도 포커스가 어디 있는지 알 수 없다. ② "짙은 3px"로 두고 버튼을 흰 본문에서 짙은 바닥글까지 끈다. 흰 바탕과 크림 띠에서는 선명하지만 짙은 바닥글에서는 대비가 1:1이 되어 링이 사라진다. ③ "어두운 바탕에서는 크림색 링으로"를 켜고 다시 끈다. ④ "이중 링"을 고른다. 흰 안쪽 켜와 짙은 바깥 켜 중 하나는 어느 바탕에서나 3:1을 넘는다. ⑤ 버튼을 "책방 초록" 띠로 옮긴다. 링과 별개로 버튼 자체가 바탕에 녹는다(대비 1:1). (대비는 WCAG 2 대비비다. 링이 버튼에서 떨어져 있으므로 링 화소는 포커스 전에 바탕색이었다고 보고 링 색과 바탕색을 비교한다. 판정은 1.4.11의 3:1과 2.4.13의 두께 2px를 함께 본 이 장의 단순 판정이다.)</div>
+    </div>
+
+    <p>바탕이 하나뿐인 사이트라면 짙은 링 하나로 충분하다. 바탕이 여러 가지라면 두 가지 방법이 있다. 바탕마다 링 색을 바꾸는 규칙을 정하거나(어두운 영역 안에서는 밝은 링), 서로 대비가 큰 두 색을 겹친 이중 링을 쓴다. 이중 링은 규칙이 하나라 개발자가 실수할 여지가 적고, 바탕 위에 사진이 깔린 곳처럼 바탕색을 미리 알 수 없는 자리에서도 버틴다. 마지막 단계에서 본 것처럼, 링을 아무리 잘 만들어도 <b>버튼 자체</b>가 바탕에 녹으면 소용없다. 책방 초록 띠 위에는 크림색 버튼을 놓는 식으로 부품의 변형을 따로 둔다.</p>
+
+    <div class="callout deep">
+      <strong>:focus-visible은 언제 켜지는가</strong>
+      CSS 선택자 표준(Selectors Level 4)은 <code>:focus-visible</code>을 "브라우저가 포커스를 눈에 띄게 표시해야 한다고 판단할 때"로만 정하고, 판단 방법은 브라우저에 맡긴다. 주요 브라우저는 대체로 키보드로 포커스를 옮겼을 때 켜고, 마우스로 버튼을 눌렀을 때는 켜지 않는다. 다만 글자를 입력하는 칸은 마우스로 눌러도 켜지는 경우가 많다. 곧 입력할 자리이기 때문이다. 판단 규칙이 브라우저마다 조금씩 다를 수 있으므로 결과는 실제 브라우저에서 키보드로 확인한다. 포커스 표시를 지우는 대신 <code>:focus-visible</code>로 바꾸는 것만으로도 "마우스로 누르면 링이 생겨 싫다"는 불만과 접근성을 함께 해결할 수 있다.
+    </div>
+  </section>
+
+  <section id="sizing">
+    <h2>크기는 내용이 정한다</h2>
+    <p>그래픽 디자인 도구에서 버튼을 그리면 사각형부터 그리게 된다. 가로 120, 세로 36. 그 안에 글자를 넣는다. 화면이 이 그림대로만 보인다면 문제가 없다. 하지만 <a href="viewport.html">2장</a>에서 본 것처럼 사람들은 휴대폰과 브라우저의 글자 크기 설정을 바꾼다. 한도경처럼 글자를 가장 크게 해 두고 쓰는 사람에게 120×36 상자 안의 "모임 신청하기"는 상자 밖으로 넘치거나 잘린다. 번역된 페이지에서 글자 수가 늘어날 때도 같은 일이 생긴다.</p>
+    <p>그래서 웹의 부품은 크기를 고정하지 않고 <b>내용 + 안쪽 여백 + 최소값</b>으로 정한다. 버튼의 폭은 글자 폭에 좌우 여백을 더한 만큼, 높이는 글줄 높이에 위아래 여백을 더한 만큼이되 손가락으로 누르기에 모자라지 않게 최소 높이를 둔다. 글자 크기는 <a href="tokens.html">6장</a>에서 정한 대로 <code>rem</code>으로 적어 사용자 설정을 따른다. 아래에서 휴대폰 화면(폭 360)의 행사 카드에 들어간 두 버튼을 두 방식으로 짜고 글자 크기를 키워 본다.</p>
+
+    <div class="sim" id="sim-cp-size">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>글자가 커지면 버튼은?</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cp-sz-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="cp-sz-mode"><button data-value="fixed" class="on">고정 크기 120×36</button><button data-value="pad">안쪽 여백 + 최소 44</button></div>
+          <label class="ctrl"><span>사용자의 글자 크기 설정 <output id="cp-sz-f-out"></output></span><input type="range" id="cp-sz-f" min="100" max="200" step="10" value="100"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">주 버튼 크기</span><span class="v" id="cp-sz-o-s">—</span></div>
+        <div class="stat"><span class="k">글자</span><span class="v" id="cp-sz-o-c">—</span></div>
+        <div class="stat"><span class="k">누르는 면</span><span class="v" id="cp-sz-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 고정 크기에서 글자 크기를 130%로 올린다. "모임 신청하기"의 끝이 상자 밖에서 잘린다. ② 200%까지 올린다. 글자가 위아래로도 잘려 무슨 버튼인지 읽을 수 없다. ③ "안쪽 여백 + 최소 44"로 바꾸고 다시 200%까지 올린다. 버튼이 글자를 따라 자라고, 두 버튼이 한 줄에 들어가지 않으면 위아래로 쌓인다. ④ 100%로 돌아가 두 방식의 높이를 비교한다. 고정 크기 36은 이 장이 정한 누르는 면 44에 모자란다. (본문 글자 17 px, 버튼 글자 16 px을 기준으로 설정 비율만큼 키운다. 글줄 높이는 1.25, 여백은 위아래 10·좌우 20 px로 둔 이 장의 예시 값이다. 실제 브라우저의 글자 크기 설정이 반영되는 방식은 기기와 설정 메뉴에 따라 다르다.)</div>
+    </div>
+
+    <p>안쪽 여백으로 짠 버튼은 글자가 두 배가 되어도 읽힌다. 대신 화면을 더 차지하고, 줄이 바뀌고, 옆의 부품을 밀어낸다. 이것은 실패가 아니라 웹이 원래 그렇게 움직이는 방식이다. 디자이너의 일은 "글자가 커졌을 때 무엇이 어디로 가는가"까지 정해 두는 것이다. 두 버튼이 한 줄에 들어가지 않으면 주 버튼을 위로 쌓는다, 버튼 글자는 두 줄까지 허용한다, 같은 규칙들이다. <a href="box.html">3장</a>에서 정한 간격 단계와 "안쪽 간격 &lt; 바깥 간격" 규칙이 여기서 그대로 쓰인다.</p>
+
+    <div class="callout studio">
+      <strong>가장 긴 글자로 시안을 그린다</strong>
+      버튼 시안에는 흔히 "확인"처럼 짧은 글자가 들어간다. 실제 화면에는 "모임 신청 내용 확인하기"처럼 긴 글자가 들어오고, 다른 언어로 옮기면 더 길어진다. 시안을 그릴 때 가장 긴 글자, 가장 큰 글자 크기, 가장 좁은 화면을 한 번씩 넣어 보는 습관이 있으면 부품이 깨지는 자리를 미리 찾는다. 도구에서 버튼을 "자동 크기"(내용에 맞춰 늘어나는 상자)로 만들어 두면 이 시험이 쉬워진다.
+    </div>
+  </section>
+
+  <section id="targets">
+    <h2>손가락이 닿는 크기</h2>
+    <p>마우스 포인터의 끝은 화소 하나다. 손가락은 그렇지 않다. 화면에 닿는 손가락 끝의 면적은 넓고, 사람은 자기가 누른 자리를 정확히 알지 못하며, 손가락 끝이 누르려는 곳을 가린다. 버스 안이나 걸으면서 한 손 엄지로 누르면 더 흔들린다. 그래서 같은 자리를 노리고 여러 번 눌러도 닿는 자리는 노린 점 둘레에 흩어진다. 손가락이나 포인터로 누를 수 있는 부품의 면을 <span class="term">터치 타깃</span><span class="en">(Touch target, 누르는 면)</span>이라고 한다. 눈에 보이는 모양보다 누르는 면을 더 크게 잡을 수도 있다.</p>
+    <p>누르는 면의 크기에 관해서는 성격이 다른 기준 몇 가지가 함께 돌아다닌다. 하나로 섞어 쓰면 안 된다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>기준</th><th>값</th><th>성격</th></tr></thead>
+        <tbody>
+          <tr><td>WCAG 2.2 성공 기준 2.5.8 타깃 크기(최소), AA</td><td class="num">24×24 CSS px</td><td>접근성 표준의 하한. 더 작으면 둘레에 충분한 간격이 있어야 한다(아래)</td></tr>
+          <tr><td>WCAG 2.2 성공 기준 2.5.5 타깃 크기(강화), AAA</td><td class="num">44×44 CSS px</td><td>더 엄격한 등급의 권고</td></tr>
+          <tr><td>Apple Human Interface Guidelines</td><td class="num">44×44 pt</td><td>iOS 앱 설계 지침의 최소 누르는 면</td></tr>
+          <tr><td>Material Design(구글)</td><td class="num">48×48 dp</td><td>안드로이드 앱 설계 지침. 지침은 이것이 실제 크기로 약 9 mm라고 설명한다</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>2.5.8의 24는 "이보다 작으면 많은 사람이 누르기 어렵다"는 <b>최소선</b>이지 목표가 아니다. 이 기준에는 예외가 있다. 누르는 면이 24보다 작아도, 그 면의 가운데에 지름 24 CSS px의 원을 그렸을 때 그 원이 다른 타깃이나 다른 작은 타깃의 원과 겹치지 않으면 통과한다. 크기가 모자라면 간격으로 메우라는 뜻이다. 문장 안의 링크처럼 글줄에 섞인 타깃도 예외다. 44와 48은 앱 플랫폼의 설계 지침에서 왔고, 단위(pt, dp)가 CSS px와 같은 개념은 아니지만 휴대폰에서는 대체로 비슷한 크기가 된다.</p>
+    <p>아래 시뮬레이터는 휴대폰의 행사 날짜 줄이다. 칩 하나를 노리고 손가락으로 여러 번 누른 자리를 점으로 찍는다. 노린 칩에 닿으면 초록, 옆 칩에 닿으면 빨강, 아무것도 없는 틈이나 줄 밖에 닿으면 회색이다. 칩을 눌러 노릴 칩을 바꿀 수 있다.</p>
+
+    <div class="sim" id="sim-cp-touch">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손가락은 흩어져 닿는다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cp-tt-cv" class="art"></canvas><span class="hint">칩을 눌러 노린다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>칩 크기 <output id="cp-tt-s-out"></output></span><input type="range" id="cp-tt-s" min="16" max="56" step="2" value="28"></label>
+          <label class="ctrl"><span>칩 사이 간격 <output id="cp-tt-g-out"></output></span><input type="range" id="cp-tt-g" min="0" max="16" step="2" value="4"></label>
+          <div class="seg" id="cp-tt-sig"><button data-value="7.5" class="on">앉아서</button><button data-value="12.5">걸으면서 한 손</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">노린 칩에 닿음</span><span class="v" id="cp-tt-o-hit">—</span></div>
+        <div class="stat"><span class="k">옆 칩을 누름(잘못 누르기)</span><span class="v" id="cp-tt-o-bad">—</span></div>
+        <div class="stat"><span class="k">빈 곳(반응 없음)</span><span class="v" id="cp-tt-o-miss">—</span></div>
+        <div class="stat"><span class="k">기준</span><span class="v" id="cp-tt-o-std">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 값(칩 28, 간격 4, 앉아서)에서 빨간 점이 얼마나 되는지 본다. ② "걸으면서 한 손"으로 바꾼다. 같은 칩인데 옆 칩을 누르는 비율이 몇 배로 는다. ③ 칩을 44로 키운다. 잘못 누르기가 크게 준다. ④ 칩을 20으로 줄이고 간격을 0에서 4까지 올려 본다. 칩이 24보다 작으면 24 원이 그려지고, 원이 서로 겹치는 동안은 2.5.8을 통과하지 못한다. 간격을 넓히면 통과하지만, 닿지 않는 회색 점이 늘어난다. ⑤ 칩 크기를 고정하고 간격만 바꿔 본다. 간격은 잘못 누르기를 "반응 없음"으로 바꿔 준다. 옆 날짜를 신청하는 것보다 아무 일도 안 일어나는 편이 낫다. (모형의 가정: 누른 자리는 노린 칩의 가운데를 중심으로 가로세로 독립인 정규 분포로 흩어지고, 표준편차는 앉아서 1.2 mm, 걸으면서 2.0 mm로 두었다. 휴대폰에서 1 CSS px ≈ 0.16 mm로 환산했다. 모두 교육용 가정이며 실제 흩어짐은 사람, 손가락, 쥐는 법, 기기에 따라 다르다. 비율은 같은 분포로 계산한 값이고 점은 그중 160번을 뽑아 찍은 것이다.)</div>
+    </div>
+
+    <p>잘못 누르기를 정하는 것은 칩 크기 하나가 아니라 <b>이웃한 칩까지의 거리</b>다. 칩의 가운데에서 옆 칩의 가장자리까지가 멀수록 흩어진 손가락이 옆 칩에 닿기 어렵다. 그 거리는 칩 크기의 절반에 간격을 더한 것이다. 그래서 칩을 키우는 것과 간격을 넓히는 것은 둘 다 잘못 누르기를 줄인다. 다른 점은, 칩을 키우면 노린 칩에 닿는 비율도 오르지만 간격을 넓히면 그 몫이 "반응 없음"으로 간다는 것이다. 화면 폭에 여유가 있으면 칩을 키우고, 폭이 모자라면 적어도 간격을 둔다.</p>
+
+    <div class="callout try">
+      <strong>종이 위의 손가락 도장</strong>
+      종이에 지름 4 mm, 7 mm, 10 mm의 작은 원을 몇 개씩 그린다(7 mm는 휴대폰에서 대략 44 CSS px 안팎이다). 집게손가락 끝에 연필 가루나 스탬프 잉크를 살짝 묻히고, 원 하나를 노려 스무 번 찍는다. 앉아서 한 번, 종이를 든 채 걸으면서 한 번. 찍힌 자리의 가운데가 원 안에 들어간 횟수를 세어 본다. 원이 작을수록, 걸을수록 원 밖으로 나간 자국이 많아질 것이다. 시뮬레이터의 흩어짐 값은 가정이지만, 손가락이 생각보다 덜 정확하다는 것은 이 실험만으로도 몸으로 알 수 있다.
+    </div>
+
+    <div class="callout deep">
+      <strong>손가락은 자기가 누른 곳을 모른다</strong>
+      터치 정확도에 관한 연구들은 사람이 "여기를 눌렀다"고 느끼는 점과 기기가 기록한 접촉점이 체계적으로 어긋난다는 것을 보여 준다. 예를 들어 Holz와 Baudisch의 연구(「The Generalized Perceived Input Point Model and How to Double Touch Accuracy by Extracting Fingerprints」, CHI 2010)는 손가락의 각도와 사람마다 다른 습관이 이 어긋남을 만든다고 보고했다. 운영체제는 이런 어긋남을 어느 정도 보정하지만, 디자이너가 할 수 있는 가장 확실한 보정은 누르는 면을 넉넉하게 하는 것이다. 눈에 보이는 아이콘은 작게 두고 누르는 면만 넓히는 방법(안쪽 여백이나 투명한 테두리)도 자주 쓴다.
+    </div>
+  </section>
+
+  <section id="fitts">
+    <h2>피츠의 법칙: 멀고 작으면 느리다</h2>
+    <p>심리학자 폴 피츠<span class="en">(Paul M. Fitts)</span>는 1954년 논문(「The information capacity of the human motor system in controlling the amplitude of movement」, <i>Journal of Experimental Psychology</i>)에서 사람이 손을 뻗어 목표를 짚는 데 걸리는 시간을 다뤘다. 목표가 멀수록, 목표가 작을수록 시간이 더 걸린다는 것, 그리고 그 관계가 거리와 크기의 <b>비</b>의 로그로 잘 정리된다는 것이다. 이것을 <span class="term">피츠의 법칙</span><span class="en">(Fitts's law)</span>이라고 한다. 오늘날 화면 설계에서 가장 많이 쓰는 형태는 스콧 매켄지<span class="en">(I. Scott MacKenzie)</span>가 1992년 논문(「Fitts' law as a research and design tool in human-computer interaction」, <i>Human–Computer Interaction</i>)에서 정리한 섀넌 형식이다.</p>
+    <div class="formula">$$MT = a + b \cdot ID, \qquad ID = \log_2\!\left(\frac{D}{W} + 1\right)$$<div class="where">\(D\): 출발점에서 목표 가운데까지의 거리, \(W\): 움직이는 방향으로 잰 목표의 폭, \(ID\): 어려움의 지수(비트), \(MT\): 움직이는 데 걸리는 시간. \(a\)와 \(b\)는 사람과 기기와 실험 조건마다 실험으로 구하는 상수다. \(D\)와 \(W\)를 함께 두 배로 하면 \(ID\)는 그대로다.</div></div>
+    <p>식에서 가장 중요한 것은 시간이 거리나 크기 하나가 아니라 <b>둘의 비</b>에 달려 있다는 점이다. 멀리 있는 목표도 크면 쉽고, 가까운 목표도 아주 작으면 어렵다. 그리고 로그 때문에 이미 큰 목표를 더 키우는 효과는 점점 줄어든다. 아래에서 목표를 끌어 거리를 바꾸고, 폭을 바꿔 그래프 위의 점이 어떻게 움직이는지 본다.</p>
+
+    <div class="sim" id="sim-cp-fitts">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>거리와 폭의 비</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="cp-ft-cv"></canvas><span class="hint">목표를 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>목표의 폭 W <output id="cp-ft-w-out"></output></span><input type="range" id="cp-ft-w" min="8" max="160" step="4" value="44"></label>
+          <div class="seg" id="cp-ft-dev"><button data-value="mouse" class="on">마우스</button><button data-value="finger">손가락</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">거리 D</span><span class="v" id="cp-ft-o-d">—</span></div>
+        <div class="stat"><span class="k">어려움 ID</span><span class="v" id="cp-ft-o-id">—</span></div>
+        <div class="stat"><span class="k">예상 시간 MT</span><span class="v" id="cp-ft-o-mt">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 폭을 8로 줄인다. 점이 그래프의 오른쪽 위로 간다. ② 폭 44에서 목표를 가까이 끌었다가 멀리 끈다. 거리가 두 배가 되어도 시간은 두 배가 되지 않고 조금씩 는다(로그). ③ 폭을 44에서 88로 늘리고 목표를 두 배 멀리 끈다. ID가 거의 그대로다. ④ 그래프의 작은 점 "24"와 "44"를 본다. 지금 거리에서 폭이 24일 때와 44일 때의 차이다. 폭이 커질수록 같은 폭을 더 늘려 얻는 시간은 줄어든다. (a, b는 교육용 가정이다: 마우스 a = 0.10 s, b = 0.15 s/비트, 손가락 a = 0.20 s, b = 0.10 s/비트. 실제 상수는 실험마다 다르므로 시간의 절대값보다 기울기와 모양을 본다. 손가락은 아주 작은 목표에서 이 식보다 더 느려지거나 아예 맞히지 못할 수 있다.)</div>
+    </div>
+
+    <p>피츠의 법칙이 화면 설계에 주는 처방은 단순하다. <b>자주 누르는 것은 크게, 가깝게.</b> "신청하기"처럼 그 페이지의 목적인 버튼은 크게 만들고, 사람의 손이나 포인터가 이미 있는 자리 가까이 둔다. 반대로 "신청 취소"처럼 실수로 누르면 곤란한 것은 일부러 작게, 멀리 두기도 한다. 피츠의 법칙을 거꾸로 쓰는 것이다. 마우스를 쓰는 넓은 화면에서는 화면 가장자리도 특별하다. 포인터가 화면 끝에서 멈추기 때문에 가장자리에 붙은 목표는 움직이는 방향으로 폭이 끝없이 넓은 것과 같다. 운영체제들이 메뉴 막대나 작업 표시줄을 화면 끝에 두는 이유로 자주 설명된다. 손가락에는 이 효과가 없다. 화면 끝을 넘어 손가락이 멈추지는 않기 때문이다.</p>
+
+    <div class="callout deep">
+      <strong>손가락에 맞춘 피츠의 법칙</strong>
+      원래 법칙은 손으로 막대를 짚는 실험과 마우스 같은 포인터에서 잘 맞았다. 손가락 터치에서는 목표가 아주 작아질 때 손가락 자체의 부정확성 때문에 예측이 어긋난다. Bi, Li, Zhai의 「FFitts law: modeling finger touch with Fitts' law」(CHI 2013)는 손가락이 원래 가진 흩어짐을 식에 따로 넣어 이 문제를 다룬 연구다. 앞 절의 시뮬레이터가 보여 준 흩어짐이 바로 그것이다. 결론은 같다. 손가락으로 누르는 화면에서는 작은 목표의 대가가 마우스보다 더 크다.
+    </div>
+  </section>
+
+  <section id="hover">
+    <h2>호버가 없는 기기</h2>
+    <p>호버는 마우스의 상태다. 손가락에는 "올려 두기"가 없다. 화면에 닿는 순간이 곧 누르는 순간이다. 그런데 넓은 화면에서 설계를 시작하면 정보를 호버 뒤에 숨기기 쉽다. 행사 카드에 포인터를 올리면 "남은 자리"와 "신청하기"가 나타나는 식이다. 화면이 깔끔해 보이기 때문이다. 이 정보는 휴대폰에서 어떻게 될까. 브라우저마다 다르다. 어떤 브라우저는 첫 탭을 호버로 처리해 숨은 정보를 보여 주고 두 번째 탭에서야 누른 것으로 친다. 어떤 브라우저는 첫 탭에 곧바로 카드의 링크로 넘어가 숨은 정보를 볼 기회가 없다. 키보드 사용자에게는 <code>:hover</code>만으로 숨긴 정보가 아예 나타나지 않는다.</p>
+
+    <div class="sim" id="sim-cp-hover">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>호버 뒤에 숨긴 정보</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cp-hv-cv" class="art"></canvas><span class="hint">카드 위에 올리거나 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="cp-hv-dev"><button data-value="mouse" class="on">마우스</button><button data-value="touch">손가락</button><button data-value="key">키보드</button></div>
+          <label class="check"><input type="checkbox" id="cp-hv-fix"> 개선안: 정보를 늘 보이게</label>
+          <div class="btn-row"><button type="button" class="btn" id="cp-hv-tab">Tab 키 누르기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">보이는 "남은 자리"</span><span class="v" id="cp-hv-o-see">—</span></div>
+        <div class="stat"><span class="k">신청까지</span><span class="v" id="cp-hv-o-steps">—</span></div>
+        <div class="stat"><span class="k">방금 일어난 일</span><span class="v" id="cp-hv-o-msg">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 마우스에서 카드 위에 포인터를 올린다. 남은 자리와 신청 버튼이 나타난다. ② 손가락으로 바꾸고 카드를 누른다. 첫 탭은 호버로 처리되어 정보가 나타나고, 신청하려면 한 번 더 눌러야 한다. ③ 키보드로 바꾸고 "Tab 키 누르기"를 여러 번 누른다. 포커스는 카드 제목을 차례로 지나가지만 숨은 정보와 신청 버튼에는 끝내 닿지 못한다. ④ 개선안을 켜고 세 기기를 다시 해 본다. 정보가 늘 보이고, 키보드 포커스는 신청 버튼에도 멈춘다. (이 목업은 "첫 탭을 호버로 처리하는 브라우저"를 가정했다. 실제 동작은 브라우저와 운영체제에 따라 다르며, 첫 탭에 바로 링크로 넘어가는 경우도 있다. 키보드의 경우는 숨은 부품이 화면에서 빠져 포커스를 받지 못하게 만든 흔한 구현을 가정했다.)</div>
+    </div>
+
+    <p>원칙은 하나다. <b>호버는 꾸밈으로만 쓰고, 정보와 동작은 호버 없이도 닿게 한다.</b> 호버로 그림자를 짙게 하거나 색을 조금 바꾸는 것은 좋다. 그러나 남은 자리, 가격, 신청 버튼처럼 결정에 필요한 것은 늘 보이게 둔다. CSS에는 기기의 포인터 성격을 묻는 미디어 쿼리가 있다(Media Queries Level 4). <code>(hover: hover)</code>는 주된 입력 장치가 호버할 수 있는지, <code>(pointer: coarse)</code>는 주된 포인터가 손가락처럼 정밀하지 않은지를 묻는다. 호버 꾸밈을 <code>@media (hover: hover)</code> 안에 넣으면 휴대폰에서 탭한 뒤 호버 색이 남아 있는 어색한 모습을 막을 수 있다. 다만 노트북에 터치스크린이 달린 경우처럼 한 기기에 여러 입력이 섞여 있을 수 있으므로, 이 질문은 꾸밈을 고를 때만 쓰고 정보를 숨길지 말지를 정하는 데는 쓰지 않는다.</p>
+<pre class="cp-code" data-scroll>@media (hover: hover) {
+  .card:hover { box-shadow: 0 4px 16px rgb(0 0 0 / .12); }
+}
+/* 남은 자리와 신청 버튼은 미디어 쿼리 밖, 늘 보이게 */</pre>
+    <p>호버나 포커스로 나타나는 내용(말풍선 같은 것)을 꼭 써야 할 때도 규칙이 있다. WCAG 2.2 성공 기준 1.4.13(호버나 포커스로 나타나는 콘텐츠, AA)은 그 내용을 Esc 키 등으로 닫을 수 있어야 하고, 포인터를 그 내용 위로 옮겨도 사라지지 않아야 하며, 사람이 치우기 전까지 머물러야 한다고 요구한다. 화면 확대를 쓰는 사람이 말풍선을 읽으려고 포인터를 옮기다가 말풍선이 사라지는 일을 막기 위해서다.</p>
+
+    <div class="callout studio">
+      <strong>휴대폰부터 상태를 그린다</strong>
+      상태 표를 넓은 화면에서 시작하면 호버 칸부터 채우게 된다. 휴대폰 화면부터 상태를 그리면 호버 칸은 처음부터 비어 있고, 그 대신 "누르는 순간"과 "누른 뒤"가 중요해진다. 그 다음에 넓은 화면을 그리며 호버를 꾸밈으로 더한다. <a href="responsive.html">5장</a>에서 말한 모바일 우선이 레이아웃만이 아니라 상태 설계에도 통한다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 7장</span></div>
+      <h4>"신청하기"가 대답하게 하기</h4>
+      <p>6장에서 토큰을 정리한 다음 날, 지후가 개발 중인 행사 페이지를 키보드로만 써 보다가 손을 멈췄다. "Tab을 누를 때마다 어딘가로 가긴 하는데, 어디 있는지 모르겠어요." 서윤의 시안에서 "신청하기" 버튼에 정해 둔 상태는 호버 색 하나뿐이었다. 개발 템플릿에는 포커스 링을 지우는 <code>outline: none</code>이 들어 있었다. 모집이 끝난 행사의 버튼은 겉모습은 그대로인데 눌러도 아무 일이 없었고, 신청을 보내는 동안에도 버튼이 가만히 있어 시험 삼아 누른 주인의 신청이 두 번 들어갔다.</p>
+      <p>같은 주에 도경이 휴대폰으로 행사 날짜를 고르다가 옆 날짜를 눌렀다. 날짜 칩은 28 px에 간격 4 px. 도경은 열 번 중 서너 번은 옆 날짜를 눌렀다고 했다(가상 기록, 도경 한 사람의 간이 시험). 글자를 가장 크게 해 둔 도경의 휴대폰에서는 120×36으로 고정한 "모임 신청하기" 버튼의 글자 끝이 잘려 "모임 신청하"까지만 보였다.</p>
+      <p>서윤은 버튼 하나를 위해 상태 표를 처음부터 다시 그렸다. 호버는 책방 초록을 OKLCH 명도만 낮춘 색, 눌림은 더 낮춘 색에 2 px 내려앉기를 더했다. 포커스는 색이 아니라 링으로 정했다. 짙은 바닥글 위에서 짙은 링이 사라지는 것을 이 장의 시뮬레이터로 확인하고, 어두운 영역 안에서는 크림색 링을 쓰는 규칙을 더했다. 지후는 이중 링을 제안했지만, 서윤은 바탕이 흰 본문과 짙은 바닥글 두 가지뿐이라 규칙 하나로 충분하다고 보았다. 지후는 "사진 위에 버튼을 올리는 날이 오면 이중 링으로 가요"라고 메모했다.</p>
+      <p>터치 타깃은 기준을 고르는 데 시간이 걸렸다. WCAG 2.5.8의 24 px는 넘기면 되는 최소선이고, 서윤은 도경의 손과 걸으면서 누르는 손님을 생각해 앱 지침과 같은 44 px를 사이트의 최소로 정했다. 날짜 칩을 44로 키우면 휴대폰 한 줄에 일주일이 다 들어가지 않는다. 서윤은 칩을 줄이는 대신 날짜 줄을 가로로 넘기게 하고, 끝의 칩이 반쯤 잘려 보이게 해서 더 있다는 단서를 주었다. 호버에만 보이던 "남은 자리"는 카드에 늘 보이게 옮겼다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>항목</th><th>서윤의 선택</th><th>확인한 값</th></tr></thead>
+          <tbody>
+            <tr><td>기본</td><td>책방 초록 <code>#2f7d5b</code>, 흰 글자, 아래 그림자 2 px</td><td>흰 글자 대비 4.99</td></tr>
+            <tr><td>호버</td><td><code>#186b4a</code>(OKLCH 명도 0.53 → 0.47), <code>@media (hover: hover)</code> 안에서만</td><td>흰 글자 대비 6.48</td></tr>
+            <tr><td>포커스</td><td><code>:focus-visible</code>, 3 px 링 <code>#22342a</code>, 2 px 띄움. 어두운 영역 안에서는 <code>#ffe2d7</code> 링</td><td>링 대비: 흰 바탕 13.19, 바닥글 위 크림 링 10.74</td></tr>
+            <tr><td>눌림</td><td><code>#025f3f</code>(명도 0.43), 2 px 내려앉고 그림자 사라짐</td><td>흰 글자 대비 7.75</td></tr>
+            <tr><td>비활성</td><td><code>#d9dfdb</code> 바탕, <code>#5f6b65</code> 글자, 글자를 "신청 마감"으로</td><td>글자 대비 4.11(대비 예외지만 읽히게)</td></tr>
+            <tr><td>처리 중 표시</td><td>눌림 다음에 돌아가는 표시와 "신청 중…", 그동안 다시 누르기 무시(<code>aria-busy</code>)</td><td>중복 신청 막기는 서버에서도</td></tr>
+            <tr><td>크기</td><td>고정 크기 없음. 안쪽 여백 위아래 10·좌우 20 px, 최소 높이 44 px, 글자는 <code>rem</code></td><td>글자 200%에서도 잘리지 않음</td></tr>
+            <tr><td>터치 타깃</td><td>사이트 최소 44×44 CSS px(WCAG 2.5.8의 24는 하한)</td><td>날짜 칩·메뉴·닫기 단추 모두</td></tr>
+            <tr><td>날짜 칩</td><td>44×44, 칩 사이 8 px(3장의 간격 단계), 줄은 가로로 넘김</td><td>모형: 걸으면서도 잘못 누르기 2% 안팎(28·4일 때 약 11%)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>버튼 상태 다섯 가지(기본·호버·포커스·눌림·비활성)와 처리 중 표시, 상태마다 색 말고 하나 이상의 단서(링, 내려앉기, 글자). 터치 타깃 최소 44×44 CSS px(서윤의 선택). 날짜 칩 44×44와 칩 사이 간격 8 px, 칩 줄은 가로로 넘기기. 호버에는 정보를 숨기지 않는다. 숫자 중 대비는 이 책의 엔진으로 계산한 값이고, 잘못 누르기 비율은 이 장의 단순 모형으로 낸 참고값이라 도경의 휴대폰으로 다시 확인하기로 했다.</div>
+        <div><b>아직 남은 문제</b>버튼이 대답하게 되자 도경이 다른 것을 물었다. "그런데 신청 페이지로 가는 길은 어디 있니?" 휴대폰 화면 오른쪽 위의 세 줄 아이콘이 메뉴라는 것을 도경은 몰랐다.</div>
+        <div><b>다음 단계</b><a href="navigation.html">8장</a>: 휴대폰 메뉴를 숨길지 펼칠지, 지금 어디 있는지 어떻게 알릴지 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>컴포넌트는 되풀이해 쓰는 화면의 부품이다. 생김새보다 하는 일로 고른다. 데려가면 링크(<code>&lt;a href&gt;</code>), 이 자리에서 하면 버튼(<code>&lt;button&gt;</code>).</li>
+      <li>부품은 기본·호버·포커스·눌림·비활성·로딩 상태로 대답한다. 상태 표로 빈칸 없이 설계하고, 상태마다 색 말고도 링·모양·글자 같은 단서를 하나 이상 준다.</li>
+      <li>포커스 표시는 키보드 사용자의 커서다. 지우지 말고 <code>:focus-visible</code>로 바꾼다. 링은 어떤 바탕에서도 3:1 이상 보여야 한다(WCAG 2.4.7, 1.4.11, 2.4.13).</li>
+      <li>부품의 크기는 고정하지 않고 내용 + 안쪽 여백 + 최소값으로 정한다. 사용자가 글자를 키워도 글자가 잘리지 않는다.</li>
+      <li>손가락 터치는 노린 점 둘레에 흩어진다. 잘못 누르기는 이웃까지의 거리(크기의 절반 + 간격)가 정한다. WCAG 2.5.8의 24 CSS px는 하한이고, 44·48은 플랫폼 지침이다.</li>
+      <li>피츠의 법칙: \(MT = a + b \log_2(D/W + 1)\). 시간은 거리와 폭의 비에 달려 있다. 자주 누르는 것은 크고 가깝게. 호버는 꾸밈으로만 쓰고 정보와 동작은 호버 없이 닿게 한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. WCAG 2.2의 성공 기준 2.5.8(타깃 크기 최소, AA)이 요구하는 누르는 면의 최소 크기와 그 예외를 바르게 설명한 것은?</p>
+        <div class="opts">
+          <button class="opt">44×44 CSS px. 예외는 없다.</button>
+          <button class="opt" data-correct>24×24 CSS px. 더 작아도 가운데에 그린 지름 24 px 원이 다른 타깃이나 그 원과 겹치지 않을 만큼 떨어져 있으면 통과한다.</button>
+          <button class="opt">48×48 dp. 안드로이드 화면에만 적용된다.</button>
+          <button class="opt">9 mm. 기기의 화면 밀도에 따라 CSS px 값이 정해진다.</button>
+        </div>
+        <div class="quiz-exp">2.5.8은 24×24 CSS px를 최소로 두고, 간격 예외(지름 24 원이 겹치지 않음), 문장 안의 링크 같은 예외를 둔다. 44×44는 더 엄격한 2.5.5(AAA)와 Apple 지침의 값이고, 48×48 dp와 약 9 mm는 Material Design 지침의 설명이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 피츠의 법칙(섀넌 형식)으로 볼 때, 버튼을 지금보다 두 배 먼 곳으로 옮기면서 폭도 두 배로 키우면 어려움의 지수 ID는 어떻게 되는가?</p>
+        <div class="opts">
+          <button class="opt">두 배가 된다.</button>
+          <button class="opt">절반이 된다.</button>
+          <button class="opt">거리 효과가 더 커서 조금 늘어난다.</button>
+          <button class="opt" data-correct>그대로다.</button>
+        </div>
+        <div class="quiz-exp">\(ID = \log_2(D/W + 1)\)에서 \(D\)와 \(W\)가 함께 두 배가 되면 \(D/W\)가 변하지 않으므로 ID도 그대로다. 시간은 거리나 폭 하나가 아니라 둘의 비에 달려 있다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 개발 템플릿에 "마우스로 누를 때 생기는 테두리가 보기 싫다"는 이유로 <code>button:focus { outline: none; }</code>가 들어 있다. 가장 알맞은 고침은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>지우는 규칙을 없애고 <code>:focus-visible</code>로 바탕과 3:1 이상 대비되는 링을 준다. 키보드로 올 때만 링이 보인다.</button>
+          <button class="opt">그대로 둔다. 대부분의 사람은 마우스를 쓰므로 영향이 작다.</button>
+          <button class="opt">호버 색을 더 진하게 만든다. 호버와 포커스는 같은 상태다.</button>
+          <button class="opt">포커스를 받으면 버튼 색을 아주 조금 바꾼다. 색 차이만 있으면 충분하다.</button>
+        </div>
+        <div class="quiz-exp">포커스 표시를 지우면 키보드 사용자는 지금 위치를 잃는다(WCAG 2.4.7). <code>:focus-visible</code>을 쓰면 마우스로 누를 때는 링이 생기지 않아 원래의 불만도 해결된다. 호버는 포인터의 상태라 포커스와 다르고, 아주 작은 색 차이는 1.4.11의 3:1을 넘기 어렵고 색을 구별하기 어려운 사람에게는 사라진다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 넓은 화면 시안에서 행사 카드의 "남은 자리"와 "신청하기"가 포인터를 올릴 때만 나타난다. 휴대폰과 키보드 사용자를 생각한 판단으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">휴대폰 브라우저가 첫 탭을 호버로 처리해 주므로 문제가 없다.</button>
+          <button class="opt">휴대폰에서만 길게 누르면 나타나게 한다.</button>
+          <button class="opt" data-correct>정보와 버튼은 늘 보이게 두고, 그림자 같은 꾸밈만 <code>@media (hover: hover)</code> 안에서 호버로 더한다.</button>
+          <button class="opt"><code>(pointer: coarse)</code>로 휴대폰을 가려내 휴대폰에서만 정보를 보이게 한다.</button>
+        </div>
+        <div class="quiz-exp">첫 탭을 호버로 처리하는지는 브라우저마다 다르고, 키보드 사용자는 <code>:hover</code>로 숨긴 정보에 닿지 못한다. 길게 누르기는 발견하기 어렵다. 미디어 쿼리는 한 기기에 여러 입력이 섞일 수 있어 정보를 숨길지 정하는 데 쓰기에 믿을 만하지 않다. 결정에 필요한 정보는 늘 보이게 둔다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#2b2a30", DIM = "#6b6874", PAPER = "#fbfaf7";   // 고정된 종이 바탕 위의 글자색
+  var BK = { green: "#2f7d5b", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", dark: "#22342a" };   // 책방 E의 색(ColorBook에서 정한 값)
+  var HOVER = "#186b4a", PRESS = "#025f3f", SHADOW = "#1d4d38", DIS_BG = "#d9dfdb", DIS_FG = "#5f6b65";   // 이 장의 케이스에서 정한 상태 색(OKLCH 명도만 낮춤)
+  function sim(fn) { try { fn(); } catch (e) { if (window.console) console.error(e); } }   // 한 시뮬레이터의 오류가 다른 것을 멈추지 않게
+  function rrect(c, x, y, w, h, r) { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); }
+  function T(c, s, x, y, o) {
+    o = o || {}; c.fillStyle = o.color || INK; c.font = AB.font(o.size || 12, !!o.mono, o.weight || 600);
+    c.textAlign = o.align || "left"; c.textBaseline = o.base || "top"; c.fillText(s, x, y);
+  }
+  function con(a, b) { return ART.contrast(ART.parse(a), ART.parse(b)); }
+  // 정규 분포: 오차 함수(Abramowitz–Stegun 7.1.26 근사)와 구간 확률
+  function erf(x) { var s = x < 0 ? -1 : 1; x = Math.abs(x); var t = 1 / (1 + 0.3275911 * x); return s * (1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x)); }
+  function pIn(a, b, sig) { return 0.5 * (erf(b / (sig * Math.SQRT2)) - erf(a / (sig * Math.SQRT2))); }
+  function gauss(r) { var u = Math.max(1e-9, r()), v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+  function pointer(c, x, y) {   // 마우스 포인터(화살표)
+    c.beginPath(); c.moveTo(x, y); c.lineTo(x, y + 15); c.lineTo(x + 4, y + 11.5); c.lineTo(x + 7, y + 17); c.lineTo(x + 9.5, y + 16); c.lineTo(x + 6.5, y + 10.5); c.lineTo(x + 11, y + 10.5); c.closePath();
+    c.fillStyle = "#111111"; c.fill(); c.strokeStyle = "#ffffff"; c.lineWidth = 1.2; c.stroke();
+  }
+  function spinner(c, x, y, r, col) { c.strokeStyle = col; c.lineWidth = 2.2; c.beginPath(); c.arc(x, y, r, -Math.PI / 2, Math.PI); c.stroke(); }
+
+  /* ---------------- 시뮬레이터 1: 버튼의 상태 표 + 진짜 버튼 ---------------- */
+  sim(function () {
+    var STATES = [["default", "기본", "기본 규칙"], ["hover", "호버", ":hover"], ["focus", "포커스", ":focus-visible"], ["active", "눌림", ":active"], ["disabled", "비활성", "[aria-disabled]"], ["loading", "로딩", "[aria-busy]"]];
+    var live = document.getElementById("cp-live"), btn = document.getElementById("cp-live-btn"), stEl = document.getElementById("cp-live-st"), disBtn = document.getElementById("cp-st-dis");
+    var cnt = 0, hov = false, press = false, dis = false, busy = false, timer = 0;
+    var design = AB.seg("cp-st-design", function (v) { live.className = "cp-live " + v; busy = false; clearTimeout(timer); btn.removeAttribute("aria-busy"); cnt = 0; cv.redraw(); upd(); });
+    var cvd = AB.check("cp-st-cvd", function () { cv.redraw(); });
+    function C(hex) { return cvd() ? ART.hex(ART.clip(ART.simulateCVD(ART.parse(hex), "deutan", 1))) : hex; }
+    function look(d, s) {
+      var o = { bg: BK.green, fg: "#ffffff", ring: false, shift: 0, label: "신청하기", spin: false, shadow: d === "v2" };
+      if (s === "hover" || (d === "v1" && s === "active")) o.bg = HOVER;
+      if (d === "v2") {
+        if (s === "focus") o.ring = true;
+        if (s === "active") { o.bg = PRESS; o.shift = 2; o.shadow = false; }
+        if (s === "disabled") { o.bg = DIS_BG; o.fg = DIS_FG; o.label = "신청 마감"; o.shadow = false; }
+        if (s === "loading") { o.spin = true; o.label = "신청 중…"; }
+      }
+      return o;
+    }
+    function cues(a, b) {   // 두 모습의 차이 단서
+      var out = [];
+      if (ART.diff(ART.parse(C(a.bg)), ART.parse(C(b.bg))) >= 5) out.push("색");
+      if (a.ring !== b.ring || a.shift !== b.shift || a.shadow !== b.shadow) out.push("모양");
+      if (a.label !== b.label || a.spin !== b.spin) out.push("글자");
+      return out;
+    }
+    var cv = AB.canvas("#cp-st-cv", function (ctx, w, h) {
+      var d = design(), cols = w >= 560 ? 6 : 3, rows = 6 / cols, pad = 8, cw = (w - 2 * pad) / cols, ch = (h - 2 * pad) / rows;
+      STATES.forEach(function (st, i) {
+        var cx = pad + (i % cols) * cw + cw / 2, top = pad + Math.floor(i / cols) * ch, L = look(d, st[0]);
+        var bw = Math.min(cw - 20, 118), bh = 40, bx = cx - bw / 2, by = top + 30 + L.shift;
+        if (L.shadow) { ctx.fillStyle = C(SHADOW); rrect(ctx, bx, by + 2, bw, bh, 8); ctx.fill(); }
+        if (L.ring) { ctx.strokeStyle = C(BK.dark); ctx.lineWidth = 3; rrect(ctx, bx - 3.5, by - 3.5, bw + 7, bh + 7, 11); ctx.stroke(); }
+        ctx.fillStyle = C(L.bg); rrect(ctx, bx, by, bw, bh, 8); ctx.fill();
+        var lx = cx;
+        if (L.spin) { spinner(ctx, bx + 16, by + bh / 2, 6, C(L.fg)); lx = cx + 8; }
+        T(ctx, L.label, lx, by + bh / 2 + 0.5, { color: C(L.fg), size: bw < 96 ? 12.5 : 14, weight: 700, align: "center", base: "middle" });
+        if (st[0] === "hover" || st[0] === "active") pointer(ctx, bx + bw - 22, by + bh - 14);
+        if (st[0] === "active") { ctx.fillStyle = "rgba(17,17,17,0.25)"; ctx.beginPath(); ctx.arc(bx + bw - 22, by + bh - 14, 7, 0, 7); ctx.fill(); }
+        if (st[0] === "focus") { ctx.strokeStyle = "#8a8a90"; ctx.lineWidth = 1; rrect(ctx, bx - 4, top + 6, 30, 17, 4); ctx.stroke(); T(ctx, "Tab", bx + 11, top + 9, { size: 10, color: DIM, align: "center", weight: 700 }); }
+        T(ctx, st[1], cx, top + 30 + bh + 16, { size: 13, weight: 700, align: "center" });
+        T(ctx, st[2], cx, top + 30 + bh + 34, { size: 10.5, mono: true, color: DIM, align: "center", weight: 400 });
+        if (i % cols) { ctx.fillStyle = "#e6e3dc"; ctx.fillRect(pad + (i % cols) * cw, top + 10, 1, ch - 20); }
+      });
+      var D0 = look(d, "default"), same = [], colorOnly = [];
+      STATES.slice(1).forEach(function (st) { var c = cues(look(d, st[0]), D0); if (!c.length) same.push(st[1]); else if (c.length === 1 && c[0] === "색") colorOnly.push(st[1]); });
+      AB.stat("cp-st-o-same", same.length ? same.join(", ") + " <small>" + same.length + "개</small>" : "없음");
+      AB.stat("cp-st-o-color", colorOnly.length ? colorOnly.join(", ") : "없음");
+    }, { get height() { var el = document.getElementById("cp-st-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W >= 560 ? 150 : 296; }, bg: PAPER });
+
+    function upd() {
+      var fv = false;
+      try { fv = btn.matches(":focus-visible"); } catch (e) { fv = document.activeElement === btn; }
+      var s = [];
+      if (dis) s.push("비활성"); if (busy) s.push("로딩"); if (press && !dis) s.push("눌림"); if (fv) s.push("포커스"); if (hov) s.push("호버");
+      stEl.textContent = s.length ? s.join(" + ") : "기본";
+      var v2 = design() === "v2";
+      btn.textContent = v2 && dis ? "신청 마감" : v2 && busy ? "신청 중…" : "신청하기";
+      AB.stat("cp-st-o-n", cnt + "건" + (cnt > 1 && design() === "v1" ? " <small>한 사람이 여러 번 보냈다</small>" : ""));
+    }
+    btn.addEventListener("pointerenter", function () { hov = true; upd(); });
+    btn.addEventListener("pointerleave", function () { hov = false; press = false; upd(); });
+    btn.addEventListener("pointerdown", function () { press = true; upd(); });
+    btn.addEventListener("pointerup", function () { press = false; upd(); });
+    btn.addEventListener("focus", function () { setTimeout(upd, 0); });
+    btn.addEventListener("blur", function () { upd(); });
+    btn.addEventListener("keydown", function (e) { if (e.key === " " || e.key === "Enter") { press = true; upd(); } });
+    btn.addEventListener("keyup", function () { press = false; upd(); });
+    btn.addEventListener("click", function () {
+      if (dis) { stEl.textContent = "눌렀지만 반응 없음(비활성)"; return; }
+      if (busy) return;
+      cnt++;
+      if (design() === "v2") { busy = true; btn.setAttribute("aria-busy", "true"); clearTimeout(timer); timer = setTimeout(function () { busy = false; btn.removeAttribute("aria-busy"); upd(); }, 1600); }
+      upd();
+    });
+    disBtn.addEventListener("click", function () {
+      dis = !dis; btn.setAttribute("aria-disabled", dis ? "true" : "false");
+      disBtn.textContent = dis ? "진짜 버튼을 다시 켜기" : "진짜 버튼을 비활성으로"; upd();
+    });
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 2: 어떤 바탕에서도 보이는 포커스 링 ---------------- */
+  sim(function () {
+    var ZN = [["#ffffff", "흰 본문"], ["#ffe2d7", "크림 띠"], ["#567666", "차분한 초록"], ["#2f7d5b", "책방 초록"], ["#22342a", "짙은 바닥글"]];
+    var style = AB.seg("cp-fr-style", function () { cv.redraw(); });
+    var swap = AB.check("cp-fr-swap", function () { cv.redraw(); });
+    var bu = 0.1, geo = null, drag = false;
+    function layers(bg) {
+      var s = style(), dark = swap() && ART.luminance(ART.parse(bg)) < 0.18 ? BK.cream : BK.dark;
+      if (s === "none") return [];
+      if (s === "thin") return [{ c: BK.green, t: 1, off: 2, n: "초록 1px" }];
+      if (s === "dark") return [{ c: dark, t: 3, off: 2, n: dark === BK.cream ? "크림 3px" : "짙은 3px" }];
+      return [{ c: "#ffffff", t: 2, off: 0, n: "흰 안쪽 2px" }, { c: BK.dark, t: 2, off: 2, n: "짙은 바깥 2px" }];
+    }
+    var cv = AB.canvas("#cp-fr-cv", function (ctx, w, h) {
+      var zw = w / ZN.length;
+      ZN.forEach(function (z, i) {
+        ctx.fillStyle = z[0]; ctx.fillRect(i * zw, 0, zw + 1, h);
+        T(ctx, z[1], i * zw + zw / 2, 10, { size: w < 420 ? 10 : 12, color: AB.textOn(z[0]), align: "center", weight: 700 });
+      });
+      ctx.strokeStyle = "#e6e3dc"; ctx.lineWidth = 1; ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+      var bw = Math.min(118, w * 0.3), bh = 44, cx = AB.clamp(bu * w, bw / 2 + 6, w - bw / 2 - 6), cy = h * 0.58, bx = cx - bw / 2, by = cy - bh / 2;
+      geo = { x: bx, y: by, w: bw, h: bh, W: w };
+      var bg = ZN[Math.min(ZN.length - 1, Math.floor(cx / zw))][0], Ls = layers(bg);
+      Ls.forEach(function (L) { var o = L.off + L.t / 2; ctx.strokeStyle = L.c; ctx.lineWidth = L.t; rrect(ctx, bx - o, by - o, bw + 2 * o, bh + 2 * o, 8 + o); ctx.stroke(); });
+      ctx.fillStyle = BK.green; rrect(ctx, bx, by, bw, bh, 8); ctx.fill();
+      T(ctx, "신청하기", cx, cy + 0.5, { color: "#ffffff", size: 15, weight: 700, align: "center", base: "middle" });
+      AB.handle(ctx, cx, by + bh + 22, { r: 6, fill: "#ffffff", ring: "#2b2a30" });
+      var best = null;
+      Ls.forEach(function (L) { var c = con(L.c, bg); if (!best || c > best.c) best = { c: c, L: L }; });
+      var cb = con(BK.green, bg);
+      AB.stat("cp-fr-o-c", best ? best.c.toFixed(2) + " <small>" + best.L.n + "</small>" : "링 없음");
+      AB.stat("cp-fr-o-b", cb.toFixed(2) + (cb < 3 ? " <small>버튼이 바탕에 녹는다</small>" : ""));
+      var j;
+      if (!best) j = "포커스가 보이지 않는다 <small>2.4.7</small>";
+      else if (best.c < 3) j = "링이 바탕에 녹는다 <small>3:1 미만</small>";
+      else if (best.L.t < 2) j = "보이지만 얇다 <small>2.4.13은 2px 이상</small>";
+      else j = "잘 보인다 <small>3:1 이상, 2px 이상</small>";
+      AB.stat("cp-fr-o-j", j);
+    }, { aspect: 0.42, minHeight: 190, maxHeight: 250, bg: PAPER });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = !!geo && x > geo.x - 30 && x < geo.x + geo.w + 30 && y > geo.y - 30 && y < geo.y + geo.h + 44; },
+      move: function (x) { if (!drag || !geo) return; bu = AB.clamp(x / geo.W, 0, 1); cv.redraw(); },
+      end: function () { drag = false; },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 3: 글자가 커지면 버튼은? ---------------- */
+  sim(function () {
+    var mode = AB.seg("cp-sz-mode", function () { cv.redraw(); });
+    var fG = AB.range("cp-sz-f", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var MW = 360;
+    function wrapText(ctx, text, maxW) {
+      var words = text.split(" "), lines = [], cur = "";
+      words.forEach(function (wd) { var t = cur ? cur + " " + wd : wd; if (!cur || ctx.measureText(t).width <= maxW) cur = t; else { lines.push(cur); cur = wd; } });
+      if (cur) lines.push(cur);
+      return lines;
+    }
+    var cv = AB.canvas("#cp-sz-cv", function (ctx, w, h) {
+      var f = fG() / 100, m = mode(), k = Math.min(1.25, (w - 24) / MW), mx = (w - MW * k) / 2, my = 12, mh = (h - 24) / k;
+      ctx.save(); ctx.translate(mx, my); ctx.scale(k, k);
+      ctx.beginPath(); ctx.rect(0, 0, MW, mh); ctx.clip();
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, MW, mh);
+      // 머리 띠
+      ctx.fillStyle = BK.green; ctx.font = AB.font(17 * f, false, 800); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText("책방 E", 16, 24);
+      ctx.fillStyle = "#e6e3dc"; ctx.fillRect(0, 48, MW, 1);
+      // 카드
+      var x = 16, avail = MW - 32, y = 64;
+      ctx.font = AB.font(19 * f, false, 800);
+      var tl = wrapText(ctx, "그림책 함께 읽기", avail);
+      tl.forEach(function (l, i) { T(ctx, l, x, y + i * 19 * f * 1.3, { size: 19 * f, weight: 800, color: BK.dark }); });
+      y += tl.length * 19 * f * 1.3 + 4;
+      ctx.font = AB.font(15 * f, false, 500);
+      var dl = wrapText(ctx, "2월 5일 토 오전 11시 · 남은 자리 4", avail);
+      dl.forEach(function (l, i) { T(ctx, l, x, y + i * 15 * f * 1.4, { size: 15 * f, weight: 500, color: "#4a4a50" }); });
+      y += dl.length * 15 * f * 1.4 + 14;
+      var fs = 16 * f, lh = fs * 1.25, P, S, clipped = false;
+      ctx.font = AB.font(fs, false, 700);
+      var tw = ctx.measureText("모임 신청하기").width;
+      ctx.font = AB.font(fs, false, 600);
+      var sw = ctx.measureText("자세히").width;
+      if (m === "fixed") {
+        P = { x: x, y: y, w: 120, h: 36, lines: ["모임 신청하기"] }; S = { x: x + 128, y: y, w: 72, h: 36, lines: ["자세히"] };
+        clipped = tw > 120 - 16 || lh > 36;
+      } else {
+        var pw = tw + 40, lines = ["모임 신청하기"];
+        if (pw > avail) { ctx.font = AB.font(fs, false, 700); lines = wrapText(ctx, "모임 신청하기", avail - 40); pw = avail; }
+        P = { x: x, y: y, w: pw, h: Math.max(44, lines.length * lh + 20), lines: lines };
+        var sW = sw + 32, sH = Math.max(44, lh + 20);
+        if (P.w + 8 + sW <= avail) S = { x: x + P.w + 8, y: y, w: sW, h: sH, lines: ["자세히"] };
+        else S = { x: x, y: y + P.h + 8, w: sW, h: sH, lines: ["자세히"] };
+      }
+      // 주 버튼
+      ctx.fillStyle = BK.green; rrect(ctx, P.x, P.y, P.w, P.h, 8); ctx.fill();
+      ctx.save(); rrect(ctx, P.x, P.y, P.w, P.h, 8); ctx.clip();
+      P.lines.forEach(function (l, i) { var ty = P.y + P.h / 2 + (i - (P.lines.length - 1) / 2) * lh; T(ctx, l, m === "fixed" ? P.x + 12 : P.x + P.w / 2, ty, { size: fs, weight: 700, color: "#ffffff", align: m === "fixed" ? "left" : "center", base: "middle" }); });
+      ctx.restore();
+      // 보조 버튼(글자 버튼, 테두리)
+      ctx.strokeStyle = BK.green; ctx.lineWidth = 1.5; rrect(ctx, S.x + 0.75, S.y + 0.75, S.w - 1.5, S.h - 1.5, 8); ctx.stroke();
+      ctx.save(); rrect(ctx, S.x, S.y, S.w, S.h, 8); ctx.clip();
+      T(ctx, "자세히", m === "fixed" ? S.x + 12 : S.x + S.w / 2, S.y + S.h / 2, { size: fs, weight: 600, color: BK.green, align: m === "fixed" ? "left" : "center", base: "middle" });
+      ctx.restore();
+      if (clipped) { ctx.strokeStyle = "#d1302a"; ctx.lineWidth = 2; ctx.setLineDash([5, 4]); ctx.strokeRect(P.x - 3, P.y - 3, P.w + 6, P.h + 6); ctx.setLineDash([]); T(ctx, "글자가 잘림", P.x, P.y + P.h + 8, { size: 12, color: "#d1302a", weight: 700 }); }
+      // 44 높이 자
+      var ry = P.y + P.h / 2 - 22; ctx.strokeStyle = "#2f6fd0"; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); ctx.strokeRect(MW - 26, ry, 10, 44); ctx.setLineDash([]);
+      T(ctx, "44", MW - 21, ry + 48, { size: 10, color: "#2f6fd0", align: "center", weight: 700 });
+      ctx.restore();
+      ctx.strokeStyle = "#cfcac0"; ctx.lineWidth = 1; ctx.strokeRect(mx - 0.5, my - 0.5, MW * k + 1, Math.min(mh * k, h - 24) + 1);
+      AB.stat("cp-sz-o-s", Math.round(P.w) + " × " + Math.round(P.h) + " px" + (P.lines.length > 1 ? " <small>두 줄</small>" : ""));
+      AB.stat("cp-sz-o-c", clipped ? "잘린다 <small>상자 밖으로 넘침</small>" : "다 보인다");
+      AB.stat("cp-sz-o-t", P.h >= 44 ? "44 이상" : P.h >= 24 ? P.h + " px <small>24는 넘지만 44 미만</small>" : "24 미만");
+    }, { get height() { var el = document.getElementById("cp-sz-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(1.25, (W - 24) / 360) * 330 + 24); }, bg: PAPER });
+  });
+
+  /* ---------------- 시뮬레이터 4: 손가락은 흩어져 닿는다 ---------------- */
+  sim(function () {
+    var sG = AB.range("cp-tt-s", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var gG = AB.range("cp-tt-g", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var sig = AB.seg("cp-tt-sig", function () { cv.redraw(); });
+    var MW = 360, N = 10, aim = 2, geo = null;
+    var DAYS = ["화", "수", "목", "금", "토", "일", "월", "화", "수", "목"];   // 2028년 2월 1일은 화요일
+    var cv = AB.canvas("#cp-tt-cv", function (ctx, w, h) {
+      var s = sG(), g = gG(), sd = +sig(), p = s + g, k = Math.min(1.6, (w - 24) / MW), mx = (w - MW * k) / 2, my = 12, mh = (h - 24) / k;
+      var rowY = 58, x0 = 16;
+      geo = { mx: mx, my: my, k: k, x0: x0, rowY: rowY, s: s, p: p };
+      ctx.save(); ctx.translate(mx, my); ctx.scale(k, k);
+      ctx.beginPath(); ctx.rect(0, 0, MW, mh); ctx.clip();
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, MW, mh);
+      T(ctx, "2월 행사 날짜", 16, 16, { size: 15, weight: 800, color: BK.dark });
+      var cy = rowY + s / 2;
+      if (s < 24) {   // WCAG 2.5.8의 24 px 원
+        ctx.strokeStyle = "rgba(47,111,208,0.7)"; ctx.lineWidth = 1 / k; ctx.setLineDash([3, 3]);
+        for (var j = 0; j < N; j++) { ctx.beginPath(); ctx.arc(x0 + j * p + s / 2, cy, 12, 0, 7); ctx.stroke(); }
+        ctx.setLineDash([]);
+      }
+      for (var i = 0; i < N; i++) {
+        var cx = x0 + i * p, on = i === aim;
+        ctx.fillStyle = on ? BK.green : "#f1f3f2"; rrect(ctx, cx, rowY, s, s, Math.min(10, s * 0.25)); ctx.fill();
+        if (!on) { ctx.strokeStyle = "#c9cfcb"; ctx.lineWidth = 1; rrect(ctx, cx + 0.5, rowY + 0.5, s - 1, s - 1, Math.min(10, s * 0.25)); ctx.stroke(); }
+        var fz = Math.max(8, Math.min(13, s * 0.3)), col = on ? "#ffffff" : BK.dark;
+        T(ctx, DAYS[i], cx + s / 2, rowY + s * 0.3, { size: fz * 0.85, weight: 500, color: col, align: "center", base: "middle" });
+        T(ctx, String(i + 1), cx + s / 2, rowY + s * 0.66, { size: fz, weight: 800, color: col, align: "center", base: "middle" });
+      }
+      // 누른 자리 160개(시드 고정)
+      var r = AB.rng(31 + aim), ax = x0 + aim * p + s / 2;
+      for (var n = 0; n < 160; n++) {
+        var tx = ax + gauss(r) * sd, ty = cy + gauss(r) * sd;
+        var inRow = ty >= rowY && ty <= rowY + s, rel = tx - x0, idx = Math.floor(rel / p), inChip = rel >= 0 && idx < N && rel - idx * p <= s;
+        ctx.fillStyle = !inRow || !inChip ? "#8a8a90" : idx === aim ? "#123d2b" : BK.red;
+        ctx.beginPath(); ctx.arc(tx, ty, 2.1, 0, 7); ctx.fill();
+      }
+      // 1 cm 자(가정: 1 CSS px ≈ 0.16 mm → 1 cm ≈ 62.5 px)
+      var by = rowY + s + 52;
+      ctx.fillStyle = INK; ctx.fillRect(16, by, 62.5, 2); ctx.fillRect(16, by - 4, 1.5, 10); ctx.fillRect(77, by - 4, 1.5, 10);
+      T(ctx, "1 cm (가정)", 84, by - 6, { size: 11, color: DIM, weight: 500 });
+      ctx.restore();
+      ctx.strokeStyle = "#cfcac0"; ctx.lineWidth = 1; ctx.strokeRect(mx - 0.5, my - 0.5, MW * k + 1, h - 23);
+      // 확률(같은 정규 분포로 계산)
+      var py = pIn(-s / 2, s / 2, sd), hit = pIn(-s / 2, s / 2, sd) * py, bad = 0;
+      for (var q = 1; q <= 4; q++) { if (aim - q >= 0) bad += pIn(q * p - s / 2, q * p + s / 2, sd) * py; if (aim + q < N) bad += pIn(q * p - s / 2, q * p + s / 2, sd) * py; }
+      AB.stat("cp-tt-o-hit", AB.pct(hit, 1));
+      AB.stat("cp-tt-o-bad", AB.pct(bad, 1));
+      AB.stat("cp-tt-o-miss", AB.pct(Math.max(0, 1 - hit - bad), 1));
+      var std = s >= 24 ? "2.5.8 통과" : p >= 24 ? "2.5.8 통과 <small>간격 예외</small>" : "2.5.8 미달 <small>24 원이 겹친다</small>";
+      AB.stat("cp-tt-o-std", std + (s >= 44 ? " · 44 이상" : " · 44 미만"));
+    }, { get height() { var el = document.getElementById("cp-tt-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); var k = Math.min(1.6, (W - 24) / 360); return Math.round(k * 190 + 24); }, bg: PAPER });
+    AB.drag(cv.canvas, {
+      start: function (x) {
+        if (!geo) return;
+        var rel = (x - geo.mx) / geo.k - geo.x0, idx = Math.floor(rel / geo.p);
+        if (rel >= 0 && idx >= 0 && idx < N) { aim = idx; cv.redraw(); }
+      },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 5: 피츠의 법칙(섀넌 형식) ---------------- */
+  sim(function () {
+    var wG = AB.range("cp-ft-w", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var dev = AB.seg("cp-ft-dev", function () { cv.redraw(); });
+    var COEF = { mouse: { a: 0.10, b: 0.15 }, finger: { a: 0.20, b: 0.10 } };   // 교육용 가정
+    var VW = 800, D = 360, geo = null, drag = false;
+    function ID(d, w) { return Math.log2(d / w + 1); }
+    var cv = AB.canvas("#cp-ft-cv", function (ctx, w, h) {
+      var P = AB.palette(), W = wG(), co = COEF[dev()];
+      var ar = { x: 12, y: 10, w: w - 24, h: 104 }, k = (ar.w - 24) / VW, sx = ar.x + 12 + 20 * k;
+      D = AB.clamp(D, W / 2 + 24, VW - 20 - W / 2);
+      var tx = sx + D * k;
+      geo = { sx: sx, k: k, y0: ar.y, y1: ar.y + ar.h };
+      ctx.fillStyle = P.surface; ctx.fillRect(ar.x, ar.y, ar.w, ar.h);
+      ctx.strokeStyle = P.border; ctx.lineWidth = 1; ctx.strokeRect(ar.x + 0.5, ar.y + 0.5, ar.w - 1, ar.h - 1);
+      ctx.globalAlpha = 0.22; ctx.fillStyle = P.accent; ctx.fillRect(tx - W * k / 2, ar.y + 14, W * k, ar.h - 28); ctx.globalAlpha = 1;
+      ctx.strokeStyle = P.accent; ctx.lineWidth = 2; ctx.strokeRect(tx - W * k / 2, ar.y + 14, W * k, ar.h - 28);
+      var cy = ar.y + ar.h / 2;
+      ctx.strokeStyle = P.dim; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(sx, cy); ctx.lineTo(tx, cy); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = P.text; ctx.beginPath(); ctx.arc(sx, cy, 5, 0, 7); ctx.fill();
+      ctx.font = AB.font(11); ctx.fillStyle = P.dim; ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("출발", sx - 10, cy - 8);
+      ctx.textAlign = "center"; ctx.fillText("D = " + Math.round(D), (sx + tx) / 2, cy - 5);
+      ctx.textBaseline = "top"; ctx.fillText("W = " + W, tx, ar.y + ar.h - 12);
+      AB.handle(ctx, tx, ar.y + 14, { r: 6, fill: P.accent, ring: P.text });
+      // 그래프
+      var box = { x: 54, y: ar.y + ar.h + 22, w: w - 54 - 18, h: h - (ar.y + ar.h + 22) - 46 };
+      var line = [], id = ID(D, W), mt = co.a + co.b * id;
+      for (var x = 0; x <= 7.001; x += 0.25) line.push([x, co.a + co.b * x]);
+      var pts = [24, 44].map(function (ww) { var i2 = ID(D, ww); return { x: i2, y: co.a + co.b * i2, color: P.faint, r: 4, label: String(ww) }; });
+      pts.push({ x: id, y: mt, color: P.accent, r: 6 });
+      AB.chart(ctx, box, { x: [0, 7], y: [0, 1.2], xLabel: "어려움 ID (비트)", yLabel: "예상 시간 MT (초)", series: [{ data: line, color: P.dim, width: 1.6 }], points: pts, yTicks: [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], yFmt: function (v) { return v.toFixed(1); } });
+      AB.stat("cp-ft-o-d", Math.round(D) + " px");
+      AB.stat("cp-ft-o-id", id.toFixed(2) + " 비트");
+      AB.stat("cp-ft-o-mt", mt.toFixed(2) + " 초 <small>가정한 계수</small>");
+    }, { get height() { var el = document.getElementById("cp-ft-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W < 520 ? 380 : 400; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = !!geo && y >= geo.y0 && y <= geo.y1; },
+      move: function (x) { if (!drag || !geo) return; D = (x - geo.sx) / geo.k; cv.redraw(); },
+      end: function () { drag = false; },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 6: 호버 뒤에 숨긴 정보 ---------------- */
+  sim(function () {
+    var CARDS = [{ t: "그림책 함께 읽기", d: "2월 5일 토 오전 11시", left: "남은 자리 4" }, { t: "필사의 밤", d: "2월 17일 목 저녁 7시", left: "남은 자리 1" }, { t: "겨울 시 낭독", d: "2월 26일 토 저녁 7시", left: "남은 자리 9" }];
+    var hov = -1, sticky = -1, focus = -1, msg = "—", rects = [];
+    var dev = AB.seg("cp-hv-dev", function () { hov = -1; sticky = -1; focus = -1; msg = "—"; cv.redraw(); });
+    var fix = AB.check("cp-hv-fix", function () { sticky = -1; focus = -1; cv.redraw(); });
+    function stops() { var out = []; CARDS.forEach(function (c, i) { out.push({ i: i, kind: "title" }); if (fix()) out.push({ i: i, kind: "btn" }); }); return out; }
+    document.getElementById("cp-hv-tab").addEventListener("click", function () {
+      if (dev() !== "key") { dev.set("key"); }
+      var S = stops(); focus = (focus + 1) % S.length; var s = S[focus];
+      msg = s.kind === "btn" ? "포커스: 「" + CARDS[s.i].t + "」 신청하기" : "포커스: 「" + CARDS[s.i].t + "」 제목 링크";
+      cv.redraw();
+    });
+    var cv = AB.canvas("#cp-hv-cv", function (ctx, w, h) {
+      var wide = w >= 560, pad = 12, gap = 10, d = dev(), fx = fix();
+      rects = [];
+      CARDS.forEach(function (c, i) {
+        var r = wide ? { x: pad + i * ((w - 2 * pad - 2 * gap) / 3 + gap), y: pad, w: (w - 2 * pad - 2 * gap) / 3, h: h - 2 * pad } : { x: pad, y: pad + i * ((h - 2 * pad - 2 * gap) / 3 + gap), w: w - 2 * pad, h: (h - 2 * pad - 2 * gap) / 3 };
+        rects.push(r);
+        var S = stops(), fs = focus >= 0 ? S[focus] : null;
+        var revealed = fx || (d === "mouse" && hov === i) || (d === "touch" && sticky === i);
+        var lifted = (d === "mouse" && hov === i) || (d === "touch" && sticky === i);
+        if (lifted) { ctx.fillStyle = "rgba(34,52,42,0.16)"; rrect(ctx, r.x + 2, r.y + 4, r.w, r.h, 12); ctx.fill(); }
+        ctx.fillStyle = "#ffffff"; rrect(ctx, r.x, r.y, r.w, r.h, 12); ctx.fill();
+        ctx.strokeStyle = "#e0dcd3"; ctx.lineWidth = 1; rrect(ctx, r.x + 0.5, r.y + 0.5, r.w - 1, r.h - 1, 12); ctx.stroke();
+        // 그림 자리: 책 세 권
+        var th = wide ? { x: r.x + 10, y: r.y + 10, w: r.w - 20, h: r.h * 0.38 } : { x: r.x + 10, y: r.y + 10, w: Math.min(92, r.w * 0.28), h: r.h - 20 };
+        ctx.fillStyle = BK.calm; rrect(ctx, th.x, th.y, th.w, th.h, 8); ctx.fill();
+        ["#ffe2d7", "#d24f39", "#22342a"].forEach(function (col, b) { ctx.fillStyle = col; ctx.fillRect(th.x + th.w * (0.24 + b * 0.18), th.y + th.h * (0.3 + b * 0.04), th.w * 0.13, th.h * (0.5 - b * 0.04)); });
+        var tx = wide ? r.x + 12 : th.x + th.w + 12, ty = wide ? th.y + th.h + 10 : r.y + 12;
+        T(ctx, c.t, tx, ty, { size: 14, weight: 800, color: BK.dark });
+        T(ctx, c.d, tx, ty + 20, { size: 12, weight: 500, color: "#4a4a50" });
+        var bB = null;
+        if (revealed) {
+          if (fx) {
+            T(ctx, c.left, tx, ty + 38, { size: 12, weight: 700, color: BK.red });
+            bB = { x: tx, y: ty + (wide ? 60 : 56), w: 92, h: 32 };
+            if (!wide && bB.y + bB.h > r.y + r.h - 4) { bB.x = r.x + r.w - 104; bB.y = r.y + r.h - 42; }
+          } else {
+            var oy = r.y + r.h - 46;
+            ctx.fillStyle = "rgba(34,52,42,0.92)"; rrect(ctx, r.x + 6, oy, r.w - 12, 40, 8); ctx.fill();
+            T(ctx, c.left, r.x + 16, oy + 20, { size: 12, weight: 700, color: "#ffe2d7", base: "middle" });
+            bB = { x: r.x + r.w - 98, y: oy + 6, w: 86, h: 28 };
+          }
+          ctx.fillStyle = BK.green; rrect(ctx, bB.x, bB.y, bB.w, bB.h, 6); ctx.fill();
+          T(ctx, "신청하기", bB.x + bB.w / 2, bB.y + bB.h / 2 + 0.5, { size: 12.5, weight: 700, color: "#ffffff", align: "center", base: "middle" });
+        }
+        r.btn = bB;
+        if (d === "key" && fs && fs.i === i) {
+          ctx.strokeStyle = BK.dark; ctx.lineWidth = 3;
+          if (fs.kind === "btn" && bB) { rrect(ctx, bB.x - 4, bB.y - 4, bB.w + 8, bB.h + 8, 9); ctx.stroke(); }
+          else { ctx.font = AB.font(14, false, 800); var tw = ctx.measureText(c.t).width; rrect(ctx, tx - 4, ty - 4, tw + 8, 25, 5); ctx.stroke(); }
+        }
+      });
+      var seen = 0; rects.forEach(function (r) { if (r.btn) seen++; });
+      AB.stat("cp-hv-o-see", seen + " / 3");
+      var steps = fx ? { mouse: "클릭 1번", touch: "탭 1번", key: "Tab 몇 번 + Enter" }[d] : { mouse: "올려야 보임 → 클릭", touch: "탭 2번(첫 탭은 호버)", key: "닿을 수 없음" }[d];
+      AB.stat("cp-hv-o-steps", steps);
+      AB.stat("cp-hv-o-msg", msg);
+    }, { get height() { var el = document.getElementById("cp-hv-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W >= 560 ? 250 : 340; }, bg: PAPER });
+    function hit(x, y) { for (var i = 0; i < rects.length; i++) { var r = rects[i]; if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) return i; } return -1; }
+    function onBtn(i, x, y) { var b = i >= 0 && rects[i].btn; return !!b && x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h; }
+    AB.drag(cv.canvas, {
+      hover: function (x, y) { if (dev() !== "mouse") return; var i = hit(x, y); if (i !== hov) { hov = i; cv.redraw(); } },
+      start: function (x, y) {
+        var i = hit(x, y), d = dev();
+        if (i < 0) return;
+        var name = "「" + CARDS[i].t + "」";
+        if (d === "mouse") { hov = i; msg = onBtn(i, x, y) ? name + " 신청 화면으로" : name + " 상세 페이지로"; }
+        else if (d === "touch") {
+          if (fix()) msg = onBtn(i, x, y) ? name + " 신청 화면으로(탭 1번)" : name + " 상세 페이지로";
+          else if (sticky !== i) { sticky = i; msg = "첫 탭이 호버로 처리됨: 정보가 나타났다"; }
+          else msg = onBtn(i, x, y) ? name + " 신청 화면으로(탭 2번째)" : name + " 상세 페이지로";
+        } else msg = "키보드 모드: Tab 키 누르기를 쓴다";
+        cv.redraw();
+      },
+    });
+    cv.canvas.addEventListener("pointerleave", function () { if (hov !== -1) { hov = -1; cv.redraw(); } });
+  });
+})();
+</script>
+</body>
+</html>
