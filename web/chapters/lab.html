@@ -639,7 +639,8 @@
           row.forEach(function (m) {
             text(x, yy + (rowH - menuPx * 1.4) / 2, m.s, menuPx, m.i === cur ? 800 : 600, m.i === cur ? T.action : T.text, T.surface, { lh: 1.4, n: "메뉴" });
             if (m.i === cur) rect(x, yy + rowH - 5, m.w, 3, T.action);
-            target(x - 4, yy, m.w + 8, rowH, m.s + " 메뉴", T.surface, 4);
+            var mw = comp44 ? Math.max(44, m.w + 16) : m.w + 8;
+            target(x + m.w / 2 - mw / 2, yy, mw, rowH, m.s + " 메뉴", T.surface, 4);
             x += m.w + gapM;
           });
         };
@@ -730,7 +731,7 @@
       L.textBlock = { x: tx, y: y0, w: dW, h: yy - y0 };
       var ph;
       if (two) { var pw = span(cols / 2); ph = { x: colX(cols / 2), y: y0, w: pw, h: pw * 2 / 3 }; y = Math.max(yy, y0 + ph.h); }
-      else { yy += SP.gap; ph = { x: cx, y: yy, w: cw, h: cw * 9 / 16 }; y = yy + ph.h; }
+      else { yy += SP.gap; ph = { x: cx, y: yy, w: cw, h: cw * (S.frame === "em" ? 2 / 5 : 9 / 16) }; y = yy + ph.h; }   // 이 장의 결정: 휴대폰에서는 5:2로 잘라 보인다
       IT.push({ k: "img", x: ph.x, y: ph.y, w: ph.w, h: ph.h }); L.photo = ph;
       gapMark(cx + 4, y, SP.sect, "구획 사이"); y += SP.sect;
       L.schedTop = y;
@@ -1186,7 +1187,7 @@
     var cv = AB.canvas("#wf-cv", function (ctx, w, h) {
       var L = build({ page: "form", Wd: 390, zoom: 1, ts: 1, frame: "em", space: "scale", tok: dC() ? "dark" : "light", comp: "min44", err: true });
       var n = L.focus.length, el = iG.el;
-      if (+el.max !== n) { el.max = n; if (+el.value > n) el.value = n; }
+      if (+el.max !== n) { var atEnd = +el.value >= +el.max; el.max = n; if (atEnd || +el.value > n) el.value = n; el.style.setProperty("--fill", ((+el.value - 1) / Math.max(1, n - 1) * 100) + "%"); document.getElementById("wf-i-out").textContent = el.value + "번째"; }
       var i = Math.min(n, iG()) - 1;
       var f = fit(L, w, h, 12, 0, 1.2, 1.3);
       paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH, focusIdx: i, ring: rG() });

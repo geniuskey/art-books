@@ -41,6 +41,7 @@
   .stat .v.txt { font-family: var(--font); font-size: 14px; font-weight: 500; line-height: 1.5; }
   #sim-pl-lab .sim-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 18px; }
   #sim-pl-lab .sim-controls .seg { flex-wrap: wrap; }
+  #pl-drawing td.num { white-space: nowrap; }
   .pl-boxtext { margin: 0; padding: 14px 18px; border-left: 3px solid var(--accent); background: var(--bg-elev); font-size: 15px; line-height: 1.75; }
 </style>
 </head>
@@ -727,8 +728,8 @@
       return { s: s, ox: ox, oy: oy, P: function (x, z) { return [ox + x * s, oy - z * s]; } };
     }
     function label(ctx, w, txt, sub) {
-      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(txt, 10, 8);
-      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5); ctx.fillText(sub, 10, 26);
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(txt, 10, 40);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5); ctx.fillText(sub, 10, 58);
     }
     var A = AB.canvas("#pl-cmp-a", function (ctx, w, h) {
       var F = frame(ctx, w, h), s = F.s, P = F.P;
@@ -881,7 +882,7 @@
         ctx.fillStyle = P.bad; ctx.textAlign = "left"; ctx.fillText("여는 힘 > 10 N", X(14), Y(Math.min(K1 - 20, 14 / cF + 120)));
         ctx.fillStyle = P.warn; ctx.textAlign = "center"; ctx.fillText("벌림 > 45 mm", X((gS + G1) / 2), Y(K1 - 30));
         ctx.fillStyle = P.accent2; ctx.textAlign = "right"; ctx.fillText("무는 힘 < 4 N", X(G1) - 6, Y((K0 + kC) / 2));
-        ctx.fillStyle = P.ok; ctx.textAlign = "center"; ctx.fillText("창", X((kC * cF + gS * 2) / 3), Y((kC * 2 + k1) / 3));
+        ctx.fillStyle = P.ok; ctx.textAlign = "right"; ctx.fillText("창", X(gS) - 6, Y((kC + k1) / 2));
       }
       var hx = X(pt.G), hy = Y(pt.k);
       AB.handle(ctx, hx, hy, { r: 7, fill: P.accent, ring: P.text });
@@ -980,7 +981,7 @@
       // 곡선 이름
       ctx.font = AB.font(10.5, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
       KEYS.forEach(function (k) {
-        var lx = k === "p3d" ? 2.15 : k === "vac" ? 2.55 : k === "alu" ? 3.55 : 3.9, n = Math.round(Math.pow(10, lx)), c = unitCost(Object.assign({}, CHOICE, { proc: k, N: n })).total;
+        var lx = k === "p3d" ? 2.15 : k === "vac" ? 2.55 : k === "alu" ? 3.55 : 3.3, n = Math.round(Math.pow(10, lx)), c = unitCost(Object.assign({}, CHOICE, { proc: k, N: n })).total;
         if (c > 40000) { lx = k === "steel" ? 4.05 : lx; c = unitCost(Object.assign({}, CHOICE, { proc: k, N: Math.round(Math.pow(10, lx)) })).total; }
         ctx.fillStyle = COL[k]; ctx.fillText(PROC[k].name.replace("알루미늄 간이 금형", "알루미늄 금형"), Math.min(ch.X(lx) + 2, box.x + box.w - 70), ch.Y(Math.min(39000, c)) - 3);
       });
@@ -1068,7 +1069,7 @@
     function state() { return { L: lG(), H: hG(), B: bG(), G: gG(), K: +kG(), t: tG(), mat: mG(), proc: pG(), N: qToN(nG()), rep: rG() }; }
     var cv = AB.canvas("#pl-lab-cv", function (ctx, w, h) {
       var d = state(), ev = evaluate(d), tp = ev.tp;
-      var back = Math.max(d.B / 2, d.G), spanX = back + 140 + 110 / 2 + 10;
+      var back = Math.max(d.B / 2, d.G), spanX = back + d.L + d.H / 2 + 14;
       var topH = Math.min(190, Math.max(130, w * 0.3));
       var s = Math.min((w - 30) / spanX, (topH - 50) / 50), ox = 15 + back * s + Math.max(0, (w - 30 - spanX * s) / 2) * 0.3, oy = topH - 26;
       ctx.fillStyle = DESK; ctx.fillRect(0, oy, w, 5); ctx.fillStyle = "rgba(0,0,0,0.05)"; ctx.fillRect(0, oy + 5, w, 8);
@@ -1107,14 +1108,13 @@
         var col = narrow ? 0 : (i < 6 ? 0 : 1), ri = narrow ? i : i % 6;
         var x = 12 + col * (colW + 18), y = y0 + ri * rowH;
         ctx.fillStyle = INK; ctx.font = AB.font(11.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(r.k, x, y);
-        ctx.fillStyle = INK_DIM; ctx.font = AB.font(10); var kw = ctx.measureText ? 0 : 0;
+        var kw = ctx.measureText(r.k).width; ctx.fillStyle = INK_DIM; ctx.font = AB.font(10); ctx.fillText(r.rule, x + kw + 6, y + 1.5);
         ctx.fillStyle = r.ok ? OKC : RED; ctx.font = AB.font(11.5, true, 700); ctx.textAlign = "right"; ctx.fillText(r.txt, x + colW, y);
         var by = y + 17, bh = 8;
         ctx.fillStyle = "#ebe6dc"; ctx.fillRect(x, by, colW, bh);
         var fr = function (v) { return AB.clamp((v - r.lo) / (r.hi - r.lo), 0, 1) * colW; };
         if (r.win) { ctx.fillStyle = "rgba(47,125,79,0.22)"; ctx.fillRect(x + fr(r.win[0]), by - 2, fr(r.win[1]) - fr(r.win[0]), bh + 4); ctx.fillStyle = r.ok ? OKC : RED; ctx.fillRect(x + fr(r.v) - 2, by - 3, 4, bh + 6); }
         else { ctx.fillStyle = r.ok ? OKC : RED; ctx.fillRect(x, by, fr(r.v), bh); ctx.fillStyle = INK; ctx.fillRect(x + fr(r.lim) - 1, by - 3, 2, bh + 6); }
-        ctx.fillStyle = INK_DIM; ctx.font = AB.font(9.5); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText(r.rule, x + colW, by + bh + 1);
       });
       // 메모
       var m = tp.m, be = breakEven(d), Y = ev.life, rp = reps(Y, 1.5), perY = (PRICE + rp * 4000) / Y;
@@ -1139,7 +1139,7 @@
       AB.stat("pl-lab-o-a", tp.dF > 0 ? f1(ev.tip) + "°" : "<span style=\"color:var(--bad)\">넘어짐</span>");
       AB.stat("pl-lab-o-c", won(c.total));
       AB.stat("pl-lab-o-p", pass + " / " + rows.length);
-    }, { get height() { var el = document.getElementById("pl-lab-cv"), w = Math.max(200, (el && el.parentElement.clientWidth) || 600); var topH = Math.min(190, Math.max(130, w * 0.3)); return Math.round(topH + 16 + (w < 520 ? 12 : 6) * 36); }, bg: PAPER });
+    }, { get height() { var el = document.getElementById("pl-lab-cv"), w = Math.max(200, (el && el.parentElement.clientWidth) || 600); var topH = Math.min(190, Math.max(130, w * 0.3)); return Math.round(topH + 40 + (w < 520 ? 12 : 6) * 36); }, bg: PAPER });
     AB.drag(cv.canvas, {
       start: function (x, y) { drag = null; if (!geo) return; var best = 28 * 28; Object.keys(geo.H).forEach(function (k) { var q = geo.H[k], dd = (q[0] - x) * (q[0] - x) + (q[1] - y) * (q[1] - y); if (dd < best) { best = dd; drag = k; } }); },
       move: function (x) {
