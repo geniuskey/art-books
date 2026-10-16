@@ -1,0 +1,476 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "ProductBook의 제품 디자인 용어를 검색해 처음 설명한 절로 바로 가고, 열세 장을 묶는 종합 퀴즈로 점검한다. 헷갈리기 쉬운 용어 쌍, 서윤의 봄 서비스 노트 색인, 이미지 출처도 함께 모았다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>용어집 & 종합 퀴즈 · ProductBook</title>
+<meta name="description" content="ProductBook의 제품 디자인 용어를 검색해 처음 설명한 절로 바로 가고, 열세 장을 묶는 종합 퀴즈로 점검한다. 헷갈리기 쉬운 용어 쌍, 서윤의 봄 서비스 노트 색인, 이미지 출처도 함께 모았다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/glossary.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="용어집 &amp; 종합 퀴즈 · ProductBook">
+<meta property="og:description" content="ProductBook의 제품 디자인 용어를 검색해 처음 설명한 절로 바로 가고, 열세 장을 묶는 종합 퀴즈로 점검한다. 헷갈리기 쉬운 용어 쌍, 서윤의 봄 서비스 노트 색인, 이미지 출처도 함께 모았다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/glossary.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/glossary.html#chapter","name":"용어집 & 종합 퀴즈","headline":"용어집 & 종합 퀴즈 · ProductBook","description":"ProductBook의 제품 디자인 용어를 검색해 처음 설명한 절로 바로 가고, 열세 장을 묶는 종합 퀴즈로 점검한다. 헷갈리기 쉬운 용어 쌍, 서윤의 봄 서비스 노트 색인, 이미지 출처도 함께 모았다.","url":"https://artbook.euiyun.com/product/chapters/glossary.html","position":14,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"14. 용어집 & 종합 퀴즈","item":"https://artbook.euiyun.com/product/chapters/glossary.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 14장 전용: 용어 목록, 짝 표, 서비스 노트 색인 */
+  #gl-list .ch { margin-right: 12px; }
+  #pairs td:first-child, #pairs td:last-child { white-space: nowrap; }
+  #casebook td:nth-child(2), #casebook td:nth-child(3) { min-width: 12em; }
+  /* 좁은 화면: 짝 표와 색인 표를 한 줄에 한 칸씩 쌓는다 */
+  @media (max-width: 600px) {
+    #pairs table, #pairs tbody, #pairs tr, #pairs td,
+    #casebook table, #casebook tbody, #casebook tr, #casebook td { display: block; width: auto; min-width: 0; }
+    #pairs thead, #casebook thead { display: none; }
+    #pairs tr, #casebook tr { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    #pairs td, #casebook td { border: 0; padding: 2px 12px; white-space: normal; }
+    #pairs td:first-child { font-weight: 700; padding-top: 4px; }
+    #pairs td:last-child::before { content: "장 "; color: var(--text-dim); font-size: 12.5px; }
+    #casebook td.num { font-weight: 700; text-align: left; }
+    #casebook td.num::before { content: "장 "; color: var(--text-dim); font-weight: 400; font-size: 12.5px; }
+    #casebook td:nth-child(2)::before, #casebook td:nth-child(3)::before { display: block; color: var(--text-dim); font-size: 12.5px; margin-top: 4px; }
+    #casebook td:nth-child(2)::before { content: "상황"; }
+    #casebook td:nth-child(3)::before { content: "서윤의 선택"; }
+  }
+</style>
+</head>
+<body data-chapter="glossary">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 14</div>
+    <h1>용어집 &amp; 종합 퀴즈</h1>
+    <p class="lead">제품 디자인의 말은 여러 곳에서 빌려 왔다. 인터뷰와 포화는 사회과학의 질적 연구에서, 카드 소팅과 패싯은 도서관학에서, 어포던스와 멘탈 모델은 지각 심리학과 인지과학에서, 퍼널과 북극성 지표는 서비스 운영의 현장에서, 신뢰 구간과 검정력은 통계학에서 왔다. 같은 말이 분야마다 조금씩 다른 뜻으로 쓰이고, "어포던스"처럼 들여온 뒤에 뜻이 흐려진 말도 있다. 이 장은 이 책에서 쓴 뜻을 한곳에 모으고, 그 말을 설명한 절로 돌아가는 길을 놓는다. 마지막에는 열세 장을 묶는 종합 퀴즈와, 서윤의 봄 서비스 노트가 장마다 정한 것을 다시 모았다.</p>
+    <ul class="objectives">
+      <li>이 책의 핵심 용어를 검색하고, 그 용어를 설명한 절로 바로 간다.</li>
+      <li>헷갈리기 쉬운 용어 쌍(사용자 조사와 사용성 테스트, 피드백과 어포던스, 통계적 유의성과 의미 있는 차이, 다크 패턴과 설득 등)의 차이를 확인한다.</li>
+      <li>종합 퀴즈로 이해·구조·검증·운영 네 부와 도입, 실험실의 내용을 점검한다.</li>
+      <li>서윤의 봄 서비스 노트가 장마다 정한 것을 한눈에 다시 본다.</li>
+      <li>이 책에 쓴 이미지와 그림의 출처를 확인한다.</li>
+    </ul>
+  </header>
+
+  <section id="terms">
+    <h2>용어 찾기</h2>
+    <p>용어, 영어 이름, 뜻풀이의 어느 낱말로도 찾는다. 부 단추로 그 부의 장에서 설명한 용어만 볼 수 있다. 각 항목 아래의 장 번호를 누르면 그 용어를 설명한 절로 간다. 여러 장에서 다룬 용어는 링크가 여럿이다. 뜻풀이는 이 책에서 쓴 뜻이며, 회사와 분야에 따라 조금씩 다르게 쓰이는 말은 그렇다고 적었다.</p>
+    <input class="gl-search" id="gl-q" type="search" placeholder="예: 퍼널, 기표, 검정력, 다크 패턴" aria-label="용어 검색">
+    <div class="seg" id="gl-part" style="margin-bottom:16px"><button data-value="all" class="on">전체</button><button data-value="0">이해</button><button data-value="1">구조</button><button data-value="2">검증</button><button data-value="3">운영</button><button data-value="x">도입·실험실</button></div>
+    <p class="disclaimer" id="gl-count"></p>
+    <div class="gl-list" id="gl-list" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))"></div>
+  </section>
+
+  <section id="pairs">
+    <h2>헷갈리기 쉬운 짝</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>짝</th><th>차이</th><th>장</th></tr></thead>
+      <tbody>
+        <tr><td>사용자 조사 · 사용성 테스트</td><td>사용자 조사는 제품을 쓸 사람과 그 사람의 상황을 알아내는 일로, 대개 아직 만들 것이 정해지기 전에 "어떻게 하시나요?"를 묻고 지켜본다. 사용성 테스트는 이미 만든 것(종이 화면이라도)을 실제에 가까운 과업으로 "해 보세요"라고 맡기고, 되는지와 어디서 막히는지를 본다. 조사는 풀 문제를 찾고, 테스트는 내놓은 답을 시험한다. 서윤은 4월에 손님 여덟 명을 인터뷰하고(2장), 5월에 다른 손님 다섯 명에게 시험판을 맡겼다(8장).</td><td><a href="research.html#question">2</a> · <a href="usability.html#what">8</a></td></tr>
+        <tr><td>질적 조사 · 양적 조사<br>(정성 · 정량)</td><td>질적 조사는 몇 사람을 깊이 보며 "어떻게, 왜"를 찾고, 양적 조사는 많은 사람을 세어 "얼마나 자주, 얼마나 많이"를 잰다. 질적 조사로는 "몇 퍼센트"를 말할 수 없고, 양적 조사는 "왜"를 말해 주지 않는다. 작은 팀은 대개 질적 조사로 무엇이 일어나는지 먼저 찾고, 얼마나 흔한지는 나중에 센다. 이 책에서는 2장이 앞쪽을, 9장의 지표와 A/B 테스트가 뒤쪽을 맡았다.</td><td><a href="research.html#question">2</a> · <a href="metrics.html#why-numbers">9</a></td></tr>
+        <tr><td>문제 · 해결책<br>(기능 요청)</td><td>이 책에서 문제는 "누가, 어떤 상황에서, 무엇을 하려다가 어려움을 겪는가"가 들어 있는 문장이다. "채팅을 넣어 주세요" 같은 기능 요청은 요청한 사람이 상상한 해결책이라, 그 뒤의 문제는 대개 말해지지 않는다. 문제 문장을 "어떻게 하면" 질문으로 바꾸면 해결책이 여럿 열린다. 네 주인의 기능 목록은 버리지 않고 질문을 붙여 "나중 상자"에 넣었다.</td><td><a href="overview.html#problem-first">1</a> · <a href="problem.html#sense">3</a> · <a href="problem.html#hmw">3</a></td></tr>
+        <tr><td>정보 구조 · 내비게이션</td><td>정보 구조는 서비스 안의 정보를 어떻게 나누고(분류), 무엇이라 부르고(이름), 어떻게 오가고(내비게이션), 어떻게 불러오게(검색) 할지를 정하는 일이다. 내비게이션은 그 네 체계 가운데 하나로, 메뉴와 탭처럼 사이를 오가게 하는 장치다. 분류와 이름이 틀리면 메뉴를 아무리 다듬어도 찾지 못한다. 그래서 4장은 화면 없이 구조만 시험하는 트리 테스트를 먼저 했다.</td><td><a href="ia.html#what">4</a> · <a href="ia.html#tree">4</a></td></tr>
+        <tr><td>흐름 · 화면</td><td>화면은 한순간의 모습이고, 흐름은 사용자가 목표를 이루기까지 지나가는 화면과 행동의 순서다. 화면 하나하나가 좋아도 단계가 많으면 퍼널의 곱셈으로 끝까지 가는 사람이 줄고, 예외 경로에 출구가 없으면 오류 하나 없이 서비스가 실패한다. 첫 단계에서 화면을 그리지 않는 편이 나은 것은, 그리기 시작하면 단계의 수와 순서보다 버튼의 색에 눈이 가기 때문이다.</td><td><a href="flow.html#map">5</a> · <a href="flow.html#multiply">5</a> · <a href="flow.html#exceptions">5</a></td></tr>
+        <tr><td>어포던스 · 기표 · 피드백</td><td>어포던스는 사물과 사람 사이의 행동 가능성(문의 평평한 판은 "밀 수 있음")이고, 기표는 그 행동을 어디서 어떻게 하면 되는지 알리는 지각 가능한 신호("미세요" 글씨)다. 둘은 누르기 전의 이야기다. 피드백은 누른 뒤에 시스템이 "받았다, 하고 있다, 끝났다"를 알리는 것으로, 평가의 간극을 건너는 다리다. "맡아 두기" 버튼이 세 번 눌린 것은 기표가 아니라 피드백의 문제였다.</td><td><a href="interaction.html#signifier">6</a> · <a href="interaction.html#feedback">6</a></td></tr>
+        <tr><td>낮은 충실도 · 높은 충실도</td><td>흔히 로파이와 하이파이 둘로 말하지만, 충실도는 모양·내용·상호작용의 세 축이 따로 움직인다. 연필 그림에 실제 책 제목과 재고 수를 적으면 모양은 낮고 내용은 높다. 모양을 높이면 참가자가 "다 된 것"으로 받아들여 색과 글자 이야기가 나오기 쉽다는 것이 실무의 오랜 이야기이고, 연구 결과는 엇갈린다. 기준은 "확인하려는 질문에 필요한 충실도"다.</td><td><a href="prototype.html#fidelity">7</a> · <a href="prototype.html#choose">7</a></td></tr>
+        <tr><td>1차 지표 · 가드레일 지표</td><td>1차 지표는 실험의 승패를 가르려고 미리 하나로 정해 둔 숫자이고(서윤은 "맡긴 책을 기한 안에 찾아간 비율"), 가드레일 지표는 올리려는 숫자가 아니라 다른 것을 고치다 망가뜨리지 않았는지 지켜보는 숫자다("주인 확인까지 걸린 시간"). 1차 지표가 올라도 가드레일이 무너지면 이긴 것이 아니다. 결과를 본 뒤 오른 지표를 골라 "성공"이라 부르면 우연의 함정에 빠진다.</td><td><a href="metrics.html#choose">9</a> · <a href="metrics.html#case">9</a></td></tr>
+        <tr><td>통계적으로 유의함 · 의미 있게 다름</td><td>통계적으로 유의하다는 것은 신뢰 구간이 0을 걸치지 않는다는 것, 곧 "차이가 0은 아닐 것"이라는 말일 뿐 차이가 쓸모 있을 만큼 크다는 말이 아니다. 의미 있는 차이는 "이만큼은 달라야 바꿀 가치가 있다"고 미리 정한 크기(최소 의미 차이)로 판단한다. 사람이 아주 많으면 하찮은 차이도 유의해지고, 사람이 적으면 큰 차이도 유의하지 않다. 그래서 13장은 구간을 0과 최소 의미 차이의 두 선에 대어 네 갈래로 읽었다.</td><td><a href="metrics.html#ab">9</a> · <a href="metrics.html#size">9</a> · <a href="lab.html#read">13</a></td></tr>
+        <tr><td>신뢰 구간 · p값</td><td>신뢰 구간은 작은 표본의 값이 얼마나 흔들리는지를 범위로 보여 주어, 효과의 크기와 불확실성을 함께 읽게 한다. p값은 "진짜 차이가 0이라면 지금만큼 또는 그보다 큰 차이가 우연히 나올 확률"을 숫자 하나로 적은 것이다. p = 0.04는 "B가 나을 확률 96%"가 아니고, 차이의 크기도 알려 주지 않는다. 같은 판정이라도 구간이 더 많은 것을 보여 주므로, 이 책은 결과 뒤에 구간을 읽는다.</td><td><a href="usability.html#measure">8</a> · <a href="metrics.html#ab">9</a> · <a href="lab.html#read">13</a></td></tr>
+        <tr><td>UX 라이팅 · 마이크로카피</td><td>UX 라이팅은 화면에 들어가는 짧은 글을 쓰고 다듬는 일 전체로, 목소리를 정하고 문구 원칙과 문구 표를 만들어 지키는 일까지 포함한다. 마이크로카피는 그 결과물인 버튼 이름, 라벨, 도움말, 오류 메시지, 빈 상태의 문장 하나하나를 가리킨다. 두 말을 거의 같은 뜻으로 쓰는 팀도 많다. 서윤의 "문구 원칙 다섯 줄"은 UX 라이팅이고, "이 책을 맡아 두지 못했어요"는 마이크로카피다.</td><td><a href="writing.html#words">10</a> · <a href="writing.html#table">10</a></td></tr>
+        <tr><td>디자인 시스템 · 컴포넌트 모음<br>(스타일 가이드)</td><td>디자인 시스템은 토큰·컴포넌트·패턴에 그것을 언제 쓰고 쓰지 않는지 적은 문서와, 누가 어떤 절차로 바꾸는지의 운영 규칙(거버넌스)까지 포함한 결정의 묶음이다. 부품만 모은 컴포넌트 모음이나 색·글꼴 규칙을 적은 스타일 가이드는 그 일부다. 쓰는 규칙과 고치는 절차가 없으면 몇 달 안에 부품의 복사본이 부품보다 많아진다.</td><td><a href="system.html#layers">11</a> · <a href="system.html#docs">11</a> · <a href="system.html#governance">11</a></td></tr>
+        <tr><td>다크 패턴 · 설득</td><td>모든 화면은 무언가를 권한다. 설득은 사용자가 알아야 할 것을 보이고, 사실을 말하고, 다른 선택을 같은 무게로 열어 둔 채 권한다. 다크 패턴(기만적 설계)은 숨기거나, 속이거나, 강요하거나, 아무것도 안 하면 서비스에 유리한 쪽으로 가게 해서 사용자의 판단을 우회한다. 12장은 만든 사람의 의도 대신 화면의 구조를 묻는다. 미리 체크된 칸은 체크한 사람의 마음과 상관없이 "가만있으면 동의"를 만든다.</td><td><a href="ethics.html#what">12</a> · <a href="ethics.html#gallery">12</a></td></tr>
+        <tr><td>카드 소팅 · 트리 테스트</td><td>같은 질문의 두 방향이다. 카드 소팅은 사람에게 항목을 직접 묶게 해서 "사람들은 어떻게 나누는가"를 배우고, 트리 테스트는 이미 짠 메뉴의 글자 나무에서 과업을 찾게 해서 "이 구조에서 찾을 수 있는가"를 확인한다. 보통 개방형 카드 소팅으로 구조를 짜고, 트리 테스트로 확인한 뒤, 고친 구조를 다시 트리 테스트한다.</td><td><a href="ia.html#cardsort">4</a> · <a href="ia.html#tree">4</a></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="final-quiz">
+    <h2>종합 퀴즈</h2>
+    <p>도입과 네 부, 실험실에서 고루 뽑은 스물일곱 문제다. 열세 장에서 적어도 한 문제씩 나온다. 답을 고르면 해설과 그 내용을 다룬 절이 나온다. 맞힌 개수는 아래에 쌓인다.</p>
+    <div class="sim" id="sim-score" data-mono="off">
+      <div class="sim-head"><span class="sim-tag">SCORE</span><h3>나의 점수</h3></div>
+      <div class="sim-view paper"><canvas id="sc-cv" class="art"></canvas></div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">푼 문제</span><span class="v" id="sc-o-n">0 / 27</span></div>
+        <div class="stat"><span class="k">맞힌 문제</span><span class="v" id="sc-o-c">0</span></div>
+        <div class="stat"><span class="k">다시 볼 장</span><span class="v" id="sc-o-r">—</span></div>
+      </div>
+      <div class="sim-note">부마다 맞힌 비율을 막대로 보여 준다. 틀린 문제가 있는 장은 "다시 볼 장"에 쌓인다. (점수는 이 화면에만 있고 어디에도 저장하거나 보내지 않는다.)</div>
+    </div>
+    <div class="quiz" id="final"></div>
+  </section>
+
+  <section id="casebook">
+    <h2>서윤의 봄 서비스 노트 색인</h2>
+    <p>2028년 4월 3일부터 6월 30일 정식 공개까지, 열세 장에 걸쳐 서윤과 하린, 지후가 동네 책방 네 곳(책방 E, 헌책방 나무, 작은 숲, 한 줄)이 함께 쓰는 모바일 웹 서비스 "맡아 두기"를 두고 정한 것을 장 순서대로 모았다. 손님이 찾는 책을 검색해 어느 책방에 있는지 보고, 최대 3일 동안 맡겨 두었다가 가게에서 찾아가는 서비스다(결제는 가게에서). 각 줄의 장 번호를 누르면 그 장의 서비스 노트로 간다. 참가자 수, 성공률, 전환율은 모두 가상의 값이고, 마지막 장의 결정도 정답이 아니라 서윤의 선택이다.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th class="num">장</th><th>상황</th><th>서윤의 선택</th></tr></thead>
+      <tbody id="case-rows"></tbody>
+    </table></div>
+    <div class="callout try">
+      <strong>내 서비스 노트 색인 쓰기</strong>
+      이 책을 읽으며 하나의 작은 서비스(동네 가게의 예약, 동아리의 회비 걷기, 집안의 물건 빌려주기처럼 손님과 운영하는 사람이 함께 있는 것)를 떠올렸다면, 이 표처럼 장마다 한 줄씩 적어 본다. 왼쪽 칸에는 그 장을 읽으며 막힌 곳을, 오른쪽 칸에는 무엇을 정했는지와 그 근거가 어느 칸(말, 소수의 행동, 다수의 숫자, 모형, 원칙)에 있는지를 쓴다. 정하지 못한 칸은 비워 둔다. 빈칸이 다음에 사람을 만나 확인할 곳이다. 마지막으로 1장의 첫 질문 "이 화면을 누가, 언제 써요?"에 한 문장으로 답해 보는 것으로 이 책을 마친다.
+    </div>
+  </section>
+
+  <section id="credits">
+    <h2>이미지 크레딧</h2>
+    <p>이 책의 그림은 대부분 이 책이 직접 그린 가상의 화면, 흐름도, 도식, 시뮬레이터이며 CC BY 4.0을 따른다. 실존 서비스의 화면을 옮기지 않았고, 화면 속 책방과 책, 인물과 숫자는 모두 가상이다. 서가의 크레딧 자료에서 ProductBook 장에 쓰인 공공 도메인·CC0 작품 이미지가 있으면 아래에 모아 보여 준다. 서가 전체의 목록은 <a href="../../credits.html">크레딧 페이지</a>에 있다.</p>
+    <div class="credits-list" id="cr-list"></div>
+    <p class="disclaimer">서가 공통 글꼴: 본문과 화면 글자는 Pretendard(길형진, OFL), 고정폭 글자는 JetBrains Mono(JetBrains, OFL)다. 시뮬레이터의 가상 화면에 쓰인 "시스템 글꼴"은 보는 기기에 설치된 글꼴이다.</p>
+  </section>
+
+  <section id="refs">
+    <h2>이 책이 기댄 자료</h2>
+    <p>대비비(<code>ART.contrast</code>)와 색차(ΔE2000)는 표준의 정의 그대로이고, 신뢰 구간·검정력·표본 크기는 각 장에서 밝힌 정규 근사와 수정 왈드 구간으로 계산했다. 반면 퍼널의 곱셈 모형, 문제 발견 곡선의 가상 참가자, 토큰 연결망, 떠도는 변형, 동의 화면의 손님 100명, 서가 밖의 책 같은 시뮬레이션은 이 책이 만든 단순한 교육용 모형이며 각 모형의 가정은 해당 장에 적었다. 장마다 인용한 자료 가운데 여러 장에 걸친 것을 모았다.</p>
+    <ul>
+      <li>Design Council, "A study of the design process" (2005, 더블 다이아몬드). J. J. Garrett, <i>The Elements of User Experience</i> (2002). J. P. Guilford의 발산적·수렴적 사고(1950년대).</li>
+      <li>H. Beyer &amp; K. Holtzblatt, <i>Contextual Design</i> (1998). G. Guest, A. Bunce &amp; L. Johnson, "How Many Interviews Are Enough?", <i>Field Methods</i> 18(1), 2006. P. Sheeran, "Intention–behavior relations", <i>European Review of Social Psychology</i> 12, 2002.</li>
+      <li>A. Cooper, <i>The Inmates Are Running the Asylum</i> (1999), A. Cooper 외, <i>About Face</i>. C. M. Christensen 외, <i>Competing Against Luck</i> (2016).</li>
+      <li>L. Rosenfeld &amp; P. Morville, <i>Information Architecture</i>. D. P. Miller (1981), J. I. Kiger (1984), K. Larson &amp; M. Czerwinski (1998)의 폭과 깊이 연구. P. Pirolli &amp; S. Card, "Information foraging", <i>Psychological Review</i> 106(4), 1999.</li>
+      <li>D. A. Norman, <i>The Design of Everyday Things</i> (1988, 개정 증보판 2013). J. J. Gibson, <i>The Ecological Approach to Visual Perception</i> (1979). W. E. Hick (1952), R. Hyman (1953), P. M. Fitts (1954), I. S. MacKenzie (1992).</li>
+      <li>M. McCurdy 외, "Breaking the fidelity barrier", CHI 2006. C. Snyder, <i>Paper Prototyping</i> (2003). J. F. Kelley (1984, 오즈의 마법사). J. Knapp, J. Zeratsky &amp; B. Kowitz, <i>Sprint</i> (2016). J. Nielsen, <i>Usability Engineering</i> (1993).</li>
+      <li>ISO 9241-11:2018. J. Brooke, "SUS: A 'quick and dirty' usability scale" (1996). J. Nielsen &amp; T. K. Landauer, "A mathematical model of the finding of usability problems", INTERCHI 1993. A. Agresti &amp; B. A. Coull (1998). J. Sauro &amp; J. R. Lewis, <i>Quantifying the User Experience</i> (2판, 2016). K. A. Ericsson &amp; H. A. Simon, <i>Protocol Analysis</i> (1993).</li>
+      <li>R. Kohavi, D. Tang &amp; Y. Xu, <i>Trustworthy Online Controlled Experiments</i> (2020). P. Armitage 외, "Repeated significance tests on accumulating data" (1969). P. C. O'Brien &amp; T. R. Fleming, <i>Biometrics</i> 35, 1979. D. J. Schuirmann (1987, TOST). J. D. C. Little, <i>Operations Research</i> 9(3), 1961.</li>
+      <li>B. Frost, <i>Atomic Design</i> (2016). W3C Design Tokens Community Group의 형식 초안(권고 아님). WCAG 2.2(1.4.3, 2.2.1, 3.3.1, 3.3.3).</li>
+      <li>H. Brignull, <i>Deceptive Patterns</i> (2023). C. M. Gray 외, CHI 2018. A. Mathur 외, CSCW 2019. R. Thaler &amp; C. Sunstein, <i>Nudge</i> (2008). GDPR 제4조 제11호, 유럽연합 사법재판소 Planet49 판결(2019). 한국 「개인정보 보호법」(조항은 원문 확인). Microsoft, <i>Inclusive Design</i> (2016). M. Strathern (1997, 굿하트의 법칙의 일반화).</li>
+      <li>화면의 토큰과 컴포넌트는 시리즈의 WebBook 6·7장, 시각적 위계는 CompositionBook 12장, 대비와 색은 ColorBook에서 더 깊게 다룬다.</li>
+    </ul>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>화면은 맨 위층이다. 기능 요청 뒤의 문제("누가, 어떤 상황에서, 무엇을 하려다가")부터 고르고, 넓혔다가 좁히는 리듬으로 문제와 해결책을 차례로 정한다. 바닥의 결정이 틀렸다는 것은 늦게 알수록 비싸다.</li>
+      <li>사람의 말보다 행동을 믿는다. 말과 행동은 사회적 바람직성과 의도–행동 간극 때문에 어긋나므로, 지난 행동을 묻고 지켜보고 기록과 맞춘다. 누구를 만났는지가 결론을 정한다.</li>
+      <li>자료에서 문제로 오를 때는 사실 → 묶음 → 통찰 → 문제 문장의 사다리를 지키고, 페르소나와 여정 지도, JTBD는 자료에 묶여 있을 때만 쓴다.</li>
+      <li>구조는 쓰는 사람의 머릿속을 따른다. 카드 소팅으로 짜고 트리 테스트로 확인하며, 흐름은 단계 수가 곱셈으로 작용하고 예외 경로에도 출구가 있어야 한다. 누르기 전에는 기표가, 누른 뒤에는 피드백이 간극을 메운다.</li>
+      <li>프로토타입은 질문이고, 충실도는 그 질문에 맞춘다. 사용성 테스트의 작은 표본은 문제를 찾는 데 쓰고 구간과 함께 읽으며, 숫자로 확인할 때는 지표와 표본 크기, 판정일을 미리 정하고 중간에 들여다보며 멈추지 않는다.</li>
+      <li>만든 뒤에도 디자인은 계속된다. 한 서비스는 한 목소리로 말하고, 결정은 토큰과 문서와 거버넌스로 지키며, 동의와 취소는 같은 무게로 연다. 결론은 근거의 칸과 함께 말하고, 정답이 아니라 선택으로 남긴다.</li>
+    </ol>
+  </section>
+</main>
+
+<script src="../../shared/img/credits.js"></script>
+<script>
+(function () {
+  "use strict";
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var CH = {}; AB.CHAPTERS.forEach(function (c) { CH[c.slug] = c; });
+  var slugOf = function (ref) { return ref.split("#")[0]; };
+  var partOf = function (ref) { var c = CH[slugOf(ref)]; return c && c.part != null ? String(c.part) : "x"; };
+  var chLink = function (ref) {
+    var p = ref.split("#"), c = CH[p[0]];
+    return c ? '<a class="ch" href="' + p[0] + ".html" + (p[1] ? "#" + p[1] : "") + '">' + c.num + "장 · " + esc(c.title) + "</a>" : "";
+  };
+
+  /* ---------------- 용어 ---------------- */
+  // [용어, 영어, 뜻풀이, [설명한 절 "slug#anchor", …]] — 첫 절이 부 분류의 기준이다.
+  var T = [
+    // 도입·실험실
+    ["제품 디자인 · UX 디자인", "Product design / UX design", "앱과 웹 서비스 같은 디지털 제품을, 사람이 그것을 알게 되고 써 보고 다시 찾거나 떠나기까지 겪는 일 전체를 놓고 설계하는 일로, 두 이름의 경계는 회사마다 달라 이 책은 거의 같은 뜻으로 쓴다.", ["overview#problem-first"]],
+    ["기능 요청", "Feature request", "\"채팅을 넣어 주세요\"처럼 답의 모양으로 오는 의뢰로, 요청한 사람이 곤란을 겪고 있다는 신호이지만 그 안에 담긴 것은 상상한 해결책이고 뒤의 문제는 대개 말해지지 않는다.", ["overview#problem-first", "problem#priority"]],
+    ["문제 문장", "Problem statement", "누가, 어떤 상황에서, 무엇을 하려다가 어려움을 겪는가의 세 가지가 들어 있는 문장으로, \"포인트 적립\"에는 셋이 없고 \"찾는 책이 어느 가게에 있는지 가 보기 전에는 모른다\"에는 셋이 다 있다.", ["overview#problem-first", "problem#sense"]],
+    ["경험의 다섯 층", "Five planes: Strategy, Scope, Structure, Skeleton, Surface", "개릿이 사용자 경험을 아래부터 전략·범위·구조·골격·표면으로 나눈 그림으로, 색과 글자와 버튼이 있는 화면은 맨 위층인 표면에 해당한다.", ["overview#layers"]],
+    ["발산 · 수렴", "Divergence / Convergence", "판단을 미루고 가능성을 넓게 펼치는 생각과, 기준을 세우고 근거를 대며 좁히는 생각으로, 둘을 한꺼번에 하면 둘 다 잘 안 된다.", ["overview#diamond", "prototype#sketch"]],
+    ["더블 다이아몬드", "Double Diamond", "영국 디자인 카운슬이 2005년에 내놓은 두 마름모의 그림으로, 첫 마름모는 문제를 넓게 찾고(발견) 하나로 정하는 일(정의), 두 번째는 해결안을 여럿 만들고(발전) 다듬어 내놓는 일(전달)이다.", ["overview#diamond", "research#question"]],
+    ["양면 서비스", "Two-sided service", "두 부류의 사용자가 서로를 필요로 하는 서비스로, \"맡아 두기\"에서는 손님만이 아니라 재고를 알리고 요청을 확인하는 네 주인도 사용자라서 조사와 테스트를 언제나 두 쪽 함께 한다.", ["overview#two-sides", "usability#case"]],
+    ["최소 의미 차이 · 동등성 검정", "Smallest effect size of interest / Equivalence test", "\"이만큼은 달라야 바꿀 가치가 있다\"고 미리 정한 크기와, 신뢰 구간 전체가 그 띠 안에 들어 차이가 있더라도 의미 있는 크기보다 작다는 것을 보이는 절차(TOST)다.", ["lab#read"]],
+    ["리틀의 법칙", "Little's law", "안정된 체계에서 안에 머무는 평균 개수는 들어오는 속도와 평균 머무는 시간의 곱(L = λW)이라는 대기열 이론의 결과로, 13장은 이것으로 서가 밖에 묶인 책의 권수를 어림했다.", ["lab#shelf"]],
+    // 이해
+    ["사용자 조사", "User research", "제품을 쓸 사람과 그 사람의 상황에 대해 짐작 대신 근거를 모으는 일로, 더블 다이아몬드의 첫 \"발견\" 단계의 중심이다.", ["research#question"]],
+    ["조사 질문", "Research question", "조사가 끝났을 때 답을 알고 있어야 하는 질문으로, 참가자에게 그대로 묻는 말이 아니라 무엇을 보고 무엇을 물을지 고르는 기준이 된다.", ["research#question"]],
+    ["질적 조사 · 양적 조사", "Qualitative / Quantitative research", "몇 사람을 깊이 보며 \"어떻게, 왜\"를 찾는 조사와 많은 사람을 세어 \"얼마나\"를 재는 조사로, 앞의 것은 퍼센트를 말할 수 없고 뒤의 것은 이유를 말해 주지 않는다.", ["research#question", "metrics#why-numbers"]],
+    ["반구조화 인터뷰", "Semi-structured interview", "주제와 질문 몇 개를 미리 정해 두되 대답에 따라 순서를 바꾸고 따라 묻는 사용자 인터뷰로, 제품 디자인에서 가장 자주 쓰는 조사 방법이다.", ["research#interview"]],
+    ["유도 질문 · 이중 질문", "Leading question / Double-barreled question", "답을 질문 안에 넣어 둔 질문(\"불편하셨죠?\")과 한 번에 두 가지를 묻는 질문(\"검색과 예약이 편하면 좋겠어요?\")으로, 가정·미래 질문과 함께 질문지를 망치는 흔한 모양이다.", ["research#interview", "research#case"]],
+    ["사회적 바람직성 편향", "Social desirability bias", "묻는 사람에게 좋게 보이는 쪽으로 답하는 경향으로, 책방 주인의 부탁으로 온 연구자에게 \"책은 주로 온라인에서 사요\"라고 말하기 어려운 것이 그 예다.", ["research#say-do"]],
+    ["의도와 행동의 간극", "Intention–behavior gap", "하겠다는 마음과 실제로 하는 일 사이의 틈으로, \"앱이 생기면 쓰겠다\"는 말은 거짓이 아니라 대개 진심인 예측이지만 잘 맞지 않는다.", ["research#say-do"]],
+    ["맥락 인터뷰 · 일지 연구", "Contextual inquiry / Diary study", "일이 일어나는 현장에서 도제처럼 지켜보며 그때그때 묻는 방법과, 현장에 머물 수 없을 때 정해진 기간 동안 일이 일어날 때마다 사용자가 짧게 적게 하는 방법이다.", ["research#observe"]],
+    ["표본 편향 · 선택 편향", "Sampling bias / Selection bias", "모집 경로 때문에 만난 사람이 한쪽으로 치우치는 것으로, 표본을 키워도 사라지지 않고 틀린 값 둘레에서 더 확실해 보일 뿐이다.", ["research#sample"]],
+    ["목적 표집", "Purposive sampling", "몇 명만 만나는 질적 조사에서 무작위 대신 필요한 부류를 일부러 고르는 방식으로, 서윤은 단골·가끔·처음 온 손님을 고루, 네 책방에서 두 명씩 모았다.", ["research#sample"]],
+    ["포화", "Saturation", "인터뷰를 거듭해도 새로운 이야기가 잘 나오지 않는 상태로, 질적 조사에서 그만둘 때의 기준으로 쓰지만 \"만난 부류 안에서\"의 포화일 뿐이다.", ["research#saturation", "research#case"]],
+    ["문제 정의", "Problem definition", "조사로 모은 사실을 팀 전체가 같은 방향으로 움직일 수 있는 짧은 진술로 바꾸는 일로, 더블 다이아몬드의 첫 마름모에서 좁히는 쪽에 해당한다.", ["problem#sense"]],
+    ["통찰", "Insight", "본 것을 다시 말하는 것이 아니라 왜 그런지에 대한 해석(\"재고를 알 길이 없어서 가 보고서야 안다\")으로, 틀릴 수 있으니 근거가 된 기록이 따라붙어야 한다.", ["problem#sense"]],
+    ["친화도 다이어그램 · KJ법", "Affinity diagram / KJ method", "관찰 하나를 노트 한 장에 적어 벽에 붙이고 비슷한 것끼리 아래에서 위로 모은 뒤 무리에 이름을 붙이는 방법으로, 가와키타 지로의 이름 머리글자를 따 KJ법이라고도 한다.", ["problem#affinity", "problem#case"]],
+    ["페르소나", "Persona", "이름과 짧은 이야기를 붙인 가상의 사용자로, 팀이 구체적인 사람을 떠올리며 결정하게 돕지만 상상으로 만들면 근거 없는 확신이 되므로 자료에 묶어 쓴다.", ["problem#persona"]],
+    ["행동 변수", "Behavioral variable", "\"찾는 책이 얼마나 정해져 있는가\"처럼 사람마다 정도가 다른 행동이나 태도로, 참가자를 그 축 위에 놓고 함께 몰린 사람들을 한 유형으로 묶는다.", ["problem#persona"]],
+    ["사용자 여정 지도 · 접점", "User journey map / Touchpoint", "한 사람이 목표를 이루기까지의 단계를 가로로 늘어놓고 하는 일·접점·기분을 층으로 쌓은 그림과, 전화나 가게 문 앞처럼 사람이 서비스와 만나는 지점이다.", ["problem#journey"]],
+    ["해야 할 일 · 잡 스토리", "Jobs to be done (JTBD) / Job story", "사람은 제품이 아니라 삶의 어떤 진전을 위해 제품을 \"고용\"한다는 관점과, 그것을 \"[상황]일 때, 나는 [동기]하고 싶다, 그래서 [결과]\"로 적는 형식이다.", ["problem#jtbd"]],
+    ["\"어떻게 하면\" 질문", "How might we (HMW)", "문제 문장을 해결을 여는 질문으로 바꾼 것으로, 너무 넓으면 손에 잡히지 않고 너무 좁으면 해결책이 이미 들어 있어서 알맞은 높이를 고른다.", ["problem#hmw"]],
+    ["빈도 · 영향", "Frequency / Impact", "문제를 겪는 사람이 얼마나 많은가와 겪을 때 얼마나 아픈가의 두 축으로, 그 위에 문제를 놓으면 오른쪽 위가 먼저 풀 것이 된다.", ["problem#priority", "usability#severity"]],
+    // 구조
+    ["정보 구조", "Information architecture (IA)", "서비스 안의 정보를 어떻게 나누고, 무엇이라 부르고, 어떻게 찾아가게 할지를 정하는 일로, 분류·이름·내비게이션·검색의 네 체계로 이루어진다.", ["ia#what"]],
+    ["멘탈 모델", "Mental model", "사용자가 머릿속에 그리는 \"이것은 이렇게 돌아간다\"는 그림으로, 정확할 필요는 없지만 행동을 바르게 이끌 만큼은 맞아야 하며 만드는 쪽의 분류와 다르면 구조는 사용자 쪽을 따른다.", ["ia#what", "interaction#model"]],
+    ["카드 소팅", "Card sorting (open / closed)", "항목을 카드 한 장에 하나씩 적어 주고 참가자가 비슷한 것끼리 묶게 하는 조사로, 무리의 수와 이름을 참가자가 정하는 개방형과 미리 정한 무리에 넣게 하는 폐쇄형이 있다.", ["ia#cardsort", "ia#case"]],
+    ["유사도 행렬 · 덴드로그램", "Similarity matrix / Dendrogram", "카드 두 장마다 같은 무리에 넣은 참가자의 비율을 칠한 표와, 가장 가까운 둘부터 차례로 합치는 계층 군집의 순서와 높이를 나무 모양으로 그린 그림이다.", ["ia#cardsort", "ia#cluster"]],
+    ["트리 테스트", "Tree testing", "화면 디자인 없이 메뉴의 글자 나무만 보여 주고 과업을 찾게 하여, 분류와 이름의 힘만으로 \"이 구조에서 찾을 수 있는가\"를 시험하는 방법이다.", ["ia#tree", "ia#case"]],
+    ["직접 성공률 · 첫 클릭", "Directness / First click", "맞는 곳에 도착한 참가자 가운데 한 번도 되돌아가지 않고 곧장 찾아간 비율과, 맨 처음 들어간 갈래로, 둘 다 구조가 사람들의 처음 짐작과 맞는지를 보여 준다.", ["ia#tree"]],
+    ["다중 위계", "Polyhierarchy", "한 항목을 여러 갈래에 함께 두는 것으로, 남용하면 메뉴가 길어지고 혼란을 주므로 기대가 확실히 갈리는 항목에만 쓴다.", ["ia#tree"]],
+    ["폭과 깊이 · 정보 향기", "Breadth and depth / Information scent", "같은 항목을 한 화면에 넓게 펼칠지 여러 단계로 깊게 나눌지의 문제와, 사람이 메뉴 이름이 풍기는 단서를 따라 정보를 찾아간다는 설명으로, 단계가 깊을수록 향기를 잘못 맡을 기회가 많다.", ["ia#breadth"]],
+    ["이름 체계", "Labeling system", "메뉴, 버튼, 제목에 붙이는 말의 묶음으로, 좋은 이름은 열어 보기 전에 그 아래에 무엇이 있는지 짐작하게 한다.", ["ia#labels", "writing#table"]],
+    ["패싯 분류", "Faceted classification", "한 항목에 새 책/헌책, 대상, 책방처럼 독립된 속성을 여럿 붙여 두고 사용자가 원하는 순서로 걸러 가게 하는 방법으로, 랑가나탄의 콜론 분류법에서 체계화되었다.", ["ia#facets", "ia#case"]],
+    ["사용자 흐름 · 과업 흐름", "User flow / Task flow", "사용자가 목표를 이루기 위해 지나가는 화면과 행동의 순서와, 특정한 과업 하나를 끝내는 데 필요한 단계만 그린 것으로, 이 책은 둘을 크게 가르지 않고 그 그림을 과업 흐름도라 부른다.", ["flow#map"]],
+    ["행복한 경로 · 예외 경로", "Happy path / Exception path", "모든 일이 순조로울 때의 길과 일이 틀어졌을 때의 길로, 예외 경로를 그리지 않으면 그 길이 없는 것이 아니라 아무도 설계하지 않은 길이 생긴다.", ["flow#map", "flow#exceptions"]],
+    ["와이어플로", "Wireflow", "화면 스케치를 흐름도의 네모 자리에 작게 붙인 그림으로, \"이 버튼을 누르면 어디로 가요?\"에 그림 하나로 답하게 한다.", ["flow#map"]],
+    ["퍼널", "Funnel", "흐름의 단계별로 남은 사람 수를 위에서 아래로 막대로 그린 깔때기 모양의 그림으로, 끝까지 가는 비율은 단계별 계속 비율의 곱이다.", ["flow#funnel", "flow#multiply"]],
+    ["계속 비율 · 이탈률", "Step continuation rate / Drop-off rate", "한 단계에 들어온 사람 가운데 다음 단계로 넘어간 사람의 비율과 떠난 사람의 비율로, 둘을 더하면 1이다.", ["flow#funnel"]],
+    ["반감 단계", "Half-life in steps", "모든 단계의 계속 비율이 p로 같을 때 끝까지 가는 사람이 절반으로 줄어드는 단계 수(ln 0.5 ÷ ln p)로, p = 0.9이면 약 6.6단계다.", ["flow#multiply"]],
+    ["막다른 길", "Dead end", "흐름도에서 나가는 화살표가 없는 상자로, 모든 상태에는 다시 시도하기·다른 길·깔끔하게 그만두기 가운데 하나의 출구가 보여야 한다.", ["flow#exceptions", "writing#empty"]],
+    ["확인 대화상자", "Confirmation dialog", "되돌리기 어려운 일을 하기 직전에 한 번 더 묻는 상자로, 사람들은 질문을 읽지 않고 버튼부터 누르기 쉬워서 되돌릴 수 없는 일에만 쓰고 버튼에는 하는 일을 적는다.", ["flow#undo", "writing#buttons"]],
+    ["되돌리기", "Undo", "누르기 전에 묻는 대신 바로 실행한 뒤 잠시 되돌릴 기회를 주는 방법으로, 실수한 사람만 한 번 더 누르면 되어 모두의 시간을 아낀다.", ["flow#undo", "ethics#case"]],
+    ["임시 저장 · 이어 하기", "Draft saving / Resume", "사용자가 입력하거나 고른 것을 그때그때 남겨 두고, 끊겼다 돌아왔을 때 떠난 자리에서 다시 시작하게 하는 방법이다.", ["flow#resume"]],
+    ["시스템 이미지", "System image", "사용자가 실제로 보고 만지는 화면과 버튼과 문구와 알림의 전부로, 디자이너는 사용자와 직접 이야기할 수 없고 오직 이것을 통해서만 말한다.", ["interaction#model"]],
+    ["실행의 간극 · 평가의 간극", "Gulf of execution / Gulf of evaluation", "하고 싶은 일을 어떻게 하는지 알아내야 하는 거리와, 한 일이 어떻게 되었는지 알아내야 하는 거리로, \"요청 완료!\"만 있는 화면은 평가의 간극이 넓다.", ["interaction#model"]],
+    ["어포던스", "Affordance", "깁슨이 만든 말로, 환경이 동물에게 제공하는 행동의 가능성이며 사물 혼자의 성질이 아니라 사물과 쓰는 존재 사이의 관계다.", ["interaction#signifier"]],
+    ["기표", "Signifier", "어떤 행동을 어디서, 어떻게 하면 되는지 알려 주는 지각 가능한 신호로, 노먼이 \"어포던스\"의 혼란을 바로잡으려고 개정판(2013)에서 중심 개념으로 세웠다.", ["interaction#signifier"]],
+    ["피드백", "Feedback", "사용자가 무언가를 했을 때 시스템이 \"받았다, 하고 있다, 끝났다\"를 알려 주는 것으로, 즉각적이고 알아볼 수 있어야 하며 늦은 피드백은 같은 행동을 반복하게 한다.", ["interaction#feedback", "interaction#case"]],
+    ["멱등성", "Idempotency", "같은 요청을 여러 번 받아도 결과가 한 번 받은 것과 같은 성질로, 요청마다 고유 번호를 붙여 서버가 같은 번호를 한 번만 처리하게 하면 화면이 실패할 때를 대비할 수 있다.", ["interaction#feedback"]],
+    ["매핑", "Mapping (natural mapping)", "조작하는 것과 그 조작이 바꾸는 것 사이의 대응 관계로, 가스레인지의 손잡이를 화구와 같은 배치로 놓듯 공간의 닮음으로 짝이 드러나면 자연스러운 매핑이다.", ["interaction#mapping"]],
+    ["일관성", "Consistency", "같은 조작이 늘 같은 자리에서 같은 모양으로 같은 일을 하는 것으로, 손이 먼저 가는 숙련된 사용자일수록 자리가 바뀌는 버튼이 위험하다.", ["interaction#consistency", "system#exception"]],
+    ["제약", "Constraint", "가능한 행동의 범위를 좁혀 올바른 행동으로 이끄는 것으로, 노먼은 물리적·의미적·문화적·논리적 제약으로 나누었고 화면에서는 비활성 버튼이 물리적 제약의 역할을 한다.", ["interaction#constraints"]],
+    ["힉–하이먼 법칙", "Hick–Hyman law", "선택지가 늘수록 고르는 시간이 길어지되 선택지 수의 로그에 비례해 늘어난다는 관계로, 익숙한 선택지를 찾아가는 경우에는 그대로 들어맞지 않는다.", ["interaction#hick"]],
+    ["피츠의 법칙", "Fitts's law", "목표까지 손을 옮기는 시간이 거리가 멀수록, 목표가 좁을수록 log₂를 따라 길어진다는 관계(MT = a + b log₂(D/W + 1))로, 크고 가까운 목표가 빨리 눌린다.", ["interaction#fitts"]],
+    // 검증
+    ["프로토타입", "Prototype", "완성되기 전의 제품을 흉내 내어 아직 모르는 것 하나를 확인하게 해 주는 물건으로, 무엇을 확인하려는지 질문이 먼저다.", ["prototype#question", "prototype#choose"]],
+    ["충실도", "Fidelity", "프로토타입이 완성품을 얼마나 닮았는지로, 이 책은 모양·내용·상호작용의 세 축으로 나누어 축마다 높낮이를 따로 정하는 혼합 충실도를 쓴다.", ["prototype#fidelity", "prototype#case"]],
+    ["크레이지 에이트", "Crazy 8s", "종이를 세 번 접어 만든 여덟 칸에 1분씩, 8분 동안 같은 화면의 다른 안을 여덟 개 그려 좁히기 전에 일부러 넓히는 방법이다.", ["prototype#sketch"]],
+    ["가로형 · 세로형 프로토타입", "Horizontal / Vertical prototype", "서비스의 모든 화면을 얕게 흉내 낸 것과 기능 하나를 끝까지 깊게 만든 것으로, 앞의 것은 전체 순서를, 뒤의 것은 실제 입력과 예외까지 견디는지를 확인한다.", ["prototype#scope"]],
+    ["종이 프로토타입", "Paper prototype", "화면을 종이에 그려, 참가자가 누르면 컴퓨터 역할을 맡은 사람이 다음 종이를 놓아 주는 방식으로 시험하는 프로토타입이다.", ["prototype#paper"]],
+    ["오즈의 마법사", "Wizard of Oz", "참가자는 시스템이 스스로 움직인다고 느끼지만 실제로는 보이지 않는 곳에서 사람이 응답을 만드는 방식으로, 아직 만들 수 없는 기능을 사람들이 어떻게 겪는지 미리 본다.", ["prototype#paper"]],
+    ["와이어프레임", "Wireframe", "화면의 요소와 배치, 우선순위를 회색 상자와 선으로 정한 그림으로, 색과 그림을 빼는 것은 그 단계에서 정할 것에 집중하기 위해서다.", ["prototype#wireframe"]],
+    ["사용성", "Usability", "정해진 사용자가 정해진 맥락에서 정해진 목표를 효과적으로, 효율적으로, 만족스럽게 이룰 수 있는 정도(ISO 9241-11)로, 누가·어디서·무엇을 정하지 않으면 잴 수 없다.", ["usability#what"]],
+    ["사용성 테스트", "Usability test", "실제 사용자에 가까운 사람에게 실제에 가까운 과업을 맡기고 하는 것을 지켜보는 방법으로, 문제를 찾는 탐색용 테스트와 기준에 맞는지 재는 평가용 테스트가 있다.", ["usability#what", "usability#case"]],
+    ["과업 시나리오", "Task scenario", "참가자에게 줄 목표를 짧은 상황 이야기에 담은 것으로, 화면의 단어를 그대로 쓰거나 단계를 알려 주면 정답을 흘리게 된다.", ["usability#task"]],
+    ["생각 말하기", "Think-aloud", "과업을 하면서 머릿속의 생각을 소리 내어 말해 달라고 부탁하는 방법으로, 진행자는 설명하거나 도와주지 않고 중립적인 말만 쓴다.", ["usability#think"]],
+    ["성공률", "Completion rate / Success rate", "과업이나 찾기를 맞게 끝낸 참가자의 비율로, 작은 표본에서는 크게 흔들리므로 신뢰 구간과 함께 읽는다.", ["usability#measure", "ia#tree"]],
+    ["신뢰 구간", "Confidence interval", "작은 표본에서 구한 비율이나 차이가 얼마나 흔들리는지를 범위로 나타낸 것으로, 효과의 크기와 불확실성을 함께 보여 준다.", ["usability#measure", "metrics#ab", "lab#read"]],
+    ["수정 왈드 구간", "Adjusted Wald interval", "성공과 실패를 몇 개씩 더한 뒤 계산하는 비율의 신뢰 구간(Agresti & Coull 1998)으로, 표본이 작거나 성공률이 0%·100% 근처일 때 흔한 공식보다 잘 맞는다.", ["usability#measure"]],
+    ["과업 시간 · 기하평균", "Time on task / Geometric mean", "과업을 끝내는 데 걸린 시간과, 오른쪽 꼬리가 긴 작은 표본의 시간 자료를 요약할 때 산술평균이나 중앙값보다 중심을 잘 나타내는 평균이다.", ["usability#measure"]],
+    ["시스템 사용성 척도", "System Usability Scale (SUS)", "긍정문과 부정문이 번갈아 있는 열 문항 설문(Brooke 1996)으로, 0~100점이지만 백분율이 아니며 여러 연구의 평균 68 안팎과 비교해 읽는다.", ["usability#sus", "usability#case"]],
+    ["문제 발견 모형", "Problem discovery model", "한 사람이 문제를 겪을 확률을 p라 할 때 n명이 찾는 비율을 1 − (1 − p)ⁿ으로 본 모형으로, \"다섯 명이면 85%\"는 p = 0.31을 넣은 값이고 모든 문제와 사람의 p가 같다고 가정한다.", ["usability#five"]],
+    ["심각도", "Severity", "문제를 겪었을 때 얼마나 나쁜가로, 닐슨은 0(문제 아님)부터 4(치명적)까지 매기며 빈도와 함께 고칠 순서를 정한다.", ["usability#severity", "usability#case"]],
+    ["지표 · 전환율", "Metric / Conversion rate", "서비스에서 일어난 일을 숫자 하나로 줄인 것과, 어떤 단계에 들어온 사람 가운데 원하는 행동까지 간 사람의 비율로, 분모와 분자를 함께 정해야 뜻이 생긴다.", ["metrics#why-numbers"]],
+    ["북극성 지표 · 대리 지표", "North Star Metric / Proxy metric", "사용자가 실제로 얻는 가치를 가장 가깝게 담은 숫자 하나(\"한 주에 실제로 찾아간 책\")와, 그것이 너무 느리고 멀 때 가까이에서 대신 보는 단계별 숫자다.", ["metrics#choose"]],
+    ["가드레일 지표", "Guardrail metric", "올리려는 숫자가 아니라 다른 것을 고치다 망가뜨리지 않았는지 지켜보는 숫자로, 서윤은 주인 확인까지 걸린 시간과 헛걸음 신고 수를 두었다.", ["metrics#choose", "metrics#case"]],
+    ["1차 지표", "Primary metric", "실험 하나에서 판정에 쓰려고 미리 하나로 정해 둔 지표로, 결과를 본 뒤 오른 지표를 골라 성공이라 부르는 함정을 막는다.", ["metrics#choose", "metrics#case"]],
+    ["허영 지표", "Vanity metric", "누적 가입자 수, 페이지뷰, 머문 시간처럼 늘 오르거나 쉽게 부풀릴 수 있는 숫자로, 손님에게 무엇이 좋아졌는지도 다음에 무엇을 할지도 알려 주지 않는다.", ["metrics#choose"]],
+    ["표준 오차", "Standard error", "전환율 같은 값이 표본마다 흩어지는 폭으로 대략 √(p(1−p)/n)이며, 흔들림을 절반으로 줄이려면 사람이 네 배 필요하다.", ["metrics#rate"]],
+    ["A/B 테스트", "A/B test, Online controlled experiment", "같은 기간에 들어온 사람을 무작위로 둘로 나누어 지금 화면(대조군)과 바꾼 화면(실험군)을 보여 주고 결과를 비교하는 실험이다.", ["metrics#ab", "lab#ab"]],
+    ["p값 · 유의 수준", "p-value / Significance level", "진짜 차이가 0이라면 지금만큼 또는 그보다 큰 차이가 우연히 나올 확률과, 그것이 이보다 작으면 유의하다고 판정하겠다고 미리 정한 문턱(흔히 5%)이다.", ["metrics#ab"]],
+    ["A/A 테스트 · 거짓 양성", "A/A test / False positive", "두 무리에 똑같은 화면을 보여 주는 실험과, 진짜 차이가 없는데 있다고 판정하는 1종 오류로, 유의 수준 5%면 스무 번에 한 번쯤 \"이긴다\".", ["metrics#aa"]],
+    ["검정력 · 최소 검출 효과", "Statistical power / Minimum detectable effect", "진짜 차이가 있을 때 실험이 그것을 유의하게 잡아낼 확률(흔히 80%)과, 이만큼은 꼭 잡아야 한다고 정한 가장 작은 차이로, 둘이 실험에 필요한 사람 수를 정한다.", ["metrics#size", "lab#read"]],
+    ["중간에 들여다보기 · 순차 검정", "Peeking / Sequential testing", "매일 결과를 보다가 유의해진 날 멈추는 일로 거짓 양성이 크게 늘며, 들여다볼 횟수와 시점을 미리 정하고 앞의 들여다보기일수록 엄격한 문턱을 쓰는 순차 검정이 그 대안이다.", ["metrics#peeking"]],
+    ["새로움 효과", "Novelty effect", "화면이 바뀌면 호기심에 한 번 더 눌러 보다가 며칠 만에 사라지는 효과로, 반대로 처음 며칠 헤매는 초두 효과와 함께 실험 초반의 차이를 오래 갈 차이와 다르게 만든다.", ["metrics#time"]],
+    ["표본 비율 불일치", "Sample Ratio Mismatch (SRM)", "50:50으로 나누었는데 두 무리의 사람 수가 우연으로 보기 어려울 만큼 어긋난 것으로, 결과를 보기 전에 멈추고 기록이나 배정의 문제를 찾으라는 신호다.", ["metrics#time", "lab#case"]],
+    // 운영
+    ["UX 라이팅 · 마이크로카피", "UX writing / Microcopy", "화면에 들어가는 짧은 글을 쓰고 다듬는 일과, 그 결과인 버튼 이름·라벨·도움말·오류 메시지·빈 상태의 문장으로, 이미 들어온 사람이 길을 잃지 않게 하는 글이다.", ["writing#words"]],
+    ["보이스 · 톤", "Voice / Tone", "서비스가 말하는 사람이라면 어떤 사람인지 정해 둔 목소리와, 상황에 따라 바꾸는 말의 온도로, 목소리는 하나이고 그 사람이 상황에 따라 말투의 온도를 바꿀 뿐이다.", ["writing#words"]],
+    ["오류 메시지의 세 요소", "What, why, how", "무엇이 일어났는가, 왜 그런가, 이제 어떻게 하면 되는가를 말하는 오류 메시지의 원칙으로, 다음 행동은 버튼으로 주고 손님을 탓하거나 겁주지 않는다.", ["writing#errors", "writing#case"]],
+    ["빈 상태", "Empty state", "보여 줄 내용이 없을 때의 화면으로, \"결과 없음\" 한 줄로 두면 막다른 길이 되므로 무엇이 없는지, 왜인지, 무엇을 할 수 있는지를 알린다.", ["writing#empty"]],
+    ["상대 높임법", "Speech level", "듣는 사람을 얼마나 높일지를 문장 끝으로 표시하는 한국어의 체계로, 화면에서는 어느 단계든 하나로 맞추는 것이 중요하며 \"맡아 두기\"는 해요체로 정했다.", ["writing#register", "writing#case"]],
+    ["디자인 시스템", "Design system", "한 제품의 화면을 만들 때 함께 쓰는 결정의 묶음으로, 토큰·컴포넌트·패턴과 그것을 언제 어떻게 쓰는지 적은 문서, 바꾸고 더하는 절차까지 포함한다.", ["system#layers"]],
+    ["디자인 토큰", "Design token", "색, 글자 크기, 간격 같은 디자인 값에 이름을 붙여 한곳에 모아 둔 것으로, 디자인 도구와 코드가 같은 값을 읽게 해 주는 공용어 구실을 한다.", ["system#tokens"]],
+    ["원시 토큰 · 의미 토큰", "Primitive token / Semantic token", "값에 붙인 이름(green-600 = #2f7d5b)과 \"이 역할에는 이 값을 쓴다\"는 결정(action.primary)으로, 컴포넌트는 의미 토큰만 읽어 한 역할만 바꿀 수 있게 한다.", ["system#tokens"]],
+    ["멀티 브랜드 테마", "Multi-brand theming", "여러 브랜드를 한 시스템에 담으면서 바꿀 수 있는 자리를 좁게 정하는 체계로, 서윤은 의미 토큰 하나(shop.accent)만 책방마다 다르게 두었다.", ["system#theme", "system#case"]],
+    ["변형", "Variant", "컴포넌트 하나가 가질 수 있는 크기·스타일·아이콘·상태의 조합으로, 속성끼리 곱해져 불어나므로 값을 뜻으로 이름 지어 좁힌다.", ["system#variants"]],
+    ["인터페이스 목록 만들기", "Interface inventory", "이미 쓰인 색과 간격과 버튼을 모두 모아 늘어놓고 세어 보는 일로, 같다고 생각한 것이 몇 가지로 갈라져 있는지 드러낸다.", ["system#audit"]],
+    ["거버넌스", "Governance", "디자인 시스템을 누가 어떤 절차로 바꾸고 지키는지에 대한 약속으로, 기여하는 길이 멀수록 사람들은 따로 만들고 복사본이 불어난다.", ["system#governance"]],
+    ["다크 패턴 · 기만적 설계", "Dark pattern / Deceptive pattern", "사용자가 원하지 않는 일을 하도록 짠 인터페이스로, 브리그널이 2010년에 이름을 붙였고 뒤에 \"기만적 패턴\"으로 바꿔 부르기 시작했다.", ["ethics#what", "ethics#gallery"]],
+    ["미리 선택", "Preselection", "사용자에게 불리한 선택지를 기본으로 골라 두는 다크 패턴으로, 사람들이 기본값을 잘 바꾸지 않는 경향을 이용한다.", ["ethics#gallery", "ethics#consent"]],
+    ["확인 수치심", "Confirmshaming", "거절 문구를 부끄럽게 만들어(\"아니요, 저는 손해 볼래요\") 죄책감과 체면으로 수락하게 하는 다크 패턴이다.", ["ethics#gallery"]],
+    ["숨은 비용 · 가짜 긴급", "Hidden costs / Fake urgency", "마지막 단계에서야 수수료를 붙이는 것과, 사실이 아닌 마감이나 다시 시작되는 타이머로 서두르게 하는 것으로, 각각 이미 들인 노력과 놓칠까 하는 두려움을 이용한다.", ["ethics#gallery"]],
+    ["시각 방해", "Visual interference", "거절 버튼은 흐린 글자로, 수락은 크고 밝게 하는 식으로 시각적 위계를 사용자가 원하지 않는 쪽으로 기울이는 다크 패턴이다.", ["ethics#gallery"]],
+    ["해지 방해", "Hard to cancel, Obstruction (Roach motel)", "들어가기는 쉬운데 나오기는 어렵게 만든 구조로, 같은 사람이 같은 서비스에서 반대 방향으로 가는 데 드는 수고의 비대칭으로 알아본다.", ["ethics#cancel"]],
+    ["동의 설계", "Consent design", "필요한 처리와 선택적인 처리를 나누고, 선택적인 것은 자유롭게·구체적으로·분명한 행동으로·같은 무게로 고르게 하는 설계로, 미리 체크된 칸은 유효한 동의가 되지 않는다.", ["ethics#consent"]],
+    ["최소 수집", "Data minimization", "목적에 필요한 항목만, 그 목적에 필요한 기간만 모으고 가지는 개인정보의 원칙으로, 서윤은 수집 항목을 여덟에서 둘로 줄이고 보관 기간을 정했다.", ["ethics#minimize", "ethics#case"]],
+    ["포용적 설계", "Inclusive design", "\"평균적인 사용자\" 대신 제외되기 쉬운 사람에서 출발하는 설계로, 영구적·일시적·상황적 제약을 이어서 보고 시간 제한과 큰 글자 같은 조건을 함께 챙긴다.", ["ethics#inclusive", "usability#case"]],
+    ["굿하트의 법칙", "Goodhart's law", "측정값이 목표가 되면 좋은 측정값이기를 멈춘다는 말로, 동의율이나 누름 수를 목표로 삼으면 팀이 사람을 해치는 쪽으로 숫자를 올리게 된다.", ["ethics#metrics", "metrics#choose"]],
+  ];
+  var qG = document.getElementById("gl-q");
+  var part = AB.seg("gl-part", render);
+  qG.addEventListener("input", render);
+  function render() {
+    var words = qG.value.trim().toLowerCase().split(/\s+/).filter(Boolean), p = part();
+    var hits = T.filter(function (t) {
+      if (p !== "all" && partOf(t[3][0]) !== p) return false;
+      var hay = (t[0] + " " + t[1] + " " + t[2]).toLowerCase();
+      return words.every(function (w) { return hay.indexOf(w) >= 0; });
+    }).sort(function (a, b) { return a[0].localeCompare(b[0], "ko"); });
+    document.getElementById("gl-list").innerHTML = hits.map(function (t) {
+      return '<div class="gl-item"><h4>' + esc(t[0]) + '<span class="en">' + esc(t[1]) + "</span></h4><p>" + esc(t[2]) + "</p>" + t[3].map(chLink).join("") + "</div>";
+    }).join("") || "<p>찾는 용어가 없다. 다른 낱말로 찾아본다.</p>";
+    document.getElementById("gl-count").textContent = "용어 " + hits.length + " / " + T.length + "개";
+  }
+  render();
+
+  /* ---------------- 종합 퀴즈 ---------------- */
+  // [부(0~3, x), 설명한 절 "slug#anchor", 문제, [보기…], 정답 인덱스, 해설]
+  var Q = [
+    ["x", "overview#problem-first", "1장에서 이 책이 \"문제\"라고 부르는 문장에 꼭 들어 있어야 하는 세 가지는?",
+      ["기능, 화면, 가격", "누가, 어떤 상황에서, 무엇을 하려다가 어려움을 겪는가", "목표, 일정, 예산", "전략, 범위, 표면"], 1,
+      "\"포인트 적립\"에는 이 셋이 없고, \"찾는 책이 어느 가게에 있는지 가 보기 전에는 모른다\"에는 셋이 다 있다(손님이, 책방에 가기 전에, 재고를 알 수 없다). 주인들의 기능 요청은 상상한 해결책이라, 그 뒤의 문제를 따로 찾아 적는다. 넷째 보기는 개릿의 다섯 층 가운데 셋이다."],
+    ["x", "overview#diamond", "더블 다이아몬드(영국 디자인 카운슬, 2005)에서 첫 번째 마름모가 다루는 것은?",
+      ["해결안을 여럿 만들어 시험하고 다듬어 내놓는 일", "사람을 만나 문제를 넓게 찾고, 그중 풀 문제 하나를 정하는 일", "화면의 색과 글자를 고르는 일", "개발 일정과 비용을 정하는 일"], 1,
+      "첫 마름모는 발견(Discover)과 정의(Define), 두 번째 마름모는 발전(Develop)과 전달(Deliver)이다. 마름모마다 넓히는 발산과 좁히는 수렴이 한 번씩 있고, 둘을 한꺼번에 하면 둘 다 잘 안 된다. 서윤이 첫날 밤 화면 열두 장을 그린 것은 첫 마름모를 건너뛴 셈이었다."],
+    ["0", "research#interview", "다음 인터뷰 질문 가운데 이중 질문은?",
+      ["마지막으로 책을 사러 나갔던 날을 처음부터 이야기해 주세요.", "검색과 예약이 편하면 좋겠어요?", "앱이 있다면 쓰시겠어요?", "불편하셨죠?"], 1,
+      "이중 질문은 한 번에 두 가지를 묻는다. 상대가 한쪽에만 답해도 둘 다에 답했다고 적게 된다. \"앱이 있다면\"은 가정·미래 질문, \"불편하셨죠?\"는 답을 넣어 둔 유도 질문이고, 첫째 보기는 지난 행동을 구체적으로 묻는, 서윤이 고친 질문지의 문항이다."],
+    ["0", "research#say-do", "서윤의 인터뷰에서 손님 여덟 명 가운데 일곱 명이 \"이런 서비스가 생기면 쓰겠다\"고 답했다. 2장이 이 대답을 다루는 방식으로 맞는 것은?",
+      ["일곱 명이 쓰겠다고 했으니 수요는 확인되었다고 본다.", "거짓말이므로 기록에서 지운다.", "대개 진심인 예측이지만 의도와 행동 사이에는 간극이 있으므로, 통화 기록과 영수증 같은 실제 행동에 맞춰 본다.", "여덟 명은 적으니 같은 질문을 설문으로 많은 사람에게 물으면 해결된다."], 2,
+      "\"가기 전에 늘 또는 대개 확인한다\"는 말의 평균은 63%였지만 기록으로 센 비율은 29%였다. 대신 여섯 명이 헛걸음을 구체적으로 이야기했다. 설문으로 물어도 돌아오는 것은 행동이 아니라 \"스스로 말한 행동\"이다. 하린의 원칙대로 말한 것보다 한 것을 믿는다."],
+    ["0", "research#sample", "단톡방에서 손을 든 단골 손님만 계속 인터뷰하면 어떻게 되는가?",
+      ["만나는 사람을 늘리면 치우침도 저절로 사라진다.", "몇 명을 만나든 결과가 한쪽으로 치우친 채, 틀린 값 둘레에서 더 확실해 보일 뿐이다.", "포화에 빨리 이르므로 가장 정확한 결론을 얻는다.", "질적 조사에서는 표본 편향이 생기지 않는다."], 1,
+      "표본 편향(선택 편향)은 표본을 키워도 사라지지 않는다. 단골만 만나면 헛걸음은 드문 일처럼 보였다. 서윤은 목적 표집으로 바꿔 단골·가끔·처음 온 손님을 고루, 네 책방에서 두 명씩 가게 앞에서 직접 모았다."],
+    ["0", "problem#sense", "다음 가운데 3장이 말하는 \"통찰\"에 가장 가까운 것은?",
+      ["손님들이 헛걸음을 한다.", "C1은 같은 주에 두 번 헛걸음했다.", "재고를 알 길이 없어서 가 보고서야 안다.", "재고를 보여 주는 앱을 만들자."], 2,
+      "통찰은 본 것을 다시 말하는 것(첫째)이나 관찰 기록(둘째)이 아니라 왜 그런지에 대한 해석이다. 넷째는 해결책이라 사다리의 맨 위를 넘어선다. 해석이라 틀릴 수 있으므로 근거가 된 아래 칸의 기록을 가리킬 수 있어야 한다."],
+    ["0", "problem#persona", "서윤이 조사 전에 만든 페르소나 카드 \"지은, 31세, 마케터…\"를 벽에서 뗀 이유와 대신 한 일로 맞는 것은?",
+      ["사진이 없어서 버리고, 사진을 붙인 새 카드를 만들었다.", "특징마다 근거가 된 참가자를 세어 보니 근거가 약해서, 행동 변수 두 개로 참가자를 나누어 자료에 묶인 두 유형을 남겼다.", "나이가 맞지 않아서 나이만 고쳤다.", "페르소나는 쓸모없으므로 사용자 유형은 더 정하지 않았다."], 1,
+      "여섯 특징 가운데 근거가 세 명을 넘는 것이 없었고, 여섯을 모두 가진 사람은 없었다. 서윤은 \"찾는 책을 정해 두고 오는가\"와 \"가기 전에 확인하려 하는가\"로 여덟 명을 나누어 유형 A(5명)와 B(3명)를 남기고, 이름도 사진도 붙이지 않았다. 사람이 서비스를 어떻게 쓸지는 인구 통계보다 행동이 가른다."],
+    ["1", "ia#tree", "트리 테스트에서 읽는 \"직접 성공률\"은?",
+      ["맞는 곳에 도착한 참가자의 비율", "맞는 곳에 도착한 참가자 가운데 한 번도 되돌아가지 않고 곧장 찾아간 비율", "맨 처음 누른 갈래가 맞은 비율", "카드 두 장을 같은 무리에 넣은 참가자의 비율"], 1,
+      "첫째는 성공률, 셋째는 첫 클릭, 넷째는 카드 소팅의 유사도 행렬 칸이다. 서윤의 비교(가상)에서 주인들의 초안은 성공 약 63%·직접 약 35%, 카드 소팅을 따른 안은 약 86%·약 73%였다. 직접 성공률은 구조가 사람들의 처음 짐작과 맞는지를 보여 준다."],
+    ["1", "ia#cardsort", "메뉴 구조를 처음 짤 때, 사람들이 어떤 기준으로 나누고 무리를 무엇이라 부르는지 배우려면 무엇을 하는가?",
+      ["폐쇄형 카드 소팅", "개방형 카드 소팅", "A/B 테스트", "트리 테스트"], 1,
+      "개방형은 무리의 수와 이름을 참가자가 정한다. 폐쇄형은 미리 정한 무리에 넣게 해 이미 정한 메뉴를 확인할 때, 트리 테스트는 \"이 구조에서 찾을 수 있는가\"를 시험할 때 쓴다. 보통 개방형으로 짜고 트리 테스트로 확인한 뒤 고친 구조를 다시 트리 테스트한다."],
+    ["1", "flow#multiply", "모든 단계의 계속 비율이 0.9인 흐름이 일곱 단계로 이어지면, 끝까지 가는 사람은 대략 몇 %인가?",
+      ["약 90%", "약 70%", "약 48%", "약 10%"], 2,
+      "퍼널은 곱셈이라 0.9⁷ ≈ 0.48, 절반이 떠난다. 단계 수가 지수로 작용한다. 서윤의 아홉 단계 흐름은 퍼널 모형으로 20.6%, 다섯 단계로 줄이자 52.9%였다. 다만 단계가 서로 독립이라는 가정 때문에 \"뺀 만큼 그대로 오른다\"는 계산은 상한에 가깝다."],
+    ["1", "interaction#signifier", "문의 평평한 금속판과 그 위의 \"미세요\" 글씨를 노먼의 개정판(2013) 용어로 구분한 것으로 맞는 것은?",
+      ["판과 글씨 모두 어포던스다.", "판이 주는 \"밀 수 있음\"은 어포던스(행동의 가능성, 관계)이고, 글씨와 판의 위치는 그 행동을 어디서 어떻게 할지 알리는 기표다.", "글씨는 피드백이고, 판은 제약이다.", "판은 매핑이고, 글씨는 멘탈 모델이다."], 1,
+      "어포던스는 사물과 쓰는 존재 사이의 관계(깁슨)이고, \"버튼에 어포던스를 넣는다\"처럼 신호의 뜻으로 퍼진 혼란을 바로잡으려고 노먼이 기표라는 말을 세웠다. 피드백은 누른 뒤의 일이다."],
+    ["1", "interaction#feedback", "시험판에서 손님이 \"맡아 두기\"를 세 번 눌러 같은 요청이 세 건 들어갔다. 지후가 서버 쪽에 더한 장치와 그 성질은?",
+      ["요청마다 고유 번호를 붙여 같은 번호는 한 번만 처리한다 — 멱등성", "버튼을 크게 만든다 — 피츠의 법칙", "선택지를 줄인다 — 힉–하이먼 법칙", "버튼 자리를 고정한다 — 일관성"], 0,
+      "화면 쪽에서는 누른 순간(0.1초 안) \"요청 중…\"으로 바꾸고 잠그는 즉시 피드백을 주었다(다시 누를 수 없게 하는 제약이기도 하다). 서버의 멱등성은 화면이 실패할 때를 대비한 두 번째 겹이다. 버튼 자리 고정은 주인 화면의 수락·거절 문제에 쓴 해법이다."],
+    ["1", "interaction#hick", "힉–하이먼 법칙에 따르면 선택지 수가 늘 때 고르는 시간은 어떻게 되는가?",
+      ["선택지 수에 정비례해 늘어난다.", "선택지 수의 로그에 비례해 늘어나, 둘에서 넷으로 늘 때와 넷에서 여덟로 늘 때 늘어나는 시간이 비슷하다.", "선택지 수와 상관없이 일정하다.", "선택지가 늘수록 오히려 줄어든다."], 1,
+      "힉(1952)과 하이먼(1953)의 실험에서 반응 시간은 선택지 수가 아니라 그 로그에 비례해 늘었다. 다만 이 관계는 낯선 선택지를 하나하나 따져 고르는 경우에 가깝고, 익숙한 메뉴에서 자리를 기억해 찾아가는 경우에는 그대로 들어맞지 않는다."],
+    ["2", "prototype#fidelity", "연필로 그렸지만 실제 재고 목록에서 옮긴 책 제목과 재고 수를 적고, 참가자가 누르면 사람이 종이를 바꿔 주는 화면을 세 축으로 적으면?",
+      ["모양 높음 · 내용 낮음 · 상호작용 높음", "모양 낮음 · 내용 높음 · 상호작용 낮음", "모양 낮음 · 내용 낮음 · 상호작용 낮음", "모양 중간 · 내용 중간 · 상호작용 높음"], 1,
+      "세 축은 따로 움직인다. 서윤의 질문 1(손님이 재고와 거리를 비교해 한 곳을 고르는가)에 쓴 종이 화면이 이것이다. 그 결정은 실제 내용에 달려 있어서, 내용이 물결선이면 아무리 예쁜 화면이라도 시험할 수 없다."],
+    ["2", "prototype#paper", "아직 만들지 않은 \"주인이 요청을 확인했다\"는 상태 변화를 보이지 않는 곳에서 사람이 대신 바꿔, 손님이 그 기능을 어떻게 겪는지 미리 보는 방법은?",
+      ["크레이지 에이트", "가로형 프로토타입", "오즈의 마법사", "A/A 테스트"], 2,
+      "참가자는 시스템이 스스로 움직인다고 느끼지만 실제로는 사람이 응답을 만든다(Kelley 1984에서 이름이 붙었다). 서윤의 질문 2에서는 인증 문자는 실제로 보내고 \"확인됨\" 상태는 사람이 바꾸었다."],
+    ["2", "usability#five", "한 사람이 어떤 문제를 겪을 확률 p가 0.10이라면, 문제 발견 모형 1 − (1 − p)ⁿ으로 다섯 명이 그 문제를 찾을 비율은 대략?",
+      ["약 85%", "약 59%", "약 41%", "약 10%"], 2,
+      "1 − 0.9⁵ ≈ 0.41이다. 85%에 이르려면 열아홉 명이 필요하다. \"다섯 명이면 85%\"는 p = 0.31을 넣은 값이고, 모든 문제와 모든 사람의 p가 같다고 가정한다. 서윤의 테스트에서 큰 글자 설정의 줄바꿈 문제는 도경 한 사람만 겪었다."],
+    ["2", "usability#sus", "SUS 점수 70을 바르게 읽은 것은?",
+      ["참가자의 70%가 만족했다는 뜻이다.", "백분율이 아니며, 여러 연구의 평균 68 안팎과 비교해 흔한 서비스보다 조금 나은 쪽으로 읽는 것이 출발점이다. 다만 몇 사람의 평균은 크게 흔들린다.", "과업 성공률이 70%라는 뜻이다.", "열 문항 가운데 일곱 문항에 \"그렇다\"고 답했다는 뜻이다."], 1,
+      "SUS는 문항 점수를 0~4로 맞춰 더한 뒤 2.5를 곱한 0~100점이다. 점수의 뜻은 다른 서비스와 비교할 때 생긴다(Sauro & Lewis 2016의 평균 68 안팎). 서윤은 손님 다섯 명의 평균 58.5를 68과 비교해 단정하지 않았다."],
+    ["2", "metrics#ab", "A/B 테스트에서 p = 0.04가 나왔다. 맞는 해석은?",
+      ["B가 A보다 나을 확률이 96%다.", "진짜 차이가 0이라면, 지금만큼 또는 그보다 큰 차이가 우연히 나올 확률이 4%다.", "두 화면의 차이가 4%p다.", "실험 기간을 4% 늘리면 확실해진다."], 1,
+      "p값은 차이가 없을 때 이런 결과가 나오기 드물다는 뜻일 뿐, B가 나을 확률도 차이의 크기도 아니다. 크기와 불확실성은 차이의 신뢰 구간으로 읽는다. 그리고 매일 들여다보다 처음 0.05 아래로 내려온 p값이라면 그 값은 더 싸다."],
+    ["2", "metrics#peeking", "매일 대시보드를 보다가 p값이 0.05 아래로 내려온 날 바로 실험을 멈추면?",
+      ["거짓 양성이 처음 정한 유의 수준 5%보다 훨씬 많아진다.", "검정력이 올라가 더 정확해진다.", "거짓 양성은 5% 그대로이고 기간만 짧아진다.", "새로움 효과가 저절로 걸러진다."], 0,
+      "p값은 실험 내내 오르내리므로, 매일 보면 한 번이라도 문턱을 스친 실험이 모두 \"승리\"로 기록된다(Armitage 외 1969). 서윤은 판정을 14일째 한 번만 하고 그 전에는 배정 비율·오류·가드레일만 보기로 했다. 중간에 멈춰야 한다면 순차 검정처럼 그것을 처음부터 허락하는 방법을 쓴다."],
+    ["2", "metrics#choose", "9장에서 서윤이 \"요청부터 주인 확인까지 걸린 시간\"을 둔 자리는?",
+      ["1차 지표: 이 숫자를 줄이는 문구가 이긴다.", "허영 지표: 볼 필요가 없다.", "가드레일 지표: 올리려는 숫자가 아니라, 다른 것을 고치다 무너지지 않았는지 지켜보는 숫자다.", "북극성 지표: 서비스의 가치를 가장 가깝게 담은 숫자다."], 2,
+      "1차 지표는 \"맡긴 책을 기한 안에 실제로 찾아간 비율\"이고, 버튼 누름은 해석용 보조 지표였다. 주인 확인 시간의 중앙값이 30분을 넘으면 중단을 검토하고, 헛걸음 신고 수도 함께 지켜보았다. 한 줄 주인의 \"누름이 늘면 저는 더 늦어지는 거 아닌가요?\"에서 나온 지표다."],
+    ["3", "writing#errors", "시범 운영의 오류 \"요청 실패(code 409)\"를 10장의 원칙대로 고친 것은?",
+      ["오류가 발생했습니다. 잠시 후 다시 시도하십시오.", "잘못된 요청입니다(409).", "이 책을 맡아 두지 못했어요. 방금 다른 손님이 먼저 맡았어요. 이 책방에는 한 권뿐이에요. [다른 책방에서 찾기]", "실패! 다시 눌러 주세요~"], 2,
+      "무엇이(맡아 두지 못했다), 왜(다른 손님이 먼저 맡았고 한 권뿐), 어떻게(다른 책방에서 찾기 버튼)를 모두 말한다. 오류 번호는 지우지 않고 맨 아래 작게 남긴다. 첫째와 둘째는 아무것도 알려 주지 않거나 손님 탓처럼 들리고, 넷째는 겁주는 말에 이유도 다음 길도 없다."],
+    ["3", "writing#buttons", "되돌릴 수 없는 일을 묻는 대화상자에서, 본문을 읽지 않고 버튼만 보아도 뜻이 통하는 짝은?",
+      ["확인 / 취소", "예 / 아니요", "맡김 취소 / 계속 맡아 두기", "OK / Cancel"], 2,
+      "버튼의 이름은 누르면 일어나는 일이다. \"확인 / 취소\"는 대화상자를 취소하는지 맡김을 취소하는지 알 수 없고, \"예 / 아니요\"는 질문을 읽어야 뜻이 생긴다. 그리고 되돌릴 수 있는 일이라면 묻지 않고 실행한 뒤 \"되돌리기\"를 주는 편이 낫다. 서윤의 맡김 취소가 끝내 그렇게 되었다."],
+    ["3", "system#tokens", "컴포넌트가 원시 토큰(ink-900) 대신 의미 토큰(action.primary)만 읽게 하는 이유로 맞는 것은?",
+      ["토큰 파일의 크기가 줄어서", "같은 값을 뜻이 다른 여러 곳이 쓸 때, 한 역할(주 버튼)만 바꾸려면 그 역할이 가리키는 곳 하나만 고치면 되기 때문에", "원시 토큰은 W3C 표준이 아니라서", "의미 토큰은 색 대비를 자동으로 검사해서"], 1,
+      "ink-900을 action.primary와 text.default가 함께 가리킨다. 지금은 우연히 같은 값이지만 뜻이 다르다. 컴포넌트가 원시 토큰을 곧바로 읽고 있었다면 주 버튼만 밝게 하려다 본문 글자까지 함께 밝아진다. 토큰 형식은 W3C 커뮤니티 그룹의 초안이며 권고(표준)는 아니다."],
+    ["3", "system#variants", "버튼의 크기 3 × 스타일 4 × 아이콘 자리 3 × 상태 5가 180가지다. 책방 색 네 가지를 버튼 스타일로 더하면 몇 가지가 되는가?",
+      ["184", "225", "360", "720"], 2,
+      "속성은 곱해진다. 스타일이 4에서 8로 두 배가 되면 전체도 두 배인 360이다(스타일 하나만 더하면 225). 서윤은 책방 색을 버튼에서 빼 shop.accent 한 칸(배지와 머리 띠)으로 옮기고, 어조 4 × 크기 2 × 아이콘 2에 규칙을 더해 버튼 조합을 60으로 묶었다."],
+    ["3", "ethics#consent", "12장의 동의 설계 네 조건(자유롭게, 구체적으로, 분명한 행동으로, 같은 무게로)을 모두 지키는 것은?",
+      ["신간 소식 칸을 미리 체크해 둔다.", "필수 동의와 신간 소식 동의를 한 칸으로 묶는다.", "거절은 흐린 글자 링크로, 수락은 큰 버튼으로 둔다.", "신간 소식은 맡기기와 떨어진 자리에서 기본 해제로 따로 묻고, 받기와 안 받기를 같은 크기로 둔다."], 3,
+      "미리 체크된 칸은 행동이 아니고(유럽연합 사법재판소 Planet49 판결, 2019), 묶으면 자유롭지도 구체적이지도 않으며, 흐린 거절은 시각 방해다. 시뮬레이터에서 미리 체크 하나만 켜도 \"동의\"는 72명이었지만 정말 원한 사람은 30명이었다."],
+    ["3", "ethics#cancel", "해지 방해(옛 이름 바퀴벌레 덫)를 알아보는 기준으로 12장이 쓴 것은?",
+      ["의도: 만든 사람이 속이려 했는가", "비대칭: 같은 사람이 같은 서비스에서 반대 방향(들어가기와 나가기)으로 가는 데 드는 수고를 세어 비교한다.", "색: 취소 버튼이 빨간색인가", "속도: 서버의 응답이 느린가"], 1,
+      "이 장은 의도 대신 구조를 묻는다. 탭 수가 같아도 마지막이 전화처럼 화면 밖으로 나가면 대칭이 아니다. 서윤은 \"내 맡김\"의 상태 카드마다 \"맡김 취소\"를 꺼내 두어, 맡기기 5탭에 취소 2탭으로 만들고 대화상자 대신 되돌리기를 주었다."],
+    ["x", "lab#read", "최종 A/B 결과에서 찾아간 비율의 차이는 +0.99%p, 95% 신뢰 구간은 −0.38~+2.35%p였고, 미리 정한 최소 의미 차이는 2%p였다. 13장의 네 갈래 가운데 결론은?",
+      ["낫다", "못하다", "같다고 봐도 된다", "모른다"], 3,
+      "구간이 0도 지나고, 0을 가운데 둔 띠(±2%p)의 바깥 끝도 지난다. \"B가 낫지 않다\"가 아니라 \"이 크기로는 모른다\"다. 관측된 1%p를 잡으려면 한 무리 약 12,300명, 약 54일이 걸린다. 서윤은 요청만 늘고 그 비용이 주인과 다음 손님에게 간다는 점을 들어 A 문구로 공개했다."],
+  ];
+  var box = document.getElementById("final");
+  box.innerHTML = Q.map(function (q, i) {
+    return '<div class="quiz-q" data-i="' + i + '"><p>' + (i + 1) + ". " + esc(q[2]) + '</p><div class="opts">' + q[3].map(function (o, k) {
+      return '<button class="opt"' + (k === q[4] ? " data-correct" : "") + ">" + esc(o) + "</button>";
+    }).join("") + '</div><div class="quiz-exp">' + esc(q[5]) + " " + chLink(q[1]) + "</div></div>";
+  }).join("");
+  // 이 스크립트는 DOMContentLoaded 전에 돌므로, 만든 문제의 버튼 동작은 common.js가 그 뒤에 붙인다.
+  var res = {};
+  box.addEventListener("answered", function (e) { var i = +e.target.dataset.i; res[i] = e.detail.correct; score.redraw(); });
+  var PN = ["이해", "구조", "검증", "운영", "도입·실험"], PK = ["0", "1", "2", "3", "x"], COL = ["#2f7d5b", "#00838f", "#ef8f00", "#d24f39", "#5d4b8a"];
+  var score = AB.canvas("#sc-cv", function (ctx, w, h) {
+    ctx.fillStyle = "#fbfaf7"; ctx.fillRect(0, 0, w, h);
+    var bw = (w - 40) / 5, done = 0, right = 0, review = {};
+    Q.forEach(function (q, i) { if (i in res) { done++; if (res[i]) right++; else review[slugOf(q[1])] = 1; } });
+    PK.forEach(function (k, j) {
+      var qs = Q.map(function (q, i) { return [q, i]; }).filter(function (x) { return x[0][0] === k; });
+      var r = qs.filter(function (x) { return res[x[1]] === true; }).length, n = qs.length;
+      var x = 20 + j * bw, base = h - 34, full = h - 70;
+      ctx.fillStyle = "#e7e3da"; ctx.fillRect(x + 8, base - full, bw - 16, full);
+      ctx.fillStyle = COL[j]; ctx.fillRect(x + 8, base - full * (r / n), bw - 16, full * (r / n));
+      ctx.fillStyle = "#2b2a30"; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText(PN[j], x + bw / 2, base + 6);
+      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(11, true); ctx.textBaseline = "bottom"; ctx.fillText(r + "/" + n, x + bw / 2, base - full - 4);
+    });
+    AB.stat("sc-o-n", done + " / " + Q.length); AB.stat("sc-o-c", String(right));
+    var rv = Object.keys(review).map(function (s) { return CH[s].num; }).sort();
+    AB.stat("sc-o-r", rv.length ? rv.join(", ") + "장" : "—");
+  }, { aspect: 0.32, minHeight: 170, maxHeight: 220, bg: "#fbfaf7" });
+
+  /* ---------------- 서비스 노트 색인 ---------------- */
+  // [장 slug, 상황, 서윤의 선택] — 각 장의 서비스 노트(.casefile)를 요약했다.
+  var CASE = [
+    ["overview", "4월 3일, 네 책방 주인이 \"넷이 같이 쓰는 앱\"을 의뢰하며 저마다 기능 목록(포인트 적립, 중고책 매입 시세, 나이별 추천, 채팅)을 내밀었다. 서윤은 그날 밤 기능을 모두 담은 화면 열두 장을 그렸고, 하린이 물었다. \"이 화면을 누가, 언제 써요?\"", "화면 그리기를 멈추고, 6월 30일 공개까지 조사 → 정의 → 구조 → 시험 → 공개의 순서를 정했다. 구조 단계 전에는 완성된 화면을 그리지 않고, 주인들의 기능 목록은 질문을 붙여 \"나중 상자\"에 보관하며, 손님과 주인 두 쪽을 모두 사용자로 조사한다."],
+    ["research", "첫 질문지 열두 문항 가운데 일곱이 유도·이중·가정 질문이었고, 단톡방 모집은 단골에 치우쳤다. 손님 여덟 명 중 일곱이 \"쓰겠다\"고 했지만, \"미리 확인한다\"는 말의 평균 63%에 비해 기록으로 센 비율은 29%였고, 여섯 명이 헛걸음을 구체적으로 이야기했다.", "지난 행동을 묻고 해결책 이야기는 마지막 5분에만 하는 고친 질문지, 말과 해석을 나누어 적는 관찰 기록 양식, 단골·가끔·처음 온 손님을 고루 네 책방에서 두 명씩 모으는 모집 기준. 만나지 못한 시집 손님과 아이 책 부모는 다음 테스트에서 따로 만난다."],
+    ["problem", "포스트잇 140장을 묶자 가장 큰 무리는 \"가 보기 전에는 있는지 알 수 없다\"(노트 31장, 손님 6명과 주인 1명)였다. 조사 전에 만든 페르소나 \"지은\"은 특징마다 근거가 세 명을 넘지 못했다.", "문제 문장 하나(\"정해 둔 책을 사려는 손님은 어디에 있는지 미리 알 길이 없어 전화로 묻거나 헛걸음을 한다\")와 HMW \"어떻게 하면 손님이 집을 나서기 전에, 찾는 책이 어느 책방에 있는지 확신할 수 있을까?\", 자료에 묶인 두 유형(A 정해 둔 책을 찾는 손님, B 가서 고르는 손님), 첫 버전에서 뺄 기능(적립·채팅·추천)."],
+    ["ia", "네 책방의 분류가 서로 겹치지 않았고, 주인들은 가게별 메뉴를 원했다. 손님 열두 명의 카드 소팅에서는 여덟 명이 책의 내용으로 나눴고, 주인들의 초안은 트리 테스트에서 성공 약 63%, 곧장 찾은 비율 약 35%였다(가상).", "첫 화면은 검색창 하나, 결과는 책(판) 단위로 한 번씩 묶고 재고가 있는 책방을 그 아래 가까운 순으로, 책방 이름·새 책/헌책·어린이 책은 패싯으로. 메뉴는 책 찾기·책방·내 맡김·이용 안내. 고친 안은 약 86%·약 73%."],
+    ["flow", "첫 흐름은 회원 가입과 본인 확인을 포함한 아홉 단계라 퍼널 모형으로 끝까지 가는 비율이 20.6%였다. 확인 못 함, 재고 없음, 기한 지남의 세 예외 상자에는 나가는 화살표가 없었다.", "가입 없이 전화번호 인증으로 묶은 다섯 단계(검색 → 책과 책방 고르기 → 맡아 두기 → 전화번호 인증 → 요청 확인, 52.9%는 상한). 재고 없음은 즉시 알림과 다른 책방 제안, 확인 못 함은 영업시간 기준 3시간 뒤 알림과 세 선택지, 기한 지남은 하루 전 알림과 3일 뒤 해제. 취소는 되돌리기로, 인증 단계는 이어 하기로 지킨다."],
+    ["interaction", "시험판에서 \"맡아 두기\"가 2초 가까이 아무 반응이 없어 손님이 세 번 눌렀고, 주인에게 같은 요청이 세 건 갔다. 주인 화면은 카드마다 수락·거절 버튼의 자리가 달라 거절을 잘못 눌렀다.", "누르는 즉시(0.1초 안) \"요청 중…\"으로 바뀌고 잠기는 버튼(1초·10초를 넘으면 단계별 안내)과 서버의 중복 요청 막기(멱등), 손님 화면의 상태 표시 세 칸(요청됨 → 확인됨 → 준비됨, 시각 표시), 주인 화면 아래에 고정한 같은 크기의 거절(왼쪽)·수락(오른쪽) 버튼."],
+    ["prototype", "크레이지 에이트로 결과 화면 여덟 안을 그린 뒤 종이 프로토타입 두 벌(A 재고 있는 책방 모두, B 가장 가까운 한 곳)로 같은 날 손님 넷에게 시험했다. B는 다른 책방을 가렸다. 그런데 같은 종이로 서로 다른 질문 셋을 섞어 확인하고 있었다.", "확인할 질문 세 가지와 그에 맞는 충실도: 책방 비교는 손님 쪽 종이(모양 낮음, 내용 높음), 다섯 단계 완주는 종이와 오즈의 마법사, 주인의 30초 안 응답은 실제 휴대폰의 클릭 목업. 결과 화면은 A안(가까운 순서로 모두, 줄마다 버튼, \"걸어서 N분\")."],
+    ["usability", "손님 다섯 명, 주인 네 명의 테스트(가상)에서 맡겨 두기 과업은 2/5였다. 실패한 세 명 모두 하트(찜하기)를 누르고 \"됐네요\"라고 했다. 손님 SUS 평균 58.5. 문제 11개 가운데 5개는 한 사람만 겪었고, 그중 하나가 도경의 큰 글자 줄바꿈이었다.", "고칠 문제 상위 다섯: 결과 화면에서 찜하기 빼기, 기한을 날짜로 보이기, 전화번호를 묻는 이유 밝히기, 상태마다 손님이 할 일 붙이기, 주인에게 \"손님에게 문자를 보냈어요\" 보이기. 2차 테스트는 새 손님 다섯 명, 큰 글자 사용자와 헌책방 나무 손님을 일부러 넣는다."],
+    ["metrics", "5월 시범 운영에서 버튼 문구 A \"맡아 두기\"와 B \"3일 동안 맡아 두기\"를 A/B 테스트했다. 사흘째 누름은 p = 0.04로 \"B가 이겼다\"였지만, 찾아간 비율은 p = 0.63이었고 평일 사흘뿐이었으며 매일 들여다본 숫자였다.", "실험을 지우고 계획서부터. 1차 지표는 맡긴 책을 기한 안에 찾아간 비율, 가드레일은 주인 확인 시간의 중앙값(30분)과 헛걸음 신고. 기준 8%, 최소 검출 효과 2%p, α = 0.05 양쪽, 검정력 80%로 한 무리 약 3,200명, 14일(5월 15~28일). 판정은 14일째 한 번만."],
+    ["writing", "손님이 보낸 화면에는 \"요청 실패(code 409)\"와 \"결과 없음\"이 그대로 있었다. 화면 문구 132줄에는 네 주인의 말투(다정한 해요체, 공지문, 아이에게 하는 반말, 시 같은 해라체)가 섞여, 손님들은 가게마다 따로 만든 앱 같다고 했다.", "문구 원칙 다섯 줄: 서비스가 하는 말은 손님·주인 화면 모두 해요체, 버튼은 누르면 일어나는 일(\"확인\"·\"예\"는 쓰지 않음), 오류는 무엇이·왜·어떻게, 같은 것은 같은 이름(\"맡아 두기\", \"내 맡김\", \"맡김 취소\"), 중요한 말을 앞에. 주요 문구 표와 용어 목록. 책방의 말투는 책방 소개 한 문단에서만."],
+    ["system", "첫 화면들은 책방 E의 토큰을 그대로 써서 모든 버튼이 책방 E 초록이었고, 다른 주인들은 자기 색을 원했다. 책방마다 테마를 따로 만들면 버튼만 360가지였다.", "주 행동 색은 네 책방이 같이 쓰는 잉크 #22342a(흰 글자 대비 13.19), 책방마다 다른 것은 shop.accent 한 칸(배지와 머리 띠만; 배지 글자 대비 4.5 이상, 위험 색·다른 책방 색과 ΔE2000 15 이상). 한 줄은 빨강 대신 먹자주 #6b2f4a. 컴포넌트 아홉 개, 버튼 조합 60, 기여 요청은 한 장으로 받아 2주 안에 답한다."],
+    ["ethics", "시범 운영 뒤 작은 숲 주인이 신간 소식 문자 동의를 처음부터 체크해 두고, \"기한이 지나면 다음 손님에게 넘어간다\"는 규칙은 작게 숨기자고 했다. 손님 전화번호를 얼마나 오래 둘지도 정하지 않았다.", "동의는 기본 해제, 신간 소식은 맡기기가 끝난 뒤 따로 묻고 받기·안 받기를 같은 크기로. 기한 규칙은 날짜와 함께 맡아 두기 버튼 바로 위에 크게. 수집 항목은 여덟에서 둘(전화번호, 받는 이름)로, 맡김이 끝난 날부터 30일 뒤 번호 자동 삭제. 취소는 상태 카드의 \"맡김 취소\"로 2탭, 대화상자 대신 되돌리기. 인증번호는 5분, 연장 가능."],
+    ["lab", "14일 A/B의 최종 결과(가상)에서 찾아간 비율은 +0.99%p, 95% 구간 −0.38~+2.35%p로 \"모른다\"였다. 요청은 B가 확실히 많았지만(+3.67%p) 안 찾아간 맡김도 늘어, 서가 밖에 묶인 책이 평균 약 37권 대 55권이었다. 2차 테스트의 SUS는 71.5, 일관성 점검에서는 엇갈림 여섯 가지가 나왔다.", "6월 30일 금요일, A 문구 \"맡아 두기\"로 공개(B는 채택하지 않음). 취소는 \"맡김 취소\"와 되돌리기로 2탭에 \"확인\" 버튼 없이, 주인 수락 버튼은 잉크 #22342a, 인증번호는 5분 안에 보낸 번호를 모두 받는다. 공개 뒤 매주 1차 지표와 가드레일에 \"안 찾아간 맡김 비율\"을 더해 보고, 하루 방문자가 1,000명을 넘으면 1%p 설계로 B를 다시 실험한다."],
+  ];
+  document.getElementById("case-rows").innerHTML = CASE.map(function (r) {
+    return '<tr><td class="num"><a href="' + r[0] + '.html#case">' + CH[r[0]].num + "</a></td><td>" + esc(r[1]) + "</td><td>" + esc(r[2]) + "</td></tr>";
+  }).join("");
+
+  /* ---------------- 이미지 크레딧 ---------------- */
+  var PRE = "product/chapters/";
+  var list = (window.AB_CREDITS || []).filter(function (c) { return (c.usedIn || []).some(function (u) { return u.indexOf("product/") === 0; }); });
+  document.getElementById("cr-list").innerHTML = list.map(function (c) {
+    var used = (c.usedIn || []).filter(function (u) { return u.indexOf(PRE) === 0; })
+      .map(function (u) { return u.replace(PRE, "").replace(".html", ""); })
+      .filter(function (s) { return CH[s]; })
+      .sort(function (a, b) { return CH[a].num.localeCompare(CH[b].num); })
+      .map(function (s) { return '<a href="' + s + '.html">' + CH[s].num + "장</a>"; }).join(", ");
+    return '<div class="item" id="cr-' + esc(c.id) + '"><img src="../../shared/img/' + esc(c.file) + '" alt="' + esc(c.title) + '" loading="lazy"><div><h3>' + esc(c.title) + "</h3><p>" + esc(c.artist) + " · " + esc(c.date) + "<br>" + esc(c.museum) +
+      '<br>라이선스: <a href="' + esc(c.licenseUrl) + '">' + esc(c.license) + '</a> · <a href="' + esc(c.page) + '">소장처 작품 페이지</a>' + (used ? "<br>쓰인 곳: " + used : "") + "</p></div></div>";
+  }).join("") || '<p class="disclaimer">서가의 크레딧 자료에는 아직 ProductBook 장에 쓰인 작품 이미지가 없다. 이 책의 그림은 모두 이 책이 직접 그린 가상의 화면과 도식이며, 각 장 그림 아래에 그 사실과 가정을 적었다.</p>';
+})();
+</script>
+</body>
+</html>
