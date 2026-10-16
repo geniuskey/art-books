@@ -454,10 +454,10 @@
     var s1 = "", s2 = "";
     for (var i = 0; i < 15; i++) s1 += '<circle cx="' + (30 + i * 22) + '" cy="55" r="8" class="f-acc-soft"/><circle cx="' + (30 + i * 22) + '" cy="55" r="8" fill="none" class="s-acc"/>';
     for (var r = 0; r < 3; r++) {
-      var x0 = 30 + r * 140;
-      for (var j = 0; j < 5; j++) s2 += '<circle cx="' + (x0 + j * 18) + '" cy="145" r="7" class="f-acc-soft"/><circle cx="' + (x0 + j * 18) + '" cy="145" r="7" fill="none" class="s-acc"/>';
-      s2 += '<text x="' + (x0 + 36) + '" y="174" text-anchor="middle" class="lbl-dim" style="font-size:11px">' + (r + 1) + "차</text>";
-      if (r < 2) s2 += '<rect x="' + (x0 + 86) + '" y="132" width="44" height="26" rx="6" class="f-warn-soft"/><text x="' + (x0 + 108) + '" y="149" text-anchor="middle" class="lbl" style="font-size:11px">고치기</text>';
+      var x0 = 30 + r * 134;
+      for (var j = 0; j < 5; j++) s2 += '<circle cx="' + (x0 + j * 16) + '" cy="145" r="7" class="f-acc-soft"/><circle cx="' + (x0 + j * 16) + '" cy="145" r="7" fill="none" class="s-acc"/>';
+      s2 += '<text x="' + (x0 + 32) + '" y="174" text-anchor="middle" class="lbl-dim" style="font-size:11px">' + (r + 1) + "차</text>";
+      if (r < 2) s2 += '<rect x="' + (x0 + 80) + '" y="132" width="44" height="26" rx="6" class="f-warn-soft"/><text x="' + (x0 + 102) + '" y="149" text-anchor="middle" class="lbl" style="font-size:11px">고치기</text>';
     }
     s2 += '<rect x="380" y="132" width="64" height="26" rx="6" class="f-warn-soft"/><text x="412" y="149" text-anchor="middle" class="lbl" style="font-size:11px">고치기</text>';
     document.getElementById("ut-row1").innerHTML = s1.replace(/cx="(\d+)"/g, function (m, v) { return 'cx="' + Math.min(+v, 360) + '"'; });
@@ -749,7 +749,7 @@
       // 1000번 히스토그램
       var hy = top + n * rh + 26, hh = h - hy - 34, hl = left, hr = right, bw = (hr - hl) / 21, mx = Math.max.apply(null, hist);
       ctx.fillStyle = P.dim; ctx.font = AB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("같은 테스트 1,000번: 찾은 문제 수의 분포", hl, hy - 14);
-      for (var f = 0; f <= 20; f++) { var bh = hist[f] / mx * hh; ctx.fillStyle = P.accent; ctx.globalAlpha = 0.55; ctx.fillRect(hl + f * bw + 1, hy + hh - bh, bw - 2, bh); ctx.globalAlpha = 1; }
+      for (var f = 0; f <= 20; f++) { var bh = hist[f] / mx * hh * 0.82; ctx.fillStyle = P.accent; ctx.globalAlpha = 0.55; ctx.fillRect(hl + f * bw + 1, hy + hh - bh, bw - 2, bh); ctx.globalAlpha = 1; }
       var formula = 1 - Math.pow(1 - meanP(), n), fx = hl + formula * 20 * bw + bw / 2;
       ctx.strokeStyle = P.text; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(fx, hy); ctx.lineTo(fx, hy + hh); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = P.text; ctx.font = AB.font(10.5, false, 600); ctx.textAlign = fx > w * 0.7 ? "right" : "left"; ctx.textBaseline = "top"; ctx.fillText("공식의 예측", fx + (fx > w * 0.7 ? -4 : 4), hy);

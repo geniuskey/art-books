@@ -3683,28 +3683,6 @@
       ]
     },
     {
-      "id": "ind-dresser-kettle",
-      "file": "ind-dresser-kettle.webp",
-      "derived": "원본 DP-13486-036.jpg(3200×4000)를 긴 변 1600px WebP(1280×1600, 품질 80)로 줄임",
-      "title": "주전자",
-      "titleEn": "Kettle",
-      "artist": "크리스토퍼 드레서 디자인으로 추정 (Design attributed to Christopher Dresser, 1834–1904), 제조 벤엄 앤드 프라우드 (Benham & Froud)",
-      "date": "1885년경 (ca. 1885)",
-      "medium": "구리, 황동 (Copper, brass), 높이 34.4 cm",
-      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
-      "creditLine": "Purchase, Robert L. Isaacson Gift, 1990",
-      "objectId": 207823,
-      "license": "Public Domain (The Met Open Access, CC0)",
-      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "source": "https://images.metmuseum.org/CRDImages/es/original/DP-13486-036.jpg",
-      "page": "https://www.metmuseum.org/art/collection/search/207823",
-      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/207823",
-      "checked": "2026-10-15",
-      "usedIn": [
-        "industrial/chapters/history.html"
-      ]
-    },
-    {
       "id": "ind-tiffany-table-lamp",
       "file": "ind-tiffany-table-lamp.webp",
       "derived": "원본 DP254463.jpg(3929×2947)를 긴 변 1600px WebP(1600×1200, 품질 80)로 줄임",

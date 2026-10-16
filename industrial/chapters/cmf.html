@@ -409,7 +409,7 @@
   var INK = "#2b2a30", INK_DIM = "#6b6874";
   var toL = ART.toLinear, toG = ART.toGamma;
   function fx(v, d) { return AB.fix(v, d == null ? 1 : d); }
-  function H(id, ratio, min, max) { return { get height() { var el = document.getElementById(id); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(AB.clamp(w * ratio, min, max)); } }; }
+  function H(id, ratio, min, max, bg) { return { bg: bg || "#d9d6cf", get height() { var el = document.getElementById(id); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(AB.clamp(w * ratio, min, max)); } }; }
   function norm(v) { var l = Math.hypot(v[0], v[1], v[2]) || 1; return [v[0] / l, v[1] / l, v[2] / l]; }
   function dot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
   function lin(hex) { return ART.srgbToLinear(ART.parse(hex)); }
@@ -499,7 +499,7 @@
       var g0 = geo[0]; ctx.fillStyle = "rgba(255,255,255,0.9)"; ctx.strokeStyle = INK; ctx.lineWidth = 1.5;
       var lx = g0[0] + light.u * g0[2] * 1.15, ly = g0[1] - light.v * g0[2] * 1.15;
       AB.handle(ctx, lx, ly, { r: 7, fill: "#fff3c4", ring: INK });
-    }, { get height() { var el = document.getElementById("fo-cv"); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(w >= 520 ? Math.min(260, (w - 20) / 4 + 40) : (w - 20) + 16); } });
+    }, { get height() { var el = document.getElementById("fo-cv"); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(w >= 520 ? Math.min(260, (w - 20) / 4 + 40) : (w - 20) + 16); }, bg: "#d9d6cf" });
     AB.drag(cv.canvas, {
       move: function (x, y) {
         if (!geo) return;
@@ -673,7 +673,7 @@
       AB.stat("tx-o-ra", fx(ra(v), 2) + " <small>µm</small>");
       AB.stat("tx-o-req", fx(need, 1) + "° 이상");
       AB.stat("tx-o-j", deficit > 0 ? tag("긁힘 줄", "bad") : tag("깨끗함", "ok"));
-    }, H("tx-cv", 0.56, 300, 400));
+    }, H("tx-cv", 0.56, 300, 400, "#fbfaf7"));
   });
 
   /* ---------------- 시뮬레이터 5: 배치 다섯, 허용차 하나 ---------------- */
@@ -739,7 +739,7 @@
       AB.stat("mt-o-c", (b[0] - STD[0] >= 0 ? "+" : "") + fx(b[0] - STD[0], 1) + " · " + (dC >= 0 ? "+" : "") + fx(dC, 1) + " · " + fx(dH, 1));
       AB.stat("mt-o-ab", fx(dab, 2));
       AB.stat("mt-o-n", pass + " / 5");
-    }, H("mt-cv", 0.95, 330, 480));
+    }, { get height() { var el = document.getElementById("mt-cv"); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(AB.clamp(w * 0.95, 330, 480)); } });
     AB.drag(cv.canvas, {
       start: function (x, y) {
         if (!geo) return; var best = -1, bd = 26;

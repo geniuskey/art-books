@@ -1,0 +1,1002 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "화면의 움직임은 장식이 아니라 설명이다. 이징 곡선을 직접 끌어 만들고, 지속 시간과 거리의 관계, 전환이 알려 주는 공간 관계, 차례 등장의 총 시간, 시차 스크롤 같은 과한 움직임과 전정 장애, prefers-reduced-motion을 시뮬레이터로 다루고, 책방 E 웹사이트의 움직임을 두 단계 시간과 이징 하나로 정리한다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .wb-code { margin: 18px 0; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; font-family: var(--mono); font-size: 13px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--text); }
+  .mo-state { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--surface-2); color: var(--text-dim); }
+</style>
+</head>
+<body data-chapter="motion">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 10</div>
+    <h1>모션</h1>
+    <p class="lead">휴대폰에서 앱 아이콘을 누르면 앱 화면이 아이콘 자리에서 커지며 열린다. 닫으면 다시 그 아이콘 속으로 줄어든다. 아무도 설명하지 않았지만 우리는 그 앱이 "어디에서 와서 어디로 갔는지" 안다. 화면의 움직임은 잘 쓰면 말 없는 설명이 되고, 잘못 쓰면 기다림이 되거나 멀미가 된다. 이 장은 움직임의 빠르기 모양(이징), 길이(지속 시간), 출발점(공간 관계)을 직접 끌어 보며 배우고, 움직임을 줄여 달라는 사람의 설정을 존중하는 법을 다룬다.</p>
+    <ul class="objectives">
+      <li>화면의 움직임이 하는 일(상태 변화 알림, 공간 관계, 주의 끌기, 연속성)과 장식을 구별한다.</li>
+      <li>이징의 뜻과 CSS의 <code>cubic-bezier()</code>가 시간과 진행률을 잇는 방식을 알고, 들어오는 것·나가는 것·화면 안에서 옮기는 것에 맞는 곡선을 고른다.</li>
+      <li>지속 시간을 거리와 크기, 자주 쓰는 정도에 맞춰 고르고, 차례 등장이 총 시간을 얼마나 늘리는지 계산한다.</li>
+      <li>전환이 출발점을 지켜 공간 관계를 알려 주는 경우와 이유 없는 움직임을 구별한다.</li>
+      <li>시차 스크롤, 큰 확대, 회전 같은 움직임이 전정 장애가 있는 사람에게 주는 부담과 WCAG 2.2의 관련 기준을 안다.</li>
+      <li><code>prefers-reduced-motion</code>을 읽어 움직임을 없애는 대신 알맞게 바꾸는 방법을 안다.</li>
+    </ul>
+  </header>
+
+  <section id="why">
+    <h2>움직임은 설명이다</h2>
+    <p>화면의 요소가 위치, 크기, 투명도, 색을 시간에 따라 바꾸는 것을 통틀어 <span class="term">모션</span><span class="en">(Motion)</span>이라고 한다. 웹에서는 한 상태에서 다른 상태로 넘어가는 동안의 움직임을 <span class="term">전환</span><span class="en">(Transition)</span>, 처음부터 정해 둔 여러 단계를 따라 움직이는 것을 <span class="term">애니메이션</span><span class="en">(Animation)</span>이라고 부르며 CSS에도 두 가지가 따로 있다. 이 장에서는 둘을 함께 "움직임"이라고 부른다.</p>
+    <p>정지 화면에서는 두 상태 사이에 무슨 일이 있었는지 보이지 않는다. 메뉴가 닫혀 있다가 다음 순간 열려 있으면, 사람은 "무엇이 바뀌었는지"를 두 화면을 비교해 찾아야 한다. 움직임은 그 사이를 이어 준다. 화면의 움직임이 하는 일은 크게 네 가지다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>하는 일</th><th>예</th><th>없으면</th></tr></thead>
+        <tbody>
+          <tr><td><b>상태 변화 알림</b></td><td>눌린 버튼이 살짝 들어감, 체크 상자가 채워짐, 장바구니 숫자가 바뀜</td><td>눌렸는지 몰라 한 번 더 누른다</td></tr>
+          <tr><td><b>공간 관계</b></td><td>메뉴가 누른 버튼에서 펼쳐짐, 카드가 커져 상세 화면이 됨</td><td>새 화면이 어디서 왔고 어떻게 돌아가는지 모른다</td></tr>
+          <tr><td><b>주의 끌기</b></td><td>새로 온 알림이 한 번 흔들림, 오류 칸이 짧게 떨림</td><td>변화가 화면 구석에서 조용히 일어나 놓친다</td></tr>
+          <tr><td><b>연속성</b></td><td>목록이 정렬될 때 항목이 새 자리로 미끄러짐</td><td>순서가 바뀐 줄 모르고 엉뚱한 것을 누른다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>이 넷 중 어디에도 들지 않는 움직임, 예를 들어 화면이 열릴 때마다 모든 글자가 날아 들어오거나 스크롤할 때마다 사진이 빙글 도는 것은 <b>장식</b>이다. 장식이 늘 나쁜 것은 아니다. 그림책 같은 사이트, 한 번 보고 끝나는 행사 페이지라면 즐거움 자체가 목적일 수 있다. 하지만 사람이 매일 일을 보는 화면에서 장식은 기다림이 되고, 어떤 사람에게는 몸의 불편이 된다.</p>
+    <p>이 장의 시뮬레이터는 대부분 움직인다. 그래서 먼저 움직임을 줄이는 스위치를 둔다. 운영 체제에서 "동작 줄이기"(iOS·macOS), "애니메이션 삭제"(Android) 같은 설정을 켜 두었다면 브라우저가 그것을 알려 주고, 이 장의 시뮬레이터는 처음부터 움직임을 줄인다. 아래에서 직접 바꿀 수도 있다. 이 스위치는 장 전체에 적용된다.</p>
+
+    <div class="sim" id="sim-rm">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>이 장의 움직임 스위치</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mo-rm-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mo-rm-pref"><button data-value="system" class="on">기기 설정 따름</button><button data-value="reduce">움직임 줄임</button><button data-value="full">보통</button></div>
+          <div class="btn-row"><button type="button" class="btn" id="mo-rm-play">완료 카드 다시 보기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이 기기의 설정(실제 미디어 쿼리)</span><span class="v" id="mo-rm-o-sys">—</span></div>
+        <div class="stat"><span class="k">이 장의 시뮬레이터</span><span class="v" id="mo-rm-o-eff">—</span></div>
+        <div class="stat"><span class="k">완료 카드의 전환</span><span class="v" id="mo-rm-o-how">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "이 기기의 설정"을 본다. 지금 쓰는 기기의 실제 값을 브라우저에서 읽어 온 것이다. ② "보통"을 고르고 "완료 카드 다시 보기"를 누른다. 9장의 모임 신청이 끝났을 때 나오는 카드가 아래에서 조금 올라오며 나타난다. ③ "움직임 줄임"을 고르고 다시 누른다. 카드가 제자리에서 짧게 나타난다. 움직임은 줄었지만 "무언가 새로 나타났다"는 정보는 남는다. ④ 운영 체제의 설정을 바꾸면 "기기 설정 따름"일 때 이 장이 바로 따라 바뀐다. (선택은 이 브라우저에만 저장된다. 이 장의 시뮬레이터는 움직임을 줄인 상태에서 저절로 움직이지 않고, 재생 단추를 눌렀을 때만 줄인 방식으로 보여 준다.)</div>
+    </div>
+
+    <p>이 스위치가 어떻게 기기의 설정을 읽는지는 이 장의 마지막 절에서 다룬다. 여기서 기억할 것은 하나다. 움직임을 줄인다는 것은 <b>정보를 줄이는 것이 아니다</b>. 카드가 나타났다는 사실, 메뉴가 열렸다는 사실은 그대로 전해야 한다. 바뀌는 것은 전하는 방법이다.</p>
+  </section>
+
+  <section id="easing">
+    <h2>빠르기의 모양: 이징</h2>
+    <p>현실의 물체는 정지 상태에서 갑자기 일정한 속도로 움직이지 않는다. 서랍을 열면 처음에 힘을 주어 빨라지고, 끝에 가서 천천히 멈춘다. 공을 던지면 손을 떠날 때 가장 빠르다. 같은 속도로 출발해 같은 속도로 멈추는 움직임은 기계처럼 보인다. 디즈니의 애니메이터 프랭크 토머스와 올리 존스턴은 『The Illusion of Life: Disney Animation』(1981)에서 애니메이션의 열두 원칙을 정리하며 그중 하나로 "천천히 출발하고 천천히 멈추기"(slow in and slow out)를 꼽았다. 움직임의 처음과 끝에 그림을 촘촘히 두고 가운데는 성기게 두는 방법이다.</p>
+    <p>화면에서 시간에 따라 진행이 빨라지고 느려지는 모양을 <span class="term">이징</span><span class="en">(Easing)</span>이라고 한다. 시간의 몇 퍼센트가 지났을 때 움직임이 몇 퍼센트 진행했는지를 정하는 함수다. 시간과 진행이 같은 비율로 늘어나는 것은 <span class="term">선형</span><span class="en">(Linear)</span>, 처음이 느리고 끝이 빠른 것은 <b>가속</b>(ease-in), 처음이 빠르고 끝이 느린 것은 <b>감속</b>(ease-out), 양 끝이 느린 것은 <b>가감속</b>(ease-in-out)이다.</p>
+    <p>아래 시뮬레이터에는 네 개의 공이 같은 시간 동안 같은 거리를 간다. 시간 막대를 끌거나 "재생"을 눌러 비교한다. "같은 시간 간격의 자취"를 켜면 10분의 1 시간마다 공이 있던 자리가 점으로 남는다. 점이 촘촘한 곳은 느린 곳, 성긴 곳은 빠른 곳이다.</p>
+
+    <div class="sim" id="sim-ease">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>같은 시간, 다른 빠르기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mo-ea-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>흐른 시간 <output id="mo-ea-t-out"></output></span><input type="range" id="mo-ea-t" min="0" max="100" step="1" value="30"></label>
+          <div class="btn-row"><button type="button" class="btn" id="mo-ea-play">재생(1초)</button></div>
+          <label class="check"><input type="checkbox" id="mo-ea-trail" checked> 같은 시간 간격의 자취</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">지금 진행률</span><span class="v" id="mo-ea-o-p">—</span></div>
+        <div class="stat"><span class="k">처음 10% 시간에 간 거리</span><span class="v" id="mo-ea-o-f">—</span></div>
+        <div class="stat"><span class="k">마지막 10% 시간에 간 거리</span><span class="v" id="mo-ea-o-l">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 시간 막대를 30%에 둔다. 감속(ease-out) 공은 벌써 절반쯤 갔고, 가속(ease-in) 공은 아직 출발선 근처다. ② 자취를 본다. 선형은 점 간격이 고르고, 감속은 처음이 성기고 끝이 촘촘하다. ③ "재생"을 누르고 공 네 개가 끝에 도착하는 모습을 비교한다. 가속 공은 끝에서 가장 빠른 채로 벽에 부딪치듯 멈춘다. 감속 공은 미끄러지듯 자리에 앉는다. (곡선은 CSS 표준 키워드 값이다: ease-in = cubic-bezier(0.42, 0, 1, 1), ease-out = cubic-bezier(0, 0, 0.58, 1), ease-in-out = cubic-bezier(0.42, 0, 0.58, 1). 차이가 잘 보이게 1초로 늘렸다. 움직임을 줄인 상태에서도 재생 단추는 누를 때만 움직인다.)</div>
+    </div>
+
+    <p>어느 곡선을 쓸지는 움직임의 방향이 정한다. 화면 <b>안으로 들어오는</b> 것(열리는 메뉴, 나타나는 알림)에는 감속이 어울린다. 빨리 출발해 사람의 눈앞에서 부드럽게 멈추므로 반응이 빠르게 느껴지고 도착한 자리가 분명하다. 화면 <b>밖으로 나가는</b> 것(닫히는 패널, 사라지는 알림)에는 가속이 어울린다. 천천히 출발해 빨라지며 떠나므로 끝을 기다릴 필요가 없다. 화면 <b>안에서 자리를 옮기는</b> 것(정렬되는 목록, 커지는 카드)에는 가감속이 자연스럽다. 시작과 끝이 모두 보이기 때문이다. 선형은 색이 바뀌거나 투명도가 바뀌는 것처럼 "위치"가 없는 변화, 또는 끝없이 도는 로딩 표시에 쓴다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 190" role="img" aria-label="CSS 이징 키워드 다섯 가지의 곡선. 가로축은 시간, 세로축은 진행률이다. linear는 대각선, ease는 빠르게 올라가다 평평해지고, ease-in은 처음에 평평하다 끝에 가파르고, ease-out은 처음에 가파르고 끝에 평평하며, ease-in-out은 S자다.">
+        <g transform="translate(14,22)">
+          <g>
+            <rect x="0" y="0" width="76" height="76" class="f-surface s-axis" stroke-width="1"/>
+            <path d="M0 76 C 0 76, 76 0, 76 0" class="s-acc" stroke-width="2.5" fill="none"/>
+            <text x="38" y="98" text-anchor="middle" class="lbl-b" font-size="12">linear</text>
+            <text x="38" y="114" text-anchor="middle" class="lbl-dim t-mono" font-size="9">0, 0, 1, 1</text>
+          </g>
+          <g transform="translate(90,0)">
+            <rect x="0" y="0" width="76" height="76" class="f-surface s-axis" stroke-width="1"/>
+            <path d="M0 76 C 19 68.4, 19 0, 76 0" class="s-acc" stroke-width="2.5" fill="none"/>
+            <text x="38" y="98" text-anchor="middle" class="lbl-b" font-size="12">ease</text>
+            <text x="38" y="114" text-anchor="middle" class="lbl-dim t-mono" font-size="9">.25, .1, .25, 1</text>
+          </g>
+          <g transform="translate(180,0)">
+            <rect x="0" y="0" width="76" height="76" class="f-surface s-axis" stroke-width="1"/>
+            <path d="M0 76 C 31.9 76, 76 0, 76 0" class="s-acc" stroke-width="2.5" fill="none"/>
+            <text x="38" y="98" text-anchor="middle" class="lbl-b" font-size="12">ease-in</text>
+            <text x="38" y="114" text-anchor="middle" class="lbl-dim t-mono" font-size="9">.42, 0, 1, 1</text>
+          </g>
+          <g transform="translate(270,0)">
+            <rect x="0" y="0" width="76" height="76" class="f-surface s-axis" stroke-width="1"/>
+            <path d="M0 76 C 0 76, 44.1 0, 76 0" class="s-acc2" stroke-width="2.5" fill="none"/>
+            <text x="38" y="98" text-anchor="middle" class="lbl-b" font-size="12">ease-out</text>
+            <text x="38" y="114" text-anchor="middle" class="lbl-dim t-mono" font-size="9">0, 0, .58, 1</text>
+          </g>
+          <g transform="translate(360,0)">
+            <rect x="0" y="0" width="76" height="76" class="f-surface s-axis" stroke-width="1"/>
+            <path d="M0 76 C 31.9 76, 44.1 0, 76 0" class="s-acc" stroke-width="2.5" fill="none"/>
+            <text x="38" y="98" text-anchor="middle" class="lbl-b" font-size="12">ease-in-out</text>
+            <text x="38" y="114" text-anchor="middle" class="lbl-dim t-mono" font-size="9">.42, 0, .58, 1</text>
+          </g>
+          <text x="0" y="146" class="lbl-dim" font-size="11">상자마다 가로는 시간(0 → 1), 세로는 진행률(0 → 1). 기울기가 가파른 곳이 빠른 곳이다.</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. CSS 이징 키워드의 곡선.</b> CSS의 <code>transition-timing-function</code>에 쓰는 다섯 키워드는 모두 <code>cubic-bezier()</code>의 특정 값이다(W3C, CSS Easing Functions Level 1). 아무것도 적지 않으면 <code>ease</code>가 쓰인다. ease는 ease-out과 비슷하게 끝이 부드럽지만 처음도 아주 조금 느리다.</figcaption>
+    </figure>
+
+    <div class="callout try">
+      <strong>포스트잇 플립북</strong>
+      손바닥만 한 포스트잇 스무 장을 겹쳐 두고, 각 장의 같은 높이에 왼쪽에서 오른쪽으로 굴러가는 공을 하나씩 그린다. 첫 묶음 열 장은 공의 간격을 자로 재어 모두 같게(선형) 그리고, 다음 열 장은 처음 간격을 넓게 그리다 끝으로 갈수록 좁게(감속) 그린다. 두 묶음을 엄지로 튕겨 넘기며 비교한다. 같은 거리, 같은 장수인데 감속 묶음의 공은 "멈춘다", 선형 묶음의 공은 "끊긴다". 이 장의 시뮬레이터가 보여 주는 자취 점이 바로 그 간격이다. 공 대신 서랍이나 문이 열리는 그림으로도 해 본다.
+    </div>
+  </section>
+
+  <section id="bezier">
+    <h2>곡선을 직접 만지기: cubic-bezier</h2>
+    <p>CSS의 이징 곡선은 <span class="term">3차 베지에 곡선</span><span class="en">(Cubic Bézier curve)</span>으로 정한다. 글꼴의 윤곽선(<a href="../../type/chapters/screen.html">TypeBook 11장</a>)과 벡터 그림 도구의 펜 도구가 쓰는 바로 그 곡선이다. 네 점 \(P_0, P_1, P_2, P_3\)로 정하는데, 이징에서는 양 끝이 \(P_0 = (0, 0)\), \(P_3 = (1, 1)\)로 고정되고 가운데 두 조절점만 고른다.</p>
+    <div class="formula">$$B(s) = (1-s)^3 P_0 + 3(1-s)^2 s\, P_1 + 3(1-s)s^2 P_2 + s^3 P_3, \quad 0 \le s \le 1$$<div class="where">\(B(s)\)의 가로 성분이 시간, 세로 성분이 진행률이다. \(s\)는 곡선 위를 지나가는 매개변수로, 시간 자체가 아니다. 그래서 브라우저는 주어진 시간 \(x\)에 대해 가로 성분이 \(x\)가 되는 \(s\)를 수치로 찾은 다음 세로 성분을 읽는다. CSS에서는 <code>cubic-bezier(x1, y1, x2, y2)</code>로 \(P_1 = (x_1, y_1)\), \(P_2 = (x_2, y_2)\)를 적는다. \(x_1, x_2\)는 0~1이어야 하고, \(y\)는 그 범위를 벗어나도 된다.</div></div>
+    <p>아래 그래프에서 두 조절점(손잡이)을 끌어 곡선을 만든다. 곡선 아래의 공은 그 곡선대로 움직인다. 조절점을 위로 1보다 높이 끌어 올리면 진행률이 100%를 넘었다가 돌아온다. 목표를 지나쳤다가 되돌아오는 이 움직임을 <span class="term">오버슈트</span><span class="en">(Overshoot)</span>라고 한다.</p>
+
+    <div class="sim" id="sim-bez">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>cubic-bezier 편집기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mo-bz-cv"></canvas><span class="hint" id="mo-bz-hint">조절점을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mo-bz-pre"><button data-value="ease">ease</button><button data-value="out" class="on">ease-out</button><button data-value="inout">ease-in-out</button><button data-value="in">ease-in</button><button data-value="back">튀어 오름</button><button data-value="lin">linear</button></div>
+          <label class="ctrl"><span>한 번 움직이는 시간 <output id="mo-bz-d-out"></output></span><input type="range" id="mo-bz-d" min="150" max="1500" step="50" value="800"></label>
+          <label class="check"><input type="checkbox" id="mo-bz-ghost" checked> 선형 공을 함께 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">CSS 값</span><span class="v" id="mo-bz-o-css">—</span></div>
+        <div class="stat"><span class="k">시간 절반에 간 거리</span><span class="v" id="mo-bz-o-h">—</span></div>
+        <div class="stat"><span class="k">가장 멀리 간 곳</span><span class="v" id="mo-bz-o-max">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "ease-out"에서 시작한다. 곡선이 처음에 가파르다. 공이 빨리 출발해 천천히 앉는다. ② 아래쪽 조절점을 오른쪽 아래로 끌어 곡선을 S자로 만든다. "시간 절반에 간 거리"가 50%에 가까워진다. ③ "튀어 오름"을 누른다. 진행률이 100%를 넘었다 돌아와, 공이 목표를 지나쳤다 되돌아온다. 작은 단추나 아이콘에는 경쾌하지만 큰 패널에 쓰면 출렁거린다. ④ 한 번 움직이는 시간을 1500ms로 늘리면 곡선의 성격이 잘 보이고, 150ms로 줄이면 곡선끼리의 차이가 거의 느껴지지 않는다. (곡선의 계산은 CSS와 같은 방식이다: 주어진 시간에 대해 곡선의 가로 성분을 뉴턴법과 이분법으로 풀고 세로 성분을 읽는다. 움직임을 줄인 상태에서는 공이 멈추고 자취만 보인다.)</div>
+    </div>
+
+    <p>편집기에서 보듯 이징 곡선은 두 점으로 거의 모든 성격을 낼 수 있다. 그래서 디자인 체계마다 몇 개의 곡선만 골라 이름을 붙여 둔다. 곡선이 많으면 사이트 곳곳이 다른 리듬으로 움직여 어수선하다. 대부분의 사이트는 감속 하나(들어오는 것과 자리 옮기는 것), 필요하면 가속 하나(나가는 것) 정도면 충분하다. 오버슈트나 탄성처럼 성격이 강한 곡선은 아주 작은 요소에, 아주 가끔 쓴다.</p>
+    <div class="callout deep">
+      <strong>베지에 곡선으로 안 되는 것</strong>
+      3차 베지에 곡선 하나로는 여러 번 튀는 공이나 용수철처럼 흔들리다 멈추는 움직임을 만들 수 없다. 이런 움직임은 물리 모형(질량, 용수철의 강도, 마찰)으로 계산해 여러 개의 키프레임으로 나누어 적는다. 최근 CSS에는 점 여러 개를 직선으로 이어 임의의 이징을 근사하는 <code>linear()</code> 함수가 생겨 이런 곡선을 CSS만으로 쓸 수 있게 되었고, 정해진 단계로 뚝뚝 끊어 움직이는 <code>steps()</code>도 있다. 다만 곡선이 복잡해질수록 "왜 이렇게 움직이는가"에 답하기 어려워진다는 것을 기억한다.
+    </div>
+  </section>
+
+  <section id="duration">
+    <h2>얼마나 길게: 지속 시간</h2>
+    <p>같은 곡선이라도 시간이 다르면 전혀 다른 움직임이 된다. 너무 짧으면 움직임이 보이지 않아 순간 이동처럼 보이고, 너무 길면 사람이 화면을 기다리게 된다. 인터페이스의 반응 시간에 관한 고전적인 정리(로버트 밀러, "Response time in man-computer conversational transactions", 1968; 제이컵 닐슨, 『Usability Engineering』, 1993)는 대략 0.1초 안의 반응을 "즉각적"으로, 1초 안의 반응을 "생각의 흐름이 끊기지 않는" 정도로 본다. 화면 전환은 사람이 무언가를 누른 뒤에 일어나므로, 전환이 길어질수록 반응이 늦는 것처럼 느껴진다.</p>
+    <p>그래서 여러 디자인 지침이 인터페이스 전환에 대략 <b>100~500ms</b> 범위를 권하고, 작은 변화는 그 아래쪽, 큰 변화는 위쪽을 쓰라고 말한다. 정해진 표준이 아니라 실무에서 널리 공유된 경험칙(통설)이다. 기준은 세 가지다. 움직이는 <b>거리와 크기</b>(작은 체크 표시는 짧게, 화면 전체가 바뀌는 전환은 조금 길게), <b>방향</b>(나가는 것은 들어오는 것보다 짧게), 그리고 <b>얼마나 자주</b> 보는가(하루에 백 번 여는 메뉴는 짧게, 한 번 보는 완료 화면은 조금 길게).</p>
+    <p>아래 휴대폰 목업에서 움직이는 대상의 크기와 지속 시간을 바꿔 가며 "열기·닫기"를 눌러 본다.</p>
+
+    <div class="sim" id="sim-dur">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>지속 시간과 거리</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mo-du-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mo-du-kind"><button data-value="toggle">작은 스위치</button><button data-value="panel" class="on">더보기 패널</button><button data-value="page">화면 전체</button></div>
+          <label class="ctrl"><span>지속 시간 <output id="mo-du-d-out"></output></span><input type="range" id="mo-du-d" min="0" max="1200" step="10" value="250"></label>
+          <div class="btn-row"><button type="button" class="btn" id="mo-du-go">열기 / 닫기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이동 거리(목업)</span><span class="v" id="mo-du-o-dist">—</span></div>
+        <div class="stat"><span class="k">평균 속도</span><span class="v" id="mo-du-o-v">—</span></div>
+        <div class="stat"><span class="k">느낌(통설의 범위)</span><span class="v" id="mo-du-o-feel">—</span></div>
+        <div class="stat"><span class="k">이 크기에 흔히 쓰는 범위</span><span class="v" id="mo-du-o-rec">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "더보기 패널", 250ms로 열고 닫는다. 패널이 내려오는 것이 보이지만 기다린다는 느낌은 없다. ② 지속 시간을 0으로 내린다. 패널이 순간 이동해, 무엇이 어디서 왔는지 놓치기 쉽다. ③ 1,000ms로 올린다. 움직임은 우아하지만 매번 1초씩 기다려야 한다. 하루에 몇 번 여는 메뉴라고 생각해 본다. ④ "작은 스위치"를 250ms로 두면 고작 20px을 가는 데 느릿하고, "화면 전체"를 150ms로 두면 큰 면이 휙 지나가 어지럽다. 같은 시간이라도 거리에 따라 속도가 달라진다. (느낌의 구간은 0.1초·1초의 고전적 기준과 실무 통설을 섞어 이 장이 정한 것이다: 100ms 미만 "순간", 100~200 "빠름", 200~400 "보통", 400~600 "느긋함", 600 초과 "기다림". 이징은 ease-out. 움직임을 줄인 상태에서는 이동 대신 짧은 페이드로 바뀐다.)</div>
+    </div>
+
+    <p>시뮬레이터에서 본 것처럼 지속 시간은 거리와 함께 생각해야 한다. 같은 250ms라도 20px을 가는 스위치는 느리고 300px을 가는 화면 전체는 빠르다. 그렇다고 속도를 일정하게 맞추면 큰 전환이 너무 길어지므로, 실무에서는 크기가 커질수록 시간을 <b>조금씩만</b> 늘린다. 또 하나, 사람의 눈은 들어오는 것을 보고 싶어 하지만 나가는 것은 보내 버리고 싶어 한다. 닫힘은 열림보다 짧게(예: 열림 250ms, 닫힘 150~200ms) 두는 경우가 많다.</p>
+
+    <div class="callout studio">
+      <strong>느린 화면으로 본다</strong>
+      200ms짜리 움직임은 눈으로 보아서는 무엇이 잘못되었는지 알기 어렵다. 크롬 같은 브라우저의 개발자 도구에는 페이지의 애니메이션을 모아 보여 주고 재생 속도를 25%, 10%로 늦추는 패널이 있다. 느린 화면으로 보면 패널이 한 박자 늦게 출발하는지, 그림자가 따로 노는지, 끝에서 덜컥 멈추는지가 보인다. 거꾸로 디자인 시안을 만들 때는 "느린 화면에서 우아한" 움직임에 빠지기 쉽다. 시안은 반드시 원래 속도로, 실제 기기에서, 같은 동작을 열 번 반복해 보며 확인한다. 열 번째에도 기다려지지 않아야 한다.
+    </div>
+  </section>
+
+  <section id="space">
+    <h2>전환이 알려 주는 공간</h2>
+    <p>화면 전환의 가장 큰 쓸모는 <b>공간 관계</b>를 알려 주는 것이다. 웹 화면에는 실제 공간이 없지만, 사람은 움직임을 보고 머릿속에 공간을 짓는다. 메뉴가 "더보기" 단추에서 펼쳐지면 메뉴는 단추 안에 접혀 있던 것이 되고, 닫으면 단추 속으로 돌아간다. 카드를 눌렀을 때 그 카드가 커져 상세 화면이 되면, 상세 화면은 그 카드의 "안쪽"이 된다. 다음 화면이 오른쪽에서 밀려 들어오면 사람은 "한 칸 깊이 들어왔다"고 느끼고, 뒤로 가기를 누르면 왼쪽으로 돌아나갈 것을 기대한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 220" role="img" aria-label="세 가지 메뉴 전환. 왼쪽은 메뉴가 누른 단추 바로 아래에서 펼쳐져 출발점과 누른 곳이 같다. 가운데는 화면 한가운데에서 커져 누른 곳과 상관이 없다. 오른쪽은 화면 밖 왼쪽에서 회전하며 날아와 출발점이 누른 곳과 반대편이다.">
+        <defs><marker id="mo3-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g transform="translate(18,16)">
+          <rect x="0" y="0" width="120" height="170" rx="10" class="f-surface s-line"/>
+          <rect x="84" y="8" width="28" height="16" rx="4" class="f-acc"/>
+          <rect x="44" y="28" width="68" height="70" rx="5" class="f-acc-soft s-acc"/>
+          <path d="M98 24 L98 30" class="s-acc" stroke-width="2"/>
+          <path d="M98 26 L52 90" class="s-acc s-dash" stroke-width="1.4" fill="none" marker-end="url(#mo3-ar)"/>
+          <text x="60" y="194" text-anchor="middle" class="lbl-b" font-size="12">단추에서 펼침</text>
+          <text x="60" y="208" text-anchor="middle" class="lbl-dim" font-size="10.5">출발점 = 누른 곳</text>
+        </g>
+        <g transform="translate(170,16)">
+          <rect x="0" y="0" width="120" height="170" rx="10" class="f-surface s-line"/>
+          <rect x="84" y="8" width="28" height="16" rx="4" class="f-acc"/>
+          <rect x="44" y="28" width="68" height="70" rx="5" class="f-acc-soft s-acc"/>
+          <circle cx="60" cy="85" r="4" class="f-warn"/>
+          <path d="M60 85 L76 66" class="s-acc2" stroke-width="1.6" fill="none" marker-end="url(#mo3-ar)"/>
+          <path d="M98 24 L68 82" class="s-bad s-dash" stroke-width="1" fill="none"/>
+          <text x="60" y="194" text-anchor="middle" class="lbl-b" font-size="12">가운데서 확대</text>
+          <text x="60" y="208" text-anchor="middle" class="lbl-dim" font-size="10.5">누른 곳과 상관없음</text>
+        </g>
+        <g transform="translate(322,16)">
+          <rect x="0" y="0" width="120" height="170" rx="10" class="f-surface s-line"/>
+          <rect x="84" y="8" width="28" height="16" rx="4" class="f-acc"/>
+          <rect x="44" y="28" width="68" height="70" rx="5" class="f-acc-soft s-acc"/>
+          <path d="M-14 140 C 10 70, 30 120, 50 62" class="s-bad" stroke-width="1.6" fill="none" marker-end="url(#mo3-ar)"/>
+          <text x="-12" y="160" class="lbl-bad" font-size="10">회전</text>
+          <text x="60" y="194" text-anchor="middle" class="lbl-b" font-size="12">옆에서 날아와 튕김</text>
+          <text x="60" y="208" text-anchor="middle" class="lbl-dim" font-size="10.5">출발점이 엉뚱한 곳</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 2. 메뉴가 나타나는 세 가지 방법.</b> 셋 다 결과 화면은 같다. 다른 것은 움직임의 출발점이다. 출발점이 누른 단추와 같으면 메뉴는 "단추 안에 있던 것"이 되고, 닫을 때 돌아갈 곳도 분명하다. 출발점이 누른 곳과 상관없으면 움직임은 아무것도 설명하지 않는 장식이 된다.</figcaption>
+    </figure>
+
+    <p>아래 목업에서 "더보기" 메뉴와 신간 카드의 상세 화면을 네 가지 방식으로 열어 본다. 화면을 눌러도 열고 닫힌다. 점선 상자는 움직임이 시작한 자리다.</p>
+
+    <div class="sim" id="sim-space">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>출발점이 있는 전환, 없는 전환</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mo-sp-cv" class="art"></canvas><span class="hint">화면을 누르면 열고 닫힌다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mo-sp-target"><button data-value="menu" class="on">더보기 메뉴</button><button data-value="card">신간 카드 → 상세</button></div>
+          <div class="seg" id="mo-sp-style"><button data-value="origin" class="on">누른 곳에서</button><button data-value="center">가운데서 확대</button><button data-value="bounce">날아와 튕김</button><button data-value="none">움직임 없음</button></div>
+          <div class="btn-row"><button type="button" class="btn" id="mo-sp-go">열기 / 닫기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">출발점과 누른 곳의 거리</span><span class="v" id="mo-sp-o-d">—</span></div>
+        <div class="stat"><span class="k">전환 시간</span><span class="v" id="mo-sp-o-t">—</span></div>
+        <div class="stat"><span class="k">움직임이 알려 주는 것</span><span class="v" id="mo-sp-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "더보기 메뉴", "누른 곳에서"로 열고 닫는다. 메뉴가 단추 아래에서 펼쳐지고 단추 속으로 접힌다. ② "가운데서 확대"로 바꾼다. 결과는 같은데 메뉴가 단추와 상관없는 곳에서 태어난다. ③ "날아와 튕김"으로 바꾼다. 이 장 끝의 케이스에서 지후가 처음 넣었던 움직임이다. 600ms 동안 화면 밖에서 회전하며 날아와 출렁인다. ④ "신간 카드 → 상세"로 바꿔 같은 비교를 한다. 카드에서 커진 상세 화면은 닫힐 때 그 카드로 돌아간다. ⑤ "움직임 없음"은 빠르지만, 무엇이 어디서 왔는지는 화면을 비교해 찾아야 한다. (전환 시간은 누른 곳에서·가운데서 250ms, 날아와 튕김 600ms. 거리는 목업 폭 300 기준의 화소다. 움직임을 줄인 상태에서는 모든 방식이 150ms 페이드로 바뀐다.)</div>
+    </div>
+
+    <p>"움직임 없음"이 늘 나쁜 것은 아니다. 바로 위에 단추가 있고 그 아래로 짧은 목록이 붙는 정도라면, 움직임 없이도 관계가 분명하다. 하지만 새 화면이 넓게 덮을수록, 원래 화면과의 관계가 덜 분명할수록 출발점을 지키는 전환이 도움이 된다. 반대로 출발점이 엉뚱한 움직임은 없느니만 못하다. 사람은 움직임에서도 의미를 읽으려 하기 때문에, 왼쪽에서 날아온 메뉴는 "왼쪽 어딘가에 있던 것"처럼 읽힌다.</p>
+
+    <div class="callout studio">
+      <strong>움직임에도 명세를 쓴다</strong>
+      개발자에게 "부드럽게 열리게 해 주세요"라고 말하면 사람마다 다른 움직임이 나온다. 움직임도 간격이나 색처럼 값으로 넘긴다. 무엇이(메뉴 패널), 무엇에 반응해(더보기 단추를 누르면), 무엇을 바꾸며(위치와 크기, 투명도), 어디서 시작해(단추의 아래 오른쪽 모서리), 얼마 동안(250ms), 어떤 곡선으로(이징 토큰 이름), 닫힐 때는 어떻게(150ms, 같은 곡선, 단추로 돌아감). 이 일곱 칸을 표로 적어 두면 다른 화면을 만들 때도 같은 움직임을 쓸 수 있다. <a href="tokens.html">6장</a>에서 색과 글자를 토큰으로 만들었듯 시간과 곡선도 토큰으로 만든다.
+    </div>
+  </section>
+
+  <section id="stagger">
+    <h2>차례로 나타나기</h2>
+    <p>목록의 항목이 한꺼번에 나타나지 않고 조금씩 시간 차를 두고 하나씩 나타나게 하는 것을 <span class="term">스태거</span><span class="en">(Stagger, 차례 등장)</span>라고 한다. 잘 쓰면 눈이 목록을 위에서 아래로 따라가게 이끈다. 문제는 시간이 <b>더해진다</b>는 것이다. 항목이 \(n\)개, 차례 간격이 \(d\), 한 항목의 전환 시간이 \(T\)이면 마지막 항목이 다 나타나는 시간은 \((n-1)\,d + T\)다. 항목이 많아지면 이 시간이 금세 1초를 넘는다.</p>
+
+    <div class="sim" id="sim-stag">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>차례 등장의 총 시간</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mo-st-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>항목 수 n <output id="mo-st-n-out"></output></span><input type="range" id="mo-st-n" min="3" max="24" step="1" value="12"></label>
+          <label class="ctrl"><span>차례 간격 d <output id="mo-st-d-out"></output></span><input type="range" id="mo-st-d" min="0" max="150" step="5" value="120"></label>
+          <label class="ctrl"><span>한 항목의 전환 T <output id="mo-st-t-out"></output></span><input type="range" id="mo-st-t" min="100" max="600" step="10" value="400"></label>
+          <div class="btn-row"><button type="button" class="btn" id="mo-st-go">다시 보기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">마지막 항목이 다 보이는 시간</span><span class="v" id="mo-st-o-tot">—</span></div>
+        <div class="stat"><span class="k">첫 화면 카드 6개가 다 보이는 시간</span><span class="v" id="mo-st-o-six">—</span></div>
+        <div class="stat"><span class="k">판정(이 장의 기준)</span><span class="v" id="mo-st-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 값(카드 12장, 간격 120ms, 전환 400ms)으로 "다시 보기"를 누른다. 마지막 카드는 1.72초 뒤에야 다 나타난다. 아래 막대그래프는 카드마다 기다리는 시간(옅은 막대)과 나타나는 시간(진한 막대)이다. ② 항목 수를 24로 올린다. 3초 넘게 기다려야 마지막 카드를 누를 수 있다. ③ 간격을 30ms, 전환을 250ms로 줄인다. 차례 느낌은 남고 총 시간은 0.6초 아래로 줄어든다. ④ 간격을 0으로 하면 모두 한꺼번에 나타난다. (판정: 총 시간 500ms 이하 "짧음", 1,000ms 이하 "눈에 띔", 그보다 길면 "기다리게 함". 이 장이 정한 기준이다. 휴대폰 첫 화면에 카드 6개가 보인다고 가정했다. 움직임을 줄인 상태에서는 모든 카드가 차례 없이 한 번에 짧게 나타난다.)</div>
+    </div>
+
+    <p>차례 등장을 쓸 때는 총 시간에 상한을 둔다. 많이 쓰는 방법은 두 가지다. 간격을 아주 짧게(수십 ms) 두거나, 처음 몇 개(첫 화면에 보이는 것)에만 차례를 주고 나머지는 한꺼번에 보이게 한다. 그리고 차례 등장은 <b>처음 한 번</b>만 쓴다. 필터를 바꿀 때마다, 뒤로 가기로 돌아올 때마다 목록이 다시 하나씩 나타나면 사람은 매번 기다려야 한다.</p>
+  </section>
+
+  <section id="vestibular">
+    <h2>과한 움직임과 전정 장애</h2>
+    <p>귀 안쪽의 <span class="term">전정 기관</span><span class="en">(Vestibular system)</span>은 몸의 기울기와 움직임을 느껴 균형을 잡는다. 이 기관이나 그 신호를 처리하는 뇌에 문제가 생긴 상태를 <span class="term">전정 장애</span><span class="en">(Vestibular disorder)</span>라고 한다. 어지럼증, 메스꺼움, 두통 같은 증상이 나타나는데, 눈으로 보는 움직임과 몸이 느끼는 움직임이 어긋날 때 증상이 생기거나 심해지기도 한다. 멀미와 비슷한 원리다. 전정 장애가 없어도 편두통이 있거나, 피곤하거나, 나이가 들어 균형 감각이 약해진 사람은 화면의 큰 움직임에 불편을 느낄 수 있다.</p>
+    <p>모든 움직임이 문제인 것은 아니다. 문제가 되기 쉬운 것은 <b>화면의 넓은 면적이 움직이는 것</b>, 특히 사람이 일으키지 않은 움직임, 스크롤과 속도가 다르게 움직이는 배경(시차 스크롤), 화면 전체가 확대·축소되거나 회전하는 전환, 빠르게 오가는 움직임이다. 작은 단추의 눌림이나 투명도 변화는 대부분 괜찮다.</p>
+    <p>아래 목업은 지후가 만든 첫 화면이다. 서점 사진 위에 제목이 있고, 스크롤하면 사진이 글자보다 느리게 움직이며(시차) 조금씩 커진다. 화면을 위아래로 끌어 스크롤한다.</p>
+
+    <div class="sim" id="sim-para">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>시차 스크롤과 확대</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mo-pa-cv" class="art"></canvas><span class="hint" id="mo-pa-hint">화면을 위아래로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>시차(배경이 덜 움직이는 정도) <output id="mo-pa-f-out"></output></span><input type="range" id="mo-pa-f" min="0" max="0.9" step="0.05" value="0.6"></label>
+          <label class="check"><input type="checkbox" id="mo-pa-zoom" checked> 스크롤하면 사진이 커진다</label>
+          <div class="btn-row"><button type="button" class="btn" id="mo-pa-top">맨 위로</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">글자와 배경의 속도 차이</span><span class="v" id="mo-pa-o-v">—</span></div>
+        <div class="stat"><span class="k">스크롤과 다르게 움직이는 면적</span><span class="v" id="mo-pa-o-a">—</span></div>
+        <div class="stat"><span class="k">사진 확대</span><span class="v" id="mo-pa-o-z">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 화면을 천천히 위로 끌어 스크롤한다. 손가락은 글자를 끌고 있는데 사진은 뒤처져 따라온다. 화면 안에 속도가 다른 두 층이 생긴다. ② 확대를 켠 채 빠르게 오르내린다. 사진이 커졌다 작아졌다 하며 화면의 절반 가까이가 출렁인다. ③ 시차를 0으로 내리고 확대를 끈다. 사진도 글자와 함께 움직여, 손가락과 화면이 한 몸처럼 움직인다. ④ 이 장 맨 위의 스위치를 "움직임 줄임"으로 두면 시차와 확대가 저절로 꺼진다. (면적은 목업 화면에서 사진이 차지하는 비율로 셌다. 어지럼증을 일으키는 문턱값은 사람마다 달라서 이 장은 숫자로 판정하지 않는다.)</div>
+    </div>
+
+    <p>웹 접근성 지침에는 움직임에 관한 기준이 셋 있다. WCAG 2.2의 <b>2.3.3 상호작용에 의한 애니메이션</b>(AAA)은 사람의 조작(스크롤, 누름)으로 일어나는 움직임을, 그것이 기능이나 정보 전달에 꼭 필요한 경우가 아니라면 끌 수 있게 하라고 한다. 등급은 가장 높은 AAA라 법적·계약상 요구에서 빠지는 경우가 많지만, 시차 스크롤 같은 효과에 정확히 해당한다. <b>2.2.2 일시 정지, 정지, 숨기기</b>(A)는 저절로 시작해 5초 넘게 움직이는 내용(자동으로 넘어가는 배너 등)을 멈추거나 숨길 수 있게 하라고 한다. <b>2.3.1 세 번의 번쩍임 또는 그 이하</b>(A)는 1초에 세 번 넘게 번쩍이는 것을 금지한다. 광과민성 발작을 일으킬 수 있기 때문이다.</p>
+
+    <div class="callout warn">
+      <strong>자동으로 도는 배너</strong>
+      첫 화면의 사진이 몇 초마다 저절로 옆으로 넘어가는 배너(캐러셀)는 많은 사이트에 있지만 문제가 많다. 사람이 다 읽기 전에 넘어가고, 화면의 넓은 면적이 주기적으로 움직이며, 화면 낭독기 사용자는 내용이 바뀌는 것을 알기 어렵다. 5초 넘게 저절로 움직인다면 2.2.2에 따라 멈춤 단추가 있어야 한다. 대부분의 경우 가장 중요한 것 하나를 고정해서 보여 주는 편이 낫다. <a href="viewport.html">2장</a>에서 서윤이 첫 화면에 "다음 모임" 하나만 두기로 한 것도 같은 판단이다.
+    </div>
+  </section>
+
+  <section id="reduce">
+    <h2>줄인 움직임 선호</h2>
+    <p>운영 체제의 "동작 줄이기" 설정을 켜면, 브라우저는 그 사실을 웹 페이지에 <span class="term">미디어 쿼리</span><span class="en">(Media query)</span>로 알려 준다. 미디어 쿼리는 화면 폭이나 색 테마 같은 보는 환경의 조건에 따라 다른 CSS를 적용하는 장치다(<a href="responsive.html">5장</a>). 움직임 설정을 알려 주는 조건이 <code>prefers-reduced-motion</code>이고 값은 <code>reduce</code>(줄여 달라)와 <code>no-preference</code>(따로 설정 없음) 둘이다. W3C의 Media Queries Level 5에 정의되어 있고 주요 브라우저가 모두 지원한다.</p>
+    <pre class="wb-code" data-scroll><code>:root {
+  --motion-base: 250ms;
+  --ease-out: cubic-bezier(0, 0, 0.58, 1);
+}
+.menu {
+  transition: transform var(--motion-base) var(--ease-out),
+              opacity var(--motion-base) var(--ease-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    transition: opacity 150ms linear;   /* 이동은 빼고 나타남만 남긴다 */
+    transform: none;
+  }
+  html { scroll-behavior: auto; }       /* 부드러운 스크롤도 끈다 */
+}</code></pre>
+    <p>스크립트에서도 같은 값을 읽을 수 있다. <code>window.matchMedia("(prefers-reduced-motion: reduce)").matches</code>가 <code>true</code>이면 줄여 달라는 뜻이다. 이 장 맨 위의 스위치가 바로 이 값을 읽고, 설정이 바뀌는 순간(<code>change</code> 이벤트)에도 따라 바뀐다. 자바스크립트로 만든 움직임(스크롤 이동, 캔버스 애니메이션, 자동 재생 영상)은 CSS의 미디어 쿼리가 막아 주지 않으므로 스크립트에서 직접 확인해야 한다.</p>
+    <p>"줄인다"는 말을 "모두 없앤다"로 읽으면 안 된다. 움직임이 하던 일(상태 변화 알림, 공간 관계)은 여전히 필요하다. 아래 시뮬레이터에서 왼쪽은 보통의 전환, 오른쪽은 움직임을 줄인 사람이 보게 될 전환이다. 오른쪽의 방법을 바꿔 가며 비교한다.</p>
+
+    <div class="sim" id="sim-alt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>줄인다는 것은 바꾸는 것</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="mo-al-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mo-al-way"><button data-value="same">그대로 둠</button><button data-value="off">모두 끔(순간)</button><button data-value="fade" class="on">짧은 페이드</button><button data-value="short">짧은 이동 + 페이드</button></div>
+          <div class="btn-row"><button type="button" class="btn" id="mo-al-go">둘 다 열기 / 닫기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">오른쪽의 움직이는 거리</span><span class="v" id="mo-al-o-d">—</span></div>
+        <div class="stat"><span class="k">오른쪽의 시간</span><span class="v" id="mo-al-o-t">—</span></div>
+        <div class="stat"><span class="k">남는 단서</span><span class="v" id="mo-al-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "짧은 페이드"로 둘 다 연다. 왼쪽은 패널이 단추에서 펼쳐지고, 오른쪽은 제자리에서 150ms 동안 나타난다. 움직이는 거리는 0이지만 "새로 나타났다"는 것은 보인다. ② "모두 끔"으로 바꾼다. 패널이 순간적으로 생긴다. 줄인 움직임 설정을 지켰지만, 작은 변화라면 놓칠 수도 있다. ③ "짧은 이동 + 페이드"는 8px만 내려오며 나타난다. 방향의 단서를 조금 남기면서 큰 이동은 없앤다. ④ "그대로 둠"은 설정을 무시한 것이다. (왼쪽은 이 장 케이스의 값: 250ms, 단추에서 펼침. 오른쪽의 이동 거리는 목업 화소다. 어느 정도의 짧은 이동까지 괜찮은지는 사람마다 달라, 지침들은 대체로 이동·확대·회전을 빼고 페이드로 바꾸는 쪽을 권한다.)</div>
+    </div>
+
+    <p>시뮬레이터의 네 방법 가운데 정답은 상황마다 다르지만, 원칙은 분명하다. 움직임을 줄인 사람에게는 <b>이동, 확대, 회전, 시차를 빼고</b>, 상태 변화는 짧은 페이드나 색 변화처럼 넓은 면이 움직이지 않는 방법으로 알린다. 포커스 표시, 눌림 표시, 진행 막대처럼 정보를 전하는 작은 변화는 남긴다. 반대로 설정이 없는 사람에게도 화면 전체가 날아다니는 움직임을 기본으로 두지 않는다. 줄인 움직임 설정을 켜는 사람은 불편을 느끼는 사람 가운데 일부일 뿐이다. 설정이 있는 줄도 모르는 사람이 훨씬 많다.</p>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 웹 개편 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 10장</span></div>
+      <h4>움직임 두 단계, 곡선 하나</h4>
+      <p>2월 셋째 주, 지후가 들뜬 얼굴로 시험 주소를 보냈다. "움직임을 좀 넣어 봤어요." 첫 화면 서점 사진은 스크롤하면 글자보다 느리게 따라오며 커졌고, 휴대폰의 "더보기" 패널은 화면 왼쪽 밖에서 회전하며 날아와 600ms 동안 출렁이다 멈췄다. 신간 목록의 카드 열두 장은 120ms 간격으로 하나씩 아래에서 떠올랐다(한 장에 400ms). 9장에서 정한 신청 폼은 "신청하기"를 누르면 접히고, 완료 카드가 위로 튀어 올랐다.</p>
+      <p>서윤의 노트북에서는 꽤 근사했다. 그런데 도경이 휴대폰으로 열자 표정이 굳었다. 글자를 크게 키운 도경의 화면에서는 사진이 화면의 절반을 넘게 차지해, 스크롤할 때마다 화면 대부분이 출렁였다. 신간 목록을 열고는 "마지막 책을 누르려는데 아직 안 나와"라고 했다. 이 장의 계산으로 열한 번의 간격에 한 장의 전환을 더하면 1.72초다. 더보기 패널이 두 번째로 날아왔을 때 도경은 휴대폰을 내려놓았다. "배 탄 것 같아."</p>
+      <p>지후는 서운해했지만 금방 고개를 끄덕였다. "제 화면에서는 몰랐어요. 제 휴대폰엔 동작 줄이기가 꺼져 있고, 화면도 작게 보니까." 셋은 지후가 넣은 움직임을 하나씩 이 장의 네 가지 일(상태 변화 알림, 공간 관계, 주의 끌기, 연속성)에 대 보았다. 어디에도 들지 않는 것은 지우고, 남긴 것은 시간과 곡선을 정해 토큰으로 묶었다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>움직임</th><th>지후의 첫 시도</th><th>서윤의 선택</th></tr></thead>
+          <tbody>
+            <tr><td>시간 토큰</td><td>요소마다 제각각(300~800ms)</td><td><code>--motion-short: 150ms</code>(눌림·호버·체크·닫힘), <code>--motion-base: 250ms</code>(열림·펼침·나타남) 두 단계만</td></tr>
+            <tr><td>이징 토큰</td><td>튕김, 탄성, ease 섞어 씀</td><td><code>--ease: cubic-bezier(0.2, 0, 0, 1)</code> 하나(빨리 출발해 부드럽게 멈추는 감속). 열림·닫힘·자리 옮김 모두 이 곡선</td></tr>
+            <tr><td>더보기 패널</td><td>왼쪽 밖에서 회전하며 날아와 출렁임, 600ms</td><td>단추 아래 오른쪽 모서리에서 펼침 250ms, 닫힘은 단추로 접히며 150ms</td></tr>
+            <tr><td>신간 카드</td><td>120ms 간격 차례 등장, 한 장 400ms(마지막 1.72초)</td><td>차례 등장 없음. 처음 열 때 목록 전체가 한 번에 페이드 150ms</td></tr>
+            <tr><td>카드 → 상세</td><td>오른쪽에서 회전하며 들어옴</td><td>누른 카드에서 커지는 전환 250ms, 뒤로 가면 그 카드로 돌아감</td></tr>
+            <tr><td>첫 화면 사진</td><td>시차 스크롤 + 확대</td><td>둘 다 없앰. 사진은 글자와 함께 스크롤</td></tr>
+            <tr><td>신청 완료 카드</td><td>폼이 접히고 카드가 튀어 오름</td><td>폼 자리에 완료 카드가 16px 아래에서 올라오며 나타남 250ms, 포커스를 완료 문장으로 옮김</td></tr>
+            <tr><td>줄인 움직임 선호</td><td>고려하지 않음</td><td>이동·확대 모두 <code>opacity</code> 150ms 페이드로 바꿈, 부드러운 스크롤 끔. 눌림·포커스 표시는 그대로</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>곡선을 고를 때 서윤은 편집기에서 ease-out과 <code>cubic-bezier(0.2, 0, 0, 1)</code>을 나란히 돌려 보았다. 두 번째 곡선은 출발이 조금 더 빠르고 끝이 더 길게 가라앉아, 250ms 안에서도 "도착"이 분명했다. 지후는 닫힘에 가속 곡선을 따로 두자고 했지만, 서윤은 이번에는 곡선 하나로 시작하고 닫힘은 시간을 짧게 해서 해결하기로 했다. 토큰이 적을수록 나중에 화면을 늘릴 때 고민이 적다. 지후는 카드에서 상세로 커지는 전환을 남길 수 있어 기뻐했다. "이건 장식이 아니라 길 안내니까요."</p>
+      <p>바꾼 사이트를 도경이 다시 열었다. 더보기를 누르자 패널이 단추 밑에서 짧게 펼쳐졌다. 도경은 이번엔 아무 말 없이 메뉴를 골랐다. 서윤은 그게 칭찬이라는 것을 알았다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>시간 토큰 두 단계 <code>--motion-short: 150ms</code>, <code>--motion-base: 250ms</code>, 이징 토큰 하나 <code>cubic-bezier(0.2, 0, 0, 1)</code>. 열림은 250ms, 닫힘은 150ms. 전환은 누른 곳에서 시작하고 그곳으로 돌아간다. 차례 등장·시차 스크롤·확대·회전·튕김은 쓰지 않는다. <code>prefers-reduced-motion: reduce</code>이면 이동과 확대를 150ms 페이드로 바꾸고 부드러운 스크롤을 끈다.</div>
+        <div><b>아직 남은 문제</b>신청 폼의 오류와 완료 문장이 화면 낭독기에 제대로 읽히는지, 키보드만으로 메뉴를 열고 닫을 수 있는지, 포커스가 패널 안으로 들어가는지는 아직 확인하지 않았다. 도경의 지인인 단골손님이 화면 낭독기로 사이트를 써 보겠다고 했다.</div>
+        <div><b>다음 단계</b><a href="access.html">11장</a>: 웹 접근성 점검.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>화면의 움직임은 상태 변화 알림, 공간 관계, 주의 끌기, 연속성의 일을 할 때 쓸모 있다. 어디에도 들지 않는 움직임은 장식이고, 매일 쓰는 화면에서는 기다림이 된다.</li>
+      <li>이징은 시간과 진행률을 잇는 함수다. 들어오는 것은 감속(ease-out), 나가는 것은 가속(ease-in), 화면 안에서 옮기는 것은 가감속(ease-in-out), 위치 없는 변화는 선형이 어울린다.</li>
+      <li>CSS의 <code>cubic-bezier(x1, y1, x2, y2)</code>는 양 끝이 (0, 0)과 (1, 1)인 3차 베지에 곡선의 두 조절점이다. y가 1을 넘으면 오버슈트가 생긴다. 사이트 전체에서 곡선은 한두 개로 줄인다.</li>
+      <li>지속 시간은 대략 100~500ms(통설)에서 거리·크기·방향·빈도에 따라 고른다. 닫힘은 열림보다 짧게. 차례 등장의 총 시간은 \((n-1)d + T\)로 금세 1초를 넘는다.</li>
+      <li>전환은 출발점을 지켜야 공간 관계를 알려 준다. 메뉴는 누른 단추에서, 상세 화면은 누른 카드에서 시작하고 그곳으로 돌아간다.</li>
+      <li>넓은 면적의 움직임, 시차 스크롤, 확대·회전은 전정 장애가 있는 사람에게 어지럼증을 일으킬 수 있다. WCAG 2.2의 2.3.3(AAA), 2.2.2(A), 2.3.1(A)이 관련 기준이다.</li>
+      <li><code>prefers-reduced-motion: reduce</code>이면 움직임을 없애는 대신 바꾼다. 이동·확대·회전·시차를 빼고 짧은 페이드로 상태 변화를 남긴다. 스크립트로 만든 움직임은 <code>matchMedia</code>로 직접 확인한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 화면 위쪽에서 알림 띠가 내려와 자리를 잡는다. 이 "들어오는" 움직임에 가장 어울리는 이징은?</p>
+        <div class="opts">
+          <button class="opt">ease-in: 천천히 출발해 끝에서 가장 빠르게 도착한다.</button>
+          <button class="opt" data-correct>ease-out: 빨리 출발해 자리에 가까워질수록 느려지며 멈춘다.</button>
+          <button class="opt">linear: 처음부터 끝까지 같은 속도라 가장 공정하다.</button>
+          <button class="opt">steps(3): 세 단계로 끊어 움직여 눈에 잘 띈다.</button>
+        </div>
+        <div class="quiz-exp">들어오는 것은 감속이 어울린다. 빨리 출발해 반응이 빠르게 느껴지고, 눈앞에서 부드럽게 멈춰 도착한 자리가 분명하다. ease-in은 끝에서 가장 빠른 채로 부딪치듯 멈추어 나가는 움직임에 맞다. 선형은 위치가 있는 움직임에서 기계적으로 보이고, steps()는 끊기는 효과용이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 신간 카드 12장이 120ms 간격으로 하나씩 나타나고, 카드 한 장의 전환은 400ms다. 마지막 카드가 다 나타나는 시간은?</p>
+        <div class="opts">
+          <button class="opt">520ms</button>
+          <button class="opt">1,440ms</button>
+          <button class="opt" data-correct>1,720ms</button>
+          <button class="opt">4,800ms</button>
+        </div>
+        <div class="quiz-exp">마지막 카드는 첫 카드보다 (12 − 1) × 120 = 1,320ms 늦게 출발하고, 출발한 뒤 400ms가 지나야 다 나타난다. 1,320 + 400 = 1,720ms. 520ms는 간격 하나와 전환 하나만 더한 것, 1,440ms는 간격을 12번 센 것, 4,800ms는 전환 시간을 12번 더한 것이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 휴대폰의 "더보기" 메뉴가 화면 왼쪽 밖에서 회전하며 날아와 600ms 동안 출렁이다 멈춘다. 이 장의 원칙에 가장 맞게 고친 것은?</p>
+        <div class="opts">
+          <button class="opt">회전만 빼고 왼쪽에서 날아오는 것은 그대로 둔다. 회전이 어지러움의 유일한 원인이다.</button>
+          <button class="opt">시간을 1,200ms로 늘려 움직임을 천천히 보여 준다. 느리면 어지럽지 않다.</button>
+          <button class="opt">모든 메뉴의 움직임을 없앤다. 움직임은 언제나 장식이다.</button>
+          <button class="opt" data-correct>"더보기" 단추에서 펼쳐지게 바꾸고 250ms 안팎의 감속 곡선을 쓴다. 닫을 때는 더 짧게, 단추 속으로 접는다.</button>
+        </div>
+        <div class="quiz-exp">전환은 누른 곳에서 시작해야 공간 관계를 알려 준다. 왼쪽에서 오는 메뉴는 회전을 빼도 출발점이 엉뚱하다. 시간을 늘리면 매번 기다리게 된다. 움직임을 모두 없애면 빠르지만 무엇이 어디서 왔는지 알려 주는 일까지 버리게 된다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. <code>prefers-reduced-motion: reduce</code>를 켠 사람에게 메뉴를 열어 보여 주는 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>단추에서 펼치는 이동과 확대는 빼고, 제자리에서 짧은 페이드로 나타나게 한다. 포커스 표시와 눌림 표시는 그대로 둔다.</button>
+          <button class="opt">WCAG 2.3.3은 AAA 기준이라 지키지 않아도 되므로 보통의 전환을 그대로 보여 준다.</button>
+          <button class="opt">포커스 표시, 눌림 표시, 진행 막대까지 모든 시각적 변화를 없앤다.</button>
+          <button class="opt">이동 시간을 두 배로 늘려 움직임을 부드럽게 만든다.</button>
+        </div>
+        <div class="quiz-exp">줄인 움직임은 정보를 줄이는 것이 아니라 전하는 방법을 바꾸는 것이다. 넓은 면이 움직이는 이동·확대·회전을 빼고 짧은 페이드로 상태 변화를 남긴다. 포커스나 눌림 표시는 움직임이 아니라 정보이므로 없애면 안 된다. 등급과 상관없이 사람이 직접 요청한 설정이고, 시간을 늘리면 움직임이 더 오래 보일 뿐이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var BK = { green: "#2f7d5b", cream: "#ffe2d7", calm: "#567666", red: "#d24f39", dark: "#22342a" };   // 책방 E의 색(ColorBook)
+  var INK = "#22342a", DIM = "#5f6b64", LINE = "#c9c3b8", WHITE = "#ffffff", PAPER = "#fbfaf7", FRAME = "#1c2420";
+  function $(id) { return document.getElementById(id); }
+  function run(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  function FONT(px, w) { return (w || 500) + " " + Math.max(1, px).toFixed(1) + "px " + getComputedStyle(document.body).getPropertyValue("--font"); }
+  function rrect(c, x, y, w, h, r) { r = Math.max(0, Math.min(r, Math.abs(w) / 2, Math.abs(h) / 2)); c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function clamp01(t) { return t < 0 ? 0 : t > 1 ? 1 : t; }
+
+  /* ---------------- 3차 베지에 이징(CSS와 같은 방식: x(s) = 시간을 풀고 y(s)를 읽는다) ---------------- */
+  function bezier(x1, y1, x2, y2) {
+    function cx(s) { return 3 * x1 * s * (1 - s) * (1 - s) + 3 * x2 * s * s * (1 - s) + s * s * s; }
+    function cy(s) { return 3 * y1 * s * (1 - s) * (1 - s) + 3 * y2 * s * s * (1 - s) + s * s * s; }
+    function dx(s) { return 3 * x1 * (1 - s) * (1 - s) + 6 * (x2 - x1) * s * (1 - s) + 3 * (1 - x2) * s * s; }
+    return function (x) {
+      if (x <= 0) return 0; if (x >= 1) return 1;
+      var s = x, i;
+      for (i = 0; i < 8; i++) { var e = cx(s) - x; if (Math.abs(e) < 1e-6) return cy(s); var d = dx(s); if (Math.abs(d) < 1e-6) break; s -= e / d; }
+      var lo = 0, hi = 1; s = x;
+      for (i = 0; i < 40; i++) { var v = cx(s); if (Math.abs(v - x) < 1e-6) break; if (v < x) lo = s; else hi = s; s = (lo + hi) / 2; }
+      return cy(s);
+    };
+  }
+  var EASE = { linear: function (t) { return t; }, "ease-in": bezier(0.42, 0, 1, 1), "ease-out": bezier(0, 0, 0.58, 1), "ease-in-out": bezier(0.42, 0, 0.58, 1), ease: bezier(0.25, 0.1, 0.25, 1) };
+  var TOKEN = bezier(0.2, 0, 0, 1);   // 이 장 케이스에서 서윤이 고른 이징 토큰
+  function elastic(t) { return t >= 1 ? 1 : 1 - Math.exp(-5.5 * t) * Math.cos(11 * t); }   // 날아와 튕김(지후의 첫 시도)
+
+  /* ---------------- 줄인 움직임 선호: 실제 미디어 쿼리 + 이 장의 스위치 ---------------- */
+  var MQ = null;
+  try { MQ = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null; } catch (e) { MQ = null; }
+  var PREF = "system";
+  try { var saved = localStorage.getItem("ab-web-motion"); if (saved === "system" || saved === "reduce" || saved === "full") PREF = saved; } catch (e) {}
+  var RM_SUBS = [];
+  function sysReduce() { return !!(MQ && MQ.matches); }
+  function reduced() { return PREF === "reduce" || (PREF === "system" && sysReduce()); }
+  function onRM(cb) { RM_SUBS.push(cb); }
+  function fireRM() { RM_SUBS.forEach(function (cb) { try { cb(); } catch (e) { console.error(e); } }); }
+  if (MQ) { if (MQ.addEventListener) MQ.addEventListener("change", fireRM); else if (MQ.addListener) MQ.addListener(fireRM); }
+
+  /* 시간에 따라 0→1을 돌려주는 단순 트윈 */
+  function tween(dur, step, done) {
+    var t0 = performance.now(), id = 0, live = true;
+    function f(now) { if (!live) return; var t = dur <= 0 ? 1 : Math.min(1, (now - t0) / dur); step(t); if (t < 1) id = requestAnimationFrame(f); else if (done) done(); }
+    if (dur <= 0) { step(1); if (done) done(); } else id = requestAnimationFrame(f);
+    return { stop: function () { live = false; cancelAnimationFrame(id); } };
+  }
+
+  /* 휴대폰 목업: 화면을 폭 300의 목업 좌표로 바꿔 fn(c, MH)를 부른다 */
+  var MW = 300;
+  function phone(c, x, y, w, h, fn) {
+    var b = Math.max(5, w * 0.03);
+    c.fillStyle = FRAME; rrect(c, x, y, w, h, Math.min(26, w * 0.1)); c.fill();
+    var sx = x + b, sy = y + b * 1.3, sw = w - 2 * b, sh = h - 2.6 * b, k = sw / MW;
+    c.save(); rrect(c, sx, sy, sw, sh, Math.min(18, w * 0.07)); c.clip();
+    c.translate(sx, sy); c.scale(k, k);
+    c.fillStyle = WHITE; c.fillRect(0, 0, MW, sh / k);
+    fn(c, sh / k);
+    c.restore();
+    return { sx: sx, sy: sy, k: k, mh: sh / k };
+  }
+  function topbar(c, moreOn) {
+    c.fillStyle = BK.green; c.fillRect(0, 0, MW, 44);
+    c.fillStyle = BK.cream; rrect(c, 14, 13, 18, 18, 4); c.fill();
+    c.fillStyle = WHITE; c.font = FONT(14, 800); c.textAlign = "left"; c.textBaseline = "middle"; c.fillText("책방 E", 40, 23);
+    c.fillStyle = moreOn ? BK.dark : "rgba(255,255,255,0.18)"; rrect(c, 222, 8, 68, 28, 7); c.fill();
+    c.fillStyle = WHITE; c.font = FONT(12.5, 700); c.textAlign = "center"; c.fillText("더보기", 256, 23);
+  }
+  function bodyLines(c, y0, n, mh) {
+    c.fillStyle = BK.calm; rrect(c, 14, y0, MW - 28, 110, 10); c.fill();
+    c.fillStyle = BK.cream; c.font = FONT(17, 800); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("다음 모임", 28, y0 + 40);
+    c.font = FONT(12.5, 600); c.fillText("2월 22일(목) 저녁 7시 · 낭독", 28, y0 + 64);
+    c.fillStyle = "#e7ece9";
+    for (var i = 0; i < n; i++) { var yy = y0 + 132 + i * 22; if (yy > mh) break; rrect(c, 14, yy, (i % 3 === 2 ? 170 : MW - 28), 10, 5); c.fill(); }
+  }
+  var MENU_ITEMS = ["서점 소개", "오시는 길", "소식지", "문의"];
+  var MENU_R = { x: 150, y: 44, w: 140, h: 188 };
+  function drawMenu(c, r, alpha) {
+    if (alpha <= 0.001 || r.w < 1 || r.h < 1) return;
+    c.save(); c.globalAlpha = clamp01(alpha);
+    c.fillStyle = "rgba(0,0,0,0.18)"; rrect(c, r.x + 2, r.y + 4, r.w, r.h, 10); c.fill();
+    c.fillStyle = WHITE; rrect(c, r.x, r.y, r.w, r.h, 10); c.fill();
+    c.strokeStyle = LINE; c.lineWidth = 1; rrect(c, r.x + 0.5, r.y + 0.5, r.w - 1, r.h - 1, 10); c.stroke();
+    var sx = r.w / MENU_R.w, sy = r.h / MENU_R.h;
+    c.save(); rrect(c, r.x, r.y, r.w, r.h, 10); c.clip(); c.translate(r.x, r.y); c.scale(sx, sy);
+    MENU_ITEMS.forEach(function (m, i) {
+      c.fillStyle = INK; c.font = FONT(14, 600); c.textAlign = "left"; c.textBaseline = "middle"; c.fillText(m, 18, 28 + i * 44);
+      if (i < 3) { c.fillStyle = "#ece8e1"; c.fillRect(12, 50 + i * 44, MENU_R.w - 24, 1); }
+    });
+    c.restore(); c.restore();
+  }
+
+  /* ---------------- 0. 이 장의 움직임 스위치 ---------------- */
+  run("switch", function () {
+    var p = 1, anim = null, lastMode = "full";
+    var pref = AB.seg("mo-rm-pref", function (v) { PREF = v; try { localStorage.setItem("ab-web-motion", v); } catch (e) {} fireRM(); });
+    pref.set(PREF, false);
+    var cv = AB.canvas("#mo-rm-cv", draw, { bg: PAPER, get height() { var W = Math.max(200, ($("mo-rm-cv").parentElement.clientWidth || 600)); var pw = Math.min(W - 40, 240); return Math.round(pw * 1.3 + 30); } });
+    function draw(c, W, H) {
+      var pw = Math.min(W - 40, 240), ph = pw * 1.3, x = (W - pw) / 2;
+      phone(c, x, 14, pw, ph, function (c, mh) {
+        topbar(c, false);
+        c.fillStyle = INK; c.font = FONT(17, 800); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("모임 신청", 18, 76);
+        var e = lastMode === "full" ? TOKEN(p) : p, dy = lastMode === "full" ? (1 - e) * 16 : 0, a = lastMode === "full" ? e : p;
+        c.save(); c.globalAlpha = clamp01(a); c.translate(0, dy);
+        c.fillStyle = "#e9f3ee"; rrect(c, 18, 96, MW - 36, 150, 12); c.fill();
+        c.fillStyle = BK.green; c.beginPath(); c.arc(MW / 2, 140, 22, 0, 7); c.fill();
+        c.strokeStyle = WHITE; c.lineWidth = 4; c.lineCap = "round"; c.lineJoin = "round"; c.beginPath(); c.moveTo(MW / 2 - 10, 141); c.lineTo(MW / 2 - 2, 149); c.lineTo(MW / 2 + 11, 132); c.stroke();
+        c.fillStyle = INK; c.font = FONT(15, 800); c.textAlign = "center"; c.fillText("신청이 접수되었습니다", MW / 2, 190);
+        c.fillStyle = DIM; c.font = FONT(12, 500); c.fillText("2월 22일(목) 저녁 낭독 모임 · 2명", MW / 2, 214);
+        c.restore();
+        c.fillStyle = "#e7ece9"; for (var i = 0; i < 6; i++) { var yy = 268 + i * 22; if (yy > mh - 10) break; rrect(c, 18, yy, i % 2 ? 160 : MW - 36, 10, 5); c.fill(); }
+      });
+    }
+    function info() {
+      AB.stat("mo-rm-o-sys", MQ ? (sysReduce() ? "<code>reduce</code> <small>(줄여 달라)</small>" : "<code>no-preference</code> <small>(설정 없음)</small>") : "알 수 없음 <small>(이 브라우저가 지원하지 않음)</small>");
+      AB.stat("mo-rm-o-eff", reduced() ? "움직임 줄임" : "보통");
+      AB.stat("mo-rm-o-how", reduced() ? "제자리 페이드 150ms" : "16px 아래에서 올라오며 250ms");
+    }
+    function play() {
+      if (anim) anim.stop();
+      lastMode = reduced() ? "reduce" : "full";
+      anim = tween(reduced() ? 150 : 250, function (t) { p = t; cv.redraw(); });
+    }
+    $("mo-rm-play").addEventListener("click", play);
+    onRM(function () { pref.set(PREF, false); info(); });
+    info();
+  });
+
+  /* ---------------- 1. 같은 시간, 다른 빠르기 ---------------- */
+  run("ease", function () {
+    var LANES = [["linear", "선형 linear"], ["ease-in", "가속 ease-in"], ["ease-out", "감속 ease-out"], ["ease-in-out", "가감속 ease-in-out"]];
+    var tR = AB.range("mo-ea-t", function (v) { return v + "%"; }, function () { if (anim) { anim.stop(); anim = null; } cv.redraw(); });
+    var trail = AB.check("mo-ea-trail", function () { cv.redraw(); });
+    var anim = null;
+    var cv = AB.canvas("#mo-ea-cv", draw, { height: 4 * 58 + 34 });
+    function draw(c, W, H) {
+      var P = AB.palette(), t = tR() / 100, padL = 14, padR = 18, x0 = padL + 4, x1 = W - padR - 10;
+      var cols = [P.dim, P.warn, P.accent, P.accent2];
+      LANES.forEach(function (L, i) {
+        var y = 26 + i * 58, f = EASE[L[0]];
+        c.fillStyle = P.text; c.font = AB.font(12, false, 600); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText(L[1], padL, y);
+        c.strokeStyle = P.grid; c.lineWidth = 6; c.lineCap = "round"; c.beginPath(); c.moveTo(x0, y + 18); c.lineTo(x1, y + 18); c.stroke();
+        if (trail()) { c.fillStyle = cols[i]; for (var k = 0; k <= 10; k++) { c.globalAlpha = 0.35; c.beginPath(); c.arc(lerp(x0, x1, f(k / 10)), y + 18, 3.2, 0, 7); c.fill(); } c.globalAlpha = 1; }
+        var px = lerp(x0, x1, f(t));
+        c.fillStyle = cols[i]; c.beginPath(); c.arc(px, y + 18, 9, 0, 7); c.fill();
+        c.fillStyle = P.dim; c.font = AB.font(11, true); c.textAlign = "right"; c.fillText(Math.round(f(t) * 100) + "%", W - padR + 6, y);
+      });
+      c.strokeStyle = P.axis; c.setLineDash([3, 4]); c.lineWidth = 1;
+      c.beginPath(); c.moveTo(x0, 12); c.lineTo(x0, H - 6); c.moveTo(x1, 12); c.lineTo(x1, H - 6); c.stroke(); c.setLineDash([]);
+      AB.stat("mo-ea-o-p", LANES.map(function (L) { return Math.round(EASE[L[0]](t) * 100); }).join(" · ") + " <small>%</small>");
+      AB.stat("mo-ea-o-f", LANES.map(function (L) { return Math.round(EASE[L[0]](0.1) * 100); }).join(" · ") + " <small>%</small>");
+      AB.stat("mo-ea-o-l", LANES.map(function (L) { return Math.round((1 - EASE[L[0]](0.9)) * 100); }).join(" · ") + " <small>% (선형·가속·감속·가감속)</small>");
+    }
+    $("mo-ea-play").addEventListener("click", function () {
+      if (anim) anim.stop();
+      tR.el.value = 0;
+      anim = tween(1000, function (t) { tR.el.value = Math.round(t * 100); tR.el.dispatchEvent(new Event("input-silent")); var o = $("mo-ea-t-out"); if (o) o.textContent = Math.round(t * 100) + "%"; tR.el.style.setProperty("--fill", (t * 100) + "%"); cv.redraw(); }, function () { anim = null; });
+    });
+  });
+
+  /* ---------------- 2. cubic-bezier 편집기 ---------------- */
+  run("bezier", function () {
+    var PRE = { ease: [0.25, 0.1, 0.25, 1], out: [0, 0, 0.58, 1], inout: [0.42, 0, 0.58, 1], "in": [0.42, 0, 1, 1], back: [0.34, 1.56, 0.64, 1], lin: [0, 0, 1, 1] };
+    var pts = PRE.out.slice(), drag = -1, clock = 0;
+    var pre = AB.seg("mo-bz-pre", function (v) { pts = PRE[v].slice(); cv.redraw(); });
+    var dur = AB.range("mo-bz-d", function (v) { return v + " ms"; }, function () { cv.redraw(); });
+    var ghost = AB.check("mo-bz-ghost", function () { cv.redraw(); });
+    var geo = null;
+    var cv = AB.canvas("#mo-bz-cv", draw, { get height() { var W = Math.max(200, ($("mo-bz-cv").parentElement.clientWidth || 600)); return Math.round(Math.min(W - 70, 280) * 1.0 + 150); } });
+    function draw(c, W, H) {
+      var P = AB.palette(), G = Math.min(W - 70, 280), gx = (W - G) / 2 + 8, gy = 22 + G * 0.25, yr = 1.6;
+      // 그래프는 y −0.25 ~ 1.35 범위를 보인다: 1 단위 = G px
+      var X = function (v) { return gx + v * G; }, Y = function (v) { return gy + (1 - v) * G * 0.8; };
+      geo = { X: X, Y: Y, G: G, gx: gx, gy: gy };
+      var f = bezier(pts[0], pts[1], pts[2], pts[3]);
+      c.strokeStyle = P.grid; c.lineWidth = 1;
+      c.strokeRect(X(0), Y(1), G, Y(0) - Y(1));
+      c.setLineDash([3, 4]); c.beginPath(); c.moveTo(X(0), Y(0)); c.lineTo(X(1), Y(1)); c.stroke(); c.setLineDash([]);
+      c.fillStyle = P.dim; c.font = AB.font(10.5, true); c.textAlign = "right"; c.textBaseline = "middle";
+      c.fillText("100%", X(0) - 5, Y(1)); c.fillText("0", X(0) - 5, Y(0));
+      c.textAlign = "center"; c.textBaseline = "top"; c.fillText("시간 →", X(0.5), Y(0) + 4);
+      // 조절선
+      c.strokeStyle = P.faint; c.lineWidth = 1.5;
+      c.beginPath(); c.moveTo(X(0), Y(0)); c.lineTo(X(pts[0]), Y(pts[1])); c.moveTo(X(1), Y(1)); c.lineTo(X(pts[2]), Y(pts[3])); c.stroke();
+      // 곡선
+      c.strokeStyle = P.accent; c.lineWidth = 3; c.beginPath();
+      for (var i = 0; i <= 80; i++) { var x = i / 80, yv = f(x); if (i) c.lineTo(X(x), Y(yv)); else c.moveTo(X(x), Y(yv)); }
+      c.stroke();
+      var moving = !reduced();
+      var cyc = dur() + 500, tt = moving ? Math.min(1, (clock % cyc) / dur()) : 1;
+      if (moving) { c.fillStyle = P.accent2; c.beginPath(); c.arc(X(tt), Y(f(tt)), 5, 0, 7); c.fill(); }
+      AB.handle(c, X(pts[0]), Y(pts[1]), { r: 7, fill: P.surface, ring: P.accent });
+      AB.handle(c, X(pts[2]), Y(pts[3]), { r: 7, fill: P.surface, ring: P.accent });
+      c.fillStyle = P.dim; c.font = AB.font(10.5, true); c.textAlign = "left"; c.textBaseline = "bottom";
+      c.fillText("P1", X(pts[0]) + 10, Y(pts[1]) - 6); c.fillText("P2", X(pts[2]) + 10, Y(pts[3]) - 6);
+      // 트랙과 공
+      var ty = Y(0) + 34, tx0 = X(0), tx1 = X(1);
+      var lo = Math.min(0, minY(f)), hi = Math.max(1, maxY(f));
+      c.strokeStyle = P.grid; c.lineWidth = 6; c.lineCap = "round"; c.beginPath(); c.moveTo(tx0, ty); c.lineTo(tx1, ty); c.stroke();
+      c.fillStyle = P.accent; for (var k = 0; k <= 10; k++) { c.globalAlpha = 0.3; c.beginPath(); c.arc(lerp(tx0, tx1, f(k / 10)), ty, 3, 0, 7); c.fill(); } c.globalAlpha = 1;
+      if (ghost()) { c.fillStyle = P.faint; c.beginPath(); c.arc(lerp(tx0, tx1, tt), ty + 24, 7, 0, 7); c.fill(); c.fillStyle = P.dim; c.font = AB.font(10.5); c.textAlign = "left"; c.textBaseline = "middle"; c.fillText("선형", Math.min(tx1 + 12, W - 30), ty + 24); }
+      c.fillStyle = P.accent; c.beginPath(); c.arc(lerp(tx0, tx1, f(tt)), ty, 10, 0, 7); c.fill();
+      var css = "cubic-bezier(" + pts.map(function (v) { return +v.toFixed(2); }).join(", ") + ")";
+      AB.stat("mo-bz-o-css", '<code style="font-size:12px">' + css + "</code>");
+      AB.stat("mo-bz-o-h", Math.round(f(0.5) * 100) + "%");
+      AB.stat("mo-bz-o-max", Math.round(hi * 100) + "%" + (hi > 1.001 ? " <small>(오버슈트)</small>" : "") + (lo < -0.001 ? " <small>· 처음에 " + Math.round(lo * 100) + "%로 물러섬</small>" : ""));
+      var hint = $("mo-bz-hint"); if (hint) hint.textContent = reduced() ? "조절점을 끈다 · 움직임 줄임: 공은 멈춰 있다" : "조절점을 끈다";
+    }
+    function minY(f) { var m = 0; for (var i = 0; i <= 60; i++) m = Math.min(m, f(i / 60)); return m; }
+    function maxY(f) { var m = 1; for (var i = 0; i <= 60; i++) m = Math.max(m, f(i / 60)); return m; }
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!geo) return; drag = -1; var best = 26;
+        [[0, 1], [2, 3]].forEach(function (ix, k) { var d = Math.hypot(x - geo.X(pts[ix[0]]), y - geo.Y(pts[ix[1]])); if (d < best) { best = d; drag = k; } });
+      },
+      move: function (x, y) {
+        if (drag < 0 || !geo) return;
+        var vx = AB.clamp((x - geo.gx) / geo.G, 0, 1), vy = AB.clamp(1 - (y - geo.gy) / (geo.G * 0.8), -0.25, 1.6);
+        pts[drag * 2] = Math.round(vx * 100) / 100; pts[drag * 2 + 1] = Math.round(vy * 100) / 100;
+        [].forEach.call($("mo-bz-pre").querySelectorAll("button"), function (b) { b.classList.remove("on"); b.setAttribute("aria-pressed", "false"); });
+        cv.redraw();
+      },
+      end: function () { drag = -1; }
+    });
+    AB.loop(cv.canvas, function (dt) { if (reduced()) return; clock += dt * 1000; cv.redraw(); });
+    onRM(function () { cv.redraw(); });
+  });
+
+  /* ---------------- 3. 지속 시간과 거리 ---------------- */
+  run("duration", function () {
+    var st = { open: false, p: 0, anim: null, fadeMode: false };
+    var kind = AB.seg("mo-du-kind", function () { if (st.anim) st.anim.stop(); st.open = false; st.p = 0; cv.redraw(); info(); });
+    var dur = AB.range("mo-du-d", function (v) { return v + " ms"; }, function () { info(); });
+    var DIST = { toggle: 20, panel: 188, page: 300 };
+    var REC = { toggle: "100~150ms", panel: "200~300ms", page: "300~500ms" };
+    var cv = AB.canvas("#mo-du-cv", draw, { bg: PAPER, get height() { var W = Math.max(200, ($("mo-du-cv").parentElement.clientWidth || 600)); var pw = Math.min(W - 40, 250); return Math.round(pw * 1.55 + 30); } });
+    function draw(c, W, H) {
+      var pw = Math.min(W - 40, 250), ph = pw * 1.55, x = (W - pw) / 2, k = kind();
+      var e = EASE["ease-out"](st.p), fade = st.fadeMode;
+      phone(c, x, 14, pw, ph, function (c, mh) {
+        topbar(c, k === "panel" && st.p > 0);
+        bodyLines(c, 58, 12, mh);
+        if (k === "toggle") {
+          c.fillStyle = WHITE; rrect(c, 14, 180, MW - 28, 56, 10); c.fill(); c.strokeStyle = LINE; c.lineWidth = 1; rrect(c, 14.5, 180.5, MW - 29, 55, 10); c.stroke();
+          c.fillStyle = INK; c.font = FONT(14, 600); c.textAlign = "left"; c.textBaseline = "middle"; c.fillText("소식지 받기", 28, 208);
+          var on = fade ? (st.p > 0.5 ? 1 : 0) : e;
+          var tx = 228, tw = 48, th = 28;
+          c.fillStyle = fade ? (on ? BK.green : "#b9bfbc") : (on > 0.5 ? BK.green : "#b9bfbc");
+          if (!fade) { c.fillStyle = mixHex("#b9bfbc", BK.green, e); }
+          rrect(c, tx, 194, tw, th, 14); c.fill();
+          var kx = fade ? (on ? tx + tw - 14 : tx + 14) : lerp(tx + 14, tx + tw - 14, e);
+          c.fillStyle = WHITE; c.beginPath(); c.arc(kx, 208, 11, 0, 7); c.fill();
+        } else if (k === "panel") {
+          if (fade) drawMenu(c, MENU_R, st.p);
+          else { var hh = MENU_R.h * e; drawMenu(c, { x: MENU_R.x, y: MENU_R.y - MENU_R.h + hh, w: MENU_R.w, h: MENU_R.h }, 1); c.fillStyle = BK.green; c.fillRect(0, 0, MW, 44); topbar(c, st.p > 0); }
+        } else {
+          var off = fade ? 0 : (1 - e) * MW;
+          c.save(); c.globalAlpha = fade ? st.p : 1; c.translate(off, 0);
+          if (st.p > 0) {
+            c.fillStyle = "rgba(0,0,0,0.15)"; c.fillRect(-6, 0, 6, mh);
+            c.fillStyle = BK.cream; c.fillRect(0, 0, MW, mh);
+            c.fillStyle = BK.dark; c.fillRect(0, 0, MW, 44);
+            c.fillStyle = WHITE; c.font = FONT(13, 700); c.textAlign = "left"; c.textBaseline = "middle"; c.fillText("‹ 행사 일정", 14, 23);
+            c.fillStyle = BK.green; rrect(c, 20, 70, 110, 150, 6); c.fill();
+            c.fillStyle = INK; c.font = FONT(16, 800); c.textBaseline = "alphabetic"; c.fillText("밤의 서가", 146, 96);
+            c.fillStyle = DIM; c.font = FONT(12, 500); c.fillText("2월 신간 · 소설", 146, 118);
+            c.fillStyle = "rgba(34,52,42,0.12)"; for (var i = 0; i < 6; i++) { rrect(c, 20, 246 + i * 22, i % 3 === 2 ? 150 : MW - 40, 10, 5); c.fill(); }
+          }
+          c.restore();
+        }
+      });
+    }
+    function mixHex(a, b, t) { var A = ART.parse(a), B = ART.parse(b); return ART.hex([lerp(A[0], B[0], t), lerp(A[1], B[1], t), lerp(A[2], B[2], t)]); }
+    function info() {
+      var d = dur(), k = kind(), dist = DIST[k], red = reduced();
+      AB.stat("mo-du-o-dist", red ? "0 px <small>(줄임: 페이드)</small>" : dist + " px");
+      AB.stat("mo-du-o-v", red || d === 0 ? "—" : (dist / d).toFixed(2) + " px/ms");
+      var feel = d < 100 ? "순간" : d <= 200 ? "빠름" : d <= 400 ? "보통" : d <= 600 ? "느긋함" : "기다림";
+      AB.stat("mo-du-o-feel", red ? "페이드 " + Math.min(d, 150) + "ms" : d + "ms · " + feel);
+      AB.stat("mo-du-o-rec", REC[k] + " <small>(통설)</small>");
+    }
+    $("mo-du-go").addEventListener("click", function () {
+      if (st.anim) st.anim.stop();
+      var from = st.p, to = st.open ? 0 : 1; st.open = !st.open;
+      st.fadeMode = reduced();
+      var d = st.fadeMode ? Math.min(dur(), 150) : dur();
+      st.anim = tween(d * Math.abs(to - from), function (t) { st.p = lerp(from, to, t); cv.redraw(); });
+    });
+    onRM(function () { info(); cv.redraw(); });
+    info();
+  });
+
+  /* ---------------- 4. 출발점이 있는 전환, 없는 전환 ---------------- */
+  run("space", function () {
+    var st = { open: false, p: 0, anim: null, style: "origin", fade: false };
+    var CARD = { x: 14, y: 186, w: 130, h: 160 }, CARD2 = { x: 156, y: 186, w: 130, h: 160 };
+    var target = AB.seg("mo-sp-target", reset), style = AB.seg("mo-sp-style", reset);
+    function reset() { if (st.anim) st.anim.stop(); st.open = false; st.p = 0; cv.redraw(); info(); }
+    var cv = AB.canvas("#mo-sp-cv", draw, { bg: PAPER, get height() { var W = Math.max(200, ($("mo-sp-cv").parentElement.clientWidth || 600)); var pw = Math.min(W - 40, 250); return Math.round(pw * 1.62 + 30); } });
+    function rectFor(tgt, sty, p, mh) {
+      var fin = tgt === "menu" ? MENU_R : { x: 0, y: 44, w: MW, h: mh - 44 };
+      var src = tgt === "menu" ? { x: 290, y: 44, w: 0, h: 0 } : CARD;
+      if (sty === "origin") { var e = TOKEN(p); return { r: { x: lerp(src.x, fin.x, e), y: lerp(src.y, fin.y, e), w: lerp(src.w, fin.w, e), h: lerp(src.h, fin.h, e) }, a: Math.min(1, p * 3), rot: 0 }; }
+      if (sty === "center") { var e2 = TOKEN(p), s = lerp(0.3, 1, e2), cx = lerp(MW / 2, fin.x + fin.w / 2, e2), cy = lerp(mh / 2, fin.y + fin.h / 2, e2); return { r: { x: cx - fin.w * s / 2, y: cy - fin.h * s / 2, w: fin.w * s, h: fin.h * s }, a: e2, rot: 0 }; }
+      if (sty === "bounce") { var e3 = elastic(p), sx = tgt === "menu" ? -fin.w - 40 : -MW, sy = tgt === "menu" ? 260 : mh; return { r: { x: lerp(sx, fin.x, e3), y: lerp(sy, fin.y, e3), w: fin.w, h: fin.h }, a: 1, rot: (1 - e3) * -0.5 }; }
+      return { r: fin, a: p > 0 ? 1 : 0, rot: 0 };
+    }
+    function drawDetail(c, r, alpha, rot) {
+      if (alpha <= 0.001 || r.w < 2 || r.h < 2) return;
+      c.save(); c.globalAlpha = clamp01(alpha);
+      c.translate(r.x + r.w / 2, r.y + r.h / 2); c.rotate(rot); c.translate(-r.w / 2, -r.h / 2);
+      c.fillStyle = "rgba(0,0,0,0.16)"; rrect(c, 2, 4, r.w, r.h, 10); c.fill();
+      c.fillStyle = BK.cream; rrect(c, 0, 0, r.w, r.h, 10); c.fill();
+      c.save(); rrect(c, 0, 0, r.w, r.h, 10); c.clip();
+      var k = r.w / MW; c.scale(k, k);
+      c.fillStyle = BK.green; rrect(c, 20, 20, 120, 160, 6); c.fill();
+      c.fillStyle = BK.cream; c.font = FONT(13, 800); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("밤의", 32, 52); c.fillText("서가", 32, 70);
+      c.fillStyle = INK; c.font = FONT(17, 800); c.fillText("밤의 서가", 156, 46);
+      c.fillStyle = DIM; c.font = FONT(12, 500); c.fillText("2월 신간 · 소설", 156, 68);
+      c.fillStyle = "rgba(34,52,42,0.14)"; for (var i = 0; i < 7; i++) { rrect(c, 20, 204 + i * 22, i % 3 === 2 ? 150 : MW - 40, 10, 5); c.fill(); }
+      c.restore(); c.restore();
+    }
+    function draw(c, W, H) {
+      var pw = Math.min(W - 40, 250), ph = pw * 1.62, x = (W - pw) / 2, tg = target(), sty = st.fade ? "fade" : style();
+      phone(c, x, 14, pw, ph, function (c, mh) {
+        topbar(c, tg === "menu" && st.p > 0);
+        c.fillStyle = INK; c.font = FONT(15, 800); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("2월 신간", 16, 76);
+        c.fillStyle = DIM; c.font = FONT(11.5, 500); c.fillText("카드를 누르면 자세히 본다", 16, 96);
+        [CARD, CARD2].forEach(function (cd, i) {
+          c.fillStyle = "#f6f3ee"; rrect(c, cd.x, cd.y - 70, cd.w, cd.h, 9); c.fill();
+          c.fillStyle = i ? BK.calm : BK.green; rrect(c, cd.x + 12, cd.y - 58, cd.w - 24, 96, 5); c.fill();
+          c.fillStyle = INK; c.font = FONT(12.5, 700); c.fillText(i ? "작은 정원" : "밤의 서가", cd.x + 12, cd.y + 60);
+        });
+        var cardR = { x: CARD.x, y: CARD.y - 70, w: CARD.w, h: CARD.h };
+        if (st.p > 0.001 && sty !== "none" && sty !== "fade") {
+          c.save(); c.setLineDash([4, 4]); c.strokeStyle = BK.red; c.lineWidth = 2;
+          if (sty === "origin") { if (tg === "menu") { c.beginPath(); c.arc(290, 44, 6, 0, 7); c.stroke(); } else { rrect(c, cardR.x, cardR.y, cardR.w, cardR.h, 9); c.stroke(); } }
+          else if (sty === "center") { c.beginPath(); c.arc(MW / 2, mh / 2, 8, 0, 7); c.stroke(); }
+          else { c.beginPath(); c.moveTo(4, tg === "menu" ? 250 : mh - 10); c.lineTo(22, tg === "menu" ? 232 : mh - 28); c.stroke(); }
+          c.restore();
+        }
+        var srcMenu = { x: 290, y: 44, w: 0, h: 0 };
+        if (tg === "menu") {
+          if (sty === "fade") drawMenu(c, MENU_R, st.p);
+          else {
+            var m = rectFor("menu", sty, st.p, mh);
+            if (m.rot) { c.save(); c.translate(m.r.x + m.r.w / 2, m.r.y + m.r.h / 2); c.rotate(m.rot); c.translate(-(m.r.x + m.r.w / 2), -(m.r.y + m.r.h / 2)); drawMenu(c, m.r, m.a); c.restore(); }
+            else drawMenu(c, m.r, st.p > 0 ? m.a : 0);
+          }
+        } else {
+          var cardSrc = { x: cardR.x, y: cardR.y, w: cardR.w, h: cardR.h };
+          if (sty === "fade") drawDetail(c, { x: 0, y: 44, w: MW, h: mh - 44 }, st.p, 0);
+          else if (sty === "origin") { var e = TOKEN(st.p); drawDetail(c, { x: lerp(cardSrc.x, 0, e), y: lerp(cardSrc.y, 44, e), w: lerp(cardSrc.w, MW, e), h: lerp(cardSrc.h, mh - 44, e) }, st.p > 0 ? 1 : 0, 0); }
+          else { var d = rectFor("card", sty, st.p, mh); drawDetail(c, d.r, st.p > 0 ? d.a : 0, d.rot); }
+        }
+        void srcMenu;
+      });
+    }
+    function info() {
+      var tg = target(), sty = style(), red = reduced();
+      var btn = tg === "menu" ? [256, 22] : [CARD.x + CARD.w / 2, CARD.y - 70 + CARD.h / 2];
+      var mid = [MW / 2, 260];
+      var dist = sty === "origin" ? "0 px <small>(누른 곳에서 시작)</small>" : sty === "center" ? Math.round(Math.hypot(btn[0] - mid[0], btn[1] - mid[1])) + " px <small>(화면 가운데)</small>" : sty === "bounce" ? "화면 밖 <small>(누른 곳 반대편)</small>" : "— <small>(출발점 없음)</small>";
+      AB.stat("mo-sp-o-d", red ? "— <small>(줄임: 제자리 페이드)</small>" : dist);
+      AB.stat("mo-sp-o-t", red ? "150 ms 페이드" : sty === "bounce" ? "600 ms" : sty === "none" ? "0 ms" : "250 ms");
+      var msg = { origin: tg === "menu" ? "메뉴는 단추 안에 있던 것" : "상세는 그 카드의 안쪽", center: "나타났다는 것만", bounce: "엉뚱한 출발점(왼쪽·아래)", none: "바뀌었다는 것도 놓치기 쉬움" }[sty];
+      AB.stat("mo-sp-o-m", red ? "나타났다는 것(공간 단서는 줄어듦)" : msg);
+    }
+    function toggle() {
+      if (st.anim) st.anim.stop();
+      var from = st.p, to = st.open ? 0 : 1; st.open = !st.open;
+      st.fade = reduced();
+      var sty = style(), d = st.fade ? 150 : sty === "bounce" ? 600 : sty === "none" ? 0 : (to ? 250 : 150);
+      st.anim = tween(d, function (t) { st.p = lerp(from, to, t); cv.redraw(); });
+    }
+    $("mo-sp-go").addEventListener("click", toggle);
+    AB.drag(cv.canvas, { start: toggle });
+    onRM(function () { info(); cv.redraw(); });
+    info();
+  });
+
+  /* ---------------- 5. 차례 등장의 총 시간 ---------------- */
+  run("stagger", function () {
+    var st = { clock: 1e9, anim: null, red: false };
+    var n = AB.range("mo-st-n", function (v) { return v + " 개"; }, upd);
+    var d = AB.range("mo-st-d", function (v) { return v + " ms"; }, upd);
+    var T = AB.range("mo-st-t", function (v) { return v + " ms"; }, upd);
+    function upd() { st.clock = 1e9; cv.resize(); info(); }
+    function rows() { return Math.ceil(n() / 3); }
+    var cv = AB.canvas("#mo-st-cv", draw, { bg: PAPER, get height() { return 30 + 3 * 74 + 26 + Math.min(24, n()) * 7 + 40; } });
+    function draw(c, W, H) {
+      var N = n(), D = st.red ? 0 : d(), TT = st.red ? 150 : T(), tot = (N - 1) * D + TT;
+      var mw = Math.min(W - 28, 330), x0 = (W - mw) / 2, cw = (mw - 2 * 10) / 3, ch = 64;
+      c.fillStyle = WHITE; rrect(c, x0 - 8, 8, mw + 16, 3 * (ch + 10) + 18, 12); c.fill();
+      c.strokeStyle = "#d9d4cc"; c.lineWidth = 1; rrect(c, x0 - 7.5, 8.5, mw + 15, 3 * (ch + 10) + 17, 12); c.stroke();
+      for (var i = 0; i < Math.min(N, 9); i++) {
+        var col = i % 3, row = Math.floor(i / 3), t0 = i * D, p = clamp01((st.clock - t0) / TT), e = TOKEN(p);
+        var cx = x0 + col * (cw + 10), cy = 18 + row * (ch + 10) + (st.red ? 0 : (1 - e) * 14);
+        c.save(); c.globalAlpha = st.red ? p : e;
+        c.fillStyle = "#f6f3ee"; rrect(c, cx, cy, cw, ch, 8); c.fill();
+        c.fillStyle = [BK.green, BK.calm, BK.red][i % 3]; rrect(c, cx + 8, cy + 8, 26, ch - 16, 3); c.fill();
+        c.fillStyle = "rgba(34,52,42,0.25)"; rrect(c, cx + 42, cy + 14, cw - 52, 7, 3); c.fill(); rrect(c, cx + 42, cy + 28, (cw - 52) * 0.6, 7, 3); c.fill();
+        c.restore();
+      }
+      if (N > 9) { c.fillStyle = DIM; c.font = FONT(11, 600); c.textAlign = "center"; c.textBaseline = "top"; c.fillText("아래로 " + (N - 9) + "장 더(스크롤)", W / 2, 3 * (ch + 10) + 12); }
+      // 막대그래프(시간표)
+      var gy = 30 + 3 * 74, gx = 40, gw = W - gx - 18, maxT = Math.max(1000, Math.ceil(tot / 500) * 500), rowsN = Math.min(24, N), rh = 7;
+      var X = function (ms) { return gx + ms / maxT * gw; };
+      c.font = AB.font(10, true); c.fillStyle = DIM; c.textAlign = "center"; c.textBaseline = "top";
+      for (var ms = 0; ms <= maxT; ms += (maxT > 2000 ? 1000 : 500)) { c.strokeStyle = "#e4dfd6"; c.lineWidth = 1; c.beginPath(); c.moveTo(X(ms), gy - 2); c.lineTo(X(ms), gy + rowsN * rh + 4); c.stroke(); c.fillText(ms / 1000 + "초", X(ms), gy + rowsN * rh + 7); }
+      for (var j = 0; j < rowsN; j++) {
+        var y = gy + j * rh, s0 = j * D;
+        c.fillStyle = "#e4dfd6"; c.fillRect(X(0), y + 1, X(s0) - X(0), rh - 2);
+        c.fillStyle = j < 6 ? BK.green : BK.calm; c.fillRect(X(s0), y + 1, Math.max(1, X(s0 + TT) - X(s0)), rh - 2);
+      }
+      c.fillStyle = INK; c.font = FONT(10.5, 700); c.textAlign = "right"; c.textBaseline = "middle"; c.fillText("카드", gx - 6, gy + 6);
+      if (st.clock < tot + 50) { c.strokeStyle = BK.red; c.lineWidth = 2; c.beginPath(); c.moveTo(X(Math.min(st.clock, maxT)), gy - 4); c.lineTo(X(Math.min(st.clock, maxT)), gy + rowsN * rh + 2); c.stroke(); }
+      c.strokeStyle = BK.red; c.setLineDash([3, 3]); c.lineWidth = 1.2; c.beginPath(); c.moveTo(X(tot), gy - 4); c.lineTo(X(tot), gy + rowsN * rh + 2); c.stroke(); c.setLineDash([]);
+    }
+    function info() {
+      var red = reduced(), N = n(), D = red ? 0 : d(), TT = red ? 150 : T(), tot = (N - 1) * D + TT, six = (Math.min(6, N) - 1) * D + TT;
+      AB.stat("mo-st-o-tot", (tot / 1000).toFixed(2) + " 초" + (red ? " <small>(줄임)</small>" : ""));
+      AB.stat("mo-st-o-six", (six / 1000).toFixed(2) + " 초");
+      AB.stat("mo-st-o-j", tot <= 500 ? "짧음" : tot <= 1000 ? "눈에 띔" : "기다리게 함");
+    }
+    $("mo-st-go").addEventListener("click", function () {
+      if (st.anim) st.anim.stop();
+      st.red = reduced();
+      var N = n(), tot = (N - 1) * (st.red ? 0 : d()) + (st.red ? 150 : T());
+      st.anim = tween(tot + 60, function (t) { st.clock = t * (tot + 60); cv.redraw(); }, function () { st.clock = 1e9; cv.redraw(); });
+    });
+    onRM(function () { st.red = reduced(); info(); cv.redraw(); });
+    st.red = reduced(); info(); cv.redraw();
+  });
+
+  /* ---------------- 6. 시차 스크롤과 확대 ---------------- */
+  run("parallax", function () {
+    var st = { scroll: 0 }, PH = 1100, HERO = 330;
+    var f = AB.range("mo-pa-f", function (v) { return Math.round(v * 100) + "%"; }, function () { cv.redraw(); });
+    var zoom = AB.check("mo-pa-zoom", function () { cv.redraw(); });
+    var geo = { k: 1, mh: 500 };
+    var cv = AB.canvas("#mo-pa-cv", draw, { bg: PAPER, get height() { var W = Math.max(200, ($("mo-pa-cv").parentElement.clientWidth || 600)); var pw = Math.min(W - 40, 250); return Math.round(pw * 1.75 + 30); } });
+    function shop(c, w, h) {
+      c.fillStyle = "#8fb3c9"; c.fillRect(0, 0, w, h * 0.3);
+      c.fillStyle = "#5b4a42"; c.fillRect(0, h * 0.18, w, h * 0.82);
+      c.strokeStyle = "rgba(0,0,0,0.15)"; c.lineWidth = 1;
+      for (var yy = h * 0.2; yy < h; yy += 14) { c.beginPath(); c.moveTo(0, yy); c.lineTo(w, yy); c.stroke(); }
+      c.fillStyle = BK.green; c.fillRect(w * 0.22, h * 0.24, w * 0.56, h * 0.12);
+      c.fillStyle = BK.cream; c.font = FONT(h * 0.07, 800); c.textAlign = "center"; c.textBaseline = "middle"; c.fillText("책방 E", w / 2, h * 0.30);
+      c.fillStyle = BK.dark; c.fillRect(w * 0.12, h * 0.42, w * 0.76, h * 0.46);
+      var g = c.createLinearGradient(0, h * 0.44, 0, h * 0.86); g.addColorStop(0, "#f6e6c2"); g.addColorStop(1, "#e7c98f");
+      c.fillStyle = g; c.fillRect(w * 0.14, h * 0.44, w * 0.72, h * 0.42);
+      var cols = ["#2f7d5b", "#d24f39", "#567666", "#22342a", "#c9a14a", "#8a5a44"];
+      for (var i = 0; i < 18; i++) { c.fillStyle = cols[i % 6]; c.fillRect(w * 0.16 + i * w * 0.038, h * (0.6 + (i % 3) * 0.015), w * 0.03, h * (0.24 - (i % 3) * 0.015)); }
+      c.fillStyle = "#8e9196"; c.fillRect(0, h * 0.9, w, h * 0.1);
+    }
+    function draw(c, W, H) {
+      var pw = Math.min(W - 40, 250), ph = pw * 1.75, x = (W - pw) / 2, red = reduced();
+      var F = red ? 0 : f(), Z = !red && zoom();
+      var g = phone(c, x, 14, pw, ph, function (c, mh) {
+        geo.mh = mh;
+        var s = AB.clamp(st.scroll, 0, PH - mh); st.scroll = s;
+        c.save(); c.translate(0, -s);
+        // 사진 상자(페이지와 함께 움직인다) 안에서 배경만 덜 움직인다
+        c.save(); c.beginPath(); c.rect(0, 0, MW, HERO); c.clip();
+        var bgY = s * F, sc = Z ? 1 + Math.min(0.45, s / 500) : 1;
+        c.translate(MW / 2, bgY + HERO / 2); c.scale(sc, sc); c.translate(-MW / 2, -HERO / 2);
+        shop(c, MW, HERO);
+        c.restore();
+        c.fillStyle = "rgba(34,52,42,0.55)"; c.fillRect(0, HERO - 86, MW, 86);
+        c.fillStyle = WHITE; c.font = FONT(20, 800); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("동네 책방 E", 18, HERO - 50);
+        c.font = FONT(12.5, 600); c.fillText("다음 모임 · 2월 22일(목) 저녁 낭독", 18, HERO - 24);
+        c.fillStyle = INK; c.font = FONT(15, 800); c.fillText("이번 주 소식", 18, HERO + 40);
+        c.fillStyle = "#e3e8e5"; for (var i = 0; i < 26; i++) { rrect(c, 18, HERO + 60 + i * 24, i % 4 === 3 ? 150 : MW - 36, 10, 5); c.fill(); }
+        c.restore();
+        topbar(c, false);
+      });
+      geo.k = g.k;
+      var heroVis = Math.max(0, Math.min(HERO, st.scroll + geo.mh) - Math.max(44 + st.scroll, st.scroll)) / geo.mh;
+      var moving = F > 0 || Z;
+      AB.stat("mo-pa-o-v", red ? "0% <small>(줄임)</small>" : Math.round(F * 100) + "%" + (F > 0 ? " <small>(배경이 글자보다 느림)</small>" : ""));
+      AB.stat("mo-pa-o-a", moving ? Math.round(heroVis * 100) + "% <small>(화면 중 사진)</small>" : "0%");
+      AB.stat("mo-pa-o-z", Z ? "× " + (1 + Math.min(0.45, st.scroll / 500)).toFixed(2) : (red ? "없음 <small>(줄임)</small>" : "없음"));
+      var hint = $("mo-pa-hint"); if (hint) hint.textContent = red ? "화면을 끈다 · 움직임 줄임: 시차·확대 꺼짐" : "화면을 위아래로 끈다";
+    }
+    var lastY = 0;
+    AB.drag(cv.canvas, { start: function (x, y) { lastY = y; }, move: function (x, y) { st.scroll -= (y - lastY) / (geo.k || 1); lastY = y; cv.redraw(); } });
+    $("mo-pa-top").addEventListener("click", function () { st.scroll = 0; cv.redraw(); });
+    onRM(function () { cv.redraw(); });
+  });
+
+  /* ---------------- 7. 줄인다는 것은 바꾸는 것 ---------------- */
+  run("alternatives", function () {
+    var st = { open: false, p: 0, q: 0, a1: null, a2: null };
+    var way = AB.seg("mo-al-way", function () { stop(); st.open = false; st.p = 0; st.q = 0; cv.redraw(); info(); });
+    var cv = AB.canvas("#mo-al-cv", draw, { bg: PAPER, get height() { var W = Math.max(200, ($("mo-al-cv").parentElement.clientWidth || 600)); var pw = Math.min((W - 52) / 2, 210); return Math.round(pw * 1.45 + 56); } });
+    function stop() { if (st.a1) st.a1.stop(); if (st.a2) st.a2.stop(); }
+    function draw(c, W, H) {
+      var pw = Math.min((W - 52) / 2, 210), ph = pw * 1.45, gap = 20, x0 = (W - 2 * pw - gap) / 2, w = way();
+      [0, 1].forEach(function (side) {
+        var x = x0 + side * (pw + gap), p = side ? st.q : st.p;
+        phone(c, x, 14, pw, ph, function (c, mh) {
+          bodyLines(c, 58, 10, mh);
+          if (!side || w === "same") {
+            var e = TOKEN(p);
+            drawMenu(c, { x: lerp(290, MENU_R.x, e), y: MENU_R.y, w: MENU_R.w * e, h: MENU_R.h * e }, Math.min(1, p * 3));
+          } else if (w === "off") drawMenu(c, MENU_R, p > 0 ? 1 : 0);
+          else if (w === "fade") drawMenu(c, MENU_R, p);
+          else { var e2 = TOKEN(p); drawMenu(c, { x: MENU_R.x, y: MENU_R.y - 8 * (1 - e2), w: MENU_R.w, h: MENU_R.h }, p); }
+          topbar(c, p > 0);
+        });
+        c.fillStyle = INK; c.font = FONT(12, 700); c.textAlign = "center"; c.textBaseline = "top";
+        c.fillText(side ? "줄인 움직임" : "보통", x + pw / 2, 14 + ph + 8);
+      });
+    }
+    function info() {
+      var w = way();
+      AB.stat("mo-al-o-d", { same: "왼쪽과 같음 <small>(설정 무시)</small>", off: "0 px", fade: "0 px", short: "8 px" }[w]);
+      AB.stat("mo-al-o-t", { same: "250 ms", off: "0 ms", fade: "150 ms", short: "150 ms" }[w]);
+      AB.stat("mo-al-o-c", { same: "공간 관계(하지만 이동이 큼)", off: "결과만(변화를 놓치기 쉬움)", fade: "나타났다는 것", short: "나타났다는 것 + 방향 조금" }[w]);
+    }
+    $("mo-al-go").addEventListener("click", function () {
+      stop();
+      var to = st.open ? 0 : 1, fp = st.p, fq = st.q, w = way(); st.open = !st.open;
+      st.a1 = tween(to ? 250 : 150, function (t) { st.p = lerp(fp, to, t); cv.redraw(); });
+      var d2 = w === "same" ? (to ? 250 : 150) : w === "off" ? 0 : 150;
+      st.a2 = tween(d2, function (t) { st.q = lerp(fq, to, t); cv.redraw(); });
+    });
+    info();
+  });
+})();
+</script>
+</body>
+</html>
