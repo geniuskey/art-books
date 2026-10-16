@@ -102,7 +102,41 @@
     <p>토큰 체계의 절반은 이름이다. ColorBook <a href="../../color/chapters/palette.html">14장</a>의 작업실 노트가 말했듯 토큰 이름을 <code>green-600</code>처럼 색으로 지으면, 버튼을 청록으로 바꾸는 순간 이름이 거짓말이 된다. 그래서 색 이름은 원시 층에만 둔다. 의미 층은 "무엇에 쓰는가"로 짓는다. 이름을 짓는 틀은 팀마다 다르지만 대개 몇 조각을 정해진 순서로 잇는다.</p>
 
     <figure class="diagram">
-      {{FIG1}}
+      <svg viewBox="0 0 460 320" role="img" aria-label="토큰 이름과 화살표 그림. 위에는 의미 토큰 이름 color-text-muted를 범주, 대상, 변형 세 조각으로 나눈 모습이 있다. 아래에는 신청하기 버튼의 바탕이 button-bg에서 color-action으로, 다시 밝은 화면에서는 green-600, 어두운 화면에서는 green-400으로 이어지는 화살표가 있다.">
+        <defs><marker id="tk-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="20" y="24" class="lbl-b">의미 토큰 이름의 조각</text>
+        <g transform="translate(20,38)">
+          <rect x="0" y="0" width="30" height="34" rx="6" class="f-surface s-line"/><text x="15" y="23" text-anchor="middle" class="t-mono">--</text>
+          <rect x="36" y="0" width="104" height="34" rx="6" class="f-acc-soft s-acc"/><text x="88" y="23" text-anchor="middle" class="t-mono">color</text>
+          <text x="148" y="23" text-anchor="middle" class="t-mono">-</text>
+          <rect x="156" y="0" width="104" height="34" rx="6" class="f-acc2-soft s-acc2"/><text x="208" y="23" text-anchor="middle" class="t-mono">text</text>
+          <text x="268" y="23" text-anchor="middle" class="t-mono">-</text>
+          <rect x="276" y="0" width="104" height="34" rx="6" class="f-ok-soft s-ok"/><text x="328" y="23" text-anchor="middle" class="t-mono">muted</text>
+          <text x="88" y="54" text-anchor="middle" class="lbl-acc">범주</text><text x="88" y="70" text-anchor="middle" class="lbl-dim">색 · 글자 · 간격</text>
+          <text x="208" y="54" text-anchor="middle" class="lbl-acc2">대상</text><text x="208" y="70" text-anchor="middle" class="lbl-dim">바탕 · 글자 · 테두리</text>
+          <text x="328" y="54" text-anchor="middle" class="lbl-b">변형</text><text x="328" y="70" text-anchor="middle" class="lbl-dim">흐림 · 강함 · on-</text>
+        </g>
+        <line x1="20" y1="128" x2="440" y2="128" class="s-dash"/>
+        <text x="20" y="152" class="lbl-b">"신청하기" 버튼 바탕이 거쳐 가는 길</text>
+        <g transform="translate(20,170)">
+          <text x="0" y="12" class="lbl-dim">부품</text>
+          <rect x="0" y="22" width="96" height="34" rx="6" class="f-surface s-line"/><text x="48" y="44" text-anchor="middle" class="t-mono">button-bg</text>
+          <text x="128" y="12" class="lbl-dim">의미</text>
+          <rect x="128" y="22" width="112" height="34" rx="6" class="f-acc-soft s-acc"/><text x="184" y="44" text-anchor="middle" class="t-mono">color-action</text>
+          <line x1="98" y1="39" x2="125" y2="39" class="s-line" marker-end="url(#tk-ar)"/>
+          <text x="282" y="12" class="lbl-dim">원시</text>
+          <path d="M242 39 C258 39 262 4 280 4" fill="none" class="s-line" marker-end="url(#tk-ar)"/>
+          <path d="M242 39 C258 39 262 94 280 94" fill="none" class="s-line s-dash" marker-end="url(#tk-ar)"/>
+          <rect x="282" y="-12" width="138" height="34" rx="6" class="f-surface s-line"/>
+          <rect x="288" y="-6" width="22" height="22" rx="4" fill="#2f7d5b"/><text x="318" y="10" class="t-mono">green-600</text>
+          <text x="282" y="40" class="lbl-dim">밝은 화면 · #2f7d5b</text>
+          <rect x="282" y="78" width="138" height="34" rx="6" class="f-surface s-line"/>
+          <rect x="288" y="84" width="22" height="22" rx="4" fill="#5eaa85"/><text x="318" y="100" class="t-mono">green-400</text>
+          <text x="282" y="130" class="lbl-dim">어두운 화면 · #5eaa85</text>
+          <text x="0" y="86" class="lbl-dim">부품 코드는 그대로,</text>
+          <text x="0" y="104" class="lbl-dim">화살표만 화면 모드를 따른다</text>
+        </g>
+      </svg>
       <figcaption><b>그림 1. 토큰 이름의 조각과 화살표.</b> 위는 의미 토큰 이름을 범주(color) · 대상(text) · 변형(muted) 순서로 이은 것이다. 아래는 행사 카드의 "신청하기" 버튼 바탕이 거쳐 가는 길이다. 부품은 의미 토큰만 부르고, 의미 토큰은 화면 모드에 따라 다른 원시 토큰을 가리킨다. 밝은 화면에서는 초록 600, 어두운 화면에서는 초록 400이다. 부품 쪽 코드는 한 글자도 바뀌지 않는다.</figcaption>
     </figure>
 
@@ -142,7 +176,39 @@
     <p>설계한 어두운 화면에는 몇 가지 원칙이 들어 있다. 바탕은 순수한 검정이 아니라 아주 어두운 회색(중립 900, OKLCH 명도 0.21)이다. 글자도 순수한 흰색이 아니라 아주 밝은 회색(중립 100)이다. 주색은 밝은 화면보다 <b>두 칸 밝은</b> 초록 400을 쓴다. ColorBook <a href="../../color/chapters/relativity.html">9장</a>에서 본 것처럼 같은 색도 어두운 바탕 위에서는 더 어둡고 무겁게 보이기 때문이고, 대비로 재도 600번은 어두운 바탕에서 3.55에 그친다. 그리고 주색이 밝아졌으니 그 위에 얹는 글자는 흰색이 아니라 짙은 색이 된다. 의미 토큰 <code>--color-on-action</code>이 짝으로 함께 바뀌는 까닭이다.</p>
 
     <figure class="diagram">
-      {{FIG2}}
+      <svg viewBox="0 0 460 270" role="img" aria-label="높이 표현을 비교한 두 그림. 왼쪽 밝은 화면에서는 흰 카드 아래에 회색 그림자가 드리워 카드가 떠 보인다. 오른쪽 어두운 화면에서는 같은 그림자가 어두운 바탕에 묻혀 보이지 않고, 대신 바탕보다 밝은 카드와 그보다 더 밝은 메뉴가 층을 이룬다.">
+        <defs>
+          <filter id="tk-blur" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+        </defs>
+        <text x="20" y="20" class="lbl-b">밝은 화면: 그림자</text>
+        <text x="240" y="20" class="lbl-b">어두운 화면: 밝은 표면</text>
+        <g transform="translate(20,32)">
+          <rect x="0" y="0" width="200" height="190" rx="10" fill="#f6fcf8" stroke="#e0e6e3"/>
+          <rect x="30" y="44" width="140" height="96" rx="8" fill="#000000" fill-opacity="0.22" filter="url(#tk-blur)" transform="translate(0,6)"/>
+          <rect x="30" y="44" width="140" height="96" rx="8" fill="#ffffff" stroke="#e0e6e3"/>
+          <rect x="44" y="60" width="70" height="10" rx="3" fill="#22342a"/>
+          <rect x="44" y="78" width="104" height="7" rx="3" fill="#567666"/>
+          <rect x="44" y="110" width="58" height="18" rx="4" fill="#2f7d5b"/>
+          <text x="14" y="24" font-size="11" fill="#567666">바탕 neutral-50</text>
+          <text x="100" y="168" text-anchor="middle" font-size="11" fill="#567666">카드 흰색 + 그림자</text>
+        </g>
+        <g transform="translate(240,32)">
+          <rect x="0" y="0" width="200" height="190" rx="10" fill="#151917"/>
+          <rect x="22" y="44" width="140" height="96" rx="8" fill="#000000" fill-opacity="0.22" filter="url(#tk-blur)" transform="translate(0,6)"/>
+          <rect x="22" y="44" width="140" height="96" rx="8" fill="#2a2f2d"/>
+          <rect x="36" y="60" width="70" height="10" rx="3" fill="#edf3f0"/>
+          <rect x="36" y="78" width="104" height="7" rx="3" fill="#aab0ac"/>
+          <rect x="36" y="110" width="58" height="18" rx="4" fill="#5eaa85"/>
+          <rect x="110" y="96" width="78" height="62" rx="7" fill="#444946"/>
+          <rect x="120" y="108" width="50" height="7" rx="3" fill="#edf3f0"/>
+          <rect x="120" y="124" width="40" height="7" rx="3" fill="#aab0ac"/>
+          <rect x="120" y="140" width="46" height="7" rx="3" fill="#aab0ac"/>
+          <text x="14" y="24" font-size="11" fill="#aab0ac">바탕 neutral-900</text>
+          <text x="14" y="176" font-size="11" fill="#aab0ac">카드 800 · 메뉴 700</text>
+        </g>
+        <text x="120" y="246" text-anchor="middle" class="lbl-dim">그림자가 아래 면과의 거리를 말한다</text>
+        <text x="340" y="246" text-anchor="middle" class="lbl-dim">위의 면일수록 한 단계 밝게</text>
+      </svg>
       <figcaption><b>그림 2. 높이를 말하는 두 가지 방법.</b> 밝은 화면(왼쪽)에서는 떠 있는 카드가 그 아래에 그림자를 드리운다. 어두운 바탕에서는 그림자가 보이지 않으므로(오른쪽), 위에 있는 면일수록 조금씩 밝은 표면을 쓴다. 바탕 중립 900, 카드 중립 800, 카드 위에 뜬 메뉴는 그보다 한 단계 더 밝다. 빛이 위에서 온다면 위에 있는 면이 빛을 더 받는다는 생각과 같다.</figcaption>
     </figure>
 
@@ -444,6 +510,7 @@
 
   /** 행사 사진(고정색) */
   function photo(ctx, x, y, w, h) {
+    if (!(w > 4 && h > 4)) return;
     ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
     ctx.fillStyle = "#5a3f2a"; ctx.fillRect(x, y, w, h);
     ctx.fillStyle = "#f3d9a4"; ctx.fillRect(x, y, w, h * 0.38);
@@ -481,6 +548,7 @@
     var n = o.cards || 1;
     for (var i = 0; i < n && yy < y + h - 20; i++) {
       var cw = w - 2 * pad, chh = Math.min(f * 7.6, y + h - yy - pad), cx = x + pad;
+      if (chh < f * 4) break;
       if (o.shadow) { ctx.save(); ctx.shadowColor = "rgba(0,0,0,0.22)"; ctx.shadowBlur = f; ctx.shadowOffsetY = f * 0.3; rr(ctx, cx, yy, cw, chh, f * 0.5); ctx.fillStyle = T.surface; ctx.fill(); ctx.restore(); }
       rr(ctx, cx, yy, cw, chh, f * 0.5); ctx.fillStyle = T.surface; ctx.fill(); ctx.strokeStyle = T.border; ctx.lineWidth = 1; ctx.stroke();
       var ph = chh - f * 1.6, pw = Math.min(ph * 1.2, cw * 0.32);
@@ -725,12 +793,12 @@
   safe("rem", function () {
     var el = document.getElementById("tr-cv"); if (!el) return;
     var base, mode;
+    var EVS = [["5", "2월 · 토", "겨울 낭독회: 눈 오는 밤의 시", "눈 오는 밤에 어울리는 시 열 편을 돌아가며 소리 내어 읽는다.", "오후 5시 · 남은 자리 6"],
+      ["12", "2월 · 토", "그림책 읽어 주는 토요일 오전", "어린이와 보호자가 함께 그림책 세 권을 읽는다.", "오전 11시 · 남은 자리 12"]];
     var cv = AB.canvas(el, draw, { get height() { var w = Math.max(200, el.parentElement.clientWidth || 600); return w < 480 ? 420 : 470; }, bg: PAPER });
     base = AB.range("tr-b", function (v) { return v + "px"; }, function () { cv.redraw(); });
     mode = AB.seg("tr-mode", function () { cv.redraw(); });
     cv.redraw();
-    var EVS = [["5", "2월 · 토", "겨울 낭독회: 눈 오는 밤의 시", "눈 오는 밤에 어울리는 시 열 편을 돌아가며 소리 내어 읽는다.", "오후 5시 · 남은 자리 6"],
-      ["12", "2월 · 토", "그림책 읽어 주는 토요일 오전", "어린이와 보호자가 함께 그림책 세 권을 읽는다.", "오전 11시 · 남은 자리 12"]];
     function draw(ctx, w, h) {
       if (!base || !mode) return;
       var b = base(), m = mode(), k = b / 16, f = m === "px" ? 17 : 17 * k;
