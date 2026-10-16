@@ -3571,6 +3571,182 @@
       "usedIn": [
         "image/chapters/perspective.html"
       ]
+    },
+    {
+      "id": "ind-revere-teapot",
+      "file": "ind-revere-teapot.webp",
+      "derived": "원본 DP156041.jpg(3893×2898)를 긴 변 1600px WebP(1600×1191, 품질 80)로 줄임",
+      "title": "찻주전자",
+      "titleEn": "Teapot",
+      "artist": "폴 리비어 2세 (Paul Revere Jr., 1734–1818)",
+      "date": "1796",
+      "medium": "은 (Silver), 15.4 × 29.5 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Bequest of Alphonso T. Clearwater, 1933",
+      "objectId": 8380,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ad/original/DP156041.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/8380",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/8380",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
+    },
+    {
+      "id": "ind-pressed-glass-sugar-bowl",
+      "file": "ind-pressed-glass-sugar-bowl.webp",
+      "derived": "원본 DP235360.jpg(3000×4000)를 긴 변 1600px WebP(1200×1600, 품질 80)로 줄임",
+      "title": "뚜껑 있는 설탕 그릇",
+      "titleEn": "Covered Sugar Bowl",
+      "artist": "보스턴 앤드 샌드위치 유리 회사 (Boston & Sandwich Glass Company, 1825–1888)",
+      "date": "1830–70",
+      "medium": "프레스 유리 (Pressed glass), 높이 22.1 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of Mary and Bradford Kelleher, 1971",
+      "objectId": 2500,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ad/original/DP235360.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/2500",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/2500",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
+    },
+    {
+      "id": "ind-morris-willow-bough",
+      "file": "ind-morris-willow-bough.webp",
+      "derived": "원본 DP306734.jpg(2985×3860)를 긴 변 1600px WebP(1237×1600, 품질 80)로 줄임",
+      "title": "버드나무 가지 (벽지 견본)",
+      "titleEn": "Willow Bough",
+      "artist": "윌리엄 모리스 (William Morris, 1834–1896)",
+      "date": "1887",
+      "medium": "디스템퍼 물감으로 찍은 목판 날염 (Block-printed in distemper colors), 68.6 × 54.6 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Purchase, Edward C. Moore Jr. Gift, 1923",
+      "objectId": 384022,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/dp/original/DP306734.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/384022",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/384022",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
+    },
+    {
+      "id": "ind-dresser-teapot",
+      "file": "ind-dresser-teapot.webp",
+      "derived": "원본 DP-18258-025.jpg(4000×4000)를 긴 변 1600px WebP(1600×1600, 품질 80)로 줄임",
+      "title": "찻주전자",
+      "titleEn": "Teapot",
+      "artist": "크리스토퍼 드레서 (Christopher Dresser, 1834–1904) 디자인, 제조 제임스 딕슨 앤드 선스 (James Dixon & Sons)",
+      "date": "1879년경 (ca. 1879)",
+      "medium": "은도금, 흑단 (Silverplate, ebony), 12.7 × 22.9 × 13.3 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of Lawrence A. and Janet Y. Larose, 2021",
+      "objectId": 823191,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/es/original/DP-18258-025.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/823191",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/823191",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
+    },
+    {
+      "id": "ind-dresser-toast-rack",
+      "file": "ind-dresser-toast-rack.webp",
+      "derived": "원본 DP283121.jpg(2000×1527)를 긴 변 1600px WebP(1600×1222, 품질 80)로 줄임",
+      "title": "토스트 꽂이",
+      "titleEn": "Toast rack",
+      "artist": "크리스토퍼 드레서 (Christopher Dresser, 1834–1904) 디자인, 제조 휴킨 앤드 히스 (Hukin & Heath)",
+      "date": "1881",
+      "medium": "은도금 (Silver plate), 12.7 × 17.1 × 10.2 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of Robert L. Isaacson, 1985",
+      "objectId": 207539,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/es/original/DP283121.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/207539",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/207539",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
+    },
+    {
+      "id": "ind-dresser-kettle",
+      "file": "ind-dresser-kettle.webp",
+      "derived": "원본 DP-13486-036.jpg(3200×4000)를 긴 변 1600px WebP(1280×1600, 품질 80)로 줄임",
+      "title": "주전자",
+      "titleEn": "Kettle",
+      "artist": "크리스토퍼 드레서 디자인으로 추정 (Design attributed to Christopher Dresser, 1834–1904), 제조 벤엄 앤드 프라우드 (Benham & Froud)",
+      "date": "1885년경 (ca. 1885)",
+      "medium": "구리, 황동 (Copper, brass), 높이 34.4 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Purchase, Robert L. Isaacson Gift, 1990",
+      "objectId": 207823,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/es/original/DP-13486-036.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/207823",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/207823",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
+    },
+    {
+      "id": "ind-tiffany-table-lamp",
+      "file": "ind-tiffany-table-lamp.webp",
+      "derived": "원본 DP254463.jpg(3929×2947)를 긴 변 1600px WebP(1600×1200, 품질 80)로 줄임",
+      "title": "탁상 등",
+      "titleEn": "Table lamp",
+      "artist": "티파니 스튜디오 (Tiffany Studios, 1902–32)",
+      "date": "1895–98년경 (ca. 1895–98)",
+      "medium": "납 테두리 파브릴 유리, 착색 청동 (Leaded Favrile glass and patinated bronze), 높이 53.7 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "Gift of Mr. and Mrs. Richard L. Chilton Jr., 2011",
+      "objectId": 20633,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/ad/original/DP254463.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/20633",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/20633",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
+    },
+    {
+      "id": "ind-joseon-moon-jar",
+      "file": "ind-joseon-moon-jar.webp",
+      "derived": "원본 DP231900.jpg(3001×4000)를 긴 변 1600px WebP(1200×1600, 품질 80)로 줄임",
+      "title": "백자 달항아리",
+      "titleEn": "Moon jar",
+      "artist": "작가 미상, 조선 (Unknown, Korea, Joseon dynasty)",
+      "date": "18세기 후반 (second half 18th century)",
+      "medium": "백자 (Porcelain), 높이 38.7 cm",
+      "museum": "메트로폴리탄 미술관 (The Metropolitan Museum of Art), 뉴욕",
+      "creditLine": "The Harry G. C. Packard Collection of Asian Art, Gift of Harry G. C. Packard, and Purchase, Fletcher, Rogers, Harris Brisbane Dick, and Louis V. Bell Funds, Joseph Pulitzer Bequest, and The Annenberg Fund Inc. Gift, 1975",
+      "objectId": 45432,
+      "license": "Public Domain (The Met Open Access, CC0)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://images.metmuseum.org/CRDImages/as/original/DP231900.jpg",
+      "page": "https://www.metmuseum.org/art/collection/search/45432",
+      "api": "https://collectionapi.metmuseum.org/public/collection/v1/objects/45432",
+      "checked": "2026-10-15",
+      "usedIn": [
+        "industrial/chapters/history.html"
+      ]
     }
   ]
 }

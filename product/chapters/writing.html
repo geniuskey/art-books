@@ -1,0 +1,869 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "화면의 말도 디자인이다. 버튼은 누르면 일어나는 일을 동사로 적고, 오류 메시지는 무엇이·왜·어떻게를 말하고, 빈 상태는 다음 행동을 건넨다. 중요한 말을 앞에 두는 법, 한국어의 높임과 어조를 한 서비스 안에서 맞추는 법, 좁은 화면에서 문구 길이가 버튼을 깨뜨리는 모습을 가상의 화면으로 직접 고쳐 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX 라이팅 · ProductBook</title>
+<meta name="description" content="화면의 말도 디자인이다. 버튼은 누르면 일어나는 일을 동사로 적고, 오류 메시지는 무엇이·왜·어떻게를 말하고, 빈 상태는 다음 행동을 건넨다. 중요한 말을 앞에 두는 법, 한국어의 높임과 어조를 한 서비스 안에서 맞추는 법, 좁은 화면에서 문구 길이가 버튼을 깨뜨리는 모습을 가상의 화면으로 직접 고쳐 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/writing.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="UX 라이팅 · ProductBook">
+<meta property="og:description" content="화면의 말도 디자인이다. 버튼은 누르면 일어나는 일을 동사로 적고, 오류 메시지는 무엇이·왜·어떻게를 말하고, 빈 상태는 다음 행동을 건넨다. 중요한 말을 앞에 두는 법, 한국어의 높임과 어조를 한 서비스 안에서 맞추는 법, 좁은 화면에서 문구 길이가 버튼을 깨뜨리는 모습을 가상의 화면으로 직접 고쳐 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/writing.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/writing.html#chapter","name":"UX 라이팅","headline":"UX 라이팅 · ProductBook","description":"화면의 말도 디자인이다. 버튼은 누르면 일어나는 일을 동사로 적고, 오류 메시지는 무엇이·왜·어떻게를 말하고, 빈 상태는 다음 행동을 건넨다. 중요한 말을 앞에 두는 법, 한국어의 높임과 어조를 한 서비스 안에서 맞추는 법, 좁은 화면에서 문구 길이가 버튼을 깨뜨리는 모습을 가상의 화면으로 직접 고쳐 본다.","url":"https://artbook.euiyun.com/product/chapters/writing.html","position":10,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"10. UX 라이팅","item":"https://artbook.euiyun.com/product/chapters/writing.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .rg-text { width: 100%; min-height: 150px; resize: vertical; font: inherit; font-size: 14px; line-height: 1.55; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); box-sizing: border-box; }
+  .rg-list { padding: 12px 14px; display: grid; gap: 8px; min-height: 240px; align-content: start; }
+  .rg-row { display: grid; gap: 4px; padding: 8px 10px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg-elev); }
+  .rg-row.off { border-color: var(--bad); }
+  .rg-row.warn { border-color: var(--warn); }
+  .rg-line { font-size: 15px; line-height: 1.5; color: var(--text); overflow-wrap: anywhere; }
+  .rg-line mark { background: transparent; color: inherit; border-bottom: 2px solid var(--bad); padding: 0; }
+  .rg-tags { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; color: var(--text-dim); }
+  .rg-tag { display: inline-block; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); }
+  .rg-tag.ok { color: var(--ok); border-color: var(--ok); }
+  .rg-tag.bad { color: var(--bad); border-color: var(--bad); }
+  .rg-tag.warn { color: var(--warn); border-color: var(--warn); }
+  .rg-empty { color: var(--text-faint); font-size: 14px; }
+</style>
+</head>
+<body data-chapter="writing">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 10</div>
+    <h1>UX 라이팅</h1>
+    <p class="lead">시범 운영 둘째 주, 손님 한 명이 화면을 찍어 보냈다. 빨간 상자 안에 "요청 실패(code 409)"라고만 적혀 있었다. 다른 손님은 "작은아씨들"을 검색하고 "결과 없음"이라는 네 글자를 받았다. 그 책은 두 책방에 있었다. 띄어 쓰지 않았을 뿐이다. 화면의 글은 흔히 디자인이 끝난 뒤 빈칸에 채우는 것으로 여겨지지만, 손님이 화면에서 가장 먼저 읽는 것도, 막혔을 때 붙잡는 것도 글이다. 이 장은 버튼과 오류 메시지, 빈 화면, 알림의 문장을 하나씩 고쳐 보고, 네 책방이 저마다 다른 말투로 말하는 서비스를 한 목소리로 맞춘다.</p>
+    <ul class="objectives">
+      <li>UX 라이팅이 다루는 범위(버튼, 안내, 오류, 빈 상태, 확인 대화상자, 알림)와, 화면의 글은 읽히기보다 훑어진다는 전제를 안다.</li>
+      <li>버튼에 "확인"·"예" 대신 누르면 일어나는 일을 동사로 적는 이유를 버튼만 보고 눌러 보며 확인한다.</li>
+      <li>오류 메시지를 무엇이 일어났는지, 왜 그런지, 이제 무엇을 하면 되는지의 세 요소로 고쳐 쓴다.</li>
+      <li>빈 상태를 막다른 길이 아니라 다음 행동으로 이어지는 화면으로 만든다. 한국어 조사(은/는)처럼 끼워 넣는 말의 문제를 안다.</li>
+      <li>잘리는 자리를 생각해 중요한 말을 앞에 둔다.</li>
+      <li>한국어의 상대 높임법을 알고, 한 서비스 안에서 해요체와 합니다체가 섞이는 것을 찾아 고친다. 문구 길이가 좁은 화면과 큰 글자에서 버튼을 깨뜨리는 모습을 본다.</li>
+    </ul>
+  </header>
+
+  <section id="words">
+    <h2>화면의 말도 디자인이다</h2>
+    <p>앱과 웹 서비스의 화면에 들어가는 짧은 글을 쓰고 다듬는 일을 <span class="term">UX 라이팅</span><span class="en">(UX writing)</span>이라고 부른다. 버튼의 이름, 입력 칸의 라벨과 도움말, 오류 메시지, 아무것도 없을 때 보이는 문장, 확인을 묻는 대화상자, 휴대폰에 뜨는 알림이 모두 여기에 든다. 이런 짧은 글을 따로 <span class="term">마이크로카피</span><span class="en">(Microcopy)</span>라고도 한다. 광고 문구가 사람을 서비스로 데려오는 글이라면, UX 라이팅은 이미 들어온 사람이 길을 잃지 않게 하는 글이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 330" role="img" aria-label="맡아 두기 결과 화면 위의 글. 제목, 검색어, 책 정보, 상태 표시, 버튼, 도움말, 알림이 각각 다른 일을 한다.">
+        <defs><marker id="wr-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <!-- 가상 화면(고정색) -->
+        <rect x="150" y="10" width="160" height="310" rx="18" fill="#2a2f2c"/>
+        <rect x="158" y="22" width="144" height="286" rx="10" fill="#fbfaf7"/>
+        <text x="168" y="44" style="font-size:12px;font-weight:700" fill="#22342a">책 찾기</text>
+        <rect x="168" y="54" width="124" height="22" rx="11" fill="#ffffff" stroke="#d8d2c4"/>
+        <text x="178" y="69" style="font-size:10px" fill="#22342a">작은 아씨들</text>
+        <text x="168" y="96" style="font-size:9.5px" fill="#567666">2곳에 있어요</text>
+        <rect x="168" y="104" width="124" height="96" rx="8" fill="#ffffff" stroke="#d8d2c4"/>
+        <rect x="176" y="112" width="26" height="36" rx="2" fill="#d24f39"/>
+        <text x="208" y="122" style="font-size:10px;font-weight:700" fill="#22342a">작은 아씨들</text>
+        <text x="208" y="136" style="font-size:9px" fill="#567666">헌책방 나무 · 1권</text>
+        <rect x="208" y="141" width="44" height="13" rx="6.5" fill="#ffe2d7"/>
+        <text x="230" y="150.5" text-anchor="middle" style="font-size:8px" fill="#22342a">헌책 · 상태 좋음</text>
+        <rect x="176" y="164" width="108" height="26" rx="7" fill="#2f7d5b"/>
+        <text x="230" y="181" text-anchor="middle" style="font-size:10.5px;font-weight:700" fill="#ffffff">맡아 두기</text>
+        <text x="168" y="216" style="font-size:8.5px" fill="#567666">최대 3일 · 값은 책방에서 내요.</text>
+        <rect x="166" y="242" width="128" height="52" rx="9" fill="#22342a"/>
+        <text x="176" y="261" style="font-size:9.5px;font-weight:700" fill="#ffffff">『작은 아씨들』 준비됐어요</text>
+        <text x="176" y="277" style="font-size:8.5px" fill="#ffe2d7">헌책방 나무 · 6월 3일(토)까지</text>
+        <!-- 라벨(UI 색) -->
+        <g style="font-size:12px">
+          <text x="140" y="48" text-anchor="end" class="lbl-b">화면 제목</text>
+          <path d="M142 44 L164 42" class="s-line" marker-end="url(#wr-ar)"/>
+          <text x="140" y="70" text-anchor="end" class="lbl-b">입력과 자리표시자</text>
+          <path d="M142 66 L166 66" class="s-line" marker-end="url(#wr-ar)"/>
+          <text x="140" y="100" text-anchor="end" class="lbl-b">상태 요약</text>
+          <path d="M142 96 L166 94" class="s-line" marker-end="url(#wr-ar)"/>
+          <text x="140" y="146" text-anchor="end" class="lbl-b">정보와 꼬리표</text>
+          <path d="M142 142 L206 146" class="s-line" marker-end="url(#wr-ar)"/>
+          <text x="320" y="170" class="lbl-acc">버튼: 동사</text>
+          <path d="M318 174 L288 177" class="s-acc" marker-end="url(#wr-ar)"/>
+          <text x="320" y="214" class="lbl-b">도움말</text>
+          <path d="M318 210 L296 212" class="s-line" marker-end="url(#wr-ar)"/>
+          <text x="320" y="268" class="lbl-b">알림</text>
+          <path d="M318 264 L296 264" class="s-line" marker-end="url(#wr-ar)"/>
+          <text x="320" y="290" class="lbl-dim" style="font-size:11px">잘리기 전에 핵심</text>
+        </g>
+        <text x="16" y="230" class="lbl-dim" style="font-size:11px">보이지 않는 글도 있다:</text>
+        <text x="16" y="248" class="lbl-dim" style="font-size:11px">오류 메시지, 빈 상태,</text>
+        <text x="16" y="266" class="lbl-dim" style="font-size:11px">확인 대화상자, 화면 낭독기가</text>
+        <text x="16" y="284" class="lbl-dim" style="font-size:11px">읽는 대체 텍스트</text>
+      </svg>
+      <figcaption><b>그림 1. 결과 화면 한 장 위의 글.</b> "맡아 두기" 결과 화면(가상)에는 문장보다 짧은 글이 더 많다. 제목과 꼬리표는 훑는 사람을 위한 표지판이고, 버튼은 행동의 이름이며, 도움말은 망설이는 순간에 읽힌다. 일이 잘못됐을 때만 나타나는 오류와 빈 상태의 글은 시안에는 잘 그려지지 않아 가장 늦게, 가장 서둘러 쓰인다.</figcaption>
+    </figure>
+
+    <p>화면의 글을 쓸 때 가장 먼저 받아들일 전제는 <b>사람들은 화면의 글을 읽지 않고 훑는다</b>는 것이다. 손님은 책을 찾으러 왔지 안내문을 읽으러 오지 않았다. 버튼의 첫 두세 글자, 제목의 첫 어절, 빨간 상자의 첫 줄만 보고 다음 행동을 정한다. 그래서 UX 라이팅의 기술은 대부분 "훑어도 알 수 있게"로 모인다. 짧게, 앞에 핵심을, 같은 것은 같은 이름으로, 다음에 할 일을 분명하게.</p>
+    <p>또 하나의 전제는 글이 화면 구성과 따로 놀 수 없다는 것이다. 버튼의 폭은 문구의 길이를, 알림이 잘리는 자리는 문장의 순서를 정한다. 거꾸로 문구를 먼저 써 보면 화면에 빠진 상태(재고 없음, 기한 지남)가 드러나기도 한다. <a href="prototype.html">7장</a>의 종이 프로토타입에도 "가짜 글(로렘 입숨)" 대신 실제 문구를 적어 넣는 이유다.</p>
+
+    <div class="callout studio">
+      <strong>목소리는 그대로, 어조는 상황에 따라</strong>
+      서비스가 말하는 사람이라면 어떤 사람인지를 정해 두는 것을 흔히 <span class="term">보이스</span><span class="en">(Voice)</span>, 상황에 따라 말의 온도를 바꾸는 것을 <span class="term">톤</span><span class="en">(Tone)</span>이라고 나누어 말한다. "맡아 두기"의 목소리를 "동네 책방의 친절하고 담백한 점원"으로 정했다면, 책이 준비됐다는 알림은 조금 가볍게, 요청이 실패했다는 오류는 차분하고 분명하게, 맡긴 것을 취소하는 확인은 가장 건조하게 쓴다. 손님이 당황한 순간에 농담이나 느낌표는 가볍게 들린다. 사람이 한 명이듯 목소리도 하나이고, 그 사람이 상황에 따라 말투의 온도를 바꿀 뿐이다.
+    </div>
+  </section>
+
+  <section id="buttons">
+    <h2>버튼은 동사로</h2>
+    <p>버튼의 이름은 누르면 일어나는 일이다. 그래서 버튼 문구는 <b>행동을 나타내는 말</b>, 곧 동사나 동사에서 온 말("맡아 두기", "다른 책방 보기")로 쓰는 것이 원칙이다. 한국어 화면에서는 "맡아 두기"처럼 "-기"로 끝나는 명사형이나 "취소", "저장" 같은 한자어 명사를 버튼에 많이 쓰는데, 어느 쪽이든 그 말을 읽고 무슨 일이 일어날지 알 수 있으면 된다. 문제는 "확인", "예", "OK"처럼 무엇을 하는지 말하지 않는 버튼이다.</p>
+    <p>이런 버튼이 가장 위험한 곳이 <span class="term">확인 대화상자</span><span class="en">(Confirmation dialog)</span>다. 되돌리기 어려운 일을 하기 직전에 한 번 더 묻는 상자인데, 사람들은 대화상자가 뜨면 질문을 읽지 않고 버튼부터 누르는 일이 많다. 아래 대화상자의 본문은 가려져 있다. 버튼만 보고 "맡아 둔 것을 그대로 두는" 쪽을 눌러 본다.</p>
+
+    <div class="sim" id="sim-bt">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>버튼만 보고 누르기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="bt-cv" class="art"></canvas><span class="hint">버튼을 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="bt-sit"><button data-value="cancel" class="on">손님: 취소 묻기</button><button data-value="reject">주인: 거절 묻기</button></div>
+          <div class="seg" id="bt-lab"><button data-value="ok" class="on">확인 / 취소</button><button data-value="yn">예 / 아니요</button><button data-value="verb">하는 일</button></div>
+          <label class="check"><input type="checkbox" id="bt-hide" checked> 본문 가리기(훑어보는 사람)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">누른 버튼</span><span class="v" id="bt-o-btn">—</span></div>
+        <div class="stat"><span class="k">일어난 일</span><span class="v" id="bt-o-res" style="font-size:15px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">버튼만으로 알 수 있나</span><span class="v" id="bt-o-clear" style="font-size:15px;font-family:inherit">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "확인 / 취소"에서 맡아 둔 것을 지키려고 "취소"를 누른다. 대화상자를 취소한 것인지 맡긴 것을 취소한 것인지 버튼만으로는 알 수 없다. 본문 가리기를 끄고 질문을 읽어야 비로소 풀린다. ② "예 / 아니요"도 질문을 읽어야 뜻이 생긴다. "~을 취소하지 않을까요?"처럼 질문이 부정문이면 더 헷갈린다. ③ "하는 일"로 바꾼다. 본문을 가린 채로도 어느 쪽이 무엇인지 안다. 주인 화면의 거절 묻기로도 해 본다. (가상의 대화상자다. 오른쪽에 주 행동을 두는 배치를 두 화면에 똑같이 썼다.)</div>
+    </div>
+
+    <p>"하는 일"로 쓴 버튼은 본문을 가려도 뜻이 통한다. 버튼 이름이 스스로 설명하기 때문이다. 주요 플랫폼의 디자인 지침도 같은 방향을 권한다. 애플의 Human Interface Guidelines와 구글의 Material Design은 경고·대화상자의 버튼에 "확인"이나 "예" 대신 그 버튼이 하는 일을 적으라고 안내한다. 취소 대화상자에서는 특히 "취소"라는 말을 버튼에 쓰지 않는다. 손님이 하려는 일 자체가 취소라서, 대화상자를 닫는 "취소"와 겹친다. 닫는 쪽은 "계속 맡아 두기", "돌아가기"처럼 남는 상태를 말해 준다.</p>
+    <p>버튼 문구를 고를 때 따져 볼 것은 세 가지다. 첫째, 버튼만 읽고 결과를 알 수 있는가. 둘째, 같은 일을 하는 버튼은 화면마다 같은 이름인가("맡아 두기"가 어떤 화면에서는 "예약", 다른 화면에서는 "찜"이 되면 다른 기능으로 읽힌다. <a href="usability.html">8장</a>에서 손님들이 "맡아 두기"와 "찜하기"를 헷갈린 것과 같은 일이다). 셋째, 되돌릴 수 없는 일이면 그 사실을 버튼 근처에 적었는가. 확인 대화상자는 되돌릴 수 없는 일에만 쓰고, 되돌릴 수 있는 일은 묻지 않고 실행한 뒤 "되돌리기"를 주는 편이 손님의 시간을 아낀다(<a href="flow.html">5장</a>).</p>
+  </section>
+
+  <section id="errors">
+    <h2>오류 메시지: 무엇이, 왜, 어떻게</h2>
+    <p>오류 메시지는 손님이 가장 곤란한 순간에 읽는 글이다. 그래서 가장 정성을 들여야 하는데, 실제로는 개발 중에 개발자가 임시로 넣은 문장이 그대로 남는 일이 흔하다. "요청 실패(code 409)"가 그런 예다. 409는 웹 서버가 "요청이 지금 상태와 충돌한다"는 뜻으로 돌려주는 번호(HTTP 상태 코드)인데, 이 서비스에서는 "다른 손님이 방금 그 책을 먼저 맡았다"는 뜻이었다. 손님에게는 아무 뜻도 없는 숫자다.</p>
+    <p>좋은 오류 메시지는 세 가지를 말한다. <b>무엇이</b> 일어났는가(맡아 두지 못했다), <b>왜</b> 그런가(다른 손님이 먼저 맡았고, 그 책은 한 권뿐이다), 이제 <b>어떻게</b> 하면 되는가(다른 책방에서 찾기). 제이콥 닐슨(Jakob Nielsen)의 사용성 휴리스틱(1994년 판) 아홉째 항목 "사용자가 오류를 알아보고, 진단하고, 회복하도록 도우라"도 같은 내용이다. 웹 접근성 지침 WCAG 2.2도 입력 오류가 생기면 무엇이 잘못됐는지 글로 알리고(성공 기준 3.3.1 오류 식별, A 수준), 고칠 방법을 알 수 있으면 그것도 알려 주라고(3.3.3 오류 수정 제안, AA 수준) 요구한다.</p>
+
+    <div class="sim" id="sim-er">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>오류 메시지 고쳐 쓰기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="er-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="er-sit"><button data-value="conflict" class="on">먼저 맡음(409)</button><button data-value="net">연결 끊김</button><button data-value="code">인증 번호</button></div>
+          <label class="check"><input type="checkbox" id="er-what"> 무엇이 일어났나</label>
+          <label class="check"><input type="checkbox" id="er-why"> 왜 그런가</label>
+          <label class="check"><input type="checkbox" id="er-next"> 이제 어떻게 하나(버튼)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">세 요소</span><span class="v" id="er-o-n">—</span></div>
+        <div class="stat"><span class="k">손님이 할 수 있는 일</span><span class="v" id="er-o-act" style="font-size:15px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">글자 수</span><span class="v" id="er-o-len">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 아무것도 켜지 않은 상태가 시범 운영의 실제 문구다. 손님은 다시 눌러 볼 수밖에 없다. ② "이제 어떻게 하나"만 켠다. 버튼은 생겼지만 왜 다른 책방으로 가야 하는지 모르니 망설이게 된다. ③ 셋을 모두 켠다. 글은 길어졌지만 손님이 다음에 할 일이 분명하다. 오류 번호는 지우지 않고 맨 아래 작게 남긴다. 책방에 물어볼 때 쓴다. 다른 두 상황에서도 해 본다. (가상의 화면과 문구다. 글자 수는 공백을 뺀 수다.)</div>
+    </div>
+
+    <p>세 요소를 모두 넣으면 글이 길어진다. 그래도 오류 메시지에서는 짧은 것보다 분명한 것이 먼저다. 손님은 이미 멈춰 서서 읽을 준비가 되어 있다. 대신 첫 문장은 짧게, 무엇이 일어났는지만 쓴다. 이유는 둘째 문장에, 다음 행동은 글이 아니라 버튼으로 준다. 버튼이 있으면 "다른 책방에서 찾아 주세요" 같은 지시문은 지워도 된다.</p>
+    <p>오류 메시지에서 피할 말투도 있다. "잘못 입력하셨습니다", "올바르지 않은 번호입니다"처럼 손님을 탓하는 말, "치명적 오류", "실패"처럼 겁주는 말, "알 수 없는 오류가 발생했습니다"처럼 아무것도 알려 주지 않는 말이다. 사실만 말한다. "인증 번호가 맞지 않아요"는 탓하지 않고도 무엇이 틀렸는지 알려 준다. 또 오류는 생긴 곳 가까이에 보여 준다. 화면 맨 위에 모아 둔 오류는 휴대폰에서 보이지 않는다. 입력 칸의 오류를 어디에 어떻게 보여 줄지는 <a href="../../web/chapters/forms.html">WebBook 9장</a>에서 다룬다.</p>
+
+    <div class="table-wrap"><table>
+      <thead><tr><th>상황</th><th>고치기 전</th><th>무엇이</th><th>왜</th><th>어떻게(버튼)</th></tr></thead>
+      <tbody>
+        <tr><td>다른 손님이 먼저 맡음</td><td>요청 실패(code 409)</td><td>이 책을 맡아 두지 못했어요.</td><td>방금 다른 손님이 먼저 맡았어요. 이 책방에는 한 권뿐이에요.</td><td>다른 책방에서 찾기</td></tr>
+        <tr><td>연결 끊김</td><td>Network Error</td><td>요청을 보내지 못했어요.</td><td>인터넷 연결이 끊긴 것 같아요. 책방에는 아직 요청이 가지 않았어요.</td><td>다시 보내기</td></tr>
+        <tr><td>인증 번호</td><td>인증 실패</td><td>인증 번호가 맞지 않아요.</td><td>번호가 다르거나, 받은 지 5분이 지났을 수 있어요.</td><td>번호 다시 받기</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="empty">
+    <h2>빈 상태: 막다른 길을 길로</h2>
+    <p>보여 줄 내용이 없을 때의 화면을 <span class="term">빈 상태</span><span class="en">(Empty state)</span>라고 한다. 검색 결과가 없을 때, 처음 가입해 맡긴 책이 하나도 없을 때, 오늘 들어온 새 책이 없을 때다. 시안에서는 늘 내용이 가득 찬 화면만 그리기 때문에 빈 상태는 잊히기 쉽고, 결국 "결과 없음" 한 줄로 남는다. 그런데 손님에게 빈 화면은 막다른 길이다. 무엇이 없는지, 왜 없는지, 이제 어디로 가면 되는지 말해 주지 않으면 손님은 앱을 닫는다.</p>
+    <p>검색 결과의 빈 상태는 특히 중요하다. 결과가 없는 이유가 "정말 없어서"인지 "찾는 방법이 달라서"인지 구별해 줄 수 있기 때문이다. 아래에서 검색어를 바꾸며 "결과 없음"과 고친 빈 상태를 비교한다. 검색어를 문장에 끼워 넣을 때 생기는 한국어만의 문제도 함께 본다.</p>
+
+    <div class="sim" id="sim-em">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>검색 결과가 없을 때</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="em-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="em-q"><button data-value="0" class="on">작은아씨들</button><button data-value="1">어린 왕자 초판</button><button data-value="2">나무 위의 고양이</button><button data-value="3">Momo</button></div>
+          <div class="seg" id="em-v"><button data-value="old">결과 없음</button><button data-value="new" class="on">고친 빈 상태</button></div>
+          <label class="check"><input type="checkbox" id="em-j"> 조사(은/는) 자동으로 고르기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">왜 없는지</span><span class="v" id="em-o-why" style="font-size:15px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">다음에 할 수 있는 일</span><span class="v" id="em-o-act">—</span></div>
+        <div class="stat"><span class="k">고른 조사</span><span class="v" id="em-o-j">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "결과 없음"과 "고친 빈 상태"를 번갈아 본다. "작은아씨들"은 띄어쓰기만 다를 뿐 두 책방에 있다. 고친 화면은 그 사실을 알려 주고 버튼 하나로 다시 찾게 한다. ② "나무 위의 고양이"는 정말 없다. 없다는 것을 분명히 말하고, 어린이 책방에 직접 묻는 길을 건넨다. ③ 조사 자동 고르기를 켜고 검색어를 바꾼다. 받침이 있으면 "은", 없으면 "는"이다. "Momo"처럼 로마자는 읽는 법을 알 수 없어 "은(는)"으로 남는다. (가상의 재고 자료다. 받침 판단은 한글 음절과 숫자만 다룬다.)</div>
+    </div>
+
+    <p>"‘작은아씨들’은(는) 없어요"처럼 괄호로 두 조사를 다 적는 문장은 개발하기 쉽지만 읽기에는 걸린다. 한국어의 조사는 앞말의 받침에 따라 은/는, 이/가, 을/를, 와/과, 으로/로처럼 바뀐다. 사람 이름, 책 제목, 책방 이름처럼 문장에 끼워 넣는 말이 바뀌는 곳에는 받침을 보고 조사를 고르는 코드를 넣거나, 조사가 필요 없게 문장을 바꾼다. "검색어: 작은아씨들 · 네 책방에 없어요"처럼 끼워 넣는 말을 문장 밖으로 빼는 방법도 있다. 한글 음절은 유니코드에서 규칙적으로 배열되어 있어서, 음절 번호로 받침이 있는지를 계산할 수 있다.</p>
+
+    <div class="callout studio">
+      <strong>처음 쓰는 사람의 빈 상태</strong>
+      검색 결과가 아닌 빈 상태도 있다. 처음 들어온 손님의 "맡긴 책" 목록은 비어 있다. 여기에 "맡긴 책이 없습니다"만 두면 손님은 이 화면이 무엇을 하는 곳인지 배울 기회를 잃는다. 처음의 빈 상태는 짧은 안내서다. 이곳에 무엇이 쌓일지("맡아 둔 책과 찾아갈 기한이 여기 보여요"), 그것을 만드는 첫 행동(책 찾기 버튼)을 둔다. 다만 그림과 설명을 너무 크게 넣으면, 두 번째로 들어왔을 때부터는 방해가 된다. 처음의 빈 상태와 "다 찾아가서 비어 있는" 상태는 다른 문장이 어울린다. 후자라면 "맡긴 책을 모두 찾아갔어요"가 맞다.
+    </div>
+  </section>
+
+  <section id="front">
+    <h2>중요한 말을 앞에</h2>
+    <p>화면의 글은 잘린다. 휴대폰 잠금 화면의 알림은 한두 줄에서, 목록의 제목은 한 줄에서, 문자 미리보기는 몇십 자에서 끝나고 "…"이 붙는다. 사람들은 잘린 앞부분만 보고 열지 말지를 정한다. 그러니 앞부분에 인사말이나 서비스 이름이 오면, 정작 손님이 알아야 할 말은 잘린 뒤에 숨는다. 신문 기사가 가장 중요한 사실을 첫 문장에 두는 것과 같은 원리다.</p>
+    <p>아래는 책이 준비됐다는 알림이다. 알림 상자의 오른쪽 끝을 끌어 폭을 바꾸고, 문장 순서와 보이는 줄 수를 바꿔 본다. 손님이 알아야 할 것은 세 가지다. 어떤 책인지, 어느 책방인지, 언제까지인지.</p>
+
+    <div class="sim" id="sim-fr">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>알림은 어디서 잘리나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fr-cv" class="art"></canvas><span class="hint">알림 상자의 오른쪽 끝을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>알림 상자 폭 <output id="fr-w-out"></output></span><input type="range" id="fr-w" min="180" max="420" step="2" value="300"></label>
+          <div class="seg" id="fr-o"><button data-value="greet" class="on">인사 먼저</button><button data-value="key">핵심 먼저</button></div>
+          <div class="seg" id="fr-l"><button data-value="1">1줄</button><button data-value="2" class="on">2줄</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">보이는 글자</span><span class="v" id="fr-o-n">—</span></div>
+        <div class="stat"><span class="k">보이는 핵심(책·책방·기한)</span><span class="v" id="fr-o-k">—</span></div>
+        <div class="stat"><span class="k">핵심이 모두 보이는 최소 폭</span><span class="v" id="fr-o-min">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "인사 먼저", 2줄. 폭을 넓혀도 기한은 끝내 잘린다. 앞의 "안녕하세요! 맡아 두기 서비스입니다."가 한 줄을 통째로 쓴다. ② "핵심 먼저"로 바꾼다. 같은 폭에서 세 가지가 모두 보인다. ③ 1줄로 줄이고 폭을 좁힌다. 책 제목과 책방은 끝까지 남는다. 서비스 이름은 알림의 머리에 이미 앱 이름으로 붙어 있으니 본문에서 되풀이할 필요가 없다. (가상의 잠금 화면 알림이다. 실제로 몇 줄, 몇 자에서 잘리는지는 운영체제와 기기, 글자 크기 설정마다 다르다.)</div>
+    </div>
+
+    <p>앞에 놓을 말을 고르는 기준은 "이 글만 보고 손님이 무엇을 결정하는가"다. 알림이라면 열어 볼지, 오늘 찾으러 갈지를 정한다. 그러니 책 제목, 책방, 기한이 앞에 와야 한다. 목록의 항목 제목이라면 서로를 구별하는 말이 앞에 와야 한다. "맡아 두기 요청 – 작은 아씨들", "맡아 두기 요청 – 어린 왕자"처럼 같은 말로 시작하는 목록은 앞부분이 모두 같아 훑을 수 없다. "작은 아씨들 · 요청됨"이 낫다.</p>
+  </section>
+
+  <section id="register">
+    <h2>높임과 어조: 한 서비스, 한 목소리</h2>
+    <p>한국어로 화면의 글을 쓸 때 영어에는 없는 결정이 하나 더 있다. 듣는 사람을 얼마나 높일지를 문장 끝(종결 어미)으로 표시해야 한다. 이것을 <span class="term">상대 높임법</span><span class="en">(Speech level, 청자 높임)</span>이라고 한다. 학교 문법에서는 보통 여섯 단계로 나눈다.</p>
+
+    <div class="table-wrap"><table>
+      <thead><tr><th>단계</th><th>성격</th><th>예(맡아 두다)</th><th>화면에서의 쓰임</th></tr></thead>
+      <tbody>
+        <tr><td>하십시오체(합니다체)</td><td>격식, 아주 높임</td><td>맡아 두었습니다 · 맡아 두십시오</td><td>공지, 약관, 공공기관과 금융 서비스의 안내. 정중하지만 멀게 들린다.</td></tr>
+        <tr><td>하오체</td><td>격식, 예사 높임</td><td>맡아 두었소</td><td>요즘 화면에서는 거의 쓰지 않는다.</td></tr>
+        <tr><td>하게체</td><td>격식, 예사 낮춤</td><td>맡아 두었네</td><td>거의 쓰지 않는다.</td></tr>
+        <tr><td>해라체</td><td>격식, 아주 낮춤</td><td>맡아 두었다 · 맡아 두어라</td><td>책과 기사의 평서문(이 책의 본문). 화면에서 손님에게 쓰면 딱딱하거나 명령조로 들린다.</td></tr>
+        <tr><td>해요체</td><td>비격식, 두루 높임</td><td>맡아 두었어요 · 맡아 두세요</td><td>많은 소비자 서비스가 고르는 말투. 정중하면서 가깝다.</td></tr>
+        <tr><td>해체(반말)</td><td>비격식, 두루 낮춤</td><td>맡아 두었어 · 맡아 둬</td><td>친구 같은 서비스를 일부러 고른 경우에만. 어른 손님에게는 무례하게 들릴 수 있다.</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>어느 단계를 고를지는 서비스의 목소리와 손님에 따라 정할 일이고, 정답은 없다. 정할 것은 <b>하나로 맞추는 것</b>이다. 한 화면 안에서 "요청했어요"와 "취소되었습니다"가 섞이면 두 사람이 번갈아 말하는 것처럼 들린다. 여러 사람이 각자 문구를 쓰는 서비스에서 이 일은 아주 흔하다. "맡아 두기"는 네 책방 주인이 각자 안내문을 써 넣으면서 해요체, 합니다체, 해라체, 반말이 한 화면에 모였다.</p>
+    <p>문장이 아닌 글에는 다른 규칙을 둔다. 버튼과 메뉴, 탭, 제목처럼 짧은 이름은 "맡아 두기", "맡긴 책", "책방 정보"처럼 명사나 "-기" 명사형으로 쓰는 것이 흔한 관례이고, 이것은 말투가 섞인 것이 아니다. "기한 경과 시 자동 취소됨"처럼 "-음/-함/-됨"으로 끝내는 개조식은 보고서와 공문의 말투라, 손님에게 하는 문장으로는 딱딱하다. 아래 점검기에 문구를 넣으면 문장마다 끝을 보고 말투를 가려낸다.</p>
+
+    <div class="sim" id="sim-rg">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>말투 점검기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><div id="rg-list" class="rg-list" aria-live="polite"></div></div>
+        <div class="sim-controls">
+          <div class="seg" id="rg-pre"><button data-value="four" class="on">네 책방 원래 문구</button><button data-value="owner">주인 화면</button><button data-value="fixed">고친 문구</button></div>
+          <textarea id="rg-text" class="rg-text" aria-label="점검할 문구(한 줄에 하나)" spellcheck="false"></textarea>
+          <div class="seg" id="rg-base"><button data-value="auto" class="on">가장 많은 말투 기준</button><button data-value="해요체">해요체 기준</button><button data-value="합니다체">합니다체 기준</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">기준 말투</span><span class="v" id="rg-o-base" style="font-size:15px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">기준과 다른 문장</span><span class="v" id="rg-o-off">—</span></div>
+        <div class="stat"><span class="k">살펴볼 표현</span><span class="v" id="rg-o-warn">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "네 책방 원래 문구"를 본다. 여덟 문장에 말투가 다섯 가지다. 빨간 테두리가 기준과 다른 문장이다. ② "해요체 기준"을 누르고 글상자의 빨간 문장을 하나씩 해요체로 고쳐 쓴다. 고칠 때마다 바로 다시 점검한다. ③ "주인 화면"은 주인에게 하는 말이다. 주인 화면을 합니다체로 할지 해요체로 할지는 선택이지만, 한 화면 안에서는 하나로 맞춘다. (교육용 점검기: 문장의 끝 몇 글자만 보고 규칙으로 가려낸다. "-기"로 끝나거나 짧은 명사 문구는 버튼·제목 같은 이름으로 보고 말투 판정에서 뺀다. 문맥을 이해하지 못하므로 틀리게 가려낼 수도 있다.)</div>
+    </div>
+
+    <p>점검기가 노란색으로 따로 표시하는 표현이 있다. 하나는 "주문하신 책이 나오셨습니다"처럼 높일 사람이 아닌 사물을 높이는 말이다. "-시-"는 문장의 주어를 높이는 말인데(주체 높임), 주어가 책이면 책을 높이는 셈이 된다. 손님을 높이려는 마음이 넘친 것이지만, "주문하신 책이 나왔어요"로 충분하다. "주문하신"의 "-시-"는 주문한 사람이 손님이라 맞다. 다른 하나는 "잠시만 기다리실게요" 같은 말이다. "-ㄹ게요"는 말하는 사람이 자기가 하겠다고 약속할 때 쓰는 어미라, 손님에게 무언가를 하라고 할 때 붙이면 어색하다. "잠시만 기다려 주세요"가 맞다. 둘 다 서비스 현장에서 널리 들리지만, 국어 규범과 많은 글쓰기 지침이 고쳐 쓰기를 권하는 표현이다.</p>
+
+    <div class="callout warn">
+      <strong>번역투와 외래어도 말투다</strong>
+      "요청이 성공적으로 완료되었습니다"는 해요체로 바꾸어도 "요청이 성공적으로 완료되었어요"가 되어 여전히 길고 멀다. "요청했어요"면 된다. "~에 의해", "~을 진행하다", "~하시기 바랍니다" 같은 번역투와 공문투, "리퀘스트", "컨펌" 같은 업계 말은 손님에게 낯설다. 같은 기능을 가리키는 말도 하나로 정한다. "맡아 두기"를 어떤 화면에서는 "예약", 어떤 화면에서는 "보관"이라고 쓰면 손님은 세 가지 다른 기능이 있다고 생각한다. 그래서 문구 원칙과 함께 <b>용어 목록</b>(쓰는 말과 쓰지 않는 말)을 만들어 둔다.
+    </div>
+  </section>
+
+  <section id="length">
+    <h2>문구의 길이와 좁은 화면</h2>
+    <p>문구는 화면의 폭 안에 들어가야 한다. 시안의 버튼은 디자이너의 화면 폭과 기본 글자 크기에서만 맞춰 그려진다. 그런데 손님의 휴대폰은 더 좁을 수 있고, 손님이 글자 크기를 키워 쓰고 있을 수 있다. 서비스를 다른 언어로 옮기면 같은 뜻의 문구가 훨씬 길어지기도 한다. WCAG 2.2의 성공 기준 1.4.4(글자 크기 조절, AA 수준)는 보조 기술 없이 글자를 200%까지 키워도 내용과 기능을 잃지 않게 하라고 요구한다. 버튼 문구가 말줄임표로 잘려 "다른 책방…"이 되면 기능을 잃은 것이다.</p>
+    <p>아래는 결과 화면의 아래쪽(행동 버튼 두 개와 탭 막대)이다. 가상 화면의 오른쪽 끝을 끌어 폭을 바꾸고, 글자 크기와 언어, 넘칠 때의 처리를 바꿔 본다.</p>
+
+    <div class="sim" id="sim-ln">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>좁은 화면, 큰 글자, 긴 문구</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-cv" class="art"></canvas><span class="hint">화면의 오른쪽 끝을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>글자 크기 <output id="ln-s-out"></output></span><input type="range" id="ln-s" min="100" max="200" step="10" value="100"></label>
+          <div class="seg" id="ln-lang"><button data-value="ko" class="on">한국어</button><button data-value="en">English</button></div>
+          <div class="seg" id="ln-mode"><button data-value="ell" class="on">말줄임</button><button data-value="wrap">줄바꿈</button><button data-value="stack">세로로 쌓기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가상 화면 폭</span><span class="v" id="ln-o-w">—</span></div>
+        <div class="stat"><span class="k">잘린 문구</span><span class="v" id="ln-o-cut">—</span></div>
+        <div class="stat"><span class="k">버튼 문구가 다 들어가는 최소 폭</span><span class="v" id="ln-o-min">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 한국어, 100%, 폭 360px. 다 들어간다. 글자 크기를 200%로 키운다. "다른 책방 보기"가 "다른 책방…"으로 잘린다. 화면의 오른쪽 끝을 끌어 300px 아래로 좁히면 탭 이름도 잘린다. ② "줄바꿈"으로 바꾼다. 버튼이 두 줄로 높아지며 글은 모두 보인다. "세로로 쌓기"는 버튼을 한 줄에 하나씩 놓아 폭을 다 쓴다. ③ English로 바꾼다. 같은 뜻이지만 글자 수가 훨씬 많아, 100%, 360px에서도 벌써 버튼 하나가 잘린다. 한글은 한 자의 폭이 넓은 대신 같은 말을 적는 글자 수가 적다. (가상 화면의 글자는 이 책의 본문 글꼴로 그렸고, 기본 글자 크기를 15px로 두었다. 실제 폭은 글꼴과 기기에 따라 다르다. 영어 문구는 비교를 위해 이 책이 붙인 번역이다.)</div>
+    </div>
+
+    <p>세 가지 처리에는 각자 대가가 있다. 말줄임은 화면의 모양을 지키지만 글을 잃는다. 버튼 이름에는 쓰지 않는 것이 좋다. 줄바꿈은 글을 지키지만 버튼의 높이가 들쭉날쭉해진다. 세로로 쌓기는 가장 튼튼하지만 화면 아래를 더 많이 차지한다. 그래서 흔히 쓰는 방법은, 넓을 때는 나란히 두다가 문구가 들어가지 않으면 세로로 쌓도록 짜는 것이다. 디자이너가 할 일은 이 규칙을 시안에 적어 두고, 가장 좁은 폭(<a href="../../web/chapters/viewport.html">WebBook 2장</a>에서 정한 320px)과 가장 큰 글자에서 가장 긴 문구로 한 번 그려 보는 것이다. 문구를 짧게 고치는 것은 그다음이다. 짧은 문구는 좋지만, 짧게 만들다가 뜻을 잃으면 안 된다.</p>
+
+    <div class="callout try">
+      <strong>내 휴대폰의 버튼 문구 모으기</strong>
+      자주 쓰는 앱 세 개를 열고, 대화상자와 오류 메시지를 일부러 만들어 본다(로그아웃, 삭제, 비행기 모드에서 새로 고침). 화면을 찍지 말고 손으로 공책에 옮겨 적는다. 문구마다 ① 버튼만 읽고 결과를 알 수 있는가, ② 오류는 무엇이·왜·어떻게 중 몇 개를 말하는가, ③ 문장의 끝은 어떤 말투인가를 적는다. 그다음 휴대폰의 글자 크기를 가장 크게 바꾸고 같은 화면을 다시 열어, 잘리거나 겹친 문구에 동그라미를 친다. 마지막으로 가장 나빴던 문구 하나를 이 장의 원칙으로 고쳐 써 본다. 고친 문장의 글자 수도 세어 본다.
+    </div>
+  </section>
+
+  <section id="table">
+    <h2>문구 원칙과 문구 표</h2>
+    <p>서비스의 문구는 한 사람이 다 쓰지 않는다. 디자이너, 개발자, 주인, 나중에 들어올 사람이 각자 쓴다. 그래서 문구를 하나하나 고치는 것만큼, 누가 써도 같은 목소리가 나오게 하는 장치가 중요하다. 흔히 쓰는 장치는 두 가지다. 하나는 짧은 <b>문구 원칙</b>이다. 다섯 줄 안팎으로, 외울 수 있을 만큼 짧아야 실제로 쓰인다. 다른 하나는 <b>문구 표</b>다. 화면과 상황마다 실제 문구를 한 칸씩 적은 표로, 개발자는 이 표의 문구를 그대로 가져다 쓰고, 문구를 바꿀 때는 표부터 고친다. 용어 목록(쓰는 말과 쓰지 않는 말)도 함께 둔다.</p>
+    <p>문구 표에는 문구만이 아니라 그 문구가 나오는 조건과 끼워 넣는 값(책 제목, 책방 이름, 날짜)을 함께 적는다. "{책 제목}" 같은 자리에 무엇이 들어오는지, 조사를 어떻게 고르는지, 가장 긴 값이 들어오면 어떻게 되는지를 적어 두어야 개발자가 같은 문장을 만든다. 이렇게 정한 문구와 용어는 다음 장의 디자인 시스템이 컴포넌트와 함께 관리하는 대상이 된다.</p>
+
+    <div class="callout studio">
+      <strong>문구를 시험하는 법</strong>
+      문구도 시험할 수 있다. 가장 간단한 방법은 손님에게 화면을 보여 주고 "이 버튼을 누르면 무슨 일이 일어날 것 같아요?"라고 묻는 것이다. 답이 문구의 뜻과 다르면 문구를 고친다. 문장의 한 부분을 지우고 무슨 말이 들어갈지 묻는 방법도 있다. 문구를 놓고 A/B 테스트를 할 수도 있지만(<a href="metrics.html">9장</a>), 숫자는 어느 문구가 더 많이 눌렸는지만 알려 주지 그 문구가 정확하게 이해됐는지는 알려 주지 않는다. 더 많이 눌렸지만 잘못 이해하고 누른 것일 수도 있다. 이해를 묻는 일은 사람을 만나서 한다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 봄 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 10장</span></div>
+      <h4>네 사람의 말투, 한 서비스의 목소리</h4>
+      <p>5월 넷째 주, A/B 테스트는 계획대로 조용히 돌고 있었다. 판정일인 28일까지 결과 화면의 버튼 문구는 손대지 않기로 했으니, 서윤은 그 밖의 문구를 모두 꺼내 보았다. 지후가 코드에서 화면에 나오는 문자열을 뽑아 표로 만들자 132줄이었다. 개발하며 임시로 넣은 문구, 네 주인이 각자 써 보낸 안내문, 서윤이 시안에 적은 문구가 섞여 있었다.</p>
+      <p>손님이 보낸 두 장의 화면부터 고쳤다. "요청 실패(code 409)"는 헌책방 나무의 한 권뿐인 헌책을 두 손님이 몇 초 차이로 맡으려 할 때 나왔다. 서윤은 무엇이·왜·어떻게로 다시 썼고, 지후는 버튼을 누르면 같은 책이 있는 다른 책방의 결과로 바로 가게 했다. "결과 없음"이 나온 "작은아씨들"은 띄어쓰기만 다른 검색어였다. 지후는 공백을 뺀 제목으로도 한 번 더 찾아 "‘작은 아씨들’로 찾으면 2곳에 있어요"라고 알려 주는 기능을 반나절에 붙였다. 조사는 받침을 보고 고르기로 했다.</p>
+      <p>말투는 더 어려웠다. 책방 E 주인은 "말씀해 주세요!"처럼 다정한 해요체를, 헌책방 나무 주인은 "본 도서는 1권 한정 판매합니다"처럼 공지문을, 작은 숲 주인은 "책이 너를 기다리고 있어~"처럼 아이에게 하는 반말을, 한 줄 주인은 "시집은 기다린다"처럼 시 같은 해라체를 썼다. 저마다 가게의 개성이었다. 하린은 손님 다섯 명에게 네 책방의 안내문을 섞어 보여 주고 같은 서비스 같으냐고 물었다(가상 자료). 다섯 명 모두 "앱이 아니라 가게마다 따로 만든 것 같다"고 했고, 그중 두 명은 작은 숲의 반말을 "어른한테 하는 말 같지 않다"고 했다. 작은 숲 주인은 웃으며 반말을 내려놓았다. 대신 책방마다 자기 말투를 쓸 수 있는 자리를 남겼다. 책방 소개 한 문단이다.</p>
+      <p>서윤의 선택은 서비스가 하는 말은 해요체 하나로, 책방이 하는 말은 책방 소개 안에서만 자유롭게였다. 주인 화면도 해요체로 맞췄다. 주인들은 처음에 "주인한테까지 해요체요?" 했지만, 거절 버튼 옆에 "손님에게 ‘책이 없어서 맡아 두지 못했어요’ 알림이 가요"라고 적힌 것을 보고 그게 편하다고 했다.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>상황</th><th>고치기 전</th><th>고친 문구(버튼)</th></tr></thead>
+        <tbody>
+          <tr><td>다른 손님이 먼저 맡음</td><td>요청 실패(code 409)</td><td>이 책을 맡아 두지 못했어요. 방금 다른 손님이 먼저 맡았어요. 이 책방에는 한 권뿐이에요. (다른 책방에서 찾기)</td></tr>
+          <tr><td>검색 결과 없음</td><td>결과 없음</td><td>‘{검색어}’{은/는} 지금 네 책방에 없어요. + 띄어쓰기·짧은 제목 제안 (‘{제안}’로 찾기)</td></tr>
+          <tr><td>연결 끊김</td><td>Network Error</td><td>요청을 보내지 못했어요. 책방에는 아직 요청이 가지 않았어요. (다시 보내기)</td></tr>
+          <tr><td>맡긴 것 취소 확인</td><td>취소하시겠습니까? (취소 / 확인)</td><td>맡아 둔 책을 취소할까요? (계속 맡아 두기 / 맡긴 것 취소하기)</td></tr>
+          <tr><td>준비 알림</td><td>안녕하세요! 맡아 두기 서비스입니다. 요청하신…</td><td>『{책 제목}』 준비됐어요 · {책방}에서 {날짜}까지 찾아가 주세요.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b><strong>문구 원칙 다섯 줄.</strong> ① 서비스가 하는 말은 손님 화면과 주인 화면 모두 해요체(버튼·탭·제목은 명사나 "-기" 꼴). ② 버튼은 누르면 일어나는 일을 쓴다. "확인"·"예"는 쓰지 않고, 알림을 닫기만 하는 버튼은 "닫기". ③ 오류는 무엇이·왜·어떻게. 다음 행동은 버튼 하나로, 오류 번호는 맨 아래 작게, 손님을 탓하지 않는다. ④ 같은 것은 같은 이름: "맡아 두기"(찜·예약·보관은 쓰지 않음), "책방"(서점·매장은 쓰지 않음). ⑤ 중요한 말을 앞에: 책 제목 → 책방 → 기한. 버튼은 320px 폭, 글자 200%에서 잘리지 않게(넘치면 세로로 쌓기). 위 <strong>문구 표</strong>(주요 다섯 줄, 전체 132줄)와 용어 목록.</div>
+        <div><b>아직 남은 문제</b>A/B 테스트의 버튼 문구는 28일 판정 뒤에 정한다. 문구는 맞췄지만 네 책방 화면의 버튼 모양과 색이 아직 제각각이라 같은 문구도 다르게 보인다. 책방마다 자기 색을 쓰고 싶어 한다.</div>
+        <div><b>다음 단계</b><a href="system.html">11장</a>: WebBook의 책방 E 토큰을 네 책방이 함께 쓰는 디자인 시스템으로 넓히고, 문구 표와 용어 목록도 그 안에 둔다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>UX 라이팅은 버튼, 안내, 오류, 빈 상태, 확인 대화상자, 알림의 글을 쓰고 다듬는 일이다. 화면의 글은 읽히기보다 훑어진다.</li>
+      <li>버튼에는 누르면 일어나는 일을 쓴다. "확인/취소", "예/아니요"는 질문을 읽어야 뜻이 생긴다. 취소를 묻는 대화상자에서는 "취소"를 버튼 이름으로 쓰지 않는다.</li>
+      <li>오류 메시지는 무엇이 일어났는지, 왜 그런지, 이제 어떻게 하면 되는지를 말한다. 다음 행동은 버튼으로, 오류 번호는 작게, 손님을 탓하지 않는다(WCAG 2.2 SC 3.3.1, 3.3.3).</li>
+      <li>빈 상태는 막다른 길이 아니라 다음 행동으로 이어지는 화면이다. 끼워 넣는 말에는 받침에 맞는 조사를 고르거나 조사가 필요 없게 문장을 바꾼다.</li>
+      <li>글은 잘린다. 알림과 목록에서는 손님이 결정에 쓰는 말(책, 책방, 기한)을 앞에 둔다.</li>
+      <li>한국어 화면은 상대 높임의 단계를 하나로 맞춘다. 문장은 한 말투로, 버튼과 제목은 명사나 "-기" 꼴로. 사물을 높이는 "-시-"와 "-실게요"는 고쳐 쓴다.</li>
+      <li>문구는 가장 좁은 폭과 가장 큰 글자(200%), 가장 긴 언어에서 확인한다. 버튼 이름은 말줄임하지 않고, 넘치면 줄을 바꾸거나 세로로 쌓는다.</li>
+      <li>누가 써도 같은 목소리가 나도록 짧은 문구 원칙, 문구 표, 용어 목록을 둔다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 맡아 둔 책을 취소하려는 손님에게 "맡아 둔 책을 취소할까요?"라는 대화상자를 띄운다. 두 버튼의 이름으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">취소 / 확인</button>
+          <button class="opt">아니요 / 예</button>
+          <button class="opt" data-correct>계속 맡아 두기 / 맡긴 것 취소하기</button>
+          <button class="opt">닫기 / 확인</button>
+        </div>
+        <div class="quiz-exp">버튼에는 누르면 일어나는 일을 쓴다. "취소 / 확인"에서 "취소"는 대화상자를 취소하는지 맡긴 것을 취소하는지 모호하고, "예/아니요"와 "확인"은 질문을 읽어야 뜻이 생긴다. "계속 맡아 두기 / 맡긴 것 취소하기"는 본문을 읽지 않아도 결과를 안다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 다음 오류 메시지 가운데 무엇이·왜·어떻게를 모두 갖춘 것은?</p>
+        <div class="opts">
+          <button class="opt">요청 실패(code 409)</button>
+          <button class="opt" data-correct>이 책을 맡아 두지 못했어요. 방금 다른 손님이 먼저 맡았고, 이 책방에는 한 권뿐이에요. [다른 책방에서 찾기]</button>
+          <button class="opt">잘못된 요청입니다. 다시 시도하십시오.</button>
+          <button class="opt">이런! 문제가 생겼어요 :( [확인]</button>
+        </div>
+        <div class="quiz-exp">둘째 문구는 무엇이 일어났는지(맡지 못함), 왜 그런지(다른 손님이 먼저, 한 권뿐), 이제 어떻게 할지(다른 책방에서 찾기 버튼)를 모두 말한다. 첫째는 아무것도 알려 주지 않고, 셋째는 손님 탓처럼 들리며 다시 해도 같은 결과일 일을 시킨다. 넷째는 가벼운 어조에 이유도 다음 행동도 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 해요체로 맞추기로 한 서비스의 문구 점검에서, 고칠 필요가 <b>없는</b> 것은?</p>
+        <div class="opts">
+          <button class="opt">"주문하신 책이 나오셨습니다."</button>
+          <button class="opt">"잠시만 기다리실게요."</button>
+          <button class="opt">"기한 경과 시 자동 취소됨"</button>
+          <button class="opt" data-correct>버튼 이름 "맡아 두기"</button>
+        </div>
+        <div class="quiz-exp">버튼·탭·제목 같은 짧은 이름은 명사나 "-기" 꼴로 쓰는 것이 흔한 관례이고, 말투가 섞인 것이 아니다. 나머지는 고친다. "나오셨습니다"는 합니다체이면서 사물(책)을 높이고, "-실게요"는 말하는 사람의 약속에 쓰는 어미를 상대에게 시키는 말에 붙였고, "-됨"으로 끝나는 개조식은 손님에게 하는 문장으로 딱딱하다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 책이 준비됐다는 잠금 화면 알림이 두 줄에서 잘린다. 다음 중 가장 알맞은 문장은?</p>
+        <div class="opts">
+          <button class="opt">안녕하세요! 맡아 두기 서비스입니다. 요청하신 『작은 아씨들』이 헌책방 나무에서 준비되었습니다. 6월 3일까지 찾아가 주세요.</button>
+          <button class="opt">맡아 두기 알림: 요청하신 책의 준비 상태가 변경되었으니 앱에서 확인해 주세요.</button>
+          <button class="opt" data-correct>『작은 아씨들』 준비됐어요 · 헌책방 나무에서 6월 3일(토)까지 찾아가 주세요.</button>
+          <button class="opt">준비 완료!!! 지금 바로 확인하세요 👉</button>
+        </div>
+        <div class="quiz-exp">알림은 잘리므로 손님이 결정에 쓰는 말(책 제목, 책방, 기한)을 앞에 둔다. 첫째는 인사와 서비스 이름이 앞을 차지해 기한이 잘리고 합니다체·해요체가 섞였다. 둘째는 핵심을 하나도 말하지 않고 앱을 열게 만든다. 넷째는 무엇이 준비됐는지 모르고 재촉만 한다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(fn) { try { fn(); } catch (e) { console.error(e); } }
+
+  /* ---------------- 가상 화면 공통(고정색: 책방 E 팔레트) ---------------- */
+  var C = { paper: "#fbfaf7", ink: "#22342a", dim: "#567666", green: "#2f7d5b", cream: "#ffe2d7", red: "#d24f39", line: "#d8d2c4", white: "#ffffff", frame: "#2a2f2c", shade: "#e9e5da", soft: "#f3efe6" };
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+  function F(px, wt) { return AB.font(px, false, wt); }
+  // 어절 단위 줄바꿈, 한 어절이 넘치면 글자 단위
+  function wrap(ctx, text, maxW) {
+    var words = String(text).split(" "), lines = [], cur = "";
+    words.forEach(function (wd) {
+      var t = cur ? cur + " " + wd : wd;
+      if (ctx.measureText(t).width <= maxW) { cur = t; return; }
+      if (cur) lines.push(cur);
+      if (ctx.measureText(wd).width <= maxW) { cur = wd; return; }
+      cur = "";
+      for (var i = 0; i < wd.length; i++) { var t2 = cur + wd[i]; if (ctx.measureText(t2).width > maxW && cur) { lines.push(cur); cur = wd[i]; } else cur = t2; }
+    });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  function para(ctx, text, x, y, maxW, lh) { var ls = wrap(ctx, text, maxW); ls.forEach(function (l, i) { ctx.fillText(l, x, y + i * lh); }); return ls.length * lh; }
+  function btn(ctx, x, y, w, h, label, kind, fs) {
+    rr(ctx, x, y, w, h, 8);
+    if (kind === "primary") { ctx.fillStyle = C.green; ctx.fill(); ctx.fillStyle = C.white; }
+    else if (kind === "danger") { ctx.fillStyle = C.red; ctx.fill(); ctx.fillStyle = C.white; }
+    else { ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.green; ctx.lineWidth = 1.2; ctx.stroke(); ctx.fillStyle = C.green; }
+    ctx.font = F(fs || 13, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(label, x + w / 2, y + h / 2 + 0.5);
+  }
+  // 휴대폰 틀: 화면 사각형을 돌려준다
+  function phone(ctx, w, h, maxW) {
+    var pw = Math.min(w - 24, maxW || 300), px = (w - pw) / 2, py = 10, ph = h - 20;
+    rr(ctx, px, py, pw, ph, 22); ctx.fillStyle = C.frame; ctx.fill();
+    var s = { x: px + 8, y: py + 12, w: pw - 16, h: ph - 24 };
+    rr(ctx, s.x, s.y, s.w, s.h, 14); ctx.fillStyle = C.paper; ctx.fill();
+    return s;
+  }
+  function appBar(ctx, s, title) {
+    ctx.fillStyle = C.ink; ctx.font = F(14, 700); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+    ctx.fillText(title, s.x + 14, s.y + 26);
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(s.x, s.y + 38); ctx.lineTo(s.x + s.w, s.y + 38); ctx.stroke();
+  }
+  function bookCard(ctx, x, y, w, title, store, cover) {
+    rr(ctx, x, y, w, 62, 9); ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = cover || C.red; ctx.fillRect(x + 10, y + 9, 30, 44);
+    ctx.fillStyle = C.ink; ctx.font = F(13, 700); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; ctx.fillText(title, x + 50, y + 26);
+    ctx.fillStyle = C.dim; ctx.font = F(11.5); ctx.fillText(store, x + 50, y + 44);
+  }
+  var hgt = function (id, k, lo, hi) { return { get height() { var el = document.getElementById(id); return Math.round(Math.min(hi, Math.max(lo, Math.max(200, el.parentElement.clientWidth || 600) * k))); }, bg: C.paper }; };
+
+  /* ---------------- 시뮬레이터 1: 버튼만 보고 누르기 ---------------- */
+  safe(function () {
+    var SIT = {
+      cancel: { title: "맡아 둔 책을 취소할까요?", body: "『작은 아씨들』(헌책방 나무)을 맡아 둔 것이 취소돼요. 한 권뿐이라 곧 다른 손님이 맡을 수 있어요.",
+        labels: { ok: ["취소", "확인"], yn: ["아니요", "예"], verb: ["계속 맡아 두기", "맡긴 것 취소하기"] }, res: ["계속 맡아 둡니다", "맡긴 것이 취소됐어요"], want: 0, wantText: "맡아 둔 것을 그대로 두기",
+        screen: "맡긴 책", card: ["작은 아씨들", "헌책방 나무 · 6월 3일(토)까지"] },
+      reject: { title: "이 요청을 거절할까요?", body: "손님에게 ‘책이 없어서 맡아 두지 못했어요’ 알림이 가요. 거절한 요청은 되돌릴 수 없어요.",
+        labels: { ok: ["취소", "확인"], yn: ["아니요", "예"], verb: ["돌아가기", "거절하고 알리기"] }, res: ["요청 화면으로 돌아갑니다", "거절하고 손님에게 알렸어요"], want: 0, wantText: "거절하지 않고 돌아가기",
+        screen: "새 요청 · 주인 화면", card: ["바다의 기억(시집)", "손님 010-****-2817 · 10분 전"] },
+    };
+    var CLEAR = { ok: "아니요 <small>‘취소’가 무엇을 취소하나</small>", yn: "아니요 <small>질문을 읽어야 한다</small>", verb: '<span class="ok-t">예</span>' };
+    var pressed = -1, rects = [];
+    var sit = AB.seg("bt-sit", function () { pressed = -1; cv.redraw(); });
+    var lab = AB.seg("bt-lab", function () { pressed = -1; cv.redraw(); });
+    var hide = AB.check("bt-hide", function () { cv.redraw(); });
+    var cv = AB.canvas("#bt-cv", function (ctx, w, h) {
+      var S = SIT[sit()], L = S.labels[lab()], s = phone(ctx, w, h, 300);
+      appBar(ctx, s, S.screen);
+      bookCard(ctx, s.x + 12, s.y + 50, s.w - 24, S.card[0], S.card[1], sit() === "cancel" ? C.red : C.dim);
+      // 어두운 막
+      ctx.fillStyle = "rgba(34,52,42,0.45)"; rr(ctx, s.x, s.y, s.w, s.h, 14); ctx.fill();
+      // 대화상자
+      var dw = s.w - 28, dx = s.x + 14;
+      ctx.font = F(12.5);
+      var bodyLines = wrap(ctx, S.body, dw - 32);
+      var verbs = lab() === "verb", bh = 40;
+      ctx.font = F(13, 700);
+      var side = !verbs || (ctx.measureText(L[0]).width + 20 < (dw - 40) / 2 && ctx.measureText(L[1]).width + 20 < (dw - 40) / 2);
+      var dh = 22 + 24 + bodyLines.length * 19 + 18 + (side ? bh : bh * 2 + 8) + 16, dy = s.y + Math.max(110, (s.h - dh) / 2);
+      rr(ctx, dx, dy, dw, dh, 14); ctx.fillStyle = C.white; ctx.fill();
+      ctx.fillStyle = C.ink; ctx.font = F(15, 700); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      ctx.fillText(S.title, dx + 16, dy + 34);
+      var by = dy + 56;
+      if (hide()) {
+        bodyLines.forEach(function (l, i) { ctx.font = F(12.5); var lw = ctx.measureText(l).width; ctx.fillStyle = C.shade; rr(ctx, dx + 16, by + i * 19 - 10, lw, 12, 4); ctx.fill(); });
+        ctx.fillStyle = C.ink; ctx.fillRect(dx + 14, dy + 16, dw - 28, 26);   // 제목도 가린다
+        ctx.fillStyle = C.white; ctx.font = F(11, 700); ctx.textAlign = "center"; ctx.fillText("질문을 읽지 않고 버튼만 본다", dx + dw / 2, dy + 33); ctx.textAlign = "left";
+      } else {
+        ctx.fillStyle = C.dim; ctx.font = F(12.5);
+        bodyLines.forEach(function (l, i) { ctx.fillText(l, dx + 16, by + i * 19); });
+      }
+      var y0 = by + bodyLines.length * 19 + 8;
+      rects = [];
+      if (side) {
+        var bw = (dw - 40) / 2;
+        rects.push([dx + 16, y0, bw, bh]); rects.push([dx + 24 + bw, y0, bw, bh]);
+      } else {
+        rects.push([dx + 16, y0 + bh + 8, dw - 32, bh]); rects.push([dx + 16, y0, dw - 32, bh]);
+      }
+      rects.forEach(function (r, i) {
+        var kind = i === 1 ? (sit() === "cancel" || sit() === "reject") && verbs ? "danger" : "primary" : "secondary";
+        btn(ctx, r[0], r[1], r[2], r[3], L[i], kind, 13);
+        if (pressed === i) { rr(ctx, r[0] - 3, r[1] - 3, r[2] + 6, r[3] + 6, 10); ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.stroke(); }
+      });
+      // 결과 토스트
+      if (pressed >= 0) {
+        var good = pressed === S.want, ty = s.y + s.h - 50;
+        rr(ctx, s.x + 12, ty, s.w - 24, 38, 10); ctx.fillStyle = good ? C.green : C.red; ctx.fill();
+        ctx.fillStyle = C.white; ctx.font = F(12.5, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText((good ? "의도대로: " : "의도와 다름: ") + S.res[pressed], s.x + s.w / 2, ty + 19);
+      } else {
+        ctx.fillStyle = C.white; ctx.font = F(12, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("목표: " + S.wantText, s.x + s.w / 2, s.y + s.h - 30);
+      }
+      AB.stat("bt-o-btn", pressed >= 0 ? "‘" + L[pressed] + "’" : "—");
+      AB.stat("bt-o-res", pressed >= 0 ? '<span class="' + (pressed === S.want ? "ok-t" : "bad-t") + '">' + S.res[pressed] + "</span>" : "버튼을 눌러 본다");
+      AB.stat("bt-o-clear", CLEAR[lab()]);
+    }, hgt("bt-cv", 0.9, 400, 440));
+    AB.drag(cv.canvas, { start: function (x, y) { for (var i = 0; i < rects.length; i++) { var r = rects[i]; if (x >= r[0] && x <= r[0] + r[2] && y >= r[1] && y <= r[1] + r[3]) { pressed = i; cv.redraw(); return; } } } });
+  });
+
+  /* ---------------- 시뮬레이터 2: 오류 메시지 ---------------- */
+  safe(function () {
+    var SIT = {
+      conflict: { raw: "요청 실패(code 409)", what: "이 책을 맡아 두지 못했어요.", why: "방금 다른 손님이 먼저 맡았어요. 이 책방에는 한 권뿐이에요.", next: "다른 책방에서 찾기", code: "오류 409", act: "다른 책방에서 같은 책 찾기", card: ["작은 아씨들", "헌책방 나무 · 1권"] },
+      net: { raw: "Network Error", what: "요청을 보내지 못했어요.", why: "인터넷 연결이 끊긴 것 같아요. 책방에는 아직 요청이 가지 않았어요.", next: "다시 보내기", code: "오류 NET-01", act: "연결을 확인하고 다시 보내기", card: ["어린 왕자", "책방 E · 3권"] },
+      code: { raw: "인증 실패", what: "인증 번호가 맞지 않아요.", why: "번호가 다르거나, 받은 지 5분이 지났을 수 있어요.", next: "번호 다시 받기", code: "오류 AUTH-2", act: "새 번호를 받아 다시 넣기", card: ["바다의 기억", "한 줄 · 1권"] },
+    };
+    var sit = AB.seg("er-sit", function () { cv.redraw(); });
+    var cw = AB.check("er-what", function () { cv.redraw(); }), cy = AB.check("er-why", function () { cv.redraw(); }), cn = AB.check("er-next", function () { cv.redraw(); });
+    var cv = AB.canvas("#er-cv", function (ctx, w, h) {
+      var S = SIT[sit()], s = phone(ctx, w, h, 300), a = cw(), b = cy(), c = cn(), any = a || b || c;
+      appBar(ctx, s, sit() === "code" ? "전화번호 확인" : "맡아 두기");
+      var x = s.x + 12, iw = s.w - 24, y = s.y + 50;
+      if (sit() === "code") {
+        ctx.fillStyle = C.dim; ctx.font = F(11.5); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; ctx.fillText("문자로 받은 6자리 번호", x, y + 10);
+        rr(ctx, x, y + 18, iw, 40, 8); ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.red; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.fillStyle = C.ink; ctx.font = AB.font(16, true, 600); ctx.fillText("4 8 2 1 9 3", x + 12, y + 44);
+        y += 70;
+      } else { bookCard(ctx, x, y, iw, S.card[0], S.card[1], sit() === "net" ? C.dim : C.red); y += 76; }
+      // 오류 상자
+      ctx.font = F(13, 700);
+      var lines = [];
+      if (!any) lines.push([S.raw, 13, 700, C.red]);
+      if (a) lines.push([S.what, 14, 700, C.ink]);
+      if (b) lines.push([S.why, 12.5, 400, C.dim]);
+      var tw = iw - 30, hh = 14;
+      lines.forEach(function (L) { ctx.font = F(L[1], L[2]); hh += wrap(ctx, L[0], tw).length * (L[1] + 6) + 4; });
+      if (c) hh += 50;
+      if (any) hh += 18;
+      rr(ctx, x, y, iw, hh, 9); ctx.fillStyle = any ? C.soft : "#fdecea"; ctx.fill();
+      ctx.fillStyle = C.red; ctx.fillRect(x, y + 6, 4, hh - 12);
+      var ty = y + 20;
+      ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      lines.forEach(function (L) { ctx.font = F(L[1], L[2]); ctx.fillStyle = L[3]; ty += para(ctx, L[0], x + 16, ty, tw, L[1] + 6) + 4; });
+      if (c) { btn(ctx, x + 16, ty + 2, iw - 32, 38, S.next, "primary", 13); ty += 50; }
+      if (any) { ctx.fillStyle = C.dim; ctx.font = AB.font(10.5, true); ctx.fillText("책방에 문의할 때: " + S.code, x + 16, ty + 6); }
+      // 아래 버튼(원래 화면)
+      if (!c) { ctx.globalAlpha = 0.5; btn(ctx, x, s.y + s.h - 56, iw, 40, sit() === "code" ? "확인" : "맡아 두기", "primary", 13); ctx.globalAlpha = 1; }
+      var n = (a ? 1 : 0) + (b ? 1 : 0) + (c ? 1 : 0);
+      var chars = (any ? (a ? S.what : "") + (b ? S.why : "") + (c ? S.next : "") : S.raw).replace(/\s/g, "").length;
+      AB.stat("er-o-n", n + "/3<small>" + ["무엇이", "왜", "어떻게"].map(function (k, i) { return (i === 0 ? a : i === 1 ? b : c) ? k + "✓" : k + "✗"; }).join(" ") + "</small>");
+      AB.stat("er-o-act", c ? (a && b ? '<span class="ok-t">' + S.act + "</span>" : '<span class="warn-t">버튼은 있지만 이유를 모름</span>') : '<span class="bad-t">다시 눌러 보기뿐</span>');
+      AB.stat("er-o-len", chars + "자");
+    }, hgt("er-cv", 0.9, 420, 460));
+  });
+
+  /* ---------------- 시뮬레이터 3: 빈 상태 ---------------- */
+  safe(function () {
+    var Q = [
+      { q: "작은아씨들", why: "띄어쓰기가 다름", hint: "띄어 쓴 ‘작은 아씨들’로 찾으면 2곳(책방 E, 헌책방 나무)에 있어요.", acts: ["‘작은 아씨들’로 찾기"], help: "제목의 일부만 넣어도 찾을 수 있어요." },
+      { q: "어린 왕자 초판", why: "검색어가 너무 좁음", hint: "‘초판’을 빼고 ‘어린 왕자’로 찾으면 3곳에 있어요. 판 정보는 책방에 물어보세요.", acts: ["‘어린 왕자’로 찾기"], help: "헌책의 판과 상태는 책방마다 달라요." },
+      { q: "나무 위의 고양이", why: "정말 없음", hint: "어린이 책은 작은 숲에 들어올 수 있어요. 책방에 직접 물어보면 들여놓을 수 있는지 알려 줘요.", acts: ["작은 숲에 전화하기", "다른 검색어로 찾기"], help: "저자 이름이나 출판사로도 찾을 수 있어요." },
+      { q: "Momo", why: "로마자로 씀", hint: "한글 제목 ‘모모’로 찾으면 1곳(책방 E)에 있어요.", acts: ["‘모모’로 찾기"], help: "외국 책도 한글 제목으로 찾아보세요." },
+    ];
+    var NUM = { "0": 1, "1": 1, "2": 0, "3": 1, "4": 0, "5": 0, "6": 1, "7": 1, "8": 1, "9": 0 };
+    function josa(word, a, b) {
+      var ch = word.charAt(word.length - 1), c = ch.charCodeAt(0);
+      if (c >= 0xac00 && c <= 0xd7a3) return (c - 0xac00) % 28 ? a : b;
+      if (NUM.hasOwnProperty(ch)) return NUM[ch] ? a : b;
+      return a + "(" + b + ")";
+    }
+    var qG = AB.seg("em-q", function () { cv.redraw(); }), vG = AB.seg("em-v", function () { cv.redraw(); }), jG = AB.check("em-j", function () { cv.redraw(); });
+    var cv = AB.canvas("#em-cv", function (ctx, w, h) {
+      var D = Q[+qG()], s = phone(ctx, w, h, 300), x = s.x + 14, iw = s.w - 28;
+      appBar(ctx, s, "책 찾기");
+      rr(ctx, x, s.y + 50, iw, 36, 18); ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = C.ink; ctx.font = F(13); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(D.q, x + 16, s.y + 68.5);
+      ctx.strokeStyle = C.dim; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(x + iw - 20, s.y + 66, 6, 0, 7); ctx.moveTo(x + iw - 15.5, s.y + 70.5); ctx.lineTo(x + iw - 11, s.y + 75); ctx.stroke();
+      var jo = jG() ? josa(D.q, "은", "는") : "은(는)";
+      if (vG() === "old") {
+        ctx.fillStyle = "#9a9a92"; ctx.font = F(13); ctx.textAlign = "center"; ctx.fillText("결과 없음", s.x + s.w / 2, s.y + s.h * 0.45);
+      } else {
+        var y = s.y + 112;
+        // 작은 그림(빈 책장)
+        ctx.strokeStyle = C.dim; ctx.lineWidth = 1.5; ctx.strokeRect(s.x + s.w / 2 - 26, y, 52, 34); ctx.beginPath(); ctx.moveTo(s.x + s.w / 2 - 26, y + 17); ctx.lineTo(s.x + s.w / 2 + 26, y + 17); ctx.stroke();
+        ctx.fillStyle = C.cream; ctx.fillRect(s.x + s.w / 2 - 20, y + 3, 6, 13); ctx.fillStyle = C.green; ctx.fillRect(s.x + s.w / 2 + 12, y + 21, 6, 12);
+        y += 58;
+        ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        ctx.fillStyle = C.ink; ctx.font = F(14.5, 700);
+        y += para(ctx, "‘" + D.q + "’" + jo + " 지금 네 책방에 없어요.", x, y, iw, 21) + 6;
+        ctx.fillStyle = C.dim; ctx.font = F(12.5);
+        y += para(ctx, D.hint, x, y, iw, 19) + 8;
+        D.acts.forEach(function (a, i) { btn(ctx, x, y, iw, 38, a, i === 0 ? "primary" : "secondary", 13); y += 46; });
+        ctx.fillStyle = C.dim; ctx.font = F(11.5); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; para(ctx, D.help, x, y + 10, iw, 17);
+      }
+      var old = vG() === "old";
+      AB.stat("em-o-why", old ? '<span class="bad-t">알려 주지 않음</span>' : D.why);
+      AB.stat("em-o-act", old ? '<span class="bad-t">0</span><small>검색어를 다시 쓰기</small>' : (D.acts.length + 1) + "<small>버튼 " + D.acts.length + " · 도움말 1</small>");
+      AB.stat("em-o-j", jo + (jo.indexOf("(") >= 0 ? "<small>" + (jG() ? "읽는 법을 모름" : "자동 고르기 꺼짐") + "</small>" : "<small>‘" + D.q.slice(-1) + "’ 받침 " + (jo === "은" ? "있음" : "없음") + "</small>"));
+    }, hgt("em-cv", 0.9, 420, 460));
+  });
+
+  /* ---------------- 시뮬레이터 4: 알림은 어디서 잘리나 ---------------- */
+  safe(function () {
+    var MSG = {
+      greet: "안녕하세요! 맡아 두기 서비스입니다. 요청하신 『작은 아씨들』이 헌책방 나무에서 준비되었습니다. 6월 3일(토)까지 찾아가 주세요.",
+      key: "『작은 아씨들』 준비됐어요 · 헌책방 나무에서 6월 3일(토)까지 찾아가 주세요.",
+    };
+    var KEYS = ["작은 아씨들", "헌책방 나무", "6월 3일"];
+    var geo = null;
+    var wG = AB.range("fr-w", function (v) { return v + "px"; }, function () { cv.redraw(); });
+    var oG = AB.seg("fr-o", function () { cv.redraw(); }), lG = AB.seg("fr-l", function () { cv.redraw(); });
+    // 글자 단위로 n줄에 맞추고 마지막 줄에 말줄임
+    function clip(ctx, text, maxW, n) {
+      var lines = [], cur = "", i = 0;
+      for (; i < text.length; i++) {
+        var t = cur + text[i];
+        if (ctx.measureText(t).width > maxW && cur) { lines.push(cur); cur = text[i].replace(/^ /, ""); if (lines.length === n) break; } else cur = t;
+      }
+      if (lines.length < n) { lines.push(cur); return { lines: lines, shown: text.length, cut: false }; }
+      // 넘침: 마지막 줄을 줄여 … 붙이기
+      var last = lines[n - 1];
+      while (last.length && ctx.measureText(last + "…").width > maxW) last = last.slice(0, -1);
+      lines[n - 1] = last + "…";
+      var shown = lines.slice(0, n - 1).join("").length + last.length;
+      return { lines: lines, shown: shown, cut: true };
+    }
+    function visibleText(ctx, text, maxW, n) { var r = clip(ctx, text, maxW, n); return r.cut ? r.lines.join("").replace(/…$/, "") : text; }
+    var cv = AB.canvas("#fr-cv", function (ctx, w, h) {
+      // 잠금 화면(고정색)
+      ctx.fillStyle = "#24303a"; ctx.fillRect(0, 0, w, h);
+      var g = ctx.createLinearGradient(0, 0, 0, h); g.addColorStop(0, "#2f4250"); g.addColorStop(1, "#1d2329"); ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "#eef1f2"; ctx.font = AB.font(34, false, 300); ctx.textAlign = "center"; ctx.textBaseline = "alphabetic"; ctx.fillText("9:41", w / 2, 52);
+      ctx.font = F(12); ctx.fillStyle = "#c9d1d6"; ctx.fillText("5월 31일 수요일", w / 2, 72);
+      var maxNW = w - 24, nw = Math.min(wG(), maxNW), nx = (w - nw) / 2, ny = 96, n = +lG(), text = MSG[oG()];
+      ctx.font = F(13.5);
+      var innerW = nw - 28, r = clip(ctx, text, innerW, n);
+      var nh = 44 + n * 20 + 8;
+      rr(ctx, nx, ny, nw, nh, 16); ctx.fillStyle = "rgba(248,248,246,0.94)"; ctx.fill();
+      // 머리: 앱 아이콘과 이름
+      rr(ctx, nx + 14, ny + 12, 18, 18, 5); ctx.fillStyle = C.green; ctx.fill();
+      ctx.fillStyle = C.white; ctx.font = F(10, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("맡", nx + 23, ny + 21.5);
+      ctx.fillStyle = "#4a4f52"; ctx.font = F(11.5, 600); ctx.textAlign = "left"; ctx.fillText("맡아 두기", nx + 40, ny + 21.5);
+      ctx.textAlign = "right"; ctx.font = F(11); ctx.fillStyle = "#7a7f82"; ctx.fillText("지금", nx + nw - 14, ny + 21.5);
+      ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; ctx.fillStyle = "#16191b"; ctx.font = F(13.5);
+      r.lines.forEach(function (l, i) { ctx.fillText(l, nx + 14, ny + 52 + i * 20); });
+      // 핵심 단어 밑줄(보이는 것만)
+      var vis = r.cut ? r.lines.join("").replace(/…$/, "") : text, found = 0;
+      KEYS.forEach(function (k) { if (vis.indexOf(k) >= 0) found++; });
+      geo = { x: nx + nw, y: ny, h: nh };
+      AB.handle(ctx, nx + nw, ny + nh / 2, { r: 8, fill: "#ffffff", ring: "#16191b" });
+      // 아래: 핵심 체크리스트(고정색)
+      var ly = ny + nh + 34;
+      ctx.font = F(12, 700); ctx.fillStyle = "#c9d1d6"; ctx.fillText("잘리기 전에 보이는가", 16, ly);
+      KEYS.forEach(function (k, i) {
+        var ok = vis.indexOf(k) >= 0, yy = ly + 22 + i * 22;
+        ctx.fillStyle = ok ? "#7fd1a6" : "#f08a78"; ctx.font = F(12.5, 700); ctx.fillText(ok ? "보임" : "잘림", 16, yy);
+        ctx.fillStyle = "#eef1f2"; ctx.font = F(12.5); ctx.fillText(["책: ", "책방: ", "기한: "][i] + k, 56, yy);
+      });
+      // 최소 폭 찾기
+      var minW = null; ctx.font = F(13.5);
+      for (var tw = 180; tw <= 900; tw += 4) { var v2 = visibleText(ctx, text, tw - 28, n); ctx.font = F(13.5); if (KEYS.every(function (k) { return v2.indexOf(k) >= 0; })) { minW = tw; break; } }
+      AB.stat("fr-o-n", r.shown + "<small>/" + text.length + "자</small>");
+      AB.stat("fr-o-k", '<span class="' + (found === 3 ? "ok-t" : found ? "warn-t" : "bad-t") + '">' + found + "/3</span>");
+      AB.stat("fr-o-min", minW ? (minW > 420 ? '<span class="bad-t">' + minW + "px</span><small>(이 화면엔 없음)</small>" : minW + "px") : "—");
+    }, { get height() { return 300; }, bg: "#24303a" });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { this.on = geo && Math.abs(x - geo.x) < 40 && y > geo.y - 20 && y < geo.y + geo.h + 20; },
+      move: function (x) { if (!geo || !this.on) return; var w = cv.w, nw = AB.clamp(Math.round((x - w / 2) * 2 / 2) * 2, 180, 420); wG.set(nw); },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 5: 말투 점검기 ---------------- */
+  safe(function () {
+    var PRE = {
+      four: ["찾으시는 책이 있으면 말씀해 주세요!", "맡아 두기를 요청했어요.", "본 도서는 1권 한정 판매합니다.", "기한 경과 시 자동 취소됨", "책이 너를 기다리고 있어~", "시집은 기다린다.", "주문하신 책이 나오셨습니다.", "잠시만 기다리실게요.", "맡아 두기"],
+      owner: ["새 요청이 있습니다.", "30분 안에 확인해 주세요.", "요청을 수락했어요.", "거절 사유를 선택하십시오.", "손님에게 알림 감", "수락하기", "거절하기"],
+      fixed: ["찾는 책이 있으면 검색해 보세요.", "맡아 두기를 요청했어요. 주인이 확인하면 알려 드릴게요.", "이 책은 한 권뿐이에요.", "기한이 지나면 맡아 둔 것이 자동으로 취소돼요.", "책이 기다리고 있어요.", "시집이 기다리고 있어요.", "주문하신 책이 나왔어요.", "잠시만 기다려 주세요.", "맡아 두기", "맡긴 것 취소하기"],
+    };
+    var ta = document.getElementById("rg-text"), list = document.getElementById("rg-list");
+    function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+    function classify(sent) {
+      var s = sent.replace(/[\s.!?~…"'」』)\]]+$/, "");
+      if (!s) return null;
+      if (/(니다|니까|십시오|십시요|읍시다|ㅂ시다)$/.test(s)) return "합니다체";
+      if (/요$/.test(s)) return "해요체";
+      if (/기$/.test(s)) return "이름";
+      if (/(음|함|됨|임|감|짐|옴|봄|줌|움|완료|불가|필요|가능)$/.test(s)) return "개조식";
+      if (/(다|라|냐|자|마)$/.test(s)) return "해라체";
+      if (/(어|아|해|야|지|게|네|래|걸|까|니|여|워|와)$/.test(s)) return "해체";
+      if (s.replace(/\s/g, "").length <= 10) return "이름";
+      return "기타";
+    }
+    function warns(sent) {
+      var out = [];
+      if (/(나오셨|품절되셨|도착하셨|준비되셨|나오실|되셨)/.test(sent) && !/(손님|고객|분)(께서|이|은)/.test(sent)) out.push(["사물 높임 의심", /(나오셨|품절되셨|도착하셨|준비되셨|나오실|되셨)/]);
+      if (/실게요/.test(sent)) out.push(["‘-실게요’", /실게요/]);
+      if (/(본 도서|당 서점|귀하)/.test(sent)) out.push(["공문투", /(본 도서|당 서점|귀하)/]);
+      return out;
+    }
+    var preG = AB.seg("rg-pre", function (v) { ta.value = PRE[v].join("\n"); run(); });
+    var baseG = AB.seg("rg-base", function () { run(); });
+    ta.addEventListener("input", function () { run(); });
+    ta.value = PRE[preG()].join("\n");
+    function run() {
+      var lines = ta.value.split(/\n/).map(function (l) { return l.trim(); }).filter(Boolean).slice(0, 30);
+      var rows = [], count = {};
+      lines.forEach(function (l) {
+        var sents = l.match(/[^.!?~]+[.!?~]*/g) || [l], regs = [];
+        sents.forEach(function (s) { var c = classify(s); if (c) regs.push(c); if (c && c !== "이름" && c !== "기타") count[c] = (count[c] || 0) + 1; });
+        rows.push({ l: l, regs: regs, w: warns(l) });
+      });
+      var base = baseG();
+      if (base === "auto") { base = null; var best = 0; Object.keys(count).forEach(function (k) { if (count[k] > best) { best = count[k]; base = k; } }); }
+      var off = 0, wn = 0, html = "";
+      rows.forEach(function (r) {
+        var isOff = base && r.regs.some(function (c) { return c !== base && c !== "이름" && c !== "기타"; });
+        if (isOff) off++;
+        if (r.w.length) wn += r.w.length;
+        var text = esc(r.l);
+        r.w.forEach(function (w) { text = text.replace(w[1], function (m) { return "<mark>" + m + "</mark>"; }); });
+        var uniq = r.regs.filter(function (c, i) { return r.regs.indexOf(c) === i; });
+        html += '<div class="rg-row' + (isOff ? " off" : r.w.length ? " warn" : "") + '"><div class="rg-line">' + text + '</div><div class="rg-tags">' +
+          uniq.map(function (c) { var cls = c === "이름" ? "" : c === base ? "ok" : c === "기타" ? "" : "bad"; return '<span class="rg-tag ' + cls + '">' + (c === "이름" ? "이름(버튼·제목)" : c) + "</span>"; }).join("") +
+          r.w.map(function (w) { return '<span class="rg-tag warn">' + w[0] + "</span>"; }).join("") + "</div></div>";
+      });
+      list.innerHTML = html || '<div class="rg-empty">글상자에 문구를 한 줄에 하나씩 넣는다.</div>';
+      var kinds = Object.keys(count).length;
+      AB.stat("rg-o-base", base ? base + "<small>" + (baseG() === "auto" ? " (가장 많음)" : "") + " · 말투 " + kinds + "가지</small>" : "—");
+      AB.stat("rg-o-off", '<span class="' + (off ? "bad-t" : "ok-t") + '">' + off + "</span><small>/" + rows.length + "줄</small>");
+      AB.stat("rg-o-warn", '<span class="' + (wn ? "warn-t" : "ok-t") + '">' + wn + "</span>");
+    }
+    run();
+  });
+
+  /* ---------------- 시뮬레이터 6: 좁은 화면, 큰 글자, 긴 문구 ---------------- */
+  safe(function () {
+    var T = {
+      ko: { title: "작은 아씨들", sub: "2곳에 있어요", btn: ["다른 책방 보기", "맡아 두기"], tabs: ["검색", "맡긴 책", "책방", "내 정보"] },
+      en: { title: "Little Women", sub: "Available at 2 shops", btn: ["See other bookstores", "Reserve for pickup"], tabs: ["Search", "My holds", "Bookstores", "Account"] },
+    };
+    var MW = 360, geo = null, BASE = 15;
+    var sG = AB.range("ln-s", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var lang = AB.seg("ln-lang", function () { cv.redraw(); }), mode = AB.seg("ln-mode", function () { cv.redraw(); });
+    function ellipsize(ctx, t, maxW) { if (ctx.measureText(t).width <= maxW) return t; while (t.length && ctx.measureText(t + "…").width > maxW) t = t.slice(0, -1); return t + "…"; }
+    var cv = AB.canvas("#ln-cv", function (ctx, w, h) {
+      var D = T[lang()], sc = sG() / 100, fs = BASE * sc, md = mode();
+      var avail = w - 48, k = Math.min(1, avail / MW);           // 화면에 맞게 줄여 그린다
+      var ox = 16;
+      ctx.save(); ctx.translate(ox, 12); ctx.scale(k, k);
+      var H = (h - 24) / k, W = MW;
+      // 화면
+      rr(ctx, 0, 0, W, H, 14); ctx.fillStyle = C.paper; ctx.fill(); ctx.strokeStyle = C.frame; ctx.lineWidth = 3 / k; ctx.stroke();
+      ctx.save(); rr(ctx, 0, 0, W, H, 14); ctx.clip();
+      ctx.fillStyle = C.ink; ctx.font = F(fs * 1.1, 700); ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+      ctx.fillText(ellipsize(ctx, D.title, W - 32), 16, 16 + fs * 1.4);
+      ctx.fillStyle = C.dim; ctx.font = F(fs * 0.85); ctx.fillText(ellipsize(ctx, D.sub, W - 32), 16, 16 + fs * 1.4 + fs * 1.4);
+      ctx.fillStyle = C.red; ctx.fillRect(16, 16 + fs * 3.4, 46, 64);
+      ctx.fillStyle = C.shade; for (var i = 0; i < 3; i++) ctx.fillRect(72, 20 + fs * 3.4 + i * 16, (W - 100) * (1 - i * 0.2), 8);
+      // 아래 영역: 버튼과 탭
+      var pad = 12, cut = 0;
+      ctx.font = F(fs, 700);
+      var tabH = fs * 2.9 + 10, tabY = H - tabH;
+      var bw = (W - pad * 3) / 2, inner = bw - 20, lw = D.btn.map(function (b) { return ctx.measureText(b).width; });
+      var fitsSide = lw[0] <= inner && lw[1] <= inner, rows = [];
+      if (md === "stack" && !fitsSide) {
+        var fh = fs * 2.6;
+        rows.push({ x: pad, w: W - pad * 2, h: fh, lines: [D.btn[1]], kind: "primary" });
+        rows.push({ x: pad, w: W - pad * 2, h: fh, lines: [D.btn[0]], kind: "secondary" });
+        var yy = tabY - pad - fh * 2 - 8;
+        rows[0].y = yy; rows[1].y = yy + fh + 8;
+        rows.forEach(function (r) { var t = ellipsize(ctx, r.lines[0], r.w - 20); if (t !== r.lines[0]) cut++; r.lines = [t]; });
+      } else {
+        var bl = D.btn.map(function (b, i) {
+          if (md === "wrap") return wrap(ctx, b, inner);
+          var t = ellipsize(ctx, b, inner); if (t !== b) cut++; return [t];
+        });
+        var nl = Math.max(bl[0].length, bl[1].length), bh = fs * 1.35 * nl + fs * 1.25;
+        var by = tabY - pad - bh;
+        rows.push({ x: pad, y: by, w: bw, h: bh, lines: bl[0], kind: "secondary" });
+        rows.push({ x: pad * 2 + bw, y: by, w: bw, h: bh, lines: bl[1], kind: "primary" });
+      }
+      ctx.fillStyle = C.white; ctx.fillRect(0, rows[0].y - pad, W, tabY - rows[0].y + pad);
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, rows[0].y - pad); ctx.lineTo(W, rows[0].y - pad); ctx.stroke();
+      rows.forEach(function (r) {
+        rr(ctx, r.x, r.y, r.w, r.h, 9);
+        if (r.kind === "primary") { ctx.fillStyle = C.green; ctx.fill(); ctx.fillStyle = C.white; } else { ctx.fillStyle = C.white; ctx.fill(); ctx.strokeStyle = C.green; ctx.lineWidth = 1.4; ctx.stroke(); ctx.fillStyle = C.green; }
+        ctx.font = F(fs, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        var lh = fs * 1.35, y0 = r.y + r.h / 2 - (r.lines.length - 1) * lh / 2;
+        r.lines.forEach(function (l, i) { ctx.fillText(l, r.x + r.w / 2, y0 + i * lh); });
+      });
+      // 탭 막대
+      ctx.fillStyle = C.soft; ctx.fillRect(0, tabY, W, tabH);
+      ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(0, tabY); ctx.lineTo(W, tabY); ctx.stroke();
+      var tw = W / 4; ctx.font = F(fs * 0.8, 600);
+      D.tabs.forEach(function (t, i) {
+        var cx = tw * i + tw / 2;
+        ctx.fillStyle = i === 0 ? C.green : C.dim;
+        rr(ctx, cx - fs * 0.6, tabY + 8, fs * 1.2, fs * 1.2, 4); ctx.fill();
+        var lab = md === "wrap" ? wrap(ctx, t, tw - 8) : [ellipsize(ctx, t, tw - 8)];
+        if (md !== "wrap" && lab[0] !== t) cut++;
+        if (md === "wrap" && lab.length > 1) { lab = [lab[0], lab.slice(1).join(" ")]; }
+        ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+        lab.slice(0, 2).forEach(function (l, j) { var ll = ellipsize(ctx, l, tw - 4); if (md === "wrap" && ll !== l) cut++; ctx.fillText(ll, cx, tabY + 12 + fs * 1.2 + fs * 0.95 + j * fs * 0.9); });
+      });
+      ctx.restore();
+      ctx.restore();
+      // 오른쪽 끝 손잡이
+      var hx = ox + W * k, hy = 12 + H * k * 0.42;
+      geo = { x: hx, y: hy, k: k };
+      ctx.fillStyle = "#2a2f2c"; rr(ctx, hx - 3, hy - 22, 6, 44, 3); ctx.fill();
+      AB.handle(ctx, hx, hy, { r: 8, fill: "#ffffff", ring: "#2a2f2c" });
+      // 최소 폭(버튼 나란히 다 들어가는 폭)
+      ctx.font = F(fs, 700);
+      var need = Math.max(ctx.measureText(D.btn[0]).width, ctx.measureText(D.btn[1]).width) + 20;
+      var minW = Math.ceil(need * 2 + pad * 3);
+      AB.stat("ln-o-w", MW + "px" + (k < 1 ? "<small>(" + Math.round(k * 100) + "%로 줄여 보임)</small>" : ""));
+      AB.stat("ln-o-cut", '<span class="' + (cut ? "bad-t" : "ok-t") + '">' + cut + "개</span>");
+      AB.stat("ln-o-min", minW + "px" + (md === "ell" ? "" : "<small>(나란히 둘 때)</small>"));
+    }, { get height() { var el = document.getElementById("ln-cv"); return Math.max(200, el.parentElement.clientWidth || 600) < 420 ? 380 : 420; }, bg: C.paper });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { this.on = geo && Math.abs(x - geo.x) < 34 && Math.abs(y - geo.y) < 60; },
+      move: function (x) { if (!geo || !this.on) return; MW = Math.round(AB.clamp((x - 16) / geo.k, 280, 440) / 2) * 2; cv.redraw(); },
+    });
+  });
+})();
+</script>
+</body>
+</html>

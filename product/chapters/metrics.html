@@ -1,0 +1,794 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "사용성 테스트가 '왜'를 알려 준다면 지표는 '얼마나'를 알려 준다. 북극성 지표와 가드레일 지표를 고르고, 전환율의 우연한 흔들림, A/B 테스트와 신뢰 구간, A/A 테스트, 표본 크기와 검정력, 중간에 들여다보기와 새로움 효과를 시드 고정 시뮬레이션으로 직접 돌려 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>숫자로 확인하기 · ProductBook</title>
+<meta name="description" content="사용성 테스트가 '왜'를 알려 준다면 지표는 '얼마나'를 알려 준다. 북극성 지표와 가드레일 지표를 고르고, 전환율의 우연한 흔들림, A/B 테스트와 신뢰 구간, A/A 테스트, 표본 크기와 검정력, 중간에 들여다보기와 새로움 효과를 시드 고정 시뮬레이션으로 직접 돌려 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/metrics.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="숫자로 확인하기 · ProductBook">
+<meta property="og:description" content="사용성 테스트가 '왜'를 알려 준다면 지표는 '얼마나'를 알려 준다. 북극성 지표와 가드레일 지표를 고르고, 전환율의 우연한 흔들림, A/B 테스트와 신뢰 구간, A/A 테스트, 표본 크기와 검정력, 중간에 들여다보기와 새로움 효과를 시드 고정 시뮬레이션으로 직접 돌려 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/metrics.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/metrics.html#chapter","name":"숫자로 확인하기","headline":"숫자로 확인하기 · ProductBook","description":"사용성 테스트가 '왜'를 알려 준다면 지표는 '얼마나'를 알려 준다. 북극성 지표와 가드레일 지표를 고르고, 전환율의 우연한 흔들림, A/B 테스트와 신뢰 구간, A/A 테스트, 표본 크기와 검정력, 중간에 들여다보기와 새로움 효과를 시드 고정 시뮬레이션으로 직접 돌려 본다.","url":"https://artbook.euiyun.com/product/chapters/metrics.html","position":9,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"9. 숫자로 확인하기","item":"https://artbook.euiyun.com/product/chapters/metrics.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="metrics">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 09</div>
+    <h1>숫자로 확인하기</h1>
+    <p class="lead">시범 운영 사흘째 아침, 지후가 대시보드 화면을 찍어 보낸다. "B가 이겼어요. p가 0.04예요." 버튼 문구를 바꾼 B 화면에서 버튼을 누른 손님이 3.8%p 더 많았다. 하린의 답은 짧다. "그 숫자, 일요일에도 그대로일까요?" 다섯 명을 지켜보는 사용성 테스트는 무엇이 왜 막히는지 알려 주지만, 수천 명 가운데 얼마나 더 많은 사람이 끝까지 가는지는 알려 주지 못한다. 그 일은 숫자가 한다. 다만 숫자도 우연에 흔들리고, 무엇을 세느냐에 따라 거짓말을 한다. 이 장은 지표를 고르는 법과, 그 지표가 우연이 아닌 차이를 보여 주는지 확인하는 법을 시뮬레이션으로 직접 돌려 본다.</p>
+    <ul class="objectives">
+      <li>북극성 지표, 가드레일 지표, 대리 지표를 구분하고, 지표 하나만 좇을 때 생기는 일(굿하트의 법칙)을 설명한다.</li>
+      <li>전환율은 같은 서비스에서도 날마다 우연히 흔들린다는 것을 보고, 그 흔들림의 크기가 표본 수에 따라 어떻게 줄어드는지 안다.</li>
+      <li>A/B 테스트의 무작위 배정, 관측된 차이와 신뢰 구간, p값의 뜻을 시뮬레이터로 읽는다.</li>
+      <li>A/A 테스트로 유의 수준 5%가 "스무 번에 한 번은 우연히 이긴다"는 뜻임을 확인한다.</li>
+      <li>작은 차이를 찾으려면 왜 큰 표본이 필요한지 표본 크기 공식과 검정력으로 설명하고, 실험 기간을 미리 정한다.</li>
+      <li>결과를 매일 들여다보다 처음 유의해진 날 멈추면 거짓 양성이 크게 늘어난다는 것과, 새로움 효과·요일 효과가 짧은 실험을 속이는 방식을 안다.</li>
+    </ul>
+  </header>
+
+  <section id="why-numbers">
+    <h2>다섯 명과 오천 명</h2>
+    <p><a href="usability.html">8장</a>의 사용성 테스트는 손님 다섯 명이 어디서 멈칫하는지 보여 주었다. "맡아 두기"와 "찜하기"를 헷갈리는 장면은 한 사람만 봐도 고쳐야 할 문제라는 것을 안다. 그런데 고친 화면이 정말 더 많은 사람을 책방까지 데려가는지는 다섯 명으로 알 수 없다. 다섯 명 가운데 세 명이 성공했는지 네 명이 성공했는지는 우연으로도 충분히 갈린다. "얼마나"를 묻는 질문에는 많은 사람의 행동을 세어야 한다.</p>
+    <p>세는 대상을 정한 것이 <span class="term">지표</span><span class="en">(Metric)</span>다. 지표는 서비스에서 일어난 일을 하나의 숫자로 줄인 것이다. 가장 흔한 꼴은 <span class="term">전환율</span><span class="en">(Conversion rate)</span>이다. 어떤 단계에 들어온 사람 가운데 원하는 행동까지 간 사람의 비율로, "결과 화면을 본 사람 가운데 맡아 두기를 요청한 사람"처럼 분모와 분자를 함께 정해야 뜻이 생긴다. <a href="flow.html">5장</a>에서 본 퍼널의 단계별 통과율이 모두 전환율이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 270" role="img" aria-label="질적 조사와 양적 지표의 비교. 사용성 테스트는 적은 사람에게서 이유를 얻고, 지표는 많은 사람에게서 크기를 얻는다.">
+        <rect x="14" y="14" width="208" height="242" rx="12" class="f-acc-soft"/>
+        <rect x="238" y="14" width="208" height="242" rx="12" class="f-acc2-soft"/>
+        <text x="118" y="42" text-anchor="middle" class="lbl-acc" style="font-size:15px">사용성 테스트(8장)</text>
+        <text x="342" y="42" text-anchor="middle" class="lbl-acc2" style="font-size:15px">지표와 실험(9장)</text>
+        <g id="mx-people-a"></g>
+        <g id="mx-people-b"></g>
+        <text x="118" y="150" text-anchor="middle" class="lbl-b">사람 다섯 명을 오래</text>
+        <text x="342" y="150" text-anchor="middle" class="lbl-b">사람 수천 명을 짧게</text>
+        <text x="30" y="182" class="lbl" style="font-size:12.5px">알려 주는 것: 왜 막히는가</text>
+        <text x="30" y="202" class="lbl" style="font-size:12.5px">어디서, 어떤 말 때문에</text>
+        <text x="30" y="232" class="lbl-dim" style="font-size:12px">못 하는 것: 얼마나 자주, 얼마나 큰가</text>
+        <text x="254" y="182" class="lbl" style="font-size:12.5px">알려 주는 것: 얼마나 달라졌는가</text>
+        <text x="254" y="202" class="lbl" style="font-size:12.5px">몇 %p, 얼마나 확실하게</text>
+        <text x="254" y="232" class="lbl-dim" style="font-size:12px">못 하는 것: 왜 그렇게 됐는가</text>
+      </svg>
+      <figcaption><b>그림 1. 두 가지 확인.</b> 질적 조사와 양적 지표는 서로를 대신하지 못한다. 테스트로 문제를 찾고 고친 뒤, 고친 것이 실제로 얼마나 차이를 만드는지는 지표로 확인한다. 지표가 이상하게 움직이면 다시 사람을 만나 이유를 묻는다.</figcaption>
+    </figure>
+
+    <p>숫자는 객관적으로 보이지만 두 군데서 틀어진다. 하나는 <b>무엇을 세는가</b>다. 쉽게 올릴 수 있는 숫자를 고르면 숫자는 오르는데 손님의 삶은 그대로일 수 있다. 다른 하나는 <b>우연</b>이다. 같은 화면을 그대로 두어도 전환율은 날마다 오르내린다. 이 장의 앞부분은 첫째를, 나머지는 둘째를 다룬다.</p>
+  </section>
+
+  <section id="choose">
+    <h2>지표 고르기: 북극성과 가드레일</h2>
+    <p>제품 팀이 가장 오래 바라볼 숫자 하나를 흔히 <span class="term">북극성 지표</span><span class="en">(North Star Metric)</span>라고 부른다. 업계에서 널리 쓰는 말로, 사용자가 서비스에서 실제로 얻는 가치를 가장 가깝게 담은 숫자를 하나 고르자는 뜻이다. "맡아 두기"에서 손님이 얻는 가치는 버튼을 누르는 것도, 앱에 오래 머무는 것도 아니다. 헛걸음 없이 찾던 책을 손에 드는 것이다. 그러니 북극성 지표 후보는 "한 주 동안 실제로 찾아간 책의 수"다.</p>
+    <p>북극성 지표는 너무 느리고 멀어서 화면 하나를 고칠 때마다 보기는 어렵다. 그래서 그것을 이루는 단계로 쪼갠다. 아래 그림처럼 찾아간 책의 수는 결과 화면을 본 사람 수와 단계별 전환율의 곱이다. 화면 하나를 고칠 때는 그 화면이 움직일 수 있는 단계의 전환율을 본다. 이렇게 가까이에서 대신 보는 숫자를 <span class="term">대리 지표</span><span class="en">(Proxy metric)</span>라고 한다. 대리 지표는 북극성과 함께 움직일 때만 쓸모가 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="지표 나무. 북극성 지표인 한 주에 찾아간 책 수는 결과 화면 방문자 수, 요청률, 확정률, 찾아간 비율의 곱이다. 옆에 가드레일 지표 두 개가 있다.">
+        <defs><marker id="mx-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="120" y="12" width="220" height="50" rx="25" class="f-acc"/>
+        <text x="230" y="34" text-anchor="middle" class="lbl-b" style="font-size:12px;fill:var(--on-accent)">북극성 지표</text>
+        <text x="230" y="51" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--on-accent)">한 주에 실제로 찾아간 책</text>
+        <text x="230" y="84" text-anchor="middle" class="lbl-dim" style="font-size:12px">=</text>
+        <g style="font-size:12px">
+          <rect x="8" y="96" width="100" height="58" rx="8" class="f-surface"/><rect x="8" y="96" width="100" height="58" rx="8" fill="none" class="s-line"/>
+          <text x="58" y="119" text-anchor="middle" class="lbl-b">결과 화면</text><text x="58" y="137" text-anchor="middle" class="lbl-b">방문자 수</text>
+          <text x="117" y="130" text-anchor="middle" class="lbl-dim">×</text>
+          <rect x="126" y="96" width="96" height="58" rx="8" class="f-surface"/><rect x="126" y="96" width="96" height="58" rx="8" fill="none" class="s-line"/>
+          <text x="174" y="119" text-anchor="middle" class="lbl-b">요청률</text><text x="174" y="137" text-anchor="middle" class="lbl-dim">맡아 두기 누름</text>
+          <text x="231" y="130" text-anchor="middle" class="lbl-dim">×</text>
+          <rect x="240" y="96" width="96" height="58" rx="8" class="f-surface"/><rect x="240" y="96" width="96" height="58" rx="8" fill="none" class="s-line"/>
+          <text x="288" y="119" text-anchor="middle" class="lbl-b">확정률</text><text x="288" y="137" text-anchor="middle" class="lbl-dim">주인이 확인</text>
+          <text x="345" y="130" text-anchor="middle" class="lbl-dim">×</text>
+          <rect x="354" y="96" width="98" height="58" rx="8" class="f-surface"/><rect x="354" y="96" width="98" height="58" rx="8" fill="none" class="s-line"/>
+          <text x="403" y="119" text-anchor="middle" class="lbl-b">찾아간 비율</text><text x="403" y="137" text-anchor="middle" class="lbl-dim">기한 안에 방문</text>
+        </g>
+        <path d="M174 156 L174 186" class="s-acc2" marker-end="url(#mx-ar)"/>
+        <text x="174" y="204" text-anchor="middle" class="lbl-acc2" style="font-size:12px">버튼 문구가 움직이는 곳</text>
+        <rect x="8" y="224" width="444" height="66" rx="10" class="f-warn-soft"/>
+        <text x="22" y="246" class="lbl-b" style="font-size:12.5px">가드레일: 나빠지면 안 되는 숫자</text>
+        <text x="22" y="266" class="lbl" style="font-size:12px">주인 확인까지 걸린 시간 · 가 보니 책이 없던 헛걸음</text>
+        <text x="22" y="282" class="lbl-dim" style="font-size:11.5px">올리려는 숫자가 아니라, 다른 것을 고치다 망가뜨리지 않았는지 지켜보는 숫자</text>
+      </svg>
+      <figcaption><b>그림 2. "맡아 두기"의 지표 나무.</b> 북극성 지표를 곱셈으로 쪼개면 화면마다 책임질 전환율이 보인다. 결과 화면의 버튼 문구는 요청률을 움직이지만, 요청이 늘었다고 찾아간 책이 늘었는지는 뒤의 두 단계에 달려 있다. 가드레일은 실험이 다른 사람(주인)이나 다른 목표(헛걸음 줄이기)를 해치지 않는지 지키는 숫자다.</figcaption>
+    </figure>
+
+    <p>지표를 하나만 정하면 팀은 그 숫자를 올리는 쪽으로 움직인다. 숫자는 오르지만 원래 바라던 것과 멀어지는 일이 흔해서, 경제학자 찰스 굿하트(Charles Goodhart)가 1975년 통화 정책을 두고 한 지적에서 이름을 딴 <span class="term">굿하트의 법칙</span><span class="en">(Goodhart's law)</span>이라는 말이 있다. 흔히 "측정이 목표가 되면 더는 좋은 측정이 아니다"라는 문장으로 알려졌는데, 이 문장 자체는 뒤에 인류학자 메릴린 스트래선(Marilyn Strathern)이 1997년 글에서 요약한 표현이다. 그래서 실험에서는 올리려는 지표 옆에 <span class="term">가드레일 지표</span><span class="en">(Guardrail metric)</span>를 함께 둔다. 오르지 않아도 되지만 나빠지면 안 되는 숫자다.</p>
+    <p>아래에서 "맡아 두기"에 가상의 변경 네 가지를 적용해 본다. 막대는 각 지표가 바뀐 정도이고, 초록은 좋은 쪽, 빨강은 나쁜 쪽이다. 판정 기준을 바꾸고 가드레일을 켜 본다.</p>
+
+    <div class="sim" id="sim-mp">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>무엇을 보고 성공이라 할까</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mp-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="mp-ch"><button data-value="big" class="on">버튼 키우기</button><button data-value="auto">바로 확정</button><button data-value="soon">곧 들어올 책</button><button data-value="due">남은 기한 표시</button></div>
+          <div class="seg" id="mp-by"><button data-value="click" class="on">버튼 누름으로 판정</button><button data-value="north">북극성으로 판정</button></div>
+          <label class="check"><input type="checkbox" id="mp-g"> 가드레일도 본다</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이 변경</span><span class="v" id="mp-o-what" style="font-size:14px;font-family:inherit">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="mp-o-verdict">—</span></div>
+        <div class="stat"><span class="k">가드레일</span><span class="v" id="mp-o-guard">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "버튼 키우기"를 버튼 누름으로 판정한다. 18% 올라 대성공처럼 보인다. "북극성으로 판정"을 누르면 찾아간 책은 1%밖에 늘지 않았다. 누름이 늘어도 끝까지 가는 사람은 거의 그대로다. ② "바로 확정"을 북극성으로 판정한다. 찾아간 책이 늘었다. 이제 "가드레일도 본다"를 켠다. 주인 확인을 건너뛰자 헛걸음이 40% 늘었다. ③ 네 가지 중 북극성이 오르고 가드레일도 지키는 변경을 찾는다. (막대의 값은 원리를 보이려고 만든 가상의 결과다. 실제 변경이 어느 지표를 얼마나 움직일지는 실험해 봐야 안다.)</div>
+    </div>
+
+    <p>"버튼 키우기"처럼 누름만 늘리는 변경은 쉽게 찾을 수 있다. 버튼을 키우고 색을 강하게 하고 문구를 재촉하면 대개 누름은 는다. 그런데 그 누름이 실수로 누른 것이거나, 맡기고 찾으러 오지 않을 사람의 것이라면 주인의 일만 늘린다. 반대로 "바로 확정"은 북극성 지표를 올리지만, 주인이 재고를 확인하지 않으니 가 보니 책이 없는 헛걸음이 는다. 이 서비스가 처음 풀려던 문제(<a href="problem.html">3장</a>)를 되살리는 셈이다. 가드레일은 이런 변경을 걸러 낸다.</p>
+    <p>실험 하나에서 판정에 쓰는 지표는 미리 하나로 정해 둔다. 이것을 <span class="term">1차 지표</span><span class="en">(Primary metric)</span>라고 부른다. 결과를 본 뒤 여러 지표 가운데 오른 것을 골라 "성공"이라 부르면 아래에서 볼 우연의 함정에 그대로 빠진다. 온라인 실험을 오래 다룬 론 코하비(Ron Kohavi), 다이앤 탱(Diane Tang), 야 쉬(Ya Xu)의 책 『Trustworthy Online Controlled Experiments』(Cambridge University Press, 2020)도 실험 전에 판정 기준(그 책의 말로는 종합 평가 기준, OEC)과 가드레일을 정해 두라고 거듭 강조한다.</p>
+
+    <div class="callout studio">
+      <strong>허영 지표를 알아보는 질문</strong>
+      누적 가입자 수, 페이지뷰, 앱에 머문 시간처럼 늘 오르거나 쉽게 부풀릴 수 있는 숫자를 흔히 <span class="term">허영 지표</span><span class="en">(Vanity metric)</span>라고 부른다. 숫자를 하나 받았을 때 세 가지를 묻는다. 이 숫자가 오르면 손님에게 무엇이 좋아졌나? 이 숫자를 보고 다음 주에 무엇을 다르게 할 수 있나? 이 숫자를 나쁜 방법으로도 올릴 수 있나? 마지막 질문에 "그렇다"면 짝이 되는 가드레일을 붙인다. 머문 시간은 길수록 좋을 수도, 길을 잃어서 길어진 것일 수도 있다. "맡아 두기"는 빨리 찾고 빨리 떠나는 것이 좋은 서비스다.
+    </div>
+  </section>
+
+  <section id="rate">
+    <h2>전환율은 날마다 흔들린다</h2>
+    <p>지표를 정했으면 이제 그 숫자를 읽는다. 첫 번째로 알아 둘 것은, 화면을 하나도 바꾸지 않아도 전환율이 날마다 다르다는 사실이다. 결과 화면을 본 손님 한 명 한 명은 버튼을 누르거나 누르지 않는다. 동전을 던지는 것처럼 각자의 결과에 우연이 섞인다. 그러니 하루 400명이 오는 날 진짜 요청률이 12%라도, 어떤 날은 10%, 어떤 날은 14%가 관측된다.</p>
+    <p>아래에서 진짜 전환율과 하루 방문자 수를 정하면, 같은 서비스를 30일 동안 그대로 두었을 때 관측된 전환율이 점으로 찍힌다. 띠는 우연만으로 흔히 나오는 범위(약 95%)다.</p>
+
+    <div class="sim" id="sim-day">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>아무것도 바꾸지 않은 30일</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="dy-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>진짜 전환율 <output id="dy-p-out"></output></span><input type="range" id="dy-p" min="2" max="30" step="1" value="12"></label>
+          <label class="ctrl"><span>하루 방문자 <output id="dy-n-out"></output></span><input type="range" id="dy-n" min="0" max="7" step="1" value="3"></label>
+          <div class="btn-row"><button class="btn" id="dy-re">다른 30일</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 높은 날 · 낮은 날</span><span class="v" id="dy-o-mm">—</span></div>
+        <div class="stat"><span class="k">하루 표준 오차</span><span class="v" id="dy-o-se">—</span></div>
+        <div class="stat"><span class="k">띠 밖으로 나간 날</span><span class="v" id="dy-o-out">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 하루 방문자 400명, 진짜 전환율 12%. 같은 서비스인데 가장 높은 날과 낮은 날이 몇 %p나 벌어진다. "다른 30일"을 몇 번 눌러 본다. ② 방문자를 100명으로 줄인다. 띠가 두 배로 넓어진다. 방문자를 4분의 1로 줄이면 흔들림은 두 배가 된다. ③ 방문자를 5,000명으로 늘린다. 띠가 좁아져 하루하루가 진짜 값에 붙는다. 그래도 30일 가운데 한두 날은 띠 밖으로 나간다. 띠가 95% 범위이기 때문이다. (모형: 손님마다 서로 독립으로 같은 확률로 전환하는 베르누이 시행. 실제 서비스는 요일과 날씨, 행사 때문에 이보다 더 흔들린다. 시드 고정 난수를 쓰므로 같은 설정과 같은 횟수면 같은 결과가 나온다.)</div>
+    </div>
+
+    <p>점들이 흩어지는 폭은 대략 \(\sqrt{p(1-p)/n}\)이다. 이것을 전환율의 <span class="term">표준 오차</span><span class="en">(Standard error)</span>라고 한다. \(p\)는 진짜 전환율, \(n\)은 방문자 수다. 분모가 \(n\)이 아니라 \(\sqrt{n}\)이라는 점이 이 장 전체를 지배한다. 흔들림을 절반으로 줄이려면 방문자가 네 배 필요하다. 하루 400명짜리 작은 서비스에서 "어제보다 2%p 올랐다"는 말은 대개 아무 뜻이 없다. 하루의 표준 오차가 이미 1.6%p쯤이기 때문이다.</p>
+  </section>
+
+  <section id="ab">
+    <h2>A/B 테스트: 같은 날, 두 화면</h2>
+    <p>날마다 흔들리는 숫자로 "바꾼 뒤가 바꾸기 전보다 낫다"를 말하기는 어렵다. 지난주와 이번 주는 버튼 문구만 다른 것이 아니라 날씨도, 손님도, 책방의 행사도 다르다. 그래서 같은 기간에 들어온 사람을 무작위로 둘로 나누어 한쪽에는 지금 화면(A), 다른 쪽에는 바꾼 화면(B)을 보여 준다. 이것이 <span class="term">A/B 테스트</span><span class="en">(A/B test, 온라인 대조 실험)</span>다. 지금 화면을 받는 쪽을 <span class="term">대조군</span><span class="en">(Control)</span>, 바꾼 화면을 받는 쪽을 <span class="term">실험군</span><span class="en">(Treatment)</span>이라고 한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="A/B 테스트의 구조. 들어온 방문자를 무작위로 반씩 나누어 A 화면과 B 화면을 보여 주고, 같은 지표를 비교한다.">
+        <defs><marker id="mx-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g id="mx-crowd"></g>
+        <text x="58" y="208" text-anchor="middle" class="lbl-b" style="font-size:12px">같은 기간의 방문자</text>
+        <rect x="118" y="104" width="78" height="40" rx="20" class="f-elev"/><rect x="118" y="104" width="78" height="40" rx="20" fill="none" class="s-acc"/>
+        <text x="157" y="122" text-anchor="middle" class="lbl-acc" style="font-size:12px">무작위</text>
+        <text x="157" y="137" text-anchor="middle" class="lbl-dim" style="font-size:11px">반씩</text>
+        <path d="M106 124 L116 124" class="s-line" marker-end="url(#mx-ar2)"/>
+        <path d="M198 116 L232 72" class="s-line" marker-end="url(#mx-ar2)"/>
+        <path d="M198 132 L232 176" class="s-line" marker-end="url(#mx-ar2)"/>
+        <!-- 가상 화면 A -->
+        <rect x="238" y="16" width="112" height="104" rx="10" fill="#fbfaf7" stroke="#22342a" stroke-opacity=".35"/>
+        <rect x="248" y="28" width="70" height="7" rx="3" fill="#22342a" opacity=".75"/>
+        <rect x="248" y="42" width="56" height="5" rx="2" fill="#567666" opacity=".7"/>
+        <rect x="248" y="52" width="84" height="5" rx="2" fill="#567666" opacity=".45"/>
+        <rect x="248" y="80" width="92" height="28" rx="7" fill="#2f7d5b"/>
+        <text x="294" y="98" text-anchor="middle" style="font-size:11.5px;font-weight:700" fill="#ffffff">맡아 두기</text>
+        <text x="228" y="30" text-anchor="end" class="lbl-b">A</text>
+        <!-- 가상 화면 B -->
+        <rect x="238" y="132" width="112" height="104" rx="10" fill="#fbfaf7" stroke="#22342a" stroke-opacity=".35"/>
+        <rect x="248" y="144" width="70" height="7" rx="3" fill="#22342a" opacity=".75"/>
+        <rect x="248" y="158" width="56" height="5" rx="2" fill="#567666" opacity=".7"/>
+        <rect x="248" y="168" width="84" height="5" rx="2" fill="#567666" opacity=".45"/>
+        <rect x="248" y="196" width="92" height="28" rx="7" fill="#2f7d5b"/>
+        <text x="294" y="214" text-anchor="middle" style="font-size:10.5px;font-weight:700" fill="#ffffff">3일 동안 맡아 두기</text>
+        <text x="228" y="146" text-anchor="end" class="lbl-b">B</text>
+        <path d="M356 68 L380 112" class="s-line" marker-end="url(#mx-ar2)"/>
+        <path d="M356 184 L380 140" class="s-line" marker-end="url(#mx-ar2)"/>
+        <rect x="380" y="100" width="72" height="52" rx="8" class="f-ok-soft"/>
+        <text x="416" y="122" text-anchor="middle" class="lbl-b" style="font-size:12px">같은 지표</text>
+        <text x="416" y="140" text-anchor="middle" class="lbl-dim" style="font-size:11px">B − A</text>
+      </svg>
+      <figcaption><b>그림 3. A/B 테스트의 뼈대.</b> 같은 기간에 들어온 사람을 무작위로 나누면, 두 무리는 버튼 문구 말고는 평균적으로 같다. 그러면 두 무리의 지표 차이는 문구의 효과와 우연, 둘 중 하나에서 온다. 통계는 그 우연의 몫이 얼마나 되는지 재는 도구다. 가운데 두 화면은 이 장의 케이스에서 쓰는 가상의 결과 화면이다.</figcaption>
+    </figure>
+
+    <p>무작위로 나누는 것이 핵심이다. 오전 방문자에게 A, 오후 방문자에게 B를 보여 주면 시간대의 차이가 문구의 차이와 섞인다. 같은 사람이 들어올 때마다 A와 B를 번갈아 보면 헷갈리기만 한다. 그래서 보통 사람(또는 브라우저) 단위로 한 번 배정하면 실험이 끝날 때까지 같은 화면을 보게 한다. 배정의 단위가 곧 분모의 단위다.</p>
+    <p>두 무리의 차이가 우연인지 아닌지는 차이의 <span class="term">신뢰 구간</span><span class="en">(Confidence interval)</span>으로 읽는다. 표본이 충분히 크면 다음과 같은 정규 근사를 쓴다.</p>
+    <div class="formula">$$\big(\hat p_B-\hat p_A\big)\;\pm\;1.96\sqrt{\frac{\hat p_A(1-\hat p_A)}{n_A}+\frac{\hat p_B(1-\hat p_B)}{n_B}}$$<div class="where">\(\hat p_A,\hat p_B\): 두 무리에서 관측된 전환율, \(n_A,n_B\): 두 무리의 사람 수. 1.96은 표준 정규 분포에서 가운데 95%를 감싸는 값이다. 같은 방식으로 실험을 여러 번 되풀이하면, 이렇게 만든 구간 가운데 약 95%가 진짜 차이를 품는다.</div></div>
+    <p>구간이 0을 걸치지 않으면 "유의 수준 5%에서 차이가 유의하다"고 말한다. 같은 판정을 숫자 하나로 적은 것이 <span class="term">p값</span><span class="en">(p-value)</span>이다. p값은 "진짜 차이가 0이라면, 지금만큼 또는 그보다 큰 차이가 우연히 나올 확률"이다. p값이 0.04라는 것은 "B가 나을 확률이 96%"라는 뜻이 아니다. 차이가 없을 때 이런 결과가 나오기가 드물다는 뜻일 뿐이다. 판정의 문턱으로 미리 정한 확률(흔히 0.05)을 <span class="term">유의 수준</span><span class="en">(Significance level, α)</span>이라고 한다.</p>
+    <p>아래에서 A와 B의 <b>진짜</b> 전환율을 정한다. 현실에서는 진짜 값을 모르지만, 여기서는 정해 두고 그 아래에서 사람들이 우연히 누르거나 누르지 않게 한 뒤 관측값을 본다.</p>
+
+    <div class="sim" id="sim-ab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>진짜 차이를 아는 A/B 테스트</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ab-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>A의 진짜 전환율 <output id="ab-p-out"></output></span><input type="range" id="ab-p" min="2" max="30" step="0.5" value="12"></label>
+          <label class="ctrl"><span>B의 진짜 차이(상대) <output id="ab-l-out"></output></span><input type="range" id="ab-l" min="-30" max="50" step="1" value="10"></label>
+          <label class="ctrl"><span>한 무리의 사람 수 <output id="ab-n-out"></output></span><input type="range" id="ab-n" min="0" max="12" step="1" value="5"></label>
+          <div class="btn-row"><button class="btn" id="ab-re">다시 실험</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">관측된 차이(B − A)</span><span class="v" id="ab-o-d">—</span></div>
+        <div class="stat"><span class="k">95% 신뢰 구간</span><span class="v" id="ab-o-ci">—</span></div>
+        <div class="stat"><span class="k">p값 · 판정</span><span class="v" id="ab-o-p">—</span></div>
+        <div class="stat"><span class="k">이 설정에서 유의하게 나올 확률</span><span class="v" id="ab-o-pow">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① A 12%, B는 10% 더 높게(13.2%), 한 무리 1,000명. "다시 실험"을 여러 번 누른다. 진짜로 B가 낫는데도 구간이 0을 걸쳐 "알 수 없음"이 더 자주 나온다. 어떤 때는 B가 오히려 낮게 관측된다. ② 사람 수를 10,000명으로 늘린다. 구간이 좁아지고 거의 매번 유의하게 나온다. ③ 진짜 차이를 0%로 두고 여러 번 돌린다. 대부분 "알 수 없음"이지만 가끔 유의하게 나온다. 다음 절의 주제다. (모형: 사람마다 독립인 베르누이 시행. 신뢰 구간은 위 식의 정규 근사, p값은 두 비율을 합친 z검정이다. 사람 수가 작고 전환율이 낮으면 근사가 거칠어진다.)</div>
+    </div>
+
+    <p>네 번째 칸의 "유의하게 나올 확률"을 기억해 둔다. 진짜 차이가 있을 때 실험이 그것을 잡아낼 확률이다. 1,000명씩으로 12%와 13.2%를 비교하면 이 확률이 20%도 안 된다. 다섯 번 실험하면 네 번은 "효과 없음"처럼 보인다는 뜻이다. 이때 "유의하지 않다"를 "효과가 없다"로 읽으면 좋은 변경을 버린다. 유의하지 않다는 것은 "이 표본으로는 구별하지 못했다"는 뜻이다.</p>
+
+    <div class="callout warn">
+      <strong>통계적으로 유의한 것과 중요한 것</strong>
+      표본이 아주 크면 0.1%p 같은 작은 차이도 유의하게 나온다. 유의하다는 것은 차이가 우연이 아닐 가능성이 높다는 뜻이지, 그 차이가 만들 가치가 있다는 뜻이 아니다. 거꾸로 표본이 작으면 큰 차이도 유의하지 않게 나온다. 그래서 결과는 p값 하나가 아니라 <b>차이의 크기와 신뢰 구간</b>으로 보고한다. "B가 요청률을 0.3~2.1%p 올렸다(95% 구간)"는 문장은 "p = 0.02"보다 훨씬 많은 것을 알려 준다. 미국통계학회(ASA)도 2016년 p값에 관한 성명(Wasserstein &amp; Lazar, "The ASA Statement on p-Values", <i>The American Statistician</i>)에서 p값 하나만으로 결론을 내리지 말라고 밝혔다.
+    </div>
+  </section>
+
+  <section id="aa">
+    <h2>A/A 테스트: 아무것도 바꾸지 않았는데 이긴다</h2>
+    <p>A와 B에 <b>똑같은</b> 화면을 보여 주는 실험을 <span class="term">A/A 테스트</span><span class="en">(A/A test)</span>라고 한다. 바꾼 것이 없으니 진짜 차이는 0이다. 그래도 유의 수준 5%로 판정하면, 스무 번에 한 번쯤은 "유의한 차이"가 나온다. 진짜 차이가 없는데 있다고 판정하는 것을 <span class="term">거짓 양성</span><span class="en">(False positive, 1종 오류)</span>이라고 하고, 유의 수준 α가 바로 그 확률의 상한이다. 실무에서 A/A 테스트는 배정 장치와 집계가 제대로 되는지 점검하는 데 쓴다. 여기서는 우연이 얼마나 자주 이기는지 보는 데 쓴다.</p>
+    <p>아래 그림의 가로줄 하나가 A/A 실험 하나의 신뢰 구간이다. 100번의 실험을 위아래로 쌓았다. 0을 걸치지 않은 구간, 곧 "유의하게 이긴" 실험은 빨갛다.</p>
+
+    <div class="sim" id="sim-aa">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>A/A 실험 100번</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="aa-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="aa-n"><button data-value="200">200명</button><button data-value="1000" class="on">1,000명</button><button data-value="5000">5,000명</button></div>
+          <div class="seg" id="aa-a"><button data-value="0.05" class="on">α = 0.05</button><button data-value="0.01">α = 0.01</button></div>
+          <div class="btn-row"><button class="btn" id="aa-re">100번 더</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이번 100번 중 유의</span><span class="v" id="aa-o-now">—</span></div>
+        <div class="stat"><span class="k">지금까지 모두</span><span class="v" id="aa-o-all">—</span></div>
+        <div class="stat"><span class="k">기대값</span><span class="v" id="aa-o-exp">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① α = 0.05에서 "100번 더"를 열 번쯤 누른다. 빨간 줄의 비율이 5% 근처로 모인다. ② 사람 수를 5,000명으로 늘린다. 구간이 모두 좁아지지만 빨간 줄의 비율은 그대로 5%쯤이다. 표본을 키워도 거짓 양성은 줄지 않는다. 줄어드는 것은 구간의 폭이다. ③ α = 0.01로 바꾼다. 빨간 줄이 100번에 한 번꼴로 준다. 대신 진짜 차이를 놓칠 확률은 커진다. (두 무리의 진짜 전환율은 모두 10%. 신뢰 구간과 판정은 앞 시뮬레이터와 같은 정규 근사다.)</div>
+    </div>
+
+    <p>5%는 작아 보이지만, 지표를 여러 개 보면 금방 커진다. 서로 독립인 지표 \(k\)개를 각각 α = 0.05로 판정하면, 그중 적어도 하나가 우연히 유의하게 나올 확률은 \(1-(1-0.05)^k\)이다. 지표 10개면 약 40%다. 실험이 끝난 뒤 대시보드의 지표 열 개 가운데 오른 것 하나를 골라 "B가 이겼다"고 말하면, 바꾼 것이 아무 효과가 없어도 열 번에 네 번은 이긴다. 1차 지표를 미리 하나로 정해 두는 이유다. 여러 지표를 꼭 판정해야 한다면 유의 수준을 지표 수로 나누는 본페로니 보정 같은 방법을 쓴다.</p>
+  </section>
+
+  <section id="size">
+    <h2>표본 크기와 검정력</h2>
+    <p>A/B 시뮬레이터에서 진짜 차이가 있어도 사람이 적으면 놓친다는 것을 봤다. 진짜 차이가 있을 때 실험이 그것을 유의하게 잡아낼 확률을 <span class="term">검정력</span><span class="en">(Statistical power)</span>이라고 한다. 흔히 80%를 목표로 잡는다. 놓쳐도 아깝지 않을 만큼 작은 차이는 버리고, 이만큼은 꼭 잡아야 한다는 가장 작은 차이를 정하는데, 이것이 <span class="term">최소 검출 효과</span><span class="en">(Minimum detectable effect, MDE)</span>다. 기준 전환율, 최소 검출 효과, 유의 수준, 검정력을 정하면 한 무리에 필요한 사람 수가 나온다. 두 비율을 비교할 때 흔히 쓰는 정규 근사 공식은 다음과 같다.</p>
+    <div class="formula">$$n \approx \frac{\Big(z_{1-\alpha/2}\sqrt{2\bar p(1-\bar p)}\;+\;z_{1-\beta}\sqrt{p_A(1-p_A)+p_B(1-p_B)}\Big)^2}{(p_B-p_A)^2}$$<div class="where">\(n\): 한 무리에 필요한 사람 수, \(p_A\): 기준 전환율, \(p_B = p_A +\) 최소 검출 효과, \(\bar p\): 두 값의 평균. \(z_{1-\alpha/2}\)는 유의 수준 5%(양쪽)에서 1.96, \(z_{1-\beta}\)는 검정력 80%에서 0.84, 90%에서 1.28이다. 분모가 차이의 <b>제곱</b>이라는 점을 본다.</div></div>
+    <p>분모가 제곱이라서, 찾으려는 차이를 절반으로 줄이면 필요한 사람은 네 배가 된다. 아래 그래프의 가로축이 최소 검출 효과, 세로축이 한 무리에 필요한 사람 수다(세로축은 10배씩 늘어나는 눈금이다). 곡선 위의 점을 끌어 본다.</p>
+
+    <div class="sim" id="sim-n">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>작은 차이는 큰 표본을 부른다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ns-cv"></canvas><span class="hint">곡선 위의 점을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>기준 전환율 <output id="ns-p-out"></output></span><input type="range" id="ns-p" min="1" max="50" step="0.5" value="8"></label>
+          <label class="ctrl"><span>최소 검출 효과 <output id="ns-m-out"></output></span><input type="range" id="ns-m" min="0.5" max="10" step="0.1" value="2"></label>
+          <div class="seg" id="ns-pw"><button data-value="0.8" class="on">검정력 80%</button><button data-value="0.9">90%</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 무리에 필요한 사람</span><span class="v" id="ns-o-n">—</span></div>
+        <div class="stat"><span class="k">두 무리 합계</span><span class="v" id="ns-o-t">—</span></div>
+        <div class="stat"><span class="k">하루 460명이면</span><span class="v" id="ns-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 기준 8%, 최소 검출 효과 2%p(8% → 10%), 검정력 80%. 한 무리에 약 3,200명, 합쳐 6,400명이 넘게 필요하다. ② 점을 1%p로 끈다. 사람 수가 네 배 가까이 늘어 하루 460명인 서비스에서는 두 달 가까이 걸린다. 0.5%p라면 반년이 넘는다. ③ 기준 전환율을 30%로 올린다. 같은 2%p라도 필요한 사람이 훨씬 많아진다. 전환율이 50%에 가까울수록 한 사람의 결과가 가장 많이 흔들리기 때문이다. (유의 수준 5% 양쪽, 위 정규 근사 공식. 하루 460명은 이 장 케이스의 가상 방문자 수이고, 두 무리에 반씩 나눈다고 보았다.)</div>
+    </div>
+
+    <p>작은 서비스가 A/B 테스트에서 가장 먼저 부딪히는 벽이 이것이다. 하루 방문자가 수백 명이면 1%p 차이는 몇 달을 기다려야 겨우 보인다. 그때 할 수 있는 일은 세 가지다. 더 큰 차이를 낼 만한 과감한 변경을 시험하거나, 분모가 큰 앞쪽 단계(요청률)를 대리 지표로 쓰되 북극성과의 연결을 따로 확인하거나, 숫자 대신 <a href="usability.html">8장</a>의 사용성 테스트로 판단하는 것이다. "실험할 만큼 사람이 없다"는 것도 이 계산이 주는 중요한 답이다.</p>
+
+    <div class="callout studio">
+      <strong>실험 계획서를 먼저 쓴다</strong>
+      실험을 켜기 전에 한 쪽짜리 계획서를 쓴다. ① 가설: 무엇을 바꾸면 누구의 무엇이 왜 달라질 것인가. ② 1차 지표와 그 분모, 배정 단위. ③ 가드레일과 중단 조건. ④ 기준 전환율, 최소 검출 효과, 유의 수준, 검정력, 그래서 필요한 사람 수와 기간. ⑤ 판정 날짜와 판정 방식. 계획서는 결과를 본 뒤에 고치지 않는다. 결과를 보고 나서 기준을 고르면, 어떤 결과든 성공으로 읽을 수 있기 때문이다. 이렇게 판정 기준을 미리 적어 두는 일을 연구에서는 사전 등록(Preregistration)이라고 부른다.
+    </div>
+  </section>
+
+  <section id="peeking">
+    <h2>중간에 들여다보기</h2>
+    <p>계획서에 14일이라고 적어도, 대시보드는 매일 아침 숫자를 보여 준다. 사흘째 p값이 0.04로 떨어지면 멈추고 싶어진다. 그런데 "유의해지는 날 멈춘다"는 규칙은 거짓 양성을 크게 늘린다. p값은 실험 내내 오르내리는 숫자이고, 매일 들여다보면 그 오르내림이 한 번이라도 문턱 아래로 내려가는 순간을 잡게 되기 때문이다. 문턱을 한 번 지나는 일은 마지막 날 한 번 보는 것보다 훨씬 자주 일어난다.</p>
+    <p>이 현상은 오래전부터 알려져 있다. 의학 통계학자 피터 아미티지(Peter Armitage) 등은 1969년 논문 "Repeated significance tests on accumulating data"(<i>Journal of the Royal Statistical Society, Series A</i>)에서 자료가 쌓일 때마다 유의성 검정을 되풀이하면 처음 정한 유의 수준보다 거짓 양성이 훨씬 많아진다는 것을 보였다. 아래에서 직접 확인한다. 진짜 차이가 0인 A/A 실험 400개를 돌리며 정해진 날마다 결과를 들여다보고, 유의해지면 바로 멈춘다.</p>
+
+    <div class="sim" id="sim-pk">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>유의해지는 날 멈추면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pk-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="pk-m"><button data-value="end">끝에 한 번</button><button data-value="week">매주</button><button data-value="day" class="on">매일</button></div>
+          <label class="ctrl"><span>실험 기간 <output id="pk-d-out"></output></span><input type="range" id="pk-d" min="7" max="42" step="7" value="28"></label>
+          <div class="btn-row"><button class="btn" id="pk-re">다른 400번</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">들여다본 횟수</span><span class="v" id="pk-o-k">—</span></div>
+        <div class="stat"><span class="k">거짓 양성(이 방식)</span><span class="v" id="pk-o-f">—</span></div>
+        <div class="stat"><span class="k">같은 실험을 끝에만 봤다면</span><span class="v" id="pk-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "매일", 28일. 선 하나가 A/A 실험 하나의 z값(차이를 표준 오차로 나눈 값)이 날마다 움직인 길이다. 점선(±1.96) 밖으로 한 번이라도 나가면 그날 멈추고 빨간 점을 찍는다. 400번 가운데 거짓 양성이 5%의 몇 배나 된다. ② "끝에 한 번"으로 바꾼다. 같은 실험들인데 5% 근처로 돌아온다. ③ "매일"에서 기간을 42일로 늘린다. 오래 들여다볼수록 더 늘어난다. "매주"는 그 사이다. (두 무리 모두 진짜 전환율 10%, 하루 한 무리 230명. 하루 전환 수는 이항 분포를 정규 분포로 근사해 뽑았다. 그림에는 400개 중 처음 30개만 그렸다.)</div>
+    </div>
+
+    <p>선 하나하나는 술에 취한 사람의 걸음처럼 0 근처를 오르내린다. 마지막 날 한 번 보면 그 위치가 문턱 밖일 확률은 5%다. 그러나 매일 보면 걸음이 한 번이라도 문턱을 스친 실험은 모두 걸린다. 그리고 그날 멈추었기 때문에 그 뒤에 0 근처로 돌아왔을 실험도 "승리"로 기록된다. 사흘 만의 p = 0.04는 이렇게 생긴다.</p>
+    <p>해결책은 들여다보지 않는 것이 아니라, 들여다볼 계획을 미리 세우는 것이다. 판정은 계획서의 날짜에 한 번만 하고, 그 전의 대시보드는 배정이 고르게 되는지, 오류가 터지지 않는지, 가드레일이 무너지지 않는지 감시하는 데만 쓴다. 중간에 멈출 수 있어야 한다면 그것을 처음부터 허락하는 통계 방법을 쓴다.</p>
+
+    <div class="callout deep">
+      <strong>중간에 봐도 되는 실험</strong>
+      임상시험은 해로운 약을 끝까지 투여할 수 없으니 일찍부터 중간 분석을 해야 했다. 그래서 들여다볼 횟수와 시점을 미리 정하고, 앞의 들여다보기일수록 훨씬 엄격한 문턱을 쓰는 <span class="term">순차 검정</span><span class="en">(Sequential testing)</span>이 발전했다. 오브라이언과 플레밍(O'Brien &amp; Fleming, 1979, <i>Biometrics</i>)의 방법이 잘 알려진 예로, 초반에는 아주 큰 차이에만 멈추고 마지막에는 거의 1.96에 가까운 문턱을 쓴다. 전체의 거짓 양성을 5%로 맞추도록 문턱을 나누어 쓰는 셈이다. 요즘 온라인 실험 도구에는 언제 들여다봐도 거짓 양성이 유지되도록 설계된 방법을 넣은 것도 있다. 어떤 방법이든 원리는 같다. 여러 번 보는 만큼 한 번의 문턱을 높인다.
+    </div>
+  </section>
+
+  <section id="time">
+    <h2>얼마나 오래: 요일과 새로움</h2>
+    <p>표본 크기만 채우면 끝이 아니다. 같은 6,400명이라도 사흘 만에 모은 것과 2주에 걸쳐 모은 것은 다르다. 사흘 동안 온 사람은 평일 손님뿐일 수 있다. 주말에 아이와 함께 오는 손님은 다른 이유로 다른 버튼을 누른다. 그래서 실험 기간은 적어도 한 주, 가능하면 두 주처럼 <b>요일이 온전히 몇 바퀴 도는 길이</b>로 잡는 것이 흔한 관행이다.</p>
+    <p>또 하나는 <span class="term">새로움 효과</span><span class="en">(Novelty effect)</span>다. 단골 손님은 화면이 바뀌면 "이게 뭐지" 하고 한 번 더 눌러 본다. 그 호기심은 며칠 만에 사라진다. 반대로 익숙한 것이 바뀌어 처음 며칠은 오히려 헤매는 경우도 있다(초두 효과, Primacy effect). 어느 쪽이든 실험 초반의 차이는 오래 갈 차이와 다르다.</p>
+    <p>아래 그래프의 얇은 선은 B가 A보다 날마다 얼마나 높았는지(상대 차이), 굵은 선은 첫날부터 그날까지 모은 자료로 계산한 누적 추정치다. 점선이 시간이 지난 뒤에도 남는 진짜 효과(+5%)다. 우연한 흔들림은 빼고 기대값만 그렸다.</p>
+
+    <div class="sim" id="sim-nv">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>사흘째의 승리, 2주째의 진실</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="nv-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>첫날의 새로움 효과 <output id="nv-a-out"></output></span><input type="range" id="nv-a" min="-20" max="40" step="1" value="25"></label>
+          <label class="ctrl"><span>새로움이 절반으로 주는 기간 <output id="nv-h-out"></output></span><input type="range" id="nv-h" min="1" max="14" step="0.5" value="3"></label>
+          <label class="check"><input type="checkbox" id="nv-w" checked> 요일 효과(주말 손님은 다르게 반응)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">3일째 누적 추정</span><span class="v" id="nv-o-3">—</span></div>
+        <div class="stat"><span class="k">14일째 누적 추정</span><span class="v" id="nv-o-14">—</span></div>
+        <div class="stat"><span class="k">오래 남는 효과</span><span class="v" id="nv-o-l">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 설정에서 3일째 누적 추정치를 본다. 진짜 효과의 몇 배로 부풀어 있다. 14일째에도 아직 두 배가 넘는다. 앞 며칠의 큰 값이 누적 평균에 오래 남기 때문이다. 반감 기간을 1일로 줄여도 몇 %p가 남는다. 그래서 아래 글처럼 효과를 날짜별로 나누어 본다. ② 새로움 효과를 −15%로 내린다(바뀐 화면에 처음엔 헤맨다). 사흘째 판정이라면 좋은 변경을 버렸을 것이다. ③ 새로움을 0으로 두고 요일 효과만 본다. 누적 추정치는 주말을 지날 때마다 출렁이다가, 7일·14일처럼 요일이 한 바퀴 돌 때 진짜 값에 맞는다. (가상의 모형: 날마다의 효과 = 진짜 효과 5% + 새로움 × 0.5^(경과 일 ÷ 반감 기간) + 요일 효과(토·일 +8%p, 평일 −3.2%p, 한 주 평균 0). 1일째를 월요일로, 날마다 방문자 수가 같다고 두었다.)</div>
+    </div>
+
+    <p>새로움 효과를 의심할 때 쓰는 간단한 방법이 있다. 실험이 끝난 뒤 효과를 날짜별로 나누어 보아 처음 며칠만 크고 줄어드는 모양인지 본다. 또는 처음 들어온 사람(새 손님)과 이전부터 쓰던 사람(단골)을 나누어 본다. 새 손님에게는 "새로움"이 없으니, 두 무리의 효과가 크게 다르면 새로움을 의심한다. 다만 이렇게 나누어 보는 것은 판정이 아니라 해석을 위한 것이다. 쪼갤수록 표본이 작아지고 지표가 늘어 우연히 튀는 조각이 생긴다.</p>
+
+    <div class="callout studio">
+      <strong>배정이 반반인지 먼저 본다</strong>
+      50:50으로 나누었는데 결과의 사람 수가 A 3,320명, B 3,090명처럼 나왔다면, 결과를 보기 전에 멈추고 원인을 찾는다. 이런 어긋남을 <span class="term">표본 비율 불일치</span><span class="en">(Sample Ratio Mismatch, SRM)</span>라고 한다. B 화면이 느려 일부가 기록되기 전에 떠났거나, 특정 브라우저에서 B가 깨졌거나, 배정 코드에 버그가 있다는 신호다. 이 경우 두 무리는 더 이상 무작위로 나뉜 무리가 아니라서, 차이가 아무리 유의해도 믿을 수 없다. 사람 수가 이만큼 어긋날 확률은 카이제곱 검정으로 계산할 수 있다(위 예라면 아주 드물다).
+    </div>
+
+    <div class="callout try">
+      <strong>동전 두 개로 하는 A/A 테스트</strong>
+      종이에 표를 그리고 두 사람이 각자 동전을 던진다. 앞면이 "전환"이다. 한 번 던질 때마다 각자의 누적 앞면 비율을 적고, 열 번째부터는 두 비율의 차이가 몇 %p인지 적는다. 50번까지 던진다. 두 동전은 같은 동전이니 진짜 차이는 0이다. ① 차이가 가장 크게 벌어진 회차와 그 크기, ② 차이가 20%p를 넘은 회차가 몇 번 있었는지, ③ 50번째의 차이를 적는다. 친구 여럿과 함께 하면 "중간에 크게 벌어진 적이 있는 쌍"이 "마지막에 크게 벌어진 쌍"보다 훨씬 많다는 것을 손으로 확인할 수 있다. 중간에 들여다보기의 함정이 바로 그것이다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 봄 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 9장</span></div>
+      <h4>사흘 만의 승리를 미루다</h4>
+      <p>5월 둘째 주, "맡아 두기"는 네 책방에서 시범 운영을 시작했다. 2차 사용성 테스트를 거친 결과 화면의 버튼 문구를 두고 서윤과 주인들의 의견이 갈렸다. 지금 문구는 "맡아 두기"(A)이고, 책방 E 주인은 기한이 보여야 한다며 "3일 동안 맡아 두기"(B)를 원했다. 지후는 두 문구를 무작위로 반씩 보여 주는 A/B 테스트를 하루 만에 붙였다. 배정은 브라우저 단위였다. 결과 화면을 보는 방문자는 하루 평균 460명쯤이었다(시범 운영 가상 자료, 이하 같다).</p>
+      <p>사흘째 아침, 지후의 대시보드에는 이렇게 떠 있었다. 각 무리 690명, 버튼 누름은 A 80명(11.6%), B 106명(15.4%), p = 0.04. "B가 이겼어요. 오늘 B로 바꿀까요?" 하린은 같은 표의 맨 아래 줄을 가리켰다. 실제로 책을 찾아간 사람은 A 56명(8.1%), B 61명(8.8%), p = 0.63이었다. "누름은 늘었는데 찾아간 사람은 거의 그대로예요. 그리고 이 p값, 어제도 그제도 봤죠? 오늘 처음 0.05 아래로 내려온 거면 그건 들여다본 횟수만큼 싼 숫자예요." 사흘은 모두 평일이었고, 주말에 아이와 오는 작은 숲 손님은 아직 한 명도 들어오지 않았다. 바뀐 문구에 단골이 한 번씩 눌러 보는 새로움도 걸러지지 않았다.</p>
+      <p>한 줄 주인이 물었다. "확인 알림이 와도 손님 받느라 바로 못 봐요. 누름이 늘면 저는 더 늦어지는 거 아닌가요?" 서윤은 그 말을 지표로 옮겼다. 주인 확인까지 걸린 시간은 올릴 숫자가 아니라 무너지면 안 되는 숫자였다.</p>
+      <p>서윤의 선택은 실험을 지우고 계획서부터 다시 쓰는 것이었다. 4월 말 내부 시험 기간의 기록으로 찾아간 비율의 기준값을 8%로 잡고, 이 문구로 기대할 만한 가장 작은 의미 있는 차이를 2%p(8% → 10%)로 정했다. 유의 수준 5%(양쪽), 검정력 80%로 계산하자 한 무리에 약 3,200명, 합쳐 6,400명이 필요했다. 하루 460명이면 14일, 마침 요일이 두 바퀴 도는 길이였다. 지후는 대시보드에서 1차 지표의 p값 칸을 판정일까지 가렸다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b><strong>1차 지표</strong>: 결과 화면을 본 방문자(브라우저 단위 무작위 배정) 가운데 맡긴 책을 기한 안에 실제로 찾아간 비율. 버튼 누름(요청률)은 해석용 보조 지표로만 본다. <strong>가드레일</strong>: 요청부터 주인 확인까지 걸린 시간의 중앙값(시범 운영 기준 30분을 넘으면 중단 검토), 헛걸음 신고 수. <strong>미리 정한 값</strong>: 기준 8%, 최소 검출 효과 2%p, α = 0.05 양쪽, 검정력 80% → 한 무리 약 3,200명(합계 약 6,400명), 하루 460명 기준 <strong>14일</strong>(5월 15일 월요일부터 28일 일요일까지 두 주). 판정은 14일째 한 번만 하고, 그 전에는 배정 비율(SRM)과 오류, 가드레일만 본다. 가상 자료다.</div>
+        <div><b>아직 남은 문제</b>숫자는 "3일 동안"이 더 좋은 문구인지 알려 줄 수 있어도, 왜 그런지나 더 나은 문구가 무엇인지는 알려 주지 않는다. 시범 운영 중 손님이 보낸 화면 캡처에는 "요청 실패(code 409)"라는 오류와, 검색 결과가 비었을 때의 "결과 없음"이 그대로 찍혀 있었다. 네 책방이 직접 쓴 안내 문구는 말투도 제각각이다.</div>
+        <div><b>다음 단계</b><a href="writing.html">10장</a>: 버튼과 오류, 빈 상태의 문구를 손보고, 네 책방이 함께 쓸 문구 원칙을 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>사용성 테스트는 "왜", 지표는 "얼마나"를 알려 준다. 둘은 서로를 대신하지 못한다.</li>
+      <li>북극성 지표는 사용자가 얻는 가치에 가장 가까운 숫자다. 화면 하나를 고칠 때는 그것을 곱셈으로 쪼갠 단계의 전환율(대리 지표)을 보되, 북극성과 함께 움직이는지 확인한다.</li>
+      <li>숫자 하나만 좇으면 숫자는 오르고 목적은 멀어진다(굿하트의 법칙). 실험마다 판정용 1차 지표 하나와, 나빠지면 안 되는 가드레일 지표를 미리 정한다.</li>
+      <li>전환율은 아무것도 바꾸지 않아도 우연히 흔들린다. 흔들림(표준 오차)은 \(\sqrt{p(1-p)/n}\)으로, 절반으로 줄이려면 사람이 네 배 필요하다.</li>
+      <li>A/B 테스트는 같은 기간의 사람을 무작위로 나누어 비교한다. 결과는 차이의 크기와 신뢰 구간으로 보고하고, "유의하지 않다"를 "효과가 없다"로 읽지 않는다.</li>
+      <li>유의 수준 5%는 진짜 차이가 없어도 스무 번에 한 번은 이긴다는 뜻이다(A/A 테스트). 지표를 여러 개 보면 우연한 승리는 더 흔해진다.</li>
+      <li>필요한 표본은 찾으려는 차이의 제곱에 반비례한다. 기준값, 최소 검출 효과, 유의 수준, 검정력으로 사람 수와 기간을 실험 전에 정한다.</li>
+      <li>매일 들여다보다 처음 유의해진 날 멈추면 거짓 양성이 몇 배로 는다. 판정일을 정하거나 순차 검정을 쓴다. 기간은 요일이 온전히 도는 길이로 잡고, 새로움 효과를 의심한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 결과 화면의 버튼을 크고 진한 색으로 바꾸자 버튼 누름이 18% 늘었다. 이 결과만으로 변경을 성공이라 부르기 어려운 가장 큰 이유는?</p>
+        <div class="opts">
+          <button class="opt">버튼 색은 사람마다 다르게 보여서 숫자를 믿을 수 없기 때문이다.</button>
+          <button class="opt">18%는 너무 커서 측정 오류가 분명하기 때문이다.</button>
+          <button class="opt" data-correct>버튼 누름은 대리 지표일 뿐이라, 실제로 책을 찾아간 사람(북극성)이 늘었는지와 주인 확인 시간 같은 가드레일이 무너지지 않았는지 따로 봐야 하기 때문이다.</button>
+          <button class="opt">버튼 누름은 정성 지표라서 숫자로 비교할 수 없기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">누름은 쉽게 부풀릴 수 있는 앞단의 숫자다. 누름이 늘어도 끝까지 가는 사람이 그대로라면 손님에게 좋아진 것이 없고, 오히려 주인의 일만 늘 수 있다. 판정은 미리 정한 1차 지표(찾아간 비율)로 하고 가드레일을 함께 본다(굿하트의 법칙).</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 진짜 차이가 0인 A/A 테스트를 유의 수준 0.05로 200번 돌렸다. 각 실험의 표본을 10배로 늘려 다시 200번 돌리면 "유의한 차이"가 나오는 실험 수는 어떻게 되는가?</p>
+        <div class="opts">
+          <button class="opt" data-correct>여전히 200번 중 10번 안팎이다. 표본을 늘리면 구간이 좁아질 뿐 거짓 양성의 비율은 α로 그대로다.</button>
+          <button class="opt">10분의 1로 줄어 1번 안팎이 된다.</button>
+          <button class="opt">0번이 된다. 표본이 크면 우연한 차이가 사라진다.</button>
+          <button class="opt">10배로 늘어 100번 안팎이 된다.</button>
+        </div>
+        <div class="quiz-exp">진짜 차이가 없을 때 유의하게 나올 확률은 표본 크기와 상관없이 유의 수준 α(여기서 5%)다. 200번이면 10번 안팎이다. 표본이 커지면 신뢰 구간이 좁아져 작은 진짜 차이를 더 잘 잡게 되지만(검정력), 진짜 차이가 0일 때의 거짓 양성 비율은 바뀌지 않는다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 기준 전환율 8%에서 2%p 차이를 잡으려면 한 무리에 약 3,200명이 필요하다. 같은 조건에서 1%p 차이를 잡으려면 대략 몇 명이 필요한가?</p>
+        <div class="opts">
+          <button class="opt">약 1,600명(절반)</button>
+          <button class="opt">약 6,400명(두 배)</button>
+          <button class="opt">약 4,500명(√2배)</button>
+          <button class="opt" data-correct>약 12,000명(네 배 가까이)</button>
+        </div>
+        <div class="quiz-exp">표본 크기 공식의 분모는 차이의 제곱이다. 차이를 절반으로 줄이면 필요한 사람은 약 네 배가 된다(이 장의 공식으로 계산하면 약 12,200명). 하루 460명인 서비스라면 2주가 아니라 두 달 가까이 걸린다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 2주로 계획한 실험의 대시보드를 매일 보다가, 사흘째 처음으로 p값이 0.05 아래로 내려가 그날 실험을 멈추고 B를 채택했다. 이 판단의 문제로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">p값은 날이 갈수록 커지기만 하므로 사흘째 값이 가장 정확하다. 문제없다.</button>
+          <button class="opt" data-correct>유의해지는 날 멈추면 우연한 오르내림이 문턱을 한 번 스친 실험도 승리로 잡혀 거짓 양성이 5%보다 훨씬 커지고, 사흘은 주말과 새로움 효과도 걸러 내지 못한다.</button>
+          <button class="opt">사흘 동안 모은 사람이 많으면 문제없고, 적으면 문제다. 기간은 상관없다.</button>
+          <button class="opt">p값이 0.04라면 B가 나을 확률이 96%이므로 채택은 옳지만 조금 성급했을 뿐이다.</button>
+        </div>
+        <div class="quiz-exp">p값은 실험 내내 오르내린다. 매일 보고 처음 문턱을 넘는 날 멈추면, 마지막 날 한 번 볼 때보다 거짓 양성이 몇 배로 늘어난다(Armitage 등 1969). 게다가 평일 사흘은 요일이 한 바퀴 돌지 않았고 새로움 효과도 남아 있다. p = 0.04는 "B가 나을 확률 96%"가 아니다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(fn) { try { fn(); } catch (e) { console.error(e); } }
+
+  /* ---------------- 통계 도구(교육용 근사) ---------------- */
+  // 표준 정규 누적 분포: Abramowitz & Stegun 7.1.26(오차 1.5e-7 이하)
+  function Phi(z) {
+    var x = Math.abs(z) / Math.SQRT2, t = 1 / (1 + 0.3275911 * x);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    return z >= 0 ? (1 + y) / 2 : (1 - y) / 2;
+  }
+  function pTwo(z) { return Math.max(0, Math.min(1, 2 * (1 - Phi(Math.abs(z))))); }
+  function gaussFrom(r) { var spare = null; return function () { if (spare !== null) { var s = spare; spare = null; return s; } var u = Math.max(1e-12, r()), v = r(), m = Math.sqrt(-2 * Math.log(u)); spare = m * Math.sin(6.283185307 * v); return m * Math.cos(6.283185307 * v); }; }
+  function bernSum(n, p, r) { var k = 0; for (var i = 0; i < n; i++) if (r() < p) k++; return k; }
+  function binomApprox(n, p, g) { var m = n * p, s = Math.sqrt(n * p * (1 - p)); return AB.clamp(Math.round(m + s * g()), 0, n); }
+  function zPooled(xa, na, xb, nb) { var p = (xa + xb) / (na + nb), se = Math.sqrt(p * (1 - p) * (1 / na + 1 / nb)); return se > 0 ? (xb / nb - xa / na) / se : 0; }
+  function nNeeded(p1, p2, zb) { var pb = (p1 + p2) / 2, a = 1.959964 * Math.sqrt(2 * pb * (1 - pb)) + zb * Math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)); return a * a / ((p2 - p1) * (p2 - p1)); }
+  function pp(x, d) { return (x >= 0 ? "+" : "−") + Math.abs(x * 100).toFixed(d == null ? 1 : d) + "%p"; }
+  function num(n) { return Math.round(n).toLocaleString("ko-KR"); }
+
+  /* ---------------- 그림 1, 3의 사람 점 ---------------- */
+  safe(function () {
+    var a = document.getElementById("mx-people-a"), b = document.getElementById("mx-people-b"), c = document.getElementById("mx-crowd");
+    var person = function (x, y, s, cls) { return '<circle cx="' + x + '" cy="' + (y - 7 * s) + '" r="' + (4 * s) + '" class="' + cls + '"/><rect x="' + (x - 5 * s) + '" y="' + (y - 2 * s) + '" width="' + (10 * s) + '" height="' + (11 * s) + '" rx="' + (4 * s) + '" class="' + cls + '"/>'; };
+    var s = "";
+    for (var i = 0; i < 5; i++) s += person(70 + i * 24, 108, 1.6, "f-acc");
+    a.innerHTML = s;
+    s = ""; var R = AB.rng(11);
+    for (var j = 0; j < 180; j++) { var x = 256 + (j % 20) * 9.2 + R() * 2, y = 70 + Math.floor(j / 20) * 7.6; s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="2.4" class="f-acc2"/>'; }
+    b.innerHTML = s;
+    s = ""; R = AB.rng(4);
+    for (var k = 0; k < 48; k++) { var cx = 22 + (k % 6) * 14 + R() * 4, cy = 64 + Math.floor(k / 6) * 14 + R() * 4; s += '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="4" class="' + (R() < 0.5 ? "f-acc" : "f-acc2") + '"/>'; }
+    c.innerHTML = s;
+  });
+
+  /* ---------------- 시뮬레이터 1: 지표 고르기 ---------------- */
+  safe(function () {
+    // 지표: role(north/proxy/guard/vanity), up(true면 오르는 게 좋음)
+    var M = [
+      { k: "버튼 누름률", role: "대리", up: true },
+      { k: "맡아 두기 요청 수", role: "중간 단계", up: true },
+      { k: "실제로 찾아간 책", role: "북극성", up: true },
+      { k: "주인 확인까지 걸린 시간", role: "가드레일", up: false },
+      { k: "헛걸음(가 보니 책이 없음)", role: "가드레일", up: false },
+      { k: "서비스에 머문 시간", role: "허영", up: null },
+    ];
+    // 가상의 상대 변화(%)
+    var CH = {
+      big: { name: "버튼을 크고 진한 색으로", d: [18, 7, 1, 3, 0, 1] },
+      auto: { name: "주인 확인 없이 바로 확정", d: [2, 4, 6, -70, 40, 0] },
+      soon: { name: "곧 들어올 책도 결과에", d: [6, 12, 5, 30, 6, 18] },
+      due: { name: "찾아갈 기한을 크게 표시", d: [3, 5, 7, -2, -4, 0] },
+    };
+    var ch = AB.seg("mp-ch", function () { cv.redraw(); });
+    var by = AB.seg("mp-by", function () { cv.redraw(); });
+    var gd = AB.check("mp-g", function () { cv.redraw(); });
+    var cv = AB.canvas("#mp-cv", function (ctx, w, h) {
+      var P = AB.palette(), c = CH[ch()], crit = by() === "click" ? 0 : 2, showG = gd();
+      var top = 12, rowH = (h - top - 26) / M.length, x0 = 14, x1 = w - 14, zx = x0 + (x1 - x0) * 0.5, sc = (x1 - x0) * 0.5 / 75;
+      // 0선
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(zx, top); ctx.lineTo(zx, h - 22); ctx.stroke();
+      ctx.fillStyle = P.faint; ctx.font = AB.font(10.5, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [-60, -30, 0, 30, 60].forEach(function (v) { ctx.fillText((v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v) + "%", zx + v * sc, h - 18); });
+      M.forEach(function (m, i) {
+        var y = top + i * rowH, v = c.d[i], isG = m.role === "가드레일", dim = isG && !showG;
+        var sel = i === crit;
+        if (sel) { ctx.fillStyle = P.grid; ctx.fillRect(4, y + 1, w - 8, rowH - 3); ctx.strokeStyle = P.accent; ctx.lineWidth = 1.5; ctx.strokeRect(4.5, y + 1.5, w - 9, rowH - 4); }
+        // 이름과 역할
+        ctx.globalAlpha = dim ? 0.35 : 1;
+        ctx.textAlign = "left"; ctx.textBaseline = "top";
+        ctx.font = AB.font(10.5, false, 700);
+        var tag = m.role, tw = ctx.measureText(tag).width + 10;
+        ctx.fillStyle = m.role === "북극성" ? P.accent : isG ? P.warn : P.faint;
+        if (ctx.roundRect) { ctx.beginPath(); ctx.roundRect(x0, y + 5, tw, 16, 8); ctx.fill(); } else ctx.fillRect(x0, y + 5, tw, 16);
+        ctx.fillStyle = m.role === "북극성" || isG ? P.bg : P.text; ctx.fillText(tag, x0 + 5, y + 7.5);
+        ctx.fillStyle = P.text; ctx.font = AB.font(12.5, false, sel ? 700 : 400); ctx.fillText(m.k, x0 + tw + 6, y + 6);
+        // 막대
+        var by0 = y + 25, bh = Math.max(8, Math.min(14, rowH - 32));
+        var good = m.up === null ? null : (m.up ? v > 0 : v < 0);
+        ctx.fillStyle = v === 0 ? P.faint : good === null ? P.dim : good ? P.ok : P.bad;
+        var vx = AB.clamp(v, -75, 75) * sc;
+        ctx.fillRect(Math.min(zx, zx + vx), by0, Math.max(2, Math.abs(vx)), bh);
+        ctx.font = AB.font(11.5, true, 600); ctx.textBaseline = "middle";
+        var lab = (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v) + "%";
+        var lx = zx + vx + (v >= 0 ? 5 : -5);
+        ctx.textAlign = v >= 0 ? "left" : "right";
+        if (v < 0 && lx - ctx.measureText(lab).width < x0) { ctx.textAlign = "left"; lx = zx + 5; }
+        ctx.fillStyle = P.text; ctx.fillText(lab, lx, by0 + bh / 2);
+        ctx.globalAlpha = 1;
+      });
+      // 판정
+      var v = c.d[crit], win = v >= 3;
+      var gFail = [];
+      if (c.d[3] > 10) gFail.push("확인 시간 +" + c.d[3] + "%");
+      if (c.d[4] > 10) gFail.push("헛걸음 +" + c.d[4] + "%");
+      AB.stat("mp-o-what", c.name);
+      AB.stat("mp-o-verdict", '<span class="' + (win ? "ok-t" : "warn-t") + '">' + (win ? "성공" : "효과 거의 없음") + "</span><small>" + (crit ? "찾아간 책" : "누름") + " " + (v > 0 ? "+" : "") + v + "%</small>");
+      AB.stat("mp-o-guard", !showG ? '<span style="color:var(--text-faint)">보지 않음</span>' : gFail.length ? '<span class="bad-t">위반</span><small>' + gFail.join(", ") + "</small>" : '<span class="ok-t">지킴</span>');
+    }, { get height() { var el = document.getElementById("mp-cv"); return Math.max(200, el.parentElement.clientWidth || 600) < 420 ? 360 : 330; } });
+  });
+
+  /* ---------------- 시뮬레이터 2: 아무것도 바꾸지 않은 30일 ---------------- */
+  safe(function () {
+    var NS = [50, 100, 200, 400, 800, 1600, 3000, 5000];
+    var seed = 1;
+    var pG = AB.range("dy-p", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var nG = AB.range("dy-n", function (v) { return num(NS[v]) + "명"; }, function () { cv.redraw(); });
+    document.getElementById("dy-re").addEventListener("click", function () { seed++; cv.redraw(); });
+    var cv = AB.canvas("#dy-cv", function (ctx, w, h) {
+      var P = AB.palette(), p = pG() / 100, n = NS[nG()], r = AB.rng(seed * 7919 + n), se = Math.sqrt(p * (1 - p) / n);
+      var obs = [], lo = 1, hi = 0, out = 0;
+      for (var d = 1; d <= 30; d++) { var k = bernSum(n, p, r), o = k / n; obs.push([d, o * 100]); lo = Math.min(lo, o); hi = Math.max(hi, o); if (Math.abs(o - p) > 1.96 * se) out++; }
+      var span = Math.max(4 * se * 100 * 1.6, 3), y0 = Math.max(0, p * 100 - span), y1 = p * 100 + span;
+      var box = { x: 46, y: 14, w: w - 46 - 14, h: h - 14 - 44 };
+      var c = AB.chart(ctx, box, { x: [0.5, 30.5], y: [y0, y1], xTicks: [1, 5, 10, 15, 20, 25, 30], xLabel: "날짜(일째)", yFmt: function (v) { return v.toFixed(y1 - y0 < 6 ? 1 : 0) + "%"; } });
+      // 95% 띠
+      ctx.fillStyle = P.accent; ctx.globalAlpha = 0.12;
+      var ya = c.Y(Math.min(y1, (p + 1.96 * se) * 100)), yb = c.Y(Math.max(y0, (p - 1.96 * se) * 100));
+      ctx.fillRect(box.x, ya, box.w, yb - ya); ctx.globalAlpha = 1;
+      ctx.strokeStyle = P.accent; ctx.lineWidth = 1.5; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(box.x, c.Y(p * 100)); ctx.lineTo(box.x + box.w, c.Y(p * 100)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = P.accent; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("진짜 " + (p * 100).toFixed(0) + "%", box.x + box.w - 4, c.Y(p * 100) - 3);
+      obs.forEach(function (o) {
+        var inside = Math.abs(o[1] / 100 - p) <= 1.96 * se;
+        ctx.fillStyle = inside ? P.text : P.bad;
+        ctx.beginPath(); ctx.arc(c.X(o[0]), c.Y(AB.clamp(o[1], y0, y1)), inside ? 3.5 : 4.5, 0, 7); ctx.fill();
+      });
+      AB.stat("dy-o-mm", (hi * 100).toFixed(1) + "% · " + (lo * 100).toFixed(1) + "%");
+      AB.stat("dy-o-se", "±" + (se * 100).toFixed(2) + "%p");
+      AB.stat("dy-o-out", out + "일<small>/30일</small>");
+    }, { get height() { var el = document.getElementById("dy-cv"); return Math.round(Math.min(340, Math.max(250, Math.max(200, el.parentElement.clientWidth || 600) * 0.6))); } });
+  });
+
+  /* ---------------- 시뮬레이터 3: A/B 테스트 ---------------- */
+  safe(function () {
+    var NS = [100, 200, 300, 500, 700, 1000, 1500, 2000, 3000, 5000, 7000, 10000, 20000];
+    var seed = 1;
+    var pG = AB.range("ab-p", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var lG = AB.range("ab-l", function (v) { return (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v) + "%"; }, function () { cv.redraw(); });
+    var nG = AB.range("ab-n", function (v) { return num(NS[v]) + "명"; }, function () { cv.redraw(); });
+    document.getElementById("ab-re").addEventListener("click", function () { seed++; cv.redraw(); });
+    var cv = AB.canvas("#ab-cv", function (ctx, w, h) {
+      var P = AB.palette(), pa = pG() / 100, pb = Math.min(0.99, pa * (1 + lG() / 100)), n = NS[nG()];
+      var r = AB.rng(seed * 104729 + n * 7 + Math.round(pa * 1000));
+      var xa = bernSum(n, pa, r), xb = bernSum(n, pb, r), oa = xa / n, ob = xb / n;
+      var sa = Math.sqrt(oa * (1 - oa) / n), sb = Math.sqrt(ob * (1 - ob) / n), d = ob - oa, sd = Math.sqrt(sa * sa + sb * sb);
+      var lo = d - 1.96 * sd, hi = d + 1.96 * sd, z = zPooled(xa, n, xb, n), pv = pTwo(z), sig = pv < 0.05;
+      // 위: 두 무리의 관측 전환율
+      var mid = Math.round(h * 0.52), L = 70, R = w - 16;
+      var yMax = Math.max(pa, pb, oa + 2 * sa, ob + 2 * sb) * 100 * 1.15;
+      var Xr = function (v) { return L + (v / yMax) * (R - L); };
+      ctx.font = AB.font(11, true); ctx.fillStyle = P.dim; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      var tk = yMax > 20 ? 10 : yMax > 8 ? 5 : 2;
+      ctx.strokeStyle = P.grid; ctx.lineWidth = 1;
+      for (var t = 0; t <= yMax; t += tk) { var tx = Xr(t); ctx.beginPath(); ctx.moveTo(tx, 10); ctx.lineTo(tx, mid - 30); ctx.stroke(); ctx.fillText(t + "%", tx, mid - 26); }
+      [["A", oa, sa, pa, P.accent2], ["B", ob, sb, pb, P.accent]].forEach(function (q, i) {
+        var y = 24 + i * ((mid - 64) / 2 + 6), bh = Math.max(14, (mid - 74) / 2 - 6);
+        ctx.fillStyle = q[4]; ctx.globalAlpha = 0.85; ctx.fillRect(L, y, Xr(q[1] * 100) - L, bh); ctx.globalAlpha = 1;
+        // CI 수염
+        ctx.strokeStyle = P.text; ctx.lineWidth = 1.6;
+        var c1 = Xr(Math.max(0, q[1] - 1.96 * q[2]) * 100), c2 = Xr((q[1] + 1.96 * q[2]) * 100), cy = y + bh / 2;
+        ctx.beginPath(); ctx.moveTo(c1, cy); ctx.lineTo(c2, cy); ctx.moveTo(c1, cy - 5); ctx.lineTo(c1, cy + 5); ctx.moveTo(c2, cy - 5); ctx.lineTo(c2, cy + 5); ctx.stroke();
+        // 진짜 값 눈금
+        ctx.strokeStyle = P.text; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(Xr(q[3] * 100), y - 4); ctx.lineTo(Xr(q[3] * 100), y + bh + 4); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = P.text; ctx.font = AB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(q[0], 8, cy);
+        ctx.font = AB.font(11, true); ctx.fillStyle = P.dim; ctx.textAlign = "right"; ctx.fillText((q[1] * 100).toFixed(1) + "%", L - 5, cy);
+      });
+      ctx.fillStyle = P.faint; ctx.font = AB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("막대: 관측값 · 가로줄: 95% 구간 · 점선: 진짜 값", 8, 6);
+      // 아래: 차이의 신뢰 구간
+      var span = Math.max(Math.abs(lo), Math.abs(hi), Math.abs(pb - pa)) * 100 * 1.25 + 0.2;
+      var D = function (v) { return L + (v * 100 + span) / (2 * span) * (R - L); }, ay = mid + (h - mid) * 0.5;
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(L, ay); ctx.lineTo(R, ay); ctx.stroke();
+      ctx.fillStyle = P.dim; ctx.font = AB.font(10.5, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      var st = span > 8 ? 4 : span > 4 ? 2 : span > 2 ? 1 : 0.5;
+      for (var u = -Math.floor(span / st) * st; u <= span; u += st) { var ux = D(u / 100); ctx.beginPath(); ctx.moveTo(ux, ay - 3); ctx.lineTo(ux, ay + 3); ctx.strokeStyle = P.axis; ctx.stroke(); ctx.fillText((u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(+u.toFixed(1)) + "%p", ux, ay + 8); }
+      ctx.strokeStyle = P.text; ctx.lineWidth = 1.2; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(D(0), mid + 10); ctx.lineTo(D(0), ay); ctx.stroke(); ctx.setLineDash([]);
+      var iy = ay - 18, col = sig ? (d > 0 ? P.ok : P.bad) : P.warn;
+      ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(D(lo), iy); ctx.lineTo(D(hi), iy); ctx.stroke();
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(D(d), iy, 6, 0, 7); ctx.fill();
+      ctx.strokeStyle = P.text; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(D(pb - pa), iy - 11); ctx.lineTo(D(pb - pa), iy + 9); ctx.stroke();
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("B − A의 95% 구간 (세로 눈금: 진짜 차이)", 8, mid + 6);
+      var powZ = Math.abs(pb - pa) / Math.sqrt(pa * (1 - pa) / n + pb * (1 - pb) / n), pow = Phi(powZ - 1.96) + Phi(-powZ - 1.96);
+      AB.stat("ab-o-d", pp(d, 2));
+      AB.stat("ab-o-ci", '<span style="font-size:15px">' + pp(lo, 1) + " ~ " + pp(hi, 1) + "</span>");
+      AB.stat("ab-o-p", (pv < 0.001 ? "&lt;0.001" : pv.toFixed(3)) + ' <small style="font-family:var(--font)" class="' + (sig ? (d > 0 ? "ok-t" : "bad-t") : "warn-t") + '">' + (sig ? (d > 0 ? "B가 높다" : "B가 낮다") : "알 수 없음") + "</small>");
+      AB.stat("ab-o-pow", Math.abs(pb - pa) < 1e-9 ? "5%<small>(차이 0: 거짓 양성)</small>" : AB.pct(pow, 0));
+    }, { get height() { var el = document.getElementById("ab-cv"); return Math.round(Math.min(360, Math.max(300, Math.max(200, el.parentElement.clientWidth || 600) * 0.62))); } });
+  });
+
+  /* ---------------- 시뮬레이터 4: A/A 실험 100번 ---------------- */
+  safe(function () {
+    var P0 = 0.10, seed = 1, totS = 0, totN = 0, last = null, key = "";
+    var nG = AB.seg("aa-n", function () { reset(); }), aG = AB.seg("aa-a", function () { reset(); });
+    function reset() { seed = 1; totS = 0; totN = 0; run(); cv.redraw(); }
+    function run() {
+      var n = +nG(), alpha = +aG(), zc = alpha === 0.05 ? 1.959964 : 2.575829, r = AB.rng(seed * 2654435761 % 4294967296 + n), list = [], s = 0;
+      for (var i = 0; i < 100; i++) {
+        var xa = bernSum(n, P0, r), xb = bernSum(n, P0, r), oa = xa / n, ob = xb / n;
+        var sd = Math.sqrt(oa * (1 - oa) / n + ob * (1 - ob) / n), d = ob - oa, sig = Math.abs(zPooled(xa, n, xb, n)) > zc;
+        list.push([d, d - zc * sd, d + zc * sd, sig]); if (sig) s++;
+      }
+      totS += s; totN += 100; last = { list: list, s: s, n: n, alpha: alpha };
+    }
+    document.getElementById("aa-re").addEventListener("click", function () { seed++; run(); cv.redraw(); });
+    run();
+    var cv = AB.canvas("#aa-cv", function (ctx, w, h) {
+      var P = AB.palette(), L = 14, R = w - 14, top = 10, bot = h - 30, n = last.n;
+      var span = 2.576 * Math.sqrt(2 * P0 * (1 - P0) / 200) * 1.25 * 100;  // 200명 기준 폭으로 고정해 표본 크기 차이가 보이게
+      var X = function (v) { return L + (v * 100 + span) / (2 * span) * (R - L); };
+      ctx.strokeStyle = P.grid; ctx.lineWidth = 1; ctx.fillStyle = P.dim; ctx.font = AB.font(10.5, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [-10, -5, 0, 5, 10].forEach(function (u) { if (Math.abs(u) > span) return; var x = X(u / 100); ctx.beginPath(); ctx.moveTo(x, top); ctx.lineTo(x, bot); ctx.stroke(); ctx.fillText((u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u) + "%p", x, bot + 6); });
+      var rh = (bot - top) / 100;
+      last.list.forEach(function (q, i) {
+        var y = top + (i + 0.5) * rh;
+        ctx.strokeStyle = q[3] ? P.bad : P.faint; ctx.lineWidth = q[3] ? Math.max(1.6, rh * 0.7) : Math.max(1, rh * 0.5);
+        ctx.beginPath(); ctx.moveTo(X(Math.max(-span / 100, q[1])), y); ctx.lineTo(X(Math.min(span / 100, q[2])), y); ctx.stroke();
+      });
+      ctx.strokeStyle = P.text; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(0), top - 2); ctx.lineTo(X(0), bot + 2); ctx.stroke();
+      AB.stat("aa-o-now", '<span class="' + (last.s ? "bad-t" : "") + '">' + last.s + "번</span><small>/100</small>");
+      AB.stat("aa-o-all", AB.pct(totS / totN, 1) + "<small>(" + num(totN) + "번 중 " + num(totS) + ")</small>");
+      AB.stat("aa-o-exp", AB.pct(last.alpha, 0) + "<small>(100번에 " + Math.round(last.alpha * 100) + "번)</small>");
+    }, { get height() { var el = document.getElementById("aa-cv"); return Math.max(200, el.parentElement.clientWidth || 600) < 420 ? 360 : 380; } });
+  });
+
+  /* ---------------- 시뮬레이터 5: 표본 크기 ---------------- */
+  safe(function () {
+    var pG = AB.range("ns-p", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var mG = AB.range("ns-m", function (v) { return v.toFixed(1) + "%p"; }, function () { cv.redraw(); });
+    var wG = AB.seg("ns-pw", function () { cv.redraw(); });
+    var geo = null;
+    function zb(pw) { return pw === 0.9 ? 1.281552 : 0.841621; }
+    var cv = AB.canvas("#ns-cv", function (ctx, w, h) {
+      var P = AB.palette(), p = pG() / 100, m = mG() / 100, pw = +wG();
+      var maxM = Math.min(10, (99 - pG()) );
+      var curve = function (z) { var out = []; for (var x = 0.5; x <= 10.0001; x += 0.1) { if (p + x / 100 >= 0.995) break; out.push([x, Math.log10(nNeeded(p, p + x / 100, z))]); } return out; };
+      var box = { x: 54, y: 14, w: w - 54 - 16, h: h - 14 - 46 };
+      var c = AB.chart(ctx, box, {
+        x: [0, 10], y: [1, 6], xTicks: [0, 2, 4, 6, 8, 10], yTicks: [1, 2, 3, 4, 5, 6], xLabel: "최소 검출 효과(%p)",
+        xFmt: function (v) { return v + ""; }, yFmt: function (v) { return ["", "10", "100", "1천", "1만", "10만", "100만"][v]; },
+        series: [{ data: curve(pw === 0.9 ? 0.841621 : 1.281552), color: P.faint, width: 1.5, dash: [4, 4] }, { data: curve(zb(pw)), color: P.accent, width: 2.5 }],
+      });
+      geo = c;
+      var mm = Math.min(m * 100, maxM), n = nNeeded(p, p + mm / 100, zb(pw)), yy = c.Y(AB.clamp(Math.log10(n), 1, 6));
+      ctx.strokeStyle = P.accent; ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(c.X(mm), yy); ctx.lineTo(c.X(mm), box.y + box.h); ctx.moveTo(c.X(mm), yy); ctx.lineTo(box.x, yy); ctx.stroke(); ctx.setLineDash([]);
+      AB.handle(ctx, c.X(mm), yy, { r: 8, fill: P.accent, ring: P.text });
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "top";
+      ctx.fillText("점선: 검정력 " + (pw === 0.9 ? "80%" : "90%"), box.x + box.w - 2, box.y + 2);
+      var days = n * 2 / 460;
+      AB.stat("ns-o-n", num(n) + "명");
+      AB.stat("ns-o-t", num(n * 2) + "명");
+      AB.stat("ns-o-d", (days < 1 ? "하루 이내" : days < 60 ? Math.ceil(days) + "일" : days < 730 ? "약 " + Math.round(days / 30) + "개월" : "약 " + (days / 365).toFixed(0) + "년") + (days >= 7 && days < 60 ? "<small>(" + (days / 7).toFixed(1) + "주)</small>" : ""));
+    }, { get height() { var el = document.getElementById("ns-cv"); return Math.round(Math.min(360, Math.max(270, Math.max(200, el.parentElement.clientWidth || 600) * 0.62))); } });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; var b = geo.box, v = (x - b.x) / b.w * 10; mG.set(Math.round(AB.clamp(v, 0.5, 10) * 10) / 10); } });
+  });
+
+  /* ---------------- 시뮬레이터 6: 중간에 들여다보기 ---------------- */
+  safe(function () {
+    var P0 = 0.10, NDAY = 230, EXP = 400, SHOW = 30, seed = 1, res = null;
+    var mG = AB.seg("pk-m", function () { calc(); cv.redraw(); });
+    var dG = AB.range("pk-d", function (v) { return v + "일"; }, function () { calc(); cv.redraw(); });
+    document.getElementById("pk-re").addEventListener("click", function () { seed++; calc(); cv.redraw(); });
+    function calc() {
+      var D = dG(), mode = mG(), r = AB.rng(seed * 97 + 13), g = gaussFrom(r), looks = {};
+      for (var d = 1; d <= D; d++) if (mode === "day" || (mode === "week" && (d % 7 === 0 || d === D)) || d === D) looks[d] = true;
+      var fp = 0, fpEnd = 0, paths = [];
+      for (var e = 0; e < EXP; e++) {
+        var xa = 0, xb = 0, na = 0, nb = 0, stop = 0, path = [[0, 0]];
+        for (var t = 1; t <= D; t++) {
+          xa += binomApprox(NDAY, P0, g); xb += binomApprox(NDAY, P0, g); na += NDAY; nb += NDAY;
+          var z = zPooled(xa, na, xb, nb);
+          if (e < SHOW) path.push([t, z]);
+          if (!stop && looks[t] && Math.abs(z) > 1.959964) stop = t;
+          if (t === D && Math.abs(z) > 1.959964) fpEnd++;
+        }
+        if (stop) fp++;
+        if (e < SHOW) paths.push({ p: path, stop: stop });
+      }
+      res = { D: D, k: Object.keys(looks).length, fp: fp / EXP, fpEnd: fpEnd / EXP, paths: paths, looks: looks };
+    }
+    calc();
+    var cv = AB.canvas("#pk-cv", function (ctx, w, h) {
+      var P = AB.palette(), D = res.D;
+      var box = { x: 40, y: 14, w: w - 40 - 14, h: h - 14 - 44 };
+      var c = AB.chart(ctx, box, { x: [0, D], y: [-4, 4], yTicks: [-4, -2, 0, 2, 4], xTicks: D <= 14 ? [0, 7, 14] : D <= 28 ? [0, 7, 14, 21, 28] : [0, 7, 14, 21, 28, 35, 42].filter(function (v) { return v <= D; }), xLabel: "실험 날짜(일째)", hlines: [{ y: 1.96, color: P.bad }, { y: -1.96, color: P.bad }] });
+      // 들여다보는 날 표시
+      ctx.fillStyle = P.accent; ctx.globalAlpha = 0.5;
+      Object.keys(res.looks).forEach(function (d) { ctx.fillRect(c.X(+d) - 1, box.y + box.h - 6, 2, 6); });
+      ctx.globalAlpha = 1;
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
+      res.paths.forEach(function (q) {
+        var upto = q.stop || D;
+        ctx.strokeStyle = q.stop ? P.bad : P.dim; ctx.globalAlpha = q.stop ? 0.95 : 0.35; ctx.lineWidth = q.stop ? 1.8 : 1.1;
+        ctx.beginPath(); q.p.forEach(function (pt, i) { if (pt[0] > upto) return; var x = c.X(pt[0]), y = c.Y(AB.clamp(pt[1], -4.2, 4.2)); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke();
+        if (q.stop) { ctx.globalAlpha = 1; ctx.fillStyle = P.bad; var sp = q.p[q.stop]; ctx.beginPath(); ctx.arc(c.X(sp[0]), c.Y(AB.clamp(sp[1], -4, 4)), 4, 0, 7); ctx.fill(); }
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      ctx.fillStyle = P.bad; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("z = ±1.96 (p = 0.05)", box.x + box.w - 4, c.Y(1.96) - 3);
+      AB.stat("pk-o-k", res.k + "번");
+      AB.stat("pk-o-f", '<span class="' + (res.fp > 0.08 ? "bad-t" : "") + '">' + AB.pct(res.fp, 1) + "</span><small>(" + Math.round(res.fp * EXP) + "/" + EXP + ")</small>");
+      AB.stat("pk-o-e", AB.pct(res.fpEnd, 1) + "<small>(" + Math.round(res.fpEnd * EXP) + "/" + EXP + ")</small>");
+    }, { get height() { var el = document.getElementById("pk-cv"); return Math.round(Math.min(360, Math.max(270, Math.max(200, el.parentElement.clientWidth || 600) * 0.62))); } });
+  });
+
+  /* ---------------- 시뮬레이터 7: 새로움 효과와 요일 ---------------- */
+  safe(function () {
+    var TRUE = 5, DAYS = 28;
+    var aG = AB.range("nv-a", function (v) { return (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v) + "%"; }, function () { cv.redraw(); });
+    var hG = AB.range("nv-h", function (v) { return v + "일"; }, function () { cv.redraw(); });
+    var wG = AB.check("nv-w", function () { cv.redraw(); });
+    var cv = AB.canvas("#nv-cv", function (ctx, w, h) {
+      var P = AB.palette(), a = aG(), hl = hG(), wk = wG();
+      var daily = [], cum = [], s = 0;
+      for (var d = 1; d <= DAYS; d++) {
+        var dow = (d - 1) % 7, weekend = dow >= 5;
+        var v = TRUE + a * Math.pow(0.5, (d - 1) / hl) + (wk ? (weekend ? 8 : -3.2) : 0);
+        s += v; daily.push([d, v]); cum.push([d, s / d]);
+      }
+      var bands = [];
+      if (wk) for (var k = 0; k < 4; k++) bands.push({ x0: k * 7 + 5.5, x1: k * 7 + 7.5, color: P.grid });
+      var ymin = Math.min(-10, Math.floor(Math.min.apply(null, daily.map(function (q) { return q[1]; })) / 5) * 5 - 2);
+      var ymax = Math.max(20, Math.ceil(Math.max.apply(null, daily.map(function (q) { return q[1]; })) / 5) * 5 + 2);
+      var box = { x: 46, y: 14, w: w - 46 - 14, h: h - 14 - 44 };
+      var c = AB.chart(ctx, box, { x: [0.5, DAYS + 0.5], y: [ymin, ymax], xTicks: [1, 7, 14, 21, 28], xLabel: "실험 날짜(일째, 1일째 = 월요일)", yFmt: function (v) { return (v > 0 ? "+" : "") + v + "%"; }, bands: bands,
+        series: [{ data: daily, color: P.dim, width: 1.2 }, { data: cum, color: P.accent, width: 3 }],
+        hlines: [{ y: TRUE, color: P.ok, label: "오래 남는 효과 +" + TRUE + "%" }, { y: 0, color: P.axis, dash: [1, 0], width: 1 }],
+        vlines: [{ x: 3, color: P.bad, label: "3일째" }, { x: 14, color: P.accent2, label: "14일째" }] });
+      [3, 14].forEach(function (d, i) { ctx.fillStyle = i ? P.accent2 : P.bad; ctx.beginPath(); ctx.arc(c.X(d), c.Y(cum[d - 1][1]), 5, 0, 7); ctx.fill(); });
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "top";
+      ctx.fillText("가는 선: 그날의 차이 · 굵은 선: 누적 추정", box.x + box.w - 4, box.y + box.h - 18);
+      var f = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + "%"; };
+      AB.stat("nv-o-3", f(cum[2][1]));
+      AB.stat("nv-o-14", f(cum[13][1]));
+      AB.stat("nv-o-l", "+" + TRUE + "%");
+    }, { get height() { var el = document.getElementById("nv-cv"); return Math.round(Math.min(360, Math.max(270, Math.max(200, el.parentElement.clientWidth || 600) * 0.62))); } });
+  });
+})();
+</script>
+</body>
+</html>

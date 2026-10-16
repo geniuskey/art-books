@@ -1,0 +1,976 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "버튼·노브·스위치는 손과 물건이 주고받는 대화다. 클릭감을 만드는 힘–변위 곡선, 손끝으로 찾는 오목한 버튼, 조작 장치와 대상의 매핑, 버튼 하나에 여러 기능을 넣을 때의 상태 기계와 모드 오류, 어둠 속의 피드백 채널, 실수를 막는 형태(포카요케)를 조작해 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조작과 피드백 · IndustrialBook</title>
+<meta name="description" content="버튼·노브·스위치는 손과 물건이 주고받는 대화다. 클릭감을 만드는 힘–변위 곡선, 손끝으로 찾는 오목한 버튼, 조작 장치와 대상의 매핑, 버튼 하나에 여러 기능을 넣을 때의 상태 기계와 모드 오류, 어둠 속의 피드백 채널, 실수를 막는 형태(포카요케)를 조작해 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/industrial/chapters/control.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="조작과 피드백 · IndustrialBook">
+<meta property="og:description" content="버튼·노브·스위치는 손과 물건이 주고받는 대화다. 클릭감을 만드는 힘–변위 곡선, 손끝으로 찾는 오목한 버튼, 조작 장치와 대상의 매핑, 버튼 하나에 여러 기능을 넣을 때의 상태 기계와 모드 오류, 어둠 속의 피드백 채널, 실수를 막는 형태(포카요케)를 조작해 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/industrial/chapters/control.html">
+<meta property="og:image" content="https://artbook.euiyun.com/industrial/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/industrial/chapters/control.html#chapter","name":"조작과 피드백","headline":"조작과 피드백 · IndustrialBook","description":"버튼·노브·스위치는 손과 물건이 주고받는 대화다. 클릭감을 만드는 힘–변위 곡선, 손끝으로 찾는 오목한 버튼, 조작 장치와 대상의 매핑, 버튼 하나에 여러 기능을 넣을 때의 상태 기계와 모드 오류, 어둠 속의 피드백 채널, 실수를 막는 형태(포카요케)를 조작해 본다.","url":"https://artbook.euiyun.com/industrial/chapters/control.html","position":6,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/industrial/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/industrial/#book","name":"IndustrialBook · 산업디자인","url":"https://artbook.euiyun.com/industrial/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"IndustrialBook · 산업디자인","item":"https://artbook.euiyun.com/industrial/"},{"@type":"ListItem","position":3,"name":"6. 조작과 피드백","item":"https://artbook.euiyun.com/industrial/chapters/control.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="control">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 06</div>
+    <h1>조작과 피드백</h1>
+    <p class="lead">밤 열한 시, 도경은 불을 끈 침실에서 「E 라이트」 시제품을 머리판에 집고 책을 펼쳤다. 등을 켜려고 몸통을 더듬었지만 매끈한 표면 어디가 버튼인지 손끝으로는 알 수 없었다. 겨우 찾아 누르자 불이 들어왔고, 조금 어둡게 하려고 다시 눌렀더니 꺼졌다. 세 번을 더 누르고서야 원하는 밝기가 되었는데, 그 사이 옆에서 자던 사람이 뒤척였다. 버튼 하나가 문제였다. 어디 있는지, 눌렸는지, 지금 무슨 상태인지 말해 주지 않는 버튼이었다. 이 장은 손과 물건이 주고받는 짧은 대화를 설계하는 법을 다룬다.</p>
+    <ul class="objectives">
+      <li>버튼·스위치·노브·슬라이더가 각각 무엇을 손에 알려 주는지(상태가 보이는가, 되돌릴 수 있는가) 구분한다.</li>
+      <li>힘–변위 곡선으로 클릭감을 읽고, 최고 힘과 클릭비를 바꿔 느낌이 어떻게 달라지는지 본다.</li>
+      <li>손끝으로 찾는 형태(오목·볼록·평평)가 찾기 쉬움과 잘못 눌림 사이에서 어떤 거래를 하는지 안다.</li>
+      <li>조작 장치의 배치가 대상의 배치를 닮는 자연스러운 매핑을 설계하고, 그렇지 않을 때 실수가 어떻게 생기는지 확인한다.</li>
+      <li>버튼 하나에 기능을 여럿 넣을 때 상태 기계로 그려 보고, 길게 누르기의 판정 시간이 실수를 어떻게 바꾸는지 계산한다.</li>
+      <li>빛·소리·촉각 피드백을 상황에 맞게 고르고, 실수를 형태로 막는 포카요케를 설명한다.</li>
+    </ul>
+  </header>
+
+  <section id="controls">
+    <h2>손과 물건의 대화</h2>
+    <p>물건을 조작하는 일은 짧은 대화다. 손이 무언가를 하고(조작), 물건이 대답하고(피드백), 사람은 그 대답을 보고 다음 행동을 정한다. 미국의 인지과학자 도널드 노먼(Donald Norman)은 이 대화에서 사람이 겪는 두 가지 어려움을 이름 붙였다. 무엇을 어떻게 해야 원하는 결과가 나오는지 알기 어려운 <span class="term">실행의 간극</span><span class="en">(Gulf of execution)</span>과, 물건이 지금 어떤 상태인지 알기 어려운 <span class="term">평가의 간극</span><span class="en">(Gulf of evaluation)</span>이다(Norman, 「The Design of Everyday Things」, 개정판 2013, 초판은 1988년 「The Psychology of Everyday Things」). 좋은 조작 장치는 두 간극을 모두 좁힌다. 손이 해야 할 일을 형태가 알려 주고, 한 일의 결과를 바로 돌려준다.</p>
+    <p>조작 장치는 종류마다 손에게 주는 정보가 다르다. 어떤 것은 지금 상태를 형태로 보여 주고, 어떤 것은 보여 주지 않는다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="조작 장치 네 종류: 누름 버튼, 로커 스위치, 회전 노브, 슬라이더와 각각이 상태를 보여 주는지">
+        <!-- 누름 버튼 -->
+        <text x="58" y="24" text-anchor="middle" class="lbl-b">누름 버튼</text>
+        <rect x="18" y="86" width="80" height="18" rx="3" class="f-surface"/><rect x="18" y="86" width="80" height="18" rx="3" fill="none" class="s-line"/>
+        <path d="M40 86 L40 70 Q40 62 48 62 L68 62 Q76 62 76 70 L76 86" class="f-elev"/><path d="M40 86 L40 70 Q40 62 48 62 L68 62 Q76 62 76 70 L76 86" fill="none" class="s-acc"/>
+        <path d="M58 36 L58 54" class="s-line" marker-end="url(#ctl-ar)"/>
+        <text x="58" y="130" text-anchor="middle" class="lbl" style="font-size:12px">누르면 돌아온다</text>
+        <text x="58" y="148" text-anchor="middle" class="lbl-bad" style="font-size:12px">상태가 안 보인다</text>
+        <!-- 로커 -->
+        <text x="172" y="24" text-anchor="middle" class="lbl-b">로커 스위치</text>
+        <rect x="132" y="86" width="80" height="18" rx="3" class="f-surface"/><rect x="132" y="86" width="80" height="18" rx="3" fill="none" class="s-line"/>
+        <path d="M146 86 L146 66 L198 78 L198 86" class="f-elev"/><path d="M146 86 L146 66 L198 78 L198 86" fill="none" class="s-acc"/>
+        <circle cx="172" cy="88" r="3" class="f-acc"/>
+        <text x="152" y="60" class="lbl-dim" style="font-size:11px">I</text><text x="194" y="70" class="lbl-dim" style="font-size:11px">O</text>
+        <text x="172" y="130" text-anchor="middle" class="lbl" style="font-size:12px">기울어진 채 머문다</text>
+        <text x="172" y="148" text-anchor="middle" class="lbl-acc" style="font-size:12px">상태가 형태로 보인다</text>
+        <!-- 노브 -->
+        <text x="288" y="24" text-anchor="middle" class="lbl-b">회전 노브</text>
+        <circle cx="288" cy="78" r="26" class="f-elev"/><circle cx="288" cy="78" r="26" fill="none" class="s-acc"/>
+        <path d="M288 78 L306 60" class="s-acc" style="stroke-width:3"/>
+        <g class="s-line"><path d="M254 78 L258 78 M288 44 L288 48 M322 78 L318 78 M264 54 L267 57 M312 54 L309 57"/></g>
+        <text x="288" y="130" text-anchor="middle" class="lbl" style="font-size:12px">돌린 만큼 머문다</text>
+        <text x="288" y="148" text-anchor="middle" class="lbl-acc" style="font-size:12px">양과 방향이 보인다</text>
+        <!-- 슬라이더 -->
+        <text x="404" y="24" text-anchor="middle" class="lbl-b">슬라이더</text>
+        <rect x="366" y="74" width="76" height="8" rx="4" class="f-surface"/><rect x="366" y="74" width="76" height="8" rx="4" fill="none" class="s-line"/>
+        <rect x="366" y="74" width="46" height="8" rx="4" class="f-acc-soft"/>
+        <rect x="404" y="62" width="16" height="32" rx="4" class="f-elev"/><rect x="404" y="62" width="16" height="32" rx="4" fill="none" class="s-acc"/>
+        <text x="404" y="130" text-anchor="middle" class="lbl" style="font-size:12px">민 자리에 머문다</text>
+        <text x="404" y="148" text-anchor="middle" class="lbl-acc" style="font-size:12px">양이 위치로 보인다</text>
+        <!-- 아래: 표 -->
+        <path d="M14 172 L446 172" class="s-dash"/>
+        <text x="14" y="198" class="lbl-dim" style="font-size:12px">상태를 기억하는 곳</text>
+        <text x="58" y="222" text-anchor="middle" class="lbl" style="font-size:12px">전자 회로</text>
+        <text x="172" y="222" text-anchor="middle" class="lbl" style="font-size:12px">스위치 자체</text>
+        <text x="288" y="222" text-anchor="middle" class="lbl" style="font-size:12px">노브 각도</text>
+        <text x="404" y="222" text-anchor="middle" class="lbl" style="font-size:12px">손잡이 위치</text>
+        <text x="14" y="252" class="lbl-dim" style="font-size:12px">기능 여럿을 넣으면</text>
+        <text x="58" y="276" text-anchor="middle" class="lbl-bad" style="font-size:12px">모드가 생긴다</text>
+        <text x="172" y="276" text-anchor="middle" class="lbl" style="font-size:12px">켜기·끄기만</text>
+        <text x="288" y="276" text-anchor="middle" class="lbl" style="font-size:12px">누름+돌림</text>
+        <text x="404" y="276" text-anchor="middle" class="lbl" style="font-size:12px">한 가지 양</text>
+        <defs><marker id="ctl-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="context-stroke"/></marker></defs>
+      </svg>
+      <figcaption><b>그림 1. 조작 장치의 네 가지 기본형.</b> 로커 스위치, 노브, 슬라이더는 손을 떼도 그 자리에 머물러 지금 상태를 형태로 보여 준다. 누름 버튼은 누르면 돌아오므로 상태를 회로가 기억하고, 사람은 결과(불빛 등)로만 상태를 안다. 작은 제품은 부품과 공간을 아끼려고 누름 버튼 하나를 쓰는 경우가 많고, 그만큼 피드백과 규칙이 중요해진다.</figcaption>
+    </figure>
+
+    <p>노먼이 "자연스러운 설계"의 요소로 꼽은 것을 이 장의 순서대로 정리하면 다음과 같다. 무엇을 할 수 있는지 알려 주는 <span class="term">시그니파이어</span><span class="en">(Signifier)</span>(누를 곳을 알리는 오목한 면, 돌릴 수 있음을 알리는 홈), 조작과 결과를 잇는 <span class="term">매핑</span><span class="en">(Mapping)</span>, 결과를 알려 주는 <span class="term">피드백</span><span class="en">(Feedback)</span>, 그리고 잘못된 행동을 애초에 할 수 없게 하는 <span class="term">제약</span><span class="en">(Constraint)</span>이다. 서윤의 독서등은 버튼 하나뿐이지만 이 네 가지가 모두 걸려 있다.</p>
+  </section>
+
+  <section id="click">
+    <h2>딸깍의 정체: 힘–변위 곡선</h2>
+    <p>좋은 버튼은 누를 때 "딸깍" 하고 손끝에 신호를 준다. 이 느낌은 소리나 기분이 아니라 힘의 모양에서 나온다. 버튼을 누르는 깊이(변위)에 따라 손가락이 받는 반발력을 그린 것이 <span class="term">힘–변위 곡선</span><span class="en">(Force–travel curve)</span>이다. 작은 제품의 버튼 안에는 흔히 얇은 금속이나 고무로 된 둥근 판, <span class="term">택트 돔</span><span class="en">(Tactile dome)</span>이 들어 있다. 돔을 누르면 처음에는 반발력이 점점 커지다가, 어느 깊이에서 돔이 뒤집히듯 꺼지며 힘이 갑자기 줄어든다. 이 힘의 낙차를 손끝이 "딸깍"으로 느낀다. 돔이 꺼진 직후 회로가 닫히고, 바닥에 닿으면 힘이 다시 급히 오른다.</p>
+    <p>곡선을 읽는 숫자는 셋이다. 가장 큰 반발력인 <b>최고 힘</b>, 꺼진 뒤의 <b>최저 힘</b>, 그리고 낙차를 최고 힘으로 나눈 <span class="term">클릭비</span><span class="en">(Click ratio, Snap ratio)</span>다.</p>
+    <div class="formula">$$\text{클릭비} = \frac{F_{\text{최고}} - F_{\text{최저}}}{F_{\text{최고}}}$$<div class="where">\(F_{\text{최고}}\): 돔이 꺼지기 직전의 반발력, \(F_{\text{최저}}\): 꺼진 직후의 가장 작은 반발력. 클릭비가 크면 낙차가 커서 딸깍이 또렷하고, 0이면 낙차가 없어 물렁하게 느껴진다. 최저 힘은 손을 뗐을 때 버튼을 밀어 올리는 힘과도 관계가 있다.</div></div>
+    <p>아래 곡선의 점을 끌어 최고 힘과 최저 힘, 이동 거리를 바꿔 본다. 위의 단추로 대표적인 세 가지 버튼을 불러올 수 있다.</p>
+
+    <div class="sim" id="sim-ft">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>클릭감 편집기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ft-cv"></canvas><span class="hint" style="top:8px;bottom:auto">곡선 위의 세 점을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ft-pre"><button data-value="metal" class="on">금속 돔</button><button data-value="rubber">고무 돔</button><button data-value="linear">스프링만</button></div>
+          <label class="check"><input type="checkbox" id="ft-ret" checked> 손을 뗄 때의 곡선 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">최고 힘</span><span class="v" id="ft-o-p">—</span></div>
+        <div class="stat"><span class="k">클릭비</span><span class="v" id="ft-o-r">—</span></div>
+        <div class="stat"><span class="k">이동 거리</span><span class="v" id="ft-o-t">—</span></div>
+        <div class="stat"><span class="k">손끝의 느낌</span><span class="v" id="ft-o-f">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "금속 돔"에서 가운데 점(최저 힘)을 최고 힘 가까이 끌어올린다. 클릭비가 15% 아래로 내려가면 "물렁하다"가 된다. 낙차가 없으면 손끝은 눌렸는지 모른다. ② 최저 힘을 0.3 N 아래로 끌어내린다. 딸깍은 크지만 손을 뗄 때 버튼을 밀어 올릴 힘이 약해 제자리로 잘 돌아오지 않는다. ③ "스프링만"을 누른다. 힘이 끝까지 오르기만 한다. 슬라이더나 페달처럼 양을 조절하는 장치에는 이것이 맞고, 켜고 끄는 버튼에는 신호가 없다. (교육용 모형: 곡선은 세 점을 잇는 부드러운 선이고, 손을 뗄 때의 곡선은 마찰 때문에 조금 낮다고 두었다. 느낌의 경계(클릭비 15%·30%·60%, 최고 힘 1 N·4 N)는 원리를 보여 주려고 정한 값이다. 실제 돔의 사양은 부품 제조사의 자료표를 따르고, 같은 수치라도 버튼 덮개의 재질과 두께에 따라 느낌이 달라진다.)</div>
+    </div>
+
+    <p>클릭비가 크다고 늘 좋은 것은 아니다. 낙차가 너무 크면 버튼이 "툭" 꺼지는 느낌이 들고, 최저 힘이 너무 작으면 손을 뗀 뒤 버튼이 늦게 올라오거나 걸린 채로 남는다. 최고 힘도 마찬가지다. 너무 작으면 스치기만 해도 눌리고, 너무 크면 손끝이 아프다. 작은 기기의 버튼에는 대략 몇 뉴턴 안팎의 돔이 흔히 쓰이고, 제조사 자료표는 최고 힘, 이동 거리, 클릭비, 수명(눌림 횟수)을 함께 적는다. 디자이너가 고르는 것은 숫자 하나가 아니라 곡선의 모양이다.</p>
+    <p>회전 노브에도 같은 원리가 있다. 노브가 일정한 각도마다 살짝 걸리는 느낌을 <span class="term">디텐트</span><span class="en">(Detent)</span>라고 한다. 걸림마다 힘이 올랐다가 떨어지는 작은 곡선이 반복되는 것이다. 디텐트는 "한 칸 돌렸다"는 피드백이 되고, 손을 떼도 노브가 그 자리에 머물게 한다. 음량처럼 연속적인 양에는 걸림이 없거나 촘촘한 노브가, 모드 선택처럼 몇 가지 중 하나를 고르는 데는 걸림이 분명한 노브가 어울린다.</p>
+
+    <div class="callout studio">
+      <strong>버튼은 손가락으로 산다</strong>
+      태오는 돔 스위치를 고를 때 자료표만 보지 않는다. 후보 돔을 몇 종류 주문해, 실제 버튼 덮개를 얹은 시제품을 만들어 눌러 본다. 덮개가 두껍거나 무른 재질이면 돔의 딸깍이 흐려지고, 버튼 둘레의 틈이 좁으면 덮개가 몸통에 스쳐 곡선에 없던 마찰이 생긴다. 그래서 돔의 사양은 "부품 단독"이 아니라 "덮개를 얹은 상태"로 다시 확인한다. 버튼 둘레의 틈과 공차는 <a href="assembly.html">9장</a>에서 다시 다룬다.
+    </div>
+  </section>
+
+  <section id="find">
+    <h2>손끝으로 찾는 버튼</h2>
+    <p>버튼은 먼저 찾을 수 있어야 한다. 밝은 곳에서는 눈이 찾지만, 침실의 어둠 속에서는 손끝이 찾는다. 손끝은 높이 차이와 기울기와 모서리를 아주 잘 느낀다. 그래서 어둠에서 쓰는 버튼은 눈이 아니라 손끝을 위한 시그니파이어가 필요하다. 표면보다 솟은 <b>볼록한 버튼</b>, 표면과 같은 높이의 <b>평평한 버튼</b>, 표면보다 들어간 <b>오목한 버튼</b>을 비교해 본다.</p>
+    <p>아래 그림은 어둠 속에서 손끝이 버튼 근처에 처음 닿은 자리 200곳을 찍은 것이다. 손끝이 버튼을 "한 번에 찾았다"는 것은 첫 닿은 자리에서 버튼의 모서리나 기울기를 느끼고 버튼 위로 미끄러져 들어갔다는 뜻이다. 그런데 찾기 쉬운 것만 좋은 것은 아니다. 클립을 물리려고 몸통을 쥘 때 버튼이 잘못 눌리면 안 된다.</p>
+
+    <div class="sim" id="sim-dish">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>어둠 속에서 버튼 찾기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ds-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ds-shape"><button data-value="flat">평평</button><button data-value="convex">볼록</button><button data-value="concave" class="on">오목</button></div>
+          <label class="ctrl"><span>어둠(손끝이 빗나가는 정도) <output id="ds-s-out"></output></span><input type="range" id="ds-s" min="2" max="10" step="0.5" value="6"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">한 번에 찾음</span><span class="v" id="ds-o-f">—</span></div>
+        <div class="stat"><span class="k">몸통을 쥘 때 잘못 눌림</span><span class="v" id="ds-o-a">—</span></div>
+        <div class="stat"><span class="k">판단</span><span class="v" id="ds-o-v">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "평평"을 누른다. 버튼 둘레에 손끝이 느낄 단서가 없어 버튼 원 안에 바로 떨어진 점만 찾은 것이 된다. ② "볼록"으로 바꾼다. 솟은 면을 느껴 찾기는 쉬워지지만, 몸통을 쥘 때 잘못 눌림이 크게 는다. ③ "오목"으로 바꾼다. 둘레의 턱과 오목한 기울기가 손끝을 가운데로 이끌어 찾기가 가장 쉽고, 손끝이 일부러 파고들어야 눌리니 잘못 눌림은 가장 적다. 어둠을 2 mm(밝은 곳)까지 줄이면 세 형태의 차이가 작아진다. (교육용 모형: 버튼 지름 10 mm. 첫 닿는 자리는 버튼 중심에서 표준편차 "어둠" mm로 퍼진다. 한 번에 찾는 거리를 평평 5 mm, 볼록 6.5 mm, 오목 8 mm로 두었다. 몸통을 쥘 때 손가락이 가로세로 30 mm 영역에 고르게 닿는다고 보고, 그 손가락이 버튼을 누르게 되는 거리를 볼록 7 mm, 평평 5 mm, 오목 3 mm로 두었다. 실제 값은 시제품으로 시험한다.)</div>
+    </div>
+
+    <p>오목한 버튼이 두 마리 토끼를 잡는 이유는 형태가 두 가지 일을 하기 때문이다. 둘레의 턱은 "여기에 무언가 있다"는 신호가 되고, 안쪽의 기울기는 손끝을 가운데로 미끄러뜨린다. 그러면서 표면보다 낮아 우연히 스치는 손가락에는 닿지 않는다. 엘리베이터와 현금 인출기의 버튼에 점자나 돌기가 있는 것, 키보드의 F와 J 키에 작은 돌기가 있는 것도 같은 생각이다. 형태로 정보를 싣는 것을 <span class="term">형태 부호화</span><span class="en">(Shape coding)</span>라고 한다. 버튼이 여럿인 제품은 버튼마다 모양이나 질감을 다르게 해서 손끝이 구별하게 할 수 있다.</p>
+
+    <div class="callout try">
+      <strong>눈 감고 버튼 찾기</strong>
+      집 안의 물건 다섯 가지(리모컨, 전기 주전자, 휴대폰, 전등 스위치, 이어폰 케이스)를 고른다. ① 눈을 감고 각 물건의 "켜기" 버튼을 손끝으로 찾는다. 찾을 때까지 걸린 시간을 대략 세고, 처음 엉뚱한 것을 누른 횟수를 적는다. ② 버튼의 형태를 관찰해 "솟음·같은 높이·들어감", "둘레에 턱이 있나", "표면 질감이 다른가"를 적는다. ③ 그 물건을 평소처럼 쥐었을 때 버튼이 잘못 눌린 적이 있는지 떠올린다. ④ 다섯 물건을 "찾기 쉬움"과 "잘못 눌림" 두 축 위에 놓아 본다. 오른쪽 위(찾기 쉽고 잘못 눌리지 않음)에 놓인 물건의 버튼을 종이에 단면으로 그린다.
+    </div>
+  </section>
+
+  <section id="mapping">
+    <h2>매핑: 손잡이와 대상의 배치</h2>
+    <p>조작 장치가 여럿이면 "어느 것이 무엇을 움직이는가"가 문제다. 조작 장치와 그것이 움직이는 대상 사이의 대응을 매핑이라고 하고, 조작 장치의 배치가 대상의 배치를 닮아서 따로 배우지 않아도 대응을 알 수 있는 것을 <span class="term">자연스러운 매핑</span><span class="en">(Natural mapping)</span>이라고 한다. 고전적인 예가 가스레인지다. 화구 네 개가 앞뒤 두 줄로 놓였는데 손잡이 네 개는 앞쪽에 한 줄로 늘어서 있다면, 맨 왼쪽 손잡이가 왼쪽 앞 화구인지 왼쪽 뒤 화구인지 알 수 없다.</p>
+    <p>화구와 손잡이의 배치에 따라 사람들이 얼마나 빨리, 얼마나 정확하게 손잡이를 고르는지는 1950년대에 이미 실험되었다. 채퍼니스와 린덴바움은 네 가지 배치를 비교해, 손잡이 배치가 화구 배치와 공간적으로 대응할수록 실수가 적고 반응이 빠르다는 것을 보였다(Chapanis & Lindenbaum, 「A reaction time study of four control-display linkages」, Human Factors, 1959). 아래 가스레인지에서 손잡이를 끌어 배치를 바꾸고, 가상의 사용자에게 40번 불을 켜게 해 본다.</p>
+
+    <div class="sim" id="sim-map">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손잡이 배치와 실수</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="mp-cv"></canvas><span class="hint">손잡이를 끌어 옮긴다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="mp-pre"><button data-value="row" class="on">한 줄</button><button data-value="stagger">엇갈린 줄</button><button data-value="grid">2×2</button></div>
+          <label class="check"><input type="checkbox" id="mp-lab"> 손잡이에 작은 그림 표시</label>
+          <button class="btn" id="mp-run" type="button">가상 사용자 40번</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">배치만으로 맞는 화구</span><span class="v" id="mp-o-m">—</span></div>
+        <div class="stat"><span class="k">헷갈리는 화구</span><span class="v" id="mp-o-a">—</span></div>
+        <div class="stat"><span class="k">가상 사용자 실수</span><span class="v" id="mp-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "한 줄"에서 "가상 사용자 40번"을 누른다. 왼쪽 두 손잡이가 왼쪽 앞뒤 화구 중 어느 것인지 배치로는 알 수 없어 실수가 난다. ② "엇갈린 줄"을 누른다. 뒤 화구의 손잡이를 조금 뒤로, 앞 화구의 손잡이를 앞으로 놓았을 뿐인데 네 화구가 모두 배치로 맞는다. ③ 다시 "한 줄"로 돌아가 "작은 그림 표시"를 켠다. 실수는 줄지만 사라지지 않는다. 사람은 표시를 매번 읽지 않는다. ④ 손잡이를 각 화구 바로 앞으로 직접 끌어 놓아 본다. (교육용 모형: 가상의 사용자는 손잡이 무리의 배치를 화구 무리의 배치에 겹쳐 보고 가장 가까운 손잡이를 고른다. 가장 가까운 것과 둘째가 25% 안쪽으로 비슷하면 둘 중 하나를 반반으로 고른다. 그림 표시가 있으면 85%는 표시를 읽고 맞게 고른다. 실험 결과를 재현한 것이 아니라 원리를 보여 주는 규칙이다. 누를 때마다 다른 40번이 나온다.)</div>
+    </div>
+
+    <p>표시를 붙이는 것은 매핑의 실패를 글로 메우는 일이다. 표시는 도움이 되지만, 사람은 급할 때 표시를 읽지 않고 배치를 믿는다. 노먼이 "표시가 필요한 문은 잘못 설계된 문"이라는 취지로 말한 것도 같은 이야기다. 배치 자체가 대응을 말해 주면 표시가 없어도 맞힌다.</p>
+    <p>매핑에는 배치 말고 방향도 있다. 노브를 시계 방향으로 돌리면 양이 늘고, 슬라이더를 위나 오른쪽으로 밀면 늘고, 레버를 올리면 켜진다는 기대는 많은 사람이 공유하는 <span class="term">방향 관습</span><span class="en">(Population stereotype)</span>이다. 다만 관습은 문화와 분야에 따라 다르다. 수도꼭지는 시계 반대 방향으로 돌려 여는 것이 흔하고, 벽 스위치를 위로 올려 켜는지 아래로 내려 켜는지는 나라마다 다르다. 관습을 거스르는 방향은 사용자가 바쁘거나 어둡거나 긴장했을 때 실수를 부른다.</p>
+
+    <div class="callout studio">
+      <strong>조작은 움직이는 것 가까이</strong>
+      서윤의 독서등에서 가장 자연스러운 매핑은 버튼이 아니라 목이다. 등머리를 손으로 잡고 기울이면 빛이 그 방향으로 간다. 조작과 결과가 같은 물건이니 배울 것이 없다. 버튼 쪽은 사정이 다르다. 태오는 서윤의 스케치에서 버튼이 클립 손잡이 바로 옆에 붙어 있는 것을 보고 고개를 저었다. "클립을 열려고 쥐었는데 불이 켜지면, 사람은 버튼이 고장 났다고 생각해." 손이 서로 다른 일을 하는 자리는 떨어뜨려 둔다.
+    </div>
+  </section>
+
+  <section id="modes">
+    <h2>버튼 하나, 기능 여럿: 상태 기계</h2>
+    <p>버튼이 하나뿐인데 기능이 여럿이면 버튼의 의미는 지금 상태에 따라 달라진다. 같은 짧은 누름이 꺼진 상태에서는 "켜기", 켜진 상태에서는 "끄기"가 된다. 이렇게 상태와 입력에 따라 다음 상태가 정해지는 규칙을 그림으로 그린 것이 <span class="term">상태 기계</span><span class="en">(State machine)</span>다. 원은 상태, 화살표는 입력에 따른 이동이다. 상태 기계로 그려 보면 숨은 문제가 드러난다. 화살표가 너무 많거나, 사용자가 지금 어느 원에 있는지 알 수 없거나, 같은 입력이 원마다 전혀 다른 일을 하는 곳이다.</p>
+    <p>같은 입력이 상태에 따라 다른 일을 하는 것을 <span class="term">모드</span><span class="en">(Mode)</span>라고 하고, 사용자가 지금 모드를 잘못 알고 조작해 생기는 실수를 <span class="term">모드 오류</span><span class="en">(Mode error)</span>라고 한다. 버튼 하나짜리 제품은 모드를 피할 수 없으니, 모드를 적게 두고 사람이 상태를 알 수 있게 해야 한다. 아래에서 세 가지 규칙을 비교한다. 오른쪽(좁은 화면에서는 아래) 상태 그림의 버튼을 직접 짧게, 길게 눌러 볼 수 있다.</p>
+
+    <div class="sim" id="sim-fsm">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>버튼 하나의 규칙</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fs-cv"></canvas><span class="hint" style="top:8px;bottom:auto">둥근 버튼을 짧게·길게 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="fs-design"><button data-value="cycle">A 누를 때마다 순환</button><button data-value="hold" class="on">B 짧게·길게</button><button data-value="multi">C 짧게·길게·두 번</button></div>
+          <label class="ctrl"><span>"길게" 판정 시간 <output id="fs-th-out"></output></span><input type="range" id="fs-th" min="200" max="1200" step="50" value="500"></label>
+          <button class="btn" id="fs-run" type="button">가상 사용자 과제 30개</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">지금 상태</span><span class="v" id="fs-o-st">—</span></div>
+        <div class="stat"><span class="k">실수(의도와 다른 판정)</span><span class="v" id="fs-o-err">—</span></div>
+        <div class="stat"><span class="k">원치 않게 거친 상태</span><span class="v" id="fs-o-via">—</span></div>
+        <div class="stat"><span class="k">과제당 걸린 시간</span><span class="v" id="fs-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "A 순환"에서 과제 30개를 돌린다. 판정 실수는 거의 없지만, 가장 밝은 상태에서 조금 어둡게 하려면 꺼짐을 지나 한 바퀴를 돌아야 한다. 어두운 침실에서 등이 잠깐씩 꺼지는 "원치 않게 거친 상태"가 쌓인다. ② "B 짧게·길게"로 바꾼다. 거쳐 가는 상태는 사라진다. 판정 시간을 200 ms로 줄이면 짧게 누른 것이 길게로 판정되는 실수가 크게 늘고, 1,200 ms로 늘리면 기다리다 손을 떼는 실수와 걸린 시간이 는다. 그 사이 어딘가가 알맞다. ③ "C"로 바꾼다. 색온도까지 넣으니 두 번 누르기가 느려 두 번의 짧게로 판정되는 실수가 생기고, 짧게 누를 때마다 "두 번인지" 기다리느라 켜고 끄기도 굼떠진다. (교육용 모형: 짧게 누르는 시간은 중앙값 180 ms, 두 번 누르기의 간격은 중앙값 230 ms인 로그정규분포, "두 번" 판정 창은 350 ms로 두었다. 판정 시간이 700 ms를 넘으면 그만큼 기다리다 손을 뗄 확률이 커진다. A에서는 연달아 누를 때 한 번 더 누르는 실수를 5%로 두었다. 밝기는 끝에서 끝까지 2초에 움직이고, 끝에 닿으면 방향을 바꾼다. 누를 때마다 다른 30개 과제가 나온다.)</div>
+    </div>
+
+    <p>세 규칙의 차이는 버튼의 문제가 아니라 상태 기계의 문제다. A는 규칙이 하나라 배우기 쉽지만, 원하는 상태로 가는 길이 하나뿐이어서 엉뚱한 상태를 거쳐 간다. B는 입력을 두 종류로 늘린 대신 상태가 둘(꺼짐, 켜짐)뿐이고, 밝기는 켜진 상태 안의 연속적인 양이 되었다. C는 기능 하나를 더 얻는 대가로 판정이 하나 더 늘었고, 그 판정이 모든 짧은 누름을 느리게 만들었다. 입력을 구분하는 규칙(짧게와 길게의 경계, 두 번 누르기의 창)은 사람 손의 흔들림 위에 그어진 선이라, 선 근처에서 반드시 실수가 생긴다. 판정이 적을수록 선도 적다.</p>
+
+    <div class="callout warn">
+      <strong>숨은 기능은 없는 기능이다</strong>
+      "버튼을 5초 누르면 초기화", "세 번 누르면 시연 모드"처럼 사용자가 우연히 발견할 수 없는 조합은 설명서를 읽은 사람에게만 존재한다. 그리고 우연히 그 조합을 누른 사람에게는 고장처럼 보인다. 꼭 필요한 숨은 조작(공장 초기화 등)은 일상 조작과 겹치지 않게 길고 분명한 조합으로 두고, 들어갔을 때 확실한 피드백을 준다. 기능을 버튼 하나에 더 넣고 싶어질 때는 먼저 그 기능을 빼는 쪽을 검토한다.
+    </div>
+  </section>
+
+  <section id="feedback">
+    <h2>피드백: 빛, 소리, 손끝</h2>
+    <p>피드백은 "당신이 한 일을 받았다"는 대답이다. 대답이 없거나 늦으면 사람은 다시 누르고, 두 번 눌린 것이 또 다른 실수를 만든다. 얼마나 빨라야 "바로"인가에 대해서는 오래된 기준이 있다. 컴퓨터의 응답 시간을 다룬 밀러의 1968년 논문 이후 흔히 인용되는 경험칙으로, 약 0.1초 안의 반응은 내가 직접 일으킨 즉각적인 결과로 느껴지고, 약 1초 안이면 기다렸다는 느낌은 들어도 생각의 흐름이 끊기지 않으며, 그보다 길면 사람은 다른 데로 주의를 돌리거나 다시 시도한다(Miller, 「Response time in man-computer conversational transactions」, 1968). 물리적인 버튼은 0.1초 안에 대답하는 것이 기본이다.</p>
+    <p>대답하는 통로도 고른다. 빛(표시등, 등 자체의 밝기 변화), 소리(딸깍, 삐 소리), 손끝(돔의 딸깍, 진동). 통로마다 누가 받는지가 다르다. 빛은 보고 있는 사람에게, 소리는 방 안의 모두에게, 손끝의 딸깍은 누른 사람에게만 간다. 아래에서 상황을 고르고 피드백 통로를 켜고 끄며, 대답이 늦어지면 어떻게 되는지 본다.</p>
+
+    <div class="sim" id="sim-fb">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>어둠 속의 피드백</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fb-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="fb-room"><button data-value="living">밝은 거실</button><button data-value="bed" class="on">어두운 침실(옆 사람이 잔다)</button></div>
+          <label class="check"><input type="checkbox" id="fb-led" checked> 빛: 몸통의 표시등</label>
+          <label class="check"><input type="checkbox" id="fb-snd" checked> 소리: 삐 소리</label>
+          <label class="check"><input type="checkbox" id="fb-tac"> 손끝: 돔의 딸깍</label>
+          <label class="ctrl"><span>대답이 오는 데 걸리는 시간 <output id="fb-d-out"></output></span><input type="range" id="fb-d" min="0" max="1500" step="50" value="50"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">누른 사람이 안다</span><span class="v" id="fb-o-k">—</span></div>
+        <div class="stat"><span class="k">다른 사람에게 미치는 것</span><span class="v" id="fb-o-d">—</span></div>
+        <div class="stat"><span class="k">기다림의 느낌</span><span class="v" id="fb-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "어두운 침실"에서 처음 설정(표시등과 삐 소리)을 본다. 누른 사람은 알지만 소리가 옆 사람에게 닿고, 어둠에 익은 눈에는 작은 표시등도 눈부시다. ② 소리와 표시등을 끄고 "손끝: 돔의 딸깍"만 켠다. 누른 사람만 안다. ③ "밝은 거실"로 바꾸면 표시등은 잘 보이지 않고 소리는 문제가 되지 않는다. 같은 피드백도 상황에 따라 값이 달라진다. ④ 지연을 1,000 ms 넘게 늘린다. 대답이 늦으면 다시 누르는 손가락이 그림에 나타난다. (교육용 판단 규칙: 침실에서 소리는 옆 사람에게 닿고, 표시등은 어둠에서 눈부심을 주며, 밝은 거실의 작은 표시등은 놓치기 쉽다고 두었다. 손끝의 딸깍은 누르는 순간 기계적으로 생기므로 지연 슬라이더와 상관없이 즉시다. 지연의 경계 0.1초·1초는 Miller(1968) 이후 널리 쓰이는 경험칙이다.)</div>
+    </div>
+
+    <p>④에서 보듯 손끝의 딸깍에는 특별한 장점이 있다. 전자 회로가 아니라 돔이 꺼지는 순간에 기계적으로 생기므로, 회로가 아무리 늦게 반응해도 "눌렸다"는 대답만은 즉시 온다. 그래서 회로가 실제로 무슨 일을 했는지(켜졌는지, 밝기가 끝에 닿았는지)는 등 자체의 빛으로 알리고, "눌렸다"는 사실은 손끝으로 알리는 식으로 통로를 나눌 수 있다. 독서등에서는 등 자체가 가장 큰 표시등이다. 읽는 사람은 책 위의 빛을 보고 있으니, 밝기가 끝에 닿았을 때 빛을 한 번 살짝 깜빡이는 것만으로도 별도의 표시등 없이 대답이 된다.</p>
+
+    <div class="callout deep">
+      <strong>소리 없는 딸깍은 없다</strong>
+      금속 돔이 꺼질 때는 작은 소리가 함께 난다. 손끝의 딸깍과 귀의 딸깍은 같은 사건에서 나오는 두 신호다. 그래서 "소리 없는 버튼"을 원하면 돔의 클릭비를 줄이거나, 고무 돔을 쓰거나, 버튼 덮개로 소리를 감싼다. 하지만 클릭비를 줄이면 손끝의 신호도 약해진다. 조용함과 또렷함은 함께 움직이는 경우가 많다. 서윤은 시제품의 딸깍 소리를 휴대폰으로 녹음해 침실에서 틀어 보고, 옆 사람이 깰 만한 크기인지 도경과 함께 들어 보기로 했다.
+    </div>
+  </section>
+
+  <section id="pokayoke">
+    <h2>실수를 막는 형태: 포카요케</h2>
+    <p>사람은 실수한다. 피곤하거나, 어둡거나, 서두르거나, 처음 보는 물건일 때 더 그렇다. 실수를 사람의 주의력으로 막으려 하면 언젠가 실패한다. 그래서 형태가 실수를 막게 한다. 일본 도요타 생산 방식의 산업공학자 신고 시게오(新郷重夫)는 조립 작업자의 실수를 장치와 형태로 막는 방법을 <span class="term">포카요케</span><span class="en">(Poka-yoke, 실수 방지)</span>라는 이름으로 정리했다(Shingo, 「Zero Quality Control: Source Inspection and the Poka-yoke System」, 영어판 1986). 한쪽만 맞는 부품, 틀리면 다음 단계로 넘어갈 수 없는 지그 같은 것이다. 노먼은 같은 생각을 사용자 쪽에서 <span class="term">강제 기능</span><span class="en">(Forcing function)</span>이라고 불렀다. 잘못된 행동을 할 수 없게 하는 제약이다.</p>
+    <p>실수를 다루는 형태에는 두 방향이 있다. 하나는 <b>틀린 방향을 아예 못 하게 막는 것</b>, 다른 하나는 <b>어느 방향으로 해도 맞게 만드는 것</b>이다. 위험한 것은 그 사이, 틀린 방향으로도 끼워지는데 결과가 틀리는 형태다. 아래 네 가지 끼우는 부품을 비교한다.</p>
+
+    <div class="sim" id="sim-pk">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>한쪽으로만, 아니면 어느 쪽으로든</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pk-cv" class="art"></canvas><span class="hint">부품을 눌러 뒤집는다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pk-part"><button data-value="usbc" class="on">USB-C 플러그</button><button data-value="usba">USB-A 플러그</button><button data-value="sym">대칭 배터리 덮개</button><button data-value="key">키 홈 배터리 덮개</button></div>
+          <button class="btn" id="pk-try" type="button">끼워 보기</button>
+          <button class="btn" id="pk-run" type="button">눈 감고 20번</button>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">끼워지는 방향</span><span class="v" id="pk-o-fit">—</span></div>
+        <div class="stat"><span class="k">제대로 작동하는 방향</span><span class="v" id="pk-o-ok">—</span></div>
+        <div class="stat"><span class="k">이번 시도</span><span class="v" id="pk-o-now">—</span></div>
+        <div class="stat"><span class="k">20번 중 막힘 · 조용한 오류</span><span class="v" id="pk-o-run">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "USB-C"에서 부품을 눌러 뒤집고 끼워 본다. 두 방향 모두 들어가고 모두 작동한다. 실수할 방향이 없다. ② "USB-A"는 한 방향만 들어간다. 틀리면 막히고, 뒤집어 다시 해야 한다. 겉모양이 거의 대칭이라 어느 쪽이 맞는지 보이지 않는 것이 문제다. ③ "대칭 배터리 덮개"를 거꾸로 끼운다. 들어가고 닫히는데 접점이 엇갈려 등이 켜지지 않는다. 아무 경고 없는 조용한 오류다. ④ "키 홈 배터리 덮개"는 한쪽 턱이 넓어 거꾸로는 들어가지 않고, 그 비대칭이 눈과 손끝에도 보인다. "눈 감고 20번"으로 네 가지를 비교한다. (그린 부품은 원리를 보여 주려고 단순화한 것이며 실제 규격의 치수가 아니다. 눈 감고 끼우는 사람은 방향을 반반으로 고른다고 두었다.)</div>
+    </div>
+
+    <p>USB-C의 위아래 대칭 설계는 "어느 쪽으로 해도 맞게" 쪽의 좋은 예다. USB-A처럼 한 방향만 맞는 커넥터를 쓰던 시절, 많은 사람이 플러그를 넣다가 막히면 뒤집고, 또 막히면 다시 뒤집었다. USB-C 규격(USB Implementers Forum, 2014)은 플러그를 뒤집어 끼워도 동작하도록 정해 이 실수를 없앴다. 반대로 "한쪽으로만" 쪽은 비대칭이 분명해야 효과가 크다. 키 홈 덮개는 틀린 방향을 막을 뿐 아니라, 비대칭 자체가 맞는 방향을 알려 주는 시그니파이어가 된다. 막는 형태와 알려 주는 형태가 하나다.</p>
+    <p>최악은 대칭 덮개처럼 틀린 방향이 조용히 받아들여지는 경우다. 막히는 실수는 사용자가 바로 알고 고친다. 조용한 오류는 "고장 났다"는 결론으로 이어진다. 배터리를 갈아 끼운 사람이 등이 켜지지 않는 것을 보고 새 배터리가 불량이라고 생각할 수도 있다. 사용자가 직접 여는 부분(배터리 칸, 충전 단자, 교체 부품)에는 이런 조용한 오류가 생길 자리가 없는지 하나씩 확인한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 210" role="img" aria-label="실수를 다루는 세 가지 형태: 막는다, 받아들인다, 조용히 틀린다">
+        <rect x="10" y="20" width="136" height="150" rx="10" class="f-ok-soft"/>
+        <rect x="162" y="20" width="136" height="150" rx="10" class="f-acc2-soft"/>
+        <rect x="314" y="20" width="136" height="150" rx="10" class="f-bad-soft"/>
+        <text x="78" y="46" text-anchor="middle" class="lbl-b">막는다</text>
+        <text x="230" y="46" text-anchor="middle" class="lbl-b">받아들인다</text>
+        <text x="382" y="46" text-anchor="middle" class="lbl-b">조용히 틀린다</text>
+        <!-- 막는다: 키 홈 -->
+        <path d="M40 70 L116 70 L116 120 L40 120 L40 104 L32 104 L32 86 L40 86 Z" fill="none" class="s-line"/>
+        <path d="M46 76 L110 76 L110 114 L46 114 L46 100 L38 100 L38 90 L46 90 Z" class="f-elev"/>
+        <text x="78" y="146" text-anchor="middle" class="lbl" style="font-size:12px">한 방향만 들어간다</text>
+        <text x="78" y="162" text-anchor="middle" class="lbl-dim" style="font-size:11px">키 홈 덮개, 비대칭 단자</text>
+        <!-- 받아들인다: 대칭 -->
+        <rect x="190" y="78" width="80" height="34" rx="17" fill="none" class="s-line"/>
+        <rect x="200" y="84" width="60" height="22" rx="11" class="f-elev"/>
+        <path d="M212 95 L248 95" class="s-acc2" style="stroke-width:3"/>
+        <text x="230" y="146" text-anchor="middle" class="lbl" style="font-size:12px">어느 쪽이든 맞다</text>
+        <text x="230" y="162" text-anchor="middle" class="lbl-dim" style="font-size:11px">USB-C, 대칭 원통 배터리 홀더*</text>
+        <!-- 조용히 틀린다 -->
+        <rect x="342" y="72" width="80" height="44" rx="4" fill="none" class="s-line"/>
+        <rect x="348" y="78" width="68" height="32" rx="3" class="f-elev"/>
+        <circle cx="360" cy="94" r="4" class="f-bad"/><circle cx="404" cy="94" r="4" fill="none" class="s-line"/>
+        <text x="382" y="146" text-anchor="middle" class="lbl" style="font-size:12px">끼워지는데 안 된다</text>
+        <text x="382" y="162" text-anchor="middle" class="lbl-dim" style="font-size:11px">대칭 덮개, 같은 모양 부품</text>
+        <text x="10" y="196" class="lbl-dim" style="font-size:11px">* 극성이 없는 경우만. 원통형 전지는 대개 +·− 방향이 있어 홀더의 형태와 표시가 필요하다.</text>
+      </svg>
+      <figcaption><b>그림 2. 실수를 다루는 세 가지 형태.</b> 막는 형태와 받아들이는 형태는 모두 좋은 선택이고, 무엇을 고를지는 부품과 비용이 정한다. 피해야 할 것은 오른쪽, 틀린 조작을 조용히 받아들이는 형태다.</figcaption>
+    </figure>
+
+    <div class="callout studio">
+      <strong>포카요케는 공장에도 필요하다</strong>
+      태오가 금형 공장에서 배운 습관 가운데 하나는 "조립하는 사람이 거꾸로 끼울 수 있는 부품은 언젠가 거꾸로 끼워진다"는 것이다. 좌우가 거의 같은데 미세하게 다른 부품 두 개는 공장에서 서로 바뀐다. 그래서 다른 부품은 확실히 다르게(핀 하나를 옮기거나 턱 하나를 두어), 같은 역할의 부품은 아예 같게 만든다. 사용자의 실수를 막는 형태와 조립자의 실수를 막는 형태는 같은 원리이고, 둘 다 도면에 그려져 있어야 공장에서 생긴다. 조립 순서와 부품 수 줄이기는 <a href="assembly.html">9장</a>에서 다룬다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 여름 제품 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>제품 노트 · 6장</span></div>
+      <h4>버튼 하나에 세 가지를 넣으려다</h4>
+      <p>서윤의 첫 계획은 버튼 하나로 켜기, 밝기, 색온도를 모두 다루는 것이었다. 짧게 누르면 켜고 끄기, 길게 누르면 밝기, 두 번 누르면 따뜻한 빛과 흰 빛 사이를 바꾼다. 화면을 디자인하던 습관대로 기능 목록을 먼저 채운 것이다. 시제품의 회로에 이 규칙을 넣고 도경에게 일주일 동안 침실에서 써 달라고 부탁했다.</p>
+      <p>도경의 메모는 짧았다. "켜려고 눌렀는데 한참 뒤에 켜짐. 두 번 누른 게 꺼졌다 켜짐으로 됨. 어두운데 버튼이 어디 있는지 모름. 옆 사람이 삐 소리에 깸." 첫 줄은 두 번 누르기 판정 창 때문에 짧은 누름이 늦게 처리된 것이고, 둘째 줄은 두 번 누르기가 창보다 느려 두 번의 짧은 누름으로 판정된 것이었다. 서윤은 세 가지 규칙을 상태 기계로 그려 보고, 가상 사용자로 실수를 세어 보았다. 색온도를 빼자 판정이 하나 줄었고, 짧은 누름이 기다릴 이유도 사라졌다.</p>
+      <p>버튼의 형태는 태오와 함께 정했다. 매끈한 몸통에 평평하게 묻힌 버튼은 어둠에서 찾을 수 없었고, 볼록하게 솟은 시안은 클립을 물리려고 몸통을 쥘 때마다 불이 켜졌다. 오목한 버튼은 둘레의 턱으로 찾고 가운데로 손끝이 미끄러져 들어갔다. 버튼 위치는 클립 손잡이에서 멀리, 몸통 윗면으로 옮겼다. 마지막은 피드백이었다. 삐 소리는 뺐다. 손끝의 딸깍이 "눌렸다"를, 등 자체의 빛이 "무엇이 되었는지"를 알린다.</p>
+      <p>서윤의 선택은 "기능을 줄이고, 남은 기능을 확실하게"였다. 색온도는 버튼에서 빼고 하나로 고정하기로 했다. 고정할 색은 나중에 등머리의 확산판과 함께 정한다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>버튼 <b>하나</b>. <b>짧게(0.5초 미만) = 켜기·끄기</b>(켤 때는 마지막 밝기로). <b>길게(0.5초 이상) = 밝기</b>: 누르고 있는 동안 밝기가 약 2초에 끝에서 끝까지 오르내리고, 손을 떼면 그 밝기에 머문다. 끝에 닿으면 등이 한 번 살짝 깜빡이고 방향을 바꾼다. 꺼진 상태에서 길게 누르면 가장 어둡게 켜진다. <b>색온도는 버튼에서 뺌</b>(한 가지로 고정, 값은 나중에). 두 번 누르기 없음. 형태: <b>지름 10 mm의 오목한 버튼</b>(깊이 약 0.6 mm, 둘레에 손끝으로 느끼는 턱), 위치는 <b>몸통 윗면, 클립 손잡이에서 떨어진 곳</b>. 느낌: 금속 돔, <b>최고 힘 약 2.5 N, 클릭비 약 45%, 이동 거리 약 0.3 mm</b>(가상의 부품 사양, 덮개를 얹고 다시 확인). 피드백: <b>소리 나는 부품 없음</b>, 손끝의 딸깍 + 등 자체의 빛. 충전 단자는 뒤집어 꽂아도 되는 USB-C.</div>
+        <div><b>아직 남은 문제</b>몸통과 버튼 덮개를 무엇으로 만들지, 덮개를 얹은 뒤에도 딸깍이 살아 있을지. 클립 스프링의 재료. 목을 구부러지는 관으로 할지 관절로 할지. 나중에 배터리를 갈 수 있게 한다면 배터리 칸의 덮개는 한 방향으로만 닫혀야 한다.</div>
+        <div><b>다음 단계</b><a href="materials.html">7장</a>: 몸통·클립·목의 재료 후보와 무게, 강성, 촉감.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>조작은 손과 물건의 대화다. 좋은 조작 장치는 무엇을 할지(실행의 간극)와 무슨 일이 일어났는지(평가의 간극)를 모두 좁힌다. 로커·노브·슬라이더는 상태를 형태로 보여 주고, 누름 버튼은 보여 주지 않는다.</li>
+      <li>클릭감은 힘–변위 곡선의 낙차에서 나온다. 클릭비 = (최고 힘 − 최저 힘) ÷ 최고 힘. 너무 작으면 물렁하고, 최저 힘이 너무 작으면 버튼이 잘 돌아오지 않는다. 곡선은 덮개를 얹은 상태로 확인한다.</li>
+      <li>어둠에서 쓰는 버튼은 손끝을 위한 시그니파이어가 필요하다. 오목한 버튼은 턱으로 찾고 기울기로 이끌며, 표면보다 낮아 잘못 눌리지 않는다. 볼록한 버튼은 찾기 쉽지만 잘못 눌리기 쉽다.</li>
+      <li>조작 장치의 배치가 대상의 배치를 닮으면(자연스러운 매핑) 표시 없이도 맞힌다. 표시는 매핑의 실패를 메울 뿐 실수를 없애지 못한다. 방향 관습(시계 방향 = 증가 등)은 문화에 따라 다르다.</li>
+      <li>버튼 하나에 기능이 여럿이면 상태 기계로 그려 본다. 모드와 판정(길게, 두 번)이 늘수록 경계 근처의 실수가 는다. 판정 시간은 짧으면 오판이, 길면 기다림과 포기가 는다.</li>
+      <li>피드백은 0.1초 안에 오는 것이 기본이다(Miller 1968 이후의 경험칙). 빛은 보는 사람에게, 소리는 방 안의 모두에게, 손끝의 딸깍은 누른 사람에게만 간다. 상황에 맞는 통로를 고른다.</li>
+      <li>포카요케는 실수를 형태로 막는다. 한 방향만 맞게 하거나(키 홈), 어느 방향이든 맞게 한다(USB-C). 틀린 방향이 조용히 받아들여지는 형태는 피한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 어떤 돔 스위치의 최고 힘이 2.5 N, 꺼진 직후의 최저 힘이 1.4 N이다. 클릭비와 그 의미로 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">56%. 최저 힘을 최고 힘으로 나눈 값이 클수록 딸깍이 또렷하다.</button>
+          <button class="opt" data-correct>약 44%. 힘의 낙차가 최고 힘의 절반 가까이라 손끝에 또렷한 딸깍이 전해진다.</button>
+          <button class="opt">1.1 N. 낙차가 1 N을 넘으면 손끝이 아프다.</button>
+          <button class="opt">179%. 최고 힘이 최저 힘보다 크므로 버튼이 돌아오지 않는다.</button>
+        </div>
+        <div class="quiz-exp">클릭비 = (2.5 − 1.4) ÷ 2.5 = 0.44, 곧 44%다. 클릭비는 낙차를 최고 힘에 대한 비율로 나타낸 것이라 단위가 없다. 최저 힘 ÷ 최고 힘(56%)은 낙차가 아니라 남은 힘의 비율이다. 최저 힘 1.4 N은 버튼을 밀어 올리기에 충분하다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 화구가 앞뒤 두 줄로 네 개인 가스레인지에서 손잡이 네 개가 앞쪽에 한 줄로 나란히 있다. 잘못 켜는 실수를 줄이는 가장 근본적인 방법은?</p>
+        <div class="opts">
+          <button class="opt">손잡이마다 "왼쪽 뒤", "왼쪽 앞" 같은 글자를 크게 인쇄한다.</button>
+          <button class="opt">손잡이를 더 크게 만들어 잡기 쉽게 한다.</button>
+          <button class="opt" data-correct>손잡이의 배치를 화구의 배치와 닮게 한다(뒤 화구의 손잡이는 뒤쪽에, 앞 화구는 앞쪽에 엇갈려 놓거나 2×2로 놓는다).</button>
+          <button class="opt">손잡이를 시계 반대 방향으로 돌려야 켜지게 바꾼다.</button>
+        </div>
+        <div class="quiz-exp">자연스러운 매핑은 배치 자체가 대응을 알려 주므로 따로 읽을 필요가 없다. 글자 표시는 도움이 되지만 사람은 급할 때 읽지 않는다. 손잡이의 크기나 돌리는 방향은 "어느 손잡이가 어느 화구인가"의 문제를 풀지 못한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 버튼 하나로 "짧게 = 켜기·끄기, 두 번 = 색 바꾸기"를 하는 등에서, 짧게 누를 때마다 등이 반 박자 늦게 켜진다는 불만이 나왔다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>첫 누름 뒤에 두 번째 누름이 오는지 판정 창만큼 기다려야 "짧게"로 확정할 수 있기 때문이다.</button>
+          <button class="opt">돔의 클릭비가 너무 커서 회로가 늦게 닫히기 때문이다.</button>
+          <button class="opt">"길게" 판정 시간이 너무 짧기 때문이다.</button>
+          <button class="opt">LED는 원래 켜지는 데 0.5초쯤 걸리기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">"두 번 누르기"가 있으면 첫 누름만으로는 짧게인지 두 번의 첫 번째인지 알 수 없다. 그래서 회로는 판정 창이 지날 때까지 기다린 뒤에 켜기를 실행한다. 기능 하나를 더 넣은 대가가 모든 짧은 누름의 지연으로 나타난 것이다. LED 자체는 거의 즉시 켜진다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 배터리 칸 덮개가 앞뒤 대칭이라 거꾸로도 닫히는데, 거꾸로 닫으면 접점이 닿지 않아 등이 켜지지 않는다. 이 형태의 가장 큰 문제와 고치는 방향으로 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">덮개가 쉽게 닫히는 것이 문제다. 닫는 힘을 크게 한다.</button>
+          <button class="opt">문제없다. 설명서에 방향을 적으면 된다.</button>
+          <button class="opt">덮개가 대칭이라 보기 좋으니 그대로 두고, 등이 켜지지 않을 때 깜빡이게 한다.</button>
+          <button class="opt" data-correct>틀린 방향이 조용히 받아들여진다. 한쪽 턱을 넓히는 등 비대칭으로 거꾸로는 닫히지 않게 하거나, 어느 방향으로 닫아도 접점이 닿게 만든다.</button>
+        </div>
+        <div class="quiz-exp">조용한 오류는 사용자가 원인을 알 수 없어 "고장"이라는 결론으로 이어진다. 포카요케는 틀린 방향을 막거나(키 홈), 어느 방향이든 맞게 하는(USB-C처럼) 두 길이 있다. 설명서나 경고 표시는 형태로 막는 것보다 약하다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  var H = function (id, ratio, lo, hi, bg) { var o = { get height() { var el = document.getElementById(id); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(hi, Math.max(lo, w * ratio))); } }; if (bg) o.bg = bg; return o; };
+  function lognorm(R, median, s) { var u = Math.max(1e-9, R()), v = R(); return median * Math.exp(s * Math.sqrt(-2 * Math.log(u)) * Math.cos(6.283185 * v)); }
+
+  /* ---------------- 시뮬레이터 1: 클릭감 편집기 ---------------- */
+  safe("ft", function () {
+    var PRE = {
+      metal: { pk: [0.12, 2.5], mn: [0.21, 1.4], T: 0.3 },
+      rubber: { pk: [0.55, 1.6], mn: [0.85, 1.25], T: 1.1 },
+      linear: { pk: [0.5, 1.0], mn: [0.9, 1.7], T: 1.0 }
+    };
+    var st = JSON.parse(JSON.stringify(PRE.metal)), geo = null, act = null, XM = 1.2, YM = 5;
+    var pre = AB.seg("ft-pre", function (v) { st = JSON.parse(JSON.stringify(PRE[v])); cv.redraw(); });
+    var ret = AB.check("ft-ret", function () { cv.redraw(); });
+    function smooth(t) { return t * t * (3 - 2 * t); }
+    function force(x) {
+      var pk = st.pk, mn = st.mn, T = st.T;
+      if (x <= pk[0]) return pk[1] * Math.pow(x / pk[0], 0.75);
+      if (x <= mn[0]) return pk[1] + (mn[1] - pk[1]) * smooth((x - pk[0]) / (mn[0] - pk[0]));
+      if (x <= T) return mn[1] + (Math.min(YM, mn[1] + 0.6) - mn[1]) * Math.pow((x - mn[0]) / (T - mn[0]), 1.6);
+      return NaN;
+    }
+    var cv = AB.canvas("#ft-cv", function (ctx, w, h) {
+      var p = AB.palette();
+      var box = { x: 46, y: 30, w: w - 62, h: h - 80 };
+      var data = [], back = [];
+      for (var x = 0; x <= st.T + 1e-9; x += st.T / 200) { data.push([x, force(x)]); }
+      data.push([st.T, YM]);  // 바닥에 닿음: 벽
+      for (var x2 = 0; x2 <= st.T + 1e-9; x2 += st.T / 200) back.push([x2, Math.max(0, force(x2) * 0.82 - 0.1)]);
+      var series = [{ data: data, color: p.accent, width: 2.8 }];
+      if (ret()) series.push({ data: back, color: p.faint, width: 1.5, dash: [5, 4] });
+      var c = AB.chart(ctx, box, { x: [0, XM], y: [0, YM], xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], yTicks: [0, 1, 2, 3, 4, 5], xFmt: function (v) { return v.toFixed(1); }, yFmt: function (v) { return v + " N"; }, xLabel: "누른 깊이(mm)", series: series });
+      // 딸깍 구간
+      if (st.pk[1] > st.mn[1]) {
+        ctx.fillStyle = p.accent; ctx.globalAlpha = 0.08; ctx.fillRect(c.X(st.pk[0]), box.y, c.X(st.mn[0]) - c.X(st.pk[0]), box.h); ctx.globalAlpha = 1;
+        ctx.strokeStyle = p.accent2; ctx.lineWidth = 1.5; ctx.setLineDash([3, 3]);
+        ctx.beginPath(); ctx.moveTo(c.X(st.mn[0]) + 10, c.Y(st.pk[1])); ctx.lineTo(c.X(st.mn[0]) + 10, c.Y(st.mn[1])); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = p.accent2; ctx.font = AB.font(11, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+        ctx.fillText("낙차", c.X(st.mn[0]) + 14, c.Y((st.pk[1] + st.mn[1]) / 2));
+      }
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("반발력", box.x + 4, box.y - 6);
+      if (ret()) { ctx.textAlign = "right"; ctx.fillText("점선: 손을 뗄 때", box.x + box.w, box.y - 6); }
+      // 손잡이
+      AB.handle(ctx, c.X(st.pk[0]), c.Y(st.pk[1]), { r: 7, fill: p.accent, ring: p.text });
+      AB.handle(ctx, c.X(st.mn[0]), c.Y(st.mn[1]), { r: 7, fill: p.accent2, ring: p.text });
+      AB.handle(ctx, c.X(st.T), c.Y(0), { r: 7, fill: p.surface, ring: p.text });
+      ctx.fillStyle = p.text; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.fillText("최고", c.X(st.pk[0]), c.Y(st.pk[1]) - 10);
+      ctx.textBaseline = "top"; ctx.fillText("최저", c.X(st.mn[0]), c.Y(st.mn[1]) + 10);
+      ctx.textBaseline = "bottom"; ctx.fillText("바닥", c.X(st.T), c.Y(0) - 10);
+      geo = { c: c };
+      var ratio = Math.max(0, (st.pk[1] - st.mn[1]) / st.pk[1]), Fp = Math.max(st.pk[1], st.mn[1]);
+      var feel;
+      if (st.pk[1] < 1.0) feel = "스치기만 해도 눌린다";
+      else if (Fp > 4) feel = "뻑뻑하다 <small>손끝이 아프다</small>";
+      else if (ratio < 0.15) feel = "물렁하다 <small>눌렸는지 모른다</small>";
+      else if (st.mn[1] < 0.3) feel = "툭 꺼진다 <small>잘 안 돌아온다</small>";
+      else if (ratio < 0.3) feel = "약한 딸깍";
+      else if (ratio <= 0.6) feel = "또렷한 딸깍";
+      else feel = "툭 꺼지는 딸깍";
+      AB.stat("ft-o-p", AB.fix(Fp, 1) + " N");
+      AB.stat("ft-o-r", AB.pct(ratio, 0));
+      AB.stat("ft-o-t", AB.fix(st.T, 2) + " mm");
+      AB.stat("ft-o-f", feel);
+    }, H("ft-cv", 0.58, 280, 380));
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!geo) return; var c = geo.c, best = null, bd = 1e9;
+        [["pk", c.X(st.pk[0]), c.Y(st.pk[1])], ["mn", c.X(st.mn[0]), c.Y(st.mn[1])], ["T", c.X(st.T), c.Y(0)]].forEach(function (q) { var d = Math.hypot(q[1] - x, q[2] - y); if (d < bd) { bd = d; best = q[0]; } });
+        act = best;
+      },
+      move: function (x, y) {
+        if (!geo || !act) return; var c = geo.c;
+        var vx = (x - c.box.x) / c.box.w * XM, vy = AB.clamp((c.box.y + c.box.h - y) / c.box.h * YM, 0.1, 4.8);
+        if (act === "pk") { st.pk[0] = AB.clamp(vx, 0.03, st.mn[0] - 0.02); st.pk[1] = vy; }
+        else if (act === "mn") { st.mn[0] = AB.clamp(vx, st.pk[0] + 0.02, st.T - 0.03); st.mn[1] = vy; }
+        else { st.T = AB.clamp(vx, st.mn[0] + 0.03, XM); }
+        cv.redraw();
+      },
+      end: function () { act = null; }
+    });
+    void pre;
+  });
+
+  /* ---------------- 시뮬레이터 2: 어둠 속에서 버튼 찾기 ---------------- */
+  safe("dish", function () {
+    var RB = 5, FIND = { flat: 5, convex: 6.5, concave: 8 }, ACC = { flat: 5, convex: 7, concave: 3 }, AREA = 900;
+    var shape = AB.seg("ds-shape", function () { cv.redraw(); });
+    var sG = AB.range("ds-s", function (v) { return AB.fix(v, 1) + " mm"; }, function () { cv.redraw(); });
+    // 고정 난수 표본(표준정규 2차원)
+    var R = AB.rng(606), PTS = [];
+    for (var i = 0; i < 200; i++) { var u = Math.max(1e-9, R()), v = R(), m = Math.sqrt(-2 * Math.log(u)); PTS.push([m * Math.cos(6.283185 * v), m * Math.sin(6.283185 * v)]); }
+    var cv = AB.canvas("#ds-cv", function (ctx, w, h) {
+      var sh = shape(), sg = sG();
+      var BODY = "#2f7d5b", BODY_D = "#245f46", BODY_L = "#4c9a76", INK = "#2b2a30", HIT = "#f2d27a", MISS = "#e86a5a";
+      var topH = h * 0.66, sc = Math.min(w * 0.9, topH * 1.25) / 50, cx = w / 2, cy = topH / 2 + 4;
+      // 몸통 윗면(50 × 40 mm 영역)
+      var bw = 46 * sc, bh = 34 * sc;
+      ctx.fillStyle = BODY; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(cx - bw / 2, cy - bh / 2, bw, bh, 8 * sc) : ctx.rect(cx - bw / 2, cy - bh / 2, bw, bh); ctx.fill();
+      // 찾기 범위
+      ctx.strokeStyle = "rgba(255,255,255,0.55)"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(cx, cy, FIND[sh] * sc, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+      // 버튼
+      var g = ctx.createRadialGradient(cx - RB * sc * 0.3, cy - RB * sc * 0.3, 1, cx, cy, RB * sc);
+      if (sh === "convex") { g.addColorStop(0, BODY_L); g.addColorStop(1, BODY_D); }
+      else if (sh === "concave") { g.addColorStop(0, BODY_D); g.addColorStop(1, BODY_L); }
+      else { g.addColorStop(0, BODY); g.addColorStop(1, BODY); }
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, RB * sc, 0, 7); ctx.fill();
+      ctx.strokeStyle = sh === "flat" ? "rgba(0,0,0,0.18)" : "rgba(0,0,0,0.45)"; ctx.lineWidth = sh === "flat" ? 1 : 2; ctx.stroke();
+      if (sh === "concave") { ctx.strokeStyle = "rgba(255,255,255,0.35)"; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(cx, cy, RB * sc + 2, Math.PI * 0.1, Math.PI * 0.9); ctx.stroke(); }
+      // 첫 닿은 점
+      var found = 0;
+      PTS.forEach(function (q) {
+        var dx = q[0] * sg, dy = q[1] * sg, d = Math.hypot(dx, dy), ok = d <= FIND[sh];
+        if (ok) found++;
+        var px = cx + dx * sc, py = cy + dy * sc;
+        if (px < 2 || px > w - 2 || py < 2 || py > topH - 2) return;
+        ctx.fillStyle = ok ? HIT : MISS; ctx.globalAlpha = 0.9; ctx.beginPath(); ctx.arc(px, py, 2.6, 0, 7); ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      // 아래: 단면
+      var sy = topH + (h - topH) * 0.55, half = 22 * sc;
+      ctx.fillStyle = BODY; ctx.beginPath();
+      ctx.moveTo(cx - half, sy);
+      var prof = function (xm) { var a = Math.abs(xm); if (a > RB) return 0; var k = 1 - (a / RB) * (a / RB); return sh === "convex" ? -0.9 * k : sh === "concave" ? 0.6 * k : 0; };
+      for (var xm = -22; xm <= 22.001; xm += 0.25) ctx.lineTo(cx + xm * sc, sy + prof(xm) * sc * 2.2);
+      ctx.lineTo(cx + half, sy + 7 * sc); ctx.lineTo(cx - half, sy + 7 * sc); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = INK; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx - RB * sc, sy + 3 * sc); ctx.lineTo(cx - RB * sc, sy + 7 * sc); ctx.moveTo(cx + RB * sc, sy + 3 * sc); ctx.lineTo(cx + RB * sc, sy + 7 * sc); ctx.stroke();
+      // 손끝
+      ctx.fillStyle = "#e8b894"; ctx.strokeStyle = "#c98f68"; ctx.lineWidth = 1.2;
+      var fy = sy + prof(0) * sc * 2.2 - 6 * sc;
+      ctx.beginPath(); ctx.ellipse(cx, fy, 7 * sc, 6 * sc, 0, 0, 7); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = INK; ctx.font = AB.font(11, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText({ flat: "평평: 단서 없음", convex: "볼록: 솟아 있다", concave: "오목: 턱 + 기울기" }[sh], 8, topH + 4);
+      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(10); ctx.textAlign = "right"; ctx.textBaseline = "top";
+      ctx.fillText("● 한 번에 찾음  ● 빗나감", w - 8, 6);
+      ctx.fillStyle = HIT; ctx.fillText("●", w - 8 - ctx.measureText(" 한 번에 찾음  ● 빗나감").width, 6);
+      // 판단
+      var pf = 1 - Math.exp(-FIND[sh] * FIND[sh] / (2 * sg * sg)), pa = Math.PI * ACC[sh] * ACC[sh] / AREA;
+      AB.stat("ds-o-f", AB.pct(pf, 0) + " <small>표본 " + found + "/200</small>");
+      AB.stat("ds-o-a", AB.pct(pa, 0) + " <small>쥘 때마다</small>");
+      AB.stat("ds-o-v", sh === "concave" ? "찾기 쉽고 덜 눌린다" : sh === "convex" ? "찾기 쉽지만 잘 눌린다" : "찾기 어렵다");
+    }, H("ds-cv", 0.66, 300, 420, "#fbfaf7"));
+  });
+
+  /* ---------------- 시뮬레이터 3: 손잡이 배치와 실수 ---------------- */
+  safe("map", function () {
+    // 화구: 0 왼뒤, 1 오른뒤, 2 왼앞, 3 오른앞 (캔버스 비율 좌표)
+    var BURN = [[0.3, 0.2], [0.7, 0.2], [0.3, 0.5], [0.7, 0.5]], NAMES = ["왼쪽 뒤", "오른쪽 뒤", "왼쪽 앞", "오른쪽 앞"];
+    var PRE = {
+      row: [[0.2, 0.86], [0.8, 0.86], [0.4, 0.86], [0.6, 0.86]],
+      stagger: [[0.2, 0.8], [0.8, 0.8], [0.4, 0.92], [0.6, 0.92]],
+      grid: [[0.4, 0.8], [0.6, 0.8], [0.4, 0.92], [0.6, 0.92]]
+    };
+    var K = PRE.row.map(function (q) { return q.slice(); }), geo = null, act = -1, runs = 0, last = null;
+    var pre = AB.seg("mp-pre", function (v) { K = PRE[v].map(function (q) { return q.slice(); }); last = null; cv.redraw(); });
+    var lab = AB.check("mp-lab", function () { last = null; cv.redraw(); });
+    function norm(pts) {
+      var xs = pts.map(function (q) { return q[0]; }), ys = pts.map(function (q) { return q[1]; });
+      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+      return pts.map(function (q) { return [x1 - x0 < 0.03 ? 0.5 : (q[0] - x0) / (x1 - x0), y1 - y0 < 0.03 ? 0.5 : (q[1] - y0) / (y1 - y0)]; });
+    }
+    function choices(b) { // 화구 b에 대해 공간 유추로 고를 손잡이 후보
+      var nb = norm(BURN)[b], nk = norm(K);
+      var ds = nk.map(function (q, i) { return [Math.hypot(q[0] - nb[0], q[1] - nb[1]), i]; }).sort(function (a, c) { return a[0] - c[0]; });
+      var amb = ds[1][0] - ds[0][0] < 0.25 * ds[1][0];
+      return { best: ds[0][1], second: ds[1][1], amb: amb };
+    }
+    function stats() {
+      var match = 0, amb = 0;
+      for (var b = 0; b < 4; b++) { var c = choices(b); if (c.amb) { amb++; } else if (c.best === b) match++; }
+      return { match: match, amb: amb };
+    }
+    function run() {
+      runs++; var R = AB.rng(1959 + runs * 7), err = 0, log = [0, 0, 0, 0];
+      for (var t = 0; t < 40; t++) {
+        var b = Math.floor(R() * 4), pick;
+        if (lab() && R() < 0.85) pick = b;
+        else { var c = choices(b); pick = c.amb ? (R() < 0.5 ? c.best : c.second) : c.best; }
+        if (pick !== b) { err++; log[b]++; }
+      }
+      last = { err: err, log: log };
+      cv.redraw();
+    }
+    document.getElementById("mp-run").addEventListener("click", run);
+    var cv = AB.canvas("#mp-cv", function (ctx, w, h) {
+      var p = AB.palette(), S = stats();
+      // 조리대
+      ctx.fillStyle = p.surface; ctx.strokeStyle = p.border; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.rect(w * 0.08, h * 0.04, w * 0.84, h * 0.66); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.rect(w * 0.08, h * 0.72, w * 0.84, h * 0.26); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("뒤", w * 0.08 + 6, h * 0.04 + 4); ctx.fillText("앞(사용자 쪽)", w * 0.08 + 6, h * 0.70 - 14);
+      var rr = Math.min(w, h) * 0.1;
+      BURN.forEach(function (q, i) {
+        var bad = last && last.log[i] > 0;
+        ctx.strokeStyle = bad ? p.bad : p.text; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(q[0] * w, q[1] * h, rr, 0, 7); ctx.stroke();
+        ctx.beginPath(); ctx.arc(q[0] * w, q[1] * h, rr * 0.55, 0, 7); ctx.stroke();
+        ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(NAMES[i], q[0] * w, q[1] * h);
+        if (bad) { ctx.fillStyle = p.bad; ctx.font = AB.font(11, true, 700); ctx.fillText("✕" + last.log[i], q[0] * w + rr + 14, q[1] * h - rr * 0.6); }
+      });
+      // 손잡이
+      var kr = Math.max(11, Math.min(w, h) * 0.045);
+      K.forEach(function (q, i) {
+        var x = q[0] * w, y = q[1] * h, ch = choices(i);
+        ctx.fillStyle = p.bg; ctx.strokeStyle = ch.amb ? p.warn : (ch.best === i ? p.ok : p.bad); ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(x, y, kr, 0, 7); ctx.fill(); ctx.stroke();
+        ctx.strokeStyle = p.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - kr * 0.8); ctx.stroke();
+        if (lab()) { // 2×2 작은 그림
+          var s = kr * 0.32;
+          for (var j = 0; j < 4; j++) { ctx.fillStyle = j === i ? p.accent : p.faint; ctx.fillRect(x + kr + 3 + (j % 2) * (s + 1), y - s + Math.floor(j / 2) * (s + 1), s, s); }
+        }
+      });
+      geo = { w: w, h: h, kr: kr };
+      AB.stat("mp-o-m", S.match + " / 4");
+      AB.stat("mp-o-a", S.amb ? S.amb + "개 <small>반반으로 고른다</small>" : "없음");
+      AB.stat("mp-o-e", last ? last.err + " / 40 <small>" + AB.pct(last.err / 40, 0) + "</small>" : "— <small>버튼을 누른다</small>");
+    }, H("mp-cv", 0.66, 300, 420));
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!geo) return; act = -1; var bd = 1e9; K.forEach(function (q, i) { var d = Math.hypot(q[0] * geo.w - x, q[1] * geo.h - y); if (d < bd && d < geo.kr * 2.2) { bd = d; act = i; } }); },
+      move: function (x, y) { if (!geo || act < 0) return; K[act] = [AB.clamp(x / geo.w, 0.06, 0.94), AB.clamp(y / geo.h, 0.06, 0.95)]; last = null; cv.redraw(); },
+      end: function () { act = -1; }
+    });
+    void pre;
+  });
+
+  /* ---------------- 시뮬레이터 4: 버튼 하나의 규칙 ---------------- */
+  safe("fsm", function () {
+    var design = AB.seg("fs-design", function () { reset(); cv.redraw(); });
+    var thG = AB.range("fs-th", function (v) { return v + " ms"; }, function () { cv.redraw(); });
+    var LEVELS = [0, 0.33, 0.66, 1], DBL = 350, RAMP = 2000, MINB = 0.1;
+    var S = { on: false, b: 0.6, dir: 1, cyc: 0, warm: true }, press = null, timer = 0, pend = 0, msg = "", result = null, runs = 0;
+    function reset() { S = { on: false, b: 0.6, dir: 1, cyc: 0, warm: true }; msg = ""; result = null; clearInterval(timer); clearTimeout(pend); pend = 0; press = null; }
+    function stateText() {
+      var d = design();
+      if (d === "cycle") return ["끔", "약", "중", "강"][S.cyc];
+      if (!S.on) return "끔";
+      return "켬 · 밝기 " + Math.round(S.b * 100) + "%" + (d === "multi" ? (S.warm ? " · 따뜻한 빛" : " · 흰 빛") : "");
+    }
+    function shortAct() { if (design() === "cycle") S.cyc = (S.cyc + 1) % 4; else S.on = !S.on; }
+    function rampTick(dt) {
+      if (!S.on) { S.on = true; S.b = MINB; S.dir = 1; }
+      S.b += S.dir * dt / RAMP * (1 - MINB);
+      if (S.b >= 1) { S.b = 1; S.dir = -1; msg = "끝: 깜빡"; } else if (S.b <= MINB) { S.b = MINB; S.dir = 1; msg = "끝: 깜빡"; }
+    }
+    // 손으로 누르기
+    function down() {
+      if (press) return;
+      press = { t0: performance.now(), long: false };
+      if (design() !== "cycle") {
+        var lastT = performance.now();
+        timer = setInterval(function () {
+          var now = performance.now();
+          if (!press) return;
+          if (now - press.t0 >= thG()) { if (!press.long) { press.long = true; msg = "길게"; if (pend) { clearTimeout(pend); pend = 0; } } rampTick(now - lastT); cv.redraw(); }
+          lastT = now;
+        }, 30);
+      }
+      cv.redraw();
+    }
+    function up() {
+      if (!press) return;
+      clearInterval(timer);
+      var dur = performance.now() - press.t0, d = design();
+      if (d === "cycle") { shortAct(); msg = "누름"; }
+      else if (!press.long) {
+        if (d === "multi") {
+          if (pend) { clearTimeout(pend); pend = 0; S.warm = !S.warm; msg = "두 번 → 색 바꿈"; }
+          else { msg = "짧게?(두 번인지 기다림)"; pend = setTimeout(function () { pend = 0; shortAct(); msg = "짧게"; cv.redraw(); }, DBL); }
+        } else { shortAct(); msg = "짧게 (" + Math.round(dur) + " ms)"; }
+      } else { S.dir = -S.dir; msg = "길게 끝 (" + Math.round(dur) + " ms)"; }
+      press = null; cv.redraw();
+    }
+    // 가상 사용자
+    function simulate() {
+      runs++; var R = AB.rng(4242 + runs * 13), d = design(), thr = thG();
+      var st = { on: false, b: 0.6, cyc: 0, warm: true }, err = 0, via = 0, time = 0;
+      function shortDur() { return lognorm(R, 180, 0.45); }
+      function giveUp() { return thr > 700 && R() < Math.min(0.6, (thr - 700) / 1000); }
+      for (var t = 0; t < 30; t++) {
+        // 과제 고르기
+        var opts = [];
+        if (d === "cycle") {
+          var target = Math.floor(R() * 4); if (target === st.cyc) target = (target + 1 + Math.floor(R() * 3)) % 4;
+          var n = (target - st.cyc + 4) % 4;
+          for (var k = 0; k < n; k++) { time += 0.5; }
+          via += Math.max(0, n - 1);
+          if (n > 1 && R() < 0.05 * (n - 1)) { err++; via += 4; time += 2.0; } // 한 번 더 눌러 한 바퀴 더
+          st.cyc = target;
+          continue;
+        }
+        if (!st.on) opts.push("on"); else { opts.push("off"); opts.push("bright"); if (d === "multi") opts.push("color"); }
+        var task = opts[Math.floor(R() * opts.length)];
+        if (task === "on" || task === "off") {
+          var dur = shortDur(), ok = true;
+          if (dur >= thr) { ok = false; err++; time += thr / 1000 + 0.6; } // 길게로 판정: 밝기가 움직임 → 다시
+          time += dur / 1000 + 0.3 + (d === "multi" ? DBL / 1000 : 0);
+          st.on = !st.on; void ok;
+        } else if (task === "bright") {
+          var target2 = MINB + R() * (1 - MINB), diff = Math.abs(target2 - st.b), wrongDir = R() < 0.5;
+          if (giveUp()) { err++; time += 0.7 + 0.8; st.on = !st.on; st.on = !st.on; } // 기다리다 손을 뗌 → 꺼짐, 다시 켬
+          var travel = wrongDir ? (2 * (1 - MINB) - diff) : diff;
+          time += thr / 1000 + travel / (1 - MINB) * RAMP / 1000 + 0.3;
+          st.b = target2;
+        } else if (task === "color") {
+          var gap = lognorm(R, 230, 0.35), d1 = shortDur(), d2 = shortDur();
+          if (gap > DBL || d1 >= thr || d2 >= thr) { err++; time += 1.2; }
+          time += (d1 + gap + d2) / 1000 + 0.3;
+          st.warm = !st.warm;
+        }
+      }
+      result = { err: err, via: via, time: time / 30 };
+      cv.redraw();
+    }
+    document.getElementById("fs-run").addEventListener("click", simulate);
+
+    var geo = null;
+    var cv = AB.canvas("#fs-cv", function (ctx, w, h) {
+      var p = AB.palette(), d = design(), narrow = w < 520;
+      var lampW = narrow ? w : w * 0.42, lampH = narrow ? h * 0.42 : h;
+      // 등과 버튼
+      var lx = lampW / 2, ly = lampH * 0.36, lit = d === "cycle" ? LEVELS[S.cyc] : (S.on ? S.b : 0);
+      var warmCol = d === "multi" && !S.warm ? "255,248,232" : "255,214,128";
+      if (lit > 0) { var g = ctx.createRadialGradient(lx, ly, 2, lx, ly, lampH * 0.42); g.addColorStop(0, "rgba(" + warmCol + "," + (0.25 + 0.65 * lit) + ")"); g.addColorStop(1, "rgba(" + warmCol + ",0)"); ctx.fillStyle = g; ctx.fillRect(0, 0, lampW, lampH); }
+      ctx.fillStyle = lit > 0 ? "rgb(" + warmCol + ")" : p.faint; ctx.beginPath(); ctx.arc(lx, ly, Math.min(lampW, lampH) * 0.1, 0, 7); ctx.fill();
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.stroke();
+      var bx = lx, by = lampH * 0.74, br = Math.min(lampW, lampH) * 0.1;
+      ctx.fillStyle = press ? p.accent : p.surface; ctx.strokeStyle = p.text; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.arc(bx, by, br, 0, 7); ctx.fill(); ctx.stroke();
+      if (press) { var held = performance.now() - press.t0, frac = Math.min(1, held / thG()); ctx.strokeStyle = p.accent2; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(bx, by, br + 6, -Math.PI / 2, -Math.PI / 2 + frac * 2 * Math.PI); ctx.stroke(); }
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText(msg || "버튼", bx, by + br + 10);
+      // 상태 그림
+      var ox = narrow ? 0 : lampW, oy = narrow ? lampH : 0, ow = narrow ? w : w - lampW, oh = narrow ? h - lampH : h;
+      ctx.strokeStyle = p.border; ctx.lineWidth = 1; ctx.beginPath(); if (narrow) { ctx.moveTo(10, oy); ctx.lineTo(w - 10, oy); } else { ctx.moveTo(ox, 10); ctx.lineTo(ox, h - 10); } ctx.stroke();
+      function node(x, y, label, on) {
+        ctx.fillStyle = on ? p.accent : p.surface; ctx.strokeStyle = on ? p.accent : p.text; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(x, y, 24, 0, 7); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = on ? "#ffffff" : p.text; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(label, x, y);
+      }
+      function arrow(x1, y1, x2, y2, label, bend) {
+        var mx = (x1 + x2) / 2 + (bend || 0) * (y2 - y1) / 4, my = (y1 + y2) / 2 - (bend || 0) * (x2 - x1) / 4;
+        var a = Math.atan2(y2 - my, x2 - mx), ex = x2 - Math.cos(a) * 27, ey = y2 - Math.sin(a) * 27;
+        var a0 = Math.atan2(my - y1, mx - x1), sx = x1 + Math.cos(a0) * 26, sy = y1 + Math.sin(a0) * 26;
+        ctx.strokeStyle = p.dim; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.quadraticCurveTo(mx, my, ex, ey); ctx.stroke();
+        ctx.fillStyle = p.dim; ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(ex - 9 * Math.cos(a - 0.4), ey - 9 * Math.sin(a - 0.4)); ctx.lineTo(ex - 9 * Math.cos(a + 0.4), ey - 9 * Math.sin(a + 0.4)); ctx.closePath(); ctx.fill();
+        if (label) { ctx.fillStyle = p.text; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "middle"; var tw = ctx.measureText(label).width + 6; ctx.fillStyle = p.bg; ctx.fillRect((sx + ex) / 2 * 0.5 + mx * 0.5 - tw / 2, (sy + ey) / 2 * 0.5 + my * 0.5 - 8, tw, 16); ctx.fillStyle = p.text; ctx.fillText(label, (sx + ex) / 2 * 0.5 + mx * 0.5, (sy + ey) / 2 * 0.5 + my * 0.5); }
+      }
+      function loop(x, y, label) {
+        ctx.strokeStyle = p.dim; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y - 34, 14, Math.PI * 0.75, Math.PI * 2.25); ctx.stroke();
+        ctx.fillStyle = p.text; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText(label, x, y - 50);
+      }
+      var cx = ox + ow / 2, cy = oy + oh / 2;
+      if (d === "cycle") {
+        var rx = Math.min(ow * 0.32, 110), ry = Math.min(oh * 0.3, 90), P = [[cx, cy - ry], [cx + rx, cy], [cx, cy + ry], [cx - rx, cy]];
+        for (var i = 0; i < 4; i++) arrow(P[i][0], P[i][1], P[(i + 1) % 4][0], P[(i + 1) % 4][1], "누름", 0.6);
+        ["끔", "약", "중", "강"].forEach(function (s, i) { node(P[i][0], P[i][1], s, S.cyc === i); });
+      } else {
+        var dx = Math.min(ow * 0.28, 100), A = [cx - dx, cy + (d === "multi" ? 20 : 10)], B = [cx + dx, cy + (d === "multi" ? 20 : 10)];
+        arrow(A[0], A[1], B[0], B[1], "짧게", 0.5);
+        arrow(B[0], B[1], A[0], A[1], "짧게", 0.5);
+        loop(B[0], B[1], d === "multi" ? "길게: 밝기 · 두 번: 색" : "길게: 밝기 ↕");
+        node(A[0], A[1], "끔", !S.on);
+        node(B[0], B[1], "켬", S.on);
+        ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText("끔에서 길게: 가장 어둡게 켜짐", cx, Math.min(oy + oh - 18, B[1] + 66));
+        if (d === "multi") { ctx.fillStyle = p.warn; ctx.fillText("짧게는 " + DBL + " ms 기다린 뒤에 실행", cx, Math.min(oy + oh - 18, B[1] + 84) - 0); }
+      }
+      geo = { bx: bx, by: by, br: br };
+      AB.stat("fs-o-st", stateText());
+      AB.stat("fs-o-err", result ? result.err + " / 30" : "— <small>과제를 돌린다</small>");
+      AB.stat("fs-o-via", result ? result.via + "번" : "—");
+      AB.stat("fs-o-t", result ? AB.fix(result.time, 1) + "초" : "—");
+    }, { get height() { var el = document.getElementById("fs-cv"), w = Math.max(200, el.parentElement.clientWidth || 600); return w < 520 ? Math.round(Math.max(440, w * 1.25)) : Math.round(Math.min(380, Math.max(300, w * 0.55))); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!geo) return; if (Math.hypot(x - geo.bx, y - geo.by) <= geo.br + 14) down(); },
+      end: function () { up(); }
+    });
+    // 판정 시간을 바꾸면 결과를 지운다
+    thG.el.addEventListener("input", function () { result = null; cv.redraw(); });
+  });
+
+  /* ---------------- 시뮬레이터 5: 어둠 속의 피드백 ---------------- */
+  safe("fb", function () {
+    var room = AB.seg("fb-room", function () { cv.redraw(); });
+    var led = AB.check("fb-led", function () { cv.redraw(); });
+    var snd = AB.check("fb-snd", function () { cv.redraw(); });
+    var tac = AB.check("fb-tac", function () { cv.redraw(); });
+    var dG = AB.range("fb-d", function (v) { return v + " ms"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#fb-cv", function (ctx, w, h) {
+      var bed = room() === "bed", delay = dG();
+      var WALL = bed ? "#1c2130" : "#efe6d4", FLOOR = bed ? "#141823" : "#d8c9ad", BED = bed ? "#2c3346" : "#9fb0c4", SHEET = bed ? "#3a4258" : "#e9eef3";
+      var TXT = bed ? "#d8dbe6" : "#2b2a30", DIM = bed ? "#8d93a8" : "#6b6874", SKIN = "#e0b08c", HAIR = "#3a2a22";
+      var sceneH = h * 0.72;
+      ctx.fillStyle = WALL; ctx.fillRect(0, 0, w, sceneH);
+      ctx.fillStyle = FLOOR; ctx.fillRect(0, sceneH * 0.82, w, sceneH * 0.18);
+      // 침대와 머리판
+      var hx = w * 0.12, bedY = sceneH * 0.58;
+      ctx.fillStyle = bed ? "#4a3a2c" : "#8a6a48"; ctx.fillRect(hx - 12, sceneH * 0.22, 14, sceneH * 0.62);
+      ctx.fillStyle = BED; ctx.fillRect(hx, bedY, w * 0.84, sceneH * 0.2);
+      ctx.fillStyle = SHEET; ctx.fillRect(hx + w * 0.22, bedY - sceneH * 0.08, w * 0.62, sceneH * 0.1);
+      // 읽는 사람(왼쪽, 상체를 세움)
+      var rx = hx + w * 0.12;
+      ctx.fillStyle = bed ? "#5a4a6a" : "#7a6aa0"; ctx.beginPath(); ctx.ellipse(rx, bedY - sceneH * 0.08, w * 0.05, sceneH * 0.13, 0, 0, 7); ctx.fill();
+      ctx.fillStyle = SKIN; ctx.beginPath(); ctx.arc(rx, bedY - sceneH * 0.26, sceneH * 0.06, 0, 7); ctx.fill();
+      ctx.fillStyle = HAIR; ctx.beginPath(); ctx.arc(rx, bedY - sceneH * 0.28, sceneH * 0.06, Math.PI, 2 * Math.PI); ctx.fill();
+      // 책
+      ctx.fillStyle = "#f6f1e6"; ctx.fillRect(rx + w * 0.03, bedY - sceneH * 0.16, w * 0.07, sceneH * 0.07);
+      // 독서등(머리판에 집힘)과 빛
+      var lx = hx + 2, ly = sceneH * 0.24;
+      var lg = ctx.createRadialGradient(rx + w * 0.07, bedY - sceneH * 0.13, 2, rx + w * 0.07, bedY - sceneH * 0.13, w * 0.14);
+      lg.addColorStop(0, "rgba(255,214,128," + (bed ? 0.55 : 0.25) + ")"); lg.addColorStop(1, "rgba(255,214,128,0)");
+      ctx.fillStyle = lg; ctx.fillRect(0, 0, w, sceneH);
+      ctx.strokeStyle = "#2f7d5b"; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(lx, ly); ctx.quadraticCurveTo(lx + w * 0.04, ly - sceneH * 0.08, lx + w * 0.08, ly - sceneH * 0.02); ctx.stroke();
+      ctx.fillStyle = "#efe4c8"; ctx.beginPath(); ctx.ellipse(lx + w * 0.09, ly, w * 0.025, sceneH * 0.03, 0.5, 0, 7); ctx.fill();
+      ctx.fillStyle = "#2f7d5b"; ctx.fillRect(lx - 8, ly - 4, 16, 22);
+      // 옆 사람(오른쪽, 누움)
+      var px = hx + w * 0.62, py = bedY - sceneH * 0.04;
+      ctx.fillStyle = SKIN; ctx.beginPath(); ctx.arc(px + w * 0.15, py - sceneH * 0.02, sceneH * 0.05, 0, 7); ctx.fill();
+      ctx.fillStyle = HAIR; ctx.beginPath(); ctx.arc(px + w * 0.155, py - sceneH * 0.035, sceneH * 0.05, Math.PI * 1.1, Math.PI * 2.1); ctx.fill();
+      // 피드백 그리기
+      var disturb = [], know = [];
+      if (led()) {
+        var ledOn = true, glare = bed;
+        ctx.fillStyle = "#7fd18b"; ctx.beginPath(); ctx.arc(lx, ly + 10, 3.5, 0, 7); ctx.fill();
+        if (bed) { var gg = ctx.createRadialGradient(lx, ly + 10, 1, lx, ly + 10, 26); gg.addColorStop(0, "rgba(127,209,139,0.7)"); gg.addColorStop(1, "rgba(127,209,139,0)"); ctx.fillStyle = gg; ctx.fillRect(lx - 30, ly - 20, 60, 60); }
+        if (bed) { know.push("빛"); disturb.push("표시등 눈부심"); } else { know.push("빛(놓치기 쉬움)"); }
+        void ledOn; void glare;
+      }
+      if (snd()) {
+        ctx.strokeStyle = bed ? "#e8c46a" : "#b8862a"; ctx.lineWidth = 2;
+        for (var k = 1; k <= 4; k++) { ctx.globalAlpha = 1 - k * 0.18; ctx.beginPath(); ctx.arc(lx + 10, ly + 6, k * w * 0.09, -0.5, 0.5); ctx.stroke(); }
+        ctx.globalAlpha = 1;
+        know.push("소리");
+        if (bed) { disturb.push("옆 사람이 깬다"); ctx.fillStyle = "#e86a5a"; ctx.font = AB.font(14, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("!", px + w * 0.15, py - sceneH * 0.08); }
+      }
+      if (tac()) {
+        ctx.strokeStyle = bed ? "#f2d27a" : "#b5179e"; ctx.lineWidth = 1.6;
+        for (var m = 0; m < 3; m++) { ctx.beginPath(); ctx.arc(lx + 4, ly + 2, 10 + m * 5, -2.4, -1.4); ctx.stroke(); }
+        know.push("손끝");
+      }
+      if (bed && !snd()) { ctx.fillStyle = DIM; ctx.font = AB.font(12, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("z", px + w * 0.19, py - sceneH * 0.07); ctx.fillText("z", px + w * 0.21, py - sceneH * 0.11); }
+      // 시간 띠
+      var ty = sceneH + (h - sceneH) * 0.5, tx0 = 16, tx1 = w - 16, TM = 1500, X = function (t) { return tx0 + t / TM * (tx1 - tx0); };
+      ctx.fillStyle = "#f4f1ea"; ctx.fillRect(0, sceneH, w, h - sceneH);
+      ctx.fillStyle = "#dfe9d8"; ctx.fillRect(X(0), ty - 10, X(100) - X(0), 20);
+      ctx.fillStyle = "#f3ead2"; ctx.fillRect(X(100), ty - 10, X(1000) - X(100), 20);
+      ctx.fillStyle = "#f3d9d4"; ctx.fillRect(X(1000), ty - 10, X(1500) - X(1000), 20);
+      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [[0, "0"], [100, "0.1초"], [1000, "1초"], [1500, "1.5초"]].forEach(function (q) { ctx.fillText(q[1], X(q[0]), ty + 13); });
+      ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillStyle = "#2b2a30"; ctx.fillText("누름 → 대답", X(0), ty - 12);
+      ctx.fillStyle = "#2b2a30"; ctx.fillRect(X(0) - 1, ty - 12, 2, 24);
+      var anyDelayed = led() || snd();
+      if (anyDelayed) { ctx.fillStyle = "#2f7d5b"; ctx.beginPath(); ctx.arc(X(Math.min(delay, TM)), ty, 6, 0, 7); ctx.fill(); }
+      if (tac()) { ctx.fillStyle = "#b5179e"; ctx.beginPath(); ctx.moveTo(X(0) + 2, ty - 7); ctx.lineTo(X(0) + 10, ty); ctx.lineTo(X(0) + 2, ty + 7); ctx.closePath(); ctx.fill(); }
+      // 다시 누르는 손가락
+      if (delay > 1000 && !tac()) { ctx.fillStyle = TXT; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("또 누른다 → 두 번 눌림", lx + 16, ly + 18); }
+      // 읽기 결과
+      var firstAt = tac() ? 0 : (anyDelayed ? delay : Infinity);
+      AB.stat("fb-o-k", know.length ? know.join(" · ") : "모른다");
+      AB.stat("fb-o-d", disturb.length ? disturb.join(" · ") : "없음");
+      var tt = firstAt === Infinity ? "대답 없음 <small>다시 누른다</small>" : firstAt <= 100 ? "즉각" + (tac() && anyDelayed && delay > 100 ? " <small>(손끝이 먼저)</small>" : "") : firstAt <= 1000 ? "조금 기다린다" : "늦다 <small>다시 누르게 된다</small>";
+      AB.stat("fb-o-t", tt);
+      void TXT;
+    }, H("fb-cv", 0.62, 300, 420, "#1c2130"));
+  });
+
+  /* ---------------- 시뮬레이터 6: 포카요케 ---------------- */
+  safe("pk", function () {
+    var PARTS = {
+      usbc: { fit: [true, true], work: [true, true], name: "USB-C" },
+      usba: { fit: [true, false], work: [true, false], name: "USB-A" },
+      sym: { fit: [true, true], work: [true, false], name: "대칭 덮개" },
+      key: { fit: [true, false], work: [true, false], name: "키 홈 덮개" }
+    };
+    var flip = 0, outcome = null, runRes = null, runs = 0, anim = 0;
+    var part = AB.seg("pk-part", function () { flip = 0; outcome = null; runRes = null; cv.redraw(); });
+    function attempt(f) { var P = PARTS[part()]; if (!P.fit[f]) return "block"; return P.work[f] ? "ok" : "silent"; }
+    document.getElementById("pk-try").addEventListener("click", function () { outcome = attempt(flip); anim = 1; cv.redraw(); });
+    document.getElementById("pk-run").addEventListener("click", function () {
+      runs++; var R = AB.rng(77 + runs * 5), b = 0, s = 0, ok = 0;
+      for (var i = 0; i < 20; i++) { var f = R() < 0.5 ? 0 : 1, r = attempt(f); if (r === "block") { b++; ok++; } else if (r === "silent") s++; else ok++; }
+      runRes = { b: b, s: s }; cv.redraw();
+    });
+    var geo = null;
+    var cv = AB.canvas("#pk-cv", function (ctx, w, h) {
+      var k = part(), P = PARTS[k], INK = "#2b2a30", METAL = "#b8bcc4", METAL_D = "#7d828c", PLAST = "#2f7d5b", DARK = "#3a3d45", OKC = "#2f7d5b", BADC = "#c0392b", WARN = "#b8862a";
+      var cx = w / 2, sc = Math.min(w / 260, h / 230);
+      var inserted = outcome && outcome !== "block";
+      var sy = h * 0.3, py = inserted ? sy : h * 0.72;
+      ctx.lineJoin = "round";
+      function rrect(x, y, ww, hh, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, ww, hh, r); else ctx.rect(x, y, ww, hh); }
+      // 받는 쪽(소켓/배터리 칸) — 정면에서 본 모습
+      ctx.fillStyle = "#e7e2d6"; ctx.fillRect(cx - 110 * sc, sy - 46 * sc, 220 * sc, 92 * sc);
+      ctx.strokeStyle = "#a59f92"; ctx.lineWidth = 1; ctx.strokeRect(cx - 110 * sc, sy - 46 * sc, 220 * sc, 92 * sc);
+      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText(k === "usbc" || k === "usba" ? "받는 쪽: 단자 구멍" : "받는 쪽: 배터리 칸 입구", cx - 106 * sc, sy - 44 * sc);
+      if (k === "usbc") {
+        ctx.fillStyle = DARK; rrect(cx - 45 * sc, sy - 14 * sc, 90 * sc, 28 * sc, 14 * sc); ctx.fill();
+        ctx.fillStyle = METAL; rrect(cx - 30 * sc, sy - 4 * sc, 60 * sc, 8 * sc, 2 * sc); ctx.fill();
+      } else if (k === "usba") {
+        ctx.fillStyle = DARK; ctx.fillRect(cx - 60 * sc, sy - 18 * sc, 120 * sc, 36 * sc);
+        ctx.fillStyle = METAL; ctx.fillRect(cx - 52 * sc, sy - 16 * sc, 104 * sc, 14 * sc); // 위쪽 혀
+      } else {
+        ctx.fillStyle = DARK;
+        ctx.beginPath(); ctx.moveTo(cx - 70 * sc, sy - 20 * sc); ctx.lineTo(cx + 70 * sc, sy - 20 * sc); ctx.lineTo(cx + 70 * sc, sy + 20 * sc); ctx.lineTo(cx - 70 * sc, sy + 20 * sc); ctx.closePath(); ctx.fill();
+        // 턱 홈: 왼쪽(넓다/좁다)과 오른쪽
+        var wl = k === "key" ? 18 : 8, wr = 8;
+        ctx.fillRect(cx - 70 * sc - 8 * sc, sy - wl / 2 * sc, 8 * sc, wl * sc);
+        ctx.fillRect(cx + 70 * sc, sy - wr / 2 * sc, 8 * sc, wr * sc);
+        // 접점: 칸 안 오른쪽
+        ctx.fillStyle = "#d9b44a"; ctx.fillRect(cx + 46 * sc, sy - 8 * sc, 10 * sc, 16 * sc);
+        ctx.fillStyle = "#e7e2d6"; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("접점", cx + 51 * sc, sy + 10 * sc);
+      }
+      // 끼우는 쪽(부품) — 뒤집기 반영
+      var f = flip, dy = py;
+      ctx.save(); ctx.translate(cx, dy); if (k === "usba" || k === "usbc") ctx.scale(1, f ? -1 : 1); else ctx.scale(f ? -1 : 1, 1);
+      if (k === "usbc") {
+        ctx.fillStyle = METAL; rrect(-42 * sc, -12 * sc, 84 * sc, 24 * sc, 12 * sc); ctx.fill(); ctx.strokeStyle = METAL_D; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.fillStyle = DARK; rrect(-33 * sc, -6 * sc, 66 * sc, 12 * sc, 3 * sc); ctx.fill();
+        ctx.fillStyle = "#d9b44a"; for (var i = 0; i < 6; i++) { ctx.fillRect((-26 + i * 9) * sc, -6 * sc, 3 * sc, 2 * sc); ctx.fillRect((-26 + i * 9) * sc, 4 * sc, 3 * sc, 2 * sc); }
+      } else if (k === "usba") {
+        ctx.fillStyle = METAL; ctx.fillRect(-57 * sc, -16 * sc, 114 * sc, 32 * sc); ctx.strokeStyle = METAL_D; ctx.lineWidth = 1.5; ctx.strokeRect(-57 * sc, -16 * sc, 114 * sc, 32 * sc);
+        ctx.fillStyle = "#f2f0ea"; ctx.fillRect(-50 * sc, 1 * sc, 100 * sc, 13 * sc); // 아래쪽 플라스틱 블록
+        ctx.fillStyle = "#d9b44a"; for (var j = 0; j < 4; j++) ctx.fillRect((-36 + j * 22) * sc, 1 * sc, 10 * sc, 3 * sc);
+      } else {
+        ctx.fillStyle = PLAST; ctx.fillRect(-68 * sc, -18 * sc, 136 * sc, 36 * sc);
+        var tl = k === "key" ? 16 : 6;
+        ctx.fillRect(-76 * sc, -tl / 2 * sc, 8 * sc, tl * sc); ctx.fillRect(68 * sc, -3 * sc, 8 * sc, 6 * sc);
+        // 덮개 안쪽 접점 스프링(오른쪽)
+        ctx.fillStyle = "#d9b44a"; ctx.fillRect(44 * sc, -7 * sc, 12 * sc, 14 * sc);
+        ctx.strokeStyle = "#8a6a1a"; ctx.lineWidth = 1; ctx.strokeRect(44 * sc, -7 * sc, 12 * sc, 14 * sc);
+        ctx.fillStyle = "#e9efe9"; ctx.font = AB.font(10, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("▶", -40 * sc, 0);
+      }
+      ctx.restore();
+      // 뒤집기 손잡이와 상태 글자
+      AB.handle(ctx, cx + 100 * sc, py, { r: 9, fill: "#ffffff", ring: INK });
+      ctx.fillStyle = INK; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      ctx.fillText(f ? "뒤집음" : "처음 방향", cx + 88 * sc, py + (inserted ? 30 * sc : -28 * sc));
+      if (outcome) {
+        var txt = outcome === "ok" ? "들어가고 작동한다" : outcome === "block" ? "막힌다: 뒤집어 다시" : "들어갔는데 작동하지 않는다", col = outcome === "ok" ? OKC : outcome === "block" ? WARN : BADC;
+        ctx.fillStyle = col; ctx.font = AB.font(13, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(txt, cx, h - 26);
+        if (outcome === "block") { ctx.strokeStyle = WARN; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(cx - 12, sy + 52 * sc); ctx.lineTo(cx + 12, sy + 76 * sc); ctx.moveTo(cx + 12, sy + 52 * sc); ctx.lineTo(cx - 12, sy + 76 * sc); ctx.stroke(); }
+      } else if (!inserted) {
+        ctx.strokeStyle = "#8a8578"; ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(cx, py - 28 * sc); ctx.lineTo(cx, sy + 50 * sc); ctx.stroke(); ctx.setLineDash([]);
+      }
+      geo = { cx: cx, py: py, sc: sc };
+      AB.stat("pk-o-fit", P.fit.filter(Boolean).length + " / 2");
+      AB.stat("pk-o-ok", P.work.filter(Boolean).length + " / 2");
+      AB.stat("pk-o-now", outcome ? { ok: "성공", block: "막힘", silent: "조용한 오류" }[outcome] : "—");
+      AB.stat("pk-o-run", runRes ? runRes.b + " · " + runRes.s + " <small>/ 20</small>" : "—");
+      void anim;
+    }, H("pk-cv", 0.62, 280, 380, "#fbfaf7"));
+    AB.drag(cv.canvas, { start: function () { flip = 1 - flip; outcome = null; cv.redraw(); } });
+  });
+})();
+</script>
+</body>
+</html>

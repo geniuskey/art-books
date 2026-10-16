@@ -1,0 +1,921 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "사용자가 목표에 닿기까지 거치는 단계를 과업 흐름도로 그리고, 단계마다 조금씩 빠지는 사람을 곱셈 퍼널로 읽는다. 행복한 경로 옆에 예외 경로(재고 없음, 확인 지연, 기한 지남)를 그리고, 되돌리기와 이어 하기로 흐름이 끊겨도 돌아올 길을 만든다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사용자 흐름 · ProductBook</title>
+<meta name="description" content="사용자가 목표에 닿기까지 거치는 단계를 과업 흐름도로 그리고, 단계마다 조금씩 빠지는 사람을 곱셈 퍼널로 읽는다. 행복한 경로 옆에 예외 경로(재고 없음, 확인 지연, 기한 지남)를 그리고, 되돌리기와 이어 하기로 흐름이 끊겨도 돌아올 길을 만든다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/flow.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="사용자 흐름 · ProductBook">
+<meta property="og:description" content="사용자가 목표에 닿기까지 거치는 단계를 과업 흐름도로 그리고, 단계마다 조금씩 빠지는 사람을 곱셈 퍼널로 읽는다. 행복한 경로 옆에 예외 경로(재고 없음, 확인 지연, 기한 지남)를 그리고, 되돌리기와 이어 하기로 흐름이 끊겨도 돌아올 길을 만든다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/flow.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/flow.html#chapter","name":"사용자 흐름","headline":"사용자 흐름 · ProductBook","description":"사용자가 목표에 닿기까지 거치는 단계를 과업 흐름도로 그리고, 단계마다 조금씩 빠지는 사람을 곱셈 퍼널로 읽는다. 행복한 경로 옆에 예외 경로(재고 없음, 확인 지연, 기한 지남)를 그리고, 되돌리기와 이어 하기로 흐름이 끊겨도 돌아올 길을 만든다.","url":"https://artbook.euiyun.com/product/chapters/flow.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"5. 사용자 흐름","item":"https://artbook.euiyun.com/product/chapters/flow.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="flow">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 05</div>
+    <h1>사용자 흐름</h1>
+    <p class="lead">손님이 찾는 책을 맡겨 두려면 몇 번을 눌러야 할까. 화면 한 장 한 장은 그럴듯해도, 그 화면들을 지나는 길이 길면 사람들은 중간에서 하나둘 떠난다. 그리고 길은 늘 계획대로 흐르지 않는다. 책이 그사이 팔리고, 주인은 바빠서 확인을 못 하고, 손님은 약속한 날을 잊는다. 이 장은 화면이 아니라 <b>화면 사이의 길</b>을 설계한다. 단계를 그리고, 단계마다 빠지는 사람을 곱셈으로 세고, 계획에 없던 갈림길에도 출구를 낸다.</p>
+    <ul class="objectives">
+      <li>과업 흐름도의 기호(시작·끝, 화면, 행동, 결정)로 사용자가 목표에 닿는 길을 그린다.</li>
+      <li>단계별 계속 비율을 곱해 끝까지 가는 비율을 계산하고, 단계 수가 왜 그렇게 큰 영향을 주는지 설명한다.</li>
+      <li>적은 사람으로 잰 퍼널이 얼마나 흔들리는지 알고, 퍼널 숫자를 읽을 때의 함정을 구별한다.</li>
+      <li>행복한 경로 옆에 예외 경로를 그리고, 모든 상태에 출구가 있는지 점검한다.</li>
+      <li>확인 대화상자와 되돌리기, 임시 저장과 이어 하기가 흐름을 어떻게 지키는지 비교한다.</li>
+    </ul>
+  </header>
+
+  <section id="map">
+    <h2>화면이 아니라 흐름</h2>
+    <p><a href="ia.html">4장</a>에서 정보를 어떻게 나누고 이름 붙일지 정했다. 정보 구조가 서비스의 <b>지도</b>라면, 이 장에서 다룰 것은 그 지도 위를 걷는 <b>길</b>이다. 사용자가 어떤 목표를 이루기 위해 서비스 안에서 지나가는 화면과 행동의 순서를 <span class="term">사용자 흐름</span><span class="en">(User flow)</span>이라고 한다. 같은 말을 조금 좁게 써서, 특정한 과업 하나("찾는 책을 맡겨 두기")를 끝내는 데 필요한 단계만 그린 것을 <span class="term">과업 흐름</span><span class="en">(Task flow)</span>이라고 부르기도 한다. 이 장에서는 둘을 크게 구별하지 않고, 그린 그림을 <b>과업 흐름도</b>라고 부른다.</p>
+    <p>흐름을 따로 그리는 이유는 단순하다. 화면을 한 장씩 그리면 각 화면은 잘 만들어져 보인다. 하지만 사용자는 화면 한 장을 보러 오지 않는다. 책을 맡기러 온다. 그 목표에 닿기까지 화면을 몇 장 넘겨야 하는지, 어디서 무엇을 결정해야 하는지, 결정이 틀렸을 때 어디로 돌아가는지는 화면을 나란히 놓아야 보인다. <a href="problem.html">3장</a>의 여정 지도가 서비스 바깥까지 포함한 사람의 하루를 그렸다면, 과업 흐름도는 서비스 안쪽의 길을 단계 하나하나까지 그린다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="과업 흐름도의 네 가지 기호와 작은 예. 왼쪽에 둥근 상자(시작·끝), 네모(화면), 굵은 테두리 네모(행동), 마름모(결정)가 있고, 오른쪽에 책을 검색해 결과가 있으면 결과 화면으로, 없으면 빈 결과 화면으로 갈라지는 흐름이 그려져 있다.">
+        <defs><marker id="fl1-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="16" y="22" class="lbl-b">기호</text>
+        <rect x="16" y="36" width="78" height="30" rx="15" class="f-acc-soft s-acc"/>
+        <text x="55" y="55" text-anchor="middle" class="lbl">시작·끝</text>
+        <rect x="16" y="84" width="78" height="30" class="f-surface s-line"/>
+        <text x="55" y="103" text-anchor="middle" class="lbl">화면</text>
+        <rect x="16" y="132" width="78" height="30" rx="4" class="f-elev s-acc2" stroke-width="2"/>
+        <text x="55" y="151" text-anchor="middle" class="lbl">행동</text>
+        <path d="M55 178 L94 198 L55 218 L16 198 Z" class="f-warn-soft s-line"/>
+        <text x="55" y="202" text-anchor="middle" class="lbl">결정</text>
+        <line x1="20" y1="244" x2="90" y2="244" class="s-line" marker-end="url(#fl1-ar)"/>
+        <text x="55" y="264" text-anchor="middle" class="lbl">이동</text>
+        <line x1="120" y1="20" x2="120" y2="280" class="s-dash"/>
+        <text x="140" y="22" class="lbl-b">예: 책이 있는지 찾아보기</text>
+        <rect x="140" y="36" width="126" height="30" rx="15" class="f-acc-soft s-acc"/>
+        <text x="203" y="55" text-anchor="middle" class="lbl">책이 있는지 궁금하다</text>
+        <line x1="203" y1="66" x2="203" y2="82" class="s-line" marker-end="url(#fl1-ar)"/>
+        <rect x="140" y="84" width="126" height="30" class="f-surface s-line"/>
+        <text x="203" y="103" text-anchor="middle" class="lbl">첫 화면(검색 칸)</text>
+        <line x1="203" y1="114" x2="203" y2="130" class="s-line" marker-end="url(#fl1-ar)"/>
+        <rect x="140" y="132" width="126" height="30" rx="4" class="f-elev s-acc2" stroke-width="2"/>
+        <text x="203" y="151" text-anchor="middle" class="lbl">책 제목을 입력한다</text>
+        <line x1="203" y1="162" x2="203" y2="176" class="s-line" marker-end="url(#fl1-ar)"/>
+        <path d="M203 178 L250 198 L203 218 L156 198 Z" class="f-warn-soft s-line"/>
+        <text x="203" y="202" text-anchor="middle" class="lbl">결과가 있나</text>
+        <path d="M250 198 L300 198 L300 238" class="s-line" fill="none" marker-end="url(#fl1-ar)"/>
+        <text x="272" y="192" text-anchor="middle" class="lbl-dim">있음</text>
+        <rect x="244" y="240" width="112" height="30" class="f-surface s-line"/>
+        <text x="300" y="259" text-anchor="middle" class="lbl">결과(책 단위)</text>
+        <path d="M156 198 L140 198 L140 238" class="s-line" fill="none" marker-end="url(#fl1-ar)"/>
+        <text x="146" y="232" class="lbl-dim" text-anchor="start"> </text>
+        <rect x="132" y="240" width="96" height="30" class="f-surface s-bad"/>
+        <text x="180" y="259" text-anchor="middle" class="lbl">빈 결과 화면</text>
+        <text x="146" y="192" class="lbl-dim">없음</text>
+        <path d="M356 255 L440 255" class="s-dash" fill="none"/>
+        <text x="440" y="246" text-anchor="end" class="lbl-dim">맡아 두기로</text>
+        <text x="440" y="284" text-anchor="end" class="lbl-dim">빈 결과에도 다음 길이 필요하다</text>
+      </svg>
+      <figcaption><b>그림 1. 과업 흐름도의 기호와 작은 예.</b> 둥근 상자는 흐름의 시작과 끝, 네모는 사용자가 보는 화면, 굵은 테두리 네모는 사용자가 하는 행동, 마름모는 길이 갈리는 결정이다. 기호는 팀마다 조금씩 다르다. 정보 처리 분야의 순서도 기호는 국제 표준(ISO 5807:1985)으로 정리되어 있지만, 사용자 흐름도에는 정해진 표준이 없어서 팀 안에서 범례를 하나 정해 두고 쓰면 된다. 중요한 것은 기호의 모양보다 <b>갈림길을 빠뜨리지 않는 것</b>이다. 결과가 없을 때의 화면도 흐름의 일부다.</figcaption>
+    </figure>
+
+    <p>흐름도에서 가장 먼저 그리는 길은 모든 일이 순조로울 때의 길이다. 검색하면 결과가 있고, 책이 그 책방에 있고, 주인이 바로 확인하고, 손님이 약속한 날에 찾으러 온다. 이런 길을 <span class="term">행복한 경로</span><span class="en">(Happy path)</span>라고 한다. 처음에는 행복한 경로 하나만 그린다. 단계가 몇 개인지, 단계마다 사용자가 무엇을 알아야 하고 무엇을 결정해야 하는지가 보인다. 그 다음에 마름모마다 "만약 아니라면?"을 붙여 가며 다른 길을 그린다. 이 장의 뒷부분에서 다룰 <b>예외 경로</b>다.</p>
+    <p>화면 스케치를 흐름도의 네모 자리에 작게 붙여 놓은 그림을 <span class="term">와이어플로</span><span class="en">(Wireflow)</span>라고 부르기도 한다. 와이어플로는 개발자와 이야기할 때 특히 쓸모가 있다. "이 버튼을 누르면 어느 화면으로 가요?"라는 질문에 그림 하나로 답할 수 있기 때문이다. 하지만 첫 단계에서는 화면을 그리지 않는 편이 낫다. 화면을 그리기 시작하면 단계의 수와 순서보다 버튼의 색과 글자 크기에 눈이 가기 쉽다.</p>
+
+    <div class="callout studio">
+      <strong>포스트잇 한 장에 한 단계</strong>
+      흐름도를 처음부터 도구로 그리면 상자를 옮기기가 귀찮아서 첫 안을 고집하게 된다. 많은 팀이 벽이나 큰 종이에 포스트잇을 붙이는 것으로 시작한다. 화면은 노란색, 사용자의 행동은 파란색, 결정은 분홍색처럼 색을 나누고, 한 장에 한 단계만 쓴다. 단계를 빼거나 합치는 일이 포스트잇 한 장을 떼는 일이 되면, 팀은 단계 수에 훨씬 덜 집착한다. 다 붙인 뒤에는 손가락으로 행복한 경로를 따라가며 소리 내어 읽어 본다. "손님이 검색한다. 결과를 본다. 책방을 고른다. 그런데 여기서 회원 가입을 왜 해야 하지?" 소리 내어 읽으면 이유 없는 단계가 귀에 걸린다.
+    </div>
+  </section>
+
+  <section id="funnel">
+    <h2>단계마다 조금씩 빠진다: 퍼널</h2>
+    <p>흐름의 첫 단계에 들어온 사람이 모두 마지막 단계까지 가지는 않는다. 단계마다 몇 사람씩 떠난다. 단계별로 남은 사람 수를 위에서 아래로 막대로 그리면 깔때기 모양이 되어서, 이것을 <span class="term">퍼널</span><span class="en">(Funnel, 깔때기)</span>이라고 부른다. 한 단계에 들어온 사람 가운데 다음 단계로 넘어간 사람의 비율을 그 단계의 <span class="term">계속 비율</span><span class="en">(Step continuation rate)</span>이라고 하고, 떠난 사람의 비율을 <span class="term">이탈률</span><span class="en">(Drop-off rate)</span>이라고 한다. 둘을 더하면 1이다.</p>
+    <p>첫 단계에 들어온 사람 중 끝까지 간 사람의 비율은 단계별 계속 비율을 모두 <b>곱한</b> 값이다. 1,000명이 들어와 첫 단계에서 90%가 넘어가면 900명, 다음 단계에서 80%가 넘어가면 720명이 남는다. 더하거나 평균 내는 것이 아니라 곱한다는 점이 퍼널의 핵심이다.</p>
+    <div class="formula">$$F = p_1 \times p_2 \times \cdots \times p_n = \prod_{i=1}^{n} p_i$$<div class="where">\(F\): 첫 단계에 들어온 사람 중 끝까지 간 비율, \(p_i\): \(i\)번째 단계의 계속 비율(0~1), \(n\): 단계 수. 예: \(p\)가 0.9, 0.8, 0.5인 세 단계라면 \(F = 0.9 \times 0.8 \times 0.5 = 0.36\). 세 값의 평균(0.73)과는 거리가 멀다.</div></div>
+    <p>아래 시뮬레이터는 "맡아 두기"의 첫 흐름안이다. 서윤이 처음 그린 흐름에는 검색부터 요청 확인까지 아홉 단계가 있고, 그 가운데 회원 가입과 본인 확인이 끼어 있다. 각 단계의 계속 비율은 <b>가상의 값</b>이다. 단계 이름을 누르면 그 단계를 흐름에서 빼거나 다시 넣는다. 막대의 끝(손잡이)을 끌면 그 단계의 계속 비율이 바뀐다. 1,000명이 들어왔을 때 각 단계에 몇 명이 남는지 본다.</p>
+
+    <div class="sim" id="sim-editor">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>흐름도를 고치면 퍼널이 바뀐다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fl-ed-cv"></canvas><span class="hint">이름을 눌러 빼기 · 막대 끝을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="btn-row"><button type="button" class="btn sm" id="fl-ed-p9">처음안(9단계)</button><button type="button" class="btn sm" id="fl-ed-p5">가입 없는 안</button></div>
+          <div class="btn-row"><button type="button" class="btn sm" id="fl-ed-add">단계 하나 추가</button><button type="button" class="btn sm" id="fl-ed-del">추가한 단계 빼기</button></div>
+          <label class="check"><input type="checkbox" id="fl-ed-drop" checked> 단계마다 떠난 사람 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">흐름의 단계 수</span><span class="v" id="fl-ed-o-n">—</span></div>
+        <div class="stat"><span class="k">끝까지 간 사람(1,000명 중)</span><span class="v" id="fl-ed-o-f">—</span></div>
+        <div class="stat"><span class="k">가장 많이 떠난 단계</span><span class="v" id="fl-ed-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음안에서 끝까지 간 사람 수를 본다. 단계마다 계속 비율이 80~90%대로 나쁘지 않아 보이는데도 1,000명 중 다섯에 하나 정도만 남는다. ② "회원 가입"과 "본인 확인"을 눌러 뺀다. 남는 사람이 크게 늘어난다. 가장 많이 떠나던 두 단계가 사라졌기 때문이다. ③ "단계 하나 추가"를 세 번 누른다. 계속 비율이 90%인 무난한 단계라도 셋이 붙으면 끝까지 가는 사람이 약 27% 줄어든다(0.9³ ≈ 0.73). ④ "가입 없는 안"을 누르고, "전화번호 인증" 막대를 끌어 그 단계가 얼마나 잘 넘어가야 하는지 본다. (모든 계속 비율은 가상의 값이다. 단계를 빼거나 더해도 다른 단계의 계속 비율은 변하지 않는다고 가정한다.)</div>
+    </div>
+
+    <p>처음안에서 가장 많은 사람이 떠나는 곳은 회원 가입이다. 찾는 책이 있는지 보러 온 손님에게 아이디와 비밀번호를 만들라는 요구는 목표와 상관없는 숙제처럼 느껴진다. 본인 확인도 마찬가지다. 이 두 단계를 빼면 끝까지 가는 사람이 두 배 넘게 늘어난다. 단, 이것은 "빼도 다른 단계는 그대로"라는 가정 아래의 계산이다. 가입을 빼면 가게 쪽에서는 손님이 누구인지 어떻게 아느냐는 문제가 남는다. 단계를 빼는 결정은 그 단계가 하던 일(손님을 알아보고, 연락하고, 약속을 지키게 하기)을 다른 방법으로 해낼 수 있을 때만 할 수 있다.</p>
+    <p>시뮬레이터의 "가입 없는 안"은 그 질문에 대한 서윤의 첫 답이다. 회원 가입, 본인 확인, 연락처 입력, 약관 동의를 <b>전화번호 인증 한 단계</b>로 묶는다. 전화번호로 문자를 받아 여섯 자리 숫자를 넣으면, 가게는 연락할 번호를 얻고 손님은 아이디를 만들지 않아도 된다. 4장에서 결과를 책 단위로 묶고 책방을 그 아래에 두기로 했으니, 책방 고르기도 결과 화면 안에서 책방 줄 옆의 "맡아 두기"를 누르는 일로 합쳐진다.</p>
+  </section>
+
+  <section id="multiply">
+    <h2>곱셈의 무서움</h2>
+    <p>퍼널이 곱셈이라는 것은 단계 수가 <b>지수</b>로 작용한다는 뜻이다. 모든 단계의 계속 비율이 같은 값 \(p\)라고 단순하게 두면 \(n\)단계 뒤에 남는 비율은 \(p^n\)이다. 계속 비율이 90%인 단계는 하나만 보면 훌륭하다. 하지만 일곱 개가 이어지면 \(0.9^7 \approx 0.48\)로 절반이 떠난다. 남은 사람이 절반이 되는 단계 수를 <b>반감 단계</b>라고 부르면 다음처럼 쓸 수 있다.</p>
+    <div class="formula">$$n_{1/2} = \frac{\ln 0.5}{\ln p}$$<div class="where">\(n_{1/2}\): 끝까지 가는 사람이 절반으로 줄어드는 단계 수, \(p\): 모든 단계에 같다고 둔 계속 비율. \(p = 0.9\)이면 약 6.6단계, \(p = 0.95\)이면 약 13.5단계, \(p = 0.8\)이면 약 3.1단계다.</div></div>
+    <p>아래 그래프의 굵은 곡선이 \(p^n\)이다. 슬라이더로 \(p\)를 바꾸고, 그래프 위를 끌어 단계 수 \(n\)을 고른다. 오른쪽 아래 두 칸은 같은 흐름에서 할 수 있는 두 가지 개선을 비교한다. 단계 하나를 아예 없애는 것과, 모든 단계를 조금씩(계속 비율을 2%포인트씩) 낫게 다듬는 것이다.</p>
+
+    <div class="sim" id="sim-power">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>단계 수는 지수로 작용한다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fl-pw-cv"></canvas><span class="hint">그래프를 끌어 단계 수를 고른다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>단계마다 계속 비율 p <output id="fl-pw-p-out"></output></span><input type="range" id="fl-pw-p" min="0.7" max="0.99" step="0.01" value="0.9"></label>
+          <label class="check"><input type="checkbox" id="fl-pw-ref" checked> 비교 곡선(0.8 · 0.9 · 0.95) 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">n단계 뒤 남는 비율</span><span class="v" id="fl-pw-o-f">—</span></div>
+        <div class="stat"><span class="k">반감 단계 n½</span><span class="v" id="fl-pw-o-h">—</span></div>
+        <div class="stat"><span class="k">한 단계를 없애면</span><span class="v" id="fl-pw-o-a">—</span></div>
+        <div class="stat"><span class="k">모든 단계를 +0.02 다듬으면</span><span class="v" id="fl-pw-o-b">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① p = 0.9에서 n을 9로 둔다. 남는 비율은 약 39%다. ② p를 0.95로 올린다. 같은 아홉 단계에서 63%가 남는다. 단계마다의 차이는 5%포인트뿐인데 끝에서는 24%포인트가 벌어진다. ③ n을 3으로 줄이고 두 개선을 비교한다. 단계가 적은 흐름에서는 한 단계를 없애는 쪽(+8.1%p)이 다듬는 쪽(+5.0%p)보다 크다. n을 15로 늘리면 거꾸로 다듬는 쪽(+8.0%p)이 없애는 쪽(+2.3%p)을 크게 앞선다. ④ p를 0.75로 내린다. 반감 단계가 2.4로 줄어, 셋째 단계쯤이면 이미 절반이 떠난다. (모든 단계의 계속 비율이 같다고 둔 단순 모형이다.)</div>
+    </div>
+
+    <p>단계 하나를 없애면 그 단계의 이탈이 통째로 사라진다. 그래서 약한 단계가 하나 있는 흐름에서는 그 단계를 없애는 것이 가장 큰 개선이 된다. 반면 단계가 많고 모두 비슷하게 괜찮은 흐름에서는 하나를 없애도 조금 나아질 뿐이고, 모든 단계를 조금씩 다듬는 일이 큰 차이를 낸다. 어느 쪽이 나은지는 흐름의 모양에 달렸다. 퍼널을 그려 놓으면 그 모양이 보인다.</p>
+
+    <div class="callout deep">
+      <strong>곱셈 모형의 숨은 가정: 단계는 서로 독립인가</strong>
+      퍼널을 곱셈으로 계산할 때는 각 단계의 계속 비율이 앞 단계와 상관없다고 가정한다. 실제로는 그렇지 않은 경우가 많다. 앞 단계를 넘어온 사람일수록 목표가 분명한 사람이라서 뒤 단계를 더 잘 넘어가기도 하고(걸러진 효과), 앞 단계에서 지친 사람이 뒤에서 더 쉽게 포기하기도 한다. 그래서 "단계 하나를 빼면 그 단계의 이탈만큼 그대로 늘어난다"는 계산은 대개 <b>상한</b>에 가깝다. 단계를 합칠 때도 주의해야 한다. 두 화면의 내용을 한 화면에 몰아넣으면 단계 수는 줄지만 그 화면 하나의 부담이 커져 계속 비율이 떨어질 수 있다. "모든 것은 세 번 안에 눌러 닿아야 한다"는 이른바 3번 클릭 규칙도 널리 퍼진 통설이지만, 누르는 횟수 자체보다 <b>매 단계에서 다음에 무엇을 할지 분명한가</b>가 더 중요하다는 반론이 많고, 규칙으로 삼을 근거는 약하다. 단계 수는 줄일 대상이지만 유일한 목표는 아니다.
+    </div>
+  </section>
+
+  <section id="measure">
+    <h2>퍼널을 잴 때</h2>
+    <p>실제 서비스의 퍼널은 사용 기록에서 센다. 각 단계에 들어온 사람의 수를 세고 나누면 계속 비율이 나온다. 간단해 보이지만 함정이 있다. 첫째는 <b>표본이 적을 때의 흔들림</b>이다. 하루에 스무 명이 들어오는 작은 서비스에서 어느 단계의 계속 비율이 80%로 나왔다면, 그 값은 70%일 수도 90%일 수도 있다. 같은 흐름을 같은 사람들이 다른 날 지나가도 숫자는 달라진다.</p>
+    <p>아래 시뮬레이터는 가입 없는 안(다섯 단계)의 <b>참값</b>을 정해 두고, 가상의 손님을 여러 명 지나가게 해서 퍼널을 "측정"한다. 막대가 이번에 잰 값이고, 가는 세로선이 참값이다. 회색 띠는 같은 인원으로 퍼널을 200번 다시 쟀을 때 가운데 90%의 값이 들어온 범위다.</p>
+
+    <div class="sim" id="sim-noise">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>몇 명으로 잰 퍼널인가</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fl-nz-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>들어온 가상 손님 수 <output id="fl-nz-n-out"></output></span><input type="range" id="fl-nz-n" min="0" max="6" step="1" value="1"></label>
+          <div class="btn-row"><button type="button" class="btn" id="fl-nz-again">다시 재기</button></div>
+          <label class="check"><input type="checkbox" id="fl-nz-band" checked> 200번 다시 잰 범위 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">이번에 잰 끝까지 비율</span><span class="v" id="fl-nz-o-m">—</span></div>
+        <div class="stat"><span class="k">참값</span><span class="v" id="fl-nz-o-t">—</span></div>
+        <div class="stat"><span class="k">200번 중 90% 범위</span><span class="v" id="fl-nz-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 손님 50명에서 "다시 재기"를 몇 번 누른다. 끝까지 비율이 40%대에서 60%대까지 오간다. 같은 흐름인데 숫자만 바뀐다. ② 손님을 2,000명으로 늘린다. 회색 띠가 참값 둘레로 좁아진다. ③ 다시 50명으로 돌아와, 뒤쪽 단계일수록 띠가 넓은지 본다. 뒤로 갈수록 그 단계까지 온 사람이 적어 계속 비율의 흔들림이 커진다. (손님마다 단계별로 동전 던지듯 계속·이탈이 정해지는 이항 모형이다. 참값은 가상의 값이고, 손님 사이의 차이는 없다고 둔다.)</div>
+    </div>
+
+    <p>작은 서비스일수록 퍼널 숫자 하나에 일희일비하기 쉽다. 하루치 숫자로 "이번 주에 인증 단계가 나빠졌다"고 판단하기 전에, 그 단계에 몇 명이 들어왔는지부터 본다. 숫자의 흔들림을 어떻게 다루는지, 차이가 우연인지 아닌지 어떻게 판단하는지는 <a href="metrics.html">9장</a>에서 자세히 다룬다.</p>
+
+    <div class="callout warn">
+      <strong>퍼널 숫자는 정의에 따라 달라진다</strong>
+      흔들림 말고도 퍼널을 읽을 때 확인할 것이 있다. ① <b>무엇을 한 사람으로 세는가.</b> 같은 손님이 아침에 한 번, 저녁에 한 번 들어오면 방문(세션)으로는 두 번, 사람으로는 한 번이다. 방문 기준 퍼널은 사람 기준보다 계속 비율이 낮게 나오기 쉽다. ② <b>기간을 어떻게 자르는가.</b> 오늘 요청하고 내일 인증을 마친 손님은 "오늘의 퍼널"에서는 이탈로 잡힌다. ③ <b>순서를 강제하는가.</b> 결과 화면을 건너뛰고 공유받은 링크로 바로 책 화면에 들어온 사람은 앞 단계를 거치지 않았다. 이런 정의를 정하지 않고 숫자를 비교하면, 흐름이 아니라 세는 법이 바뀐 것을 개선으로 착각한다.
+    </div>
+  </section>
+
+  <section id="exceptions">
+    <h2>행복한 경로와 예외 경로</h2>
+    <p>행복한 경로만 그린 흐름도는 서비스가 하는 약속의 절반만 담는다. 나머지 절반은 일이 틀어졌을 때 무슨 일이 일어나는가다. 이 길들을 <span class="term">예외 경로</span><span class="en">(Exception path, Unhappy path)</span>라고 한다. 예외 경로를 그리지 않으면 실제로는 그 길이 없는 것이 아니라, 아무도 설계하지 않은 길이 생긴다. 손님은 요청 완료 화면을 본 뒤 아무 소식도 듣지 못하고, 가게에 갔다가 책이 없다는 말을 듣는다. 화면에는 오류가 하나도 없는데 서비스는 실패한 것이다.</p>
+    <p>"맡아 두기"에는 적어도 세 가지 예외가 있다. 서윤과 하린은 2장의 인터뷰와 관찰 기록에서 이 셋을 골랐다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 290" role="img" aria-label="맡아 두기 요청의 행복한 경로와 세 예외 경로. 위쪽 가로줄에 요청, 주인 확인, 가게에 맡겨 둠, 찾아감이 화살표로 이어진다. 각 단계 아래로 확인 못 함, 재고 없음, 기한 지남의 세 갈래가 내려가고, 각 갈래에는 물음표로 아직 정하지 않은 처리가 표시되어 있다.">
+        <defs><marker id="fl2-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="16" y="22" class="lbl-b">행복한 경로</text>
+        <rect x="16" y="36" width="88" height="34" rx="17" class="f-acc-soft s-acc"/><text x="60" y="57" text-anchor="middle" class="lbl">요청</text>
+        <rect x="128" y="36" width="88" height="34" class="f-surface s-line"/><text x="172" y="57" text-anchor="middle" class="lbl">주인 확인</text>
+        <rect x="240" y="36" width="88" height="34" class="f-surface s-line"/><text x="284" y="57" text-anchor="middle" class="lbl">가게에 맡겨 둠</text>
+        <rect x="352" y="36" width="92" height="34" rx="17" class="f-ok-soft s-line"/><text x="398" y="57" text-anchor="middle" class="lbl">찾아감</text>
+        <line x1="104" y1="53" x2="126" y2="53" class="s-acc" stroke-width="2" marker-end="url(#fl2-ar)"/>
+        <line x1="216" y1="53" x2="238" y2="53" class="s-acc" stroke-width="2" marker-end="url(#fl2-ar)"/>
+        <line x1="328" y1="53" x2="350" y2="53" class="s-acc" stroke-width="2" marker-end="url(#fl2-ar)"/>
+        <text x="16" y="114" class="lbl-b">예외 경로</text>
+        <path d="M116 70 L116 140" class="s-bad" fill="none" stroke-width="1.6" marker-end="url(#fl2-ar)"/>
+        <path d="M228 70 L228 140" class="s-bad" fill="none" stroke-width="1.6" marker-end="url(#fl2-ar)"/>
+        <path d="M340 70 L340 140" class="s-bad" fill="none" stroke-width="1.6" marker-end="url(#fl2-ar)"/>
+        <rect x="66" y="142" width="100" height="44" rx="6" class="f-bad-soft s-bad"/>
+        <text x="116" y="161" text-anchor="middle" class="lbl-b">확인 못 함</text><text x="116" y="177" text-anchor="middle" class="lbl-dim">주인이 바쁘다</text>
+        <rect x="178" y="142" width="100" height="44" rx="6" class="f-bad-soft s-bad"/>
+        <text x="228" y="161" text-anchor="middle" class="lbl-b">재고 없음</text><text x="228" y="177" text-anchor="middle" class="lbl-dim">그사이 팔렸다</text>
+        <rect x="290" y="142" width="100" height="44" rx="6" class="f-bad-soft s-bad"/>
+        <text x="340" y="161" text-anchor="middle" class="lbl-b">기한 지남</text><text x="340" y="177" text-anchor="middle" class="lbl-dim">손님이 안 온다</text>
+        <g class="lbl-dim" text-anchor="middle">
+          <text x="116" y="210">손님은 언제까지</text><text x="116" y="226">기다리나?</text>
+          <text x="228" y="210">누가, 언제</text><text x="228" y="226">알려 주나?</text>
+          <text x="340" y="210">책은 언제</text><text x="340" y="226">서가로 돌아가나?</text>
+        </g>
+        <line x1="16" y1="246" x2="444" y2="246" class="s-dash"/>
+        <text x="230" y="270" text-anchor="middle" class="lbl">모든 상자에는 나가는 화살표가 있어야 한다</text>
+      </svg>
+      <figcaption><b>그림 2. 맡아 두기의 행복한 경로와 세 예외.</b> 위 줄은 모든 일이 순조로울 때의 길이고, 아래로 내려가는 붉은 화살표가 예외다. 처음 흐름안에는 예외 상자에서 나가는 화살표가 없었다. 아래 칸의 질문들이 답해야 할 것이다.</figcaption>
+    </figure>
+
+    <p>흐름도에서 나가는 화살표가 없는 상자를 <span class="term">막다른 길</span><span class="en">(Dead end)</span>이라고 한다. 사용자가 그 상태에 들어가면 다음에 무엇을 할 수 있는지 알 수 없다. 예외 경로를 설계하는 기본 원칙은 단순하다. <b>모든 상태에는 출구가 있어야 하고, 그 출구는 사용자에게 보여야 한다.</b> 출구는 대개 셋 중 하나다. 다시 시도하기, 다른 길로 가기(다른 책방), 깔끔하게 그만두기. 그리고 어느 쪽이든 사용자는 지금 무슨 일이 일어났는지 알아야 한다.</p>
+    <p>아래 시뮬레이터는 맡아 두기 요청 1,000건이 세 예외를 지나 어떤 결말에 이르는지 계산한다. "처리 없음"은 처음 흐름안 그대로다. 주인은 확인 버튼만 누를 수 있고, 손님에게는 요청 완료 뒤 아무 소식이 가지 않는다. "처리 있음"은 예외마다 출구를 낸 안이다. 처리 있음에서는 주인이 일정 시간 안에 확인하지 않으면 손님에게 "아직 확인 전"이라고 알리고 선택지를 준다. 그 시간 한도를 슬라이더로 바꾼다. 선의 굵기는 요청 수에 비례한다.</p>
+
+    <div class="sim" id="sim-branch">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>예외에 출구를 내면</h3></div>
+      <div class="sim-body">
+        <div class="sim-view"><canvas id="fl-br-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="fl-br-mode"><button data-value="none" class="on">처리 없음</button><button data-value="yes">처리 있음</button></div>
+          <label class="ctrl"><span>확인을 기다리는 한도(시간) <output id="fl-br-t-out"></output></span><input type="range" id="fl-br-t" min="1" max="24" step="1" value="3"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">책을 받은 손님</span><span class="v" id="fl-br-o-g">—</span></div>
+        <div class="stat"><span class="k">헛걸음</span><span class="v" id="fl-br-o-w">—</span></div>
+        <div class="stat"><span class="k">결말 없이 흐지부지</span><span class="v" id="fl-br-o-l">—</span></div>
+        <div class="stat"><span class="k">확인 전 알림을 받은 손님</span><span class="v" id="fl-br-o-a">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "처리 없음"에서 헛걸음과 흐지부지를 본다. 재고가 없거나 주인이 확인을 놓친 요청의 손님 일부는 모른 채 가게에 가고, 나머지는 소식 없이 끝난다. 기한이 지난 책은 언제 풀어야 할지 몰라 서가 밖에 묶여 있다. ② "처리 있음"으로 바꾼다. 헛걸음과 흐지부지가 거의 사라지고, 대신 "알고 멈춤"이 늘어난다. 책을 받지 못한 것은 같아도, 손님은 이유를 알고 다음 행동을 고른다. ③ 기다리는 한도를 1시간과 24시간으로 바꿔 본다. 짧게 잡으면 확인 전 알림이 절반 넘는 요청에 나가고, 주인이 곧 확인했을 요청까지 손님이 취소하거나 옮겨서 책을 받은 손님이 오히려 처리 없음보다 줄어든다. 길게 잡으면 알림은 적지만 손님이 소식 없이 하루를 기다린다. (요청 1,000건의 기댓값 계산이다. 재고 없음 8%, 주인이 요청을 놓침 6%, 주인 확인 시간은 요청의 70%가 평균 1시간, 30%가 평균 6시간인 지수 분포, 확인된 책을 기한 안에 찾아가는 비율 85% 등 모든 비율은 가상의 가정이다.)</div>
+    </div>
+
+    <p>"처리 있음"에서도 책을 받은 손님 수가 크게 늘지는 않는다. 예외 처리는 마술이 아니다. 팔린 책은 팔렸고, 안 오는 손님은 안 온다. 바뀌는 것은 <b>실패의 모양</b>이다. 헛걸음은 손님에게 서비스 전체를 다시 쓰지 않을 이유가 되고, 흐지부지는 가게에게 책이 서가 밖에 묶여 팔 기회를 잃는 일이 된다. 반면 "그 책은 오늘 오전에 팔렸어요. 작은 숲에 같은 책이 있어요"라는 알림을 받은 손님은 실패를 겪었지만 서비스를 믿을 수 있다.</p>
+    <p>시간 한도는 정답이 없는 저울질이다. 한도가 짧으면 손님은 빨리 소식을 듣지만, 주인은 조금 늦었을 뿐인 요청까지 "확인 전" 알림이 나가 재촉받는 느낌을 받는다. 한도가 길면 손님이 기다린다. 이 저울질에는 네 책방의 사정이 들어간다. 주인 혼자 운영하는 한 줄은 손님을 응대하는 동안 휴대폰을 보지 못한다. 그래서 한도는 화면이 아니라 <b>사람들과 합의해서</b> 정할 값이다.</p>
+
+    <div class="callout studio">
+      <strong>"만약 아니라면"을 표로 만든다</strong>
+      예외 경로를 빠짐없이 찾는 간단한 방법은 행복한 경로의 단계마다 세 질문을 던지는 것이다. <b>이 단계가 실패할 수 있는가</b>(재고 없음, 인증 문자가 안 옴), <b>사람이 늦거나 사라질 수 있는가</b>(주인이 확인 못 함, 손님이 안 옴), <b>사용자가 마음을 바꿀 수 있는가</b>(취소, 다른 책방으로 바꾸기). 답을 표로 만들고 각 칸에 "누가 알게 되나, 무엇을 할 수 있나"를 적는다. 개발자에게는 이 표가 화면 시안보다 쓸모 있는 경우가 많다. 서버가 처리해야 할 상태와 알림의 목록이 그대로 들어 있기 때문이다.
+    </div>
+  </section>
+
+  <section id="undo">
+    <h2>되돌리기와 확인</h2>
+    <p>사용자가 마음을 바꾸거나 잘못 누르는 것도 흐름의 일부다. 손님은 맡겨 둔 책을 취소할 수 있어야 한다. 그런데 취소 버튼을 실수로 누르면, 헌책방 나무처럼 재고가 한 권뿐인 가게에서는 그 사이 다른 손님이 책을 맡길 수도 있다. 실수를 막는 흔한 방법은 두 가지다. 누르기 전에 묻는 <span class="term">확인 대화상자</span><span class="en">(Confirmation dialog)</span>와, 누른 뒤에 되돌릴 수 있게 하는 <span class="term">되돌리기</span><span class="en">(Undo)</span>다.</p>
+    <p>야코프 닐센의 사용성 휴리스틱 열 가지<span class="en">(Nielsen 1994)</span> 가운데 "사용자 통제와 자유"는 실수로 들어간 상태에서 빠져나올 비상구, 즉 되돌리기와 다시 하기를 갖추라고 권한다. 인터페이스 설계자 제프 래스킨<span class="en">(Jef Raskin)</span>은 『인간적인 인터페이스』<span class="en">(The Humane Interface, 2000)</span>에서 확인 대화상자의 약점을 지적했다. 늘 같은 질문이 나오면 사람은 곧 질문을 읽지 않고 "예"를 누르는 습관을 들이고, 그러면 대화상자는 실수를 막지 못하면서 매번 한 번 더 누르게만 한다는 것이다. 래스킨은 그 대신 되돌리기를 권했다.</p>
+    <p>아래 시뮬레이터는 맡김 취소 100건을 점 100개로 그린다. 그 가운데 일부는 실수로 누른 것이다. 보호 방식을 바꾸면 실수 가운데 몇 건을 되찾는지, 그 대가로 사람들이 몇 번을 더 누르는지가 달라진다.</p>
+
+    <div class="sim" id="sim-undo">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>확인 대화상자 대 되돌리기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fl-un-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="fl-un-mode"><button data-value="none">보호 없음</button><button data-value="confirm" class="on">확인 대화상자</button><button data-value="undo">되돌리기</button></div>
+          <label class="ctrl"><span>실수로 누른 취소의 비율 <output id="fl-un-e-out"></output></span><input type="range" id="fl-un-e" min="0.02" max="0.3" step="0.01" value="0.1"></label>
+          <label class="ctrl"><span>대화상자를 읽고 멈출 확률 <output id="fl-un-h-out"></output></span><input type="range" id="fl-un-h" min="0" max="1" step="0.05" value="0.3"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">되찾은 실수</span><span class="v" id="fl-un-o-s">—</span></div>
+        <div class="stat"><span class="k">잃은 맡김</span><span class="v" id="fl-un-o-l">—</span></div>
+        <div class="stat"><span class="k">모두가 더 누른 횟수</span><span class="v" id="fl-un-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "확인 대화상자"에서 멈출 확률이 30%일 때 잃은 맡김을 센다. 100명 모두 한 번씩 더 눌렀는데도 실수의 대부분이 그대로 지나간다. ② 멈출 확률을 100%로 올린다. 대화상자가 모든 실수를 막는다. 하지만 같은 질문을 매번 꼼꼼히 읽는 사람은 드물다는 것이 래스킨의 지적이다. ③ "되돌리기"로 바꾼다. 실수한 사람만 한 번 더 누르고, 실수의 대부분을 되찾는다. (되돌리기에서는 실수한 사람의 80%가 알아채고 되돌린다고 가정한다. 멈출 확률과 이 80%는 측정값이 아니라 모형의 가정이며, 결론은 이 값에 달려 있다.)</div>
+    </div>
+
+    <p>되돌리기가 늘 정답은 아니다. 되돌릴 수 없는 일에는 되돌리기를 붙일 수 없다. 문자 메시지를 이미 보냈거나, 다른 손님이 그 책을 이미 맡겼다면 시간을 되돌릴 수 없다. 이럴 때는 되돌리기 대신 <b>일을 조금 늦추는</b> 방법을 쓴다. 취소를 누르면 바로 책을 풀지 않고, 화면 아래에 "맡김을 취소했어요 · 되돌리기"를 몇 초 동안 띄운 뒤에야 실제로 처리한다. 그리고 확인 대화상자는 드물고 무거운 일, 되돌릴 수 없고 대가가 큰 일에 아껴 쓴다. 대화상자가 드물게 나올수록 사람들은 그것을 읽는다.</p>
+  </section>
+
+  <section id="resume">
+    <h2>끊겨도 이어지게</h2>
+    <p>흐름도는 사용자가 한 번에, 처음부터 끝까지 지나간다고 그리기 쉽다. 실제 휴대폰 사용은 끊김의 연속이다. 버스에서 내리고, 전화가 오고, 아이가 부른다. 특히 전화번호 인증은 흐름 안에 <b>스스로 끊김을 만든다</b>. 인증 번호를 보려고 문자 앱으로 갔다가 돌아오면, 휴대폰 브라우저가 메모리를 아끼느라 페이지를 새로 불러오는 일이 있다. 그러면 입력해 둔 것이 사라지고 손님은 검색부터 다시 해야 한다. 휴대폰 운영체제가 문자로 온 인증 번호를 키보드 위에 제안해 주는 기능도 있지만, 모든 기기와 브라우저에서 되는 것은 아니다.</p>
+    <p>끊긴 흐름을 지키는 방법은 <span class="term">임시 저장</span><span class="en">(Draft saving)</span>과 <span class="term">이어 하기</span><span class="en">(Resume)</span>다. 사용자가 입력하거나 고른 것을 그때그때 기기나 서버에 남겨 두고, 돌아왔을 때 떠난 자리에서 다시 시작하게 한다. 아래 시뮬레이터는 다섯 단계 흐름에서 두 종류의 끊김을 둔다. 단계마다 일정한 확률로 일어나는 일상의 끊김, 그리고 인증 단계에서 문자 앱을 다녀오는 동안 페이지가 처음으로 돌아가는 일이다.</p>
+
+    <div class="sim" id="sim-resume">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>끊긴 흐름을 이어 가기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="fl-rs-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>단계마다 일상의 끊김 <output id="fl-rs-q-out"></output></span><input type="range" id="fl-rs-q" min="0" max="0.3" step="0.01" value="0.08"></label>
+          <label class="ctrl"><span>문자 앱을 다녀오면 처음으로 <output id="fl-rs-l-out"></output></span><input type="range" id="fl-rs-l" min="0" max="0.6" step="0.05" value="0.3"></label>
+          <label class="check"><input type="checkbox" id="fl-rs-save"> 임시 저장과 이어 하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">끝까지 간 사람(1,000명 중)</span><span class="v" id="fl-rs-o-f">—</span></div>
+        <div class="stat"><span class="k">끊긴 뒤 처음부터 다시 한 사람</span><span class="v" id="fl-rs-o-r">—</span></div>
+        <div class="stat"><span class="k">이어 하기 없이 잃은 사람</span><span class="v" id="fl-rs-o-d">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 이어 하기를 끈 채로 "문자 앱을 다녀오면 처음으로"를 0에서 0.6까지 올린다. 인증 단계 막대가 뚝 떨어진다. ② 이어 하기를 켠다. 같은 끊김에서도 인증 단계의 손실이 거의 사라진다. ③ 일상의 끊김을 0.3까지 올리고 이어 하기를 켜고 끈다. 끊김이 잦을수록 이어 하기의 효과가 커진다. (끊김은 계속 비율과 따로 일어난다고 둔다. 저장이 없으면 끊긴 사람의 절반이 처음부터 다시 하고(문자 앱 다녀온 경우는 70%), 저장이 있으면 끊긴 사람의 80%가 그 자리에서 이어 간다. 다시 하는 두 번째 시도에서는 끊김이 없다고 둔다. 모두 모형의 가정이다.)</div>
+    </div>
+
+    <p>이어 하기의 비용은 크지 않다. 고른 책과 책방, 입력한 전화번호를 기기에 잠시 남겨 두는 것으로 대부분 해결된다. 다만 무엇을 얼마나 오래 남길지는 신중하게 정한다. 전화번호 같은 개인정보를 기기에 오래 남기면, 같은 휴대폰을 쓰는 다른 사람이 볼 수 있다. 임시 저장은 흐름을 이어 줄 만큼만, 짧게 남긴다. 무엇을 모으고 얼마나 보관할지는 <a href="ethics.html">12장</a>에서 다시 다룬다.</p>
+
+    <div class="callout try">
+      <strong>내 하루의 과업 흐름 그리기</strong>
+      최근에 휴대폰으로 해 본 과업 하나를 고른다. 택배 반품 신청, 병원 예약, 동네 도서관의 책 예약처럼 단계가 여러 개인 것이 좋다. 종이에 그 과업의 행복한 경로를 그림 1의 기호로 그리고 단계 수를 센다. 다음에 그 서비스를 실제로 다시 열어 화면을 하나씩 넘기며, 그린 흐름도와 다른 곳(빠뜨린 단계, 생각보다 많은 결정)을 빨간 펜으로 고친다. 마지막으로 단계마다 "만약 아니라면?"을 하나씩 붙이고, 그 예외에서 서비스가 실제로 무엇을 보여 주는지 확인한다. 출구가 없는 상자가 몇 개인지 세어 본다. 대부분의 사람은 처음 그린 흐름도보다 실제 단계가 많다는 데 놀란다.
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>처음부터 손에 든 책까지</h2>
+    <p>퍼널의 끝을 어디에 두느냐도 설계다. 처음안의 퍼널은 "요청 확인" 화면에서 끝났다. 그런데 손님이 원한 것은 요청 완료 화면이 아니라 <b>손에 든 책</b>이다. 요청을 많이 받는 서비스와 책을 많이 건네는 서비스는 같지 않다. 아래 종합 시뮬레이터는 이 장에서 본 모형을 이어 붙인다. 검색을 시작한 손님 1,000명이 흐름(퍼널)을 지나 요청을 남기고, 예외를 지나 결말에 이른다. 흐름안, 예외 처리, 이어 하기를 바꿔 가며 마지막 칸이 어떻게 달라지는지 본다.</p>
+
+    <div class="sim" id="sim-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>검색에서 손에 든 책까지</h3></div>
+      <div class="sim-body">
+        <div class="sim-view"><canvas id="fl-lb-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="fl-lb-flow"><button data-value="9" class="on">처음안(9단계)</button><button data-value="5">가입 없는 안(5단계)</button></div>
+          <label class="check"><input type="checkbox" id="fl-lb-exc"> 예외 처리(확인 한도 3시간)</label>
+          <label class="check"><input type="checkbox" id="fl-lb-save"> 임시 저장과 이어 하기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">요청을 남긴 손님</span><span class="v" id="fl-lb-o-r">—</span></div>
+        <div class="stat"><span class="k">책을 손에 든 손님</span><span class="v" id="fl-lb-o-g">—</span></div>
+        <div class="stat"><span class="k">헛걸음 · 흐지부지</span><span class="v" id="fl-lb-o-w">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음안에서 요청과 책을 받은 수를 본다. ② "가입 없는 안"으로 바꾼다. 요청이 두 배 넘게 늘고, 책을 받은 손님도 그만큼 는다. ③ 예외 처리를 켠다. 책을 받은 수는 조금 늘 뿐이지만 헛걸음과 흐지부지가 거의 사라진다. ④ 이어 하기를 켠다. 문자 앱을 다녀오는 인증 단계의 손실이 줄어 요청이 조금 더 는다. 셋을 다 바꾼 상태와 처음 상태를 비교해 본다. (앞의 시뮬레이터들의 가정을 이어 붙인 모형이다. 퍼널의 계속 비율은 이어 하기가 없는 지금 흐름에서 잰 값이라고 두고, 이어 하기는 문자 앱(처음안은 본인 확인 앱)을 다녀오는 단계의 계속 비율을 0.05 올린다고 둔다. 예외의 결말 비율은 확인 한도 3시간일 때의 앞 모형 값을 쓴다. 모든 값은 가상이다.)</div>
+    </div>
+
+    <p>어느 하나의 개선도 혼자서 모든 것을 바꾸지 않는다. 단계를 줄이면 들어오는 요청이 늘고, 예외 처리는 요청 뒤의 실패를 정직한 실패로 바꾸고, 이어 하기는 끊긴 사람을 데려온다. 흐름을 설계한다는 것은 이 셋을 한 그림 위에 놓고 보는 일이다. 그리고 그 그림의 마지막 칸은 화면이 아니라 사람의 결말이어야 한다. "요청 수"를 목표로 삼으면 요청만 늘리는 설계(예를 들어 재고가 불확실한 책도 일단 요청을 받기)가 좋아 보이게 된다. 무엇을 목표 숫자로 삼을지는 <a href="metrics.html">9장</a>에서 다시 본다.</p>
+
+    <div class="callout studio">
+      <strong>흐름도에 사람을 둘 이상 그린다</strong>
+      맡아 두기는 손님 혼자 하는 과업이 아니다. 요청은 손님이 하고, 확인은 주인이 하고, 약속은 둘이 함께 지킨다. 이런 서비스에서는 흐름도를 사람마다 한 줄씩 나눈 <b>수영 레인</b><span class="en">(Swimlane)</span> 모양으로 그리면 좋다. 위 줄은 손님, 아래 줄은 주인, 가운데 줄은 시스템(문자, 알림)으로 두고, 한 사람의 행동이 다른 사람의 화면을 어떻게 바꾸는지 화살표로 잇는다. 손님 쪽 흐름만 그리면 주인의 확인이 늦을 때 무슨 일이 일어나는지가 그림에서 빠진다. 3장에서 만난 두 사용자 유형처럼, 서비스의 사용자가 둘 이상이면 흐름도도 둘 이상의 줄을 가진다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 5장</span></div>
+      <h4>아홉 단계를 다섯 단계로, 막다른 길 세 곳에 출구를</h4>
+      <p>4월 말, 서윤은 4장에서 정한 첫 화면(검색 하나)과 결과 화면(책 단위로 묶고 책방은 그 아래)을 이어 "맡아 두기"의 첫 흐름도를 그렸다. 검색, 책 고르기, 책방 고르기, 맡아 두기 누르기, 회원 가입, 본인 확인, 받을 날과 연락처 입력, 약관 동의, 요청 확인. 아홉 단계였다. 회원 가입은 네 주인 가운데 두 사람이 "단골을 알아보고 싶다"며 넣어 달라고 한 것이었다.</p>
+      <p>하린이 포스트잇 아홉 장을 벽에 붙이고 단계마다 가상의 계속 비율을 적었다. 2장의 관찰에서 손님들이 가게에 전화해 재고를 묻는 데 걸린 시간이 1분 남짓이었다는 것을 떠올리며, 하린은 이렇게 말했다. "전화 한 통이면 되는 일을 아홉 단계로 만들면, 사람들은 그냥 전화해요." 이 장의 퍼널 모형으로 계산하자 1,000명 중 끝까지 가는 사람이 약 206명(20.6%)이었다. 가장 많이 떠나는 곳은 회원 가입(계속 비율 0.60으로 가정)과 본인 확인(0.75)이었다.</p>
+      <p>지후가 개발 쪽 사정을 보탰다. 통신사 본인 확인은 외부 업체 연동과 비용이 들고, 회원 가입은 비밀번호 찾기와 탈퇴까지 화면이 줄줄이 따라온다. 주인들이 원한 "단골 알아보기"는 전화번호만 있어도 된다. 서윤의 선택은 가입과 본인 확인, 연락처 입력, 약관 동의를 <b>전화번호 인증</b>(문자로 온 여섯 자리 숫자 입력) 한 단계로 묶는 것이었다. 책방 고르기는 결과 화면에서 책방 줄 옆의 "맡아 두기"를 누르는 일로 합쳤다. 같은 가정으로 다시 계산하자 약 529명(52.9%)이었다. 하린은 "단계를 뺀 만큼 그대로 오른다는 건 상한이에요"라고 메모를 달았다.</p>
+      <p>다음은 예외였다. 처음 흐름도에서는 확인 못 함, 재고 없음, 기한 지남의 세 상자에서 나가는 화살표가 없었다. 헌책방 나무 주인은 "한 권뿐인 책이 맡긴 사이에 팔리면 어떻게 하냐"고 물었고, 한 줄 주인은 "손님 응대할 때는 휴대폰을 못 본다"고 했다. 서윤은 예외마다 손님에게 알리는 문장과 다음 선택지를 정했다. 확인을 기다리는 한도는 시뮬레이터에서 1~24시간을 오가며 저울질한 끝에, 네 주인과 상의해 영업시간 기준 3시간으로 정했다. 확인 대화상자를 겹겹이 쌓으려던 취소에는 되돌리기를 붙였고, 인증 문자를 보러 다녀와도 고른 책과 입력한 번호가 남게 했다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>항목</th><th>서윤의 선택</th><th>근거(가상 자료)</th></tr></thead>
+          <tbody>
+            <tr><td>흐름</td><td>① 검색 → ② 결과에서 책과 책방 고르기 → ③ "맡아 두기" → ④ 전화번호 인증(문자 6자리) → ⑤ 요청 확인</td><td>퍼널 모형 20.6% → 52.9%(상한)</td></tr>
+            <tr><td>재고 없음</td><td>주인 화면에 "없음" 버튼. 누르면 손님에게 바로 알리고, 같은 책이 있는 다른 책방을 함께 보여 준다. 요청은 자동으로 닫힌다</td><td>헛걸음 제거</td></tr>
+            <tr><td>주인이 확인 못 함</td><td>영업시간 기준 3시간 안에 확인이 없으면 손님에게 "아직 확인 전" 알림과 세 선택지(더 기다리기 · 다른 책방 · 취소), 주인에게 다시 알림. 다음 영업일까지 확인이 없으면 자동 취소하고 손님에게 알림</td><td>한도 1~24시간 비교, 주인 네 명과 합의</td></tr>
+            <tr><td>기한 지남</td><td>맡김 기한은 최대 3일. 기한 하루 전 손님에게 알림, 기한이 지나면 맡김을 풀고 손님과 주인 모두에게 알린다. 책은 서가로</td><td>책이 서가 밖에 묶이는 일 제거</td></tr>
+            <tr><td>취소</td><td>확인 대화상자 없이 바로 취소하고, 화면 아래에 "되돌리기"를 몇 초 띄운 뒤 처리</td><td>실수한 사람만 한 번 더 누른다</td></tr>
+            <tr><td>이어 하기</td><td>고른 책·책방과 입력한 번호를 기기에 남겨, 문자 앱을 다녀와도 인증 단계에서 이어 간다. 요청이 끝나면 바로 지운다</td><td>인증 단계의 손실 감소</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>가입 없는 다섯 단계 흐름(검색 → 책과 책방 고르기 → 맡아 두기 → 전화번호 인증 → 요청 확인)과 예외 세 가지의 처리(재고 없음: 즉시 알림과 다른 책방 제안, 확인 못 함: 영업시간 기준 3시간 뒤 알림과 세 선택지·다음 영업일 자동 취소, 기한 지남: 하루 전 알림·3일 뒤 해제와 양쪽 알림). 취소는 되돌리기로, 인증 단계는 이어 하기로 지킨다. 손님과 주인을 두 줄로 나눈 흐름도를 지후에게 넘겼다.</div>
+        <div><b>아직 남은 문제</b>지후가 흐름도대로 만든 시험판을 하린이 책방 E 단골 두 사람에게 써 보게 했다. 한 사람은 "맡아 두기"를 누른 뒤 화면에 아무 변화가 없자 두세 번 더 눌렀고, 주인 화면에는 같은 요청이 세 건 들어왔다. 주인 쪽 확인 화면에서는 "수락"과 "거절" 버튼의 자리가 요청마다 달라 보였다. 흐름은 맞는데, 화면과 사람 사이의 주고받음이 어긋나 있다.</div>
+        <div><b>다음 단계</b><a href="interaction.html">6장</a>: 누른 뒤의 반응, 버튼의 자리, 사람이 머릿속에 그리는 서비스의 모습을 살핀다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>사용자 흐름은 목표에 닿기까지 지나는 화면과 행동의 순서다. 과업 흐름도는 시작·끝, 화면, 행동, 결정의 기호로 그리고, 결정마다 갈림길을 빠뜨리지 않는다.</li>
+      <li>끝까지 가는 비율은 단계별 계속 비율의 곱 \(F = \prod p_i\)다. 단계 수는 지수로 작용해서, 90%짜리 단계도 일곱 개면 절반이 떠난다.</li>
+      <li>약한 단계 하나는 없애는 것이 가장 큰 개선이 되고, 비슷한 단계가 많으면 모두를 조금씩 다듬는 것도 크다. 단계를 빼는 계산은 독립 가정 아래의 상한이며, 그 단계가 하던 일을 다른 방법으로 해낼 수 있을 때만 뺄 수 있다.</li>
+      <li>적은 인원으로 잰 퍼널은 크게 흔들린다. 뒤 단계일수록 더 흔들린다. 퍼널 숫자는 사람·방문 기준, 기간, 순서의 정의에 따라 달라진다.</li>
+      <li>행복한 경로만 그린 흐름도는 약속의 절반이다. 예외 경로에서 모든 상태에는 보이는 출구(다시 시도, 다른 길, 깔끔하게 그만두기)가 있어야 한다. 예외 처리는 실패를 없애기보다 실패의 모양을 정직하게 바꾼다.</li>
+      <li>자주 나오는 확인 대화상자는 습관적으로 넘겨져 실수를 잘 막지 못할 수 있다. 되돌릴 수 있는 일에는 되돌리기를, 끊김이 잦은 흐름에는 임시 저장과 이어 하기를 둔다. 퍼널의 끝은 화면이 아니라 사람의 결말에 둔다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 세 단계로 된 흐름의 계속 비율이 차례로 0.9, 0.8, 0.5다. 첫 단계에 들어온 사람 중 끝까지 가는 비율은?</p>
+        <div class="opts">
+          <button class="opt">약 73%(세 값의 평균)</button>
+          <button class="opt">50%(가장 낮은 단계의 값)</button>
+          <button class="opt" data-correct>36%</button>
+          <button class="opt">80%(가운데 단계의 값)</button>
+        </div>
+        <div class="quiz-exp">퍼널은 단계별 계속 비율을 곱한다. 0.9 × 0.8 × 0.5 = 0.36이다. 평균(0.73)은 각 단계에서 떠난 사람이 쌓인다는 사실을 무시한 값이고, 가장 낮은 값(0.5)은 앞 두 단계에서 이미 떠난 사람을 빠뜨린 값이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 아홉 단계 흐름에서 두 단계를 빼고 다른 단계는 그대로 두면 끝까지 가는 비율이 두 배가 된다고 계산했다. 실제로 그만큼 오르지 않을 수 있는 이유로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>곱셈 계산은 단계들이 서로 독립이라고 가정한다. 단계를 빼거나 합치면 남은 단계의 부담이 커지거나, 걸러지던 사람들이 뒤 단계에서 떠나 계속 비율이 바뀔 수 있다.</button>
+          <button class="opt">퍼널은 곱셈이 아니라 덧셈이라서 두 단계를 빼도 효과가 거의 없다.</button>
+          <button class="opt">단계 수는 끝까지 가는 비율과 관계가 없고, 화면의 색과 글꼴만 영향을 준다.</button>
+          <button class="opt">단계를 빼면 반감 단계가 늘어나 끝까지 가는 비율이 오히려 줄어든다.</button>
+        </div>
+        <div class="quiz-exp">\(F = \prod p_i\)는 각 단계의 계속 비율이 다른 단계와 상관없다고 둔 모형이다. 실제로는 단계를 합치면 한 화면이 무거워지고, 앞 단계가 걸러 주던 사람들이 뒤 단계에서 떠나기도 한다. 그래서 단계를 뺀 계산은 상한에 가깝다. 퍼널은 덧셈이 아니며, 반감 단계가 늘어나는 것은 오히려 남는 비율이 커진다는 뜻이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 맡김을 취소할 때마다 "정말 취소할까요?" 대화상자를 띄우자는 의견이 나왔다. 이 장의 설명과 가장 맞는 판단은?</p>
+        <div class="opts">
+          <button class="opt">대화상자는 모든 실수를 막으므로, 되도록 모든 버튼에 붙이는 것이 좋다.</button>
+          <button class="opt">취소는 사용자의 일이므로 실수해도 서비스가 할 일은 없다.</button>
+          <button class="opt">대화상자를 두 번 연달아 띄우면 습관적으로 넘기는 문제가 사라진다.</button>
+          <button class="opt" data-correct>늘 같은 대화상자는 습관적으로 넘겨져 실수를 잘 막지 못할 수 있으니, 되돌릴 수 있는 취소라면 되돌리기를 두고 대화상자는 드물고 되돌릴 수 없는 일에 아낀다.</button>
+        </div>
+        <div class="quiz-exp">래스킨(2000)이 지적했듯이 자주 나오는 확인 대화상자는 읽히지 않고 "예"로 넘겨지기 쉽다. 그러면 모두가 한 번씩 더 누르면서도 실수는 그대로 지나간다. 되돌리기는 실수한 사람만 한 번 더 누르게 한다. 닐센의 휴리스틱 "사용자 통제와 자유"도 실수에서 빠져나올 비상구를 권한다. 대화상자를 겹쳐도 습관은 그대로 옮겨 간다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 맡아 두기 요청 뒤 주인이 몇 시간째 확인하지 않고 있다. 예외 경로의 처리로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">손님 화면은 "요청 완료" 그대로 두고, 주인이 확인할 때까지 기다린다.</button>
+          <button class="opt" data-correct>정한 시간이 지나면 손님에게 아직 확인 전이라고 알리고, 더 기다리기·다른 책방·취소 가운데 고르게 한다. 주인에게도 다시 알린다.</button>
+          <button class="opt">손님에게 알리지 않고 요청을 다른 책방으로 자동으로 옮긴다.</button>
+          <button class="opt">"오류가 발생했습니다(code 408)"라는 메시지를 띄워 요청을 지운다.</button>
+        </div>
+        <div class="quiz-exp">예외 경로의 원칙은 모든 상태에 보이는 출구를 두고, 사용자가 무슨 일이 일어났는지 알게 하는 것이다. 그대로 두면 손님은 소식 없이 기다리거나 헛걸음을 한다. 손님 몰래 다른 책방으로 옮기면 손님이 모르는 약속이 생기고, 오류 코드는 이유도 다음 행동도 알려 주지 않는다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  function hFor(id, ratio, lo, hi) {
+    return { get height() { var el = document.getElementById(id); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(AB.clamp(w * ratio, lo, hi)); } };
+  }
+  function txt(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight || 500);
+    ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "middle"; ctx.fillText(s, x, y);
+  }
+  function fitText(ctx, s, maxW) {
+    if (ctx.measureText(s).width <= maxW) return s;
+    while (s.length > 1 && ctx.measureText(s + "…").width > maxW) s = s.slice(0, -1);
+    return s + "…";
+  }
+  function soft(col, a) {
+    // 테마 색(#hex 또는 rgb())을 투명도와 함께 쓴다
+    if (!col) return "rgba(128,128,128," + a + ")";
+    col = col.trim();
+    if (col[0] === "#") {
+      var h = col.length === 4 ? col.replace(/^#(.)(.)(.)$/, "#$1$1$2$2$3$3") : col;
+      var r = parseInt(h.substr(1, 2), 16), g = parseInt(h.substr(3, 2), 16), b = parseInt(h.substr(5, 2), 16);
+      return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+    }
+    var m = col.match(/[\d.]+/g); if (m && m.length >= 3) return "rgba(" + m[0] + "," + m[1] + "," + m[2] + "," + a + ")";
+    return col;
+  }
+  function rrect(ctx, x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2); ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  var N0 = 1000;
+  var nf = function (v) { return Math.round(v).toLocaleString("ko-KR"); };
+
+  /* 맡아 두기 흐름안의 단계와 가상의 계속 비율(교육용 가정) */
+  var FLOW9 = [
+    { n: "검색", p: 0.92 }, { n: "책 고르기", p: 0.88 }, { n: "책방 고르기", p: 0.90 }, { n: "맡아 두기 누르기", p: 0.80 },
+    { n: "회원 가입", p: 0.60 }, { n: "본인 확인", p: 0.75 }, { n: "받을 날·연락처 입력", p: 0.88 }, { n: "약관 동의", p: 0.93 }, { n: "요청 확인", p: 0.96 }
+  ];
+  var FLOW5 = [ { n: "검색", p: 0.92 }, { n: "책과 책방 고르기", p: 0.88 }, { n: "맡아 두기 누르기", p: 0.80 }, { n: "전화번호 인증", p: 0.85 }, { n: "요청 확인", p: 0.96 } ];
+  function prod(list) { return list.reduce(function (a, s) { return a * s.p; }, 1); }
+
+  /* ---------------- 1. 흐름도 편집기 → 퍼널 ---------------- */
+  safe("editor", function () {
+    var BASE = [
+      { n: "검색", p: 0.92 }, { n: "책 고르기", p: 0.88 }, { n: "책방 고르기", p: 0.90 }, { n: "맡아 두기 누르기", p: 0.80 },
+      { n: "회원 가입", p: 0.60 }, { n: "본인 확인", p: 0.75 }, { n: "받을 날·연락처 입력", p: 0.88 }, { n: "약관 동의", p: 0.93 },
+      { n: "전화번호 인증", p: 0.85, opt: true }, { n: "요청 확인", p: 0.96 }
+    ];
+    var rows = [], added = 0, geo = null, dragRow = -1;
+    function preset(kind) {
+      rows = BASE.map(function (s) { return { n: s.n, p: s.p, on: true }; });
+      if (kind === 9) rows[8].on = false;
+      else ["책방 고르기", "회원 가입", "본인 확인", "받을 날·연락처 입력", "약관 동의"].forEach(function (nm) { rows.forEach(function (r) { if (r.n === nm) r.on = false; }); });
+      if (kind === 5) rows[1].n = "책과 책방 고르기";
+      added = 0;
+    }
+    preset(9);
+    var showDrop = AB.check("fl-ed-drop", function () { cv.redraw(); });
+    var RH = 30, TOP = 34;
+    var cv = AB.canvas("#fl-ed-cv", function (ctx, w, h) {
+      var P = AB.palette();
+      var nameW = Math.min(150, Math.max(96, w * 0.34)), barX = nameW + 10, valW = w < 420 ? 40 : 52, barW = Math.max(60, w - barX - valW - 10);
+      geo = { nameW: nameW, barX: barX, barW: barW, segs: [] };
+      txt(ctx, "단계(눌러서 빼기·넣기)", 10, 16, { color: P.dim, size: 11.5 });
+      txt(ctx, "남은 사람(1,000명 기준)", barX, 16, { color: P.dim, size: 11.5 });
+      txt(ctx, "p", w - 10, 16, { color: P.dim, size: 11.5, align: "right", mono: true });
+      var N = N0, worst = null, nOn = 0;
+      rows.forEach(function (r, i) {
+        var y = TOP + i * RH, cy = y + RH / 2;
+        ctx.font = AB.font(12.5, false, r.on ? 600 : 400);
+        if (r.on) {
+          nOn++;
+          var Wfull = barW * N / N0, out = N * r.p, Wout = barW * out / N0;
+          if (showDrop()) { ctx.fillStyle = soft(P.bad, 0.22); ctx.fillRect(barX + Wout, y + 6, Wfull - Wout, RH - 12); }
+          ctx.fillStyle = r.added ? P.accent2 : P.accent; ctx.fillRect(barX, y + 6, Wout, RH - 12);
+          AB.handle(ctx, barX + Wout, cy, { r: 6, fill: P.accent, ring: P.text });
+          var lab = nf(out) + "명";
+          ctx.font = AB.font(11, true, 600);
+          var lw = ctx.measureText(lab).width;
+          if (Wout > lw + 22) txt(ctx, lab, barX + 6, cy, { color: "#ffffff", size: 11, mono: true, weight: 600 });
+          else txt(ctx, lab, barX + Wfull + 6 > barX + barW - lw ? barX + Wout + 10 : barX + Wfull + 6, cy, { color: P.text, size: 11, mono: true, weight: 600 });
+          txt(ctx, r.p.toFixed(2), w - 10, cy, { color: P.text, size: 11.5, mono: true, align: "right" });
+          var lost = N - out; if (!worst || lost > worst.lost) worst = { n: r.n, lost: lost };
+          geo.segs[i] = { full: Wfull, N: N };
+          N = out;
+          ctx.font = AB.font(12.5, false, 600);
+          txt(ctx, fitText(ctx, r.n, nameW - 14), 10, cy, { color: P.text, size: 12.5, weight: 600 });
+        } else {
+          geo.segs[i] = null;
+          ctx.font = AB.font(12.5, false, 400);
+          var s = fitText(ctx, r.n, nameW - 14);
+          txt(ctx, s, 10, cy, { color: P.faint, size: 12.5, weight: 400 });
+          var sw = ctx.measureText(s).width;
+          ctx.strokeStyle = P.faint; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(10, cy); ctx.lineTo(10 + sw, cy); ctx.stroke();
+          txt(ctx, "흐름에서 뺌", barX, cy, { color: P.faint, size: 11 });
+        }
+        ctx.strokeStyle = P.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(6, y + RH); ctx.lineTo(w - 6, y + RH); ctx.stroke();
+      });
+      var yEnd = TOP + rows.length * RH + 18;
+      txt(ctx, "끝까지: " + nf(N) + "명 (" + (N / N0 * 100).toFixed(1) + "%)", 10, yEnd, { color: P.text, size: 13, weight: 700 });
+      AB.stat("fl-ed-o-n", nOn + "단계");
+      AB.stat("fl-ed-o-f", nf(N) + "명 <small>" + (N / N0 * 100).toFixed(1) + "%</small>");
+      AB.stat("fl-ed-o-w", worst ? worst.n + " <small>−" + nf(worst.lost) + "명</small>" : "—");
+    }, { get height() { return TOP + rows.length * RH + 40; } });
+    function refresh() { cv.resize(); }
+    function rowAt(y) { var i = Math.floor((y - TOP) / RH); return i >= 0 && i < rows.length ? i : -1; }
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        dragRow = -1; if (!geo) return;
+        var i = rowAt(y); if (i < 0) return;
+        if (x < geo.nameW) {
+          var onCount = rows.filter(function (r) { return r.on; }).length;
+          if (rows[i].on && onCount <= 1) return;
+          rows[i].on = !rows[i].on; cv.redraw(); return;
+        }
+        if (rows[i].on) dragRow = i;
+      },
+      move: function (x) {
+        if (dragRow < 0 || !geo || !geo.segs[dragRow]) return;
+        var sg = geo.segs[dragRow], full = Math.max(8, sg.full);
+        rows[dragRow].p = Math.round(AB.clamp((x - geo.barX) / full, 0.3, 1) * 100) / 100;
+        cv.redraw();
+      },
+      end: function () { dragRow = -1; }
+    });
+    document.getElementById("fl-ed-p9").addEventListener("click", function () { preset(9); refresh(); });
+    document.getElementById("fl-ed-p5").addEventListener("click", function () { preset(5); refresh(); });
+    document.getElementById("fl-ed-add").addEventListener("click", function () {
+      if (added >= 3) return; added++;
+      rows.splice(rows.length - 1, 0, { n: "추가 단계 " + added, p: 0.9, on: true, added: true }); refresh();
+    });
+    document.getElementById("fl-ed-del").addEventListener("click", function () {
+      for (var i = rows.length - 1; i >= 0; i--) if (rows[i].added) { rows.splice(i, 1); added--; break; }
+      refresh();
+    });
+  });
+
+  /* ---------------- 2. p^n 곡선 ---------------- */
+  safe("power", function () {
+    var nSel = 9, geo = null;
+    var getP = AB.range("fl-pw-p", function (v) { return v.toFixed(2); }, function () { cv.redraw(); });
+    var ref = AB.check("fl-pw-ref", function () { cv.redraw(); });
+    var cv = AB.canvas("#fl-pw-cv", function (ctx, w, h) {
+      var P = AB.palette(), p = getP();
+      var curve = function (pp) { var d = []; for (var n = 0; n <= 20; n += 0.25) d.push([n, Math.pow(pp, n)]); return d; };
+      var series = [];
+      if (ref()) [0.8, 0.9, 0.95].forEach(function (pp) { series.push({ data: curve(pp), color: P.faint, width: 1.2, dash: [4, 4] }); });
+      series.push({ data: curve(p), color: P.accent, width: 2.6 });
+      var box = { x: 50, y: 14, w: w - 50 - 16, h: h - 14 - 76 };
+      var c = AB.chart(ctx, box, { x: [0, 20], y: [0, 1], xTicks: [0, 5, 10, 15, 20], yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: function (v) { return Math.round(v * 100) + "%"; }, xLabel: "단계 수 n", yLabel: "남는 비율", series: series, hlines: [{ y: 0.5, color: P.faint }] });
+      geo = c;
+      if (ref()) [0.8, 0.9, 0.95].forEach(function (pp) { var nn = pp === 0.8 ? 4 : pp === 0.9 ? 9.5 : 16; txt(ctx, String(pp), c.X(nn) + 3, c.Y(Math.pow(pp, nn)) - 8, { color: P.faint, size: 10.5, mono: true }); });
+      var f = Math.pow(p, nSel);
+      ctx.strokeStyle = P.dim; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(c.X(nSel), c.Y(0)); ctx.lineTo(c.X(nSel), c.Y(f)); ctx.lineTo(c.X(0), c.Y(f)); ctx.stroke(); ctx.setLineDash([]);
+      AB.handle(ctx, c.X(nSel), c.Y(f), { r: 7, fill: P.accent, ring: P.text });
+      var lab = "n=" + nSel + " → " + (f * 100).toFixed(1) + "%";
+      ctx.font = AB.font(12, true, 600);
+      var lw = ctx.measureText(lab).width, lx = c.X(nSel) + 10; if (lx + lw > box.x + box.w) lx = c.X(nSel) - 10 - lw;
+      txt(ctx, lab, lx, Math.max(box.y + 10, c.Y(f) - 14), { color: P.text, size: 12, mono: true, weight: 600 });
+      var half = Math.log(0.5) / Math.log(p);
+      AB.stat("fl-pw-o-f", (f * 100).toFixed(1) + "% <small>p=" + p.toFixed(2) + ", n=" + nSel + "</small>");
+      AB.stat("fl-pw-o-h", half.toFixed(1) + "<small>단계</small>");
+      var a = nSel > 1 ? Math.pow(p, nSel - 1) : 1, b = Math.pow(Math.min(1, p + 0.02), nSel);
+      AB.stat("fl-pw-o-a", (a * 100).toFixed(1) + "% <small>+" + ((a - f) * 100).toFixed(1) + "%p</small>");
+      AB.stat("fl-pw-o-b", (b * 100).toFixed(1) + "% <small>+" + ((b - f) * 100).toFixed(1) + "%p</small>");
+    }, hFor("fl-pw-cv", 0.62, 290, 380));
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; var n = Math.round((x - geo.box.x) / geo.box.w * 20); nSel = AB.clamp(n, 1, 20); cv.redraw(); } });
+  });
+
+  /* ---------------- 3. 몇 명으로 잰 퍼널인가 ---------------- */
+  safe("noise", function () {
+    var NS = [20, 50, 100, 200, 500, 1000, 2000], seed = 7, cache = null;
+    var getN = AB.range("fl-nz-n", function (v) { return NS[v] + "명"; }, function () { cache = null; cv.redraw(); });
+    var band = AB.check("fl-nz-band", function () { cv.redraw(); });
+    function measure(rnd, n) {
+      var left = n, out = [];
+      FLOW5.forEach(function (s) { var k = 0; for (var i = 0; i < left; i++) if (rnd() < s.p) k++; out.push({ inn: left, out: k }); left = k; });
+      return out;
+    }
+    function compute() {
+      var n = NS[getN()];
+      var obs = measure(AB.rng(seed * 7919 + n), n);
+      var R = 200, rnd = AB.rng(1234 + n), cums = FLOW5.map(function () { return []; });
+      for (var r = 0; r < R; r++) { var m = measure(rnd, n); m.forEach(function (s, i) { cums[i].push(s.out / n); }); }
+      var bands = cums.map(function (arr) { arr.sort(function (a, b) { return a - b; }); return [arr[Math.floor(R * 0.05)], arr[Math.floor(R * 0.95) - 1]]; });
+      cache = { n: n, obs: obs, bands: bands };
+    }
+    var cv = AB.canvas("#fl-nz-cv", function (ctx, w, h) {
+      if (!cache) compute();
+      var P = AB.palette(), n = cache.n;
+      var nameW = Math.min(118, Math.max(84, w * 0.28)), x0 = nameW + 8, bw = w - x0 - 16, RH = (h - 50) / FLOW5.length;
+      var truth = 1;
+      txt(ctx, "단계", 10, 14, { color: P.dim, size: 11.5 });
+      txt(ctx, "그 단계를 넘어간 비율(들어온 손님 대비)", x0, 14, { color: P.dim, size: 11.5 });
+      FLOW5.forEach(function (s, i) {
+        truth *= s.p;
+        var y = 30 + i * RH, cy = y + RH / 2, o = cache.obs[i], m = o.out / n;
+        ctx.font = AB.font(12, false, 600);
+        txt(ctx, fitText(ctx, s.n, nameW - 12), 10, cy, { color: P.text, size: 12, weight: 600 });
+        if (band()) { var b = cache.bands[i]; ctx.fillStyle = soft(P.dim, 0.22); ctx.fillRect(x0 + bw * b[0], y + 4, Math.max(2, bw * (b[1] - b[0])), RH - 8); }
+        ctx.fillStyle = soft(P.accent, 0.85); ctx.fillRect(x0, y + RH * 0.3, bw * m, RH * 0.4);
+        ctx.strokeStyle = P.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0 + bw * truth, y + 3); ctx.lineTo(x0 + bw * truth, y + RH - 3); ctx.stroke();
+        var lab = (m * 100).toFixed(0) + "%";
+        ctx.font = AB.font(11, true, 600);
+        var lw = ctx.measureText(lab).width, lx = x0 + bw * m - lw - 4;
+        if (lx < x0 + 2) txt(ctx, lab, x0 + bw * m + 4, cy, { color: P.text, size: 11, mono: true, weight: 600 });
+        else txt(ctx, lab, lx, cy, { color: "#ffffff", size: 11, mono: true, weight: 600 });
+      });
+      var ya = h - 14;
+      [0, 0.25, 0.5, 0.75, 1].forEach(function (v) { txt(ctx, Math.round(v * 100) + "%", x0 + bw * v, ya, { color: P.faint, size: 10.5, mono: true, align: "center" }); });
+      var last = cache.obs[FLOW5.length - 1].out / n, bl = cache.bands[FLOW5.length - 1];
+      AB.stat("fl-nz-o-m", (last * 100).toFixed(1) + "% <small>" + cache.obs[FLOW5.length - 1].out + "/" + n + "명</small>");
+      AB.stat("fl-nz-o-t", (truth * 100).toFixed(1) + "%");
+      AB.stat("fl-nz-o-r", (bl[0] * 100).toFixed(0) + "~" + (bl[1] * 100).toFixed(0) + "%");
+    }, hFor("fl-nz-cv", 0.5, 240, 300));
+    document.getElementById("fl-nz-again").addEventListener("click", function () { seed++; cache = null; cv.redraw(); });
+  });
+
+  /* ---------------- 4. 예외 경로 모형(기댓값, 가상 가정) ----------------
+     요청 1,000건. 주인이 요청을 놓침 6%. 확인 시간: 70%는 평균 1시간, 30%는 평균 6시간(지수 분포).
+     확인되면 재고 없음 8%, 준비된 책을 기한 안에 찾아감 85%.
+     처리 없음: 놓친 요청·재고 없음은 손님에게 알림 없음(절반·60%가 가게에 가서 헛걸음, 나머지는 흐지부지), 기한 지난 책은 묶임(흐지부지).
+     처리 있음: 한도 T 시간 안에 확인 안 되면 손님에게 알림 → 다른 책방 40%(그중 85% 받음) · 더 기다림 35%(나중에 확인되면 정상 경로, 아니면 다음 영업일 자동 취소) · 취소 25%.
+               재고 없음은 즉시 알림 → 다른 책방 50%(85% 받음). 기한 하루 전 알림 → 기한 지날 손님의 1/3이 찾아감, 나머지는 해제·알림. */
+  function excModel(handled, T) {
+    var miss = 0.06, ns = 0.08, pick = 0.85;
+    var cT = function (t) { return 0.7 * (1 - Math.exp(-t / 1)) + 0.3 * (1 - Math.exp(-t / 6)); };
+    var R = { got: 0, stop: 0, waste: 0, limbo: 0, alert: 0, unconf: 0, nostock: 0, expired: 0 };
+    function normal(m, h) {   // 확인된 요청 m건이 재고·기한을 지나는 경로
+      var no = m * ns, ready = m - no, exp = ready * (1 - pick);
+      R.nostock += no; R.expired += exp;
+      R.got += ready * pick;
+      if (h) { R.got += no * 0.5 * 0.85; R.stop += no * (1 - 0.5 * 0.85); R.got += exp / 3; R.stop += exp * 2 / 3; }
+      else { R.waste += no * 0.6; R.limbo += no * 0.4; R.limbo += exp; }
+    }
+    if (!handled) {
+      var conf = (1 - miss) * cT(48), un = 1 - conf;
+      R.unconf = un * N0;
+      normal(conf * N0, false);
+      R.waste += un * N0 * 0.5; R.limbo += un * N0 * 0.5;
+    } else {
+      var c = (1 - miss) * cT(T), u = 1 - c;
+      R.unconf = u * N0; R.alert = u * N0;
+      normal(c * N0, true);
+      var later = Math.max(0, (1 - miss) * cT(48) - c) / Math.max(1e-9, u);   // 알림 뒤에라도 확인될 확률
+      var other = u * N0 * 0.4, wait = u * N0 * 0.35, cancel = u * N0 * 0.25;
+      R.got += other * 0.85; R.stop += other * 0.15;
+      normal(wait * later, true); R.stop += wait * (1 - later);
+      R.stop += cancel;
+    }
+    return R;
+  }
+
+  safe("branch", function () {
+    var mode = AB.seg("fl-br-mode", function () { cv.redraw(); });
+    var getT = AB.range("fl-br-t", function (v) { return v + "시간"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#fl-br-cv", function (ctx, w, h) {
+      var P = AB.palette(), handled = mode() === "yes", T = getT();
+      var R = excModel(handled, T);
+      var narrow = w < 520;
+      var nodes = ["요청", "주인 확인", "맡겨 둠", "찾아감"];
+      var m = 12, nw = (w - 2 * m - 3 * (narrow ? 14 : 28)) / 4, gap = narrow ? 14 : 28, ny = 26, nh = 34;
+      var X = function (i) { return m + i * (nw + gap); };
+      var conf = N0 - R.unconf;
+      var ready = conf * 0.92, flows = [N0, conf, ready, ready * 0.85];
+      var thick = function (v) { return Math.max(1.5, 22 * v / N0); };
+      txt(ctx, "행복한 경로", m, 12, { color: P.dim, size: 11.5 });
+      for (var i = 0; i < 4; i++) {
+        ctx.fillStyle = i === 3 ? soft(P.ok, 0.2) : P.surface; ctx.strokeStyle = i === 3 ? P.ok : P.border; ctx.lineWidth = 1.2;
+        rrect(ctx, X(i), ny, nw, nh, i === 0 || i === 3 ? 17 : 6); ctx.fill(); ctx.stroke();
+        ctx.font = AB.font(narrow ? 11.5 : 12.5, false, 700);
+        txt(ctx, fitText(ctx, nodes[i], nw - 8), X(i) + nw / 2, ny + nh / 2 - (narrow ? 0 : 0), { color: P.text, size: narrow ? 11.5 : 12.5, weight: 700, align: "center" });
+        if (i < 3) {
+          ctx.strokeStyle = P.accent; ctx.lineWidth = thick(flows[i + 1]);
+          ctx.beginPath(); ctx.moveTo(X(i) + nw, ny + nh / 2); ctx.lineTo(X(i + 1), ny + nh / 2); ctx.stroke();
+        }
+      }
+      // 예외 상자
+      var ex = [
+        { from: 0, n: "확인 못 함", v: R.unconf, h: handled ? "알림 + 세 선택지" : "아무 소식 없음" },
+        { from: 1, n: "재고 없음", v: R.nostock, h: handled ? "바로 알림 + 다른 책방" : "아무 소식 없음" },
+        { from: 2, n: "기한 지남", v: R.expired, h: handled ? "하루 전 알림 · 해제" : "책이 묶인 채" }
+      ];
+      var ey = ny + nh + 40, eh = narrow ? 52 : 46;
+      txt(ctx, "예외 경로", m, ey - 12, { color: P.dim, size: 11.5 });
+      ex.forEach(function (e, k) {
+        var cx = X(e.from) + nw + gap / 2, bw = nw + gap - 14, bx = AB.clamp(cx - bw / 2, m, w - m - bw);
+        if (narrow) { bw = (w - 2 * m - 2 * 8) / 3; bx = m + k * (bw + 8); }
+        ctx.strokeStyle = P.bad; ctx.lineWidth = thick(e.v);
+        ctx.beginPath(); ctx.moveTo(cx, ny + nh / 2); ctx.lineTo(cx, ey - 2); if (narrow) ctx.lineTo(bx + bw / 2, ey - 2); ctx.stroke();
+        ctx.fillStyle = handled ? soft(P.warn, 0.16) : soft(P.bad, 0.14); ctx.strokeStyle = handled ? P.warn : P.bad; ctx.lineWidth = 1.2;
+        rrect(ctx, bx, ey, bw, eh, 6); ctx.fill(); ctx.stroke();
+        ctx.font = AB.font(12, false, 700);
+        txt(ctx, fitText(ctx, e.n + " " + nf(e.v), bw - 8), bx + bw / 2, ey + 14, { color: P.text, size: 12, weight: 700, align: "center" });
+        ctx.font = AB.font(11, false, 500);
+        txt(ctx, fitText(ctx, e.h, bw - 8), bx + bw / 2, ey + (narrow ? 36 : 32), { color: handled ? P.text : P.bad, size: 11, align: "center" });
+      });
+      // 결말 막대
+      var by = ey + eh + 34, bh = 26, bw2 = w - 2 * m;
+      txt(ctx, "요청 1,000건의 결말", m, by - 12, { color: P.dim, size: 11.5 });
+      var parts = [
+        { k: "책을 받음", v: R.got, c: P.ok }, { k: "알고 멈춤", v: R.stop, c: P.accent2 },
+        { k: "헛걸음", v: R.waste, c: P.bad }, { k: "흐지부지", v: R.limbo, c: P.warn }
+      ];
+      var tot = parts.reduce(function (a, p) { return a + p.v; }, 0), x = m;
+      parts.forEach(function (p) {
+        var ww = bw2 * p.v / tot; ctx.fillStyle = p.c; ctx.fillRect(x, by, ww, bh);
+        if (ww > 40) { ctx.font = AB.font(11, true, 700); txt(ctx, nf(p.v), x + ww / 2, by + bh / 2, { color: "#ffffff", size: 11, mono: true, weight: 700, align: "center" }); }
+        x += ww;
+      });
+      var lx = m, ly = by + bh + 16;
+      parts.forEach(function (p) {
+        ctx.font = AB.font(11.5, false, 500); var s = p.k + " " + nf(p.v), sw = ctx.measureText(s).width + 26;
+        if (lx + sw > w - m) { lx = m; ly += 18; }
+        ctx.fillStyle = p.c; ctx.fillRect(lx, ly - 5, 12, 10);
+        txt(ctx, s, lx + 16, ly, { color: P.text, size: 11.5 }); lx += sw;
+      });
+      AB.stat("fl-br-o-g", nf(R.got) + "<small>건</small>");
+      AB.stat("fl-br-o-w", nf(R.waste) + "<small>건</small>");
+      AB.stat("fl-br-o-l", nf(R.limbo) + "<small>건</small>");
+      AB.stat("fl-br-o-a", handled ? nf(R.alert) + "<small>건 · 최대 " + T + "시간 대기</small>" : "— <small>한도 없음</small>");
+      getT.el.disabled = !handled;
+    }, { get height() { var el = document.getElementById("fl-br-cv"); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return w < 520 ? 300 : 280; } });
+  });
+
+  /* ---------------- 5. 확인 대화상자 대 되돌리기 ---------------- */
+  safe("undo", function () {
+    var mode = AB.seg("fl-un-mode", function () { cv.redraw(); });
+    var getE = AB.range("fl-un-e", function (v) { return Math.round(v * 100) + "%"; }, function () { cv.redraw(); });
+    var getH = AB.range("fl-un-h", function (v) { return Math.round(v * 100) + "%"; }, function () { cv.redraw(); });
+    // 점마다 고정된 난수: 실수 순서와 알아챌 문턱(같은 사람은 슬라이더를 바꿔도 같은 성향)
+    var rnd = AB.rng(42), order = [], u = [];
+    for (var i = 0; i < 100; i++) { order.push(i); u.push(rnd()); }
+    for (var j = 99; j > 0; j--) { var k = Math.floor(rnd() * (j + 1)); var t = order[j]; order[j] = order[k]; order[k] = t; }
+    var cv = AB.canvas("#fl-un-cv", function (ctx, w, h) {
+      var P = AB.palette(), md = mode(), e = getE(), hp = getH();
+      getH.el.disabled = md !== "confirm";
+      var nMis = Math.round(e * 100), mis = {};
+      for (var a = 0; a < nMis; a++) mis[order[a]] = true;
+      var saved = 0, lost = 0, extra = 0;
+      var size = Math.min((w - 24) / 10, (h - 58) / 10), gx = (w - size * 10) / 2, gy = 10;
+      for (var q = 0; q < 100; q++) {
+        var state = "ok";
+        if (mis[q]) {
+          var caught = md === "confirm" ? u[q] < hp : md === "undo" ? u[q] < 0.8 : false;
+          if (caught) { saved++; state = "saved"; } else { lost++; state = "lost"; }
+          if (md === "undo" && caught) extra++;
+        }
+        if (md === "confirm") extra++;
+        var cx = gx + (q % 10 + 0.5) * size, cy = gy + (Math.floor(q / 10) + 0.5) * size, r = size * 0.36;
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        if (state === "ok") { ctx.fillStyle = soft(P.dim, 0.3); ctx.fill(); }
+        else if (state === "saved") { ctx.fillStyle = P.ok; ctx.fill(); }
+        else { ctx.fillStyle = P.bad; ctx.fill(); ctx.strokeStyle = P.text; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx - r * 0.5, cy - r * 0.5); ctx.lineTo(cx + r * 0.5, cy + r * 0.5); ctx.moveTo(cx + r * 0.5, cy - r * 0.5); ctx.lineTo(cx - r * 0.5, cy + r * 0.5); ctx.stroke(); }
+      }
+      var ly = gy + size * 10 + 18, lx = gx;
+      [["의도한 취소", soft(P.dim, 0.5)], ["되찾은 실수", P.ok], ["잃은 맡김", P.bad]].forEach(function (L) {
+        ctx.fillStyle = L[1]; ctx.beginPath(); ctx.arc(lx + 6, ly, 6, 0, Math.PI * 2); ctx.fill();
+        ctx.font = AB.font(11.5, false, 500); txt(ctx, L[0], lx + 16, ly, { color: P.text, size: 11.5 });
+        lx += ctx.measureText(L[0]).width + 34;
+      });
+      AB.stat("fl-un-o-s", saved + "<small>/" + nMis + "건</small>");
+      AB.stat("fl-un-o-l", lost + "<small>건</small>");
+      AB.stat("fl-un-o-t", extra + "<small>번</small>");
+    }, hFor("fl-un-cv", 0.8, 280, 380));
+  });
+
+  /* ---------------- 6. 끊김과 이어 하기(기댓값 모형) ---------------- */
+  // list: 단계 [{p}], sw: 문자 앱 등으로 다녀오는 단계 번호, q: 일상의 끊김, L: 다녀오면 처음으로, save: 이어 하기
+  function resumeModel(list, sw, q, L, save) {
+    var reach = [], m = 1, restart = 0;
+    list.forEach(function (s, i) {
+      // 일상의 끊김
+      var cut = m * q;
+      if (save) m = m - cut + cut * 0.8; else { restart += cut * 0.5; m -= cut; }
+      if (i === sw) { var rs = m * L; if (!save) { restart += rs * 0.7; m -= rs; } }
+      m *= s.p; reach.push(m);
+    });
+    // 처음부터 다시 하는 두 번째 시도(끊김 없음)
+    var second = restart * prod(list);
+    return { reach: reach, first: m, second: second, total: m + second, restart: restart };
+  }
+  safe("resume", function () {
+    var getQ = AB.range("fl-rs-q", function (v) { return Math.round(v * 100) + "%"; }, function () { cv.redraw(); });
+    var getL = AB.range("fl-rs-l", function (v) { return Math.round(v * 100) + "%"; }, function () { cv.redraw(); });
+    var save = AB.check("fl-rs-save", function () { cv.redraw(); });
+    var cv = AB.canvas("#fl-rs-cv", function (ctx, w, h) {
+      var P = AB.palette(), q = getQ(), L = getL(), sv = save();
+      var A = resumeModel(FLOW5, 3, q, L, false), B = resumeModel(FLOW5, 3, q, L, true), base = resumeModel(FLOW5, 3, 0, 0, false);
+      var nameW = Math.min(118, Math.max(84, w * 0.28)), x0 = nameW + 8, bw = w - x0 - 14, RH = (h - 64) / FLOW5.length;
+      txt(ctx, "단계를 넘어간 사람(첫 시도, 1,000명 기준)", x0, 14, { color: P.dim, size: 11.5 });
+      FLOW5.forEach(function (s, i) {
+        var y = 28 + i * RH, cy = y + RH / 2;
+        ctx.font = AB.font(12, false, 600);
+        txt(ctx, fitText(ctx, s.n, nameW - 12), 10, cy, { color: i === 3 ? P.accent : P.text, size: 12, weight: 600 });
+        if (i === 3) txt(ctx, "문자 앱 다녀옴", 10, cy + 14, { color: P.dim, size: 10 });
+        var vb = base.reach[i], va = (sv ? B : A).reach[i];
+        ctx.strokeStyle = P.faint; ctx.setLineDash([3, 3]); ctx.lineWidth = 1; ctx.strokeRect(x0, y + RH * 0.22, bw * vb, RH * 0.56); ctx.setLineDash([]);
+        ctx.fillStyle = sv ? P.ok : P.accent; ctx.fillRect(x0, y + RH * 0.22, bw * va, RH * 0.56);
+        var lab = nf(va * N0);
+        ctx.font = AB.font(11, true, 600);
+        var lw = ctx.measureText(lab).width;
+        if (bw * va > lw + 10) txt(ctx, lab, x0 + bw * va - lw - 5, cy, { color: "#ffffff", size: 11, mono: true, weight: 600 });
+        else txt(ctx, lab, x0 + bw * va + 5, cy, { color: P.text, size: 11, mono: true, weight: 600 });
+      });
+      var ly = h - 22;
+      ctx.strokeStyle = P.faint; ctx.setLineDash([3, 3]); ctx.strokeRect(x0, ly - 6, 14, 12); ctx.setLineDash([]);
+      txt(ctx, "끊김이 없을 때", x0 + 20, ly, { color: P.dim, size: 11 });
+      ctx.fillStyle = sv ? P.ok : P.accent; ctx.fillRect(x0 + 120, ly - 6, 14, 12);
+      txt(ctx, sv ? "이어 하기 있음" : "이어 하기 없음", x0 + 140, ly, { color: P.dim, size: 11 });
+      var M = sv ? B : A;
+      AB.stat("fl-rs-o-f", nf(M.total * N0) + "<small>명 (끊김 없으면 " + nf(base.total * N0) + ")</small>");
+      AB.stat("fl-rs-o-r", sv ? "0<small>명</small>" : nf(A.restart * N0) + "<small>명</small>");
+      AB.stat("fl-rs-o-d", nf((B.total - A.total) * N0) + "<small>명</small>");
+    }, hFor("fl-rs-cv", 0.5, 250, 300));
+  });
+
+  /* ---------------- 7. 검색에서 손에 든 책까지 ---------------- */
+  safe("lab", function () {
+    var flow = AB.seg("fl-lb-flow", function () { cv.redraw(); });
+    var exc = AB.check("fl-lb-exc", function () { cv.redraw(); });
+    var save = AB.check("fl-lb-save", function () { cv.redraw(); });
+    var cv = AB.canvas("#fl-lb-cv", function (ctx, w, h) {
+      var P = AB.palette(), nine = flow() === "9", list = nine ? FLOW9 : FLOW5, sw = nine ? 5 : 3;
+      // 이어 하기: 문자 앱(9단계안은 본인 확인 앱)을 다녀오는 단계의 계속 비율을 0.05 올린다고 둔다
+      var F = list.reduce(function (a, s, i) { return a * (save() && i === sw ? Math.min(1, s.p + 0.05) : s.p); }, 1);
+      var req = N0 * F, R = excModel(exc(), 3), k = req / N0;
+      var got = R.got * k, stop = R.stop * k, waste = R.waste * k, limbo = R.limbo * k;
+      var m = 12, labelW = Math.min(120, Math.max(92, w * 0.26)), colW = Math.min(72, (w - 2 * m - labelW) * 0.22), top = 34, H = h - top - 44;
+      var c2 = w - m - labelW - colW, c0 = m, c1 = (c0 + colW + c2) / 2 - colW / 2;
+      var cols = [c0, c1, c2];
+      var Y = function (v) { return H * v / N0; };
+      txt(ctx, "검색 시작", cols[0] + colW / 2, 16, { color: P.dim, size: 11.5, align: "center" });
+      txt(ctx, "요청", cols[1] + colW / 2, 16, { color: P.dim, size: 11.5, align: "center" });
+      txt(ctx, "결말", cols[2] + colW / 2, 16, { color: P.dim, size: 11.5, align: "center" });
+      // 1열: 1,000명 = 요청 + 흐름에서 떠남
+      ctx.fillStyle = P.accent; ctx.fillRect(cols[0], top, colW, Y(req));
+      ctx.fillStyle = soft(P.dim, 0.28); ctx.fillRect(cols[0], top + Y(req), colW, Y(N0 - req));
+      var my = top + Y(req) + Y(N0 - req) / 2;
+      txt(ctx, "떠남", cols[0] + colW / 2, my - 8, { color: P.text, size: 11.5, align: "center" });
+      txt(ctx, nf(N0 - req), cols[0] + colW / 2, my + 8, { color: P.text, size: 11.5, align: "center", mono: true, weight: 600 });
+      function band(x0, y0a, y0b, x1, y1a, y1b, col) {
+        ctx.fillStyle = col; ctx.beginPath(); var mx = (x0 + x1) / 2;
+        ctx.moveTo(x0, y0a); ctx.bezierCurveTo(mx, y0a, mx, y1a, x1, y1a); ctx.lineTo(x1, y1b); ctx.bezierCurveTo(mx, y1b, mx, y0b, x0, y0b); ctx.closePath(); ctx.fill();
+      }
+      var ry = top + (H - Y(req)) / 2;
+      band(cols[0] + colW, top, top + Y(req), cols[1], ry, ry + Y(req), soft(P.accent, 0.25));
+      ctx.fillStyle = P.accent; ctx.fillRect(cols[1], ry, colW, Y(req));
+      if (Y(req) > 30) txt(ctx, nf(req), cols[1] + colW / 2, ry + Y(req) / 2, { color: "#ffffff", size: 13, mono: true, weight: 700, align: "center" });
+      else txt(ctx, nf(req), cols[1] + colW / 2, ry - 10, { color: P.text, size: 12, mono: true, weight: 700, align: "center" });
+      // 3열: 결말 쌓기, 이름표는 오른쪽에(겹치지 않게 아래로 민다)
+      var parts = [["책을 받음", got, P.ok], ["알고 멈춤", stop, P.accent2], ["헛걸음", waste, P.bad], ["흐지부지", limbo, P.warn]];
+      var tot = parts.reduce(function (s, p) { return s + p[1]; }, 0) || 1, gap = 5;
+      var used = Y(req) + gap * 3, yy = top + (H - used) / 2, srcY = ry, lastLab = -1e9;
+      parts.forEach(function (p) {
+        var hh = Y(req) * p[1] / tot;
+        band(cols[1] + colW, srcY, srcY + hh, cols[2], yy, yy + hh, soft(p[2], 0.3));
+        ctx.fillStyle = p[2]; ctx.fillRect(cols[2], yy, colW, Math.max(1, hh));
+        var ly = Math.max(yy + hh / 2, lastLab + 16); lastLab = ly;
+        ctx.fillStyle = p[2]; ctx.fillRect(cols[2] + colW + 6, ly - 4, 8, 8);
+        ctx.font = AB.font(11, false, 600);
+        txt(ctx, fitText(ctx, p[0] + " " + nf(p[1]), labelW - 18), cols[2] + colW + 18, ly, { color: P.text, size: 11, weight: 600 });
+        srcY += hh; yy += hh + gap;
+      });
+      txt(ctx, "1,000명이 검색을 시작했을 때(가상 모형)", m, h - 16, { color: P.faint, size: 11 });
+      AB.stat("fl-lb-o-r", nf(req) + "<small>명</small>");
+      AB.stat("fl-lb-o-g", nf(got) + "<small>명</small>");
+      AB.stat("fl-lb-o-w", nf(waste) + " · " + nf(limbo) + "<small>명</small>");
+    }, hFor("fl-lb-cv", 0.56, 300, 380));
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,958 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "디지털 제품 디자인은 화면을 그리기 전에 누구의 어떤 문제를 풀지 고르는 일에서 시작한다. 기능 목록과 문제의 구별, 화면 아래의 다섯 층, 더블 다이아몬드의 발산과 수렴, 문제를 늦게 찾을 때 다시 해야 하는 일, 이 책의 네 갈래를 동네 책방 네 곳의 의뢰와 함께 둘러본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제품 디자인의 지도 · ProductBook</title>
+<meta name="description" content="디지털 제품 디자인은 화면을 그리기 전에 누구의 어떤 문제를 풀지 고르는 일에서 시작한다. 기능 목록과 문제의 구별, 화면 아래의 다섯 층, 더블 다이아몬드의 발산과 수렴, 문제를 늦게 찾을 때 다시 해야 하는 일, 이 책의 네 갈래를 동네 책방 네 곳의 의뢰와 함께 둘러본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/overview.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="제품 디자인의 지도 · ProductBook">
+<meta property="og:description" content="디지털 제품 디자인은 화면을 그리기 전에 누구의 어떤 문제를 풀지 고르는 일에서 시작한다. 기능 목록과 문제의 구별, 화면 아래의 다섯 층, 더블 다이아몬드의 발산과 수렴, 문제를 늦게 찾을 때 다시 해야 하는 일, 이 책의 네 갈래를 동네 책방 네 곳의 의뢰와 함께 둘러본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/overview.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/overview.html#chapter","name":"제품 디자인의 지도","headline":"제품 디자인의 지도 · ProductBook","description":"디지털 제품 디자인은 화면을 그리기 전에 누구의 어떤 문제를 풀지 고르는 일에서 시작한다. 기능 목록과 문제의 구별, 화면 아래의 다섯 층, 더블 다이아몬드의 발산과 수렴, 문제를 늦게 찾을 때 다시 해야 하는 일, 이 책의 네 갈래를 동네 책방 네 곳의 의뢰와 함께 둘러본다.","url":"https://artbook.euiyun.com/product/chapters/overview.html","position":1,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"1. 제품 디자인의 지도","item":"https://artbook.euiyun.com/product/chapters/overview.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 1장 전용: 시뮬레이터 아래 설명 칸 */
+  .pv-msg { padding: 12px 18px; border-top: 1px solid var(--border); font-size: 14.5px; line-height: 1.65; background: var(--bg-elev); color: var(--text); }
+  .pv-msg b { color: var(--text); }
+  .pv-msg .dim { color: var(--text-dim); }
+  .pv-msg .tagk { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); margin-right: 6px; }
+  .pv-msg ul { margin: 6px 0 0; padding-left: 20px; }
+  .pv-msg li { margin: 2px 0; }
+</style>
+</head>
+<body data-chapter="overview">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 01</div>
+    <h1>제품 디자인의 지도</h1>
+    <p class="lead">"앱을 하나 만들어 주세요." 동네 책방 네 곳의 주인이 탁자에 둘러앉아 저마다 종이 한 장씩을 내민다. 포인트 적립, 손님과 채팅, 아이 나이별 추천, 중고책 매입 시세. 종이마다 기능이 빼곡하다. 디자이너는 그날 밤 화면 열두 장을 그려 온다. 다음 날 아침, 화면을 넘겨 보던 사용자 연구자가 묻는다. "그 화면을 누가, 언제 써요?" 아무도 대답하지 못한다. 이 장은 그 질문에서 시작한다. 디지털 제품을 디자인한다는 것이 화면을 그리는 일보다 넓다는 것, 넓혔다가 좁히는 일의 리듬, 늦게 알아챌수록 무엇이 비싸지는지를 둘러보고, 앞으로 열한 장에서 하나씩 풀 질문을 한 장의 지도로 펼친다.</p>
+    <ul class="objectives">
+      <li>제품 디자인이 화면을 그리는 일만이 아니라 <b>누구의 어떤 문제를 풀지 고르고, 그 풀이가 정말 되는지 확인하는 일</b>이라는 것을 설명한다.</li>
+      <li>기능 요청(해결책)과 문제(누가, 언제, 무엇이 어려운가)와 의견을 구별한다.</li>
+      <li>화면이 전략·범위·구조·골격·표면이라는 다섯 층의 맨 위에 놓인다는 것을 안다.</li>
+      <li>더블 다이아몬드의 발산과 수렴을 정해진 일정 위에 놓고, 넓히기와 좁히기 사이의 거래를 직접 본다.</li>
+      <li>문제를 늦게 찾을수록 다시 해야 할 일이 늘어나는 이유를 결정 사이의 의존 관계로 설명하고, 흔히 인용되는 배수의 근거 수준을 안다.</li>
+      <li>이 책의 네 갈래(이해, 구조, 검증, 운영)를 한 장의 지도로 그린다.</li>
+    </ul>
+  </header>
+
+  <section id="problem-first">
+    <h2>화면보다 문제가 먼저</h2>
+    <p>이 책에서 말하는 <span class="term">제품 디자인</span><span class="en">(Product design)</span>은 앱과 웹 서비스 같은 <b>디지털 제품</b>을 설계하는 일이다. 손에 쥐는 물건의 디자인은 <a href="../../industrial/chapters/overview.html">IndustrialBook</a>이 다룬다. 비슷한 자리에서 <span class="term">UX 디자인</span><span class="en">(User experience design)</span>이라는 말도 자주 쓴다. 사용자 경험, 곧 사람이 제품을 알게 되고 써 보고 다시 찾거나 떠나기까지 겪는 일 전체를 설계한다는 뜻이다. 이 말은 1990년대에 애플에서 일하던 인지과학자 도널드 노먼<span class="en">(Donald Norman)</span>이 자기 직함에 쓰면서 퍼졌다고 알려져 있다. 두 이름의 경계는 회사마다 다르고, 이 책은 둘을 거의 같은 뜻으로 쓴다.</p>
+    <p>어느 이름으로 부르든 이 일의 가운데에는 화면이 아니라 <b>사람과 그 사람의 상황</b>이 있다. 화면은 그 상황에 내놓는 답의 마지막 모습이다. 그런데 의뢰는 거의 언제나 답의 모양으로 온다. "채팅 기능을 넣어 주세요", "추천을 보여 주세요". 이런 요청을 <span class="term">기능 요청</span><span class="en">(Feature request)</span>이라고 한다. 기능 요청은 쓸모없지 않다. 요청한 사람이 무언가 곤란을 겪고 있다는 신호이기 때문이다. 다만 요청에 담긴 것은 그 사람이 상상한 <b>해결책</b>이고, 해결책 뒤에 있는 <b>문제</b>는 대개 말해지지 않는다.</p>
+    <p>이 책에서 <span class="term">문제</span><span class="en">(Problem)</span>라고 할 때는 세 가지가 들어 있는 문장을 말한다. <b>누가</b>, <b>어떤 상황에서</b>, <b>무엇을 하려다가 어려움을 겪는가</b>. "포인트 적립"에는 이 셋이 없다. "찾는 책이 어느 가게에 있는지 가 보기 전에는 모른다"에는 셋이 다 있다(손님이, 책방에 가기 전에, 재고를 알 수 없다). 아래는 네 책방 주인이 첫 모임에서 한 말을 카드로 옮긴 것이다. 카드를 끌어 아래 세 상자 중 하나에 넣는다.</p>
+
+    <div class="sim" id="sim-sort">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>기능인가, 문제인가</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="so-cv"></canvas><span class="hint">카드를 상자로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="check"><input type="checkbox" id="so-fb" checked> 놓자마자 맞는지 표시</label>
+          <div class="btn-row"><button class="btn sm" id="so-reset" type="button">모두 되돌리기</button><button class="btn sm" id="so-auto" type="button">하린의 분류 보기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">분류한 카드</span><span class="v" id="so-o-n">—</span></div>
+        <div class="stat"><span class="k">하린의 분류와 같은 카드</span><span class="v" id="so-o-ok">—</span></div>
+        <div class="stat"><span class="k">해결책 상자</span><span class="v" id="so-o-f">—</span></div>
+      </div>
+      <div class="pv-msg" id="so-msg">카드를 하나 끌어 상자에 넣으면 여기에 그 카드를 누가 말했는지와 하린의 해설이 나온다.</div>
+      <div class="sim-note">해볼 것: ① "포인트 적립"을 "문제" 상자에 넣어 본다. 해설은 그것이 해결책이며 뒤에 어떤 바람이 숨어 있을 수 있는지를 말한다. ② "찾는 책이 어느 가게에…" 카드에서 누가, 언제, 무엇이 어려운지를 짚어 본다. ③ 열 장을 다 넣은 뒤 해결책 상자를 본다. 주인들이 가져온 종이는 대부분 이 상자로 간다. (분류의 기준은 이 장이 정한 단순한 것이다. 누가·언제·무엇이 어려운지가 들어 있으면 문제, 무엇을 만들지가 들어 있으면 해결책, 둘 다 없으면 바람·의견. 실제 요청은 둘이 섞여 있는 경우가 많다.)</div>
+    </div>
+
+    <p>열 장 중 넷이 해결책, 넷이 문제, 둘이 바람이나 의견이었다. 해결책 카드가 틀린 것은 아니다. "포인트 적립" 뒤에는 "손님이 다시 왔으면 좋겠다"는 주인의 바람이, "손님과 채팅" 뒤에는 "가게를 보면서 전화를 받기 힘들다"는 곤란이 숨어 있을지 모른다. 그러나 그것은 아직 <b>추측</b>이다. 그리고 같은 문제에도 해결책은 여럿이다. 손님이 재고를 모르는 문제는 앱으로 풀 수도 있지만, 가게 앞 칠판이나 문자 한 통으로도 풀릴 수 있다. 해결책부터 받아 적으면 그 여러 길이 처음부터 닫힌다.</p>
+    <p>그래서 제품 디자이너는 기능 목록을 받으면 그것을 버리지 않고, 카드 하나하나를 "이것이 있으면 누구의 어떤 순간이 달라지나요?"라는 질문으로 바꿔 둔다. 그 질문의 답을 찾으러 사람을 만나는 일이 <a href="research.html">2장</a>(사용자 조사)이고, 모은 답에서 풀 문제 하나를 고르는 일이 <a href="problem.html">3장</a>(문제 정의)이다.</p>
+
+    <div class="callout studio">
+      <strong>"그게 있으면 무엇이 달라지나요?"를 두 번 묻는다</strong>
+      기능 요청을 받으면 바로 "좋네요"나 "어렵습니다"로 답하지 않는다. 먼저 "그 기능이 있으면 누구의 어떤 순간이 달라지나요?"라고 묻고, 답이 나오면 같은 질문을 한 번 더 한다. "채팅이 있으면요?" "손님이 책 있냐고 물어볼 수 있죠." "그게 되면 무엇이 달라지나요?" "전화를 덜 받겠죠. 계산하다 전화 받는 게 제일 힘들어요." 두 번째 답에서 비로소 문제가 나온다. 이렇게 물어도 요청한 사람이 불쾌해하지 않게, 질문은 따지듯이 하지 않고 궁금한 듯이 한다. 그리고 받은 기능 목록은 따로 모아 두었다가, 문제를 고른 뒤에 다시 꺼내 본다.
+    </div>
+  </section>
+
+  <section id="layers">
+    <h2>화면은 맨 위층이다</h2>
+    <p>서윤이 첫날 밤에 그린 열두 장의 화면에는 색과 글자와 버튼이 다 있었다. 빠진 것은 그 아래였다. 웹 디자이너 제시 제임스 개릿<span class="en">(Jesse James Garrett)</span>은 『The Elements of User Experience』(2002)에서 사용자 경험을 다섯 층으로 나눠 그렸다. 아래부터 <span class="term">전략</span><span class="en">(Strategy)</span>은 누구를 위해 무엇을 이루려는가, <span class="term">범위</span><span class="en">(Scope)</span>는 그래서 무엇을 넣고 무엇을 뺄 것인가, <span class="term">구조</span><span class="en">(Structure)</span>는 넣은 것들을 어떻게 나누고 잇는가, <span class="term">골격</span><span class="en">(Skeleton)</span>은 화면 위 어디에 무엇을 놓는가, <span class="term">표면</span><span class="en">(Surface)</span>은 그것이 어떤 색과 글자와 모양으로 보이는가다.</p>
+    <p>개릿의 요점은 층의 이름보다 <b>층 사이의 관계</b>에 있다. 위층의 결정은 아래층이 정한 테두리 안에서만 의미가 있다. 버튼의 색(표면)은 그 버튼이 화면 어디에 있어야 하는지(골격)가 정해진 뒤에야 고를 수 있고, 버튼의 자리는 그 버튼이 어느 흐름의 몇 번째 단계인지(구조)를 알아야 정할 수 있다. 아래 슬라이더로 층을 하나씩 쌓아 보고, 체크 상자로 서윤이 첫날 밤에 한 일을 본다.</p>
+
+    <div class="sim" id="sim-layers">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>다섯 층으로 쌓는 화면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ly-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>쌓은 층 <output id="ly-n-out"></output></span><input type="range" id="ly-n" min="1" max="5" step="1" value="1"></label>
+          <label class="check"><input type="checkbox" id="ly-night"> 서윤의 첫날 밤 화면</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">맨 위층</span><span class="v" id="ly-o-top">—</span></div>
+        <div class="stat"><span class="k">이 층이 답하는 질문</span><span class="v" id="ly-o-q" style="font-size:15px">—</span></div>
+        <div class="stat"><span class="k">비어 있는 아래층</span><span class="v" id="ly-o-empty">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 슬라이더를 1에서 5까지 한 칸씩 올린다. 오른쪽(좁은 화면에서는 아래쪽) 그림이 문장 → 목록 → 상자와 화살표 → 회색 상자 → 색을 입은 화면으로 바뀐다. ② "서윤의 첫날 밤 화면"을 켠다. 표면은 가장 완성되어 보이지만 아래 네 층이 점선으로 비어 있다. ③ 첫날 밤 화면을 켠 채로 슬라이더를 움직여 본다. 아래층을 채우기 전까지는 위의 화면이 무엇 위에 서 있는지 알 수 없다. (층의 이름과 순서는 개릿의 다섯 층을 따랐다. 그림 속 내용은 특정 서비스의 답이 아니라 각 층에서 만드는 것의 모양만 보여 주는 예시다.)</div>
+    </div>
+
+    <p>표면만 있는 화면은 가장 완성되어 보이지만 가장 쉽게 무너진다. 포인트 배너를 맨 위에 둔 결정, 탭을 다섯 개로 나눈 결정은 아래층의 질문("누구를 위해?", "무엇을 넣고 뺄까?")에 답하지 않은 채 내려졌다. 아래층의 답이 나오면 그 결정들은 대부분 다시 내려야 한다. 그렇다고 층을 반드시 아래부터 차례로 끝내야 한다는 뜻은 아니다. 개릿도 층들이 서로 겹쳐 진행된다고 했고, 실제로는 화면을 빠르게 그려 보면서 아래층의 질문을 찾아내기도 한다(<a href="prototype.html">7장</a>). 중요한 것은 지금 그리는 화면이 어느 층의 결정 위에 서 있는지, 그 결정이 확인된 것인지 상상한 것인지를 아는 것이다.</p>
+
+    <div class="callout try">
+      <strong>휴대폰 앱 하나를 거꾸로 벗겨 보기</strong>
+      자주 쓰는 앱 하나를 골라 첫 화면을 종이에 대충 옮겨 그린다. 그 아래에 네 줄을 적는다. ① 골격: 첫 화면에서 가장 큰 자리를 차지한 것은 무엇인가. ② 구조: 그 화면에서 갈 수 있는 곳은 몇 군데이고 이름이 무엇인가. ③ 범위: 이 앱에 없는 것 중 있을 법한 기능 하나는 무엇인가. 왜 뺐을까. ④ 전략: 이 앱은 누구의 어떤 순간을 위해 만들어졌다고 짐작하는가. 마지막 줄이 가장 쓰기 어렵다. 겉에서 보이지 않는 층일수록 짐작이 되고, 짐작은 틀릴 수 있다는 것을 적어 둔다.
+    </div>
+  </section>
+
+  <section id="diamond">
+    <h2>넓혔다가 좁힌다: 더블 다이아몬드</h2>
+    <p>문제를 고르는 일과 해결책을 고르는 일에는 같은 리듬이 있다. 먼저 가능성을 넓게 펼치고, 그다음 근거를 대며 좁힌다. 넓히는 생각을 <span class="term">발산</span><span class="en">(Divergence)</span>, 좁히는 생각을 <span class="term">수렴</span><span class="en">(Convergence)</span>이라고 한다. 심리학자 길퍼드<span class="en">(J. P. Guilford)</span>가 1950년대 창의성 연구에서 쓴 "발산적 사고"와 "수렴적 사고"의 구분에서 온 말이다. 발산할 때는 판단을 미루고 양을 늘리고, 수렴할 때는 기준을 세우고 버린다. 둘을 한꺼번에 하면 둘 다 잘 안 된다. 새 생각을 꺼내는 자리에서 곧바로 "그건 안 돼요"가 나오면 더는 아무도 꺼내지 않는다.</p>
+    <p>영국 디자인 카운슬<span class="en">(Design Council)</span>은 2005년에 이 리듬을 두 개의 마름모로 요약한 <span class="term">더블 다이아몬드</span><span class="en">(Double Diamond)</span>를 내놓았다. 첫 마름모는 <b>문제</b>에 관한 것이다. 사람을 만나며 문제를 넓게 찾고(발견, Discover), 그중 풀 문제 하나를 정한다(정의, Define). 두 번째 마름모는 <b>해결책</b>에 관한 것이다. 해결안을 여럿 만들어 시험하고(발전, Develop), 되는 것을 다듬어 내놓는다(전달, Deliver).</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 262" role="img" aria-label="더블 다이아몬드: 첫 마름모는 문제를 발견하고 정의하는 단계, 두 번째 마름모는 해결안을 발전시키고 전달하는 단계">
+        <defs><marker id="pov-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text x="118" y="22" text-anchor="middle" class="lbl-b">문제 공간</text>
+        <text x="342" y="22" text-anchor="middle" class="lbl-b">해결 공간</text>
+        <path d="M14 130 L118 50 L222 130 L118 210 Z" class="f-acc-soft"/>
+        <path d="M14 130 L118 50 L222 130 L118 210 Z" fill="none" class="s-acc"/>
+        <path d="M238 130 L342 50 L446 130 L342 210 Z" class="f-acc2-soft"/>
+        <path d="M238 130 L342 50 L446 130 L342 210 Z" fill="none" class="s-acc2"/>
+        <path d="M118 50 L118 210 M342 50 L342 210" class="s-dash"/>
+        <text x="70" y="126" text-anchor="middle" class="lbl-b">발견</text>
+        <text x="70" y="143" text-anchor="middle" class="lbl-dim" style="font-size:11px">Discover</text>
+        <text x="166" y="126" text-anchor="middle" class="lbl-b">정의</text>
+        <text x="166" y="143" text-anchor="middle" class="lbl-dim" style="font-size:11px">Define</text>
+        <text x="294" y="126" text-anchor="middle" class="lbl-b">발전</text>
+        <text x="294" y="143" text-anchor="middle" class="lbl-dim" style="font-size:11px">Develop</text>
+        <text x="390" y="126" text-anchor="middle" class="lbl-b">전달</text>
+        <text x="390" y="143" text-anchor="middle" class="lbl-dim" style="font-size:11px">Deliver</text>
+        <circle cx="230" cy="130" r="6" class="f-warn"/>
+        <circle cx="446" cy="130" r="6" class="f-ok"/>
+        <circle cx="14" cy="130" r="5" class="f-surface"/><circle cx="14" cy="130" r="5" fill="none" class="s-line"/>
+        <text x="230" y="234" text-anchor="middle" class="lbl-acc">풀 문제 하나</text>
+        <path d="M230 222 L230 142" class="s-line" marker-end="url(#pov-ar)"/>
+        <text x="420" y="234" text-anchor="middle" class="lbl-dim">내놓을 해결안</text>
+        <path d="M440 222 L445 142" class="s-line" marker-end="url(#pov-ar)"/>
+        <text x="30" y="234" text-anchor="start" class="lbl-dim">의뢰</text>
+        <path d="M66 254 L106 254" class="s-line" marker-end="url(#pov-ar)"/><text x="60" y="258" text-anchor="end" class="lbl-dim" style="font-size:11px">발산</text>
+        <path d="M130 254 L170 254" class="s-line" marker-end="url(#pov-ar)"/><text x="176" y="258" class="lbl-dim" style="font-size:11px">수렴</text>
+        <path d="M290 254 L330 254" class="s-line" marker-end="url(#pov-ar)"/><text x="284" y="258" text-anchor="end" class="lbl-dim" style="font-size:11px">발산</text>
+        <path d="M354 254 L394 254" class="s-line" marker-end="url(#pov-ar)"/><text x="400" y="258" class="lbl-dim" style="font-size:11px">수렴</text>
+      </svg>
+      <figcaption><b>그림 1. 더블 다이아몬드.</b> 마름모의 폭은 그 시점에 살아 있는 가능성의 수다. 첫 마름모에서 문제의 후보를 넓게 찾고(발견) 하나로 좁힌다(정의). 두 번째 마름모에서 해결안을 여럿 만들고(발전) 시험을 거쳐 하나를 내놓는다(전달). 두 마름모 사이의 점이 "풀 문제 하나"다. 이 책의 이해 부(2·3장)가 첫 마름모를, 구조와 검증 부(4~9장)가 두 번째 마름모를 주로 다룬다.</figcaption>
+    </figure>
+
+    <p>그림으로 보면 단순하지만, 실제 프로젝트에는 마감이 있다. 서윤의 서비스는 6월 말에 문을 열어야 한다. 첫 마름모를 넓게 그리면 문제를 놓칠 위험은 줄지만 해결안을 다듬을 시간이 줄고, 좁게 그리면 시간이 남지만 엉뚱한 문제를 정성껏 풀 위험이 커진다. 아래 시뮬레이터는 4월 첫 주부터 6월 말까지 약 12주를 가로축에 놓았다. 위쪽 손잡이를 끌어 첫 마름모의 꼭짓점(언제까지, 몇 개의 문제 후보를 펼칠지)을, 가운데 줄의 손잡이를 끌어 문제를 정하는 날을 옮긴다.</p>
+
+    <div class="sim" id="sim-diamond">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>12주 안의 두 마름모</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="dd-cv"></canvas><span class="hint">두 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="dd-mode"><button data-value="dd" class="on">두 마름모</button><button data-value="direct">곧장 해결안</button></div>
+          <label class="check"><input type="checkbox" id="dd-show"> 숨은 진짜 문제 보기</label>
+          <div class="btn-row"><button class="btn sm" id="dd-next" type="button">다른 프로젝트</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">펼친 문제 후보</span><span class="v" id="dd-o-n">—</span></div>
+        <div class="stat"><span class="k">진짜 문제가 후보에</span><span class="v" id="dd-o-hit">—</span></div>
+        <div class="stat"><span class="k">해결안을 다듬을 기간</span><span class="v" id="dd-o-t2">—</span></div>
+        <div class="stat"><span class="k">시험해 볼 수 있는 횟수</span><span class="v" id="dd-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태에서 "숨은 진짜 문제 보기"를 켠다. 일곱 번째로 떠오른 후보가 진짜 문제라면, 후보를 열 개쯤 펼친 지금은 그것이 마름모 안에 있다. ② 위 손잡이를 아래로 끌어 후보를 세 개로 줄인다. 시간이 남아 시험 횟수는 늘지만 진짜 문제는 마름모 밖에 남는다. ③ "곧장 해결안"을 누른다. 주인들의 기능 목록을 그대로 문제로 삼고 12주를 모두 해결안에 쓴다. 시험은 가장 많이 하지만 무엇을 시험하는지가 틀렸을 수 있다. ④ "다른 프로젝트"를 몇 번 눌러 진짜 문제가 떠오르는 순서를 바꿔 본다. 어느 폭이 언제나 옳은지는 정할 수 없다. (교육용 모형: 문제 후보는 한 주에 최대 4개를 살펴볼 수 있고, 후보 n개를 하나로 좁히는 데 약 0.35·log₂n주가 든다. 진짜 문제가 몇 번째 후보로 떠오르는지는 프로젝트마다 2~15번째 중 하나로 두었고, 수렴할 때는 후보 가운데 진짜 문제를 알아본다고 가정했다. 해결안은 남은 기간의 40% 동안 펼치고, 나머지 기간에 1.5주마다 한 번 시험한다.)</div>
+    </div>
+
+    <p>첫 마름모를 납작하게 누를수록 남는 시간은 늘지만, 진짜 문제가 아예 후보에 오르지 못할 가능성이 커졌다. 수렴은 이미 펼친 것 중에서만 고를 수 있다. 떠올리지 않은 문제는 아무리 잘 좁혀도 고를 수 없다. 반대로 첫 마름모를 끝없이 넓히면 해결안을 시험할 시간이 사라진다. 모형의 숫자는 지어낸 것이지만, 이 거래 자체는 실제 프로젝트에서 늘 일어난다. 그래서 디자이너는 마감을 보고 첫 마름모의 크기를 <b>미리</b> 정한다. "조사는 2주, 그동안 사람 열두 명을 만난다"처럼. 정하지 않으면 발산은 시간이 허락하는 만큼이 아니라 불안이 허락하는 만큼 줄어든다.</p>
+
+    <div class="callout deep">
+      <strong>마름모는 한 번에 지나가지 않는다</strong>
+      더블 다이아몬드는 순서도가 아니라 요약이다. 시험하다 보면 문제를 잘못 정의했다는 것이 드러나 첫 마름모로 돌아가기도 하고, 해결안 하나를 다듬는 동안 작은 다이아몬드가 여러 번 되풀이되기도 한다. 디자인 카운슬도 2019년에 이 그림을 원칙과 방법, 참여와 리더십까지 함께 담은 "혁신을 위한 틀(Framework for Innovation)"로 넓히면서, 단계 사이를 오가는 화살표를 강조했다. 이 책은 더블 다이아몬드를 "지금 넓히는 중인가, 좁히는 중인가"를 묻는 도구로만 쓴다. 회의를 시작할 때 이 질문 하나에 답해 두면, 발산하는 자리에서 비판이 나오고 수렴하는 자리에서 새 아이디어가 쏟아지는 일이 줄어든다.
+    </div>
+
+    <div class="callout try">
+      <strong>한 장면에서 문제 문장 열 개 쓰기</strong>
+      동네 가게 한 곳에서 겪은 작은 불편 하나를 떠올린다(빵집에서 원하는 빵이 이미 다 팔렸다, 세탁소가 문을 닫았다). 그 장면을 두고 "누가, 언제, 무엇이 어렵다"의 형식으로 문제 문장을 열 개 쓴다. 손님의 문제, 주인의 문제, 다른 손님의 문제, 배달하는 사람의 문제처럼 사람을 바꿔도 되고, 같은 사람의 다른 순간을 써도 된다. 다섯 개를 넘기면 쓰기가 어려워지는데, 그 뒤에 나오는 문장이 처음 떠올린 것과 가장 다른 경우가 많다. 열 개를 다 쓴 다음에만 그중 두 개에 동그라미를 친다. 무엇을 기준으로 골랐는지 한 줄로 적는다.
+    </div>
+  </section>
+
+  <section id="late">
+    <h2>늦게 찾을수록 다시 할 일이 많다</h2>
+    <p>하린이 첫날 화면 열두 장을 보고 놀란 이유는 화면이 나빠서가 아니었다. 그 화면들이 아직 확인하지 않은 결정 위에 서 있었기 때문이다. 결정은 다른 결정의 바닥이 된다. 문제를 하나 고르면 그 문제를 푸는 흐름이 짜이고, 흐름에 맞춰 화면 목록이 나오고, 화면마다 문구와 코드가 붙고, 공개하면 손님의 습관과 쌓인 기록과 주인들 사이의 약속까지 그 위에 올라간다. 바닥에 있는 결정이 틀렸다는 것을 나중에 알수록, 그 위에 쌓인 것을 더 많이 걷어 내야 한다.</p>
+    <p>아래 시뮬레이터는 이 관계를 블록으로 그렸다. 위쪽 단추로 "틀린 결정"의 종류를 고르고, 가로축 위의 손잡이를 끌어 그것을 <b>언제 발견했는지</b>를 옮긴다. 붉은 블록이 다시 만들어야 하는 것이다.</p>
+
+    <div class="sim" id="sim-cost">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>틀린 결정을 언제 찾았나</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="co-cv"></canvas><span class="hint">발견 시점을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="co-kind"><button data-value="P" class="on">풀 문제</button><button data-value="F">흐름</button><button data-value="W">버튼 문구</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">발견한 때</span><span class="v" id="co-o-when">—</span></div>
+        <div class="stat"><span class="k">다시 만들 것</span><span class="v" id="co-o-n">—</span></div>
+        <div class="stat"><span class="k">다시 할 일(가상 단위)</span><span class="v" id="co-o-u">—</span></div>
+      </div>
+      <div class="pv-msg" id="co-msg">—</div>
+      <div class="sim-note">해볼 것: ① "풀 문제"를 고른 채 손잡이를 "정의"에서 "공개 후"까지 한 칸씩 옮긴다. 붉은 블록이 계단처럼 불어난다. ② "버튼 문구"로 바꿔 같은 일을 한다. 문구에 기대는 것이 적어서 늦게 찾아도 다시 할 일이 훨씬 적다. ③ "흐름"을 고르고 "공개 후"에 둔다. 코드와 데이터뿐 아니라 손님이 이미 익힌 순서까지 바꿔야 한다. (교육용 모형: 단계마다 만드는 것과 각각이 어느 결정에 기대는지를 이 장이 정했고, 블록 크기는 일의 양을 나타내는 가상의 단위다. 실제 비용의 배수가 아니다.)</div>
+    </div>
+
+    <p>같은 시점에 발견해도 틀린 결정이 바닥에 가까울수록 다시 할 일이 많았다. 그리고 같은 결정이라도 늦게 찾을수록 많았다. 이것이 제품 디자인이 "가장 바닥의 결정", 곧 누구의 어떤 문제를 풀 것인가부터 확인하려는 이유다. 확인하는 데 드는 비용이 가장 싼 때가 가장 이른 때이기 때문이다. 손님 열 명과 이야기하는 데는 며칠이면 되지만, 공개한 서비스의 흐름을 바꾸는 데는 몇 주가 들고 손님의 습관을 바꾸는 데는 그보다 오래 걸린다.</p>
+
+    <div class="callout warn">
+      <strong>"1 : 10 : 100"이라는 숫자</strong>
+      "설계 단계에서 1이 드는 수정이 개발 단계에서는 10, 공개 뒤에는 100이 든다" 같은 배수가 발표 자료에 자주 나온다. 소프트웨어 공학에서 결함을 늦게 찾을수록 고치는 비용이 커진다는 관찰은 오래되었고, 배리 보엠<span class="en">(Barry Boehm)</span>의 『Software Engineering Economics』(1981)가 흔히 그 출처로 꼽힌다. 그러나 돌아다니는 구체적인 배수는 어떤 프로젝트를 어떻게 잰 값인지 거슬러 올라가기 어렵고, 로랑 보사비<span class="en">(Laurent Bossavit)</span>는 『The Leprechauns of Software Engineering』에서 이런 숫자들이 원자료와 어긋나게 인용되어 왔다고 지적했다. 변경을 쉽게 만드는 개발 방식에서는 곡선이 훨씬 완만하다는 반론도 있다. 이 책은 배수를 쓰지 않는다. 대신 위 시뮬레이터처럼 <b>왜</b> 늘어나는지, 곧 무엇이 그 결정 위에 쌓이는지를 본다. 그 구조는 프로젝트마다 그려 볼 수 있다.
+    </div>
+  </section>
+
+  <section id="two-sides">
+    <h2>두 쪽의 사용자, 여러 사람의 일</h2>
+    <p>이 책을 관통하는 케이스는 동네 책방 네 곳이 함께 쓰는 작은 모바일 웹 서비스 <b>"맡아 두기"</b>다. 주인들이 처음 말한 뼈대는 이렇다. 손님이 찾는 책을 휴대폰으로 검색해 어느 책방에 있는지 보고, 미리 맡겨 두었다가(최대 3일) 가게에 가서 찾아간다. 값은 가게에서 치른다. 서비스 안에 결제는 없다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="맡아 두기 서비스의 두 쪽: 손님과 네 책방이 서비스를 사이에 두고 주고받는 일">
+        <defs><marker id="pov-ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="8" y="40" width="108" height="210" rx="12" class="f-acc-soft"/>
+        <text x="62" y="64" text-anchor="middle" class="lbl-acc">손님</text>
+        <circle cx="62" cy="104" r="16" class="f-surface"/><circle cx="62" cy="104" r="16" fill="none" class="s-acc"/>
+        <path d="M38 152 Q62 122 86 152" fill="none" class="s-acc"/>
+        <text x="62" y="186" text-anchor="middle" class="lbl-dim" style="font-size:11px">휴대폰으로</text>
+        <text x="62" y="202" text-anchor="middle" class="lbl-dim" style="font-size:11px">찾고, 맡기고,</text>
+        <text x="62" y="218" text-anchor="middle" class="lbl-dim" style="font-size:11px">가게에서 찾아간다</text>
+        <rect x="176" y="70" width="108" height="150" rx="16" class="f-elev"/>
+        <rect x="176" y="70" width="108" height="150" rx="16" fill="none" class="s-line"/>
+        <text x="230" y="100" text-anchor="middle" class="lbl-b">맡아 두기</text>
+        <text x="230" y="120" text-anchor="middle" class="lbl-dim" style="font-size:11px">모바일 웹</text>
+        <rect x="194" y="134" width="72" height="12" rx="6" class="f-surface"/>
+        <rect x="194" y="154" width="72" height="8" rx="4" class="f-surface"/>
+        <rect x="194" y="168" width="56" height="8" rx="4" class="f-surface"/>
+        <rect x="204" y="188" width="52" height="16" rx="8" class="f-acc-soft"/>
+        <rect x="342" y="22" width="110" height="56" rx="10" class="f-acc2-soft"/>
+        <text x="397" y="46" text-anchor="middle" class="lbl-b" style="font-size:12.5px">책방 E</text>
+        <text x="397" y="64" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">신간 · 그림책</text>
+        <rect x="342" y="86" width="110" height="56" rx="10" class="f-acc2-soft"/>
+        <text x="397" y="110" text-anchor="middle" class="lbl-b" style="font-size:12.5px">헌책방 나무</text>
+        <text x="397" y="128" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">헌책 · 한 권씩</text>
+        <rect x="342" y="150" width="110" height="56" rx="10" class="f-acc2-soft"/>
+        <text x="397" y="174" text-anchor="middle" class="lbl-b" style="font-size:12.5px">작은 숲</text>
+        <text x="397" y="192" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">어린이 책</text>
+        <rect x="342" y="214" width="110" height="56" rx="10" class="f-acc2-soft"/>
+        <text x="397" y="238" text-anchor="middle" class="lbl-b" style="font-size:12.5px">한 줄</text>
+        <text x="397" y="256" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">시집 · 주인 혼자</text>
+        <path d="M118 112 L172 112" class="s-acc" marker-end="url(#pov-ar3)"/>
+        <text x="145" y="104" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">찾기·맡기기</text>
+        <path d="M172 180 L118 180" class="s-acc" marker-end="url(#pov-ar3)"/>
+        <text x="145" y="196" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">알림</text>
+        <path d="M338 120 L288 130" class="s-acc2" marker-end="url(#pov-ar3)"/>
+        <text x="312" y="112" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">재고</text>
+        <path d="M288 170 L338 180" class="s-acc2" marker-end="url(#pov-ar3)"/>
+        <text x="312" y="196" text-anchor="middle" class="lbl-dim" style="font-size:10.5px">요청</text>
+        <path d="M62 252 C62 292 397 292 397 274" class="s-dash" marker-end="url(#pov-ar3)"/>
+        <text x="230" y="290" text-anchor="middle" class="lbl-dim" style="font-size:11px">최대 3일 안에 가게에 가서 찾고, 값은 가게에서 치른다</text>
+      </svg>
+      <figcaption><b>그림 2. "맡아 두기"의 두 쪽.</b> 왼쪽의 손님만 사용자가 아니다. 오른쪽의 네 주인도 재고를 알리고 맡김 요청을 확인하는 사용자다. 네 책방은 파는 책도, 재고를 적는 방식(엑셀, 공책, 판매 시스템)도, 일하는 사람 수도 다르다. 이 그림은 주인들이 첫 모임에서 말한 뼈대일 뿐이고, 실제 단계는 <a href="flow.html">5장</a>에서 다시 짠다.</figcaption>
+    </figure>
+
+    <p>이런 서비스를 흔히 <span class="term">양면 서비스</span><span class="en">(Two-sided service)</span>라고 한다. 두 부류의 사용자가 서로를 필요로 하는 서비스다. 손님 쪽 화면이 아무리 좋아도 주인이 재고를 알리지 않으면 검색 결과는 비고, 주인 쪽 화면이 아무리 편해도 손님이 오지 않으면 주인은 곧 쓰지 않는다. 그래서 이 책의 조사와 테스트는 언제나 두 쪽을 함께 본다. 한 줄의 주인처럼 혼자 가게를 보는 사람에게 "확인" 버튼 하나를 누르는 3초가 어떤 무게인지는 손님을 아무리 만나도 알 수 없다.</p>
+    <p>만드는 쪽에도 여러 사람이 있다. 화면과 흐름을 설계하는 디자이너, 사람을 만나 무엇이 사실인지 가려내는 <span class="term">사용자 연구자</span><span class="en">(User researcher)</span>, 실제로 동작하게 만들고 무엇이 얼마나 드는지 아는 개발자, 그리고 돈을 내고 결과를 책임지는 의뢰인. 이 케이스에서는 의뢰인(네 주인)이 동시에 사용자다. 그래서 그들의 요청은 두 번 들어야 한다. 한 번은 의뢰인의 바람으로, 한 번은 사용자의 경험으로.</p>
+
+    <div class="callout studio">
+      <strong>개발자를 첫 모임부터 부른다</strong>
+      디자인이 다 끝난 뒤에 개발자에게 화면을 넘기면, "이건 석 달 걸려요"라는 말이 너무 늦게 나온다. 작은 팀일수록 개발자를 조사와 문제 정의 회의에 함께 앉힌다. 개발자는 무엇이 쉽고 무엇이 어려운지만 아는 것이 아니라, 이미 있는 것(네 책방의 엑셀과 판매 시스템에서 재고를 꺼낼 수 있는가)을 가장 빨리 알아본다. 대신 발산하는 자리에서 "그건 못 만들어요"를 바로 말하지 않기로 미리 약속한다. 만들 수 있는지는 수렴할 때 따진다.
+    </div>
+  </section>
+
+  <section id="map">
+    <h2>이 책의 지도</h2>
+    <p>제품 디자인의 일은 네 가지 질문으로 모인다. 이 책은 그 질문마다 한 부를 둔다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>부</th><th>질문</th><th>장</th></tr></thead>
+        <tbody>
+          <tr><td><b>이해</b></td><td>누구의 어떤 문제인가</td><td><a href="research.html">2 사용자 조사</a> · <a href="problem.html">3 문제 정의</a></td></tr>
+          <tr><td><b>구조</b></td><td>어떻게 짜고 잇는가</td><td><a href="ia.html">4 정보 구조</a> · <a href="flow.html">5 사용자 흐름</a> · <a href="interaction.html">6 상호작용의 원리</a></td></tr>
+          <tr><td><b>검증</b></td><td>정말 되는지 어떻게 아는가</td><td><a href="prototype.html">7 스케치와 프로토타입</a> · <a href="usability.html">8 사용성 테스트</a> · <a href="metrics.html">9 숫자로 확인하기</a></td></tr>
+          <tr><td><b>운영</b></td><td>만든 뒤에는 무엇을 지키는가</td><td><a href="writing.html">10 UX 라이팅</a> · <a href="system.html">11 디자인 시스템</a> · <a href="ethics.html">12 다크 패턴과 윤리</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 440" role="img" aria-label="ProductBook의 지도: 1장을 가운데 두고 네 부의 장들이 둘러싼다">
+        <defs><marker id="pov-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <circle cx="230" cy="200" r="112" class="s-dash"/>
+        <circle cx="230" cy="200" r="44" class="f-acc-soft"/>
+        <text x="230" y="196" text-anchor="middle" class="lbl-acc">01</text>
+        <text x="230" y="215" text-anchor="middle" class="lbl-dim">제품 디자인의 지도</text>
+        <g id="pov-ring"></g>
+        <path d="M230 352 L230 374" class="s-line" marker-end="url(#pov-ar2)"/>
+        <rect x="118" y="380" width="104" height="40" rx="8" class="f-surface"/>
+        <rect x="238" y="380" width="104" height="40" rx="8" class="f-surface"/>
+        <text x="170" y="405" text-anchor="middle" class="lbl-b">13 실험실</text>
+        <text x="290" y="405" text-anchor="middle" class="lbl-b">14 용어집</text>
+        <rect x="8" y="8" width="12" height="12" rx="3" class="f-acc-soft"/><text x="26" y="19" class="lbl-dim">이해</text>
+        <rect x="68" y="8" width="12" height="12" rx="3" class="f-acc2-soft"/><text x="86" y="19" class="lbl-dim">구조</text>
+        <rect x="8" y="30" width="12" height="12" rx="3" class="f-warn-soft"/><text x="26" y="41" class="lbl-dim">검증</text>
+        <rect x="68" y="30" width="12" height="12" rx="3" class="f-ok-soft"/><text x="86" y="41" class="lbl-dim">운영</text>
+      </svg>
+      <figcaption><b>그림 3. ProductBook의 지도.</b> 1장을 가운데 두고 2~12장이 시계 방향으로 둘레를 돈다. 칸의 색은 부를 나타낸다. 이해는 첫 마름모, 구조와 검증은 두 번째 마름모, 운영은 마름모를 지나 서비스가 문을 연 뒤의 일이다. 둘레를 다 돌면 13장 실험실에서 흐름·퍼널·사용성 테스트·A/B 결과를 한 서비스 위에서 함께 다룬다. 칸을 누르면 그 장으로 간다.</figcaption>
+    </figure>
+
+    <p>네 갈래는 차례로 지나가는 단계이기도 하지만, 같은 화면을 보는 네 개의 렌즈이기도 하다. 마지막 시뮬레이터는 서윤이 첫날 밤 그린 열두 장 가운데 첫 화면이다. 위쪽 단추로 렌즈를 고르고, 화면의 번호 칸을 눌러 그 렌즈로 보면 어떤 질문이 생기는지 본다.</p>
+
+    <div class="sim" id="sim-lens">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>네 렌즈로 첫날 밤 화면 읽기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="ln-cv" class="art"></canvas><span class="hint">번호 칸을 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ln-lens"><button data-value="0" class="on">이해</button><button data-value="1">구조</button><button data-value="2">검증</button><button data-value="3">운영</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">살펴본 칸</span><span class="v" id="ln-o-seen">—</span></div>
+        <div class="stat"><span class="k">지금 렌즈의 질문</span><span class="v" id="ln-o-lens" style="font-size:15px">—</span></div>
+        <div class="stat"><span class="k">지금 답할 수 있는 질문</span><span class="v" id="ln-o-ans">—</span></div>
+      </div>
+      <div class="pv-msg" id="ln-msg">—</div>
+      <div class="sim-note">해볼 것: ① "이해" 렌즈에서 2번 칸(포인트 배너)을 누른다. 질문은 "이것이 손님의 문제인가"다. ② 같은 칸을 둔 채 렌즈를 "구조", "검증", "운영"으로 바꾼다. 같은 배너에서 전혀 다른 질문이 나온다. ③ 일곱 칸을 다 눌러 본 뒤 "지금 답할 수 있는 질문"을 본다. 스물여덟 개 중 하나도 없다. 서윤의 화면이 틀렸다는 뜻이 아니라, 아직 아무것도 확인하지 않았다는 뜻이다. (화면은 이 책이 만든 가상의 시안이다. 질문 옆의 장 번호는 그 질문을 주로 다루는 장이다.)</div>
+    </div>
+
+    <p>스물여덟 개의 질문 중 지금 답할 수 있는 것은 없었다. 이 책의 나머지 장은 이 질문들에 답하는 방법을 하나씩 다룬다. 사람을 만나 묻고 지켜보는 법(이해), 나누고 잇고 반응하게 하는 법(구조), 만들기 전에 그리고 만든 뒤에 확인하는 법(검증), 말을 고르고 체계를 지키고 사람을 해치지 않는 법(운영). 각 장의 시뮬레이터는 정답 화면을 보여 주지 않는다. 대신 무엇을 바꾸면 무엇이 달라지는지, 그리고 그 결론이 얼마나 확실한지를 직접 흔들어 보게 한다.</p>
+
+    <div class="callout try">
+      <strong>한 사람에게 과업 하나 맡겨 보기</strong>
+      가족이나 친구 한 사람에게 휴대폰으로 해 본 적 없는 작은 일을 하나 부탁한다. "이 앱에서 다음 주 화요일 저녁 7시 영화를 두 장 예매하는 데까지 가 보세요. 결제 직전에 멈추면 돼요." 옆에서 아무 말도 하지 말고, 도와 달라고 해도 "평소처럼 해 보세요"라고만 한다. 종이에 그 사람이 멈칫한 곳, 되돌아간 곳, 혼잣말을 적는다. 다 끝나면 "어디가 가장 헷갈렸어요?"라고 묻고 답을 적은 뒤, 내가 적은 멈칫한 곳과 비교한다. 말한 곳과 멈칫한 곳이 다를 때가 많다. 이것이 <a href="research.html">2장</a>(말과 행동)과 <a href="usability.html">8장</a>(사용성 테스트)의 출발점이다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 봄 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 1장</span></div>
+      <h4>열두 장의 화면과 하나의 질문</h4>
+      <p>책방 E의 새 웹사이트가 3월 첫 주에 문을 열고 한 달이 지난 2028년 4월 3일 월요일 저녁, 윤서윤은 책방 E 안쪽 탁자에서 네 사람을 만났다. 책방 E의 주인, 헌책방 나무의 주인, 어린이 책방 작은 숲의 주인, 시집 전문 책방 한 줄의 주인이다. 네 가게는 걸어서 15분 안에 모여 있고, 손님 일부를 나눠 갖는다. 책방 E 주인이 말을 꺼냈다. "새 사이트를 보고 다들 부러워해서요. 이번엔 넷이 같이 쓰는 앱을 만들어 주세요."</p>
+      <p>주인들은 저마다 종이 한 장씩을 내밀었다. 책방 E는 포인트 적립과 신간 알림, 나무는 중고책 매입 시세 조회, 작은 숲은 아이 나이별 추천, 한 줄은 손님과의 채팅과 "오늘의 시 한 편". 공통으로 적힌 것은 하나였다. 손님이 찾는 책을 검색해 어느 가게에 있는지 보고, 미리 맡겨 두었다가 가게에서 찾아가는 기능. 주인들은 이것을 "맡아 두기"라고 불렀다. 지금도 단골 몇몇은 전화로 그렇게 하고 있었다. 결제는 가게에서 하기로 했다. 함께 온 오지후는 네 책방의 재고가 엑셀, 공책, 판매 시스템에 제각각 적혀 있다는 말을 듣고 수첩에 별표를 그렸다.</p>
+      <p>서윤은 그날 밤 종이 네 장의 기능을 모두 담아 화면 열두 장을 그렸다. 첫 화면 맨 위에 포인트 배너, 그 아래 검색창, 오늘의 추천, 중고책 팔기 버튼, 오른쪽 아래에 떠 있는 채팅 단추, 맨 아래에 탭 다섯 개. 다음 날 아침 책방 E에서 화면을 넘겨 보던 단골 손님 민하린이 손을 멈췄다. 하린은 큰 회사에서 15년 동안 사용자 연구를 하다가 지금은 프리랜서로 일한다. "예뻐요. 그런데 이 화면을 누가, 언제 써요?" 서윤은 "손님이 책 찾을 때요"라고 답하려다 멈췄다. 어떤 손님이, 어디서, 무엇을 하다가 이 화면을 여는지 서윤은 한 번도 본 적이 없었다. 하린이 덧붙였다. "저는 사람이 말한 것보다 한 것을 믿어요. 주인분들 말씀도, 서윤 씨 화면도, 아직은 다 말이에요." 지후는 다른 쪽에서 계산을 했다. "이걸 다 만들면 6월 말까지는 못 열어요."</p>
+      <p>서윤의 선택은 화면 그리기를 멈추는 것이었다. 열두 장은 버리지 않고 "첫날 밤" 폴더에 넣었다. 주인들의 기능 목록도 버리지 않고, 이 장의 첫 시뮬레이터처럼 카드마다 "이것이 있으면 누구의 어떤 순간이 달라지나요?"라는 질문을 붙여 따로 모았다. 그리고 6월 말 공개까지 남은 12주를 다섯 단계로 나눴다. 하린은 조사와 시험을 돕기로 했다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>① 6월 말 공개까지의 순서와 대략의 기간: 조사(4월 5일~18일, 2주) → 정의(4월 19일~28일) → 구조(5월 1일~12일) → 시험(5월 15일~6월 23일, 프로토타입·사용성 테스트·시범 운영) → 공개(6월 30일 금요일). 날짜는 주인들의 사정에 따라 움직일 수 있지만 순서는 바꾸지 않는다. ② 구조 단계 전에는 완성된 화면을 그리지 않는다(손으로 그린 흐름 스케치는 예외). ③ 주인들의 기능 목록은 버리지 않고 질문을 붙여 "나중 상자"에 보관한다. 무엇을 넣고 뺄지는 문제를 정한 뒤에 정한다. ④ 손님과 주인, 두 쪽을 모두 사용자로 보고 조사한다.</div>
+        <div><b>아직 남은 문제</b>손님은 실제로 책을 어떻게 찾고 있는가. 주인들이 겪는 곤란은 무엇인가. "앱"이어야 하는가(주인들은 앱을 원하지만, 손님이 설치할지는 모른다).</div>
+        <div><b>다음 단계</b><a href="research.html">2장</a>: 손님과 주인을 만나 묻고, 가게에서 지켜본다. 서윤은 먼저 질문지부터 쓴다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>이 책의 제품 디자인은 앱과 웹 서비스 같은 디지털 제품의 디자인이다. 가운데에는 화면이 아니라 사람과 그 사람의 상황이 있다.</li>
+      <li>의뢰는 대개 기능(해결책)의 모양으로 온다. 문제는 누가, 어떤 상황에서, 무엇을 하려다 어려움을 겪는지가 들어 있는 문장이다. 기능 요청은 버리지 않고 "그게 있으면 누구의 어떤 순간이 달라지나요?"라는 질문으로 바꿔 둔다.</li>
+      <li>화면(표면)은 전략·범위·구조·골격 위에 놓인다(Garrett 2002). 아래층이 확인되지 않은 화면은 완성되어 보여도 쉽게 무너진다.</li>
+      <li>더블 다이아몬드(Design Council 2005)는 문제와 해결책 각각을 발산했다가 수렴하는 리듬으로 요약한다. 떠올리지 않은 문제는 아무리 잘 좁혀도 고를 수 없고, 너무 오래 넓히면 시험할 시간이 사라진다. 마감을 보고 발산의 크기를 미리 정한다.</li>
+      <li>결정은 다른 결정의 바닥이 된다. 바닥의 결정이 틀린 것을 늦게 찾을수록 그 위에 쌓인 것을 많이 걷어 내야 한다. 흔히 인용되는 "1:10:100" 같은 배수는 근거가 불분명하므로 쓰지 않고, 무엇이 쌓이는지를 본다.</li>
+      <li>이 책은 이해·구조·검증·운영의 네 갈래로 나뉜다. 네 갈래는 차례로 지나는 단계이자 같은 화면을 보는 네 렌즈다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 한 책방 주인이 "손님과 채팅하는 기능을 꼭 넣어 주세요"라고 했다. 디자이너가 처음 할 일로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">채팅 화면의 시안을 세 가지 그려 주인에게 고르게 한다.</button>
+          <button class="opt">채팅은 개발이 어려우니 넣을 수 없다고 바로 말한다.</button>
+          <button class="opt" data-correct>채팅이 있으면 누구의 어떤 순간이 달라지는지 묻고, 그 답 뒤에 있는 곤란이 무엇인지 확인한다.</button>
+          <button class="opt">다른 서비스에도 채팅이 있는지 조사해 있으면 넣는다.</button>
+        </div>
+        <div class="quiz-exp">"채팅"은 해결책이다. 그 뒤에 "가게를 보면서 전화를 받기 힘들다" 같은 문제가 숨어 있을 수 있고, 그 문제라면 채팅 말고도 풀 방법이 여럿이다. 시안부터 그리면 그 길들이 닫히고, 바로 거절하면 신호를 놓친다. 다른 서비스에 있다는 것은 이 손님들에게 필요하다는 근거가 아니다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 더블 다이아몬드의 첫 번째 마름모에서 "발산"하는 목적으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>풀 문제의 후보를 넓게 찾아, 처음 떠올린 문제 말고 다른 문제가 있는지 확인하려고.</button>
+          <button class="opt">화면 시안을 최대한 많이 만들어 의뢰인에게 고를 기회를 주려고.</button>
+          <button class="opt">기능을 최대한 많이 넣어 첫 버전을 풍성하게 만들려고.</button>
+          <button class="opt">마감을 늦출 근거를 만들려고.</button>
+        </div>
+        <div class="quiz-exp">첫 마름모는 문제에 관한 것이다. 수렴은 이미 펼친 후보 중에서만 고를 수 있으므로, 진짜 문제가 후보에 오르려면 먼저 넓게 찾아야 한다. 화면 시안을 여럿 만드는 것은 두 번째 마름모(해결 공간)의 발산이고, 기능을 많이 넣는 것은 발산이 아니라 수렴을 미루는 것이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. "문제를 늦게 찾을수록 고치기 비싸다"에 대한 설명으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">연구로 확인된 배수가 있어서, 공개 뒤에 고치면 언제나 설계 단계의 정확히 100배가 든다.</button>
+          <button class="opt" data-correct>늦게 찾을수록 그 결정 위에 쌓인 흐름·화면·코드·습관이 많아 다시 할 일이 늘어난다. 얼마나 늘어나는지는 결정의 종류와 프로젝트마다 다르다.</button>
+          <button class="opt">버튼 문구처럼 작은 결정이든 풀 문제를 고르는 결정이든 늦게 찾으면 다시 할 일은 같다.</button>
+          <button class="opt">공개한 뒤에는 이미 쓰는 사람이 있으므로 고치지 않는 편이 언제나 싸다.</button>
+        </div>
+        <div class="quiz-exp">늘어나는 이유는 의존 관계다. 바닥에 가까운 결정(풀 문제)일수록 그 위에 쌓이는 것이 많고, 늦게 찾을수록 쌓인 것이 많다. "1:10:100" 같은 정확한 배수는 원자료로 거슬러 올라가기 어려워 이 책은 쓰지 않는다. 고치지 않는 비용도 계속 쌓이므로 "언제나 싸다"고 할 수 없다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. "버튼 문구를 바꾼 뒤 실제로 책을 맡겨 두는 손님의 비율이 달라졌는지 확인한다"는 이 책의 네 갈래 중 어디에 속하는가?</p>
+        <div class="opts">
+          <button class="opt">이해: 누구의 어떤 문제인가</button>
+          <button class="opt">구조: 어떻게 짜고 잇는가</button>
+          <button class="opt">운영: 만든 뒤에는 무엇을 지키는가</button>
+          <button class="opt" data-correct>검증: 정말 되는지 어떻게 아는가</button>
+        </div>
+        <div class="quiz-exp">바꾼 것이 실제로 효과가 있는지를 숫자로 확인하는 일은 검증 부의 <a href="metrics.html">9장</a>(숫자로 확인하기)에서 다룬다. 문구를 어떻게 쓸지는 운영 부의 10장(UX 라이팅)이지만, 그 문구가 정말 효과가 있는지 확인하는 것은 검증이다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  "use strict";
+  function sim(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  function rr(ctx, x, y, w, h, r) { r = Math.min(r, w / 2, h / 2); ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function wrap(ctx, text, maxW) {
+    var words = String(text).split(" "), lines = [], cur = "";
+    words.forEach(function (wd) { var t = cur ? cur + " " + wd : wd; if (!cur || ctx.measureText(t).width <= maxW) cur = t; else { lines.push(cur); cur = wd; } });
+    if (cur) lines.push(cur);
+    var out = [];
+    lines.forEach(function (l) {
+      if (ctx.measureText(l).width <= maxW) { out.push(l); return; }
+      var s = "";
+      for (var i = 0; i < l.length; i++) { var t2 = s + l[i]; if (s && ctx.measureText(t2).width > maxW) { out.push(s); s = l[i]; } else s = t2; }
+      if (s) out.push(s);
+    });
+    return out;
+  }
+  function fit(ctx, text, maxW) { if (ctx.measureText(text).width <= maxW) return text; var s = text; while (s.length > 1 && ctx.measureText(s + "…").width > maxW) s = s.slice(0, -1); return s + "…"; }
+  function alpha(ctx, a, fn) { ctx.save(); ctx.globalAlpha = a; fn(); ctx.restore(); }
+  function widthOf(id) { var el = document.getElementById(id); return Math.max(200, (el && el.parentElement && el.parentElement.clientWidth) || 600); }
+  function chLink(slugs) {
+    return slugs.map(function (s) { var c = AB.CHAPTERS.filter(function (x) { return x.slug === s; })[0]; return c ? '<a href="' + s + '.html">' + (+c.num) + "장</a>" : ""; }).join(" · ");
+  }
+
+  /* ---------------- 그림 3: 장 고리 ---------------- */
+  sim("ring", function () {
+    var g = document.getElementById("pov-ring");
+    var SHORT = { research: "사용자 조사", problem: "문제 정의", ia: "정보 구조", flow: "사용자 흐름", interaction: "상호작용", prototype: "프로토타입", usability: "사용성 테스트", metrics: "숫자로 확인", writing: "UX 라이팅", system: "디자인 시스템", ethics: "윤리" };
+    var chs = AB.CHAPTERS.filter(function (c) { return +c.num >= 2 && +c.num <= 12; });
+    var cls = ["f-acc-soft", "f-acc2-soft", "f-warn-soft", "f-ok-soft"];
+    var html = "";
+    chs.forEach(function (c, i) {
+      var a = -Math.PI / 2 + ((i + 0.5) / chs.length) * Math.PI * 2, cs = Math.cos(a), sn = Math.sin(a);
+      var x = 230 + 112 * cs, y = 200 + 112 * sn, lx = 230 + 146 * cs, ly = 200 + 146 * sn + 5;
+      var anchor = Math.abs(cs) < 0.3 ? "middle" : cs > 0 ? "start" : "end";
+      var ready = c.ready !== false;
+      var node = '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="20" class="f-elev"/>' +
+        '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="20" class="' + cls[c.part] + '"' + (ready ? "" : ' opacity=".5"') + "/>" +
+        '<text x="' + x.toFixed(1) + '" y="' + (y + 5).toFixed(1) + '" text-anchor="middle" class="lbl-b">' + c.num + "</text>" +
+        '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="' + anchor + '" class="lbl-dim" style="font-size:12px">' + SHORT[c.slug] + "</text>";
+      html += ready ? '<a href="' + c.slug + '.html">' + node + "</a>" : "<g><title>" + c.title + " (준비 중)</title>" + node + "</g>";
+    });
+    g.innerHTML = html;
+  });
+
+  /* =====================================================================
+     서윤의 첫날 밤 첫 화면(가상의 시안). 고정색으로 그린다.
+     hot: 0 로그인, 1 포인트, 2 검색, 3 추천, 4 중고 매입, 5 채팅, 6 탭 바
+     ===================================================================== */
+  var NIGHT_NAMES = ["로그인", "포인트 배너", "검색창", "오늘의 추천", "중고책 팔기", "채팅 단추", "탭 다섯 개"];
+  function drawNight(ctx, x, y, w, h) {
+    var u = function (f) { return x + f * w; }, v = function (f) { return y + f * h; }, fs = function (k) { return Math.max(7, w * k); };
+    var hot = [];
+    ctx.save();
+    rr(ctx, x - 6, y - 6, w + 12, h + 12, 18); ctx.fillStyle = "#26252b"; ctx.fill();
+    rr(ctx, x, y, w, h, 12); ctx.clip();
+    ctx.fillStyle = "#fbfaf7"; ctx.fillRect(x, y, w, h);
+    ctx.textBaseline = "middle";
+    // 상단 막대
+    ctx.fillStyle = "#2f7d5b"; ctx.fillRect(x, y, w, h * 0.095);
+    ctx.fillStyle = "#ffffff"; ctx.font = "700 " + fs(0.058) + "px sans-serif"; ctx.textAlign = "left"; ctx.fillText("동네책방 4곳", u(0.05), v(0.05));
+    rr(ctx, u(0.71), v(0.026), w * 0.24, h * 0.045, 8); ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 1; ctx.stroke();
+    ctx.font = fs(0.042) + "px sans-serif"; ctx.textAlign = "center"; ctx.fillText("로그인", u(0.83), v(0.049));
+    hot[0] = [u(0.69), v(0.015), w * 0.28, h * 0.07];
+    // 포인트 배너
+    rr(ctx, u(0.04), v(0.11), w * 0.92, h * 0.085, 8); ctx.fillStyle = "#ffe2d7"; ctx.fill();
+    ctx.fillStyle = "#22342a"; ctx.textAlign = "left"; ctx.font = "700 " + fs(0.052) + "px sans-serif"; ctx.fillText("내 포인트 1,250P", u(0.08), v(0.153));
+    ctx.fillStyle = "#d24f39"; ctx.textAlign = "right"; ctx.font = "700 " + fs(0.042) + "px sans-serif"; ctx.fillText("적립하기 ›", u(0.92), v(0.153));
+    hot[1] = [u(0.04), v(0.11), w * 0.92, h * 0.085];
+    // 검색창
+    rr(ctx, u(0.04), v(0.215), w * 0.92, h * 0.065, 16); ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.strokeStyle = "#c9c2b6"; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.beginPath(); ctx.arc(u(0.11), v(0.247), w * 0.022, 0, 7); ctx.strokeStyle = "#8f8b98"; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.fillStyle = "#8f8b98"; ctx.textAlign = "left"; ctx.font = fs(0.045) + "px sans-serif"; ctx.fillText("책 제목, 저자 검색", u(0.17), v(0.248));
+    hot[2] = [u(0.04), v(0.215), w * 0.92, h * 0.065];
+    // 오늘의 추천
+    ctx.fillStyle = "#22342a"; ctx.font = "700 " + fs(0.05) + "px sans-serif"; ctx.fillText("오늘의 추천", u(0.05), v(0.315));
+    var cov = ["#567666", "#d24f39", "#e3c66b", "#2f5d7c"];
+    for (var i = 0; i < 4; i++) { var cx0 = u(0.05 + i * 0.27); rr(ctx, cx0, v(0.34), w * 0.22, h * 0.14, 4); ctx.fillStyle = cov[i]; ctx.fill(); ctx.fillStyle = "rgba(255,255,255,.75)"; ctx.fillRect(cx0 + w * 0.03, v(0.36), w * 0.14, h * 0.008); ctx.fillRect(cx0 + w * 0.03, v(0.375), w * 0.1, h * 0.008); }
+    hot[3] = [u(0.03), v(0.295), w * 0.94, h * 0.195];
+    // 중고 매입
+    rr(ctx, u(0.04), v(0.505), w * 0.92, h * 0.075, 8); ctx.fillStyle = "#efe8d8"; ctx.fill();
+    ctx.fillStyle = "#5a3f2a"; ctx.font = "700 " + fs(0.046) + "px sans-serif"; ctx.textAlign = "left"; ctx.fillText("중고책 팔기 · 시세 조회 ›", u(0.08), v(0.543));
+    hot[4] = [u(0.04), v(0.505), w * 0.92, h * 0.075];
+    // 새로 들어온 책 목록(채움)
+    ctx.fillStyle = "#22342a"; ctx.font = "700 " + fs(0.05) + "px sans-serif"; ctx.fillText("새로 들어온 책", u(0.05), v(0.615));
+    for (var j = 0; j < 3; j++) {
+      var yy = v(0.64 + j * 0.075);
+      ctx.fillStyle = ["#a8b8c4", "#c9a24a", "#8c2f2a"][j]; ctx.fillRect(u(0.05), yy, w * 0.1, h * 0.06);
+      ctx.fillStyle = "#cfc8bc"; ctx.fillRect(u(0.19), yy + h * 0.012, w * 0.5, h * 0.012); ctx.fillStyle = "#e2ddd3"; ctx.fillRect(u(0.19), yy + h * 0.036, w * 0.34, h * 0.01);
+    }
+    // 탭 바
+    ctx.fillStyle = "#ffffff"; ctx.fillRect(x, v(0.9), w, h * 0.1); ctx.fillStyle = "#dcd6cc"; ctx.fillRect(x, v(0.9), w, 1);
+    var tabs = ["홈", "검색", "맡김", "채팅", "내 정보"];
+    ctx.font = fs(0.04) + "px sans-serif"; ctx.textAlign = "center";
+    tabs.forEach(function (t, k) { var tx = u(0.1 + k * 0.2); ctx.fillStyle = k === 0 ? "#2f7d5b" : "#8f8b98"; rr(ctx, tx - w * 0.03, v(0.915), w * 0.06, h * 0.03, 3); ctx.fill(); ctx.fillText(t, tx, v(0.968)); });
+    hot[6] = [x, v(0.9), w, h * 0.1];
+    // 떠 있는 채팅 단추
+    ctx.beginPath(); ctx.arc(u(0.84), v(0.82), w * 0.085, 0, 7); ctx.fillStyle = "#d24f39"; ctx.fill();
+    ctx.fillStyle = "#ffffff"; ctx.font = "700 " + fs(0.045) + "px sans-serif"; ctx.fillText("채팅", u(0.84), v(0.821));
+    hot[5] = [u(0.84) - w * 0.1, v(0.82) - w * 0.1, w * 0.2, w * 0.2];
+    ctx.restore();
+    return hot;
+  }
+
+  /* ---------------- 시뮬레이터 1: 기능인가, 문제인가 ---------------- */
+  sim("sort", function () {
+    var CARDS = [
+      { t: "포인트 적립", s: "포인트 적립", k: "f", who: "책방 E 주인", why: "해결책이다. 뒤에는 '손님이 다시 왔으면 좋겠다'는 주인의 바람이 있을 수 있다. 그것이 손님의 어떤 곤란과 닿는지는 아직 모른다." },
+      { t: "찾는 책이 어느 가게에 있는지 가 보기 전엔 모른다", s: "재고를 모른다", k: "p", who: "책방 E 주인이 전한 손님의 말", why: "문제다. 누가(손님), 언제(책방에 가기 전), 무엇이 어려운지(재고를 알 수 없다)가 다 들어 있다. 다만 주인이 전한 말이라, 손님에게 직접 확인해야 한다." },
+      { t: "손님과 채팅", s: "채팅", k: "f", who: "한 줄 주인", why: "해결책이다. 손님이 무엇을 묻고 싶어 채팅을 하게 될지가 먼저다. 그 질문이 '그 책 있어요?'라면 채팅 말고도 풀 길이 많다." },
+      { t: "손님 응대 중에 재고 문의 전화가 오면 계산이 밀린다", s: "전화에 계산 밀림", k: "p", who: "한 줄 주인", why: "문제다. 주인 쪽 사용자의 곤란이다. 혼자 가게를 보는 사람에게만 생기는 문제일 수도 있으니, 네 가게가 다 그런지 확인한다." },
+      { t: "요즘은 다 앱이 있어야 한다", s: "앱이 있어야", k: "o", who: "책방 E 주인", why: "의견이다. 누가 어떤 상황에서 곤란한지가 없다. '앱'은 해결책을 담는 그릇의 한 형식일 뿐이다." },
+      { t: "아이 나이별 책 추천", s: "나이별 추천", k: "f", who: "작은 숲 주인", why: "해결책이다. 부모가 책을 고를 때 무엇이 어려운지(나이? 수준? 이미 읽은 책?)를 알아야 추천이 맞는 답인지 알 수 있다." },
+      { t: "헌책은 한 권뿐이라 전화로 있다 한 사이에 팔린다", s: "한 권뿐", k: "p", who: "나무 주인", why: "문제다. 헌책방에만 있는 사정이다. 같은 서비스 안에서 네 가게의 사정이 다를 수 있다는 첫 신호다." },
+      { t: "중고책 매입 시세 조회", s: "중고 매입 시세", k: "f", who: "나무 주인", why: "해결책이다. 책을 팔려는 사람의 곤란(값을 모른다? 들고 가기 번거롭다?)과 주인의 곤란(매입 문의 응대)이 섞여 있다." },
+      { t: "전화로 맡겨 둔 책을 찾으러 오지 않는 손님이 있다", s: "찾으러 안 옴", k: "p", who: "작은 숲 주인", why: "문제다. 이미 전화로 '맡아 두기'를 하고 있다는 사실도 함께 알려 준다. 지금 어떻게 하고 있는지가 조사의 좋은 출발점이다." },
+      { t: "화면이 예뻤으면 좋겠다", s: "예쁜 화면", k: "o", who: "한 줄 주인", why: "바람이다. 틀린 말은 아니지만 무엇을 풀지 정하는 데는 도움이 되지 않는다. 표면 층(다음 절)에서 다룰 일이다." },
+    ];
+    var BINS = [{ k: "f", n: "해결책(기능)" }, { k: "p", n: "문제" }, { k: "o", n: "바람·의견" }];
+    var BNAME = { f: "해결책(기능)", p: "문제", o: "바람·의견" };
+    var lists = { f: [], p: [], o: [] }, where = CARDS.map(function () { return null; });
+    var drag = null, last = -1, L = null, rects = [];
+    var fb = AB.check("so-fb", function () { cv.redraw(); update(); });
+    function layout(w) {
+      var cols = w >= 540 ? 3 : 2, pad = 10, cw = (w - pad * (cols + 1)) / cols, ch = w >= 540 ? 56 : 64;
+      var rows = Math.ceil(CARDS.length / cols), top = 28, poolH = top + rows * (ch + 8);
+      var binTop = poolH + 12, bw = (w - pad * 4) / 3, binH = 34 + 7 * 23 + 6;
+      return { cols: cols, pad: pad, cw: cw, ch: ch, top: top, binTop: binTop, bw: bw, binH: binH, h: binTop + binH + 10 };
+    }
+    function slotRect(i) { var c = i % L.cols, r = Math.floor(i / L.cols); return [L.pad + c * (L.cw + L.pad), L.top + r * (L.ch + 8), L.cw, L.ch]; }
+    function chipRect(b, j, n) {
+      var bx = L.pad + b * (L.bw + L.pad), two = n > 7, cwid = two ? (L.bw - 12) / 2 : L.bw - 8;
+      var col = two ? j % 2 : 0, row = two ? Math.floor(j / 2) : j;
+      return [bx + 4 + col * (cwid + 4), L.binTop + 34 + row * 23, cwid, 20];
+    }
+    function hit(x, y) {
+      for (var b = 0; b < 3; b++) { var li = lists[BINS[b].k]; for (var j = 0; j < li.length; j++) { var r = chipRect(b, j, li.length); if (x >= r[0] && x <= r[0] + r[2] && y >= r[1] && y <= r[1] + r[3]) return { i: li[j], r: r, chip: true }; } }
+      for (var i = 0; i < CARDS.length; i++) { if (where[i]) continue; var s = slotRect(i); if (x >= s[0] && x <= s[0] + s[2] && y >= s[1] && y <= s[1] + s[3]) return { i: i, r: s }; }
+      return null;
+    }
+    function place(i, k) {
+      ["f", "p", "o"].forEach(function (q) { var a = lists[q], p = a.indexOf(i); if (p >= 0) a.splice(p, 1); });
+      where[i] = k; if (k) lists[k].push(i);
+    }
+    function drawCard(ctx, P, i, x, y, w, h, lifted) {
+      ctx.save();
+      if (lifted) { ctx.shadowColor = "rgba(0,0,0,.25)"; ctx.shadowBlur = 10; ctx.shadowOffsetY = 3; }
+      rr(ctx, x, y, w, h, 8); ctx.fillStyle = P.surface; ctx.fill(); ctx.restore();
+      rr(ctx, x, y, w, h, 8); ctx.strokeStyle = lifted ? P.accent : P.border; ctx.lineWidth = lifted ? 2 : 1; ctx.stroke();
+      ctx.fillStyle = P.text; ctx.font = AB.font(12.5); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      var lines = wrap(ctx, CARDS[i].t, w - 16).slice(0, 4), lh = 15, y0 = y + (h - lines.length * lh) / 2 + 1;
+      lines.forEach(function (l, k) { ctx.fillText(l, x + 8, y0 + k * lh); });
+    }
+    var cv = AB.canvas("#so-cv", function (ctx, w, h) {
+      var P = AB.palette(); L = layout(w);
+      ctx.fillStyle = P.dim; ctx.font = AB.font(12); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("네 주인이 첫 모임에서 한 말", L.pad, 15);
+      for (var i = 0; i < CARDS.length; i++) {
+        var s = slotRect(i);
+        if (where[i] || (drag && drag.i === i)) { ctx.save(); ctx.setLineDash([4, 4]); rr(ctx, s[0], s[1], s[2], s[3], 8); ctx.strokeStyle = P.border; ctx.stroke(); ctx.restore(); continue; }
+        drawCard(ctx, P, i, s[0], s[1], s[2], s[3], false);
+      }
+      for (var b = 0; b < 3; b++) {
+        var bx = L.pad + b * (L.bw + L.pad), k = BINS[b].k, li = lists[k];
+        ctx.save(); ctx.setLineDash([5, 4]); rr(ctx, bx, L.binTop, L.bw, L.binH, 10); ctx.strokeStyle = P.axis; ctx.lineWidth = 1.2; ctx.stroke(); ctx.restore();
+        ctx.fillStyle = P.text; ctx.font = AB.font(12.5, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText(fit(ctx, BINS[b].n, L.bw - 8), bx + L.bw / 2, L.binTop + 16);
+        li.forEach(function (ci, j) {
+          if (drag && drag.i === ci) return;
+          var r = chipRect(b, j, li.length), good = CARDS[ci].k === k;
+          rr(ctx, r[0], r[1], r[2], r[3], 5); ctx.fillStyle = P.surface; ctx.fill();
+          if (fb()) { ctx.fillStyle = good ? P.ok : P.bad; ctx.fillRect(r[0], r[1] + 3, 3, r[3] - 6); }
+          rr(ctx, r[0], r[1], r[2], r[3], 5); ctx.strokeStyle = (fb() ? (good ? P.ok : P.bad) : P.border); ctx.lineWidth = 1; ctx.stroke();
+          ctx.fillStyle = P.text; ctx.font = AB.font(11.5); ctx.textAlign = "left";
+          ctx.fillText(fit(ctx, CARDS[ci].s, r[2] - 12), r[0] + 7, r[1] + r[3] / 2 + 0.5);
+        });
+      }
+      if (drag) drawCard(ctx, P, drag.i, drag.x - drag.ox, drag.y - drag.oy, L.cw, L.ch, true);
+    }, { get height() { return layout(widthOf("so-cv")).h; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!L) return; var hh = hit(x, y); if (!hh) { drag = null; return; } drag = { i: hh.i, x: x, y: y, ox: hh.chip ? L.cw / 2 : x - hh.r[0], oy: hh.chip ? 12 : y - hh.r[1] }; last = hh.i; },
+      move: function (x, y) { if (!drag) return; drag.x = x; drag.y = y; cv.redraw(); },
+      end: function () {
+        if (!drag) return;
+        var i = drag.i;
+        if (drag.y >= L.binTop - 8) { var b = AB.clamp(Math.floor((drag.x - L.pad / 2) / (L.bw + L.pad)), 0, 2); place(i, BINS[b].k); }
+        else place(i, null);
+        drag = null; cv.redraw(); update();
+      },
+    });
+    document.getElementById("so-reset").addEventListener("click", function () { CARDS.forEach(function (c, i) { place(i, null); }); last = -1; cv.redraw(); update(); });
+    document.getElementById("so-auto").addEventListener("click", function () { CARDS.forEach(function (c, i) { place(i, c.k); }); last = -1; cv.redraw(); update(); });
+    function update() {
+      var n = 0, ok = 0;
+      CARDS.forEach(function (c, i) { if (where[i]) { n++; if (where[i] === c.k) ok++; } });
+      AB.stat("so-o-n", n + " <small>/ " + CARDS.length + "</small>");
+      AB.stat("so-o-ok", ok + " <small>/ " + n + "</small>");
+      AB.stat("so-o-f", lists.f.length + "장");
+      var m = document.getElementById("so-msg");
+      if (last < 0) { m.innerHTML = n === CARDS.length ? "열 장을 모두 분류했다. 해결책 상자에 든 카드마다 \"그게 있으면 누구의 어떤 순간이 달라지나요?\"를 붙여 본다." : "카드를 하나 끌어 상자에 넣으면 여기에 그 카드를 누가 말했는지와 하린의 해설이 나온다."; return; }
+      var c = CARDS[last], wk = where[last];
+      var head = '<span class="tagk">' + c.who + "</span><b>" + c.t + "</b>";
+      if (!wk) { m.innerHTML = head + ' <span class="dim">→ 아직 상자 밖</span>'; return; }
+      var verdict = wk === c.k ? "" : (fb() ? ' <span class="bad-t">하린의 분류는 "' + BNAME[c.k] + '"</span>' : "");
+      m.innerHTML = head + ' <span class="dim">→ ' + BNAME[wk] + "</span>" + verdict + (fb() || wk === c.k ? '<br><span class="dim">하린:</span> ' + c.why : "");
+    }
+    update();
+  });
+
+  /* ---------------- 시뮬레이터 2: 다섯 층 ---------------- */
+  sim("layers", function () {
+    var NAMES = ["전략", "범위", "구조", "골격", "표면"], EN = ["Strategy", "Scope", "Structure", "Skeleton", "Surface"];
+    var QS = ["누구를 위해 무엇을 이루나", "무엇을 넣고 무엇을 빼나", "어떻게 나누고 잇나", "화면 어디에 무엇을 두나", "어떻게 보이나"];
+    var INK = "#2b2a30", DIM = "#6b6874", LINE = "#b9b2a5", PLATE = ["#dfe8e2", "#cbdcd2", "#b2cbbd", "#93b6a3", "#2f7d5b"];
+    var nG = AB.range("ly-n", function (v) { return v + " · " + NAMES[v - 1]; }, function () { cv.redraw(); });
+    var night = AB.check("ly-night", function () { cv.redraw(); });
+    function phone(ctx, x, y, w, h) { rr(ctx, x - 5, y - 5, w + 10, h + 10, 14); ctx.fillStyle = "#26252b"; ctx.fill(); rr(ctx, x, y, w, h, 9); ctx.fillStyle = "#ffffff"; ctx.fill(); }
+    function wire(ctx, x, y, w, h, color) {
+      var g = color ? null : "#d9d4ca", g2 = color ? null : "#ece8e0";
+      ctx.save(); rr(ctx, x, y, w, h, 9); ctx.clip();
+      ctx.fillStyle = color ? "#fbfaf7" : "#ffffff"; ctx.fillRect(x, y, w, h);
+      ctx.fillStyle = color ? "#2f7d5b" : g; ctx.fillRect(x, y, w, h * 0.1);
+      if (color) { ctx.fillStyle = "#ffffff"; ctx.fillRect(x + w * 0.06, y + h * 0.04, w * 0.36, h * 0.022); }
+      ctx.fillStyle = color ? "#22342a" : g; ctx.fillRect(x + w * 0.06, y + h * 0.15, w * 0.6, h * 0.035);
+      ctx.fillStyle = color ? "#8f9a92" : g2; for (var i = 0; i < 3; i++) ctx.fillRect(x + w * 0.06, y + h * (0.22 + i * 0.04), w * (0.86 - i * 0.12), h * 0.016);
+      for (var k = 0; k < 3; k++) {
+        var yy = y + h * (0.39 + k * 0.13);
+        ctx.fillStyle = color ? ["#567666", "#e3c66b", "#2f5d7c"][k] : g; ctx.fillRect(x + w * 0.06, yy, w * 0.18, h * 0.1);
+        ctx.fillStyle = color ? "#22342a" : g; ctx.fillRect(x + w * 0.3, yy + h * 0.015, w * 0.5, h * 0.02);
+        ctx.fillStyle = color ? "#9aa59d" : g2; ctx.fillRect(x + w * 0.3, yy + h * 0.05, w * 0.36, h * 0.015);
+      }
+      rr(ctx, x + w * 0.06, y + h * 0.82, w * 0.88, h * 0.08, 8); ctx.fillStyle = color ? "#d24f39" : g; ctx.fill();
+      if (color) { ctx.fillStyle = "#ffffff"; ctx.fillRect(x + w * 0.38, y + h * 0.855, w * 0.24, h * 0.012); }
+      ctx.restore();
+    }
+    function card(ctx, x, y, w, h, title) {
+      rr(ctx, x, y, w, h, 10); ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.strokeStyle = "#d9d4ca"; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = INK; ctx.font = "700 14px sans-serif"; ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(title, x + 14, y + 20);
+    }
+    var cv = AB.canvas("#ly-cv", function (ctx, w, h) {
+      var n = nG(), nt = night(), wide = w >= 520, sx, sy, sw, sh, px, py, pw, ph;
+      if (wide) { sx = 14; sy = 14; sw = w * 0.46 - 20; sh = h - 28; px = w * 0.46 + 6; py = 14; pw = w - px - 14; ph = h - 28; }
+      else { sx = 10; sy = 8; sw = w - 20; sh = 196; px = 10; py = 214; pw = w - 20; ph = h - 222; }
+      var gap = sh / 5.4, plH = gap * 0.6, skew = Math.min(26, sw * 0.08);
+      for (var i = 0; i < 5; i++) {
+        var y = sy + sh - plH - 4 - i * gap, built = nt ? i === 4 : i < n, x0 = sx, x1 = sx + sw;
+        if (nt && i === 4) y -= gap * 0.25;
+        ctx.beginPath(); ctx.moveTo(x0 + skew, y); ctx.lineTo(x1, y); ctx.lineTo(x1 - skew, y + plH); ctx.lineTo(x0, y + plH); ctx.closePath();
+        if (built) { ctx.fillStyle = PLATE[i]; ctx.fill(); ctx.strokeStyle = i === 4 ? "#22342a" : "#7d8f84"; ctx.lineWidth = 1; ctx.stroke(); }
+        else { ctx.save(); ctx.setLineDash([4, 4]); ctx.strokeStyle = LINE; ctx.lineWidth = 1.2; ctx.stroke(); ctx.restore(); }
+        ctx.fillStyle = built ? (i === 4 ? "#ffffff" : INK) : DIM; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.font = (built ? "700 " : "") + "13px sans-serif";
+        var lbl = (i + 1) + " " + NAMES[i] + (sw > 230 ? "  " + EN[i] : "");
+        if (nt && i < 4) lbl = (i + 1) + " " + NAMES[i] + " · 비어 있음";
+        ctx.fillText(lbl, (x0 + x1) / 2, y + plH / 2 + 0.5);
+      }
+      if (nt) {
+        var yTop = sy + sh - plH - 4 - 4 * gap - gap * 0.25 + plH;
+        ctx.save(); ctx.setLineDash([3, 3]); ctx.strokeStyle = "#d24f39"; ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.moveTo(sx + sw * 0.25, yTop + 2); ctx.lineTo(sx + sw * 0.25, yTop + gap * 0.5); ctx.moveTo(sx + sw * 0.75, yTop + 2); ctx.lineTo(sx + sw * 0.75, yTop + gap * 0.5); ctx.stroke(); ctx.restore();
+      }
+      // 미리보기
+      var top = nt ? 4 : n - 1;
+      if (top >= 3) {
+        var phh = ph - 12, phw = Math.min(pw * 0.62, phh * 0.52); phh = Math.min(phh, phw / 0.52);
+        var fx = px + (pw - phw) / 2, fy = py + (ph - phh) / 2;
+        if (nt) drawNight(ctx, fx, fy, phw, phh);
+        else { phone(ctx, fx, fy, phw, phh); wire(ctx, fx, fy, phw, phh, top === 4); }
+        return;
+      }
+      var cx = px + 4, cy = py + 4, cw = pw - 8, chh = ph - 8;
+      card(ctx, cx, cy, cw, chh, ["전략: 무엇을 위해", "범위: 넣을 것과 뺄 것", "구조: 나누고 잇기"][top]);
+      ctx.font = "13px sans-serif"; ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      if (top === 0) {
+        var qs = ["누구를 위해?", "어떤 순간의 어떤 곤란을?", "무엇이 달라지면 성공인가?", "왜 지금, 왜 우리가?"], step = Math.min(56, (chh - 50) / 4);
+        qs.forEach(function (q, k) { var yy = cy + 50 + k * step; ctx.fillStyle = INK; ctx.fillText(q, cx + 16, yy); ctx.save(); ctx.setLineDash([3, 4]); ctx.strokeStyle = LINE; ctx.beginPath(); ctx.moveTo(cx + 16, yy + 20); ctx.lineTo(cx + cw - 16, yy + 20); ctx.stroke(); ctx.restore(); ctx.fillStyle = "#b5a99a"; ctx.fillText("?", cx + cw - 26, yy + 12); });
+      } else if (top === 1) {
+        var items = [["기능 A", "넣는다"], ["기능 B", "넣는다"], ["기능 C", "뺀다"], ["기능 D", "나중에"], ["기능 E", "뺀다"], ["기능 F", "넣는다"]], st2 = Math.min(34, (chh - 50) / 6);
+        items.forEach(function (it, k) {
+          var yy = cy + 48 + k * st2, on = it[1] === "넣는다";
+          ctx.strokeStyle = "#7d8f84"; ctx.lineWidth = 1.3; ctx.strokeRect(cx + 16, yy - 7, 14, 14);
+          if (on) { ctx.strokeStyle = "#2f7d5b"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx + 19, yy); ctx.lineTo(cx + 22, yy + 4); ctx.lineTo(cx + 28, yy - 5); ctx.stroke(); }
+          ctx.fillStyle = on ? INK : DIM; ctx.fillText(it[0], cx + 40, yy);
+          ctx.fillStyle = it[1] === "뺀다" ? "#d24f39" : it[1] === "나중에" ? "#a07a2a" : "#2f7d5b"; ctx.textAlign = "right"; ctx.fillText(it[1], cx + cw - 16, yy); ctx.textAlign = "left";
+          if (it[1] === "뺀다") { ctx.strokeStyle = DIM; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx + 40, yy); ctx.lineTo(cx + 40 + ctx.measureText(it[0]).width, yy); ctx.stroke(); }
+        });
+      } else {
+        var bw = Math.min(70, (cw - 60) / 3.4), bh = 32, y0 = cy + 50 + (chh - 50) * 0.25, xs = [cx + 16, cx + 16 + (cw - 32 - bw) / 2, cx + cw - 16 - bw];
+        ["화면 1", "화면 2", "화면 3"].forEach(function (t, k) { rr(ctx, xs[k], y0, bw, bh, 6); ctx.fillStyle = "#eef3f0"; ctx.fill(); ctx.strokeStyle = "#7d8f84"; ctx.lineWidth = 1.2; ctx.stroke(); ctx.fillStyle = INK; ctx.textAlign = "center"; ctx.fillText(t, xs[k] + bw / 2, y0 + bh / 2); });
+        ctx.strokeStyle = "#7d8f84"; ctx.lineWidth = 1.4;
+        function arrow(xa, ya, xb, yb) { ctx.beginPath(); ctx.moveTo(xa, ya); ctx.lineTo(xb, yb); ctx.stroke(); var a = Math.atan2(yb - ya, xb - xa); ctx.beginPath(); ctx.moveTo(xb, yb); ctx.lineTo(xb - 7 * Math.cos(a - 0.4), yb - 7 * Math.sin(a - 0.4)); ctx.lineTo(xb - 7 * Math.cos(a + 0.4), yb - 7 * Math.sin(a + 0.4)); ctx.closePath(); ctx.fillStyle = "#7d8f84"; ctx.fill(); }
+        arrow(xs[0] + bw, y0 + bh / 2, xs[1] - 2, y0 + bh / 2); arrow(xs[1] + bw, y0 + bh / 2, xs[2] - 2, y0 + bh / 2);
+        var y1 = y0 + bh + Math.min(60, (chh - 50) * 0.3);
+        rr(ctx, xs[1], y1, bw, bh, 6); ctx.fillStyle = "#fbeee8"; ctx.fill(); ctx.strokeStyle = "#d24f39"; ctx.stroke(); ctx.fillStyle = INK; ctx.textAlign = "center"; ctx.fillText("예외", xs[1] + bw / 2, y1 + bh / 2);
+        ctx.strokeStyle = "#d24f39"; arrow(xs[1] + bw / 2, y0 + bh, xs[1] + bw / 2, y1 - 2);
+        ctx.fillStyle = DIM; ctx.font = "12px sans-serif"; ctx.fillText("무엇을 어느 순서로, 막히면 어디로", cx + cw / 2, Math.min(cy + chh - 18, y1 + bh + 26));
+      }
+      AB.stat("ly-o-top", (nt ? "표면만" : NAMES[n - 1]));
+    }, { get height() { var w = widthOf("ly-cv"); return w >= 520 ? Math.max(320, Math.round(w * 0.62)) : 520; }, bg: "#fbfaf7" });
+    function upd() { var n = nG(), nt = night(); AB.stat("ly-o-top", nt ? "표면만" : (n + " " + NAMES[n - 1])); AB.stat("ly-o-q", QS[nt ? 4 : n - 1]); AB.stat("ly-o-empty", nt ? "4개" : "0개"); }
+    document.getElementById("ly-n").addEventListener("input", upd); document.getElementById("ly-night").addEventListener("change", upd);
+    upd();
+  });
+
+  /* ---------------- 시뮬레이터 3: 12주 안의 두 마름모 ---------------- */
+  sim("diamond", function () {
+    var KS = [7, 4, 11, 3, 9, 14, 5, 8, 2, 12, 6, 15], ki = 0, T = 12;
+    var st = { tp: 2.2, n: 10, tA: 4.4 }, geo = null, act = null;
+    var mode = AB.seg("dd-mode", function () { cv.redraw(); });
+    var show = AB.check("dd-show", function () { cv.redraw(); });
+    document.getElementById("dd-next").addEventListener("click", function () { ki = (ki + 1) % KS.length; cv.redraw(); });
+    var conv = function (n) { return 0.35 * Math.log2(Math.max(1, n)) + 0.3; };
+    function fix() {
+      st.n = AB.clamp(Math.round(st.n), 1, 20);
+      st.tp = AB.clamp(st.tp, 0.3, 11 - conv(st.n));
+      st.n = Math.min(st.n, Math.floor(1 + 4 * st.tp));
+      st.tA = AB.clamp(st.tA, st.tp + conv(st.n), 11);
+    }
+    function model() {
+      var direct = mode() === "direct", n = direct ? 1 : st.n, tp = direct ? 0.25 : st.tp, tA = direct ? 0.5 : st.tA;
+      var rem = T - tA, div2 = rem * 0.4, n2 = Math.max(1, Math.min(18, Math.round(3 * div2))), rounds = Math.floor((rem - div2) / 1.5);
+      var k = KS[ki];
+      return { direct: direct, n: n, tp: tp, tA: tA, rem: rem, div2: div2, n2: n2, rounds: rounds, k: k, hit: n >= k };
+    }
+    function dateOf(t) { var d = new Date(2028, 3, 3 + Math.round(t * 7)); return (d.getMonth() + 1) + "월 " + d.getDate() + "일"; }
+    var cv = AB.canvas("#dd-cv", function (ctx, w, h) {
+      var P = AB.palette(), m = model();
+      var bx = 16, bw = w - 32, by = 34, bh = h - 34 - 50, mid = by + bh / 2, s = (bh / 2 - 8) / 20;
+      var X = function (t) { return bx + (t / T) * bw; }, Yo = function (n) { return n * s; };
+      geo = { X: X, bx: bx, bw: bw, mid: mid, s: s };
+      // 축과 달
+      ctx.strokeStyle = P.grid; ctx.lineWidth = 1;
+      for (var wk = 0; wk <= T; wk++) { ctx.beginPath(); ctx.moveTo(X(wk), by); ctx.lineTo(X(wk), by + bh); ctx.stroke(); }
+      ctx.strokeStyle = P.axis; ctx.beginPath(); ctx.moveTo(bx, mid); ctx.lineTo(bx + bw, mid); ctx.stroke();
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11); ctx.textBaseline = "top";
+      [[0, "4월"], [4, "5월"], [8.4, "6월"]].forEach(function (a) { ctx.textAlign = "left"; ctx.fillText(a[1], X(a[0]) + 3, by + bh + 6); ctx.beginPath(); ctx.moveTo(X(a[0]), by + bh); ctx.lineTo(X(a[0]), by + bh + 5); ctx.strokeStyle = P.axis; ctx.stroke(); });
+      ctx.textAlign = "right"; ctx.fillText("6월 말 공개", X(T), by + bh + 6);
+      ctx.fillStyle = P.faint; if (w >= 480) { ctx.textAlign = "center"; ctx.fillText("가로: 주(4월 3일부터 12주) · 폭: 살아 있는 가능성의 수", bx + bw / 2, by + bh + 26); } else { ctx.textAlign = "left"; ctx.fillText("폭 = 살아 있는 가능성의 수", bx, by + bh + 26); }
+      // 마름모 1
+      function diamond(t0, tp, t1, n, col) {
+        ctx.beginPath(); ctx.moveTo(X(t0), mid); ctx.lineTo(X(tp), mid - Yo(n)); ctx.lineTo(X(t1), mid); ctx.lineTo(X(tp), mid + Yo(n)); ctx.closePath();
+        alpha(ctx, 0.14, function () { ctx.fillStyle = col; ctx.fill(); }); ctx.strokeStyle = col; ctx.lineWidth = 1.6; ctx.stroke();
+      }
+      diamond(0, m.tp, m.tA, Math.max(m.n, 0.4), P.accent);
+      diamond(m.tA, m.tA + m.div2, T, m.n2, P.accent2);
+      ctx.font = AB.font(12, false, 700); ctx.textBaseline = "bottom"; ctx.textAlign = "center";
+      ctx.fillStyle = P.accent; ctx.fillText(m.direct ? "기능 목록 그대로" : "문제", AB.clamp(X(m.tA / 2), bx + 40, bx + bw - 40), by - 6 + (m.direct ? 0 : 0));
+      ctx.fillStyle = P.accent2; ctx.fillText("해결안", X((m.tA + T) / 2), by - 6);
+      // 문제 후보 점
+      var R = AB.rng(31), us = []; for (var i = 0; i < 24; i++) us.push(R());
+      for (var j = 0; j < m.n; j++) {
+        var t = m.tp * (j + 0.6) / (m.n + 0.2), hw = (t / m.tp) * Yo(m.n), y = mid + (us[j] * 2 - 1) * hw * 0.8;
+        var real = j === m.k - 1;
+        ctx.beginPath(); ctx.arc(X(t), y, real && show() ? 5.5 : 3.5, 0, 7); ctx.fillStyle = real && show() ? P.accent2 : P.accent; ctx.fill();
+        if (real && show()) { ctx.strokeStyle = P.text; ctx.lineWidth = 1.5; ctx.stroke(); ctx.fillStyle = P.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = X(t) > bx + bw * 0.6 ? "right" : "left"; ctx.textBaseline = "bottom"; ctx.fillText("진짜 문제", X(t) + (ctx.textAlign === "left" ? 7 : -7), y - 5); }
+      }
+      if (show() && !m.hit) {
+        var gx = X(Math.min(m.tp + 0.6, m.tA)), gy = Math.max(by + 8, mid - Yo(m.n) - 12);
+        ctx.save(); ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.arc(gx, gy, 5.5, 0, 7); ctx.strokeStyle = P.bad; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore();
+        ctx.fillStyle = P.bad; ctx.font = AB.font(11, false, 600); ctx.textAlign = gx > bx + bw * 0.6 ? "right" : "left"; ctx.textBaseline = "middle"; ctx.fillText("떠올리지 못한 진짜 문제(" + m.k + "번째)", gx + (ctx.textAlign === "left" ? 9 : -9), gy);
+      }
+      // 해결안 점
+      var R2 = AB.rng(77);
+      for (var q = 0; q < m.n2; q++) { var t2 = m.tA + m.div2 * (q + 0.6) / (m.n2 + 0.2), hw2 = ((t2 - m.tA) / m.div2) * Yo(m.n2), y2 = mid + (R2() * 2 - 1) * hw2 * 0.8; ctx.beginPath(); ctx.arc(X(t2), y2, 3, 0, 7); ctx.fillStyle = P.accent2; ctx.fill(); }
+      // 시험 횟수
+      for (var r = 0; r < m.rounds; r++) { var tr = m.tA + m.div2 + 1.5 * (r + 1); if (tr > T) break; ctx.beginPath(); ctx.moveTo(X(tr), mid - 6); ctx.lineTo(X(tr) + 5, mid + 4); ctx.lineTo(X(tr) - 5, mid + 4); ctx.closePath(); ctx.fillStyle = P.ok; ctx.fill(); }
+      // 정의 지점
+      ctx.beginPath(); ctx.arc(X(m.tA), mid, 6, 0, 7); ctx.fillStyle = show() ? (m.hit ? P.ok : P.bad) : P.warn; ctx.fill();
+      ctx.fillStyle = P.text; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("정의 " + dateOf(m.tA), AB.clamp(X(m.tA), bx + 40, bx + bw - 40), mid + 16);
+      if (!m.direct) { AB.handle(ctx, X(m.tp), mid - Yo(m.n), { r: 7, fill: P.accent, ring: P.text }); AB.handle(ctx, X(m.tA), mid, { r: 7, fill: show() ? (m.hit ? P.ok : P.bad) : P.warn, ring: P.text }); }
+      AB.stat("dd-o-n", m.n + "개");
+      AB.stat("dd-o-hit", show() ? (m.hit ? '<span class="ok-t">예</span>' : '<span class="bad-t">아니오</span>') + " <small>" + m.k + "번째 후보</small>" : "<small>가려 둠</small>");
+      AB.stat("dd-o-t2", AB.fix(m.rem, 1) + "주 <small>" + dateOf(m.tA) + "~</small>");
+      AB.stat("dd-o-r", m.rounds + "번");
+    }, { get height() { var w = widthOf("dd-cv"); return Math.round(AB.clamp(w * 0.62, 300, 400)); } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        act = null; if (!geo || mode() === "direct") return;
+        var px = geo.X(st.tp), py = geo.mid - st.n * geo.s, qx = geo.X(st.tA), qy = geo.mid;
+        var d1 = Math.hypot(x - px, y - py), d2 = Math.hypot(x - qx, y - qy);
+        act = d1 < 36 || d2 < 36 ? (d1 <= d2 ? "peak" : "def") : (Math.abs(x - px) < Math.abs(x - qx) ? "peak" : "def");
+      },
+      move: function (x, y) {
+        if (!act || !geo) return;
+        var t = ((x - geo.bx) / geo.bw) * T;
+        if (act === "peak") { st.tp = t; st.n = Math.abs(geo.mid - y) / geo.s; var gapT = st.tA - st.tp; fix(); if (st.tA - st.tp < gapT) st.tA = Math.min(11, st.tp + Math.max(gapT, conv(st.n))); fix(); }
+        else { st.tA = t; fix(); }
+        cv.redraw();
+      },
+      end: function () { act = null; },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 4: 틀린 결정을 언제 찾았나 ---------------- */
+  sim("cost", function () {
+    var STAGES = ["조사", "정의", "구조", "프로토타입", "개발", "공개 후"], SHORTS = ["조사", "정의", "구조", "프로토", "개발", "공개 후"];
+    var ART = [
+      [["인터뷰 메모", 1, {}]],
+      [["문제 문장", 1, { P: 1 }], ["우선순위표", 1, { P: 1 }]],
+      [["흐름도", 2, { P: 1, F: 1 }], ["화면 목록", 1, { P: 1, F: 1 }], ["메뉴 이름", 1, { P: 1, F: 0.5, W: 1 }]],
+      [["종이 화면", 1, { P: 1, F: 1, W: 0.5 }], ["클릭 목업", 2, { P: 1, F: 1, W: 0.25 }], ["테스트 과업", 1, { P: 1, F: 1 }]],
+      [["화면 코드", 4, { P: 1, F: 0.75, W: 0.1 }], ["서버·데이터", 4, { P: 1, F: 0.5 }], ["오류·안내 문구", 1, { P: 1, W: 1 }], ["주인 교육 자료", 2, { P: 1, F: 1, W: 0.25 }]],
+      [["손님의 습관", 3, { P: 1, F: 1, W: 0.2 }], ["쌓인 기록", 3, { P: 0.75, F: 0.5 }], ["안내문·홍보물", 1, { P: 1, W: 0.5 }], ["주인들과의 약속", 2, { P: 1, F: 0.5 }]],
+    ];
+    var DEC = { P: 1, F: 2, W: 2 }, DNAME = { P: "풀 문제를 고른 결정", F: "흐름의 순서를 정한 결정", W: "버튼 문구를 정한 결정" };
+    var s = 4, geo = null;
+    var kind = AB.seg("co-kind", function (k) { s = Math.max(s, DEC[k]); cv.redraw(); });
+    function redo(k, sIdx) {
+      var items = [], u = 0;
+      for (var st = DEC[k]; st <= sIdx; st++) ART[st].forEach(function (a) { var f = a[2][k] || 0; if (f > 0) { items.push([a[0], f]); u += a[1] * f; } });
+      return { items: items, u: u };
+    }
+    var UMAX = redo("P", 5).u;
+    var cv = AB.canvas("#co-cv", function (ctx, w, h) {
+      var P = AB.palette(), k = kind(), d = DEC[k], pad = 12, cw = (w - pad * 2) / 6;
+      var chartTop = 22, chartH = 92, trackY = chartTop + chartH + 34, colTop = trackY + 26, colBot = h - 50, unitPx = (colBot - colTop) / 12;
+      geo = { pad: pad, cw: cw, trackY: trackY };
+      // 위: 발견 시점별 다시 할 일(모형)
+      ctx.fillStyle = P.dim; ctx.font = AB.font(11.5); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("발견 시점별 다시 할 일(모형, 가상 단위)", pad, 10);
+      ctx.strokeStyle = P.grid; ctx.lineWidth = 1; for (var g = 0; g <= 4; g++) { var gy = chartTop + chartH - (g / 4) * chartH; ctx.beginPath(); ctx.moveTo(pad, gy); ctx.lineTo(w - pad, gy); ctx.stroke(); }
+      var pts = [];
+      for (var si = 0; si < 6; si++) { if (si < d) continue; var r = redo(k, si); pts.push([pad + cw * (si + 0.5), chartTop + chartH - (r.u / UMAX) * chartH, si, r.u]); }
+      ctx.strokeStyle = P.bad; ctx.lineWidth = 2; ctx.beginPath(); pts.forEach(function (p, i) { i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.stroke();
+      pts.forEach(function (p) { ctx.beginPath(); ctx.arc(p[0], p[1], p[2] === s ? 5.5 : 3.5, 0, 7); ctx.fillStyle = p[2] === s ? P.bad : P.bg; ctx.fill(); ctx.strokeStyle = P.bad; ctx.lineWidth = 1.5; ctx.stroke(); if (p[2] === s) { ctx.fillStyle = P.text; ctx.font = AB.font(11, true, 600); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText(AB.fix(p[3], 1), p[0], p[1] - 7); } });
+      ctx.fillStyle = P.faint; ctx.font = AB.font(10.5); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("개념도 · 실제 비용의 배수가 아니다", w - pad, chartTop + chartH + 4);
+      // 트랙과 손잡이
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(pad + cw * 0.5, trackY); ctx.lineTo(w - pad - cw * 0.5, trackY); ctx.stroke();
+      for (var t = 0; t < 6; t++) { ctx.beginPath(); ctx.arc(pad + cw * (t + 0.5), trackY, t === d ? 5 : 3, 0, 7); ctx.fillStyle = t === d ? P.warn : P.axis; ctx.fill(); }
+      ctx.fillStyle = P.warn; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("결정", pad + cw * (d + 0.5), trackY - 8);
+      AB.handle(ctx, pad + cw * (s + 0.5), trackY, { r: 8, fill: P.bad, ring: P.text });
+      // 단계별 블록
+      for (var c = 0; c < 6; c++) {
+        var x0 = pad + c * cw + 4, bw = cw - 8, yb = colBot, built = c <= s;
+        ART[c].forEach(function (a) {
+          var hh = a[1] * unitPx, f = c >= d ? (a[2][k] || 0) : 0, y0 = yb - hh;
+          if (!built) { ctx.save(); ctx.setLineDash([3, 3]); ctx.strokeStyle = P.border; ctx.strokeRect(x0 + 0.5, y0 + 1.5, bw - 1, hh - 3); ctx.restore(); }
+          else {
+            ctx.fillStyle = P.surface; ctx.fillRect(x0, y0 + 1, bw, hh - 2);
+            if (f > 0) { alpha(ctx, 0.85, function () { ctx.fillStyle = P.bad; ctx.fillRect(x0, y0 + 1 + (hh - 2) * (1 - f), bw, (hh - 2) * f); }); }
+            ctx.strokeStyle = P.border; ctx.lineWidth = 1; ctx.strokeRect(x0 + 0.5, y0 + 1.5, bw - 1, hh - 3);
+          }
+          if (bw >= 70 && hh >= 14) { ctx.fillStyle = built ? (f >= 0.5 ? "#ffffff" : P.text) : P.faint; ctx.font = AB.font(10.5); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(fit(ctx, a[0], bw - 6), x0 + bw / 2, y0 + hh / 2); }
+          yb = y0;
+        });
+        ctx.fillStyle = c === s ? P.text : P.dim; ctx.font = AB.font(11, false, c === s ? 700 : 400); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        ctx.fillText(cw >= 64 ? STAGES[c] : SHORTS[c], pad + cw * (c + 0.5), colBot + 6);
+      }
+      var res = redo(k, s);
+      AB.stat("co-o-when", STAGES[s]);
+      AB.stat("co-o-n", res.items.length + "가지");
+      AB.stat("co-o-u", AB.fix(res.u, 1));
+      var full = res.items.filter(function (i) { return i[1] >= 1; }).map(function (i) { return i[0]; }), part = res.items.filter(function (i) { return i[1] < 1; }).map(function (i) { return i[0]; });
+      document.getElementById("co-msg").innerHTML = "<b>" + DNAME[k] + "</b>이 틀렸다는 것을 <b>" + STAGES[s] + "</b> 단계에서 알았다.<br>" +
+        (full.length ? '<span class="dim">통째로 다시:</span> ' + full.join(", ") : "") + (part.length ? (full.length ? "<br>" : "") + '<span class="dim">일부를 다시:</span> ' + part.join(", ") : "");
+    }, { get height() { var w = widthOf("co-cv"); return w >= 480 ? 440 : 460; } });
+    AB.drag(cv.canvas, {
+      move: function (x) { if (!geo) return; var t = AB.clamp(Math.round((x - geo.pad) / geo.cw - 0.5), 0, 5); s = Math.max(t, DEC[kind()]); cv.redraw(); },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 5: 네 렌즈 ---------------- */
+  sim("lens", function () {
+    var LENS = ["이해", "구조", "검증", "운영"], LQ = ["누구의 어떤 문제인가", "어떻게 짜고 잇는가", "정말 되는지 어떻게 아나", "만든 뒤 무엇을 지키나"];
+    var LCOL = ["#2f7d5b", "#2f6f9f", "#b36b00", "#7a4fa0"];
+    var Q = [
+      [["손님은 책 한 권을 찾으려고 가입까지 할까? 처음 온 손님과 단골은 다르게 답할 것이다.", ["research", "problem"]], ["가입은 흐름의 어디에 두나. 맨 앞에 두면 몇 명이 거기서 멈추나?", ["flow"]], ["가입 화면에서 실제로 몇 명이 그만두는지 숫자로 볼 수 있나?", ["metrics"]], ["가입할 때 무엇을 받나. 꼭 필요한 정보만 받고 있나?", ["ethics"]]],
+      [["포인트를 모으려고 이 서비스를 여는 손님이 있을까? 이것은 주인의 바람인가, 손님의 문제인가?", ["research", "problem"]], ["첫 화면 맨 위 자리를 포인트가 차지할 만큼 중요한가?", ["ia"]], ["손님은 이 배너를 알아보고 누르는가, 광고로 보고 지나치는가?", ["usability"]], ["네 책방이 적립 규칙을 따로 정하면 화면과 문구는 누가 관리하나?", ["system"]]],
+      [["손님은 책을 제목으로 찾나, 저자로 찾나, '표지가 파란 그 책'으로 찾나?", ["research"]], ["검색 결과를 책 단위로 보여 주나, 가게 단위로 보여 주나?", ["ia"]], ["처음 쓰는 손님이 찾는 책을 막힘없이 찾아내나?", ["usability"]], ["결과가 없을 때 무엇이라고 말하나?", ["writing"]]],
+      [["누가 이 추천을 원했나. 손님이 '뭘 읽을지 모르겠다'고 말한 적이 있나?", ["research", "problem"]], ["추천이 검색보다 위에 있으면 찾는 책이 정해진 손님은 어떻게 되나?", ["ia", "interaction"]], ["추천을 보고 맡겨 둔 사람이 있나? 무엇과 비교해야 알 수 있나?", ["metrics"]], ["추천 목록은 누가, 얼마나 자주 고치나?", ["system"]]],
+      [["책을 팔려는 사람과 사려는 사람은 같은 사람인가?", ["research", "problem"]], ["매입은 맡아 두기와 같은 흐름에 들어가나, 따로인가?", ["flow"]], ["이 단추 때문에 맡아 두기를 못 찾는 사람이 생기나?", ["usability"]], ["한 가게만 하는 일을 네 가게가 함께 쓰는 화면에 넣어도 되나?", ["system"]]],
+      [["손님은 채팅으로 무엇을 묻고 싶을까? 혼자 가게를 보는 주인은 언제 답할 수 있나?", ["research"]], ["떠 있는 단추가 아래의 다른 내용을 가리지 않나?", ["interaction"]], ["답이 늦으면 손님은 어떻게 하나? 그 장면을 시험해 볼 수 있나?", ["prototype", "usability"]], ["답이 늦는데 '바로 답해요'처럼 보이게 꾸미면 정직한가?", ["ethics"]]],
+      [["다섯 개의 탭 중 손님이 실제로 쓸 일은 몇 개인가?", ["research"]], ["탭 이름만 보고 그 안에 무엇이 있는지 알 수 있나?", ["ia"]], ["손님은 '맡김' 탭에서 자기가 맡긴 책을 찾아내나?", ["usability"]], ["탭 이름의 말투가 다른 화면의 말투와 같은가?", ["writing"]]],
+    ];
+    var sel = -1, seen = [], hot = [], geo = null;
+    var lens = AB.seg("ln-lens", function () { cv.redraw(); upd(); });
+    var cv = AB.canvas("#ln-cv", function (ctx, w, h) {
+      var L = +lens(), col = LCOL[L], wide = w >= 520;
+      var pw = Math.min(232, wide ? w * 0.42 : w - 56), phh = Math.min(h - 28, pw * 1.95); pw = phh / 1.95;
+      var px = wide ? 24 : (w - pw) / 2, py = (h - phh) / 2;
+      hot = drawNight(ctx, px, py, pw, phh);
+      hot.forEach(function (r, i) {
+        var on = i === sel;
+        ctx.save(); ctx.setLineDash(on ? [] : [4, 3]); ctx.strokeStyle = col; ctx.lineWidth = on ? 3 : 1.4; rr(ctx, r[0] - 1, r[1] - 1, r[2] + 2, r[3] + 2, 6); ctx.stroke(); ctx.restore();
+        var cx = i === 5 ? r[0] + 4 : r[0] + 2, cy = i === 5 ? r[1] + 4 : r[1] + 2;
+        if (i === 6) { cx = r[0] + r[2] - 14; cy = r[1] - 6; }
+        if (i === 0) { cx = r[0] - 4; }
+        if (i === 3) { cx = r[0] + r[2] - 4; }
+        ctx.beginPath(); ctx.arc(cx, cy, 9, 0, 7); ctx.fillStyle = on ? col : "#ffffff"; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.fillStyle = on ? "#ffffff" : col; ctx.font = "700 11px sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(String(i + 1), cx, cy + 0.5);
+      });
+      geo = { list: null };
+      if (wide) {
+        var lx = px + pw + 34, ly = py + 18, lw = w - lx - 12;
+        ctx.fillStyle = col; ctx.font = "700 14px sans-serif"; ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(LENS[L] + " 렌즈", lx, ly);
+        ctx.fillStyle = "#6b6874"; ctx.font = "12.5px sans-serif"; ctx.fillText(fit(ctx, LQ[L], lw), lx, ly + 22);
+        var rows = [];
+        NIGHT_NAMES.forEach(function (n, i) {
+          var yy = ly + 58 + i * 34;
+          rr(ctx, lx - 6, yy - 14, lw, 28, 6); ctx.fillStyle = i === sel ? "#f1efe9" : "#fbfaf7"; ctx.fill();
+          ctx.beginPath(); ctx.arc(lx + 8, yy, 8, 0, 7); ctx.fillStyle = seen[i] ? col : "#ffffff"; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 1.3; ctx.stroke();
+          ctx.fillStyle = seen[i] ? "#ffffff" : col; ctx.font = "700 10.5px sans-serif"; ctx.textAlign = "center"; ctx.fillText(String(i + 1), lx + 8, yy + 0.5);
+          ctx.fillStyle = "#2b2a30"; ctx.font = (i === sel ? "700 " : "") + "13px sans-serif"; ctx.textAlign = "left"; ctx.fillText(n, lx + 24, yy);
+          rows.push([lx - 6, yy - 14, lw, 28]);
+        });
+        geo.list = rows;
+      }
+    }, { height: 480, bg: "#fbfaf7" });
+    function pick(x, y) {
+      var inside = function (r, p) { return x >= r[0] - p && x <= r[0] + r[2] + p && y >= r[1] - p && y <= r[1] + r[3] + p; };
+      if (hot[5] && inside(hot[5], 2)) return 5;
+      for (var i = 0; i < hot.length; i++) if (hot[i] && inside(hot[i], 2)) return i;
+      if (geo && geo.list) for (var j = 0; j < geo.list.length; j++) if (inside(geo.list[j], 0)) return j;
+      return -1;
+    }
+    AB.drag(cv.canvas, { start: function (x, y) { var i = pick(x, y); if (i < 0) return; sel = i; seen[i] = true; cv.redraw(); upd(); } });
+    function upd() {
+      var L = +lens(), n = seen.filter(Boolean).length;
+      AB.stat("ln-o-seen", n + " <small>/ 7</small>");
+      AB.stat("ln-o-lens", LQ[L]);
+      AB.stat("ln-o-ans", "0 <small>/ 28</small>");
+      var m = document.getElementById("ln-msg");
+      if (sel < 0) { m.innerHTML = "화면의 번호 칸을 누르면 여기에 <b>" + LENS[L] + "</b> 렌즈로 본 질문과 그 질문을 다루는 장이 나온다."; return; }
+      var q = Q[sel][L];
+      m.innerHTML = '<span class="tagk">' + (sel + 1) + " " + NIGHT_NAMES[sel] + " · " + LENS[L] + "</span>" + q[0] + ' <span class="dim">→ ' + chLink(q[1]) + "</span>";
+    }
+    upd();
+  });
+})();
+</script>
+</body>
+</html>

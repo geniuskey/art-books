@@ -1,0 +1,978 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "디자인 시스템은 화면 묶음이 아니라 결정을 나눠 쓰는 방법이다. 토큰에서 컴포넌트, 패턴으로 이어지는 층, 한 칸만 바꾸는 테마, 변형의 폭발과 그것을 줄이는 규칙, 색 감사, 문서, 일관성과 예외의 판단, 기여와 거버넌스를 네 책방이 함께 쓰는 '맡아 두기' 서비스로 직접 다뤄 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>디자인 시스템 · ProductBook</title>
+<meta name="description" content="디자인 시스템은 화면 묶음이 아니라 결정을 나눠 쓰는 방법이다. 토큰에서 컴포넌트, 패턴으로 이어지는 층, 한 칸만 바꾸는 테마, 변형의 폭발과 그것을 줄이는 규칙, 색 감사, 문서, 일관성과 예외의 판단, 기여와 거버넌스를 네 책방이 함께 쓰는 '맡아 두기' 서비스로 직접 다뤄 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/system.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="디자인 시스템 · ProductBook">
+<meta property="og:description" content="디자인 시스템은 화면 묶음이 아니라 결정을 나눠 쓰는 방법이다. 토큰에서 컴포넌트, 패턴으로 이어지는 층, 한 칸만 바꾸는 테마, 변형의 폭발과 그것을 줄이는 규칙, 색 감사, 문서, 일관성과 예외의 판단, 기여와 거버넌스를 네 책방이 함께 쓰는 '맡아 두기' 서비스로 직접 다뤄 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/system.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/system.html#chapter","name":"디자인 시스템","headline":"디자인 시스템 · ProductBook","description":"디자인 시스템은 화면 묶음이 아니라 결정을 나눠 쓰는 방법이다. 토큰에서 컴포넌트, 패턴으로 이어지는 층, 한 칸만 바꾸는 테마, 변형의 폭발과 그것을 줄이는 규칙, 색 감사, 문서, 일관성과 예외의 판단, 기여와 거버넌스를 네 책방이 함께 쓰는 '맡아 두기' 서비스로 직접 다뤄 본다.","url":"https://artbook.euiyun.com/product/chapters/system.html","position":11,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"11. 디자인 시스템","item":"https://artbook.euiyun.com/product/chapters/system.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  .sy-code { font-family: var(--mono); font-size: 12.5px; line-height: 1.55; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; overflow-x: auto; max-width: 100%; box-sizing: border-box; }
+  .sy-code code { background: none; padding: 0; font-size: inherit; }
+</style>
+</head>
+<body data-chapter="system">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 11</div>
+    <h1>디자인 시스템</h1>
+    <p class="lead">"맡아 두기" 시범 화면을 네 책방 주인에게 보여 준 날, 헌책방 나무 주인이 물었다. "우리 가게 화면인데 왜 책방 E 초록이에요?" 작은 숲 주인은 노란색을, 한 줄 주인은 빨간색을 원했다. 그 자리에서 서윤이 화면을 네 벌 그렸다면 버튼은 네 가지 색, 네 가지 크기로 갈라졌을 것이고, 지후는 같은 버튼을 네 번 만들었을 것이다. 한 달 뒤 오류 메시지 색 하나를 고치려면 네 군데를 찾아다녀야 한다. 디자인 시스템은 이런 일을 막으려고 <b>결정을 한 번 내리고 여러 곳에서 나눠 쓰는</b> 방법이다. 이 장은 그 결정이 어떤 층으로 쌓이는지, 어디까지 같게 하고 어디서 다르게 둘지, 그리고 그 규칙을 누가 어떻게 지키는지를 본다.</p>
+    <ul class="objectives">
+      <li>디자인 시스템을 토큰, 컴포넌트, 패턴, 문서, 운영 규칙의 층으로 나눠 설명하고, 의미 토큰이 값과 뜻을 떼어 놓는 까닭을 안다.</li>
+      <li>"강조색 한 칸"처럼 바꿀 수 있는 자리를 좁게 정해 여러 브랜드를 한 시스템에 담고, 바꾼 값이 대비와 구별 기준을 지키는지 계산으로 확인한다.</li>
+      <li>변형의 수가 속성의 곱으로 늘어나는 것을 계산하고, 속성을 의미로 제한해 조합을 줄인다.</li>
+      <li>색 감사로 비슷한 값들을 묶어 토큰 후보를 찾고, 컴포넌트 문서에 무엇을 적어야 하는지 안다.</li>
+      <li>요청이 왔을 때 기존 것을 쓸지, 변형을 더할지, 예외로 둘지를 판단하는 기준과, 시스템이 시간이 지나며 흩어지지 않게 하는 운영 방식을 고른다.</li>
+    </ul>
+  </header>
+
+  <section id="layers">
+    <h2>같은 버튼을 네 번 그리지 않으려면</h2>
+    <p><span class="term">디자인 시스템</span><span class="en">(Design system)</span>은 한 제품(또는 제품군)의 화면을 만들 때 함께 쓰는 결정의 묶음이다. 색과 간격 같은 가장 작은 값, 그 값으로 만든 버튼과 입력 칸 같은 부품, 부품을 엮어 자주 쓰는 화면 조각, 그리고 그것들을 언제 어떻게 쓰는지 적은 문서와, 바꾸고 더하는 절차까지 포함한다. 흔히 "컴포넌트 모음"이나 "디자인 파일의 스티커 시트"로 오해하지만, 부품만 있고 쓰는 규칙과 고치는 절차가 없으면 몇 달 안에 부품의 복사본이 부품보다 많아진다.</p>
+    <p>시스템의 결정은 층으로 쌓인다. 아래 그림은 이 장에서 쓰는 네 층이다. 아래층이 위층의 재료가 되고, 문서와 운영 규칙이 네 층 모두를 감싼다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 330" role="img" aria-label="디자인 시스템의 네 층을 아래에서 위로 쌓은 그림. 맨 아래 원시 토큰(색 값, 간격 값), 그 위 의미 토큰(주 행동, 기본 글자, 위험), 그 위 컴포넌트(버튼, 입력 칸, 배지), 맨 위 패턴(검색 결과, 맡기기 확인). 오른쪽에 문서와 운영 규칙이 네 층을 세로로 감싼다.">
+        <defs><marker id="sy-ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g>
+          <rect x="20" y="20" width="330" height="58" rx="8" class="f-acc-soft s-line"/>
+          <text x="34" y="42" class="lbl-b">4 패턴</text>
+          <text x="34" y="62" class="lbl-dim">검색 결과 · 맡기기 확인 · 빈 결과 안내</text>
+          <rect x="20" y="92" width="330" height="58" rx="8" class="f-acc2-soft s-line"/>
+          <text x="34" y="114" class="lbl-b">3 컴포넌트</text>
+          <text x="34" y="134" class="lbl-dim">버튼 · 검색 칸 · 책 카드 · 상태 배지 · 토스트</text>
+          <rect x="20" y="164" width="330" height="58" rx="8" class="f-ok-soft s-line"/>
+          <text x="34" y="186" class="lbl-b">2 의미 토큰</text>
+          <text x="34" y="206" class="lbl-dim t-mono">action.primary · text.default · feedback.danger</text>
+          <rect x="20" y="236" width="330" height="58" rx="8" class="f-warn-soft s-line"/>
+          <text x="34" y="258" class="lbl-b">1 원시 토큰</text>
+          <text x="34" y="278" class="lbl-dim t-mono">ink-900 · green-600 · red-500 · space-16</text>
+        </g>
+        <g class="s-axis" fill="none" stroke-width="1.6">
+          <line x1="300" y1="236" x2="300" y2="224" marker-end="url(#sy-ar1)"/>
+          <line x1="300" y1="164" x2="300" y2="152" marker-end="url(#sy-ar1)"/>
+          <line x1="300" y1="92" x2="300" y2="80" marker-end="url(#sy-ar1)"/>
+        </g>
+        <rect x="366" y="20" width="76" height="274" rx="8" class="f-surface s-dash"/>
+        <text x="404" y="128" text-anchor="middle" class="lbl-b">문서</text>
+        <text x="404" y="148" text-anchor="middle" class="lbl-dim">언제 쓰나</text>
+        <text x="404" y="186" text-anchor="middle" class="lbl-b">운영</text>
+        <text x="404" y="206" text-anchor="middle" class="lbl-dim">누가 고치나</text>
+        <text x="230" y="318" text-anchor="middle" class="lbl-dim">아래층의 값이 위층의 재료가 된다. 화살표는 "~로 만든다"</text>
+      </svg>
+      <figcaption><b>그림 1. 디자인 시스템의 층.</b> 원시 토큰은 값 그 자체(짙은 잉크색 <code>#22342a</code>, 간격 16 px), 의미 토큰은 그 값이 맡은 역할(주 행동의 바탕색), 컴포넌트는 역할을 조합한 부품(주 버튼), 패턴은 부품을 엮은 화면 조각(검색 결과 한 줄)이다. 문서는 각 층을 언제 쓰고 언제 쓰지 않는지를, 운영 규칙은 누가 어떤 절차로 바꾸는지를 적는다.</figcaption>
+    </figure>
+
+    <p>층을 나누는 방식은 팀마다 다르다. 웹 디자이너 브래드 프로스트<span class="en">(Brad Frost)</span>가 『아토믹 디자인』<span class="en">(Atomic Design, 2016)</span>에서 화학의 비유를 빌려 원자·분자·유기체·템플릿·페이지의 다섯 단계로 나눈 틀이 널리 알려졌지만, 이것은 생각을 정리하는 비유이지 표준이 아니다. 어떤 팀은 셋으로, 어떤 팀은 여섯으로 나눈다. 중요한 것은 층의 이름이 아니라 <b>한 결정이 어느 한 곳에만 적혀 있는가</b>다. 버튼의 바탕색이 토큰 파일에도, 버튼 코드에도, 디자인 파일의 버튼에도 따로 적혀 있다면, 그 셋은 언젠가 서로 달라진다.</p>
+    <p>이 장은 <a href="../../web/chapters/tokens.html">WebBook 6장</a>의 토큰과 <a href="../../web/chapters/components.html">WebBook 7장</a>의 컴포넌트를 출발점으로 삼는다. 거기서는 웹사이트 하나를 만드는 사람의 눈으로 토큰과 상태를 봤다. 여기서는 <b>여러 사람과 여러 가게가 오래 함께 쓰는</b> 체계를 운영하는 눈으로 본다. 만드는 일보다 지키고 바꾸는 일이 더 길기 때문이다.</p>
+
+    <div class="callout studio">
+      <strong>시스템의 사용자는 동료다</strong>
+      디자인 시스템도 하나의 제품이다. 다만 그 사용자는 손님이 아니라 화면을 만드는 디자이너와 개발자다. 그래서 이 책의 앞 장들이 손님에게 하던 일을 동료에게도 그대로 한다. 동료가 버튼을 찾다가 포기하고 복사해 만드는 순간을 관찰하고(<a href="research.html">2장</a>), 문서의 이름 붙이기를 카드 소팅으로 점검하고(<a href="ia.html">4장</a>), 새 부품을 쓰는 데 걸리는 시간을 잰다. 쓰기 어려운 시스템은 아무리 정교해도 우회당한다.
+    </div>
+  </section>
+
+  <section id="tokens">
+    <h2>토큰: 이름 붙인 결정</h2>
+    <p><span class="term">디자인 토큰</span><span class="en">(Design token)</span>은 색, 글자 크기, 간격, 모서리 둥글기, 그림자 같은 디자인 값에 이름을 붙여 한곳에 모아 둔 것이다. 이 말은 2014년 무렵 한 대형 소프트웨어 회사의 디자인 시스템 팀이 쓰기 시작해 퍼졌다고 흔히 설명된다. 토큰은 디자인 도구와 코드가 같은 값을 읽게 해 주는 공용어 구실을 한다. W3C의 디자인 토큰 커뮤니티 그룹<span class="en">(Design Tokens Community Group)</span>이 도구끼리 토큰을 주고받는 파일 형식을 정리해 왔다. 커뮤니티 그룹의 문서이며 W3C 권고(표준)는 아니다.</p>
+    <p>토큰은 보통 두 단계 이상으로 나눈다. <span class="term">원시 토큰</span><span class="en">(Primitive token)</span>은 "이런 색이 있다"는 목록이다. <code>green-600 = #2f7d5b</code>처럼 값에 붙인 이름이라, 이름에 쓰임이 들어 있지 않다. <span class="term">의미 토큰</span><span class="en">(Semantic token)</span>은 "이 역할에는 이 색을 쓴다"는 결정이다. <code>action.primary = {ink-900}</code>처럼 다른 토큰을 가리킨다. 컴포넌트는 의미 토큰만 읽는다. 아래는 그 모양을 줄여 적은 것이다(형식은 커뮤니티 그룹 초안의 <code>$value</code>와 중괄호 참조를 따랐다).</p>
+<pre class="sy-code" data-scroll><code>{
+  "color": {
+    "ink-900":   { "$value": "#22342a" },
+    "green-600": { "$value": "#2f7d5b" },
+    "red-500":   { "$value": "#d24f39" }
+  },
+  "action":   { "primary": { "$value": "{color.ink-900}" } },
+  "text":     { "default": { "$value": "{color.ink-900}" } },
+  "feedback": { "danger":  { "$value": "{color.red-500}" } }
+}</code></pre>
+    <p>같은 <code>ink-900</code>을 <code>action.primary</code>와 <code>text.default</code>가 함께 가리킨다는 데 주목한다. 지금은 우연히 같은 값이지만, 뜻은 다르다. 언젠가 "주 버튼만 조금 더 밝게"라는 결정이 나오면 <code>action.primary</code>가 가리키는 곳 하나만 바꾸면 된다. 컴포넌트가 원시 토큰을 곧바로 읽고 있었다면, <code>ink-900</code>을 바꾸는 순간 본문 글자까지 함께 밝아진다. 그걸 피하려면 <code>ink-900</code>을 쓰는 곳을 하나하나 찾아 "이건 버튼 뜻, 이건 글자 뜻"을 가려야 한다.</p>
+    <p>아래 시뮬레이터는 "맡아 두기" 서비스의 토큰과 컴포넌트, 패턴을 이은 연결망이다. 노드를 누르면 그 값을 바꿀 때 함께 바뀌는 것이 표시된다. 위쪽 단추로 의미 단계를 거치는 연결과 원시 값을 직접 읽는 연결을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-graph">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>값을 바꾸면 어디까지 번지나</h3></div>
+      <div class="sim-body">
+        <div class="sim-view"><canvas id="sy-gr-cv"></canvas><span class="hint">노드를 누른다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sy-gr-mode"><button data-value="sem" class="on">의미 단계를 거침(세 층)</button><button data-value="raw">원시 값을 직접 읽음(두 층)</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 노드</span><span class="v" id="sy-gr-o-n">—</span></div>
+        <div class="stat"><span class="k">함께 바뀌는 컴포넌트 · 패턴</span><span class="v" id="sy-gr-o-c">—</span></div>
+        <div class="stat"><span class="k">그 가운데 뜻이 다른 쓰임</span><span class="v" id="sy-gr-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태(세 층)에서 원시 토큰 <code>ink-900</code>을 누른다. 주 행동과 기본 글자, 두 의미 토큰을 거쳐 거의 모든 컴포넌트가 물든다. 원시 값은 함부로 바꾸는 것이 아니다. ② 의미 토큰 <code>action.primary</code>를 누른다. 버튼과 상태 배지 두 컴포넌트만 바뀌고, 뜻이 섞인 쓰임은 0이다. "주 버튼 색 바꾸기"라는 결정은 여기서 한 번에 끝난다. ③ "원시 값을 직접 읽음"으로 바꾸고 다시 <code>ink-900</code>을 누른다. 어떤 컴포넌트는 이 값을 버튼 바탕으로, 어떤 것은 글자로 쓰고 있어 "뜻이 다른 쓰임"이 여럿 나온다. 주 버튼만 바꾸려면 그 쓰임들을 하나씩 찾아 가려야 한다. (연결망은 이 장이 줄여 그린 "맡아 두기"의 일부다. 실제 시스템의 토큰은 수십에서 수백 개다.)</div>
+    </div>
+
+    <p>의미 단계는 값과 뜻 사이에 놓인 완충재다. 이 완충재 덕분에 <b>테마</b>도 가능해진다. 다크 모드는 원시 값을 바꾸는 것이 아니라 의미 토큰이 가리키는 곳을 바꾸는 일이고(<a href="../../web/chapters/tokens.html">WebBook 6장</a>에서 "다크 모드는 반전이 아니다"라고 한 이유다), 다음 절에서 볼 책방별 강조색도 의미 토큰 하나가 책방마다 다른 원시 값을 가리키게 하는 일이다. 반대로 의미 단계가 너무 잘게 쪼개지면(버튼마다, 화면마다 의미 토큰을 하나씩 만들면) 원시 값을 직접 쓰는 것과 다를 바가 없어진다. 의미 토큰의 이름은 <b>역할</b>로 짓고, 그 역할을 쓰는 곳이 둘 이상일 때 만든다는 규칙이 흔히 쓰인다.</p>
+
+    <div class="callout deep">
+      <strong>세 번째 단계: 컴포넌트 토큰</strong>
+      어떤 팀은 의미 토큰 위에 <b>컴포넌트 토큰</b>을 하나 더 둔다. <code>button.primary.bg = {action.primary}</code>처럼 특정 컴포넌트의 특정 부분에 이름을 붙이는 것이다. 버튼 하나만 따로 바꿔야 할 일이 잦은 큰 시스템에서는 쓸모가 있지만, 토큰 수가 컴포넌트 수만큼 늘어난다. 작은 서비스라면 두 단계로 시작하고, 같은 의미 토큰을 쓰는 컴포넌트들 가운데 하나만 자꾸 달라져야 할 때 그 하나에만 컴포넌트 토큰을 두는 편이 가볍다. "맡아 두기"는 두 단계로 시작했다.
+    </div>
+  </section>
+
+  <section id="theme">
+    <h2>한 칸만 바꾸는 테마</h2>
+    <p>네 책방이 저마다 자기 색을 원하는 것은 당연하다. 손님은 "책방 E에서 맡겼다"는 것을 알아야 하고, 주인에게 가게의 색은 간판만큼 중요하다. 그렇다고 네 책방이 버튼 색, 글자 색, 배경 색을 모두 고를 수 있게 하면 서비스는 네 개로 쪼개진다. 손님은 책방을 옮겨 다닐 때마다 "맡아 두기" 버튼이 무슨 색인지 새로 배워야 하고, 오류 메시지의 빨강과 어느 책방의 빨강이 섞인다.</p>
+    <p>그래서 여러 브랜드를 한 시스템에 담을 때는 <b>바꿀 수 있는 자리를 좁게</b> 정한다. 이런 체계를 <span class="term">멀티 브랜드 테마</span><span class="en">(Multi-brand theming)</span>라고 부른다. 서윤은 의미 토큰 가운데 딱 하나, <code>shop.accent</code>만 책방마다 다르게 두는 안을 냈다. 이 색은 책방 이름 배지와 책방 화면 머리의 얇은 띠에만 쓴다. 버튼, 링크, 상태 표시, 오류는 네 책방이 같은 색을 쓴다. 그리고 한 칸에 들어올 색에는 세 가지 조건을 건다.</p>
+    <ol>
+      <li><b>배지 글자 대비 4.5:1 이상.</b> 배지 위 글자는 흰색과 짙은 잉크색(<code>#22342a</code>) 가운데 대비가 큰 쪽을 자동으로 쓰고, 그 대비가 WCAG 2.2의 1.4.3(최소 대비, 보통 글자 4.5:1)을 넘어야 한다.</li>
+      <li><b>위험 색과 구별.</b> <code>feedback.danger</code>(<code>#d24f39</code>)와의 색차 ΔE2000이 15 이상이어야 한다. 책방 배지가 오류 표시처럼 보이면 안 된다.</li>
+      <li><b>다른 책방과 구별.</b> 한 검색 결과에 네 책방의 배지가 함께 나오므로, 가장 가까운 다른 책방 색과도 ΔE2000이 15 이상이어야 한다.</li>
+    </ol>
+    <p>ΔE2000 15라는 문턱은 이 책이 정한 값이다. 표준이 정한 구별 기준은 없고, 작은 배지끼리 나란히 놓였을 때 한눈에 다른 색으로 보이는 정도를 어림한 것이다(색차 ΔE2000은 <a href="../../color/chapters/models.html">ColorBook 3장</a>과 <a href="../../color/chapters/palette.html">14장</a>에서 다뤘다). 아래 종합 시뮬레이터에서 책방을 고르고 그 책방의 강조색을 명도와 색상으로 바꿔 본다. 가상 화면은 그 책방의 소개 화면이다.</p>
+
+    <div class="sim" id="sim-theme">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>책방별 강조색 한 칸</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="sy-th-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="sy-th-shop"><button data-value="E" class="on">책방 E</button><button data-value="N">헌책방 나무</button><button data-value="S">작은 숲</button><button data-value="H">한 줄</button></div>
+          <label class="ctrl"><span>명도(OKLCH L) <output id="sy-th-l-out"></output></span><input type="range" id="sy-th-l" min="0.3" max="0.9" step="0.005" value="0.532"></label>
+          <label class="ctrl"><span>색상각(OKLCH h) <output id="sy-th-h-out"></output></span><input type="range" id="sy-th-h" min="0" max="359" step="1" value="162"></label>
+          <label class="check"><input type="checkbox" id="sy-th-btn"> 주 버튼에도 책방 강조색 쓰기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">강조색</span><span class="v" id="sy-th-o-hex">—</span></div>
+        <div class="stat"><span class="k">배지 글자 대비</span><span class="v" id="sy-th-o-c">—</span></div>
+        <div class="stat"><span class="k">위험 색과의 ΔE2000</span><span class="v" id="sy-th-o-d">—</span></div>
+        <div class="stat"><span class="k">가장 가까운 다른 책방</span><span class="v" id="sy-th-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 네 책방을 차례로 눌러 본다. 각 책방이 처음 원한 색이다. 한 줄의 빨강은 배지 글자 대비는 넉넉하지만 위험 색과 너무 가깝다. ② 작은 숲을 고른다. 밝은 노랑은 흰 글자와는 대비가 1.7 정도에 그치지만, 짙은 잉크색 글자로 바꾸면 7.9가 되어 조건을 넘는다. 글자색을 자동으로 고르는 규칙 덕분에 노랑을 지킬 수 있다. ③ 한 줄에서 색상각을 300~340(자주) 근처로 옮기고 명도를 0.4 안팎으로 낮춰 세 조건을 모두 넘는 색을 찾는다. ④ "주 버튼에도 책방 강조색 쓰기"를 켠다. 책방마다 버튼이 달라져 손님이 같은 동작을 네 가지 색으로 배워야 하고, 책방 E에서는 배지와 버튼이 같은 색이라 배지도 눌리는 것처럼 보인다. 작은 숲의 노란 버튼은 흰 바탕 위에서 테두리가 거의 보이지 않는다. (채도는 각 책방이 처음 고른 색의 OKLCH 채도를 유지하고, 화면에 낼 수 없는 색은 채도를 줄여 맞춘다. 대비는 WCAG 2 식, 색차는 ΔE2000. 화면 색은 모니터마다 다르다.)</div>
+    </div>
+
+    <p>한 칸 규칙의 핵심은 <b>정체성과 조작을 떼어 놓는 것</b>이다. 책방의 색은 "여기가 어디인가"를 말하고, 서비스의 색은 "무엇을 누를 수 있는가"를 말한다. 두 말을 같은 색에 맡기면 둘 다 흐려진다. 주 버튼까지 책방 색으로 칠하는 순간 버튼 컴포넌트의 변형은 책방 수만큼 곱해지고(다음 절), 대비 검사도 네 번 해야 하며, 다섯 번째 책방이 들어오면 또 늘어난다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>책방</th><th>처음 원한 색</th><th>배지 글자</th><th class="num">배지 대비</th><th class="num">위험 색과 ΔE</th><th>판정</th></tr></thead>
+        <tbody>
+          <tr><td>책방 E</td><td><code>#2f7d5b</code> 책방 초록</td><td>흰색</td><td class="num">4.99</td><td class="num">55.0</td><td>통과</td></tr>
+          <tr><td>헌책방 나무</td><td><code>#8b5a2b</code> 고동색</td><td>흰색</td><td class="num">5.84</td><td class="num">19.6</td><td>통과</td></tr>
+          <tr><td>작은 숲</td><td><code>#f2c230</code> 노랑</td><td>잉크색</td><td class="num">7.87</td><td class="num">42.2</td><td>통과(글자색 자동)</td></tr>
+          <tr><td>한 줄</td><td><code>#c0392b</code> 빨강</td><td>흰색</td><td class="num">5.44</td><td class="num">6.7</td><td>위험 색과 겹침</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>표의 값은 이 책의 계산 엔진(<code>ART.contrast</code>, <code>ART.diff</code>)으로 낸 것이다. 한 줄의 빨강은 배지만 보면 문제가 없지만, 맡기기가 실패했을 때 나오는 오류 표시와 색이 거의 같다(ΔE 6.7). 손님이 한 줄의 책을 맡기다 오류가 나면, 오류 표시와 책방 배지가 같은 색으로 나란히 놓인다.</p>
+
+    <div class="callout warn">
+      <strong>색만으로 말하지 않는다</strong>
+      책방 배지는 색과 함께 반드시 책방 이름을 글자로 적는다. 색만으로 정보를 구별하게 하면 색각 이상이 있는 손님, 흑백으로 인쇄한 주인, 햇빛 아래의 휴대폰 화면에서 구별이 사라진다. WCAG 2.2의 1.4.1(색 사용)은 색이 정보를 전하는 유일한 수단이 되지 않게 하라고 한다. ΔE 15라는 구별 조건은 글자 위에 얹은 보조 장치이지 글자를 대신하지 않는다. 시뮬레이터 머리의 흑백 단추를 눌러 보면, 책방 E와 헌책방 나무의 배지는 명도가 비슷해 이름 없이는 구별하기 어렵다.
+    </div>
+  </section>
+
+  <section id="variants">
+    <h2>변형의 폭발</h2>
+    <p>컴포넌트 하나에는 여러 <span class="term">변형</span><span class="en">(Variant)</span>이 있다. 버튼이라면 크기(크게·보통·작게), 스타일(주·보조·텍스트·위험), 아이콘 자리(없음·앞·뒤), 그리고 <a href="../../web/chapters/components.html">WebBook 7장</a>에서 정한 상태 다섯 가지(기본·호버·포커스·눌림·비활성)가 있다. 이 속성들은 서로 곱해진다.</p>
+    <div class="formula">$$N = \prod_{i} n_i = n_{\text{크기}} \times n_{\text{스타일}} \times n_{\text{아이콘}} \times n_{\text{상태}}$$<div class="where">\(n_i\): 속성 \(i\)가 가질 수 있는 값의 수. 크기 3, 스타일 4, 아이콘 3, 상태 5이면 \(N = 3 \times 4 \times 3 \times 5 = 180\). 속성 하나에 값 하나를 더하면 전체가 그 속성의 비율만큼 늘어난다. 스타일 4 → 5이면 180 → 225.</div></div>
+    <p>180은 디자인 파일에 그려야 할 버튼 그림의 수이고, 개발자가 확인해야 할 조합의 수이며, 접근성 검사(대비, 포커스 표시)를 해야 할 경우의 수다. 여기에 책방 색 네 가지를 버튼 스타일로 넣으면 스타일이 4에서 8로 늘어 360이 된다. 속성 하나를 더하는 일은 늘 "하나만 더"처럼 보이지만, 곱셈이라 실제로는 전체를 몇 배로 만든다. 아래에서 속성의 값 수를 바꾸며 조합이 어떻게 불어나는지, 그리고 규칙 몇 줄이 그것을 어떻게 줄이는지 본다.</p>
+
+    <div class="sim" id="sim-variants">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>버튼 변형 계산기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sy-va-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>크기 <output id="sy-va-s-out"></output></span><input type="range" id="sy-va-s" min="1" max="5" step="1" value="3"></label>
+          <label class="ctrl"><span>스타일 <output id="sy-va-t-out"></output></span><input type="range" id="sy-va-t" min="1" max="8" step="1" value="8"></label>
+          <label class="ctrl"><span>아이콘 자리 <output id="sy-va-i-out"></output></span><input type="range" id="sy-va-i" min="1" max="3" step="1" value="3"></label>
+          <label class="check"><input type="checkbox" id="sy-va-rule"> 규칙으로 줄이기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">변형 × 상태 5</span><span class="v" id="sy-va-o-n">—</span></div>
+        <div class="stat"><span class="k">규칙 뒤 남는 조합</span><span class="v" id="sy-va-o-r">—</span></div>
+        <div class="stat"><span class="k">한 번 검수하는 시간(가상)</span><span class="v" id="sy-va-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태(크기 3, 스타일 8, 아이콘 3)의 조합 수를 본다. 스타일 8은 주·보조·텍스트·위험에 책방 색 넷을 더한 것이다. ② 스타일을 4로 줄인다. 책방 색을 버튼에서 뺀 것만으로 조합이 절반이 된다. ③ "규칙으로 줄이기"를 켠다. 크기는 두 단계, 스타일은 뜻으로 넷(주·보조·텍스트·위험), 아이콘은 "없음·앞" 둘, 텍스트 버튼과 위험 버튼은 기본 크기 하나만이라는 규칙이 적용되어 칸 대부분에 줄이 그어진다. ④ 규칙을 켠 채로 슬라이더를 끝까지 올려 본다. 값을 아무리 늘려도 규칙 밖의 조합은 쓰이지 않는다. 남는 조합의 수가 시스템이 실제로 책임지는 양이다. (검수 시간은 조합 하나를 디자인 파일·코드·대비·키보드로 확인하는 데 3분이 든다고 가정한 가상 값이다.)</div>
+    </div>
+
+    <p>규칙으로 줄인다는 것은 속성의 값을 <b>뜻으로 이름 짓는다</b>는 뜻이다. 버튼에 "색"이라는 속성을 열어 두면 누구든 아무 색이나 넣을 수 있고, 그 순간 조합은 무한해진다. 대신 "어조"라는 속성에 주·보조·텍스트·위험 네 값만 허락하면, 새 화면을 만드는 사람은 넷 중 하나를 고르기만 하면 되고, 시스템은 넷만 책임지면 된다. 개발자들은 이것을 컴포넌트의 속성(props)을 좁힌다고 말한다.</p>
+<pre class="sy-code" data-scroll><code>&lt;!-- 열어 둔 속성: 조합이 무한하다 --&gt;
+&lt;Button color="#c0392b" size="38px" iconRight="arrow"&gt;맡아 두기&lt;/Button&gt;
+
+&lt;!-- 뜻으로 좁힌 속성: 네 가지 어조 × 두 가지 크기 × 아이콘 있음·없음 --&gt;
+&lt;Button tone="primary" size="default" icon="bookmark"&gt;맡아 두기&lt;/Button&gt;</code></pre>
+    <p>속성을 좁히면 처음에는 불편하다는 말이 나온다. "딱 이 화면에서만 버튼을 조금 작게 하고 싶은데요." 그 불편이 바로 시스템이 하는 일이다. 작게 해야 할 이유가 정말 있다면 그 이유를 문서에 남기고 변형을 더하거나(그러면 모든 화면이 그 변형을 쓸 수 있다), 이유가 약하면 원래 크기를 쓴다. 어느 쪽이든 결정이 한곳에 남는다. 이 판단은 뒤의 "일관성과 예외" 절에서 다시 본다.</p>
+
+    <div class="callout studio">
+      <strong>상태는 줄이지 않는다</strong>
+      조합을 줄이려고 할 때 가장 먼저 잘려 나가는 것이 상태다. "포커스 표시는 디자인 파일에 안 그려도 되겠지", "비활성 버튼은 그냥 흐리게." 그러나 상태는 장식이 아니라 손님에게 보내는 피드백이다(<a href="interaction.html">6장</a>). 키보드로 쓰는 손님에게 포커스 표시가 없으면 화면 위 어디에 있는지 알 수 없다. 서윤은 크기와 스타일은 과감하게 줄이되, 상태 다섯 가지는 남은 모든 변형에 반드시 그리기로 했다. 줄일 것은 선택지이지 피드백이 아니다.
+    </div>
+  </section>
+
+  <section id="audit">
+    <h2>얼마나 달라야 다른 색인가: 색 감사</h2>
+    <p>시스템을 처음 만들 때는 빈 종이에서 시작하지 않는다. 이미 화면들이 있고, 그 화면들에는 이미 쓰인 색과 간격과 버튼이 있다. 이미 쓰인 것을 모두 모아 늘어놓고 세어 보는 일을 <span class="term">인터페이스 목록 만들기</span><span class="en">(Interface inventory)</span>라고 한다. 브래드 프로스트가 이름 붙여 널리 퍼진 방법이다. 모아 보면 대개 놀란다. 같은 초록이라고 생각한 색이 일곱 가지, 같은 크기라고 생각한 버튼이 다섯 가지쯤 나온다.</p>
+    <p>서윤은 시범 운영 화면과 네 책방이 각자 만들어 둔 안내문, 기존 웹사이트에서 쓰인 색 28개를 뽑았다(가상 자료). 이 가운데 무엇을 같은 색으로 묶고 무엇을 남길지는 "얼마나 달라야 다른 색인가"라는 문턱에 달려 있다. 아래에서 그 문턱을 ΔE2000으로 바꿔 본다. 묶음마다 가장 많이 쓰인 색이 대표(큰 칸)가 되고, 나머지(작은 칸)가 그 대표로 바뀐다.</p>
+
+    <div class="sim" id="sim-audit">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>색 감사: 28개의 색을 몇 개로</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="sy-au-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>같은 색으로 볼 문턱 ΔE2000 <output id="sy-au-t-out"></output></span><input type="range" id="sy-au-t" min="0" max="25" step="0.5" value="0"></label>
+          <label class="check"><input type="checkbox" id="sy-au-use" checked> 쓰인 횟수를 칸 아래에 적기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">색의 수</span><span class="v" id="sy-au-o-n">—</span></div>
+        <div class="stat"><span class="k">대표로 바뀌는 쓰임</span><span class="v" id="sy-au-o-u">—</span></div>
+        <div class="stat"><span class="k">가장 크게 바뀌는 색</span><span class="v" id="sy-au-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 문턱 0에서 28개가 모두 따로 있다. 초록, 잉크, 크림, 빨강이 저마다 여러 벌이다. ② 문턱을 3 근처로 올린다. 눈으로 거의 구별되지 않던 쌍둥이 색들이 먼저 합쳐진다. 이 정도는 "실수로 생긴 차이"다. ③ 문턱을 8~10으로 올린다. 색이 열 개 안팎으로 줄어 토큰 후보 목록처럼 보인다. ④ 문턱을 20 이상으로 올린다. 책방 초록과 차분한 초록이, 크림과 종이색이 합쳐진다. 일부러 다르게 둔 색까지 지워지는 지점이다. (색과 쓰인 횟수는 가상 자료다. 묶기는 쓰인 횟수가 많은 색부터 대표로 세우고, 대표와의 ΔE2000이 문턱보다 작은 색을 그 대표에 붙이는 단순한 방법이다.)</div>
+    </div>
+
+    <p>문턱을 하나로 정해 기계적으로 묶으면 안 된다는 것이 이 시뮬레이터의 결론이다. 문턱 3 아래의 차이는 거의 늘 실수다. 누군가 색을 눈대중으로 다시 뽑았거나, 이미지 압축이 색을 조금 바꿨다. 문턱 20 근처의 차이는 대개 일부러 둔 것이다. 책방 초록 <code>#2f7d5b</code>과 차분한 초록 <code>#567666</code>은 ColorBook에서 서로 다른 일을 맡도록 고른 두 색이다. 그 사이의 회색 지대에서는 사람이 판단한다. 두 색이 같은 역할을 하는가, 다른 역할을 하는가. 같은 역할이면 하나로 합치고, 다르면 각자 의미 토큰을 준다.</p>
+
+    <div class="callout try">
+      <strong>탁자 위의 인터페이스 목록</strong>
+      자주 쓰는 앱이나 동네 가게의 웹사이트 화면을 열 장쯤 캡처해 인쇄한다(흑백이 아니라 색으로). 가위로 버튼만 모두 오려 탁자 위에 늘어놓고, 같은 버튼이라고 생각되는 것끼리 겹쳐 쌓는다. 쌓인 더미의 수를 센다. 다음에는 같은 방법으로 제목 글자를 오려 크기 순으로 줄 세운다. 크기가 몇 단계인지, 단계 사이가 일정한지 본다. 마지막으로 더미마다 "이 버튼은 무엇을 하라는 버튼인가"를 포스트잇에 적는다. 모양은 다른데 하는 일이 같은 더미, 모양은 같은데 하는 일이 다른 더미가 시스템이 정리해야 할 곳이다. 남의 서비스를 평가하려는 것이 아니라 목록 만들기의 감각을 익히려는 연습이다.
+    </div>
+  </section>
+
+  <section id="docs">
+    <h2>문서: 쓰는 법과 쓰지 않는 법</h2>
+    <p>컴포넌트를 만들어 두기만 하면 사람들이 알아서 쓸 것 같지만, 그렇지 않다. 버튼이 있다는 것을 몰라서 새로 만들고, 있는 줄 알아도 언제 주 버튼을 쓰고 언제 보조 버튼을 쓰는지 몰라서 화면마다 다르게 쓴다. 컴포넌트 문서는 그 판단을 대신 내려 주는 곳이다. 아래 그림은 "맡아 두기"의 버튼 문서 한 쪽을 줄여 그린 것이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 360" role="img" aria-label="컴포넌트 문서 한 쪽의 구성도. 위에서부터 이름과 한 줄 설명, 쓰는 때와 쓰지 않는 때, 변형과 상태 표, 문구 규칙, 접근성, 바뀐 기록 칸이 차례로 놓여 있다.">
+        <rect x="20" y="12" width="420" height="336" rx="10" class="f-surface s-line"/>
+        <text x="38" y="38" class="lbl-b">버튼 · Button</text>
+        <text x="38" y="56" class="lbl-dim">화면에서 손님이 할 수 있는 행동 하나를 시작한다</text>
+        <line x1="38" y1="68" x2="422" y2="68" class="s-line"/>
+        <rect x="38" y="80" width="186" height="74" rx="6" class="f-ok-soft"/>
+        <text x="50" y="100" class="lbl-b">쓰는 때</text>
+        <text x="50" y="120" class="lbl">화면의 가장 중요한 행동 하나</text>
+        <text x="50" y="138" class="lbl">→ 주 버튼은 화면에 하나</text>
+        <rect x="236" y="80" width="186" height="74" rx="6" class="f-bad-soft"/>
+        <text x="248" y="100" class="lbl-b">쓰지 않는 때</text>
+        <text x="248" y="120" class="lbl">다른 화면으로 가기만 할 때</text>
+        <text x="248" y="138" class="lbl">→ 링크를 쓴다</text>
+        <text x="38" y="180" class="lbl-b">변형과 상태</text>
+        <g class="t-mono">
+          <text x="38" y="200" class="lbl-dim">어조: 주 · 보조 · 텍스트 · 위험</text>
+          <text x="38" y="218" class="lbl-dim">크기: 기본 48 · 조밀 44   아이콘: 없음 · 앞</text>
+          <text x="38" y="236" class="lbl-dim">상태: 기본 · 호버 · 포커스 · 눌림 · 비활성</text>
+        </g>
+        <text x="38" y="262" class="lbl-b">문구 규칙</text>
+        <text x="38" y="280" class="lbl-dim">동사로 끝낸다(10장): "맡아 두기", "취소하기"</text>
+        <text x="38" y="306" class="lbl-b">접근성</text>
+        <text x="38" y="324" class="lbl-dim">글자 대비 4.5 이상 · 포커스 테두리 · 누르는 자리 44 px 이상</text>
+        <rect x="318" y="172" width="104" height="160" rx="6" class="f-acc-soft s-dash"/>
+        <text x="370" y="196" text-anchor="middle" class="lbl-b">바뀐 기록</text>
+        <text x="370" y="218" text-anchor="middle" class="lbl-dim t-mono">v1.2 조밀 크기</text>
+        <text x="370" y="236" text-anchor="middle" class="lbl-dim t-mono">v1.1 위험 어조</text>
+        <text x="370" y="254" text-anchor="middle" class="lbl-dim t-mono">v1.0 처음</text>
+        <text x="370" y="284" text-anchor="middle" class="lbl-dim">누가, 왜</text>
+        <text x="370" y="302" text-anchor="middle" class="lbl-dim">바꿨는지</text>
+      </svg>
+      <figcaption><b>그림 2. 컴포넌트 문서 한 쪽.</b> 모양보다 판단을 먼저 적는다. "쓰지 않는 때"가 "쓰는 때"만큼 중요하다. 변형 표에는 규칙 안에 남은 조합만 올리고, 문구 규칙은 <a href="writing.html">10장</a>의 원칙을, 접근성은 대비·포커스·누르는 자리를 적는다. 바뀐 기록은 나중에 "이건 왜 이렇게 됐지?"에 답한다. 버전 번호는 예시다.</figcaption>
+    </figure>
+
+    <p>좋은 컴포넌트 문서에 흔히 들어가는 것을 정리하면 다음과 같다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>칸</th><th>무엇을 적나</th><th>빠지면 생기는 일</th></tr></thead>
+        <tbody>
+          <tr><td>이름과 한 줄 설명</td><td>무슨 일을 하는 부품인가</td><td>비슷한 부품이 다른 이름으로 또 생긴다</td></tr>
+          <tr><td>쓰는 때 · 쓰지 않는 때</td><td>판단 기준과 대안(버튼 대신 링크 등)</td><td>한 화면에 주 버튼이 셋이 된다</td></tr>
+          <tr><td>변형과 상태</td><td>규칙 안에 남은 조합만</td><td>규칙 밖의 조합이 "있는 것"처럼 쓰인다</td></tr>
+          <tr><td>문구 규칙</td><td>어조, 길이, 동사(<a href="writing.html">10장</a>)</td><td>같은 버튼이 "확인", "OK", "좋아요"로 갈린다</td></tr>
+          <tr><td>접근성</td><td>대비, 포커스, 누르는 자리, 화면 낭독기 이름</td><td>모양만 같고 키보드로는 못 쓰는 복사본</td></tr>
+          <tr><td>바뀐 기록</td><td>버전, 날짜, 이유, 영향 받는 화면</td><td>왜 그렇게 정했는지 아무도 모른다</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout deep">
+      <strong>하나의 원본</strong>
+      문서와 디자인 파일과 코드가 각자 버튼을 갖고 있으면 셋은 반드시 어긋난다. 디자이너가 디자인 파일의 버튼 모서리를 8에서 6으로 바꾸고 문서를 잊으면, 문서는 거짓말을 한다. 그래서 많은 팀이 <b>하나의 원본</b><span class="en">(Single source of truth)</span>을 정한다. 토큰은 한 파일에서 만들어 디자인 도구와 코드로 내보내고, 문서의 예시는 그림이 아니라 실제 컴포넌트 코드를 띄워 보여 준다. 작은 팀이라면 이렇게까지 자동화하지 않아도 된다. 대신 "토큰 값의 원본은 이 파일 하나"라고 정해 두고, 디자인 파일과 코드가 그 파일과 다를 때는 그 파일이 이긴다는 규칙만 지켜도 어긋남이 크게 준다.
+    </div>
+  </section>
+
+  <section id="exception">
+    <h2>일관성과 예외</h2>
+    <p>시스템의 가치는 일관성에서 나온다. 같은 일은 같은 모양으로, 같은 자리에서 일어난다. 손님은 한 화면에서 배운 것을 다른 화면에서 다시 쓰고(<a href="interaction.html">6장</a>의 멘탈 모델), 만드는 사람은 같은 판단을 매번 새로 내리지 않는다. 그러나 일관성이 목적이 되면 시스템은 감옥이 된다. 시집 전문 책방 한 줄의 소개 화면에서 시 한 구절을 세로로 쓰고 싶다는 요청을 "시스템에 세로쓰기 컴포넌트가 없어서 안 됩니다"로 막는다면, 시스템이 제품을 섬기는 것이 아니라 제품이 시스템을 섬기는 셈이다.</p>
+    <p>그래서 요청이 올 때마다 같은 질문을 같은 순서로 던지는 판단 나무를 둔다. 아래에서 네 가지 요청을 골라 나무를 따라가 본다. 질문 상자를 누르면 그 답을 뒤집을 수 있다. 답이 하나 바뀌면 결론이 어떻게 달라지는지 본다.</p>
+
+    <div class="sim" id="sim-tree">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>일관성과 예외의 판단 나무</h3></div>
+      <div class="sim-body">
+        <div class="sim-view"><canvas id="sy-tr-cv"></canvas><span class="hint">질문 상자를 눌러 답을 바꾼다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sy-tr-req"><button data-value="cover" class="on">작은 숲: 표지 크게 보는 결과 카드</button><button data-value="vert">한 줄: 세로쓰기 시구</button><button data-value="one">나무: "한 권뿐" 표시</button><button data-value="blink">어느 주인: 깜빡이는 빨간 버튼</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">결론</span><span class="v" id="sy-tr-o-r">—</span></div>
+        <div class="stat"><span class="k">시스템에 남는 것</span><span class="v" id="sy-tr-o-k">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "작은 숲: 표지 크게"를 따라간다. 있는 책 카드로는 그림책 표지가 너무 작고(아니요), 책방 E도 그림책을 다루니 두 곳 이상에서 필요하며(예), 카드에 "표지 크게" 속성 하나를 더하면 된다(예). 결론은 변형 추가다. ② "한 줄: 세로쓰기"를 따라간다. 한 곳에서만 필요하지만 해가 없고 행사 기간으로 기한을 정할 수 있어 기록한 예외가 된다. ③ "어느 주인: 깜빡이는 빨간 버튼"은 위험 색과 겹치고 깜빡임이 일부 손님에게 해가 될 수 있어 다시 설계로 간다. ④ 아무 요청에서나 "두 곳 이상에서 필요한가?"를 눌러 답을 뒤집는다. 같은 요청도 쓰는 곳의 수에 따라 예외가 되기도, 시스템의 변형이 되기도 한다. (질문의 순서와 결론의 이름은 이 장이 정한 것이다. 팀마다 다른 나무를 쓴다.)</div>
+    </div>
+
+    <p>판단 나무에서 가장 중요한 갈림은 "두 곳 이상에서 필요한가"다. 한 곳에서만 필요한 것을 시스템에 넣으면 시스템이 불어나고, 여러 곳에서 필요한 것을 예외로 두면 같은 예외가 여러 벌 생긴다. 두 번째로 중요한 것은 <b>예외에도 기록과 기한이 있다</b>는 점이다. 한 줄의 세로쓰기는 "6월 시 낭독 주간 동안, 한 줄 소개 화면 머리에만"이라는 범위와 함께 예외 목록에 오른다. 기한이 지나면 지우거나, 그사이 다른 곳에서도 필요해졌다면 시스템으로 들인다. 기록 없는 예외는 몇 달 뒤 아무도 이유를 모르는 "원래 그랬던 것"이 된다.</p>
+    <p>마지막 갈림, "해가 없는가"는 다음 장(<a href="ethics.html">12장</a>)으로 이어진다. 버튼을 깜빡이게 하자는 요청은 일관성의 문제이기 전에 손님을 압박하고 주의를 빼앗는 문제다. 깜빡이는 요소는 주의가 쉽게 흩어지는 손님에게 화면을 읽기 어렵게 만들고, WCAG 2.2의 2.2.2(일시 정지, 정지, 숨기기)는 5초 넘게 움직이거나 깜빡이는 내용을 멈출 수 있게 하라고 한다. 시스템은 이런 요청에 "규칙에 없어서"가 아니라 "이런 이유로"라고 답할 수 있어야 한다.</p>
+
+    <div class="callout studio">
+      <strong>"아니요" 대신 "왜요?"</strong>
+      시스템을 맡은 사람은 요청을 거절하는 문지기가 되기 쉽다. 서윤은 요청이 오면 먼저 "그걸로 손님이 무엇을 할 수 있게 되나요?"를 묻기로 했다. 깜빡이는 빨간 버튼을 원한 주인의 진짜 걱정은 "손님이 맡기기 버튼을 못 찾는다"였다. 그렇다면 해답은 깜빡임이 아니라 버튼의 위치와 문구를 다시 보는 것이다(<a href="usability.html">8장</a>의 사용성 테스트로 확인할 수 있다). 요청의 겉모양이 아니라 그 밑의 문제를 시스템으로 풀면, 거절당한 사람도 결과에 납득한다.
+    </div>
+  </section>
+
+  <section id="governance">
+    <h2>기여와 거버넌스</h2>
+    <p>시스템은 만든 날이 가장 깔끔하다. 그 뒤로 새 화면이 생길 때마다 시스템이 아직 다루지 못한 필요가 나타난다. 그때 만드는 사람에게는 두 길이 있다. 시스템에 새 부품이나 변형을 <b>기여</b>하거나, 자기 화면에만 쓸 것을 따로 만드는 것이다. 기여하는 길이 멀고 복잡할수록 사람들은 따로 만든다. 따로 만든 것은 다른 사람이 복사해 쓰고, 복사본이 또 복사된다. 시스템을 누가 어떤 절차로 바꾸고 지키는지에 대한 약속을 <span class="term">거버넌스</span><span class="en">(Governance)</span>라고 한다.</p>
+    <p>아래 모형은 2년 동안 "맡아 두기"에 매달 새 화면 여덟 개가 생긴다고 가정한다. 시스템이 다루지 못하는 필요가 생기면, 기여 문턱이 높을수록 따로 만들 확률이 커진다. 따로 만든 변형은 다른 화면에 조금씩 복사되고, 정기 정리를 하면 그때마다 떠도는 변형의 일부가 시스템으로 들어오거나 지워진다.</p>
+
+    <div class="sim" id="sim-gov">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>떠도는 변형: 기여 문턱과 정리 주기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sy-gv-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>기여 문턱 <output id="sy-gv-b-out"></output></span><input type="range" id="sy-gv-b" min="0" max="1" step="0.05" value="0.7"></label>
+          <label class="ctrl"><span>정기 정리 주기 <output id="sy-gv-k-out"></output></span><input type="range" id="sy-gv-k" min="0" max="12" step="1" value="0"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">24개월 뒤 떠도는 변형</span><span class="v" id="sy-gv-o-s">—</span></div>
+        <div class="stat"><span class="k">시스템이 다루는 필요</span><span class="v" id="sy-gv-o-c">—</span></div>
+        <div class="stat"><span class="k">정리에 든 시간(가상)</span><span class="v" id="sy-gv-o-h">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태(문턱 높음, 정리 안 함)에서 떠도는 변형(주황 선)이 복사를 타고 가파르게 불어난다. ② 정리 주기를 3개월로 둔다. 톱니 모양으로 줄었다 늘기를 되풀이하며 수가 묶인다. ③ 정리를 끄고 문턱만 0.1로 낮춘다. 따로 만드는 일 자체가 줄어 떠도는 변형이 적고, 기여가 쌓여 시스템이 다루는 필요(초록 선)가 빨리 올라간다. ④ 문턱 0.1에 정리 6개월을 함께 둔다. 정리에 드는 시간도 가장 적다. 고치는 것보다 처음부터 기여하기 쉽게 하는 쪽이 싸다. (모든 수치는 가상 모형이다. 시스템이 처음에 필요의 60%를 다룬다고 두고, 기여 하나는 다루는 범위를 1%p씩 넓히며, 떠도는 변형은 매달 6%씩 복사되고, 정리 한 번에 떠도는 변형의 60%를 처리하며 하나에 30분이 든다고 가정했다.)</div>
+    </div>
+
+    <p>모형은 단순하지만 방향은 분명하다. 떠도는 변형을 줄이는 방법은 둘이다. 생긴 것을 주기적으로 치우거나, 애초에 덜 생기게 하는 것. 둘 다 필요하지만, 뒤쪽이 더 싸다. 기여 문턱을 낮춘다는 것은 기준을 낮춘다는 뜻이 아니다. 요청 양식을 한 장으로 줄이고, 누구에게 보내면 되는지 분명히 하고, 답이 언제 오는지 약속하는 것이다. 요청을 보내고 3주 동안 답이 없으면 사람들은 다음부터 묻지 않는다.</p>
+    <p>시스템을 누가 맡는지에도 몇 가지 모양이 있다. 디자인 시스템 컨설턴트 네이선 커티스<span class="en">(Nathan Curtis)</span>가 2015년 글에서 정리한 구분이 자주 인용된다. 한 사람이나 한 팀이 자기 제품을 위해 만든 것을 남들이 가져다 쓰는 <b>홀로 형</b>, 시스템만 전담하는 팀이 있는 <b>중앙 형</b>, 여러 제품 팀의 사람들이 시간을 나눠 함께 맡는 <b>연합 형</b>이다. 어느 것이 옳다기보다 규모에 따라 다르다. 디자이너 한 명과 개발자 한 명, 주인 네 명인 "맡아 두기"는 홀로 형에서 시작할 수밖에 없다. 대신 네 주인이 "요청할 수 있는 사람"으로 절차 안에 들어온다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="요청에서 공개까지의 기여 절차 흐름도. 요청서 한 장, 판단 나무로 분류, 시험(시안·코드), 문서와 바뀐 기록, 공개와 알림의 다섯 단계가 왼쪽에서 오른쪽으로 이어지고, 판단 나무에서 기록한 예외로 빠지는 갈래가 있다.">
+        <defs><marker id="sy-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g>
+          <rect x="10" y="40" width="76" height="56" rx="8" class="f-surface s-line"/>
+          <text x="48" y="64" text-anchor="middle" class="lbl-b">요청서</text>
+          <text x="48" y="82" text-anchor="middle" class="lbl-dim">한 장</text>
+          <rect x="100" y="40" width="80" height="56" rx="8" class="f-acc-soft s-line"/>
+          <text x="140" y="64" text-anchor="middle" class="lbl-b">분류</text>
+          <text x="140" y="82" text-anchor="middle" class="lbl-dim">판단 나무</text>
+          <rect x="194" y="40" width="76" height="56" rx="8" class="f-surface s-line"/>
+          <text x="232" y="64" text-anchor="middle" class="lbl-b">시험</text>
+          <text x="232" y="82" text-anchor="middle" class="lbl-dim">시안·코드</text>
+          <rect x="284" y="40" width="76" height="56" rx="8" class="f-surface s-line"/>
+          <text x="322" y="64" text-anchor="middle" class="lbl-b">문서</text>
+          <text x="322" y="82" text-anchor="middle" class="lbl-dim">바뀐 기록</text>
+          <rect x="374" y="40" width="76" height="56" rx="8" class="f-ok-soft s-line"/>
+          <text x="412" y="64" text-anchor="middle" class="lbl-b">공개</text>
+          <text x="412" y="82" text-anchor="middle" class="lbl-dim">알림</text>
+        </g>
+        <g class="s-axis" fill="none" stroke-width="1.6">
+          <line x1="86" y1="68" x2="98" y2="68" marker-end="url(#sy-ar2)"/>
+          <line x1="180" y1="68" x2="192" y2="68" marker-end="url(#sy-ar2)"/>
+          <line x1="270" y1="68" x2="282" y2="68" marker-end="url(#sy-ar2)"/>
+          <line x1="360" y1="68" x2="372" y2="68" marker-end="url(#sy-ar2)"/>
+          <path d="M140 96 L140 150" marker-end="url(#sy-ar2)"/>
+        </g>
+        <rect x="90" y="154" width="100" height="50" rx="8" class="f-warn-soft s-dash"/>
+        <text x="140" y="176" text-anchor="middle" class="lbl-b">기록한 예외</text>
+        <text x="140" y="194" text-anchor="middle" class="lbl-dim">범위·기한</text>
+        <text x="206" y="176" class="lbl-dim">기한이 오면 지우거나</text>
+        <text x="206" y="194" class="lbl-dim">두 곳 이상이면 위로 올린다</text>
+        <text x="230" y="24" text-anchor="middle" class="lbl-dim">답은 2주 안에(약속)</text>
+        <text x="230" y="236" text-anchor="middle" class="lbl-dim">"맡아 두기"의 기여 절차. 각 단계의 이름과 기간은 이 케이스의 선택이다</text>
+      </svg>
+      <figcaption><b>그림 3. 요청에서 공개까지.</b> 요청은 누구나 한 장으로 보낸다. 판단 나무로 분류해 변형 추가나 새 컴포넌트가 되면 시안과 코드로 시험하고, 문서와 바뀐 기록을 쓴 뒤 공개하고 쓰는 사람들에게 알린다. 예외가 되면 범위와 기한을 적어 따로 둔다.</figcaption>
+    </figure>
+
+    <div class="callout warn">
+      <strong>바꾸는 것도 비용이다</strong>
+      시스템을 고치면 그것을 쓰던 모든 화면이 함께 바뀐다. 이것이 시스템의 힘이지만 위험이기도 하다. 버튼의 높이를 48에서 44로 줄이면 버튼이 들어 있던 모든 화면의 배치가 조금씩 움직이고, 어딘가에서 글자가 잘린다. 그래서 바뀐 것을 알리고, 큰 변경은 미리 예고하고, 어느 화면이 영향을 받는지 목록으로 확인한다. 많은 팀이 소프트웨어의 버전 번호 관례(고쳐도 쓰는 법이 그대로면 작은 번호, 쓰는 법이 바뀌면 큰 번호)를 시스템에도 쓴다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 11장</span></div>
+      <h4>네 책방, 한 서비스, 강조색 한 칸</h4>
+      <p>"맡아 두기"의 첫 화면들은 WebBook 때 만든 책방 E의 토큰을 그대로 가져다 썼다. 책방 초록 버튼, 크림 바탕, 짙은 잉크 글자. 시범 화면을 본 헌책방 나무 주인의 질문("우리 가게 화면인데 왜 책방 E 초록이에요?")이 이 장의 출발점이었다. 작은 숲 주인은 노란색을, 한 줄 주인은 도장의 인주 같은 빨간색을 원했다. 지후는 처음에 "책방마다 테마 파일을 따로 만들면 되죠"라고 했다가, 버튼 변형이 몇 개가 되는지 이 장의 계산기로 세어 보고 말을 바꿨다. "스타일 여덟 개면 버튼만 360가지예요. 저 혼자 다 못 봐요."</p>
+      <p>서윤은 먼저 주 행동의 색을 책방 E의 초록에서 떼어 냈다. 네 책방이 함께 쓰는 서비스의 버튼이 한 가게의 색을 달고 있을 이유가 없었다. 주 버튼은 잉크색 <code>#22342a</code>(흰 글자 대비 13.19)로 바꾸고, 의미 토큰 <code>action.primary</code>가 그것을 가리키게 했다. 그리고 책방마다 다르게 둘 자리를 <code>shop.accent</code> 한 칸으로 정했다. 이 색은 책방 이름 배지와 책방 소개 화면 머리의 얇은 띠에만 쓴다. 세 조건(배지 글자 대비 4.5 이상, 위험 색과 ΔE2000 15 이상, 다른 책방 색과 15 이상)을 걸고 네 주인이 원한 색을 넣어 보니 셋은 그대로 통과했다. 작은 숲의 노랑은 흰 글자로는 1.68이었지만 배지 글자를 잉크색으로 자동으로 바꾸자 7.87이 되었다. 한 줄의 빨강은 오류 표시와 ΔE 6.7로 겹쳤다. 서윤이 시뮬레이터에서 색상각을 돌려 보이자, 한 줄 주인은 시집 표지에 자주 쓰던 먹자주 <code>#6b2f4a</code>를 골랐다(흰 글자 9.86, 위험 색과 ΔE 30.1).</p>
+      <p>하린은 색보다 이름을 먼저 챙겼다. "배지에 색만 있고 이름이 없으면, 흑백으로 인쇄한 주문 목록에서는 구별이 안 돼요." 그래서 배지에는 늘 책방 이름을 쓴다. 색 감사에서는 기존 화면과 안내문의 색 28개(가상 자료)를 ΔE 3 아래에서 기계적으로 합치고, 그 위는 역할을 따져 사람이 정했다. 마지막으로 컴포넌트 목록과 변형 규칙, 요청 절차를 한 장에 적어 네 주인에게 나눠 주었다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>항목</th><th>서윤의 선택</th><th>확인한 값</th></tr></thead>
+          <tbody>
+            <tr><td>주 행동 색</td><td><code>action.primary</code> → 잉크 <code>#22342a</code>(책방 E 초록에서 분리)</td><td>흰 글자 대비 13.19</td></tr>
+            <tr><td>책방별 한 칸</td><td><code>shop.accent</code>: 배지와 머리 띠에만. 버튼·링크·상태·오류에는 쓰지 않음</td><td>배지에는 책방 이름 글자를 함께</td></tr>
+            <tr><td>책방 E</td><td><code>#2f7d5b</code>, 배지 글자 흰색</td><td>4.99 · 위험 색과 ΔE 55.0</td></tr>
+            <tr><td>헌책방 나무</td><td><code>#8b5a2b</code>, 흰색</td><td>5.84 · ΔE 19.6</td></tr>
+            <tr><td>작은 숲</td><td><code>#f2c230</code>, 잉크색 글자(자동)</td><td>7.87 · ΔE 42.2</td></tr>
+            <tr><td>한 줄</td><td><code>#6b2f4a</code> 먹자주(처음 원한 <code>#c0392b</code>에서 바꿈)</td><td>9.86 · ΔE 30.1</td></tr>
+            <tr><td>컴포넌트(9)</td><td>버튼, 검색 칸, 책 카드, 재고 줄, 상태 배지, 책방 배지, 토스트, 확인 대화상자, 빈 상태</td><td>모두 문서 한 쪽씩</td></tr>
+            <tr><td>버튼 변형 규칙</td><td>어조 4(주·보조·텍스트·위험) × 크기 2(기본 48 · 조밀 44) × 아이콘 2(없음·앞), 텍스트·위험은 기본 크기만, 상태 5는 모두</td><td>버튼 조합 60(규칙 없을 때 360)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>공통 토큰과 책방별 강조색 한 칸. 주 행동 색은 잉크 <code>#22342a</code>로 네 책방이 같이 쓰고, 책방마다 다른 것은 <code>shop.accent</code> 하나(책방 E <code>#2f7d5b</code>, 헌책방 나무 <code>#8b5a2b</code>, 작은 숲 <code>#f2c230</code>, 한 줄 <code>#6b2f4a</code>)다. 강조색의 조건은 배지 글자 대비 4.5 이상(글자색은 흰색과 잉크색 중 자동), 위험 색 <code>#d24f39</code>과 ΔE2000 15 이상, 다른 책방 색과 15 이상. 컴포넌트는 아홉 개, 버튼 변형은 어조 4 × 크기 2 × 아이콘 2에 텍스트·위험 버튼은 기본 크기만(상태 다섯은 빠짐없이). 새 변형은 두 곳 이상에서 필요할 때만 더하고, 한 곳만의 요청은 범위와 기한을 적은 예외로 둔다. 요청은 누구나 한 장으로 보내고 2주 안에 답한다. 한 줄 소개 화면의 세로쓰기 시구가 첫 번째 기록한 예외다.</div>
+        <div><b>아직 남은 문제</b>시범 운영에서 한 주인이 "알림 받기"를 처음부터 체크해 두고, 기한이 지나면 다음 손님에게 넘어간다는 규칙은 작게 숨기자고 했다. 시스템의 확인 대화상자와 체크 상자는 그것을 막지 못한다. 부품은 어떻게 쓰이느냐에 따라 손님을 돕기도, 속이기도 한다. 손님의 전화번호를 얼마나 오래 갖고 있을지도 아직 정하지 않았다.</div>
+        <div><b>다음 단계</b><a href="ethics.html">12장</a>: 다크 패턴과 윤리. 동의와 개인정보, 취소의 쉬움을 정한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>디자인 시스템은 부품 모음이 아니라 결정을 한 번 내리고 나눠 쓰는 방법이다. 원시 토큰 → 의미 토큰 → 컴포넌트 → 패턴의 층과, 문서와 운영 규칙으로 이루어진다.</li>
+      <li>의미 토큰은 값과 뜻을 떼어 놓는다. 컴포넌트가 의미 토큰만 읽으면 결정 하나를 한 곳에서 바꿀 수 있고, 다크 모드나 브랜드별 테마도 의미 토큰이 가리키는 곳을 바꾸는 일이 된다.</li>
+      <li>여러 브랜드를 담을 때는 바꿀 수 있는 자리를 좁게 정한다. 정체성(어디인가)과 조작(무엇을 누르는가)을 같은 색에 맡기지 않고, 바꾼 값에는 대비와 구별의 조건을 건다. 색만으로 구별하게 하지 않는다.</li>
+      <li>변형의 수는 속성의 곱 \(N = \prod n_i\)으로 늘어난다. 속성을 뜻으로 이름 짓고 값을 좁히면 조합이 크게 준다. 줄일 것은 선택지이고, 상태(피드백)는 줄이지 않는다.</li>
+      <li>색 감사는 이미 쓰인 것을 모아 묶는 일이다. 아주 작은 차이는 실수로 보고 합치되, 일부러 둔 차이는 역할을 따져 사람이 판단한다.</li>
+      <li>요청은 같은 질문 순서로 판단한다. 있는 것으로 되는가, 두 곳 이상에서 필요한가, 속성 하나로 되는가, 해가 없는가. 예외에도 범위와 기한을 적는다. 떠도는 변형은 정기 정리보다 기여 문턱을 낮추는 쪽이 더 싸게 막는다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 버튼 컴포넌트가 원시 토큰 <code>ink-900</code>을 바탕색으로 직접 읽고, 본문 글자도 <code>ink-900</code>을 직접 읽는다. "주 버튼만 조금 밝게" 하라는 결정이 나왔을 때 생기는 문제로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">원시 토큰은 바꿀 수 없으므로 버튼 색을 바꾸는 방법이 아예 없다.</button>
+          <button class="opt" data-correct><code>ink-900</code>을 바꾸면 본문 글자까지 함께 밝아지므로, 버튼 뜻으로 쓰인 곳만 하나씩 찾아 바꿔야 한다.</button>
+          <button class="opt">버튼과 글자가 같은 값을 쓰므로, 둘을 함께 바꾸는 것이 일관성 있는 결정이다.</button>
+          <button class="opt">의미 토큰을 만들면 버튼 색을 바꿀 때마다 모든 원시 토큰을 다시 정해야 한다.</button>
+        </div>
+        <div class="quiz-exp">원시 값을 직접 읽으면 같은 값이 서로 다른 뜻(버튼 바탕, 본문 글자)으로 쓰여도 구별할 수 없다. 값 하나를 바꾸면 뜻이 다른 쓰임까지 함께 바뀐다. 의미 토큰 <code>action.primary</code>를 두고 버튼이 그것을 읽게 하면, 그 토큰이 가리키는 곳 하나만 바꿔 결정이 끝난다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 버튼에 크기 3, 스타일 4, 아이콘 자리 3, 상태 5가 있다. 여기에 책방 색 넷을 스타일로 더하면 조합은 몇 개가 되는가?</p>
+        <div class="opts">
+          <button class="opt">184</button>
+          <button class="opt">240</button>
+          <button class="opt" data-correct>360</button>
+          <button class="opt">720</button>
+        </div>
+        <div class="quiz-exp">처음에는 \(3 \times 4 \times 3 \times 5 = 180\)이다. 스타일이 4에서 8이 되면 \(3 \times 8 \times 3 \times 5 = 360\)으로 두 배가 된다. 속성의 값은 더해지는 것처럼 보이지만 전체에는 곱해진다. 184는 180에 4를 더한 것이고, 720은 한 번 더 두 배로 센 것이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 한 책방이 자기 브랜드 색인 빨강 <code>#c0392b</code>를 강조색으로 쓰고 싶어 한다. 흰 글자 대비는 5.44로 4.5를 넘는다. 이 장의 규칙으로 볼 때 가장 알맞은 판단은?</p>
+        <div class="opts">
+          <button class="opt">대비가 4.5를 넘으므로 아무 문제 없이 쓴다.</button>
+          <button class="opt">빨강은 감정을 자극하므로 어떤 경우에도 쓰지 않는다.</button>
+          <button class="opt">배지에서 책방 이름을 지우고 색만 남기면 오류 표시와 구별된다.</button>
+          <button class="opt" data-correct>오류(위험) 색과의 색차가 너무 작아 책방 배지가 오류 표시처럼 보일 수 있으므로, 구별 조건을 넘는 다른 색을 함께 찾는다.</button>
+        </div>
+        <div class="quiz-exp">대비는 읽힘의 조건일 뿐이다. 이 서비스의 위험 색 <code>#d24f39</code>과 ΔE2000이 6.7로, 이 장이 정한 구별 문턱 15에 크게 못 미친다. 색 심리에 대한 일반론으로 금지하는 것이 아니라 이 서비스 안에서 색이 맡은 역할이 겹치기 때문이다. 이름을 지우는 것은 색만으로 정보를 전하게 되어 거꾸로 간다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 시집 책방 한 곳이 6월 행사 동안 자기 소개 화면 머리에만 시구를 세로로 쓰고 싶어 한다. 다른 책방에서는 필요하지 않다. 판단 나무에 따른 처리로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>해가 없고 기한을 정할 수 있으므로, 범위와 기한을 적은 예외로 허용한다.</button>
+          <button class="opt">시스템에 세로쓰기 컴포넌트가 없으므로 거절한다.</button>
+          <button class="opt">모든 책방이 쓸 수 있도록 세로쓰기 컴포넌트를 바로 시스템에 넣는다.</button>
+          <button class="opt">기록은 남기지 않고 그 화면에서만 조용히 따로 만든다.</button>
+        </div>
+        <div class="quiz-exp">한 곳에서만 필요한 것을 시스템에 넣으면 시스템이 불어나고, 규칙에 없다고 막으면 시스템이 제품을 섬기지 않게 된다. 해가 없고 범위가 좁으면 예외로 두되, 범위와 기한을 기록해 나중에 지우거나(기한이 지나면) 다른 곳에서도 필요해지면 시스템으로 들인다. 기록 없이 따로 만들면 떠도는 변형이 된다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var INK = "#22342a", INK2 = "#5d5a66", PAPER = "#fbfaf7", WHITE = "#ffffff", DANGER = "#d24f39";
+  var SHOPS = {
+    E: { name: "책방 E", hex: "#2f7d5b", sub: "신간 · 그림책" },
+    N: { name: "헌책방 나무", hex: "#8b5a2b", sub: "헌책 · 한 권씩" },
+    S: { name: "작은 숲", hex: "#f2c230", sub: "어린이 책" },
+    H: { name: "한 줄", hex: "#c0392b", sub: "시집 전문" },
+  };
+  var ORDER = ["E", "N", "S", "H"];
+  function FF() { return getComputedStyle(document.body).getPropertyValue("--font"); }
+  function font(px, w) { return (w || 500) + " " + px.toFixed(1) + "px " + FF(); }
+  function txt(ctx, s, x, y, o) {
+    o = o || {}; ctx.fillStyle = o.color || INK; ctx.font = font(o.size || 12, o.weight || 500);
+    ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "middle"; ctx.fillText(s, x, y);
+  }
+  function rrect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h);
+  }
+  function fillR(ctx, x, y, w, h, r, col) { rrect(ctx, x, y, w, h, r); ctx.fillStyle = col; ctx.fill(); }
+  function strokeR(ctx, x, y, w, h, r, col, lw) { rrect(ctx, x, y, w, h, r); ctx.strokeStyle = col; ctx.lineWidth = lw || 1; ctx.stroke(); }
+  // 배지 글자: 흰색과 잉크색 가운데 대비가 큰 쪽
+  function onAccent(hex) {
+    var c = ART.parse(hex), a = ART.contrast(c, [1, 1, 1]), b = ART.contrast(c, ART.parse(INK));
+    return a >= b ? { col: WHITE, c: a, name: "흰색" } : { col: INK, c: b, name: "잉크색" };
+  }
+  function fitText(ctx, s, maxW) {
+    if (ctx.measureText(s).width <= maxW) return s;
+    while (s.length > 1 && ctx.measureText(s + "…").width > maxW) s = s.slice(0, -1);
+    return s + "…";
+  }
+  function wrap(ctx, text, maxW) {
+    var out = [], cur = "";
+    text.split(" ").forEach(function (wd) { var t = cur ? cur + " " + wd : wd; if (!cur || ctx.measureText(t).width <= maxW) cur = t; else { out.push(cur); cur = wd; } });
+    if (cur) out.push(cur);
+    var res = [];
+    out.forEach(function (l) {
+      if (ctx.measureText(l).width <= maxW) { res.push(l); return; }
+      var s = ""; for (var i = 0; i < l.length; i++) { if (s && ctx.measureText(s + l[i]).width > maxW) { res.push(s); s = l[i]; } else s += l[i]; }
+      if (s) res.push(s);
+    });
+    return res;
+  }
+  function guard(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+
+  /* ---------------- 시뮬레이터 1: 토큰 연결망 ---------------- */
+  guard("graph", function () {
+    var PRIM = [
+      { id: "ink-900", hex: "#22342a" }, { id: "green-600", hex: "#2f7d5b" }, { id: "cream-100", hex: "#ffe2d7" },
+      { id: "red-500", hex: "#d24f39" }, { id: "white", hex: "#ffffff" }, { id: "gray-300", hex: "#c9c4bb" },
+    ];
+    var SEM = [
+      { id: "action.primary", to: "ink-900" }, { id: "text.default", to: "ink-900" }, { id: "surface.base", to: "white" },
+      { id: "surface.warm", to: "cream-100" }, { id: "feedback.danger", to: "red-500" }, { id: "border.subtle", to: "gray-300" },
+      { id: "status.ready", to: "green-600" },
+    ];
+    // 컴포넌트가 쓰는 의미 토큰
+    var COMP = [
+      { id: "버튼", uses: ["action.primary", "surface.base", "border.subtle"] },
+      { id: "검색 칸", uses: ["text.default", "surface.base", "border.subtle"] },
+      { id: "책 카드", uses: ["text.default", "surface.warm", "border.subtle"] },
+      { id: "상태 배지", uses: ["action.primary", "status.ready", "feedback.danger"] },
+      { id: "토스트", uses: ["text.default", "surface.base", "feedback.danger"] },
+      { id: "확인 대화상자", uses: ["text.default", "surface.base", "feedback.danger"] },
+    ];
+    var PAT = [
+      { id: "검색 결과", uses: ["검색 칸", "책 카드", "버튼"] },
+      { id: "맡기기 확인", uses: ["확인 대화상자", "버튼", "상태 배지"] },
+      { id: "오류 안내", uses: ["토스트", "버튼"] },
+    ];
+    var semTo = {}; SEM.forEach(function (s) { semTo[s.id] = s.to; });
+    var sel = "ink-900", hits = [];
+    var mode = AB.seg("sy-gr-mode", function () { if (mode() === "raw" && semTo[sel]) sel = semTo[sel]; cv.redraw(); });
+    function layout(w, h) {
+      var raw = mode() === "raw";
+      var cols = raw ? [PRIM, COMP, PAT] : [PRIM, SEM, COMP, PAT];
+      var titles = raw ? ["원시 토큰", "컴포넌트", "패턴"] : ["원시 토큰", "의미 토큰", "컴포넌트", "패턴"];
+      var nC = cols.length, padX = 8, colW = (w - padX * 2) / nC, nodes = {};
+      cols.forEach(function (list, ci) {
+        var top = 40, avail = h - top - 10, step = avail / list.length;
+        list.forEach(function (n, i) {
+          nodes[n.id] = { id: n.id, x: padX + colW * ci + 4, y: top + step * i + (step - 26) / 2, w: colW - 8, h: 26, col: ci, data: n, kind: list === PRIM ? "p" : list === SEM ? "s" : list === COMP ? "c" : "t" };
+        });
+      });
+      return { nodes: nodes, titles: titles, colW: colW, padX: padX, raw: raw };
+    }
+    // 의존 관계: 위층(쓰는 쪽) → 아래층(쓰이는 쪽) 간선. 각 간선에 "뜻"(의미 토큰 이름)을 붙인다.
+    function edges(raw) {
+      var E = [];
+      if (!raw) SEM.forEach(function (s) { E.push({ a: s.id, b: s.to, role: s.id }); });
+      COMP.forEach(function (c) { c.uses.forEach(function (u) { E.push(raw ? { a: c.id, b: semTo[u], role: u } : { a: c.id, b: u, role: u }); }); });
+      PAT.forEach(function (p) { p.uses.forEach(function (u) { E.push({ a: p.id, b: u, role: null }); }); });
+      return E;
+    }
+    function downstream(id, raw) {
+      var E = edges(raw), set = {}, q = [id]; set[id] = true;
+      while (q.length) { var cur = q.shift(); E.forEach(function (e) { if (e.b === cur && !set[e.a]) { set[e.a] = true; q.push(e.a); } }); }
+      return set;
+    }
+    var L = null;
+    var cv = AB.canvas("#sy-gr-cv", function (ctx, w, h) {
+      var P = AB.palette(); L = layout(w, h);
+      var raw = L.raw, E = edges(raw), down = downstream(sel, raw);
+      // 제목
+      L.titles.forEach(function (t, i) { txt(ctx, t, L.padX + L.colW * i + L.colW / 2, 18, { color: P.dim, size: w < 480 ? 10.5 : 12, weight: 700, align: "center" }); });
+      // 간선
+      E.forEach(function (e) {
+        var A = L.nodes[e.a], B = L.nodes[e.b]; if (!A || !B) return;
+        var on = down[e.a] && down[e.b];
+        ctx.strokeStyle = on ? P.accent : P.grid; ctx.lineWidth = on ? 2 : 1; ctx.globalAlpha = on ? 1 : 0.9;
+        var x0 = B.x + B.w, y0 = B.y + B.h / 2, x1 = A.x, y1 = A.y + A.h / 2, mx = (x0 + x1) / 2;
+        ctx.beginPath(); ctx.moveTo(x0, y0); ctx.bezierCurveTo(mx, y0, mx, y1, x1, y1); ctx.stroke(); ctx.globalAlpha = 1;
+      });
+      // 노드
+      Object.keys(L.nodes).forEach(function (k) {
+        var n = L.nodes[k], on = !!down[k], isSel = k === sel;
+        fillR(ctx, n.x, n.y, n.w, n.h, 6, on ? (isSel ? P.accent : P.surface) : P.bg);
+        strokeR(ctx, n.x, n.y, n.w, n.h, 6, on ? P.accent : P.border, isSel ? 2 : 1);
+        var tx = n.x + 6;
+        if (n.kind === "p") { fillR(ctx, n.x + 5, n.y + 7, 12, 12, 3, n.data.hex); strokeR(ctx, n.x + 5, n.y + 7, 12, 12, 3, P.border, 1); tx = n.x + 21; }
+        ctx.font = font(w < 480 ? 9.5 : 11, isSel ? 700 : 500);
+        var label = fitText(ctx, n.id, n.x + n.w - tx - 4);
+        txt(ctx, label, tx, n.y + n.h / 2 + 0.5, { color: isSel ? AB.color("on-accent") || "#fff" : (on ? P.text : P.dim), size: w < 480 ? 9.5 : 11, weight: isSel ? 700 : 500 });
+      });
+      // 읽기
+      var comps = COMP.filter(function (c) { return down[c.id] && c.id !== sel; }).map(function (c) { return c.id; });
+      var pats = PAT.filter(function (p) { return down[p.id] && p.id !== sel; }).map(function (p) { return p.id; });
+      AB.stat("sy-gr-o-n", '<span class="t-mono">' + sel + "</span>");
+      AB.stat("sy-gr-o-c", comps.length + " · " + pats.length + (comps.length ? " <small>" + comps.join(", ") + "</small>" : ""));
+      // 뜻이 다른 쓰임: 원시 노드를 고르면 직접 연결된 간선의 역할(뜻) 종류 수 - 1
+      var roles = {};
+      E.forEach(function (e) { if (e.b === sel && e.role && L.nodes[e.a] && L.nodes[e.a].kind === "c") roles[e.role] = (roles[e.role] || 0) + 1; });
+      var rk = Object.keys(roles);
+      if (raw && rk.length > 1) {
+        var total = 0; rk.forEach(function (r) { total += roles[r]; });
+        AB.stat("sy-gr-o-m", '<span class="bad-t">' + total + "곳에 " + rk.length + "가지 뜻</span> <small>" + rk.join(" · ") + "</small>");
+      } else AB.stat("sy-gr-o-m", '<span class="ok-t">0</span>' + (raw ? "" : " <small>컴포넌트는 의미 토큰만 읽는다</small>"));
+    }, { get height() { var el = document.getElementById("sy-gr-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W < 520 ? 340 : 320; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!L) return;
+        Object.keys(L.nodes).forEach(function (k) { var n = L.nodes[k]; if (x >= n.x && x <= n.x + n.w && y >= n.y && y <= n.y + n.h) sel = k; });
+        cv.redraw();
+      },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 2: 책방별 강조색 한 칸 ---------------- */
+  guard("theme", function () {
+    var state = {};
+    ORDER.forEach(function (k) { var lch = ART.srgbToOklch(ART.parse(SHOPS[k].hex)); state[k] = { L: lch[0], C: lch[1], h: lch[2], hex: SHOPS[k].hex }; });
+    var cur = "E", silent = false;
+    function make(k) { var s = state[k]; return ART.hex(ART.fit(ART.oklchToSrgb([s.L, s.C, s.h]))); }
+    var gL = AB.range("sy-th-l", function (v) { return v.toFixed(3); }, function (v) { if (silent) return; state[cur].L = v; state[cur].hex = make(cur); cv.redraw(); });
+    var gH = AB.range("sy-th-h", function (v) { return Math.round(v) + "°"; }, function (v) { if (silent) return; state[cur].h = v; state[cur].hex = make(cur); cv.redraw(); });
+    var btn = AB.check("sy-th-btn", function () { cv.redraw(); });
+    var shop = AB.seg("sy-th-shop", function (v) {
+      cur = v; silent = true; gL.set(+state[v].L.toFixed(3)); gH.set(Math.round(state[v].h) % 360); silent = false; cv.redraw();
+    });
+    silent = true; gL.set(+state.E.L.toFixed(3)); gH.set(Math.round(state.E.h)); silent = false;
+    var BOOKS = [["겨울 정원", "이서하 · 그림책", 2], ["작은 등대의 밤", "문다온 · 동화", 1], ["바다로 가는 시", "김려울 · 시집", 3]];
+    var cv = AB.canvas("#sy-th-cv", function (ctx, w, h) {
+      var acc = state[cur].hex, on = onAccent(acc), useBtn = btn();
+      // 휴대폰 목업
+      var wide = w >= 520;
+      var pw = Math.min(wide ? w * 0.56 : w - 24, 330), ph = h - 24, px = wide ? 14 : (w - pw) / 2, py = 12;
+      fillR(ctx, px - 6, py - 6, pw + 12, ph + 12, 22, "#1b1b1e");
+      ctx.save(); rrect(ctx, px, py, pw, ph, 16); ctx.clip();
+      ctx.fillStyle = PAPER; ctx.fillRect(px, py, pw, ph);
+      // 위 막대(서비스)
+      ctx.fillStyle = WHITE; ctx.fillRect(px, py, pw, 40);
+      txt(ctx, "맡아 두기", px + 14, py + 21, { size: 14, weight: 800 });
+      txt(ctx, "내 맡김", px + pw - 14, py + 21, { size: 12, weight: 600, align: "right", color: INK2 });
+      ctx.fillStyle = "#e6e2da"; ctx.fillRect(px, py + 40, pw, 1);
+      // 책방 머리: 얇은 강조 띠 + 배지
+      var y = py + 41;
+      ctx.fillStyle = acc; ctx.fillRect(px, y, pw, 5); y += 5;
+      ctx.fillStyle = WHITE; ctx.fillRect(px, y, pw, 54);
+      ctx.font = font(12, 700); var bw = ctx.measureText(SHOPS[cur].name).width + 18;
+      fillR(ctx, px + 14, y + 10, bw, 22, 11, acc);
+      txt(ctx, SHOPS[cur].name, px + 14 + bw / 2, y + 21.5, { color: on.col, size: 12, weight: 700, align: "center" });
+      txt(ctx, SHOPS[cur].sub + " · 걸어서 6분", px + 14, y + 43, { size: 11, color: INK2 });
+      y += 54; ctx.fillStyle = "#e6e2da"; ctx.fillRect(px, y, pw, 1); y += 10;
+      // 검색 칸
+      fillR(ctx, px + 14, y, pw - 28, 34, 8, WHITE); strokeR(ctx, px + 14, y, pw - 28, 34, 8, "#c9c4bb", 1);
+      txt(ctx, "이 책방에서 책 찾기", px + 26, y + 17.5, { size: 12, color: "#76727e" });
+      y += 46;
+      // 책 카드들
+      var cardH = 64, bH = 30;
+      for (var i = 0; i < BOOKS.length && y + cardH < py + ph - 34; i++) {
+        var b = BOOKS[i];
+        fillR(ctx, px + 14, y, pw - 28, cardH, 10, WHITE); strokeR(ctx, px + 14, y, pw - 28, cardH, 10, "#e6e2da", 1);
+        fillR(ctx, px + 24, y + 10, 32, 44, 3, ["#567666", "#2f4a5e", "#c9b48a"][i]);
+        var tw = pw - 28 - 56 - 100;
+        ctx.font = font(13, 700); txt(ctx, fitText(ctx, b[0], tw), px + 66, y + 20, { size: 13, weight: 700 });
+        ctx.font = font(11, 500); txt(ctx, fitText(ctx, b[1], tw), px + 66, y + 38, { size: 11, color: INK2 });
+        txt(ctx, b[2] + "권 있어요", px + 66, y + 53, { size: 10.5, color: INK2 });
+        var bx = px + pw - 14 - 10 - 84, by = y + (cardH - bH) / 2, bc = useBtn ? acc : INK, bt = useBtn ? on.col : WHITE;
+        fillR(ctx, bx, by, 84, bH, 8, bc);
+        if (useBtn && ART.contrast(ART.parse(acc), [1, 1, 1]) < 1.5) strokeR(ctx, bx, by, 84, bH, 8, "rgba(0,0,0,0.06)", 1);
+        txt(ctx, "맡아 두기", bx + 42, by + bH / 2 + 0.5, { color: bt, size: 12, weight: 700, align: "center" });
+        y += cardH + 10;
+      }
+      // 아래: 다른 책방 배지
+      var oy = py + ph - 30;
+      ctx.fillStyle = WHITE; ctx.fillRect(px, oy - 6, pw, 36); ctx.fillStyle = "#e6e2da"; ctx.fillRect(px, oy - 6, pw, 1);
+      var ox = px + 12;
+      txt(ctx, "다른 책방", ox, oy + 10, { size: 10.5, color: INK2, weight: 600 }); ox += 52;
+      ORDER.forEach(function (k) {
+        if (k === cur) return;
+        var hx = state[k].hex, o2 = onAccent(hx); ctx.font = font(10.5, 700);
+        var ww = ctx.measureText(SHOPS[k].name).width + 12;
+        if (ox + ww > px + pw - 6) return;
+        fillR(ctx, ox, oy + 1, ww, 18, 9, hx); txt(ctx, SHOPS[k].name, ox + ww / 2, oy + 10.5, { color: o2.col, size: 10.5, weight: 700, align: "center" }); ox += ww + 5;
+      });
+      ctx.restore();
+      // 오른쪽: 네 책방 견본과 조건
+      if (wide) {
+        var rx = px + pw + 26, rw = w - rx - 12, ry = 20;
+        txt(ctx, "네 책방의 강조색", rx, ry, { size: 12, weight: 700, color: "#e8e6e1" }); ry += 22;
+        ORDER.forEach(function (k) {
+          var hx = state[k].hex, o3 = onAccent(hx), dD = ART.diff(ART.parse(hx), ART.parse(DANGER));
+          var nn = 99; ORDER.forEach(function (j) { if (j !== k) nn = Math.min(nn, ART.diff(ART.parse(hx), ART.parse(state[j].hex))); });
+          var okAll = o3.c >= 4.5 && dD >= 15 && nn >= 15;
+          fillR(ctx, rx, ry, 30, 30, 6, hx); if (k === cur) strokeR(ctx, rx - 3, ry - 3, 36, 36, 8, "#ffffff", 2);
+          txt(ctx, SHOPS[k].name, rx + 40, ry + 8, { size: 11.5, weight: 700, color: "#e8e6e1" });
+          ctx.font = font(10.5, 500);
+          txt(ctx, fitText(ctx, hx + "  " + o3.c.toFixed(1) + " · ΔE " + dD.toFixed(0) + " · " + nn.toFixed(0), rw - 40), rx + 40, ry + 23, { size: 10.5, color: okAll ? "#9fd8b4" : "#ffb4a6" });
+          ry += 44;
+        });
+        txt(ctx, "대비 · 위험 색 ΔE · 이웃 ΔE", rx, ry + 2, { size: 10, color: "#b5b2bb" });
+        fillR(ctx, rx, ry + 18, 30, 16, 4, DANGER);
+        txt(ctx, "위험 색 " + DANGER, rx + 40, ry + 26, { size: 10.5, color: "#e8e6e1" });
+      }
+      // 읽기
+      var dDanger = ART.diff(ART.parse(acc), ART.parse(DANGER)), near = null, nd = 1e9;
+      ORDER.forEach(function (k) { if (k === cur) return; var d = ART.diff(ART.parse(acc), ART.parse(state[k].hex)); if (d < nd) { nd = d; near = k; } });
+      AB.stat("sy-th-o-hex", '<span class="t-mono">' + acc + "</span>");
+      var line = (on.c >= 4.5 ? '<span class="ok-t">' : '<span class="bad-t">') + on.c.toFixed(2) + "</span> <small>" + on.name + " 글자</small>";
+      if (useBtn) { var wb = ART.contrast(ART.parse(acc), ART.parse(WHITE)); line += " <small>· 버튼 변형 ×4, 흰 바탕과 " + wb.toFixed(2) + "</small>"; }
+      AB.stat("sy-th-o-c", line);
+      AB.stat("sy-th-o-d", (dDanger >= 15 ? '<span class="ok-t">' : '<span class="bad-t">') + dDanger.toFixed(1) + "</span>" + (dDanger < 15 ? " <small>오류 표시와 겹침</small>" : ""));
+      AB.stat("sy-th-o-n", SHOPS[near].name + " " + (nd >= 15 ? '<span class="ok-t">' : '<span class="bad-t">') + "ΔE " + nd.toFixed(1) + "</span>");
+    }, { get height() { var el = document.getElementById("sy-th-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W >= 520 ? 440 : 470; }, bg: "#2a2a2c" });
+  });
+
+  /* ---------------- 시뮬레이터 3: 버튼 변형 계산기 ---------------- */
+  guard("variants", function () {
+    var SIZE = ["크게", "기본", "조밀", "작게", "아주 작게"];
+    var STYLE = ["주", "보조", "텍스트", "위험", "E색", "나무색", "숲색", "한줄색"];
+    var ICON = ["없음", "앞", "뒤"];
+    var gS = AB.range("sy-va-s", function (v) { return v + " (" + SIZE.slice(0, v).join("·") + ")"; }, function () { cv.redraw(); });
+    var gT = AB.range("sy-va-t", function (v) { return String(v); }, function () { cv.redraw(); });
+    var gI = AB.range("sy-va-i", function (v) { return v + " (" + ICON.slice(0, v).join("·") + ")"; }, function () { cv.redraw(); });
+    var rule = AB.check("sy-va-rule", function () { cv.redraw(); });
+    // 규칙: 크기는 기본·조밀 두 단계(크게·작게 류는 쓰지 않음), 스타일은 뜻 넷, 아이콘은 없음·앞, 텍스트·위험은 기본 크기만
+    function allowed(si, ti, ii) {
+      if (!(si === 1 || si === 2)) return false;
+      if (ti > 3) return false;
+      if (ii > 1) return false;
+      if ((ti === 2 || ti === 3) && si !== 1) return false;
+      return true;
+    }
+    var cv = AB.canvas("#sy-va-cv", function (ctx, w, h) {
+      var P = AB.palette(), nS = gS(), nT = gT(), nI = gI(), R = rule();
+      var cols = nS * nI, rows = nT;
+      var left = w < 420 ? 44 : 56, top = 30, gw = w - left - 10, gh = h - top - 12;
+      var cw = gw / cols, ch = Math.min(34, gh / rows);
+      // 열 머리: 크기
+      for (var s = 0; s < nS; s++) {
+        var x0 = left + s * nI * cw;
+        ctx.font = font(w < 420 ? 9.5 : 11, 700);
+        txt(ctx, fitText(ctx, SIZE[s], nI * cw - 4), x0 + nI * cw / 2, 10, { color: P.dim, size: w < 420 ? 9.5 : 11, weight: 700, align: "center" });
+        for (var i = 0; i < nI; i++) txt(ctx, ICON[i].slice(0, 1), x0 + (i + 0.5) * cw, 23, { color: P.faint, size: 9.5, align: "center" });
+        if (s > 0) { ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x0, top - 4); ctx.lineTo(x0, top + rows * ch); ctx.stroke(); }
+      }
+      var used = 0, tot = 0;
+      for (var t = 0; t < rows; t++) {
+        var y = top + t * ch;
+        ctx.font = font(w < 420 ? 9.5 : 11, 600);
+        txt(ctx, fitText(ctx, STYLE[t], left - 6), left - 6, y + ch / 2, { color: P.dim, size: w < 420 ? 9.5 : 11, weight: 600, align: "right" });
+        for (var s2 = 0; s2 < nS; s2++) for (var i2 = 0; i2 < nI; i2++) {
+          var x = left + (s2 * nI + i2) * cw, ok = !R || allowed(s2, t, i2);
+          // 상태 다섯 칸
+          for (var k = 0; k < 5; k++) {
+            var sx = x + 1.5 + k * (cw - 3) / 5, sw = Math.max(0.6, (cw - 3) / 5 - 0.8);
+            ctx.globalAlpha = ok ? (0.35 + 0.13 * k) : 0.12;
+            ctx.fillStyle = t >= 4 ? P.warn : (t === 3 ? P.bad : P.accent);
+            ctx.fillRect(sx, y + 2, sw, ch - 4);
+            tot++; if (ok) used++;
+          }
+          ctx.globalAlpha = 1;
+          if (!ok) { ctx.strokeStyle = P.faint; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x + 2, y + ch - 3); ctx.lineTo(x + cw - 2, y + 3); ctx.stroke(); }
+        }
+      }
+      AB.stat("sy-va-o-n", '<span class="t-mono">' + nS + " × " + nT + " × " + nI + " × 5 = " + tot + "</span>");
+      AB.stat("sy-va-o-r", R ? '<span class="ok-t">' + used + "</span> <small>(" + AB.pct(used / tot, 0) + ")</small>" : "<small>규칙 없음</small> " + tot);
+      var mins = (R ? used : tot) * 3;
+      AB.stat("sy-va-o-t", (mins / 60).toFixed(1) + " 시간 <small>조합당 3분</small>");
+    }, { get height() { var el = document.getElementById("sy-va-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W < 420 ? 300 : 320; } });
+  });
+
+  /* ---------------- 시뮬레이터 4: 색 감사 ---------------- */
+  guard("audit", function () {
+    // 가상 자료: 시범 화면·안내문·기존 사이트에서 뽑은 색과 쓰인 횟수
+    var COLS = [
+      ["#2f7d5b", 41], ["#2e7c5a", 9], ["#307f5d", 6], ["#2b7a57", 4], ["#3a8a66", 3], ["#567666", 14], ["#5a7a69", 3],
+      ["#22342a", 52], ["#23352b", 8], ["#1f2f26", 5], ["#2b2a30", 11], ["#333333", 4],
+      ["#ffe2d7", 18], ["#ffe4da", 5], ["#fde0d4", 3], ["#fbfaf7", 22], ["#f6efe4", 7], ["#ffffff", 30],
+      ["#d24f39", 12], ["#d0503a", 4], ["#e0533c", 2], ["#c0392b", 5],
+      ["#8b5a2b", 6], ["#8d5c2e", 2], ["#f2c230", 5], ["#f0c02e", 2], ["#6b6874", 9], ["#76727e", 4],
+    ];
+    var LABS = COLS.map(function (c) { return ART.parse(c[0]); });
+    var gT = AB.range("sy-au-t", function (v) { return v.toFixed(1); }, function () { cv.redraw(); });
+    var use = AB.check("sy-au-use", function () { cv.redraw(); });
+    function cluster(th) {
+      var idx = COLS.map(function (_, i) { return i; }).sort(function (a, b) { return COLS[b][1] - COLS[a][1]; });
+      var groups = [];
+      idx.forEach(function (i) {
+        var best = null, bd = 1e9;
+        groups.forEach(function (g) { var d = ART.diff(LABS[i], LABS[g.rep]); if (d < bd) { bd = d; best = g; } });
+        if (best && bd < th) best.mem.push({ i: i, d: bd }); else groups.push({ rep: i, mem: [] });
+      });
+      return groups;
+    }
+    function cardW(w) { return w < 420 ? 74 : 86; }
+    var cv = AB.canvas("#sy-au-cv", function (ctx, w, h) {
+      var th = gT(), G = cluster(th), cw = cardW(w), gap = 8, perRow = Math.max(1, Math.floor((w - 16 + gap) / (cw + gap)));
+      var showU = use(), chH = showU ? 92 : 80, moved = 0, maxD = 0, maxPair = null;
+      G.forEach(function (g, gi) {
+        var r = Math.floor(gi / perRow), c = gi % perRow, x = 8 + c * (cw + gap), y = 10 + r * (chH + gap);
+        fillR(ctx, x, y, cw, chH, 8, "#ffffff"); strokeR(ctx, x, y, cw, chH, 8, "#e2ddd3", 1);
+        fillR(ctx, x + 6, y + 6, cw - 12, 34, 5, COLS[g.rep][0]); strokeR(ctx, x + 6, y + 6, cw - 12, 34, 5, "rgba(0,0,0,0.12)", 1);
+        txt(ctx, COLS[g.rep][0], x + cw / 2, y + 50, { size: 10, color: INK, align: "center", weight: 600 });
+        var mx = x + 6, my = y + 60, sz = 9;
+        g.mem.forEach(function (m) {
+          if (mx + sz > x + cw - 4) { mx = x + 6; my += sz + 2; }
+          fillR(ctx, mx, my, sz, sz, 2, COLS[m.i][0]); strokeR(ctx, mx, my, sz, sz, 2, "rgba(0,0,0,0.15)", 0.8); mx += sz + 2;
+          moved += COLS[m.i][1]; if (m.d > maxD) { maxD = m.d; maxPair = [COLS[m.i][0], COLS[g.rep][0]]; }
+        });
+        if (showU) {
+          var n = COLS[g.rep][1]; g.mem.forEach(function (m) { n += COLS[m.i][1]; });
+          txt(ctx, n + "회", x + cw / 2, y + chH - 10, { size: 10, color: INK2, align: "center" });
+        }
+      });
+      var all = 0; COLS.forEach(function (c) { all += c[1]; });
+      AB.stat("sy-au-o-n", COLS.length + " → <b>" + G.length + "</b>");
+      AB.stat("sy-au-o-u", moved + "회 <small>/ " + all + "회 (" + AB.pct(moved / all, 0) + ")</small>");
+      AB.stat("sy-au-o-m", maxPair ? '<span class="t-mono">' + maxPair[0] + " → " + maxPair[1] + "</span> <small>ΔE " + maxD.toFixed(1) + "</small>" : "—");
+    }, { get height() { var el = document.getElementById("sy-au-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); var cw = W < 420 ? 74 : 86, per = Math.max(1, Math.floor((W - 16 + 8) / (cw + 8))); return 20 + Math.ceil(28 / per) * (92 + 8); }, bg: PAPER });
+  });
+
+  /* ---------------- 시뮬레이터 5: 판단 나무 ---------------- */
+  guard("tree", function () {
+    // 질문: q1 있는 것으로 되나, q2 두 곳 이상, q4 속성 하나로, q3 해가 없고 기한
+    var REQ = {
+      cover: { q1: false, q2: true, q4: true, q3: true, why: "그림책 표지를 크게 보여 주는 결과 카드" },
+      vert: { q1: false, q2: false, q4: false, q3: true, why: "한 줄 소개 화면 머리의 세로쓰기 시구" },
+      one: { q1: true, q2: false, q4: true, q3: true, why: "재고가 한 권일 때의 표시" },
+      blink: { q1: false, q2: false, q4: true, q3: false, why: "맡아 두기 버튼을 빨갛게 깜빡이기" },
+    };
+    var ans = {};
+    function load(k) { var r = REQ[k]; ans = { q1: r.q1, q2: r.q2, q3: r.q3, q4: r.q4 }; }
+    var req = AB.seg("sy-tr-req", function (v) { load(v); cv.redraw(); });
+    load("cover");
+    var NODES = {
+      q1: { x: 0.5, r: 0, t: "있는 컴포넌트로 되나?", q: true },
+      keep: { x: 0.14, r: 1, t: "그대로 쓴다" },
+      q2: { x: 0.64, r: 1, t: "두 곳 이상에서 필요한가?", q: true },
+      q4: { x: 0.38, r: 2, t: "속성 하나를 더하면 되나?", q: true },
+      q3: { x: 0.85, r: 2, t: "해가 없고 기한을 정할 수 있나?", q: true },
+      vari: { x: 0.12, r: 3, t: "변형 추가" },
+      newc: { x: 0.37, r: 3, t: "새 컴포넌트 제안" },
+      exc: { x: 0.63, r: 3, t: "기록한 예외" },
+      redo: { x: 0.88, r: 3, t: "다시 설계" },
+    };
+    var LINKS = [["q1", "keep", true], ["q1", "q2", false], ["q2", "q4", true], ["q2", "q3", false], ["q4", "vari", true], ["q4", "newc", false], ["q3", "exc", true], ["q3", "redo", false]];
+    var KEEP = { keep: "바뀌는 것 없음(필요하면 문구만)", vari: "변형 하나와 문서의 바뀐 기록", newc: "시험할 새 컴포넌트 후보", exc: "예외 목록 한 줄(범위·기한)", redo: "요청 밑의 문제를 다시 묻는다" };
+    function path() {
+      var p = ["q1"], cur = "q1";
+      while (NODES[cur].q) { var yes = ans[cur]; var nxt = LINKS.filter(function (l) { return l[0] === cur && l[2] === yes; })[0][1]; p.push(nxt); cur = nxt; }
+      return p;
+    }
+    var boxes = {};
+    var cv = AB.canvas("#sy-tr-cv", function (ctx, w, h) {
+      var P = AB.palette(), p = path(), on = {}; p.forEach(function (k) { on[k] = true; });
+      var bw = Math.min(150, w * 0.22), rowH = (h - 20) / 4, fs = w < 480 ? 10.5 : 12;
+      boxes = {};
+      Object.keys(NODES).forEach(function (k) {
+        var n = NODES[k]; ctx.font = font(fs, n.q ? 600 : 700);
+        var lines = wrap(ctx, n.t, bw - 12), bh = Math.max(30, lines.length * (fs + 3) + 12);
+        var cx = AB.clamp(n.x * w, bw / 2 + 4, w - bw / 2 - 4), cy = 10 + rowH * n.r + rowH / 2 - 8;
+        boxes[k] = { x: cx - bw / 2, y: cy - bh / 2, w: bw, h: bh, lines: lines, cx: cx, cy: cy };
+      });
+      LINKS.forEach(function (l) {
+        var a = boxes[l[0]], b = boxes[l[1]], act = on[l[0]] && on[l[1]];
+        ctx.strokeStyle = act ? P.accent : P.grid; ctx.lineWidth = act ? 2.5 : 1.2;
+        ctx.beginPath(); ctx.moveTo(a.cx, a.y + a.h); ctx.lineTo(b.cx, b.y); ctx.stroke();
+        var mx = (a.cx + b.cx) / 2, my = (a.y + a.h + b.y) / 2;
+        fillR(ctx, mx - 17, my - 9, 34, 18, 9, P.bg);
+        txt(ctx, l[2] ? "예" : "아니요", mx, my + 0.5, { size: 10.5, color: act ? P.accent : P.faint, weight: 700, align: "center" });
+      });
+      Object.keys(boxes).forEach(function (k) {
+        var b = boxes[k], n = NODES[k], act = !!on[k], leaf = !n.q;
+        fillR(ctx, b.x, b.y, b.w, b.h, leaf ? 14 : 6, act ? (leaf ? P.accent : P.surface) : P.bg);
+        strokeR(ctx, b.x, b.y, b.w, b.h, leaf ? 14 : 6, act ? P.accent : P.border, act ? 2 : 1);
+        var col = act ? (leaf ? (AB.color("on-accent") || "#fff") : P.text) : P.dim;
+        b.lines.forEach(function (ln, i) { txt(ctx, ln, b.cx, b.y + 6 + (fs + 3) * (i + 0.5) + (b.h - 12 - b.lines.length * (fs + 3)) / 2, { size: fs, color: col, weight: leaf ? 700 : 600, align: "center" }); });
+        if (n.q) txt(ctx, ans[k] ? "예" : "아니요", b.x + b.w - 4, b.y - 7, { size: 9.5, color: act ? P.accent : P.faint, weight: 700, align: "right" });
+      });
+      var end = p[p.length - 1];
+      AB.stat("sy-tr-o-r", "<b>" + NODES[end].t + "</b> <small>" + REQ[req()].why + "</small>");
+      AB.stat("sy-tr-o-k", KEEP[end]);
+    }, { get height() { var el = document.getElementById("sy-tr-cv"); var W = Math.max(200, el.parentElement.clientWidth || 600); return W < 480 ? 380 : 330; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        Object.keys(boxes).forEach(function (k) { var b = boxes[k]; if (NODES[k].q && x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) ans[k] = !ans[k]; });
+        cv.redraw();
+      },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 6: 떠도는 변형 ---------------- */
+  guard("gov", function () {
+    var gB = AB.range("sy-gv-b", function (v) { return v.toFixed(2) + (v < 0.34 ? " 낮음" : v < 0.67 ? " 중간" : " 높음"); }, function () { cv.redraw(); });
+    var gK = AB.range("sy-gv-k", function (v) { return v === 0 ? "안 함" : v + "개월"; }, function () { cv.redraw(); });
+    // 가상 모형(기댓값으로 계산해 같은 입력이면 같은 결과)
+    function run(b, k) {
+      var T = 24, n = 8, cov = 0.6, stray = 0, hours = 0, S = [[0, 0]], C = [[0, cov]];
+      var pOne = 0.1 + 0.85 * b;
+      for (var t = 1; t <= T; t++) {
+        var gaps = n * (1 - cov);
+        stray += gaps * pOne + stray * 0.06;
+        cov = Math.min(0.97, cov + gaps * (1 - pOne) * 0.01);
+        if (k > 0 && t % k === 0) { var handled = stray * 0.6; hours += handled * 0.5; cov = Math.min(0.97, cov + handled * 0.5 * 0.004); stray -= handled; }
+        S.push([t, stray]); C.push([t, cov]);
+      }
+      return { S: S, C: C, stray: stray, cov: cov, hours: hours };
+    }
+    var cv = AB.canvas("#sy-gv-cv", function (ctx, w, h) {
+      var P = AB.palette(), r = run(gB(), gK());
+      var ymax = 160;
+      var box = { x: 58, y: 16, w: w - 58 - 46, h: h - 16 - 44 };
+      var ch = AB.chart(ctx, box, { x: [0, 24], y: [0, ymax], xTicks: [0, 6, 12, 18, 24], yTicks: [0, 40, 80, 120, 160], xLabel: "개월", yLabel: "떠도는 변형(개)",
+        series: [{ data: r.S.map(function (p) { return [p[0], Math.min(ymax * 1.2, p[1])]; }), color: P.warn, width: 2.5 }] });
+      // 오른쪽 축: 다루는 필요(%) 50~100
+      var Y2 = function (v) { return box.y + box.h - (v - 0.5) / 0.5 * box.h; };
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y - 2, box.w + 2, box.h + 4); ctx.clip();
+      ctx.strokeStyle = P.ok; ctx.lineWidth = 2.5; ctx.beginPath();
+      r.C.forEach(function (p, i) { var x = ch.X(p[0]), y = Y2(p[1]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke(); ctx.restore();
+      ctx.font = AB.font(11, true); ctx.fillStyle = P.dim; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      [0.5, 0.75, 1].forEach(function (v) { ctx.fillText(Math.round(v * 100) + "%", box.x + box.w + 6, Y2(v)); });
+      txt(ctx, "떠도는 변형", box.x + 8, box.y + 10, { size: 11, color: P.warn, weight: 700 });
+      txt(ctx, "시스템이 다루는 필요(오른쪽 축)", box.x + 8, box.y + 26, { size: 11, color: P.ok, weight: 700 });
+      AB.stat("sy-gv-o-s", Math.round(r.stray) + "개");
+      AB.stat("sy-gv-o-c", AB.pct(r.cov, 0));
+      AB.stat("sy-gv-o-h", r.hours > 0 ? r.hours.toFixed(0) + " 시간" : "0 <small>정리 안 함</small>");
+    }, { aspect: 0.6, minHeight: 240, maxHeight: 340 });
+  });
+})();
+</script>
+</body>
+</html>

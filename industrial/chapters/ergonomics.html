@@ -1,0 +1,798 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "인체 치수는 한 사람의 값이 아니라 분포다. 정규분포와 퍼센타일, 5~95% 설계 범위, 여러 치수를 겹치면 평균의 사람이 사라지는 이유, 조절 범위, 파워 그립과 정밀 그립, 그리고 클립형 독서등의 지렛대로 여는 힘과 손가락 벌림의 거래를 조작해 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인간공학과 인체 치수 · IndustrialBook</title>
+<meta name="description" content="인체 치수는 한 사람의 값이 아니라 분포다. 정규분포와 퍼센타일, 5~95% 설계 범위, 여러 치수를 겹치면 평균의 사람이 사라지는 이유, 조절 범위, 파워 그립과 정밀 그립, 그리고 클립형 독서등의 지렛대로 여는 힘과 손가락 벌림의 거래를 조작해 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/industrial/chapters/ergonomics.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="인간공학과 인체 치수 · IndustrialBook">
+<meta property="og:description" content="인체 치수는 한 사람의 값이 아니라 분포다. 정규분포와 퍼센타일, 5~95% 설계 범위, 여러 치수를 겹치면 평균의 사람이 사라지는 이유, 조절 범위, 파워 그립과 정밀 그립, 그리고 클립형 독서등의 지렛대로 여는 힘과 손가락 벌림의 거래를 조작해 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/industrial/chapters/ergonomics.html">
+<meta property="og:image" content="https://artbook.euiyun.com/industrial/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/industrial/chapters/ergonomics.html#chapter","name":"인간공학과 인체 치수","headline":"인간공학과 인체 치수 · IndustrialBook","description":"인체 치수는 한 사람의 값이 아니라 분포다. 정규분포와 퍼센타일, 5~95% 설계 범위, 여러 치수를 겹치면 평균의 사람이 사라지는 이유, 조절 범위, 파워 그립과 정밀 그립, 그리고 클립형 독서등의 지렛대로 여는 힘과 손가락 벌림의 거래를 조작해 본다.","url":"https://artbook.euiyun.com/industrial/chapters/ergonomics.html","position":5,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/industrial/og.png","dateModified":"2026-10-15","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/industrial/#book","name":"IndustrialBook · 산업디자인","url":"https://artbook.euiyun.com/industrial/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"IndustrialBook · 산업디자인","item":"https://artbook.euiyun.com/industrial/"},{"@type":"ListItem","position":3,"name":"5. 인간공학과 인체 치수","item":"https://artbook.euiyun.com/industrial/chapters/ergonomics.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="ergonomics">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 05</div>
+    <h1>인간공학과 인체 치수</h1>
+    <p class="lead">서윤이 3D 프린터로 뽑은 첫 클립은 서윤의 손에 꼭 맞았다. 엄지와 검지로 집으면 딸깍 벌어지고, 놓으면 책 표지를 단단히 문다. 그런데 도경은 두 손가락에 힘을 주다가 "이건 젊은 손을 위한 물건이네" 하고 내려놓았고, 태오는 굵은 손가락이 짧은 손잡이 위에 다 올라가지 않아 몇 번이나 미끄러졌다. 같은 물건이 세 사람에게 세 가지 물건이었다. 이 장은 "누구의 손에 맞출 것인가"라는 질문을 숫자로 바꾸는 법을 다룬다. 사람의 몸은 하나의 값이 아니라 분포이고, 그 분포 위 어디에 선을 긋느냐가 디자인이다.</p>
+    <ul class="objectives">
+      <li>인체 치수를 정규분포와 퍼센타일로 읽고, 5~95% 설계 범위가 무엇을 뜻하는지 계산한다.</li>
+      <li>틈과 여유는 큰 쪽(95퍼센타일), 도달과 힘은 작은 쪽(5퍼센타일)에 맞춘다는 방향 규칙을 안다.</li>
+      <li>치수를 여러 개 겹치면 "평균인 사람"이 거의 사라진다는 것(Daniels 1952)을 직접 확인한다.</li>
+      <li>고정 치수와 조절 범위를 비교하고, 필요한 조절 폭을 분포에서 구한다.</li>
+      <li>파워 그립과 정밀 그립을 구분하고, 손잡이 지름과 감싸기의 관계를 본다.</li>
+      <li>클립의 지렛대에서 여는 힘과 손가락 벌림이 서로 반대로 움직이는 거래를 계산한다.</li>
+    </ul>
+  </header>
+
+  <section id="measure">
+    <h2>몸을 재는 일</h2>
+    <p><span class="term">인간공학</span><span class="en">(Ergonomics, Human factors)</span>은 사람의 몸과 마음의 특성에 맞게 물건과 일과 환경을 설계하는 분야다. 그 바탕에 있는 자료가 <span class="term">인체 측정</span><span class="en">(Anthropometry)</span>, 곧 사람 몸의 치수를 재고 정리하는 일이다. 키, 앉은키, 오금 높이(앉았을 때 바닥에서 무릎 뒤 오목한 곳까지)처럼 몸 전체의 치수도 있고, 손 길이, 손 너비, 손가락 굵기처럼 작은 치수도 있다.</p>
+    <p>인체 치수에는 두 종류가 있다. 가만히 선 자세나 앉은 자세에서 뼈의 기준점 사이를 재는 <span class="term">정적 치수</span><span class="en">(Structural dimension)</span>와, 팔을 뻗거나 손가락을 벌리는 동작을 하며 재는 <span class="term">동적 치수</span><span class="en">(Functional dimension)</span>다. 클립을 여는 데 필요한 것은 동적 치수 쪽이다. 엄지와 검지를 얼마나 벌릴 수 있는지, 그 상태에서 얼마나 힘을 줄 수 있는지가 문제다. 어디를 어떤 자세로 재는지는 국제 표준 ISO 7250-1(기술 설계를 위한 기본 인체 측정 항목)이 정의해 두어서, 나라마다 잰 자료를 서로 비교할 수 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 480 300" role="img" aria-label="손의 주요 치수: 손 길이, 손 너비, 집게 벌림, 손가락 너비, 쥐기 안지름">
+        <defs><marker id="erg-ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="context-stroke"/></marker></defs>
+        <g transform="translate(30 0)">
+        <rect x="70" y="150" width="104" height="112" rx="26" class="f-surface"/>
+        <rect x="70" y="150" width="104" height="112" rx="26" fill="none" class="s-line"/>
+        <rect x="74" y="78" width="22" height="80" rx="11" class="f-surface"/><rect x="74" y="78" width="22" height="80" rx="11" fill="none" class="s-line"/>
+        <rect x="100" y="56" width="23" height="100" rx="11.5" class="f-surface"/><rect x="100" y="56" width="23" height="100" rx="11.5" fill="none" class="s-line"/>
+        <rect x="127" y="64" width="22" height="92" rx="11" class="f-surface"/><rect x="127" y="64" width="22" height="92" rx="11" fill="none" class="s-line"/>
+        <rect x="153" y="92" width="19" height="66" rx="9.5" class="f-surface"/><rect x="153" y="92" width="19" height="66" rx="9.5" fill="none" class="s-line"/>
+        <path d="M70 214 Q40 196 30 160 Q26 146 38 142 Q50 140 56 156 Q64 176 74 184" class="f-surface"/>
+        <path d="M70 214 Q40 196 30 160 Q26 146 38 142 Q50 140 56 156 Q64 176 74 184" fill="none" class="s-line"/>
+        <path d="M196 56 L196 262" class="s-acc" marker-start="url(#erg-ar)" marker-end="url(#erg-ar)"/>
+        <path d="M112 56 L202 56 M112 262 L202 262" class="s-dash"/>
+        <text x="204" y="150" class="lbl-acc">① 손 길이</text>
+        <text x="204" y="166" class="lbl-dim" style="font-size:11px">손목 주름~중지 끝</text>
+        <path d="M70 274 L174 274" class="s-acc2" marker-start="url(#erg-ar)" marker-end="url(#erg-ar)"/>
+        <text x="122" y="292" text-anchor="middle" class="lbl-acc2">② 손 너비(손허리뼈 마디)</text>
+        <path d="M36 138 Q38 92 84 76" fill="none" class="s-acc" style="stroke-dasharray:4 3" marker-start="url(#erg-ar)" marker-end="url(#erg-ar)"/>
+        <path d="M100 46 L123 46" class="s-acc2" marker-start="url(#erg-ar)" marker-end="url(#erg-ar)"/>
+        <text x="132" y="44" class="lbl-acc2" style="font-size:12px">④ 손가락 너비</text>
+        </g>
+        <text x="4" y="24" class="lbl-acc">③ 집게 벌림</text>
+        <text x="4" y="40" class="lbl-dim" style="font-size:11px">엄지 끝 ~ 검지 끝</text>
+        <circle cx="400" cy="134" r="40" fill="none" class="s-line"/>
+        <path d="M400 94 A40 40 0 1 1 362 146" fill="none" class="s-acc" style="stroke-width:8;stroke-linecap:round;opacity:.55"/>
+        <path d="M362 146 A40 40 0 0 1 376 102" fill="none" class="s-acc2" style="stroke-width:8;stroke-linecap:round;opacity:.7"/>
+        <path d="M362 134 L438 134" class="s-dash" marker-start="url(#erg-ar)" marker-end="url(#erg-ar)"/>
+        <text x="400" y="206" text-anchor="middle" class="lbl-acc">⑤ 쥐기 안지름</text>
+        <text x="400" y="224" text-anchor="middle" class="lbl-dim" style="font-size:11px">엄지와 중지가 겨우</text>
+        <text x="400" y="240" text-anchor="middle" class="lbl-dim" style="font-size:11px">맞닿는 원기둥 지름</text>
+      </svg>
+      <figcaption><b>그림 1. 손의 주요 치수.</b> ①②④는 손을 편 채 재는 정적 치수, ③⑤는 손가락을 벌리거나 감싸서 재는 동적 치수다. 클립의 손잡이 간격은 ③에, 누르는 면의 폭은 ④에, 원기둥 손잡이의 굵기는 ⑤에 대응한다. 실제 측정 항목의 정의와 기준점은 ISO 7250-1과 각 나라 조사 보고서를 따른다.</figcaption>
+    </figure>
+
+    <p>한국인의 치수는 <span class="term">한국인 인체치수조사</span><span class="en">(Size Korea)</span>가 기본 자료다. 국가기술표준원이 1979년부터 여러 차례 전국의 남녀를 연령대별로 재어 온 조사로, 손과 발을 포함한 수백 개 항목의 측정값과 퍼센타일 표를 공개한다. 실제 제품을 설계할 때는 이런 원자료에서 사용자 집단(나이, 성별, 지역)에 맞는 항목을 찾아 쓴다. <b>이 장의 시뮬레이터에 나오는 손 치수와 힘은 모두 원리를 보여 주려고 정한 예시값이며, Size Korea나 다른 조사의 실제 값이 아니다.</b> 숫자의 크기보다 숫자를 다루는 방법을 보는 데 집중한다.</p>
+
+    <div class="callout warn">
+      <strong>남의 나라 표를 그대로 쓰지 않는다</strong>
+      인체 치수 표는 어느 집단을 언제 쟀는지에 따라 다르다. 다른 나라의 군인을 잰 표, 수십 년 전의 표, 젊은 성인만 잰 표를 그대로 쓰면 실제 사용자와 어긋난다. 같은 나라 안에서도 세대에 따라 평균 키가 달라졌다. 표를 쓸 때는 측정 연도, 대상 집단, 측정 자세(맨발인지 신발을 신었는지, 옷을 입었는지)를 함께 확인하고, 필요하면 신발 높이나 옷 두께 같은 여유를 더한다.
+    </div>
+  </section>
+
+  <section id="percentile">
+    <h2>정규분포와 퍼센타일</h2>
+    <p>수백 명의 손 길이를 재어 막대그래프로 그리면, 가운데가 높고 양쪽으로 갈수록 낮아지는 종 모양이 된다. 많은 인체 치수가 이렇게 <span class="term">정규분포</span><span class="en">(Normal distribution)</span>에 가깝게 퍼져 있다. 정규분포는 두 숫자로 요약된다. 가운데 위치인 <span class="term">평균</span><span class="en">(Mean, μ)</span>과, 얼마나 넓게 퍼졌는지를 나타내는 <span class="term">표준편차</span><span class="en">(Standard deviation, σ)</span>다.</p>
+    <p>디자이너가 더 자주 쓰는 말은 <span class="term">퍼센타일</span><span class="en">(Percentile)</span>이다. 5퍼센타일 손 길이는 "100명을 줄 세웠을 때 짧은 쪽에서 다섯 번째 사람의 손 길이", 곧 집단의 5%가 그보다 짧은 값이다. 50퍼센타일은 가운데(정규분포에서는 평균과 같다), 95퍼센타일은 95%가 그보다 짧은 값이다. 정규분포라면 퍼센타일은 평균과 표준편차로 바로 계산할 수 있다.</p>
+    <div class="formula">$$P_k = \mu + z_k\,\sigma \qquad (z_5 = -1.645,\; z_{50} = 0,\; z_{95} = +1.645)$$<div class="where">\(P_k\): \(k\)퍼센타일 값, \(\mu\): 평균, \(\sigma\): 표준편차, \(z_k\): 표준정규분포에서 아래쪽 넓이가 \(k\)%가 되는 자리. 예를 들어 평균 62 mm, 표준편차 9 mm인 집게 벌림의 5퍼센타일은 \(62 - 1.645 \times 9 \approx 47\) mm다.</div></div>
+    <p>"5~95퍼센타일에 맞춘다"는 말은 양 끝 5%씩, 모두 10%를 설계 범위 밖에 둔다는 뜻이다. 100%를 맞추는 것은 대개 불가능하거나 터무니없이 비싸다. 분포의 꼬리는 끝없이 이어지고, 극단에 가까워질수록 몇 명을 더 포함하는 데 드는 치수 변화가 커진다. 아래 그래프에서 두 손잡이를 끌어 설계 한계를 옮겨 본다.</p>
+
+    <div class="sim" id="sim-pct">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>설계 한계와 수용 비율</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pc-cv"></canvas><span class="hint">아래 축의 두 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pc-pop"><button data-value="a" class="on">집단 A</button><button data-value="b">집단 B</button><button data-value="ab">A+B 합침</button></div>
+          <label class="check"><input type="checkbox" id="pc-snap"> 5·95퍼센타일에 맞추기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">아래 한계</span><span class="v" id="pc-o-lo">—</span></div>
+        <div class="stat"><span class="k">위 한계</span><span class="v" id="pc-o-hi">—</span></div>
+        <div class="stat"><span class="k">맞는 사람</span><span class="v" id="pc-o-in">—</span></div>
+        <div class="stat"><span class="k">1,000명 중 빠지는 사람</span><span class="v" id="pc-o-out">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 집단 A에서 "5·95퍼센타일에 맞추기"를 켠다. 수용 비율이 정확히 90%다. 두 한계가 평균에서 1.645σ씩 떨어져 있다. ② 손잡이를 바깥으로 끌어 99%를 만들어 본다. 90%에서 99%로 가는 데 필요한 폭이 생각보다 크다. 꼬리로 갈수록 사람은 적고 치수는 멀다. ③ "A+B 합침"을 누른다. 두 집단을 한꺼번에 맞추려면 범위가 양쪽으로 넓어진다. 집단 A의 5퍼센타일과 집단 B의 95퍼센타일을 잇는 범위는 합친 집단의 몇 퍼센트를 덮는가? (손 길이 예시값: 집단 A 평균 171 mm·표준편차 8 mm, 집단 B 평균 187 mm·표준편차 9 mm, 두 집단 인원이 같다고 둔 가상의 분포다. 실제 자료는 Size Korea 등 원자료에서 찾는다.)</div>
+    </div>
+
+    <p>합친 집단은 봉우리가 둘인 넓은 분포가 된다. 이때 퍼센타일은 평균과 표준편차 공식으로 구할 수 없고, 두 분포를 더한 곡선의 넓이에서 직접 찾아야 한다. 실무에서 흔히 쓰는 "여성 5퍼센타일부터 남성 95퍼센타일까지"라는 범위가 합친 집단의 90%보다 조금 넓게(대개 95% 안팎) 덮는 것도 그래서다. 모든 치수가 정규분포를 따르는 것도 아니다. 몸무게처럼 한쪽 꼬리가 긴 치수는 정규분포 공식을 쓰면 퍼센타일이 어긋나므로 원자료의 퍼센타일 표를 직접 읽는다.</p>
+
+    <h3>어느 쪽 끝에 맞출까</h3>
+    <p>설계 한계를 하나만 정해도 되는 경우가 많다. 이때 어느 쪽 끝에 맞출지는 치수의 성격이 정한다.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>치수의 성격</th><th>실패하는 사람</th><th>맞출 끝</th><th>예</th></tr></thead>
+      <tbody>
+        <tr><td>틈·여유(들어가야 한다)</td><td>큰 사람</td><td>큰 쪽(95퍼센타일 이상)</td><td>문 높이, 손잡이 안쪽 틈, 버튼 누르는 면, 손가락 구멍</td></tr>
+        <tr><td>도달·힘(닿아야 한다, 낼 수 있어야 한다)</td><td>작은 사람, 약한 사람</td><td>작은 쪽(5퍼센타일 이하)</td><td>선반 높이, 스위치까지의 거리, 클립 손가락 벌림, 여는 힘</td></tr>
+        <tr><td>둘 다(너무 커도 작아도 곤란)</td><td>양쪽</td><td>조절 범위</td><td>의자 높이, 운전석, 헤드폰 머리띠</td></tr>
+      </tbody>
+    </table></div>
+    <p>클립 하나에도 세 줄이 다 있다. 손가락이 올라가는 면의 폭은 굵은 손가락이 들어가야 하니 큰 쪽에, 손잡이를 집을 때 필요한 손가락 벌림과 여는 힘은 작고 약한 손이 해낼 수 있어야 하니 작은 쪽에 맞춘다. 서윤의 첫 시제품은 둘 다 서윤의 손에만 맞추었다. 태오는 첫째 줄에서, 도경은 둘째 줄에서 실패했다.</p>
+
+    <div class="callout studio">
+      <strong>"평균에 맞췄어요"는 경고 신호다</strong>
+      도달 치수를 평균(50퍼센타일)에 맞추면 절반이 닿지 않고, 틈 치수를 평균에 맞추면 절반이 끼인다. 태오는 시안 검토에서 치수 옆에 늘 "누가 실패하나?"라고 적는다. 큰 사람이 실패하는 치수인지, 작은 사람이 실패하는 치수인지를 먼저 정하고 나면 어느 퍼센타일을 볼지는 저절로 정해진다. 그리고 그 숫자 옆에 출처(조사 이름과 연도, 항목 번호)를 함께 적어 둔다. 몇 달 뒤 "이 18 mm는 어디서 나왔지?"라는 질문에 답할 수 있게.
+    </div>
+  </section>
+
+  <section id="average">
+    <h2>평균의 사람은 없다</h2>
+    <p>"평균 체형에 맞춘 조종석"이라면 대부분에게 맞을 것 같다. 1950년대 초 미국 공군의 연구원 길버트 대니얼스(Gilbert S. Daniels)는 이 생각을 확인했다. 조종사 4,063명의 몸 치수 가운데 조종석 설계에 중요한 10개(키, 가슴둘레, 팔 길이 등)를 골라, 각 치수에서 평균 근처의 가운데 30%에 드는 사람을 "평균"이라고 넉넉하게 정의했다. 그리고 10개 치수 모두에서 평균인 조종사가 몇 명인지 세었다. 답은 0명이었다. 세 치수만 겹쳐도 평균인 사람은 몇 퍼센트에 불과했다(Daniels, 「The "Average Man"?」, 미 공군 Wright Air Development Center 기술 보고서, 1952). 이 결과는 조종석을 평균 한 사람에게 맞추는 대신 조절할 수 있게 만드는 쪽으로 생각을 바꾸는 계기로 자주 인용된다.</p>
+    <p>이유는 확률의 곱셈이다. 한 치수에서 가운데 30%에 들 확률이 0.3이라면, 서로 관계없는 두 치수에서 모두 들 확률은 0.3 × 0.3 = 0.09, 열 치수면 0.3<sup>10</sup>, 약 17만분의 1이다. 실제 치수들은 서로 관계가 있어서(키가 큰 사람은 팔도 긴 편이다) 이보다는 덜 줄어들지만, 관계가 완벽하지 않은 한 겹칠수록 빠르게 준다. 아래 가상의 집단 4,000명으로 확인해 본다.</p>
+
+    <div class="sim" id="sim-avg">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>모든 치수에서 평균인 사람 찾기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="av-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>겹치는 치수의 수 <output id="av-n-out"></output></span><input type="range" id="av-n" min="1" max="10" step="1" value="3"></label>
+          <label class="ctrl"><span>치수끼리의 상관 <output id="av-r-out"></output></span><input type="range" id="av-r" min="0" max="0.9" step="0.1" value="0.3"></label>
+          <div class="seg" id="av-band"><button data-value="mid" class="on">가운데 30%</button><button data-value="design">5~95%</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">모든 치수에서 범위 안</span><span class="v" id="av-o-all">—</span></div>
+        <div class="stat"><span class="k">상관이 없다면(곱셈)</span><span class="v" id="av-o-ind">—</span></div>
+        <div class="stat"><span class="k">한 치수만 볼 때</span><span class="v" id="av-o-one">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "가운데 30%"에서 치수를 1개에서 3개, 5개로 늘린다. 화면의 점은 처음 두 치수이고, 진하게 칠한 점이 지금까지 고른 모든 치수에서 평균인 사람이다. 점이 빠르게 사라진다. ② 10개로 늘린다. 상관 0.5까지는 4,000명 가운데 0명이다. 상관을 0.9까지 올려야 몇십 명이 남는다. ③ "5~95%"를 누른다. 치수마다 90%를 맞춰도 10개 치수를 모두 만족하는 사람은 상관 0에서 3분의 1 남짓이다. 치수마다 따로 5~95%를 맞추면 전체로는 90%보다 훨씬 적게 맞는다. (가상의 4,000명이다. 각 치수는 표준정규분포이고, 모든 치수 쌍의 상관이 같다고 둔 단순 모형이다. 실제 치수의 상관은 쌍마다 다르다. 난수 시드를 고정해 늘 같은 집단이 나온다.)</div>
+    </div>
+
+    <p>②와 ③이 이 절의 핵심이다. "평균인 사람"은 통계가 만든 그림자다. 그리고 "5~95%에 맞췄다"는 말도 치수 하나에 대한 말이다. 클립 하나만 해도 손가락 벌림, 손가락 굵기, 집는 힘이 함께 맞아야 한다. 치수마다 90%를 맞추면 셋을 모두 만족하는 사람은 90%보다 적다. 그래서 중요한 치수가 여러 개인 제품은 치수마다 범위를 조금 더 넓게 잡거나, 가상의 사용자 몇 명(작은 손에 약한 힘, 큰 손에 굵은 손가락 같은 조합)을 정해 모든 치수를 함께 시험한다.</p>
+
+    <div class="callout deep">
+      <strong>조와 조세핀</strong>
+      미국의 산업디자이너 헨리 드레이퍼스(Henry Dreyfuss)의 사무실은 인체 치수 자료를 정리해 「Designing for People」(1955)과 도판집 「The Measure of Man」(1960년 무렵)으로 펴냈다. 남녀 두 인물 "조"와 "조세핀"의 그림 위에 퍼센타일별 치수를 적은 이 도판은 오랫동안 디자인 사무실 벽에 붙어 있었다. 흔히 평균 인물로 오해되지만, 도판의 핵심은 한 인물이 아니라 같은 치수의 작은 쪽과 큰 쪽을 함께 보여 주는 데 있었다. 사람을 하나의 그림으로 그려도, 설계는 범위로 해야 한다는 뜻이다.
+    </div>
+  </section>
+
+  <section id="adjust">
+    <h2>고정할까, 조절할까</h2>
+    <p>너무 커도 곤란하고 너무 작아도 곤란한 치수가 있다. 의자의 좌판 높이가 대표적이다. 좌판이 오금 높이보다 높으면 발이 바닥에 닿지 않아 허벅지 뒤가 눌리고, 너무 낮으면 무릎이 솟아 엉덩이에 무게가 몰린다. 한 사람에게 편한 좌판 높이는 오금 높이 근처의 좁은 띠다. 고정 높이 의자 하나는 그 띠가 겹치는 사람만 맞는다.</p>
+    <p><span class="term">조절 범위</span><span class="en">(Adjustable range)</span>를 주면 맞는 사람이 늘어난다. 대신 조절 장치는 부품과 값과 고장 날 곳을 늘린다. 그래서 "얼마나 조절하면 되는가"를 분포에서 계산한다. 아래 축의 두 손잡이를 끌어 좌판 높이의 조절 범위를 정한다.</p>
+
+    <div class="sim" id="sim-adj">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>필요한 조절 폭</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ad-cv"></canvas><span class="hint">아래 축의 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ad-mode"><button data-value="fixed">고정 높이</button><button data-value="adj" class="on">조절식</button></div>
+          <label class="ctrl"><span>편한 띠의 폭 <output id="ad-t-out"></output></span><input type="range" id="ad-t" min="30" max="100" step="5" value="60"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">좌판 높이 범위</span><span class="v" id="ad-o-rng">—</span></div>
+        <div class="stat"><span class="k">조절 폭</span><span class="v" id="ad-o-w">—</span></div>
+        <div class="stat"><span class="k">맞는 사람</span><span class="v" id="ad-o-in">—</span></div>
+        <div class="stat"><span class="k">5~95%를 덮는 최소 조절 폭</span><span class="v" id="ad-o-need">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "고정 높이"를 누르고 손잡이를 끌어 가장 많은 사람이 맞는 높이를 찾는다. 아무리 옮겨도 70%를 넘지 못한다. ② "조절식"으로 바꾸고 범위를 넓힌다. 맞는 사람이 90%를 넘는 순간의 조절 폭을 오른쪽 아래 값과 비교한다. ③ "편한 띠의 폭"을 30 mm로 줄인다. 사람마다 견디는 범위가 좁을수록 조절 폭이 더 커야 한다(60 mm일 때 약 34 mm, 30 mm일 때 약 64 mm). (예시값: 신발을 신은 오금 높이가 집단 A 평균 385 mm·표준편차 20 mm, 집단 B 평균 425 mm·표준편차 22 mm인 같은 인원의 가상 집단이다. 좌판이 자기 오금 높이에서 "편한 띠의 폭"만큼 낮은 곳과 오금 높이 사이에 있으면 맞는다고 둔 단순 모형이다.)</div>
+    </div>
+
+    <p>조절 범위의 아래 끝은 오금 높이가 작은 사람이, 위 끝은 큰 사람이 정한다. 그리고 사람마다 견딜 수 있는 띠가 있어서, 필요한 조절 폭은 분포의 폭(5~95퍼센타일 사이)에서 그 띠를 뺀 만큼이다. 이 생각은 의자 말고도 어디에나 쓰인다. 서윤의 독서등에서는 목의 관절이 조절 장치다. 책을 펼친 각도와 눈의 위치가 사람마다, 자세마다 다르니 빛의 방향을 하나로 고정할 수 없다. 반대로 클립의 벌림은 조절 장치를 달기엔 너무 작은 부품이라, 한 가지 치수로 작은 손부터 큰 손까지 맞추어야 한다. 무엇을 조절하게 하고 무엇을 고정할지도 디자인이다.</p>
+  </section>
+
+  <section id="grip">
+    <h2>손으로 잡는 두 가지 방법</h2>
+    <p>영국의 해부학자 존 네이피어(John Napier)는 손으로 물건을 잡는 동작을 크게 둘로 나누었다(Napier, 「The prehensile movements of the human hand」, Journal of Bone and Joint Surgery, 1956). 손가락과 손바닥으로 물건을 감싸 쥐는 <span class="term">파워 그립</span><span class="en">(Power grip)</span>과, 엄지와 다른 손가락 끝 사이에 물건을 끼워 다루는 <span class="term">정밀 그립</span><span class="en">(Precision grip)</span>이다. 망치 자루를 쥐는 손과 바늘에 실을 꿰는 손의 차이다. 같은 물건도 쓰는 순간에 따라 잡는 방법이 바뀐다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="파워 그립과 정밀 그립의 비교">
+        <!-- 파워 그립: 원기둥 단면을 손가락이 감싼다 -->
+        <text x="115" y="22" text-anchor="middle" class="lbl-b">파워 그립</text>
+        <circle cx="115" cy="112" r="40" class="f-elev"/><circle cx="115" cy="112" r="40" fill="none" class="s-line"/>
+        <text x="115" y="116" text-anchor="middle" class="lbl-dim" style="font-size:11px">손잡이</text>
+        <path d="M60 150 A58 58 0 1 1 160 160" fill="none" class="s-acc" style="stroke-width:14" stroke-linecap="round" opacity=".5"/>
+        <path d="M60 150 Q80 176 120 172" fill="none" class="s-acc2" style="stroke-width:14" stroke-linecap="round" opacity=".6"/>
+        <rect x="40" y="168" width="150" height="26" rx="13" class="f-surface"/><rect x="40" y="168" width="150" height="26" rx="13" fill="none" class="s-line"/>
+        <text x="115" y="186" text-anchor="middle" class="lbl-dim" style="font-size:11px">손바닥</text>
+        <text x="115" y="220" text-anchor="middle" class="lbl" style="font-size:12px">손가락·손바닥이 감싼다</text>
+        <text x="115" y="238" text-anchor="middle" class="lbl-dim" style="font-size:11px">큰 힘, 거친 움직임 · 칼자루, 망치</text>
+        <!-- 정밀 그립: 손끝 사이 -->
+        <text x="345" y="22" text-anchor="middle" class="lbl-b">정밀 그립</text>
+        <path d="M262 52 L344 88" class="s-acc" style="stroke-width:30;stroke-linecap:round"/>
+        <path d="M262 52 L344 88" style="stroke:var(--surface);stroke-width:26;stroke-linecap:round;fill:none"/>
+        <path d="M262 172 L344 130" class="s-acc2" style="stroke-width:30;stroke-linecap:round"/>
+        <path d="M262 172 L344 130" style="stroke:var(--surface);stroke-width:26;stroke-linecap:round;fill:none"/>
+        <rect x="340" y="98" width="40" height="20" rx="4" class="f-elev"/><rect x="340" y="98" width="40" height="20" rx="4" fill="none" class="s-line"/>
+        <text x="270" y="30" text-anchor="middle" class="lbl-acc" style="font-size:11px">검지</text>
+        <text x="270" y="204" text-anchor="middle" class="lbl-acc2" style="font-size:11px">엄지</text>
+        <text x="390" y="112" class="lbl-dim" style="font-size:11px">작은 물건</text>
+        <text x="345" y="220" text-anchor="middle" class="lbl" style="font-size:12px">손끝 두 곳 사이에 끼운다</text>
+        <text x="345" y="238" text-anchor="middle" class="lbl-dim" style="font-size:11px">작은 힘, 섬세한 움직임 · 펜, 클립</text>
+      </svg>
+      <figcaption><b>그림 2. 파워 그립과 정밀 그립.</b> 파워 그립은 손 전체의 큰 근육을 쓰고, 정밀 그립은 손끝의 감각과 작은 움직임을 쓴다. 정밀 그립으로 낼 수 있는 힘은 파워 그립보다 훨씬 작다. 클립을 여는 동작은 엄지와 검지 끝으로 집는 정밀 그립이다.</figcaption>
+    </figure>
+
+    <p>파워 그립의 손잡이에서 가장 중요한 치수는 굵기다. 너무 가늘면 손가락이 남아 손바닥을 파고들고 힘이 한곳에 몰린다. 너무 굵으면 엄지와 손가락이 서로 닿지 않아 감싸지 못하고 힘이 빠진다. 여러 연구에서 쥐는 힘은 손잡이가 너무 가늘거나 굵으면 줄고 그 중간 어딘가에서 가장 크다고 보고된다. 그 "중간"이 손 크기에 따라 달라진다는 것이 문제다. 아래에서 손잡이 단면의 지름을 바꾸고 손 크기를 골라 본다.</p>
+
+    <div class="sim" id="sim-grip">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손잡이 지름과 감싸기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="gr-cv"></canvas><span class="hint" style="top:8px;bottom:auto">곡선 위를 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>손잡이 지름 <output id="gr-d-out"></output></span><input type="range" id="gr-d" min="15" max="75" step="1" value="34"></label>
+          <div class="seg" id="gr-hand"><button data-value="0">작은 손</button><button data-value="1" class="on">중간 손</button><button data-value="2">큰 손</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">감싸는 비율</span><span class="v" id="gr-o-w">—</span></div>
+        <div class="stat"><span class="k">상태</span><span class="v" id="gr-o-s">—</span></div>
+        <div class="stat"><span class="k">세 손 모두 무난한 지름</span><span class="v" id="gr-o-all">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 중간 손으로 지름을 15 mm에서 75 mm까지 민다. 손가락 끝이 엄지를 지나쳐 겹치던 것이 점점 줄다가, 어느 지름에서 엄지와 손가락 사이가 벌어진다. 아래 곡선이 상대적인 쥐는 힘의 모양이다. ② 같은 지름에서 작은 손과 큰 손을 바꿔 본다. 큰 손에 알맞은 지름은 작은 손에게 이미 벌어진다. ③ "세 손 모두 무난한 지름"을 본다. 범위가 좁다. 한 지름으로 모두를 맞추려면 작은 손 쪽을 기준으로 잡는 편이 덜 위험하다. (교육용 모양 모형: 손가락이 감쌀 수 있는 둘레를 손 길이의 0.55배, 엄지가 덮는 둘레를 0.3배로 두고, 손 길이는 작은 손 165 mm, 중간 180 mm, 큰 손 195 mm의 예시값이다. 쥐는 힘 곡선은 "가운데가 볼록하다"는 모양만 흉내 냈고 실측값이 아니다.)</div>
+    </div>
+
+    <p>독서등의 몸통은 파워 그립으로 쥐는 물건이 아니다. 하지만 클립을 열 때의 정밀 그립에서도 같은 원리가 작동한다. 손가락 끝 두 곳 사이의 거리가 손에 비해 너무 멀면 힘이 빠지고, 누르는 면이 손가락에 비해 너무 좁으면 힘이 한 점에 몰려 아프다. 정밀 그립은 파워 그립보다 낼 수 있는 힘이 훨씬 작으니, 그 작은 힘 안에서 일이 끝나도록 지렛대를 설계해야 한다.</p>
+
+    <div class="callout try">
+      <strong>내 손 재기와 세 사람의 클립</strong>
+      자와 종이를 준비한다. ① 엄지와 검지를 편하게 벌려 종이 위에 손끝 두 점을 찍고 거리를 잰다(집게 벌림). 크게 벌린 값과 "이 정도면 힘을 줄 수 있다"는 값을 따로 적는다. ② 검지 끝마디의 너비를 잰다. ③ 가족이나 친구 두 사람의 손도 같은 방법으로 잰다. 가능하면 손이 작은 사람과 큰 사람을 고른다. ④ 집에 있는 빨래집게, 바인더 클립, 머리핀을 세 사람이 차례로 열어 보고, 각자 "쉽다·보통·어렵다"를 적는다. 쉬운 집게와 어려운 집게를 나란히 놓고 피벗에서 누르는 점까지의 길이를 잰다. 이 장의 마지막 두 시뮬레이터에서 그 길이가 왜 중요한지 보게 된다.
+    </div>
+  </section>
+
+  <section id="lever">
+    <h2>클립의 지렛대</h2>
+    <p>빨래집게와 독서등의 클립은 같은 구조다. 가운데 축(피벗)을 중심으로 두 팔이 돌고, 축에 감긴 <span class="term">토션 스프링</span><span class="en">(Torsion spring)</span>이 두 팔을 닫는 쪽으로 민다. 축 앞쪽이 물체를 무는 입(집게 턱), 뒤쪽이 손가락으로 누르는 손잡이다. 손잡이를 모으면 입이 벌어진다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 230" role="img" aria-label="클립의 지렛대 모형: 피벗, 입 길이, 손잡이 길이, 스프링 토크와 여는 힘">
+        <defs><marker id="erg-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="context-stroke"/></marker></defs>
+        <path d="M60 130 L250 130 L410 140" fill="none" class="s-line" style="stroke-width:10" stroke-linecap="round"/>
+        <path d="M60 104 L250 118 L410 72" fill="none" class="s-acc2" style="stroke-width:10" stroke-linecap="round"/>
+        <circle cx="250" cy="124" r="13" class="f-elev"/><circle cx="250" cy="124" r="13" fill="none" class="s-line"/>
+        <path d="M250 124 m-7 0 a7 7 0 1 1 7 7" fill="none" class="s-acc" style="stroke-width:2"/>
+        <text x="250" y="96" text-anchor="middle" class="lbl-b" style="font-size:13px">피벗 + 토션 스프링(T)</text>
+        <!-- 치수 -->
+        <path d="M60 196 L250 196" class="s-dash" marker-start="url(#erg-ar2)" marker-end="url(#erg-ar2)"/>
+        <text x="155" y="214" text-anchor="middle" class="lbl">입 길이 L<tspan dy="3" style="font-size:9px">j</tspan></text>
+        <path d="M250 196 L410 196" class="s-dash" marker-start="url(#erg-ar2)" marker-end="url(#erg-ar2)"/>
+        <text x="330" y="214" text-anchor="middle" class="lbl">손잡이 길이 L<tspan dy="3" style="font-size:9px">h</tspan></text>
+        <!-- 힘 -->
+        <path d="M410 22 L410 62" class="s-acc" style="stroke-width:2.5" marker-end="url(#erg-ar2)"/>
+        <text x="418" y="36" class="lbl-acc">F(엄지)</text>
+        <path d="M60 60 L60 96" class="s-bad" style="stroke-width:2" marker-start="url(#erg-ar2)"/>
+        <text x="70" y="62" class="lbl-bad" style="font-size:12px">입이 벌어진다</text>
+        <text x="60" y="160" class="lbl-dim" style="font-size:11px">입 끝 이동 ≈ L<tspan dy="3" style="font-size:8px">j</tspan><tspan dy="-3">·θ</tspan></text>
+        <text x="410" y="166" text-anchor="end" class="lbl-dim" style="font-size:11px">손잡이 끝 이동 ≈ L<tspan dy="3" style="font-size:8px">h</tspan><tspan dy="-3">·θ</tspan></text>
+      </svg>
+      <figcaption><b>그림 3. 클립의 지렛대.</b> 두 팔이 피벗을 중심으로 각도 θ만큼 벌어지면 입 끝은 \(L_j\theta\), 손잡이 끝은 \(L_h\theta\)만큼 움직인다(작은 각도 근사). 스프링이 피벗에 거는 토크 T를 이기려면 손잡이 끝에 \(T/L_h\)의 힘이 필요하다. 아래팔은 고정해 그렸다.</figcaption>
+    </figure>
+
+    <p>필요한 힘은 지렛대의 원리 그대로다. 스프링이 피벗에 거는 비트는 힘, 곧 <span class="term">토크</span><span class="en">(Torque)</span>를 손잡이 길이로 나눈 값이다. 토션 스프링의 토크는 미리 감아 둔 만큼(초기 토크)에 벌어진 각도에 비례해 더해진다.</p>
+    <div class="formula">$$F = \frac{T_0 + k\,\theta}{L_h}, \qquad \theta_{\max} \approx \frac{g_{\max}}{L_j}$$<div class="where">\(F\): 손잡이 끝에서 필요한 힘(N), \(T_0\): 스프링의 초기 토크(N·mm), \(k\): 스프링 강성(N·mm/rad), \(\theta\): 벌어진 각도(rad), \(L_h\): 피벗에서 누르는 점까지의 손잡이 길이(mm), \(g_{\max}\): 필요한 최대 입 벌림, \(L_j\): 피벗에서 입 끝까지의 길이. 가장 큰 힘은 입을 끝까지 벌린 \(\theta_{\max}\)에서 필요하다.</div></div>
+    <p>손잡이를 길게 하면 힘은 줄어든다. 그런데 공짜가 아니다. 손잡이가 길수록 같은 각도를 벌리는 데 손잡이 끝이 더 많이 움직여야 하고, 그만큼 처음에 손잡이 사이가 더 벌어져 있어야 한다. 손가락을 더 크게 벌려 집어야 한다는 뜻이다. 힘은 \(1/L_h\)로 줄고 벌림은 \(L_h\)에 비례해 는다. 아래 클립의 위쪽 손잡이를 아래로 끌어 직접 열어 본다.</p>
+
+    <div class="sim" id="sim-clip">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>클립을 열어 보기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="cl-cv" class="art"></canvas><span class="hint">위 손잡이를 아래로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>손잡이 길이 <output id="cl-l-out"></output></span><input type="range" id="cl-l" min="12" max="50" step="1" value="16"></label>
+          <div class="seg" id="cl-k"><button data-value="120">스프링 약</button><button data-value="200">중</button><button data-value="350" class="on">강</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">입 벌림</span><span class="v" id="cl-o-g">—</span></div>
+        <div class="stat"><span class="k">지금 필요한 힘</span><span class="v" id="cl-o-f">—</span></div>
+        <div class="stat"><span class="k">집기 시작할 때 손가락 벌림</span><span class="v" id="cl-o-s">—</span></div>
+        <div class="stat"><span class="k">얇은 표지(3 mm)를 무는 힘</span><span class="v" id="cl-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 설정(손잡이 16 mm, 스프링 강)은 서윤의 첫 시제품이다. 끝까지(침대 머리판 두께 22 mm) 열면 약 29 N이 든다. ② 손잡이를 32 mm로 늘린다. 같은 스프링인데 힘이 절반으로 준다. 대신 집기 시작할 때 손가락 벌림이 커진다. ③ 스프링을 "약"으로 바꾼다. 여는 힘은 쉬워지지만 얇은 표지를 무는 힘도 같이 준다. 등이 책에서 미끄러질 수 있다. (교육용 모형: 입 길이 30 mm, 스프링 강성 약·중·강 120·200·350 N·mm/rad, 초기 토크는 강성의 0.6배(72·120·210 N·mm)로 두었다. 작은 각도 근사로 입 벌림 = 30 mm × θ, 손잡이 사이 = 8 mm + 손잡이 길이 × (θ최대 − θ)로 두었다. 손가락 벌림에는 손잡이 두 장의 두께 8 mm를 더했다. 마찰과 손잡이의 휨은 무시했다.)</div>
+    </div>
+
+    <p>서윤의 첫 시제품은 왜 손잡이가 짧고 스프링이 강했을까. 손잡이가 짧으면 클립이 작고 날렵해 보인다. 스프링이 강하면 책에 단단히 물려 등이 흔들리지 않는다. 둘 다 좋은 이유였다. 다만 그 두 선택이 겹치면서 여는 힘이 서윤의 손에만 맞는 크기로 올라갔다. 태오의 경우는 더 나빴다. 굵은 손가락이 16 mm짜리 손잡이에 다 올라가지 않아 피벗 가까운 곳을 누르게 되었고, 그만큼 실제 지렛대가 짧아져 힘이 더 들었다.</p>
+
+    <div class="callout studio">
+      <strong>힘은 저울로, 벌림은 자로</strong>
+      시제품의 여는 힘은 감으로 말하지 않는다. 태오의 작업대에는 주방용 디지털 저울이 있다. 클립의 아래 손잡이를 저울 위에 올리고 위 손잡이를 손가락으로 천천히 눌러, 입이 목표 벌림까지 열리는 순간의 눈금을 읽는다. 그램 값에 0.0098을 곱하면 뉴턴이다(1,000 g ≈ 9.8 N). 같은 방식으로 세 번 재어 가운데 값을 쓴다. 손가락 벌림은 집기 직전 손잡이 바깥면 사이를 버니어캘리퍼스로 잰다. 숫자로 적어 두면, 스프링을 바꿔 다시 뽑은 시제품이 정말 나아졌는지 말할 수 있다.
+    </div>
+  </section>
+
+  <section id="window">
+    <h2>힘의 한계와 설계의 창</h2>
+    <p>이제 두 조건을 함께 놓는다. 여는 힘은 약한 손이 낼 수 있어야 하고, 집기 시작할 때의 벌림은 작은 손이 닿아야 한다. 힘 조건은 손잡이를 길게 하라고, 벌림 조건은 짧게 하라고 한다. 두 조건을 동시에 만족하는 손잡이 길이의 범위가 <b>설계의 창</b>이다. 창이 있으면 그 안에서 고르고, 창이 닫혀 있으면 스프링이나 입 벌림 같은 다른 조건을 바꿔야 한다.</p>
+    <p>힘의 한계는 "그 사람이 낼 수 있는 최대 힘"이 아니다. 최대 힘은 이를 악물고 한 번 내는 힘이다. 하루에도 몇 번씩 졸린 손으로 여는 물건은 그보다 한참 아래에서 편해야 한다. 실무에서는 자주 쓰는 조작의 힘을 약한 사용자의 최대 힘의 몇 분의 일로 잡는 경험칙을 쓰는데, 그 비율은 문헌과 회사마다 다르다. 이 장의 모형은 최대 힘의 3분의 1로 두었다. 또 손가락 힘은 나이에 따라 달라서, 중년 이후 나이가 들수록 쥐는 힘이 줄어드는 경향이 여러 조사에서 보고된다. 도경 같은 사용자를 처음부터 염두에 두어야 하는 이유다.</p>
+
+    <div class="sim" id="sim-win">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손잡이 길이의 창</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="wn-cv"></canvas><span class="hint">세로 선을 좌우로 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="wn-hand"><button data-value="5" class="on">5퍼센타일 손</button><button data-value="50">50</button><button data-value="95">95</button></div>
+          <label class="ctrl"><span>스프링 강성 k <output id="wn-k-out"></output></span><input type="range" id="wn-k" min="100" max="400" step="10" value="350"></label>
+          <label class="ctrl"><span>최대 입 벌림 <output id="wn-g-out"></output></span><input type="range" id="wn-g" min="10" max="30" step="1" value="22"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 손잡이 길이</span><span class="v" id="wn-o-l">—</span></div>
+        <div class="stat"><span class="k">여는 힘 · 한계</span><span class="v" id="wn-o-f">—</span></div>
+        <div class="stat"><span class="k">손가락 벌림 · 한계</span><span class="v" id="wn-o-s">—</span></div>
+        <div class="stat"><span class="k">편하게 열 수 있는 사람(예시)</span><span class="v" id="wn-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 설정(스프링 350, 5퍼센타일 손)에서 세로 선을 끈다. 위 그래프의 힘이 한계선 아래로 내려오는 곳(손잡이 46 mm 이상)과 아래 그래프의 벌림이 한계선을 넘지 않는 곳(43 mm 이하)이 겹치지 않는다. 창이 닫혀 있다. 손잡이를 어떻게 정해도 작은 손에는 맞지 않는다. ② 스프링을 200으로 낮춘다. 약 26~42 mm의 창(초록 띠)이 열린다. ③ 최대 입 벌림을 30 mm로 올린다. 두꺼운 머리판까지 물려면 각도가 커져 힘과 벌림이 함께 늘고 창이 다시 닫힌다. 50·95퍼센타일 손으로 바꾸면 창이 넓어 보이지만, 설계는 작은 손의 창 안에서 고른다. (예시 분포: 편하게 집을 수 있는 최대 손가락 벌림 평균 62 mm·표준편차 9 mm, 손끝으로 집는 최대 힘 평균 55 N·표준편차 15 N, 편한 힘 = 최대 힘의 1/3. 두 치수는 서로 독립이라고 두었다. "편하게 열 수 있는 사람"은 두 조건을 모두 만족하는 비율이다. 클립 모형(초기 토크 = 강성의 0.6배)은 앞 시뮬레이터와 같다.)</div>
+    </div>
+
+    <p>"편하게 열 수 있는 사람"의 비율을 보면 앞 절의 교훈이 다시 나온다. 벌림 조건과 힘 조건을 각각 95% 넘게 만족해도, 둘을 함께 만족하는 비율은 그 곱만큼 낮다. 그리고 창 한가운데가 늘 정답은 아니다. 손잡이를 창의 왼쪽 끝으로 잡으면 클립은 작아지지만 힘이 한계에 바짝 붙고, 오른쪽 끝으로 잡으면 쉽게 열리지만 손잡이가 길어져 등의 옆모습이 달라진다. <a href="proportion.html">4장</a>에서 정한 비례와도 맞아야 한다. 창은 선택지를 좁혀 줄 뿐, 그 안에서 고르는 것은 여전히 디자이너다.</p>
+
+    <div class="callout studio">
+      <strong>가상의 사용자 세 명을 책상 위에</strong>
+      태오는 시제품을 볼 때 세 사람을 떠올린다. "손이 작고 힘이 약한 사람, 손이 크고 손가락이 굵은 사람, 한 손으로 책을 든 채 다른 손으로 여는 사람." 셋째는 치수가 아니라 상황이다. 침대에서 책을 펼쳐 든 채 클립을 물리는 사람은 자세가 불편하고 손가락 하나만 자유롭다. 표의 퍼센타일은 출발점이고, 실제 시험은 다양한 손과 상황으로 한다. 시제품이 나오면 손이 작은 사람과 큰 사람, 나이가 많은 사람을 꼭 섞어서 열어 보게 하고, 얼굴을 찡그리는 순간을 기록한다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 여름 제품 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>제품 노트 · 5장</span></div>
+      <h4>내 손에 맞춘 클립은 내 손에만 맞았다</h4>
+      <p>8월 첫 주, 서윤은 3D 프린터로 뽑은 등머리와 몸통에 철물점에서 산 토션 스프링을 끼워 첫 작동 시제품을 만들었다. 클립 손잡이는 피벗에서 16 mm, 날렵해 보이도록 짧게 했고, 스프링은 책에 단단히 물리도록 가장 센 것을 골랐다. 서윤의 손에는 꼭 맞았다.</p>
+      <p>책방에서 도경과 태오에게 건네자 반응이 갈렸다. 도경은 엄지와 검지로 두 번 시도하다 손을 털었다. "열리긴 하는데 매일 밤 이걸 하라면 못 하겠어." 태오는 손가락이 손잡이 끝을 넘어 피벗 쪽까지 덮였고, 미끄러지면서 손톱으로 손잡이를 긁었다. 태오는 주방 저울을 가져와 여는 힘을 쟀다. 침대 머리판 두께인 22 mm까지 벌리는 데 저울 눈금이 3 kg 가까이, 약 29 N이었다. 서윤 혼자 시험할 때는 한 번도 문제가 되지 않던 숫자였다.</p>
+      <p>세 사람은 그날 저녁 서로의 손을 쟀다. 서윤의 집게 벌림과 검지 너비는 가운데쯤이었고, 도경은 집는 힘이, 태오는 손가락 너비가 표의 끝에 가까웠다. 태오가 말했다. "벌림과 힘은 작은 손에, 손가락이 닿는 면은 큰 손에. 셋 중 하나라도 평균에 맞추면 누군가는 못 연다." 서윤은 예시 분포로 손잡이 길이의 창을 그려 보았다. 가장 센 스프링으로는 작은 손의 창이 아예 열리지 않았다. 힘을 맞추려면 손잡이가 46 mm를 넘어야 하는데, 그러면 손가락 벌림이 작은 손의 한계를 넘었다. 스프링을 한 단계 낮추자 손잡이 26~42 mm 사이에 창이 열렸고, 얇은 표지를 무는 힘은 여전히 4 N을 넘었다.</p>
+      <p>서윤의 선택은 손잡이를 창의 왼쪽 끝에 가까운 28 mm로 늘리고 스프링을 중간 세기로 바꾸는 것이었다. 창의 오른쪽으로 갈수록 열기는 쉽지만 클립이 길어진다. 손잡이가 길어져 옆모습이 조금 둔해진 것은 손잡이 끝을 얇게 깎아 달래기로 했다. 다시 뽑은 클립을 도경은 한 번에 열었고, 누르는 면을 넓힌 덕에 태오의 손가락도 미끄러지지 않았다. 저울 눈금은 1 kg이 조금 안 되었다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>클립의 여는 조건을 <b>손이 작은 쪽(5퍼센타일 안팎)</b>에, 누르는 면은 <b>손가락이 굵은 쪽(95퍼센타일)</b>에 맞춘다. 입 길이 30 mm, 최대 입 벌림 <b>22 mm</b>(얇은 책 표지부터 침대 머리판까지). 손잡이 길이(피벗~누르는 점) <b>16 → 28 mm</b>. 토션 스프링 강성 <b>350 → 200 N·mm/rad</b>, 초기 토크 <b>210 → 120 N·mm</b>. 이 모형으로 여는 힘 최대 <b>약 9.5 N(목표 10 N 이하)</b>, 집기 시작할 때 손가락 벌림 <b>약 37 mm(목표 45 mm 이하)</b>, 3 mm 표지를 무는 힘 <b>약 4.7 N(4 N 이상)</b>. 누르는 면은 폭 <b>18 mm</b>에 미끄럼 방지 홈. 모든 값은 가상의 설계값과 예시 분포에서 나온 것이며 실측 인체 자료로 다시 확인한다.</div>
+        <div><b>아직 남은 문제</b>버튼이다. 켜기, 밝기, 색온도를 버튼 하나에 넣으려던 계획이 시제품에서 헷갈린다. 불을 끈 침실에서는 버튼을 찾지도 못했다. 스프링과 몸통을 무엇으로 만들지도 정하지 않았다.</div>
+        <div><b>다음 단계</b><a href="control.html">6장</a>: 버튼 하나의 조작 규칙과 손끝으로 찾는 형태, 딸깍 하는 피드백.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>인체 치수는 한 사람의 값이 아니라 분포다. 정규분포에 가까운 치수의 퍼센타일은 \(P_k = \mu + z_k\sigma\)로 구하고, 5·95퍼센타일은 평균에서 1.645σ 떨어져 있다.</li>
+      <li>5~95퍼센타일 설계는 치수 하나에서 90%를 맞춘다는 뜻이다. 꼬리로 갈수록 몇 명을 더 맞추는 데 드는 치수 변화가 커진다. 봉우리가 둘인 합친 집단은 원자료에서 퍼센타일을 직접 구한다.</li>
+      <li>틈과 여유는 큰 쪽(95퍼센타일), 도달과 힘은 작은 쪽(5퍼센타일)에 맞추고, 양쪽이 다 문제면 조절 범위를 준다. 필요한 조절 폭은 분포의 폭에서 사람마다 견디는 띠를 뺀 만큼이다.</li>
+      <li>여러 치수를 겹치면 "평균인 사람"은 거의 사라진다(Daniels 1952: 조종사 4,063명, 10개 치수에서 0명). 치수마다 90%를 맞춰도 모두 맞는 사람은 90%보다 적다.</li>
+      <li>잡기는 손 전체로 감싸는 파워 그립과 손끝으로 끼우는 정밀 그립으로 나뉜다(Napier 1956). 정밀 그립의 힘은 훨씬 작다. 손잡이 굵기의 알맞은 범위는 손 크기에 따라 달라진다.</li>
+      <li>클립의 여는 힘은 \(F = (T_0 + k\theta)/L_h\)다. 손잡이를 늘리면 힘은 줄지만 손가락 벌림이 는다. 힘과 벌림의 한계를 함께 만족하는 범위가 설계의 창이다.</li>
+      <li>힘의 한계는 최대 힘이 아니라 자주 편하게 낼 수 있는 힘으로 잡는다. 표의 수치는 출발점이고, 다양한 손과 상황으로 시제품을 직접 시험한다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 어떤 집단의 집게 벌림이 평균 62 mm, 표준편차 9 mm인 정규분포를 따른다고 하자. 5퍼센타일 값에 가장 가까운 것은?</p>
+        <div class="opts">
+          <button class="opt">53 mm(평균에서 표준편차 하나를 뺀 값)</button>
+          <button class="opt" data-correct>47 mm</button>
+          <button class="opt">58.9 mm(평균의 95%)</button>
+          <button class="opt">44 mm(평균에서 표준편차 둘을 뺀 값)</button>
+        </div>
+        <div class="quiz-exp">5퍼센타일은 평균에서 표준편차의 1.645배를 뺀 자리다. 62 − 1.645 × 9 ≈ 47.2 mm. 표준편차 하나를 빼면 약 16퍼센타일, 둘을 빼면 약 2퍼센타일이다. "평균의 95%"는 퍼센타일과 관계없는 계산이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 클립에서 손가락이 올라가는 누르는 면의 폭과, 집기 시작할 때 필요한 손가락 벌림을 정하려 한다. 어느 퍼센타일을 기준으로 삼는 것이 알맞은가?</p>
+        <div class="opts">
+          <button class="opt">둘 다 50퍼센타일. 가장 많은 사람이 모여 있는 곳이다.</button>
+          <button class="opt">둘 다 95퍼센타일. 큰 손에 맞추면 작은 손도 쓸 수 있다.</button>
+          <button class="opt" data-correct>누르는 면 폭은 굵은 손가락 쪽(95퍼센타일), 손가락 벌림은 작은 손 쪽(5퍼센타일).</button>
+          <button class="opt">누르는 면 폭은 5퍼센타일, 손가락 벌림은 95퍼센타일.</button>
+        </div>
+        <div class="quiz-exp">누르는 면은 손가락이 올라가야 하는 "여유" 치수라 큰 사람이 실패하므로 큰 쪽에 맞춘다. 손가락 벌림은 "도달" 치수라 작은 손이 실패하므로 작은 쪽에 맞춘다. 50퍼센타일에 맞추면 양쪽 모두 절반 가까이 실패한다. 벌림을 큰 손에 맞추면 작은 손은 집지 못한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 대니얼스(1952)의 조종사 연구가 보여 준 것으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">조종사의 몸 치수는 정규분포를 따르지 않는다.</button>
+          <button class="opt">치수 10개의 평균값으로 만든 조종석은 조종사 대부분에게 잘 맞는다.</button>
+          <button class="opt">조종사의 치수는 서로 상관이 전혀 없다.</button>
+          <button class="opt" data-correct>치수 10개 모두에서 가운데 30%에 드는 "평균인 조종사"는 4,063명 가운데 한 명도 없었다.</button>
+        </div>
+        <div class="quiz-exp">치수 하나에서는 30%가 평균이지만, 여러 치수를 겹치면 모두 평균인 사람의 비율은 곱셈처럼 빠르게 준다. 치수끼리 상관이 있어 곱셈보다는 덜 줄지만, 10개에서는 0명이었다. 그래서 평균 한 사람에게 맞추기보다 범위와 조절로 설계해야 한다는 교훈이 나온다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 토션 스프링은 그대로 두고 클립의 손잡이 길이(피벗~누르는 점)를 두 배로 늘렸다. 이 장의 지렛대 모형으로 볼 때 무엇이 달라지는가?</p>
+        <div class="opts">
+          <button class="opt" data-correct>여는 힘은 약 절반이 되고, 같은 입 벌림을 위해 손잡이 끝이 움직이는 거리는 약 두 배가 되어 손가락을 더 벌려야 한다.</button>
+          <button class="opt">여는 힘과 손가락 벌림이 모두 절반이 된다.</button>
+          <button class="opt">여는 힘은 그대로이고 입이 두 배로 벌어진다.</button>
+          <button class="opt">여는 힘이 두 배가 되고 손가락 벌림은 그대로다.</button>
+        </div>
+        <div class="quiz-exp">필요한 힘은 스프링 토크를 손잡이 길이로 나눈 값이라 길이를 두 배로 하면 절반이 된다. 하지만 같은 각도를 벌리려면 손잡이 끝은 길이에 비례해 더 많이 움직여야 한다. 힘과 움직임을 맞바꾸는 것이 지렛대다. 입 벌림은 각도와 입 길이가 정하므로 손잡이 길이만으로는 바뀌지 않는다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  var H = function (id, ratio, lo, hi, bg) { var o = { get height() { var el = document.getElementById(id); var w = Math.max(200, el.parentElement.clientWidth || 600); return Math.round(Math.min(hi, Math.max(lo, w * ratio))); } }; if (bg) o.bg = bg; return o; };
+
+  /* ---------------- 정규분포 도구 ---------------- */
+  function erf(x) { // Abramowitz–Stegun 7.1.26
+    var s = x < 0 ? -1 : 1; x = Math.abs(x);
+    var t = 1 / (1 + 0.3275911 * x);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    return s * y;
+  }
+  function Phi(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
+  function pdf(x, m, s) { var z = (x - m) / s; return Math.exp(-0.5 * z * z) / (s * Math.sqrt(2 * Math.PI)); }
+  // 혼합 분포 [{m,s,w}]
+  function mixCdf(M, x) { return M.reduce(function (a, c) { return a + c.w * Phi((x - c.m) / c.s); }, 0); }
+  function mixPdf(M, x) { return M.reduce(function (a, c) { return a + c.w * pdf(x, c.m, c.s); }, 0); }
+  function mixInv(M, p) { var lo = -1e4, hi = 1e4; for (var i = 0; i < 80; i++) { var mid = (lo + hi) / 2; if (mixCdf(M, mid) < p) lo = mid; else hi = mid; } return (lo + hi) / 2; }
+  var Z95 = 1.6449;
+  function ordinal(p) { return AB.fix(p * 100, p < 0.01 || p > 0.99 ? 1 : 0) + "퍼센타일"; }
+
+  /* ---------------- 시뮬레이터 1: 설계 한계와 수용 비율 ---------------- */
+  safe("pct", function () {
+    var POP = { a: [{ m: 171, s: 8, w: 1 }], b: [{ m: 187, s: 9, w: 1 }], ab: [{ m: 171, s: 8, w: 0.5 }, { m: 187, s: 9, w: 0.5 }] };
+    var lim = { lo: 158, hi: 184 }, geo = null, act = null;
+    var pop = AB.seg("pc-pop", function () { if (snap()) doSnap(); cv.redraw(); });
+    var snap = AB.check("pc-snap", function (on) { if (on) doSnap(); cv.redraw(); });
+    function doSnap() { var M = POP[pop()]; lim.lo = mixInv(M, 0.05); lim.hi = mixInv(M, 0.95); }
+    var X0 = 140, X1 = 220;
+    var cv = AB.canvas("#pc-cv", function (ctx, w, h) {
+      var p = AB.palette(), M = POP[pop()];
+      var box = { x: 46, y: 18, w: w - 64, h: h - 92 };
+      var ymax = 0; for (var x = X0; x <= X1; x += 0.5) ymax = Math.max(ymax, mixPdf(M, x));
+      var c = AB.chart(ctx, box, { x: [X0, X1], y: [0, ymax * 1.18], xTicks: [140, 150, 160, 170, 180, 190, 200, 210, 220], yTicks: [], xFmt: function (v) { return v; } });
+      // 수용 영역 칠하기
+      ctx.save(); ctx.beginPath(); ctx.moveTo(c.X(lim.lo), c.Y(0));
+      for (var x2 = lim.lo; x2 <= lim.hi; x2 += 0.5) ctx.lineTo(c.X(x2), c.Y(mixPdf(M, x2)));
+      ctx.lineTo(c.X(lim.hi), c.Y(mixPdf(M, lim.hi))); ctx.lineTo(c.X(lim.hi), c.Y(0)); ctx.closePath();
+      ctx.fillStyle = p.ok; ctx.globalAlpha = 0.28; ctx.fill(); ctx.restore();
+      // 빠지는 꼬리
+      [[X0, lim.lo], [lim.hi, X1]].forEach(function (r) {
+        if (r[1] <= r[0]) return;
+        ctx.save(); ctx.beginPath(); ctx.moveTo(c.X(r[0]), c.Y(0));
+        for (var x3 = r[0]; x3 <= r[1]; x3 += 0.5) ctx.lineTo(c.X(x3), c.Y(mixPdf(M, x3)));
+        ctx.lineTo(c.X(r[1]), c.Y(0)); ctx.closePath(); ctx.fillStyle = p.bad; ctx.globalAlpha = 0.2; ctx.fill(); ctx.restore();
+      });
+      // 각 집단 곡선(합친 경우 점선)
+      if (M.length > 1) M.forEach(function (comp, i) {
+        ctx.strokeStyle = i ? p.accent2 : p.warn; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.5; ctx.beginPath();
+        for (var x4 = X0; x4 <= X1; x4 += 1) { var yy = c.Y(comp.w * pdf(x4, comp.m, comp.s)); x4 === X0 ? ctx.moveTo(c.X(x4), yy) : ctx.lineTo(c.X(x4), yy); }
+        ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = i ? p.accent2 : p.warn; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+        ctx.fillText(i ? "B" : "A", c.X(comp.m), c.Y(comp.w * pdf(comp.m, comp.m, comp.s)) - 3);
+      });
+      ctx.strokeStyle = p.accent; ctx.lineWidth = 2.5; ctx.beginPath();
+      for (var x5 = X0; x5 <= X1; x5 += 0.5) { var y5 = c.Y(mixPdf(M, x5)); x5 === X0 ? ctx.moveTo(c.X(x5), y5) : ctx.lineTo(c.X(x5), y5); }
+      ctx.stroke();
+      // 5·50·95 눈금
+      ctx.font = AB.font(10, true); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      [[0.05, "P5"], [0.5, "P50"], [0.95, "P95"]].forEach(function (q) {
+        var xv = mixInv(M, q[0]), px = c.X(xv);
+        ctx.strokeStyle = p.faint; ctx.setLineDash([2, 3]); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(px, box.y + 14); ctx.lineTo(px, c.Y(0)); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = p.dim; ctx.fillText(q[1], px, box.y + 12);
+      });
+      // 설계 한계 손잡이 트랙
+      var ty = box.y + box.h + 44;
+      ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, ty); ctx.lineTo(box.x + box.w, ty); ctx.stroke();
+      ctx.strokeStyle = p.ok; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(c.X(lim.lo), ty); ctx.lineTo(c.X(lim.hi), ty); ctx.stroke();
+      [lim.lo, lim.hi].forEach(function (v) {
+        ctx.strokeStyle = p.text; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(c.X(v), c.Y(0)); ctx.lineTo(c.X(v), ty); ctx.stroke();
+        AB.handle(ctx, c.X(v), ty, { r: 8, fill: p.accent, ring: p.text });
+      });
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+      ctx.fillText("손 길이(mm, 예시값)", box.x + box.w, box.y + box.h + 30);
+      geo = { c: c, ty: ty };
+      var plo = mixCdf(M, lim.lo), phi = mixCdf(M, lim.hi), inn = phi - plo;
+      AB.stat("pc-o-lo", AB.fix(lim.lo, 0) + " mm <small>" + ordinal(plo) + "</small>");
+      AB.stat("pc-o-hi", AB.fix(lim.hi, 0) + " mm <small>" + ordinal(phi) + "</small>");
+      AB.stat("pc-o-in", AB.pct(inn, 1));
+      AB.stat("pc-o-out", Math.round((1 - inn) * 1000) + "명 <small>짧은 쪽 " + Math.round(plo * 1000) + " · 긴 쪽 " + Math.round((1 - phi) * 1000) + "</small>");
+    }, H("pc-cv", 0.56, 280, 380));
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!geo) return; var c = geo.c; act = Math.abs(x - c.X(lim.lo)) <= Math.abs(x - c.X(lim.hi)) ? "lo" : "hi"; },
+      move: function (x) {
+        if (!geo || !act) return; var c = geo.c, v = AB.clamp(X0 + (x - c.box.x) / c.box.w * (X1 - X0), X0, X1);
+        if (act === "lo") lim.lo = Math.min(v, lim.hi - 1); else lim.hi = Math.max(v, lim.lo + 1);
+        var sn = document.getElementById("pc-snap"); if (sn.checked) sn.checked = false;
+        cv.redraw();
+      },
+      end: function () { act = null; }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 2: 평균의 사람은 없다 ---------------- */
+  safe("avg", function () {
+    var NP = 4000, D = 10, R = AB.rng(1952), spare = null;
+    function g() { if (spare != null) { var s = spare; spare = null; return s; } var u = Math.max(1e-9, R()), v = R(), m = Math.sqrt(-2 * Math.log(u)); spare = m * Math.sin(6.283185 * v); return m * Math.cos(6.283185 * v); }
+    var C = new Float32Array(NP), E = new Float32Array(NP * D);
+    for (var i = 0; i < NP; i++) { C[i] = g(); for (var d = 0; d < D; d++) E[i * D + d] = g(); }
+    var nG = AB.range("av-n", function (v) { return v + "개"; }, function () { cv.redraw(); });
+    var rG = AB.range("av-r", function (v) { return AB.fix(v, 1); }, function () { cv.redraw(); });
+    var band = AB.seg("av-band", function () { cv.redraw(); });
+    var cv = AB.canvas("#av-cv", function (ctx, w, h) {
+      var p = AB.palette(), n = nG(), r = rG(), zc = band() === "mid" ? 0.3853 : Z95, a = Math.sqrt(r), b = Math.sqrt(1 - r);
+      var S = Math.min(w - 40, h - 40), ox = (w - S) / 2, oy = (h - S) / 2, L = 3.2;
+      var X = function (z) { return ox + (z + L) / (2 * L) * S; }, Y = function (z) { return oy + S - (z + L) / (2 * L) * S; };
+      // 축과 띠
+      ctx.fillStyle = p.accent; ctx.globalAlpha = 0.08;
+      ctx.fillRect(X(-zc), oy, X(zc) - X(-zc), S); ctx.fillRect(ox, Y(zc), S, Y(-zc) - Y(zc)); ctx.globalAlpha = 1;
+      ctx.strokeStyle = p.border; ctx.lineWidth = 1; ctx.strokeRect(ox, oy, S, S);
+      ctx.strokeStyle = p.accent; ctx.globalAlpha = 0.6; ctx.setLineDash([4, 3]);
+      [-zc, zc].forEach(function (z) { ctx.beginPath(); ctx.moveTo(X(z), oy); ctx.lineTo(X(z), oy + S); ctx.stroke(); ctx.beginPath(); ctx.moveTo(ox, Y(z)); ctx.lineTo(ox + S, Y(z)); ctx.stroke(); });
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      var all = 0, one = 0;
+      for (var i = 0; i < NP; i++) {
+        var ok = true, z0 = 0, z1 = 0;
+        for (var d = 0; d < n; d++) { var z = a * C[i] + b * E[i * D + d]; if (d === 0) z0 = z; if (Math.abs(z) > zc) ok = false; }
+        z1 = a * C[i] + b * E[i * D + 1];
+        if (Math.abs(z0) <= zc) one++;
+        if (ok) all++;
+        if (i < 1400 || ok) {
+          ctx.fillStyle = ok ? p.accent : p.faint; ctx.globalAlpha = ok ? 0.95 : 0.45;
+          var rr = ok ? 2.6 : 1.6; ctx.beginPath(); ctx.arc(X(AB.clamp(z0, -L, L)), Y(AB.clamp(z1, -L, L)), rr, 0, 7); ctx.fill();
+        }
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("치수 1 →", ox + S / 2, oy + S + 4);
+      ctx.save(); ctx.translate(ox - 6, oy + S / 2); ctx.rotate(-Math.PI / 2); ctx.textBaseline = "bottom"; ctx.fillText("치수 2 →", 0, 0); ctx.restore();
+      var pin = band() === "mid" ? 0.3 : 0.9, ind = Math.pow(pin, n) * NP;
+      AB.stat("av-o-all", all.toLocaleString("ko-KR") + "명 <small>/ 4,000 · " + AB.pct(all / NP, all / NP < 0.01 ? 2 : 1) + "</small>");
+      AB.stat("av-o-ind", (ind >= 10 ? Math.round(ind).toLocaleString("ko-KR") : AB.fix(ind, ind >= 1 ? 1 : 3)) + "명 <small>" + AB.fix(pin, 1) + "<sup>" + n + "</sup></small>");
+      AB.stat("av-o-one", one.toLocaleString("ko-KR") + "명 <small>" + AB.pct(one / NP, 0) + "</small>");
+    }, H("av-cv", 0.62, 280, 400));
+  });
+
+  /* ---------------- 시뮬레이터 3: 필요한 조절 폭 ---------------- */
+  safe("adj", function () {
+    var M = [{ m: 385, s: 20, w: 0.5 }, { m: 425, s: 22, w: 0.5 }], X0 = 320, X1 = 500;
+    var rng = { a: 372, b: 388 }, geo = null, act = null;
+    var mode = AB.seg("ad-mode", function (v) { if (v === "fixed") { var mid = (rng.a + rng.b) / 2; rng.a = rng.b = mid; } else if (rng.b - rng.a < 10) { rng.a -= 20; rng.b += 20; } cv.redraw(); });
+    var tG = AB.range("ad-t", function (v) { return v + " mm"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#ad-cv", function (ctx, w, h) {
+      var p = AB.palette(), T = tG();
+      var box = { x: 46, y: 18, w: w - 64, h: h - 96 };
+      var ymax = 0; for (var x = X0; x <= X1; x += 1) ymax = Math.max(ymax, mixPdf(M, x));
+      var c = AB.chart(ctx, box, { x: [X0, X1], y: [0, ymax * 1.15], xTicks: [320, 350, 380, 410, 440, 470, 500], yTicks: [] });
+      // 맞는 사람: 오금 높이 P가 [a, b+T]
+      var lo = rng.a, hi = rng.b + T;
+      ctx.save(); ctx.beginPath(); ctx.moveTo(c.X(Math.max(X0, lo)), c.Y(0));
+      for (var x2 = Math.max(X0, lo); x2 <= Math.min(X1, hi); x2 += 1) ctx.lineTo(c.X(x2), c.Y(mixPdf(M, x2)));
+      ctx.lineTo(c.X(Math.min(X1, hi)), c.Y(0)); ctx.closePath(); ctx.fillStyle = p.ok; ctx.globalAlpha = 0.3; ctx.fill(); ctx.restore();
+      ctx.strokeStyle = p.accent; ctx.lineWidth = 2.5; ctx.beginPath();
+      for (var x3 = X0; x3 <= X1; x3 += 1) { var y3 = c.Y(mixPdf(M, x3)); x3 === X0 ? ctx.moveTo(c.X(x3), y3) : ctx.lineTo(c.X(x3), y3); }
+      ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "top";
+      ctx.fillText("오금 높이 분포(mm, 예시값)", box.x + box.w, box.y + 2);
+      // 좌판 높이 트랙
+      var ty = box.y + box.h + 50;
+      ctx.fillStyle = p.dim; ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("좌판 높이", box.x, ty - 10);
+      ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, ty); ctx.lineTo(box.x + box.w, ty); ctx.stroke();
+      ctx.strokeStyle = p.accent2; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(c.X(rng.a), ty); ctx.lineTo(c.X(rng.b) + 0.5, ty); ctx.stroke();
+      // 띠: 좌판 b에서 위로 T만큼 사람까지
+      ctx.strokeStyle = p.ok; ctx.lineWidth = 2; ctx.setLineDash([4, 3]);
+      ctx.beginPath(); ctx.moveTo(c.X(rng.a), ty - 6); ctx.lineTo(c.X(rng.a), c.Y(0)); ctx.moveTo(c.X(Math.min(X1, hi)), ty - 6); ctx.lineTo(c.X(Math.min(X1, hi)), c.Y(0)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle = p.ok; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(c.X(rng.b), ty - 14); ctx.lineTo(c.X(Math.min(X1, hi)), ty - 14); ctx.stroke();
+      ctx.fillStyle = p.ok; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      if (c.X(Math.min(X1, hi)) - c.X(rng.b) > 40) ctx.fillText("+편한 띠", (c.X(rng.b) + c.X(Math.min(X1, hi))) / 2, ty - 16);
+      if (mode() === "fixed") AB.handle(ctx, c.X(rng.a), ty, { r: 8, fill: p.accent2, ring: p.text });
+      else { AB.handle(ctx, c.X(rng.a), ty, { r: 8, fill: p.accent2, ring: p.text }); AB.handle(ctx, c.X(rng.b), ty, { r: 8, fill: p.accent2, ring: p.text }); }
+      geo = { c: c };
+      var inn = mixCdf(M, hi) - mixCdf(M, lo), need = Math.max(0, mixInv(M, 0.95) - mixInv(M, 0.05) - T);
+      AB.stat("ad-o-rng", mode() === "fixed" ? AB.fix(rng.a, 0) + " mm" : AB.fix(rng.a, 0) + "~" + AB.fix(rng.b, 0) + " mm");
+      AB.stat("ad-o-w", AB.fix(rng.b - rng.a, 0) + " mm");
+      AB.stat("ad-o-in", AB.pct(inn, 1));
+      AB.stat("ad-o-need", AB.fix(need, 0) + " mm <small>" + AB.fix(mixInv(M, 0.05), 0) + "~" + AB.fix(mixInv(M, 0.95) - T, 0) + "</small>");
+    }, H("ad-cv", 0.56, 280, 380));
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!geo) return; var c = geo.c; act = mode() === "fixed" ? "both" : (Math.abs(x - c.X(rng.a)) <= Math.abs(x - c.X(rng.b)) ? "a" : "b"); },
+      move: function (x) {
+        if (!geo || !act) return; var c = geo.c, v = Math.round(AB.clamp(X0 + (x - c.box.x) / c.box.w * (X1 - X0), X0, X1 - 20));
+        if (act === "both") rng.a = rng.b = v; else if (act === "a") rng.a = Math.min(v, rng.b); else rng.b = Math.max(v, rng.a);
+        cv.redraw();
+      },
+      end: function () { act = null; }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 4: 손잡이 지름과 감싸기 ---------------- */
+  safe("grip", function () {
+    var HANDS = [165, 180, 195], KF = 0.55, KT = 0.3;
+    function wrapOf(d, hl) { return Math.PI * d / ((KF + KT) * hl); }          // 둘레 ÷ 감쌀 수 있는 길이
+    function strength(wr) { return Math.exp(-Math.pow((wr - 0.85) / 0.32, 2)); } // 모양 모형
+    function okRange(hl) { // 감싸기 비율 0.65~1.0
+      return [0.65 * (KF + KT) * hl / Math.PI, 1.0 * (KF + KT) * hl / Math.PI];
+    }
+    var dG = AB.range("gr-d", function (v) { return v + " mm"; }, function () { cv.redraw(); });
+    var hand = AB.seg("gr-hand", function () { cv.redraw(); });
+    var geo = null;
+    var cv = AB.canvas("#gr-cv", function (ctx, w, h) {
+      var p = AB.palette(), d = dG(), hl = HANDS[+hand()], wr = wrapOf(d, hl);
+      // 위: 단면 그림
+      var topH = h * 0.56, cx = w / 2, cy = topH / 2 + 6, sc = Math.min(w * 0.42, topH * 0.8) / 80; // 80 mm가 화면에 들어가게
+      var r = d / 2 * sc, R = r + 7;
+      ctx.fillStyle = p.surface; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill();
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11, true); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("Ø" + d, cx, cy);
+      // 손바닥(아래쪽 접선)
+      ctx.strokeStyle = p.faint; ctx.lineWidth = 12; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(cx - r - 18, cy + R + 2); ctx.lineTo(cx + r * 0.2, cy + R + 2); ctx.stroke();
+      // 손가락과 엄지: 손바닥(아래)에서 출발해 서로 반대 방향으로 감싼다. 둘을 합친 각 = 2π / 감싸기 비율
+      var a0 = Math.PI / 2, tot = 2 * Math.PI / wr, angF = tot * KF / (KF + KT), angT = tot * KT / (KF + KT);
+      ctx.lineCap = "round"; ctx.globalAlpha = 0.75;
+      ctx.strokeStyle = p.accent; ctx.lineWidth = 11;
+      ctx.beginPath(); ctx.arc(cx, cy, R, a0 - 0.12, a0 - 0.12 - Math.min(angF, 2.2 * Math.PI), true); ctx.stroke();
+      ctx.strokeStyle = p.accent2; ctx.lineWidth = 11;
+      ctx.beginPath(); ctx.arc(cx, cy, R + 12, a0 + 0.12, a0 + 0.12 + Math.min(angT, 2.2 * Math.PI), false); ctx.stroke();
+      ctx.globalAlpha = 1; ctx.lineCap = "butt";
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillStyle = p.accent; ctx.fillText("손가락", 10, 8); ctx.fillStyle = p.accent2; ctx.fillText("엄지", 10, 24);
+      // 아래: 상대 쥐는 힘 곡선
+      var box = { x: 46, y: topH + 18, w: w - 64, h: h - topH - 52 };
+      var ser = [[], [], []];
+      for (var dd = 15; dd <= 75; dd += 1) for (var k = 0; k < 3; k++) ser[k].push([dd, strength(wrapOf(dd, HANDS[k]))]);
+      var hi = +hand();
+      var c = AB.chart(ctx, box, { x: [15, 75], y: [0, 1.05], xTicks: [15, 25, 35, 45, 55, 65, 75], yTicks: [0, 0.5, 1], yFmt: function (v) { return v === 1 ? "최대" : v ? "½" : "0"; },
+        series: ser.map(function (s, k) { return { data: s, color: k === hi ? p.accent : p.faint, width: k === hi ? 2.5 : 1.2, dash: k === hi ? [] : [4, 3] }; }) });
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("상대 쥐는 힘(모양 모형)", box.x + box.w, box.y - 2);
+      AB.handle(ctx, c.X(d), c.Y(strength(wr)), { r: 7, fill: p.accent, ring: p.text });
+      geo = { c: c, cx: cx };
+      var st = wr < 0.6 ? "손가락이 남는다 <small>손바닥을 파고든다</small>" : wr < 0.65 ? "조금 가늘다" : wr <= 1.0 ? "감싸 쥔다 <small>힘 쓰기 좋다</small>" : wr <= 1.15 ? "엄지와 손가락이 떨어진다" : "감싸지 못한다 <small>열린 쥐기</small>";
+      AB.stat("gr-o-w", AB.fix(wr, 2) + " <small>" + (wr <= 1 ? "겹침 " + AB.fix((1 - wr) * 100, 0) + "%" : "틈 " + AB.fix((wr - 1) * 100, 0) + "%") + "</small>");
+      AB.stat("gr-o-s", st);
+      var lo = okRange(HANDS[2])[0], up = okRange(HANDS[0])[1];
+      AB.stat("gr-o-all", lo <= up ? AB.fix(lo, 0) + "~" + AB.fix(up, 0) + " mm" : "없음");
+    }, H("gr-cv", 0.8, 360, 500));
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; var c = geo.c; dG.set(Math.round(AB.clamp(15 + (x - c.box.x) / c.box.w * 60, 15, 75))); } });
+  });
+
+  /* ---------------- 클립 모형(시뮬레이터 5·6 공통) ---------------- */
+  // 초기 토크는 강성의 0.6배(같은 굵기의 철사를 같은 만큼 미리 감는다고 둔 가정): 약·중·강 72·120·210 N·mm
+  var CLIP = { Lj: 30, pre: 0.6, smin: 8, thick: 8 };
+  function thetaMax(g) { return g / CLIP.Lj; }
+  function openForce(Lh, k, th) { return (CLIP.pre * k + k * th) / Lh; }
+  function spanAt(Lh, thMax) { return CLIP.smin + Lh * thMax + CLIP.thick; }   // 집기 시작할 때(입이 닫혀 있을 때) 손가락 벌림
+  function clampForce(k, t) { return (CLIP.pre * k + k * (t / CLIP.Lj)) / CLIP.Lj; }
+
+  /* ---------------- 시뮬레이터 5: 클립을 열어 보기 ---------------- */
+  safe("clip", function () {
+    var GMAX = 22, th = 0, geo = null;
+    var lG = AB.range("cl-l", function (v) { return v + " mm"; }, function () { cv.redraw(); });
+    var kG = AB.seg("cl-k", function () { cv.redraw(); });
+    var cv = AB.canvas("#cl-cv", function (ctx, w, h) {
+      var Lh = lG(), k = +kG(), tm = thetaMax(GMAX), Lj = CLIP.Lj;
+      th = AB.clamp(th, 0, tm);
+      var sc = Math.min((w - 70) / (Lj + 50 + 26), (h - 34) / 84);
+      var px = 34 + (Lj + 6) * sc, py = h - 22 * sc;
+      var hGap = CLIP.smin + Lh * (tm - th), jGap = Lj * th;
+      var INK = "#2b2a30", BODY = "#2f7d5b", BODY2 = "#245f46", SKIN = "#e8b894", SKIN2 = "#c98f68", COVER = "#c9a24a";
+      // 책 표지(입이 열리면 들어간다)
+      var ins = Math.min(jGap, GMAX);
+      ctx.fillStyle = COVER; ctx.globalAlpha = 0.85;
+      var tcov = Math.max(0, ins - 1);
+      if (tcov > 0.5) ctx.fillRect(4, py - tcov * sc, px - (Lj * 0.45) * sc - 4, tcov * sc);
+      ctx.globalAlpha = 1;
+      // 목표 벌림 점선
+      ctx.strokeStyle = "#8a8578"; ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
+      ctx.strokeRect(6, py - GMAX * sc, (Lj * 0.6) * sc, GMAX * sc); ctx.setLineDash([]);
+      ctx.fillStyle = "#6b6874"; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("22 mm 머리판", 8, py - GMAX * sc - 3);
+      // 아래팔(고정): 입 끝 → 피벗 → 손잡이 끝
+      ctx.lineCap = "round"; ctx.lineJoin = "round";
+      ctx.strokeStyle = BODY2; ctx.lineWidth = 4 * sc;
+      ctx.beginPath(); ctx.moveTo(px - Lj * sc, py); ctx.lineTo(px, py); ctx.lineTo(px + Lh * sc, py); ctx.stroke();
+      // 위팔: 피벗(조금 위)을 중심으로. 입 끝은 jGap만큼, 손잡이 끝은 hGap만큼 위
+      var pyU = py - 4.5 * sc;
+      ctx.strokeStyle = BODY; ctx.lineWidth = 4 * sc;
+      ctx.beginPath(); ctx.moveTo(px - Lj * sc, py - jGap * sc - 0.2 * sc); ctx.lineTo(px, pyU); ctx.lineTo(px + Lh * sc, py - hGap * sc); ctx.stroke();
+      // 입 끝 이빨
+      ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(px - Lj * sc, py - jGap * sc, 1.6 * sc, 0, 7); ctx.arc(px - Lj * sc, py, 1.6 * sc, 0, 7); ctx.fill();
+      // 피벗과 스프링
+      ctx.fillStyle = "#d9d4c8"; ctx.beginPath(); ctx.arc(px, py - 2.2 * sc, 4.2 * sc, 0, 7); ctx.fill();
+      ctx.strokeStyle = "#6f6a60"; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.strokeStyle = "#8f8a80"; ctx.lineWidth = 1.2; for (var q = 0; q < 3; q++) { ctx.beginPath(); ctx.arc(px, py - 2.2 * sc, (1.2 + q * 0.9) * sc, 0, 7); ctx.stroke(); }
+      // 손가락(엄지 위, 검지 아래)
+      var fx = px + Lh * sc;
+      ctx.fillStyle = SKIN; ctx.strokeStyle = SKIN2; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.ellipse(fx, py - hGap * sc - 2 * sc - 6.5 * sc, 8 * sc, 6.5 * sc, -0.15, 0, 7); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(fx, py + 2 * sc + 6 * sc, 8 * sc, 6 * sc, 0.15, 0, 7); ctx.fill(); ctx.stroke();
+      // 손가락 벌림 치수선(지금)
+      var sNow = hGap + CLIP.thick;
+      ctx.strokeStyle = "#b5179e"; ctx.lineWidth = 1.2; var dx = fx + 12 * sc;
+      ctx.beginPath(); ctx.moveTo(dx, py + 2 * sc); ctx.lineTo(dx, py - hGap * sc - 2 * sc); ctx.stroke();
+      ctx.fillStyle = "#b5179e"; ctx.font = AB.font(11, true, 700); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText(AB.fix(sNow, 0) + " mm", Math.min(w - 50, dx + 5), py - hGap * sc / 2);
+      // 손잡이 위 손잡이 원
+      AB.handle(ctx, fx, py - hGap * sc, { r: 7, fill: "#ffffff", ring: INK });
+      // 입 벌림 글자
+      ctx.fillStyle = INK; ctx.font = AB.font(11, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.fillText("입 " + AB.fix(jGap, 1) + " mm", px - Lj * sc * 0.55, py - Math.max(jGap, GMAX) * sc - 16);
+      geo = { px: px, py: py, sc: sc, Lh: Lh, tm: tm };
+      var F = openForce(Lh, k, th), Fmax = openForce(Lh, k, tm);
+      AB.stat("cl-o-g", AB.fix(jGap, 1) + " mm <small>/ 22</small>");
+      AB.stat("cl-o-f", AB.fix(F, 1) + " N <small>끝까지 " + AB.fix(Fmax, 1) + " N</small>");
+      AB.stat("cl-o-s", AB.fix(spanAt(Lh, tm), 0) + " mm");
+      var cf = clampForce(k, 3);
+      AB.stat("cl-o-c", AB.fix(cf, 1) + " N <small>" + (cf >= 4 ? "단단히 문다" : "미끄러질 수 있다") + "</small>");
+    }, H("cl-cv", 0.62, 260, 360, "#fbfaf7"));
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var g = geo, hGap = (g.py - y) / g.sc; // 손잡이 끝의 높이 = 손잡이 사이
+        th = AB.clamp(g.tm - (hGap - CLIP.smin) / g.Lh, 0, g.tm); cv.redraw();
+      },
+      end: function () { th = 0; cv.redraw(); }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 6: 손잡이 길이의 창 ---------------- */
+  safe("win", function () {
+    var SPAN = { m: 62, s: 9 }, FORCE = { m: 55, s: 15 }, FR = 1 / 3, ZZ = { 5: -Z95, 50: 0, 95: Z95 };
+    var Lh = 16, geo = null, L0 = 10, L1 = 60;
+    var hand = AB.seg("wn-hand", function () { cv.redraw(); });
+    var kG = AB.range("wn-k", function (v) { return v + " N·mm/rad"; }, function () { cv.redraw(); });
+    var gG = AB.range("wn-g", function (v) { return v + " mm"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#wn-cv", function (ctx, w, h) {
+      var p = AB.palette(), k = kG(), tm = thetaMax(gG()), z = ZZ[hand()];
+      var sLim = SPAN.m + z * SPAN.s, fLim = (FORCE.m + z * FORCE.s) * FR;
+      // 창 계산
+      var Lmin = (CLIP.pre * k + k * tm) / fLim, Lmax = (sLim - CLIP.smin - CLIP.thick) / tm;
+      var gap = 26, bh = (h - 70 - gap) / 2;
+      var b1 = { x: 50, y: 16, w: w - 66, h: bh }, b2 = { x: 50, y: 16 + bh + gap, w: w - 66, h: bh };
+      var fS = [], sS = [];
+      for (var L = L0; L <= L1; L += 0.5) { fS.push([L, openForce(L, k, tm)]); sS.push([L, spanAt(L, tm)]); }
+      var bands = [];
+      var c1 = AB.chart(ctx, b1, { x: [L0, L1], y: [0, 40], xTicks: [10, 20, 30, 40, 50, 60], yTicks: [0, 10, 20, 30, 40], xFmt: function () { return ""; }, bands: bands,
+        series: [{ data: fS, color: p.accent, width: 2.5 }], hlines: [{ y: fLim, color: p.bad, label: "편한 힘 한계 " + AB.fix(fLim, 1) + " N" }] });
+      var c2 = AB.chart(ctx, b2, { x: [L0, L1], y: [20, 90], xTicks: [10, 20, 30, 40, 50, 60], yTicks: [20, 40, 60, 80], bands: bands,
+        series: [{ data: sS, color: p.accent2, width: 2.5 }], hlines: [{ y: sLim, color: p.bad, label: "벌림 한계 " + AB.fix(sLim, 0) + " mm" }] });
+      if (Lmin < Lmax && Lmin < L1 && Lmax > L0) {
+        var wx0 = c1.X(AB.clamp(Lmin, L0, L1)), wx1 = c1.X(AB.clamp(Lmax, L0, L1));
+        ctx.fillStyle = p.ok; ctx.globalAlpha = 0.16; ctx.fillRect(wx0, b1.y, wx1 - wx0, b1.h); ctx.fillRect(wx0, b2.y, wx1 - wx0, b2.h); ctx.globalAlpha = 1;
+        ctx.fillStyle = p.ok; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top";
+        if (wx1 - wx0 > 24) ctx.fillText("창", (wx0 + wx1) / 2, b1.y + b1.h + 6);
+      } else { ctx.fillStyle = p.bad; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("창 닫힘", b1.x + b1.w / 2, b1.y + b1.h + 6); }
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.textAlign = "right"; ctx.fillText("여는 힘(N)", b1.x + b1.w - 6, b1.y + 2); ctx.textAlign = "left"; ctx.fillText("손가락 벌림(mm)", b2.x + 6, b2.y + 2);
+      ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("손잡이 길이 Lh (mm)", b2.x + b2.w / 2, b2.y + b2.h + 22);
+      // 커서
+      var X = c1.X(Lh);
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X, b1.y); ctx.lineTo(X, b2.y + b2.h); ctx.stroke();
+      var F = openForce(Lh, k, tm), S = spanAt(Lh, tm);
+      AB.handle(ctx, X, c1.Y(Math.min(40, F)), { r: 6, fill: p.accent, ring: p.text });
+      AB.handle(ctx, X, c2.Y(AB.clamp(S, 20, 90)), { r: 6, fill: p.accent2, ring: p.text });
+      geo = { c: c1 };
+      var okF = F <= fLim, okS = S <= sLim;
+      // 예시 분포에서 열 수 있는 사람: 벌림 능력 ≥ S 이고 편한 힘 ≥ F
+      var pS = 1 - Phi((S - SPAN.m) / SPAN.s), pF = 1 - Phi((F / FR - FORCE.m) / FORCE.s);
+      AB.stat("wn-o-l", AB.fix(Lh, 0) + " mm <small>" + (Lmin < Lmax ? "창 " + AB.fix(Math.max(Lmin, L0), 0) + "~" + AB.fix(Math.min(Lmax, L1), 0) : "창 닫힘") + "</small>");
+      AB.stat("wn-o-f", AB.fix(F, 1) + " N <small>" + (okF ? "≤ " : "> ") + AB.fix(fLim, 1) + "</small>");
+      AB.stat("wn-o-s", AB.fix(S, 0) + " mm <small>" + (okS ? "≤ " : "> ") + AB.fix(sLim, 0) + "</small>");
+      AB.stat("wn-o-p", AB.pct(pS * pF, 1) + " <small>벌림 " + AB.pct(pS, 0) + " × 힘 " + AB.pct(pF, 0) + "</small>");
+    }, H("wn-cv", 0.72, 340, 460));
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; var c = geo.c; Lh = Math.round(AB.clamp(L0 + (x - c.box.x) / c.box.w * (L1 - L0), L0, L1)); cv.redraw(); } });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,971 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "플라스틱 부품은 두께 대신 리브로 버티고, 보스에 나사를 받고, 스냅핏으로 서로 걸린다. 리브의 강성과 싱크, 보스의 비례, 스냅핏 변형률, 공차 누적(최악 조건과 통계), 부품 수를 줄이는 조립 설계를 독서등 몸통으로 조작해 본다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구조와 조립 · IndustrialBook</title>
+<meta name="description" content="플라스틱 부품은 두께 대신 리브로 버티고, 보스에 나사를 받고, 스냅핏으로 서로 걸린다. 리브의 강성과 싱크, 보스의 비례, 스냅핏 변형률, 공차 누적(최악 조건과 통계), 부품 수를 줄이는 조립 설계를 독서등 몸통으로 조작해 본다.">
+<link rel="canonical" href="https://artbook.euiyun.com/industrial/chapters/assembly.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="구조와 조립 · IndustrialBook">
+<meta property="og:description" content="플라스틱 부품은 두께 대신 리브로 버티고, 보스에 나사를 받고, 스냅핏으로 서로 걸린다. 리브의 강성과 싱크, 보스의 비례, 스냅핏 변형률, 공차 누적(최악 조건과 통계), 부품 수를 줄이는 조립 설계를 독서등 몸통으로 조작해 본다.">
+<meta property="og:url" content="https://artbook.euiyun.com/industrial/chapters/assembly.html">
+<meta property="og:image" content="https://artbook.euiyun.com/industrial/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/industrial/chapters/assembly.html#chapter","name":"구조와 조립","headline":"구조와 조립 · IndustrialBook","description":"플라스틱 부품은 두께 대신 리브로 버티고, 보스에 나사를 받고, 스냅핏으로 서로 걸린다. 리브의 강성과 싱크, 보스의 비례, 스냅핏 변형률, 공차 누적(최악 조건과 통계), 부품 수를 줄이는 조립 설계를 독서등 몸통으로 조작해 본다.","url":"https://artbook.euiyun.com/industrial/chapters/assembly.html","position":9,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/industrial/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/industrial/#book","name":"IndustrialBook · 산업디자인","url":"https://artbook.euiyun.com/industrial/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"IndustrialBook · 산업디자인","item":"https://artbook.euiyun.com/industrial/"},{"@type":"ListItem","position":3,"name":"9. 구조와 조립","item":"https://artbook.euiyun.com/industrial/chapters/assembly.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body data-chapter="assembly">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 09</div>
+    <h1>구조와 조립</h1>
+    <p class="lead">아무 플라스틱 물건이나 하나 뒤집어 열어 보면 겉에서 보이지 않던 것들이 나온다. 얇은 벽을 가로지르는 지느러미 같은 판, 나사를 받는 작은 기둥, 서로 맞물리는 갈고리. 겉모습은 형태가 정하지만 물건이 버티고 닫히고 다시 열리는 일은 이 속 구조가 맡는다. 이 장은 두께를 늘리지 않고 단단하게 만드는 법, 나사와 갈고리로 부품을 잇는 법, 그리고 한 부품 한 부품의 작은 오차가 쌓여 버튼을 끼이게 만드는 과정을 직접 휘고 더해 보며 살핀다.</p>
+    <ul class="objectives">
+      <li>나사, 인서트, 스냅핏, 접착, 초음파 용착, 압입이 각각 무엇을 내주고 무엇을 얻는지 비교한다.</li>
+      <li>살을 두껍게 하는 대신 리브를 세우면 무게는 조금 늘고 굽힘 강성은 크게 는다는 것을 단면으로 확인하고, 리브가 싱크 자국을 만드는 조건을 안다.</li>
+      <li>나사 보스의 바깥지름과 뿌리 모깎기가 갈라짐과 싱크 사이에서 어떻게 거래되는지 본다.</li>
+      <li>외팔보 스냅핏의 변형률 \(\varepsilon \approx 1.5\,t\,y/L^2\)으로 부러질지를 미리 판단하고, 끼우는 힘과 빼는 힘을 각도로 조절한다.</li>
+      <li>공차 누적을 최악 조건과 통계(RSS)로 셈하고, 사슬을 줄여 틈을 지키는 설계를 한다. 부품 수를 줄이는 조립 설계(DFA)의 세 질문을 쓴다.</li>
+    </ul>
+  </header>
+
+  <section id="joints">
+    <h2>부품을 잇는 여섯 가지 방법</h2>
+    <p>손에 쥐는 물건은 거의 언제나 여러 부품으로 되어 있다. 금형에서 한 번에 뽑을 수 있는 형태에는 한계가 있고(<a href="process.html">8장</a>의 언더컷), 재료가 다른 것(기판, 충전지, 스프링)은 따로 만들 수밖에 없고, 열어서 고쳐야 하는 칸도 있다. 그래서 산업디자이너는 형태를 그리는 동시에 <b>어디서 나누고 어떻게 이을지</b>를 정한다. 부품이 만나는 선, 곧 <span class="term">파팅 라인</span><span class="en">(Parting line)</span>과 부품을 묶는 <span class="term">체결</span><span class="en">(Fastening, Joining)</span> 방식은 겉모습과 비용과 수명을 함께 바꾼다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="부품을 잇는 여섯 가지 방법의 단면 그림: 태핑 나사, 인서트, 스냅핏, 접착, 초음파 용착, 압입">
+        <defs><marker id="as-ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <!-- 1 태핑 나사 -->
+        <g transform="translate(14,14)">
+          <rect x="0" y="0" width="136" height="128" rx="8" class="f-surface"/>
+          <rect x="22" y="22" width="92" height="12" class="f-acc2-soft"/><rect x="22" y="22" width="92" height="12" fill="none" class="s-line"/>
+          <rect x="50" y="34" width="36" height="58" class="f-elev"/><rect x="50" y="34" width="36" height="58" fill="none" class="s-line"/>
+          <rect x="22" y="92" width="92" height="10" class="f-elev"/><rect x="22" y="92" width="92" height="10" fill="none" class="s-line"/>
+          <rect x="58" y="14" width="20" height="8" class="f-acc"/>
+          <path d="M64 22 L64 80 L68 86 L72 80 L72 22" class="f-acc"/>
+          <path d="M60 40 L76 36 M60 50 L76 46 M60 60 L76 56 M60 70 L76 66" class="s-line"/>
+          <text x="68" y="120" text-anchor="middle" class="lbl-b" style="font-size:12px">태핑 나사 + 보스</text>
+        </g>
+        <!-- 2 인서트 -->
+        <g transform="translate(162,14)">
+          <rect x="0" y="0" width="136" height="128" rx="8" class="f-surface"/>
+          <rect x="22" y="22" width="92" height="12" class="f-acc2-soft"/><rect x="22" y="22" width="92" height="12" fill="none" class="s-line"/>
+          <rect x="46" y="34" width="44" height="58" class="f-elev"/><rect x="46" y="34" width="44" height="58" fill="none" class="s-line"/>
+          <rect x="22" y="92" width="92" height="10" class="f-elev"/><rect x="22" y="92" width="92" height="10" fill="none" class="s-line"/>
+          <rect x="57" y="34" width="22" height="30" class="f-warn"/>
+          <path d="M57 40 h22 M57 46 h22 M57 52 h22 M57 58 h22" class="s-line"/>
+          <rect x="60" y="14" width="16" height="8" class="f-acc"/><rect x="65" y="22" width="6" height="40" class="f-acc"/>
+          <text x="68" y="120" text-anchor="middle" class="lbl-b" style="font-size:12px">금속 인서트 + 기계 나사</text>
+        </g>
+        <!-- 3 스냅핏 -->
+        <g transform="translate(310,14)">
+          <rect x="0" y="0" width="136" height="128" rx="8" class="f-surface"/>
+          <path d="M20 26 h96 v12 h-40 v-0 h-56 z" class="f-acc2-soft"/><path d="M20 26 h96 v12 h-96 z" fill="none" class="s-line"/>
+          <path d="M84 38 v8 h-6 v-8" class="f-acc2-soft"/>
+          <rect x="20" y="92" width="96" height="10" class="f-elev"/><rect x="20" y="92" width="96" height="10" fill="none" class="s-line"/>
+          <path d="M62 92 L62 44 L70 44 L70 50 L78 56 L70 62 L70 92 Z" class="f-elev"/><path d="M62 92 L62 44 L70 44 L70 50 L78 56 L70 62 L70 92 Z" fill="none" class="s-line"/>
+          <path d="M78 52 L88 44" class="s-acc" marker-end="url(#as-ar1)"/>
+          <text x="68" y="120" text-anchor="middle" class="lbl-b" style="font-size:12px">스냅핏(갈고리)</text>
+        </g>
+        <!-- 4 접착 -->
+        <g transform="translate(14,156)">
+          <rect x="0" y="0" width="136" height="128" rx="8" class="f-surface"/>
+          <rect x="22" y="38" width="92" height="16" class="f-acc2-soft"/><rect x="22" y="38" width="92" height="16" fill="none" class="s-line"/>
+          <rect x="22" y="54" width="92" height="4" class="f-warn"/>
+          <rect x="22" y="58" width="92" height="16" class="f-elev"/><rect x="22" y="58" width="92" height="16" fill="none" class="s-line"/>
+          <text x="68" y="96" text-anchor="middle" class="lbl-dim" style="font-size:11px">접착제 층</text>
+          <text x="68" y="120" text-anchor="middle" class="lbl-b" style="font-size:12px">접착·양면테이프</text>
+        </g>
+        <!-- 5 초음파 용착 -->
+        <g transform="translate(162,156)">
+          <rect x="0" y="0" width="136" height="128" rx="8" class="f-surface"/>
+          <rect x="22" y="40" width="92" height="16" class="f-acc2-soft"/><rect x="22" y="40" width="92" height="16" fill="none" class="s-line"/>
+          <path d="M60 56 L68 66 L76 56 Z" class="f-bad-soft"/><path d="M60 56 L68 66 L76 56" fill="none" class="s-bad"/>
+          <rect x="22" y="66" width="92" height="16" class="f-elev"/><rect x="22" y="66" width="92" height="16" fill="none" class="s-line"/>
+          <path d="M52 30 q4 -6 8 0 t8 0 t8 0 t8 0" fill="none" class="s-acc"/>
+          <text x="68" y="100" text-anchor="middle" class="lbl-dim" style="font-size:11px">돌기가 녹아 붙는다</text>
+          <text x="68" y="120" text-anchor="middle" class="lbl-b" style="font-size:12px">초음파 용착</text>
+        </g>
+        <!-- 6 압입 -->
+        <g transform="translate(310,156)">
+          <rect x="0" y="0" width="136" height="128" rx="8" class="f-surface"/>
+          <rect x="40" y="58" width="56" height="34" class="f-elev"/><rect x="40" y="58" width="56" height="34" fill="none" class="s-line"/>
+          <rect x="60" y="58" width="16" height="34" class="f-surface"/>
+          <rect x="59" y="26" width="18" height="52" class="f-acc"/>
+          <path d="M68 14 L68 24" class="s-acc" marker-end="url(#as-ar1)"/>
+          <text x="68" y="106" text-anchor="middle" class="lbl-dim" style="font-size:11px">구멍보다 약간 큰 핀</text>
+          <text x="68" y="120" text-anchor="middle" class="lbl-b" style="font-size:12px">압입(억지 끼움)</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 부품을 잇는 여섯 가지 방법.</b> 위 줄은 다시 열 수 있는 방법이고, 아래 줄은 대체로 한 번 붙이면 떼기 어려운 방법이다. 같은 독서등 몸통이라도 무엇으로 잇느냐에 따라 금형의 모양, 조립 시간, 고칠 수 있는지가 달라진다.</figcaption>
+    </figure>
+
+    <p>여섯 방법을 나란히 놓으면 거래가 보인다. 아래 표의 비용과 시간은 "상대적으로 어느 쪽인가"를 나타낼 뿐이며, 수량과 공장에 따라 크게 달라진다.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>방법</th><th>다시 열기</th><th>부품·설비</th><th>조립</th><th>주의할 점</th></tr></thead>
+      <tbody>
+        <tr><td><span class="term">태핑 나사</span><span class="en">(Self-tapping screw)</span></td><td>가능(몇 번)</td><td>나사 하나씩 추가</td><td>느림(나사마다 집고 돌린다)</td><td>플라스틱 보스에 나사산을 직접 내므로, 여러 번 풀고 조이면 나사산이 닳는다. 보스가 얇으면 갈라진다.</td></tr>
+        <tr><td><span class="term">인서트</span><span class="en">(Threaded insert)</span></td><td>여러 번</td><td>황동 인서트 + 기계 나사</td><td>느림, 인서트 넣는 공정 추가</td><td>열이나 초음파로 박아 넣거나 성형 때 함께 넣는다. 자주 여는 곳에 쓴다.</td></tr>
+        <tr><td><span class="term">스냅핏</span><span class="en">(Snap-fit)</span></td><td>설계에 따라</td><td>추가 부품 없음(금형이 복잡해질 수 있다)</td><td>빠름(눌러 끼운다)</td><td>휘는 동안 부러지지 않아야 한다(이 장의 변형률). 언더컷이라 금형에 슬라이드가 필요할 수 있다.</td></tr>
+        <tr><td><span class="term">접착</span><span class="en">(Adhesive bonding)</span></td><td>어렵다</td><td>접착제·테이프, 경화 시간</td><td>보통(굳을 때까지 잡아 둔다)</td><td>재료끼리 붙는지 확인해야 한다(PP처럼 잘 안 붙는 재료가 있다). 분해와 재활용을 어렵게 한다.</td></tr>
+        <tr><td><span class="term">초음파 용착</span><span class="en">(Ultrasonic welding)</span></td><td>불가</td><td>용착기·혼(전용 지그)</td><td>아주 빠름(1초 안팎)</td><td>같은 계열의 열가소성 수지끼리 붙는다. 물이 새지 않는 밀봉에 쓴다. 대신 영영 닫힌다.</td></tr>
+        <tr><td><span class="term">압입</span><span class="en">(Press fit)</span></td><td>어렵다</td><td>추가 부품 없음</td><td>빠름</td><td>억지로 넓힌 구멍에 응력이 남아, 시간이 지나며 풀리거나 갈라질 수 있다(크리프).</td></tr>
+      </tbody>
+    </table></div>
+    <p>무엇이 "좋은" 방법인지는 물건이 무엇을 해야 하는지에 달렸다. 물이 들어가면 안 되는 전동칫솔은 용착이 맞고, 몇 년 뒤 충전지를 바꿔야 하는 물건은 다시 열 수 있어야 한다. 이 장의 시뮬레이터들은 각 방법이 요구하는 형태, 곧 리브와 보스와 갈고리의 치수를 하나씩 다룬다.</p>
+  </section>
+
+  <section id="ribs">
+    <h2>두께 대신 리브</h2>
+    <p><a href="materials.html">7장</a>에서 판의 굽힘 강성은 두께의 세제곱에 비례한다고 했다. 그러니 몸통이 출렁이면 살을 두껍게 하고 싶어진다. 그런데 <a href="process.html">8장</a>에서 본 대로 사출 성형품은 살두께가 고르고 얇아야 한다. 두꺼운 살은 식는 데 오래 걸리고(성형 시간은 대략 두께의 제곱에 비례해 늘어난다고 알려져 있다), 속이 늦게 식으며 수축해 겉면에 <span class="term">싱크 마크</span><span class="en">(Sink mark)</span>를 남긴다.</p>
+    <p>해법은 판을 두껍게 하는 대신 안쪽에 얇은 판을 세로로 세우는 것이다. 이것을 <span class="term">리브</span><span class="en">(Rib)</span>라고 한다. 굽힘 강성은 재료가 중립축에서 얼마나 멀리 떨어져 있느냐로 정해지므로(단면 2차 모멘트), 같은 양의 재료라도 세로로 세우면 훨씬 단단해진다. 자를 눕혀서 휘면 쉽게 휘지만 세워서 휘면 거의 휘지 않는 것과 같다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="리브 설계의 대표 치수: 리브 두께는 살두께의 50~60%, 높이는 3배 이하, 뿌리 모깎기, 구배각, 리브 간격">
+        <defs><marker id="as-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <path d="M30 190 L430 190 L430 214 L30 214 Z" class="f-acc2-soft"/>
+        <path d="M30 190 L430 190 L430 214 L30 214 Z" fill="none" class="s-line"/>
+        <path d="M128 190 Q138 190 138 180 L141 96 L155 96 L158 180 Q158 190 168 190" class="f-acc2-soft"/>
+        <path d="M128 190 Q138 190 138 180 L141 96 L155 96 L158 180 Q158 190 168 190" fill="none" class="s-line"/>
+        <path d="M292 190 Q302 190 302 180 L305 96 L319 96 L322 180 Q322 190 332 190" class="f-acc2-soft"/>
+        <path d="M292 190 Q302 190 302 180 L305 96 L319 96 L322 180 Q322 190 332 190" fill="none" class="s-line"/>
+        <!-- 살두께 -->
+        <path d="M420 190 L420 214" class="s-acc" marker-start="url(#as-ar2)" marker-end="url(#as-ar2)"/>
+        <text x="412" y="207" text-anchor="end" class="lbl-acc t-mono" style="font-size:12px">t</text>
+        <!-- 리브 두께 -->
+        <path d="M138 172 L158 172" class="s-acc" marker-start="url(#as-ar2)" marker-end="url(#as-ar2)"/>
+        <text x="134" y="164" text-anchor="end" class="lbl-acc" style="font-size:11px">0.5~0.6t</text>
+        <!-- 높이 -->
+        <path d="M118 96 L118 190" class="s-dash"/>
+        <path d="M110 96 L110 190" class="s-acc" marker-start="url(#as-ar2)" marker-end="url(#as-ar2)"/>
+        <text x="104" y="146" text-anchor="end" class="lbl-acc" style="font-size:11px">높이 ≤ 3t</text>
+        <!-- 간격 -->
+        <path d="M148 232 L312 232" class="s-acc" marker-start="url(#as-ar2)" marker-end="url(#as-ar2)"/>
+        <text x="230" y="246" text-anchor="middle" class="lbl-acc" style="font-size:11px">리브 사이 ≥ 2t</text>
+        <!-- 모깎기 -->
+        <path d="M168 186 L210 160" class="s-line"/><text x="214" y="158" class="lbl" style="font-size:11px">뿌리 모깎기 0.25~0.5t</text>
+        <!-- 구배 -->
+        <path d="M322 110 L366 82" class="s-line"/><text x="370" y="80" class="lbl" style="font-size:11px">구배 0.5° 이상</text>
+        <!-- 싱크 -->
+        <path d="M296 214 Q312 220 328 214" fill="none" class="s-bad"/>
+        <text x="40" y="232" class="lbl-dim" style="font-size:11px">아래가 겉면</text>
+        <text x="230" y="40" text-anchor="middle" class="lbl-b">리브의 대표 비례(교육용 대표값)</text>
+        <text x="230" y="60" text-anchor="middle" class="lbl-dim" style="font-size:11px">두꺼운 리브는 반대편 겉면에 싱크를 남긴다(오른쪽 아래 곡선)</text>
+      </svg>
+      <figcaption><b>그림 2. 리브의 대표 비례.</b> 수지 회사와 설계 안내서마다 숫자가 조금씩 다르지만, 대체로 이 범위를 출발점으로 쓴다. 리브 두께를 살두께의 절반 남짓으로 두는 것은 리브가 판과 만나는 뿌리에 살이 몰려 반대편 겉면이 꺼지지 않게 하려는 것이다. 겉면이 보이지 않는 곳이라면 더 두껍게 해도 된다.</figcaption>
+    </figure>
+
+    <p>아래 시뮬레이터는 독서등 몸통 벽의 한 조각(폭 20&nbsp;mm에 리브 하나)을 자른 단면이다. 리브 꼭대기의 손잡이를 위로 끌어 높이를 바꾸고, 리브 두께의 비율과 살두께를 고른다. 판만 있을 때보다 얼마나 단단해졌는지, 무게는 얼마나 늘었는지, 리브 없이 같은 강성을 얻으려면 판을 얼마나 두껍게 해야 하는지를 본다.</p>
+
+    <div class="sim" id="sim-rib">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>리브 하나가 버티는 힘</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="rb-cv"></canvas><span class="hint">리브 꼭대기를 위아래로 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>리브 높이 <output id="rb-h-out"></output></span><input type="range" id="rb-h" min="0" max="10" step="0.1" value="4"></label>
+          <label class="ctrl"><span>리브 두께 ÷ 살두께 <output id="rb-k-out"></output></span><input type="range" id="rb-k" min="0.3" max="1.2" step="0.05" value="0.6"></label>
+          <div class="seg" id="rb-t"><button data-value="1.5">살 1.5 mm</button><button data-value="2" class="on">2 mm</button><button data-value="2.5">2.5 mm</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">굽힘 강성(판만 = 1)</span><span class="v" id="rb-o-s">—</span></div>
+        <div class="stat"><span class="k">무게(판만 = 1)</span><span class="v" id="rb-o-m">—</span></div>
+        <div class="stat"><span class="k">같은 강성의 평판 두께 · 무게</span><span class="v" id="rb-o-eq">—</span></div>
+        <div class="stat"><span class="k">뿌리의 살 몰림 · 싱크</span><span class="v" id="rb-o-sink">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 살 2&nbsp;mm, 리브 높이 4&nbsp;mm에서 시작한다. 무게는 10%쯤 늘었는데 강성은 몇 배가 되었다. 같은 강성을 리브 없이 얻으려면 판이 몇 mm여야 하는지 본다. ② 높이를 6&nbsp;mm(3t) 넘게 끌어올린다. 강성은 계속 늘지만, 높고 얇은 리브는 금형 바닥까지 수지가 차기 어렵고 꺼낼 때 붙잡히며 옆으로 휘청인다(좌굴). ③ 리브 두께를 살두께의 0.6배에서 1.0배로 올린다. 뿌리에 그린 원(살이 가장 두껍게 몰린 곳)이 커지고, 아래 겉면에 싱크가 생긴다. (교육용 근사: 폭 20&nbsp;mm 판에 리브 하나, 리브는 평균 두께의 직사각형으로 보고 단면 2차 모멘트를 계산했다. 뿌리 모깎기는 0.25t, 리브 구배는 한쪽 0.5°. 싱크 판정은 뿌리의 가장 큰 내접원 지름을 살두께로 나눈 값으로, 1.22 이하 "낮음", 1.32 이하 "주의"로 둔 교육용 기준이다.)</div>
+    </div>
+
+    <p>리브 하나로 강성이 몇 배가 되는 이유는 단면 2차 모멘트가 중립축에서의 거리의 제곱으로 늘기 때문이다. 판의 재료는 모두 중립축 가까이에 있지만, 리브의 꼭대기는 멀리 떨어져 있다. 반대로 리브는 한 방향으로만 단단하다. 리브와 나란한 방향으로 휘는 힘에는 강하지만 리브를 가로지르는 방향의 비틀림에는 거의 도움이 되지 않는다. 그래서 상자 모양의 몸통에는 리브를 격자로 넣거나, 모서리와 보스를 잇는 방향으로 넣는다.</p>
+    <p>뿌리의 원이 바로 싱크의 원인이다. 사출 성형품에서 살이 가장 두껍게 몰린 곳은 가장 늦게 식고 가장 많이 줄어든다. 판과 리브가 만나는 T자 모양의 뿌리는 어쩔 수 없이 판보다 조금 두껍다. 이 정도를 살두께의 1.2배 남짓으로 묶어 두려고 리브를 얇게 하는 것이다. 판 두께가 같은데 리브만 두꺼워지면 원이 커지고, 반대편 겉면이 리브 모양 그대로 살짝 꺼진다. 광택이 있는 면일수록 잘 보인다(<a href="cmf.html">10장</a>).</p>
+
+    <div class="callout studio">
+      <strong>손톱으로 리브 찾기</strong>
+      문태오는 새 제품을 받으면 먼저 겉면을 비스듬한 빛에 비춰 본다. 겉면에 희미한 줄이나 둥근 자국이 보이면 그 뒤에 리브나 보스가 있다는 뜻이다. 손톱으로 쓸어 보면 아주 얕은 골이 걸리기도 한다. 그래서 공장에서는 겉면이 중요한 부품의 리브를 일부러 얇게 하거나, 겉면에 질감을 넣어 싱크를 숨기거나, 리브를 보이지 않는 면 쪽으로 옮긴다. 태오의 말로는 "싱크는 고치는 게 아니라 처음부터 안 만드는 것"이다.
+    </div>
+  </section>
+
+  <section id="boss">
+    <h2>나사를 받는 기둥, 보스</h2>
+    <p>플라스틱 부품에 나사를 박으려면 나사가 물릴 만큼 살이 있는 기둥이 필요하다. 이 기둥을 <span class="term">보스</span><span class="en">(Boss)</span>라고 한다. 플라스틱용 태핑 나사는 보스의 구멍에 스스로 나사산을 내며 들어간다. 이때 나사가 구멍을 밀어 넓히므로 보스의 벽은 바깥으로 벌어지려는 힘을 받는다. 벽이 너무 얇으면 세로로 갈라진다. 반대로 벽이 너무 두꺼우면 리브와 같은 문제가 생긴다. 보스가 판과 만나는 뿌리에 살이 몰려 겉면에 동그란 싱크가 생긴다.</p>
+    <p>그래서 보스의 바깥지름에는 두 개의 벽이 있다. 흔히 쓰는 출발점은 바깥지름을 나사 지름의 2~2.5배로, 뿌리에 작은 모깎기를 두고, 보스를 홀로 세우지 말고 옆 벽이나 리브(<span class="term">거싯</span><span class="en">(Gusset)</span>, 삼각 보강 리브)로 붙드는 것이다. 아래에서 나사 크기와 바깥지름, 뿌리 모깎기를 바꿔 본다. 단면의 아래쪽이 겉면이다.</p>
+
+    <div class="sim" id="sim-boss">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>보스의 바깥지름: 갈라짐과 싱크 사이</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="bs-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="bs-d"><button data-value="2" class="on">M2</button><button data-value="2.5">M2.5</button><button data-value="3">M3</button></div>
+          <label class="ctrl"><span>바깥지름 ÷ 나사 지름 <output id="bs-q-out"></output></span><input type="range" id="bs-q" min="1.5" max="3.5" step="0.05" value="2.5"></label>
+          <label class="ctrl"><span>뿌리 모깎기 R <output id="bs-f-out"></output></span><input type="range" id="bs-f" min="0" max="1" step="0.05" value="0.3"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">바깥지름 · 보스 벽</span><span class="v" id="bs-o-w">—</span></div>
+        <div class="stat"><span class="k">갈라짐</span><span class="v" id="bs-o-c">—</span></div>
+        <div class="stat"><span class="k">뿌리의 살 몰림 · 싱크</span><span class="v" id="bs-o-s">—</span></div>
+        <div class="stat"><span class="k">뿌리의 응력 집중(대략)</span><span class="v" id="bs-o-k">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① M2 나사, 바깥지름 2.5배(5&nbsp;mm), 모깎기 R0.3에서 시작한다. 갈라짐도 싱크도 아슬아슬하게 괜찮다. ② 바깥지름을 1.8배로 줄인다. 싱크는 사라지지만 벽이 얇아져 나사를 박을 때 갈라질 위험이 커진다. ③ 3배로 키우고 M3으로 바꾼다. 뿌리의 원이 살두께의 1.4배를 넘고 겉면에 동그란 자국이 생긴다. ④ 모깎기를 0에서 1&nbsp;mm까지 움직인다. 모깎기는 뿌리의 응력 집중을 줄이지만 그만큼 살을 몰리게 한다. (교육용 근사: 살두께 2&nbsp;mm, 구멍 지름은 나사 지름의 0.8배, 갈라짐은 바깥지름이 나사 지름의 2배 미만이면 "위험", 2~2.2배면 "주의"로 둔 대표값이다. 응력 집중 계수는 모깎기 반경 ÷ 보스 벽의 함수로 그린 근사 곡선이다. 실제 구멍 지름과 보스 비례는 나사 제조사와 수지 등급의 표를 따른다.)</div>
+    </div>
+
+    <p>보스는 홀로 서 있으면 나사를 조일 때 옆으로 기울고 뿌리에서 부러지기 쉽다. 가까운 벽이 있으면 짧은 리브로 이어 붙이고, 홀로 서야 한다면 둘레에 거싯을 서너 개 세운다. 보스의 바닥, 곧 겉면 쪽의 살을 일부러 파내 살 몰림을 줄이는 방법(코어 아웃)도 있다. 어느 쪽이든 원리는 같다. 살을 고르게 두고, 힘이 몰리는 곳은 넓게 받친다.</p>
+
+    <div class="callout warn">
+      <strong>태핑 나사는 몇 번까지 다시 조일 수 있나</strong>
+      플라스틱에 직접 나사산을 내는 태핑 나사는 풀었다가 다시 조일 때마다 기존 나사산을 조금씩 깎는다. 몇 번 만에 헐거워지는지는 수지, 나사 모양, 구멍 지름, 조이는 힘에 따라 크게 달라서 하나의 숫자로 말할 수 없다. 다시 끼울 때 원래 나사산을 따라 들어가도록 천천히 거꾸로 돌려 "딸깍" 하고 맞물리는 자리를 찾은 뒤 조이면 덜 깎인다. 사용자가 자주 열어야 하는 곳이라면 보스에 황동 <span class="term">인서트</span>를 박고 기계 나사를 쓰는 편이 안전하다. 반대로 공장에서 한 번만 조이는 곳이라면 태핑 나사로 충분하다.
+    </div>
+  </section>
+
+  <section id="snap">
+    <h2>스냅핏: 휘었다가 돌아오는 갈고리</h2>
+    <p><span class="term">스냅핏</span>은 부품에 성형된 탄성 있는 갈고리가 상대 부품의 턱을 넘어가며 휘었다가, 넘어간 뒤 제자리로 돌아와 걸리는 체결이다. 나사도 접착제도 필요 없고, 누르기만 하면 "딸깍" 하고 닫힌다. 가장 흔한 꼴은 한쪽 끝이 몸통에 붙고 다른 끝에 갈고리가 달린 <span class="term">외팔보 스냅</span><span class="en">(Cantilever snap)</span>이다.</p>
+    <p>스냅핏이 부러지는 이유는 힘이 아니라 <b>얼마나 늘어났느냐</b>, 곧 <span class="term">변형률</span><span class="en">(Strain, ε)</span>이다. 갈고리가 턱을 넘으려면 끝이 턱 높이 \(y\)만큼 휘어야 한다. 이때 팔의 뿌리 겉면이 가장 많이 늘어난다. 단면이 고른 외팔보라면 그 크기를 이렇게 어림한다.</p>
+    <div class="formula">$$\varepsilon \;\approx\; \frac{3}{2}\,\frac{t\,y}{L^2}$$<div class="where">\(\varepsilon\): 뿌리 겉면의 최대 변형률, \(t\): 팔의 두께, \(y\): 끝이 휘어야 하는 양(턱 높이, 걸림량), \(L\): 팔의 길이. 이 값이 재료의 허용 변형률보다 작아야 한다. 팔의 폭은 들어가지 않는다. 폭은 휘는 데 드는 힘만 바꾼다.</div></div>
+    <p>식이 말하는 것은 세 가지다. 길이는 제곱으로 들어가므로 팔을 두 배로 길게 하면 변형률이 4분의 1이 된다. 두께와 걸림량은 그대로 비례한다. 그리고 재료의 단단함(탄성계수)은 들어가지 않는다. 단단한 재료든 무른 재료든 같은 꼴로 같은 만큼 휘면 같은 만큼 늘어난다. 재료가 견딜 수 있는 변형률만 다르다.</p>
+
+    <div class="sim" id="sim-snap">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>스냅핏 변형률 계산기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sn-cv"></canvas><span class="hint" style="top:8px;bottom:auto">갈고리 끝을 아래로 눌러 휜다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>팔 두께 t <output id="sn-t-out"></output></span><input type="range" id="sn-t" min="0.6" max="2.4" step="0.1" value="1.5"></label>
+          <label class="ctrl"><span>팔 길이 L <output id="sn-l-out"></output></span><input type="range" id="sn-l" min="4" max="16" step="0.5" value="6"></label>
+          <label class="ctrl"><span>걸림량 y <output id="sn-y-out"></output></span><input type="range" id="sn-y" min="0.3" max="1.5" step="0.1" value="1"></label>
+          <div class="seg" id="sn-m"><button data-value="pcabs" class="on">PC/ABS</button><button data-value="abs">ABS</button><button data-value="pc">PC</button><button data-value="pp">PP</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">턱을 넘을 때 최대 변형률</span><span class="v" id="sn-o-e">—</span></div>
+        <div class="stat"><span class="k">허용 변형률(1회 조립, 교육용)</span><span class="v" id="sn-o-a">—</span></div>
+        <div class="stat"><span class="k">판정</span><span class="v" id="sn-o-j">—</span></div>
+        <div class="stat"><span class="k">끝을 y만큼 휘는 힘(폭 5 mm)</span><span class="v" id="sn-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 값(두께 1.5&nbsp;mm, 길이 6&nbsp;mm, 걸림량 1&nbsp;mm)은 서윤의 첫 시제품이다. 갈고리 끝을 끌어 눌러 본다. 턱의 절반도 넘기 전에 뿌리의 변형률이 허용값을 넘는다. ② 길이만 12&nbsp;mm로 늘린다. 변형률이 4분의 1이 된다. 대신 휘는 힘은 8분의 1로 줄어 헐겁게 걸린다. ③ 두께를 1.2&nbsp;mm, 길이 10&nbsp;mm, 걸림량 0.8&nbsp;mm로 맞춘다. 허용값의 60% 안쪽으로 들어온다. ④ 처음 값으로 돌아가 재료를 PC와 PP로 바꿔 본다. 변형률 6.3%는 그대로인데 PC(허용 4%)에서는 여전히 부러지고, PP(6%)에서는 겨우 경계에 닿는다. 꼴이 같으면 늘어나는 양은 같고, 견딜 수 있는 양만 재료마다 다르다. (교육용 근사: 단면이 고른 직사각형 외팔보, 끝에 힘을 받는 작은 처짐 보 이론. 휘는 힘은 \(P = E\,w\,t^3\,y / 4L^3\). 탄성계수와 허용 변형률은 등급마다 다른 교육용 대표값이다(PC/ABS 2.3&nbsp;GPa·2.5%, ABS 2.2&nbsp;GPa·2.0%, PC 2.3&nbsp;GPa·4%, PP 1.3&nbsp;GPa·6%). 뿌리에 모깎기가 없으면 실제 변형률은 이보다 커진다.)</div>
+    </div>
+
+    <p>"허용 변형률"은 재료가 한 번 크게 휘었다가 손상 없이 돌아올 수 있는 한계를 설계용으로 낮춰 잡은 값이다. 수지 회사들이 펴낸 스냅핏 설계 안내서(예를 들어 Bayer의 『Snap-Fit Joints for Plastics』)는 재료마다 이런 값을 표로 싣고, 여러 번 여닫는 스냅은 그보다 더 낮게 잡으라고 권한다. 표의 숫자는 수지 등급, 온도, 습도, 성형 조건에 따라 달라지므로 이 책에서는 범위를 보여 주는 대표값으로만 쓴다.</p>
+    <p>변형률을 줄이는 방법은 식 그대로다. 팔을 길게 하거나(가장 효과가 크다), 얇게 하거나, 걸림량을 줄인다. 걸림량을 너무 줄이면 쉽게 빠진다. 팔을 뿌리에서 끝으로 갈수록 얇게 깎으면 변형률이 팔 전체에 고르게 퍼져 같은 휨에서 뿌리의 최대값이 줄어든다. 그리고 뿌리에는 반드시 작은 모깎기를 둔다. 날카로운 안쪽 모서리는 응력을 몇 배로 모아, 계산으로는 괜찮던 팔이 뿌리에서 부러지게 만든다.</p>
+
+    <div class="callout deep">
+      <strong>1.5는 어디서 왔나</strong>
+      끝에 힘 \(P\)를 받는 외팔보의 끝 처짐은 \(y = PL^3/3EI\)이고, 뿌리의 굽힘 모멘트는 \(M = PL\)이다. 두께 \(t\)인 직사각형 단면에서 겉면의 응력은 \(\sigma = M(t/2)/I\), 변형률은 \(\varepsilon = \sigma/E\)다. 처짐 식에서 \(P = 3EIy/L^3\)을 꺼내 넣으면 \(\varepsilon = \frac{3EIy}{L^3}\cdot\frac{L\,t}{2EI} = \frac{3}{2}\frac{t\,y}{L^2}\)이 된다. \(E\)와 \(I\)가 모두 약분되어 사라진다. 그래서 변형률은 꼴(두께, 길이, 걸림량)만으로 정해진다. 처짐이 팔 길이에 비해 작다는 가정이므로, 크게 휘는 경우에는 근사가 거칠어진다.
+    </div>
+
+    <div class="callout try">
+      <strong>자로 변형률 느끼기</strong>
+      30&nbsp;cm 플라스틱 자를 책상 모서리에 대고 한 손으로 누른 뒤, 튀어나온 길이를 20&nbsp;cm로 두고 끝을 2&nbsp;cm 내려 본다. 다음에는 튀어나온 길이를 10&nbsp;cm로 줄이고 똑같이 2&nbsp;cm 내린다. 손끝에 드는 힘이 훨씬 크고, 자의 뿌리가 훨씬 날카롭게 꺾이는 것이 보인다. 이 장의 식으로는 길이가 절반이면 같은 처짐의 변형률이 4배다. 자가 부러지기 전에 멈추고, 노트에 두 경우의 뿌리 모양을 그려 둔다. 집에 있는 플라스틱 물건 하나(리모컨 배터리 덮개, 화장품 뚜껑)를 열어 갈고리의 길이와 두께를 자로 재고 식에 넣어 보는 것도 좋다.
+    </div>
+  </section>
+
+  <section id="angles">
+    <h2>끼우는 힘과 빼는 힘</h2>
+    <p>스냅핏의 갈고리에는 두 면이 있다. 상대 턱을 타고 넘는 <b>들어가는 면</b>과, 넘어간 뒤 걸리는 <b>걸림면</b>이다. 들어가는 면의 기울기(들어가는 각)는 끼우는 힘을, 걸림면의 기울기(걸림각)는 빼는 힘을 정한다. 걸림면을 수직(90°)에 가깝게 세우면 마찰 때문에 갈고리가 아무리 당겨도 휘지 않고 잠긴다. 공구로 갈고리를 직접 눌러야만 풀린다. 걸림각을 눕히면 세게 당겨서 뺄 수 있는 스냅이 된다.</p>
+    <p>아래 그래프는 앞 절의 서윤 최종 치수(두께 1.2&nbsp;mm, 길이 10&nbsp;mm, 걸림량 0.8&nbsp;mm, 폭 5&nbsp;mm, PC/ABS)로 갈고리 하나를 끼우는 동안의 힘을 그린 것이다. 두 각과 마찰을 바꿔 본다.</p>
+
+    <div class="sim" id="sim-ang">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>들어가는 각과 걸림각</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ag-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>들어가는 각 α <output id="ag-a-out"></output></span><input type="range" id="ag-a" min="15" max="60" step="1" value="30"></label>
+          <label class="ctrl"><span>걸림각 β <output id="ag-b-out"></output></span><input type="range" id="ag-b" min="20" max="90" step="1" value="90"></label>
+          <div class="seg" id="ag-mu"><button data-value="0.3">마찰 0.3</button><button data-value="0.5" class="on">0.5</button><button data-value="0.7">0.7</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">끼우는 힘(갈고리 1개)</span><span class="v" id="ag-o-in">—</span></div>
+        <div class="stat"><span class="k">빼는 힘(갈고리 1개)</span><span class="v" id="ag-o-out">—</span></div>
+        <div class="stat"><span class="k">몸통 닫기(갈고리 4개)</span><span class="v" id="ag-o-4">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 들어가는 각 30°에서 그래프를 본다. 힘이 걸림량까지 곧게 오르다가 꼭대기를 넘는 순간 뚝 떨어진다. 이 떨어짐이 손에 느껴지는 "딸깍"이다(<a href="control.html">6장</a>의 힘–변위 곡선). ② 들어가는 각을 55°로 세운다. 끼우는 힘이 몇 배로 늘고, 마찰 0.7에서는 거의 밀어 넣을 수 없게 된다. ③ 걸림각을 90°에서 60° 아래로 눕힌다. "잠김"이 숫자로 바뀌며 당겨서 뺄 수 있는 스냅이 된다. (교육용 근사: 갈고리 끝을 휘는 힘 \(P = E\,w\,t^3\,\delta/4L^3\), 축 방향 힘 \(W = P(\mu + \tan\alpha)/(1 - \mu\tan\alpha)\). 분모가 0 이하이면 마찰로 잠긴다. 마찰 계수는 표면과 재료에 따라 다른 예시값이다.)</div>
+    </div>
+
+    <p>끼우는 힘과 빼는 힘은 서로 다른 사람의 경험이다. 끼우는 힘은 공장의 조립자가 하루에 수백 번 느끼고, 빼는 힘은 몇 년 뒤 물건을 고치려는 사람이 한 번 느낀다. 걸림각 90°의 잠긴 스냅은 튼튼하지만, 공구를 넣을 틈이 없으면 부수지 않고는 열 수 없다. 그 경우 고치는 사람을 위해 갈고리를 누를 수 있는 작은 구멍이나 홈을 설계에 함께 그려 두어야 한다.</p>
+  </section>
+
+  <section id="tolerance">
+    <h2>공차: 작은 오차가 쌓이는 방식</h2>
+    <p>도면의 치수는 하나의 숫자지만 실제 부품은 그 숫자 근처에 흩어진다. 금형의 가공 오차, 수지가 식으며 줄어드는 양(수축률)의 차이, 성형 조건의 흔들림 때문이다. 도면에 "이 범위 안이면 합격"이라고 적는 폭을 <span class="term">공차</span><span class="en">(Tolerance)</span>라고 한다. 문태오의 원칙 "도면에 없는 것은 공장에서 생기지 않는다"는 공차에도 그대로 적용된다. 적지 않은 공차는 공장이 알아서 정한다.</p>
+    <p>문제는 부품이 여러 개 이어질 때다. 독서등의 버튼은 윗몸통의 구멍 안에 떠 있어야 하는데, 버튼의 자리는 여러 부품을 거쳐 정해진다. 윗몸통이 아랫몸통에 얹히는 위치, 아랫몸통의 보스에 기판이 놓이는 위치, 기판 위에 스위치가 납땜된 위치, 그 스위치 위에 얹힌 버튼의 폭. 각각의 오차가 한 줄로 이어진 이 사슬을 <span class="term">공차 누적</span><span class="en">(Tolerance stack-up)</span>이라고 한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 280" role="img" aria-label="버튼 틈의 공차 사슬: 버튼 구멍 위치, 몸통 맞춤, 기판 위치, 스위치 위치, 버튼 폭이 한 줄로 이어져 틈을 정한다">
+        <defs><marker id="as-ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <!-- 윗몸통 -->
+        <path d="M20 40 L190 40 L190 54 L20 54 Z" class="f-acc2-soft"/><path d="M20 40 L190 40 L190 54 L20 54 Z" fill="none" class="s-line"/>
+        <path d="M250 40 L440 40 L440 54 L250 54 Z" class="f-acc2-soft"/><path d="M250 40 L440 40 L440 54 L250 54 Z" fill="none" class="s-line"/>
+        <path d="M20 54 L20 200 L36 200 L36 54" class="f-acc2-soft"/><path d="M20 54 L20 200" class="s-line"/>
+        <path d="M440 54 L440 200" class="s-line"/>
+        <text x="300" y="32" class="lbl-dim" style="font-size:11px">윗몸통(버튼 구멍)</text>
+        <!-- 버튼 -->
+        <rect x="198" y="30" width="44" height="40" rx="5" class="f-acc"/>
+        <rect x="214" y="70" width="12" height="50" class="f-acc"/>
+        <text x="220" y="20" text-anchor="middle" class="lbl-acc" style="font-size:11px">버튼</text>
+        <!-- 틈 -->
+        <path d="M190 47 L198 47" class="s-bad" stroke-width="3"/>
+        <path d="M194 52 L180 70" class="s-bad"/>
+        <text x="178" y="82" text-anchor="end" class="lbl-bad" style="font-size:11px">틈 g</text>
+        <!-- 스위치·기판 -->
+        <rect x="204" y="120" width="32" height="14" rx="2" class="f-warn"/>
+        <rect x="80" y="134" width="300" height="10" class="f-ok-soft"/><rect x="80" y="134" width="300" height="10" fill="none" class="s-line"/>
+        <text x="124" y="162" class="lbl-dim" style="font-size:11px">기판 · 스위치</text>
+        <!-- 보스·아랫몸통 -->
+        <rect x="96" y="144" width="16" height="56" class="f-elev"/><rect x="96" y="144" width="16" height="56" fill="none" class="s-line"/>
+        <rect x="348" y="144" width="16" height="56" class="f-elev"/><rect x="348" y="144" width="16" height="56" fill="none" class="s-line"/>
+        <path d="M20 200 L440 200 L440 214 L20 214 Z" class="f-elev"/><path d="M20 200 L440 200 L440 214 L20 214 Z" fill="none" class="s-line"/>
+        <text x="30" y="232" class="lbl-dim" style="font-size:11px">아랫몸통(보스)</text>
+        <!-- 사슬 -->
+        <g class="t-mono" style="font-size:10.5px">
+          <path d="M28 250 L104 250" class="s-acc" marker-end="url(#as-ar3)"/><text x="66" y="268" text-anchor="middle" class="lbl-acc">①②③</text>
+          <path d="M104 250 L220 250" class="s-acc" marker-end="url(#as-ar3)"/><text x="162" y="268" text-anchor="middle" class="lbl-acc">④ 스위치</text>
+          <path d="M220 250 L242 250" class="s-acc" marker-end="url(#as-ar3)"/><text x="250" y="268" class="lbl-acc">⑤ 버튼 폭</text>
+        </g>
+        <path d="M28 214 L28 250" class="s-dash"/><path d="M220 120 L220 250" class="s-dash"/>
+      </svg>
+      <figcaption><b>그림 3. 버튼 틈의 공차 사슬.</b> 버튼 둘레의 틈 \(g\)는 버튼 구멍의 자리(윗몸통), 두 몸통의 맞춤, 기판의 자리(보스), 기판 위 스위치의 자리, 버튼 폭이라는 다섯 고리를 거쳐 정해진다. 어느 한 고리라도 한쪽으로 치우치면 틈이 그만큼 줄어든다.</figcaption>
+    </figure>
+
+    <p>누적을 셈하는 방법은 두 가지다. 가장 보수적인 <span class="term">최악 조건</span><span class="en">(Worst case)</span> 계산은 모든 부품이 한꺼번에 가장 나쁜 쪽 끝으로 만들어졌다고 보고 공차를 그대로 더한다. 통계적인 <span class="term">RSS</span><span class="en">(Root Sum Square, 제곱합의 제곱근)</span> 계산은 각 오차가 서로 상관없이 흩어지고 끝까지 가는 일은 드물다고 보고, 제곱해서 더한 뒤 제곱근을 취한다.</p>
+    <div class="formula">$$\Delta_{\mathrm{WC}} = \sum_i T_i, \qquad \Delta_{\mathrm{RSS}} = \sqrt{\sum_i T_i^{2}}$$<div class="where">\(T_i\): 고리 \(i\)의 공차(±값). 최악 조건의 폭은 고리 수에 비례해 늘고, RSS의 폭은 대략 고리 수의 제곱근에 비례해 는다. RSS는 각 치수가 정규분포를 따르고 공차가 표준편차의 3배(±3σ)라고 가정할 때 합의 ±3σ에 해당한다.</div></div>
+    <p>아래 시뮬레이터는 버튼 한쪽 틈을 정해 놓고, 가상의 부품 4,000세트를 무작위로 뽑아 조립해 본다(몬테카를로). 막대그래프는 틈의 분포이고, 0보다 왼쪽은 버튼이 구멍 벽에 닿아 끼이는 세트다.</p>
+
+    <div class="sim" id="sim-tol">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>버튼 틈의 공차 누적</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="tl-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>공칭 틈(한쪽) <output id="tl-g-out"></output></span><input type="range" id="tl-g" min="0.05" max="0.5" step="0.01" value="0.15"></label>
+          <label class="check"><input type="checkbox" id="tl-short"> 버튼을 윗몸통에서 안내하기(사슬 줄이기)</label>
+          <div class="seg" id="tl-dist"><button data-value="normal" class="on">정규분포</button><button data-value="uniform">균등분포</button></div>
+          <div class="btn-row"><button type="button" class="btn sm" id="tl-re">다시 뽑기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">최악 조건 범위</span><span class="v" id="tl-o-wc">—</span></div>
+        <div class="stat"><span class="k">RSS 범위(±3σ)</span><span class="v" id="tl-o-rss">—</span></div>
+        <div class="stat"><span class="k">끼이는 세트(틈 ≤ 0)</span><span class="v" id="tl-o-bad">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 공칭 틈 0.15&nbsp;mm는 서윤의 첫 도면이다. 최악 조건으로는 틈이 −0.33&nbsp;mm까지 갈 수 있어 계산상 불합격이고, 실제로 뽑아 보면 50세트 중 한 세트꼴로 끼인다. ② "균등분포"를 누른다. 공정이 공차 범위 안에서 고르게 흩어진다고 보면 끼이는 비율이 몇 배가 된다. RSS의 가정(정규분포, ±3σ)이 맞지 않으면 통계 계산은 낙관적이 된다. ③ "사슬 줄이기"를 켠다. 버튼을 기판의 스위치가 아니라 윗몸통의 안내 기둥에 끼우면, 기판과 몸통 맞춤의 오차가 사슬에서 빠진다. 공칭 틈을 0.25&nbsp;mm로 두면 최악 조건에서도 끼이지 않는다. (가상 자료: 공차는 교육용 예시값. 정규분포는 공차 = ±3σ, 균등분포는 공차 끝까지 고르게 퍼진다고 가정했다. 4,000세트, 시드 고정.)</div>
+    </div>
+
+    <p>틈을 넉넉히 주면 끼이지는 않지만 버튼이 덜그럭거리고 틈이 들쭉날쭉해 보인다. 0.5&nbsp;mm 틈이 한쪽은 0.1&nbsp;mm, 반대쪽은 0.9&nbsp;mm가 되면 눈에 띄게 삐뚤다. 그래서 공차 설계의 가장 좋은 답은 틈을 키우는 것이 아니라 <b>사슬을 짧게 하는 것</b>이다. 버튼과 구멍이 같은 부품(윗몸통)을 기준으로 자리를 잡으면, 두 몸통의 맞춤과 기판의 위치가 아무리 흔들려도 틈에는 영향이 없다. 버튼과 스위치 사이의 어긋남은 스위치의 누르는 면을 넓게 해 흡수한다.</p>
+    <p>최악 조건과 RSS 가운데 어느 쪽을 쓸지는 결과의 무게에 달렸다. 끼이면 제품을 쓸 수 없는 곳, 수량이 적어 통계가 의미 없는 곳에는 최악 조건이 안전하다. 수만 개를 만드는 공정이 안정되어 있고 몇 개의 불량을 걸러 낼 수 있다면 RSS가 합리적이다. 500개를 만드는 독서등은 앞쪽에 가깝다.</p>
+
+    <div class="callout studio">
+      <strong>스틸 세이프</strong>
+      금형은 금속을 더 깎아 내는 쪽으로는 고치기 쉽고, 금속을 덧붙이는 쪽으로는 고치기 어렵다(덧붙이려면 용접하거나 그 부분을 새로 만들어야 한다). 금형에서 금속을 깎으면 성형품에는 살이 늘어난다. 그래서 확신이 없는 치수는 처음에 플라스틱이 조금 작게(얇게) 나오는 쪽으로 깎아 두고, 시사출 결과를 보고 금형을 더 깎아 맞춘다. 이것을 <span class="term">스틸 세이프</span><span class="en">(Steel safe)</span>라고 한다. 태오는 버튼 구멍 둘레와 스냅핏 걸림량을 스틸 세이프로 두자고 했다. 틈이 넓게 나오면 금형을 깎아 좁히면 되지만, 좁게 나오면 되돌리기 어렵다.
+    </div>
+  </section>
+
+  <section id="dfa">
+    <h2>부품 수와 조립 순서</h2>
+    <p>나사 하나는 값이 싸지만, 나사를 집어 구멍에 맞추고 돌리는 몇 초는 수백 개, 수천 개에 곱해진다. 나사가 부품표의 한 줄을 차지하고, 재고로 쌓이고, 바닥에 떨어진다. 그래서 조립을 위한 설계는 <b>부품 수를 줄이는 것</b>에서 시작한다. 이 생각을 체계로 정리한 것이 부스로이드와 듀허스트의 <span class="term">조립성 설계</span><span class="en">(Design for Assembly, DFA)</span>다(G. Boothroyd, P. Dewhurst, W. Knight, 『Product Design for Manufacture and Assembly』, 초판 1994). 그 핵심은 부품마다 던지는 세 질문이다.</p>
+    <ol>
+      <li>이 부품은 다른 부품에 대해 <b>움직여야</b> 하는가?</li>
+      <li>다른 부품과 <b>재료가 달라야</b> 하는가(전기를 통하거나 막아야 하는 등)?</li>
+      <li>조립하거나 고치려면 다른 부품과 <b>따로 떨어져 있어야</b> 하는가?</li>
+    </ol>
+    <p>셋 다 "아니오"인 부품은 이론적으로 옆 부품과 합치거나 없앨 수 있는 후보다. 나사, 와셔, 고정 클립 같은 체결 부품이 가장 먼저 걸린다. 이렇게 남긴 부품 수의 최솟값과 실제 조립 시간을 견주어, 부품 하나에 이상적으로 3초가 든다고 보고 <span class="term">설계 효율</span><span class="en">(Design efficiency)</span> \(=3N_{\min}/T\)를 매긴다. 효율이 낮을수록 줄일 여지가 크다는 뜻이다.</p>
+
+    <div class="sim" id="sim-dfa">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>세 질문으로 부품 줄이기</h3></div>
+      <div class="sim-body">
+        <div class="sim-view"><canvas id="df-cv"></canvas><span class="hint">부품 카드를 눌러 세 질문을 던진다</span></div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">부품 수(개)</span><span class="v" id="df-o-n">—</span></div>
+        <div class="stat"><span class="k">조립 시간(가상)</span><span class="v" id="df-o-t">—</span></div>
+        <div class="stat"><span class="k">설계 효율 3N<sub>min</sub>/T</span><span class="v" id="df-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 처음 상태는 서윤의 첫 도면(몸통 나사 4개, 기판 나사 2개, 덮개 나사 2개, 고무 발, 라벨 스티커)이다. 부품은 15개, 효율은 20%가 안 된다. ② "몸통 나사"를 누른다. 세 질문에 모두 "아니오"이므로 스냅핏 4개로 바뀌고, 부품이 4개 줄고 시간이 크게 준다. ③ "버튼"이나 "충전지"를 눌러 본다. 움직이거나 재료가 달라 없앨 수 없다. ④ "덮개 나사"를 누르면 2개가 1개로 준다. 이론상 0개도 가능하지만, 충전지 칸이 공구 없이 열리지 않게 하나는 남긴다. 세 질문은 출발점이지 결론이 아니다. (가상 자료: 조립 시간은 동작마다 정한 예시값이다. DFA의 원래 방법은 부품을 집고 놓는 난이도를 표로 매겨 시간을 계산한다.)</div>
+    </div>
+
+    <p>부품 수와 함께 보는 것이 <b>조립 방향</b>이다. 모든 부품이 한 방향(대개 위에서 아래)으로 차례로 얹히면 조립자는 부품을 뒤집거나 비틀 필요가 없고, 지그도 단순해진다. 아래 그림은 독서등 몸통을 아랫몸통 위에 위에서 아래로 쌓는 순서다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="독서등 몸통의 조립 순서: 아랫몸통, 기판, 버튼, 윗몸통을 위에서 아래로 차례로 얹고, 충전지와 덮개는 반대쪽에서 나사 하나로 닫는다">
+        <defs><marker id="as-ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <!-- 버튼 -->
+        <rect x="154" y="96" width="36" height="14" rx="4" class="f-acc"/><text x="308" y="112" class="lbl" style="font-size:12px">③ 버튼</text>
+        <!-- 윗몸통 -->
+        <path d="M60 70 L300 70 L300 84 L60 84 Z" class="f-acc2-soft"/><path d="M60 70 L300 70 L300 84 L60 84 Z" fill="none" class="s-line"/>
+        <path d="M64 84 L64 98 L70 104 L72 98 L72 84" class="f-acc2-soft"/><path d="M288 84 L288 98 L282 104 L280 98 L280 84" class="f-acc2-soft"/>
+        <text x="308" y="82" class="lbl" style="font-size:12px">④ 윗몸통(스냅 4)</text>
+        <text x="308" y="60" class="lbl-dim" style="font-size:11px">안내 기둥이 버튼을 잡는다</text>
+        <!-- 기판 -->
+        <rect x="90" y="128" width="180" height="10" class="f-ok-soft"/><rect x="90" y="128" width="180" height="10" fill="none" class="s-line"/>
+        <rect x="164" y="118" width="20" height="10" class="f-warn"/>
+        <text x="278" y="138" class="lbl" style="font-size:12px">② 기판(갈고리 리브)</text>
+        <!-- 아랫몸통 -->
+        <path d="M60 176 L60 220 L300 220 L300 176 L292 176 L292 212 L68 212 L68 176 Z" class="f-elev"/><path d="M60 176 L60 220 L300 220 L300 176 L292 176 L292 212 L68 212 L68 176 Z" fill="none" class="s-line"/>
+        <text x="308" y="204" class="lbl" style="font-size:12px">① 아랫몸통(바탕)</text>
+        <!-- 화살표 -->
+        <path d="M40 40 L40 200" class="s-acc" marker-end="url(#as-ar4)"/>
+        <text x="22" y="120" text-anchor="middle" class="lbl-acc" style="font-size:11px" transform="rotate(-90 22 120)">한 방향으로 쌓는다</text>
+        <!-- 배터리 -->
+        <rect x="110" y="236" width="90" height="16" rx="3" class="f-warn-soft"/><rect x="110" y="236" width="90" height="16" rx="3" fill="none" class="s-line"/>
+        <rect x="100" y="264" width="140" height="8" class="f-elev"/><rect x="100" y="264" width="140" height="8" fill="none" class="s-line"/>
+        <rect x="226" y="272" width="8" height="12" class="f-acc"/>
+        <path d="M268 280 L268 244" class="s-acc2" marker-end="url(#as-ar4)"/>
+        <text x="280" y="256" class="lbl" style="font-size:12px">⑤ 충전지 · 덮개</text>
+        <text x="280" y="272" class="lbl-dim" style="font-size:11px">뒤집어서 나사 하나</text>
+      </svg>
+      <figcaption><b>그림 4. 위에서 아래로 쌓는 조립 순서.</b> 아랫몸통을 바탕으로 기판, 버튼, 윗몸통을 한 방향으로 얹는다. 충전지 칸만 반대쪽에서 열리는데, 이것은 사용자가 나중에 열어야 하는 곳이라서다. 조립의 편의와 고치는 편의가 부딪칠 때는 고치는 쪽을 따로 떼어 설계한다.</figcaption>
+    </figure>
+
+    <p>부품을 줄이는 데에도 대가가 있다. 여러 부품을 하나로 합치면 그 부품의 금형이 복잡해지고, 하나가 망가지면 통째로 바꿔야 한다. 스냅핏으로 바꾼 몸통은 조립이 빠른 대신 고치려고 열기가 어렵다. 조립하기 쉬운 물건과 고치기 쉬운 물건은 같지 않다. 이 거래는 <a href="sustain.html">11장</a>에서 수리와 분해의 눈으로 다시 본다.</p>
+
+    <div class="callout try">
+      <strong>물건 하나 열어 보기</strong>
+      더 쓰지 않는 작은 전자 제품(고장 난 리모컨, 장난감, 탁상 시계)을 하나 골라 드라이버로 열어 본다. 열기 전에 겉에서 보이는 나사의 수, 파팅 라인, 겉면의 싱크 자국을 노트에 적는다. 열고 나면 ① 리브와 보스를 찾아 개수를 세고, 리브 두께를 살두께와 견주어 본다. ② 스냅핏을 찾아 팔의 길이·두께·걸림량을 자로 재고 이 장의 식에 넣어 본다. ③ 부품을 하나씩 늘어놓고 세 질문을 던져, 없앨 수 있었던 부품에 표시한다. 배터리가 있다면 먼저 빼고, 부풀었거나 새는 배터리는 건드리지 않는다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 여름 제품 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>제품 노트 · 9장</span></div>
+      <h4>나사 넷, 부러진 갈고리, 끼인 버튼</h4>
+      <p>9월 초, 몸통의 재료(PC/ABS)와 공정(알루미늄 간이 금형, 살두께 약 2&nbsp;mm)이 정해지자 서윤은 몸통을 어떻게 닫을지 그렸다. 첫 도면은 익숙한 방식이었다. 윗몸통과 아랫몸통을 네 귀퉁이의 나사 넷으로 닫고, 기판은 나사 둘로 고정하고, 충전지 덮개도 나사 둘로 닫았다. 문태오는 도면의 나사를 세다가 펜을 내려놓았다. "나사가 여덟 개예요. 500개면 4,000개. 한 개 조이는 데 몇 초씩이면 그게 다 사람 시간입니다."</p>
+      <p>서윤은 몸통 나사 넷을 스냅핏 넷으로 바꾸었다. 금형을 깎기 전에 꼴을 확인하려고 3D 프린터로 뽑은 첫 시제품은 닫는 순간 갈고리 두 개가 뿌리에서 부러졌다. 팔은 두께 1.5&nbsp;mm, 길이 6&nbsp;mm, 걸림량 1&nbsp;mm였다. 서윤은 프린터 레진이 약해서라고 생각했지만 태오는 계산부터 하자고 했다. 이 장의 식으로 \(1.5 \times 1.5 \times 1.0 / 6^2 \approx 6.3\%\). 교육용 대표값으로 잡은 PC/ABS의 허용 변형률 2.5%를 두 배 넘는다. 양산 재료로 만들었어도 부러졌을 꼴이었다.</p>
+      <p>두 번째 문제는 버튼이었다. 버튼 둘레의 틈을 한쪽 0.15&nbsp;mm로 그렸더니 손으로 조립한 시제품 스무 개 가운데 하나에서 버튼이 구멍 벽에 걸려 눌린 채 돌아오지 않았다. 버튼은 기판의 스위치 위에 얹혀 있었고, 버튼의 자리는 몸통 맞춤, 보스, 기판, 납땜을 거쳐 정해졌다. 공차를 더해 보니 최악 조건의 폭이 ±0.48&nbsp;mm였다. 한도경은 시제품 버튼을 몇 번 눌러 보고 "틈이 한쪽만 벌어져서 삐뚤어 보여"라고 덧붙였다.</p>
+      <p>서윤의 선택은 세 가지였다. 갈고리는 팔을 길게, 뿌리를 얇게, 걸림량을 줄였다. 버튼은 스위치가 아니라 윗몸통 안쪽의 안내 기둥에 끼워 사슬을 짧게 했다. 그리고 나사는 사용자가 열어야 하는 곳, 충전지 칸 하나에만 남겼다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>몸통은 <b>스냅핏 4개</b>로 닫는다: 외팔보 팔 <b>길이 10&nbsp;mm, 뿌리 두께 1.2&nbsp;mm(살두께 2&nbsp;mm의 0.6배), 폭 5&nbsp;mm, 걸림량 0.8&nbsp;mm</b>, 뿌리 모깎기 R0.5, 들어가는 각 30°, 걸림각 90°(당겨서는 빠지지 않음). 계산 변형률 약 1.4%(교육용 허용값 2.5%의 60% 안), 끼우는 힘은 갈고리 하나에 약 6&nbsp;N, 넷이면 약 24&nbsp;N(마찰 0.5 가정). 버튼은 윗몸통 안내 기둥에 끼우고 <b>버튼 둘레 틈은 한쪽 0.25&nbsp;mm</b>(사슬 공차 ±0.15&nbsp;mm, 최악 조건에서도 0.10&nbsp;mm 이상), 버튼 구멍과 걸림량은 스틸 세이프로 둔다. <b>나사는 충전지 칸 덮개의 M2 하나만</b> 남긴다(보스 바깥지름 5&nbsp;mm, 뿌리 R0.3, 거싯 둘). 기판은 갈고리 리브 둘로 눌러 끼우고, 라벨 스티커 대신 금형 각인을 쓴다. 몸통 부품은 15개에서 7개로(가상의 조립 시간 93초 → 34초).</div>
+        <div><b>아직 남은 문제</b>걸림각 90°의 갈고리는 고칠 때 열기 어렵다. 몇 년 뒤 기판을 고쳐야 한다면 어디로 공구를 넣는가. 태핑 나사 하나로 충전지 덮개를 몇 번이나 다시 닫을 수 있는가. 몸통 색은 아직 회색 시사출 그대로다.</div>
+        <div><b>다음 단계</b><a href="cmf.html">10장</a>: 책방 초록을 플라스틱에 입힌다. 무광과 유광, 질감, 한도 견본.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>부품을 잇는 방법(나사, 인서트, 스냅핏, 접착, 초음파 용착, 압입)은 다시 열 수 있는지, 추가 부품과 설비, 조립 시간이 서로 다르다. 물건이 무엇을 해야 하는지(밀봉, 수리, 수량)로 고른다.</li>
+      <li>살을 두껍게 하는 대신 리브를 세우면 무게는 조금 늘고 굽힘 강성은 몇 배가 된다. 리브 두께는 살두께의 절반 남짓, 높이는 3배 이하가 대표적 출발점이며, 두꺼운 리브는 뿌리에 살이 몰려 반대편 겉면에 싱크를 만든다.</li>
+      <li>보스의 바깥지름은 얇으면 나사를 박을 때 갈라지고, 두꺼우면 싱크를 만든다. 나사 지름의 2~2.5배와 작은 뿌리 모깎기, 벽이나 거싯으로 붙드는 것이 출발점이다.</li>
+      <li>외팔보 스냅핏의 최대 변형률은 \(\varepsilon \approx 1.5\,t\,y/L^2\)으로 꼴만으로 정해진다. 팔을 길게 하는 것이 가장 효과가 크고, 재료의 허용 변형률보다 넉넉히 작아야 한다.</li>
+      <li>들어가는 각은 끼우는 힘을, 걸림각은 빼는 힘을 정한다. 걸림면이 수직에 가까우면 마찰로 잠긴다.</li>
+      <li>공차는 사슬을 따라 쌓인다. 최악 조건은 공차의 합, RSS는 제곱합의 제곱근이다. RSS는 분포 가정이 틀리면 낙관적이다. 가장 좋은 대책은 틈을 키우는 것이 아니라 사슬을 짧게 하는 것이다.</li>
+      <li>DFA의 세 질문(움직이는가, 재료가 달라야 하는가, 따로 있어야 하는가)으로 없앨 부품을 찾는다. 다만 조립하기 쉬운 것과 고치기 쉬운 것은 다르다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 외팔보 스냅핏이 끼울 때 뿌리에서 부러진다. 걸림량과 두께는 그대로 두고 한 가지만 바꿔 변형률을 4분의 1로 줄이려면?</p>
+        <div class="opts">
+          <button class="opt">팔의 폭을 4배로 넓힌다.</button>
+          <button class="opt">탄성계수가 4배 큰 재료로 바꾼다.</button>
+          <button class="opt" data-correct>팔의 길이를 2배로 늘린다.</button>
+          <button class="opt">팔의 길이를 4배로 늘린다.</button>
+        </div>
+        <div class="quiz-exp">\(\varepsilon \approx 1.5\,t\,y/L^2\)에서 길이는 제곱으로 들어가므로 2배로 늘리면 변형률은 4분의 1이 된다(4배로 늘리면 16분의 1). 폭과 탄성계수는 변형률 식에 들어가지 않는다. 둘 다 휘는 데 드는 힘만 바꾼다. 단단한 재료로 바꾸면 오히려 더 세게 눌러야 하고, 그 재료가 견딜 수 있는 변형률이 더 작으면 그대로 부러진다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 살두께 2&nbsp;mm인 몸통이 출렁인다. 사출 성형품에서 가장 알맞은 대처는?</p>
+        <div class="opts">
+          <button class="opt" data-correct>안쪽에 두께 1~1.2&nbsp;mm 안팎, 높이 6&nbsp;mm 이하의 리브를 세운다.</button>
+          <button class="opt">살두께를 4&nbsp;mm로 늘린다. 강성이 8배가 된다.</button>
+          <button class="opt">안쪽에 두께 3&nbsp;mm의 두꺼운 리브를 세워 확실히 버티게 한다.</button>
+          <button class="opt">겉면에 광택을 내서 단단해 보이게 한다.</button>
+        </div>
+        <div class="quiz-exp">리브는 재료를 중립축에서 멀리 두어 적은 무게로 굽힘 강성을 크게 늘린다. 살을 4&nbsp;mm로 두껍게 하면 강성은 8배지만 무게도 2배가 되고, 식는 시간이 길어지며 싱크가 생긴다. 살두께보다 두꺼운 리브는 뿌리에 살이 몰려 반대편 겉면에 싱크를 남긴다. 그래서 리브 두께는 살두께의 절반 남짓, 높이는 3배 이하가 대표적 출발점이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 공차가 각각 ±0.1&nbsp;mm인 부품 네 개가 한 줄로 이어진다. 최악 조건과 RSS로 셈한 누적 공차는?</p>
+        <div class="opts">
+          <button class="opt">최악 조건 ±0.1&nbsp;mm, RSS ±0.4&nbsp;mm</button>
+          <button class="opt">둘 다 ±0.4&nbsp;mm</button>
+          <button class="opt">최악 조건 ±0.4&nbsp;mm, RSS ±0.1&nbsp;mm</button>
+          <button class="opt" data-correct>최악 조건 ±0.4&nbsp;mm, RSS ±0.2&nbsp;mm</button>
+        </div>
+        <div class="quiz-exp">최악 조건은 공차를 그대로 더해 0.1 × 4 = ±0.4&nbsp;mm다. RSS는 \(\sqrt{4 \times 0.1^2} = 0.2\), ±0.2&nbsp;mm다. RSS는 모든 부품이 동시에 끝까지 치우치는 일이 드물다고 보는 계산이라 더 좁지만, 각 치수가 정규분포를 따르고 서로 상관없다는 가정이 맞을 때만 그렇다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. DFA의 세 질문으로 볼 때, 독서등에서 "이론적으로 없애거나 합칠 수 있는 후보"는?</p>
+        <div class="opts">
+          <button class="opt">눌리면 움직여야 하는 버튼</button>
+          <button class="opt" data-correct>윗몸통과 아랫몸통을 묶는 나사</button>
+          <button class="opt">재료가 다른 충전지</button>
+          <button class="opt">교체를 위해 따로 열려야 하는 충전지 덮개</button>
+        </div>
+        <div class="quiz-exp">세 질문은 움직이는가, 재료가 달라야 하는가, 조립·수리를 위해 따로 있어야 하는가다. 버튼은 움직이고, 충전지는 재료가 다르며, 덮개는 교체를 위해 따로 열려야 한다. 몸통 나사는 셋 다 "아니오"라 스냅핏처럼 몸통에 성형된 형태로 바꿀 수 있는 후보다. 다만 후보일 뿐이며 안전과 수리를 위해 남기는 선택도 있다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  function fx(v, d) { return AB.fix(v, d == null ? 1 : d); }
+  function H(ratio, min, max) {
+    return function (id) {
+      return { get height() { var el = document.getElementById(id); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(AB.clamp(w * ratio, min, max)); } };
+    };
+  }
+
+  /* ---------------- 단면 기하: 다각형 안의 가장 큰 내접원(살이 몰린 곳) ---------------- */
+  function segDist(px, py, ax, ay, bx, by) { var dx = bx - ax, dy = by - ay, l = dx * dx + dy * dy, u = l ? ((px - ax) * dx + (py - ay) * dy) / l : 0; u = u < 0 ? 0 : u > 1 ? 1 : u; var x = ax + u * dx - px, y = ay + u * dy - py; return Math.sqrt(x * x + y * y); }
+  function inside(px, py, poly) { var c = false; for (var i = 0, j = poly.length - 1; i < poly.length; j = i++) { var a = poly[i], b = poly[j]; if ((a[1] > py) !== (b[1] > py) && px < (b[0] - a[0]) * (py - a[1]) / (b[1] - a[1]) + a[0]) c = !c; } return c; }
+  function edgeDist(px, py, poly) { var m = 1e9; for (var i = 0, j = poly.length - 1; i < poly.length; j = i++) { var d = segDist(px, py, poly[j][0], poly[j][1], poly[i][0], poly[i][1]); if (d < m) m = d; } return m; }
+  function maxCircle(poly, x0, x1, y0, y1) {
+    var best = { r: 0, x: (x0 + x1) / 2, y: (y0 + y1) / 2 };
+    function scan(a0, a1, b0, b1, n) { for (var i = 0; i <= n; i++) for (var j = 0; j <= n; j++) { var x = a0 + (a1 - a0) * i / n, y = b0 + (b1 - b0) * j / n; if (!inside(x, y, poly)) continue; var d = edgeDist(x, y, poly); if (d > best.r) best = { r: d, x: x, y: y }; } }
+    scan(x0, x1, y0, y1, 36);
+    var sx = (x1 - x0) / 36 * 1.5, sy = (y1 - y0) / 36 * 1.5;
+    scan(best.x - sx, best.x + sx, best.y - sy, best.y + sy, 14);
+    return best;
+  }
+  function arc(pts, cx, cy, r, a0, a1, n) { for (var k = 0; k <= n; k++) { var a = (a0 + (a1 - a0) * k / n) * Math.PI / 180; pts.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]); } }
+  // 응력 집중 계수(교육용 근사 곡선): 모깎기 반경 ÷ 두께
+  function kt(rt) { return 1 + 0.5 / Math.pow(Math.max(rt, 0.03), 0.55); }
+  function sinkJudge(q) { return q <= 1.22 ? ["낮음", "ok"] : q <= 1.32 ? ["주의", "warn"] : ["높음", "bad"]; }
+  function tagHtml(txt, kind) { return '<span style="color:var(--' + kind + ')">' + txt + "</span>"; }
+
+  /* 단면을 mm 좌표 → 화면 좌표로 그리는 도우미 */
+  function drawPoly(ctx, poly, X, Y) { ctx.beginPath(); poly.forEach(function (p, i) { i ? ctx.lineTo(X(p[0]), Y(p[1])) : ctx.moveTo(X(p[0]), Y(p[1])); }); ctx.closePath(); }
+  function hatch(ctx, x, y, w, h, col) { ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip(); ctx.strokeStyle = col; ctx.lineWidth = 1; for (var k = -h; k < w; k += 7) { ctx.beginPath(); ctx.moveTo(x + k, y + h); ctx.lineTo(x + k + h, y); ctx.stroke(); } ctx.restore(); }
+  function dimLine(ctx, x1, y1, x2, y2, label, col, side) {
+    ctx.save(); ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    var a = Math.atan2(y2 - y1, x2 - x1);
+    [[x1, y1, a + Math.PI], [x2, y2, a]].forEach(function (q) { ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.lineTo(q[0] - 6 * Math.cos(q[2] - 0.4), q[1] - 6 * Math.sin(q[2] - 0.4)); ctx.lineTo(q[0] - 6 * Math.cos(q[2] + 0.4), q[1] - 6 * Math.sin(q[2] + 0.4)); ctx.closePath(); ctx.fill(); });
+    ctx.font = AB.font(11, true); ctx.textBaseline = "middle";
+    if (side === "left") { ctx.textAlign = "right"; ctx.fillText(label, Math.min(x1, x2) - 5, (y1 + y2) / 2); }
+    else if (side === "right") { ctx.textAlign = "left"; ctx.fillText(label, Math.max(x1, x2) + 5, (y1 + y2) / 2); }
+    else { ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText(label, (x1 + x2) / 2, Math.min(y1, y2) - 4); }
+    ctx.restore();
+  }
+
+  /* ---------------- 시뮬레이터 1: 리브 ---------------- */
+  safe("rib", function () {
+    var B = 20, DRAFT = Math.tan(0.5 * Math.PI / 180);
+    var st = { t: 2 };
+    var hG = AB.range("rb-h", function (v) { return fx(v) + " mm"; }, function () { cv.redraw(); });
+    var kG = AB.range("rb-k", function (v) { return "× " + fx(v, 2); }, function () { cv.redraw(); });
+    var tG = AB.seg("rb-t", function (v) { st.t = Number(v); cv.redraw(); });
+    st.t = Number(tG());
+    var geo = null;
+    function ribPoly(t, tr, h, r) {
+      var trTop = Math.max(0.2, tr - 2 * h * DRAFT), p = [[-B / 2, 0], [B / 2, 0], [B / 2, t]];
+      if (h <= 0.01) { p.push([-B / 2, t]); return p; }
+      if (r > 0) arc(p, tr / 2 + r, t + r, r, -90, -180, 8); else p.push([tr / 2, t]);
+      p.push([trTop / 2, t + h], [-trTop / 2, t + h]);
+      if (r > 0) arc(p, -tr / 2 - r, t + r, r, 0, -90, 8); else p.push([-tr / 2, t]);
+      p.push([-B / 2, t]);
+      return p;
+    }
+    function props(t, tr, h) {
+      var trAvg = Math.max(0.2, tr - h * DRAFT);
+      var A1 = B * t, A2 = trAvg * h, A = A1 + A2;
+      var yb = (A1 * t / 2 + A2 * (t + h / 2)) / A;
+      var I = B * t * t * t / 12 + A1 * Math.pow(yb - t / 2, 2) + trAvg * h * h * h / 12 + A2 * Math.pow(t + h / 2 - yb, 2);
+      var I0 = B * t * t * t / 12, teq = Math.cbrt(12 * I / B);
+      return { S: I / I0, M: A / A1, teq: teq, Meq: teq / t, yb: yb };
+    }
+    var cv = AB.canvas("#rb-cv", function (ctx, w, h) {
+      var p = AB.palette(), t = st.t, k = kG(), hh = hG(), tr = k * t, r = 0.25 * t;
+      var s = Math.min((w - 70) / B, (h - 70) / 13.5), X0 = w / 2, Yb = h - 34;
+      var X = function (x) { return X0 + x * s; }, Y = function (y) { return Yb - y * s; };
+      geo = { X0: X0, Yb: Yb, s: s, t: t };
+      var poly = ribPoly(t, tr, hh, r);
+      // 단면
+      drawPoly(ctx, poly, X, Y); ctx.fillStyle = p.surface; ctx.fill();
+      ctx.save(); drawPoly(ctx, poly, X, Y); ctx.clip(); hatch(ctx, X(-B / 2), Y(t + hh + 1), B * s, (t + hh + 1) * s, p.faint); ctx.restore();
+      drawPoly(ctx, poly, X, Y); ctx.strokeStyle = p.text; ctx.lineWidth = 1.6; ctx.stroke();
+      // 중립축
+      var pr = props(t, tr, hh);
+      ctx.setLineDash([6, 4]); ctx.strokeStyle = p.accent2; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(X(-B / 2) - 6, Y(pr.yb)); ctx.lineTo(X(B / 2) + 6, Y(pr.yb)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = p.accent2; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("중립축", X(B / 2) - 40, Y(pr.yb) - 3);
+      // 뿌리의 내접원과 싱크
+      var q = 1, c = null;
+      if (hh > 0.05) {
+        c = maxCircle(poly, -tr - t, tr + t, 0, t + Math.min(hh, 2 * t));
+        q = 2 * c.r / t;
+        var jd = sinkJudge(q), col = p[jd[1]];
+        ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(X(c.x), Y(c.y), c.r * s, 0, 7); ctx.stroke();
+        // 싱크(과장해서 그림)
+        if (q > 1.22) {
+          var dep = Math.min(10, (q - 1.15) * 40), half = (tr / 2 + r + t * 0.6) * s;
+          ctx.fillStyle = AB.color("canvas-bg") || "#fff";
+          ctx.beginPath(); ctx.moveTo(X0 - half, Yb); ctx.quadraticCurveTo(X0, Yb - dep * 2, X0 + half, Yb); ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = p.bad; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X0 - half, Yb); ctx.quadraticCurveTo(X0, Yb - dep * 2, X0 + half, Yb); ctx.stroke();
+          ctx.fillStyle = p.bad; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top";
+          ctx.fillText("싱크(과장)", X0, Yb + 6);
+        }
+      }
+      // 치수
+      dimLine(ctx, X(-B / 2) - 12, Y(0), X(-B / 2) - 12, Y(t), "t " + fx(t) + "", p.dim, "left");
+      if (hh > 0.05) {
+        dimLine(ctx, X(tr / 2) + 26, Y(t), X(tr / 2) + 26, Y(t + hh), "h " + fx(hh), p.accent, "right");
+        AB.handle(ctx, X(0), Y(t + hh), { r: 7, fill: p.accent, ring: p.text });
+      } else {
+        AB.handle(ctx, X(0), Y(t), { r: 7, fill: p.accent, ring: p.text });
+      }
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("폭 20 mm 조각 · 아래가 겉면", 10, 8);
+      // 3t 경계선
+      ctx.setLineDash([3, 4]); ctx.strokeStyle = p.faint; ctx.beginPath(); ctx.moveTo(X(-B / 2), Y(4 * t)); ctx.lineTo(X(-tr), Y(4 * t)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = p.faint; ctx.textBaseline = "bottom"; ctx.fillText("높이 3t", X(-B / 2), Y(4 * t) - 2);
+      // 판독
+      AB.stat("rb-o-s", "× " + fx(pr.S, 1));
+      AB.stat("rb-o-m", "× " + fx(pr.M, 2));
+      AB.stat("rb-o-eq", fx(pr.teq, 2) + " mm <small>무게 × " + fx(pr.Meq, 2) + "</small>");
+      var jj = sinkJudge(q);
+      AB.stat("rb-o-sink", (hh > 0.05 ? "× " + fx(q, 2) + " " : "— ") + "<small>" + (hh > 0.05 ? tagHtml(jj[0], jj[1]) : "리브 없음") + (hh > 3 * t ? " · 너무 높다" : "") + "</small>");
+    }, H(0.62, 260, 400)("rb-cv"));
+    AB.drag(cv.canvas, {
+      move: function (x, y) { if (!geo) return; var v = (geo.Yb - y) / geo.s - geo.t; hG.set(AB.clamp(Math.round(v * 10) / 10, 0, 10)); }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 2: 보스 ---------------- */
+  safe("boss", function () {
+    var T = 2, HB = 8;
+    var dG = AB.seg("bs-d", function () { cv.redraw(); });
+    var qG = AB.range("bs-q", function (v) { return "× " + fx(v, 2); }, function () { cv.redraw(); });
+    var fG = AB.range("bs-f", function (v) { return fx(v, 2) + " mm"; }, function () { cv.redraw(); });
+    function bossPoly(R, rh, f, W) {
+      var p = [[-W / 2, 0], [W / 2, 0], [W / 2, T]];
+      if (f > 0) arc(p, R + f, T + f, f, -90, -180, 8); else p.push([R, T]);
+      p.push([R, T + HB], [rh, T + HB], [rh, T], [-rh, T], [-rh, T + HB], [-R, T + HB]);
+      if (f > 0) arc(p, -R - f, T + f, f, 0, -90, 8); else p.push([-R, T]);
+      p.push([-W / 2, T]);
+      return p;
+    }
+    var cv = AB.canvas("#bs-cv", function (ctx, w, h) {
+      var p = AB.palette(), d = Number(dG()), q = qG(), f = fG();
+      var OD = q * d, R = OD / 2, rh = 0.4 * d, wall = R - rh, W = 22;
+      var s = Math.min((w - 40) / W, (h - 60) / (T + HB + 2)), X0 = w / 2, Yb = h - 30;
+      var X = function (x) { return X0 + x * s; }, Y = function (y) { return Yb - y * s; };
+      var poly = bossPoly(R, rh, f, W);
+      drawPoly(ctx, poly, X, Y); ctx.fillStyle = p.surface; ctx.fill();
+      ctx.save(); drawPoly(ctx, poly, X, Y); ctx.clip(); hatch(ctx, X(-W / 2), Y(T + HB + 1), W * s, (T + HB + 1) * s, p.faint); ctx.restore();
+      drawPoly(ctx, poly, X, Y); ctx.strokeStyle = p.text; ctx.lineWidth = 1.6; ctx.stroke();
+      // 나사(점선 윤곽과 나사산)
+      ctx.save(); ctx.strokeStyle = p.accent; ctx.lineWidth = 1.4; ctx.setLineDash([4, 3]);
+      ctx.strokeRect(X(-d / 2), Y(T + HB + 1.2), d * s, (HB - 0.6) * s); ctx.setLineDash([]);
+      for (var yy = T + 1; yy < T + HB; yy += 0.9) { ctx.beginPath(); ctx.moveTo(X(-d / 2), Y(yy)); ctx.lineTo(X(d / 2), Y(yy + 0.45)); ctx.stroke(); }
+      ctx.fillStyle = p.accent; ctx.fillRect(X(-d), Y(T + HB + 1.8), 2 * d * s, 0.6 * s);
+      ctx.restore();
+      // 내접원(오른쪽 뿌리)
+      var c = maxCircle(poly, rh, R + f + T, 0, T + 1.5 * T);
+      var qq = 2 * c.r / T, jd = sinkJudge(qq);
+      ctx.strokeStyle = p[jd[1]]; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(X(c.x), Y(c.y), c.r * s, 0, 7); ctx.stroke();
+      ctx.beginPath(); ctx.arc(X(-c.x), Y(c.y), c.r * s, 0, 7); ctx.stroke();
+      if (qq > 1.22) {
+        var dep = Math.min(9, (qq - 1.15) * 36), x1 = X(-(R + f + 0.8)), x2 = X(R + f + 0.8);
+        ctx.fillStyle = AB.color("canvas-bg") || "#fff";
+        ctx.beginPath(); ctx.moveTo(x1, Yb); ctx.bezierCurveTo(x1 + (x2 - x1) * 0.25, Yb - dep * 1.6, x1 + (x2 - x1) * 0.75, Yb - dep * 1.6, x2, Yb); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = p.bad; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, Yb); ctx.bezierCurveTo(x1 + (x2 - x1) * 0.25, Yb - dep * 1.6, x1 + (x2 - x1) * 0.75, Yb - dep * 1.6, x2, Yb); ctx.stroke();
+        ctx.fillStyle = p.bad; ctx.font = AB.font(11, false, 600); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText("싱크(과장)", X0, Yb + 6);
+      }
+      // 갈라짐 표시
+      var crack = q < 2 ? "bad" : q < 2.2 ? "warn" : "ok";
+      if (crack !== "ok") {
+        ctx.strokeStyle = p[crack]; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(X(R) , Y(T + HB)); ctx.lineTo(X(R - wall * 0.4), Y(T + HB - 1.2)); ctx.lineTo(X(R - wall * 0.15), Y(T + HB - 2.2)); ctx.lineTo(X(R - wall * 0.55), Y(T + HB - 3.4)); ctx.stroke();
+      }
+      dimLine(ctx, X(-R), Y(T + HB) - 12, X(R), Y(T + HB) - 12, "Ø " + fx(OD, 2), p.dim);
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("살두께 2 mm · 아래가 겉면", 10, 8);
+      var K = kt(f / Math.max(0.3, wall));
+      AB.stat("bs-o-w", fx(OD, 2) + " mm <small>벽 " + fx(wall, 2) + "</small>");
+      AB.stat("bs-o-c", tagHtml(crack === "bad" ? "위험" : crack === "warn" ? "주의" : "괜찮음", crack));
+      AB.stat("bs-o-s", "× " + fx(qq, 2) + " <small>" + tagHtml(jd[0], jd[1]) + "</small>");
+      AB.stat("bs-o-k", "× " + fx(K, 1) + (f < 0.15 ? " <small>" + tagHtml("날카로운 뿌리", "bad") + "</small>" : ""));
+    }, H(0.6, 250, 380)("bs-cv"));
+  });
+
+  /* ---------------- 시뮬레이터 3: 스냅핏 변형률 ---------------- */
+  var MATS = {
+    pcabs: { name: "PC/ABS", E: 2300, eps: 2.5 },
+    abs: { name: "ABS", E: 2200, eps: 2.0 },
+    pc: { name: "PC", E: 2300, eps: 4.0 },
+    pp: { name: "PP", E: 1300, eps: 6.0 },
+  };
+  safe("snap", function () {
+    var Wd = 5, st = { delta: 0 };
+    var tG = AB.range("sn-t", function (v) { return fx(v) + " mm"; }, function () { cv.redraw(); });
+    var lG = AB.range("sn-l", function (v) { return fx(v) + " mm"; }, function () { cv.redraw(); });
+    var yG = AB.range("sn-y", function (v) { return fx(v) + " mm"; }, function () { st.delta = Math.min(st.delta, yG()); cv.redraw(); });
+    var mG = AB.seg("sn-m", function () { cv.redraw(); });
+    var geo = null;
+    var cv = AB.canvas("#sn-cv", function (ctx, w, h) {
+      var p = AB.palette(), t = tG(), L = lG(), y = yG(), m = MATS[mG()];
+      var eps = 1.5 * t * y / (L * L) * 100, epsNow = 1.5 * t * st.delta / (L * L) * 100;
+      var s = Math.min((w - 60) / 22, (h - 70) / 9), x0 = 24 + 4 * s, ym = h * 0.42;
+      var X = function (x) { return x0 + x * s; }, Y = function (z) { return ym - z * s; };
+      geo = { X: X, Y: Y, s: s, L: L, x0: x0, ym: ym };
+      var dlt = st.delta;
+      function v(x) { var xx = Math.min(x, L); return -dlt * xx * xx * (3 * L - xx) / (2 * L * L * L); }
+      function th(x) { var xx = Math.min(x, L); return -dlt * (6 * L * xx - 3 * xx * xx) / (2 * L * L * L); }
+      function P(x, z) { var a = Math.atan(th(x)); return [X(x - z * Math.sin(a)), Y(v(x) + z * Math.cos(a))]; }
+      // 몸통(뿌리)
+      ctx.fillStyle = p.surface; ctx.fillRect(X(-4), Y(4), 4 * s, 8 * s);
+      hatch(ctx, X(-4), Y(4), 4 * s, 8 * s, p.faint);
+      ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.strokeRect(X(-4), Y(4), 4 * s, 8 * s);
+      // 팔(변형률 색칠: 위 겉면, 뿌리에서 최대)
+      var n = 40, top = [], bot = [];
+      for (var i = 0; i <= n; i++) { var x = L * i / n; top.push(P(x, t / 2)); bot.push(P(x, -t / 2)); }
+      ctx.beginPath(); top.forEach(function (q, i) { i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); });
+      for (var j = n; j >= 0; j--) ctx.lineTo(bot[j][0], bot[j][1]); ctx.closePath();
+      ctx.fillStyle = p.surface; ctx.fill(); ctx.strokeStyle = p.text; ctx.lineWidth = 1.5; ctx.stroke();
+      // 변형률 띠
+      for (var k = 0; k < n; k++) {
+        var e = epsNow * (1 - (k + 0.5) / n), ratio = e / m.eps;
+        ctx.strokeStyle = ratio > 1 ? p.bad : ratio > 0.6 ? p.warn : p.ok; ctx.globalAlpha = 0.25 + 0.75 * Math.min(1, ratio);
+        ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(top[k][0], top[k][1] + 2); ctx.lineTo(top[k + 1][0], top[k + 1][1] + 2); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      // 갈고리
+      var a = 0.3 + y / Math.tan(30 * Math.PI / 180);
+      var hook = [P(L - a, t / 2), P(L - a, t / 2 + y), P(L - a + 0.3, t / 2 + y), P(L, t / 2 + 0.12), P(L, -t / 2)];
+      ctx.beginPath(); hook.forEach(function (q, i) { i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); ctx.closePath();
+      ctx.fillStyle = p.surface; ctx.fill(); ctx.strokeStyle = p.text; ctx.stroke();
+      // 상대 부품의 턱(갈고리가 넘어야 하는 선)
+      ctx.setLineDash([5, 4]); ctx.strokeStyle = p.accent2; ctx.lineWidth = 1.3;
+      ctx.beginPath(); ctx.moveTo(X(L - a - 2), Y(t / 2)); ctx.lineTo(X(L + 2.5), Y(t / 2)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = p.accent2; ctx.font = AB.font(11); ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+      ctx.fillText("상대 턱의 끝선: 갈고리 꼭대기가", Math.min(w - 8, X(L + 2.5)), Y(t / 2 + y) - 22);
+      ctx.fillText("이 점선까지 내려가야 넘는다", Math.min(w - 8, X(L + 2.5)), Y(t / 2 + y) - 8);
+      dimLine(ctx, X(L + 1.6), Y(t / 2), X(L + 1.6), Y(t / 2 + y), "y", p.accent2, "right");
+      // 뿌리 균열
+      if (epsNow > m.eps) {
+        ctx.strokeStyle = p.bad; ctx.lineWidth = 2.5; ctx.beginPath();
+        ctx.moveTo(X(0), Y(t / 2)); ctx.lineTo(X(0.25), Y(t / 2 - t * 0.3)); ctx.lineTo(X(0.05), Y(t / 2 - t * 0.55)); ctx.lineTo(X(0.3), Y(-t * 0.2)); ctx.stroke();
+        ctx.fillStyle = p.bad; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+        ctx.fillText("뿌리에서 갈라짐", X(0.3), Y(t / 2) - 6);
+      }
+      // 손잡이
+      var hp = P(L - a + 0.15, t / 2 + y);
+      AB.handle(ctx, hp[0], hp[1], { r: 7, fill: p.accent, ring: p.text });
+      // 치수
+      dimLine(ctx, X(0), Y(-t / 2) + 26, X(L), Y(-t / 2) + 26, "L " + fx(L) + " mm", p.dim);
+      // 아래 눈금: 지금의 처짐과 변형률
+      var gy = h - 26, gx0 = 20, gx1 = w - 20;
+      ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(gx0, gy); ctx.lineTo(gx1, gy); ctx.stroke();
+      var maxE = Math.max(eps, m.eps) * 1.15, GX = function (e) { return gx0 + (gx1 - gx0) * e / maxE; };
+      ctx.fillStyle = p.ok; ctx.globalAlpha = 0.3; ctx.fillRect(gx0, gy - 8, GX(m.eps * 0.6) - gx0, 8); ctx.fillStyle = p.warn; ctx.fillRect(GX(m.eps * 0.6), gy - 8, GX(m.eps) - GX(m.eps * 0.6), 8); ctx.fillStyle = p.bad; ctx.fillRect(GX(m.eps), gy - 8, gx1 - GX(m.eps), 8); ctx.globalAlpha = 1;
+      ctx.fillStyle = p.text; ctx.beginPath(); ctx.moveTo(GX(epsNow), gy - 9); ctx.lineTo(GX(epsNow) - 5, gy - 17); ctx.lineTo(GX(epsNow) + 5, gy - 17); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = p.bad; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(GX(eps), gy - 12); ctx.lineTo(GX(eps), gy + 3); ctx.stroke();
+      ctx.font = AB.font(11, true); ctx.fillStyle = p.dim; ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("지금 " + fx(epsNow, 2) + "% · 턱을 넘을 때 " + fx(eps, 2) + "% · 허용 " + fx(m.eps, 1) + "%", gx0, gy + 5);
+      // 판독
+      var Pn = m.E * Wd * t * t * t * y / (4 * L * L * L), ratio2 = eps / m.eps;
+      AB.stat("sn-o-e", fx(eps, 2) + "%");
+      AB.stat("sn-o-a", fx(m.eps, 1) + "% <small>" + m.name + "</small>");
+      AB.stat("sn-o-j", ratio2 > 1 ? tagHtml("부러진다", "bad") : ratio2 > 0.6 ? tagHtml("아슬아슬", "warn") + " <small>" + Math.round(ratio2 * 100) + "%</small>" : tagHtml("여유 있음", "ok") + " <small>" + Math.round(ratio2 * 100) + "%</small>");
+      AB.stat("sn-o-p", fx(Pn, 1) + " N");
+    }, H(0.62, 270, 400)("sn-cv"));
+    AB.drag(cv.canvas, {
+      move: function (x, yy) { if (!geo) return; var z = (yy - geo.ym) / geo.s; st.delta = AB.clamp(z + 0.3, 0, yG()); cv.redraw(); },
+      end: function () { st.delta = 0; cv.redraw(); },
+    });
+  });
+
+  /* ---------------- 시뮬레이터 4: 들어가는 각과 걸림각 ---------------- */
+  safe("angle", function () {
+    var E = 2300, Wd = 5, t = 1.2, L = 10, Y0 = 0.8, k = E * Wd * t * t * t / (4 * L * L * L);
+    var aG = AB.range("ag-a", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var bG = AB.range("ag-b", function (v) { return v + "°"; }, function () { cv.redraw(); });
+    var muG = AB.seg("ag-mu", function () { cv.redraw(); });
+    function axial(P, ang, mu) { var ta = Math.tan(ang * Math.PI / 180), den = 1 - mu * ta; return den <= 0.02 ? Infinity : P * (mu + ta) / den; }
+    var cv = AB.canvas("#ag-cv", function (ctx, w, h) {
+      var p = AB.palette(), al = aG(), be = bG(), mu = Number(muG());
+      var Win = axial(k * Y0, al, mu), Wout = axial(k * Y0, be, mu);
+      // 위: 갈고리 모양
+      var sh = Math.min(h * 0.32, 110), s = sh / 2.2, cx = w * 0.5, base = 14 + sh;
+      var ta = Math.tan(al * Math.PI / 180), tb = Math.tan(be * Math.PI / 180);
+      var lead = Y0 / ta, back = be >= 89.5 ? 0 : Y0 / tb, flat = 0.4;
+      var xs = cx - (lead + flat + back) * s / 2;
+      ctx.fillStyle = p.surface; ctx.strokeStyle = p.text; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(xs - 40, base); ctx.lineTo(xs, base); ctx.lineTo(xs + back * s, base - Y0 * s); ctx.lineTo(xs + (back + flat) * s, base - Y0 * s); ctx.lineTo(xs + (back + flat + lead) * s, base); ctx.lineTo(xs + (back + flat + lead) * s + 30, base); ctx.lineTo(xs + (back + flat + lead) * s + 30, base + 12); ctx.lineTo(xs - 40, base + 12); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.font = AB.font(11); ctx.fillStyle = p.accent; ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText("α " + al + "° 들어가는 면", xs + (back + flat + lead * 0.5) * s + 8, base - Y0 * s * 0.5);
+      ctx.fillStyle = p.accent2; ctx.textAlign = "right";
+      ctx.fillText("걸림면 β " + be + "°", xs + back * s * 0.5 - 8, base - Y0 * s * 0.5);
+      ctx.fillStyle = p.dim; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      ctx.fillText("← 빼는 방향 · 끼우는 방향 →", cx, base + 16);
+      // 아래: 힘–이동 그래프
+      var box = { x: 54, y: base + 40, w: w - 54 - 16, h: h - base - 40 - 44 };
+      var travel = lead + flat + back + 0.6, Wcap = 30, Ymax = 34;
+      var data = [], N = 80;
+      for (var i = 0; i <= N; i++) {
+        var sx = travel * i / N, F;
+        if (sx <= lead) F = axial(k * sx * ta, al, mu);
+        else if (sx <= lead + flat) F = mu * k * Y0;
+        else F = 0;
+        data.push([sx, Math.min(F, Wcap)]);
+      }
+      var ch = AB.chart(ctx, box, { x: [0, travel], y: [0, Ymax], yTicks: [0, 10, 20, 30], xLabel: "끼워 넣은 거리(mm)", yLabel: "힘(N)", series: [{ data: data, color: p.accent, width: 2.5 }],
+        hlines: [{ y: Math.min(Wout, Wcap), color: p.accent2, label: isFinite(Wout) ? "빼는 힘 " + fx(Wout, 1) + " N" : "빼는 힘: 잠김" }] });
+      if (!isFinite(Win) || Win > Wcap) { ctx.fillStyle = p.bad; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(isFinite(Win) ? "끼우는 힘이 그래프 위로 넘친다" : "마찰로 밀려 들어가지 않는다", box.x + 8, box.y + 4); }
+      AB.stat("ag-o-in", isFinite(Win) ? fx(Win, 1) + " N" : tagHtml("못 끼움", "bad"));
+      AB.stat("ag-o-out", isFinite(Wout) ? fx(Wout, 1) + " N" : tagHtml("잠김", "accent-2"));
+      AB.stat("ag-o-4", isFinite(Win) ? "끼울 때 " + fx(4 * Win, 0) + " N" : "—");
+    }, H(0.7, 320, 440)("ag-cv"));
+  });
+
+  /* ---------------- 시뮬레이터 5: 공차 누적(몬테카를로) ---------------- */
+  safe("tol", function () {
+    var FULL = [["버튼 구멍 위치", 0.10], ["두 몸통 맞춤", 0.10], ["기판 위치(보스)", 0.08], ["스위치 위치(납땜)", 0.15], ["버튼 폭(절반)", 0.05]];
+    var SHORT = [["구멍–기둥(같은 금형)", 0.05], ["안내 기둥과 버튼 틈", 0.05], ["버튼 폭(절반)", 0.05]];
+    var NS = 4000, seed = 11, samples = null, key = "";
+    var gG = AB.range("tl-g", function (v) { return fx(v, 2) + " mm"; }, function () { cv.redraw(); });
+    var sG = AB.check("tl-short", function () { cv.redraw(); });
+    var dG = AB.seg("tl-dist", function () { cv.redraw(); });
+    document.getElementById("tl-re").addEventListener("click", function () { seed += 1; cv.redraw(); });
+    function draw(chain, dist) {
+      var k2 = chain.length + dist + seed;
+      if (k2 === key) return samples;
+      var R = AB.rng(seed), out = new Float64Array(NS), spare = null;
+      function gauss() { if (spare != null) { var s = spare; spare = null; return s; } var u = Math.max(1e-9, R()), v = R(), m = Math.sqrt(-2 * Math.log(u)); spare = m * Math.sin(6.283185 * v); return m * Math.cos(6.283185 * v); }
+      for (var i = 0; i < NS; i++) { var sum = 0; for (var j = 0; j < chain.length; j++) { var T = chain[j][1]; sum += dist === "normal" ? gauss() * T / 3 : (R() * 2 - 1) * T; } out[i] = sum; }
+      key = k2; samples = out; return out;
+    }
+    var cv = AB.canvas("#tl-cv", function (ctx, w, h) {
+      var p = AB.palette(), g0 = gG(), chain = sG() ? SHORT : FULL, dist = dG();
+      var dev = draw(chain, dist);
+      var wc = 0, ss = 0; chain.forEach(function (c) { wc += c[1]; ss += c[1] * c[1]; }); var rss = Math.sqrt(ss);
+      // 위: 사슬 막대
+      var rowH = 20, top = 12, labW = Math.min(150, w * 0.42), bx0 = labW + 14, bx1 = w - 16, mid = (bx0 + bx1) / 2, sc = (bx1 - bx0) / 2 / 0.2;
+      ctx.font = AB.font(11); ctx.textBaseline = "middle";
+      chain.forEach(function (c, i) {
+        var y = top + i * rowH + rowH / 2;
+        ctx.fillStyle = p.dim; ctx.textAlign = "right"; ctx.fillText(c[0], labW + 6, y);
+        ctx.fillStyle = p.accent; ctx.globalAlpha = 0.28; ctx.fillRect(mid - c[1] * sc, y - 6, 2 * c[1] * sc, 12); ctx.globalAlpha = 1;
+        ctx.strokeStyle = p.accent; ctx.lineWidth = 1.2; ctx.strokeRect(mid - c[1] * sc, y - 6, 2 * c[1] * sc, 12);
+        ctx.fillStyle = p.text; ctx.textAlign = "left"; ctx.font = AB.font(10.5, true); ctx.fillText("±" + c[1].toFixed(2), Math.min(bx1 - 34, mid + c[1] * sc + 4), y); ctx.font = AB.font(11);
+      });
+      ctx.strokeStyle = p.faint; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(mid, top); ctx.lineTo(mid, top + 5 * rowH); ctx.stroke(); ctx.setLineDash([]);
+      // 아래: 틈 분포
+      var lo = -0.6, hi = 1.0, nb = 64, bins = new Array(nb).fill(0), bad = 0;
+      for (var i = 0; i < NS; i++) { var gp = g0 - dev[i]; if (gp <= 0) bad++; var b = Math.floor((gp - lo) / (hi - lo) * nb); if (b >= 0 && b < nb) bins[b]++; }
+      var maxB = Math.max.apply(null, bins);
+      var box = { x: 40, y: top + 5 * rowH + 30, w: w - 40 - 14, h: h - (top + 5 * rowH + 30) - 42 };
+      var ch = AB.chart(ctx, box, { x: [lo, hi], y: [0, maxB * 1.15], xLabel: "버튼 한쪽 틈(mm)", yTicks: [], xTicks: [-0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1.0], xFmt: function (v) { return v.toFixed(1); },
+        bands: [{ x0: lo, x1: 0, color: "rgba(220,60,60,0.10)" }] });
+      var bw = box.w / nb;
+      for (var k = 0; k < nb; k++) {
+        var x = lo + (k + 0.5) * (hi - lo) / nb;
+        ctx.fillStyle = x <= 0 ? p.bad : p.accent2; ctx.globalAlpha = 0.8;
+        var bh = bins[k] / (maxB * 1.15) * box.h; ctx.fillRect(box.x + k * bw + 0.5, box.y + box.h - bh, bw - 1, bh);
+      }
+      ctx.globalAlpha = 1;
+      // 최악 조건·RSS 괄호
+      function bracket(a, b, yy, col, lab) {
+        var xa = ch.X(Math.max(lo, a)), xb = ch.X(Math.min(hi, b));
+        ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(xa, yy + 5); ctx.lineTo(xa, yy); ctx.lineTo(xb, yy); ctx.lineTo(xb, yy + 5); ctx.stroke();
+        ctx.fillStyle = col; ctx.font = AB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText(lab, Math.min(xa + 2, box.x + box.w - 90), yy - 1);
+      }
+      bracket(g0 - wc, g0 + wc, box.y - 16, p.warn, "최악 조건");
+      bracket(g0 - rss, g0 + rss, box.y - 2, p.accent, "RSS");
+      ctx.strokeStyle = p.bad; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(ch.X(0), box.y - 18); ctx.lineTo(ch.X(0), box.y + box.h); ctx.stroke();
+      AB.stat("tl-o-wc", fx(g0 - wc, 2) + " ~ " + fx(g0 + wc, 2));
+      AB.stat("tl-o-rss", fx(g0 - rss, 2) + " ~ " + fx(g0 + rss, 2));
+      var rate = bad / NS;
+      AB.stat("tl-o-bad", tagHtml(AB.fix(rate * 100, 1) + "%", rate > 0.005 ? "bad" : rate > 0 ? "warn" : "ok") + " <small>" + bad + "/" + NS + "</small>");
+    }, H(0.72, 330, 440)("tl-cv"));
+  });
+
+  /* ---------------- 시뮬레이터 6: DFA 세 질문 ---------------- */
+  safe("dfa", function () {
+    var PARTS = [
+      { name: "아랫몸통", n: 1, t: 3, ess: "다른 부품이 모두 놓이는 바탕이다. 따로 있어야 한다." },
+      { name: "윗몸통", n: 1, t: 4, ess: "기판을 넣으려면 아랫몸통과 따로여야 한다(조립)." },
+      { name: "몸통 나사", n: 4, t: 8, alt: { name: "스냅핏 4", n: 0, t: 1, why: "세 질문 모두 아니오: 움직이지 않고, 재료가 같아도 되고, 따로일 이유가 없다. 몸통에 성형한 스냅핏으로 바꾼다." } },
+      { name: "기판", n: 1, t: 4, ess: "재료가 달라야 한다(전기 회로)." },
+      { name: "기판 나사", n: 2, t: 8, alt: { name: "갈고리 리브", n: 0, t: 1, why: "세 질문 모두 아니오: 아랫몸통의 갈고리 리브 둘로 기판을 눌러 끼운다." } },
+      { name: "버튼", n: 1, t: 4, ess: "몸통에 대해 움직여야 한다." },
+      { name: "충전지", n: 1, t: 5, ess: "재료가 다르고, 교체를 위해 따로 있어야 한다." },
+      { name: "충전지 덮개", n: 1, t: 4, ess: "충전지를 바꾸려면 따로 열려야 한다(수리)." },
+      { name: "덮개 나사", n: 2, t: 8, alt: { name: "나사 1 + 걸림 턱", n: 1, t: 8, why: "이론상 없앨 수 있지만, 충전지 칸이 공구 없이 열리지 않게 하나는 남긴다. 덮개 한쪽 끝은 걸림 턱으로 끼운다." } },
+      { name: "라벨 스티커", n: 1, t: 5, alt: { name: "금형 각인", n: 0, t: 0, why: "세 질문 모두 아니오: 재료 표시와 정보를 금형에 새겨 성형 때 함께 찍는다." } },
+    ];
+    var NMIN = 6, on = PARTS.map(function () { return false; }), msg = "카드를 눌러 세 질문을 던져 본다.", msgKind = "dim", hit = [];
+    function cur(i) { var q = PARTS[i]; return on[i] && q.alt ? q.alt : q; }
+    var cv = AB.canvas("#df-cv", function (ctx, w, h) {
+      var p = AB.palette(), cols = w >= 640 ? 5 : w >= 430 ? 4 : 2, gap = 8, cw = (w - 20 - gap * (cols - 1)) / cols, chh = 58;
+      hit = [];
+      PARTS.forEach(function (q, i) {
+        var c = i % cols, r = Math.floor(i / cols), x = 10 + c * (cw + gap), y = 10 + r * (chh + gap), cu = cur(i);
+        var col = q.ess ? p.dim : on[i] ? p.ok : p.warn;
+        ctx.fillStyle = p.surface; ctx.strokeStyle = col; ctx.lineWidth = q.ess ? 1 : 2;
+        ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, cw, chh, 8); else ctx.rect(x, y, cw, chh); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = on[i] ? p.ok : p.text; ctx.font = AB.font(12.5, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+        var nm = cu.name; while (ctx.measureText(nm).width > cw - 14 && nm.length > 2) nm = nm.slice(0, -1);
+        ctx.fillText(nm, x + 8, y + 8);
+        ctx.font = AB.font(11, true); ctx.fillStyle = p.dim;
+        ctx.fillText("×" + cu.n + "  " + (cu.n ? cu.t * Math.max(1, cu.n) : cu.t) + "s", x + 8, y + 28);
+        ctx.font = AB.font(10.5); ctx.fillStyle = q.ess ? p.faint : on[i] ? p.ok : p.warn;
+        ctx.fillText(q.ess ? "필수" : on[i] ? "바꿈" : "후보", x + 8, y + 42);
+        hit.push([x, y, cw, chh, i]);
+      });
+      var rows = Math.ceil(PARTS.length / cols), y0 = 10 + rows * (chh + gap) + 6;
+      // 조립 시간 막대
+      var tot = 0, segs = [];
+      PARTS.forEach(function (q, i) { var cu = cur(i), tt = cu.n ? cu.t * cu.n : cu.t; if (tt > 0) segs.push([tt, q.ess ? p.dim : on[i] ? p.ok : p.warn]); tot += tt; });
+      var full = 93, bx = 10, bw = w - 20, sc = bw / full, xx = bx;
+      ctx.fillStyle = p.dim; ctx.font = AB.font(11); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("조립 시간(가상, 첫 도면 93초 = 전체 폭)", bx, y0);
+      segs.forEach(function (sg) { ctx.fillStyle = sg[1]; ctx.globalAlpha = 0.55; ctx.fillRect(xx, y0 + 16, sg[0] * sc - 1, 16); xx += sg[0] * sc; });
+      ctx.globalAlpha = 1; ctx.strokeStyle = p.border; ctx.strokeRect(bx, y0 + 16, bw, 16);
+      // 메시지(줄 바꿈)
+      ctx.font = AB.font(12.5); ctx.fillStyle = p[msgKind] || p.text; ctx.textBaseline = "top";
+      var words = msg.split(" "), line = "", ly = y0 + 42;
+      words.forEach(function (wd) { var test = line ? line + " " + wd : wd; if (ctx.measureText(test).width > w - 20 && line) { ctx.fillText(line, 10, ly); ly += 17; line = wd; } else line = test; });
+      if (line) ctx.fillText(line, 10, ly);
+      var n = 0; PARTS.forEach(function (q, i) { n += cur(i).n; });
+      AB.stat("df-o-n", n + " <small>개</small>");
+      AB.stat("df-o-t", tot + " <small>초</small>");
+      AB.stat("df-o-e", AB.fix(3 * NMIN / tot * 100, 0) + "%");
+    }, { get height() { var el = document.getElementById("df-cv"); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); var cols = w >= 640 ? 5 : w >= 430 ? 4 : 2; return Math.ceil(10 / cols) * 66 + 20 + 130; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        for (var k = 0; k < hit.length; k++) {
+          var hb = hit[k];
+          if (x >= hb[0] && x <= hb[0] + hb[2] && y >= hb[1] && y <= hb[1] + hb[3]) {
+            var q = PARTS[hb[4]];
+            if (q.ess) { msg = q.name + ": 남긴다. " + q.ess; msgKind = "dim"; }
+            else { on[hb[4]] = !on[hb[4]]; msg = on[hb[4]] ? q.name + " → " + q.alt.name + ". " + q.alt.why : q.name + ": 첫 도면으로 되돌렸다."; msgKind = on[hb[4]] ? "ok" : "warn"; }
+            cv.redraw(); return;
+          }
+        }
+      },
+    });
+  });
+})();
+</script>
+</body>
+</html>
