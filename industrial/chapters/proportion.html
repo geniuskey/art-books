@@ -733,7 +733,7 @@
         ctx.strokeStyle = p.warn; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
         ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
         ctx.beginPath(); ctx.moveTo(ch.X(40), ch.Y(110 - 0.4 * 40)); ctx.lineTo(ch.X(160), ch.Y(110 - 0.4 * 160)); ctx.stroke(); ctx.restore(); ctx.setLineDash([]);
-        ctx.fillStyle = p.warn; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("80 g 넘음", box.x + box.w - 6, box.y + 14);
+        ctx.fillStyle = p.warn; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("80 g 넘음", ch.X(92), ch.Y(86));
       }
       ctx.fillStyle = p.bad; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("넘어짐 각 " + amin + "° 미만", box.x + box.w - 6, box.y + box.h - 18);
       var c = worst(pt.L, pt.b), ok = c.dF > 0 && c.aF >= amin && c.M <= 80;

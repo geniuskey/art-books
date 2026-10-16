@@ -6,6 +6,31 @@
 <html lang="ko">
 <head>
 <!--head:start {"desc": "화면의 움직임은 장식이 아니라 설명이다. 이징 곡선을 직접 끌어 만들고, 지속 시간과 거리의 관계, 전환이 알려 주는 공간 관계, 차례 등장의 총 시간, 시차 스크롤 같은 과한 움직임과 전정 장애, prefers-reduced-motion을 시뮬레이터로 다루고, 책방 E 웹사이트의 움직임을 두 단계 시간과 이징 하나로 정리한다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>모션 · WebBook</title>
+<meta name="description" content="화면의 움직임은 장식이 아니라 설명이다. 이징 곡선을 직접 끌어 만들고, 지속 시간과 거리의 관계, 전환이 알려 주는 공간 관계, 차례 등장의 총 시간, 시차 스크롤 같은 과한 움직임과 전정 장애, prefers-reduced-motion을 시뮬레이터로 다루고, 책방 E 웹사이트의 움직임을 두 단계 시간과 이징 하나로 정리한다.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/motion.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="모션 · WebBook">
+<meta property="og:description" content="화면의 움직임은 장식이 아니라 설명이다. 이징 곡선을 직접 끌어 만들고, 지속 시간과 거리의 관계, 전환이 알려 주는 공간 관계, 차례 등장의 총 시간, 시차 스크롤 같은 과한 움직임과 전정 장애, prefers-reduced-motion을 시뮬레이터로 다루고, 책방 E 웹사이트의 움직임을 두 단계 시간과 이징 하나로 정리한다.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/motion.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/motion.html#chapter","name":"모션","headline":"모션 · WebBook","description":"화면의 움직임은 장식이 아니라 설명이다. 이징 곡선을 직접 끌어 만들고, 지속 시간과 거리의 관계, 전환이 알려 주는 공간 관계, 차례 등장의 총 시간, 시차 스크롤 같은 과한 움직임과 전정 장애, prefers-reduced-motion을 시뮬레이터로 다루고, 책방 E 웹사이트의 움직임을 두 단계 시간과 이징 하나로 정리한다.","url":"https://artbook.euiyun.com/web/chapters/motion.html","position":10,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"10. 모션","item":"https://artbook.euiyun.com/web/chapters/motion.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
 <!--head:end-->
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
@@ -536,7 +561,7 @@
   function bodyLines(c, y0, n, mh) {
     c.fillStyle = BK.calm; rrect(c, 14, y0, MW - 28, 110, 10); c.fill();
     c.fillStyle = BK.cream; c.font = FONT(17, 800); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("다음 모임", 28, y0 + 40);
-    c.font = FONT(12.5, 600); c.fillText("2월 22일(목) 저녁 7시 · 낭독", 28, y0 + 64);
+    c.font = FONT(12.5, 600); c.fillText("2월 24일(목) 저녁 7시 · 낭독", 28, y0 + 64);
     c.fillStyle = "#e7ece9";
     for (var i = 0; i < n; i++) { var yy = y0 + 132 + i * 22; if (yy > mh) break; rrect(c, 14, yy, (i % 3 === 2 ? 170 : MW - 28), 10, 5); c.fill(); }
   }
@@ -574,7 +599,7 @@
         c.fillStyle = BK.green; c.beginPath(); c.arc(MW / 2, 140, 22, 0, 7); c.fill();
         c.strokeStyle = WHITE; c.lineWidth = 4; c.lineCap = "round"; c.lineJoin = "round"; c.beginPath(); c.moveTo(MW / 2 - 10, 141); c.lineTo(MW / 2 - 2, 149); c.lineTo(MW / 2 + 11, 132); c.stroke();
         c.fillStyle = INK; c.font = FONT(15, 800); c.textAlign = "center"; c.fillText("신청이 접수되었습니다", MW / 2, 190);
-        c.fillStyle = DIM; c.font = FONT(12, 500); c.fillText("2월 22일(목) 저녁 낭독 모임 · 2명", MW / 2, 214);
+        c.fillStyle = DIM; c.font = FONT(12, 500); c.fillText("2월 24일(목) 저녁 낭독 모임 · 2명", MW / 2, 214);
         c.restore();
         c.fillStyle = "#e7ece9"; for (var i = 0; i < 6; i++) { var yy = 268 + i * 22; if (yy > mh - 10) break; rrect(c, 18, yy, i % 2 ? 160 : MW - 36, 10, 5); c.fill(); }
       });
@@ -622,7 +647,7 @@
     $("mo-ea-play").addEventListener("click", function () {
       if (anim) anim.stop();
       tR.el.value = 0;
-      anim = tween(1000, function (t) { tR.el.value = Math.round(t * 100); tR.el.dispatchEvent(new Event("input-silent")); var o = $("mo-ea-t-out"); if (o) o.textContent = Math.round(t * 100) + "%"; tR.el.style.setProperty("--fill", (t * 100) + "%"); cv.redraw(); }, function () { anim = null; });
+      anim = tween(1000, function (t) { tR.el.value = Math.round(t * 100); var o = $("mo-ea-t-out"); if (o) o.textContent = Math.round(t * 100) + "%"; tR.el.style.setProperty("--fill", (t * 100) + "%"); cv.redraw(); }, function () { anim = null; });
     });
   });
 
@@ -937,7 +962,7 @@
         c.restore();
         c.fillStyle = "rgba(34,52,42,0.55)"; c.fillRect(0, HERO - 86, MW, 86);
         c.fillStyle = WHITE; c.font = FONT(20, 800); c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillText("동네 책방 E", 18, HERO - 50);
-        c.font = FONT(12.5, 600); c.fillText("다음 모임 · 2월 22일(목) 저녁 낭독", 18, HERO - 24);
+        c.font = FONT(12.5, 600); c.fillText("다음 모임 · 2월 24일(목) 저녁 낭독", 18, HERO - 24);
         c.fillStyle = INK; c.font = FONT(15, 800); c.fillText("이번 주 소식", 18, HERO + 40);
         c.fillStyle = "#e3e8e5"; for (var i = 0; i < 26; i++) { rrect(c, 18, HERO + 60 + i * 24, i % 4 === 3 ? 150 : MW - 36, 10, 5); c.fill(); }
         c.restore();
