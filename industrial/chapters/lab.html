@@ -321,7 +321,7 @@
         <div class="stat"><span class="k">1년당 값(교체 불가)</span><span class="v" id="pl-life-o-b">—</span></div>
         <div class="stat"><span class="k">1년당 kg CO₂e(가능 / 불가)</span><span class="v" id="pl-life-o-c">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 하루 1.5시간, 충전지 팩 4,000원에서 두 선을 본다. 교체 가능한 등은 약 8.2년 동안 충전지를 세 번 갈아 1년에 약 5,110원, 교체할 수 없는 등은 2.7년마다 새로 사서 1년에 11,070원이다. ② 하루 사용을 3시간으로 올린다. 충전지가 더 빨리 닳아(1.6년 남짓) 교체할 수 없는 등의 1년당 값이 크게 오르고, 관절도 빨리 닳아 두 구조의 수명이 함께 줄어든다. ③ 충전지 팩 값을 10,000원까지 올려도 교체 가능한 쪽이 싸다. 1년당 배출량도 같은 방향이다. 만들 때의 배출(약 2.0 kg CO₂e)을 더 긴 햇수로 나누기 때문이다. (11장의 모형: 한 번 충전 5시간, 정격 500회, 해마다 3%의 달력 노화로 80%에 닿는 해, 목 관절은 15,000회 조작. 판매가 3만 원, 만들기·운송·폐기 2.03 kg, 사용 1.5시간에 1년 0.25 kg, 충전지 팩 0.37 kg CO₂e는 모두 가상의 예시값이다. 교체 횟수는 11장처럼 수명 안에 드는 충전지 수명의 마디마다 센다.)</div>
+      <div class="sim-note">해볼 것: ① 하루 1.5시간, 충전지 팩 4,000원에서 두 선을 본다. 교체 가능한 등은 약 8.2년 동안 충전지를 세 번 갈아 1년에 약 5,110원, 교체할 수 없는 등은 2.7년마다 새로 사서 1년에 11,070원이다. ② 하루 사용을 3시간으로 올린다. 충전지가 더 빨리 닳아(1.7년쯤) 교체할 수 없는 등의 1년당 값이 크게 오르고, 관절도 빨리 닳아 두 구조의 수명이 함께 줄어든다. ③ 충전지 팩 값을 10,000원까지 올려도 교체 가능한 쪽이 싸다. 1년당 배출량도 같은 방향이다. 만들 때의 배출(약 2.0 kg CO₂e)을 더 긴 햇수로 나누기 때문이다. (11장의 모형: 한 번 충전 5시간, 정격 500회, 해마다 3%의 달력 노화로 80%에 닿는 해, 목 관절은 15,000회 조작. 판매가 3만 원, 만들기·운송·폐기 2.03 kg, 사용 1.5시간에 1년 0.25 kg, 충전지 팩 0.37 kg CO₂e는 모두 가상의 예시값이다. 교체 횟수는 11장처럼 수명 안에 드는 충전지 수명의 마디마다 센다.)</div>
     </div>
 
     <p>원가표에서는 충전지 교체 구조가 개당 180원을 더 쓰는 항목이었다. 1년당 값으로 보면 손님의 지출을 절반 아래로 줄이는 구조다. 같은 결정이 어느 숫자로 보느냐에 따라 비용이 되기도 하고 절약이 되기도 한다. 그래서 실험실의 원가 칸 옆에는 수명 칸을 함께 둔다.</p>
@@ -727,9 +727,10 @@
       ctx.fillStyle = DESK; ctx.fillRect(0, oy, w, 5);
       return { s: s, ox: ox, oy: oy, P: function (x, z) { return [ox + x * s, oy - z * s]; } };
     }
-    function label(ctx, w, txt, sub) {
-      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(txt, 10, 40);
-      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5); ctx.fillText(sub, 10, 58);
+    function label(ctx, w, txt, sub, right) {
+      var x = right ? w - 10 : 10;
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = right ? "right" : "left"; ctx.textBaseline = "top"; ctx.fillText(txt, x, 40);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5); ctx.fillText(sub, x, 58);
     }
     var A = AB.canvas("#pl-cmp-a", function (ctx, w, h) {
       var F = frame(ctx, w, h), s = F.s, P = F.P;
@@ -745,7 +746,7 @@
       var gr = ctx.createLinearGradient(0, 4 * s, 0, 40 * s); gr.addColorStop(0, "rgba(255,226,140,0.55)"); gr.addColorStop(1, "rgba(255,226,140,0)");
       ctx.fillStyle = gr; ctx.beginPath(); ctx.moveTo(0, 4 * s); ctx.lineTo(90 * s, 4 * s); ctx.lineTo(110 * s, 40 * s); ctx.lineTo(-14 * s, 40 * s); ctx.closePath(); ctx.fill();
       ctx.restore();
-      label(ctx, w, "7월 3일의 그림", "높이 약 160 · 등머리 100 넘음 · 두께 6");
+      label(ctx, w, "7월 3일의 그림", "높이 약 160 · 등머리 100 넘음");
     }, hOpt("pl-cmp-a", 0.62, 260, 400, PAPER));
     var B = AB.canvas("#pl-cmp-b", function (ctx, w, h) {
       var F = frame(ctx, w, h), s = F.s, P = F.P, d = CHOICE;
@@ -764,7 +765,7 @@
       var gr = ctx.createLinearGradient(0, 12 * s, 0, 46 * s); gr.addColorStop(0, "rgba(255,226,140,0.5)"); gr.addColorStop(1, "rgba(255,226,140,0)");
       ctx.fillStyle = gr; ctx.beginPath(); ctx.moveTo(-26 * s, 12 * s); ctx.lineTo(26 * s, 12 * s); ctx.lineTo(40 * s, 46 * s); ctx.lineTo(-40 * s, 46 * s); ctx.closePath(); ctx.fill();
       ctx.restore();
-      label(ctx, w, "10월의 최종 도면", "목 100 · 등머리 60 × 12 · 받침 60 · 78.0 g");
+      label(ctx, w, "10월의 최종 도면", "목 100 · 등머리 60 · 78.0 g", true);
     }, hOpt("pl-cmp-b", 0.62, 260, 400, PAPER));
     AB.compare("#pl-cmp", { labels: ["7월의 그림", "10월의 도면"], pos: 0.5 });
   });
