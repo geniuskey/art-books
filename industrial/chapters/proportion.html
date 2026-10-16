@@ -154,15 +154,15 @@
         <circle cx="180" cy="214" r="4" class="f-warn"/>
         <text x="115" y="96" text-anchor="middle" class="lbl-dim" style="font-size:12px">받침 끝까지 d, 높이 h</text>
         <!-- 오른쪽: 기울인 물체 -->
-        <g transform="rotate(43.9 400 214)">
-          <rect x="270" y="110" width="130" height="104" rx="6" class="f-surface" opacity=".9"/><rect x="270" y="110" width="130" height="104" rx="6" fill="none" class="s-line"/>
-          <circle cx="348" cy="160" r="6" class="f-bad"/>
+        <g transform="rotate(43.9 360 214)">
+          <rect x="230" y="110" width="130" height="104" rx="6" class="f-surface" opacity=".9"/><rect x="230" y="110" width="130" height="104" rx="6" fill="none" class="s-line"/>
+          <circle cx="308" cy="160" r="6" class="f-bad"/>
         </g>
-        <path d="M400 214 L400 140" class="s-dash"/>
-        <circle cx="400" cy="214" r="4" class="f-warn"/>
-        <path d="M372 214 A28 28 0 0 1 379.8 194.6" fill="none" class="s-line" stroke-width="1.5"/>
-        <text x="352" y="206" class="lbl-b" style="font-size:13px">α</text>
-        <text x="330" y="96" text-anchor="middle" class="lbl-dim" style="font-size:12px">α만큼 기울이면 G가 끝 위에</text>
+        <path d="M360 214 L360 130" class="s-dash"/>
+        <circle cx="360" cy="214" r="4" class="f-warn"/>
+        <path d="M332 214 A28 28 0 0 1 339.8 194.6" fill="none" class="s-line" stroke-width="1.5"/>
+        <text x="312" y="208" class="lbl-b" style="font-size:13px">α</text>
+        <text x="368" y="146" class="lbl-dim" style="font-size:12px">G가 끝 바로 위</text>
         <text x="330" y="248" text-anchor="middle" class="lbl-b" style="font-size:13px">tan α = d / h</text>
       </svg>
       <figcaption><b>그림 2. 넘어짐 각.</b> 물체를 받침 끝을 축으로 천천히 기울이면, 어느 순간 무게중심 G가 받침 끝의 바로 위에 온다. 그 각도 α를 넘으면 물체는 저절로 넘어간다. α는 무게중심에서 받침 끝까지의 가로 거리 d와 무게중심의 높이 h로 정해진다.</figcaption>
@@ -712,13 +712,13 @@
       ctx.fillStyle = p.warn; ctx.globalAlpha = 0.22; ctx.fill(pHeavy);
       ctx.globalAlpha = 1;
       // 경계선: 넘어짐 각 = amin (b를 이분 탐색)
-      ctx.strokeStyle = p.bad; ctx.lineWidth = 2; ctx.beginPath();
+      ctx.strokeStyle = p.bad; ctx.lineWidth = 2; var edgeP = new Path2D();
       for (var k = 0; k <= 60; k++) {
         var LL = 40 + k * 2, lo = 30, hi = 200;
         for (var it = 0; it < 30; it++) { var mid = (lo + hi) / 2, cc = worst(LL, mid); if (cc.dF > 0 && cc.aF >= amin) hi = mid; else lo = mid; }
-        var X = ch.X(LL), Y = ch.Y(Math.min(92, hi)); k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y);
+        var X = ch.X(LL), Y = ch.Y(Math.min(92, hi)); k ? edgeP.lineTo(X, Y) : edgeP.moveTo(X, Y);
       }
-      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip(); ctx.stroke(); ctx.restore();
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip(); ctx.stroke(edgeP); ctx.restore();
       if (wG()) {
         // 무게 80 g: 0.2b + 0.08L = 80 − 22 − 12 − 16 − 8 = 22 → b = 110 − 0.4L
         ctx.strokeStyle = p.warn; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);

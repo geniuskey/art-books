@@ -1,0 +1,374 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "사용자 조사는 사람에게 의견을 묻는 일이 아니라 사람이 실제로 한 일을 찾아내는 일이다. 알고 싶은 것에 맞는 방법 고르기, 유도 질문 고쳐 쓰기, 말과 행동의 차이, 관찰과 일지, 누구를 만날지(표본 편향), 몇 명이면 충분한지(포화)를 가상의 인터뷰와 관찰 기록으로 직접 흔들어 본다."}-->
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 2장 전용: 설명 칸, 질문 고쳐 쓰기 */
+  .pv-msg { padding: 12px 18px; border-top: 1px solid var(--border); font-size: 14.5px; line-height: 1.65; background: var(--bg-elev); color: var(--text); }
+  .pv-msg .dim { color: var(--text-dim); }
+  .pv-msg .tagk { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); margin-right: 6px; }
+  .rw-box { padding: 16px 18px; display: grid; gap: 12px; min-width: 0; }
+  .rw-q { font-size: 17px; line-height: 1.7; padding: 12px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); overflow-wrap: anywhere; }
+  .rw-q mark { background: none; color: inherit; border-bottom: 2.5px solid var(--bad); padding: 0 1px; }
+  .rw-q mark.m-good { border-bottom-color: var(--ok); }
+  .rw-q mark.m-warn { border-bottom-color: var(--warn); }
+  .rw-label { font-size: 12px; color: var(--text-dim); margin-bottom: -6px; }
+  .rw-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .rw-chip { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-elev); color: var(--text-dim); }
+  .rw-chip.bad { border-color: var(--bad); color: var(--bad); }
+  .rw-chip.warn { border-color: var(--warn); color: var(--warn); }
+  .rw-chip.good { border-color: var(--ok); color: var(--ok); }
+  .rw-input { font: inherit; font-size: 15px; width: 100%; box-sizing: border-box; padding: 9px 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg-elev); color: var(--text); }
+  .rw-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .rw-after { font-size: 15.5px; line-height: 1.7; padding: 10px 14px; border-left: 3px solid var(--ok); background: var(--bg-elev); }
+  .form-tbl td:first-child { white-space: nowrap; }
+</style>
+</head>
+<body data-chapter="research">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 02</div>
+    <h1>사용자 조사</h1>
+    <p class="lead">"찾는 책을 미리 맡겨 둘 수 있는 앱이 생기면 쓰시겠어요?" 손님 여덟 명 중 일곱 명이 그렇다고 했다. 그런데 같은 사람들에게 지난 한 달 동안 책방에 가기 전에 재고를 확인한 적이 있는지 휴대폰 통화 목록을 같이 보며 짚어 보니, 대부분은 그냥 갔고 몇은 헛걸음을 했다. 둘 중 어느 쪽을 믿어야 할까. 사용자 조사는 사람에게 의견을 받아 적는 일이 아니라, 사람이 실제로 한 일과 그 이유를 찾아내는 일이다. 이 장은 무엇을 알고 싶은지에 맞춰 방법을 고르고, 답을 비틀지 않는 질문을 쓰고, 말과 행동의 차이를 읽고, 누구를 몇 명 만날지 정하는 법을 가상의 인터뷰와 관찰 기록으로 직접 흔들어 본다.</p>
+    <ul class="objectives">
+      <li>알고 싶은 것(조사 질문)과 사람에게 묻는 것(인터뷰 질문)을 구별하고, 태도와 행동, 질적과 양적의 두 축에서 방법을 고른다.</li>
+      <li>유도 질문, 한 번에 두 가지를 묻는 질문, 가정과 미래를 묻는 질문을 찾아 지난 일을 구체적으로 묻는 질문으로 고쳐 쓴다.</li>
+      <li>사람이 말한 것과 한 것이 왜 어긋나는지(사회적 바람직성, 기억, 의도와 행동의 간극) 설명하고, 둘을 함께 모으는 법을 안다.</li>
+      <li>관찰과 일지의 쓰임을 알고, 관찰하는 시간대가 본 것을 바꾼다는 것을 확인한다.</li>
+      <li>모집 경로가 만드는 표본 편향은 사람 수를 늘려도 줄지 않는다는 것을 시뮬레이션으로 본다.</li>
+      <li>인터뷰마다 새 주제가 줄어드는 포화를 읽고, 그 판단이 "만난 부류 안에서만" 성립한다는 것을 안다.</li>
+    </ul>
+  </header>
+
+  <section id="question">
+    <h2>무엇을 알고 싶은가</h2>
+    <p><span class="term">사용자 조사</span><span class="en">(User research)</span>는 제품을 쓸 사람과 그 사람의 상황에 대해, 짐작 대신 근거를 모으는 일이다. <a href="overview.html">1장</a>의 더블 다이아몬드에서 첫 마름모의 왼쪽 절반, 곧 문제를 넓게 찾는 "발견" 단계의 중심이 이것이다. 조사를 시작하기 전에 먼저 적어야 할 것은 질문지가 아니라 <span class="term">조사 질문</span><span class="en">(Research question)</span>이다. 조사가 끝났을 때 답을 알고 있어야 하는 질문, 곧 우리가 알고 싶은 것이다. "손님은 찾는 책이 있을 때 실제로 어떻게 하는가?"는 조사 질문이다. 이것을 손님에게 그대로 물으면 대개 실제와 다른 대답이 돌아온다. 그래서 조사 질문은 손님에게 묻는 말이 아니라, 무엇을 보고 무엇을 물을지 고르는 기준이 된다.</p>
+    <p>조사 방법은 수십 가지지만 두 축으로 나눠 보면 고르기 쉽다. 하나는 <b>태도와 행동</b>이다. 사람이 무엇을 생각하고 느끼고 말하는지(태도)를 볼 것인가, 실제로 무엇을 하는지(행동)를 볼 것인가. 다른 하나는 <b>질적과 양적</b>이다. 소수의 사람을 깊이 보아 "왜, 어떻게"를 알 것인가, 많은 사람을 세어 "얼마나, 몇 명"을 알 것인가. 이 지도는 사용자 연구자 크리스천 로러<span class="en">(Christian Rohrer)</span>가 닐슨 노먼 그룹에 쓴 글 「When to Use Which User-Experience Research Methods」(2014)에서 널리 퍼졌다. 아래에서 단추로 서윤의 조사 질문 하나를 고르고, 그 질문에 맞는 자리라고 생각하는 곳으로 손잡이를 끈다.</p>
+
+    <div class="sim" id="sim-method">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>질문에 맞는 방법 고르기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="me-cv"></canvas><span class="hint">손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="me-q"><button data-value="0" class="on">질문 1</button><button data-value="1">질문 2</button><button data-value="2">질문 3</button><button data-value="3">질문 4</button></div>
+          <label class="check"><input type="checkbox" id="me-ans"> 하린의 답 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 가까운 방법</span><span class="v" id="me-o-m" style="font-size:16px">—</span></div>
+        <div class="stat"><span class="k">이 질문에</span><span class="v" id="me-o-fit">—</span></div>
+      </div>
+      <div class="pv-msg" id="me-msg">—</div>
+      <div class="sim-note">해볼 것: ① 질문 1("실제로 어떻게 하나")에서 손잡이를 위쪽 "인터뷰"에 둔다. 가깝지만 어긋난다. 실제로 하는 일은 말보다 지켜보는 쪽이 정확하다. 손잡이를 왼쪽 아래 "관찰"로 옮긴다. ② 질문 2("하루에 몇 통")로 바꾼다. 같은 행동이라도 "얼마나"를 묻는 순간 오른쪽으로 간다. ③ 질문 4에서 "하린의 답 보기"를 켠다. 설문은 많은 사람에게 물을 수 있지만, 돌아오는 것은 행동이 아니라 "스스로 말한 행동"이라는 점을 해설에서 확인한다. (방법의 자리는 로러의 지도를 이 장이 단순화한 것이다. 실제 방법은 점이 아니라 넓은 영역을 차지하고, 한 조사에서 여러 방법을 섞는 경우가 많다.)</div>
+    </div>
+
+    <p>같은 "전화로 재고를 묻는다"는 일이라도, "어떻게, 왜"를 알고 싶으면 왼쪽(질적)으로, "얼마나 자주"를 알고 싶으면 오른쪽(양적)으로 갔다. 그리고 실제로 하는 일을 알고 싶을수록 아래(행동)로 가야 했다. 질적 조사는 몇 명만 깊이 보기 때문에 "몇 퍼센트"를 말할 수 없고, 양적 조사는 많은 사람을 세지만 "왜"를 말해 주지 않는다. 그래서 작은 팀은 대개 질적 조사로 무엇이 일어나는지 먼저 찾고, 그것이 얼마나 흔한지는 나중에 세어 확인한다. 이 장은 주로 왼쪽 절반, 질적 조사를 다룬다. 오른쪽 아래, 곧 행동을 세는 일은 <a href="metrics.html">9장</a>에서 다룬다.</p>
+  </section>
+
+  <section id="interview">
+    <h2>인터뷰: 이야기를 듣는 법</h2>
+    <p>제품 디자인에서 가장 자주 쓰는 조사 방법은 한 사람과 마주 앉아 30분에서 한 시간쯤 이야기하는 <span class="term">사용자 인터뷰</span><span class="en">(User interview)</span>다. 대개 묻고 싶은 주제와 질문 몇 개를 미리 정해 두되, 대답에 따라 순서를 바꾸고 따라 묻는 <span class="term">반구조화 인터뷰</span><span class="en">(Semi-structured interview)</span>로 한다. 질문을 정해 둔 순서대로 읽기만 하면 설문을 말로 하는 것과 같아지고, 아무것도 정하지 않으면 듣고 싶은 이야기만 듣고 끝난다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 280" role="img" aria-label="인터뷰의 흐름: 넓게 시작해 구체적인 지난 일로 좁혀 들어갔다가 마무리한다">
+        <defs><marker id="prs-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <path d="M40 30 L420 30 L340 96 L120 96 Z" class="f-acc-soft"/>
+        <path d="M120 100 L340 100 L300 166 L160 166 Z" class="f-acc-soft" opacity=".75"/>
+        <path d="M160 170 L300 170 L270 236 L190 236 Z" class="f-acc2-soft"/>
+        <text x="230" y="56" text-anchor="middle" class="lbl-b">① 인사·동의 → 요즘의 하루</text>
+        <text x="230" y="78" text-anchor="middle" class="lbl-dim" style="font-size:11px">"요즘 어떤 책을 읽으세요? 그 책은 어떻게 손에 들어왔어요?"</text>
+        <text x="230" y="126" text-anchor="middle" class="lbl-b">② 마지막으로 한 일</text>
+        <text x="230" y="148" text-anchor="middle" class="lbl-dim" style="font-size:11px">"마지막으로 책을 사러 나간 날을 처음부터"</text>
+        <text x="230" y="198" text-anchor="middle" class="lbl-b">③ 따라 묻기</text>
+        <text x="230" y="220" text-anchor="middle" class="lbl-dim" style="font-size:11px">"그다음엔요?" "그건 어떻게 아셨어요?"</text>
+        <text x="230" y="264" text-anchor="middle" class="lbl-b">④ 마무리: "제가 묻지 않은 게 있을까요?"</text>
+        <path d="M230 238 L230 248" class="s-line" marker-end="url(#prs-ar)"/>
+        <text x="448" y="66" text-anchor="end" class="lbl-dim" style="font-size:11px">5분</text>
+        <text x="448" y="136" text-anchor="end" class="lbl-dim" style="font-size:11px">15분</text>
+        <text x="448" y="206" text-anchor="end" class="lbl-dim" style="font-size:11px">15분</text>
+        <text x="448" y="264" text-anchor="end" class="lbl-dim" style="font-size:11px">5분</text>
+      </svg>
+      <figcaption><b>그림 1. 인터뷰의 깔때기.</b> 넓고 편한 이야기로 시작해, 가장 최근에 실제로 있었던 일 하나로 좁혀 들어가고, 그 일의 세부를 따라 묻는다. 해결책(앱, 기능) 이야기는 마지막 몇 분까지 꺼내지 않는다. 시간은 40분 인터뷰의 예다.</figcaption>
+    </figure>
+
+    <p>좋은 인터뷰 질문의 원칙은 단순하다. <b>의견이나 미래가 아니라, 지난 일을 구체적으로 묻는다.</b> "책 찾기가 불편하세요?"라고 물으면 상대는 질문자가 듣고 싶어 하는 답을 짐작해 준다. "마지막으로 책을 사러 나갔던 날을 처음부터 이야기해 주세요"라고 물으면 상대는 기억을 더듬어 실제로 있었던 일을 꺼낸다. 창업자 롭 피츠패트릭<span class="en">(Rob Fitzpatrick)</span>은 『The Mom Test』(2013)에서 이것을 "어머니도 거짓말을 못 하게 묻는 법"으로 정리했다. 자기 아이디어를 설명하지 말고, 상대의 삶에서 이미 일어난 구체적인 일을 물으라는 것이다.</p>
+    <p>질문을 망치는 흔한 모양은 몇 가지로 정해져 있다. <span class="term">유도 질문</span><span class="en">(Leading question)</span>은 답을 질문 안에 넣어 둔 것이다("불편하셨죠?", "중요하지 않나요?"). <span class="term">이중 질문</span><span class="en">(Double-barreled question)</span>은 한 번에 두 가지를 묻는다("검색과 예약이 편하면 좋겠어요?"). 상대가 한쪽에만 답해도 우리는 둘 다에 답했다고 적는다. <b>가정·미래 질문</b>은 아직 일어나지 않은 일에 대한 예측을 묻는다("앱이 있다면 쓰시겠어요?"). 사람은 자기 미래 행동을 잘 예측하지 못한다. <b>일반화 질문</b>("보통 몇 번 가세요?")은 기억 속 평균을 짐작하게 한다. 아래는 서윤이 처음 쓴 질문지에서 고른 여섯 문항이다. 번호를 눌러 문제를 찾고, 고친 질문과 비교한다. 직접 쓴 질문도 넣어 볼 수 있다.</p>
+
+    <div class="sim" id="sim-rewrite">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>질문 고쳐 쓰기</h3></div>
+      <div class="sim-body">
+        <div class="rw-box">
+          <div class="ctrl-row"><div class="seg" id="rw-ex"><button data-value="0" class="on">1</button><button data-value="1">2</button><button data-value="2">3</button><button data-value="3">4</button><button data-value="4">5</button><button data-value="5">6</button><button data-value="own">직접 쓰기</button></div></div>
+          <input type="text" id="rw-in" class="rw-input" placeholder="질문을 직접 써 본다(예: 앱이 생기면 자주 쓰실 것 같으세요?)" maxlength="120" hidden>
+          <div class="rw-label">서윤의 질문(밑줄: 걸리는 말)</div>
+          <div class="rw-q" id="rw-q">—</div>
+          <div class="rw-chips" id="rw-chips"></div>
+          <div class="rw-label" id="rw-after-l">하린과 고친 질문</div>
+          <div class="rw-after" id="rw-after">—</div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">걸리는 곳</span><span class="v" id="rw-o-bad">—</span></div>
+        <div class="stat"><span class="k">열린 질문인가</span><span class="v" id="rw-o-open">—</span></div>
+        <div class="stat"><span class="k">지난 일을 묻나</span><span class="v" id="rw-o-past">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 1번에서 "불편하셨던"과 "많으시죠?"에 붉은 밑줄이 그어진다. 답을 미리 정해 둔 말이다. 고친 질문에는 평가하는 말이 하나도 없다. ② 2번과 3번을 비교한다. 2번은 미래를 묻고, 3번은 두 가지를 한꺼번에 묻는다. ③ "직접 쓰기"를 누르고 "앱이 생기면 자주 쓰실 것 같으세요?"를 "지난번에 책을 찾다가 그만두신 적이 있다면 그때 이야기를 들려주세요"로 바꿔 쓰며 표시가 어떻게 달라지는지 본다. (검사기는 한국어 표현 몇 가지를 찾는 단순한 규칙이라 놓치거나 잘못 짚는 경우가 있다. 밑줄은 판정이 아니라 "다시 읽어 볼 곳"이다.)</div>
+    </div>
+
+    <p>고친 질문들에는 공통점이 있었다. 평가하는 말(불편, 편리, 중요)이 사라지고, "지난번", "마지막으로", "그때"처럼 실제로 있었던 하루를 가리키는 말이 들어갔다. 그리고 답이 "네/아니오"로 끝나지 않고 이야기가 되도록 열려 있다. 이런 질문은 처음에는 어색하다. 질문자가 듣고 싶은 결론으로 가는 지름길이 없기 때문이다. 하지만 그 덕분에 질문자가 상상하지 못한 이야기가 나온다. 서윤의 인터뷰에서 "그 책이 거기 있다는 건 어떻게 아셨어요?"라는 질문에 한 손님은 "책방 주인한테 문자로 표지 사진을 보냈어요"라고 답했다. 서윤의 질문지 어디에도 문자는 없었다.</p>
+
+    <div class="callout studio">
+      <strong>침묵을 5초 견딘다</strong>
+      인터뷰가 처음인 사람이 가장 자주 하는 실수는 상대가 생각하는 사이를 참지 못하고 다음 질문이나 예시 답을 말해 버리는 것이다. "예를 들면 검색이 느리다든가…"라고 말하는 순간 상대는 그 예시를 받아 답한다. 질문한 뒤에는 속으로 다섯을 센다. 침묵 뒤에 나오는 말이 가장 솔직한 경우가 많다. 따라 묻는 말은 짧을수록 좋다. "그다음엔요?", "그건 어떻게 아셨어요?", "그때 기분이 어땠어요?" 하린은 인터뷰를 가능하면 두 사람이 함께 한다. 한 사람은 묻고, 한 사람은 적는다. 적는 사람은 상대가 한 말을 따옴표 안에 그대로 적고, 자기 해석은 괄호 안에 따로 적는다.
+    </div>
+  </section>
+
+  <section id="say-do">
+    <h2>말과 행동은 어긋난다</h2>
+    <p>좋은 질문을 써도 사람의 말과 행동은 어긋난다. 이유는 여럿이다. 첫째, 사람은 묻는 사람에게 좋게 보이는 쪽으로 답하는 경향이 있다. 이것을 <span class="term">사회적 바람직성 편향</span><span class="en">(Social desirability bias)</span>이라고 한다. 책방 주인의 부탁으로 온 연구자에게 "책은 주로 온라인에서 사요"라고 말하기는 어렵다. 둘째, 기억은 평균을 잘 내지 못한다. 인상적인 일은 실제보다 자주 일어난 것처럼, 일상적인 일은 드물게 일어난 것처럼 기억된다. 셋째, 하겠다는 마음과 실제로 하는 일 사이에는 틈이 있다. 심리학에서는 이것을 <span class="term">의도와 행동의 간극</span><span class="en">(Intention–behavior gap)</span>이라 부르며 오래 연구해 왔다(예: Sheeran 2002의 개관). "앱이 생기면 쓰겠다"는 말은 거짓이 아니라, 대개 진심인 예측이다. 다만 예측이 잘 맞지 않을 뿐이다.</p>
+    <p>그래서 하린은 인터뷰 중에 손님의 허락을 받아 휴대폰의 통화 목록과 문자, 영수증과 달력을 함께 보며 지난 4주를 짚었다. 이렇게 하면 "말"과 함께 "한 것의 흔적"을 모을 수 있다. 아래는 손님 여덟 명(C1~C8, 가상 자료)의 답과 기록이다. 먼저 기록을 가린 채 아래쪽 손잡이를 끌어 "기록의 평균이 어디쯤일지" 예상해 본 뒤, 체크 상자로 기록을 연다.</p>
+
+    <div class="sim" id="sim-saydo">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>말한 것과 한 것</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sd-cv"></canvas><span class="hint">예상 손잡이를 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="sd-claim"><button data-value="0" class="on">미리 확인</button><button data-value="1">방문 횟수</button><button data-value="2">동네에서 산다</button></div>
+          <label class="check"><input type="checkbox" id="sd-show"> 기록 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">말한 것의 평균</span><span class="v" id="sd-o-say">—</span></div>
+        <div class="stat"><span class="k">기록의 평균</span><span class="v" id="sd-o-do">—</span></div>
+        <div class="stat"><span class="k">내 예상과 기록의 차이</span><span class="v" id="sd-o-guess">—</span></div>
+      </div>
+      <div class="pv-msg" id="sd-msg">—</div>
+      <div class="sim-note">해볼 것: ① "미리 확인"에서 손잡이를 말한 것의 평균 근처에 두고 기록을 연다. 거의 모든 사람의 기록이 말보다 왼쪽에 있다. ② "방문 횟수"로 바꾼다. 차이가 한쪽으로만 나지 않는다. 단골 C3은 말보다 기록이 적고, C8은 거의 같다. 기억은 한쪽으로만 틀리지 않는다. ③ "동네에서 산다"에서 다시 예상해 본다. 책방 사람이 묻는 자리에서는 이 차이가 커지기 쉽다. (가상 자료: 손님 여덟 명, C1·C3·C6은 단골, C2·C5·C7은 가끔 오는 손님, C4·C8은 처음 온 손님. "기록"은 인터뷰 중 손님의 허락을 받아 통화 목록, 문자, 영수증, 달력으로 지난 4주를 짚어 센 값이라 이것도 완전하지 않다. 현금으로 산 책, 기록 없이 들른 방문은 빠진다.)</div>
+    </div>
+
+    <p>"미리 확인한다"는 말의 평균은 63%였지만, 기록으로 짚어 본 평균은 29%였다. 말과 기록이 같은 방향으로 틀리는 질문(미리 확인, 동네에서 산다)이 있었고, 사람마다 다른 방향으로 틀리는 질문(방문 횟수)도 있었다. 앞의 경우는 질문 자체가 "좋은 손님"의 모습을 담고 있다는 신호다. 그렇다고 말이 쓸모없는 것은 아니다. 행동은 무엇을 하는지 알려 주고, 말은 왜 그렇게 하는지, 그때 어떤 기분이었는지 알려 준다. "미리 확인을 안 한 이유"를 묻자 C2는 "전화하면 주인이 바빠 보여서요"라고 했다. 기록만으로는 알 수 없는 이유다. 하린의 원칙 "사람이 말한 것보다 한 것을 믿어요"는 말을 버리라는 뜻이 아니라, <b>행동으로 무엇을 확인하고 말로 그 이유를 묻는다</b>는 뜻이다.</p>
+
+    <div class="callout deep">
+      <strong>"쓰겠다"는 대답을 어떻게 다룰까</strong>
+      "이런 서비스가 있으면 쓰겠습니까?"에 대한 긍정 답은 많은 경우 실제 사용률보다 높게 나온다는 것이 조사 실무에서 널리 받아들여지는 경험칙이다. 얼마나 높은지는 상황마다 달라서 하나의 비율로 말할 수 없다. 이 대답을 조금 더 쓸모 있게 만드는 방법은 몇 가지가 있다. 첫째, 미래 대신 현재의 대체 행동을 묻는다. "지금은 그 일을 어떻게 하고 계세요?"에 대한 답이 "아무것도 안 해요"라면, 그 문제는 생각만큼 아프지 않을 수 있다. 둘째, 말이 아니라 작은 행동을 부탁한다. "출시되면 알려 드릴까요? 전화번호를 남겨 주시겠어요?"처럼 아주 작은 대가라도 치르게 하면 말보다 나은 신호가 된다(이때도 수집 목적과 보관 기간을 밝힌다, <a href="ethics.html">12장</a>). 셋째, 결국은 만들어서 지켜본다. 그것이 <a href="usability.html">8장</a>과 <a href="metrics.html">9장</a>의 일이다.
+    </div>
+  </section>
+
+  <section id="observe">
+    <h2>지켜보기: 관찰과 일지</h2>
+    <p>행동을 가장 직접 보는 방법은 그 일이 일어나는 자리에 가서 지켜보는 것이다. 사람이 일하는 현장에서 일을 지켜보며 그때그때 묻는 방법을 <span class="term">맥락 인터뷰</span><span class="en">(Contextual inquiry)</span>라고 한다. 휴 바이어<span class="en">(Hugh Beyer)</span>와 캐런 홀츠블랫<span class="en">(Karen Holtzblatt)</span>은 『Contextual Design』(1998)에서 그 태도를 장인과 도제의 관계에 빗댔다. 연구자는 묻는 사람이 아니라 일을 배우러 온 도제처럼 옆에 서서, 장인(사용자)이 일하는 것을 보고 "지금 왜 그걸 먼저 하셨어요?"라고 묻는다. 사람은 자기 일을 설명하라고 하면 규칙을 말하지만, 일하는 중에 물으면 실제로 하는 예외를 보여 준다.</p>
+    <p>현장에 계속 머물 수 없을 때는 사용자에게 기록을 부탁한다. 정해진 기간 동안 일이 일어날 때마다 짧게 적게 하는 방법을 <span class="term">일지 연구</span><span class="en">(Diary study)</span>라고 한다. 기억에 기대는 인터뷰보다 덜 흐려지고, 연구자가 없는 시간의 일까지 담는다. 대신 적는 사람이 지치면 기록이 빠르게 줄어들므로 적을 것을 아주 짧게 정해야 한다. 서윤은 네 주인에게 일주일 동안 재고를 묻는 전화가 올 때마다 계산대 옆 공책에 바를 정(正) 자를 하나씩 그어 달라고 부탁했다.</p>
+    <p>관찰을 기록할 때는 <b>본 것과 해석을 나눠 적는다.</b> "손님이 서가 앞에서 2분쯤 서성이다 빈손으로 나갔다"는 본 것이고, "찾는 책이 없어 실망했다"는 해석이다. 해석은 틀릴 수 있다. 그 손님은 그냥 둘러보러 왔을 수도 있다. 서윤과 하린이 정한 관찰 기록 양식은 이렇다.</p>
+    <div class="table-wrap">
+      <table class="form-tbl">
+        <thead><tr><th>칸</th><th>적는 것</th><th>예(가상)</th></tr></thead>
+        <tbody>
+          <tr><td>시각</td><td>분 단위</td><td>14:32</td></tr>
+          <tr><td>누가</td><td>단골·가끔·처음(추정이면 "?")</td><td>처음?, 30대로 보임</td></tr>
+          <tr><td>무엇을 찾았나</td><td>책 이름, 또는 "둘러봄"</td><td>휴대폰 화면의 표지 사진을 주인에게 보여 줌</td></tr>
+          <tr><td>어떻게 물었나</td><td>직접·전화·문자·안 물음</td><td>직접</td></tr>
+          <tr><td>결과</td><td>있음·없음·주문·맡김·빈손</td><td>없음 → 다른 책방을 물어봄</td></tr>
+          <tr><td>걸린 시간</td><td>대략</td><td>약 3분</td></tr>
+          <tr><td>들은 말</td><td>따옴표 안에 그대로</td><td>"어제 전화했을 땐 있다고 하셨는데…"</td></tr>
+          <tr><td>내 해석</td><td>괄호 안에 따로</td><td>(다른 가게와 헷갈렸을 수도. 확인 필요)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>관찰은 <b>언제</b> 하느냐에 따라 본 것이 크게 달라진다. 평일 낮의 책방과 토요일 오후의 책방은 다른 가게다. 아래는 가상의 책방 하루(11시~21시)에 일어난 일을 시간 위에 늘어놓은 것이다. 관찰 창을 끌어 옮기고, 슬라이더로 창의 길이를, 단추로 요일을 바꾼다.</p>
+
+    <div class="sim" id="sim-window">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>언제 지켜보느냐가 본 것을 정한다</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="ow-cv"></canvas><span class="hint">관찰 창을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="ow-day"><button data-value="wd" class="on">평일(화)</button><button data-value="sat">토요일</button></div>
+          <label class="ctrl"><span>관찰 시간 <output id="ow-len-out"></output></span><input type="range" id="ow-len" min="1" max="4" step="0.5" value="2"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">창 안의 방문</span><span class="v" id="ow-o-v">—</span></div>
+        <div class="stat"><span class="k">창 안의 재고 문의 전화</span><span class="v" id="ow-o-c">—</span></div>
+        <div class="stat"><span class="k">창 안의 빈손으로 나감</span><span class="v" id="ow-o-e">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 평일, 창을 오후 2~4시에 둔다. 손님도 전화도 드물어 "조용한 가게"로 보인다. ② 창을 저녁 6~8시로 옮긴다. 퇴근길 손님과 빈손으로 나가는 사람이 한꺼번에 몰린다. ③ 토요일로 바꾸고 창을 점심 무렵(11~13시)에 둔다. 손님보다 전화가 먼저 몰린다. 나가기 전에 묻는 사람들이다. 관찰 시간을 4시간으로 늘려도 하루 전체의 절반이 안 된다. (가상 자료: 시간대마다 정한 비율로 사건을 무작위로 만든 교육용 모형이며 요일마다 시드를 고정했다. 실제 책방의 흐름이 아니다.)</div>
+    </div>
+
+    <p>같은 가게, 같은 하루인데 창을 어디에 두느냐에 따라 "전화가 거의 없는 가게"도 되고 "전화 때문에 계산이 밀리는 가게"도 되었다. 관찰은 표본을 뽑는 일이기도 하다. 사람을 고르듯 <b>시간과 장소를 고른다</b>. 그래서 관찰 계획에는 언제, 어디서, 몇 시간을 왜 골랐는지를 적는다. 서윤과 하린은 바쁜 시간과 한가한 시간을 하나씩 넣기로 하고, 토요일 오후와 화요일 저녁을 골랐다. 그리고 주인들의 일주일 공책이 관찰 창 밖의 시간을 채웠다.</p>
+
+    <div class="callout try">
+      <strong>가게 한 곳을 30분 동안 지켜보기</strong>
+      카페, 빵집, 편의점처럼 들어가 앉아 있어도 어색하지 않은 가게 한 곳을 고른다. 위의 기록 양식을 종이에 옮겨 그리고, 30분 동안 손님이 무엇을 찾고 어떻게 묻고 어떻게 되었는지를 적는다. 사람의 얼굴이나 이름은 적지 않고, 사진을 찍지 않는다. 본 것과 해석을 다른 칸에 나눠 적는 것이 생각보다 어렵다는 것을 확인한다. 같은 가게에 다른 시간대에 한 번 더 가서 30분을 적고, 두 기록을 나란히 놓는다. 무엇이 같고 무엇이 달랐는지 세 줄로 적는다.
+    </div>
+  </section>
+
+  <section id="sample">
+    <h2>누구를 만날 것인가</h2>
+    <p>조사의 결론은 만난 사람들에 대한 결론이다. 만난 사람들이 만나고 싶은 사람들과 다르면, 결론도 다른 사람들의 것이 된다. 조사할 사람을 모으는 일을 <span class="term">모집</span><span class="en">(Recruiting)</span>이라 하고, 모집 경로 때문에 표본이 특정 방향으로 치우치는 것을 <span class="term">표본 편향</span><span class="en">(Sampling bias)</span> 또는 <span class="term">선택 편향</span><span class="en">(Selection bias)</span>이라고 한다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 250" role="img" aria-label="모집 경로마다 걸러지는 사람들: 동네 사람 전체에서 단골 목록까지 점점 좁아진다">
+        <rect x="10" y="20" width="440" height="40" rx="8" class="f-surface"/>
+        <rect x="50" y="72" width="360" height="40" rx="8" class="f-surface"/>
+        <rect x="100" y="124" width="260" height="40" rx="8" class="f-acc-soft"/>
+        <rect x="150" y="176" width="160" height="40" rx="8" class="f-warn-soft"/>
+        <text x="230" y="45" text-anchor="middle" class="lbl-b">동네에서 책을 사는 사람 전체</text>
+        <text x="230" y="97" text-anchor="middle" class="lbl-b">책방 앞을 지나가는 사람</text>
+        <text x="230" y="149" text-anchor="middle" class="lbl-b">가게에 들어오는 손님</text>
+        <text x="230" y="201" text-anchor="middle" class="lbl-b">단골 단톡방 사람들</text>
+        <text x="230" y="238" text-anchor="middle" class="lbl-dim" style="font-size:11px">아래로 갈수록 모으기 쉽고, 그만큼 한쪽으로 치우친다</text>
+      </svg>
+      <figcaption><b>그림 2. 모집 경로가 거르는 사람들.</b> 단골 단톡방은 가장 모으기 쉽지만, 거기 있는 사람들은 이미 주인과 연락하며 지내고 책을 맡겨 달라고 부탁할 수 있는 사람들이다. 서비스가 가장 필요한 사람, 곧 가 보기 전엔 알 길이 없는 손님은 위쪽 칸에 더 많을 수 있다. 가장 아래 칸만 만나면 "별로 불편하지 않다"는 결론이 나오기 쉽다.</figcaption>
+    </figure>
+
+    <p>서윤은 처음에 책방 E의 단골 단톡방에 인터뷰 공지를 올렸다. 하루 만에 열한 명이 손을 들었다. 하린은 반가워하면서도 물었다. "이분들은 지금도 주인한테 문자 한 통이면 책을 맡겨 둘 수 있는 분들 아니에요?" 아래 시뮬레이터는 가상의 동네 사람 400명이다. 가운데가 책방이고, 점 하나가 한 사람이다. 진한 점은 지난 석 달 사이 찾는 책이 없어 헛걸음한 적이 있는 사람이다. 모집 경로와 인원을 고르고 "다시 뽑기"를 여러 번 누른다.</p>
+
+    <div class="sim" id="sim-sample">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>모집 경로와 표본 편향</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="sp-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="sp-mode"><button data-value="reg" class="on">단골 단톡방</button><button data-value="pass">가게 앞 지나가는 사람</button><button data-value="all">동네 전체 무작위</button></div>
+          <label class="ctrl"><span>모집 인원 <output id="sp-n-out"></output></span><input type="range" id="sp-n" min="4" max="40" step="1" value="8"></label>
+          <div class="btn-row"><button class="btn sm" id="sp-draw" type="button">다시 뽑기</button><button class="btn sm" id="sp-many" type="button">20번 뽑기</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">표본의 헛걸음 경험 비율</span><span class="v" id="sp-o-s">—</span></div>
+        <div class="stat"><span class="k">동네 전체(모형만 안다)</span><span class="v" id="sp-o-t">—</span></div>
+        <div class="stat"><span class="k">표본 중 단골</span><span class="v" id="sp-o-r">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "단골 단톡방", 8명으로 "20번 뽑기"를 누른다. 아래 띠의 눈금(뽑을 때마다의 결과)이 동네 전체의 값(점선)보다 한참 왼쪽에 모인다. ② 인원을 40명으로 올리고 다시 20번 뽑는다. 눈금이 더 좁게 모이지만 여전히 왼쪽이다. 사람을 늘리면 흔들림은 줄어도 치우침은 줄지 않는다. ③ "가게 앞 지나가는 사람"과 "동네 전체 무작위"로 바꿔 같은 일을 한다. 지나가는 사람은 가게 가까이 사는 사람이 많아 조금 치우치고, 무작위는 점선 둘레에 흩어진다. (가상의 동네 모형: 단골은 가게 가까이에 많이 살고, 주인에게 직접 부탁할 수 있어 헛걸음 경험이 적다고 가정했다. 단골 20%, 가끔 오는 손님 60%, 드물게 오는 사람 40%. 실제 동네에서 "동네 전체 무작위"는 거의 불가능하다.)</div>
+    </div>
+
+    <p>단골만 만나면 몇 명을 만나든 헛걸음은 드문 일처럼 보였다. 이것이 표본 편향의 무서운 점이다. 표본을 키우면 결과가 덜 흔들려 더 확실해 보이지만, 틀린 값 둘레에서 확실해질 뿐이다. 반대로 무작위 표본은 작을 때 많이 흔들리지만 평균은 맞는 자리에 있다. 질적 조사에서는 어차피 몇 명만 만나므로 "무작위"보다는 <b>필요한 부류를 일부러 고르는</b> 방식을 쓴다. 이것을 <span class="term">목적 표집</span><span class="en">(Purposive sampling)</span>이라고 한다. 서윤은 모집 기준을 "단골·가끔·처음 온 손님이 고루", "네 책방에서 두 명씩"으로 바꾸고, 하루씩 네 가게 앞에서 직접 손님에게 부탁했다. 거절이 많았지만 단톡방에서는 만날 수 없던 사람들을 만났다.</p>
+
+    <div class="callout warn">
+      <strong>동의, 사례, 그리고 기록의 보관</strong>
+      인터뷰를 시작하기 전에 무엇을 위한 조사인지, 녹음하는지, 기록을 누가 보고 언제 지우는지, 언제든 멈추거나 답하지 않아도 된다는 것을 말하고 동의를 받는다. 휴대폰의 통화 목록이나 영수증을 함께 보는 것은 특히 사적인 일이므로, 상대가 화면을 직접 넘기게 하고 연구자는 숫자만 적는다. 어린이 책방 손님처럼 아이를 인터뷰할 때는 보호자의 동의와 동석이 필요하다. 사례(상품권 등)는 시간을 내 준 데 대한 감사이지 답의 대가가 아니라는 것을 분명히 하고, 금액이 너무 커서 "좋은 답을 해야 한다"는 부담을 주지 않게 한다. 이름과 연락처 같은 개인정보는 꼭 필요한 만큼만 받고, 분석에는 C1, C2 같은 번호를 쓴다. 개인정보를 다루는 원칙은 <a href="ethics.html">12장</a>에서 다시 다룬다.
+    </div>
+  </section>
+
+  <section id="saturation">
+    <h2>몇 명이면 충분한가</h2>
+    <p>인터뷰를 거듭하다 보면 어느 순간 새로운 이야기가 잘 나오지 않는다. 처음 몇 명에게서는 들을 때마다 새 주제가 쏟아지지만, 뒤로 갈수록 "아까 들은 이야기"가 늘어난다. 이 상태를 <span class="term">포화</span><span class="en">(Saturation)</span>라고 하고, 질적 조사에서 인터뷰를 그만둘 때를 정하는 기준으로 흔히 쓴다. 게스트, 번스, 존슨<span class="en">(Guest, Bunce &amp; Johnson)</span>은 「How Many Interviews Are Enough?」(2006, <i>Field Methods</i>)에서 비교적 비슷한 사람들을 대상으로 한 인터뷰 60건을 분석해, 이후에 쓰인 주제의 대부분이 처음 12건 안에서 이미 나왔다고 보고했다. 이 숫자는 자주 인용되지만, 연구자들 스스로 밝혔듯 <b>비슷한 사람들</b>에게 <b>좁은 주제</b>를 물었을 때의 결과다.</p>
+    <p>인터뷰를 n번 했을 때 어떤 주제를 한 번이라도 들을 확률은, 그 주제를 가진 사람의 비율 \(p\)에 따라 정해진다. 주제가 여럿이면 들을 것으로 기대되는 주제의 수는 그 확률의 합이다.</p>
+    <div class="formula">$$E[\text{찾은 주제 수}] = \sum_{k} \left[\,1-(1-p_k)^{n}\,\right]$$<div class="where">\(p_k\): 만나는 사람 가운데 주제 \(k\)를 이야기할 사람의 비율, \(n\): 인터뷰 수. 흔한 주제(\(p_k\)가 큼)는 몇 명 만에 거의 다 들리고, 드문 주제는 오래 걸린다. 같은 꼴의 식이 <a href="usability.html">8장</a>의 사용성 문제 발견 모형에도 나온다.</div></div>
+    <p>식에서 중요한 것은 \(p_k\)가 "만나는 사람 가운데"의 비율이라는 점이다. 아예 만나지 않는 부류에만 있는 주제는 \(p_k = 0\)이라 인터뷰를 아무리 해도 들리지 않는다. 아래에서 인터뷰 수를 늘리고, 누구를 만나는지 바꿔 본다.</p>
+
+    <div class="sim" id="sim-sat">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>인터뷰마다 새로 나온 주제</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="st-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>진행한 인터뷰 <output id="st-n-out"></output></span><input type="range" id="st-n" min="1" max="20" step="1" value="8"></label>
+          <div class="seg" id="st-pop"><button data-value="same" class="on">비슷한 손님만</button><button data-value="mix">여러 부류를 섞어</button></div>
+          <div class="btn-row"><button class="btn sm" id="st-seed" type="button">다른 사람들로</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">찾은 주제</span><span class="v" id="st-o-f">—</span></div>
+        <div class="stat"><span class="k">마지막 세 명이 더한 새 주제</span><span class="v" id="st-o-l">—</span></div>
+        <div class="stat"><span class="k">아직 못 들은 주제(모형만 안다)</span><span class="v" id="st-o-m">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "비슷한 손님만"에서 인터뷰를 8에서 20까지 늘린다. 막대(새 주제)는 열 명쯤에서 거의 사라지고 누적 곡선은 평평해진다. 포화처럼 보인다. 그런데 "아직 못 들은 주제"는 여덟 개 근처에서 멈춘다. ② "여러 부류를 섞어"로 바꾼다. 처음에는 곡선이 느리게 오르는 것 같지만, 아이 책을 찾는 부모와 시집을 모으는 손님을 만날 때마다 막대가 다시 솟는다. ③ "다른 사람들로"를 몇 번 눌러 같은 조건에서 막대의 모양이 얼마나 흔들리는지 본다. 점선은 식으로 계산한 기대값이다. (가상의 주제 22개: 일반 손님의 주제 14개(이야기할 비율 8~70%), 아이 책을 찾는 부모에게만 있는 주제 4개, 시집을 모으는 손님에게만 있는 주제 4개. "여러 부류를 섞어"는 일반 손님 2명마다 부모와 시집 손님을 번갈아 한 명씩 만난다고 두었다.)</div>
+    </div>
+
+    <p>"비슷한 손님만" 만날 때 곡선이 평평해진 것은 사실이다. 하지만 그것은 <b>그 부류 안에서의 포화</b>였다. 만나지 않은 부류의 주제는 처음부터 곡선 밖에 있었다. 그래서 "새 주제가 안 나오니 충분하다"는 판단에는 "누구에 대해서"라는 꼬리표가 붙어야 한다. 실무에서는 부류(예: 정해 둔 책을 찾는 손님, 둘러보는 손님, 주인)마다 몇 명씩을 정해 두고, 각 부류 안에서 마지막 두세 명이 새 주제를 거의 더하지 않으면 멈추는 경우가 많다. 사용성 테스트에서 자주 듣는 "다섯 명이면 충분하다"는 이것과 다른 질문(정해진 화면의 문제를 찾는 일)에 대한 다른 모형의 이야기이며, 그 가정과 한계는 <a href="usability.html">8장</a>에서 따진다.</p>
+
+    <div class="callout studio">
+      <strong>인터뷰가 끝난 날 밤에 세 줄 요약</strong>
+      인터뷰 기록은 사흘만 지나도 무엇이 인상적이었는지 흐려진다. 하린은 인터뷰를 마친 그날 저녁에 참가자마다 세 줄을 쓴다. ① 가장 놀라웠던 것 하나, ② 그 사람이 실제로 한 일 중 가장 구체적인 것 하나(따옴표로), ③ 앞선 참가자들에게서 듣지 못한 새 주제가 있었는가. ③의 개수를 날마다 세어 두면, 위의 막대 그래프를 손으로 그리는 셈이 된다. 새 주제가 줄어드는데도 아직 만나지 못한 부류가 떠오르면, 인터뷰를 멈추는 대신 그 부류를 찾아 나선다.
+    </div>
+
+    <div class="callout try">
+      <strong>친구 한 명에게 "마지막으로 산 책"을 묻기</strong>
+      친구나 가족 한 사람에게 15분만 시간을 부탁한다. 질문은 하나뿐이다. "마지막으로 책을(또는 옷, 운동화 같은 물건을) 산 날을 처음부터 이야기해 줄래?" 그다음에는 "그다음엔?", "그건 어떻게 알았어?"만 쓴다. 내 생각이나 예시는 말하지 않는다. 끝나면 들은 이야기에서 ① 실제로 한 일, ② 그때의 이유나 기분, ③ 내가 예상하지 못했던 것을 나눠 적는다. 마지막으로 처음에 "이런 서비스가 있으면 쓰겠어?"라고 물었다면 어떤 대답이 나왔을지 상상해 보고, 들은 이야기와 비교한다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 봄 서비스 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 2장</span></div>
+      <h4>일곱 명이 쓰겠다고 했다</h4>
+      <p>4월 5일 수요일, 서윤은 하룻밤 만에 질문지 열두 문항을 써서 하린에게 보냈다. 하린은 빨간 펜으로 일곱 문항에 줄을 그었다. "불편하셨죠?"로 끝나는 질문, "검색과 예약"을 한 번에 묻는 질문, "앱이 생기면 쓰시겠어요?" 같은 질문이었다. 둘은 이 장의 두 번째 시뮬레이터처럼 문항을 하나씩 고쳐 썼다. 모집도 다시 했다. 처음 단톡방에서 손을 든 열한 명 가운데 세 명만 남기고, 나머지는 네 책방 앞에서 직접 부탁해 손님 여덟 명을 채웠다. 단골 셋(C1, C3, C6), 가끔 오는 손님 셋(C2, C5, C7), 처음 온 손님 둘(C4, C8)이다. 네 주인(O1~O4)은 따로 인터뷰했다. 사례는 네 책방에서 함께 쓰는 1만 원 상품권으로 정했다.</p>
+      <p>인터뷰는 4월 8일 토요일부터 13일 목요일까지 했다. 사람마다 40분 안팎, 하린이 묻고 서윤이 적었다. 같은 주에 네 주인은 재고 묻는 전화를 공책에 바를 정 자로 그었다. 일주일 합계는 61통이었다(가상 자료). 관찰은 이틀이었다. 4월 15일 토요일 오후에는 책방 E와 작은 숲에서, 18일 화요일 저녁에는 헌책방 나무와 한 줄에서 각각 두 시간씩 지켜봤다. 관찰 기록에는 재고 문의 전화 19통이 적혔고, 한 통에 1분 남짓 걸렸다. 빈손으로 나간 손님은 9명이었고, 그중 6명이 주인에게 찾는 책을 물어본 뒤였다. 한 줄의 주인은 손님 둘의 계산을 하다가 전화를 두 번 받았다.</p>
+      <p>마지막 5분에 "이런 서비스가 생기면 쓰시겠어요?"라고 묻자 여덟 명 중 일곱 명이 그렇다고 했다. 쓰지 않겠다고 한 사람은 "책방에는 둘러보러 가요"라고 한 C8이었다. 그런데 통화 목록과 영수증으로 지난 4주를 짚어 보니, "가기 전에 늘 또는 대개 확인한다"는 말의 평균은 63%, 기록으로 센 비율은 29%였다. 여덟 명 중 여섯 명은 찾는 책이 없어 헛걸음한 일을 구체적으로 이야기했다. C1은 같은 주에 두 번이었다고 했다. 서윤은 노트에 적었다. "쓰겠다는 말은 일곱, 지금 미리 확인하는 사람은 거의 없음. 그런데 헛걸음은 여섯." 하린이 그 아래에 한 줄을 보탰다. "확인을 안 하는 게 아니라, 확인할 길이 마땅치 않은 것일 수도."</p>
+      <p>서윤은 인터뷰마다 새로 나온 이야기 갈래도 셌다. 5, 4, 3, 2, 2, 1, 1, 0. 줄고 있었다. 하린은 이 숫자가 "우리가 만난 부류 안에서" 줄고 있다고 했다. 아이 책을 사려는 부모는 C4 한 명뿐이었고, 시집만 사는 손님은 만나지 못했다. 둘은 정의 단계로 넘어가되, 작은 숲과 한 줄의 손님은 다음 테스트 때 따로 더 만나기로 했다.</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b><b>고친 질문지</b>(손님용, 40분): ⓪ 인사와 동의(녹음, 기록 보관과 삭제 시점, 언제든 멈춰도 됨) ① "요즘 어떤 책을 읽으세요? 그 책은 어떻게 손에 들어왔어요?" ② "마지막으로 책을 사러 나갔던 날을 처음부터 이야기해 주세요." ③ "그 책이 거기 있다는 건 어떻게 아셨어요?" ④ "찾는 책이 없었던 적이 있다면 가장 최근 일을 들려주세요. 그다음엔 어떻게 하셨어요?" ⑤ "책방에 전화나 문자로 물어본 적이 있다면, 괜찮으시면 그때 기록을 같이 볼 수 있을까요?" ⑥ "지난 4주 동안 책을 산 곳을 달력이나 영수증을 보며 짚어 볼까요?" ⑦ "제가 물었어야 했는데 묻지 않은 게 있을까요?" 규칙: 해결책 이야기는 마지막 5분까지 꺼내지 않는다, "왜"보다 "어떻게", 질문 뒤 5초 기다리기, 묻는 사람과 적는 사람을 나눈다. <b>관찰 기록 양식</b>: 시각 · 누가(단골/가끔/처음, 추정은 "?") · 무엇을 찾았나 · 어떻게 물었나(직접/전화/문자/안 물음) · 결과(있음/없음/주문/맡김/빈손) · 걸린 시간 · 들은 말(따옴표) · 내 해석(괄호, 따로). <b>모집 기준</b>: 단골·가끔·처음 온 손님을 고루, 네 책방에서 두 명씩, 분석에는 번호(C1~C8, O1~O4)만.</div>
+        <div><b>아직 남은 문제</b>노트와 기록이 너무 많다. 손님 여덟 명, 주인 네 명, 관찰 이틀, 공책 네 권에서 무엇이 가장 큰 문제인가. "쓰겠다"는 일곱 명의 말과 "헛걸음"을 이야기한 여섯 명의 일 가운데 무엇을 근거로 삼을 것인가. 만나지 못한 부류(시집 손님, 아이 책 부모)는 어떻게 할 것인가.</div>
+        <div><b>다음 단계</b><a href="problem.html">3장</a>: 기록을 포스트잇에 한 장씩 옮겨 벽에 붙이고 묶는다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>조사는 조사 질문(알고 싶은 것)에서 시작한다. 방법은 태도↔행동, 질적↔양적의 두 축에서 고른다. 실제로 하는 일을 알려면 행동 쪽으로, "얼마나"를 알려면 양적 쪽으로 간다.</li>
+      <li>인터뷰에서는 의견이나 미래가 아니라 지난 일을 구체적으로 묻는다. 유도 질문, 이중 질문, 가정·미래 질문, 일반화 질문은 답을 비튼다. 해결책 이야기는 마지막까지 미룬다.</li>
+      <li>말과 행동은 사회적 바람직성, 기억의 왜곡, 의도와 행동의 간극 때문에 어긋난다. 행동(기록, 관찰)으로 무엇을 하는지 확인하고, 말로 그 이유를 묻는다.</li>
+      <li>관찰(맥락 인터뷰)과 일지는 행동을 직접 모은다. 본 것과 해석을 나눠 적고, 관찰하는 시간대와 장소도 표본처럼 고른다.</li>
+      <li>모집 경로가 만드는 표본 편향은 사람 수를 늘려도 줄지 않는다. 질적 조사에서는 필요한 부류를 일부러 고루 고른다(목적 표집).</li>
+      <li>포화는 인터뷰마다 새 주제가 줄어드는 것이다. 들을 것으로 기대되는 주제 수는 \(\sum_k[1-(1-p_k)^n]\)이고, 만나지 않은 부류의 주제는 \(p_k=0\)이라 영영 들리지 않는다. 포화에는 "누구에 대해서"라는 꼬리표가 붙는다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 손님 인터뷰에 쓸 질문으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">"책방에 갔다가 원하는 책이 없어서 불편하셨던 적 많으시죠?"</button>
+          <button class="opt">"재고를 알려 주는 앱이 있다면 쓰시겠어요?"</button>
+          <button class="opt" data-correct>"마지막으로 책을 사러 책방에 갔던 날을 처음부터 이야기해 주시겠어요?"</button>
+          <button class="opt">"책방 검색과 예약이 빠르고 편하면 좋겠다고 생각하세요?"</button>
+        </div>
+        <div class="quiz-exp">지난 일 하나를 구체적으로, 이야기가 되도록 열어 묻는다. 첫 번째는 "불편", "많으시죠?"로 답을 유도하고, 두 번째는 미래 행동의 예측을 묻고, 네 번째는 검색과 예약, 빠름과 편함을 한꺼번에 묻는 데다 "좋겠다"로 답을 정해 두었다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 손님 여덟 명 중 일곱 명이 "앱이 생기면 쓰겠다"고 했다. 이 결과를 다루는 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>미래 행동에 대한 약한 근거로 보고, 지금 그 일을 실제로 어떻게 하고 있는지(전화, 헛걸음 등)를 기록과 관찰로 확인한다.</button>
+          <button class="opt">88%가 쓰겠다고 했으므로 동네 손님의 88%가 쓸 것이라고 보고 서버 용량을 정한다.</button>
+          <button class="opt">말은 믿을 수 없으므로 이 대답과 인터뷰 기록을 모두 버린다.</button>
+          <button class="opt">"쓰지 않겠다"고 한 한 명을 빼고, 일곱 명의 의견만으로 기능 목록을 정한다.</button>
+        </div>
+        <div class="quiz-exp">"쓰겠다"는 대개 진심인 예측이지만 실제 행동과 어긋나기 쉽다(의도와 행동의 간극, 사회적 바람직성). 여덟 명의 비율을 동네 전체로 넓힐 수도 없다. 그렇다고 말을 버릴 필요는 없다. 행동으로 무엇을 하는지 확인하고, 말로 그 이유를 묻는다. 반대 의견을 낸 사람은 오히려 다른 부류(둘러보러 오는 손님)의 신호일 수 있다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 단골 단톡방에서만 사람을 모아 8명을 인터뷰했다. 같은 방식으로 40명으로 늘리면 어떻게 되는가?</p>
+        <div class="opts">
+          <button class="opt">사람이 많아지므로 치우침이 사라지고 동네 전체의 값에 가까워진다.</button>
+          <button class="opt" data-correct>결과의 흔들림은 줄지만 단골 쪽으로 치우친 값 둘레에 모일 뿐, 치우침은 그대로다.</button>
+          <button class="opt">결과가 더 크게 흔들려 아무것도 알 수 없게 된다.</button>
+          <button class="opt">단골도 결국 동네 사람이므로 처음부터 치우침이 없다.</button>
+        </div>
+        <div class="quiz-exp">표본 편향은 모집 경로가 만든다. 같은 경로로 사람을 늘리면 우연에 의한 흔들림(분산)은 줄지만, 경로가 만든 치우침(편향)은 그대로 남는다. 결과가 더 확실해 보여서 오히려 위험하다. 치우침을 줄이려면 경로를 바꾸거나 필요한 부류를 일부러 고루 고른다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 단골 손님만 인터뷰했더니 여섯 번째부터 새 주제가 거의 나오지 않았다. 가장 알맞은 결론은?</p>
+        <div class="opts">
+          <button class="opt">포화에 이르렀으므로 이 서비스에 관한 주제는 모두 찾았다.</button>
+          <button class="opt">다섯 명이면 충분하다는 연구가 있으므로 더 만날 필요가 없다.</button>
+          <button class="opt">새 주제가 나오지 않으므로 인터뷰 질문이 잘못되었다.</button>
+          <button class="opt" data-correct>단골이라는 부류 안에서는 포화에 가깝지만, 만나지 않은 부류(처음 온 손님, 아이 책 부모 등)의 주제는 아직 모른다.</button>
+        </div>
+        <div class="quiz-exp">포화는 만난 사람들 안에서의 판단이다. 만나지 않은 부류에만 있는 주제는 그 부류에서 \(p_k = 0\)이라 아무리 인터뷰해도 들리지 않는다. "다섯 명" 이야기는 정해진 화면의 사용성 문제를 찾는 다른 모형에서 나온 것이고 가정과 한계가 있다(8장).</div>
+      </div>
+    </div>
+  </section>
+</main>
+<!--SCRIPT-->
+</body>
+</html>
