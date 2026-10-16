@@ -105,7 +105,7 @@
       <figcaption><b>그림 1. Core Web Vitals의 기준값.</b> web.dev의 설명(Web Vitals, 2024년 INP 반영)을 옮겼다. LCP 2.5초·INP 200밀리초·CLS 0.1 이하가 "좋음", LCP 4초·INP 500밀리초·CLS 0.25를 넘으면 "나쁨"이다. 판정은 실제 방문의 75번째 백분위로 한다. 휴대폰과 데스크톱은 따로 본다. 막대의 길이는 이 그림을 위해 고른 눈금이다.</figcaption>
     </figure>
 
-    <p>"75번째 백분위"는 방문 100번을 느린 순서로 줄 세웠을 때 빠른 쪽에서 75번째 방문의 값이다. 평균이 아니라 이 값을 쓰는 것은, 느린 기기나 나쁜 통신으로 들어온 사람들까지 꽤 많이 품으라는 뜻이다. 회사 노트북과 와이파이로 잰 한 번의 숫자는 이 값보다 대개 훨씬 좋다.</p>
+    <p>"75번째 백분위"는 방문 100번을 빠른 순서로 줄 세웠을 때 75번째 방문의 값이다. 방문의 4분의 3이 이 값보다 빠르거나 같다. 평균이 아니라 이 값을 쓰는 것은, 느린 기기나 나쁜 통신으로 들어온 사람들까지 꽤 많이 품으라는 뜻이다. 회사 노트북과 와이파이로 잰 한 번의 숫자는 이 값보다 대개 훨씬 좋다.</p>
 
     <div class="callout warn">
       <strong>실험실 숫자와 현장 숫자</strong>
@@ -482,7 +482,8 @@ body { font-family: "책방 본문", "본문 대체", sans-serif; }</code></pre>
       ctx.fillStyle = p.text; ctx.font = F(13, 700); ctx.fillText("다 받는 데 걸리는 시간(대략)", x0, ty); ty += 20;
       var rowH = 24;
       // 눈금
-      var ticks = lg ? [0.1, 1, 10, 100] : [0, 2.5, 5, 10, 20, 30, 40, 60].filter(function (t) { return t <= tmax; });
+      var stp = [0.5, 1, 2, 5, 10, 20, 50, 100].filter(function (q) { return tmax / q <= 6; })[0] || 100, ticks = [];
+      if (lg) ticks = [0.1, 1, 10, 100]; else for (var tk = 0; tk <= tmax + 1e-9; tk += stp) ticks.push(tk);
       ctx.font = AB.font(10, true); ctx.textAlign = "center";
       ticks.forEach(function (t) { var x = TX(t); ctx.strokeStyle = p.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, ty - 4); ctx.lineTo(x, ty + rowH * 4); ctx.stroke(); ctx.fillStyle = p.faint; ctx.fillText(t + "s", x, ty + rowH * 4 + 9); });
       var x25 = TX(2.5); ctx.strokeStyle = p.ok; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(x25, ty - 6); ctx.lineTo(x25, ty + rowH * 4); ctx.stroke(); ctx.setLineDash([]);
