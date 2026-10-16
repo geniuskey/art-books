@@ -6,6 +6,31 @@
 <html lang="ko">
 <head>
 <!--head:start {"desc": "가상 서비스 맡아 두기의 흐름, 퍼널, 사용성 테스트, A/B 테스트 결과, 주인의 일, 장마다 정한 규칙을 한 작업대에 올려 함께 조정하고, 신뢰 구간과 검정력으로 각 결론이 얼마나 확실한지 읽는 제품 실험실."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제품 실험실 · ProductBook</title>
+<meta name="description" content="가상 서비스 맡아 두기의 흐름, 퍼널, 사용성 테스트, A/B 테스트 결과, 주인의 일, 장마다 정한 규칙을 한 작업대에 올려 함께 조정하고, 신뢰 구간과 검정력으로 각 결론이 얼마나 확실한지 읽는 제품 실험실.">
+<link rel="canonical" href="https://artbook.euiyun.com/product/chapters/lab.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="제품 실험실 · ProductBook">
+<meta property="og:description" content="가상 서비스 맡아 두기의 흐름, 퍼널, 사용성 테스트, A/B 테스트 결과, 주인의 일, 장마다 정한 규칙을 한 작업대에 올려 함께 조정하고, 신뢰 구간과 검정력으로 각 결론이 얼마나 확실한지 읽는 제품 실험실.">
+<meta property="og:url" content="https://artbook.euiyun.com/product/chapters/lab.html">
+<meta property="og:image" content="https://artbook.euiyun.com/product/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/product/chapters/lab.html#chapter","name":"제품 실험실","headline":"제품 실험실 · ProductBook","description":"가상 서비스 맡아 두기의 흐름, 퍼널, 사용성 테스트, A/B 테스트 결과, 주인의 일, 장마다 정한 규칙을 한 작업대에 올려 함께 조정하고, 신뢰 구간과 검정력으로 각 결론이 얼마나 확실한지 읽는 제품 실험실.","url":"https://artbook.euiyun.com/product/chapters/lab.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/product/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/product/#book","name":"ProductBook · 제품 디자인","url":"https://artbook.euiyun.com/product/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"ProductBook · 제품 디자인","item":"https://artbook.euiyun.com/product/"},{"@type":"ListItem","position":3,"name":"13. 제품 실험실","item":"https://artbook.euiyun.com/product/chapters/lab.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
 <!--head:end-->
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
@@ -35,6 +60,7 @@
   #sim-pl-lab .sim-controls { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 18px; align-items: start; }
   .pl-grp { display: grid; gap: 10px; align-content: start; min-width: 0; }
   .pl-grp-t { font-size: 12px; font-weight: 700; color: var(--text-dim); letter-spacing: .04em; margin: 0; }
+  #sim-pl-fn .hint, #sim-pl-ut .hint, #sim-pl-ab .hint, #sim-pl-rd .hint { position: static; display: block; text-align: right; margin: 0 12px 8px; background: none; }
   .pl-cmp .compare { border-radius: 10px; background: #fbfaf7; }
   .pl-cmp .cmp-a, .pl-cmp .cmp-b { background: #fbfaf7; }
 </style>
@@ -68,14 +94,14 @@
 
     <figure class="diagram">
       <svg viewBox="0 0 460 330" role="img" aria-label="근거 지도. 일곱 개의 결론을 말, 소수의 행동, 다수의 숫자, 모형 계산, 원칙의 다섯 칸에 놓은 표. 헛걸음 문제는 말과 행동 모두에 근거가 있고, 다섯 단계 흐름은 모형 계산뿐이며, 버튼 문구 B는 다수의 숫자로 판정한다.">
-        <g class="lbl-b" style="font-size:11.5px" text-anchor="middle">
+        <g class="lbl-b" style="font-size:13px" text-anchor="middle">
           <text x="210" y="24">말</text><text x="262" y="24">행동</text><text x="314" y="24">숫자</text><text x="366" y="24">모형</text><text x="418" y="24">원칙</text>
         </g>
-        <g class="lbl-dim" style="font-size:9.5px" text-anchor="middle">
+        <g class="lbl-dim" style="font-size:10.5px" text-anchor="middle">
           <text x="210" y="38">인터뷰</text><text x="262" y="38">소수 관찰</text><text x="314" y="38">수천 명</text><text x="366" y="38">계산</text><text x="418" y="38">가치 판단</text>
         </g>
         <path d="M8 46H452" class="s-axis"/>
-        <g class="lbl" style="font-size:12px">
+        <g class="lbl" style="font-size:14px">
           <text x="10" y="72">헛걸음이 가장 큰 문제다</text>
           <text x="10" y="112">검색 하나로 시작한다</text>
           <text x="10" y="152">다섯 단계 흐름이 낫다</text>
@@ -84,8 +110,8 @@
           <text x="10" y="272">버튼 문구 B가 낫다</text>
           <text x="10" y="312">동의는 기본 해제</text>
         </g>
-        <g class="lbl-dim" style="font-size:9.5px">
-          <text x="10" y="84">2·3장</text><text x="10" y="124">4장 카드 소팅·트리 테스트</text><text x="10" y="164">5장 퍼널 모형</text><text x="10" y="204">6장 시험판 두 명</text><text x="10" y="244">8장 다섯 명</text><text x="10" y="284">9장 판정 5월 28일</text><text x="10" y="324">12장</text>
+        <g class="lbl-dim" style="font-size:11px">
+          <text x="10" y="84">2·3장</text><text x="10" y="124">4장 카드 소팅 · 트리 테스트</text><text x="10" y="164">5장 퍼널 모형</text><text x="10" y="204">6장 시험판 두 명</text><text x="10" y="244">8장 다섯 명</text><text x="10" y="284">9장 판정 5월 28일</text><text x="10" y="324">12장</text>
         </g>
         <g class="s-line" style="stroke-dasharray:2 4"><path d="M184 46V326M236 46V326M288 46V326M340 46V326M392 46V326"/></g>
         <!-- 채운 원: 그 칸의 근거가 결론을 받친다 · 빈 원: 약하게 받친다 -->
@@ -216,7 +242,7 @@
         <div class="stat"><span class="k">누적 차이 · 95% 구간</span><span class="v" id="pl-ab-o-d">—</span></div>
         <div class="stat"><span class="k">p값(두 비율 z검정)</span><span class="v" id="pl-ab-o-p">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 손잡이를 14일째에 둔다. 찾아간 비율의 차이는 약 +1.0%p, 구간은 약 −0.4~+2.4%p다. ② 손잡이를 앞으로 끌며 구간이 날마다 좁아지는 모습을 본다. 초반의 넓은 구간은 같은 실험의 같은 진실을 덜 본 것뿐이다. ③ "요청(보조)"을 누른다. 사흘째부터 구간이 0 위에 있다. 9장에서 지후가 본 "B가 이겼다"가 이 줄이었다. ④ "안 찾아간 맡김"을 누른다. 구간이 0보다 위다. 요청이 는 만큼 오지 않는 맡김도 늘었다. (찾아감은 결과 화면을 본 날의 묶음으로 셌다. 날마다의 수는 14일 합계에 맞춰 이 책이 만든 가상 기록이다.)</div>
+      <div class="sim-note">해볼 것: ① 손잡이를 14일째에 둔다. 찾아간 비율의 차이는 약 +1.0%p, 구간은 약 −0.4~+2.4%p다. ② 손잡이를 앞으로 끌며 구간이 날마다 좁아지는 모습을 본다. 초반에 빨간 점(그날까지의 p값이 0.05 아래)이 찍힌 날이 있다. 그날 멈췄다면 "B가 이겼다"고 했을 것이다. 계획대로 14일까지 가자 구간은 0을 다시 품었다. ③ "요청(보조)"을 누른다. 오르내리다가 엿새째부터는 구간이 줄곧 0 위에 있다. 9장에서 지후가 본 "B가 이겼다"도 이 줄이었다. ④ "안 찾아간 맡김"을 누른다. 구간이 0보다 위다. 요청이 는 만큼 오지 않는 맡김도 늘었다. (찾아감은 결과 화면을 본 날의 묶음으로 셌다. 날마다의 수는 14일 합계에 맞춰 이 책이 만든 가상 기록이다.)</div>
     </div>
 
     <p>1차 지표의 결론은 한 줄로 쓸 수 있다. <b>B는 찾아간 비율을 약 1%p 올렸을 수도, 0.4%p 낮췄을 수도, 2.4%p 올렸을 수도 있다.</b> p값은 약 0.16이다. "유의하지 않다." 그런데 이것을 "B는 효과가 없다"로 읽으면 틀린다. 구간의 위쪽 끝은 서윤이 의미 있다고 정한 2%p보다 크다. 이 실험은 B가 의미 있게 낫다는 것도, 의미 있는 차이가 없다는 것도 보이지 못했다. 다음 절에서 이 "모른다"를 더 정확히 읽는다.</p>
@@ -356,7 +382,7 @@
         <div class="stat"><span class="k">걸린 항목</span><span class="v" id="pl-lab-o-f">—</span></div>
       </div>
       <div class="pl-board" id="pl-lab-board"></div>
-      <div class="sim-note">해볼 것: ① 처음 상태에서 걸린 항목을 센다. 일관성 패널을 아직 고르지 않았다면 마지막 줄이 걸린다. ② B를 고른다. 한 주에 찾아갈 책은 조금 늘지만 그 차이는 A/B 결과의 구간 안이고, 서가 밖의 책과 주인 확인이 늘어난다. ③ 방문자를 늘린다. A는 800명 남짓, B는 600명 남짓에서 주인 확인 시간이 30분 가드레일을 넘는다. ④ 9단계 흐름이나 고침 전 화면을 고르면 찾아가는 책이 크게 준다. 이 두 줄의 근거는 "모형"과 "다섯 명의 행동"이라는 것을 판단표에서 확인한다. (요청률·확인률·찾아감 비율은 시범 운영 A/B의 가상 기록에서 가져왔다. 9단계는 5장의 퍼널 모형으로 요청 완료를 0.43배, 고침 전 화면은 요청 0.8배·찾아감 0.95배, 작은 기한 글씨는 찾아감 0.93배로 둔 가정이다. 주인 확인 시간의 중앙값은 시범 운영 전체(책방 하나에 하루 약 15건, 중앙값 약 22.5분)와 요청이 없을 때 8분이라는 가정을 잇는 직선이라, 멀리 늘일수록 믿기 어렵다.)</div>
+      <div class="sim-note">해볼 것: ① 처음 상태에서 걸린 항목과 살펴볼 항목을 센다. 일관성 패널을 아직 고르지 않았다면 마지막 줄이 "살펴볼 항목"으로 남고, 원칙을 어긴 카드를 고르면 "걸린 항목"이 된다. ② B를 고른다. 한 주에 찾아갈 책은 조금 늘지만 그 차이는 A/B 결과의 구간 안이고, 서가 밖의 책과 주인 확인이 늘어난다. ③ 방문자를 늘린다. A는 800명 남짓, B는 600명 남짓에서 주인 확인 시간이 30분 가드레일을 넘는다. ④ 9단계 흐름이나 고침 전 화면을 고르면 찾아가는 책이 크게 준다. 이 두 줄의 근거는 "모형"과 "다섯 명의 행동"이라는 것을 판단표에서 확인한다. (요청률·확인률·찾아감 비율은 시범 운영 A/B의 가상 기록에서 가져왔다. 9단계는 5장의 퍼널 모형으로 요청 완료를 0.43배, 고침 전 화면은 요청 0.8배·찾아감 0.95배, 작은 기한 글씨는 찾아감 0.93배로 둔 가정이다. 주인 확인 시간의 중앙값은 시범 운영 전체(책방 하나에 하루 약 15건, 중앙값 약 22.5분)와 요청이 없을 때 8분이라는 가정을 잇는 직선이라, 멀리 늘일수록 믿기 어렵다.)</div>
     </div>
 
     <p>공개 판단대는 "열어도 된다"를 출력하지 않는다. 걸린 항목의 수가 0이어도 마찬가지다. 판단표가 하는 일은 두 가지다. 하나는 고른 조합이 손님 말고 다른 사람(주인, 다음 손님)에게 무엇을 넘기는지 보이는 것이고, 다른 하나는 각 줄이 서 있는 근거의 칸을 함께 적어 두는 것이다. "한 주에 찾아갈 책 약 260권"은 시범 운영 14일의 숫자에 기대고, "9단계면 그 절반 아래"는 계산에 기대고, "고침 전 화면이면 줄어든다"는 다섯 명의 행동에 기댄다. 같은 표에 놓인 숫자라도 같은 무게가 아니다.</p>
@@ -377,7 +403,7 @@
     <div class="casefile">
       <div class="tag"><b>CASE 서윤</b><span>서비스 노트 · 13장</span></div>
       <h4>확실한 것, 아직 모르는 것, 그리고 6월 30일</h4>
-      <p>5월 29일 월요일 아침, 지후가 대시보드에서 가려 두었던 1차 지표의 칸을 열었다. 14일 동안 결과 화면 방문자는 A 3,236명, B 3,204명이었다(시범 운영 가상 자료, 이하 같다). 배정 비율의 카이제곱 검정은 p ≈ 0.69로 문제가 없었다. 기한 안에 책을 찾아간 사람은 A 262명(8.1%), B 291명(9.1%). 차이는 +0.99%p, 95% 신뢰 구간은 −0.38~+2.36%p, p ≈ 0.16이었다. 요청은 A 372명(11.5%), B 486명(15.2%)으로 차이 +3.67%p(구간 +2.01~+5.33%p)가 분명했다. 가드레일인 주인 확인 시간의 중앙값은 21분과 24분으로 둘 다 30분 아래였고, 헛걸음 신고는 2건과 3건이었다.</p>
+      <p>5월 29일 월요일 아침, 지후가 대시보드에서 가려 두었던 1차 지표의 칸을 열었다. 14일 동안 결과 화면 방문자는 A 3,236명, B 3,204명이었다(시범 운영 가상 자료, 이하 같다). 배정 비율의 카이제곱 검정은 p ≈ 0.69로 문제가 없었다. 기한 안에 책을 찾아간 사람은 A 262명(8.1%), B 291명(9.1%). 차이는 +0.99%p, 95% 신뢰 구간은 −0.38~+2.35%p, p ≈ 0.16이었다. 요청은 A 372명(11.5%), B 486명(15.2%)으로 차이 +3.67%p(구간 +2.01~+5.33%p)가 분명했다. 가드레일인 주인 확인 시간의 중앙값은 21분과 24분으로 둘 다 30분 아래였고, 헛걸음 신고는 2건과 3건이었다.</p>
       <p>지후가 먼저 말했다. "누름은 확실히 늘었고, 찾아간 것도 늘긴 했잖아요." 하린은 구간을 손가락으로 짚었다. "이건 'B가 낫지 않다'가 아니라 '이 크기로는 모른다'예요. 2%p를 잡으려고 설계한 실험인데, 진짜 차이가 있다면 그보다 작은 것 같아요." 헌책방 나무 주인은 다른 줄을 보았다. 요청했지만 찾아가지 않은 맡김이 A 110건, B 195건이었다. 요청 가운데 찾아간 비율로 바꾸면 70%와 60%. 확인된 맡김만 세어 리틀의 법칙으로 계산하자(오지 않을 손님이 취소하지 않는다고 두면) 네 책방의 서가 밖에 묶인 책이 A 무리 몫 평균 약 37권, B 무리 몫 약 55권이었다. "한 권뿐인 책이 사흘씩 계산대 뒤에 있으면, 그걸 찾는 다른 손님한테는 없는 책이에요." 하린은 이 숫자 옆에 "계획서에 없던 지표, 탐색적"이라고 적었다.</p>
       <p>6월 26일 월요일, 공개 나흘 전의 실험실 회의에는 2차 사용성 테스트(5월 9일, 새 손님 다섯 명)의 결과도 올라왔다. T1 5/5, T2 4/5, T3 4/5, T4 5/5, SUS 평균 71.5(1차 58.5). 하트 혼동은 한 번도 나오지 않았다. 큰 글자 설정을 쓰는 손님은 세로로 쌓인 버튼과 재고 수를 모두 읽었고, 헌책방 나무 단골은 "헌책" 표시를 바로 보았다. 대신 새 문제가 하나 나왔다. 인증 문자가 늦게 오자 "다시 보내기"를 거듭 누른 손님이 처음 온 번호를 넣었다가 막혔다. T3의 실패는 1차의 6위 문제("내 요청"으로 가는 길)가 그대로였다. 일관성 점검판에서는 여섯 가지 충돌이 나왔다. 첫 번째가 12장 취소 흐름의 마지막 버튼 "확인"이었다. 10장의 원칙 ②가 금지한 바로 그 버튼이다.</p>
       <p>서윤의 선택은 6월 30일에 A 문구로 여는 것이었다. B는 요청을 늘렸지만 1차 지표의 차이는 구간 안에서 0과 구별되지 않았고, 늘어난 요청의 비용은 주인과 다음 손님에게 갔다. 기한은 이미 2차 테스트 때부터 버튼 바로 위에 날짜와 함께 있었다("6월 3일(토)까지 맡아 둘게요. 그 뒤에는 기다리는 다른 손님에게 넘어가요"). 취소는 상태 카드의 "맡김 취소" 한 번으로 바로 처리하고 몇 초 동안 "되돌리기"를 띄우는 5장의 방식으로 정리했다. "내 맡김"을 여는 것까지 두 탭이고, 대화상자와 "확인" 버튼은 없앴다. 이름은 "내 맡김"과 "맡김 취소"로 맞추고, 주인 화면의 수락 버튼은 11장의 주 행동 색(잉크 #22342a)으로 바꿨다. 인증번호는 마지막으로 보낸 것뿐 아니라 5분 안에 보낸 번호를 모두 받기로 했다. 남겨 둔 다른 선택지는 둘이다. B를 채택하는 길(요청 증가는 확실하다), 그리고 공개를 미루고 실험을 이어 가는 길. 1%p를 잡으려면 한 무리 약 12,300명, 지금 방문자로 약 54일이 걸린다.</p>
@@ -387,7 +413,7 @@
           <tbody>
             <tr><td>헛걸음이 가장 큰 문제다</td><td>말 + 행동 + 전화 기록</td><td>세 갈래가 같은 쪽. 가장 단단함</td></tr>
             <tr><td>찜하기를 뺀 것이 T2 실패를 없앴다</td><td>소수의 행동(3/5 → 0/5)</td><td>원인이 사라짐. 0/5의 구간은 0~49%</td></tr>
-            <tr><td>B 문구가 찾아감을 늘린다</td><td>다수의 숫자</td><td>모른다(−0.38~+2.36%p)</td></tr>
+            <tr><td>B 문구가 찾아감을 늘린다</td><td>다수의 숫자</td><td>모른다(−0.38~+2.35%p)</td></tr>
             <tr><td>B 문구가 요청을 늘린다</td><td>다수의 숫자</td><td>확실(+2.01~+5.33%p). 보조 지표</td></tr>
             <tr><td>B가 오지 않는 맡김을 늘린다</td><td>다수의 숫자, 사후</td><td>탐색적. 다음 실험의 가드레일로</td></tr>
             <tr><td>다섯 단계가 아홉 단계보다 낫다</td><td>모형</td><td>측정한 적 없음. 상한</td></tr>
@@ -396,7 +422,7 @@
         </table>
       </div>
       <div class="clue">
-        <div><b>이 장에서 정한 것</b><strong>공개</strong>: 6월 30일 금요일, 버튼 문구 A "맡아 두기"(B 채택하지 않음). <strong>A/B 최종 결과</strong>(가상): 찾아감 A 262/3,236(8.1%) · B 291/3,204(9.1%), 차이 +0.99%p, 95% 구간 −0.38~+2.36%p, p ≈ 0.16 → "모른다". 요청 +3.67%p(+2.01~+5.33%p). 가드레일 중앙값 21분·24분, 헛걸음 신고 2·3건. <strong>2차 테스트</strong>(가상): T1 5/5, T2 4/5, T3 4/5, T4 5/5, SUS 71.5. <strong>일관성 정리</strong>: 취소는 상태 카드의 "맡김 취소" + 되돌리기(2탭, "확인" 버튼 없음), 이름은 "내 맡김"·"맡김 취소", 주인 수락 버튼은 잉크 #22342a, 기한은 날짜로. 인증번호는 5분 안의 번호를 모두 받는다. <strong>공개 뒤 볼 것</strong>: 매주 1차 지표와 가드레일 두 개에 "안 찾아간 맡김 비율"을 더한다. 방문자가 하루 1,000명을 넘으면 1%p 설계로 B 재실험.</div>
+        <div><b>이 장에서 정한 것</b><strong>공개</strong>: 6월 30일 금요일, 버튼 문구 A "맡아 두기"(B 채택하지 않음). <strong>A/B 최종 결과</strong>(가상): 찾아감 A 262/3,236(8.1%) · B 291/3,204(9.1%), 차이 +0.99%p, 95% 구간 −0.38~+2.35%p, p ≈ 0.16 → "모른다". 요청 +3.67%p(+2.01~+5.33%p). 가드레일 중앙값 21분·24분, 헛걸음 신고 2·3건. <strong>2차 테스트</strong>(가상): T1 5/5, T2 4/5, T3 4/5, T4 5/5, SUS 71.5. <strong>일관성 정리</strong>: 취소는 상태 카드의 "맡김 취소" + 되돌리기(2탭, "확인" 버튼 없음), 이름은 "내 맡김"·"맡김 취소", 주인 수락 버튼은 잉크 #22342a, 기한은 날짜로. 인증번호는 5분 안의 번호를 모두 받는다. <strong>공개 뒤 볼 것</strong>: 매주 1차 지표와 가드레일 두 개에 "안 찾아간 맡김 비율"을 더한다. 방문자가 하루 1,000명을 넘으면 1%p 설계로 B 재실험.</div>
         <div><b>아직 남은 문제</b>2장에서 만나지 못한 시집 손님과 아이 책을 사는 부모는 여전히 적게 들어 있다. "내 맡김"으로 가는 길은 두 번의 테스트에서 모두 한 명씩 막혔다. 맡김이 끝난 뒤 30일에 전화번호를 지우는 기능이 실제로 도는지는 공개 뒤 첫 달이 지나야 확인할 수 있다.</div>
         <div><b>다음 단계</b>6월 30일 공개, 7월 첫 주 첫 점검. <a href="glossary.html">14장</a>에서 이 봄의 용어와 서비스 노트를 한 번에 찾아본다.</div>
       </div>
@@ -420,7 +446,7 @@
     <h2>확인 퀴즈</h2>
     <div class="quiz">
       <div class="quiz-q">
-        <p>1. 버튼 문구 A/B 테스트의 1차 지표 차이가 +0.99%p, 95% 신뢰 구간 −0.38~+2.36%p였다. 실험 전에 정한 최소 검출 효과는 2%p다. 가장 알맞은 해석은?</p>
+        <p>1. 버튼 문구 A/B 테스트의 1차 지표 차이가 +0.99%p, 95% 신뢰 구간 −0.38~+2.35%p였다. 실험 전에 정한 최소 검출 효과는 2%p다. 가장 알맞은 해석은?</p>
         <div class="opts">
           <button class="opt">p값이 0.05보다 크므로 B는 효과가 없다고 결론 내린다.</button>
           <button class="opt">관측된 차이가 양수이므로 B가 낫다고 결론 내린다.</button>
@@ -476,3 +502,633 @@
     </ul>
   </section>
 </main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(fn) { try { fn(); } catch (e) { console.error(e); } }
+
+  /* ================= 통계 도구(교육용 근사, 출처는 주석) ================= */
+  // 표준 정규 누적 분포: Abramowitz & Stegun 7.1.26(오차 1.5e-7 이하)
+  function Phi(z) {
+    var x = Math.abs(z) / Math.SQRT2, t = 1 / (1 + 0.3275911 * x);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    return z >= 0 ? (1 + y) / 2 : (1 - y) / 2;
+  }
+  function pTwo(z) { return Math.max(0, Math.min(1, 2 * (1 - Phi(Math.abs(z))))); }
+  var Z95 = 1.959964, Z90 = 1.644854;
+  // 두 비율의 차이와 구간(비합동 표준 오차), p값은 합동 비율 z 검정(9장과 같다)
+  function diffCI(xa, na, xb, nb, z) {
+    z = z || Z95;
+    var pa = xa / na, pb = xb / nb, se = Math.sqrt(pa * (1 - pa) / na + pb * (1 - pb) / nb), d = pb - pa;
+    var pp0 = (xa + xb) / (na + nb), sp = Math.sqrt(pp0 * (1 - pp0) * (1 / na + 1 / nb));
+    return { pa: pa, pb: pb, d: d, lo: d - z * se, hi: d + z * se, se: se, p: sp > 0 ? pTwo(d / sp) : 1 };
+  }
+  // 수정 왈드 구간(Agresti & Coull 1998, 8장과 같다)
+  function adjWald(x, n, z) {
+    var p = (x + z * z / 2) / (n + z * z), h = z * Math.sqrt(p * (1 - p) / (n + z * z));
+    return [Math.max(0, p - h), Math.min(1, p + h)];
+  }
+  // 로그 감마: Lanczos 근사(g = 7, n = 9 계수, Numerical Recipes 계열)
+  var LG = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+  function lgamma(x) {
+    if (x < 0.5) return Math.log(Math.PI / Math.abs(Math.sin(Math.PI * x))) - lgamma(1 - x);
+    x -= 1; var a = LG[0], t = x + 7.5;
+    for (var i = 1; i < 9; i++) a += LG[i] / (x + i);
+    return 0.5 * Math.log(2 * Math.PI) + (x + 0.5) * Math.log(t) - t + Math.log(a);
+  }
+  function lchoose(n, k) { return lgamma(n + 1) - lgamma(k + 1) - lgamma(n - k + 1); }
+  // 피셔의 정확 검정(양쪽): 관측표 이하의 확률을 가진 표의 초기하 확률을 모두 더한다
+  function fisher(a, n1, c, n2) {
+    var m = a + c, N = n1 + n2, lo = Math.max(0, m - n2), hi = Math.min(n1, m);
+    var pr = function (x) { return Math.exp(lchoose(n1, x) + lchoose(n2, m - x) - lchoose(N, m)); };
+    var p0 = pr(a), s = 0;
+    for (var x = lo; x <= hi; x++) { var q = pr(x); if (q <= p0 * (1 + 1e-7)) s += q; }
+    return Math.min(1, s);
+  }
+  // 정규화된 불완전 베타 함수(연분수, Numerical Recipes 6.4의 betacf와 같은 방식)
+  function betacf(a, b, x) {
+    var qab = a + b, qap = a + 1, qam = a - 1, c = 1, d = 1 - qab * x / qap;
+    if (Math.abs(d) < 1e-30) d = 1e-30; d = 1 / d; var h = d;
+    for (var m = 1; m <= 200; m++) {
+      var m2 = 2 * m, aa = m * (b - m) * x / ((qam + m2) * (a + m2));
+      d = 1 + aa * d; if (Math.abs(d) < 1e-30) d = 1e-30; c = 1 + aa / c; if (Math.abs(c) < 1e-30) c = 1e-30; d = 1 / d; h *= d * c;
+      aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2));
+      d = 1 + aa * d; if (Math.abs(d) < 1e-30) d = 1e-30; c = 1 + aa / c; if (Math.abs(c) < 1e-30) c = 1e-30; d = 1 / d;
+      var del = d * c; h *= del; if (Math.abs(del - 1) < 3e-12) break;
+    }
+    return h;
+  }
+  function betai(a, b, x) {
+    if (x <= 0) return 0; if (x >= 1) return 1;
+    var bt = Math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * Math.log(x) + b * Math.log(1 - x));
+    return x < (a + 1) / (a + b + 2) ? bt * betacf(a, b, x) / a : 1 - bt * betacf(b, a, 1 - x) / b;
+  }
+  // t 분포의 양쪽 p값
+  function tTwo(t, nu) { return betai(nu / 2, 0.5, nu / (nu + t * t)); }
+  // t 분포 분위수: 자유도 4는 표준 표의 값, 나머지는 코니시–피셔 전개(A&S 26.7.5)
+  function tCrit(level, nu) {
+    if (nu === 4) return { 80: 1.533, 90: 2.132, 95: 2.776 }[level];
+    var z = { 80: 1.281552, 90: 1.644854, 95: 1.959964 }[level], z3 = z * z * z, z5 = z3 * z * z, z7 = z5 * z * z;
+    return z + (z3 + z) / (4 * nu) + (5 * z5 + 16 * z3 + 3 * z) / (96 * nu * nu) + (3 * z7 + 19 * z5 + 17 * z3 - 15 * z) / (384 * nu * nu * nu);
+  }
+  // 한 무리에 필요한 사람 수(9장과 같은 식)
+  function nNeeded(p1, p2, zb) { var pb = (p1 + p2) / 2, a = Z95 * Math.sqrt(2 * pb * (1 - pb)) + zb * Math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)); return a * a / ((p2 - p1) * (p2 - p1)); }
+  // 검정력: 1 − β ≈ Φ(|δ|/SE − z_{1−α/2})
+  function power(p1, p2, n) { var se = Math.sqrt(p1 * (1 - p1) / n + p2 * (1 - p2) / n); return Phi(Math.abs(p2 - p1) / se - Z95); }
+  function gaussFrom(r) { var spare = null; return function () { if (spare !== null) { var s = spare; spare = null; return s; } var u = Math.max(1e-12, r()), v = r(), m = Math.sqrt(-2 * Math.log(u)); spare = m * Math.sin(6.283185307 * v); return m * Math.cos(6.283185307 * v); }; }
+  function binomApprox(n, p, g) { if (n <= 0) return 0; var m = n * p, s = Math.sqrt(n * p * (1 - p)); return AB.clamp(Math.round(m + s * g()), 0, n); }
+  function pp(x, d) { return (x >= 0 ? "+" : "−") + Math.abs(x * 100).toFixed(d == null ? 2 : d) + "%p"; }
+  function pct(x, d) { return (x * 100).toFixed(d == null ? 1 : d) + "%"; }
+  function num(n) { return Math.round(n).toLocaleString("ko-KR"); }
+  function pv(p) { return p < 0.001 ? "&lt; 0.001" : p < 0.01 ? p.toFixed(3) : p.toFixed(2); }
+  function txt(ctx, s, x, y, o) {
+    o = o || {}; ctx.font = AB.font(o.size || 12, !!o.mono, o.weight || 400);
+    ctx.fillStyle = o.color || AB.palette().text; ctx.textAlign = o.align || "left"; ctx.textBaseline = o.base || "alphabetic";
+    ctx.fillText(s, x, y);
+  }
+  function rrect(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+  function W(id) { var el = document.getElementById(id); return Math.max(200, el.parentElement.clientWidth || 600); }
+
+  /* ================= 시범 운영 A/B 기록(가상 자료, 14일 합계) ================= */
+  var ABD = {
+    A: { n: 3236, req: 372, conf: 331, pick: 262 },
+    B: { n: 3204, req: 486, conf: 430, pick: 291 }
+  };
+  var DAYS = ["월", "화", "수", "목", "금", "토", "일"];
+  // 날마다의 기록: 14일 합계에 정확히 맞도록 방문자 단위를 날짜에 나누고 섞어서 만든다(시드 고정)
+  var DAILY = (function () {
+    var r = AB.rng(20280515), g = gaussFrom(r), tot = ABD.A.n + ABD.B.n;
+    var wk = [0.95, 0.96, 0.97, 1.0, 1.04, 1.1, 0.98], raw = [], s = 0, i, d;
+    for (d = 0; d < 14; d++) { var v = wk[d % 7] * (1 + 0.06 * g()); raw.push(v); s += v; }
+    var cnt = raw.map(function (v) { return Math.floor(v / s * tot); }), rem = tot - cnt.reduce(function (a, b) { return a + b; }, 0);
+    var order = raw.map(function (v, k) { return [v / s * tot - cnt[k], k]; }).sort(function (a, b) { return b[0] - a[0]; });
+    for (i = 0; i < rem; i++) cnt[order[i][1]]++;
+    var units = []; cnt.forEach(function (c, k) { for (var j = 0; j < c; j++) units.push(k); });
+    function shuffle(a) { for (var j = a.length - 1; j > 0; j--) { var k = Math.floor(r() * (j + 1)), t = a[j]; a[j] = a[k]; a[k] = t; } return a; }
+    shuffle(units);
+    var arms = { A: units.slice(0, ABD.A.n), B: units.slice(ABD.A.n) }, out = {};
+    ["A", "B"].forEach(function (k) {
+      var u = shuffle(arms[k].slice()), req = shuffle(u.slice(0, ABD[k].req)), conf = shuffle(req.slice(0, ABD[k].conf)), pick = conf.slice(0, ABD[k].pick);
+      var z = function () { var a = []; for (var j = 0; j < 14; j++) a.push(0); return a; };
+      var o = { n: z(), req: z(), conf: z(), pick: z() };
+      arms[k].forEach(function (x) { o.n[x]++; }); req.forEach(function (x) { o.req[x]++; }); conf.forEach(function (x) { o.conf[x]++; }); pick.forEach(function (x) { o.pick[x]++; });
+      out[k] = o;
+    });
+    return out;
+  })();
+  function cum(arm, key, day) { var s = 0; for (var d = 0; d < day; d++) s += DAILY[arm][key][d]; return s; }
+  function metricAt(key, day) {
+    var na = cum("A", "n", day), nb = cum("B", "n", day), xa, xb;
+    if (key === "nop") { xa = cum("A", "req", day) - cum("A", "pick", day); xb = cum("B", "req", day) - cum("B", "pick", day); }
+    else { xa = cum("A", key, day); xb = cum("B", key, day); }
+    return diffCI(xa, na, xb, nb);
+  }
+
+  /* ---------------- SRM 표시 ---------------- */
+  safe(function () {
+    var e = (ABD.A.n + ABD.B.n) / 2, chi = (Math.pow(ABD.A.n - e, 2) + Math.pow(ABD.B.n - e, 2)) / e;
+    // 자유도 1의 카이제곱 p값 = 2(1 − Φ(√χ²))
+    AB.stat("pl-srm", "χ² ≈ " + chi.toFixed(2) + ", p ≈ " + (2 * (1 - Phi(Math.sqrt(chi)))).toFixed(2));
+  });
+
+  /* ---------------- 그림 2: 14일째의 판정 ---------------- */
+  safe(function () {
+    var g = document.getElementById("pl-f3"); if (!g) return;
+    var rows = [
+      { k: "찾아간 비율", s: "1차 지표", c: diffCI(ABD.A.pick, ABD.A.n, ABD.B.pick, ABD.B.n), cls: "acc" },
+      { k: "요청률", s: "보조 지표", c: diffCI(ABD.A.req, ABD.A.n, ABD.B.req, ABD.B.n), cls: "acc2" },
+      { k: "안 찾아간 맡김", s: "사후에 고른 지표", c: diffCI(ABD.A.req - ABD.A.pick, ABD.A.n, ABD.B.req - ABD.B.pick, ABD.B.n), cls: "warn" }
+    ];
+    var x0 = 160, x1 = 446, v0 = -1, v1 = 6, X = function (v) { return x0 + (v - v0) / (v1 - v0) * (x1 - x0); };
+    var h = '<text x="' + ((x0 + x1) / 2) + '" y="20" text-anchor="middle" class="lbl-b" style="font-size:13.5px">차이(B − A, %p)와 95% 신뢰 구간</text>';
+    h += '<path d="M' + X(0) + ' 34V206" class="s-axis"/>';
+    h += '<path d="M' + X(2) + ' 34V206" class="s-dash" style="stroke-dasharray:4 4"/><text x="' + (X(2) + 4) + '" y="44" class="lbl-dim" style="font-size:11.5px">최소 검출 효과 2%p</text>';
+    rows.forEach(function (r, i) {
+      var y = 74 + i * 52, lo = r.c.lo * 100, hi = r.c.hi * 100, d = r.c.d * 100;
+      var col = r.cls === "acc" ? "s-acc" : r.cls === "acc2" ? "s-acc2" : "s-bad";
+      var fcol = r.cls === "acc" ? "f-acc" : r.cls === "acc2" ? "f-acc2" : "f-bad";
+      h += '<text x="10" y="' + (y - 2) + '" class="lbl-b" style="font-size:14.5px">' + r.k + '</text>';
+      h += '<text x="10" y="' + (y + 14) + '" class="lbl-dim" style="font-size:12px">' + r.s + '</text>';
+      h += '<path d="M' + X(lo).toFixed(1) + ' ' + y + 'H' + X(hi).toFixed(1) + '" class="' + col + '" style="stroke-width:5;stroke-linecap:round"/>';
+      h += '<circle cx="' + X(d).toFixed(1) + '" cy="' + y + '" r="6" class="' + fcol + '"/>';
+      h += '<text x="' + X(d).toFixed(1) + '" y="' + (y - 11) + '" text-anchor="middle" class="t-mono lbl" style="font-size:12.5px">' + pp(r.c.d) + '</text>';
+      h += '<text x="' + X((lo + hi) / 2).toFixed(1) + '" y="' + (y + 20) + '" text-anchor="middle" class="t-mono lbl-dim" style="font-size:11.5px">[' + lo.toFixed(2) + ', ' + hi.toFixed(2) + '] p ' + pv(r.c.p) + '</text>';
+    });
+    h += '<path d="M' + x0 + ' 214H' + x1 + '" class="s-axis"/>';
+    for (var v = v0; v <= v1; v++) h += '<path d="M' + X(v) + ' 214v5" class="s-axis"/><text x="' + X(v) + '" y="234" text-anchor="middle" class="t-mono lbl-dim" style="font-size:12.5px">' + (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v) + '</text>';
+    g.innerHTML = h;
+  });
+
+  /* ---------------- 시뮬레이터 1: 손님 다섯 칸, 주인 두 칸 ---------------- */
+  safe(function () {
+    var PRE = {
+      five: [["검색", 0.92], ["책과 책방 고르기", 0.88], ["맡아 두기 누르기", 0.80], ["전화번호 인증", 0.85], ["요청 확인", 0.96], ["주인 확인", 0.89], ["찾아감", 0.79]],
+      nine: [["검색", 0.92], ["책 고르기", 0.88], ["책방 고르기", 0.90], ["맡아 두기 누르기", 0.80], ["회원 가입", 0.60], ["본인 확인", 0.75], ["받을 날·연락처", 0.88], ["약관 동의", 0.93], ["요청 확인", 0.96], ["주인 확인", 0.89], ["찾아감", 0.79]]
+    };
+    var SHORT = { "검색": "검색", "책과 책방 고르기": "고르기", "책 고르기": "책", "책방 고르기": "책방", "맡아 두기 누르기": "누르기", "전화번호 인증": "인증", "요청 확인": "요청 확인", "주인 확인": "주인 확인", "찾아감": "찾아감", "회원 가입": "가입", "본인 확인": "본인 확인", "받을 날·연락처": "입력", "약관 동의": "약관" };
+    var steps = [], geo = null, drag = -1;
+    function load(k) { steps = PRE[k].map(function (s) { return { n: s[0], p: s[1] }; }); }
+    var pre = AB.seg("pl-fn-pre", function (v) { load(v); cv.redraw(); });
+    var dG = AB.range("pl-fn-d", function (v) { return "+" + v + "%p"; }, function () { cv.redraw(); });
+    load(pre());
+    document.getElementById("pl-fn-reset").addEventListener("click", function () { load(pre()); cv.redraw(); });
+    var cv = AB.canvas("#pl-fn-cv", function (ctx, w, h) {
+      var P = AB.palette(), n = steps.length, left = 40, right = 10, top = 34, bot = h - ((w < 460 || n > 8) ? 78 : 62);
+      var bw = (w - left - right) / n, H = bot - top, F = 1, best = -1, bestG = -1, weak = 0, d = dG() / 100;
+      geo = { left: left, bw: bw, top: top, H: H, n: n };
+      // 축
+      ctx.strokeStyle = P.grid; ctx.lineWidth = 1;
+      [0, 0.25, 0.5, 0.75, 1].forEach(function (v) { var y = bot - v * H; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(w - right, y); ctx.stroke(); txt(ctx, Math.round(v * 100) + "%", left - 6, y + 4, { size: 10, mono: true, color: P.faint, align: "right" }); });
+      // 묶음 표시
+      var nc = n - 2;
+      ctx.strokeStyle = P.accent; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(left + 3, 22); ctx.lineTo(left + nc * bw - 3, 22); ctx.stroke();
+      txt(ctx, "손님 · 화면이 정하는 칸", left + 4, 16, { size: 11, color: P.accent, weight: 700 });
+      ctx.strokeStyle = P.warn; ctx.beginPath(); ctx.moveTo(left + nc * bw + 3, 22); ctx.lineTo(w - right - 3, 22); ctx.stroke();
+      txt(ctx, "주인 · 가게", w - right - 4, 16, { size: 11, color: P.warn, weight: 700, align: "right" });
+      var cumv = [], c = 1;
+      steps.forEach(function (s, i) { c *= s.p; cumv.push(c); if (s.p < steps[weak].p) weak = i; });
+      F = c;
+      steps.forEach(function (s, i) { var gain = F * (Math.min(1, s.p + d) - s.p) / Math.max(1e-6, s.p); if (gain > bestG + 1e-12) { bestG = gain; best = i; } });
+      steps.forEach(function (s, i) {
+        var x = left + i * bw + bw * 0.16, bwi = bw * 0.68, y = bot - s.p * H, own = i >= nc;
+        ctx.fillStyle = own ? P.warn : P.accent; ctx.globalAlpha = 0.28; ctx.fillRect(x, y, bwi, bot - y); ctx.globalAlpha = 1;
+        ctx.strokeStyle = own ? P.warn : P.accent; ctx.lineWidth = i === weak ? 2.5 : 1.2; ctx.strokeRect(x + 0.5, y + 0.5, bwi - 1, bot - y - 1);
+        AB.handle(ctx, x + bwi / 2, y, { r: Math.min(7, bw * 0.22), fill: "#ffffff", ring: own ? P.warn : P.accent });
+        txt(ctx, Math.round(s.p * 100) + "", x + bwi / 2, bot - 8, { size: bw < 34 ? 9.5 : 11, mono: true, align: "center", weight: 700 });
+        var lab = SHORT[s.n] || s.n, stag = (bw < 44) && (i % 2 === 1);
+        txt(ctx, lab, x + bwi / 2, bot + 16 + (stag ? 14 : 0), { size: bw < 44 ? 10 : 11, align: "center", color: i === best ? P.ok : P.dim, weight: i === best ? 700 : 400 });
+      });
+      // 남은 사람(누적 곱)
+      ctx.strokeStyle = P.text; ctx.lineWidth = 2; ctx.beginPath();
+      cumv.forEach(function (v, i) { var x = left + i * bw + bw / 2, y = bot - v * H; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke();
+      cumv.forEach(function (v, i) { var x = left + i * bw + bw / 2, y = bot - v * H; ctx.fillStyle = P.text; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill(); });
+      var lx = left + (n - 1) * bw + bw / 2, ly = bot - F * H;
+      ctx.strokeStyle = P.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(left, h - 10); ctx.lineTo(left + 18, h - 10); ctx.stroke();
+      txt(ctx, "남은 사람(누적 곱) · 끝 " + pct(F), left + 24, h - 6, { size: 11, weight: 700 });
+      AB.stat("pl-fn-o-end", num(F * 1000) + "명<small>" + pct(F) + "</small>");
+      AB.stat("pl-fn-o-weak", steps[weak].n + " <small>" + Math.round(steps[weak].p * 100) + "%</small>");
+      AB.stat("pl-fn-o-best", (best >= 0 ? steps[best].n : "—") + " <small>+" + (bestG * 1000).toFixed(0) + "명</small>");
+    }, { get height() { return W("pl-fn-cv") < 460 ? 320 : 300; } });
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!geo) return; drag = AB.clamp(Math.floor((x - geo.left) / geo.bw), 0, geo.n - 1); },
+      move: function (x, y) { if (drag < 0 || !geo) return; steps[drag].p = AB.clamp(Math.round((1 - (y - geo.top) / geo.H) * 100) / 100, 0.02, 1); cv.redraw(); },
+      end: function () { drag = -1; }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 2: 1차와 2차, 겹치는 구간 ---------------- */
+  safe(function () {
+    var ROWS = [
+      { k: "T1 책방 찾기", a: 5, b: 5 }, { k: "T2 요청 끝내기", a: 2, b: 4 }, { k: "T3 상태 확인", a: 3, b: 4 }, { k: "T4 요청 취소", a: 4, b: 5 },
+      { k: "SUS 평균", sus: true, ma: 58.5, sa: Math.sqrt(70.625), mb: 71.5, sb: Math.sqrt(33.125) }
+    ];
+    var sel = 1, geo = null;
+    var cl = AB.seg("pl-ut-cl", function () { cv.redraw(); });
+    var kG = AB.range("pl-ut-k", function (v) { return (5 * v) + "명씩"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#pl-ut-cv", function (ctx, w, h) {
+      var P = AB.palette(), lev = +cl(), k = kG(), n = 5 * k, z = { 80: 1.281552, 90: 1.644854, 95: Z95 }[lev];
+      var left = Math.min(118, w * 0.3), right = 14, top = 26, rowH = (h - top - 34) / ROWS.length, x0 = left, x1 = w - right;
+      var X = function (v) { return x0 + v * (x1 - x0); };
+      geo = { top: top, rowH: rowH };
+      txt(ctx, "1차", x0, 14, { size: 11, color: P.accent2, weight: 700 });
+      txt(ctx, "2차", x0 + 34, 14, { size: 11, color: P.accent, weight: 700 });
+      txt(ctx, lev + "% 구간 · " + n + "명씩", x1, 14, { size: 11, color: P.dim, align: "right" });
+      ctx.strokeStyle = P.grid; ctx.lineWidth = 1;
+      [0, 0.25, 0.5, 0.75, 1].forEach(function (v) { ctx.beginPath(); ctx.moveTo(X(v), top - 4); ctx.lineTo(X(v), h - 30); ctx.stroke(); txt(ctx, Math.round(v * 100) + "", X(v), h - 14, { size: 10, mono: true, color: P.faint, align: "center" }); });
+      var info = null;
+      ROWS.forEach(function (r, i) {
+        var y = top + i * rowH, ya = y + rowH * 0.36, yb = y + rowH * 0.66, A, B, ca, cb;
+        if (i === sel) { ctx.fillStyle = P.grid; ctx.globalAlpha = 0.7; ctx.fillRect(2, y + 2, w - 4, rowH - 4); ctx.globalAlpha = 1; }
+        txt(ctx, r.k, 6, y + rowH / 2 + 4, { size: w < 420 ? 11 : 12, weight: i === sel ? 700 : 400 });
+        if (r.sus) {
+          var tc = tCrit(lev, n - 1), ha = tc * r.sa / Math.sqrt(n), hb = tc * r.sb / Math.sqrt(n);
+          A = [(r.ma - ha) / 100, (r.ma + ha) / 100]; B = [(r.mb - hb) / 100, (r.mb + hb) / 100]; ca = r.ma / 100; cb = r.mb / 100;
+          // 웰치의 t 검정
+          var va = r.sa * r.sa / n, vb = r.sb * r.sb / n, t = (r.mb - r.ma) / Math.sqrt(va + vb), df = (va + vb) * (va + vb) / (va * va / (n - 1) + vb * vb / (n - 1));
+          if (i === sel) info = { ci: r.ma.toFixed(1) + " [" + (A[0] * 100).toFixed(0) + "–" + (A[1] * 100).toFixed(0) + "] · " + r.mb.toFixed(1) + " [" + (B[0] * 100).toFixed(0) + "–" + (B[1] * 100).toFixed(0) + "]", p: "웰치 t, p " + pv(tTwo(t, df)) };
+        } else {
+          var xa = r.a * k, xb = r.b * k;
+          A = adjWald(xa, n, z); B = adjWald(xb, n, z); ca = xa / n; cb = xb / n;
+          if (i === sel) info = { ci: xa + "/" + n + " [" + Math.round(A[0] * 100) + "–" + Math.round(A[1] * 100) + "%] · " + xb + "/" + n + " [" + Math.round(B[0] * 100) + "–" + Math.round(B[1] * 100) + "%]", p: "피셔, p " + pv(fisher(xa, n, xb, n)) };
+        }
+        [[A, ca, ya, P.accent2], [B, cb, yb, P.accent]].forEach(function (q) {
+          ctx.strokeStyle = q[3]; ctx.lineWidth = 5; ctx.lineCap = "round";
+          ctx.beginPath(); ctx.moveTo(X(q[0][0]), q[2]); ctx.lineTo(X(q[0][1]), q[2]); ctx.stroke(); ctx.lineCap = "butt";
+          ctx.fillStyle = q[3]; ctx.beginPath(); ctx.arc(X(q[1]), q[2], 5, 0, 7); ctx.fill();
+          ctx.strokeStyle = P.bg; ctx.lineWidth = 1.5; ctx.stroke();
+        });
+        // 겹침
+        var o0 = Math.max(A[0], B[0]), o1 = Math.min(A[1], B[1]);
+        if (o1 > o0) { ctx.fillStyle = P.warn; ctx.globalAlpha = 0.18; ctx.fillRect(X(o0), ya - 8, X(o1) - X(o0), yb - ya + 16); ctx.globalAlpha = 1; }
+      });
+      txt(ctx, "성공률(%) · SUS 점수", (x0 + x1) / 2, h - 1, { size: 10, color: P.faint, align: "center" });
+      AB.stat("pl-ut-o-row", ROWS[sel].k);
+      if (info) { AB.stat("pl-ut-o-ci", '<span style="font-size:13px">' + info.ci + "</span>"); AB.stat("pl-ut-o-p", '<span style="font-size:14px">' + info.p + "</span>"); }
+    }, { get height() { return W("pl-ut-cv") < 420 ? 330 : 310; } });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { if (!geo) return; var i = Math.floor((y - geo.top) / geo.rowH); if (i >= 0 && i < ROWS.length) { sel = i; cv.redraw(); } }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 3: 날마다 들여다본 14일 ---------------- */
+  safe(function () {
+    var day = 14, geo = null, NAME = { pick: "찾아감", req: "요청", nop: "안 찾아간 맡김" };
+    var m = AB.seg("pl-ab-m", function () { cv.redraw(); });
+    var mde = AB.check("pl-ab-mde", function () { cv.redraw(); });
+    var cv = AB.canvas("#pl-ab-cv", function (ctx, w, h) {
+      var P = AB.palette(), key = m(), pts = [];
+      for (var d = 1; d <= 14; d++) pts.push(metricAt(key, d));
+      var lo = 0, hi = 0; pts.forEach(function (c) { lo = Math.min(lo, c.lo); hi = Math.max(hi, c.hi); });
+      lo = Math.floor(lo * 100 - 0.5); hi = Math.ceil(Math.max(hi * 100, mde() ? 2.5 : 0) + 0.5);
+      var box = { x: 44, y: 16, w: w - 44 - 14, h: h - 16 - 66 };
+      var c = AB.chart(ctx, box, { x: [0.5, 14.5], y: [lo, hi], xTicks: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], yFmt: function (v) { return (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v); } });
+      geo = c;
+      // 요일
+      for (var k = 1; k <= 14; k++) txt(ctx, DAYS[(k - 1) % 7], c.X(k), box.y + box.h + 30, { size: 9.5, color: (k - 1) % 7 >= 5 ? P.warn : P.faint, align: "center" });
+      txt(ctx, "%p", 6, box.y + 10, { size: 10, color: P.faint });
+      // 0과 MDE
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(box.x, c.Y(0)); ctx.lineTo(box.x + box.w, c.Y(0)); ctx.stroke();
+      if (mde()) { ctx.strokeStyle = P.ok; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(box.x, c.Y(2)); ctx.lineTo(box.x + box.w, c.Y(2)); ctx.stroke(); ctx.setLineDash([]); txt(ctx, "최소 검출 효과 2%p", box.x + 4, c.Y(2) - 4, { size: 10.5, color: P.ok }); }
+      // 구간 띠
+      ctx.fillStyle = P.accent; ctx.globalAlpha = 0.16; ctx.beginPath();
+      pts.forEach(function (q, i) { var x = c.X(i + 1), y = c.Y(AB.clamp(q.hi * 100, lo, hi)); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+      for (var j = 13; j >= 0; j--) ctx.lineTo(c.X(j + 1), c.Y(AB.clamp(pts[j].lo * 100, lo, hi)));
+      ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+      ctx.strokeStyle = P.accent; ctx.lineWidth = 2; ctx.beginPath();
+      pts.forEach(function (q, i) { var x = c.X(i + 1), y = c.Y(q.d * 100); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.stroke();
+      pts.forEach(function (q, i) { ctx.fillStyle = q.p < 0.05 ? P.bad : P.accent; ctx.beginPath(); ctx.arc(c.X(i + 1), c.Y(q.d * 100), q.p < 0.05 ? 4 : 3, 0, 7); ctx.fill(); });
+      // 고른 날
+      var q = pts[day - 1], X = c.X(day);
+      ctx.strokeStyle = P.text; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X, box.y); ctx.lineTo(X, box.y + box.h); ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle = P.text; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(X, c.Y(AB.clamp(q.lo * 100, lo, hi))); ctx.lineTo(X, c.Y(AB.clamp(q.hi * 100, lo, hi))); ctx.stroke();
+      var ty = h - 14;
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(c.X(1), ty); ctx.lineTo(c.X(14), ty); ctx.stroke();
+      AB.handle(ctx, X, ty, { r: 8, ring: P.accent });
+      var nA = cum("A", "n", day), nB = cum("B", "n", day);
+      AB.stat("pl-ab-o-day", day + "일째<small>" + DAYS[(day - 1) % 7] + " · " + num(nA + nB) + "명</small>");
+      AB.stat("pl-ab-o-d", pp(q.d) + '<small>[' + (q.lo * 100).toFixed(2) + ", " + (q.hi * 100).toFixed(2) + "]</small>");
+      AB.stat("pl-ab-o-p", pv(q.p) + "<small>" + (q.p < 0.05 ? (key === "pick" ? "이날 멈췄다면 '이겼다'" : "구간이 0 밖") : "구간이 0을 지남") + "</small>");
+    }, { get height() { return W("pl-ab-cv") < 460 ? 320 : 330; } });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; var d = AB.clamp(Math.round((x - geo.box.x) / geo.box.w * 14 + 0.5), 1, 14); if (d !== day) { day = d; cv.redraw(); } } });
+  });
+
+  /* ---------------- 시뮬레이터 4: 구간이 놓인 자리 ---------------- */
+  safe(function () {
+    var NS = [200, 500, 1000, 2000, 3220, 5000, 8000, 12300, 20000, 40000, 80000], P0 = 0.085;
+    var dv = 0.99, geo = null;
+    var nG = AB.range("pl-rd-n", function (v) { return num(NS[v]) + "명"; }, function () { cv.redraw(); });
+    var mG = AB.range("pl-rd-m", function (v) { return v.toFixed(2).replace(/0$/, "") + "%p"; }, function () { cv.redraw(); });
+    document.getElementById("pl-rd-real").addEventListener("click", function () { dv = 0.99; nG.set(4); mG.set(2); cv.redraw(); });
+    function se(d, n) { var pa = P0 - d / 200, pb = P0 + d / 200; return Math.sqrt(pa * (1 - pa) / n + pb * (1 - pb) / n) * 100; }
+    var cv = AB.canvas("#pl-rd-cv", function (ctx, w, h) {
+      var P = AB.palette(), n = NS[nG()], mm = mG(), s = se(dv, n), lo = dv - Z95 * s, hi = dv + Z95 * s, lo9 = dv - Z90 * s, hi9 = dv + Z90 * s;
+      var v0 = -3, v1 = 5, x0 = 18, x1 = w - 18, X = function (v) { return x0 + (v - v0) / (v1 - v0) * (x1 - x0); }, cy = h * 0.5;
+      geo = { X: X, x0: x0, x1: x1, v0: v0, v1: v1, cy: cy };
+      // 띠
+      ctx.fillStyle = P.ok; ctx.globalAlpha = 0.14; ctx.fillRect(X(-mm), 30, X(mm) - X(-mm), h - 80); ctx.globalAlpha = 1;
+      txt(ctx, "같다고 봐도 되는 띠 ±" + mm + "%p", X(0), 24, { size: 11, color: P.ok, align: "center", weight: 700 });
+      ctx.strokeStyle = P.axis; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(X(0), 30); ctx.lineTo(X(0), h - 50); ctx.stroke();
+      [mm, -mm].forEach(function (v) { ctx.strokeStyle = P.ok; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(v), 30); ctx.lineTo(X(v), h - 50); ctx.stroke(); ctx.setLineDash([]); });
+      // 축
+      ctx.strokeStyle = P.axis; ctx.beginPath(); ctx.moveTo(x0, h - 44); ctx.lineTo(x1, h - 44); ctx.stroke();
+      for (var v = v0; v <= v1; v++) { ctx.beginPath(); ctx.moveTo(X(v), h - 44); ctx.lineTo(X(v), h - 39); ctx.stroke(); txt(ctx, (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v), X(v), h - 26, { size: 10.5, mono: true, color: P.faint, align: "center" }); }
+      txt(ctx, "차이(B − A, %p)", X(1), h - 8, { size: 10.5, color: P.faint, align: "center" });
+      // 구간
+      var cat, cls;
+      if (lo9 > -mm && hi9 < mm) { cat = "같다고 봐도 된다"; cls = "ok"; }
+      else if (lo > 0) { cat = lo > mm ? "의미 있게 낫다" : "낫다(크기는 불확실)"; cls = "ok"; }
+      else if (hi < 0) { cat = "못하다"; cls = "bad"; }
+      else { cat = "모른다"; cls = "warn"; }
+      var col = cls === "ok" ? P.ok : cls === "bad" ? P.bad : P.warn;
+      ctx.strokeStyle = col; ctx.globalAlpha = 0.45; ctx.lineWidth = 12; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(X(AB.clamp(lo9, v0, v1)), cy); ctx.lineTo(X(AB.clamp(hi9, v0, v1)), cy); ctx.stroke(); ctx.globalAlpha = 1;
+      ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(X(AB.clamp(lo, v0, v1)), cy); ctx.lineTo(X(AB.clamp(hi, v0, v1)), cy); ctx.stroke(); ctx.lineCap = "butt";
+      [lo, hi].forEach(function (e) { if (e > v0 && e < v1) { ctx.beginPath(); ctx.moveTo(X(e), cy - 10); ctx.lineTo(X(e), cy + 10); ctx.stroke(); } });
+      AB.handle(ctx, X(AB.clamp(dv, v0, v1)), cy, { r: 9, ring: col });
+      txt(ctx, "굵은 선 95% · 옅은 띠 90%", x1, cy + 32, { size: 10, color: P.faint, align: "right" });
+      var pw = Phi(mm / se(mm, n) - Z95);
+      var z = dv / s;
+      AB.stat("pl-rd-o-c", '<span class="' + cls + '-t">' + cat + "</span>");
+      AB.stat("pl-rd-o-ci", "[" + (lo >= 0 ? "+" : "−") + Math.abs(lo).toFixed(2) + ", " + (hi >= 0 ? "+" : "−") + Math.abs(hi).toFixed(2) + "]<small>p " + pv(pTwo(z)) + "</small>");
+      AB.stat("pl-rd-o-pw", Math.round(pw * 100) + "%<small>" + mm + "%p 기준</small>");
+    }, { get height() { return 220; } });
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; dv = Math.round(AB.clamp(geo.v0 + (x - geo.x0) / (geo.x1 - geo.x0) * (geo.v1 - geo.v0), -2.9, 4.9) * 100) / 100; cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 5: 계산대 뒤에 쌓이는 책(고정색 그림) ---------------- */
+  var INK = "#2b2a30", DIM = "#6b6874", PAPER = "#fbfaf7", WOOD = "#b98b5e", WOOD2 = "#8a6440", GREY = "#b9b5bd";
+  var BOOKC = ["#2f7d5b", "#8b5a2b", "#c9a227", "#6b2f4a", "#3d5a80", "#a4553a", "#5b7f6a", "#7a6a9a"];
+  function shelfModel(r, q, wd, easy) {
+    var conf = r * 0.89, pick = conf * q, unp = conf - pick, cs = easy ? 0.4 : 0.1, wp = Math.min(1.2, wd * 0.6);
+    var Lp = pick * wp, Lu = unp * (cs * 0.5 + (1 - cs) * wd);
+    return { Lp: Lp, Lu: Lu, L: Lp + Lu, unp: unp };
+  }
+  safe(function () {
+    var rG = AB.range("pl-sh-r", function (v) { return v + "건"; }, function () { cv.redraw(); });
+    var qG = AB.range("pl-sh-q", function (v) { return v + "%"; }, function () { cv.redraw(); });
+    var wG = AB.range("pl-sh-w", function (v) { return v + "일"; }, function () { cv.redraw(); });
+    var cG = AB.check("pl-sh-c", function () { cv.redraw(); });
+    var cv = AB.canvas("#pl-sh-cv", function (ctx, w, h) {
+      var M = shelfModel(rG(), qG() / 100, wG(), cG()), nP = Math.round(M.Lp), nU = Math.round(M.Lu);
+      var narrow = w < 480, sx = 14, sw = narrow ? w - 28 : w * 0.56, sy = 30, rows = 3, rh = narrow ? 46 : 58;
+      ctx.font = AB.font(12, false, 700); ctx.fillStyle = INK; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; ctx.fillText("서가", sx, 20);
+      // 서가: 책이 빠진 자리는 점선 빈칸
+      var R = AB.rng(7), slots = [], per = Math.max(10, Math.floor(sw / 13));
+      for (var rr = 0; rr < rows; rr++) for (var k = 0; k < per; k++) slots.push([rr, k]);
+      var gone = {}, total = Math.min(slots.length, nP + nU), idx = slots.map(function (_, i) { return i; });
+      for (var i = idx.length - 1; i > 0; i--) { var j = Math.floor(R() * (i + 1)), t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+      for (i = 0; i < total; i++) gone[idx[i]] = true;
+      var bwid = sw / per;
+      for (rr = 0; rr < rows; rr++) {
+        var by = sy + rr * rh;
+        ctx.fillStyle = WOOD2; ctx.fillRect(sx - 4, by + rh - 6, sw + 8, 6);
+      }
+      slots.forEach(function (s, n) {
+        var x = sx + s[1] * bwid, by = sy + s[0] * rh, hh = rh - 12 - ((n * 7) % 5) * 2;
+        if (gone[n]) { ctx.strokeStyle = GREY; ctx.setLineDash([2, 2]); ctx.lineWidth = 1; ctx.strokeRect(x + 1.5, by + rh - 6 - hh, bwid - 3, hh); ctx.setLineDash([]); }
+        else { ctx.fillStyle = BOOKC[(n * 5) % BOOKC.length]; ctx.fillRect(x + 1, by + rh - 6 - hh, bwid - 2, hh); }
+      });
+      // 계산대 뒤
+      var cx = narrow ? sx : sx + sw + 28, cyTop = narrow ? sy + rows * rh + 26 : sy, cw = narrow ? w - 28 : w - cx - 14;
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.fillText("계산대 뒤(맡아 둔 책)", cx, cyTop - 10);
+      var stackH = narrow ? 92 : rows * rh, bx = cx, bh2 = 7, perCol = Math.max(4, Math.floor((stackH - 8) / bh2)), colW = Math.min(46, cw / 4);
+      ctx.fillStyle = WOOD; ctx.fillRect(cx - 4, cyTop + stackH - 4, cw + 8, 6);
+      var all = [];
+      for (i = 0; i < nP; i++) all.push(0);
+      for (i = 0; i < nU; i++) all.push(1);
+      var maxShow = perCol * Math.max(1, Math.floor(cw / (colW + 6)));
+      all.slice(0, maxShow).forEach(function (kind, n) {
+        var col = Math.floor(n / perCol), row = n % perCol, x = bx + col * (colW + 6) + ((n * 3) % 4), y = cyTop + stackH - 4 - (row + 1) * bh2;
+        ctx.fillStyle = kind ? GREY : BOOKC[n % BOOKC.length]; ctx.fillRect(x, y, colW - 6, bh2 - 1);
+      });
+      if (all.length > maxShow) { ctx.fillStyle = DIM; ctx.font = AB.font(11); ctx.fillText("+" + (all.length - maxShow) + "권 더", cx, cyTop + stackH + 18); }
+      ctx.font = AB.font(11); ctx.fillStyle = DIM;
+      var ly = narrow ? cyTop + stackH + (all.length > maxShow ? 36 : 20) : sy + rows * rh + 22;
+      ctx.fillStyle = BOOKC[0]; ctx.fillRect(sx, ly - 9, 12, 8); ctx.fillStyle = DIM; ctx.fillText("찾으러 올 책", sx + 16, ly);
+      ctx.fillStyle = GREY; ctx.fillRect(sx + 104, ly - 9, 12, 8); ctx.fillStyle = DIM; ctx.fillText("오지 않을 책(기한까지 묶임)", sx + 120, ly);
+      AB.stat("pl-sh-o-l", M.L.toFixed(1) + "권");
+      AB.stat("pl-sh-o-n", M.Lu.toFixed(1) + "권<small>" + (M.L > 0 ? Math.round(M.Lu / M.L * 100) : 0) + "%</small>");
+      AB.stat("pl-sh-o-a", rG() + "번<small>오지 않을 맡김 " + M.unp.toFixed(1) + "건</small>");
+    }, { bg: PAPER, get height() { return W("pl-sh-cv") < 480 ? 340 : 250; } });
+  });
+
+  /* ---------------- 그림 3: 취소 화면 전/후(고정색) ---------------- */
+  safe(function () {
+    var C = { ink: "#22342a", dim: "#5d5a66", faint: "#a3a0a8", line: "#e6e2da", paper: "#fbfaf7", white: "#ffffff", green: "#2f7d5b", warnbg: "#fff4e0" };
+    function frame() {
+      return '<rect x="0" y="0" width="460" height="300" fill="' + C.paper + '"/>' +
+        '<rect x="140" y="10" width="180" height="282" rx="22" fill="' + C.white + '" stroke="' + C.ink + '" stroke-width="2"/>' +
+        '<text x="156" y="40" font-size="14" font-weight="700" fill="' + C.ink + '">내 맡김</text>' +
+        '<rect x="152" y="52" width="156" height="104" rx="10" fill="' + C.white + '" stroke="' + C.line + '"/>' +
+        '<text x="162" y="72" font-size="11" font-weight="700" fill="' + C.ink + '">『고양이 책방의 사계절』</text>' +
+        '<rect x="162" y="80" width="40" height="15" rx="7" fill="' + C.green + '"/><text x="182" y="91" font-size="9" text-anchor="middle" fill="' + C.white + '">책방 E</text>' +
+        '<text x="208" y="91" font-size="9.5" fill="' + C.dim + '">확인됨 · 6월 3일(토)까지</text>' +
+        '<rect x="152" y="252" width="156" height="30" rx="0" fill="' + C.paper + '"/>' +
+        '<text x="184" y="271" font-size="10" text-anchor="middle" fill="' + C.dim + '">책 찾기</text><text x="276" y="271" font-size="10" text-anchor="middle" font-weight="700" fill="' + C.ink + '">내 맡김</text>';
+    }
+    function tap(x, y, n) { return '<circle cx="' + x + '" cy="' + y + '" r="9" fill="#d24f39"/><text x="' + x + '" y="' + (y + 4) + '" font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff">' + n + '</text>'; }
+    var a = frame() +
+      '<rect x="162" y="106" width="136" height="34" rx="8" fill="' + C.white + '" stroke="' + C.ink + '"/><text x="230" y="127" font-size="11" text-anchor="middle" fill="' + C.ink + '">맡기기 취소</text>' +
+      '<rect x="141" y="11" width="178" height="280" rx="21" fill="#22342a" fill-opacity="0.45"/>' +
+      '<rect x="156" y="160" width="148" height="86" rx="12" fill="' + C.white + '"/>' +
+      '<text x="230" y="188" font-size="12" font-weight="700" text-anchor="middle" fill="' + C.ink + '">취소하시겠습니까?</text>' +
+      '<rect x="166" y="206" width="60" height="28" rx="7" fill="' + C.white + '" stroke="' + C.line + '"/><text x="196" y="224" font-size="11" text-anchor="middle" fill="' + C.ink + '">취소</text>' +
+      '<rect x="234" y="206" width="60" height="28" rx="7" fill="' + C.ink + '"/><text x="264" y="224" font-size="11" text-anchor="middle" fill="' + C.white + '">확인</text>' +
+      tap(296, 262, 1) + tap(302, 110, 2) + tap(296, 210, 3) +
+      '<text x="14" y="66" font-size="14" font-weight="700" fill="' + C.ink + '">12장의 흐름</text>' +
+      '<text x="14" y="88" font-size="12" fill="' + C.dim + '">세 번 누른다</text>' +
+      '<text x="14" y="200" font-size="12" fill="#b5462f">"취소"는 무엇을</text><text x="14" y="216" font-size="12" fill="#b5462f">취소하는가?</text>' +
+      '<text x="14" y="240" font-size="12" fill="#b5462f">"확인"은 10장의</text><text x="14" y="256" font-size="12" fill="#b5462f">원칙 ②에 걸린다</text>';
+    var b = frame() +
+      '<rect x="162" y="106" width="136" height="34" rx="8" fill="' + C.white + '" stroke="' + C.ink + '"/><text x="230" y="127" font-size="11" text-anchor="middle" fill="' + C.ink + '">맡김 취소</text>' +
+      '<path d="M230 162V202" stroke="' + C.faint + '" stroke-width="1.5" stroke-dasharray="3 3"/><path d="M225 196L230 204L235 196" fill="none" stroke="' + C.faint + '" stroke-width="1.5"/>' +
+      '<text x="238" y="186" font-size="9.5" fill="' + C.dim + '">누르면 바로</text>' +
+      '<rect x="150" y="212" width="160" height="36" rx="9" fill="' + C.ink + '"/>' +
+      '<text x="160" y="234" font-size="10" fill="' + C.white + '">맡김을 취소했어요</text><text x="300" y="234" font-size="10.5" font-weight="700" text-anchor="end" fill="#ffd9a0">되돌리기</text>' +
+      tap(296, 262, 1) + tap(302, 110, 2) +
+      '<text x="14" y="66" font-size="14" font-weight="700" fill="' + C.ink + '">고친 흐름</text>' +
+      '<text x="14" y="88" font-size="12" fill="' + C.dim + '">두 번 누른다</text>' +
+      '<text x="340" y="200" font-size="12" fill="#2f6b4f">버튼이 하는 일을</text><text x="340" y="216" font-size="12" fill="#2f6b4f">버튼이 말한다</text>' +
+      '<text x="340" y="240" font-size="12" fill="#2f6b4f">실수는 되돌리기로</text><text x="340" y="256" font-size="12" fill="#2f6b4f">(5장의 방식)</text>';
+    document.getElementById("pl-cmp-a").innerHTML = a;
+    document.getElementById("pl-cmp-b").innerHTML = b;
+    AB.compare("#pl-cmp", { labels: ["12장의 흐름", "고친 흐름"] });
+  });
+
+  /* ---------------- 시뮬레이터 6: 일관성 점검판 ---------------- */
+  var CK = {}, labRedraw = null;
+  var CARDS;
+  safe(function () {
+    var cr = function (a, b) { return ART.contrast(ART.parse(a), ART.parse(b)).toFixed(2); };
+    CARDS = [
+      { id: "ok", t: "취소 흐름의 마지막 버튼",
+        d: '<a href="ethics.html">12장</a>의 취소 흐름은 대화상자의 "확인"으로 끝난다. <a href="writing.html">10장</a>의 원칙 ②는 "확인"·"예"를 쓰지 않는다.',
+        o: [{ k: "keep", l: "\"확인\" 유지", ok: false, r: "10장의 원칙 ②에 걸린다. 버튼만 읽어서는 무엇이 일어나는지 알 수 없다." },
+            { k: "act", l: "\"맡김 취소\"로", ok: true, r: "버튼이 누르면 일어나는 일을 말한다. 대화상자를 남긴다면 짝은 \"계속 맡아 두기\"." }] },
+      { id: "shape", t: "취소의 모양",
+        d: '<a href="flow.html">5장</a>: 대화상자 없이 바로 취소하고 "되돌리기". <a href="writing.html">10장</a>: 확인 대화상자의 문구. <a href="ethics.html">12장</a>: 확인까지 3탭.',
+        o: [{ k: "dlg", l: "대화상자(3탭)", ok: true, r: "규칙에는 맞는다. 탭이 하나 더 들고, 실수 방지는 대화상자가 맡는다. 버튼 이름은 동작으로." },
+            { k: "undo", l: "되돌리기(2탭)", ok: true, r: "실수한 사람만 한 번 더 누른다. 처리를 몇 초 미루니 한 권뿐인 책도 안전하다." }] },
+      { id: "name", t: "취소 버튼의 이름",
+        d: '<a href="ia.html">4장</a> "맡김 취소", <a href="writing.html">10장</a> "맡긴 것 취소하기", <a href="ethics.html">12장</a> "맡기기 취소". 10장 원칙 ④는 같은 것은 같은 이름.',
+        o: [{ k: "all", l: "셋 다 그대로", ok: false, r: "10장의 원칙 ④에 걸린다. 같은 동작이 화면마다 다른 이름이다." },
+            { k: "mk", l: "\"맡김 취소\"로", ok: true, r: "목록 이름 \"내 맡김\"과 낱말이 맞는다." },
+            { k: "mg", l: "\"맡기기 취소\"로", ok: true, r: "한 이름이니 원칙 ④는 지킨다. 다만 목록 \"내 맡김\"과 낱말이 달라진다." }] },
+      { id: "list", t: "목록 화면의 이름",
+        d: '<a href="ia.html">4장</a>의 이름 시험에서 고른 "내 맡김"과, <a href="usability.html">8장</a> 시험판·보고서의 "내 요청".',
+        o: [{ k: "mine", l: "\"내 맡김\"", ok: true, r: "4장의 이름 시험에서 가장 잘 읽힌 이름이다." },
+            { k: "req", l: "\"내 요청\"", ok: false, r: "4장의 근거를 버린다. \"요청\"은 주인 화면의 \"요청\"과도 겹친다." }] },
+      { id: "color", t: "주인 화면 수락 버튼의 색",
+        d: '<a href="interaction.html">6장</a>: 책방 초록 #2f7d5b 채움. <a href="system.html">11장</a>: 주 행동은 잉크 #22342a, shop.accent는 배지와 머리 띠에만.',
+        o: [{ k: "green", l: "책방 초록 유지", ok: false, r: "11장 규칙에 걸린다. 다른 세 책방의 주인 화면에서는 남의 가게 색이 된다(흰 글자 대비 " + cr("#2f7d5b", "#ffffff") + ")." },
+            { k: "ink", l: "잉크 #22342a", ok: true, r: "네 책방이 같은 버튼. 흰 글자 대비 " + cr("#22342a", "#ffffff") + "(이 페이지에서 ART.contrast로 계산)." },
+            { k: "own", l: "책방마다 자기 색", ok: false, r: "작은 숲의 노랑 #f2c230은 흰 글자 대비 " + cr("#f2c230", "#ffffff") + ". 버튼 변형도 다시 불어난다." }] },
+      { id: "due", t: "기한을 말하는 방식",
+        d: '<a href="flow.html">5장</a> "최대 3일", <a href="usability.html">8장</a> "기한을 날짜로", <a href="ethics.html">12장</a> "3일 동안 맡아 둘게요. 그 뒤에는 다른 손님에게 넘어가요."',
+        o: [{ k: "days", l: "\"3일\"만", ok: false, r: "손님이 날짜를 계산해야 한다. 8장에서 다섯 명 중 넷이 기한을 몰랐다." },
+            { k: "date", l: "날짜 + 규칙 문장", ok: true, r: "\"6월 3일(토)까지 맡아 둘게요. 그 뒤에는 기다리는 다른 손님에게 넘어가요.\"" }] }
+    ];
+    var host = document.getElementById("pl-ck-cards");
+    function render() {
+      var nSel = 0, nOk = 0, nBad = 0;
+      host.innerHTML = CARDS.map(function (c, i) {
+        var ch = CK[c.id], opt = null;
+        c.o.forEach(function (o) { if (o.k === ch) opt = o; });
+        if (opt) { nSel++; if (opt.ok) nOk++; else nBad++; }
+        return '<div class="pl-card' + (opt ? (opt.ok ? " done" : " miss") : "") + '"><h4>' + (i + 1) + ". " + c.t + "</h4><p>" + c.d + '</p><div class="btn-row">' +
+          c.o.map(function (o) { return '<button type="button" class="btn sm' + (o.k === ch ? " on" : "") + '" data-c="' + c.id + '" data-k="' + o.k + '">' + o.l + "</button>"; }).join("") +
+          '</div><div class="pl-res">' + (opt ? '<span class="' + (opt.ok ? "ok-t" : "bad-t") + '">' + (opt.ok ? "맞음" : "걸림") + "</span> · " + opt.r : '<span style="color:var(--text-faint)">아직 고르지 않았다</span>') + "</div></div>";
+      }).join("");
+      AB.stat("pl-ck-o-n", nSel + "<small>/6</small>");
+      AB.stat("pl-ck-o-ok", nOk + "<small>/6</small>");
+      AB.stat("pl-ck-o-bad", nBad + "");
+      if (labRedraw) labRedraw();
+    }
+    host.addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest("button[data-c]") : null; if (!b) return;
+      CK[b.getAttribute("data-c")] = b.getAttribute("data-k"); render();
+    });
+    render();
+  });
+  function ckState() {
+    var ok = 0, bad = 0, none = 0;
+    (CARDS || []).forEach(function (c) { var ch = CK[c.id], opt = null; c.o.forEach(function (o) { if (o.k === ch) opt = o; }); if (!opt) none++; else if (opt.ok) ok++; else bad++; });
+    return { ok: ok, bad: bad, none: none };
+  }
+
+  /* ---------------- 시뮬레이터 7: 공개 판단대 ---------------- */
+  safe(function () {
+    var RATE = {
+      A: { rr: ABD.A.req / ABD.A.n, cr: ABD.A.conf / ABD.A.req, pr: ABD.A.pick / ABD.A.conf },
+      B: { rr: ABD.B.req / ABD.B.n, cr: ABD.B.conf / ABD.B.req, pr: ABD.B.pick / ABD.B.conf }
+    };
+    // 5장 퍼널 모형: 누른 뒤의 단계 생존율, 9단계(가입 0.60·본인 확인 0.75·입력 0.88·약관 0.93·요청 확인 0.96) ÷ 5단계(인증 0.85·요청 확인 0.96)
+    var NINE = (0.60 * 0.75 * 0.88 * 0.93 * 0.96) / (0.85 * 0.96);
+    var vG = AB.seg("pl-lab-v", function () { cv.redraw(); });
+    var fG = AB.seg("pl-lab-f", function () { cv.redraw(); });
+    var cG = AB.seg("pl-lab-c", function () { cv.redraw(); });
+    var fix = AB.check("pl-lab-fix", function () { cv.redraw(); });
+    var opt = AB.check("pl-lab-opt", function () { cv.redraw(); });
+    var small = AB.check("pl-lab-small", function () { cv.redraw(); });
+    var nG = AB.range("pl-lab-n", function (v) { return num(v) + "명"; }, function () { cv.redraw(); });
+    document.getElementById("pl-lab-reset").addEventListener("click", function () {
+      vG.set("A", false); fG.set("5", false); cG.set("card", false); document.getElementById("pl-lab-fix").checked = true;
+      document.getElementById("pl-lab-opt").checked = false; document.getElementById("pl-lab-small").checked = false; nG.set(460);
+      cv.redraw();
+    });
+    function model(o) {
+      var R = RATE[o.v], rr = R.rr, cr = R.cr, pr = R.pr;
+      if (o.f === "9") rr *= NINE;
+      if (!o.fix) { rr *= 0.8; pr *= 0.95; }
+      if (o.small) pr *= 0.93;
+      var req = o.n * rr, conf = req * cr, pick = conf * pr, unp = conf - pick, cs = o.c === "card" ? 0.4 : 0.1;
+      var L = pick * 1.2 + unp * (cs * 0.5 + (1 - cs) * 3);
+      var perShop = req / 4, med = 8 + 0.95 * perShop;
+      return { rr: rr, cr: cr, pr: pr, req: req, conf: conf, pick: pick, unp: unp, L: L, perShop: perShop, med: med, rate: rr * cr * pr };
+    }
+    function weeks(o, M, seed) {
+      var r = AB.rng(seed), g = gaussFrom(r), out = [];
+      for (var k = 0; k < 400; k++) {
+        var s = 0;
+        for (var d = 0; d < 7; d++) { var vis = Math.max(0, Math.round(o.n * (1 + 0.08 * g()))), q = binomApprox(vis, M.rr, g), c = binomApprox(q, M.cr, g); s += binomApprox(c, M.pr, g); }
+        out.push(s);
+      }
+      out.sort(function (a, b) { return a - b; });
+      return out;
+    }
+    var board = document.getElementById("pl-lab-board");
+    var cv = AB.canvas("#pl-lab-cv", function (ctx, w, h) {
+      var P = AB.palette();
+      var o = { v: vG(), f: fG(), c: cG(), fix: fix(), opt: opt(), small: small(), n: nG() };
+      var M = model(o), base = model({ v: "A", f: "5", c: "card", fix: true, opt: false, small: false, n: o.n });
+      var Wk = weeks(o, M, 1307 + o.n), Wb = weeks({ n: o.n }, base, 1307 + o.n);
+      var q = function (a, p) { return a[Math.min(a.length - 1, Math.floor(p * a.length))]; };
+      var narrow = w < 600, pw = narrow ? w : w * 0.48, ph = narrow ? 190 : h;
+      // 왼쪽(또는 위): 하루 퍼널
+      var rows = [["결과 화면 방문", o.n], ["맡아 두기 요청", M.req], ["주인 확인", M.conf], ["기한 안에 찾아감", M.pick]];
+      txt(ctx, "하루 퍼널(네 책방 합계)", 10, 18, { size: 12, weight: 700 });
+      var bx = 10, bw = pw - 20, lh = (ph - 40) / 4;
+      rows.forEach(function (r, i) {
+        var y = 30 + i * lh, frac = r[1] / o.n, ww = Math.max(2, bw * Math.sqrt(frac));
+        ctx.fillStyle = i === 3 ? P.ok : i === 0 ? P.faint : P.accent; ctx.globalAlpha = i === 0 ? 0.35 : 0.75;
+        rrect(ctx, bx, y + 16, ww, Math.min(18, lh - 24), 4); ctx.fill(); ctx.globalAlpha = 1;
+        txt(ctx, r[0], bx, y + 12, { size: 11.5, color: P.dim });
+        var inside = bx + ww + 6 > bx + bw - 90;
+        txt(ctx, num(r[1]) + (i ? " (" + pct(frac) + ")" : "명"), inside ? bx + ww - 6 : bx + ww + 6, y + 30, { size: 11.5, mono: true, weight: 700, align: inside ? "right" : "left", color: P.text });
+      });
+      txt(ctx, "막대 길이는 비율의 제곱근(작은 칸도 보이도록)", bx, ph - 4, { size: 9.5, color: P.faint });
+      // 오른쪽(또는 아래): 한 주 분포
+      var hx = narrow ? 10 : pw + 16, hy = narrow ? ph + 30 : 30, hw = narrow ? w - 20 : w - pw - 26, hh = narrow ? h - ph - 84 : h - 74;
+      txt(ctx, "한 주에 찾아갈 책(400주 시뮬레이션)", hx, hy - 12, { size: 12, weight: 700 });
+      var lo = Math.min(Wk[0], Wb[0]), hi = Math.max(Wk[Wk.length - 1], Wb[Wb.length - 1]), span = Math.max(10, hi - lo), nb = 24, bwd = span / nb;
+      var cnt = [], cntB = [], mx = 1;
+      for (var i = 0; i < nb; i++) { cnt.push(0); cntB.push(0); }
+      Wk.forEach(function (v) { cnt[Math.min(nb - 1, Math.floor((v - lo) / bwd))]++; });
+      Wb.forEach(function (v) { cntB[Math.min(nb - 1, Math.floor((v - lo) / bwd))]++; });
+      cnt.forEach(function (c) { mx = Math.max(mx, c); }); cntB.forEach(function (c) { mx = Math.max(mx, c); });
+      var X = function (v) { return hx + (v - lo) / span * hw; }, Y0 = hy + hh;
+      var same = o.v === "A" && o.f === "5" && o.fix && !o.small;
+      if (!same) cntB.forEach(function (c, i) { ctx.strokeStyle = P.faint; ctx.lineWidth = 1; ctx.strokeRect(X(lo + i * bwd) + 0.5, Y0 - c / mx * hh + 0.5, hw / nb - 1, c / mx * hh); });
+      cnt.forEach(function (c, i) { ctx.fillStyle = P.accent; ctx.globalAlpha = 0.7; ctx.fillRect(X(lo + i * bwd) + 1, Y0 - c / mx * hh, hw / nb - 2, c / mx * hh); ctx.globalAlpha = 1; });
+      ctx.strokeStyle = P.axis; ctx.beginPath(); ctx.moveTo(hx, Y0); ctx.lineTo(hx + hw, Y0); ctx.stroke();
+      [lo, (lo + hi) / 2, hi].forEach(function (v, i) { txt(ctx, num(v), X(v), Y0 + 14, { size: 10, mono: true, color: P.faint, align: i === 0 ? "left" : i === 2 ? "right" : "center" }); });
+      var q1 = q(Wk, 0.025), q2 = q(Wk, 0.975);
+      ctx.strokeStyle = P.text; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(q1), Y0 + 22); ctx.lineTo(X(q2), Y0 + 22); ctx.stroke();
+      txt(ctx, "95%: " + num(q1) + "~" + num(q2) + "권", X((q1 + q2) / 2), Y0 + 36, { size: 10.5, mono: true, align: "center", weight: 700 });
+      if (!same) txt(ctx, "빈 막대: 지금의 서비스", hx + hw, hy - 12, { size: 10, color: P.faint, align: "right" });
+
+      // 판단표
+      var ck = ckState(), rowsB = [], bad = 0, warn = 0;
+      function row(title, chip, cls, note) { if (cls === "bad") bad++; if (cls === "warn") warn++; rowsB.push('<div class="pl-row"><b>' + title + '</b><span class="pl-chip ' + cls + '">' + chip + "</span><small>" + note + "</small></div>"); }
+      var abC = diffCI(ABD.A.pick, ABD.A.n, ABD.B.pick, ABD.B.n), ev = [];
+      if (o.f === "9") ev.push("9단계 효과는 모형(5장)");
+      if (!o.fix) ev.push("고침 전 효과는 다섯 명의 행동과 가정");
+      if (o.small) ev.push("작은 글씨 효과는 가정");
+      row("1차 지표: 찾아간 비율", pct(M.rate), "info",
+        (o.v === "A" ? "A 문구: 시범 운영 8.1%(다수의 숫자)." : "B 문구: A 대비 " + pp(abC.d) + ", 95% 구간 [" + (abC.lo * 100).toFixed(2) + ", +" + (abC.hi * 100).toFixed(2) + "] → 모른다.") + (ev.length ? " 그 위에 곱한 것: " + ev.join(", ") + "." : ""));
+      row("가드레일: 주인 확인 중앙값", Math.round(M.med) + "분", M.med <= 30 ? "ok" : "bad",
+        "책방 하나에 하루 요청 약 " + M.perShop.toFixed(1) + "건. 30분을 넘으면 중단 검토(9장). 관측 한 점과 가정 한 점을 잇는 직선이다.");
+      var dL = M.L - base.L;
+      row("주인 쪽 비용: 서가 밖에 묶인 책", M.L.toFixed(0) + "권", dL > base.L * 0.25 ? "warn" : "ok",
+        "리틀의 법칙. 지금의 서비스(같은 방문자) 대비 " + (dL >= 0 ? "+" : "−") + Math.abs(dL).toFixed(0) + "권, 그중 오지 않을 책의 몫이 커질수록 다음 손님의 헛걸음이 는다.");
+      var eq = [];
+      if (o.opt) eq.push("기본값이 불리한가(신간 알림 미리 체크)");
+      if (o.small) eq.push("숨기는가(기한 규칙)");
+      row("윤리 점검 네 질문(12장)", eq.length ? eq.length + "개 걸림" : "통과", eq.length ? "bad" : "ok", eq.length ? eq.join(" · ") : "숨기는가, 거짓인가, 다른 길을 막는가, 기본값이 불리한가에 걸리지 않는다.");
+      row("문구 원칙: 버튼은 동작으로(10장 ②)", o.c === "card" ? "통과" : "걸림", o.c === "card" ? "ok" : "bad", o.c === "card" ? "취소 버튼은 \"맡김 취소\", 되돌리기로 실수를 받는다." : "취소 흐름이 \"확인\" 버튼으로 끝난다.");
+      row("취소 버튼이 보이는가(12장)", o.c === "card" ? "2탭" : "5탭 · 메뉴 안", o.c === "card" ? "ok" : "bad", o.c === "card" ? "상태 카드마다 버튼. 맡기기(5탭)보다 쉽다." : "메뉴 안에 숨으면 오지 않을 손님이 취소하지 않고 잊는다(서가 밖의 책이 는다).");
+      row("일관성 점검판(앞 절)", ck.ok + "/6", ck.ok === 6 ? "ok" : ck.bad ? "bad" : "warn", ck.none ? "아직 고르지 않은 카드 " + ck.none + "장. 위의 일관성 점검판에서 고른다." : ck.bad ? "다른 원칙을 어긴 선택 " + ck.bad + "개." : "여섯 가지 충돌을 모두 원칙에 맞게 고쳤다.");
+      board.innerHTML = rowsB.join("") + '<div class="pl-verdict">걸린 항목 <b>' + bad + "</b>개 · 살펴볼 항목 <b>" + warn + "</b>개. 판단표는 결정을 대신하지 않는다. 걸린 줄은 고치고, 살펴볼 줄은 누가 그 비용을 지는지 적어 둔다.</div>";
+      AB.stat("pl-lab-o-w", num(M.pick * 7) + "권<small>95% " + num(q1) + "~" + num(q2) + "</small>");
+      AB.stat("pl-lab-o-a", M.perShop.toFixed(1) + "건<small>중앙값 " + Math.round(M.med) + "분</small>");
+      AB.stat("pl-lab-o-l", M.L.toFixed(0) + "권");
+      AB.stat("pl-lab-o-f", '<span class="' + (bad ? "bad-t" : "ok-t") + '">' + bad + "개</span><small>살펴볼 " + warn + "</small>");
+    }, { get height() { return W("pl-lab-cv") < 600 ? 470 : 300; } });
+    labRedraw = function () { cv.redraw(); };
+  });
+})();
+</script>
+</body>
+</html>

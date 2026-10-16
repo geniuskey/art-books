@@ -1,0 +1,1159 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "클립형 독서등 하나의 목·등머리·받침 길이, 클립 손잡이와 스프링, 재료와 살두께, 공정과 수량, 충전지 교체 구조를 한꺼번에 조정하며 무게·넘어짐·여는 힘·강성·원가·일정·수명이 어떻게 맞물리는지 보는 종합 실험실. 서윤이 양산 전 최종 점검으로 열두 장의 결정을 한 저울에 올린다."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제품 실험실 · IndustrialBook</title>
+<meta name="description" content="클립형 독서등 하나의 목·등머리·받침 길이, 클립 손잡이와 스프링, 재료와 살두께, 공정과 수량, 충전지 교체 구조를 한꺼번에 조정하며 무게·넘어짐·여는 힘·강성·원가·일정·수명이 어떻게 맞물리는지 보는 종합 실험실. 서윤이 양산 전 최종 점검으로 열두 장의 결정을 한 저울에 올린다.">
+<link rel="canonical" href="https://artbook.euiyun.com/industrial/chapters/lab.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="제품 실험실 · IndustrialBook">
+<meta property="og:description" content="클립형 독서등 하나의 목·등머리·받침 길이, 클립 손잡이와 스프링, 재료와 살두께, 공정과 수량, 충전지 교체 구조를 한꺼번에 조정하며 무게·넘어짐·여는 힘·강성·원가·일정·수명이 어떻게 맞물리는지 보는 종합 실험실. 서윤이 양산 전 최종 점검으로 열두 장의 결정을 한 저울에 올린다.">
+<meta property="og:url" content="https://artbook.euiyun.com/industrial/chapters/lab.html">
+<meta property="og:image" content="https://artbook.euiyun.com/industrial/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/industrial/chapters/lab.html#chapter","name":"제품 실험실","headline":"제품 실험실 · IndustrialBook","description":"클립형 독서등 하나의 목·등머리·받침 길이, 클립 손잡이와 스프링, 재료와 살두께, 공정과 수량, 충전지 교체 구조를 한꺼번에 조정하며 무게·넘어짐·여는 힘·강성·원가·일정·수명이 어떻게 맞물리는지 보는 종합 실험실. 서윤이 양산 전 최종 점검으로 열두 장의 결정을 한 저울에 올린다.","url":"https://artbook.euiyun.com/industrial/chapters/lab.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/industrial/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/industrial/#book","name":"IndustrialBook · 산업디자인","url":"https://artbook.euiyun.com/industrial/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"IndustrialBook · 산업디자인","item":"https://artbook.euiyun.com/industrial/"},{"@type":"ListItem","position":3,"name":"13. 제품 실험실","item":"https://artbook.euiyun.com/industrial/chapters/lab.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 13장 전용: 실험실 메모, 글자로 된 읽기 값 */
+  .pl-memo { margin: 0; padding: 12px 18px; border-top: 1px solid var(--border); background: var(--bg-elev); color: var(--text); font-family: var(--mono); font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .stat .v.txt { font-family: var(--font); font-size: 14px; font-weight: 500; line-height: 1.5; }
+  #sim-pl-lab .sim-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 18px; }
+  #sim-pl-lab .sim-controls .seg { flex-wrap: wrap; }
+  .pl-boxtext { margin: 0; padding: 14px 18px; border-left: 3px solid var(--accent); background: var(--bg-elev); font-size: 15px; line-height: 1.75; }
+</style>
+</head>
+<body data-chapter="lab">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 13</div>
+    <h1>제품 실험실</h1>
+    <p class="lead">앞의 열두 장은 독서등의 결정을 하나씩 따로 내렸다. 목 길이는 넘어짐을 보고, 클립 손잡이는 손을 보고, 살두께는 강성과 금형을 보고, 공정은 수량과 견적을 보고 정했다. 그런데 물건은 하나다. 등머리를 1 cm 늘리면 무게와 넘어짐과 상자 크기가 함께 움직이고, 벽을 0.2 mm 얇게 하면 무게는 줄지만 손에 쥔 몸통이 물렁해진다. 금형값은 몇 개를 만드느냐에 따라 같은 물건의 값을 두 배로도 만든다. 이 장은 그 결정들을 한 화면에 모아 함께 움직여 보는 실험실이다. 금형을 열고 500개를 찍기 전, 마지막으로 모든 숫자를 한 저울에 올리는 자리다.</p>
+    <ul class="objectives">
+      <li>장마다 따로 적힌 치수와 무게를 한 도면에 모으고, 서로 어긋난 값을 찾아 정리한다.</li>
+      <li>등머리 길이 하나가 무게·넘어짐 각·접은 길이를 함께 바꾸는 것을 계산으로 확인한다.</li>
+      <li>클립 손잡이 길이와 스프링 세기를 "설계 창" 위의 한 점으로 고르고, 창이 닫히는 조건을 설명한다.</li>
+      <li>살두께가 무게·강성·냉각 시간·사출값을 동시에 움직이는 거래를 읽는다.</li>
+      <li>금형비를 수량으로 나누는 원가 모형으로 공정별 개당 값을 비교하고, 목표 원가에 닿는 수량을 구한다.</li>
+      <li>판매가가 아니라 "쓰는 1년당 값"으로 수리 가능한 구조의 값어치를 따지고, 최종 선택과 남긴 선택지를 메모로 정리한다.</li>
+    </ul>
+  </header>
+
+  <section id="pl-start">
+    <h2>실험실 사용법</h2>
+    <p>실험실에 놓인 물건은 이 책 내내 다룬 가상의 클립형 독서등 「E 라이트」다. 책 표지나 침대 머리판을 무는 <b>클립</b>, 충전지와 기판을 담은 <b>몸통</b>, 관절 두 개로 꺾이는 <b>목</b>, LED와 확산판을 품은 <b>등머리</b>로 되어 있다. 치수와 무게, 손과 스프링, 재료와 공정의 값은 앞 장들에서 정한 것을 그대로 가져왔다(<a href="sketch.html">2장</a>, <a href="proportion.html">4장</a>, <a href="ergonomics.html">5장</a>, <a href="materials.html">7장</a>, <a href="process.html">8장</a>, <a href="sustain.html">11장</a>). 계산식도 그 장들의 모형을 그대로 썼다. 새로 만든 것은 그 모형들을 서로 잇는 줄이다.</p>
+    <p>그림 1은 그 줄을 그린 것이다. 왼쪽은 디자이너가 손으로 움직이는 결정, 오른쪽은 요구 조건표(<a href="overview.html">1장</a>)의 항목이다. 결정 하나에서 나가는 선이 여럿이고, 조건 하나로 들어오는 선도 여럿이다. 특히 굵은 선은 따로 정할 때 놓치기 쉬운 연결이다. 살두께는 "만들기"의 결정이지만 무게를 거쳐 넘어짐 각까지 바꾸고, 충전지 교체 구조는 "쓰임"의 결정이지만 원가에도 들어간다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 300" role="img" aria-label="결정과 조건을 잇는 그물. 왼쪽에 다섯 결정(형태 치수, 클립 손잡이와 스프링, 재료와 살두께, 공정과 수량, 충전지 교체 구조), 오른쪽에 일곱 조건(무게, 넘어짐 각, 여는 힘과 벌림, 강성과 손끝 온도, 개당 원가, 일정, 수명)이 있고, 결정에서 조건으로 여러 선이 이어진다. 재료와 살두께에서 넘어짐 각으로, 충전지 교체 구조에서 원가로 가는 선이 굵게 강조되어 있다.">
+        <defs><marker id="pl-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <g fill="none" stroke-width="1.2" class="s-line" marker-end="url(#pl-arr)" opacity="0.75">
+          <path d="M152 36C220 36 230 30 298 30"/>
+          <path d="M152 40C220 44 230 66 298 70"/>
+          <path d="M152 96C220 96 230 110 298 110"/>
+          <path d="M152 92C210 80 240 40 298 34"/>
+          <path d="M152 152C220 150 230 150 298 150"/>
+          <path d="M152 148C220 120 240 50 298 38"/>
+          <path d="M152 156C220 170 230 186 298 190"/>
+          <path d="M152 212C220 210 230 194 298 194"/>
+          <path d="M152 216C220 220 230 230 298 230"/>
+          <path d="M152 272C220 272 230 270 298 270"/>
+        </g>
+        <g fill="none" stroke-width="2.6" class="s-acc" marker-end="url(#pl-arr)">
+          <path d="M152 144C214 130 236 84 298 74"/>
+          <path d="M152 268C220 250 236 206 298 198"/>
+        </g>
+        <g>
+          <rect x="10" y="18" width="142" height="40" rx="9" class="f-acc-soft"/>
+          <rect x="10" y="76" width="142" height="40" rx="9" class="f-acc-soft"/>
+          <rect x="10" y="132" width="142" height="40" rx="9" class="f-acc-soft"/>
+          <rect x="10" y="194" width="142" height="40" rx="9" class="f-acc-soft"/>
+          <rect x="10" y="252" width="142" height="40" rx="9" class="f-acc-soft"/>
+        </g>
+        <g font-size="12" text-anchor="middle">
+          <text x="81" y="35" class="lbl-b">형태 치수</text><text x="81" y="50" font-size="10.5" class="lbl-dim">목·등머리·받침 · 2~4장</text>
+          <text x="81" y="93" class="lbl-b">클립 손잡이·스프링</text><text x="81" y="108" font-size="10.5" class="lbl-dim">5장</text>
+          <text x="81" y="149" class="lbl-b">재료·살두께</text><text x="81" y="164" font-size="10.5" class="lbl-dim">7·8장</text>
+          <text x="81" y="211" class="lbl-b">공정·수량</text><text x="81" y="226" font-size="10.5" class="lbl-dim">8장</text>
+          <text x="81" y="269" class="lbl-b">충전지 교체 구조</text><text x="81" y="284" font-size="10.5" class="lbl-dim">9·11장</text>
+        </g>
+        <g>
+          <rect x="300" y="18" width="150" height="26" rx="7" class="f-surface s-line"/>
+          <rect x="300" y="58" width="150" height="26" rx="7" class="f-surface s-line"/>
+          <rect x="300" y="98" width="150" height="26" rx="7" class="f-surface s-line"/>
+          <rect x="300" y="138" width="150" height="26" rx="7" class="f-surface s-line"/>
+          <rect x="300" y="178" width="150" height="26" rx="7" class="f-surface s-line"/>
+          <rect x="300" y="218" width="150" height="26" rx="7" class="f-surface s-line"/>
+          <rect x="300" y="258" width="150" height="26" rx="7" class="f-surface s-line"/>
+        </g>
+        <g font-size="11.5" text-anchor="middle" class="lbl">
+          <text x="375" y="35">무게 ≤ 80 g</text>
+          <text x="375" y="75">넘어짐 각 ≥ 10°</text>
+          <text x="375" y="115">여는 힘·손가락 벌림</text>
+          <text x="375" y="155">강성·손끝 온도</text>
+          <text x="375" y="195">개당 원가</text>
+          <text x="375" y="235">일정(리드타임)</text>
+          <text x="375" y="275">수명</text>
+        </g>
+      </svg>
+      <figcaption><b>그림 1. 결정과 조건의 그물.</b> 왼쪽 다섯 결정이 오른쪽 일곱 조건으로 이어진다. 장마다 한두 줄씩 따로 보았던 선을 한 장에 모았다. 굵은 선은 특히 놓치기 쉬운 연결이다. 살두께는 무게를 거쳐 넘어짐 각을 바꾸고, 충전지 교체 구조는 커넥터와 나사와 조립 시간만큼 원가를 바꾼다. 실험실의 시뮬레이터는 이 그물을 실제로 계산한다.</figcaption>
+    </figure>
+
+    <p>실험실은 앞에서부터 패널을 하나씩 열고, 마지막 절에서 모든 손잡이를 한 화면에 모은다. 첫 패널은 도면이다. 숫자를 저울에 올리기 전에, 장마다 적은 숫자가 한 도면 안에서 서로 맞는지부터 본다.</p>
+
+    <div class="callout warn">
+      <strong>실험실이 하는 일과 못 하는 일</strong>
+      실험실의 독서등은 상자와 막대로 줄인 모형이고, 무게는 부품마다 정한 가상의 값과 껍데기 넓이 × 살두께 × 밀도의 근사로 계산한다. 넘어짐은 옆모습 한 평면의 2D 모형(4장), 클립은 토션 스프링과 지렛대 모형(5장), 강성은 판의 굽힘 강성이 \(E t^3\)에 비례한다는 관계(7장), 원가는 가상의 견적(8장), 수명은 11장의 충전지·관절 모형이다. 물성값은 교육용 대표값이고, 금형비·단가·불량률·리드타임은 모두 이 케이스를 위해 만든 <b>가상의 예시값</b>이다. 실험실이 알려 주는 것은 "결정들이 서로 맞는가"와 "어디서 거래가 생기는가"까지다. 실제 양산 승인은 시사출 샘플을 저울과 캘리퍼스로 재고, 손으로 열어 보고, 넘어뜨려 보고 내린다.
+    </div>
+  </section>
+
+  <section id="pl-drawing">
+    <h2>도면 대조: 열두 장의 값을 한 장에</h2>
+    <p>제품 개발은 여러 달에 걸쳐 여러 사람이 숫자를 고친다. 7월의 스케치에 적은 치수가 8월의 계산에서 바뀌고, 9월의 금형 검토에서 또 바뀐다. 바뀐 숫자가 모든 문서에 고루 반영되지 않으면, 공장은 옛 숫자로 금형을 깎는다. 그래서 양산 전에 하는 첫 일은 <span class="term">도면 대조</span><span class="en">(Drawing reconciliation)</span>다. 지금까지 적힌 모든 치수를 한 표에 모으고, 같은 항목에 숫자가 둘 이상이면 어느 것이 최종인지, 왜 그런지를 적는 일이다.</p>
+    <p>아래 패널은 서윤의 독서등을 두 벌의 숫자로 그린다. "2장 첫 3면도"는 7월의 우드락 모형에서 잰 값(목 약 120 mm, 등머리 72 mm)이고, "최종 도면"은 그 뒤의 장들을 거친 값이다. 투시 보기에서는 캔버스를 끌어 돌려 보고, "3면도"를 누르면 2장에서 배운 제3각법 배치로 바뀐다. "분해"를 켜면 9장에서 일곱 개로 줄인 몸통 부품과 클립, 목, 등머리가 위아래로 떨어진다.</p>
+
+    <div class="sim" id="sim-pl-draw">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>도면 대조: 2장의 첫 3면도와 최종 도면</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pl-draw-cv" class="art"></canvas><span class="hint">투시 보기에서 끌어 돌린다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-draw-ver"><button data-value="sk2">2장 첫 3면도</button><button data-value="final" class="on">최종 도면</button></div>
+          <div class="seg" id="pl-draw-view"><button data-value="persp" class="on">투시</button><button data-value="ortho">3면도</button></div>
+          <label class="check"><input type="checkbox" id="pl-draw-ex"> 분해</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">세운 높이</span><span class="v" id="pl-draw-o-h">—</span></div>
+        <div class="stat"><span class="k">접은 길이(상자 200)</span><span class="v" id="pl-draw-o-f">—</span></div>
+        <div class="stat"><span class="k">무게(모형)</span><span class="v" id="pl-draw-o-m">—</span></div>
+        <div class="stat"><span class="k">뻗은 자세 넘어짐 각</span><span class="v" id="pl-draw-o-a">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "최종 도면"의 투시 보기를 끌어 돌려 본다. 몸통 윗면 가운데의 관절에서 목이 올라가고, 등머리는 아래로 12° 숙여 있다. ② "2장 첫 3면도"로 바꾼다. 목이 20 mm, 등머리가 12 mm 길어질 뿐인데 무게가 82.0 g으로 80 g을 넘고, 뻗은 자세에서는 기울이지 않아도 넘어진다. 3면도의 빨간 치수가 최종 도면과 다른 값이다. ③ "분해"를 켜서 부품을 센다. 몸통은 윗몸통·아랫몸통·기판·충전지·덮개·버튼으로 떨어지고, 나사는 충전지 덮개의 하나뿐이다. (상자와 막대로 줄인 모형이고 모서리 반경과 곡면은 그리지 않았다. 무게와 넘어짐 각은 이 장 공통 모형으로 계산했다. 3면도는 같은 모형을 아주 먼 카메라로 본 정투상이다.)</div>
+    </div>
+
+    <p>두 벌의 숫자는 겉보기에 별 차이가 없다. 목이 손가락 한 마디쯤 길고, 등머리가 엄지손톱 하나만큼 길 뿐이다. 그러나 이 책의 모델로 계산하면 2장의 숫자로는 무게가 82.0 g이고, 등머리를 앞으로 뻗으면 무게중심이 받침 끝보다 4.0 mm 바깥으로 나가 책상에 세우자마자 넘어진다. 이 값들은 4장에서 이미 고쳤지만, 2장의 3면도 파일은 그대로 남아 있었다. 금형 공장에 보낸 것이 어느 파일이었는지 확인하는 일이 도면 대조의 핵심이다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>항목</th><th>처음 적힌 값</th><th>나중에 바뀐 값</th><th>최종 도면</th><th>까닭</th></tr></thead>
+        <tbody>
+          <tr><td>목 길이</td><td>약 120 mm (2장)</td><td>상한 100 mm (4장)</td><td class="num">100 mm</td><td>뻗은 자세의 넘어짐 각</td></tr>
+          <tr><td>등머리 길이</td><td>72 mm (2장 우드락)</td><td>60 mm (4장 비례·무게)</td><td class="num">60 mm</td><td>무게 80 g과 넘어짐 각 10°(이 장에서 다시 계산)</td></tr>
+          <tr><td>등머리 두께</td><td>12 mm (2장 3면도)</td><td>약 20 mm (3장 우드락)</td><td class="num">12 mm</td><td>LED·확산판에는 10 mm 남짓이면 되고, 얇을수록 무게중심이 낮다</td></tr>
+          <tr><td>받침(클립 아랫면)</td><td>약 50 mm (4장 처음)</td><td>60 mm (4장)</td><td class="num">60 mm</td><td>넘어짐 각</td></tr>
+          <tr><td>클립 손잡이</td><td>16 mm (5장 첫 시제품)</td><td>28 mm (5장)</td><td class="num">28 mm</td><td>작은 손의 여는 힘</td></tr>
+          <tr><td>살두께</td><td>2 mm (7장 강성 계산)</td><td>약 2 mm로 고르게, 리브 1 mm (8장)</td><td class="num">2 mm</td><td>강성과 금형</td></tr>
+          <tr><td>무게</td><td>80 g 이하 (1장 목표)</td><td>78 g (4장 추정), 67 g (7장 추정)</td><td class="num">78.0 g</td><td>7장은 나머지 부품을 50 g으로 어림했다. 이 장은 4장의 부품 모형에 7장의 껍데기 계산을 넣었다</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>마지막 줄이 흥미롭다. 무게는 장마다 다르게 어림되었다. 어느 쪽이 틀렸다기보다, 각 장이 자기 질문에 필요한 만큼만 계산했기 때문이다. 7장은 재료끼리 비교하려고 나머지 부품을 한 덩어리로 두었고, 4장은 무게중심을 보려고 부품을 자리마다 나누었다. 양산 전 점검은 이런 어림들을 하나의 표로 다시 묶는 일이기도 하다.</p>
+
+    <p>숫자만이 아니라 모양도 대조해 본다. 그림 2는 7월 3일에 서윤이 태블릿으로 그려 온 옆모습과, 석 달 뒤의 최종 도면을 같은 축척으로 겹쳐 놓았다. 경계선을 끌어 비교한다. 바탕의 칸은 10 mm다.</p>
+
+    <figure class="diagram">
+      <div class="compare" id="pl-cmp"><div class="cmp-a"><canvas id="pl-cmp-a" class="art"></canvas></div><div class="cmp-b"><canvas id="pl-cmp-b" class="art"></canvas></div></div>
+      <figcaption><b>그림 2. 7월의 그림과 10월의 도면.</b> 같은 10 mm 칸 위에 그렸다. 7월의 그림(왼쪽 층)은 가늘게 휜 목과 얇고 긴 등머리, 작은 클립으로 날렵하다. 크기가 없던 그림에 1장에서 160 mm 높이를 매겨 보니 80 g을 넘었다. 10월의 도면(오른쪽 층)은 더 짧고 두껍고 아래가 무겁다. 클립과 몸통이 커진 것은 손(5장)과 넘어짐(4장) 때문이고, 등머리가 두꺼워진 것은 LED와 확산판(2장), 목이 곧은 막대가 된 것은 관절 두 개(7장) 때문이다. 어느 쪽이 더 아름다운지는 이 그림이 정하지 않는다. 다만 왼쪽은 그림이고 오른쪽은 만들 수 있는 물건이다.</figcaption>
+    </figure>
+  </section>
+
+  <section id="pl-head">
+    <h2>등머리 길이 하나가 바꾸는 것</h2>
+    <p>도면 대조에서 가장 크게 어긋난 값은 등머리 길이였다. 72 mm와 60 mm 사이에서 무엇이 달라지는지 하나만 움직여 본다. 4장에서 배운 넘어짐 조건을 다시 쓰면, 책상 위에 선 독서등은 무게중심에서 내린 연직선이 받침 안에 떨어지는 동안 버틴다. 책상이 기울어도 버티는 각, 곧 <span class="term">넘어짐 각</span><span class="en">(Tipping angle)</span>은</p>
+    <div class="formula">$$\alpha = \arctan\frac{d}{h}$$<div class="where">\(d\): 무게중심에서 받침 끝(넘어지는 쪽 가장자리)까지의 수평 거리, \(h\): 책상면에서 무게중심까지의 높이. \(d\)가 0이 되면 넘어짐 각도 0이고, 음수면 이미 넘어진다. 무게중심은 부품마다 무게 × 자리의 가중 평균이다.</div></div>
+    <p>등머리는 받침 끝에서 가장 먼 부품이다. 길어지면 무거워지고, 그 무게가 받침 밖 먼 자리에 얹힌다. 아래 패널은 목을 앞으로 수평으로 뻗은, 가장 넘어지기 쉬운 자세를 옆에서 본 것이다. 등머리 앞끝의 손잡이를 끌거나 슬라이더로 길이를 바꾼다. 아래 막대는 부품별 무게다.</p>
+
+    <div class="sim" id="sim-pl-head">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>등머리 길이: 무게, 넘어짐, 비례, 접은 길이</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pl-head-cv" class="art"></canvas><span class="hint">등머리 앞끝을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>등머리 길이 <output id="pl-head-h-out"></output></span><input type="range" id="pl-head-h" min="40" max="100" step="1" value="60"></label>
+          <label class="check"><input type="checkbox" id="pl-head-g" checked> 무게중심과 받침 끝 연직선</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">무게</span><span class="v" id="pl-head-o-m">—</span></div>
+        <div class="stat"><span class="k">넘어짐 각</span><span class="v" id="pl-head-o-a">—</span></div>
+        <div class="stat"><span class="k">목 : 등머리</span><span class="v" id="pl-head-o-r">—</span></div>
+        <div class="stat"><span class="k">접은 길이</span><span class="v" id="pl-head-o-f">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 60 mm에서 무게 78.0 g, 넘어짐 각 11.5°를 본다. 4장의 10.5°보다 조금 넉넉한 것은 등머리가 20 mm에서 12 mm로 얇아져 무게중심이 낮아졌기 때문이다. ② 72 mm로 늘린다. 무게는 2.4 g 늘어 80.4 g으로 목표를 넘고, 넘어짐 각은 5.6°로 반 토막 난다. 길이 하나가 두 조건을 함께 깨뜨린다. ③ 40 mm까지 줄이면 넘어짐 각은 20°를 넘지만 목 : 등머리가 2.5 : 1이 되어, 4장에서 도경이 말한 "가늘어 보이는" 쪽으로 넘어간다. 등머리가 짧으면 LED와 확산판을 넣을 자리도 모자란다. (목 100 mm 수평, 받침 60 mm. 가상의 무게: 클립 8 g + 받침 1 mm당 0.2 g, 몸통 껍데기 7,600 mm² × 2 mm × 1.15 g/cm³ + 기판 등 4.5 g, 충전지 12 g(몸통 아래), 목 1 mm당 0.08 g, 등머리 4 g + 길이 1 mm당 0.2 g. 등머리는 윗면 가운데에서 목 끝에 매달린다고 두었다.)</div>
+    </div>
+
+    <p>72 mm 쪽에도 이유는 있었다. 7월에 도경은 등이 책 위로 넘어와야 위쪽 줄까지 밝다고 했고, 긴 등머리는 빛을 더 넓게 편다. 그러나 이 모델에서는 그 몇 밀리미터가 무게 목표와 넘어짐 기준을 함께 넘는다. 둘 다 지키면서 등머리를 72 mm로 하려면 받침을 늘리거나 목을 줄여야 하고, 그러면 다시 클립이 커지거나 책 위로 넘어오는 거리가 줄어든다. 결정 하나를 고치면 다른 결정이 따라 움직인다. 그림 1의 그물을 실제로 따라간 것이다.</p>
+  </section>
+
+  <section id="pl-hand">
+    <h2>손 패널: 설계 창 안에 점 찍기</h2>
+    <p>5장에서 서윤은 클립을 손이 작은 쪽에 맞추었다. 여는 힘과 손가락 벌림은 작은 손(5퍼센타일 안팎)이 견딜 수 있어야 하고, 책 표지는 단단히 물어야 한다. 이 세 조건은 손잡이 길이와 스프링 세기라는 두 결정에 묶여 있다. 손잡이가 길면 지렛대가 길어 여는 힘은 줄지만, 같은 각도로 열 때 손가락을 더 벌려야 한다. 스프링이 세면 잘 물지만 열기 힘들다.</p>
+    <p>두 결정을 가로·세로축으로 놓으면 조건마다 넘지 말아야 할 경계선이 생기고, 세 경계선 안쪽에 남는 영역이 <span class="term">설계 창</span><span class="en">(Design window)</span>이다. 아래 지도에서 점을 끌어 손잡이 길이와 스프링 세기를 고른다. 색이 칠해진 곳은 조건 하나 이상을 어긴 곳이고, 초록 테두리 안이 창이다.</p>
+
+    <div class="sim" id="sim-pl-hand">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>클립의 설계 창: 손잡이 길이 × 스프링 세기</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pl-hand-cv"></canvas><span class="hint">점을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-hand-pre"><button data-value="first">5장 첫 시제품</button><button data-value="choice" class="on">서윤의 선택</button><button data-value="soft">약한 스프링</button></div>
+          <label class="check"><input type="checkbox" id="pl-hand-lab" checked> 경계선 이름</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">여는 힘(22 mm까지)</span><span class="v" id="pl-hand-o-f">—</span></div>
+        <div class="stat"><span class="k">집기 시작할 때 벌림</span><span class="v" id="pl-hand-o-s">—</span></div>
+        <div class="stat"><span class="k">3 mm 표지를 무는 힘</span><span class="v" id="pl-hand-o-c">—</span></div>
+        <div class="stat"><span class="k">예시 분포에서 열 수 있는 사람</span><span class="v" id="pl-hand-o-p">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "서윤의 선택"(손잡이 28 mm, 200 N·mm/rad)은 창의 왼쪽 가장자리 가까이에 있다. 여는 힘 9.5 N, 벌림 36.5 mm, 무는 힘 4.7 N이다. ② "5장 첫 시제품"(16 mm, 350)을 누른다. 여는 힘이 29 N으로 창에서 멀리 떨어져 있다. 서윤 손에만 맞았던 클립이다. 점을 위로 끌어 스프링을 350으로 두면 창 자체가 사라진다. 힘을 맞추려면 손잡이가 47 mm를 넘어야 하는데 벌림은 39.5 mm에서 막힌다. ③ "약한 스프링"(120)은 열기는 아주 쉽지만 3 mm 표지를 2.8 N으로만 물어 아래쪽 경계를 넘는다. 책을 들면 등이 미끄러진다. (5장의 클립 모형: 입 길이 30 mm, 최대 입 벌림 22 mm, 초기 토크는 스프링 강성의 0.6배. 조건은 5장의 목표값 여는 힘 10 N 이하, 벌림 45 mm 이하, 무는 힘 4 N 이상. 열 수 있는 사람의 비율은 5장의 예시 분포로 계산했고 실측 인체 자료가 아니다.)</div>
+    </div>
+
+    <p>창 안의 점은 어디든 조건을 지킨다. 그런데 서윤은 창의 가운데가 아니라 왼쪽 끝 가까이를 골랐다. 손잡이가 길수록 열기는 쉽지만 클립이 받침 뒤로 삐져나와 옆모습이 둔해지고, 손잡이가 30 mm(받침의 절반)를 넘으면 접은 길이도 늘어난다. 창은 "해도 되는 곳"을 알려 줄 뿐이고, 그 안에서 어디를 고를지는 다른 조건, 곧 형태와 상자 크기가 정한다. 실험실의 마지막 절에서 손잡이 길이를 끌면 접은 길이가 함께 움직이는 것을 볼 수 있다.</p>
+  </section>
+
+  <section id="pl-wall">
+    <h2>두께 패널: 2 mm의 이유</h2>
+    <p>살두께는 무게를 줄이고 싶을 때 가장 먼저 손이 가는 숫자다. 몸통과 등머리 껍데기의 무게는 살두께에 정비례한다. 그런데 7장에서 보았듯 판이 휘지 않으려는 힘(굽힘 강성)은 두께의 세제곱에 비례한다. 두께를 10% 줄이면 무게는 10% 줄지만 강성은 27% 준다. 8장에서 본 사출 성형의 사정도 있다. 살이 두꺼우면 식는 데 오래 걸려(냉각 시간은 대략 두께의 제곱에 비례한다) 한 번 찍는 값이 오르고 싱크가 생기며, 너무 얇으면 녹은 수지가 끝까지 흘러가지 못해 덜 채워진다.</p>
+    <p>아래 패널은 살두께 하나와 재료 하나를 움직인다. 위의 그림은 몸통 벽의 단면으로, 리브(살두께의 절반)와 그 반대편 겉면을 보여 준다. 아래의 네 막대가 독서등 전체 무게, 몸통의 상대 강성, 냉각 시간, 사출 한 벌 값이다.</p>
+
+    <div class="sim" id="sim-pl-wall">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>살두께: 무게, 강성, 냉각, 값</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view paper"><canvas id="pl-wall-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>살두께 <output id="pl-wall-t-out"></output></span><input type="range" id="pl-wall-t" min="0.6" max="4" step="0.1" value="2"></label>
+          <div class="seg" id="pl-wall-mat"><button data-value="pcabs" class="on">PC/ABS</button><button data-value="abs">ABS</button><button data-value="pp">PP</button><button data-value="al">알루미늄</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">독서등 무게</span><span class="v" id="pl-wall-o-m">—</span></div>
+        <div class="stat"><span class="k">상대 강성(PC/ABS 2 mm = 100)</span><span class="v" id="pl-wall-o-k">—</span></div>
+        <div class="stat"><span class="k">한 벌 값</span><span class="v" id="pl-wall-o-c">—</span></div>
+        <div class="stat"><span class="k">18 °C 방의 손끝 온도</span><span class="v" id="pl-wall-o-t">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① PC/ABS 2.0 mm에서 무게 78.0 g, 강성 100, 한 벌 1,200원이다. ② 1.8 mm로 줄인다. 무게는 3.0 g 줄어 75.0 g이 되지만 강성은 72.9로 실험실의 기준 80 아래로 내려간다. 한 벌 값은 114원밖에 줄지 않는다. 0.2 mm로 얻는 것보다 잃는 것이 크다. 1.0 mm 아래로 내리면 수지가 끝까지 차지 못한다. ③ 3 mm 넘게 올리면 강성은 넉넉하지만 무게가 92 g을 넘고, 냉각 시간이 두 배를 넘으며 리브 반대편에 싱크가 생긴다. "PP"를 누르면 같은 2 mm에서 강성이 61로 떨어진다. "알루미늄"은 0.7 mm에서도 강성이 넉넉하고 가볍지만 손끝이 18.8 °C로 차갑고, 깎아 만드는 값이 한 벌 26,000원이다. (껍데기 넓이: 몸통 7,600 mm², 등머리 길이 1 mm당 약 87 mm². 냉각 시간은 2 mm를 1로 둔 두께 제곱 근사, 사출 값은 그 냉각 시간에 절반이 비례한다고 둔 가상의 모형, 덜 채움 기준은 흐름 길이 110 mm ÷ 살두께 ≤ 100이라는 이 책의 교육용 값이다. 수지 등급마다 다르다. 강성 기준 80은 7장에서 PP 2 mm(61)가 손에 눌렸던 것을 참고해 실험실이 정한 값이다.)</div>
+    </div>
+
+    <p>2 mm는 우연히 고른 숫자가 아니다. 무게 목표 안에 들고, 손에 쥐어도 눌리지 않고, 금형이 무리 없이 채우고 식힐 수 있는 좁은 띠 안에 있다. 무게가 모자랄 때 살두께를 깎는 것은 가장 쉬운 방법이지만 가장 비싼 방법일 수 있다. 실험실에서 무게를 줄이고 싶다면 살두께보다 먼저 등머리 길이나 클립을 보는 편이 낫다.</p>
+  </section>
+
+  <section id="pl-cost">
+    <h2>수량과 원가: 금형값을 몇 개로 나누나</h2>
+    <p>지금까지의 조건은 모두 맞았다. 마지막으로 원가를 본다. 1장의 요구 조건표는 포장 포함 제조 원가를 개당 1만 2천 원 이하로 잡았다. 개당 원가는 수량과 상관없이 한 번 드는 <span class="term">고정비</span><span class="en">(Fixed cost)</span>와 한 개마다 드는 <span class="term">변동비</span><span class="en">(Variable cost)</span>로 나눌 수 있다. 금형값은 대표적인 고정비이고, 사출·부품·조립·포장은 변동비다.</p>
+    <div class="formula">$$C(N) = \Big(\frac{T}{N} + v_{\text{성형}} + v_{\text{나머지}}\Big)\times(1+r)$$<div class="where">\(C\): 개당 원가, \(N\): 수량, \(T\): 금형비(고정비), \(v_{\text{성형}}\): 플라스틱 부품 한 벌의 성형 값, \(v_{\text{나머지}}\): 기판·LED·충전지·철물·조립 작업·포장, \(r\): 불량으로 버리는 몫(여기서는 3%). 수량이 늘면 첫째 항만 줄어든다.</div></div>
+    <p>이 책의 가상 견적으로 넣어 보면 500개에서 알루미늄 간이 금형 400만 원은 한 개에 8,000원씩 얹힌다. 사출 한 벌 1,200원에 나머지가 5,711원(전자 부품 2,400원, 충전지 팩 1,600원, 스프링·핀·와셔·나사 450원, 조립·검사·포장 작업 74초에 411원, 종이 상자와 받침 850원)이고, 불량 3%를 더하면 <b>15,358원</b>이다. 목표보다 3,358원, 28% 많다. 아래 패널에서 수량을 끌어 공정별 곡선을 비교한다. 오른쪽 막대는 고른 공정의 원가 구성이다.</p>
+
+    <div class="sim" id="sim-pl-cost">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>수량과 개당 원가: 공정별 곡선과 구성</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pl-cost-cv"></canvas><span class="hint">그래프를 끌어 수량을 바꾼다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>수량 <output id="pl-cost-n-out"></output></span><input type="range" id="pl-cost-n" min="0" max="1000" step="any" value="303.758"></label>
+          <div class="seg" id="pl-cost-p"><button data-value="p3d">3D 프린팅</button><button data-value="vac">진공 주형</button><button data-value="alu" class="on">알루미늄 금형</button><button data-value="steel">강 금형</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">개당 원가</span><span class="v" id="pl-cost-o-c">—</span></div>
+        <div class="stat"><span class="k">그중 금형·틀 몫</span><span class="v" id="pl-cost-o-t">—</span></div>
+        <div class="stat"><span class="k">이 수량에서 가장 싼 공정</span><span class="v txt" id="pl-cost-o-b">—</span></div>
+        <div class="stat"><span class="k">목표 1.2만 원에 닿는 수량</span><span class="v" id="pl-cost-o-n">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 500개, 알루미늄 금형에서 막대를 본다. 가장 큰 덩어리가 금형 몫 8,000원이다. 사출 값(1,200원)이나 포장(850원)을 아무리 줄여도 목표에 닿지 않는다. ② 수량을 1,000개로 끈다. 금형 몫이 4,000원으로 반이 되어 11,238원, 목표 안이다. 알루미늄 금형으로 목표에 닿는 수량은 844개부터다. ③ 공정을 바꿔 본다. 500개에서 3D 프린팅은 26,482원, 진공 주형은 22,877원, 강 금형은 35,443원이다. 강 금형 곡선이 알루미늄 금형 아래로 내려가는 것은 2만 개 근처이고, 알루미늄 금형은 1만 번마다 새로 깎아야 해서 곡선에 계단이 생긴다. (8장의 가상 견적: 3D 프린팅 한 벌 20,000원, 진공 주형 틀 30만 원에 25개·한 벌 4,500원, 알루미늄 간이 금형 400만 원·한 벌 1,200원·수명 1만 번, 강 금형 1,400만 원·한 벌 700원. 나머지 부품·작업·포장 5,711원과 불량 3%는 이 장의 가상값이고 공정과 상관없이 같다고 두었다.)</div>
+    </div>
+
+    <p>원가가 목표를 넘은 까닭은 디자인이 사치스러워서가 아니라 수량이 적어서다. 500개라는 숫자는 10주년이라는 사건이 정했고, 그 수량에서 금형은 비싼 고정비다. 이 사정은 산업디자인의 역사만큼 오래되었다. 그림 3의 설탕 그릇은 19세기 미국에서 녹은 유리를 쇠틀에 눌러 찍은 <span class="term">프레스 유리</span><span class="en">(Pressed glass)</span>다(<a href="history.html">12장</a>). 쇠틀은 비쌌지만 한 번 깎으면 수없이 찍을 수 있어서, 손으로 깎던 커트 유리의 무늬를 훨씬 싼 값에 많은 집의 식탁에 올렸다. 틀값을 많은 개수로 나눌 수 있을 때 같은 무늬가 싸진다는 원리는 지금의 사출 금형과 같다.</p>
+
+    <figure class="art-figure" id="fig-pl-glass">
+      <div class="art-frame"><img src="../../shared/img/ind-pressed-glass-sugar-bowl.webp" width="1200" height="1600" alt="투명한 프레스 유리 설탕 그릇. 굵은 다리 위에 둥근 그릇이 있고 뚜껑을 덮었다. 그릇 옆면에는 아치 모양으로 나뉜 칸마다 돋을새김 무늬가 찍혀 있고, 뚜껑 꼭지는 작은 열매 모양이다." loading="lazy" decoding="async"></div>
+      <figcaption><b>그림 3. 보스턴 앤드 샌드위치 유리 회사, 「뚜껑 있는 설탕 그릇」, 1830~70년경.</b> 무늬를 하나씩 깎는 대신 틀에 새겨 두고 누를 때마다 찍었다. 틀이 고정비, 한 번 누르는 일이 변동비다. 그릇과 뚜껑, 다리의 형태는 틀에서 빠져나올 수 있어야 했으므로 아래로 갈수록 좁아지거나 넓어지는 방향이 정해져 있다. 틀값이 형태와 값을 함께 정한 물건이다.<span class="credit">메트로폴리탄 미술관(Gift of Mary and Bradford Kelleher, 1971), 프레스 유리. 공공 도메인(The Met Open Access, CC0). <a href="https://www.metmuseum.org/art/collection/search/2500">소장처 작품 페이지</a> · <a href="../../credits.html#ind-pressed-glass-sugar-bowl">크레딧</a></span></figcaption>
+    </figure>
+
+    <div class="callout deep">
+      <strong>원가 곡선의 계단과 "두 번째 금형"</strong>
+      식 \(C(N) = T/N + v\)는 금형 하나가 끝까지 버틴다고 가정한다. 실제 금형에는 수명이 있다. 이 책의 가상 견적에서 알루미늄 간이 금형은 약 1만 번, 강 금형은 수십만 번이다. 1만 개를 넘게 찍으려면 알루미늄 금형을 하나 더 깎아야 하므로, 개당 원가 곡선은 1만 개에서 위로 튀었다가 다시 내려간다. 진공 주형의 실리콘 틀은 25개마다 새로 떠야 해서 아예 계단이 촘촘하다. 반대로 금형이 아직 수명의 5%밖에 쓰지 않았다면, 그 금형은 남은 9천 번을 찍을 수 있는 <b>자산</b>이다. 양산 원가를 볼 때는 "이번 수량에 얼마"와 함께 "금형이 앞으로 무엇을 더 찍을 수 있는가"를 같이 적는다.
+    </div>
+
+    <div class="callout studio">
+      <strong>금형은 누구 것인가</strong>
+      태오는 견적서에 한 줄을 꼭 넣는다. 금형의 소유자와 보관 기간이다. 금형값을 의뢰인이 내도, 금형은 성형 공장의 기계 옆에 놓인다. 계약서에 소유와 보관을 적어 두지 않으면, 2년 뒤 덮개 하나를 다시 찍으려 할 때 금형이 어디 있는지 모르거나 이미 녹여 버린 경우가 생긴다. 태오의 말로는 "금형값을 냈다는 영수증보다, 금형을 돌려받을 수 있다는 문장이 더 비싸다." 교체 부품을 약속하는 제품이라면 더 그렇다.
+    </div>
+  </section>
+
+  <section id="pl-life">
+    <h2>1년당 값: 오래 쓰는 물건의 셈</h2>
+    <p>원가와 판매가는 산 날의 숫자다. 책방 주인이 처음부터 한 말, "선물이 서랍에 들어가면 안 돼요. 오래 써야지"는 다른 숫자를 가리킨다. 손님이 낸 값을 그 물건을 쓴 햇수로 나눈 값, 곧 <b>쓰는 1년당 값</b>이다. 11장의 모형으로 하루 1.5시간 쓰면 충전지는 약 2.7년에 처음 용량의 80%로 떨어지고, 그다음으로 약한 목 관절은 약 8.2년을 버틴다. 충전지를 갈 수 없으면 물건의 수명은 충전지의 수명이다.</p>
+    <p>아래 패널은 같은 3만 원짜리 등을 두 구조로 쓸 때 누적해서 쓰는 돈을 그린다. 충전지를 갈 수 없는 구조는 충전지가 닳을 때마다 등을 새로 사야 하고, 갈 수 있는 구조는 충전지 팩만 산다. 하루 사용 시간과 교체 충전지 값을 움직여 본다.</p>
+
+    <div class="sim" id="sim-pl-life">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>쓰는 1년당 값: 충전지를 갈 수 있을 때와 없을 때</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="pl-life-cv"></canvas></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>하루 사용 <output id="pl-life-h-out"></output></span><input type="range" id="pl-life-h" min="0.5" max="4" step="0.25" value="1.5"></label>
+          <label class="ctrl"><span>교체 충전지 팩 값 <output id="pl-life-b-out"></output></span><input type="range" id="pl-life-b" min="2000" max="10000" step="500" value="4000"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">수명(교체 가능 / 불가)</span><span class="v" id="pl-life-o-y">—</span></div>
+        <div class="stat"><span class="k">1년당 값(교체 가능)</span><span class="v" id="pl-life-o-a">—</span></div>
+        <div class="stat"><span class="k">1년당 값(교체 불가)</span><span class="v" id="pl-life-o-b">—</span></div>
+        <div class="stat"><span class="k">1년당 kg CO₂e(가능 / 불가)</span><span class="v" id="pl-life-o-c">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 하루 1.5시간, 충전지 팩 4,000원에서 두 선을 본다. 교체 가능한 등은 약 8.2년 동안 충전지를 세 번 갈아 1년에 약 5,110원, 교체할 수 없는 등은 2.7년마다 새로 사서 1년에 11,070원이다. ② 하루 사용을 3시간으로 올린다. 충전지가 더 빨리 닳아(1.6년 남짓) 교체할 수 없는 등의 1년당 값이 크게 오르고, 관절도 빨리 닳아 두 구조의 수명이 함께 줄어든다. ③ 충전지 팩 값을 10,000원까지 올려도 교체 가능한 쪽이 싸다. 1년당 배출량도 같은 방향이다. 만들 때의 배출(약 2.0 kg CO₂e)을 더 긴 햇수로 나누기 때문이다. (11장의 모형: 한 번 충전 5시간, 정격 500회, 해마다 3%의 달력 노화로 80%에 닿는 해, 목 관절은 15,000회 조작. 판매가 3만 원, 만들기·운송·폐기 2.03 kg, 사용 1.5시간에 1년 0.25 kg, 충전지 팩 0.37 kg CO₂e는 모두 가상의 예시값이다. 교체 횟수는 11장처럼 수명 안에 드는 충전지 수명의 마디마다 센다.)</div>
+    </div>
+
+    <p>원가표에서는 충전지 교체 구조가 개당 180원을 더 쓰는 항목이었다. 1년당 값으로 보면 손님의 지출을 절반 아래로 줄이는 구조다. 같은 결정이 어느 숫자로 보느냐에 따라 비용이 되기도 하고 절약이 되기도 한다. 그래서 실험실의 원가 칸 옆에는 수명 칸을 함께 둔다.</p>
+  </section>
+
+  <section id="pl-lab">
+    <h2>종합 실험실</h2>
+    <p>모든 손잡이를 한 화면에 모았다. 위쪽 그림은 목을 앞으로 뻗은 독서등의 옆모습이고, 등머리 가운데(목 길이), 등머리 앞끝(등머리 길이), 받침 앞끝(받침 길이), 클립 손잡이 끝(손잡이 길이)을 끌 수 있다. 아래는 요구 조건 열두 줄의 점검표로, 막대의 세로 눈금이 기준이고 초록은 통과, 빨강은 미달이다. 단추로 서윤의 선택과 다른 선택지 네 가지를 불러온다. 맨 아래 메모 칸에 지금 설계의 값이 정리된다.</p>
+
+    <div class="sim" id="sim-pl-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>제품 실험실: E 라이트 양산 전 점검</h3></div>
+      <div class="sim-body">
+        <div class="sim-view paper"><canvas id="pl-lab-cv" class="art"></canvas><span class="hint">등머리·받침·손잡이 끝을 끈다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="pl-lab-pre"><button data-value="choice" class="on">서윤의 선택</button><button data-value="july">7월의 옆모습</button><button data-value="alu">알루미늄 몸통</button><button data-value="cheap">가장 싸게</button><button data-value="q1000">1,000개</button></div>
+          <label class="ctrl"><span>목 길이 <output id="pl-lab-l-out"></output></span><input type="range" id="pl-lab-l" min="60" max="140" step="1" value="100"></label>
+          <label class="ctrl"><span>등머리 길이 <output id="pl-lab-h-out"></output></span><input type="range" id="pl-lab-h" min="40" max="110" step="1" value="60"></label>
+          <label class="ctrl"><span>받침(클립 아랫면) <output id="pl-lab-b-out"></output></span><input type="range" id="pl-lab-b" min="40" max="80" step="1" value="60"></label>
+          <label class="ctrl"><span>클립 손잡이 <output id="pl-lab-g-out"></output></span><input type="range" id="pl-lab-g" min="14" max="50" step="1" value="28"></label>
+          <label class="ctrl"><span>살두께 <output id="pl-lab-t-out"></output></span><input type="range" id="pl-lab-t" min="0.6" max="4" step="0.1" value="2"></label>
+          <label class="ctrl"><span>수량 <output id="pl-lab-n-out"></output></span><input type="range" id="pl-lab-n" min="0" max="1000" step="any" value="303.758"></label>
+          <div class="seg" id="pl-lab-k"><button data-value="120">스프링 약</button><button data-value="200" class="on">중</button><button data-value="350">강</button></div>
+          <div class="seg" id="pl-lab-mat"><button data-value="pcabs" class="on">PC/ABS</button><button data-value="abs">ABS</button><button data-value="pp">PP</button><button data-value="al">알루미늄</button></div>
+          <div class="seg" id="pl-lab-proc"><button data-value="p3d">3D 프린팅</button><button data-value="vac">진공 주형</button><button data-value="alu" class="on">알루미늄 금형</button><button data-value="steel">강 금형</button><button data-value="cnc">절삭</button></div>
+          <label class="check"><input type="checkbox" id="pl-lab-rep" checked> 충전지 교체 구조(나사 하나·커넥터)</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">무게</span><span class="v" id="pl-lab-o-m">—</span></div>
+        <div class="stat"><span class="k">넘어짐 각</span><span class="v" id="pl-lab-o-a">—</span></div>
+        <div class="stat"><span class="k">개당 원가</span><span class="v" id="pl-lab-o-c">—</span></div>
+        <div class="stat"><span class="k">통과한 조건</span><span class="v" id="pl-lab-o-p">—</span></div>
+      </div>
+      <pre class="pl-memo" id="pl-lab-memo" aria-live="polite"></pre>
+      <div class="sim-note">해볼 것: ① "서윤의 선택"에서 점검표를 읽는다. 열두 줄 가운데 열한 줄이 통과하고, 개당 원가 한 줄만 빨갛다. ② "7월의 옆모습"(목 130, 등머리 100, 받침 50, 손잡이 16, 센 스프링, 3D 프린팅, 충전지 납땜)을 누른다. 화면에서 예뻤던 그림은 무게, 넘어짐, 여는 힘, 원가, 수명이 한꺼번에 무너진다. ③ "알루미늄 몸통"과 "가장 싸게"를 차례로 누른다. 알루미늄은 가볍고 단단하지만 손끝이 차갑고, 0.7 mm 벽은 깎기 어렵고, 원가가 3만 원을 넘는다. "가장 싸게"(PP 1.6 mm, 충전지 납땜)는 원가를 408원밖에 줄이지 못하면서 강성과 수명을 잃는다. ④ "1,000개"를 누르면 열두 줄이 모두 초록이 된다. 디자인은 그대로인데 수량 하나로 바뀐 것이다. ⑤ 직접 손잡이를 끌어 자기만의 독서등을 만든다. 정답은 없다. 다만 빨간 줄을 하나 고칠 때 다른 줄이 빨개지지 않는지 본다. (이 장의 모든 패널과 같은 모형. 알루미늄은 절삭으로만, 플라스틱은 절삭 외의 공정으로 만든다고 두었다. 리드타임은 9월 초 발주 기준 가상의 값(준비 주 + 수량 ÷ 주당 생산량)이고, 수명 기준 5년은 "오래 써야지"를 이 실험실이 숫자로 옮긴 것이다. 메모는 화면에만 있고 저장되지 않는다.)</div>
+    </div>
+
+    <p>"가장 싸게"는 이 실험실에서 가장 많이 배우는 단추다. 재료를 싼 PP로 바꾸고, 벽을 얇게 하고, 충전지를 납땜해도 개당 원가는 15,358원에서 14,950원으로 3%도 줄지 않는다. 원가의 절반 넘게가 금형 몫이고, 그것은 디자인이 아니라 수량이 정하기 때문이다. 대신 잃는 것은 손에 쥐는 몸통의 단단함과 수명이다. 원가를 줄이고 싶을 때 가장 먼저 해야 할 일은 어느 칸이 원가를 만드는지 보는 것이다. 막대의 가장 큰 덩어리가 아닌 곳을 깎으면, 아낀 돈보다 잃는 것이 크다.</p>
+    <p>반대로 규칙을 일부러 어기는 선택도 있다. 요구 조건표는 의뢰 첫 주에 쓴 숫자이고, 석 달 동안 배운 것이 그 숫자보다 나을 수 있다. 무게 80 g은 침대 머리판에서 클립이 처지지 않는 한계였지만, 원가 1만 2천 원은 수량을 정하기 전의 어림이었다. 모든 줄을 초록으로 만드는 것이 목표가 아니라, 빨간 줄이 왜 빨간지 알고 그것을 누가 어떻게 받아들일지 정하는 것이 실험실의 목표다.</p>
+
+    <div class="callout studio">
+      <strong>실험실의 숫자와 저울의 숫자</strong>
+      태오는 실험실 화면을 끄기 전에 두 번째 시사출(T2) 샘플을 주방 저울에 올렸다. 78.6 g, 모형보다 0.6 g 무거웠다. 모형에 없던 스냅핏 갈고리와 리브, 각인, 확산판을 거는 턱 같은 것들이다. 태오는 그 0.6 g을 실험실 메모 옆에 연필로 적었다. "모형은 맞는지 틀린지를 알려 주는 게 아니라, 어디서 차이가 나야 정상인지를 알려 준다. 1 g 차이는 정상이고, 10 g 차이면 도면이 잘못된 거다." 실험실은 저울과 캘리퍼스, 그리고 손으로 열어 보는 일을 대신하지 않는다. 그 셋이 얼마쯤 나와야 하는지를 미리 알려 줄 뿐이다.
+    </div>
+
+    <div class="callout try">
+      <strong>집에 있는 집게 하나로 하는 양산 점검</strong>
+      집에 있는 작은 물건 하나를 고른다. 빨래집게, 클립형 손전등, 스테이플러처럼 손으로 여는 것이 좋다. 종이에 요구 조건표를 다섯 줄 쓴다(무게, 크기, 여는 힘, 넘어지지 않음, 값). 주방 저울로 무게를 재고, 저울 위에 물건을 올려 손잡이를 눌러 열릴 때의 눈금으로 여는 힘을 어림한다(kg × 9.8 = N). 자로 손잡이 길이와 받침 폭을 재고, 책을 한쪽만 들어 기울인 판 위에 세워 몇 도에서 넘어지는지 본다(스마트폰 수평계 앱을 써도 된다). 값은 영수증이나 판매 페이지에서 찾는다. 마지막으로 이 물건이 몇 개쯤 만들어졌을지 어림하고, 그 수량이 재료와 공정과 값에 어떻게 드러나는지 한 문단으로 적는다. 다섯 줄 가운데 일부러 손해를 본 줄이 있다면 그 이유도 추측해 적는다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 여름 제품 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>제품 노트 · 13장</span></div>
+      <h4>열두 장의 결정을 한 저울에</h4>
+      <p>10월 23일 월요일 아침, 금형 공장에서 두 번째 시사출 샘플이 도착했다. 9장의 스냅핏과 버튼 틈, 10장의 무광 질감과 색을 고친 금형으로 찍은 것이었다. 금형 공장은 화요일 오후까지 양산 승인을 달라고 했다. 승인이 나면 수요일에 500벌을 찍고, 주말까지 조립해 10월 31일에 책방에 들어온다. 11월의 10주년까지 남은 여유는 그것이 전부였다.</p>
+      <p>서윤은 승인 전에 실험실을 열었다. 회사에서 화면 시안을 넘기기 전에 모든 화면을 한 줄로 늘어놓고 여백과 글자 크기를 맞춰 보던 것과 같은 일이었다. 먼저 장마다 흩어진 치수를 한 표에 모았다. 어긋난 값이 셋 나왔다. 목 길이(2장 약 120 mm, 4장 상한 100 mm), 등머리 길이(2장 72 mm, 4장 60 mm), 등머리 두께(2장 12 mm, 3장 우드락 약 20 mm). 금형 공장에 보낸 파일이 최종 값(100, 60, 12)으로 되어 있는 것을 태오와 함께 확인하고, 2장의 3면도 파일에는 "폐기, 최종 도면 참조"라고 적었다. 이 책의 모델로 계산하면 2장의 숫자로는 무게 82.0 g, 뻗은 자세에서 무게중심이 받침 끝보다 4.0 mm 밖이라 바로 넘어진다. 최종 숫자로는 <b>무게 78.0 g</b>(클립 20.0, 몸통 22.0, 충전지 12.0, 목 8.0, 등머리 16.0 g), 뻗은 자세의 <b>넘어짐 각 11.5°</b>, 세운 자세는 26.8°였다. 등머리를 72 mm로 늘려 보면 80.4 g, 5.6°로 두 줄이 함께 빨개졌다.</p>
+      <p>나머지 줄도 차례로 초록이 되었다. 클립은 손잡이 28 mm, 스프링 200 N·mm/rad로 <b>여는 힘 9.5 N, 벌림 36.5 mm, 3 mm 표지를 무는 힘 4.7 N</b>, 5장의 예시 분포로 열 수 있는 사람이 95.9%였다. 몸통은 PC/ABS 2.0 mm로 상대 강성 100, 18 °C 방에서 손끝 28.1 °C. 목을 접으면 160 mm라 200 × 80 × 60 mm 상자에 들어갔다. 알루미늄 간이 금형의 리드타임은 9월 초 발주 기준 5.1주로 8주 안이었고, 충전지를 갈 수 있는 구조라 수명은 약 8.2년이었다. 도경이 T2 샘플의 덮개 나사를 집에 있던 작은 십자 드라이버로 풀고 충전지를 바꿔 끼우는 데는 2분 남짓 걸렸다. 11장에서 정한 "3단계, 3분 안"이 지켜진 것이다. 태오는 저울에 올린 T2 샘플이 78.6 g이라고 적었다.</p>
+      <p>한 줄만 빨갰다. <b>개당 원가 15,358원</b>, 목표 1만 2천 원보다 3,358원(28%) 많았다. 막대를 보니 금형 몫이 8,000원으로 절반이 넘었다. 서윤은 실험실에서 다른 길을 하나씩 눌러 보았다. 살두께를 1.8 mm로 깎으면 117원이 줄지만 강성이 72.9로 떨어졌다. PP로 바꾸고 충전지를 납땜하는 "가장 싸게"는 14,950원으로 408원을 아끼면서 강성과 수명을 잃었다. 3D 프린팅은 26,482원, 진공 주형은 22,877원으로 더 비쌌다. 수량만이 달랐다. 1,000개면 11,238원이고, 알루미늄 금형으로 목표에 닿는 것은 844개부터였다.</p>
+      <p>서윤의 선택은 디자인을 건드리지 않는 것이었다. 11월에는 약속대로 500개를 찍고, 원가표에 "500개 15,358원, 1,000개 11,238원" 두 줄을 나란히 적어 주인에게 가져갔다. 그리고 금형을 녹이지 말고 보관해, 반응이 좋으면 내년 봄에 두 번째 500개를 같은 금형으로 찍고, 그동안 충전지 덮개 같은 교체 부품도 그 금형으로 찍자고 제안했다. 금형 수명 1만 번 가운데 이번에 쓰는 것은 5%뿐이었다. 1년당 값도 함께 보여 주었다. 판매가 3만 원에 교체 충전지 팩을 4,000원으로 팔면, 손님이 쓰는 1년당 값은 약 5,110원으로 충전지를 갈 수 없는 등(11,070원)의 절반 아래였다. 주인은 판매가 3만 원을 그대로 두고, 금형 보관을 계약서에 넣자고 했다. "오래 쓰라고 했으니 금형도 오래 써야지."</p>
+      <p>다른 선택지도 지우지 않았다. 등머리 72 mm 안(빛이 넓지만 80.4 g, 5.6°), 처음부터 1,000개를 찍는 안(목표 원가 안이지만 500개를 창고에 반년 둬야 한다), 판매가를 3만 5천 원으로 올리는 안(원가율 44%)이 메모에 남았다. 12장에서 미뤄 둔 상자 안쪽 면의 글도 이날 확정했다. 약속한 충전지 교체가 T2 샘플에서 지켜지는 것을 본 뒤였다.</p>
+      <p class="pl-boxtext">「나사 하나」 이 등의 옆면이 아주 조금 기울고 모서리가 둥근 것은 금형에서 잘 빠져나오게 하려는 모양입니다. 아랫면의 십자 나사 하나는 충전지를 갈기 위한 문입니다. 불이 짧아지면 나사를 풀고 커넥터를 뽑아 새 충전지로 바꿔 끼우세요. 책방 E가 10년 동안 그 자리에 있었듯, 이 등도 오래 곁에 두어 주세요.</p>
+      <p>도경은 출력한 실험실 메모 아래에 연필로 적었다. "숫자는 다 봤어. 이제 손으로 열어 봐. 밤에, 불 끄고." 그날 밤 도경은 T2 샘플을 침대 머리판에 집고 책을 읽다가, 불을 끄려고 더듬어 오목한 버튼을 한 번에 찾았다. 화요일 오후, 서윤은 양산 승인서에 서명했다. 태오의 메모는 한 줄이었다. "도면에 있는 대로 생길 거다. 이번엔 그게 좋은 소식이다."</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>양산 승인(10월 24일): <b>최종 도면</b> 목 100 mm(관절 둘), 등머리 60 × 36 × 12 mm(12° 숙임), 받침(클립 아랫면) 60 × 28 mm, 몸통 44 × 28 × 20 mm, 클립 손잡이 28 mm, 스프링 200 N·mm/rad. 2장 3면도의 120·72 mm는 폐기. <b>점검 결과</b>(이 책의 모형): 무게 78.0 g(T2 실측 78.6 g), 뻗은 자세 넘어짐 각 11.5°·세운 자세 26.8°, 여는 힘 9.5 N·벌림 36.5 mm·무는 힘 4.7 N·예시 분포 95.9%, PC/ABS 2.0 mm 상대 강성 100·손끝 28.1 °C, 접은 길이 160 mm, 리드타임 5.1주, 수명 약 8.2년. 열두 줄 가운데 열한 줄 통과. <b>원가</b>: 500개 15,358원(금형 8,000 + 사출 1,200 + 나머지 5,711 + 불량 447, 목표 대비 +3,358원), 1,000개 11,238원, 목표 도달 844개. <b>서윤의 선택</b>: 디자인과 500개는 그대로, 판매가 3만 원 유지, 금형 보관을 계약서에 넣고 두 번째 500개와 교체 부품에 쓴다. 교체 충전지 팩 4,000원(가상), 1년당 값 약 5,110원. 상자 안쪽 글 「나사 하나」 확정. 남긴 선택지: 등머리 72 mm, 처음부터 1,000개, 판매가 3만 5천 원.</div>
+        <div><b>아직 남은 문제</b>11월 판매 반응을 보고 두 번째 500개를 찍을지 정해야 한다. 교체 충전지를 몇 개, 몇 년 동안 준비할지. 모형이 말하지 못하는 것, 곧 500명의 침대 머리판과 책 표지에서 실제로 몇 년을 버틸지는 몇 해가 지나야 안다.</div>
+        <div><b>다음 단계</b><a href="glossary.html">14장</a>: 여름 제품 노트의 용어와 결정들을 색인으로 정리한다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>제품의 결정들은 그물처럼 묶여 있다. 형태 치수 하나, 살두께 하나가 무게·넘어짐·강성·원가처럼 서로 다른 장에서 다룬 조건을 함께 움직인다.</li>
+      <li>양산 전의 첫 점검은 도면 대조다. 장마다, 달마다 고친 숫자를 한 표에 모으고 같은 항목의 다른 값 가운데 무엇이 최종인지와 그 까닭을 적는다.</li>
+      <li>넘어짐 각은 \(\arctan(d/h)\)다. 받침 끝에서 먼 부품(등머리)은 조금만 길어지거나 무거워져도 \(d\)를 크게 줄인다.</li>
+      <li>두 결정이 여러 조건에 묶이면 조건마다 경계선이 생기고, 그 안쪽이 설계 창이다. 창은 해도 되는 범위를 알려 주고, 창 안의 어디를 고를지는 다른 조건이 정한다.</li>
+      <li>개당 원가는 금형 같은 고정비를 수량으로 나눈 몫과 변동비의 합이다. 적은 수량에서는 고정비가 원가의 대부분이라, 재료나 두께를 깎아도 원가는 거의 줄지 않고 다른 조건만 잃는다.</li>
+      <li>판매가와 원가는 산 날의 숫자이고, 쓰는 1년당 값은 수명까지 본 숫자다. 수리할 수 있는 구조는 원가를 조금 올리면서 1년당 값과 배출을 크게 줄일 수 있다.</li>
+      <li>실험실의 목표는 모든 줄을 초록으로 만드는 것이 아니라, 빨간 줄이 왜 빨간지 알고 누가 어떻게 받아들일지 정하는 것이다. 다른 선택지도 메모로 남긴다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 이 장의 모형에서 목 100 mm를 그대로 두고 등머리 길이를 60 mm에서 72 mm로 늘렸다. 가장 알맞은 설명은?</p>
+        <div class="opts">
+          <button class="opt">등머리는 위쪽에 있으므로 무게만 조금 늘고 넘어짐 각은 그대로다.</button>
+          <button class="opt" data-correct>무게가 80.4 g으로 목표를 넘고, 무거워진 등머리가 받침 끝에서 먼 자리에 얹혀 넘어짐 각이 11.5°에서 5.6°로 준다.</button>
+          <button class="opt">등머리가 길어지면 무게중심이 높아질 뿐이라 넘어짐 각이 오히려 커진다.</button>
+          <button class="opt">무게와 넘어짐은 그대로이고 접은 길이만 늘어난다.</button>
+        </div>
+        <div class="quiz-exp">등머리는 받침 끝에서 가장 먼 부품이다. 이 모형에서 등머리 무게는 16.0 g에서 18.4 g으로 늘고, 그 무게가 받침 앞끝보다 70 mm 바깥에 얹힌다. 무게중심이 받침 끝에서 4.3 mm 안쪽이던 것이 2.1 mm 안쪽으로 다가와 넘어짐 각이 반 토막 난다. 길이 하나가 무게와 넘어짐이라는 두 조건을 함께 움직인 것이다. 접은 길이도 160 mm에서 166 mm로 늘지만 상자 200 mm 안이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 알루미늄 간이 금형으로 500개를 만들 때 개당 원가가 15,358원으로 목표 1만 2천 원을 넘었다. 이 장의 원가 모형에서 원가를 가장 크게 낮추는 방법은?</p>
+        <div class="opts">
+          <button class="opt">살두께를 2 mm에서 1.8 mm로 줄인다.</button>
+          <button class="opt">몸통 재료를 PC/ABS에서 PP로 바꾸고 충전지를 납땜한다.</button>
+          <button class="opt">강 금형으로 바꾼다. 한 벌 사출 값이 1,200원에서 700원으로 싸다.</button>
+          <button class="opt" data-correct>같은 금형으로 찍는 수량을 늘린다. 1,000개면 금형 몫이 8,000원에서 4,000원으로 줄어 11,238원이 된다.</button>
+        </div>
+        <div class="quiz-exp">500개에서 원가의 절반 넘게가 금형 몫(400만 원 ÷ 500 = 8,000원)이다. 살두께를 깎으면 117원, PP와 납땜은 408원을 아낄 뿐이고 강성과 수명을 잃는다. 강 금형은 한 벌 값이 싸도 금형비가 1,400만 원이라 500개에서는 35,443원으로 오히려 비싸다. 고정비가 큰 공정에서는 수량이 원가를 정한다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 클립의 설계 창(손잡이 길이 × 스프링 세기)에서 스프링을 200에서 350 N·mm/rad로 올렸더니 창이 사라졌다. 그 까닭으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt" data-correct>센 스프링으로 여는 힘을 10 N 아래로 맞추려면 손잡이가 47 mm쯤 되어야 하는데, 그 길이에서는 손가락 벌림이 45 mm를 넘기 때문이다.</button>
+          <button class="opt">센 스프링은 3 mm 표지를 너무 약하게 물기 때문이다.</button>
+          <button class="opt">스프링이 세면 손잡이를 아무리 길게 해도 여는 힘이 줄지 않기 때문이다.</button>
+          <button class="opt">설계 창은 스프링 세기와 상관없이 손잡이 길이로만 정해지기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">여는 힘은 (초기 토크 + 강성 × 여는 각) ÷ 손잡이 길이라서, 손잡이를 늘리면 줄어든다. 스프링 350에서 10 N 아래가 되려면 손잡이가 약 47 mm 이상이어야 한다. 그런데 손잡이가 길면 같은 각도로 열 때 손가락을 더 벌려야 해서, 벌림 45 mm 조건은 손잡이 39.5 mm 이하만 허락한다. 두 경계선이 엇갈려 창이 닫힌다. 센 스프링은 표지를 더 세게 물므로 무는 힘 조건은 오히려 넉넉하다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. 충전지 교체 구조는 원가를 개당 180원 올린다. 그런데도 서윤이 이 구조를 지킨 까닭을 이 장의 모형으로 가장 잘 설명한 것은?</p>
+        <div class="opts">
+          <button class="opt">교체 구조가 있으면 넘어짐 각이 커지기 때문이다.</button>
+          <button class="opt">교체 구조가 있으면 충전지 자체가 더 오래가기 때문이다.</button>
+          <button class="opt" data-correct>판매가가 같아도 쓰는 햇수가 약 2.7년에서 8.2년으로 늘어, 충전지 팩 값을 더해도 손님이 쓰는 1년당 값이 11,070원에서 약 5,110원으로 줄기 때문이다.</button>
+          <button class="opt">교체 구조가 있으면 금형값이 줄어 원가가 목표 안으로 들어오기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">충전지는 교체 구조와 상관없이 약 2.7년에 80%로 닳는다. 달라지는 것은 그다음이다. 갈 수 없으면 등을 버리고 새로 사야 하고, 갈 수 있으면 다음 약한 부품인 목 관절(약 8.2년)까지 쓴다. 3만 원에 충전지 팩 세 개(4,000원씩)를 더해 8.2년으로 나누면 1년에 약 5,110원이다. 원가표에서는 비용이던 180원이 1년당 값으로는 절약이 된다. 넘어짐 각이나 금형값과는 상관이 없다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  "use strict";
+  function safe(name, fn) { try { fn(); } catch (e) { console.error("[" + name + "]", e); } }
+  var PAPER = "#fbfaf7", INK = "#2b2a30", INK_DIM = "#6b6874", RED = "#c2412d", OKC = "#2f7d4f", BLUE = "#3d6e9e", AMBER = "#c98a1b";
+  var GREEN = "#387d5b", GREEN_D = "#2a6047", CREAM = "#efe4cf", DIFF = "#fff4d6", STEEL = "#9aa0a6", PCB = "#2f5e3c", CELL = "#7f8fa3", DESK = "#d9d2c4", GRID = "#e6e1d6";
+  var D = Math.PI / 180;
+  function hOpt(id, k, lo, hi, bg) {
+    var o = { get height() { var el = document.getElementById(id); var w = Math.max(200, (el && el.parentElement.clientWidth) || 600); return Math.round(Math.min(hi, Math.max(lo, w * k))); } };
+    if (bg) o.bg = bg;
+    return o;
+  }
+  function won(v) { return Math.round(v).toLocaleString("ko-KR") + "원"; }
+  function f1(v) { return (Math.round(v * 10) / 10).toFixed(1); }
+  function f0(v) { return String(Math.round(v)); }
+  function rr(c, x, y, w, h, r) { r = Math.min(r, Math.abs(w) / 2, Math.abs(h) / 2); c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); }
+
+  /* ================= 이 장 공통 모형(교육용 근사, 가상의 값) =================
+     재료값은 7장, 견적은 8장, 넘어짐은 4장, 클립은 5장, 수명은 11장의 모형을 그대로 잇는다. */
+  var MAT = {
+    pcabs: { name: "PC/ABS", E: 2.3, rho: 1.15, eff: 530 },
+    abs: { name: "ABS", E: 2.3, rho: 1.04, eff: 500 },
+    pp: { name: "PP", E: 1.4, rho: 0.905, eff: 580 },
+    al: { name: "알루미늄", E: 70, rho: 2.70, eff: 20000 }
+  };
+  var PROC = {
+    p3d: { name: "3D 프린팅", T: 0, v: 20000, lead: 2, rate: 250, tmin: 0.8 },
+    vac: { name: "진공 주형", mold: 300000, life: 25, v: 4500, lead: 3, rate: 150, tmin: 1.1 },
+    alu: { name: "알루미늄 간이 금형", T: 4000000, life: 10000, v: 1200, lead: 5, rate: 5000, tmin: 1.1, tmax: 3 },
+    steel: { name: "강 금형", T: 14000000, life: 500000, v: 700, lead: 10, rate: 10000, tmin: 1.1, tmax: 3 },
+    cnc: { name: "절삭", T: 300000, v: 26000, lead: 3, rate: 200, tmin: 1.0 }
+  };
+  var REST = { elec: 2400, bat: 1600, hw: 450, labor: 411, pack: 850 };   // 조립·검사·포장 74초 × 시간당 2만 원
+  var REQ = { mass: 80, tip: 10, fold: 200, force: 10, span: 45, clamp: 4, stiff: 80, touch: 26, cost: 12000, weeks: 8, life: 5 };
+  var YIELD = 1.03, PRICE = 30000;
+  function setCost(pk, t, N) {
+    var p = PROC[pk], tool, v;
+    if (pk === "vac") { tool = p.mold * Math.ceil(N / p.life); v = p.v * (0.5 + 0.5 * t / 2); }
+    else if (pk === "p3d") { tool = 0; v = p.v * (0.4 + 0.6 * t / 2); }
+    else if (pk === "cnc") { tool = p.T; v = p.v; }
+    else { tool = p.T * Math.ceil(N / p.life); v = p.v * (0.5 + 0.5 * (t / 2) * (t / 2)); }   // 냉각 시간(∝ t²)에 절반이 비례
+    return { tool: tool / N, v: v };
+  }
+  function unitCost(d) {
+    var s = setCost(d.proc, d.t, d.N), rest = REST.elec + REST.bat + REST.hw + REST.labor + REST.pack - (d.rep ? 0 : 180);
+    var sub = s.tool + s.v + rest;
+    return { tool: s.tool, v: s.v, rest: rest, scrap: sub * (YIELD - 1), total: sub * YIELD };
+  }
+  function masses(d) {
+    var m = MAT[d.mat];
+    return { clip: 8 + 0.2 * d.B, body: 7600 * d.t * m.rho / 1000 + 4.5, bat: 12, neck: 0.08 * d.L, head: 4 + 0.087 * d.H * d.t * m.rho };
+  }
+  // 옆모습 2D(4장 모형). x: 받침 가운데 0, 등머리 쪽 +. z: 책상면 0. 클립 0~15, 몸통 15~35, 목 회전축 (0, 35).
+  function tipping(d, phi) {
+    var m = masses(d), r = (phi == null ? 90 : phi) * D, PZ = 35;
+    var j = [d.L * Math.sin(r), PZ + d.L * Math.cos(r)];
+    var P = [[m.clip, 0, 7.5], [m.body, 0, 25], [m.neck, j[0] / 2, (PZ + j[1]) / 2], [m.head, j[0], j[1] - 6], [m.bat, 0, 19]];
+    var M = 0, X = 0, Z = 0;
+    P.forEach(function (p) { M += p[0]; X += p[0] * p[1]; Z += p[0] * p[2]; });
+    X /= M; Z /= M;
+    var dF = d.B / 2 - X;
+    return { M: M, x: X, z: Z, dF: dF, a: Math.atan2(dF, Z) / D, j: j, m: m };
+  }
+  // 5장 클립 모형: 입 30 mm, 최대 입 벌림 22 mm, 초기 토크 = 0.6 × 강성
+  var TH = 22 / 30;
+  function hand(G, k) { var T0 = 0.6 * k; return { F: (T0 + k * TH) / G, span: 16 + G * TH, clamp: (T0 + k * 0.1) / 30 }; }
+  function Phi(z) { var t = 1 / (1 + 0.3275911 * Math.abs(z) / Math.SQRT2), y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-z * z / 2); return z >= 0 ? (1 + y) / 2 : (1 - y) / 2; }
+  function people(hd) { var pS = 1 - Phi((hd.span - 62) / 9), pF = 1 - Phi((hd.F * 3 - 55) / 15); return pS * pF; }   // 5장 예시 분포
+  function stiff(d) { return 100 * MAT[d.mat].E * Math.pow(d.t, 3) / (2.3 * 8); }
+  function touch(mat) { var e = MAT[mat].eff; return (1100 * 33 + e * 18) / (1100 + e); }   // 7장 접촉 온도 모형
+  function foldLen(d) { return Math.max(d.B / 2, d.G) + d.L + d.H / 2; }
+  // 11장 수명 모형
+  var RUN_H = 5;
+  function t80(h) { return 0.2 / (0.2 * (365 * h / RUN_H) / 500 + 0.03); }
+  function partLife(h) { return Math.min(15000 / ((2 + 2 * h) * 365), 25000 / (h * 365)); }
+  function lifeY(h, rep) { var y = partLife(h); return rep ? y : Math.min(y, t80(h)); }
+  function reps(Y, h) { return Math.max(0, Math.ceil(Y / t80(h) - 1e-9) - 1); }
+  function weeks(d) { var p = PROC[d.proc]; return p.lead + d.N / p.rate; }
+  function moldOK(d) { var p = PROC[d.proc]; return d.t >= p.tmin - 1e-9 && (!p.tmax || d.t <= p.tmax + 1e-9); }
+  function evaluate(d) {
+    var tp = tipping(d, 90), hd = hand(d.G, d.K);
+    return { tp: tp, mass: tp.M, tip: tp.a, hd: hd, ppl: people(hd), stiff: stiff(d), touch: touch(d.mat), fold: foldLen(d), cost: unitCost(d), weeks: weeks(d), mold: moldOK(d), life: lifeY(1.5, d.rep) };
+  }
+  function breakEven(d) {
+    for (var N = 50; N <= 50000; N = Math.ceil(N * 1.01)) {
+      var c = unitCost(Object.assign({}, d, { N: N })).total;
+      if (c <= REQ.cost) { var lo = Math.max(1, Math.floor(N / 1.01) - 1); for (var n = lo; n <= N; n++) if (unitCost(Object.assign({}, d, { N: n })).total <= REQ.cost) return n; return N; }
+    }
+    return null;
+  }
+  var CHOICE = { L: 100, H: 60, B: 60, G: 28, K: 200, t: 2, mat: "pcabs", proc: "alu", N: 500, rep: true };
+  function qToN(q) { var raw = 100 * Math.pow(200, q / 1000); return raw < 1000 ? Math.round(raw / 10) * 10 : raw < 10000 ? Math.round(raw / 100) * 100 : Math.round(raw / 1000) * 1000; }
+  function nToQ(N) { return 1000 * Math.log(N / 100) / Math.log(200); }
+
+  /* ================= 3D 모형(상자와 막대) ================= */
+  function add(a, b) { return [a[0] + b[0], a[1] + b[1], a[2] + b[2]]; }
+  function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+  function mul(a, s) { return [a[0] * s, a[1] * s, a[2] * s]; }
+  function dot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+  function norm(a) { var l = Math.sqrt(dot(a, a)); return mul(a, 1 / l); }
+  var EX = [1, 0, 0], EY = [0, 1, 0], EZ = [0, 0, 1];
+  function obox(c, u, v, w, hs, col, name) {
+    var P = [];
+    for (var i = 0; i < 8; i++) { var sx = (i & 1) ? 1 : -1, sy = (i & 2) ? 1 : -1, sz = (i & 4) ? 1 : -1; P.push(add(add(add(c, mul(u, sx * hs[0])), mul(v, sy * hs[1])), mul(w, sz * hs[2]))); }
+    var F = [[0, 2, 6, 4, mul(u, -1)], [1, 5, 7, 3, u], [0, 4, 5, 1, mul(v, -1)], [2, 3, 7, 6, v], [0, 1, 3, 2, mul(w, -1)], [4, 6, 7, 5, w]];
+    return { P: P, F: F, col: col, name: name };
+  }
+  function box(c, hs, col, name) { return obox(c, EX, EY, EZ, hs, col, name); }
+  function buildLamp(d, phi, e) {
+    e = e || 0;
+    var r = phi * D, nd = [Math.sin(r), Math.cos(r), 0], nu = [Math.cos(r), -Math.sin(r), 0];
+    var piv = [0, 35, 0], J = add(piv, mul(nd, d.L));
+    var tl = 12 * D, hu = [Math.cos(tl), -Math.sin(tl), 0], hv = [Math.sin(tl), Math.cos(tl), 0];
+    var hc = add(J, mul(hv, -6));
+    function o(dy) { return [0, dy * e, 0]; }
+    var B = d.B, parts = [];
+    parts.push(box(add([0, 3, 0], o(-30)), [B / 2, 3, 14], GREEN, "클립 아래턱"));
+    parts.push(box(add([-2, 7.5, 0], o(-21)), [3, 1.5, 10], STEEL, "스프링"));
+    parts.push(box(add([0, 12, 0], o(-12)), [B / 2, 3, 14], GREEN, "클립 위턱"));
+    if (d.G > B / 2) {
+      parts.push(box(add([-(B / 2 + d.G) / 2, 3, 0], o(-30)), [(d.G - B / 2) / 2, 3, 12], GREEN, "손잡이"));
+      parts.push(box(add([-(B / 2 + d.G) / 2, 12, 0], o(-12)), [(d.G - B / 2) / 2, 3, 12], GREEN, "손잡이"));
+    }
+    parts.push(box(add([-4, 15.7, 0], o(-5)), [15, 0.7, 10], GREEN_D, "충전지 덮개"));
+    parts.push(box(add([0, 20, 0], o(0)), [22, 5, 14], GREEN, "아랫몸통"));
+    parts.push(box(add([-4, 19, 0], o(7)), [14, 2.5, 9], CELL, "충전지"));
+    parts.push(box(add([4, 25, 0], o(13)), [16, 0.8, 11], PCB, "기판"));
+    parts.push(box(add([0, 30, 0], o(21)), [22, 5, 14], GREEN, "윗몸통"));
+    parts.push(box(add([-13, 35.5, 0], o(30)), [5, 0.6, 5], GREEN_D, "버튼"));
+    parts.push(obox(add(mul(add(piv, J), 0.5), o(36)), nu, nd, EZ, [4.5, d.L / 2, 4.5], GREEN, "목"));
+    parts.push(box(add(piv, o(36)), [5, 5, 6], GREEN_D, "관절"));
+    parts.push(box(add(J, o(36)), [5, 5, 6], GREEN_D, "관절"));
+    parts.push(obox(add(hc, o(52)), hu, hv, EZ, [d.H / 2, 6, 18], CREAM, "등머리"));
+    parts.push(obox(add(add(hc, mul(hv, -6.3)), o(44)), hu, hv, EZ, [d.H / 2 - 4, 0.3, 14], DIFF, "확산판"));
+    return { parts: parts, J: J, hc: hc, hu: hu, hv: hv, nd: nd, piv: piv };
+  }
+  function camOrbit(t, az, el, R, f, cx, cy) {
+    var ca = Math.cos(el * D), pos = [t[0] + R * Math.sin(az * D) * ca, t[1] + R * Math.sin(el * D), t[2] - R * Math.cos(az * D) * ca];
+    var dx = t[0] - pos[0], dy = t[1] - pos[1], dz = t[2] - pos[2];
+    return { pos: pos, yaw: Math.atan2(dx, dz) / D, pitch: Math.atan2(dy, Math.sqrt(dx * dx + dz * dz)) / D, f: f, cx: cx, cy: cy };
+  }
+  function shade(hex, k) { var c = ART.parse(hex); return ART.hex([Math.min(1, c[0] * k), Math.min(1, c[1] * k), Math.min(1, c[2] * k)]); }
+  var LDIR = norm([-0.45, 0.85, -0.35]);
+  function render(ctx, parts, cam, lw) {
+    var faces = [];
+    parts.forEach(function (p) {
+      var S = p.P.map(function (q) { return ART.project(q, cam); });
+      p.F.forEach(function (f) {
+        var cen = mul(add(add(p.P[f[0]], p.P[f[1]]), add(p.P[f[2]], p.P[f[3]])), 0.25);
+        if (dot(f[4], sub(cam.pos, cen)) <= 0) return;
+        var z = (S[f[0]][2] + S[f[1]][2] + S[f[2]][2] + S[f[3]][2]) / 4;
+        faces.push({ s: [S[f[0]], S[f[1]], S[f[2]], S[f[3]]], z: z, col: p.col, k: 0.66 + 0.34 * Math.max(0, dot(f[4], LDIR)) + 0.06 });
+      });
+    });
+    faces.sort(function (a, b) { return b.z - a.z; });
+    ctx.lineJoin = "round";
+    faces.forEach(function (f) {
+      ctx.beginPath(); ctx.moveTo(f.s[0][0], f.s[0][1]); for (var i = 1; i < 4; i++) ctx.lineTo(f.s[i][0], f.s[i][1]); ctx.closePath();
+      ctx.fillStyle = shade(f.col, f.k); ctx.fill();
+      ctx.strokeStyle = "rgba(43,42,48,0.55)"; ctx.lineWidth = lw || 0.8; ctx.stroke();
+    });
+  }
+  function bbox(parts) {
+    var b = { x0: 1e9, x1: -1e9, y0: 1e9, y1: -1e9, z0: 1e9, z1: -1e9 };
+    parts.forEach(function (p) { p.P.forEach(function (q) { b.x0 = Math.min(b.x0, q[0]); b.x1 = Math.max(b.x1, q[0]); b.y0 = Math.min(b.y0, q[1]); b.y1 = Math.max(b.y1, q[1]); b.z0 = Math.min(b.z0, q[2]); b.z1 = Math.max(b.z1, q[2]); }); });
+    return b;
+  }
+  function dimLine(ctx, x0, y0, x1, y1, label, col, side) {
+    ctx.save();
+    ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 1;
+    var ang = Math.atan2(y1 - y0, x1 - x0), a = 5;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+    [[x0, y0, ang], [x1, y1, ang + Math.PI]].forEach(function (q) {
+      ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.lineTo(q[0] + a * Math.cos(q[2] + 0.4), q[1] + a * Math.sin(q[2] + 0.4)); ctx.lineTo(q[0] + a * Math.cos(q[2] - 0.4), q[1] + a * Math.sin(q[2] - 0.4)); ctx.closePath(); ctx.fill();
+    });
+    ctx.font = AB.font(11, true, 600); ctx.textAlign = "center"; ctx.textBaseline = side === "below" ? "top" : "bottom";
+    var mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+    if (Math.abs(x1 - x0) < Math.abs(y1 - y0)) { ctx.translate(mx, my); ctx.rotate(-Math.PI / 2); ctx.fillText(label, 0, side === "right" ? 14 : -3); }
+    else { ctx.translate(mx, my); var rot = ang; if (rot > Math.PI / 2 || rot < -Math.PI / 2) rot += Math.PI; ctx.rotate(rot); ctx.fillText(label, 0, side === "below" ? 3 : -3); }
+    ctx.restore();
+  }
+
+  /* ---------------- 시뮬레이터 1: 도면 대조 ---------------- */
+  safe("draw", function () {
+    var V = { final: { L: 100, H: 60 }, sk2: { L: 120, H: 72 } };
+    var az = 32, el = 18, ex = 0;
+    var ver = AB.seg("pl-draw-ver", function () { cv.redraw(); });
+    var view = AB.seg("pl-draw-view", function () { cv.redraw(); });
+    var exG = AB.check("pl-draw-ex", function () { cv.redraw(); });
+    var cv = AB.canvas("#pl-draw-cv", function (ctx, w, h) {
+      var vv = V[ver()], d = Object.assign({}, CHOICE, vv), isSk = ver() === "sk2", e = exG() ? 1 : 0;
+      var L = buildLamp(d, 30, e), bb = bbox(L.parts);
+      var dimCol = isSk ? RED : INK;
+      if (view() === "persp") {
+        var tgt = [(bb.x0 + bb.x1) / 2, (bb.y0 + bb.y1) / 2, 0];
+        var span = Math.max(bb.x1 - bb.x0, bb.y1 - bb.y0) * 1.0;
+        var f = Math.min(w, h) * 0.78 * 420 / span;
+        var cam = camOrbit(tgt, az, el, 420, f, w / 2, h / 2 + 6);
+        // 바닥 그림자(타원)
+        var g0 = ART.project([0, e ? -30 : 0, 0], cam);
+        ctx.fillStyle = "rgba(43,42,48,0.10)"; ctx.beginPath(); ctx.ellipse(g0[0], g0[1] + 2, f * 46 / 420, f * 12 / 420, 0, 0, Math.PI * 2); ctx.fill();
+        render(ctx, L.parts, cam, 0.8);
+        if (e) {
+          ctx.font = AB.font(11); ctx.fillStyle = INK_DIM; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+          var shown = {};
+          L.parts.forEach(function (p) {
+            if (shown[p.name] || ["버튼", "관절", "손잡이", "스프링"].indexOf(p.name) >= 0) return; shown[p.name] = 1;
+            var c = [0, 0, 0]; p.P.forEach(function (q) { c = add(c, q); }); c = mul(c, 1 / 8);
+            var s = ART.project([c[0] - 2, c[1], c[2] - 16], cam);
+            if (p.name === "목" || p.name === "등머리" || p.name === "확산판") return;
+            ctx.fillText(p.name, Math.max(4, Math.min(w - 70, s[0] - (w > 420 ? 120 : 92))), s[1]);
+          });
+        }
+        ctx.font = AB.font(12, false, 700); ctx.fillStyle = isSk ? RED : INK; ctx.textAlign = "left"; ctx.textBaseline = "top";
+        ctx.fillText(isSk ? "2장 첫 3면도의 값" : "최종 도면", 12, 10);
+      } else {
+        var Wf = bb.x1 - bb.x0, Hf = bb.y1 - bb.y0, Dz = bb.z1 - bb.z0, gap = 24, m = 30;
+        var s = Math.min((w - 2 * m - 20) / (Wf + gap + Dz), (h - 2 * m) / (Hf + gap + Dz));
+        var ox = (w - (Wf + gap + Dz) * s) / 2, oy = (h - (Hf + gap + Dz) * s) / 2;
+        var tgt2 = [(bb.x0 + bb.x1) / 2, (bb.y0 + bb.y1) / 2, (bb.z0 + bb.z1) / 2], R = 1e5;
+        var fcx = ox + Wf * s / 2, fcy = oy + (Dz + gap) * s + Hf * s / 2;
+        var front = camOrbit(tgt2, 0, 0, R, s * R, fcx, fcy);
+        var top = camOrbit(tgt2, 0, 89.999, R, s * R, fcx, oy + Dz * s / 2);
+        var side = camOrbit(tgt2, 90, 0, R, s * R, ox + (Wf + gap) * s + Dz * s / 2, fcy);
+        // 투상선(가는 점선)
+        ctx.strokeStyle = GRID; ctx.lineWidth = 1; ctx.setLineDash([3, 3]);
+        ctx.beginPath(); ctx.moveTo(ox - 6, oy + (Dz + gap / 2) * s); ctx.lineTo(w - 8, oy + (Dz + gap / 2) * s); ctx.moveTo(ox + (Wf + gap / 2) * s, oy - 4); ctx.lineTo(ox + (Wf + gap / 2) * s, h - 6); ctx.stroke(); ctx.setLineDash([]);
+        render(ctx, L.parts, front, 0.7); render(ctx, L.parts, top, 0.7); render(ctx, L.parts, side, 0.7);
+        ctx.font = AB.font(10.5); ctx.fillStyle = INK_DIM; ctx.textAlign = "left"; ctx.textBaseline = "top";
+        ctx.fillText("평면도", ox, oy - 16); ctx.fillText("정면도", ox, oy + (Dz + gap) * s - 14); ctx.fillText("우측면도", ox + (Wf + gap) * s, oy + (Dz + gap) * s - 14);
+        if (!e) {
+          var P = function (q) { return ART.project(q, front); };
+          var b0 = P([-d.B / 2, 0, 0]), b1 = P([d.B / 2, 0, 0]);
+          dimLine(ctx, b0[0], b0[1] + 12, b1[0], b1[1] + 12, "받침 " + d.B, INK, "below");
+          var y0 = P([bb.x0, bb.y0, 0]), y1 = P([bb.x0, bb.y1, 0]);
+          dimLine(ctx, y0[0] - 10, y0[1], y1[0] - 10, y1[1], "높이 " + f0(bb.y1 - bb.y0), INK);
+          var n0 = P(add(L.piv, mul([L.nd[1], -L.nd[0], 0], 9))), n1 = P(add(L.J, mul([L.nd[1], -L.nd[0], 0], 9)));
+          dimLine(ctx, n0[0], n0[1], n1[0], n1[1], "목 " + d.L, dimCol, "below");
+          var hA = P(add(add(L.hc, mul(L.hu, -d.H / 2)), mul(L.hv, 11))), hB = P(add(add(L.hc, mul(L.hu, d.H / 2)), mul(L.hv, 11)));
+          dimLine(ctx, hA[0], hA[1], hB[0], hB[1], "등머리 " + d.H, dimCol);
+          var S = function (q) { return ART.project(q, side); };
+          var w0 = S([0, bb.y1 + 2, -18]), w1 = S([0, bb.y1 + 2, 18]);
+          dimLine(ctx, w0[0], w0[1] - 8, w1[0], w1[1] - 8, "36", INK);
+          var c0 = S([0, 0, -14]), c1 = S([0, 0, 14]);
+          dimLine(ctx, c0[0], c0[1] + 12, c1[0], c1[1] + 12, "28", INK, "below");
+        }
+        ctx.font = AB.font(10.5); ctx.fillStyle = INK_DIM; ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+        ctx.fillText("제3각법 · 단위 mm", w - 10, h - 6);
+        if (isSk) { ctx.fillStyle = RED; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("빨간 치수: 최종 도면과 다름", w - 10, 8); }
+      }
+      var ev = evaluate(d);
+      AB.stat("pl-draw-o-h", f0(bb.y1 - (e ? bb.y0 : 0)) + " mm" + (e ? " <small>분해</small>" : ""));
+      AB.stat("pl-draw-o-f", f0(ev.fold) + " mm");
+      AB.stat("pl-draw-o-m", f1(ev.mass) + " g" + (ev.mass > REQ.mass ? " <small style=\"color:var(--bad)\">초과</small>" : ""));
+      AB.stat("pl-draw-o-a", ev.tp.dF > 0 ? f1(ev.tip) + "°" : "<span style=\"color:var(--bad)\">넘어짐</span> <small>" + f1(-ev.tp.dF) + " mm 밖</small>");
+    }, hOpt("pl-draw-cv", 0.78, 320, 470, PAPER));
+    var last = null;
+    AB.drag(cv.canvas, {
+      start: function (x, y) { last = [x, y]; },
+      move: function (x, y) { if (!last || view() !== "persp") return; az = (az - (x - last[0]) * 0.5) % 360; el = AB.clamp(el + (y - last[1]) * 0.4, -10, 70); last = [x, y]; cv.redraw(); },
+      end: function () { last = null; }
+    });
+  });
+
+  /* ---------------- 그림 2: 7월의 그림과 10월의 도면 ---------------- */
+  safe("cmp", function () {
+    function frame(ctx, w, h) {
+      var s = Math.min((w - 30) / 200, (h - 30) / 175), ox = w * 0.38, oy = h - 22;
+      ctx.strokeStyle = GRID; ctx.lineWidth = 1;
+      for (var gx = -80; gx <= 160; gx += 10) { var X = ox + gx * s; if (X < 0 || X > w) continue; ctx.beginPath(); ctx.moveTo(X, 0); ctx.lineTo(X, oy); ctx.stroke(); }
+      for (var gz = 0; gz <= 180; gz += 10) { var Y = oy - gz * s; if (Y < 0) break; ctx.beginPath(); ctx.moveTo(0, Y); ctx.lineTo(w, Y); ctx.stroke(); }
+      ctx.fillStyle = DESK; ctx.fillRect(0, oy, w, 5);
+      return { s: s, ox: ox, oy: oy, P: function (x, z) { return [ox + x * s, oy - z * s]; } };
+    }
+    function label(ctx, w, txt, sub) {
+      ctx.fillStyle = INK; ctx.font = AB.font(12, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(txt, 10, 8);
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5); ctx.fillText(sub, 10, 26);
+    }
+    var A = AB.canvas("#pl-cmp-a", function (ctx, w, h) {
+      var F = frame(ctx, w, h), s = F.s, P = F.P;
+      // 7월: 작은 클립, 가늘게 휜 목, 얇고 긴 등머리
+      ctx.fillStyle = "#d9d7d2"; ctx.strokeStyle = "#55535a"; ctx.lineWidth = 1.2;
+      var c0 = P(-20, 10); rr(ctx, c0[0], c0[1], 40 * s, 10 * s, 4 * s); ctx.fill(); ctx.stroke();
+      var b0 = P(-12, 26); rr(ctx, b0[0], b0[1], 24 * s, 16 * s, 6 * s); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = "#55535a"; ctx.lineWidth = Math.max(2, 4 * s); ctx.lineCap = "round";
+      var q0 = P(0, 26), q1 = P(-8, 110), q2 = P(40, 168), q3 = P(92, 150);
+      ctx.beginPath(); ctx.moveTo(q0[0], q0[1]); ctx.bezierCurveTo(q1[0], q1[1], q2[0], q2[1], q3[0], q3[1]); ctx.stroke();
+      ctx.save(); var hp = P(92, 150); ctx.translate(hp[0], hp[1]); ctx.rotate(16 * D);
+      ctx.fillStyle = "#f2f1ee"; ctx.strokeStyle = "#55535a"; ctx.lineWidth = 1.2; rr(ctx, -8 * s, -2 * s, 104 * s, 6 * s, 3 * s); ctx.fill(); ctx.stroke();
+      var gr = ctx.createLinearGradient(0, 4 * s, 0, 40 * s); gr.addColorStop(0, "rgba(255,226,140,0.55)"); gr.addColorStop(1, "rgba(255,226,140,0)");
+      ctx.fillStyle = gr; ctx.beginPath(); ctx.moveTo(0, 4 * s); ctx.lineTo(90 * s, 4 * s); ctx.lineTo(110 * s, 40 * s); ctx.lineTo(-14 * s, 40 * s); ctx.closePath(); ctx.fill();
+      ctx.restore();
+      label(ctx, w, "7월 3일의 그림", "높이 약 160 · 등머리 100 넘음 · 두께 6");
+    }, hOpt("pl-cmp-a", 0.62, 260, 400, PAPER));
+    var B = AB.canvas("#pl-cmp-b", function (ctx, w, h) {
+      var F = frame(ctx, w, h), s = F.s, P = F.P, d = CHOICE;
+      var r = 30 * D, J = [d.L * Math.sin(r), 35 + d.L * Math.cos(r)];
+      ctx.lineWidth = 1.2; ctx.strokeStyle = "#2a3a31";
+      function rect(x0, z0, x1, z1, col, rad) { var a = P(x0, z1); rr(ctx, a[0], a[1], (x1 - x0) * s, (z1 - z0) * s, (rad || 1) * s); ctx.fillStyle = col; ctx.fill(); ctx.stroke(); }
+      rect(-30, 0, 30, 6, GREEN, 1.5); rect(-30, 9, 30, 15, GREEN, 1.5); rect(-22, 15, 22, 35, GREEN, 2.5);
+      var bt = P(-18, 36.2); ctx.fillStyle = GREEN_D; ctx.fillRect(bt[0], bt[1], 10 * s, 1.2 * s);
+      var a0 = P(0, 35), a1 = P(J[0], J[1]);
+      ctx.strokeStyle = "#2a3a31"; ctx.lineCap = "round"; ctx.lineWidth = 9 * s + 2; ctx.beginPath(); ctx.moveTo(a0[0], a0[1]); ctx.lineTo(a1[0], a1[1]); ctx.stroke();
+      ctx.strokeStyle = GREEN; ctx.lineWidth = 9 * s; ctx.beginPath(); ctx.moveTo(a0[0], a0[1]); ctx.lineTo(a1[0], a1[1]); ctx.stroke();
+      [a0, a1].forEach(function (q) { ctx.beginPath(); ctx.arc(q[0], q[1], 5 * s, 0, Math.PI * 2); ctx.fillStyle = GREEN_D; ctx.fill(); });
+      ctx.save(); ctx.translate(a1[0], a1[1]); ctx.rotate(12 * D);
+      ctx.fillStyle = CREAM; ctx.strokeStyle = "#6f6450"; ctx.lineWidth = 1.2; rr(ctx, -30 * s, 0, 60 * s, 12 * s, 3 * s); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = DIFF; ctx.fillRect(-26 * s, 11 * s, 52 * s, 1.2 * s);
+      var gr = ctx.createLinearGradient(0, 12 * s, 0, 46 * s); gr.addColorStop(0, "rgba(255,226,140,0.5)"); gr.addColorStop(1, "rgba(255,226,140,0)");
+      ctx.fillStyle = gr; ctx.beginPath(); ctx.moveTo(-26 * s, 12 * s); ctx.lineTo(26 * s, 12 * s); ctx.lineTo(40 * s, 46 * s); ctx.lineTo(-40 * s, 46 * s); ctx.closePath(); ctx.fill();
+      ctx.restore();
+      label(ctx, w, "10월의 최종 도면", "목 100 · 등머리 60 × 12 · 받침 60 · 78.0 g");
+    }, hOpt("pl-cmp-b", 0.62, 260, 400, PAPER));
+    AB.compare("#pl-cmp", { labels: ["7월의 그림", "10월의 도면"], pos: 0.5 });
+  });
+
+  /* ---------------- 옆모습(뻗은 자세) 그리기: 시뮬레이터 2와 종합 실험실 공통 ---------------- */
+  function drawSide(ctx, d, s, ox, oy, opt) {
+    opt = opt || {};
+    var P = function (x, z) { return [ox + x * s, oy - z * s]; };
+    ctx.lineWidth = 1.1; ctx.strokeStyle = "#2a3a31";
+    function rect(x0, z0, x1, z1, col, rad, stroke) { var a = P(x0, z1); rr(ctx, a[0], a[1], (x1 - x0) * s, (z1 - z0) * s, (rad || 1) * s); ctx.fillStyle = col; ctx.fill(); ctx.strokeStyle = stroke || "#2a3a31"; ctx.stroke(); }
+    var bodyCol = d.mat === "al" ? "#c9cdd2" : d.mat === "pp" ? "#5f9a7b" : GREEN, headCol = d.mat === "al" ? "#d8dbdf" : CREAM;
+    var back = Math.max(d.B / 2, d.G);
+    rect(-back, 0, d.B / 2, 6, bodyCol, 1.5); rect(-back, 9, d.B / 2, 15, bodyCol, 1.5);
+    var sp = P(-2, 7.5); ctx.beginPath(); ctx.arc(sp[0], sp[1], 2.6 * s, 0, Math.PI * 2); ctx.fillStyle = STEEL; ctx.fill();
+    rect(-22, 15, 22, 35, bodyCol, 2.5);
+    var bt = P(-18, 36.2); ctx.fillStyle = GREEN_D; ctx.fillRect(bt[0], bt[1], 10 * s, 1.2 * s);
+    // 목(수평) → 등머리
+    rect(0, 30.5, d.L, 39.5, bodyCol, 4.5);
+    rect(d.L - d.H / 2, 23, d.L + d.H / 2, 35, headCol, 3, "#6f6450");
+    var df = P(d.L - d.H / 2 + 4, 23.4); ctx.fillStyle = DIFF; ctx.fillRect(df[0], df[1], (d.H - 8) * s, 0.9 * s);
+    [[0, 35], [d.L, 35]].forEach(function (q) { var a = P(q[0], q[1]); ctx.beginPath(); ctx.arc(a[0], a[1], 5 * s, 0, Math.PI * 2); ctx.fillStyle = GREEN_D; ctx.fill(); });
+    return P;
+  }
+  function comMark(ctx, x, y, r) {
+    ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.4; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, r, -Math.PI / 2, 0); ctx.closePath(); ctx.fillStyle = INK; ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, r, Math.PI / 2, Math.PI); ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  function tipGuide(ctx, P, d, tp, s) {
+    var g = P(tp.x, tp.z), e = P(d.B / 2, 0), fall = tp.dF <= 0;
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(e[0], e[1]); ctx.lineTo(e[0], e[1] - 52 * s); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = fall ? RED : OKC; ctx.lineWidth = 1.4; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(g[0], g[1]); ctx.lineTo(g[0], e[1] + 8); ctx.stroke(); ctx.setLineDash([]);
+    if (!fall) {
+      ctx.strokeStyle = OKC; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(e[0], e[1]); ctx.lineTo(g[0], g[1]); ctx.stroke();
+      var r = 26 * s, a0 = -Math.PI / 2, a1 = Math.atan2(g[1] - e[1], g[0] - e[0]);
+      ctx.beginPath(); ctx.arc(e[0], e[1], r, Math.min(a0, a1), Math.max(a0, a1)); ctx.stroke();
+    }
+    ctx.fillStyle = AMBER; ctx.beginPath(); ctx.arc(e[0], e[1], 3.5, 0, Math.PI * 2); ctx.fill();
+    comMark(ctx, g[0], g[1], 6);
+  }
+
+  /* ---------------- 시뮬레이터 2: 등머리 길이 ---------------- */
+  safe("head", function () {
+    var geo = null, drag = false;
+    var hG = AB.range("pl-head-h", function (v) { return v + " mm"; }, function () { cv.redraw(); });
+    var gG = AB.check("pl-head-g", function () { cv.redraw(); });
+    var PARTS = [["클립", "clip", "#5f8f74"], ["몸통", "body", GREEN], ["충전지", "bat", CELL], ["목", "neck", "#8fb59e"], ["등머리", "head", "#d8c9a6"]];
+    var cv = AB.canvas("#pl-head-cv", function (ctx, w, h) {
+      var d = Object.assign({}, CHOICE, { H: hG() }), tp = tipping(d, 90);
+      var barH = 54, s = Math.min((w - 40) / (30 + d.L + 55 + 12), (h - barH - 70) / 60), ox = 20 + 32 * s, oy = h - barH - 34;
+      ctx.fillStyle = DESK; ctx.fillRect(0, oy, w, 6); ctx.fillStyle = "rgba(0,0,0,0.05)"; ctx.fillRect(0, oy + 6, w, 10);
+      var P = drawSide(ctx, d, s, ox, oy);
+      if (gG()) tipGuide(ctx, P, d, tp, s);
+      var hp = P(d.L + d.H / 2, 29); AB.handle(ctx, hp[0], hp[1], { r: 7, fill: "#ffffff", ring: INK });
+      geo = { s: s, ox: ox, oy: oy };
+      // 등머리 길이 치수
+      var a = P(d.L - d.H / 2, 46), b = P(d.L + d.H / 2, 46);
+      dimLine(ctx, a[0], a[1], b[0], b[1], "등머리 " + d.H, d.H > 60 ? RED : INK);
+      var tipTxt = tp.dF > 0 ? "넘어짐 각 " + f1(tp.a) + "°" : "넘어진다";
+      ctx.font = AB.font(13, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillStyle = tp.dF <= 0 || tp.a < REQ.tip ? RED : OKC; ctx.fillText(tipTxt, 12, 10);
+      ctx.font = AB.font(10.5); ctx.fillStyle = INK_DIM; ctx.fillText("기준 10° 이상 · 점선: 받침 끝의 연직선", 12, 29);
+      // 무게 막대
+      var bx = 12, bw = w - 24, by = h - barH + 4, bh = 16, sc = bw / 100, x = bx;
+      PARTS.forEach(function (p) {
+        var m = tp.m[p[1]], ww = m * sc;
+        ctx.fillStyle = p[2]; ctx.fillRect(x, by, ww, bh); ctx.strokeStyle = PAPER; ctx.lineWidth = 1; ctx.strokeRect(x, by, ww, bh);
+        if (ww > 34) { ctx.fillStyle = p[1] === "head" || p[1] === "neck" ? INK : "#ffffff"; ctx.font = AB.font(10); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(p[0] + " " + f1(m), x + ww / 2, by + bh / 2 + 0.5); }
+        x += ww;
+      });
+      var lx = bx + 80 * sc; ctx.strokeStyle = RED; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(lx, by - 5); ctx.lineTo(lx, by + bh + 5); ctx.stroke();
+      ctx.fillStyle = tp.M > REQ.mass ? RED : INK; ctx.font = AB.font(11, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("합 " + f1(tp.M) + " g", bx, by + bh + 6);
+      ctx.fillStyle = RED; ctx.textAlign = "right"; ctx.font = AB.font(10.5); ctx.fillText("80 g", lx - 3, by + bh + 6);
+      AB.stat("pl-head-o-m", f1(tp.M) + " g" + (tp.M > REQ.mass ? " <small style=\"color:var(--bad)\">초과</small>" : ""));
+      AB.stat("pl-head-o-a", tp.dF > 0 ? f1(tp.a) + "°" + (tp.a < REQ.tip ? " <small style=\"color:var(--bad)\">미달</small>" : "") : "<span style=\"color:var(--bad)\">넘어짐</span>");
+      AB.stat("pl-head-o-r", (d.L / d.H).toFixed(2) + " : 1");
+      AB.stat("pl-head-o-f", f0(foldLen(d)) + " mm");
+    }, hOpt("pl-head-cv", 0.56, 280, 380, PAPER));
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = !!geo; },
+      move: function (x) { if (!drag || !geo) return; var wx = (x - geo.ox) / geo.s; hG.set(Math.round(AB.clamp(2 * (wx - CHOICE.L), 40, 100))); cv.redraw(); },
+      end: function () { drag = false; }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 3: 클립의 설계 창 ---------------- */
+  safe("hand", function () {
+    var pt = { G: 28, k: 200 }, geo = null;
+    var PRE = { first: { G: 16, k: 350 }, choice: { G: 28, k: 200 }, soft: { G: 28, k: 120 } };
+    var pre = AB.seg("pl-hand-pre", function (v) { pt = Object.assign({}, PRE[v]); cv.redraw(); });
+    var lab = AB.check("pl-hand-lab", function () { cv.redraw(); });
+    var G0 = 12, G1 = 56, K0 = 80, K1 = 420;
+    var cv = AB.canvas("#pl-hand-cv", function (ctx, w, h) {
+      var P = AB.palette();
+      var box = { x: 54, y: 14, w: w - 54 - 16, h: h - 14 - 50 };
+      var ch = AB.chart(ctx, box, { x: [G0, G1], y: [K0, K1], xLabel: "손잡이 길이 (mm)", yLabel: "스프링 강성 (N·mm/rad)", xTicks: [15, 20, 25, 30, 35, 40, 45, 50, 55], yTicks: [100, 150, 200, 250, 300, 350, 400] });
+      var X = ch.X, Y = ch.Y;
+      ctx.save(); ctx.beginPath(); ctx.rect(box.x, box.y, box.w, box.h); ctx.clip();
+      // 조건 영역: 힘(G < 0.1333k → 위반), 벌림(G > 39.5), 무는 힘(k < 171.4)
+      var cF = (0.6 + TH) / REQ.force, gS = (REQ.span - 16) / TH, kC = REQ.clamp * 30 / 0.7;
+      ctx.globalAlpha = 0.18;
+      ctx.fillStyle = P.bad; ctx.beginPath(); ctx.moveTo(X(G0), Y(G0 / cF)); ctx.lineTo(X(G1), Y(G1 / cF)); ctx.lineTo(X(G1), Y(K1)); ctx.lineTo(X(G0), Y(K1)); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = P.warn; ctx.fillRect(X(gS), box.y, X(G1) - X(gS), box.h);
+      ctx.fillStyle = P.accent2; ctx.fillRect(box.x, Y(kC), box.w, Y(K0) - Y(kC));
+      ctx.globalAlpha = 1;
+      // 창 테두리
+      var k1 = gS / cF;
+      ctx.strokeStyle = P.ok; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(X(kC * cF), Y(kC)); ctx.lineTo(X(gS), Y(kC)); ctx.lineTo(X(gS), Y(k1)); ctx.closePath(); ctx.stroke();
+      // 스프링 세 단계
+      [120, 200, 350].forEach(function (k) { ctx.strokeStyle = P.faint; ctx.setLineDash([2, 4]); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, Y(k)); ctx.lineTo(box.x + box.w, Y(k)); ctx.stroke(); ctx.setLineDash([]); });
+      ctx.restore();
+      if (lab()) {
+        ctx.font = AB.font(10.5, false, 700); ctx.textBaseline = "middle";
+        ctx.fillStyle = P.bad; ctx.textAlign = "left"; ctx.fillText("여는 힘 > 10 N", X(14), Y(Math.min(K1 - 20, 14 / cF + 120)));
+        ctx.fillStyle = P.warn; ctx.textAlign = "center"; ctx.fillText("벌림 > 45 mm", X((gS + G1) / 2), Y(K1 - 30));
+        ctx.fillStyle = P.accent2; ctx.textAlign = "right"; ctx.fillText("무는 힘 < 4 N", X(G1) - 6, Y((K0 + kC) / 2));
+        ctx.fillStyle = P.ok; ctx.textAlign = "center"; ctx.fillText("창", X((kC * cF + gS * 2) / 3), Y((kC * 2 + k1) / 3));
+      }
+      var hx = X(pt.G), hy = Y(pt.k);
+      AB.handle(ctx, hx, hy, { r: 7, fill: P.accent, ring: P.text });
+      geo = { X: X, Y: Y, box: box };
+      var hd = hand(pt.G, pt.k), okF = hd.F <= REQ.force, okS = hd.span <= REQ.span, okC = hd.clamp >= REQ.clamp;
+      ctx.fillStyle = P.text; ctx.font = AB.font(11, true); ctx.textAlign = hx > box.x + box.w - 120 ? "right" : "left"; ctx.textBaseline = "bottom";
+      ctx.fillText(pt.G + " mm · " + pt.k, hx + (ctx.textAlign === "left" ? 10 : -10), hy - 6);
+      var bad = function (ok, s) { return ok ? s : "<span style=\"color:var(--bad)\">" + s + "</span>"; };
+      AB.stat("pl-hand-o-f", bad(okF, f1(hd.F) + " N"));
+      AB.stat("pl-hand-o-s", bad(okS, f1(hd.span) + " mm"));
+      AB.stat("pl-hand-o-c", bad(okC, f1(hd.clamp) + " N"));
+      AB.stat("pl-hand-o-p", (people(hd) * 100).toFixed(1) + "%");
+    }, hOpt("pl-hand-cv", 0.72, 300, 430));
+    AB.drag(cv.canvas, {
+      move: function (x, y) {
+        if (!geo) return; var b = geo.box;
+        pt.G = Math.round(AB.clamp(G0 + (x - b.x) / b.w * (G1 - G0), 14, 50));
+        pt.k = Math.round(AB.clamp(K1 - (y - b.y) / b.h * (K1 - K0), 90, 400) / 5) * 5;
+        cv.redraw();
+      }
+    });
+  });
+
+  /* ---------------- 시뮬레이터 4: 살두께 ---------------- */
+  safe("wall", function () {
+    var tG = AB.range("pl-wall-t", function (v) { return v.toFixed(1) + " mm"; }, function () { cv.redraw(); });
+    var mG = AB.seg("pl-wall-mat", function (v) { if (v === "al" && tG() > 1.2) tG.set(0.7); else if (v !== "al" && tG() < 1) tG.set(2); cv.redraw(); });
+    var cv = AB.canvas("#pl-wall-cv", function (ctx, w, h) {
+      var t = tG(), mat = mG(), isAl = mat === "al";
+      var d = Object.assign({}, CHOICE, { t: t, mat: mat, proc: isAl ? "cnc" : "alu" }), ev = evaluate(d);
+      var cool = (t / 2) * (t / 2), set = setCost(d.proc, t, 500).v;
+      var short = !isAl && 110 / t > 100, sink = !isAl && t > 3.0, thinCnc = isAl && t < 1.0;
+      // 단면 그림(위)
+      var secH = Math.min(150, h * 0.42), k = Math.min(14, (secH - 40) / 5), x0 = 24, x1 = w - 24, yTop = 34, wallY = yTop + 22;
+      ctx.fillStyle = INK; ctx.font = AB.font(11.5, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText(isAl ? "몸통 벽 단면(알루미늄 절삭)" : "몸통 벽 단면(사출 성형, 리브는 살두께의 절반)", 12, 8);
+      var col = isAl ? "#c9cdd2" : mat === "pp" ? "#8fbca4" : mat === "abs" ? "#5d9c7c" : GREEN;
+      var tw = t * k, endX = short ? x0 + (x1 - x0) * Math.max(0.35, 100 * t / 110) : x1;
+      ctx.fillStyle = col; ctx.strokeStyle = "#2a3a31"; ctx.lineWidth = 1;
+      // 겉면(위쪽) — 싱크 자국
+      var ribX = (x0 + x1) / 2, sd = sink ? Math.min(6, (t - 3) * 5 + 1.5) : 0;
+      ctx.beginPath(); ctx.moveTo(x0, wallY);
+      if (sd > 0 && ribX < endX) { ctx.lineTo(ribX - 26, wallY); ctx.quadraticCurveTo(ribX, wallY + sd * 2, ribX + 26, wallY); }
+      ctx.lineTo(endX, wallY); ctx.lineTo(endX, wallY + tw); ctx.lineTo(x0, wallY + tw); ctx.closePath(); ctx.fill(); ctx.stroke();
+      if (!isAl && ribX < endX) { var rw = Math.max(2, tw * 0.5), rh = Math.min(secH - 50, 8 * k * 0.6); ctx.fillRect(ribX - rw / 2, wallY + tw, rw, rh); ctx.strokeRect(ribX - rw / 2, wallY + tw, rw, rh); }
+      if (short) {
+        ctx.save(); ctx.strokeStyle = RED; ctx.setLineDash([4, 3]); ctx.strokeRect(endX, wallY, x1 - endX, tw); ctx.restore();
+        ctx.fillStyle = RED; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("덜 채움(쇼트 숏)", x1, wallY + tw + 6);
+      }
+      if (sink) { ctx.fillStyle = RED; ctx.font = AB.font(11, false, 700); ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("싱크", ribX, wallY - 3); }
+      if (thinCnc) { ctx.fillStyle = RED; ctx.font = AB.font(11, false, 700); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("얇은 벽: 깎는 동안 떨린다", x1, wallY + tw + 6); }
+      ctx.fillStyle = INK_DIM; ctx.font = AB.font(10.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("겉면", x0, wallY - 15);
+      // 막대 네 개(아래)
+      var rows = [
+        { k: "독서등 무게", v: ev.mass, txt: f1(ev.mass) + " g", lim: REQ.mass, le: true, lo: 40, hi: 130 },
+        { k: "몸통 상대 강성", v: Math.min(ev.stiff, 400), txt: ev.stiff > 999 ? "999+" : f0(ev.stiff), lim: REQ.stiff, le: false, lo: 0, hi: 200 },
+        { k: isAl ? "냉각 시간(절삭이라 해당 없음)" : "냉각 시간(2 mm = 1)", v: isAl ? 0 : cool, txt: isAl ? "—" : cool.toFixed(2) + "배", lim: 2.25, le: true, lo: 0, hi: 4.2, na: isAl },
+        { k: "한 벌 값(500개)", v: set, txt: won(set), lim: null, lo: 0, hi: 28000 }
+      ];
+      var ry = yTop + secH - 6, rh2 = Math.max(30, (h - ry - 8) / rows.length);
+      rows.forEach(function (r, i) {
+        var y = ry + i * rh2, bx = 12, bw = w - 24;
+        var ok = r.lim == null ? true : (r.le ? r.v <= r.lim : r.v >= r.lim);
+        ctx.fillStyle = INK; ctx.font = AB.font(11.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(r.k, bx, y);
+        ctx.fillStyle = r.na ? INK_DIM : ok ? OKC : RED; ctx.font = AB.font(11.5, true, 700); ctx.textAlign = "right"; ctx.fillText(r.txt, bx + bw, y);
+        var by = y + 16, bh = 8;
+        ctx.fillStyle = "#ebe6dc"; ctx.fillRect(bx, by, bw, bh);
+        var fx = AB.clamp((r.v - r.lo) / (r.hi - r.lo), 0, 1) * bw;
+        ctx.fillStyle = r.na ? "#cfcac0" : r.lim == null ? BLUE : ok ? OKC : RED; ctx.fillRect(bx, by, fx, bh);
+        if (r.lim != null) { var lx = bx + (r.lim - r.lo) / (r.hi - r.lo) * bw; ctx.fillStyle = INK; ctx.fillRect(lx - 1, by - 3, 2, bh + 6); }
+      });
+      AB.stat("pl-wall-o-m", f1(ev.mass) + " g");
+      AB.stat("pl-wall-o-k", ev.stiff > 999 ? "999+" : f1(ev.stiff));
+      AB.stat("pl-wall-o-c", won(set) + (isAl ? " <small>절삭</small>" : ""));
+      AB.stat("pl-wall-o-t", f1(ev.touch) + " °C" + (ev.touch < REQ.touch ? " <small style=\"color:var(--bad)\">차갑다</small>" : ""));
+    }, hOpt("pl-wall-cv", 0.72, 330, 420, PAPER));
+  });
+
+  /* ---------------- 시뮬레이터 5: 수량과 원가 ---------------- */
+  safe("cost", function () {
+    var nG = AB.range("pl-cost-n", function (v) { return qToN(v).toLocaleString("ko-KR") + "개"; }, function () { cv.redraw(); });
+    var pG = AB.seg("pl-cost-p", function () { cv.redraw(); });
+    var geo = null, KEYS = ["p3d", "vac", "alu", "steel"];
+    var cv = AB.canvas("#pl-cost-cv", function (ctx, w, h) {
+      var P = AB.palette(), N = qToN(nG()), pk = pG();
+      var COL = { p3d: P.accent, vac: P.accent2, alu: P.warn, steel: P.ok };
+      var barW = w > 480 ? 96 : 64;
+      var box = { x: 58, y: 16, w: w - 58 - barW - 26, h: h - 16 - 48 };
+      var lx0 = 2, lx1 = Math.log10(20000);
+      var series = KEYS.map(function (k) {
+        var data = []; for (var i = 0; i <= 160; i++) { var lx = lx0 + (lx1 - lx0) * i / 160, n = Math.round(Math.pow(10, lx)); data.push([lx, Math.min(60000, unitCost(Object.assign({}, CHOICE, { proc: k, N: n })).total)]); }
+        return { data: data, color: COL[k], width: k === pk ? 3 : 1.6 };
+      });
+      var ch = AB.chart(ctx, box, { x: [lx0, lx1], y: [0, 40000], xLabel: "수량(개, 로그 눈금)", yLabel: "개당 원가(원)", xTicks: [2, Math.log10(500), 3, Math.log10(5000), 4], xFmt: function (v) { return Math.round(Math.pow(10, v)).toLocaleString("ko-KR"); }, yTicks: [0, 10000, 20000, 30000, 40000], yFmt: function (v) { return v / 10000 + "만"; },
+        series: series, hlines: [{ y: REQ.cost, color: P.bad, label: "목표 1.2만 원" }], vlines: [{ x: Math.log10(N), color: P.text, dash: [] }] });
+      // 곡선 이름
+      ctx.font = AB.font(10.5, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      KEYS.forEach(function (k) {
+        var lx = k === "p3d" ? 2.15 : k === "vac" ? 2.55 : k === "alu" ? 3.55 : 3.9, n = Math.round(Math.pow(10, lx)), c = unitCost(Object.assign({}, CHOICE, { proc: k, N: n })).total;
+        if (c > 40000) { lx = k === "steel" ? 4.05 : lx; c = unitCost(Object.assign({}, CHOICE, { proc: k, N: Math.round(Math.pow(10, lx)) })).total; }
+        ctx.fillStyle = COL[k]; ctx.fillText(PROC[k].name.replace("알루미늄 간이 금형", "알루미늄 금형"), Math.min(ch.X(lx) + 2, box.x + box.w - 70), ch.Y(Math.min(39000, c)) - 3);
+      });
+      var cur = unitCost(Object.assign({}, CHOICE, { proc: pk, N: N }));
+      AB.handle(ctx, ch.X(Math.log10(N)), ch.Y(Math.min(40000, cur.total)), { r: 6, fill: COL[pk], ring: P.text });
+      // 구성 막대
+      var bx = box.x + box.w + 18, bw = barW - 8, top = box.y, bot = box.y + box.h, sc = box.h / 40000;
+      var segs = [["금형·틀", cur.tool, COL[pk]], ["성형 한 벌", cur.v, P.accent2], ["전자", REST.elec, P.series[5]], ["충전지", REST.bat, P.faint], ["철물·작업·포장", cur.rest - REST.elec - REST.bat, P.grid], ["불량", cur.scrap, P.bad]];
+      var y = bot;
+      segs.forEach(function (s) {
+        var hh = Math.min(s[1] * sc, Math.max(0, y - top)); if (hh <= 0) return;
+        ctx.fillStyle = s[2]; ctx.globalAlpha = 0.85; ctx.fillRect(bx, y - hh, bw, hh); ctx.globalAlpha = 1;
+        ctx.strokeStyle = P.bg; ctx.lineWidth = 1; ctx.strokeRect(bx, y - hh, bw, hh);
+        if (hh > 15 && bw > 50) { ctx.fillStyle = AB.textOn(ART.parse(s[2].indexOf("#") === 0 ? s[2] : "#888888")); ctx.font = AB.font(9.5); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(s[0], bx + bw / 2, y - hh / 2); }
+        y -= hh;
+      });
+      ctx.strokeStyle = P.bad; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(bx - 4, bot - REQ.cost * sc); ctx.lineTo(bx + bw + 4, bot - REQ.cost * sc); ctx.stroke();
+      ctx.fillStyle = P.text; ctx.font = AB.font(10.5, true, 700); ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(Math.round(cur.total).toLocaleString("ko-KR"), bx + bw / 2, bot + 6);
+      geo = { ch: ch, box: box };
+      var best = null; KEYS.forEach(function (k) { var c = unitCost(Object.assign({}, CHOICE, { proc: k, N: N })).total; if (!best || c < best.c) best = { k: k, c: c }; });
+      var be = breakEven(Object.assign({}, CHOICE, { proc: pk }));
+      AB.stat("pl-cost-o-c", won(cur.total) + (cur.total > REQ.cost ? " <small style=\"color:var(--bad)\">+" + Math.round(cur.total - REQ.cost).toLocaleString("ko-KR") + "</small>" : ""));
+      AB.stat("pl-cost-o-t", won(cur.tool) + " <small>" + Math.round(cur.tool / cur.total * 100) + "%</small>");
+      AB.stat("pl-cost-o-b", PROC[best.k].name + " <small>" + won(best.c) + "</small>");
+      AB.stat("pl-cost-o-n", be ? be.toLocaleString("ko-KR") + "개부터" : "닿지 않음");
+    }, hOpt("pl-cost-cv", 0.66, 300, 420));
+    AB.drag(cv.canvas, { move: function (x) { if (!geo) return; var c = geo.ch, b = geo.box, lx = 2 + AB.clamp((x - b.x) / b.w, 0, 1) * (Math.log10(20000) - 2); nG.set(nToQ(Math.pow(10, lx))); cv.redraw(); } });
+  });
+
+  /* ---------------- 시뮬레이터 6: 1년당 값 ---------------- */
+  safe("life", function () {
+    var hG = AB.range("pl-life-h", function (v) { return (v % 1 ? v.toFixed(2).replace(/0$/, "") : v) + "시간"; }, function () { cv.redraw(); });
+    var bG = AB.range("pl-life-b", function (v) { return v.toLocaleString("ko-KR") + "원"; }, function () { cv.redraw(); });
+    var cv = AB.canvas("#pl-life-cv", function (ctx, w, h) {
+      var P = AB.palette(), hh = hG(), bp = bG(), T = t80(hh), Yr = lifeY(hh, true), Yn = lifeY(hh, false), r = reps(Yr, hh);
+      var Ymax = 10, yTop = 140000;
+      // 교체 가능: 0에 3만, T의 마디마다 bp. 교체 불가: T(=Yn)마다 새 등. 같은 기간 Yr까지.
+      var A = [[0, 0], [0, PRICE]], Bs = [[0, 0], [0, PRICE]], ca = PRICE, cb = PRICE;
+      for (var i = 1; i <= r; i++) { var tx = i * T; A.push([tx, ca]); ca += bp; A.push([tx, ca]); }
+      A.push([Yr, ca]);
+      var nb = 1; for (var j = 1; j * Yn < Yr - 1e-9; j++) { Bs.push([j * Yn, cb]); cb += PRICE; nb++; Bs.push([j * Yn, cb]); }
+      Bs.push([Yr, cb]);
+      var box = { x: 62, y: 16, w: w - 62 - 16, h: h - 16 - 50 };
+      var ch = AB.chart(ctx, box, { x: [0, Ymax], y: [0, yTop], xLabel: "쓴 햇수", yLabel: "누적해서 쓴 돈(원)", xTicks: [0, 2, 4, 6, 8, 10], yTicks: [0, 30000, 60000, 90000, 120000], yFmt: function (v) { return v / 10000 + "만"; },
+        series: [{ data: Bs, color: P.series[5], width: 2, dash: [5, 4] }, { data: A, color: P.accent, width: 3 }], vlines: [{ x: Yr, color: P.faint, label: "관절 수명 " + f1(Yr) + "년" }] });
+      ctx.font = AB.font(11, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillStyle = P.accent; ctx.fillText("충전지 교체 가능", ch.X(0.3), ch.Y(PRICE) - 4);
+      ctx.fillStyle = P.dim; var lbx = Math.min(Yr, Ymax) - 0.2; ctx.textAlign = "right"; ctx.fillText("교체 불가: " + nb + "개 사기", ch.X(lbx), ch.Y(Math.min(yTop - 6000, cb)) - 4);
+      AB.handle(ctx, ch.X(Math.min(Yr, Ymax)), ch.Y(Math.min(yTop, ca)), { r: 5, fill: P.accent, ring: P.text });
+      var perA = (PRICE + r * bp) / Yr, perB = PRICE / Yn;
+      var coA = (2.03 + r * 0.37 + 0.25 * hh / 1.5 * Yr) / Yr, coB = (2.03 + 0.25 * hh / 1.5 * Yn) / Yn;
+      AB.stat("pl-life-o-y", f1(Yr) + " / " + f1(Yn) + "년");
+      AB.stat("pl-life-o-a", won(perA) + " <small>교체 " + r + "번</small>");
+      AB.stat("pl-life-o-b", won(perB));
+      AB.stat("pl-life-o-c", coA.toFixed(2) + " / " + coB.toFixed(2));
+    }, hOpt("pl-life-cv", 0.62, 280, 400));
+  });
+
+  /* ---------------- 시뮬레이터 7: 종합 실험실 ---------------- */
+  safe("lab", function () {
+    var PRE = {
+      choice: CHOICE,
+      july: { L: 130, H: 100, B: 50, G: 16, K: 350, t: 2, mat: "pcabs", proc: "p3d", N: 500, rep: false },
+      alu: { L: 100, H: 60, B: 60, G: 28, K: 200, t: 0.7, mat: "al", proc: "cnc", N: 500, rep: true },
+      cheap: { L: 100, H: 60, B: 60, G: 28, K: 200, t: 1.6, mat: "pp", proc: "alu", N: 500, rep: false },
+      q1000: Object.assign({}, CHOICE, { N: 1000 })
+    };
+    var busy = false, geo = null, drag = null;
+    function redraw() { if (!busy) cv.redraw(); }
+    var lG = AB.range("pl-lab-l", function (v) { return v + " mm"; }, redraw);
+    var hG = AB.range("pl-lab-h", function (v) { return v + " mm"; }, redraw);
+    var bG = AB.range("pl-lab-b", function (v) { return v + " mm"; }, redraw);
+    var gG = AB.range("pl-lab-g", function (v) { return v + " mm"; }, redraw);
+    var tG = AB.range("pl-lab-t", function (v) { return v.toFixed(1) + " mm"; }, redraw);
+    var nG = AB.range("pl-lab-n", function (v) { return qToN(v).toLocaleString("ko-KR") + "개"; }, redraw);
+    var kG = AB.seg("pl-lab-k", redraw);
+    var mG = AB.seg("pl-lab-mat", function (v) { if (busy) return; if (v === "al" && pG() !== "cnc") pG.set("cnc", false); if (v !== "al" && pG() === "cnc") pG.set("alu", false); redraw(); });
+    var pG = AB.seg("pl-lab-proc", function (v) { if (busy) return; if (v === "cnc" && mG() !== "al") mG.set("al", false); if (v !== "cnc" && mG() === "al") mG.set("pcabs", false); redraw(); });
+    var rG = AB.check("pl-lab-rep", redraw);
+    var pre = AB.seg("pl-lab-pre", function (v) {
+      var p = PRE[v]; busy = true;
+      lG.set(p.L); hG.set(p.H); bG.set(p.B); gG.set(p.G); tG.set(p.t); nG.set(nToQ(p.N)); kG.set(String(p.K), false); mG.set(p.mat, false); pG.set(p.proc, false); rG.set(p.rep);
+      busy = false; cv.redraw();
+    });
+    function state() { return { L: lG(), H: hG(), B: bG(), G: gG(), K: +kG(), t: tG(), mat: mG(), proc: pG(), N: qToN(nG()), rep: rG() }; }
+    var cv = AB.canvas("#pl-lab-cv", function (ctx, w, h) {
+      var d = state(), ev = evaluate(d), tp = ev.tp;
+      var back = Math.max(d.B / 2, d.G), spanX = back + 140 + 110 / 2 + 10;
+      var topH = Math.min(190, Math.max(130, w * 0.3));
+      var s = Math.min((w - 30) / spanX, (topH - 50) / 50), ox = 15 + back * s + Math.max(0, (w - 30 - spanX * s) / 2) * 0.3, oy = topH - 26;
+      ctx.fillStyle = DESK; ctx.fillRect(0, oy, w, 5); ctx.fillStyle = "rgba(0,0,0,0.05)"; ctx.fillRect(0, oy + 5, w, 8);
+      var P = drawSide(ctx, d, s, ox, oy);
+      tipGuide(ctx, P, d, tp, s);
+      var H = {
+        L: P(d.L, 29), H: P(d.L + d.H / 2, 29), B: P(d.B / 2, 3), G: P(-back, 12)
+      };
+      Object.keys(H).forEach(function (k) { AB.handle(ctx, H[k][0], H[k][1], { r: 6, fill: k === "L" ? "#ffffff" : k === "H" ? "#f6e9c8" : "#d9eadf", ring: INK }); });
+      geo = { s: s, ox: ox, oy: oy, H: H };
+      // 접은 길이 표시
+      var fl = ev.fold;
+      ctx.font = AB.font(11, false, 700); ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillStyle = INK; ctx.fillText("E 라이트 · 뻗은 자세 옆모습", 10, 8);
+      ctx.font = AB.font(10.5); ctx.fillStyle = INK_DIM; ctx.fillText(MAT[d.mat].name + " " + d.t.toFixed(1) + " mm · " + PROC[d.proc].name + " · " + d.N.toLocaleString("ko-KR") + "개", 10, 25);
+      // 점검표
+      var c = ev.cost, okMold = ev.mold;
+      var rows = [
+        { k: "무게", txt: f1(ev.mass) + " g", ok: ev.mass <= REQ.mass, v: ev.mass, lo: 40, hi: 130, lim: REQ.mass, rule: "≤ 80 g" },
+        { k: "넘어짐 각(뻗은 자세)", txt: tp.dF > 0 ? f1(ev.tip) + "°" : "넘어짐", ok: tp.dF > 0 && ev.tip >= REQ.tip, v: tp.dF > 0 ? ev.tip : -10, lo: -10, hi: 40, lim: REQ.tip, rule: "≥ 10°" },
+        { k: "접은 길이", txt: f0(fl) + " mm", ok: fl <= REQ.fold, v: fl, lo: 100, hi: 300, lim: REQ.fold, rule: "≤ 200 mm" },
+        { k: "여는 힘", txt: f1(ev.hd.F) + " N", ok: ev.hd.F <= REQ.force, v: ev.hd.F, lo: 0, hi: 35, lim: REQ.force, rule: "≤ 10 N" },
+        { k: "손가락 벌림", txt: f1(ev.hd.span) + " mm", ok: ev.hd.span <= REQ.span, v: ev.hd.span, lo: 20, hi: 60, lim: REQ.span, rule: "≤ 45 mm" },
+        { k: "3 mm 표지 무는 힘", txt: f1(ev.hd.clamp) + " N", ok: ev.hd.clamp >= REQ.clamp, v: ev.hd.clamp, lo: 0, hi: 10, lim: REQ.clamp, rule: "≥ 4 N" },
+        { k: "몸통 상대 강성", txt: ev.stiff > 999 ? "999+" : f0(ev.stiff), ok: ev.stiff >= REQ.stiff, v: Math.min(ev.stiff, 300), lo: 0, hi: 250, lim: REQ.stiff, rule: "≥ 80" },
+        { k: "손끝 온도(18 °C 방)", txt: f1(ev.touch) + " °C", ok: ev.touch >= REQ.touch, v: ev.touch, lo: 15, hi: 32, lim: REQ.touch, rule: "≥ 26 °C" },
+        { k: "살두께와 공정", txt: d.t.toFixed(1) + " mm", ok: okMold, v: d.t, lo: 0, hi: 4.2, win: [PROC[d.proc].tmin, PROC[d.proc].tmax || 4.2], rule: PROC[d.proc].tmin + (PROC[d.proc].tmax ? "~" + PROC[d.proc].tmax : " 이상") + " mm" },
+        { k: "개당 원가", txt: won(c.total), ok: c.total <= REQ.cost, v: c.total, lo: 0, hi: 40000, lim: REQ.cost, rule: "≤ 12,000원" },
+        { k: "리드타임(9월 초 발주)", txt: f1(ev.weeks) + "주", ok: ev.weeks <= REQ.weeks, v: ev.weeks, lo: 0, hi: 16, lim: REQ.weeks, rule: "≤ 8주" },
+        { k: "수명(하루 1.5시간)", txt: f1(ev.life) + "년", ok: ev.life >= REQ.life, v: ev.life, lo: 0, hi: 10, lim: REQ.life, rule: "≥ 5년" }
+      ];
+      var narrow = w < 520, cols = narrow ? 1 : 2, colW = (w - 24 - (cols - 1) * 18) / cols, rowH = 36, y0 = topH + 8;
+      var pass = 0;
+      rows.forEach(function (r, i) {
+        if (r.ok) pass++;
+        var col = narrow ? 0 : (i < 6 ? 0 : 1), ri = narrow ? i : i % 6;
+        var x = 12 + col * (colW + 18), y = y0 + ri * rowH;
+        ctx.fillStyle = INK; ctx.font = AB.font(11.5); ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(r.k, x, y);
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(10); var kw = ctx.measureText ? 0 : 0;
+        ctx.fillStyle = r.ok ? OKC : RED; ctx.font = AB.font(11.5, true, 700); ctx.textAlign = "right"; ctx.fillText(r.txt, x + colW, y);
+        var by = y + 17, bh = 8;
+        ctx.fillStyle = "#ebe6dc"; ctx.fillRect(x, by, colW, bh);
+        var fr = function (v) { return AB.clamp((v - r.lo) / (r.hi - r.lo), 0, 1) * colW; };
+        if (r.win) { ctx.fillStyle = "rgba(47,125,79,0.22)"; ctx.fillRect(x + fr(r.win[0]), by - 2, fr(r.win[1]) - fr(r.win[0]), bh + 4); ctx.fillStyle = r.ok ? OKC : RED; ctx.fillRect(x + fr(r.v) - 2, by - 3, 4, bh + 6); }
+        else { ctx.fillStyle = r.ok ? OKC : RED; ctx.fillRect(x, by, fr(r.v), bh); ctx.fillStyle = INK; ctx.fillRect(x + fr(r.lim) - 1, by - 3, 2, bh + 6); }
+        ctx.fillStyle = INK_DIM; ctx.font = AB.font(9.5); ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText(r.rule, x + colW, by + bh + 1);
+      });
+      // 메모
+      var m = tp.m, be = breakEven(d), Y = ev.life, rp = reps(Y, 1.5), perY = (PRICE + rp * 4000) / Y;
+      var fails = rows.filter(function (r) { return !r.ok; }).map(function (r) { return r.k; });
+      var memo = [
+        "[E 라이트 · 양산 전 점검 메모]",
+        "형태  목 " + d.L + " mm · 등머리 " + d.H + " × 36 × 12 mm · 받침 " + d.B + " mm",
+        "      목 : 등머리 = " + (d.L / d.H).toFixed(2) + " : 1 · 접은 길이 " + f0(fl) + " mm",
+        "무게  " + f1(ev.mass) + " g (클립 " + f1(m.clip) + " · 몸통 " + f1(m.body) + " · 충전지 " + f1(m.bat) + " · 목 " + f1(m.neck) + " · 등머리 " + f1(m.head) + ")",
+        "안정  뻗은 자세 " + (tp.dF > 0 ? "넘어짐 각 " + f1(ev.tip) + "°" : "무게중심이 받침 끝 " + f1(-tp.dF) + " mm 밖: 넘어짐") + " · 세운 자세 " + f1(tipping(d, 15).a) + "°",
+        "손    손잡이 " + d.G + " mm · 스프링 " + d.K + " N·mm/rad",
+        "      여는 힘 " + f1(ev.hd.F) + " N · 벌림 " + f1(ev.hd.span) + " mm · 무는 힘 " + f1(ev.hd.clamp) + " N · 예시 분포에서 열 수 있는 사람 " + (ev.ppl * 100).toFixed(1) + "%",
+        "재료  " + MAT[d.mat].name + " " + d.t.toFixed(1) + " mm · 상대 강성 " + (ev.stiff > 999 ? "999+" : f0(ev.stiff)) + " · 손끝 " + f1(ev.touch) + " °C",
+        "공정  " + PROC[d.proc].name + " × " + d.N.toLocaleString("ko-KR") + "개 · 리드타임 " + f1(ev.weeks) + "주" + (okMold ? "" : " · 살두께가 공정 범위 밖"),
+        "원가  " + won(c.total) + " = 금형·틀 " + Math.round(c.tool).toLocaleString("ko-KR") + " + 성형·가공 " + Math.round(c.v).toLocaleString("ko-KR") + " + 나머지 " + Math.round(c.rest).toLocaleString("ko-KR") + " + 불량 " + Math.round(c.scrap).toLocaleString("ko-KR"),
+        "      " + (c.total > REQ.cost ? "목표 12,000원보다 " + Math.round(c.total - REQ.cost).toLocaleString("ko-KR") + "원 많음" : "목표 안(" + Math.round(REQ.cost - c.total).toLocaleString("ko-KR") + "원 여유)") + " · 이 공정에서 목표에 닿는 수량 " + (be ? be.toLocaleString("ko-KR") + "개" : "없음"),
+        "수명  충전지 " + (d.rep ? "교체 가능" : "납땜(교체 불가)") + " · 약 " + f1(Y) + "년 · 쓰는 1년당 " + won(perY) + (d.rep ? "(교체 팩 4,000원 " + rp + "번)" : ""),
+        "통과  " + pass + " / " + rows.length + (fails.length ? " · 못 맞춘 것: " + fails.join(", ") : " · 모두 통과")
+      ];
+      document.getElementById("pl-lab-memo").textContent = memo.join("\n");
+      AB.stat("pl-lab-o-m", f1(ev.mass) + " g");
+      AB.stat("pl-lab-o-a", tp.dF > 0 ? f1(ev.tip) + "°" : "<span style=\"color:var(--bad)\">넘어짐</span>");
+      AB.stat("pl-lab-o-c", won(c.total));
+      AB.stat("pl-lab-o-p", pass + " / " + rows.length);
+    }, { get height() { var el = document.getElementById("pl-lab-cv"), w = Math.max(200, (el && el.parentElement.clientWidth) || 600); var topH = Math.min(190, Math.max(130, w * 0.3)); return Math.round(topH + 16 + (w < 520 ? 12 : 6) * 36); }, bg: PAPER });
+    AB.drag(cv.canvas, {
+      start: function (x, y) { drag = null; if (!geo) return; var best = 28 * 28; Object.keys(geo.H).forEach(function (k) { var q = geo.H[k], dd = (q[0] - x) * (q[0] - x) + (q[1] - y) * (q[1] - y); if (dd < best) { best = dd; drag = k; } }); },
+      move: function (x) {
+        if (!drag || !geo) return; var wx = (x - geo.ox) / geo.s;
+        if (drag === "L") lG.set(Math.round(AB.clamp(wx, 60, 140)));
+        else if (drag === "H") hG.set(Math.round(AB.clamp(2 * (wx - lG()), 40, 110)));
+        else if (drag === "B") bG.set(Math.round(AB.clamp(2 * wx, 40, 80)));
+        else if (drag === "G") gG.set(Math.round(AB.clamp(-wx, 14, 50)));
+        cv.redraw();
+      },
+      end: function () { drag = null; }
+    });
+  });
+})();
+</script>
+</body>
+</html>

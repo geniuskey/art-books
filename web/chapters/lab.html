@@ -1,0 +1,1373 @@
+<!doctype html>
+<!-- Copyright (c) 2026 geniuskey and ArtBook contributors.
+     Executable code: MIT (see ../../LICENSE-MIT).
+     Text, illustrations, questions and explanations: CC-BY-4.0 (see ../../LICENSE.md).
+     Artwork images: public domain, see ../../credits.html. -->
+<html lang="ko">
+<head>
+<!--head:start {"desc": "책방 E 새 웹사이트의 첫 화면, 행사 일정, 모임 신청 폼을 가상의 페이지로 그려 놓고 창 폭, 확대와 글자 크기, 그리드, 간격 단계, 색 토큰, 포커스 표시, 부품 크기, 사진과 글꼴 용량을 한꺼번에 바꾸며 단 수, 글줄 길이, 터치 타깃, WCAG 대비, 페이지 무게와 LCP를 실시간으로 재고 휴대폰과 넓은 화면을 나란히 비교하는 웹 실험실."}-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>웹 실험실 · WebBook</title>
+<meta name="description" content="책방 E 새 웹사이트의 첫 화면, 행사 일정, 모임 신청 폼을 가상의 페이지로 그려 놓고 창 폭, 확대와 글자 크기, 그리드, 간격 단계, 색 토큰, 포커스 표시, 부품 크기, 사진과 글꼴 용량을 한꺼번에 바꾸며 단 수, 글줄 길이, 터치 타깃, WCAG 대비, 페이지 무게와 LCP를 실시간으로 재고 휴대폰과 넓은 화면을 나란히 비교하는 웹 실험실.">
+<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/lab.html">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="theme-color" content="#b5179e">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ArtBook">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="웹 실험실 · WebBook">
+<meta property="og:description" content="책방 E 새 웹사이트의 첫 화면, 행사 일정, 모임 신청 폼을 가상의 페이지로 그려 놓고 창 폭, 확대와 글자 크기, 그리드, 간격 단계, 색 토큰, 포커스 표시, 부품 크기, 사진과 글꼴 용량을 한꺼번에 바꾸며 단 수, 글줄 길이, 터치 타깃, WCAG 대비, 페이지 무게와 LCP를 실시간으로 재고 휴대폰과 넓은 화면을 나란히 비교하는 웹 실험실.">
+<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/lab.html">
+<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/lab.html#chapter","name":"웹 실험실","headline":"웹 실험실 · WebBook","description":"책방 E 새 웹사이트의 첫 화면, 행사 일정, 모임 신청 폼을 가상의 페이지로 그려 놓고 창 폭, 확대와 글자 크기, 그리드, 간격 단계, 색 토큰, 포커스 표시, 부품 크기, 사진과 글꼴 용량을 한꺼번에 바꾸며 단 수, 글줄 길이, 터치 타깃, WCAG 대비, 페이지 무게와 LCP를 실시간으로 재고 휴대폰과 넓은 화면을 나란히 비교하는 웹 실험실.","url":"https://artbook.euiyun.com/web/chapters/lab.html","position":13,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"13. 웹 실험실","item":"https://artbook.euiyun.com/web/chapters/lab.html"}]}]}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../shared/css/style.css">
+<script src="../book.js"></script>
+<script src="../../shared/js/art.js"></script>
+<script src="../../shared/js/common.js"></script>
+<!--head:end-->
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3d6151a0abc94ede89285d462527fa80"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<style>
+  /* 13장 전용: 가상 페이지 캔버스, 비교 두 칸, 점검표 */
+  .wl-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr); gap: 10px; align-items: start; }
+  .wl-two > div { min-width: 0; position: relative; }
+  .wl-two > div > b, .wl-cap { display: block; font: 600 12px var(--font); color: #4f4c58; margin: 0 0 4px 4px; }
+  @media (max-width: 620px) { .wl-two { grid-template-columns: 1fr; } }
+  .wl-pad { padding: 10px; }
+  .wl-table td, .wl-table th { font-size: 13.5px; vertical-align: top; }
+  .wl-table td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .wl-table .v-ok { color: var(--ok); font-weight: 700; }
+  .wl-table .v-warn { color: var(--warn); font-weight: 700; }
+  .wl-table .v-bad { color: var(--bad); font-weight: 700; }
+  .wl-table .v-info { color: var(--text-dim); }
+  .wl-table small { display: block; color: var(--text-dim); font-size: 12px; }
+  .wl-grp { display: grid; gap: 12px; align-content: start; min-width: 0; }
+  .wl-ctrl-title { font-size: 12px; font-weight: 700; color: var(--text-dim); letter-spacing: .04em; margin: 0; }
+  #sim-wl-lab .sim-controls { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px; align-items: start; }
+  #sim-wl-width .hint { top: 8px; bottom: auto; }
+  .wl-small { font-size: 12.5px; color: var(--text-dim); margin: 0; line-height: 1.55; }
+  .wl-cmpfig .compare { border-radius: 10px; background: #e8ebe8; }
+  .wl-cmpfig .cmp-a, .wl-cmpfig .cmp-b { background: #e8ebe8; }
+  .wl-code { font-family: var(--mono); font-size: 12.5px; line-height: 1.65; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin: 16px 0; overflow-x: auto; white-space: pre; color: var(--text); }
+</style>
+</head>
+<body data-chapter="lab">
+<main class="chapter">
+  <header class="chapter-hero">
+    <div class="eyebrow">Chapter 13</div>
+    <h1>웹 실험실</h1>
+    <p class="lead">열두 장 동안 책방 E의 새 웹사이트를 한 겹씩 정했다. 기준 폭 대신 최소 폭 320, 4의 배수 간격 여덟 단계, 12단 그리드와 최대 폭 1,200, em으로 적은 중단점 둘, 원시와 의미 두 층의 토큰, 버튼의 다섯 상태와 44&nbsp;px 터치 타깃, 펼친 탭 바, 네 칸짜리 신청 폼, 움직임 두 단계, 접근성 점검표, 첫 화면 500&nbsp;KB 예산. 그런데 이 값들은 각 장에서 따로 정했다. 글자를 두 배로 키우면 중단점이 밀리고, 칩이 커지면 한 줄에 들어가는 날짜가 줄고, 기기 픽셀 비율이 높으면 같은 사진도 더 큰 파일을 받는다. 이 장은 가상의 페이지 하나를 작업대에 올려 놓고 그 값들을 한꺼번에 움직이는 실험실이다. 실험실은 정답 설정을 알려 주지 않는다. 지금 설정에서 단이 몇 개인지, 글줄이 몇 자인지, 가장 작은 타깃이 몇 픽셀인지, 대비와 무게와 첫 화면이 뜨는 시간이 얼마인지를 숫자로 보여 주고, 휴대폰과 넓은 화면을 나란히 놓아 눈으로 고르게 한다.</p>
+    <ul class="objectives">
+      <li>창 폭, 브라우저 확대, 글자 크기 설정이 단 수, 중단점, 글줄 길이를 어떻게 함께 바꾸는지 한 화면에서 확인한다.</li>
+      <li>간격 단계와 그리드, 색 토큰과 다크 모드, 포커스 표시를 같은 페이지 위에서 점검하고 기준(WCAG 2.2)과 견준다.</li>
+      <li>터치 타깃을 2.5.8의 24&nbsp;px 하한과 서윤이 고른 44&nbsp;px로 재고, 글자를 키울 때 부품이 어떻게 버티는지 본다.</li>
+      <li>사진·글꼴·스크립트 선택이 첫 화면 무게와 LCP(12장의 교육용 모형)에 미치는 영향을 기기 픽셀 비율까지 넣어 어림한다.</li>
+      <li>장마다 정한 값이 서로 부딪치는 곳을 찾아, 무엇을 기준으로 하나를 고를지 근거를 적는다.</li>
+    </ul>
+  </header>
+
+  <section id="start">
+    <h2>실험실 사용법</h2>
+    <p>실험실의 재료는 책방 E 새 사이트의 세 페이지다. <b>첫 화면</b>(다음 모임 하나, 그 아래 행사 일정·이달의 책·신간), <b>행사 일정</b>(날짜 칩 줄과 행사 카드), <b>모임 신청 폼</b>(네 칸). 모두 이 책이 직접 그린 가상의 페이지다. 이 페이지는 진짜 웹 페이지가 아니라 캔버스 위에 그린 <b>목업</b>이다. 실험실 안에 장마다 정한 규칙을 단순한 계산으로 옮겨 두고(폭이 35&nbsp;em을 넘으면 행 모양, 칩은 최소 44&nbsp;px…), 설정이 바뀔 때마다 상자의 자리와 크기를 다시 계산해서 그린다. 그래서 진짜 브라우저와 몇 픽셀씩 다를 수 있지만, 무엇이 어디서 깨지는지는 같은 순서로 보인다.</p>
+    <p>설정은 여덟 갈래다. 화면 쪽에서는 <b>기기 폭</b>, <b>브라우저 확대</b>(100·200·400%), <b>글자 크기 설정</b>(100~200%). 배치 쪽에서는 <b>짜임</b>(고정 960 / 기기 중단점 768·1024 / em 중단점 35·56), <b>간격</b>(첫 시안의 제각각 값 / 여덟 단계). 상호작용 쪽에서는 <b>색 토큰</b>, <b>포커스 표시</b>, <b>부품 크기</b>. 쓰임 쪽에서는 <b>사진·글꼴·스크립트</b>와 통신 조건이다. 각 갈래에는 장마다 처음 시도했던 값(첫 시안)과 서윤이 고른 값이 함께 들어 있다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 310" role="img" aria-label="웹 실험실의 흐름. 2장부터 12장까지 정한 값이 네 갈래로 실험실에 들어가 가상의 세 페이지를 그리고, 단 수, 글줄, 타깃, 대비, 포커스, 무게와 LCP를 잰 뒤 휴대폰과 넓은 화면을 나란히 비교한다">
+        <defs><marker id="wl-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <rect x="10" y="14" width="132" height="62" rx="8" class="f-acc-soft"/>
+        <text x="76" y="34" text-anchor="middle" class="lbl-acc">화면 2·3장</text>
+        <text x="76" y="52" text-anchor="middle" class="lbl">최소 폭 320</text>
+        <text x="76" y="68" text-anchor="middle" class="lbl">간격 4~64</text>
+        <rect x="10" y="84" width="132" height="62" rx="8" class="f-acc2-soft"/>
+        <text x="76" y="104" text-anchor="middle" class="lbl-acc2">배치 4·5·6장</text>
+        <text x="76" y="122" text-anchor="middle" class="lbl">12단·1,200·35/56em</text>
+        <text x="76" y="138" text-anchor="middle" class="lbl">토큰 두 층·rem</text>
+        <rect x="10" y="154" width="132" height="62" rx="8" class="f-warn-soft"/>
+        <text x="76" y="174" text-anchor="middle" class="lbl-b">상호작용 7~10장</text>
+        <text x="76" y="192" text-anchor="middle" class="lbl">상태·44 px·탭 바</text>
+        <text x="76" y="208" text-anchor="middle" class="lbl">폼 네 칸·모션</text>
+        <rect x="10" y="224" width="132" height="62" rx="8" class="f-ok-soft"/>
+        <text x="76" y="244" text-anchor="middle" class="lbl-b">쓰임 11·12장</text>
+        <text x="76" y="262" text-anchor="middle" class="lbl">점검표 여섯 줄</text>
+        <text x="76" y="278" text-anchor="middle" class="lbl">500 KB·LCP 2.5초</text>
+        <path d="M144 45 C170 45 168 150 186 150" class="s-line" fill="none" marker-end="url(#wl-ar)"/>
+        <path d="M144 115 C166 115 168 150 186 150" class="s-line" fill="none"/>
+        <path d="M144 185 C166 185 168 150 186 150" class="s-line" fill="none"/>
+        <path d="M144 255 C170 255 168 150 186 150" class="s-line" fill="none"/>
+        <rect x="190" y="96" width="120" height="108" rx="10" class="f-surface s-line"/>
+        <text x="250" y="118" text-anchor="middle" class="lbl-b">가상 페이지</text>
+        <rect x="204" y="128" width="24" height="44" rx="4" class="f-acc-soft s-line"/>
+        <rect x="236" y="128" width="62" height="44" rx="3" class="f-acc-soft s-line"/>
+        <text x="250" y="190" text-anchor="middle" class="lbl-dim">첫 화면·일정·폼</text>
+        <path d="M312 150H332" class="s-line" marker-end="url(#wl-ar)"/>
+        <rect x="336" y="40" width="116" height="220" rx="10" class="f-acc2-soft"/>
+        <text x="394" y="62" text-anchor="middle" class="lbl-acc2">재는 것</text>
+        <g class="lbl"><text x="348" y="88">단 수·중단점</text><text x="348" y="110">글줄 한 줄 글자</text><text x="348" y="132">가장 작은 타깃</text><text x="348" y="154">글자·테두리 대비</text><text x="348" y="176">포커스 링 대비</text><text x="348" y="198">첫 화면 무게</text><text x="348" y="220">LCP(모형)</text></g>
+        <text x="394" y="248" text-anchor="middle" class="lbl-dim">360 ↔ 1280 비교</text>
+        <text x="250" y="296" text-anchor="middle" class="lbl-dim">숫자는 고르는 근거이지 답이 아니다</text>
+      </svg>
+      <figcaption><b>그림 1. 실험실의 흐름.</b> 앞 장들에서 정한 값이 네 갈래로 들어가 가상의 세 페이지를 그린다. 실험실은 그려진 상자에서 단 수, 글줄, 타깃 크기, 대비, 포커스 링, 무게와 LCP를 재고, 같은 설정을 휴대폰 폭과 넓은 화면 폭에 나란히 놓는다.</figcaption>
+    </figure>
+
+    <p>먼저 실험실이 얼마나 다른 두 페이지를 그릴 수 있는지 보자. 아래는 같은 첫 화면을 폭 360 휴대폰에 띄운 두 모습이다. 왼쪽은 장마다 처음 시도했던 값을 한데 모은 판이다. 고정 960 짜임, 제각각인 간격, 연회색 <code>#999999</code> 보조 글자, 포커스 표시 없음, 120×36으로 못 박은 버튼, 원본 사진. 실제로 이런 판이 한 번에 있었던 것은 아니고, 각 장의 첫 시도를 모은 <b>견본</b>이다. 오른쪽은 각 장에서 서윤이 고른 값이다. 가운데 막대를 끌어 비교한다.</p>
+
+    <figure class="wl-cmpfig" id="wl-fig-cmp">
+      <div class="compare" id="wl-cmp">
+        <div class="cmp-a"><canvas id="wl-cmp-a" class="art"></canvas></div>
+        <div class="cmp-b"><canvas id="wl-cmp-b" class="art"></canvas></div>
+      </div>
+      <figcaption><b>그림 2. 같은 첫 화면, 다른 규칙.</b> 왼쪽(첫 시안 모음): 960 폭이 360 화면을 넘어 오른쪽이 잘리고(가로 넘침 <span id="wl-cmp-of">—</span>), 보조 글자 대비는 <span id="wl-cmp-ca">—</span>이다. 오른쪽(서윤의 선택): 1단으로 쌓이고, 본문은 한 줄 약 <span id="wl-cmp-ch">—</span>자, 아래 탭 바의 칸 폭은 <span id="wl-cmp-tb">—</span>&nbsp;px다. 두 판 모두 이 장의 실험실로 그린 목업이다.</figcaption>
+    </figure>
+
+    <p>두 판은 한두 가지가 아니라 여덟 가지가 함께 다르다. 그래서 "무엇 때문에 좋아졌는가"를 말하기 어렵다. 이 장의 앞부분은 그 여덟 갈래를 하나씩 떼어 낸 패널이다(각 패널은 앞 장의 시뮬레이터를 실험실 형식으로 다시 쓴 것이다). 마지막 절의 종합 실험실이 다시 모두를 한데 모은다.</p>
+
+    <div class="callout warn">
+      <strong>목업은 브라우저가 아니다</strong>
+      실험실의 페이지는 브라우저가 실제로 배치한 HTML이 아니라, 이 장의 스크립트가 규칙을 계산해 캔버스에 그린 그림이다. 글줄의 한 줄 글자 수는 한글 산문의 평균 글자 폭을 0.757&nbsp;em으로 친 어림이고(<a href="responsive.html">5장</a>에서 28&nbsp;em을 약 37자로 친 것과 같은 비), 화면 높이는 폭에서 어림한 값이다. 무게와 LCP는 <a href="performance.html">12장</a>의 단순 모형을 그대로 썼다. 실제 기기에서는 주소창 높이, 글꼴, 브라우저마다 다른 확대 방식 때문에 값이 달라진다. 실험실은 출발값을 고르고 부딪치는 곳을 찾는 도구이고, 마지막 확인은 진짜 휴대폰과 진짜 브라우저에서 한다.
+    </div>
+  </section>
+
+  <section id="width">
+    <h2>폭 패널: 창 폭과 글자 크기가 짜임을 바꾼다</h2>
+    <p>첫 패널은 <a href="viewport.html">2장</a>과 <a href="responsive.html">5장</a>을 한데 모은 것이다. 페이지의 짜임을 정하는 폭은 기기의 화면 폭이 아니라 <span class="term">CSS 뷰포트 폭</span><span class="en">(CSS viewport width)</span>이다. 브라우저를 200%로 확대하면 같은 노트북 화면 1,280&nbsp;px이 CSS로는 640&nbsp;px이 된다. 그래서 확대는 화면을 좁게 만든다. 반면 휴대폰의 <b>글자 크기 설정</b>은 뷰포트 폭을 그대로 두고 <code>rem</code>의 크기만 키운다. em으로 적은 중단점은 rem을 따라 밀린다. 글자를 150%로 키우면 35&nbsp;em 중단점은 560이 아니라 840&nbsp;px에 선다.</p>
+    <p>아래 목업의 오른쪽 끝을 끌거나 기기 폭 막대로 폭을 바꾼다. 맨 아래 눈금자에는 지금 글자 크기에서의 두 중단점이 표시된다. 짜임을 "기기 중단점 768·1024"(5장에서 지후가 처음 넣은 값)로 바꾸면 중단점은 글자 크기와 상관없이 제자리에 있다.</p>
+
+    <div class="sim" id="sim-wl-width">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>폭 패널: 같은 첫 화면, 폭과 글자 크기</h3></div>
+      <div class="sim-body">
+        <div class="sim-view stage"><canvas id="ww-cv" class="art"></canvas><span class="hint">목업의 오른쪽 끝을 끈다</span></div>
+        <div class="sim-controls">
+          <label class="ctrl"><span>기기 폭 <output id="ww-w-out"></output></span><input type="range" id="ww-w" min="280" max="1920" step="2" value="700"></label>
+          <label class="ctrl"><span>글자 크기 설정 <output id="ww-ts-out"></output></span><input type="range" id="ww-ts" min="1" max="2" step="0.05" value="1"></label>
+          <div class="seg" id="ww-fr"><button data-value="device">기기 중단점 768·1024</button><button data-value="em" class="on">em 중단점 35·56</button></div>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">CSS 뷰포트 폭</span><span class="v" id="ww-o-w">—</span></div>
+        <div class="stat"><span class="k">짜임</span><span class="v" id="ww-o-st">—</span></div>
+        <div class="stat"><span class="k">중단점(px)</span><span class="v" id="ww-o-bp">—</span></div>
+        <div class="stat"><span class="k">본문 한 줄</span><span class="v" id="ww-o-ch">—</span></div>
+        <div class="stat"><span class="k">신간 한 줄</span><span class="v" id="ww-o-bk">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① 짜임을 "기기 중단점"으로 두고 폭을 700 근처로 맞춘다. 1단 카드가 화면 끝까지 늘어나 본문 한 줄이 40자를 넘는다(5장에서 지후가 창을 줄이다 본 장면). ② "em 중단점"으로 바꾼다. 560에서 이미 행 모양이 되고 본문은 28&nbsp;em(약 37자)에서 멈춘다. ③ 폭을 1,280에 두고 글자 크기를 200%로 올린다. em 중단점은 1,120·1,792로 밀려 넓은 화면에서도 1단·탭 바 짜임이 되고, 기기 중단점은 넓은 짜임 그대로 글자만 커진다. 어느 쪽 글줄이 덜 무너지는지 본다. (모형의 가정: 한 줄 글자 수 = 글줄 폭 ÷ (0.757 × 글자 크기), 화면 높이는 폭에서 어림. 본문 크기는 6장의 <code>clamp()</code> 식, 신간 카드는 4장의 <code>minmax(240px, 1fr)</code>.)</div>
+    </div>
+
+    <p>기기 중단점 짜임은 세 견본 폭(360·768·1280)에서는 멀쩡하지만 그 사이 폭에서 깨진다. em 중단점 짜임은 폭이 아니라 "글줄이 몇 자가 되는가"를 따라 짜임을 바꾸므로, 글자를 키운 사람의 화면에서도 같은 기준이 지켜진다. 대가도 있다. 글자를 200%로 키운 노트북에서는 넓은 화면인데도 아래에 탭 바가 붙는다. 서윤과 지후는 이것을 "글자를 키운 사람에게는 휴대폰 짜임이 더 읽기 좋다"는 뜻으로 받아들였다. 5장에서 도경이 했던 말과 같다.</p>
+  </section>
+
+  <section id="space">
+    <h2>간격·그리드 패널: 숫자가 아니라 역할로</h2>
+    <p><a href="box.html">3장</a>의 간격 단계(4·8·12·16·24·32·48·64)와 "안쪽 간격 &lt; 바깥 간격" 규칙, <a href="grid.html">4장</a>의 12단·거터 24를 행사 일정 페이지 위에 겹쳐 본다. 분홍 막대는 간격, 붉은 띠는 단이다. 간격을 "첫 시안"으로 바꾸면 3장에서 지후가 재 본 제각각의 값(9, 11, 15, 17, 22, 27)이 들어간다.</p>
+    <p>그리드 단 수는 이 장에서 처음 정하는 값이 하나 있다. 4장은 넓은 화면의 12단만 정했고 좁은 화면의 단은 남겨 두었다. 실험실은 5장의 두 중단점에 맞춰 좁은 쪽부터 <b>4단(거터 16) → 8단(거터 24) → 12단(거터 24)</b>을 안내선으로 그린다. 4·8·12는 모두 신간 카드 수(1·2·3·4권)를 나누어떨어지게 하는 수다.</p>
+
+    <div class="sim" id="sim-wl-space">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>간격·그리드 패널: 행사 일정 페이지</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="ws-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="ws-sp"><button data-value="draft">첫 시안(제각각)</button><button data-value="scale" class="on">여덟 단계</button></div>
+          <label class="ctrl"><span>기기 폭 <output id="ws-w-out"></output></span><input type="range" id="ws-w" min="320" max="1440" step="2" value="390"></label>
+          <label class="check"><input type="checkbox" id="ws-g" checked> 그리드 겹쳐 보기</label>
+          <label class="check"><input type="checkbox" id="ws-r" checked> 간격 값 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">쓰인 간격 값</span><span class="v" id="ws-o-n">—</span></div>
+        <div class="stat"><span class="k">안 &lt; 밖 규칙</span><span class="v" id="ws-o-rule">—</span></div>
+        <div class="stat"><span class="k">그리드</span><span class="v" id="ws-o-g">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "첫 시안"에서 구획 제목 아래 간격(22)과 카드 사이(17)를 비교한다. 제목이 자기 목록보다 위쪽 여백에 더 가까워 보인다. ② "여덟 단계"로 바꾼다. 제목 → 목록 16, 카드 사이 24, 구획 사이 48로 무리가 갈린다. ③ 폭을 1,440까지 넓힌다. 900 근처에서 8단이 12단으로 바뀌고 오른쪽에 달력 칸이 생긴다. 카드 경계가 단 선 위에 서는지 본다. (모형의 가정: 간격은 rem이라 글자 크기 설정을 따라 커지고, 화면 가장자리 여백 16만 px. 단 수는 이 장이 정한 4·8·12 안내선.)</div>
+    </div>
+
+    <p>"첫 시안"과 "여덟 단계"의 차이는 숫자가 깔끔해졌다는 것이 아니다. 3장에서 서윤이 겪었듯, 첫 시안의 값을 가장 가까운 단계로 반올림하기만 하면 화면은 오히려 어수선해진다. 실험실의 규칙 검사는 값이 단계에 있는지가 아니라, 무리 안 &lt; 카드 안 &lt; 카드 사이 &lt; 구획 사이의 순서가 지켜지는지와 구획 제목이 자기 목록에 붙는지를 본다. 규칙을 깨는 곳은 언제나 있을 수 있다. 4장의 "이달의 책" 띠는 일부러 그리드를 깨고 화면 끝까지 간다. 깨는 곳은 하나로, 이유와 함께 적는다.</p>
+  </section>
+
+  <section id="color">
+    <h2>토큰·대비 패널: 의미 토큰 하나를 바꾸면</h2>
+    <p><a href="tokens.html">6장</a>의 의미 토큰(<code>bg</code>, <code>surface</code>, <code>text</code>, <code>text-muted</code>, <code>action</code>, <code>on-action</code>, <code>band</code>, <code>on-band</code>)으로 첫 화면을 칠하고, 그 페이지에 실제로 쓰인 글자–바탕 짝을 모두 <code>ART.contrast</code>(WCAG 2 대비율)로 잰다. 큰 글자(24&nbsp;px 이상, 또는 약 18.7&nbsp;px 이상 굵게)는 3:1, 나머지 글자는 4.5:1, 입력 칸 테두리 같은 비텍스트 요소는 3:1이 바닥이다(WCAG 2.2의 1.4.3, 1.4.11).</p>
+    <p>색 토큰은 넷이다. "옛 색"은 6장에서 서윤이 찾아낸 연회색 <code>#999999</code>가 섞인 상태, "밝은 토큰"과 "어두운 토큰"은 6장의 표, "반전 다크"는 지후가 처음 해 본 OKLCH 명도 뒤집기다. 아래 "주색 명도" 막대는 의미 토큰 <code>action</code> 하나의 OKLCH 명도만 움직인다. 버튼의 바탕, 링크, 눈썹 글이 모두 이 토큰을 부르므로 한 곳을 바꾸면 그 색을 쓰는 모든 짝의 대비가 함께 바뀐다.</p>
+
+    <div class="sim" id="sim-wl-color">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>토큰·대비 패널: 첫 화면의 글자–바탕 짝</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="wc-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="wc-tok"><button data-value="old">옛 색</button><button data-value="light" class="on">밝은 토큰</button><button data-value="dark">어두운 토큰</button><button data-value="inv">반전 다크</button></div>
+          <label class="ctrl"><span>주색 명도 바꾸기(ΔL) <output id="wc-dl-out"></output></span><input type="range" id="wc-dl" min="-0.2" max="0.2" step="0.01" value="0"></label>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin:0;border-top:1px solid var(--border)"><table class="wl-table">
+        <thead><tr><th>짝(쓰인 곳)</th><th>글자</th><th>바탕</th><th class="num">대비</th><th>기준</th></tr></thead>
+        <tbody id="wc-rows"></tbody>
+      </table></div>
+      <div class="sim-note">해볼 것: ① "옛 색"에서 가장 낮은 짝을 찾는다. 날짜 줄의 <code>#999999</code>가 2.85, 바닥글의 차분한 초록이 2.62다. ② "반전 다크"로 바꾼다. 주색 버튼과 흐린 글자가 3.19·3.06으로 떨어진다(6장에서 지후가 본 숫자). ③ "밝은 토큰"에서 주색 명도를 +0.08쯤 올린다. 버튼 위 흰 글자가 4.5 아래로 내려가는 순간을 본다. 어두운 토큰에서 같은 막대를 내리면 반대 방향으로 무너진다. (모형의 가정: 대비는 이 서가의 엔진 <code>ART.contrast</code>, 명도 조정은 OKLCH에서 L만 바꾸고 색역 밖이면 채도를 줄인다.)</div>
+    </div>
+
+    <p>토큰 체계가 하는 일은 "같은 초록이 여섯 가지 hex로 흩어지지 않게" 하는 것만이 아니다. 실험실처럼 의미 토큰 하나를 바꾸었을 때 영향을 받는 짝이 모두 한 표에 모인다는 것이 더 크다. 6장의 다크 모드 값(바탕 <code>#151917</code>, 주색 <code>#5eaa85</code>, 주색 위 글자 <code>#151917</code>)은 반전이 아니라 따로 지정한 값이라, 표의 모든 짝이 6 이상으로 남는다.</p>
+  </section>
+
+  <section id="focus">
+    <h2>포커스 패널: 7장과 11장이 다르게 적은 링</h2>
+    <p>장마다 따로 정하다 보니 같은 것을 두 장이 다르게 적은 곳이 나왔다. 포커스 표시다. <a href="components.html">7장</a>은 버튼 상태 표에 <b>3&nbsp;px 링 <code>#22342a</code>, 2&nbsp;px 띄움, 어두운 영역 안에서는 크림 <code>#ffe2d7</code></b>을 적었다. <a href="access.html">11장</a>의 점검표는 <b>3&nbsp;px 책방 초록 <code>#2f7d5b</code>, 2&nbsp;px 띄움</b>을 적었다. 둘 다 흰 바탕에서는 기준을 넘는다. 차이는 바탕이 바뀔 때 드러난다.</p>
+    <p>아래 패널은 신청 폼과 짙은 바닥글을 Tab 순서대로 한 칸씩 옮겨 가며, 링과 그 링이 닿는 바탕의 대비를 잰다. 포커스 링은 비텍스트 요소이므로 바탕과 3:1 이상이어야 알아볼 수 있다(1.4.11). WCAG 2.2의 2.4.13 포커스 모양(AAA)도 포커스 표시가 그 둘레와 3:1 이상 대비를 갖기를 요구한다.</p>
+
+    <div class="sim" id="sim-wl-focus">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>포커스 패널: Tab으로 한 칸씩</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="wf-cv" class="art"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="wf-ring"><button data-value="none">표시 없음</button><button data-value="green">11장: 초록 링</button><button data-value="ink" class="on">7장: 짙은 링 + 크림</button><button data-value="double">이중 링</button></div>
+          <label class="ctrl"><span>Tab 순서 <output id="wf-i-out"></output></span><input type="range" id="wf-i" min="1" max="12" step="1" value="12"></label>
+          <label class="check"><input type="checkbox" id="wf-dk"> 어두운 토큰으로 보기</label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">지금 포커스</span><span class="v" id="wf-o-n">—</span></div>
+        <div class="stat"><span class="k">링 – 바탕 대비</span><span class="v" id="wf-o-c">—</span></div>
+        <div class="stat"><span class="k">모든 정류장 최저</span><span class="v" id="wf-o-min">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "11장: 초록 링"으로 두고 Tab 순서를 끝까지 민다. 마지막 정류장인 바닥글의 "오시는 길"에서 링 대비가 2.64로 떨어진다. 짙은 바닥글 위의 초록 링은 거의 보이지 않는다. ② "7장: 짙은 링 + 크림"으로 바꾼다. 흰 칸에서는 13.19, 바닥글에서는 크림 링이 10.74다. ③ "어두운 토큰으로 보기"를 켠다. 짙은 링 규칙은 바탕이 어두우면 크림으로 바뀌므로 그대로 버틴다. ④ "표시 없음"은 대비를 잴 것조차 없다. (모형의 가정: 링은 요소에서 2&nbsp;px 띄운 3&nbsp;px 선이고, 대비는 링과 그 아래 바탕 사이로 잰다. 이중 링은 안쪽 흰 2&nbsp;px와 바깥 짙은 2&nbsp;px 중 대비가 큰 쪽.)</div>
+    </div>
+
+    <p>실험실에서 정한 것은 이렇다. <b>포커스 색은 7장의 짙은 링 <code>#22342a</code>로 한다.</b> 흰 바탕 13.19, 페이지 바탕 <code>#f6fcf8</code> 12.68, 크림 띠 10.74다. 어두운 영역(바닥글, 그리고 다크 모드의 모든 바탕) 안에서는 크림 <code>#ffe2d7</code> 링을 쓴다. 바닥글 위 10.74, 다크 모드 바탕 위 14.46이다. 11장의 초록 링은 흰 바탕 4.99, 크림 띠 4.07로 밝은 곳에서는 통과하지만, 짙은 바닥글 위에서 2.64로 무너지고 주색 버튼 둘레에서는 버튼과 같은 색이라 링과 버튼이 한 덩어리로 보인다. 11장의 점검표 자체(키보드만으로 신청, 포커스 순서 = 읽는 순서, <code>:focus-visible</code>, 고정 띠만큼 <code>scroll-padding</code>)는 그대로 두고 색 한 줄만 7장 값으로 맞춘다.</p>
+
+    <div class="wl-code">:root { --focus-ring: #22342a; }              /* 밝은 바탕 위 13.19 · 12.68 · 10.74 */
+.on-dark, [data-theme="dark"] { --focus-ring: #ffe2d7; }  /* 짙은 바탕 위 10.74 · 14.46 */
+:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }</div>
+
+    <div class="callout studio">
+      <strong>두 장이 다르게 적었을 때</strong>
+      지후는 회사에서 이런 일을 자주 본다고 했다. 시안 파일에 하나, 컴포넌트 문서에 하나, 점검표에 하나. 셋이 다르면 결국 코드에 들어간 값이 이긴다. 그래서 지후의 팀은 "값은 한 곳에만 적고, 다른 문서는 그 이름을 부른다"는 규칙을 둔다. 11장의 점검표에 hex 대신 <code>var(--focus-ring)</code>을 적어 두었다면 두 값은 처음부터 갈라질 수 없었다. 토큰 체계(6장)가 색과 글자에만 쓰는 도구가 아니라는 뜻이다. 보조 글자도 같은 일이 있었다. 6장은 <code>text-muted</code>를 <code>#567666</code>으로, 11장은 폼 안내 글자를 <code>#5d6b63</code>으로 적었다. 실험실에서는 토큰 하나(<code>text-muted</code> <code>#567666</code>, 흰 칸 5.03 · 바탕 4.83)로 합쳤다. 이 책의 엔진으로 다시 재면 <code>#5d6b63</code>은 흰 바탕 위 5.60이다. 둘 다 4.5를 넘으니 어느 쪽을 골라도 기준은 지키지만, 같은 일을 하는 글자가 두 색일 이유는 없다.
+    </div>
+  </section>
+
+  <section id="target">
+    <h2>타깃 패널: 44는 글자를 키워도 44인가</h2>
+    <p><a href="components.html">7장</a>은 터치 타깃의 사이트 최소를 44×44&nbsp;CSS&nbsp;px로 정했다(WCAG 2.2 2.5.8의 24×24는 하한). <a href="navigation.html">8장</a>은 탭 바 네 칸이 폭 320·글자 200%에서도 칸 폭 80&nbsp;px, 높이 56&nbsp;px 이상이 되게 했다. 이 패널은 행사 일정 페이지를 휴대폰 폭에 놓고 모든 타깃에 상자를 그린다. 초록 실선은 44 이상, 주황 점선은 24~44, 빨강은 24 미만이다. 24 미만인 타깃에는 2.5.8의 간격 예외를 확인하는 지름 24의 원을 그린다.</p>
+    <p>목업의 타깃을 누르면, <a href="components.html">7장</a>의 손가락 흩어짐 모형(걸으면서 한 손, 표준편차 2.0&nbsp;mm)으로 그 타깃을 노린 마흔 번의 터치를 찍는다. 노린 것에 닿으면 짙은 초록, 이웃 타깃에 닿으면 빨강, 빈 곳이면 회색이다.</p>
+
+    <div class="sim" id="sim-wl-target">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>타깃 패널: 휴대폰의 행사 일정</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view stage"><canvas id="wt-cv" class="art"></canvas><span class="hint">타깃을 눌러 노린다</span></div>
+        <div class="sim-controls">
+          <div class="seg" id="wt-cp"><button data-value="fixed">첫 시안(칩 28·간격 4, 버튼 120×36)</button><button data-value="min44" class="on">서윤의 선택(최소 44, 내용 따라)</button></div>
+          <label class="ctrl"><span>글자 크기 설정 <output id="wt-ts-out"></output></span><input type="range" id="wt-ts" min="1" max="2" step="0.05" value="1"></label>
+          <label class="ctrl"><span>기기 폭 <output id="wt-w-out"></output></span><input type="range" id="wt-w" min="320" max="430" step="1" value="360"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">가장 작은 타깃</span><span class="v" id="wt-o-min">—</span></div>
+        <div class="stat"><span class="k">2.5.8 · 44 규칙</span><span class="v" id="wt-o-std">—</span></div>
+        <div class="stat"><span class="k">칩 잘못 누르기(걷기)</span><span class="v" id="wt-o-bad">—</span></div>
+        <div class="stat"><span class="k">탭 바 칸</span><span class="v" id="wt-o-tab">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "첫 시안"에서 날짜 칩을 눌러 본다. 28&nbsp;px 칩에 간격 4라 걸으면서 누르면 열에 한 번쯤 옆 날짜에 닿는다(모형 약 11%). ② "서윤의 선택"으로 바꾼다. 칩 44·간격 8에서 잘못 누르기가 2% 안팎이 된다. 일주일이 한 줄에 다 들어가지 않아 끝 칩이 잘려 보이는 것은 7장에서 일부러 정한 단서다. ③ 글자 크기를 200%로 올린다. 첫 시안의 고정 버튼은 "신청하기" 글자가 잘리고 칩 글자가 넘친다. 서윤의 칩은 글자를 따라 75&nbsp;px까지 커지고, 탭 바 글자는 두 줄로 꺾이며 칸이 높아진다. ④ 폭을 320으로 줄인다. 탭 바 칸은 80&nbsp;px이다. (모형의 가정: 누른 자리는 노린 타깃 가운데를 중심으로 가로세로 독립인 정규 분포, 표준편차 2.0&nbsp;mm, 1&nbsp;CSS&nbsp;px ≈ 0.16&nbsp;mm. 7장과 같은 교육용 가정이다.)</div>
+    </div>
+
+    <p>44라는 수는 "최소 높이"로 적어야 지켜진다. 첫 시안의 버튼처럼 <code>height: 36px</code>로 못 박으면 글자를 키운 사람에게 글자가 잘리고, 반대로 칩을 <code>28px</code>로 못 박으면 글자는 넘치고 타깃은 그대로 작다. 서윤의 부품은 <code>min-height: 44px</code>에 안쪽 여백과 rem 글자를 더해 크기가 내용을 따른다. 대가는 자리다. 글자 200%의 휴대폰에서 칩은 한 화면에 세 개 남짓만 보인다. 서윤은 칩을 줄이지 않고 가로로 넘기는 방식을 지켰다. 2.5.8은 크기를 간격으로 메우는 길도 열어 두었지만(24 원이 겹치지 않으면 통과), 간격은 잘못 누르기를 "반응 없음"으로 바꿀 뿐 노린 칩에 닿는 비율을 올리지는 않는다.</p>
+  </section>
+
+  <section id="weight">
+    <h2>용량 패널: 픽셀 비율 3의 휴대폰은 어느 사진을 받는가</h2>
+    <p><a href="performance.html">12장</a>은 첫 화면(휴대폰)의 무게 예산을 500&nbsp;KB로 정했다. HTML·CSS 50, 자바스크립트 50, 웹폰트 200, 첫 사진 150, 기타 50. 사진은 480·800·1600 세 폭의 WebP를 <code>srcset</code>으로 두고, "360&nbsp;px 휴대폰은 800화소(약 75&nbsp;KB)를 받는다"고 적었다. 그런데 브라우저가 고르는 파일은 화면의 CSS 폭이 아니라 <b>그 폭에 기기 픽셀 비율(DPR)을 곱한 화소 수</b>를 기준으로 한다. 서윤의 휴대폰은 DPR 3이다(<a href="viewport.html">2장</a>).</p>
+    <p>아래 패널은 첫 화면 사진이 차지하는 CSS 폭과 DPR로 <code>srcset</code>이 고를 파일을 정하고, 12장의 내려받기 모형(대역폭과 왕복 지연, 동시에 받는 파일이 대역폭을 나눠 쓰는 단순 모형)으로 LCP를 어림한다. 1200 폭은 이 장에서 새로 넣어 보는 후보다. 무게는 12장과 같은 어림(면적이 4분의 1이면 무게는 약 3분의 1)으로 약 142&nbsp;KB, 480 폭은 약 33&nbsp;KB로 쳤다.</p>
+
+    <div class="sim" id="sim-wl-weight">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>용량 패널: 첫 화면 무게와 LCP</h3></div>
+      <div class="sim-body side">
+        <div class="sim-view"><canvas id="wg-cv"></canvas></div>
+        <div class="sim-controls">
+          <div class="seg" id="wg-ph"><button data-value="orig">원본 4 MB</button><button data-value="one">1600 하나</button><button data-value="set3">srcset 3폭</button><button data-value="set4" class="on">srcset 4폭(+1200)</button></div>
+          <div class="seg" id="wg-dpr"><button data-value="1">DPR 1</button><button data-value="2">DPR 2</button><button data-value="3" class="on">DPR 3</button></div>
+          <div class="seg" id="wg-ft"><button data-value="full">글꼴 통짜</button><button data-value="sub" class="on">조각 200 KB</button><button data-value="sys">시스템 글꼴</button></div>
+          <label class="ctrl"><span>기기 폭 <output id="wg-w-out"></output></span><input type="range" id="wg-w" min="320" max="1920" step="2" value="360"></label>
+        </div>
+      </div>
+      <div class="sim-readout">
+        <div class="stat"><span class="k">고른 사진</span><span class="v" id="wg-o-img">—</span></div>
+        <div class="stat"><span class="k">첫 화면 무게</span><span class="v" id="wg-o-w">—</span></div>
+        <div class="stat"><span class="k">LCP 느린 모바일(모형)</span><span class="v" id="wg-o-s">—</span></div>
+        <div class="stat"><span class="k">LCP 보통 LTE(모형)</span><span class="v" id="wg-o-l">—</span></div>
+      </div>
+      <div class="sim-note">해볼 것: ① "srcset 3폭"·DPR 3·폭 360에서 고른 사진을 본다. 사진이 차지하는 폭 328&nbsp;px × 3 = 984화소라 800으로는 모자라 1600(220&nbsp;KB)을 받는다. 무게는 예산 500을 넘고 느린 모바일 LCP는 3초다. ② DPR을 2로 낮춘다. 656화소면 800(75&nbsp;KB)으로 충분하다. 12장의 "800화소"는 DPR 2를 가정한 셈이다. ③ "srcset 4폭"으로 바꾸고 DPR 3으로 돌린다. 1200(약 142&nbsp;KB)을 받아 무게 492&nbsp;KB, LCP 약 2.3초로 예산 안에 든다. ④ 글꼴을 "통짜"로 바꾸면 사진과 대역폭을 나눠 써서 LCP도 함께 늦어진다. (모형의 가정: 12장의 내려받기 모형을 그대로 썼다. HTML 15, CSS 35, JS 50, 기타 50&nbsp;KB, 느린 모바일 1.6&nbsp;Mbps·왕복 150&nbsp;ms, 보통 LTE 10&nbsp;Mbps·60&nbsp;ms. 사진 무게 480·1200은 이 장의 어림. 브라우저는 실제로 캐시와 데이터 절약 설정에 따라 더 작은 파일을 고르기도 한다.)</div>
+    </div>
+
+    <p>이 패널이 찾아낸 것은 두 장 사이의 빈틈이다. 12장의 예산표는 맞고, 5장의 <code>srcset</code>도 맞다. 다만 둘 사이의 <b>기기 픽셀 비율</b>을 아무도 적지 않았다. 고칠 길은 셋이다. 사진 폭 후보를 하나 더 두거나(1200), <code>sizes</code>를 실제보다 작게 적어 브라우저를 속이거나, 첫 사진의 예산을 늘리고 다른 갈래를 줄이는 것. 두 번째는 화면이 흐려지는 것을 받아들이는 길이고, 세 번째는 웹폰트 200&nbsp;KB(TypeBook 11장의 예산)를 건드려야 한다. 서윤은 첫째를 골랐다. 파일이 하나 늘 뿐 화면도 예산도 지킨다.</p>
+  </section>
+
+  <section id="clash">
+    <h2>규칙이 부딪치는 곳</h2>
+    <p>각 패널은 한 갈래씩 떼어 보았다. 그런데 실험실의 진짜 쓸모는 갈래 사이에서 나온다. 한 장에서 정한 규칙이 다른 장의 규칙과 같은 화면에서 만날 때다. 서윤과 지후가 실험실을 돌리며 찾은 부딪침을 그림 3에 모았다. 어느 것도 한쪽이 "틀린" 것이 아니다. 각 장은 자기 문제를 풀었고, 두 해법이 함께 놓이는 조건을 그 장에서는 볼 수 없었을 뿐이다.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 460 340" role="img" aria-label="규칙이 부딪치는 다섯 곳. 포커스 링 색(7장과 11장), 보조 글자 색(6장과 11장), 사진 srcset과 기기 픽셀 비율과 무게 예산(5장과 12장), 44 픽셀 칩과 320 폭과 글자 200퍼센트(7장과 2장), em 중단점과 글자 200퍼센트의 넓은 화면(5장과 8장)">
+        <g class="lbl-b"><text x="14" y="24">부딪친 두 규칙</text><text x="300" y="24">실험실의 결정</text></g>
+        <path d="M14 32H446" class="s-axis"/>
+        <rect x="14" y="42" width="128" height="48" rx="6" class="f-acc-soft"/><text x="78" y="62" text-anchor="middle" class="lbl">7장 링 #22342a</text><text x="78" y="80" text-anchor="middle" class="lbl-dim">흰 바탕 13.19</text>
+        <rect x="156" y="42" width="128" height="48" rx="6" class="f-acc2-soft"/><text x="220" y="62" text-anchor="middle" class="lbl">11장 링 #2f7d5b</text><text x="220" y="80" text-anchor="middle" class="lbl-dim">바닥글 위 2.64</text>
+        <text x="300" y="62" class="lbl-acc">짙은 링, 어두운 곳은 크림</text><text x="300" y="80" class="lbl-dim">최저 10.74</text>
+        <rect x="14" y="102" width="128" height="48" rx="6" class="f-acc-soft"/><text x="78" y="122" text-anchor="middle" class="lbl">6장 #567666</text><text x="78" y="140" text-anchor="middle" class="lbl-dim">text-muted</text>
+        <rect x="156" y="102" width="128" height="48" rx="6" class="f-acc2-soft"/><text x="220" y="122" text-anchor="middle" class="lbl">11장 #5d6b63</text><text x="220" y="140" text-anchor="middle" class="lbl-dim">폼 안내 글자</text>
+        <text x="300" y="122" class="lbl-acc">토큰 하나로 합침</text><text x="300" y="140" class="lbl-dim">흰 칸 5.03 · 바탕 4.83</text>
+        <rect x="14" y="162" width="128" height="48" rx="6" class="f-acc-soft"/><text x="78" y="182" text-anchor="middle" class="lbl">5·12장 srcset</text><text x="78" y="200" text-anchor="middle" class="lbl-dim">480·800·1600</text>
+        <rect x="156" y="162" width="128" height="48" rx="6" class="f-acc2-soft"/><text x="220" y="182" text-anchor="middle" class="lbl">DPR 3 휴대폰</text><text x="220" y="200" text-anchor="middle" class="lbl-dim">984화소 필요</text>
+        <text x="300" y="182" class="lbl-acc">1200 폭을 더함</text><text x="300" y="200" class="lbl-dim">492 KB · LCP 2.3초</text>
+        <rect x="14" y="222" width="128" height="48" rx="6" class="f-acc-soft"/><text x="78" y="242" text-anchor="middle" class="lbl">7장 칩 최소 44</text><text x="78" y="260" text-anchor="middle" class="lbl-dim">글자 따라 커짐</text>
+        <rect x="156" y="222" width="128" height="48" rx="6" class="f-acc2-soft"/><text x="220" y="242" text-anchor="middle" class="lbl">2장 폭 320</text><text x="220" y="260" text-anchor="middle" class="lbl-dim">+ 글자 200%</text>
+        <text x="300" y="242" class="lbl-acc">가로 넘김 유지</text><text x="300" y="260" class="lbl-dim">한 화면 칩 약 3개</text>
+        <rect x="14" y="282" width="128" height="48" rx="6" class="f-acc-soft"/><text x="78" y="302" text-anchor="middle" class="lbl">5장 em 중단점</text><text x="78" y="320" text-anchor="middle" class="lbl-dim">56em = 1,792</text>
+        <rect x="156" y="282" width="128" height="48" rx="6" class="f-acc2-soft"/><text x="220" y="302" text-anchor="middle" class="lbl">8장 넓은 화면 메뉴</text><text x="220" y="320" text-anchor="middle" class="lbl-dim">글자 200% 노트북</text>
+        <text x="300" y="302" class="lbl-acc">탭 바 짜임을 받아들임</text><text x="300" y="320" class="lbl-dim">글줄 약 22자 유지</text>
+        <g class="s-dash"><path d="M290 40V332"/></g>
+      </svg>
+      <figcaption><b>그림 3. 규칙이 부딪치는 다섯 곳.</b> 왼쪽 두 칸은 서로 다른 장에서 정한 규칙, 오른쪽은 실험실에서 고른 해법이다. 대비와 무게, 시간은 이 장의 실험실(엔진 <code>ART.contrast</code>와 12장의 모형)로 잰 값이다.</figcaption>
+    </figure>
+
+    <p>부딪침을 푸는 순서는 서윤이 정했다. 첫째, <b>사람이 못 쓰게 되는 쪽</b>을 먼저 막는다. 바닥글 위에서 사라지는 포커스 링은 키보드 사용자에게 길을 끊는다. 둘째, <b>기준을 넘는 두 값 사이에서는 체계가 단순한 쪽</b>을 고른다. 보조 글자는 둘 다 4.5를 넘으므로 토큰 하나로 합쳤다. 셋째, <b>비용이 작은 쪽</b>으로 고친다. 사진 폭을 하나 더 뽑는 것은 웹폰트 예산을 깎는 것보다 싸다. 넷째, 어느 쪽도 고치지 않는 것도 선택이다. 글자를 200%로 키운 노트북에 탭 바가 붙는 것은 받아들였다. 그 사람에게 글줄 22자의 1단 짜임이 더 읽기 좋기 때문이다.</p>
+  </section>
+
+  <section id="lab">
+    <h2>종합 실험실</h2>
+    <p>이제 모든 설정을 한 작업대에 모은다. 위쪽에 목업이 놓이고, 아래 조절기가 여덟 갈래를 모두 움직인다. "나란히 비교"를 켜면 같은 설정을 폭 360 휴대폰과 폭 1,280 넓은 화면에 나란히 그리고, 점검표도 두 칸으로 나뉜다. 두 단추로 "첫 시안 모음"과 "서윤의 선택"을 한 번에 불러올 수 있다. 둘 다 출발점일 뿐이니 하나씩 바꿔 가며 어느 갈래가 어느 줄을 빨갛게 만드는지 본다.</p>
+    <p>순서는 이렇게 권한다. ① 페이지와 폭을 정한다. ② 확대 200%와 글자 200%를 차례로 켜서 짜임이 무너지지 않는지 본다(1.4.4, 1.4.10). ③ 그리드를 겹쳐 카드 경계가 단 선 위에 서는지 본다. ④ 색 토큰을 밝은·어두운으로 바꿔 대비 줄을 확인한다. ⑤ Tab 순서를 끝까지 밀어 포커스 링이 모든 바탕에서 보이는지 본다. ⑥ 타깃을 겹쳐 가장 작은 것을 찾는다. ⑦ 사진·글꼴·통신을 바꿔 무게와 LCP를 본다. ⑧ 나란히 비교로 휴대폰과 넓은 화면을 함께 본다.</p>
+
+    <div class="sim" id="sim-wl-lab">
+      <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>웹 실험실</h3></div>
+      <div class="sim-body">
+        <div class="sim-view stage">
+          <div id="wl-L-one"><canvas id="wl-L-cv" class="art"></canvas></div>
+          <div class="wl-two wl-pad" id="wl-L-two" hidden>
+            <div><b>휴대폰 360</b><canvas id="wl-L-a" class="art"></canvas></div>
+            <div><b>넓은 화면 1280</b><canvas id="wl-L-b" class="art"></canvas></div>
+          </div>
+        </div>
+        <div class="sim-controls">
+          <div class="wl-grp"><p class="wl-ctrl-title">페이지와 화면</p>
+          <div class="seg" id="wl-L-pg"><button data-value="home" class="on">첫 화면</button><button data-value="sched">행사 일정</button><button data-value="form">신청 폼</button></div>
+          <label class="ctrl"><span>기기 폭 <output id="wl-L-w-out"></output></span><input type="range" id="wl-L-w" min="280" max="1920" step="2" value="360"></label>
+          <div class="seg" id="wl-L-z"><button data-value="1" class="on">확대 100%</button><button data-value="2">200%</button><button data-value="4">400%</button></div>
+          <label class="ctrl"><span>글자 크기 설정 <output id="wl-L-ts-out"></output></span><input type="range" id="wl-L-ts" min="1" max="2" step="0.05" value="1"></label>
+          <label class="check"><input type="checkbox" id="wl-L-cmp"> 나란히 비교(360 · 1280)</label>
+          </div>
+          <div class="wl-grp"><p class="wl-ctrl-title">배치</p>
+          <div class="seg" id="wl-L-fr"><button data-value="fixed">고정 960</button><button data-value="device">기기 768·1024</button><button data-value="em" class="on">em 35·56</button></div>
+          <div class="seg" id="wl-L-sp"><button data-value="draft">간격 제각각</button><button data-value="scale" class="on">간격 여덟 단계</button></div>
+          <label class="check"><input type="checkbox" id="wl-L-grid"> 그리드 겹쳐 보기</label>
+          <label class="check"><input type="checkbox" id="wl-L-gap"> 간격 값 보기</label>
+          </div>
+          <div class="wl-grp"><p class="wl-ctrl-title">상호작용</p>
+          <div class="seg" id="wl-L-tok"><button data-value="old">옛 색</button><button data-value="light" class="on">밝은 토큰</button><button data-value="dark">어두운 토큰</button><button data-value="inv">반전 다크</button></div>
+          <div class="seg" id="wl-L-fc"><button data-value="none">포커스 없음</button><button data-value="green">초록 링</button><button data-value="ink" class="on">짙은 링 + 크림</button></div>
+          <div class="seg" id="wl-L-cp"><button data-value="fixed">부품 고정 크기</button><button data-value="min44" class="on">부품 최소 44</button></div>
+          <label class="ctrl"><span>Tab 순서 <output id="wl-L-tab-out"></output></span><input type="range" id="wl-L-tab" min="0" max="20" step="1" value="0"></label>
+          <label class="check"><input type="checkbox" id="wl-L-tg"> 타깃 겹쳐 보기</label>
+          <label class="check"><input type="checkbox" id="wl-L-err" checked> 폼 오류 보기</label>
+          </div>
+          <div class="wl-grp"><p class="wl-ctrl-title">쓰임</p>
+          <div class="seg" id="wl-L-ph"><button data-value="orig">사진 원본</button><button data-value="one">1600 하나</button><button data-value="set3">srcset 3폭</button><button data-value="set4" class="on">srcset 4폭</button></div>
+          <div class="seg" id="wl-L-ft"><button data-value="full">글꼴 통짜</button><button data-value="sub" class="on">글꼴 조각</button><button data-value="sys">시스템 글꼴</button></div>
+          <div class="seg" id="wl-L-js"><button data-value="heavy">JS 380 KB</button><button data-value="lite" class="on">JS 50 KB</button></div>
+          <div class="seg" id="wl-L-dpr"><button data-value="1">DPR 1</button><button data-value="2">DPR 2</button><button data-value="3" class="on">DPR 3</button></div>
+          <div class="seg" id="wl-L-net"><button data-value="slow" class="on">느린 모바일</button><button data-value="lte">보통 LTE</button></div>
+          <div class="btn-row"><button class="btn sm" type="button" id="wl-L-p1">첫 시안 모음</button><button class="btn sm" type="button" id="wl-L-p2">서윤의 선택</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin:0;border-top:1px solid var(--border)"><table class="wl-table">
+        <thead id="wl-L-head"><tr><th>점검</th><th>지금 화면</th><th>기준</th></tr></thead>
+        <tbody id="wl-L-rows"></tbody>
+      </table></div>
+      <div class="sim-note">해볼 것: ① "첫 시안 모음"을 누르고 폭 360에서 점검표를 위에서부터 읽는다. 가로 넘침, 대비 2.85, 포커스 없음, 타깃 28, 무게 6&nbsp;MB, LCP 20초 넘게. 갈래 하나씩을 서윤의 값으로 바꾸며 어느 줄이 초록이 되는지 본다. ② "서윤의 선택"에서 확대를 400%로 올린다. 1,280 노트북이라면 CSS 폭 320이 되어 휴대폰 짜임이 된다(1.4.10). ③ 글자 크기 200%, 페이지 "신청 폼", 폭 320. 칸 높이와 버튼이 글자를 따라 커지고 오류 문장이 두세 줄로 꺾여도 잘리지 않는다. ④ 나란히 비교를 켜고 색 토큰을 "어두운 토큰", 포커스를 "초록 링"으로 바꾼 뒤 Tab 순서를 끝까지 민다. ⑤ 사진을 "srcset 3폭"으로, DPR을 3으로 두고 첫 화면의 무게 줄을 본다. (모형의 가정: 앞 패널들과 같다. 본문 크기·제목 크기는 5·6장의 <code>clamp()</code> 식, 중단점은 rem 기준 em, 간격은 rem, 화면 가장자리 16&nbsp;px, 한 줄 글자 수는 0.757&nbsp;em 어림, LCP는 12장 모형에 첫 화면에서 가장 넓게 보이는 요소를 LCP 후보로 쳤다.)</div>
+    </div>
+
+    <p>점검표에서 가장 먼저 볼 줄은 <b>가로 넘침</b>과 <b>포커스 표시</b>다. 둘은 실패하면 어떤 사람에게는 페이지 전체가 쓸 수 없게 된다. 대비와 타깃은 그다음이다. 무게와 LCP는 통신 조건에 따라 오가므로 "느린 모바일"에서 기준을 넘는지를 본다. 표의 어느 줄도 빨갛지 않다고 좋은 페이지가 되는 것은 아니다. 숫자가 말하지 못하는 것, 곧 첫 화면이 "다음 모임" 하나를 제대로 말하는지, 책방의 목소리처럼 보이는지는 두 폭을 나란히 놓고 눈으로 고른다.</p>
+
+    <div class="callout deep">
+      <strong>자동 점검이 잡지 못하는 것</strong>
+      접근성 자동 검사 도구는 대비, 대체 텍스트의 유무, 라벨 연결 같은 기계가 셀 수 있는 것을 잘 찾는다. 반면 대체 텍스트가 사진을 제대로 말하는지, 포커스 순서가 읽는 순서와 맞는지, 오류 문장이 고칠 방법을 알려 주는지는 사람이 판단해야 한다. W3C의 WCAG 2.2 이해 문서(Understanding WCAG 2.2)도 여러 성공 기준에 대해 사람의 판단이 필요하다고 설명한다. 이 실험실의 점검표도 마찬가지다. 대비와 타깃 크기는 계산하지만, "img_0231"을 알아내지는 못한다. 그래서 <a href="access.html">11장</a>의 공개 전 세 가지(키보드만으로 신청, 낭독기로 제목·링크 목록 듣기, 200% 확대)는 실험실 점검과 따로 남긴다.
+    </div>
+
+    <div class="callout try">
+      <strong>종이 휴대폰 세 장</strong>
+      두꺼운 종이를 실제 크기로 오린다. 휴대폰(약 7×15&nbsp;cm), 태블릿(약 15×20&nbsp;cm), 노트북 화면(약 30×19&nbsp;cm). 실험실에서 "서윤의 선택"으로 첫 화면을 세 폭(360·768·1280)에 띄워 캡처하고, 연필로 각 종이에 같은 비율로 옮겨 그린다. 상자와 글줄만 그리면 된다. 그다음 휴대폰 종이를 손에 들고 엄지손가락 끝에 물감이나 인주를 묻혀, 걸으면서 "신청하기"와 날짜 칩을 다섯 번씩 찍어 본다. 찍힌 자국이 상자 밖으로 얼마나 나갔는지 자로 재고, 실험실 타깃 패널의 흩어짐과 견준다. 마지막으로 글자를 두 배로 키웠다고 치고, 휴대폰 종이 위에 상자들을 다시 그려 어디가 먼저 넘치는지 표시한다.
+    </div>
+
+    <div class="callout studio">
+      <strong>실험실의 값은 진짜 기기에서 다시 본다</strong>
+      지후는 실험실의 결과를 그대로 코드에 옮기지 않았다. 실험실에서 고른 값으로 시험판을 고친 뒤, 확인은 늘 진짜 기기로 했다. 한도경의 휴대폰(글자 최대), 서윤의 휴대폰(DPR 3), 회사의 오래된 모니터(DPR 1), 그리고 브라우저 개발자 도구의 느린 통신 흉내. 목업은 몇 픽셀씩 틀릴 수 있지만, 어디서 깨지는지의 순서는 대개 맞는다. 그래서 실험실은 "어디를 진짜 기기로 먼저 볼지"를 정하는 데 가장 쓸모가 있었다고 지후는 말했다.
+    </div>
+  </section>
+
+  <section id="case" data-nonum>
+    <h2>서윤의 작업 노트</h2>
+    <div class="casefile">
+      <div class="tag"><b>CASE 서윤</b><span>웹 개편 노트 · 13장</span></div>
+      <h4>공개 전 마지막 점검, 세 페이지를 한 작업대에</h4>
+      <p>2028년 2월 마지막 주 목요일 저녁, 책방 E 2층. 공개(3월 첫 주)까지 열흘이 남았다. 서윤은 노트북과 휴대폰을 나란히 놓고 첫 화면, 행사 일정, 모임 신청 폼을 실험실에 차례로 넣었다. 지후는 맞은편에서 시험판 코드를 열었고, 한도경은 글자를 가장 크게 한 휴대폰을 들고 왔다. 1월부터 장마다 따로 정한 값이 한 화면에서도 서로 어긋나지 않는지, 정하지 못하고 남겨 둔 것은 무엇인지 확인하는 자리였다.</p>
+      <p>먼저 장마다 처음 시도했던 값을 모은 "첫 시안 모음"을 띄워 출발점을 적었다. 폭 360에서 960 판이 600&nbsp;px 넘쳤고, 날짜 줄 대비는 2.85, 포커스 표시는 없었고, 가장 작은 타깃은 날짜 칩 28&nbsp;px, 첫 화면 무게는 6&nbsp;MB를 넘었다. 그다음 "서윤의 선택"을 띄워 같은 줄을 다시 쟀다. 아래 표의 값은 이 장의 실험실로 잰 것이다(목업의 어림이라 진짜 브라우저와 몇 픽셀 다를 수 있다).</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>점검</th><th>휴대폰 360 · 글자 100%</th><th>휴대폰 360 · 글자 200%</th><th>넓은 화면 1280</th><th>기준</th></tr></thead>
+        <tbody>
+          <tr><td>짜임 · 그리드</td><td>1단 · 4단 거터 16</td><td>1단 · 4단 거터 16</td><td>행 + 옆 칸 · 12단 · 단 78</td><td>최소 폭 320에서 넘침 없음</td></tr>
+          <tr><td>본문 · 한 줄</td><td class="num">17 px · 약 <span id="wl-case-c1">25</span>자</td><td class="num">34 px · 약 <span id="wl-case-c2">12</span>자</td><td class="num">18 px · 약 <span id="wl-case-c3">37</span>자</td><td>상한 28&nbsp;em(약 37자)</td></tr>
+          <tr><td>제목(h1)</td><td class="num">30 px</td><td class="num">60 px</td><td class="num">40 px</td><td>5장 <code>clamp()</code> 식</td></tr>
+          <tr><td>가장 작은 타깃</td><td class="num">44 × 44</td><td class="num">44 이상(칩 75)</td><td class="num">44 × 44</td><td>2.5.8 24 · 사이트 44</td></tr>
+          <tr><td>탭 바 · 메뉴</td><td>4칸 · 칸 90 px</td><td>4칸 · 글자 두 줄</td><td>머리 띠 5개</td><td>8장</td></tr>
+          <tr><td>글자 대비 최저</td><td class="num">4.80</td><td class="num">4.80</td><td class="num">4.80</td><td>4.5 · 큰 글자 3</td></tr>
+          <tr><td>포커스 링 최저</td><td class="num">10.74</td><td class="num">10.74</td><td class="num">10.74</td><td>3 이상</td></tr>
+          <tr><td>첫 화면 무게(DPR 3)</td><td class="num"><span id="wl-case-kb">492</span> KB</td><td class="num">492 KB</td><td class="num">492 KB(DPR 2)</td><td>500 KB</td></tr>
+          <tr><td>LCP 느린 모바일(모형)</td><td class="num">약 <span id="wl-case-lcp">2.3</span>초</td><td class="num">약 2.3초</td><td class="num">약 2.3초</td><td>2.5초</td></tr>
+        </tbody>
+      </table></div>
+      <p>표에서 빨간 줄은 없었지만, 실험실을 돌리는 동안 부딪침이 다섯 곳에서 나왔다(그림 3). 가장 먼저 걸린 것은 포커스 링이었다. 7장의 버튼 표에는 <code>#22342a</code>, 11장의 점검표에는 <code>#2f7d5b</code>가 적혀 있었다. 지후가 "코드에는 11장 값이 들어가 있어요" 하고 Tab을 바닥글까지 누르자 "오시는 길"의 초록 링이 짙은 바닥글에 묻혔다. 실험실로 재니 2.64였다. 서윤은 7장의 값으로 맞췄다. 밝은 바탕에서는 짙은 링(최저 10.74, 크림 띠 위), 어두운 영역과 다크 모드에서는 크림 링(최저 10.74, 바닥글 위)이다. 11장의 점검표에는 hex 대신 <code>var(--focus-ring)</code>을 적었다. 보조 글자도 6장(<code>#567666</code>)과 11장(<code>#5d6b63</code>)이 갈라져 있어 토큰 하나로 합쳤다.</p>
+      <p>두 번째는 사진이었다. 서윤의 휴대폰(DPR 3)으로 시험판을 열자 개발자 도구에 1600 폭 사진이 찍혔다. 12장의 "360 휴대폰은 800화소"는 DPR 2의 계산이었다. 실험실로 재니 첫 화면이 570&nbsp;KB, 느린 모바일 LCP가 3.0초였다. 지후가 1200 폭을 하나 더 뽑아 <code>srcset</code>을 네 폭으로 만들자 492&nbsp;KB, 2.3초가 되었다. 세 번째는 도경의 휴대폰이었다. 글자 200%, 폭 360에서 날짜 칩은 75&nbsp;px로 커져 한 화면에 세 개 남짓만 보였다. 도경은 칩을 손가락으로 밀어 보더니 "옆으로 밀리는 걸 알겠네. 끝이 잘려 있으니까" 했다. 서윤은 칩을 줄이지 않았다. 마지막으로 도경이 노트북 브라우저를 200%로 키우자 넓은 화면인데도 아래 탭 바가 붙었다. 지후는 고칠지 물었고, 서윤은 그대로 두자고 했다. 그 화면의 본문은 한 줄 22자 안팎으로, 넓은 짜임을 억지로 지키는 것보다 읽기 편했다.</p>
+      <p>도경은 마지막으로 서윤의 노트에 메모를 끼워 두었다. "표가 다 초록이어도 내 휴대폰으로 한 번은 더 해 봐라. 그리고 고르지 않은 것도 같이 적어 둬. 봄에 다시 고칠 때 그게 제일 쓸모 있을 거다." 지후의 메모는 짧았다. "값은 한 곳에. 나머지는 이름으로."</p>
+      <div class="clue">
+        <div><b>이 장에서 정한 것</b>서윤의 선택(실험실 종합 점검 뒤). ① 앞 장의 값은 그대로 이어 쓴다. 최소 폭 320(2장), 간격 4·8·12·16·24·32·48·64와 안 &lt; 밖 규칙(3장), 12단·거터 24·최대 1,200·카드 최소 240(4장), 중단점 35&nbsp;em·56&nbsp;em과 28&nbsp;em 글줄 상한(5장), 의미 토큰과 따로 지정한 다크 모드(6장), 상태 다섯·최소 44(7장), 탭 바 넷(8장), 폼 네 칸(9장), 150/250&nbsp;ms·곡선 하나(10장), 점검표 여섯 줄(11장), 500&nbsp;KB 예산(12장). ② <b>포커스 색은 7장의 <code>#22342a</code></b>(3&nbsp;px, 2&nbsp;px 띄움, 흰 바탕 13.19)로 확정하고, 어두운 영역과 다크 모드에서는 <code>#ffe2d7</code>(바닥글 10.74, 다크 바탕 14.46). 값은 <code>--focus-ring</code> 토큰 한 곳에만 둔다. ③ 보조 글자는 <code>text-muted</code> <code>#567666</code> 하나로 합친다. ④ 좁은 화면 그리드 안내선: 35&nbsp;em 아래 4단·거터 16, 35~56&nbsp;em 8단·거터 24, 그 위 12단. ⑤ 첫 사진 <code>srcset</code>에 1200 폭(약 142&nbsp;KB)을 더해 네 폭(480·800·1200·1600)으로, DPR 3 휴대폰에서도 첫 화면 492&nbsp;KB·LCP 약 2.3초(모형). ⑥ 글자 200% 넓은 화면의 1단·탭 바 짜임은 고치지 않는다.</div>
+        <div><b>남겨 둔 다른 선택지</b>이중 포커스 링(사진 위 버튼이 생기면, 7장 지후의 메모), <code>sizes</code>를 작게 적어 DPR 3에서도 800을 받게 하기(가볍지만 흐림), 첫 사진 예산을 늘리고 웹폰트를 한 굵기로 줄이기, 칩을 36&nbsp;px로 줄이고 간격 12로 2.5.8만 맞추기(한 줄에 일주일이 들어가지만 잘못 누르기가 늘어남), 글자 200% 넓은 화면에서도 머리 띠 메뉴를 유지하기. 두 설정의 점검표를 함께 노트에 남겼다.</div>
+        <div><b>다음 단계</b>3월 첫 주 공개. 공개 전날 11장의 세 가지(키보드만으로 신청, 낭독기 단골손님의 제목·링크 듣기, 200% 확대)를 진짜 기기로 한 번 더 한다. 공개 뒤 한 달 동안 전화로 들어온 신청 수를 주인과 함께 센다. 겨울 웹 개편 노트 전체는 <a href="glossary.html">14장</a>의 웹 개편 노트 색인에 모은다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keypoints" id="summary">
+    <h2>핵심 정리</h2>
+    <ol>
+      <li>장마다 따로 정한 값은 한 페이지 위에서 함께 점검한다. 폭, 확대, 글자 크기 설정 하나만 바꿔도 짜임, 글줄, 타깃, 무게가 같이 움직인다.</li>
+      <li>브라우저 확대는 CSS 뷰포트를 좁히고, 글자 크기 설정은 rem을 키운다. em 중단점은 둘 모두를 따라가서 글줄 기준(28&nbsp;em, 약 37자)을 지킨다.</li>
+      <li>간격과 그리드는 값이 단계에 있는지보다 무리 안 &lt; 카드 안 &lt; 카드 사이 &lt; 구획 사이의 순서와, 제목이 자기 목록에 붙는지로 본다.</li>
+      <li>대비는 페이지에 실제로 쓰인 글자–바탕 짝을 모두 잰다. 의미 토큰 하나를 바꾸면 그 토큰을 부르는 짝이 함께 바뀐다. 다크 모드는 반전이 아니라 따로 지정한다.</li>
+      <li>포커스 링은 그 링이 닿는 모든 바탕에서 3:1 이상이어야 한다. 이 책의 결정은 밝은 곳 <code>#22342a</code>, 어두운 곳 <code>#ffe2d7</code>이고, 값은 토큰 한 곳에 둔다.</li>
+      <li>터치 타깃은 고정 크기가 아니라 최소 크기(<code>min-height: 44px</code>)로 적어야 글자를 키워도 지켜진다. 2.5.8의 24는 하한이다.</li>
+      <li><code>srcset</code>은 CSS 폭 × 기기 픽셀 비율로 파일을 고른다. 무게 예산은 가장 높은 DPR의 휴대폰에서 다시 재 본다.</li>
+    </ol>
+  </section>
+
+  <section class="quiz-sec" id="quiz">
+    <h2>확인 퀴즈</h2>
+    <div class="quiz">
+      <div class="quiz-q">
+        <p>1. 노트북 화면(폭 1,280&nbsp;px)에서 브라우저를 400%로 확대했다. 이 페이지의 짜임을 정하는 CSS 뷰포트 폭은 얼마이고, 어떤 기준과 이어지는가?</p>
+        <div class="opts">
+          <button class="opt">1,280&nbsp;px 그대로다. 확대는 글자만 키우므로 짜임과 상관없다.</button>
+          <button class="opt" data-correct>320&nbsp;px이다. WCAG 2.2의 1.4.10(리플로)은 이 폭에서 두 방향 스크롤 없이 볼 수 있기를 요구한다.</button>
+          <button class="opt">5,120&nbsp;px이다. 확대하면 뷰포트가 네 배로 넓어진다.</button>
+          <button class="opt">640&nbsp;px이다. 브라우저는 확대를 최대 200%까지만 짜임에 반영한다.</button>
+        </div>
+        <div class="quiz-exp">브라우저 확대는 CSS 픽셀 하나를 더 크게 그리므로 같은 화면에 들어가는 CSS 픽셀의 수가 줄어든다. 1,280 ÷ 4 = 320이다. 1.4.10은 폭 320 CSS px에서 내용이 잘리거나 옆으로 밀 필요 없이 보이기를 요구하고, 2장에서 정한 최소 폭 320이 바로 이 값이다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>2. 7장은 포커스 링을 <code>#22342a</code>로, 11장은 <code>#2f7d5b</code>로 적었다. 실험실에서 <code>#22342a</code>(어두운 곳은 크림 <code>#ffe2d7</code>)를 고른 근거로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">짙은 색이 초록보다 더 세련되어 보이기 때문이다.</button>
+          <button class="opt">초록 링은 흰 바탕에서도 3:1에 모자라기 때문이다.</button>
+          <button class="opt">7장이 11장보다 먼저 나왔으므로 앞 장의 값이 우선한다.</button>
+          <button class="opt" data-correct>초록 링은 흰 바탕에서는 4.99로 통과하지만 짙은 바닥글 위에서 2.64로 떨어지고, 짙은 링과 크림 링의 규칙은 모든 바탕에서 10 이상을 지키기 때문이다.</button>
+        </div>
+        <div class="quiz-exp">포커스 링은 비텍스트 요소라 닿는 바탕과 3:1 이상이어야 한다. 초록 링은 밝은 바탕에서는 통과하지만 짙은 바닥글 위(2.64)에서 실패한다. 짙은 링은 밝은 바탕에서 13.19·12.68·10.74, 크림 링은 어두운 바탕에서 10.74·14.46이다. 취향이나 장의 순서가 아니라 모든 바탕에서의 대비가 근거다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>3. 첫 사진이 화면에서 CSS 폭 328&nbsp;px을 차지하고, <code>srcset</code>에 480·800·1600 세 폭이 있다. 기기 픽셀 비율 3의 휴대폰은 어느 파일을 받는가?</p>
+        <div class="opts">
+          <button class="opt" data-correct>1600. 328 × 3 = 984화소가 필요해 800으로는 모자라고, 그다음으로 큰 1600을 고른다.</button>
+          <button class="opt">480. 휴대폰은 늘 가장 작은 파일을 받는다.</button>
+          <button class="opt">800. 360&nbsp;px 휴대폰은 기기와 상관없이 800을 받는다.</button>
+          <button class="opt">세 파일을 모두 받아 가장 선명한 것을 보여 준다.</button>
+        </div>
+        <div class="quiz-exp">브라우저는 <code>sizes</code>로 정한 CSS 폭에 기기 픽셀 비율을 곱한 화소 수를 채우는 가장 작은 후보를 고른다(캐시나 데이터 절약 설정에 따라 달라질 수 있다). 984화소를 채우려면 1600이 필요하다. 그래서 이 장은 1200 폭을 더해 DPR 3에서도 무게 예산 안에 들게 했다.</div>
+      </div>
+      <div class="quiz-q">
+        <p>4. "신청하기" 버튼을 <code>width: 120px; height: 36px</code>로 못 박았다. 글자 크기 설정을 200%로 키운 휴대폰에서 일어날 일과 고칠 방법으로 가장 알맞은 것은?</p>
+        <div class="opts">
+          <button class="opt">글자 크기 설정은 버튼 안 글자에 적용되지 않으므로 아무 일도 없다.</button>
+          <button class="opt">버튼이 자동으로 두 배 커지므로 고칠 필요가 없다.</button>
+          <button class="opt" data-correct>글자는 커지는데 상자는 그대로라 글자가 잘린다. 고정 크기 대신 <code>min-height: 44px</code>와 안쪽 여백으로 크기가 내용을 따르게 한다.</button>
+          <button class="opt">글자를 px로 바꿔 커지지 않게 막는다.</button>
+        </div>
+        <div class="quiz-exp">rem으로 적은 글자는 사용자 설정을 따라 커지지만, px로 못 박은 상자는 그대로다. 7장에서 도경의 휴대폰에 "모임 신청하"까지만 보인 이유다. 크기를 최소값으로 적으면 기본 상태에서는 44를 지키고, 글자가 커지면 상자도 따라 커진다. 글자를 px로 막는 것은 1.4.4(글자 크기 조절)를 어기는 방향이다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="refs" data-nonum>
+    <h2>참고 문헌</h2>
+    <p class="wl-small">W3C, <i>Web Content Accessibility Guidelines (WCAG) 2.2</i>, 2023(성공 기준 1.4.3 대비 최소, 1.4.4 글자 크기 조절, 1.4.10 리플로, 1.4.11 비텍스트 대비, 2.4.7 포커스 보임, 2.4.13 포커스 모양, 2.5.8 타깃 크기 최소)과 <i>Understanding WCAG 2.2</i> · 한국지능정보사회진흥원, 한국형 웹 콘텐츠 접근성 지침(KWCAG) 2.2 · web.dev, Core Web Vitals 기준값(LCP 2.5초, INP 200&nbsp;ms, CLS 0.1) · WHATWG HTML Living Standard, <code>img</code>의 <code>srcset</code>·<code>sizes</code> 선택. 대비율은 이 서가의 계산 엔진(<code>ART.contrast</code>)으로, 무게와 LCP는 12장의 교육용 모형으로, 터치 흩어짐은 7장의 교육용 모형으로 계산했다. 이 장의 페이지, 행사, 책 제목은 모두 가상이다.</p>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  function safe(fn) { try { fn(); } catch (e) { if (window.console) console.error("sim:", e); } }
+
+  /* ============================================================ 공통 도구 */
+  var STAGE = "#e8ebe8", INK2 = "#2b2a30", DIM2 = "#5b5866";
+  var FF = "";
+  function fam() { if (!FF) FF = (getComputedStyle(document.body).getPropertyValue("--font") || "").trim() || "sans-serif"; return FF; }
+  function fnt(px, w) { return (w || 400) + " " + (Math.round(px * 100) / 100) + "px " + fam(); }
+  var MC = document.createElement("canvas").getContext("2d");
+  function tw(s, px, w) { MC.font = fnt(px, w); return MC.measureText(s).width; }
+  function wrap(s, px, w, maxW) {
+    var words = s.split(" "), lines = [], cur = "";
+    words.forEach(function (wd) { var t = cur ? cur + " " + wd : wd; if (!cur || tw(t, px, w) <= maxW) cur = t; else { lines.push(cur); cur = wd; } });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  function con(a, b) { return ART.contrast(ART.parse(a), ART.parse(b)); }
+  function lum(h) { return ART.luminance(ART.parse(h)); }
+  function cl(lo, v, hi) { return Math.max(lo, Math.min(hi, v)); }
+  function f2(v) { return (Math.round(v * 100) / 100).toFixed(2); }
+  function invHex(h) { var l = ART.srgbToOklch(ART.parse(h)); return ART.hex(ART.fit(ART.oklchToSrgb([1 - l[0], l[1], l[2]]))); }
+  function shiftL(h, d) { var l = ART.srgbToOklch(ART.parse(h)); return ART.hex(ART.fit(ART.oklchToSrgb([cl(0, l[0] + d, 1), l[1], l[2]]))); }
+  function rr(ctx, x, y, w, h, r) {
+    r = Math.max(0, Math.min(r, w / 2, h / 2));
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath();
+  }
+  function kb(v) { return v >= 1000 ? (v / 1000).toFixed(2) + " MB" : Math.round(v) + " KB"; }
+  function sec(t) { return t >= 10 ? t.toFixed(0) + "초" : t.toFixed(1) + "초"; }
+  function W0(id) { var el = document.getElementById(id); return Math.max(200, el.parentElement.clientWidth || 600); }
+
+  /* ============================================================ 토큰(6장) */
+  var TOK = {
+    old:   { bg: "#ffffff", surface: "#ffffff", text: "#333333", muted: "#999999", action: "#2f7d5b", onAction: "#ffffff", band: "#ffe2d7", onBand: "#22342a", border: "#dddddd", line: "#e5e5e5", footer: "#22342a", onFooter: "#567666", chip: "#f1f3f2", chipLine: "#dddddd", danger: "#ff4d4d" },
+    light: { bg: "#f6fcf8", surface: "#ffffff", text: "#22342a", muted: "#567666", action: "#2f7d5b", onAction: "#ffffff", band: "#ffe2d7", onBand: "#22342a", border: "#567666", line: "#d9dfdb", footer: "#22342a", onFooter: "#ffe2d7", chip: "#ffffff", chipLine: "#567666", danger: "#c53732" },
+    dark:  { bg: "#151917", surface: "#2a2f2d", text: "#edf3f0", muted: "#aab0ac", action: "#5eaa85", onAction: "#151917", band: "#402e27", onBand: "#edf3f0", border: "#aab0ac", line: "#3a403d", footer: "#0d100e", onFooter: "#edf3f0", chip: "#2a2f2d", chipLine: "#aab0ac", danger: "#f28b82" }
+  };
+  TOK.inv = (function () { var o = {}; for (var k in TOK.light) o[k] = invHex(TOK.light[k]); return o; })();
+
+  /* ============================================================ 가상 콘텐츠 */
+  var EV = [
+    { d: "14", wd: "토", date: "3월 14일 토 · 오후 4시", title: "3월 그림책 낭독 모임", place: "책방 E 2층", desc: "봄에 어울리는 그림책 세 권을 소리 내어 함께 읽습니다. 처음 오시는 분도 편하게 오세요.", left: 5 },
+    { d: "21", wd: "토", date: "3월 21일 토 · 오후 2시", title: "수채 드로잉 모임", place: "1층 작업대", desc: "골목 풍경 한 장을 함께 그립니다. 종이와 물감은 서점이 준비합니다.", left: 3 },
+    { d: "28", wd: "토", date: "3월 28일 토 · 오후 4시", title: "시 읽기 저녁", place: "책방 E 2층", desc: "좋아하는 시 한 편을 가져와 돌아가며 읽습니다.", left: 8 }
+  ];
+  var BOOKS = [["겨울 숲의 소리", "한아름 글·그림"], ["작은 서점의 하루", "서도윤"], ["물감이 마르는 동안", "이수채"], ["골목의 고양이들", "박고요"]];
+  var COVERS = ["#2f4f6f", "#8c2f2a", "#3f6b4a", "#c9a24a"];
+  var HERO_DESC = "봄에 어울리는 그림책 세 권을 소리 내어 함께 읽습니다. 처음 오시는 분도 편하게 오세요. 자리는 열두 개입니다.";
+
+  /* ============================================================ 포커스 링 규칙 */
+  function ringFor(style, bg) {
+    if (style === "none") return null;
+    if (style === "green") return ["#2f7d5b"];
+    if (style === "double") return ["#ffffff", "#22342a"];
+    return [lum(bg) < 0.18 ? "#ffe2d7" : "#22342a"];   // 7장: 짙은 링, 어두운 영역 안에서는 크림
+  }
+  function ringCon(style, bg) { var r = ringFor(style, bg); if (!r) return 0; return Math.max.apply(null, r.map(function (c) { return con(c, bg); })); }
+
+  /* ============================================================ 배치 엔진(목업) */
+  // S: {page, Wd, zoom, ts, frame:'fixed'|'device'|'em', space:'draft'|'scale', tok, dL, comp:'fixed'|'min44', err}
+  function build(S) {
+    var z = S.zoom || 1, Wd = S.Wd, Wc = Wd / z, ts = S.ts || 1;
+    var Hd = Wd < 600 ? Wd * 16 / 9 : Wd < 1024 ? Math.min(Wd * 1.3, 1100) : Wd * 0.5625;
+    Hd = Math.max(520, Hd);
+    var Hc = Hd / z;
+    var fixed = S.frame === "fixed", scale = S.space === "scale", sc = scale ? ts : 1;
+    var T = {}, k0; for (k0 in TOK[S.tok || "light"]) T[k0] = TOK[S.tok || "light"][k0];
+    if (S.dL) T.action = shiftL(T.action, S.dL);
+    var SP = scale ? { inn: 8 * sc, ci: 16 * sc, pad: 16 * sc, gap: 24 * sc, head: 16 * sc, sect: 48 * sc, edge: 16 } : { inn: 9, ci: 11, pad: 15, gap: 17, head: 22, sect: 27, edge: 13 };
+    var body = fixed ? 17 * ts : cl(17 * ts, 16.608 * ts + 0.001087 * Wc, 18 * ts);
+    var h1 = fixed ? 36 * ts : cl(30 * ts, 26.08 * ts + 0.01087 * Wc, 40 * ts);
+    var h2 = fixed ? 26 * ts : cl(24 * ts, 20.87 * ts + 0.008696 * Wc, 32 * ts);
+    var h3 = fixed ? 20 * ts : cl(20 * ts, 18.43 * ts + 0.004348 * Wc, 24 * ts);
+    var sm = (fixed ? 13 : 14) * ts;
+    var bp1 = S.frame === "em" ? 560 * ts : 768, bp2 = S.frame === "em" ? 896 * ts : 1024;
+    var st = fixed ? "wide" : Wc < bp1 ? "stack" : Wc < bp2 ? "row" : "wide";
+    var cw = fixed ? 960 : Math.min(1200, Wc - 2 * SP.edge), cx = fixed ? Math.max(0, (Wc - 960) / 2) : (Wc - cw) / 2;
+    var cols = fixed || st === "wide" ? 12 : st === "row" ? 8 : 4;
+    var gut = fixed ? 20 : st === "stack" ? (scale ? 16 * sc : 13) : (scale ? 24 * sc : 17);
+    var colW = (cw - (cols - 1) * gut) / cols;
+    function span(n) { return n * colW + (n - 1) * gut; }
+    function colX(i) { return cx + i * (colW + gut); }
+    var comp44 = S.comp !== "fixed";
+    var L = { S: S, Wd: Wd, Wc: Wc, Hc: Hc, Hd: Hd, z: z, ts: ts, st: st, bp1: bp1, bp2: bp2, cols: cols, colW: colW, gut: gut, cw: cw, cx: cx, body: body, h1: h1, T: T,
+      items: [], targets: [], focus: [], pairs: [], nt: [], gaps: [], issues: [], overflow: fixed ? Math.max(0, 960 - Wc) : 0, tabH: 0, measure: 0, nav: "" };
+    var IT = L.items;
+    function rect(x, y, w, h, f, s, r, lw) { var o = { k: "r", x: x, y: y, w: w, h: h, f: f, s: s, r: r || 0, lw: lw || 1 }; IT.push(o); return o; }
+    function isLarge(px, w) { return px >= 23.99 || (px >= 18.66 && w >= 700); }
+    function text(x, y, lines, px, w, col, bg, o) {
+      o = o || {}; if (typeof lines === "string") lines = [lines];
+      var lh = px * (o.lh || 1.5);
+      IT.push({ k: "t", x: x, y: y, lines: lines, px: px, w: w || 400, c: col, lh: lh, al: o.al || "left", clip: o.clip, u: o.u });
+      if (bg) L.pairs.push({ fg: col, bg: bg, n: o.n || lines[0], large: isLarge(px, w || 400) });
+      return lines.length * lh;
+    }
+    function para(x, y, s, px, w, col, bg, maxW, o) { var lines = wrap(s, px, w, maxW); var mw = 0; lines.forEach(function (l) { mw = Math.max(mw, tw(l, px, w)); }); return { h: text(x, y, lines, px, w, col, bg, o), lines: lines, w: mw }; }
+    function gapMark(x, y, h, role) { if (h > 0.5) L.gaps.push({ x: x, y: y, h: h, role: role }); }
+    function target(x, y, w, h, n, bg, r) { L.targets.push({ x: x, y: y, w: w, h: h, n: n }); L.focus.push({ x: x, y: y, w: w, h: h, n: n, bg: bg, r: r || 4 }); }
+    function button(x, y, label, bg, o) {
+      o = o || {}; var w, h, px = body;
+      if (!comp44) { w = o.fw || 120; h = 36; } else { w = o.full || (tw(label, px, 700) + 40 * (scale ? sc : 1)); h = Math.max(44, px * 1.4 + 20 * (scale ? sc : 1)); }
+      rect(x, y, w, h, T.action, null, 8);
+      var clipped = tw(label, px, 700) > w - 8;
+      text(x + w / 2, y + (h - px * 1.4) / 2, label, px, 700, T.onAction, T.action, { lh: 1.4, al: "center", clip: [x + 3, y, w - 6, h], n: "버튼 글자" });
+      if (clipped) L.issues.push("버튼 글자 잘림(" + label + ")");
+      target(x, y, w, h, label + " 버튼", bg, 8);
+      return { w: w, h: h };
+    }
+
+    /* ---- 머리 띠와 탭 바 ---- */
+    var y = 0, mobileNav = !fixed && st !== "wide";
+    var logoPx = 20 * ts, menuPx = (fixed ? 15 : 16) * ts;
+    var M5 = ["행사 일정", "모임 신청", "신간", "책방 소개", "오시는 길"], cur = S.page === "sched" ? 0 : S.page === "form" ? 1 : -1;
+    var headH, deferred = [];
+    if (!mobileNav) {
+      var lw0 = tw("책방 E", logoPx, 800), avail = cw - lw0 - 32, gapM = 24 * (scale ? sc : 1);
+      var rows = [[]], rw = 0;
+      M5.forEach(function (s, i) { var w = tw(s, menuPx, i === cur ? 800 : 600); if (rows[rows.length - 1].length && rw + gapM + w > avail) { rows.push([]); rw = 0; } rows[rows.length - 1].push({ s: s, i: i, w: w }); rw += (rw ? gapM : 0) + w; });
+      var rowH = fixed ? Math.max(24, menuPx * 1.5) : Math.max(44, menuPx * 1.5 + 12);
+      headH = fixed ? 64 : Math.max(64, rows.length * rowH + 20);
+      rect(0, 0, Math.max(Wc, cx + cw), headH, T.surface); rect(0, headH - 1, Math.max(Wc, cx + cw), 1, T.line);
+      var ly = (Math.min(headH, 64) - logoPx * 1.3) / 2;
+      text(cx, ly, "책방 E", logoPx, 800, T.action, T.surface, { lh: 1.3, n: "로고" });
+      var lgh = comp44 ? Math.max(44, logoPx * 1.3 + 12) : logoPx * 1.3 + 8;
+      target(cx - 2, Math.max(0, ly + logoPx * 0.65 - lgh / 2), lw0 + 4, lgh, "로고(첫 화면)", T.surface, 4);
+      rows.forEach(function (row, ri) {
+        var tot = row.reduce(function (a, m, j) { return a + m.w + (j ? gapM : 0); }, 0);
+        var x = cx + cw - tot, yy = fixed ? (64 - rowH) / 2 + ri * rowH : 10 + ri * rowH;
+        var draw = function () {
+          row.forEach(function (m) {
+            text(x, yy + (rowH - menuPx * 1.4) / 2, m.s, menuPx, m.i === cur ? 800 : 600, m.i === cur ? T.action : T.text, T.surface, { lh: 1.4, n: "메뉴" });
+            if (m.i === cur) rect(x, yy + rowH - 5, m.w, 3, T.action);
+            target(x - 4, yy, m.w + 8, rowH, m.s + " 메뉴", T.surface, 4);
+            x += m.w + gapM;
+          });
+        };
+        if (fixed && ri > 0) deferred.push(draw); else draw();
+      });
+      if (rows.length > 1 && fixed) L.issues.push("메뉴가 두 줄로 꺾여 본문을 가림");
+      L.nav = "머리 띠 " + M5.length + "개(" + rows.length + "줄)";
+      L.navRows = rows.length;
+    } else {
+      headH = Math.max(56, logoPx * 1.3 + 24);
+      rect(0, 0, Wc, headH, T.surface); rect(0, headH - 1, Wc, 1, T.line);
+      var ly2 = (headH - logoPx * 1.3) / 2;
+      text(cx, ly2, "책방 E", logoPx, 800, T.action, T.surface, { lh: 1.3, n: "로고" });
+      var lgh2 = comp44 ? Math.max(44, logoPx * 1.3 + 12) : logoPx * 1.3 + 8;
+      target(cx - 2, Math.max(0, ly2 + logoPx * 0.65 - lgh2 / 2), tw("책방 E", logoPx, 800) + 4, lgh2, "로고(첫 화면)", T.surface, 4);
+      // 탭 바(8장): 넷을 펼친다
+      var T4 = ["행사 일정", "모임 신청", "신간", "책방 소개"], cell = Wc / 4, tpx = 12 * ts, tl = [], maxL = 1;
+      T4.forEach(function (s) { var ls = wrap(s, tpx, 600, cell - 8); tl.push(ls); maxL = Math.max(maxL, ls.length); });
+      L.tabH = Math.max(56, 8 + 22 + 4 + maxL * tpx * 1.3 + 8);
+      L.tabCell = cell; L.tabLines = maxL;
+      L.nav = "탭 바 4칸 · 칸 " + Math.round(cell) + " px · 높이 " + Math.round(L.tabH);
+      deferred.push(function () {
+        var ty = Hc - L.tabH;
+        rect(0, ty, Wc, L.tabH, T.surface); rect(0, ty, Wc, 1, T.line);
+        T4.forEach(function (s, i) {
+          var x = i * cell, on = i === cur, col = on ? T.action : T.text;
+          IT.push({ k: "ico", x: x + cell / 2, y: ty + 8 + 11, c: col, i: i });
+          text(x + cell / 2, ty + 34, tl[i], tpx, on ? 800 : 600, col, T.surface, { lh: 1.3, al: "center", n: "탭 바" });
+          if (on) rect(x + 8, ty + 1, cell - 16, 3, T.action);
+          target(x, ty, cell, L.tabH, s + " 탭", T.surface, 2);
+        });
+      });
+    }
+    y = headH;
+
+    /* ---- 행사 카드 ---- */
+    function eventCard(x, y0, w, ev) {
+      var p = SP.pad, ix = x + p, iw = w - 2 * p, yy = y0 + p;
+      var R0 = rect(x, y0, w, 0, T.surface, T.line, 10);
+      var rowStyle = st !== "stack";
+      if (rowStyle) {
+        var dW = Math.max(56 * (scale ? sc : 1), tw("28", h2, 800) + 8);
+        text(ix, yy, ev.d, h2, 800, T.action, T.surface, { lh: 1.1, n: "날짜 숫자" });
+        text(ix, yy + h2 * 1.15, ev.wd + "요일", sm, 600, T.muted, T.surface, { n: "요일" });
+        ix += dW + SP.gap; iw -= dW + SP.gap;
+      } else {
+        yy += text(ix, yy, ev.date, sm, 700, T.action, T.surface, { n: "카드 날짜 줄" });
+        gapMark(x + w - 10, yy, SP.inn, "무리 안"); yy += SP.inn;
+      }
+      var t = para(ix, yy, ev.title, h3, 700, T.text, T.surface, iw, { lh: 1.3, n: "카드 제목(링크)", u: true });
+      var th = comp44 ? Math.max(44, t.h) : t.h;   // 서윤의 선택: 링크도 안쪽 여백으로 누르는 면 44 이상
+      target(ix - 2, yy + (t.h - th) / 2, Math.min(iw, t.w) + 4, th, ev.title + " 링크", T.surface, 4);
+      yy += t.h; gapMark(x + w - 10, yy, SP.inn, "무리 안"); yy += SP.inn;
+      yy += text(ix, yy, rowStyle ? ev.date.replace(/^.*· /, "") + " · " + ev.place : ev.place, sm, 500, T.muted, T.surface, { n: "장소 줄" });
+      gapMark(x + w - 10, yy, SP.ci, "카드 안 무리 사이"); yy += SP.ci;
+      var dWm = S.frame === "em" ? Math.min(iw, 28 * body) : iw;
+      if (!L.measure) L.measure = dWm;
+      yy += para(ix, yy, ev.desc, body, 400, T.text, T.surface, dWm, { lh: 1.7, n: "본문" }).h;
+      gapMark(x + w - 10, yy, SP.ci, "카드 안 무리 사이"); yy += SP.ci;
+      var b = button(ix, yy, "신청하기", T.surface, { fw: 100 });
+      var rest = "남은 자리 " + ev.left, rx = ix + b.w + SP.ci;
+      if (rx + tw(rest, sm, 500) <= ix + iw) text(rx, yy + (b.h - sm * 1.5) / 2, rest, sm, 500, T.muted, T.surface, { n: "남은 자리" });
+      else { yy += b.h + SP.inn; b = { h: sm * 1.5 }; text(ix, yy, rest, sm, 500, T.muted, T.surface, { n: "남은 자리" }); }
+      yy += b.h; gapMark(x + 4, yy, p, "카드 안쪽 여백"); yy += p;
+      R0.h = yy - y0;
+      return yy - y0;
+    }
+
+    /* ---- 페이지 ---- */
+    function home() {
+      y += SP.gap;
+      var two = st !== "stack", tx = cx, tW = two ? span(cols / 2) : cw, y0 = y, yy = y;
+      yy += text(tx, yy, "다음 모임", sm, 700, T.action, T.bg, { n: "눈썹 글" });
+      gapMark(tx + tW - 10, yy, SP.inn, "무리 안"); yy += SP.inn;
+      yy += para(tx, yy, "3월 그림책 낭독 모임", h1, 800, T.text, T.bg, tW, { lh: 1.25, n: "제목" }).h;
+      gapMark(tx + tW - 10, yy, SP.inn, "무리 안"); yy += SP.inn;
+      yy += para(tx, yy, "3월 14일(토) 오후 4시 · 책방 E 2층", sm, 500, T.muted, T.bg, tW, { n: "날짜 줄" }).h;
+      gapMark(tx + tW - 10, yy, SP.ci, "무리 사이"); yy += SP.ci;
+      var dW = S.frame === "em" ? Math.min(tW, 28 * body) : tW; L.measure = dW;
+      var pr = para(tx, yy, HERO_DESC, body, 400, T.text, T.bg, dW, { lh: 1.7, n: "본문" });
+      L.paraBox = { x: tx, y: yy, w: pr.w, h: pr.h }; yy += pr.h;
+      gapMark(tx + tW - 10, yy, SP.ci, "무리 사이"); yy += SP.ci;
+      var b = button(tx, yy, "모임 신청하기", T.bg);
+      L.applyBottom = yy + b.h;
+      var rest = "남은 자리 5", rx = tx + b.w + SP.ci;
+      if (rx + tw(rest, sm, 500) <= tx + tW) text(rx, yy + (b.h - sm * 1.5) / 2, rest, sm, 500, T.muted, T.bg, { n: "남은 자리" });
+      yy += b.h;
+      L.textBlock = { x: tx, y: y0, w: dW, h: yy - y0 };
+      var ph;
+      if (two) { var pw = span(cols / 2); ph = { x: colX(cols / 2), y: y0, w: pw, h: pw * 2 / 3 }; y = Math.max(yy, y0 + ph.h); }
+      else { yy += SP.gap; ph = { x: cx, y: yy, w: cw, h: cw * 9 / 16 }; y = yy + ph.h; }
+      IT.push({ k: "img", x: ph.x, y: ph.y, w: ph.w, h: ph.h }); L.photo = ph;
+      gapMark(cx + 4, y, SP.sect, "구획 사이"); y += SP.sect;
+      L.schedTop = y;
+      y += text(cx, y, "행사 일정", h2, 800, T.text, T.bg, { lh: 1.3, n: "구획 제목" });
+      gapMark(cx + 4, y, SP.head, "구획 제목 → 목록"); y += SP.head;
+      y += eventCard(cx, y, cw, EV[0]);
+      gapMark(cx + 4, y, SP.gap, "카드 사이"); y += SP.gap;
+      y += eventCard(cx, y, cw, EV[1]);
+      gapMark(cx + 4, y, SP.sect, "구획 사이"); y += SP.sect;
+      // 그리드를 깨는 띠(4장): 화면 끝까지
+      var by = y, bh = SP.gap * 2 + sm * 1.5 + SP.inn + body * 1.5;
+      rect(0, by, Math.max(Wc, cx + cw), bh, T.band);
+      text(cx, by + SP.gap, "이달의 책", sm, 700, T.onBand, T.band, { n: "띠 글" });
+      text(cx, by + SP.gap + sm * 1.5 + SP.inn, "『겨울 숲의 소리』를 함께 읽어요", body, 700, T.onBand, T.band, { n: "띠 글" });
+      y += bh; y += SP.sect;
+      y += text(cx, y, "신간", h2, 800, T.text, T.bg, { lh: 1.3, n: "구획 제목" });
+      gapMark(cx + 4, y, SP.head, "구획 제목 → 목록"); y += SP.head;
+      var g = fixed ? 20 : SP.gap, n = fixed ? 4 : Math.max(1, Math.floor((cw + g) / (240 + g))), cwid = fixed ? 220 : (cw - (n - 1) * g) / n;
+      L.books = n;
+      var rowY = y, maxH = 0;
+      for (var i = 0; i < Math.min(4, Math.max(n, 2)); i++) {
+        var col = i % n, rowI = Math.floor(i / n), x = cx + col * (cwid + g);
+        var yy2 = rowY + rowI * (maxH + g || 0);
+        var chh = cwid * 0.62;
+        rect(x, yy2, cwid, chh, "#efe9dd", null, 6);
+        rect(x + cwid / 2 - chh * 0.28, yy2 + chh * 0.12, chh * 0.56, chh * 0.76, COVERS[i], null, 2);
+        var tt = para(x, yy2 + chh + SP.inn, BOOKS[i][0], body, 700, T.text, T.bg, cwid, { n: "책 제목(링크)", u: true });
+        target(x, yy2, cwid, chh + SP.inn + tt.h, BOOKS[i][0] + " 링크", T.bg, 6);
+        var hh = chh + SP.inn + tt.h + text(x, yy2 + chh + SP.inn + tt.h, BOOKS[i][1], sm, 500, T.muted, T.bg, { n: "지은이" });
+        if (rowI === 0) maxH = Math.max(maxH, hh);
+        y = Math.max(y, yy2 + hh);
+      }
+    }
+    function sched() {
+      y += SP.gap;
+      y += para(cx, y, "행사 일정", h1, 800, T.text, T.bg, cw, { lh: 1.25, n: "제목" }).h;
+      gapMark(cx + 4, y, SP.inn, "무리 안"); y += SP.inn;
+      y += text(cx, y, "3월의 모임 세 개", sm, 500, T.muted, T.bg, { n: "보조 글" });
+      gapMark(cx + 4, y, SP.gap, "구획 사이"); y += SP.gap;
+      var mainW = st === "wide" ? span(8) : cw;
+      var s = comp44 ? Math.max(44, 33.6 * ts + 8) : 28, g = comp44 ? 8 * (scale ? sc : 1) : 4;
+      L.chip = { s: s, g: g, vis: 0 };
+      var DAYS = ["월", "화", "수", "목", "금", "토", "일"];
+      for (var i = 0; i < 7; i++) {
+        var x = cx + i * (s + g); if (x >= cx + mainW) break;
+        var vw = Math.min(s, cx + mainW - x), on = i === 5;
+        IT.push({ k: "chip", x: x, y: y, s: s, vw: vw, on: on, d: DAYS[i], n: String(9 + i), px1: 11 * ts, px2: 15 * ts, T: T });
+        L.pairs.push({ fg: on ? T.onAction : T.text, bg: on ? T.action : T.chip, n: "날짜 칩", large: false });
+        if (vw >= s - 0.5) L.chip.vis++;
+        if (vw >= s / 2) target(x, y, vw, s, "날짜 칩 " + (9 + i) + "일", T.bg, 8);
+      }
+      if (!comp44 && ts > 1.15) L.issues.push("칩 글자가 칩 밖으로 넘침");
+      L.nt.push({ fg: T.chipLine, bg: T.bg, n: "칩 테두리" });
+      y += s; gapMark(cx + 4, y, SP.gap, "구획 사이"); y += SP.gap;
+      var y0 = y;
+      EV.forEach(function (ev, j) { if (j) { gapMark(cx + mainW - 12, y, SP.gap, "카드 사이"); y += SP.gap; } y += eventCard(cx, y, mainW, ev); });
+      if (st === "wide") {
+        var sx = colX(8), sw = span(4), chh = sw * 0.9 + 40;
+        rect(sx, y0, sw, chh, T.surface, T.line, 10);
+        text(sx + SP.pad, y0 + SP.pad, "3월 달력", h3, 700, T.text, T.surface, { n: "옆 칸 제목" });
+        var gx = sx + SP.pad, gy = y0 + SP.pad + h3 * 1.5 + 8, cwc = (sw - 2 * SP.pad) / 7;
+        for (var dday = 1; dday <= 31; dday++) {
+          var idx = dday + 5, cc = idx % 7, rI = Math.floor(idx / 7);
+          var isEv = dday === 14 || dday === 21 || dday === 28;
+          if (isEv) rect(gx + cc * cwc + 2, gy + rI * cwc * 0.8 + 1, cwc - 4, cwc * 0.8 - 2, T.action, null, 4);
+          text(gx + cc * cwc + cwc / 2, gy + rI * cwc * 0.8 + (cwc * 0.8 - sm * 1.3) / 2, String(dday), sm * 0.9, isEv ? 800 : 500, isEv ? T.onAction : T.text, isEv ? T.action : T.surface, { lh: 1.3, al: "center", n: "달력 날짜" });
+        }
+        y = Math.max(y, y0 + chh);
+      }
+    }
+    function form() {
+      y += SP.gap;
+      y += para(cx, y, "모임 신청", h1, 800, T.text, T.bg, cw, { lh: 1.25, n: "제목" }).h;
+      gapMark(cx + 4, y, SP.inn, "무리 안"); y += SP.inn;
+      var fw = Math.min(cw, 28 * body);
+      L.measure = fw;
+      if (!comp44) {
+        if (S.err) { y += text(cx, y, "입력 정보를 다시 확인하십시오.", sm, 700, T.danger, T.bg, { n: "오류(맨 위)" }); y += SP.inn; }
+        var PH = ["이름", "이메일", "휴대폰 번호(010-0000-0000)", "생년월일", "주소", "참가 모임", "인원(본인 포함, 최대 4명)"];
+        PH.forEach(function (ph, i) {
+          if (i) { gapMark(cx + Math.min(cw, 320) + 4, y, SP.inn, "칸 사이"); y += SP.inn; }
+          var w = Math.min(cw, 320);
+          rect(cx, y, w, 36, T.surface, T.border, 4);
+          text(cx + 10, y + (36 - body * 1.4) / 2, ph, body, 400, T.muted, T.surface, { lh: 1.4, clip: [cx + 2, y, w - 4, 36], n: "자리표시자" });
+          target(cx, y, w, 36, ph + " 칸", T.bg, 4);
+          if (tw(ph, body, 400) > w - 20) L.issues.push("자리표시자 잘림");
+          y += 36;
+        });
+        L.nt.push({ fg: T.border, bg: T.bg, n: "입력 칸 테두리" });
+        y += SP.gap;
+        y += button(cx, y, "보내기", T.bg).h;
+      } else {
+        y += para(cx, y, "네 칸 모두 적어 주세요.", body, 400, T.text, T.bg, fw, { n: "안내" }).h;
+        gapMark(cx + 4, y, SP.gap, "칸 사이"); y += SP.gap;
+        var lab = function (s) { y += text(cx, y, s, sm, 700, T.text, T.bg, { n: "라벨" }); gapMark(cx + fw + 4, y, 8 * sc, "라벨 → 칸"); y += 8 * sc; };
+        var ih = Math.max(48, body * 1.5 + 22 * sc);
+        lab("참가 모임");
+        [["3월 14일(토) 그림책 낭독", true], ["3월 28일(토) 시 읽기", false]].forEach(function (c, i) {
+          if (i) y += 8 * sc;
+          var lines = wrap(c[0], body, c[1] ? 700 : 400, fw - 56 * sc), hh = Math.max(44, lines.length * body * 1.4 + 20 * sc);
+          rect(cx, y, fw, hh, T.surface, c[1] ? T.action : T.border, 8, c[1] ? 2 : 1);
+          IT.push({ k: "radio", x: cx + 14 * sc + 8, y: y + hh / 2, r: 8 * sc, on: c[1], c: c[1] ? T.action : T.border });
+          text(cx + 36 * sc + 8, y + (hh - lines.length * body * 1.4) / 2, lines, body, c[1] ? 700 : 400, T.text, T.surface, { lh: 1.4, n: "고르기 단추" });
+          target(cx, y, fw, hh, c[0] + " 고르기", T.bg, 8);
+          y += hh;
+        });
+        gapMark(cx + fw + 4, y, SP.gap, "칸 사이"); y += SP.gap;
+        var field = function (label, val, w, err, hint) {
+          lab(label);
+          if (hint) { y += text(cx, y, hint, sm, 500, T.muted, T.bg, { n: "안내 글자" }); y += 4 * sc; }
+          rect(cx, y, w, ih, T.surface, err ? T.danger : T.border, 6, err ? 2 : 1);
+          text(cx + 12 * sc, y + (ih - body * 1.4) / 2, val, body, 400, T.text, T.surface, { lh: 1.4, clip: [cx + 2, y, w - 4, ih], n: "입력 글자" });
+          target(cx, y, w, ih, label + " 칸", T.bg, 6);
+          y += ih;
+          if (err) { y += 6 * sc; y += para(cx, y, "! 번호가 한 자리 모자랍니다. 010 뒤에 여덟 자리를 적어 주세요.", sm, 600, T.danger, T.bg, fw, { n: "오류 문장" }).h; }
+        };
+        field("이름", "한도경", fw, false);
+        gapMark(cx + fw + 4, y, SP.gap, "칸 사이"); y += SP.gap;
+        field("휴대폰 번호", "010-1234-567", fw, !!S.err);
+        gapMark(cx + fw + 4, y, SP.gap, "칸 사이"); y += SP.gap;
+        field("인원", "3", Math.max(110 * sc, tw("3", body, 400) + 40), false, "본인 포함, 1~4명");
+        L.nt.push({ fg: T.border, bg: T.surface, n: "입력 칸 테두리" });
+        y += SP.gap;
+        y += button(cx, y, "신청하기", T.bg).h;
+      }
+    }
+
+    if (S.page === "sched") sched(); else if (S.page === "form") form(); else home();
+
+    /* ---- 바닥글(어두운 영역) ---- */
+    y += SP.sect;
+    var fy = y, FR = rect(0, fy, Math.max(Wc, cx + cw), 0, T.footer);
+    var yy3 = fy + SP.gap;
+    var lk = tw("오시는 길", body, 700);
+    text(cx, yy3, "오시는 길", body, 700, T.onFooter, T.footer, { u: true, n: "바닥글 링크" });
+    target(cx - 4, yy3 - 6, lk + 8, Math.max(44, body * 1.5 + 12), "오시는 길(바닥글)", T.footer, 4);
+    yy3 += Math.max(44, body * 1.5 + 12) - 6 + SP.inn;
+    yy3 += para(cx, yy3, "책방 E · 골목길 12 · 화요일은 쉽니다", sm, 500, T.onFooter, T.footer, cw, { n: "바닥글 글자" }).h;
+    yy3 += SP.gap + L.tabH;
+    FR.h = yy3 - fy; y = yy3;
+    deferred.forEach(function (f) { f(); });
+    L.H = y;
+
+    /* ---- 잰 값 ---- */
+    L.chars = L.measure / (0.757 * body);
+    var minT = 1e9, minN = "", fail24 = 0, under44 = 0;
+    L.targets.forEach(function (t, i) {
+      var m = Math.min(t.w, t.h);
+      if (m < minT) { minT = m; minN = t.n; }
+      if (m < 44 - 0.01) under44++;
+      if (m < 24 - 0.01) {
+        var cxa = t.x + t.w / 2, cya = t.y + t.h / 2, ok = true;
+        L.targets.forEach(function (u, j) { if (i === j) return; var cxb = u.x + u.w / 2, cyb = u.y + u.h / 2; if (Math.hypot(cxa - cxb, cya - cyb) < 24) ok = false; });
+        if (!ok) fail24++;
+      }
+    });
+    L.minT = minT; L.minTN = minN; L.fail24 = fail24; L.under44 = under44;
+    var worst = null;
+    L.pairs.forEach(function (p) { p.c = con(p.fg, p.bg); p.need = p.large ? 3 : 4.5; if (!worst || p.c / p.need < worst.c / worst.need) worst = p; });
+    L.worst = worst;
+    var worstNT = null; L.nt.forEach(function (p) { p.c = con(p.fg, p.bg); if (!worstNT || p.c < worstNT.c) worstNT = p; });
+    L.worstNT = worstNT;
+    var vh = Hc - L.tabH;
+    if (L.photo) { var vis = Math.max(0, Math.min(L.photo.y + L.photo.h, vh) - L.photo.y) * L.photo.w; var tb = L.paraBox; var tvis = Math.max(0, Math.min(tb.y + tb.h, vh) - tb.y) * tb.w; L.lcpImg = vis > tvis; }
+    L.applyVisible = L.applyBottom != null ? L.applyBottom <= vh : null;
+    L.schedPeek = L.schedTop != null ? L.schedTop + 10 <= vh : null;
+    return L;
+  }
+
+  /* ============================================================ 그리기 */
+  function photo(ctx, x, y, w, h) {
+    ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+    ctx.fillStyle = "#5a3f2a"; ctx.fillRect(x, y, w, h);
+    var pal = ["#8c2f2a", "#2f4f6f", "#c9a24a", "#3f6b4a", "#e0d6c2", "#d87a3a"], R = AB.rng(4), rowH = h * 0.2;
+    for (var row = 0; row < 3; row++) { var xx = x + w * 0.02; while (xx < x + w * 0.98) { var bw = w * (0.02 + R() * 0.025); ctx.fillStyle = pal[Math.floor(R() * 6)]; ctx.fillRect(xx, y + h * 0.05 + row * rowH * 1.05, bw * 0.9, rowH * 0.85); xx += bw; } }
+    ctx.fillStyle = "#b08a62"; ctx.fillRect(x, y + h * 0.68, w, h * 0.32);
+    for (var i = 0; i < 6; i++) {
+      var px = x + w * (0.12 + i * 0.152), pc = ["#2f4f6f", "#8c2f2a", "#3f6b4a", "#c9a24a", "#6b3f5a", "#567666"][i];
+      ctx.fillStyle = pc; rr(ctx, px - h * 0.07, y + h * 0.74, h * 0.14, h * 0.22, h * 0.05); ctx.fill();
+      ctx.fillStyle = "#e9c9a8"; ctx.beginPath(); ctx.arc(px, y + h * 0.7, h * 0.045, 0, 7); ctx.fill();
+    }
+    ctx.restore();
+  }
+  function icon(ctx, x, y, c, i) {
+    ctx.save(); ctx.strokeStyle = c; ctx.lineWidth = 1.8; ctx.lineJoin = "round"; ctx.beginPath();
+    if (i === 0) { ctx.rect(x - 9, y - 8, 18, 16); ctx.moveTo(x - 9, y - 3); ctx.lineTo(x + 9, y - 3); ctx.moveTo(x - 4, y - 11); ctx.lineTo(x - 4, y - 6); ctx.moveTo(x + 4, y - 11); ctx.lineTo(x + 4, y - 6); }
+    else if (i === 1) { ctx.rect(x - 7, y - 10, 14, 19); ctx.moveTo(x - 3, y - 4); ctx.lineTo(x + 3, y - 4); ctx.moveTo(x - 3, y); ctx.lineTo(x + 3, y); ctx.moveTo(x - 3, y + 4); ctx.lineTo(x + 1, y + 4); }
+    else if (i === 2) { ctx.moveTo(x - 9, y - 7); ctx.lineTo(x, y - 4); ctx.lineTo(x + 9, y - 7); ctx.lineTo(x + 9, y + 8); ctx.lineTo(x, y + 11); ctx.lineTo(x - 9, y + 8); ctx.closePath(); ctx.moveTo(x, y - 4); ctx.lineTo(x, y + 11); }
+    else { ctx.moveTo(x - 9, y - 1); ctx.lineTo(x, y - 9); ctx.lineTo(x + 9, y - 1); ctx.moveTo(x - 6, y - 3); ctx.lineTo(x - 6, y + 9); ctx.lineTo(x + 6, y + 9); ctx.lineTo(x + 6, y - 3); }
+    ctx.stroke(); ctx.restore();
+  }
+  function paintItem(ctx, it) {
+    if (it.k === "r") {
+      rr(ctx, it.x, it.y, it.w, it.h, it.r);
+      if (it.f) { ctx.fillStyle = it.f; ctx.fill(); }
+      if (it.s) { ctx.strokeStyle = it.s; ctx.lineWidth = it.lw; rr(ctx, it.x + it.lw / 2, it.y + it.lw / 2, it.w - it.lw, it.h - it.lw, it.r); ctx.stroke(); }
+    } else if (it.k === "t") {
+      ctx.save();
+      if (it.clip) { ctx.beginPath(); ctx.rect(it.clip[0], it.clip[1], it.clip[2], it.clip[3]); ctx.clip(); }
+      ctx.font = fnt(it.px, it.w); ctx.fillStyle = it.c; ctx.textBaseline = "middle"; ctx.textAlign = it.al;
+      it.lines.forEach(function (l, i) {
+        var yy = it.y + i * it.lh + it.lh / 2;
+        ctx.fillText(l, it.x, yy);
+        if (it.u) { var w = ctx.measureText(l).width, x0 = it.al === "center" ? it.x - w / 2 : it.x; ctx.fillRect(x0, yy + it.px * 0.55, w, Math.max(1, it.px * 0.07)); }
+      });
+      ctx.restore();
+    } else if (it.k === "img") { photo(ctx, it.x, it.y, it.w, it.h); }
+    else if (it.k === "ico") { icon(ctx, it.x, it.y, it.c, it.i); }
+    else if (it.k === "radio") {
+      ctx.strokeStyle = it.c; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(it.x, it.y, it.r, 0, 7); ctx.stroke();
+      if (it.on) { ctx.fillStyle = it.c; ctx.beginPath(); ctx.arc(it.x, it.y, it.r * 0.5, 0, 7); ctx.fill(); }
+    } else if (it.k === "chip") {
+      var T = it.T;
+      ctx.save(); ctx.beginPath(); ctx.rect(it.x, it.y - 2, it.vw, it.s + 4); ctx.clip();
+      rr(ctx, it.x, it.y, it.s, it.s, Math.min(10, it.s * 0.25));
+      ctx.fillStyle = it.on ? T.action : T.chip; ctx.fill();
+      if (!it.on) { ctx.strokeStyle = T.chipLine; ctx.lineWidth = 1; rr(ctx, it.x + 0.5, it.y + 0.5, it.s - 1, it.s - 1, Math.min(10, it.s * 0.25)); ctx.stroke(); }
+      ctx.restore();
+      ctx.save(); ctx.beginPath(); ctx.rect(it.x - 6, it.y - 20, it.vw + 12, it.s + 40); ctx.clip();
+      ctx.fillStyle = it.on ? T.onAction : T.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      var mid = it.y + it.s / 2, tot = (it.px1 + it.px2) * 1.15;
+      ctx.font = fnt(it.px1, 500); ctx.fillText(it.d, it.x + it.s / 2, mid - tot / 2 + it.px1 * 0.575);
+      ctx.font = fnt(it.px2, 800); ctx.fillText(it.n, it.x + it.s / 2, mid + tot / 2 - it.px2 * 0.575);
+      ctx.restore();
+    }
+  }
+  function ringPath(ctx, f, off, lw, col) { ctx.strokeStyle = col; ctx.lineWidth = lw; rr(ctx, f.x - off - lw / 2, f.y - off - lw / 2, f.w + 2 * (off + lw / 2), f.h + 2 * (off + lw / 2), f.r + off + lw / 2); ctx.stroke(); }
+  function drawRing(ctx, f, style) {
+    var r = ringFor(style, f.bg); if (!r) return;
+    if (r.length === 2) { ringPath(ctx, f, 0, 2, r[0]); ringPath(ctx, f, 2, 2, r[1]); }
+    else ringPath(ctx, f, 2, 3, r[0]);
+  }
+  // o: {x, y, k (기기 px → 캔버스 px), showH (CSS px), grid, targets, gaps, focusIdx, ring, taps, label}
+  function paint(ctx, L, o) {
+    var s = o.k * L.z, W = L.Wc, H = o.showH;
+    ctx.save(); ctx.translate(o.x, o.y);
+    ctx.fillStyle = "rgba(0,0,0,0.12)"; ctx.fillRect(2, 3, W * s, H * s);
+    ctx.scale(s, s);
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
+    ctx.fillStyle = L.T.bg; ctx.fillRect(0, 0, W, H);
+    L.items.forEach(function (it) { paintItem(ctx, it); });
+    if (o.grid) {
+      for (var i = 0; i < L.cols; i++) { var gx = L.cx + i * (L.colW + L.gut); ctx.fillStyle = "rgba(210,79,57,0.13)"; ctx.fillRect(gx, 0, L.colW, H); ctx.fillStyle = "rgba(210,79,57,0.45)"; ctx.fillRect(gx, 0, 1 / s, H); ctx.fillRect(gx + L.colW - 1 / s, 0, 1 / s, H); }
+    }
+    if (o.gaps) {
+      ctx.font = fnt(10.5 / s, 700); ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      L.gaps.forEach(function (g) {
+        if (g.y > H) return;
+        ctx.fillStyle = "rgba(194,24,91,0.22)"; ctx.fillRect(g.x - 3 / s, g.y, 6 / s, g.h);
+        ctx.fillStyle = "#b0124f"; ctx.fillRect(g.x - 3 / s, g.y, 6 / s, 1 / s); ctx.fillRect(g.x - 3 / s, g.y + g.h - 1 / s, 6 / s, 1 / s);
+        var lab = String(Math.round(g.h * 10) / 10), lw = ctx.measureText(lab).width, lx = g.x + 5 / s;
+        if (lx + lw > W) lx = g.x - 5 / s - lw;
+        ctx.fillStyle = "rgba(255,255,255,0.88)"; ctx.fillRect(lx - 1 / s, g.y + g.h / 2 - 6.5 / s, lw + 2 / s, 13 / s);
+        ctx.fillStyle = "#b0124f"; ctx.fillText(lab, lx, g.y + g.h / 2);
+      });
+    }
+    if (o.targets) {
+      L.targets.forEach(function (t) {
+        var m = Math.min(t.w, t.h), col = m >= 43.99 ? "#1b7a43" : m >= 23.99 ? "#b26a00" : "#c0392b";
+        ctx.strokeStyle = col; ctx.lineWidth = 2 / s; ctx.setLineDash(m >= 43.99 ? [] : [4 / s, 3 / s]);
+        ctx.strokeRect(t.x + 1 / s, t.y + 1 / s, t.w - 2 / s, t.h - 2 / s);
+        if (m < 23.99) { ctx.setLineDash([2 / s, 2 / s]); ctx.beginPath(); ctx.arc(t.x + t.w / 2, t.y + t.h / 2, 12, 0, 7); ctx.stroke(); }
+        ctx.setLineDash([]);
+      });
+    }
+    if (o.focusIdx != null && o.focusIdx >= 0 && L.focus[o.focusIdx]) drawRing(ctx, L.focus[o.focusIdx], o.ring);
+    if (o.taps) {
+      o.taps.forEach(function (p) { ctx.fillStyle = p[2] === 1 ? "#0f3d27" : p[2] === 2 ? "#d0021b" : "#8a8a90"; ctx.beginPath(); ctx.arc(p[0], p[1], 2.6 / s, 0, 7); ctx.fill(); ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 0.8 / s; ctx.stroke(); });
+    }
+    // 첫 화면 끝
+    if (H > L.Hc + 1) {
+      ctx.fillStyle = "rgba(232,235,232,0.6)"; ctx.fillRect(0, L.Hc, W, H - L.Hc);
+      ctx.strokeStyle = "#4f4c58"; ctx.lineWidth = 1.2 / s; ctx.setLineDash([6 / s, 4 / s]); ctx.beginPath(); ctx.moveTo(0, L.Hc); ctx.lineTo(W, L.Hc); ctx.stroke(); ctx.setLineDash([]);
+      ctx.font = fnt(11 / s, 700); ctx.textAlign = "right"; ctx.textBaseline = "top";
+      var lab2 = "첫 화면 끝 (높이 " + Math.round(L.Hc) + ")", lw2 = ctx.measureText(lab2).width;
+      ctx.fillStyle = "rgba(255,255,255,0.9)"; ctx.fillRect(W - 6 / s - lw2 - 3 / s, L.Hc + 3 / s, lw2 + 6 / s, 15 / s);
+      ctx.fillStyle = INK2; ctx.fillText(lab2, W - 6 / s, L.Hc + 4 / s);
+    }
+    ctx.restore();
+    if (L.overflow > 0) {
+      ctx.fillStyle = "rgba(192,57,43,0.9)"; ctx.fillRect(W - 5 / s, 0, 5 / s, H);
+      ctx.font = fnt(12 / s, 800); ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      var t3 = "→ " + Math.round(L.overflow) + " px 넘침", w3 = ctx.measureText(t3).width;
+      ctx.fillStyle = "#c0392b"; rr(ctx, 8 / s, H * 0.42 - 10 / s, w3 + 12 / s, 20 / s, 4 / s); ctx.fill();
+      ctx.fillStyle = "#ffffff"; ctx.textAlign = "left"; ctx.fillText(t3, 14 / s, H * 0.42);
+    }
+    ctx.strokeStyle = "#4f4c58"; ctx.lineWidth = 1 / s; ctx.strokeRect(0, 0, W, H);
+    ctx.restore();
+  }
+  // 캔버스 안에 기기 틀 하나를 맞춰 넣는다
+  function fit(L, w, h, pad, extraTop, maxK, frac) {
+    var showDev = Math.min(L.H * L.z, L.Hd * (frac || 1.22));
+    var k = Math.min((w - 2 * pad) / L.Wd, (h - 2 * pad - (extraTop || 0)) / showDev, maxK || 1.2);
+    return { k: k, showH: showDev / L.z, x: Math.round((w - L.Wd * k) / 2), y: pad + (extraTop || 0) };
+  }
+  function label(ctx, s, x, y, al, col) { ctx.font = fnt(12, 600); ctx.fillStyle = col || INK2; ctx.textAlign = al || "left"; ctx.textBaseline = "top"; ctx.fillText(s, x, y); }
+
+  /* ============================================================ 무게와 LCP(12장 모형) */
+  var NET = { slow: { n: "느린 모바일", bw: 1.6, rtt: 0.15 }, lte: { n: "보통 LTE", bw: 10, rtt: 0.06 } };
+  var IMGKB = { 480: 33, 800: 75, 1200: 142, 1600: 220 };
+  function simulate(o, net) {
+    var R = [
+      { k: "html", kb: o.html, w: 4, dep: null }, { k: "css", kb: o.css, w: 4, dep: "html" },
+      { k: "js", kb: o.js, w: 2, dep: "html" }, { k: "font", kb: o.font, w: 3, dep: "css" },
+      { k: "img", kb: o.img, w: o.high ? 4 : 1, dep: "html" }
+    ];
+    var by = {}; R.forEach(function (r) { by[r.k] = r; r.left = r.kb * 8000; r.disc = null; r.flow = null; r.done = null; });
+    by.html.disc = 0; by.html.flow = 4 * net.rtt;
+    var t = 0, dt = 0.005, bw = net.bw * 1e6, guard = 0;
+    while (guard++ < 200000) {
+      R.forEach(function (r) { if (r.disc == null && r.dep && by[r.dep].done != null) { r.disc = by[r.dep].done; r.flow = r.disc + net.rtt; } });
+      var act = R.filter(function (r) { return r.flow != null && r.flow <= t && r.done == null; });
+      var ws = act.reduce(function (a, r) { return a + r.w; }, 0);
+      act.forEach(function (r) { r.left -= bw * dt * r.w / ws; if (r.left <= 0) r.done = t + dt; });
+      t += dt;
+      if (R.every(function (r) { return r.done != null; })) break;
+    }
+    var fcp = Math.max(by.html.done, by.css.done) + 0.05;
+    return { R: R, fcp: fcp, img: by.img.done + 0.05 + (o.img > 1000 ? 0.15 : 0), font: by.font.done };
+  }
+  function pickImg(photoOpt, L, dpr) {
+    if (!L.photo) return { kb: 0, n: "없음", need: 0 };
+    if (photoOpt === "orig") return { kb: 4000, n: "원본 JPEG", need: 0 };
+    var need = L.photo.w * L.z * dpr;
+    if (photoOpt === "one") return { kb: 220, n: "1600w", need: need };
+    var set = photoOpt === "set4" ? [480, 800, 1200, 1600] : [480, 800, 1600], c = 1600;
+    for (var i = 0; i < set.length; i++) if (set[i] >= need) { c = set[i]; break; }
+    return { kb: IMGKB[c], n: c + "w", need: need };
+  }
+  function perf(L, P) {
+    var img = pickImg(P.photo, L, P.dpr);
+    var heavy = P.js === "heavy", font = P.font === "full" ? 1868 : P.font === "sub" ? 200 : 0;
+    var parts = [["HTML·CSS", heavy ? 90 : 50], ["JS", heavy ? 380 : 50], ["웹폰트", font], ["첫 사진", img.kb], ["기타", heavy ? 60 : 50]];
+    var total = parts.reduce(function (a, p) { return a + p[1]; }, 0);
+    var o = { html: 15, css: (heavy ? 90 : 50) - 15, js: heavy ? 380 : 50, font: font, img: img.kb || 0.01, high: P.photo !== "orig" };
+    var res = {};
+    ["slow", "lte"].forEach(function (k) { var r = simulate(o, NET[k]); res[k] = { sim: r, lcp: L.photo && L.lcpImg ? Math.max(r.img, r.fcp) : r.fcp }; });
+    return { img: img, parts: parts, total: total, slow: res.slow, lte: res.lte };
+  }
+
+  window.__WL = { build: build, perf: perf, ringCon: ringCon };
+  /* ============================================================ 그림 2: 전/후 비교 */
+  var PRE_A = { frame: "fixed", space: "draft", tok: "old", focus: "none", comp: "fixed", photo: "orig", font: "full", js: "heavy" };
+  var PRE_B = { frame: "em", space: "scale", tok: "light", focus: "ink", comp: "min44", photo: "set4", font: "sub", js: "lite" };
+  safe(function () {
+    var LA = null, LB = null;
+    function mk(P) { return build({ page: "home", Wd: 360, zoom: 1, ts: 1, frame: P.frame, space: P.space, tok: P.tok, comp: P.comp }); }
+    function draw(which) {
+      return function (ctx, w, h) {
+        var L = which === "a" ? (LA = mk(PRE_A)) : (LB = mk(PRE_B));
+        var f = fit(L, w, h, 14, 0, 1.15, 1.0);
+        paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH });
+      };
+    }
+    var opt = { get height() { var W = Math.max(200, document.getElementById("wl-cmp").clientWidth || 600); return Math.round(Math.min(620, Math.max(440, W * 0.9))); }, bg: STAGE };
+    AB.canvas("#wl-cmp-a", draw("a"), opt);
+    AB.canvas("#wl-cmp-b", draw("b"), opt);
+    AB.compare("#wl-cmp", { labels: ["첫 시안 모음", "서윤의 선택"], pos: 0.5 });
+    if (LA) { AB.stat("wl-cmp-of", Math.round(LA.overflow) + "&nbsp;px"); AB.stat("wl-cmp-ca", f2(con("#999999", "#ffffff")) + ":1"); }
+    if (LB) { AB.stat("wl-cmp-ch", String(Math.floor(LB.chars))); AB.stat("wl-cmp-tb", String(Math.round(LB.tabCell || 0))); }
+  });
+
+  /* ============================================================ 시뮬레이터 1: 폭 패널 */
+  safe(function () {
+    var wG = AB.range("ww-w", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var tG = AB.range("ww-ts", function (v) { return Math.round(v * 100) + "%"; }, function () { cv.redraw(); });
+    var fG = AB.seg("ww-fr", function () { cv.redraw(); });
+    var geo = null, drag = null, RULER = 52;
+    var cv = AB.canvas("#ww-cv", function (ctx, w, h) {
+      var L = build({ page: "home", Wd: wG(), zoom: 1, ts: tG(), frame: fG(), space: "scale", tok: "light", comp: "min44" });
+      var k = drag ? drag.k : null;
+      var f = fit(L, w, h - RULER, 12, 0, 1.0, 1.15);
+      if (k) { f.k = k; f.x = 12; f.showH = Math.min(L.H * L.z, (h - RULER - 24) / k) / L.z; }
+      paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH, grid: false });
+      var ex = f.x + L.Wd * f.k;
+      AB.handle(ctx, Math.min(w - 8, ex), f.y + Math.min(f.showH * f.k, h - RULER - 30) / 2, { r: 8, fill: "#2f7d5b", ring: "#ffffff" });
+      geo = { ex: ex, k: f.k };
+      // 눈금자
+      var ry = h - RULER + 10, x0 = 16, x1 = w - 16, X = function (v) { return x0 + (v - 280) / (1920 - 280) * (x1 - x0); };
+      ctx.fillStyle = "#c9cdc9"; ctx.fillRect(x0, ry + 10, x1 - x0, 4);
+      if (L.st !== "x") {
+        var segs = [[280, L.bp1, "#d7e6dc"], [L.bp1, L.bp2, "#cfe0f0"], [L.bp2, 1920, "#f3dccf"]];
+        segs.forEach(function (sg) { var a = Math.max(280, sg[0]), b = Math.min(1920, sg[1]); if (b > a) { ctx.fillStyle = sg[2]; ctx.fillRect(X(a), ry + 6, X(b) - X(a), 12); } });
+      }
+      ctx.font = fnt(10.5, 600); ctx.fillStyle = DIM2; ctx.textAlign = "center"; ctx.textBaseline = "top";
+      [320, 768, 1280, 1920].forEach(function (v) { ctx.fillRect(X(v) - 0.5, ry + 18, 1, 5); ctx.fillText(String(v), X(v), ry + 25); });
+      [[L.bp1, "중단점 1"], [L.bp2, "중단점 2"]].forEach(function (b, i) { if (b[0] > 1920) return; ctx.fillStyle = "#1f4e79"; ctx.fillRect(X(b[0]) - 1, ry + 2, 2, 20); ctx.font = fnt(10.5, 700); ctx.textAlign = i ? "left" : "right"; ctx.fillText(b[1] + " " + Math.round(b[0]), X(b[0]) + (i ? 4 : -4), ry - 12); });
+      ctx.fillStyle = "#c0392b"; ctx.beginPath(); ctx.moveTo(X(L.Wd), ry + 4); ctx.lineTo(X(L.Wd) - 6, ry - 4); ctx.lineTo(X(L.Wd) + 6, ry - 4); ctx.closePath(); ctx.fill();
+      var stN = { stack: "1단", row: "행 모양", wide: "행 + 옆 칸" }[L.st];
+      AB.stat("ww-o-w", Math.round(L.Wc) + " px");
+      AB.stat("ww-o-st", stN + " <small>" + L.cols + "단</small>");
+      AB.stat("ww-o-bp", Math.round(L.bp1) + " · " + Math.round(L.bp2));
+      AB.stat("ww-o-ch", "약 " + Math.floor(L.chars) + "자 <small>" + (L.chars > 40 ? "40 넘음" : "") + "</small>");
+      AB.stat("ww-o-bk", L.books + "권");
+    }, { get height() { var W = W0("ww-cv"); return Math.round(Math.min(640, Math.max(460, W * 0.62))); }, bg: STAGE });
+    AB.drag(cv.canvas, {
+      start: function (x) { if (!geo) return; drag = Math.abs(x - geo.ex) < 40 ? { k: geo.k, x0: x, w0: wG() } : null; },
+      move: function (x) { if (!drag) return; var v = Math.round((drag.w0 + (x - drag.x0) / drag.k) / 2) * 2; wG.set(cl(280, v, 1920)); },
+      end: function () { drag = null; cv.redraw(); }
+    });
+  });
+
+  /* ============================================================ 시뮬레이터 2: 간격·그리드 */
+  safe(function () {
+    var sG = AB.seg("ws-sp", function () { cv.redraw(); });
+    var wG = AB.range("ws-w", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var gC = AB.check("ws-g", function () { cv.redraw(); });
+    var rC = AB.check("ws-r", function () { cv.redraw(); });
+    var cv = AB.canvas("#ws-cv", function (ctx, w, h) {
+      var L = build({ page: "sched", Wd: wG(), zoom: 1, ts: 1, frame: "em", space: sG(), tok: "light", comp: "min44" });
+      var f = fit(L, w, h, 12, 0, 1.25, 1.2);
+      paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH, grid: gC(), gaps: rC() });
+      var vals = {}; L.gaps.forEach(function (g) { vals[Math.round(g.h * 10) / 10] = 1; });
+      var ks = Object.keys(vals).map(Number).sort(function (a, b) { return a - b; });
+      AB.stat("ws-o-n", ks.length + "가지 <small>" + ks.join(" · ") + "</small>");
+      var S = sG() === "scale" ? { inn: 8, ci: 16, pad: 16, gap: 24, head: 16, sect: 48 } : { inn: 9, ci: 11, pad: 15, gap: 17, head: 22, sect: 27 };
+      var ok1 = S.inn < S.ci && S.ci <= S.pad && S.pad < S.gap && S.gap < S.sect, ok2 = S.head < S.gap;
+      AB.stat("ws-o-rule", ok1 && ok2 ? "통과" : (ok1 ? "순서는 지킴, " : "순서 어긋남, ") + (ok2 ? "" : "<small>제목 → 목록 " + S.head + " &gt; 카드 사이 " + S.gap + "</small>"));
+      AB.stat("ws-o-g", L.cols + "단 · 단 " + Math.round(L.colW) + " · 거터 " + Math.round(L.gut));
+    }, { get height() { var W = W0("ws-cv"); return Math.round(Math.min(620, Math.max(440, W * 0.95))); }, bg: STAGE });
+  });
+
+  /* ============================================================ 시뮬레이터 3: 토큰·대비 */
+  safe(function () {
+    var tG = AB.seg("wc-tok", function () { cv.redraw(); });
+    var dG = AB.range("wc-dl", function (v) { return (v > 0 ? "+" : "") + v.toFixed(2); }, function () { cv.redraw(); });
+    var body = document.getElementById("wc-rows");
+    var cv = AB.canvas("#wc-cv", function (ctx, w, h) {
+      var L = build({ page: "home", Wd: 390, zoom: 1, ts: 1, frame: "em", space: "scale", tok: tG(), dL: dG(), comp: "min44" });
+      var f = fit(L, w, h, 12, 0, 1.2, 1.25);
+      paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH });
+      var seen = {}, rows = [];
+      L.pairs.concat(L.nt.map(function (p) { return { fg: p.fg, bg: p.bg, n: p.n, c: p.c, need: 3, nt: true }; })).forEach(function (p) {
+        var key = p.n + p.fg + p.bg; if (seen[key]) return; seen[key] = 1;
+        rows.push(p);
+      });
+      rows.sort(function (a, b) { return a.c / a.need - b.c / b.need; });
+      var nAll = rows.length; rows = rows.slice(0, 10);
+      var html = rows.map(function (p) {
+        var ok = p.c >= p.need, cls = ok ? (p.c < p.need * 1.1 ? "v-warn" : "v-ok") : "v-bad";
+        var sw = function (c) { return '<span style="display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.2);background:' + c + ';vertical-align:-2px;margin-right:4px"></span><code>' + c + "</code>"; };
+        return "<tr><td>" + p.n + (p.nt ? " <small>비텍스트</small>" : p.need === 3 ? " <small>큰 글자</small>" : "") + "</td><td>" + sw(p.fg) + "</td><td>" + sw(p.bg) + '</td><td class="num ' + cls + '">' + f2(p.c) + '</td><td class="' + cls + '">' + (ok ? "통과" : "미달") + " (" + p.need + ")</td></tr>";
+      }).join("");
+      body.innerHTML = html + '<tr><td colspan="5"><small>이 페이지의 짝 ' + nAll + '개 중 기준에 가장 가까운 10개</small></td></tr>';
+    }, { get height() { var W = W0("wc-cv"); return Math.round(Math.min(600, Math.max(420, W * 0.95))); }, bg: STAGE });
+  });
+
+  /* ============================================================ 시뮬레이터 4: 포커스 */
+  safe(function () {
+    var rG = AB.seg("wf-ring", function () { cv.redraw(); });
+    var iG = AB.range("wf-i", function (v) { return v + "번째"; }, function () { cv.redraw(); });
+    var dC = AB.check("wf-dk", function () { cv.redraw(); });
+    var cv = AB.canvas("#wf-cv", function (ctx, w, h) {
+      var L = build({ page: "form", Wd: 390, zoom: 1, ts: 1, frame: "em", space: "scale", tok: dC() ? "dark" : "light", comp: "min44", err: true });
+      var n = L.focus.length, el = iG.el;
+      if (+el.max !== n) { el.max = n; if (+el.value > n) el.value = n; }
+      var i = Math.min(n, iG()) - 1;
+      var f = fit(L, w, h, 12, 0, 1.2, 1.3);
+      paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH, focusIdx: i, ring: rG() });
+      var cur = L.focus[i], c = cur ? ringCon(rG(), cur.bg) : 0, mn = 1e9, mnN = "";
+      L.focus.forEach(function (fc) { var v = ringCon(rG(), fc.bg); if (v < mn) { mn = v; mnN = fc.n; } });
+      AB.stat("wf-o-n", cur ? cur.n : "—");
+      if (rG() === "none") { AB.stat("wf-o-c", '<span style="color:var(--bad)">표시 없음</span>'); AB.stat("wf-o-min", '<span style="color:var(--bad)">2.4.7 미달</span>'); }
+      else {
+        AB.stat("wf-o-c", '<span style="color:var(--' + (c >= 3 ? "ok" : "bad") + ')">' + f2(c) + "</span>");
+        AB.stat("wf-o-min", '<span style="color:var(--' + (mn >= 3 ? "ok" : "bad") + ')">' + f2(mn) + "</span> <small>" + mnN + "</small>");
+      }
+    }, { get height() { var W = W0("wf-cv"); return Math.round(Math.min(640, Math.max(460, W * 1.05))); }, bg: STAGE });
+  });
+
+  /* ============================================================ 시뮬레이터 5: 터치 타깃 */
+  // 7장의 정규 분포 모형: 오차 함수(Abramowitz–Stegun 7.1.26)
+  function erf(x) { var s = x < 0 ? -1 : 1; x = Math.abs(x); var t = 1 / (1 + 0.3275911 * x); return s * (1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x)); }
+  function pIn(a, b, sig) { return 0.5 * (erf(b / (sig * Math.SQRT2)) - erf(a / (sig * Math.SQRT2))); }
+  function gauss(r) { var u = Math.max(1e-9, r()), v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+  var SD_WALK = 2.0 / 0.16;   // 2.0 mm ÷ 0.16 mm/px = 12.5 CSS px
+  function chipBad(s, g) { var p = s + g, py = pIn(-s / 2, s / 2, SD_WALK), bad = 0; for (var q = 1; q <= 4; q++) bad += 2 * pIn(q * p - s / 2, q * p + s / 2, SD_WALK) * py; return bad; }
+  safe(function () {
+    var cG = AB.seg("wt-cp", function () { taps = null; cv.redraw(); });
+    var tG = AB.range("wt-ts", function (v) { return Math.round(v * 100) + "%"; }, function () { taps = null; cv.redraw(); });
+    var wG = AB.range("wt-w", function (v) { return v + " px"; }, function () { taps = null; cv.redraw(); });
+    var taps = null, geo = null, aim = -1;
+    var cv = AB.canvas("#wt-cv", function (ctx, w, h) {
+      var L = build({ page: "sched", Wd: wG(), zoom: 1, ts: tG(), frame: "em", space: "scale", tok: "light", comp: cG() });
+      var f = fit(L, w, h, 12, 0, 1.3, 1.0);
+      geo = { L: L, f: f };
+      paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH, targets: true, taps: taps });
+      var m = L.minT;
+      AB.stat("wt-o-min", Math.round(m) + " px <small>" + L.minTN + "</small>");
+      var std = (L.fail24 ? '<span style="color:var(--bad)">2.5.8 미달</span>' : '<span style="color:var(--ok)">2.5.8 통과</span>') + " · " + (L.under44 ? '<span style="color:var(--warn)">44 미만 ' + L.under44 + "개</span>" : '<span style="color:var(--ok)">모두 44 이상</span>');
+      AB.stat("wt-o-std", std);
+      AB.stat("wt-o-bad", L.chip ? AB.pct(chipBad(L.chip.s, L.chip.g), 1) + " <small>칩 " + Math.round(L.chip.s) + " · 간격 " + Math.round(L.chip.g) + "</small>" : "—");
+      AB.stat("wt-o-tab", L.tabCell ? Math.round(L.tabCell) + " × " + Math.round(L.tabH) + " <small>글자 " + L.tabLines + "줄</small>" : "—");
+    }, { get height() { var W = W0("wt-cv"); return Math.round(Math.min(680, Math.max(500, W * 1.1))); }, bg: STAGE });
+    AB.drag(cv.canvas, {
+      start: function (x, y) {
+        if (!geo) return;
+        var s = geo.f.k * geo.L.z, px = (x - geo.f.x) / s, py = (y - geo.f.y) / s, L = geo.L, hit = -1;
+        L.targets.forEach(function (t, i) { if (px >= t.x && px <= t.x + t.w && py >= t.y && py <= t.y + t.h) hit = i; });
+        if (hit < 0) return;
+        aim = hit; var t = L.targets[hit], cx = t.x + t.w / 2, cy = t.y + t.h / 2, r = AB.rng(17 + hit);
+        taps = [];
+        for (var n = 0; n < 40; n++) {
+          var tx = cx + gauss(r) * SD_WALK, ty = cy + gauss(r) * SD_WALK, res = 0;
+          L.targets.forEach(function (u, j) { if (tx >= u.x && tx <= u.x + u.w && ty >= u.y && ty <= u.y + u.h) res = j === hit ? 1 : (res === 1 ? 1 : 2); });
+          taps.push([tx, ty, res]);
+        }
+        cv.redraw();
+      }
+    });
+  });
+
+  /* ============================================================ 시뮬레이터 6: 무게와 LCP */
+  safe(function () {
+    var pG = AB.seg("wg-ph", function () { cv.redraw(); });
+    var dG = AB.seg("wg-dpr", function () { cv.redraw(); });
+    var fG = AB.seg("wg-ft", function () { cv.redraw(); });
+    var wG = AB.range("wg-w", function (v) { return v + " px"; }, function () { cv.redraw(); });
+    var COLS = ["#7a8fa6", "#a07ab8", "#d1a54a", "#2f7d5b", "#9aa39d"];
+    var cv = AB.canvas("#wg-cv", function (ctx, w, h) {
+      var p = AB.palette();
+      var L = build({ page: "home", Wd: wG(), zoom: 1, ts: 1, frame: "em", space: "scale", tok: "light", comp: "min44" });
+      var R = perf(L, { photo: pG(), dpr: +dG(), font: fG(), js: "lite" });
+      var x0 = 16, x1 = w - 16, maxKB = Math.max(700, R.total * 1.05), X = function (v) { return x0 + v / maxKB * (x1 - x0); };
+      ctx.font = AB.font(13, false, 700); ctx.fillStyle = p.text; ctx.textAlign = "left"; ctx.textBaseline = "top";
+      ctx.fillText("첫 화면 무게 " + kb(R.total), x0, 12);
+      var by = 36, bh = 26, acc = 0;
+      R.parts.forEach(function (pt, i) { if (pt[1] <= 0) return; ctx.fillStyle = COLS[i]; ctx.fillRect(X(acc), by, Math.max(1, X(acc + pt[1]) - X(acc)), bh); acc += pt[1]; });
+      ctx.strokeStyle = p.bad; ctx.lineWidth = 2; ctx.setLineDash([5, 3]); ctx.beginPath(); ctx.moveTo(X(500), by - 6); ctx.lineTo(X(500), by + bh + 6); ctx.stroke(); ctx.setLineDash([]);
+      ctx.font = AB.font(11, false, 600); ctx.fillStyle = p.bad; ctx.textAlign = X(500) > x1 - 60 ? "right" : "left"; ctx.fillText("예산 500 KB", X(500) + (X(500) > x1 - 60 ? -4 : 4), by + bh + 4);
+      var lx = x0, ly = by + bh + 24; ctx.textAlign = "left"; ctx.font = AB.font(11.5);
+      R.parts.forEach(function (pt, i) { var s = pt[0] + " " + Math.round(pt[1]); var tw2 = ctx.measureText(s).width + 22; if (lx + tw2 > x1) { lx = x0; ly += 18; } ctx.fillStyle = COLS[i]; ctx.fillRect(lx, ly + 2, 10, 10); ctx.fillStyle = p.dim; ctx.fillText(s, lx + 14, ly); lx += tw2; });
+      // 받는 순서(느린 모바일)
+      var S = R.slow.sim, T = Math.max(3, R.slow.lcp * 1.15, S.font * 1.05), ty = ly + 34, rowH = 22, lab = 64, tx0 = x0 + lab, tx1 = x1 - 6, TX = function (t) { return tx0 + Math.min(t, T) / T * (tx1 - tx0); };
+      ctx.font = AB.font(12, false, 700); ctx.fillStyle = p.text; ctx.fillText("느린 모바일에서 받는 순서(모형)", x0, ty - 20);
+      var names = { html: "HTML", css: "CSS", js: "JS", font: "웹폰트", img: "첫 사진" }, ci = { html: 0, css: 0, js: 1, font: 2, img: 3 };
+      S.R.forEach(function (r, i) {
+        var yy = ty + i * rowH;
+        ctx.font = AB.font(11.5); ctx.fillStyle = p.dim; ctx.textAlign = "left"; ctx.fillText(names[r.k], x0, yy + 3);
+        if (r.k === "img" && !L.photo) return;
+        if (r.k === "font" && r.kb <= 0) { ctx.fillText("없음", tx0, yy + 3); return; }
+        ctx.fillStyle = p.grid; ctx.fillRect(TX(r.disc || 0), yy + 5, Math.max(1, TX(r.flow) - TX(r.disc || 0)), 8);
+        ctx.fillStyle = COLS[ci[r.k]]; ctx.fillRect(TX(r.flow), yy + 3, Math.max(2, TX(r.done) - TX(r.flow)), 12);
+      });
+      var yb = ty + 5 * rowH + 4;
+      ctx.strokeStyle = p.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(tx0, yb); ctx.lineTo(tx1, yb); ctx.stroke();
+      var step = T > 12 ? 5 : T > 5 ? 1 : 0.5;
+      ctx.font = AB.font(10.5, true); ctx.fillStyle = p.faint; ctx.textAlign = "center";
+      for (var t = 0; t <= T + 1e-6; t += step) ctx.fillText(t + "s", TX(t), yb + 4);
+      [[2.5, p.ok, "2.5초"], [R.slow.lcp, p.accent, "LCP " + sec(R.slow.lcp)]].forEach(function (m, i) {
+        if (m[0] > T) return; ctx.strokeStyle = m[1]; ctx.lineWidth = 1.6; ctx.setLineDash(i ? [] : [4, 3]); ctx.beginPath(); ctx.moveTo(TX(m[0]), ty - 4); ctx.lineTo(TX(m[0]), yb); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = m[1]; ctx.font = AB.font(11, false, 700); ctx.textAlign = i ? "right" : "left"; ctx.fillText(m[2], TX(m[0]) + (i ? -4 : 4), yb + 18);
+      });
+      var img = R.img;
+      AB.stat("wg-o-img", img.n + (img.kb ? " · " + kb(img.kb) : "") + (img.need ? " <small>필요 " + Math.round(img.need) + "화소</small>" : ""));
+      AB.stat("wg-o-w", '<span style="color:var(--' + (R.total <= 500 ? "ok" : "bad") + ')">' + kb(R.total) + "</span>");
+      AB.stat("wg-o-s", '<span style="color:var(--' + (R.slow.lcp <= 2.5 ? "ok" : "bad") + ')">' + sec(R.slow.lcp) + "</span>");
+      AB.stat("wg-o-l", sec(R.lte.lcp));
+    }, { get height() { return 330; } });
+  });
+
+  /* ============================================================ 시뮬레이터 7: 종합 실험실 */
+  safe(function () {
+    var redraw = function () { if (cvs) cvs.forEach(function (c) { c.redraw(); }); table(); };
+    var pg = AB.seg("wl-L-pg", function () { redraw(); });
+    var wG = AB.range("wl-L-w", function (v) { return v + " px"; }, function () { redraw(); });
+    var zG = AB.seg("wl-L-z", function () { redraw(); });
+    var tsG = AB.range("wl-L-ts", function (v) { return Math.round(v * 100) + "%"; }, function () { redraw(); });
+    var cmpC = AB.check("wl-L-cmp", function (on) { document.getElementById("wl-L-one").hidden = on; document.getElementById("wl-L-two").hidden = !on; redraw(); });
+    var frG = AB.seg("wl-L-fr", function () { redraw(); });
+    var spG = AB.seg("wl-L-sp", function () { redraw(); });
+    var gridC = AB.check("wl-L-grid", function () { redraw(); });
+    var gapC = AB.check("wl-L-gap", function () { redraw(); });
+    var tokG = AB.seg("wl-L-tok", function () { redraw(); });
+    var fcG = AB.seg("wl-L-fc", function () { redraw(); });
+    var cpG = AB.seg("wl-L-cp", function () { redraw(); });
+    var tabG = AB.range("wl-L-tab", function (v) { return v ? v + "번째" : "끔"; }, function () { redraw(); });
+    var tgC = AB.check("wl-L-tg", function () { redraw(); });
+    var errC = AB.check("wl-L-err", function () { redraw(); });
+    var phG = AB.seg("wl-L-ph", function () { redraw(); });
+    var ftG = AB.seg("wl-L-ft", function () { redraw(); });
+    var jsG = AB.seg("wl-L-js", function () { redraw(); });
+    var dprG = AB.seg("wl-L-dpr", function () { redraw(); });
+    var netG = AB.seg("wl-L-net", function () { redraw(); });
+    var cvs = null;
+    function S(Wd) { return { page: pg(), Wd: Wd, zoom: +zG(), ts: tsG(), frame: frG(), space: spG(), tok: tokG(), comp: cpG(), err: errC() }; }
+    function drawFor(getW) {
+      return function (ctx, w, h) {
+        var L = build(S(getW()));
+        var n = L.focus.length, el = tabG.el; if (+el.max !== n) { el.max = n; if (+el.value > n) tabG.set(n); }
+        var f = fit(L, w, h, 10, 0, 1.0, 1.25);
+        paint(ctx, L, { x: f.x, y: f.y, k: f.k, showH: f.showH, grid: gridC(), gaps: gapC(), targets: tgC(), focusIdx: tabG() - 1, ring: fcG() });
+      };
+    }
+    var hMain = { get height() { var W = W0("wl-L-cv"); return Math.round(Math.min(700, Math.max(480, W * 0.72))); }, bg: STAGE };
+    var hTwo = { get height() { return 560; }, bg: STAGE };
+    cvs = [AB.canvas("#wl-L-cv", drawFor(function () { return wG(); }), hMain), AB.canvas("#wl-L-a", drawFor(function () { return 360; }), hTwo), AB.canvas("#wl-L-b", drawFor(function () { return 1280; }), hTwo)];
+
+    function V(cls, s) { return '<span class="v-' + cls + '">' + s + "</span>"; }
+    function rows(Wd) {
+      var L = build(S(Wd)), P = perf(L, { photo: phG(), dpr: +dprG(), font: ftG(), js: jsG() }), net = netG(), out = {};
+      var stN = { stack: "1단", row: "행 모양", wide: "행 + 옆 칸" }[L.st];
+      out.vp = V("info", Math.round(L.Wc) + " px · " + stN) + "<small>중단점 " + (frG() === "fixed" ? "없음(고정 960)" : Math.round(L.bp1) + " · " + Math.round(L.bp2)) + "</small>";
+      out.of = L.overflow > 0 ? V("bad", Math.round(L.overflow) + " px 넘침") : V("ok", "없음");
+      out.grid = V("info", L.cols + "단 · 단 " + Math.round(L.colW) + " · 거터 " + Math.round(L.gut));
+      out.text = V(L.chars > 40 ? "warn" : "ok", "본문 " + Math.round(L.body) + " px · 한 줄 약 " + Math.floor(L.chars) + "자") + "<small>제목 " + Math.round(L.h1) + " px</small>";
+      out.nav = L.tabCell ? V(L.tabCell >= 44 ? "ok" : "bad", L.nav) + "<small>글자 " + L.tabLines + "줄</small>" : V(L.issues.some(function (s) { return s.indexOf("메뉴") >= 0; }) ? "bad" : "ok", L.nav);
+      var m = L.minT;
+      out.tgt = V(L.fail24 ? "bad" : m >= 43.99 ? "ok" : "warn", Math.round(m) + " px") + "<small>" + L.minTN + (L.under44 ? " · 44 미만 " + L.under44 + "개" : "") + "</small>";
+      out.chip = L.chip ? V(chipBad(L.chip.s, L.chip.g) > 0.05 ? "warn" : "ok", AB.pct(chipBad(L.chip.s, L.chip.g), 1)) + "<small>칩 " + Math.round(L.chip.s) + " · 간격 " + Math.round(L.chip.g) + " · 한 화면 " + L.chip.vis + "개</small>" : V("info", "칩 없음");
+      var wp = L.worst; out.con = V(wp.c >= wp.need ? "ok" : "bad", f2(wp.c)) + "<small>" + wp.n + " (기준 " + wp.need + ")</small>";
+      var nt = L.worstNT; out.nt = nt ? V(nt.c >= 3 ? "ok" : "bad", f2(nt.c)) + "<small>" + nt.n + "</small>" : V("info", "—");
+      if (fcG() === "none") out.fc = V("bad", "표시 없음");
+      else { var mn = 1e9, mnN = ""; L.focus.forEach(function (fc) { var v = ringCon(fcG(), fc.bg); if (v < mn) { mn = v; mnN = fc.n; } }); out.fc = V(mn >= 3 ? "ok" : "bad", f2(mn)) + "<small>" + mnN + "</small>"; }
+      out.kb = V(P.total <= 500 ? "ok" : "bad", kb(P.total)) + "<small>사진 " + P.img.n + (P.img.kb ? " " + kb(P.img.kb) : "") + "</small>";
+      var lc = P[net].lcp; out.lcp = V(lc <= 2.5 ? "ok" : lc <= 4 ? "warn" : "bad", sec(lc)) + "<small>" + NET[net].n + " · " + (L.photo && L.lcpImg ? "사진이 LCP" : "글자가 LCP") + "</small>";
+      if (L.applyVisible != null) out.fold = V(L.applyVisible && L.schedPeek ? "ok" : "warn", (L.applyVisible ? "신청하기 보임" : "신청하기 밖") + " · " + (L.schedPeek ? "일정 걸침" : "일정 안 보임"));
+      else out.fold = V("info", "—");
+      out.iss = L.issues.length ? V("bad", L.issues.join(", ")) : V("ok", "없음");
+      return out;
+    }
+    var ROWS = [["vp", "CSS 뷰포트 · 짜임", "2·5장"], ["of", "가로 넘침", "1.4.10 · 폭 320"], ["grid", "그리드", "4장 · 이 장"], ["text", "글자 · 글줄", "28em(약 37자), 1.4.8 참고 40자"], ["nav", "메뉴", "8장 · 칸 44 이상"], ["tgt", "가장 작은 타깃", "2.5.8 24 · 사이트 44"], ["chip", "칩 잘못 누르기(걷기, 모형)", "7장 모형"], ["con", "글자 대비 최저", "1.4.3 4.5 · 큰 글자 3"], ["nt", "비텍스트 대비 최저", "1.4.11 3"], ["fc", "포커스 링 최저", "2.4.7 · 3 이상"], ["kb", "첫 화면 무게", "12장 500 KB"], ["lcp", "LCP(모형)", "2.5초"], ["fold", "첫 화면 단서", "2장"], ["iss", "깨진 곳", "—"]];
+    function table() {
+      var two = cmpC(), A = rows(two ? 360 : wG()), B = two ? rows(1280) : null;
+      document.getElementById("wl-L-head").innerHTML = two ? "<tr><th>점검</th><th>휴대폰 360</th><th>넓은 화면 1280</th><th>기준</th></tr>" : "<tr><th>점검</th><th>지금 화면(" + wG() + ")</th><th>기준</th></tr>";
+      document.getElementById("wl-L-rows").innerHTML = ROWS.map(function (r) { return "<tr><td>" + r[1] + "</td><td>" + A[r[0]] + "</td>" + (B ? "<td>" + B[r[0]] + "</td>" : "") + "<td><small>" + r[2] + "</small></td></tr>"; }).join("");
+    }
+    function preset(P) {
+      frG.set(P.frame, false); spG.set(P.space, false); tokG.set(P.tok, false); fcG.set(P.focus, false); cpG.set(P.comp, false);
+      phG.set(P.photo, false); ftG.set(P.font, false); jsG.set(P.js, false);
+      redraw();
+    }
+    document.getElementById("wl-L-p1").addEventListener("click", function () { preset(PRE_A); });
+    document.getElementById("wl-L-p2").addEventListener("click", function () { preset(PRE_B); });
+    table();
+  });
+})();
+</script>
+</body>
+</html>
