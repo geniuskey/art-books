@@ -614,7 +614,7 @@
       var P = AB.palette(); box = { x: 30, w: w - 60, y: 40 }; var y = 92, st = stats();
       ctx.strokeStyle = P.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(box.x, y); ctx.lineTo(box.x + box.w, y); ctx.stroke();
       ctx.fillStyle = P.dim; ctx.font = AB.font(10.5, true); ctx.textAlign = "center"; ctx.textBaseline = "top";
-      (lg() ? [10, 20, 50, 100, 200, 400] : [0, 60, 120, 180, 240, 300, 360, 420]).forEach(function (v) { if (v < 10 && lg()) return; var px = X(Math.max(v, lg() ? 10 : 0)); ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px, y + 5); ctx.stroke(); ctx.fillText(v + "초", px, y + 8); });
+      (lg() ? [10, 20, 50, 100, 200, 400] : w < 460 ? [0, 120, 240, 360] : [0, 60, 120, 180, 240, 300, 360, 420]).forEach(function (v) { if (v < 10 && lg()) return; var px = X(Math.max(v, lg() ? 10 : 0)); ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px, y + 5); ctx.stroke(); ctx.fillText(v + "초", px, y + 8); });
       // 평균선
       [["산술평균", st.mean, P.bad, 20], ["중앙값", st.med, P.accent2, 132], ["기하평균", st.geo, P.accent, 150]].forEach(function (m, i) {
         var px = X(m[1]); ctx.strokeStyle = m[2]; ctx.lineWidth = 2; ctx.setLineDash(i === 1 ? [5, 4] : []); ctx.beginPath(); ctx.moveTo(px, i === 0 ? 30 : y); ctx.lineTo(px, i === 0 ? y : 142 + i * 0); ctx.stroke(); ctx.setLineDash([]);
@@ -792,7 +792,7 @@
     function layout() {
       var cells = {}, pos = [];
       pts.forEach(function (p, i) { var k = Math.round(p.f) + ":" + Math.round(p.s); (cells[k] = cells[k] || []).push(i); });
-      Object.keys(cells).forEach(function (k) { var list = cells[k]; list.forEach(function (i, j) { pos[i] = [(j - (list.length - 1) / 2) * 0.24, 0]; }); });
+      Object.keys(cells).forEach(function (k) { var list = cells[k]; list.forEach(function (i, j) { pos[i] = [(j - (list.length - 1) / 2) * 23, 0]; }); });
       return pos;
     }
     var cv = AB.canvas("#sv-cv", function (ctx, w, h) {
@@ -809,8 +809,8 @@
       }
       ctx.globalAlpha = 1;
       pts.forEach(function (p, i) {
-        var dragging = i === drag, x = dragging ? p.f : Math.round(p.f) + off[i][0], y = dragging ? p.s : Math.round(p.s);
-        var px = ch.X(x), py = ch.Y(y), isTop = top5.indexOf(i) >= 0, r = 11;
+        var dragging = i === drag, x = dragging ? p.f : Math.round(p.f), y = dragging ? p.s : Math.round(p.s);
+        var px = ch.X(x) + (dragging ? 0 : off[i][0]), py = ch.Y(y), isTop = top5.indexOf(i) >= 0, r = 11;
         ctx.beginPath(); ctx.arc(px, py, r, 0, 7);
         ctx.fillStyle = isTop ? P.accent : P.surface; ctx.fill();
         ctx.lineWidth = i === sel ? 3 : 1.5; ctx.strokeStyle = i === sel ? P.text : isTop ? P.accent : P.axis; ctx.stroke();
@@ -820,7 +820,7 @@
     }, H("sv-cv", 0.66, 300));
     function hit(x, y) {
       var off = layout(), best = -1, bd = 16;
-      pts.forEach(function (p, i) { var d = Math.hypot(geo.X(Math.round(p.f) + off[i][0]) - x, geo.Y(Math.round(p.s)) - y); if (d < bd) { bd = d; best = i; } });
+      pts.forEach(function (p, i) { var d = Math.hypot(geo.X(Math.round(p.f)) + off[i][0] - x, geo.Y(Math.round(p.s)) - y); if (d < bd) { bd = d; best = i; } });
       return best;
     }
     AB.drag(cv.canvas, {

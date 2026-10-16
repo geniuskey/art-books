@@ -931,10 +931,9 @@
     AB.compare("#hl-cmp", { labels: ["원호 G1", "완화 G2"], pos: 0.5 });
     function redraw() {
       cvA.redraw(); cvB.redraw();
-      if (kA < 0.004) { AB.stat("hl-o-a", "거의 없음 <small>빛이 고르게 퍼진다</small>"); AB.stat("hl-o-b", "거의 없음"); return; }
-      var rel = Math.round(kB / kA * 100);
-      AB.stat("hl-o-a", "100 <small>기준 · 경계선이 보인다</small>");
-      AB.stat("hl-o-b", rel + " <small>" + (rel < 25 ? "매끄럽게 스며든다" : "약간 보인다") + "</small>");
+      var fa = Math.round(kA * 1000), fb = Math.round(kB * 1000);
+      AB.stat("hl-o-a", fa + (fa >= 60 ? " <small>경계선이 보인다</small>" : fa >= 25 ? " <small>희미하다</small>" : " <small>거의 없다</small>"));
+      AB.stat("hl-o-b", fb + (fb >= 60 ? " <small>경계선이 보인다</small>" : fb >= 25 ? " <small>희미하다</small>" : " <small>스며든다</small>"));
     }
     redraw();
   });

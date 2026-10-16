@@ -180,7 +180,7 @@
     <div class="sim" id="sim-map">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>손잡이 배치와 실수</h3></div>
       <div class="sim-body side">
-        <div class="sim-view"><canvas id="mp-cv"></canvas><span class="hint">손잡이를 끌어 옮긴다</span></div>
+        <div class="sim-view"><canvas id="mp-cv"></canvas><span class="hint" style="top:8px;bottom:auto">손잡이를 끌어 옮긴다</span></div>
         <div class="sim-controls">
           <div class="seg" id="mp-pre"><button data-value="row" class="on">한 줄</button><button data-value="stagger">엇갈린 줄</button><button data-value="grid">2×2</button></div>
           <label class="check"><input type="checkbox" id="mp-lab"> 손잡이에 작은 그림 표시</label>
@@ -271,7 +271,7 @@
 
   <section id="pokayoke">
     <h2>실수를 막는 형태: 포카요케</h2>
-    <p>사람은 실수한다. 피곤하거나, 어둡거나, 서두르거나, 처음 보는 물건일 때 더 그렇다. 실수를 사람의 주의력으로 막으려 하면 언젠가 실패한다. 그래서 형태가 실수를 막게 한다. 일본 도요타 생산 방식의 산업공학자 신고 시게오(新郷重夫)는 조립 작업자의 실수를 장치와 형태로 막는 방법을 <span class="term">포카요케</span><span class="en">(Poka-yoke, 실수 방지)</span>라는 이름으로 정리했다(Shingo, 「Zero Quality Control: Source Inspection and the Poka-yoke System」, 영어판 1986). 한쪽만 맞는 부품, 틀리면 다음 단계로 넘어갈 수 없는 지그 같은 것이다. 노먼은 같은 생각을 사용자 쪽에서 <span class="term">강제 기능</span><span class="en">(Forcing function)</span>이라고 불렀다. 잘못된 행동을 할 수 없게 하는 제약이다.</p>
+    <p>사람은 실수한다. 피곤하거나, 어둡거나, 서두르거나, 처음 보는 물건일 때 더 그렇다. 실수를 사람의 주의력으로 막으려 하면 언젠가 실패한다. 그래서 형태가 실수를 막게 한다. 도요타 생산 방식에 깊이 관여한 일본의 산업공학자 신고 시게오(新郷重夫)는 조립 작업자의 실수를 장치와 형태로 막는 방법을 <span class="term">포카요케</span><span class="en">(Poka-yoke, 실수 방지)</span>라는 이름으로 정리했다(Shingo, 「Zero Quality Control: Source Inspection and the Poka-yoke System」, 영어판 1986). 한쪽만 맞는 부품, 틀리면 다음 단계로 넘어갈 수 없는 지그 같은 것이다. 노먼은 같은 생각을 사용자 쪽에서 <span class="term">강제 기능</span><span class="en">(Forcing function)</span>이라고 불렀다. 잘못된 행동을 할 수 없게 하는 제약이다.</p>
     <p>실수를 다루는 형태에는 두 방향이 있다. 하나는 <b>틀린 방향을 아예 못 하게 막는 것</b>, 다른 하나는 <b>어느 방향으로 해도 맞게 만드는 것</b>이다. 위험한 것은 그 사이, 틀린 방향으로도 끼워지는데 결과가 틀리는 형태다. 아래 네 가지 끼우는 부품을 비교한다.</p>
 
     <div class="sim" id="sim-pk">
@@ -627,8 +627,8 @@
           for (var j = 0; j < 4; j++) { ctx.fillStyle = j === i ? p.accent : p.faint; ctx.fillRect(x + kr + 3 + (j % 2) * (s + 1), y - s + Math.floor(j / 2) * (s + 1), s, s); }
         }
       });
-      ctx.fillStyle = p.dim; ctx.font = AB.font(10); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
-      ctx.fillText("손잡이 테두리: 초록 맞음 · 노랑 헷갈림 · 빨강 틀림", w * 0.08 + 6, h * 0.98 - 3);
+      ctx.fillStyle = p.dim; ctx.font = AB.font(w < 420 ? 9 : 10); ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      ctx.fillText(w < 420 ? "테두리: 초록 맞음·노랑 헷갈림·빨강 틀림" : "손잡이 테두리: 초록 맞음 · 노랑 헷갈림 · 빨강 틀림", w * 0.08 + 4, h * 0.98 - 2);
       geo = { w: w, h: h, kr: kr };
       AB.stat("mp-o-m", S.match + " / 4");
       AB.stat("mp-o-a", S.amb ? S.amb + "개 <small>반반으로 고른다</small>" : "없음");
