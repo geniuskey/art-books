@@ -32,3 +32,6 @@ window.AB_BOOK = {
     { slug: "glossary", num: "14", title: "용어집 & 종합 퀴즈", ready: true, desc: "웹 디자인 용어 검색, 종합 퀴즈, 웹 개편 노트 색인.", tags: ["정리"] },
   ],
 };
+
+// Per-book source for the shared glossary runtime.
+window.BOOK_GLOSSARY_CONFIG = { dataUrl: new URL("glossary-data.js", document.currentScript.src).href };

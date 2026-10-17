@@ -2,10 +2,10 @@
   "id": "artbook-history",
   "title": "ArtBook 미술사",
   "description": "사조는 이름이 아니라 색·구도·기법의 변화다. 고대와 중세, 르네상스, 바로크, 네덜란드 황금기, 로코코와 신고전주의, 낭만주의와 사실주의, 인상주의와 후기 인상주의, 그리고 동아시아 회화, 한국 미술, 판화와 우키요에까지. 그림 읽기 모임을 따라 명작에서 팔레트를 뽑고 구도선을 얹어 읽는 미술사(ArtHistoryBook).",
-  "url": "https://artbook.euiyun.com/history/",
+  "url": "https://art.euiyun.com/history/",
   "repo": "https://github.com/geniuskey/artbook",
   "path": "history/",
   "field": "art",
   "status": "published",
-  "domain": "artbook.euiyun.com"
+  "domain": "art.euiyun.com"
 }

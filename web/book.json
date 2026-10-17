@@ -2,10 +2,10 @@
   "id": "artbook-web",
   "title": "ArtBook 웹 디자인",
   "description": "웹은 크기를 정할 수 없는 캔버스다. 뷰포트와 CSS 픽셀, 박스와 간격, 레이아웃 그리드, 반응형, 디자인 토큰과 다크 모드, 컴포넌트와 상태, 내비게이션, 폼, 모션, 웹 접근성, 성능까지. 서윤의 웹 개편 노트를 따라 창 폭을 끌고 상태를 바꿔 보며 배우는 웹 디자인 교과서(WebBook).",
-  "url": "https://artbook.euiyun.com/web/",
+  "url": "https://art.euiyun.com/web/",
   "repo": "https://github.com/geniuskey/artbook",
   "path": "web/",
   "field": "art",
   "status": "published",
-  "domain": "artbook.euiyun.com"
+  "domain": "art.euiyun.com"
 }

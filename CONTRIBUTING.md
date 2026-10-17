@@ -2,7 +2,7 @@
 
 ArtBook은 **보고, 만지고, 그려 보며 배우는 미술·시각 디자인 교과서** 서가다. euiyun 책 시리즈(https://books.euiyun.com)의 다른 책처럼 빌드 과정이 없는 한국어 인터랙티브 정적 사이트이지만, 책마다 저장소를 따로 두지 않고 **한 저장소(모노레포)에 여러 권**을 둔다.
 
-- 서가 주소: `https://artbook.euiyun.com/` · 책 한 권: `https://artbook.euiyun.com/{topic}/` (첫 권 `/color/`)
+- 서가 주소: `https://art.euiyun.com/` · 책 한 권: `https://art.euiyun.com/{topic}/` (첫 권 `/color/`)
 - 여기서 "디자인"은 공학 설계가 아니라 미술과 디자인이다: 시각 디자인(색, 형태, 구도, 드로잉, 타이포그래피, 미술사, 사진)과, 그 원리를 쓰는 웹 디자인, 디지털 제품 디자인, 산업디자인. 공학 계산(구조 해석, 회로, 통계 이론)은 원리를 보여 줄 만큼만 다룬다.
 - 레이아웃·헬퍼 코드는 같은 시리즈의 [InsureBook](https://github.com/geniuskey/insurebook)(그 뿌리는 MoneyBook)에서 가져왔다. 전역 `IB`/`INS`는 여기서 `AB`(공통 UI)/`ART`(공통 계산 엔진)다.
 

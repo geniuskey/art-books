@@ -2,10 +2,10 @@
   "id": "artbook-color",
   "title": "ArtBook 색채",
   "description": "색은 이름이 아니라 관계다. 빛과 지각, 색을 숫자로 적는 법, 혼색, 색상환과 조화, 명도·채도·대비, 색의 상대성, 그림 속 색, 접근성, 팔레트, 인쇄까지. 서윤의 작업 노트를 따라 직접 끌고 섞고 비교하며 배우는 미술·시각 디자인 색채 교과서(ColorBook).",
-  "url": "https://artbook.euiyun.com/color/",
+  "url": "https://art.euiyun.com/color/",
   "repo": "https://github.com/geniuskey/artbook",
   "path": "color/",
   "field": "art",
   "status": "published",
-  "domain": "artbook.euiyun.com"
+  "domain": "art.euiyun.com"
 }

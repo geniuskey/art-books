@@ -3,19 +3,19 @@
 색, 형태와 구도, 드로잉, 타이포그래피, 미술사, 사진과 이미지. 조작할 수 있는 그림과 시뮬레이터로 미술과 시각 디자인의 원리를 배우는 한국어 인터랙티브 교과서 **서가**입니다. 여기서 "디자인"은 공학 설계가 아니라 미술과 시각 디자인을 말합니다.
 [books.euiyun.com](https://books.euiyun.com/) 시리즈의 한 서가이며, 다른 책과 달리 한 저장소(모노레포)에 여러 권을 둡니다.
 
-배포 주소: https://artbook.euiyun.com/ (책 한 권은 `https://artbook.euiyun.com/{topic}/`)
+배포 주소: https://art.euiyun.com/ (책 한 권은 `https://art.euiyun.com/{topic}/`)
 
 | 순서 | 경로 | 책 | 다루는 것 | 상태 |
 |---|---|---|---|---|
-| 1 | [/color/](https://artbook.euiyun.com/color/) | ColorBook — 색채 | 빛과 지각, 색 모델, 혼색, 조화, 대비, 접근성, 팔레트 | 출간 (17장, 시뮬레이터 108개) |
-| 2 | [/composition/](https://artbook.euiyun.com/composition/) | CompositionBook — 형태와 구도 | 점·선·면, 게슈탈트, 균형, 리듬, 3분할·황금비의 실제, 시선 흐름, 여백 | 출간 (15장, 시뮬레이터 95개) |
-| 3 | [/drawing/](https://artbook.euiyun.com/drawing/) | DrawingBook — 드로잉 | 투시(1·2·3점), 빛과 그림자, 비례, 인체 구조, 제스처 | 출간 (15장, 시뮬레이터 93개) |
-| 4 | [/type/](https://artbook.euiyun.com/type/) | TypeBook — 타이포그래피 | 글자의 구조, 한글 타이포, 자간·행간, 위계, 그리드 | 출간 (14장, 시뮬레이터 88개) |
-| 5 | [/history/](https://artbook.euiyun.com/history/) | ArtHistoryBook — 미술사 | 사조의 흐름을 색·구도·기법의 변화로 읽기 | 출간 (14장, 시뮬레이터 85개) |
-| 6 | [/image/](https://artbook.euiyun.com/image/) | ImageBook — 사진과 이미지 | 노출, 렌즈와 원근, 색 보정, 디지털 이미지의 구조 | 출간 (14장, 시뮬레이터 86개) |
-| 7 | [/web/](https://artbook.euiyun.com/web/) | WebBook — 웹 디자인 | 뷰포트, 박스와 간격, 그리드, 반응형, 토큰, 컴포넌트, 폼, 접근성, 성능 | 출간 (14장, 시뮬레이터 87개) |
-| 8 | [/product/](https://artbook.euiyun.com/product/) | ProductBook — 제품 디자인 | 사용자 조사, 정보 구조, 흐름, 프로토타입, 사용성 테스트, A/B, UX 라이팅 | 출간 (14장, 시뮬레이터 84개) |
-| 9 | [/industrial/](https://artbook.euiyun.com/industrial/) | IndustrialBook — 산업디자인 | 스케치, 곡면, 비례, 인간공학, 재료, 사출 성형, 조립, CMF, 지속가능성 | 출간 (14장, 시뮬레이터 82개) |
+| 1 | [/color/](https://art.euiyun.com/color/) | ColorBook — 색채 | 빛과 지각, 색 모델, 혼색, 조화, 대비, 접근성, 팔레트 | 출간 (17장, 시뮬레이터 108개) |
+| 2 | [/composition/](https://art.euiyun.com/composition/) | CompositionBook — 형태와 구도 | 점·선·면, 게슈탈트, 균형, 리듬, 3분할·황금비의 실제, 시선 흐름, 여백 | 출간 (15장, 시뮬레이터 95개) |
+| 3 | [/drawing/](https://art.euiyun.com/drawing/) | DrawingBook — 드로잉 | 투시(1·2·3점), 빛과 그림자, 비례, 인체 구조, 제스처 | 출간 (15장, 시뮬레이터 93개) |
+| 4 | [/type/](https://art.euiyun.com/type/) | TypeBook — 타이포그래피 | 글자의 구조, 한글 타이포, 자간·행간, 위계, 그리드 | 출간 (14장, 시뮬레이터 88개) |
+| 5 | [/history/](https://art.euiyun.com/history/) | ArtHistoryBook — 미술사 | 사조의 흐름을 색·구도·기법의 변화로 읽기 | 출간 (14장, 시뮬레이터 85개) |
+| 6 | [/image/](https://art.euiyun.com/image/) | ImageBook — 사진과 이미지 | 노출, 렌즈와 원근, 색 보정, 디지털 이미지의 구조 | 출간 (14장, 시뮬레이터 86개) |
+| 7 | [/web/](https://art.euiyun.com/web/) | WebBook — 웹 디자인 | 뷰포트, 박스와 간격, 그리드, 반응형, 토큰, 컴포넌트, 폼, 접근성, 성능 | 출간 (14장, 시뮬레이터 87개) |
+| 8 | [/product/](https://art.euiyun.com/product/) | ProductBook — 제품 디자인 | 사용자 조사, 정보 구조, 흐름, 프로토타입, 사용성 테스트, A/B, UX 라이팅 | 출간 (14장, 시뮬레이터 84개) |
+| 9 | [/industrial/](https://art.euiyun.com/industrial/) | IndustrialBook — 산업디자인 | 스케치, 곡면, 비례, 인간공학, 재료, 사출 성형, 조립, CMF, 지속가능성 | 출간 (14장, 시뮬레이터 82개) |
 
 ## ColorBook — 색채
 
@@ -41,7 +41,7 @@
 | 16 | color/chapters/lab.html | — | 색 실험실: 이미지 한 장으로 명도·채도·색상·대비·색각·팔레트를 한꺼번에 분석 |
 | 17 | color/chapters/glossary.html | — | 용어집 & 종합 퀴즈, 작업 노트 색인, 이미지 크레딧 |
 
-화면에 보이는 색은 기기마다 다릅니다. 작품 이미지는 공공 도메인 자료이며 출처는 [크레딧 페이지](https://artbook.euiyun.com/credits.html)에 있습니다. 색채 심리 등 연구 결과가 엇갈리는 주제는 그 수준을 밝혀 두었습니다.
+화면에 보이는 색은 기기마다 다릅니다. 작품 이미지는 공공 도메인 자료이며 출처는 [크레딧 페이지](https://art.euiyun.com/credits.html)에 있습니다. 색채 심리 등 연구 결과가 엇갈리는 주제는 그 수준을 밝혀 두었습니다.
 
 ## CompositionBook — 형태와 구도
 
@@ -249,7 +249,11 @@ npm ci && npm run build            # 배포물(.book-dist/) 생성과 canonical�
 ```
 
 ## 배포 (GitHub Pages)
-`CNAME`에 `artbook.euiyun.com`이 들어 있습니다. `main` 브랜치에 푸시하면 GitHub Actions가 `@euiyun/book`으로 `.book-dist/`를 만들어 배포합니다(저장소 Pages 설정의 소스를 GitHub Actions로 둡니다). 서가 전체가 한 번에 배포되며, 책은 하위 경로(`/color/`)로 나뉩니다.
+`CNAME`에 `art.euiyun.com`이 들어 있습니다. `main` 브랜치에 푸시하면 GitHub Actions가 `@euiyun/book`으로 `.book-dist/`를 만들어 배포합니다(저장소 Pages 설정의 소스를 GitHub Actions로 둡니다). 서가 전체가 한 번에 배포되며, 책은 하위 경로(`/color/`)로 나뉩니다.
+
+## 용어집과 본문 뜻풀이
+
+각 책의 용어 정의는 `<책 폴더>/glossary-data.js`의 `window.BOOK_GLOSSARY`에 저장합니다. 용어집과 본문 뜻풀이가 같은 데이터를 사용하며, 본문에서 용어에 마우스를 올리거나 키보드로 포커스하거나 모바일에서 탭하면 정의를 확인할 수 있습니다. 공통 동작과 스타일은 `shared/js/glossary-tooltips.js`, `shared/css/glossary-tooltips.css`입니다. 데이터 형식은 시리즈 공통 v1이며, 각 항목은 `ko`(이름), `en`(영문명), `abbr`(약어), `def`(정의), `chapters`(관련 장 목록)를 갖습니다. 이름이 반복되면 한 번만 표시하고, 묶음 항목은 가리킨 이름을 제목에 표시하며 구분에 필요한 비교 설명을 함께 제공합니다.
 
 ## 라이선스
 

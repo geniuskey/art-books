@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>컴포넌트와 상태 · WebBook</title>
 <meta name="description" content="버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다.">
-<link rel="canonical" href="https://artbook.euiyun.com/web/chapters/components.html">
+<link rel="canonical" href="https://art.euiyun.com/web/chapters/components.html">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <meta name="theme-color" content="#b5179e">
 <meta property="og:type" content="article">
@@ -18,12 +18,12 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="컴포넌트와 상태 · WebBook">
 <meta property="og:description" content="버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다.">
-<meta property="og:url" content="https://artbook.euiyun.com/web/chapters/components.html">
-<meta property="og:image" content="https://artbook.euiyun.com/web/og.png">
+<meta property="og:url" content="https://art.euiyun.com/web/chapters/components.html">
+<meta property="og:image" content="https://art.euiyun.com/web/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://artbook.euiyun.com/web/chapters/components.html#chapter","name":"컴포넌트와 상태","headline":"컴포넌트와 상태 · WebBook","description":"버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다.","url":"https://artbook.euiyun.com/web/chapters/components.html","position":7,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://artbook.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://artbook.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://artbook.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://artbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://artbook.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"7. 컴포넌트와 상태","item":"https://artbook.euiyun.com/web/chapters/components.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Chapter","LearningResource"],"@id":"https://art.euiyun.com/web/chapters/components.html#chapter","name":"컴포넌트와 상태","headline":"컴포넌트와 상태 · WebBook","description":"버튼, 링크, 입력 칸, 카드 같은 부품은 눌리기 전부터 눌린 뒤까지 여러 상태로 대답한다. 기본·호버·포커스·눌림·비활성·로딩 상태를 설계하고, 키보드 포커스 표시, 글자 크기에 따라 자라는 버튼, 손가락 터치 타깃의 크기와 간격, 피츠의 법칙, 호버가 없는 기기를 직접 눌러 보며 배운다.","url":"https://art.euiyun.com/web/chapters/components.html","position":7,"inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"인터랙티브 교재","educationalLevel":"일반 성인","image":"https://art.euiyun.com/web/og.png","dateModified":"2026-10-16","isPartOf":{"@type":"Book","@id":"https://art.euiyun.com/web/#book","name":"WebBook · 웹 디자인","url":"https://art.euiyun.com/web/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ArtBook","item":"https://art.euiyun.com/"},{"@type":"ListItem","position":2,"name":"WebBook · 웹 디자인","item":"https://art.euiyun.com/web/"},{"@type":"ListItem","position":3,"name":"7. 컴포넌트와 상태","item":"https://art.euiyun.com/web/chapters/components.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>

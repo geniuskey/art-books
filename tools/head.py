@@ -15,7 +15,7 @@
 import json, re, pathlib, datetime, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = "https://artbook.euiyun.com/"
+SITE = "https://art.euiyun.com/"
 TODAY = datetime.date.today().isoformat()
 
 

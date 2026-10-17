@@ -33,3 +33,6 @@ window.AB_BOOK = {
     { slug: "glossary", num: "15", title: "용어집 & 종합 퀴즈", ready: true, desc: "드로잉 용어 검색, 종합 퀴즈, 스케치북 색인, 이미지 크레딧.", tags: ["정리"] },
   ],
 };
+
+// Per-book source for the shared glossary runtime.
+window.BOOK_GLOSSARY_CONFIG = { dataUrl: new URL("glossary-data.js", document.currentScript.src).href };

@@ -22,7 +22,7 @@
   AB.SHELF = SHELF;
   AB.CHAPTERS = CHAPTERS;
   AB.PARTS = PARTS;
-  AB.SITE = "https://artbook.euiyun.com/";
+  AB.SITE = "https://art.euiyun.com/";
 
   /* ------------------------------------------------------------ math utils */
   AB.clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -670,4 +670,12 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", addSimulatorLinks, { once: true });
   else addSimulatorLinks();
+})();
+
+// Series glossary tooltips (same runtime across independently deployed books).
+(function () {
+  const base = new URL(".", document.currentScript.src);
+  const script = document.createElement("script");
+  script.src = new URL("glossary-tooltips.js", base).href;
+  document.head.append(script);
 })();

@@ -11,7 +11,7 @@
 import json, sys, pathlib, html, datetime
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = "https://artbook.euiyun.com/"
+SITE = "https://art.euiyun.com/"
 e = lambda s: html.escape(str(s), quote=True)
 
 
