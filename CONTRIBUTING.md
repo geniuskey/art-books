@@ -23,7 +23,8 @@ artbook/
   shared/js/common.js     공통 UI(전역 AB): 상단바·장 목록·검색·목차·이전/다음·테마·퀴즈·KaTeX,
                           canvas·chart·range·seg·check·drag·loop, 흑백 보기(AB.mono), 전/후 비교(AB.compare), 색 견본(AB.swatch)
   shared/js/art.js        공통 계산 엔진(전역 ART). node에서도 require 된다
-  shared/js/shelf.js      서가 목록(전역 AB_SHELF): 책 순서·경로·상태·표지 모티프
+  shared/js/shelf.js      서가 목록(전역 AB_SHELF): 분야(groups), 책 순서·경로·상태·표지 모티프·코드·색·장 수
+  shared/js/home.js, shared/css/home.css  서가 첫 화면(책장·분야 필터·검색·직접 해보기·읽는 순서)
   shared/js/covers.js     서가 표지 그림(전역 AB_COVERS)
   shared/img/             공공 도메인 작품 이미지(WebP) + credits.json(+ 자동 생성 credits.js)
   tools/head.py           장 <head>·사이트맵·책 홈 JSON-LD·credits.js 생성기
@@ -40,7 +41,7 @@ artbook/
 
 - **책 폴더 안에서는 상대 경로만 쓴다.** 공통 자원은 책 홈에서 `../shared/`, 장에서 `../../shared/`로 부른다. 같은 책의 다른 장은 `<a href="contrast.html">8장</a>`, 다른 책은 `../composition/chapters/balance.html`처럼 상대 경로로 링크한다. 나중에 한 권을 따로 떼어 내도 경로만 바꾸면 되게 한다.
 - 로컬 실행: 저장소 루트에서 `python3 -m http.server 8000` → http://localhost:8000/ (책은 `/color/`). `file://`로 열어도 대부분 동작하도록 classic script만 쓴다(ES module 금지). 단, 작품 이미지의 픽셀을 읽는 시뮬레이터와 검색은 서버로 열어야 동작한다.
-- 새 책을 시작할 때: `shared/js/shelf.js`의 상태를 `writing`으로 바꾸고, `color/`를 본보기로 `{topic}/book.js`, `book.json`, `index.html`, `chapters/`를 만든다. 책 고유의 강조색이 필요하면 `shared/css/style.css`에 `:root[data-book="{topic}"]` 블록(라이트·다크 모두)을 추가한다.
+- 새 책을 시작할 때: `shared/js/shelf.js`에 항목을 더하거나 상태를 `writing`으로 바꾼다(`code`, `group`, `color`/`colorDark`, `chapters`, `headline`을 채우면 서가 첫 화면 책장·필터·통계에 저절로 들어간다). 그다음 `color/`를 본보기로 `{topic}/book.js`, `book.json`, `index.html`, `chapters/`를 만든다. 책 고유의 강조색이 필요하면 `shared/css/style.css`에 `:root[data-book="{topic}"]` 블록(라이트·다크 모두)을 추가한다.
 
 ## 2. 원칙
 

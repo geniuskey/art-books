@@ -230,6 +230,7 @@ shared/js/common.js          공통 UI, 전역 AB: 레이아웃·검색·테마�
 shared/js/art.js             공통 계산 엔진, 전역 ART: 색 변환(sRGB·XYZ·Lab·OKLCH·HSL), ΔE2000, WCAG·APCA,
                              분광 모형, 쿠벨카–뭉크 물감 혼합, 색각이상(Machado 2009), 색순응, 배색, 팔레트, 투시·그림자
 shared/js/shelf.js, covers.js 서가 목록과 표지 그림
+shared/js/home.js, shared/css/home.css 서가 첫 화면
 shared/img/                  공공 도메인 작품 이미지(WebP) + credits.json
 color/                       ColorBook: book.js(장 목록), book.json, index.html, chapters/*.html
 tools/head.py                장 <head>·사이트맵·JSON-LD·크레딧 생성기
