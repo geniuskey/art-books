@@ -189,6 +189,7 @@ artbook/
 - `node tools/test-art.cjs` — 엔진 검산(표준 문서·논문 참값).
 - `python3 tools/check.py color/<slug>` (playwright 필요: `pip install playwright`). 저장소 루트를 로컬 HTTP로 띄워 넓은 화면·라이트와 360px·다크로 열고 콘솔 오류, 가로 넘침, 조작 중 예외, 이미지, **다크 모드에서 예시 그림 색이 바뀌는지**를 보고한다. `--shots 폴더`로 조작 전 모습의 스크린샷을 남겨 눈으로도 본다. 인자 없이 실행하면 서가 전체.
 - `npm run build` — `@euiyun/book`으로 `.book-dist/`를 만들어 canonical·beacon·OG를 검사한다.
+  이어서 `tools/katex-dist.mjs`가 배포물의 수식을 KaTeX HTML로 렌더링하고 `katex.min.js`·auto-render 태그를 뺀다(소스와 `head.py`는 그대로). TeX 문법 오류나 수식 안의 `<글자`(→ `\lt`)가 있으면 빌드가 실패한다. 빌드는 정적 HTML의 수식만 렌더링하므로 스크립트가 수식 문자열을 DOM에 넣지 않는다.
 - 장을 끝낼 때마다 쓴 작품 이미지와 라이선스, 인용한 연구·표준 문서 목록을 짧게 보고하고, 확인하지 못한 것을 따로 표시한다.
 
 ---

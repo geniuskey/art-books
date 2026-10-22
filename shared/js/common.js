@@ -480,6 +480,8 @@
             const doc = new DOMParser().parseFromString(await response.text(), "text/html");
             const main = doc.querySelector("main.chapter");
             if (!main) return [];
+            // 배포물의 수식은 빌드가 렌더링해 두므로 TeX 원문으로 되돌려 검색어와 맞춘다.
+            main.querySelectorAll(".katex").forEach((k) => k.replaceWith(k.querySelector("annotation")?.textContent || k.textContent));
             const entries = [];
             [...main.querySelectorAll("section > h2")].forEach((h, i) => entries.push({ type: "절", title: h.textContent.trim(), chapter, hash: h.parentElement.id || `s${i + 1}` }));
             [...main.querySelectorAll(".sim")].filter((s) => s.querySelector(".sim-head h3")).forEach((s, i) => entries.push({ type: "시뮬레이터", title: s.querySelector(".sim-head h3").textContent.trim(), chapter, hash: s.id || `search-sim-${i + 1}` }));
@@ -602,7 +604,10 @@
         if (!sec.id) sec.id = "s" + (i + 1);
         const numbered = !sec.classList.contains("keypoints") && !sec.classList.contains("quiz-sec") && !sec.hasAttribute("data-nonum");
         if (numbered && !h.querySelector(".h-num")) { n++; h.insertAdjacentHTML("afterbegin", `<span class="h-num">${String(n).padStart(2, "0")}</span>`); }
-        return `<a href="#${sec.id}">${h.textContent.replace(/^\d\d/, "").trim()}</a>`;
+        // 제목 텍스트를 쓰되, 빌드가 렌더링한 수식은 마크업 그대로 옮긴다.
+        const label = [...h.childNodes].filter((node) => !node.classList?.contains("h-num"))
+          .map((node) => (node.querySelector?.(".katex") ? node.outerHTML : node.textContent)).join("").trim();
+        return `<a href="#${sec.id}">${label}</a>`;
       }).join("");
       layout.appendChild(toc);
       const links = [...toc.querySelectorAll("a")];

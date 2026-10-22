@@ -23,7 +23,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: node tools/test-art.cjs
+      - run: npm test
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -219,7 +219,7 @@
 ```bash
 python3 -m http.server 8000   # → http://localhost:8000/ (ColorBook은 /color/)
 ```
-`index.html`을 브라우저로 바로 열어도 대부분 동작하지만, 작품 이미지의 픽셀을 읽는 시뮬레이터와 책 검색은 서버로 열어야 합니다. KaTeX와 글꼴은 CDN에서 불러오므로 인터넷 연결이 필요합니다.
+`index.html`을 브라우저로 바로 열어도 대부분 동작하지만, 작품 이미지의 픽셀을 읽는 시뮬레이터와 책 검색은 서버로 열어야 합니다. KaTeX와 글꼴은 CDN에서 불러오므로 인터넷 연결이 필요합니다. 배포물에서는 `tools/katex-dist.mjs`가 수식을 미리 렌더링하고 KaTeX 스크립트를 빼므로, 독자는 KaTeX 스타일시트만 받습니다.
 
 ## 구조
 
@@ -246,7 +246,7 @@ tools/test-art.cjs           계산 엔진 검산(CIEDE2000 Sharma 2005 시험 �
 node tools/test-art.cjs            # 엔진 검산
 pip install playwright             # 처음 한 번
 python3 tools/check.py             # 서가 전체(특정 장: python3 tools/check.py color/overview)
-npm ci && npm run build            # 배포물(.book-dist/) 생성과 canonical·beacon 검사
+npm ci && npm run build            # 배포물(.book-dist/) 생성, canonical·beacon 검사, 수식 미리 렌더링
 ```
 
 ## 배포 (GitHub Pages)

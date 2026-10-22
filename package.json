@@ -2,11 +2,12 @@
   "name": "artbook",
   "private": true,
   "scripts": {
-    "build": "euiyun-book build",
-    "test": "node tools/test-art.cjs"
+    "build": "euiyun-book build && node tools/katex-dist.mjs",
+    "test": "node tools/test-art.cjs && node --test tools/katex.test.mjs"
   },
   "dependencies": {
-    "@euiyun/book": "https://codeload.github.com/geniuskey/book/tar.gz/refs/tags/v0.1.2"
+    "@euiyun/book": "https://codeload.github.com/geniuskey/book/tar.gz/refs/tags/v0.1.2",
+    "katex": "0.16.9"
   },
   "engines": {
     "node": ">=20"
