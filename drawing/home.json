@@ -29,5 +29,5 @@
   ],
   "flow": [["보기", "사물이나 명작 한 장에서 시작한다."], ["끌기", "소실점, 눈높이, 빛, 관절을 손으로 옮긴다."], ["겹쳐 보기", "구조선을 사진·그림 위에 얹어 맞춰 본다."], ["무너뜨리기", "규칙을 끝까지 밀어 왜곡이 생기는 지점을 찾는다."], ["손으로 해 보기", "연필로 재고 그려 본다."]],
   "disclaimer": "투시와 그림자는 기하학으로 맞출 수 있지만 좋은 드로잉의 전부는 아니다. 인체 비례 규범은 평균이 아니라 관습이며, 실제 사람의 몸은 훨씬 다양하다. 작품 이미지는 공공 도메인 자료이며 출처는 <a href=\"../credits.html\">크레딧 페이지</a>에 있다.",
-  "series": [["MathBook", "기하와 사영을 손으로", "https://mathbook.euiyun.com/"], ["CameraBook", "렌즈와 원근", "https://camerabook.euiyun.com/"]]
+  "series": [["MathBook", "기하와 사영을 손으로", "https://mathbook.euiyun.com/"], ["CameraBook", "렌즈와 원근", "https://system.euiyun.com/camera/"]]
 }

@@ -29,5 +29,5 @@
   ],
   "flow": [["보기", "그림 한 장이나 일상의 장면에서 시작한다."], ["끌기", "점, 도형, 격자, 프레임을 손으로 끌어 옮긴다."], ["흑백으로 보기", "색을 빼면 덩어리와 무게가 보인다."], ["무너뜨리기", "규칙을 끝까지 밀어 어색해지는 지점을 찾는다."], ["손으로 해 보기", "종이를 오려 붙이고 사진을 잘라 본다."]],
   "disclaimer": "구도의 규칙(3분할, 황금비, 시선 유도)은 출발점이지 정답이 아니다. 시선 추적과 지각 연구는 근거의 수준을 밝혀 두었다. 작품 이미지는 공공 도메인 자료이며 출처는 <a href=\"../credits.html\">크레딧 페이지</a>에 있다.",
-  "series": [["CameraBook", "카메라와 사진의 구도", "https://camerabook.euiyun.com/"], ["MathBook", "비율과 기하를 손으로", "https://mathbook.euiyun.com/"]]
+  "series": [["CameraBook", "카메라와 사진의 구도", "https://system.euiyun.com/camera/"], ["MathBook", "비율과 기하를 손으로", "https://mathbook.euiyun.com/"]]
 }

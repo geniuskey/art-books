@@ -29,5 +29,5 @@
   ],
   "flow": [["보기", "사진 한 장이나 창가의 장면에서 시작한다."], ["돌리기", "조리개, 셔터, 감도, 초점거리를 바꾼다."], ["들여다보기", "히스토그램과 화소를 확대해 숫자로 본다."], ["무너뜨리기", "값을 끝까지 밀어 하이라이트가 날아가고 블록이 보이는 지점을 찾는다."], ["직접 찍어 보기", "휴대폰으로 같은 장면을 여러 설정으로 찍어 본다."]],
   "disclaimer": "카메라와 화면, 파일 형식의 동작은 기종과 소프트웨어마다 다르다. 시뮬레이터는 원리를 보여 주는 단순 모형이다. 사진 이미지는 공공 도메인 자료이며 출처는 <a href=\"../credits.html\">크레딧 페이지</a>에 있다.",
-  "series": [["CameraBook", "카메라의 원리를 공학의 눈으로", "https://camerabook.euiyun.com/"], ["ColorBook", "빛의 색과 화이트밸런스", "../color/chapters/temperature.html"]]
+  "series": [["CameraBook", "카메라의 원리를 공학의 눈으로", "https://system.euiyun.com/camera/"], ["ColorBook", "빛의 색과 화이트밸런스", "../color/chapters/temperature.html"]]
 }
